@@ -1,0 +1,247 @@
+{
+  "$dds-color": {
+    "primary": {
+      "lightest": {
+        "category": "fill",
+        "value": "rgba(234, 239, 244, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "fill",
+        "value": "rgba(170, 193, 209, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "fill",
+        "value": "rgba(106, 146, 175, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "fill",
+        "comment": "Indikerer primæraksjon eller annen interaksjon.",
+        "value": "rgba(42, 99, 140, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "fill",
+        "value": "rgba(34, 79, 112, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "fill",
+        "value": "rgba(25, 59, 84, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "fill",
+        "value": "rgba(17, 40, 56, 1)",
+        "type": "color"
+      }
+    },
+    "success": {
+      "lightest": {
+        "category": "fill",
+        "value": "rgba(233, 242, 239, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "fill",
+        "value": "rgba(169, 204, 191, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "fill",
+        "value": "rgba(104, 166, 142, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "fill",
+        "comment": "Brukes for å kommunisere suksess eller noe som er riktig.",
+        "value": "rgba(39, 128, 94, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "fill",
+        "value": "rgba(31, 102, 75, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "fill",
+        "value": "rgba(23, 77, 56, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "fill",
+        "value": "rgba(16, 51, 38, 1)",
+        "type": "color"
+      }
+    },
+    "danger": {
+      "lightest": {
+        "category": "fill",
+        "value": "rgba(251, 235, 235, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "fill",
+        "value": "rgba(239, 175, 175, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "fill",
+        "value": "rgba(228, 115, 115, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "fill",
+        "comment": "Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.",
+        "value": "rgba(216, 55, 55, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "fill",
+        "value": "rgba(173, 44, 44, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "fill",
+        "value": "rgba(130, 33, 33, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "fill",
+        "value": "rgba(86, 22, 22, 1)",
+        "type": "color"
+      }
+    },
+    "warning": {
+      "lightest": {
+        "category": "fill",
+        "value": "rgba(254, 252, 237, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "fill",
+        "value": "rgba(251, 243, 184, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "fill",
+        "value": "rgba(247, 233, 130, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "fill",
+        "comment": "Brukes for å kommunisere varsler.",
+        "value": "rgba(244, 224, 77, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "fill",
+        "value": "rgba(195, 179, 62, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "fill",
+        "value": "rgba(146, 134, 46, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "fill",
+        "value": "rgba(98, 90, 31, 1)",
+        "type": "color"
+      }
+    },
+    "info": {
+      "lightest": {
+        "category": "fill",
+        "value": "rgba(239, 244, 249, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "fill",
+        "value": "rgba(193, 213, 231, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "fill",
+        "value": "rgba(146, 181, 212, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "fill",
+        "comment": "Brukes for å kommunisere informasjon.",
+        "value": "rgba(99, 150, 194, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "fill",
+        "value": "rgba(79, 120, 155, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "fill",
+        "value": "rgba(59, 89, 116, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "fill",
+        "value": "rgba(40, 60, 78, 1)",
+        "type": "color"
+      }
+    },
+    "neutrals": {
+      "white": {
+        "category": "fill",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "gray1": {
+        "category": "fill",
+        "value": "rgba(248, 249, 249, 1)",
+        "type": "color"
+      },
+      "gray2": {
+        "category": "fill",
+        "value": "rgba(235, 236, 238, 1)",
+        "type": "color"
+      },
+      "gray3": {
+        "category": "fill",
+        "value": "rgba(207, 212, 215, 1)",
+        "type": "color"
+      },
+      "gray4": {
+        "category": "fill",
+        "value": "rgba(173, 181, 186, 1)",
+        "type": "color"
+      },
+      "gray5": {
+        "category": "fill",
+        "value": "rgba(119, 131, 140, 1)",
+        "type": "color"
+      },
+      "gray6": {
+        "category": "fill",
+        "value": "rgba(84, 92, 98, 1)",
+        "type": "color"
+      },
+      "gray7": {
+        "category": "fill",
+        "value": "rgba(58, 65, 70, 1)",
+        "type": "color"
+      },
+      "gray8": {
+        "category": "fill",
+        "value": "rgba(34, 39, 42, 1)",
+        "type": "color"
+      },
+      "gray9": {
+        "category": "fill",
+        "value": "rgba(11, 13, 14, 1)",
+        "type": "color"
+      }
+    }
+  }
+
+}

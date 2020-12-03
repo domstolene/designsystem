@@ -1,0 +1,144 @@
+{
+    "borders": {
+        "$dds-border-style-1": {
+          "strokeAlign": {
+            "value": "inside",
+            "type": "string"
+          },
+          "strokeJoin": {
+            "value": "miter",
+            "type": "string"
+          },
+          "strokeMiterAngle": {
+            "value": 4,
+            "type": "number",
+            "unit": "degree"
+          },
+          "strokeWeight": {
+            "value": 1,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "stroke": {
+            "value": "rgba(119, 131, 140, 1)",
+            "type": "color"
+          }
+        }
+      },
+      "radii": {
+        "$dds-border-radius-1": {
+          "category": "radius",
+          "radius": {
+            "value": 2,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "radiusType": {
+            "value": "single",
+            "type": "string"
+          },
+          "radii": {
+            "topLeft": {
+              "value": 2,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "topRight": {
+              "value": 2,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "bottomRight": {
+              "value": 2,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "bottomLeft": {
+              "value": 2,
+              "type": "number",
+              "unit": "pixel"
+            }
+          },
+          "smoothing": {
+            "value": 0,
+            "type": "number"
+          }
+        },
+        "$dds-border-radius-2": {
+          "category": "radius",
+          "radius": {
+            "value": 4,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "radiusType": {
+            "value": "single",
+            "type": "string"
+          },
+          "radii": {
+            "topLeft": {
+              "value": 4,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "topRight": {
+              "value": 4,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "bottomRight": {
+              "value": 4,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "bottomLeft": {
+              "value": 4,
+              "type": "number",
+              "unit": "pixel"
+            }
+          },
+          "smoothing": {
+            "value": 0,
+            "type": "number"
+          }
+        },
+        "$dds-border-radius-3": {
+          "category": "radius",
+          "radius": {
+            "value": 8,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "radiusType": {
+            "value": "single",
+            "type": "string"
+          },
+          "radii": {
+            "topLeft": {
+              "value": 8,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "topRight": {
+              "value": 8,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "bottomRight": {
+              "value": 8,
+              "type": "number",
+              "unit": "pixel"
+            },
+            "bottomLeft": {
+              "value": 8,
+              "type": "number",
+              "unit": "pixel"
+            }
+          },
+          "smoothing": {
+            "value": 0,
+            "type": "number"
+          }
+        }
+      }
+}

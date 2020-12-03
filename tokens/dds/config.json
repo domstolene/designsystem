@@ -1,0 +1,85 @@
+{
+  "source": ["properties/**/*.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "custom/scss",
+      "buildPath": "build/scss/",
+      "files": [{
+        "destination": "_ddsTokens.scss",
+        "format": "scss/variables"
+      }]
+    },
+    "css": {
+      "transformGroup": "custom/css",
+      "buildPath": "build/css/",
+      "files": [{
+        "destination": "ddsTokens.css",
+        "format": "css/variables"
+      }]
+    },
+    "js": {
+      "transformGroup": "custom/js",
+      "buildPath": "build/js/",
+      "files": [{
+        "destination": "ddsTokens.js",
+        "format": "javascript/es6"
+      },{
+        "destination": "colors.js",
+        "format": "javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "$dds-color"
+          }
+        }
+      },{
+        "destination": "font.js",
+        "format": "javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "$dds-font"
+          }
+        }
+      },{
+        "destination": "spacing.js",
+        "format": "javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "sizes"
+          }
+        }
+      },{
+        "destination": "border.js",
+        "format": "javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "borders"
+          }
+        }
+      },{
+        "destination": "borderRadius.js",
+        "format": "javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "radii"
+          }
+        }
+      },{
+        "destination": "innershadow.js",
+        "format": "javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "$dds-innershadow"
+          }
+        }
+      },{
+        "destination": "outershadow.js",
+        "format": "javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "$dds-shadow"
+          }
+        }
+      }]
+    }
+  }
+}
