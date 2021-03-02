@@ -1,1068 +1,2714 @@
 {
-    "$dds-font": {
-      "sans": {
+  "$dds-font": {
+    "sans": {
+        "light": {
+            "x2_5": {
+                "category": "font",
+                "fontSize": {
+                    "value": 40,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 300,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Light",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": -1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 135,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 13,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x5": {
+                "category": "font",
+                "fontSize": {
+                    "value": 80,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 300,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Light",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": -1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 120,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 20,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x4": {
+                "category": "font",
+                "fontSize": {
+                    "value": 64,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 300,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Light",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": -1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 120,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 16,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x3": {
+                "category": "font",
+                "fontSize": {
+                    "value": 48,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 300,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Light",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": -1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 120,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 12,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            }
+        },
+        "regular": {
+            "x2": {
+                "category": "font",
+                "fontSize": {
+                    "value": 32,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 400,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Regular",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 135,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 10,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x1_5": {
+                "category": "font",
+                "fontSize": {
+                    "value": 24,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 400,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Regular",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 135,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 8,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x1_25": {
+                "category": "font",
+                "fontSize": {
+                    "value": 20,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 400,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Regular",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 10,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x1_125": {
+                "category": "font",
+                "fontSize": {
+                    "value": 18,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 400,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Regular",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 9,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x1": {
+                "category": "font",
+                "fontSize": {
+                    "value": 16,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 400,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Regular",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 8,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x0_875": {
+                "category": "font",
+                "fontSize": {
+                    "value": 14,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 400,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Regular",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 7,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x0_75": {
+                "category": "font",
+                "fontSize": {
+                    "value": 12,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 400,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "Regular",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 6,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "underline": {
+                "x1_5": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 24,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Regular",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 135,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_25": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 20,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Regular",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 10,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_125": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 18,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Regular",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 9,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 16,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Regular",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x0_875": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 14,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Regular",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 7,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x0_75": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 12,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Regular",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 6,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                }
+            },
+            "italics": {
+                "x1_5": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 24,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "italic",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Italic",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 135,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_25": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 20,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "italic",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Italic",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 10,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_125": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 18,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "italic",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Italic",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 9,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 16,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "italic",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Italic",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x0_875": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 14,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "italic",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Italic",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 7,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x0_75": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 12,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 400,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "italic",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "Italic",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 6,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "bold": {
+            "x1_5": {
+                "category": "font",
+                "comment": "Bold variant",
+                "fontSize": {
+                    "value": 24,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 600,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "SemiBold",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 135,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 8,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x1_25": {
+                "category": "font",
+                "comment": "Bold variant",
+                "fontSize": {
+                    "value": 20,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 600,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "SemiBold",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 10,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x1_125": {
+                "category": "font",
+                "comment": "Bold variant",
+                "fontSize": {
+                    "value": 18,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 600,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "SemiBold",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 9,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x1": {
+                "category": "font",
+                "comment": "Bold variant",
+                "fontSize": {
+                    "value": 16,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 600,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "SemiBold",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 8,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x0_875": {
+                "category": "font",
+                "fontSize": {
+                    "value": 14,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 600,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "SemiBold",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 7,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "x0_75": {
+                "category": "font",
+                "fontSize": {
+                    "value": 12,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textDecoration": {
+                    "value": "none",
+                    "type": "string"
+                },
+                "fontFamily": {
+                    "value": "Source Sans Pro",
+                    "type": "string"
+                },
+                "fontWeight": {
+                    "value": 600,
+                    "type": "number"
+                },
+                "fontStyle": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "fontStretch": {
+                    "value": "normal",
+                    "type": "string"
+                },
+                "_fontStyleOld": {
+                    "value": "SemiBold",
+                    "type": "string"
+                },
+                "letterSpacing": {
+                    "value": 1,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "lineHeight": {
+                    "value": 150,
+                    "type": "number",
+                    "unit": "percent"
+                },
+                "paragraphIndent": {
+                    "value": 0,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "paragraphSpacing": {
+                    "value": 6,
+                    "type": "number",
+                    "unit": "pixel"
+                },
+                "textCase": {
+                    "value": "none",
+                    "type": "string"
+                }
+            },
+            "italics": {
+                "x0_75": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 12,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 6,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_5": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 24,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 135,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_25": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 20,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 10,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_125": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 18,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 9,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 16,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x0_875": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 14,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "none",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 7,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                }
+            },
+            "underline": {
+                "x1_5": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 24,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 135,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_25": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 20,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 10,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1_125": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 18,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 9,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x1": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 16,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 8,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x0_875": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 14,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 7,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                },
+                "x0_75": {
+                    "category": "font",
+                    "fontSize": {
+                        "value": 12,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textDecoration": {
+                        "value": "underline",
+                        "type": "string"
+                    },
+                    "fontFamily": {
+                        "value": "Source Sans Pro",
+                        "type": "string"
+                    },
+                    "fontWeight": {
+                        "value": 600,
+                        "type": "number"
+                    },
+                    "fontStyle": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "fontStretch": {
+                        "value": "normal",
+                        "type": "string"
+                    },
+                    "_fontStyleOld": {
+                        "value": "SemiBold",
+                        "type": "string"
+                    },
+                    "letterSpacing": {
+                        "value": 1,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "lineHeight": {
+                        "value": 150,
+                        "type": "number",
+                        "unit": "percent"
+                    },
+                    "paragraphIndent": {
+                        "value": 0,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "paragraphSpacing": {
+                        "value": 6,
+                        "type": "number",
+                        "unit": "pixel"
+                    },
+                    "textCase": {
+                        "value": "none",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "serif": {
         "x5": {
-          "fontSize": {
-            "value": 80,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Light",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 96,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
+            "category": "font",
+            "fontSize": {
+                "value": 80,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textDecoration": {
+                "value": "none",
+                "type": "string"
+            },
+            "fontFamily": {
+                "value": "Source Serif Pro",
+                "type": "string"
+            },
+            "fontWeight": {
+                "value": 400,
+                "type": "number"
+            },
+            "fontStyle": {
+                "value": "normal",
+                "type": "string"
+            },
+            "fontStretch": {
+                "value": "normal",
+                "type": "string"
+            },
+            "_fontStyleOld": {
+                "value": "Regular",
+                "type": "string"
+            },
+            "letterSpacing": {
+                "value": -1,
+                "type": "number",
+                "unit": "percent"
+            },
+            "lineHeight": {
+                "value": 120,
+                "type": "number",
+                "unit": "percent"
+            },
+            "paragraphIndent": {
+                "value": 0,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "paragraphSpacing": {
+                "value": 20,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textCase": {
+                "value": "none",
+                "type": "string"
+            }
         },
         "x4": {
-          "fontSize": {
-            "value": 64,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Light",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 72,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
+            "category": "font",
+            "fontSize": {
+                "value": 64,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textDecoration": {
+                "value": "none",
+                "type": "string"
+            },
+            "fontFamily": {
+                "value": "Source Serif Pro",
+                "type": "string"
+            },
+            "fontWeight": {
+                "value": 400,
+                "type": "number"
+            },
+            "fontStyle": {
+                "value": "normal",
+                "type": "string"
+            },
+            "fontStretch": {
+                "value": "normal",
+                "type": "string"
+            },
+            "_fontStyleOld": {
+                "value": "Regular",
+                "type": "string"
+            },
+            "letterSpacing": {
+                "value": -1,
+                "type": "number",
+                "unit": "percent"
+            },
+            "lineHeight": {
+                "value": 120,
+                "type": "number",
+                "unit": "percent"
+            },
+            "paragraphIndent": {
+                "value": 0,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "paragraphSpacing": {
+                "value": 16,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textCase": {
+                "value": "none",
+                "type": "string"
+            }
         },
         "x3": {
-          "fontSize": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Light",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
+            "category": "font",
+            "fontSize": {
+                "value": 48,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textDecoration": {
+                "value": "none",
+                "type": "string"
+            },
+            "fontFamily": {
+                "value": "Source Serif Pro",
+                "type": "string"
+            },
+            "fontWeight": {
+                "value": 400,
+                "type": "number"
+            },
+            "fontStyle": {
+                "value": "normal",
+                "type": "string"
+            },
+            "fontStretch": {
+                "value": "normal",
+                "type": "string"
+            },
+            "_fontStyleOld": {
+                "value": "Regular",
+                "type": "string"
+            },
+            "letterSpacing": {
+                "value": -1,
+                "type": "number",
+                "unit": "percent"
+            },
+            "lineHeight": {
+                "value": 120,
+                "type": "number",
+                "unit": "percent"
+            },
+            "paragraphIndent": {
+                "value": 0,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "paragraphSpacing": {
+                "value": 12,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textCase": {
+                "value": "none",
+                "type": "string"
+            }
         },
         "x2_5": {
-          "fontSize": {
-            "value": 40,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Light",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
+            "category": "font",
+            "fontSize": {
+                "value": 40,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textDecoration": {
+                "value": "none",
+                "type": "string"
+            },
+            "fontFamily": {
+                "value": "Source Serif Pro",
+                "type": "string"
+            },
+            "fontWeight": {
+                "value": 400,
+                "type": "number"
+            },
+            "fontStyle": {
+                "value": "normal",
+                "type": "string"
+            },
+            "fontStretch": {
+                "value": "normal",
+                "type": "string"
+            },
+            "_fontStyleOld": {
+                "value": "Regular",
+                "type": "string"
+            },
+            "letterSpacing": {
+                "value": -1,
+                "type": "number",
+                "unit": "percent"
+            },
+            "lineHeight": {
+                "value": 135,
+                "type": "number",
+                "unit": "percent"
+            },
+            "paragraphIndent": {
+                "value": 0,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "paragraphSpacing": {
+                "value": 13,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textCase": {
+                "value": "none",
+                "type": "string"
+            }
         },
         "x2": {
-          "fontSize": {
-            "value": 32,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
+            "category": "font",
+            "fontSize": {
+                "value": 32,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textDecoration": {
+                "value": "none",
+                "type": "string"
+            },
+            "fontFamily": {
+                "value": "Source Serif Pro",
+                "type": "string"
+            },
+            "fontWeight": {
+                "value": 400,
+                "type": "number"
+            },
+            "fontStyle": {
+                "value": "normal",
+                "type": "string"
+            },
+            "fontStretch": {
+                "value": "normal",
+                "type": "string"
+            },
+            "_fontStyleOld": {
+                "value": "Regular",
+                "type": "string"
+            },
+            "letterSpacing": {
+                "value": 0,
+                "type": "number",
+                "unit": "percent"
+            },
+            "lineHeight": {
+                "value": 135,
+                "type": "number",
+                "unit": "percent"
+            },
+            "paragraphIndent": {
+                "value": 0,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "paragraphSpacing": {
+                "value": 10,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textCase": {
+                "value": "none",
+                "type": "string"
+            }
         },
         "x1_5": {
-          "fontSize": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1_5-bold": {
-          "comment": "Bold variant",
-          "fontSize": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Semibold",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
+            "category": "font",
+            "fontSize": {
+                "value": 24,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textDecoration": {
+                "value": "none",
+                "type": "string"
+            },
+            "fontFamily": {
+                "value": "Source Serif Pro",
+                "type": "string"
+            },
+            "fontWeight": {
+                "value": 400,
+                "type": "number"
+            },
+            "fontStyle": {
+                "value": "normal",
+                "type": "string"
+            },
+            "fontStretch": {
+                "value": "normal",
+                "type": "string"
+            },
+            "_fontStyleOld": {
+                "value": "Regular",
+                "type": "string"
+            },
+            "letterSpacing": {
+                "value": 0,
+                "type": "number",
+                "unit": "percent"
+            },
+            "lineHeight": {
+                "value": 135,
+                "type": "number",
+                "unit": "percent"
+            },
+            "paragraphIndent": {
+                "value": 0,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "paragraphSpacing": {
+                "value": 8,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textCase": {
+                "value": "none",
+                "type": "string"
+            }
         },
         "x1_25": {
-          "fontSize": {
-            "value": 20,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1_25-bold": {
-          "comment": "Bold variant",
-          "fontSize": {
-            "value": 20,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Semibold",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1_125": {
-          "fontSize": {
-            "value": 18,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1_125-bold": {
-          "comment": "Bold variant",
-          "fontSize": {
-            "value": 18,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Semibold",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1": {
-          "fontSize": {
-            "value": 16,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1-bold": {
-          "comment": "Bold variant",
-          "fontSize": {
-            "value": 16,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Semibold",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x0_875": {
-          "fontSize": {
-            "value": 14,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x0_875-bold": {
-          "fontSize": {
-            "value": 14,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Semibold",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x0_75": {
-          "fontSize": {
-            "value": 12,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x0_75-bold": {
-          "fontSize": {
-            "value": 12,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Sans Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Semibold",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
+            "category": "font",
+            "fontSize": {
+                "value": 20,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textDecoration": {
+                "value": "none",
+                "type": "string"
+            },
+            "fontFamily": {
+                "value": "Source Serif Pro",
+                "type": "string"
+            },
+            "fontWeight": {
+                "value": 400,
+                "type": "number"
+            },
+            "fontStyle": {
+                "value": "normal",
+                "type": "string"
+            },
+            "fontStretch": {
+                "value": "normal",
+                "type": "string"
+            },
+            "_fontStyleOld": {
+                "value": "Regular",
+                "type": "string"
+            },
+            "letterSpacing": {
+                "value": 0,
+                "type": "number",
+                "unit": "percent"
+            },
+            "lineHeight": {
+                "value": 150,
+                "type": "number",
+                "unit": "percent"
+            },
+            "paragraphIndent": {
+                "value": 0,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "paragraphSpacing": {
+                "value": 10,
+                "type": "number",
+                "unit": "pixel"
+            },
+            "textCase": {
+                "value": "none",
+                "type": "string"
+            }
         }
-      },
-      "serif": {
-        "x5": {
-          "fontSize": {
-            "value": 80,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Serif Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 96,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x4": {
-          "fontSize": {
-            "value": 64,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Serif Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 72,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x3": {
-          "fontSize": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Serif Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x2_5": {
-          "fontSize": {
-            "value": 40,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Serif Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": -1,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x2": {
-          "fontSize": {
-            "value": 32,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Serif Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 48,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1_5": {
-          "fontSize": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Serif Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        },
-        "x1_25": {
-          "fontSize": {
-            "value": 20,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textDecoration": {
-            "value": "none",
-            "type": "string"
-          },
-          "fontFamily": {
-            "value": "Source Serif Pro",
-            "type": "string",
-            "fontValue": "fontFamily"
-          },
-          "fontStyle": {
-            "value": "Regular",
-            "type": "string"
-          },
-          "letterSpacing": {
-            "value": 0,
-            "type": "number",
-            "unit": "percent"
-          },
-          "lineHeight": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixels"
-          },
-          "paragraphIndent": {
-            "value": 0,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "paragraphSpacing": {
-            "value": 24,
-            "type": "number",
-            "unit": "pixel"
-          },
-          "textCase": {
-            "value": "none",
-            "type": "string"
-          }
-        }
-      }
     }
   }
+}

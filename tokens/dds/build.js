@@ -3,6 +3,26 @@ const StyleDictionary = require('style-dictionary');
 console.log('Build started...');
 console.log('\n==============================================');
 
+function fileHeader(options, commentStyle) {
+  var to_ret = '';
+  // for backward compatibility we need to have the user explicitly hide them
+  var showFileHeader = (options) ? options.showFileHeader : true;
+  if (showFileHeader) {
+    if (commentStyle === 'short') {
+      to_ret += '\n';
+      to_ret += '// Do not edit directly\n';
+      to_ret += '// Generated on ' + new Date().toUTCString() + '\n';
+      to_ret += '\n';
+    } else {
+      to_ret += '/**\n';
+      to_ret += ' * Do not edit directly\n';
+      to_ret += ' * Generated on ' + new Date().toUTCString() + '\n';
+      to_ret += ' */\n\n';
+    }
+  }
+
+  return to_ret;
+}
 
 // CUSTOM TRANFORMS
 
@@ -22,7 +42,7 @@ StyleDictionary.registerTransform({
     name: '%/em',
     type: 'value',
     matcher: function(prop) {
-        return prop.unit === 'percent';
+        return prop.unit === 'percent' && prop.attributes.category === '$dds-font';
     },
     transformer: function(prop) {
         return `${prop.value/100}em`;
@@ -36,7 +56,7 @@ StyleDictionary.registerTransform({
         return prop.type === 'string' && prop.fontValue === 'fontFamily';
     },
     transformer: function(prop) {
-        return `"${prop.value}"`;
+        return `'${prop.value}'`;
     }
 });
 
@@ -67,6 +87,8 @@ StyleDictionary.registerTransform({
 //   }
 // });
 
+
+
 // REGISTER THE CUSTOM TRANFORM GROUPS
 
 // if you want to see what a pre-defined group contains, uncomment the next line:
@@ -74,7 +96,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'custom/js',
-  transforms: StyleDictionary.transformGroup['js'].concat(['pixel/px', '%/em'])
+  transforms: StyleDictionary.transformGroup['js'].concat(['%/em'])
 });
 
 StyleDictionary.registerTransformGroup({
@@ -98,6 +120,21 @@ StyleDictionary.registerTransformGroup({
 //   }
 // });
 
+StyleDictionary.registerFormat({
+  name: 'custom/javascript/es6',
+  formatter: function(dictionary) {
+    return fileHeader(this.options) + dictionary.allProperties.map(token => {
+        let output = `export const ${token.name} = ${JSON.stringify(token.value)};`;
+        if(token.unit === 'pixel' || token.unit === 'pixels') {
+          output = `export const ${token.name} = "${token.value}px";\nexport const ${token.name}NumberPx = ${token.value};`;
+        }
+        if(token.comment) {
+          output += ` // ${token.comment}`;
+        }
+        return output;
+      }).join(`\n`);
+  }
+})
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms

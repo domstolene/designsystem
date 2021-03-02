@@ -3,5 +3,6 @@ export * as font from './build/js/font';
 export * as border from './build/js/border';
 export * as borderRadius from './build/js/borderRadius';
 export * as spacing from './build/js/spacing';
+export * as grid from './build/js/grid';
 export * as innerShadow from './build/js/innershadow';
 export * as outerShadow from './build/js/outershadow';

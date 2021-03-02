@@ -4,6 +4,7 @@ import {
     border,
     borderRadius,
     spacing,
+    grid,
     innerShadow,
     outerShadow
     } from './dds/index';
@@ -14,6 +15,7 @@ const ddsTokens = {
     border,
     borderRadius,
     spacing,
+    grid,
     innerShadow,
     outerShadow
 };

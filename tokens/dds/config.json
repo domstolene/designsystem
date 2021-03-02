@@ -22,7 +22,7 @@
       "buildPath": "build/js/",
       "files": [{
         "destination": "ddsTokens.js",
-        "format": "javascript/es6"
+        "format": "custom/javascript/es6"
       },{
         "destination": "colors.js",
         "format": "javascript/es6",
@@ -33,7 +33,7 @@
         }
       },{
         "destination": "font.js",
-        "format": "javascript/es6",
+        "format": "custom/javascript/es6",
         "filter": {
           "attributes": {
             "category": "$dds-font"
@@ -41,7 +41,7 @@
         }
       },{
         "destination": "spacing.js",
-        "format": "javascript/es6",
+        "format": "custom/javascript/es6",
         "filter": {
           "attributes": {
             "category": "sizes"
@@ -49,7 +49,7 @@
         }
       },{
         "destination": "border.js",
-        "format": "javascript/es6",
+        "format": "custom/javascript/es6",
         "filter": {
           "attributes": {
             "category": "borders"
@@ -57,10 +57,18 @@
         }
       },{
         "destination": "borderRadius.js",
-        "format": "javascript/es6",
+        "format": "custom/javascript/es6",
         "filter": {
           "attributes": {
             "category": "radii"
+          }
+        }
+      },{
+        "destination": "grid.js",
+        "format": "custom/javascript/es6",
+        "filter": {
+          "attributes": {
+            "category": "$dds-grid"
           }
         }
       },{

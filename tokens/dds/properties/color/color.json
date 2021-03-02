@@ -1,247 +1,1829 @@
 {
   "$dds-color": {
     "primary": {
-      "lightest": {
-        "category": "fill",
-        "value": "rgba(234, 239, 244, 1)",
-        "type": "color"
-      },
-      "lighter": {
-        "category": "fill",
-        "value": "rgba(170, 193, 209, 1)",
-        "type": "color"
-      },
-      "light": {
-        "category": "fill",
-        "value": "rgba(106, 146, 175, 1)",
-        "type": "color"
-      },
-      "base": {
-        "category": "fill",
-        "comment": "Indikerer primæraksjon eller annen interaksjon.",
-        "value": "rgba(42, 99, 140, 1)",
-        "type": "color"
-      },
-      "dark": {
-        "category": "fill",
-        "value": "rgba(34, 79, 112, 1)",
-        "type": "color"
-      },
-      "darker": {
-        "category": "fill",
-        "value": "rgba(25, 59, 84, 1)",
-        "type": "color"
-      },
-      "darkest": {
-        "category": "fill",
-        "value": "rgba(17, 40, 56, 1)",
-        "type": "color"
-      }
+        "lightest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(234, 239, 244, 1)",
+            "type": "color"
+        },
+        "lighter": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(170, 193, 209, 1)",
+            "type": "color"
+        },
+        "light": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(106, 146, 175, 1)",
+            "type": "color"
+        },
+        "base": {
+            "category": "fill",
+            "comment": "Indikerer primæraksjon eller annen interaksjon.",
+            "value": "rgba(42, 99, 140, 1)",
+            "type": "color"
+        },
+        "dark": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(34, 79, 112, 1)",
+            "type": "color"
+        },
+        "darker": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(25, 59, 84, 1)",
+            "type": "color"
+        },
+        "darkest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(17, 40, 56, 1)",
+            "type": "color"
+        },
+        "gradient": {
+            "ligthest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(234, 239, 244, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(212, 224, 232, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "lighter": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(170, 193, 209, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(149, 177, 198, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "light": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(106, 146, 175, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(85, 130, 163, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "base": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(42, 99, 140, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(38, 89, 126, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "dark": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(34, 79, 112, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(29, 69, 98, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darker": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(25, 59, 84, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(21, 50, 70, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darkest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(17, 40, 56, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(13, 30, 42, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            }
+        }
     },
     "success": {
-      "lightest": {
-        "category": "fill",
-        "value": "rgba(233, 242, 239, 1)",
-        "type": "color"
-      },
-      "lighter": {
-        "category": "fill",
-        "value": "rgba(169, 204, 191, 1)",
-        "type": "color"
-      },
-      "light": {
-        "category": "fill",
-        "value": "rgba(104, 166, 142, 1)",
-        "type": "color"
-      },
-      "base": {
-        "category": "fill",
-        "comment": "Brukes for å kommunisere suksess eller noe som er riktig.",
-        "value": "rgba(39, 128, 94, 1)",
-        "type": "color"
-      },
-      "dark": {
-        "category": "fill",
-        "value": "rgba(31, 102, 75, 1)",
-        "type": "color"
-      },
-      "darker": {
-        "category": "fill",
-        "value": "rgba(23, 77, 56, 1)",
-        "type": "color"
-      },
-      "darkest": {
-        "category": "fill",
-        "value": "rgba(16, 51, 38, 1)",
-        "type": "color"
-      }
+        "lightest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(233, 242, 239, 1)",
+            "type": "color"
+        },
+        "lighter": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(169, 204, 191, 1)",
+            "type": "color"
+        },
+        "light": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(104, 166, 142, 1)",
+            "type": "color"
+        },
+        "base": {
+            "category": "fill",
+            "comment": "Brukes for å kommunisere suksess eller noe som er riktig.",
+            "value": "rgba(39, 128, 94, 1)",
+            "type": "color"
+        },
+        "dark": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(31, 102, 75, 1)",
+            "type": "color"
+        },
+        "darker": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(23, 77, 56, 1)",
+            "type": "color"
+        },
+        "darkest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(16, 51, 38, 1)",
+            "type": "color"
+        },
+        "gradient": {
+            "ligthest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(233, 242, 239, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(212, 230, 223, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "ligther": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(169, 204, 191, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(147, 192, 175, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "light": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(104, 166, 142, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(82, 153, 126, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "base": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(39, 128, 94, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(35, 115, 85, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "dark": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(31, 102, 75, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(27, 90, 66, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darker": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(23, 77, 56, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(20, 64, 47, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darkest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(16, 51, 38, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(12, 38, 28, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            }
+        }
     },
     "danger": {
-      "lightest": {
-        "category": "fill",
-        "value": "rgba(251, 235, 235, 1)",
-        "type": "color"
-      },
-      "lighter": {
-        "category": "fill",
-        "value": "rgba(239, 175, 175, 1)",
-        "type": "color"
-      },
-      "light": {
-        "category": "fill",
-        "value": "rgba(228, 115, 115, 1)",
-        "type": "color"
-      },
-      "base": {
-        "category": "fill",
-        "comment": "Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.",
-        "value": "rgba(216, 55, 55, 1)",
-        "type": "color"
-      },
-      "dark": {
-        "category": "fill",
-        "value": "rgba(173, 44, 44, 1)",
-        "type": "color"
-      },
-      "darker": {
-        "category": "fill",
-        "value": "rgba(130, 33, 33, 1)",
-        "type": "color"
-      },
-      "darkest": {
-        "category": "fill",
-        "value": "rgba(86, 22, 22, 1)",
-        "type": "color"
-      }
+        "lightest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(251, 235, 235, 1)",
+            "type": "color"
+        },
+        "lighter": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(239, 175, 175, 1)",
+            "type": "color"
+        },
+        "light": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(228, 115, 115, 1)",
+            "type": "color"
+        },
+        "base": {
+            "category": "fill",
+            "comment": "Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.",
+            "value": "rgba(216, 55, 55, 1)",
+            "type": "color"
+        },
+        "dark": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(173, 44, 44, 1)",
+            "type": "color"
+        },
+        "darker": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(130, 33, 33, 1)",
+            "type": "color"
+        },
+        "darkest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(86, 22, 22, 1)",
+            "type": "color"
+        },
+        "gradient": {
+            "lightest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(251, 235, 235, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(247, 215, 215, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "lighter": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(239, 175, 175, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(236, 155, 155, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "light": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(228, 115, 115, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(224, 95, 95, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "base": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(216, 55, 55, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(194, 50, 50, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "dark": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(173, 44, 44, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(151, 39, 39, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darker": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(130, 33, 33, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(108, 28, 28, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darkest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(86, 22, 22, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(65, 17, 17, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            }
+        }
     },
     "warning": {
-      "lightest": {
-        "category": "fill",
-        "value": "rgba(254, 252, 237, 1)",
-        "type": "color"
-      },
-      "lighter": {
-        "category": "fill",
-        "value": "rgba(251, 243, 184, 1)",
-        "type": "color"
-      },
-      "light": {
-        "category": "fill",
-        "value": "rgba(247, 233, 130, 1)",
-        "type": "color"
-      },
-      "base": {
-        "category": "fill",
-        "comment": "Brukes for å kommunisere varsler.",
-        "value": "rgba(244, 224, 77, 1)",
-        "type": "color"
-      },
-      "dark": {
-        "category": "fill",
-        "value": "rgba(195, 179, 62, 1)",
-        "type": "color"
-      },
-      "darker": {
-        "category": "fill",
-        "value": "rgba(146, 134, 46, 1)",
-        "type": "color"
-      },
-      "darkest": {
-        "category": "fill",
-        "value": "rgba(98, 90, 31, 1)",
-        "type": "color"
-      }
+        "lightest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(254, 252, 237, 1)",
+            "type": "color"
+        },
+        "lighter": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(251, 243, 184, 1)",
+            "type": "color"
+        },
+        "light": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(247, 233, 130, 1)",
+            "type": "color"
+        },
+        "base": {
+            "category": "fill",
+            "comment": "Brukes for å kommunisere varsler.",
+            "value": "rgba(244, 224, 77, 1)",
+            "type": "color"
+        },
+        "dark": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(195, 179, 62, 1)",
+            "type": "color"
+        },
+        "darker": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(146, 134, 46, 1)",
+            "type": "color"
+        },
+        "darkest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(98, 90, 31, 1)",
+            "type": "color"
+        },
+        "gradient": {
+            "lightest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(254, 252, 237, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(253, 249, 219, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "lighter": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(251, 243, 184, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(250, 240, 166, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "light": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(247, 233, 130, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(246, 230, 113, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "base": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(244, 224, 77, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(220, 202, 69, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "dark": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(195, 179, 62, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(171, 157, 54, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darker": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(146, 134, 46, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(122, 112, 39, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darkest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(98, 90, 31, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(73, 67, 23, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            }
+        }
     },
     "info": {
-      "lightest": {
-        "category": "fill",
-        "value": "rgba(239, 244, 249, 1)",
-        "type": "color"
-      },
-      "lighter": {
-        "category": "fill",
-        "value": "rgba(193, 213, 231, 1)",
-        "type": "color"
-      },
-      "light": {
-        "category": "fill",
-        "value": "rgba(146, 181, 212, 1)",
-        "type": "color"
-      },
-      "base": {
-        "category": "fill",
-        "comment": "Brukes for å kommunisere informasjon.",
-        "value": "rgba(99, 150, 194, 1)",
-        "type": "color"
-      },
-      "dark": {
-        "category": "fill",
-        "value": "rgba(79, 120, 155, 1)",
-        "type": "color"
-      },
-      "darker": {
-        "category": "fill",
-        "value": "rgba(59, 89, 116, 1)",
-        "type": "color"
-      },
-      "darkest": {
-        "category": "fill",
-        "value": "rgba(40, 60, 78, 1)",
-        "type": "color"
-      }
+        "lightest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(249, 239, 234, 1)",
+            "type": "color"
+        },
+        "lighter": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(229, 190, 172, 1)",
+            "type": "color"
+        },
+        "light": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(210, 141, 109, 1)",
+            "type": "color"
+        },
+        "base": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(190, 92, 47, 1)",
+            "type": "color"
+        },
+        "dark": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(152, 74, 38, 1)",
+            "type": "color"
+        },
+        "darker": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(114, 55, 28, 1)",
+            "type": "color"
+        },
+        "darkest": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(76, 37, 19, 1)",
+            "type": "color"
+        },
+        "gradient": {
+            "lightest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(249, 239, 234, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(242, 222, 213, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "lighter": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(229, 190, 172, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(223, 174, 151, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "light": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(210, 141, 109, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(203, 125, 89, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "base": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(190, 92, 47, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(171, 83, 42, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "dark": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(152, 74, 38, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(133, 64, 33, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darker": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(114, 55, 28, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(95, 46, 24, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "darkest": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(76, 37, 19, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(57, 28, 14, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            }
+        }
     },
     "neutrals": {
-      "white": {
-        "category": "fill",
-        "value": "rgba(255, 255, 255, 1)",
-        "type": "color"
-      },
-      "gray1": {
-        "category": "fill",
-        "value": "rgba(248, 249, 249, 1)",
-        "type": "color"
-      },
-      "gray2": {
-        "category": "fill",
-        "value": "rgba(235, 236, 238, 1)",
-        "type": "color"
-      },
-      "gray3": {
-        "category": "fill",
-        "value": "rgba(207, 212, 215, 1)",
-        "type": "color"
-      },
-      "gray4": {
-        "category": "fill",
-        "value": "rgba(173, 181, 186, 1)",
-        "type": "color"
-      },
-      "gray5": {
-        "category": "fill",
-        "value": "rgba(119, 131, 140, 1)",
-        "type": "color"
-      },
-      "gray6": {
-        "category": "fill",
-        "value": "rgba(84, 92, 98, 1)",
-        "type": "color"
-      },
-      "gray7": {
-        "category": "fill",
-        "value": "rgba(58, 65, 70, 1)",
-        "type": "color"
-      },
-      "gray8": {
-        "category": "fill",
-        "value": "rgba(34, 39, 42, 1)",
-        "type": "color"
-      },
-      "gray9": {
-        "category": "fill",
-        "value": "rgba(11, 13, 14, 1)",
-        "type": "color"
-      }
+        "white": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(255, 255, 255, 1)",
+            "type": "color"
+        },
+        "gray1": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(248, 249, 249, 1)",
+            "type": "color"
+        },
+        "gray2": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(235, 236, 238, 1)",
+            "type": "color"
+        },
+        "gray3": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(207, 212, 215, 1)",
+            "type": "color"
+        },
+        "gray4": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(173, 181, 186, 1)",
+            "type": "color"
+        },
+        "gray5": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(119, 131, 140, 1)",
+            "type": "color"
+        },
+        "gray6": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(84, 92, 98, 1)",
+            "type": "color"
+        },
+        "gray7": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(58, 65, 70, 1)",
+            "type": "color"
+        },
+        "gray8": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(34, 39, 42, 1)",
+            "type": "color"
+        },
+        "gray9": {
+            "category": "fill",
+            "comment": null,
+            "value": "rgba(11, 13, 14, 1)",
+            "type": "color"
+        },
+        "gradient": {
+            "white": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(255, 255, 255, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(248, 249, 249, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray1": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(248, 249, 249, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(241, 243, 244, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray2": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(235, 236, 238, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(221, 224, 226, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray3": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(207, 212, 215, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(187, 193, 198, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray4": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(173, 181, 186, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(153, 162, 169, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray5": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(119, 131, 140, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(101, 111, 119, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray6": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(84, 92, 98, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(71, 79, 84, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray7": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(58, 65, 70, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(48, 52, 56, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray8": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(34, 39, 42, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(24, 26, 28, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            },
+            "gray9": {
+                "category": "fill",
+                "comment": null,
+                "gradientType": {
+                    "value": "linear",
+                    "type": "string"
+                },
+                "stops": {
+                    "0": {
+                        "position": {
+                            "value": 0.33,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(11, 13, 14, 1)",
+                            "type": "color"
+                        }
+                    },
+                    "1": {
+                        "position": {
+                            "value": 1,
+                            "type": "number"
+                        },
+                        "color": {
+                            "value": "rgba(0, 0, 0, 1)",
+                            "type": "color"
+                        }
+                    }
+                },
+                "opacity": {
+                    "value": 1,
+                    "type": "number"
+                }
+            }
+        }
     }
-  }
+}
 
 }
