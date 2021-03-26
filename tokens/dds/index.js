@@ -6,3 +6,4 @@ export * as spacing from './build/js/spacing';
 export * as grid from './build/js/grid';
 export * as innerShadow from './build/js/innershadow';
 export * as outerShadow from './build/js/outershadow';
+export { fontPackages } from './helpers/fontPackages';

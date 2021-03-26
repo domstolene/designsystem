@@ -136,6 +136,13 @@ StyleDictionary.registerFormat({
   }
 })
 
+StyleDictionary.registerFormat({
+  name: 'javascript/objectExported',
+  formatter: function(dictionary) {
+    return `${fileHeader(this.options)} export const ${(this.name || 'ddsStyles')} = ${JSON.stringify(dictionary.properties, null, 2)};`;
+  }
+})
+
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration

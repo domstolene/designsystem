@@ -40,6 +40,14 @@
           }
         }
       },{
+        "destination": "fontObject.js",
+        "format": "javascript/objectExported",
+        "filter": {
+          "attributes": {
+            "category": "$dds-font"
+          }
+        }
+      },{
         "destination": "spacing.js",
         "format": "custom/javascript/es6",
         "filter": {

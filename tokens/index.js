@@ -6,7 +6,8 @@ import {
     spacing,
     grid,
     innerShadow,
-    outerShadow
+    outerShadow,
+    fontPackages
     } from './dds/index';
 
 const ddsTokens = {
@@ -17,7 +18,8 @@ const ddsTokens = {
     spacing,
     grid,
     innerShadow,
-    outerShadow
+    outerShadow,
+    fontPackages
 };
 
 export default ddsTokens;
