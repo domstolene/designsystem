@@ -1,0 +1,49 @@
+{
+  "name": "@norges-domstoler/dds-components",
+  "version": "0.0.1",
+  "description": "React components used in Domstolenes designsystem",
+  "main": "./build/index.js",
+  "module": "./build/index.es.js",
+  "homepage": "https://design.domstol.no",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build": "rollup -c"
+  },
+  "keywords": [
+    "dds",
+    "design",
+    "tokens",
+    "design system",
+    "domstolene",
+    "norges",
+    "domstoler"
+  ],
+  "author": "DDS team",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/react": "^6.1.21",
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.36",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.22.0",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-react": "^7.23.1",
+    "jest": "^26.6.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-jest": "^26.5.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "dependencies": {}
+}
