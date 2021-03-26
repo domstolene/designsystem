@@ -4,10 +4,10 @@ Design tokens brukt i domstolenes designsystem (DDS).
 
 ## Installasjon
 
-Installer dependencies:
+Installer style-dictionary:
 
 ```
-npm install
+npm install -D style-dictionary
 ```
 
 ## Bruk
