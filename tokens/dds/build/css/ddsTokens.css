@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 02 Mar 2021 11:02:19 GMT
+ * Generated on Fri, 26 Mar 2021 12:10:24 GMT
  */
 
 :root {
@@ -935,6 +935,31 @@
   --dds-shadow-3-onlight:  4.0px 8.0px 16.0px 0px rgba(0, 0, 0, 0.1);
   --dds-shadow-4-ondark:  8.0px 16.0px 32.0px 0px rgba(0, 0, 0, 0.5);
   --dds-shadow-4-onlight:  8.0px 16.0px 32.0px 0px rgba(0, 0, 0, 0.1);
+  --dds-grid-xs-0-599-pattern: columns;
+  --dds-grid-xs-0-599-gutter-size: 16px;
+  --dds-grid-xs-0-599-alignment: stretch;
+  --dds-grid-xs-0-599-count: 4;
+  --dds-grid-xs-0-599-offset: 16px;
+  --dds-grid-sm-600-959-pattern: columns;
+  --dds-grid-sm-600-959-gutter-size: 16px;
+  --dds-grid-sm-600-959-alignment: stretch;
+  --dds-grid-sm-600-959-count: 8;
+  --dds-grid-sm-600-959-offset: 16px;
+  --dds-grid-md-960-1279-pattern: columns;
+  --dds-grid-md-960-1279-gutter-size: 24px;
+  --dds-grid-md-960-1279-alignment: stretch;
+  --dds-grid-md-960-1279-count: 12;
+  --dds-grid-md-960-1279-offset: 24px;
+  --dds-grid-lg-1280-1919-pattern: columns;
+  --dds-grid-lg-1280-1919-gutter-size: 24px;
+  --dds-grid-lg-1280-1919-alignment: stretch;
+  --dds-grid-lg-1280-1919-count: 12;
+  --dds-grid-lg-1280-1919-offset: 24px;
+  --dds-grid-xl-1920-pattern: columns;
+  --dds-grid-xl-1920-gutter-size: 24px;
+  --dds-grid-xl-1920-alignment: stretch;
+  --dds-grid-xl-1920-count: 12;
+  --dds-grid-xl-1920-offset: 24px;
   --sizes-dds-spacing-local-x-3: 48px; /* 48px */
   --sizes-dds-spacing-local-x-2-5: 40px; /* 40px */
   --sizes-dds-spacing-local-x-2: 32px; /* 32px */
