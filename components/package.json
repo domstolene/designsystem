@@ -2,8 +2,10 @@
   "name": "@norges-domstoler/dds-components",
   "version": "0.0.1",
   "description": "React components used in Domstolenes designsystem",
-  "main": "./build/index.js",
-  "module": "./build/index.es.js",
+  "author": "DDS team",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "homepage": "https://design.domstol.no",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,8 +22,6 @@
     "norges",
     "domstoler"
   ],
-  "author": "DDS team",
-  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@storybook/addon-actions": "^6.1.21",
