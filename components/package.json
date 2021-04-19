@@ -12,7 +12,8 @@
   "module": "dist/index.es.js",
   "homepage": "https://design.domstol.no",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --no-cache",
+    "test:watch": "jest --no-cache --watch",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
     "storybook": "start-storybook -p 6006",
@@ -40,6 +41,9 @@
     "@storybook/addon-essentials": "^6.2.8",
     "@storybook/addon-links": "^6.2.8",
     "@storybook/react": "^6.2.8",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.5",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.36",
     "@types/react": "^17.0.2",
@@ -57,5 +61,16 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.json"
+      }
+    }
   }
 }
