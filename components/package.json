@@ -4,6 +4,10 @@
   "description": "React components used in Domstolenes designsystem",
   "author": "DDS team",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domstolene/designsystem"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "homepage": "https://design.domstol.no",
