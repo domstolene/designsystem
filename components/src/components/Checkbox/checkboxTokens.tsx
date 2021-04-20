@@ -31,5 +31,5 @@ export const containerTokens = {
   typography: {
     font: font
   },
-  padding: '4px 10px 6px 35px'
+  padding: '5px 10px 6px 35px'
 };
