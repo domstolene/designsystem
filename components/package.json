@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-components",
-  "version": "0.0.1",
+  "version": "0.0.1-beta.0",
   "description": "React components used in Domstolenes designsystem",
   "author": "DDS team",
   "license": "MIT",
@@ -10,6 +10,9 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
   "homepage": "https://design.domstol.no",
   "scripts": {
     "test": "jest --no-cache",
