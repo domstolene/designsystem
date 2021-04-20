@@ -2,10 +2,10 @@ name: Design system ci
 on:
   push:
     branches: [ master ]
-    paths: [src/components/**]
+    paths: [components/src/**]
   pull_request:
     branches: [ master ]
-    paths: [src/components/**]
+    paths: [components/src/**]
 jobs:
   build-and-test:
     env:
