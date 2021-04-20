@@ -98,6 +98,7 @@ const Input = styled.input`
   position: absolute;
   height: 0;
   width: 0;
+  margin: 0;
 
   ~ ${Checkmark} {
     &:after {

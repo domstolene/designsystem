@@ -5,7 +5,9 @@ export const Radio = () => {
   const [value, setValue] = useState<number>(2);
 
   return (
-    <div style={{ padding: 24 }}>
+    <div className="component-container">
+      <h2> Radio button</h2>
+      <hr />
       <RadioGroup
         name="test"
         aria-label="test"
