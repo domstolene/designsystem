@@ -3,7 +3,7 @@ export const inputTokens = {
   width: '10px',
   left: '10px',
   border_width: '2px',
-  border_radius: '1px',
+  border_radius: '2px',
   default: {
     color: {
       border: '#4a4a4a',
@@ -31,5 +31,5 @@ export const containerTokens = {
   typography: {
     font: font
   },
-  padding: '5px 10px 6px 35px'
+  padding: '5px 10px 5px 35px'
 };

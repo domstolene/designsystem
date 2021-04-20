@@ -60,10 +60,13 @@ export type CheckboxProps = {
   id?: string;
   name: string;
   label: string;
+  checked?: boolean,
   error?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+  style?: React.CSSProperties
 };
 
 let nextUniqueId = 0;
@@ -72,10 +75,13 @@ function Checkbox({
   id,
   name,
   label,
+  checked,
   error,
   readOnly,
   disabled,
   onChange,
+  className,
+  style,
   ...rest
 }: CheckboxProps) {
   const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
@@ -83,10 +89,13 @@ function Checkbox({
   const inputProps = {
     id: uniqueId,
     name,
+    checked,
     error,
     disabled,
     readOnly,
     onChange,
+    className,
+    style,
     ...rest
   };
 
