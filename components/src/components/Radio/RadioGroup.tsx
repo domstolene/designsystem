@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
+import { StyledRadio } from './Radio';
 import { RadioGroupContext } from './RadioGroupContext';
 
 type RadioGroupProps = {
@@ -21,7 +22,8 @@ export const RadioGroup = ({
   row,
   onChange,
   className,
-  style
+  style,
+  ...rest
 }: RadioGroupProps) => {
   const [groupValue, setGroupValue] = useState<string | number | null>(value);
 
@@ -45,9 +47,10 @@ export const RadioGroup = ({
     >
       <StyledRadioGroup
         role="radiogroup"
-        row={row ?? false}
+        row={row}
         className={className ?? ''}
         style={style}
+        {...rest}
       >
         {children}
       </StyledRadioGroup>
@@ -55,8 +58,20 @@ export const RadioGroup = ({
   );
 };
 
-const StyledRadioGroup = styled.div<{ row: boolean }>`
+RadioGroup.defaultProps = {
+  row: false
+};
+
+const StyledRadioGroup = styled.div<{ row?: boolean }>`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: ${props => (props.row ? 'row' : 'column')};
+  flex-direction: ${({ row }) => (row ? 'row' : 'column')};
+
+  ${({ row }) => {
+    if (row) {
+      return `${StyledRadio} {
+        margin-right: 1rem;
+      }`;
+    }
+  }}
 `;

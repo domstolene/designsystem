@@ -63,7 +63,7 @@ export const Radio = ({
   );
 };
 
-const StyledRadio = styled.label`
+export const StyledRadio = styled.label`
   display: inline-flex;
   align-items: center;
   position: relative;

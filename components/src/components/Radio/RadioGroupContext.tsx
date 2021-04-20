@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { ChangeEvent, useContext } from 'react';
 
 export interface RadioGroup {
   disabled?: boolean;
   name?: string;
   value: string | number | null;
-  onChange: Function;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const RadioGroupContext = React.createContext<RadioGroup>(

@@ -8,6 +8,7 @@ export const Radio = () => {
     <div style={{ padding: 24 }}>
       <RadioGroup
         name="test"
+        aria-label="test"
         value={value}
         onChange={(_event: ChangeEvent<HTMLInputElement>, value: number) => {
           setValue(value);
@@ -22,6 +23,6 @@ export const Radio = () => {
 };
 
 export default {
-  title: 'Radio',
+  title: 'Designsystem/Radio',
   component: RadioButton
 };

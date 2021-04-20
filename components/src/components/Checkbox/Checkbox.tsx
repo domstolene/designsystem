@@ -1,5 +1,5 @@
+import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
-import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
 import { containerTokens, inputTokens } from './checkboxTokens';
 
 const Input = styled.input`
@@ -26,34 +26,34 @@ const Checkmark = styled.span`
 `;
 
 const Container = styled.label`
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    color: ${containerTokens.text_color};
-    ${containerTokens.typography.font}
-    padding: ${containerTokens.padding};
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  color: ${containerTokens.text_color};
+  ${containerTokens.typography.font}
+  padding: ${containerTokens.padding};
 
-    input:checked ~ ${Checkmark} {
-        background-color: ${inputTokens.default.color.background};
-    }
-    input:checked ~ ${Checkmark}:after {
-        display: block;
-    }
-    input:checked:focus ~ ${Checkmark}:after, input:focus ~ ${Checkmark} {
-        border-color: ${inputTokens.default.focus.marker};
-    }
+  input:checked ~ ${Checkmark} {
+    background-color: ${inputTokens.default.color.background};
+  }
+  input:checked ~ ${Checkmark}:after {
+    display: block;
+  }
+  input:checked:focus ~ ${Checkmark}:after, input:focus ~ ${Checkmark} {
+    border-color: ${inputTokens.default.focus.marker};
+  }
 
-    ${Checkmark}:after {
-        content: '';
-        display: none;
-        left: 26%;
-        top: 10%;
-        width: 2px;
-        height: 5px;
-        border: solid ${inputTokens.default.color.marker};
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-    }
+  ${Checkmark}:after {
+    content: '';
+    display: none;
+    left: 26%;
+    top: 10%;
+    width: 2px;
+    height: 5px;
+    border: solid ${inputTokens.default.color.marker};
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
 `;
 
 export type CheckboxProps = {

@@ -24,9 +24,9 @@
     "noImplicitThis": true,
     "noImplicitAny": true
   },
-  "include": ["src"],
+  "include": ["src", "rollup.config.js", ".eslintrc.js"],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
   ]
 }

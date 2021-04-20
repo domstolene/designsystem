@@ -39,7 +39,7 @@ describe('RadioGroup', () => {
     expect(input?.checked).toBeTruthy();
   });
 
-  test('should disabled input elements when group is disabled', () => {
+  test('should disable input elements when group is disabled', () => {
     const { container } = render(
       <RadioGroup name="test" value={1} onChange={() => {}} disabled>
         <Radio value={1}>Test 1</Radio>
