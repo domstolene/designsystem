@@ -48,7 +48,7 @@ export const RadioGroup = ({
       <StyledRadioGroup
         role="radiogroup"
         row={row}
-        className={className ?? ''}
+        className={className}
         style={style}
         {...rest}
       >

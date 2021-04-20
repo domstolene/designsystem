@@ -1,4 +1,4 @@
-import Checkbox, { CheckboxProps } from './Checkbox';
+import { Checkbox, CheckboxProps } from './Checkbox';
 
 export default {
   title: 'Designsystem/Checkbox',
