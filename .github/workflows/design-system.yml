@@ -1,0 +1,39 @@
+name: Design system ci
+on:
+  push:
+    branches: [ master ]
+    paths: [src/components/**]
+  pull_request:
+    branches: [ master ]
+    paths: [src/components/**]
+jobs:
+  build-and-test:
+    env:
+      working-directory: ./components
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+            ${{ runner.OS }}-build-
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Clean install
+        working-directory: ${{ env.working-directory }}
+        run: npm ci
+
+      - name: Build
+        working-directory: ${{ env.working-directory }}        
+        run: npm run build
+
+      - name: Test
+        working-directory: ${{ env.working-directory }}                
+        run: npm run test
