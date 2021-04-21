@@ -4,98 +4,113 @@
     "scss": {
       "transformGroup": "custom/scss",
       "buildPath": "build/scss/",
-      "files": [{
-        "destination": "_ddsTokens.scss",
-        "format": "scss/variables"
-      }]
+      "files": [
+        {
+          "destination": "_ddsTokens.scss",
+          "format": "scss/variables"
+        }
+      ]
     },
     "css": {
       "transformGroup": "custom/css",
       "buildPath": "build/css/",
-      "files": [{
-        "destination": "ddsTokens.css",
-        "format": "css/variables"
-      }]
+      "files": [
+        {
+          "destination": "ddsTokens.css",
+          "format": "css/variables"
+        }
+      ]
     },
     "js": {
       "transformGroup": "custom/js",
       "buildPath": "build/js/",
-      "files": [{
-        "destination": "ddsTokens.js",
-        "format": "custom/javascript/es6"
-      },{
-        "destination": "colors.js",
-        "format": "javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "$dds-color"
+      "files": [
+        {
+          "destination": "ddsTokens.ts",
+          "format": "custom/javascript/es6"
+        },
+        {
+          "destination": "colors.ts",
+          "format": "javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "$dds-color"
+            }
+          }
+        },
+        {
+          "destination": "font.ts",
+          "format": "custom/javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "$dds-font"
+            }
+          }
+        },
+        {
+          "destination": "fontObject.ts",
+          "format": "javascript/objectExported",
+          "filter": {
+            "attributes": {
+              "category": "$dds-font"
+            }
+          }
+        },
+        {
+          "destination": "spacing.ts",
+          "format": "custom/javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "sizes"
+            }
+          }
+        },
+        {
+          "destination": "border.ts",
+          "format": "custom/javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "borders"
+            }
+          }
+        },
+        {
+          "destination": "borderRadius.ts",
+          "format": "custom/javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "radii"
+            }
+          }
+        },
+        {
+          "destination": "grid.ts",
+          "format": "custom/javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "$dds-grid"
+            }
+          }
+        },
+        {
+          "destination": "innershadow.ts",
+          "format": "javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "$dds-innershadow"
+            }
+          }
+        },
+        {
+          "destination": "outershadow.ts",
+          "format": "javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "$dds-shadow"
+            }
           }
         }
-      },{
-        "destination": "font.js",
-        "format": "custom/javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "$dds-font"
-          }
-        }
-      },{
-        "destination": "fontObject.js",
-        "format": "javascript/objectExported",
-        "filter": {
-          "attributes": {
-            "category": "$dds-font"
-          }
-        }
-      },{
-        "destination": "spacing.js",
-        "format": "custom/javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "sizes"
-          }
-        }
-      },{
-        "destination": "border.js",
-        "format": "custom/javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "borders"
-          }
-        }
-      },{
-        "destination": "borderRadius.js",
-        "format": "custom/javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "radii"
-          }
-        }
-      },{
-        "destination": "grid.js",
-        "format": "custom/javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "$dds-grid"
-          }
-        }
-      },{
-        "destination": "innershadow.js",
-        "format": "javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "$dds-innershadow"
-          }
-        }
-      },{
-        "destination": "outershadow.js",
-        "format": "javascript/es6",
-        "filter": {
-          "attributes": {
-            "category": "$dds-shadow"
-          }
-        }
-      }]
+      ]
     }
   }
 }

@@ -1,0 +1,41 @@
+{
+  "name": "@norges-domstoler/dds-design-tokens",
+  "version": "0.0.1-beta.0",
+  "description": "Design tokens used in Domstolenes designsystem",
+  "author": "DDS team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domstolene/designsystem"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://design.domstol.no",
+  "keywords": [
+    "dds",
+    "design",
+    "tokens",
+    "design system",
+    "domstolene",
+    "norges domstoler"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@types/node": "^14.14.41",
+    "fork-ts-checker-webpack-plugin": "^6.2.1",
+    "rollup": "^2.45.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "style-dictionary": "^2.10.3",
+    "typescript": "^4.2.4"
+  }
+}
