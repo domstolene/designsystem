@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled from 'styled-components';
 import { containerTokens, inputTokens } from './checkboxTokens';
 
@@ -57,53 +57,25 @@ const Container = styled.label`
 `;
 
 export type CheckboxProps = {
-  id?: string;
-  name: string;
   label: string;
-  checked?: boolean;
   error?: boolean;
-  readOnly?: boolean;
   disabled?: boolean;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   style?: React.CSSProperties;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
 let nextUniqueId = 0;
 
-export const Checkbox = ({
-  id,
-  name,
-  label,
-  checked,
-  error,
-  readOnly,
-  disabled,
-  onChange,
-  className,
-  style,
-  ...rest
-}: CheckboxProps) => {
-  const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ id, label, className, style, ...rest }, ref) => {
+    const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
 
-  const inputProps = {
-    id: uniqueId,
-    name,
-    checked,
-    error,
-    disabled,
-    readOnly,
-    onChange,
-    className,
-    style,
-    ...rest
-  };
-
-  return (
-    <Container htmlFor={uniqueId}>
-      <Input type="checkbox" {...inputProps} />
-      <Checkmark />
-      {label}
-    </Container>
-  );
-};
+    return (
+      <Container htmlFor={uniqueId} className={className} style={style}>
+        <Input {...rest} id={uniqueId} type="checkbox" ref={ref} />
+        <Checkmark />
+        {label}
+      </Container>
+    );
+  }
+);
