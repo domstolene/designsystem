@@ -46,10 +46,10 @@ const StyledCheckbox = styled.label<{ disabled?: boolean }>`
   ${Checkmark}:after {
     content: '';
     display: none;
-    left: 26%;
-    top: 10%;
-    width: 2px;
-    height: 5px;
+    left: 3px;
+    top: 0px;
+    width: 4px;
+    height: 8px;
     border: solid ${inputTokens.default.color.marker};
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);

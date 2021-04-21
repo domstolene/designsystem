@@ -1,6 +1,6 @@
 export const inputTokens = {
-  height: '10px',
-  width: '10px',
+  height: '14px',
+  width: '14px',
   left: '10px',
   border_width: '2px',
   border_radius: '2px',
