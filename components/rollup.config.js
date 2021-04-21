@@ -1,9 +1,17 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import typescript from "rollup-plugin-typescript2";
 
 import pkg from "./package.json";
+
+const globals = {
+  react: 'React',
+  'react-dom': 'ReactDOM',
+  'styled-components': 'styled',
+};
+
+const peerDependencies = Object.keys(pkg.peerDependencies ?? {})
+const extensions = ['.jsx', '.js', '.tsx', '.ts'];
 
 export default {
   input: "src/index.ts",
@@ -12,20 +20,22 @@ export default {
       file: pkg.main,
       format: "cjs",
       exports: 'named',
-      sourcemap: true
+      globals
     },
     {
       file: pkg.module,
       format: "esm",
       exports: 'named',
-      sourcemap: true
+      sourcemap: true,
+      globals
     }
   ],
   plugins: [
-    peerDepsExternal(),
-    resolve(),
+    resolve({
+      extensions: extensions
+    }),
+    typescript(),
     commonjs(),
-    typescript()
   ],
-  external: ['react', 'react-dom']
+  external: peerDependencies
 };
