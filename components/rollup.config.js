@@ -35,7 +35,16 @@ export default {
     resolve({
       extensions: extensions
     }),
-    typescript(),
+    typescript({
+      tsconfig: 'tsconfig.json',
+      tsconfigOverride: {
+        exclude: [
+          "**/*.spec.ts*",
+          "**/*.stories.ts*",
+          "**/setupTests.ts"
+        ]
+      }
+    }),
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'bundled',
