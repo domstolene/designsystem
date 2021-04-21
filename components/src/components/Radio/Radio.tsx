@@ -148,8 +148,4 @@ const Input = styled.input`
   :disabled ~ ${Checkmark} {
     opacity: 0.6;
   }
-
-  :disabled ~ ${Checkmark} {
-    opacity: 0.6;
-  }
 `;

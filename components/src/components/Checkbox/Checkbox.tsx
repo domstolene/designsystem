@@ -25,7 +25,7 @@ const Checkmark = styled.span`
   }
 `;
 
-const Container = styled.label`
+const StyledCheckbox = styled.label<{ disabled?: boolean }>`
   position: relative;
   cursor: pointer;
   user-select: none;
@@ -54,6 +54,8 @@ const Container = styled.label`
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
+
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 `;
 
 export type CheckboxProps = {
@@ -67,15 +69,30 @@ export type CheckboxProps = {
 let nextUniqueId = 0;
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ id, label, className, style, ...rest }, ref) => {
+  ({ id, label, disabled, className, style, ...rest }, ref) => {
     const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
 
     return (
-      <Container htmlFor={uniqueId} className={className} style={style}>
-        <Input {...rest} id={uniqueId} type="checkbox" ref={ref} />
+      <StyledCheckbox
+        htmlFor={uniqueId}
+        className={className}
+        style={style}
+        disabled={disabled}
+      >
+        <Input
+          {...rest}
+          id={uniqueId}
+          type="checkbox"
+          ref={ref}
+          disabled={disabled}
+        />
         <Checkmark />
         {label}
-      </Container>
+      </StyledCheckbox>
     );
   }
 );
+
+Checkbox.defaultProps = {
+  disabled: false
+};
