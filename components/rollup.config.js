@@ -1,6 +1,7 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
+import babel from '@rollup/plugin-babel'
 
 import pkg from "./package.json";
 
@@ -10,7 +11,7 @@ const globals = {
   'styled-components': 'styled',
 };
 
-const peerDependencies = Object.keys(pkg.peerDependencies ?? {})
+const peerDependencies = Object.keys(pkg.peerDependencies || {})
 const extensions = ['.jsx', '.js', '.tsx', '.ts'];
 
 export default {
@@ -35,6 +36,13 @@ export default {
       extensions: extensions
     }),
     typescript(),
+    babel({
+      exclude: 'node_modules/**',
+      babelHelpers: 'bundled',
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      extensions,
+      plugins: ['babel-plugin-styled-components'],
+    }),
     commonjs(),
   ],
   external: peerDependencies
