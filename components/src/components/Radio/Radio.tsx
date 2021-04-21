@@ -94,8 +94,8 @@ const Checkmark = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 0.75rem;
-  width: 0.75rem;
+  height: 1rem;
+  width: 1rem;
   border: 2px solid #d2231e;
   border-radius: 50%;
   transition: border-color 0.3s;
