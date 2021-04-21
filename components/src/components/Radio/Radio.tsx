@@ -1,16 +1,17 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, {
+  ChangeEvent,
+  forwardRef,
+  InputHTMLAttributes,
+  useState
+} from 'react';
 import styled from 'styled-components';
 import { RadioGroup, useRadioGroup } from './RadioGroupContext';
 
 type RadioProps = {
-  value: string | number;
-  checked?: boolean;
   disabled?: boolean;
-  id?: string;
-  name?: string;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
   children?: React.ReactNode;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
 const isValueEqualToGroupValue = (value: any, group: RadioGroup) => {
   if (typeof value === 'number') {
@@ -21,47 +22,58 @@ const isValueEqualToGroupValue = (value: any, group: RadioGroup) => {
 
 let nextUniqueId = 0;
 
-export const Radio = ({
-  id,
-  name,
-  value,
-  checked,
-  disabled,
-  onChange,
-  children
-}: RadioProps) => {
-  const [uniqueId] = useState<string>(id ?? `radio-${++nextUniqueId}`);
+export const Radio = forwardRef<HTMLInputElement, RadioProps>(
+  (
+    {
+      id,
+      name,
+      label,
+      children,
+      checked,
+      disabled,
+      value,
+      onChange,
+      className,
+      style,
+      ...rest
+    },
+    ref
+  ) => {
+    const [uniqueId] = useState<string>(id ?? `radio-${++nextUniqueId}`);
 
-  const radioGroup = useRadioGroup();
+    const radioGroup = useRadioGroup();
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event);
-    radioGroup.onChange(event);
-  };
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      onChange && onChange(event);
+      radioGroup.onChange(event);
+    };
 
-  const radioChecked =
-    typeof checked !== 'undefined'
-      ? checked
-      : isValueEqualToGroupValue(value, radioGroup);
+    const radioChecked =
+      typeof checked !== 'undefined'
+        ? checked
+        : isValueEqualToGroupValue(value, radioGroup);
 
-  const radioName = name ?? radioGroup.name;
+    const radioName = name ?? radioGroup.name;
 
-  return (
-    <StyledRadio htmlFor={uniqueId}>
-      <Input
-        type="radio"
-        id={uniqueId}
-        name={radioName}
-        checked={radioChecked}
-        disabled={disabled || radioGroup.disabled}
-        value={value}
-        onChange={handleChange}
-      />
-      <Label>{children}</Label>
-      <Checkmark />
-    </StyledRadio>
-  );
-};
+    return (
+      <StyledRadio htmlFor={uniqueId} className={className} style={style}>
+        <Input
+          {...rest}
+          type="radio"
+          id={uniqueId}
+          name={radioName}
+          checked={radioChecked}
+          disabled={disabled || radioGroup.disabled}
+          value={value}
+          onChange={handleChange}
+          ref={ref}
+        />
+        <Label>{label ?? children}</Label>
+        <Checkmark />
+      </StyledRadio>
+    );
+  }
+);
 
 export const StyledRadio = styled.label`
   display: inline-flex;
@@ -131,10 +143,6 @@ const Input = styled.input`
       width: 0.5rem;
       height: 0.5rem;
     }
-  }
-
-  :disabled ~ ${Checkmark} {
-    opacity: 0.6;
   }
 
   :disabled ~ ${Checkmark} {

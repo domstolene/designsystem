@@ -27,6 +27,6 @@
   "include": ["src", "rollup.config.js", ".eslintrc.js"],
   "exclude": [
     "node_modules",
-    "dist",
+    "dist"
   ]
 }

@@ -59,7 +59,8 @@ export const RadioGroup = ({
 };
 
 RadioGroup.defaultProps = {
-  row: false
+  row: false,
+  disabled: false
 };
 
 const StyledRadioGroup = styled.div<{ row?: boolean }>`

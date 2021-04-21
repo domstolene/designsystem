@@ -21,7 +21,7 @@ const TestComponent = () => {
 
 let testContainer: HTMLElement;
 
-describe('RadioGroup', () => {
+describe('<Radio />', () => {
   beforeEach(() => {
     const { container } = render(<TestComponent />);
     testContainer = container;
