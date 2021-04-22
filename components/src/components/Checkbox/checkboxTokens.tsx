@@ -18,14 +18,23 @@ export const inputTokens = {
       border: '#4fa1ff',
       marker: '#4fa1ff'
     }
+  },
+  marker: {
+    left: '3px',
+    top: '0px',
+    width: '4px',
+    height: '8px',
+    borderColor: '#4a4a4a',
+    borderWidth: '0 2px 2px 0',
   }
 };
 
-const font = `
-    font-family: 'Proxima Nova', Arial;
-    font-size: 14px;
-    line-height: 1;
-`;
+const font = {
+  fontFamily: "'Proxima Nova', Arial",
+  fontSize: '14px',
+  lineHeight: 1,
+}
+
 export const containerTokens = {
   text_color: '#4a4a4a',
   typography: {
