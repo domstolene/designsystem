@@ -7,8 +7,8 @@ export interface RadioGroup {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const RadioGroupContext = React.createContext<RadioGroup>(
-  {} as RadioGroup
+export const RadioGroupContext = React.createContext<Nullable<RadioGroup>>(
+  null
 );
 
 export const useRadioGroup = () => {
