@@ -24,7 +24,12 @@
     "noImplicitThis": true,
     "noImplicitAny": true
   },
-  "include": ["src", "rollup.config.js", ".eslintrc.js"],
+  "include": [
+    "src",
+    "rollup.config.js",
+    ".eslintrc.js",
+    "typings/globals.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist"

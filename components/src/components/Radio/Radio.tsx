@@ -13,11 +13,11 @@ type RadioProps = {
   children?: React.ReactNode;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-const isValueEqualToGroupValue = (value: any, group: RadioGroup) => {
+const isValueEqualToGroupValue = (value: any, group: Nullable<RadioGroup>) => {
   if (typeof value === 'number') {
-    return value === Number(group.value);
+    return value === Number(group?.value);
   }
-  return value === group.value;
+  return value === group?.value;
 };
 
 let nextUniqueId = 0;
@@ -45,7 +45,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       onChange && onChange(event);
-      radioGroup.onChange(event);
+      radioGroup?.onChange(event);
     };
 
     const radioChecked =
@@ -53,7 +53,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         ? checked
         : isValueEqualToGroupValue(value, radioGroup);
 
-    const radioName = name ?? radioGroup.name;
+    const radioName = name ?? radioGroup?.name;
 
     return (
       <StyledRadio htmlFor={uniqueId} className={className} style={style}>
@@ -63,7 +63,7 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           id={uniqueId}
           name={radioName}
           checked={radioChecked}
-          disabled={disabled || radioGroup.disabled}
+          disabled={disabled || radioGroup?.disabled}
           value={value}
           onChange={handleChange}
           ref={ref}

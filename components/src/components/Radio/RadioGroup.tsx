@@ -1,18 +1,18 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, HTMLAttributes, useState } from 'react';
 import styled from 'styled-components';
 import { StyledRadio } from './Radio';
 import { RadioGroupContext } from './RadioGroupContext';
 
 type RadioGroupProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   value: string | number;
   disabled?: boolean;
   row?: boolean;
   name?: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>, value: any) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>, value: any) => void;
   className?: string;
   style?: React.CSSProperties;
-};
+} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 export const RadioGroup = ({
   children,

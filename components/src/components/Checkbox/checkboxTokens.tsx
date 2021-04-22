@@ -1,7 +1,6 @@
 export const inputTokens = {
   height: '14px',
   width: '14px',
-  left: '10px',
   border_width: '2px',
   border_radius: '2px',
   default: {
@@ -40,5 +39,6 @@ export const containerTokens = {
   typography: {
     font: font
   },
-  padding: '5px 10px 5px 35px'
+  padding: '8px',
+  margin_right: '16px'
 };

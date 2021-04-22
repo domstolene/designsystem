@@ -3,31 +3,42 @@ import styled from 'styled-components';
 import { containerTokens, inputTokens } from './checkboxTokens';
 
 const Input = styled.input`
+  clip: rect(0 0 0 0);
+  position: absolute;
   height: 0;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
   width: 0;
+  margin: 0;
 `;
+
 const Checkmark = styled.span`
-  position: absolute;
-  top: 6px;
-  left: ${inputTokens.left};
+  position: relative;
   height: ${inputTokens.height};
   width: ${inputTokens.width};
   border: ${inputTokens.border_width} solid ${inputTokens.default.color.border};
   border-radius: ${inputTokens.border_radius};
+
   &:after {
     content: '';
     position: absolute;
     display: none;
+    left: 3px;
+    top: 0px;
+    width: 4px;
+    height: 8px;
+    border: solid ${inputTokens.default.color.marker};
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
   }
 `;
 
+const Label = styled.span`
+  margin-left: 8px;
+`;
+
 const StyledCheckbox = styled.label<{ disabled?: boolean }>`
+  display: inline-flex;
+  align-items: center;
   position: relative;
-  cursor: pointer;
   user-select: none;
   color: ${containerTokens.text_color};
   ${containerTokens.typography.font}
@@ -41,18 +52,6 @@ const StyledCheckbox = styled.label<{ disabled?: boolean }>`
   }
   input:checked:focus ~ ${Checkmark}:after, input:focus ~ ${Checkmark} {
     border-color: ${inputTokens.default.focus.marker};
-  }
-
-  ${Checkmark}:after {
-    content: '';
-    display: none;
-    left: 3px;
-    top: 0px;
-    width: 4px;
-    height: 8px;
-    border: solid ${inputTokens.default.color.marker};
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
   }
 
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
@@ -87,7 +86,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           disabled={disabled}
         />
         <Checkmark />
-        {label}
+        {!!label && <Label>{label}</Label>}
       </StyledCheckbox>
     );
   }

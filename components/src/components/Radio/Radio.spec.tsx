@@ -50,3 +50,10 @@ describe('<Radio />', () => {
     expect(input?.disabled).toBeTruthy();
   });
 });
+
+describe('<RadioGroup />', () => {
+  it('should have the radiogroup role', () => {
+    const { container } = render(<RadioGroup value="" />);
+    expect(container.firstChild).toHaveAttribute('role', 'radiogroup');
+  });
+});
