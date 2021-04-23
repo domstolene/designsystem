@@ -1,9 +1,12 @@
 import React, { ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
 import { buttonTokens as tokens } from './buttonTokens';
 import styled, { css } from 'styled-components';
+import InlineIconWrapper from '../../helpers/InlineIconWrapper';
+import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
+import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 
 const buttonContentStyle = (purpose: Purpose, form: Form) => {
-    
+
     return css`
         color: ${tokens.colors[form][purpose].text};
         border: ${tokens.borderWidth} solid;
@@ -92,6 +95,16 @@ const ButtonWrapper = styled.button`
     }
 `;
 
+const IconWrapper = styled.span<{size: Size}>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ${({size}) => size && css`
+    height: ${tokens.sizes.icon[size]};
+    width: ${tokens.sizes.icon[size]};
+    `}
+`;
+
 type Size = 'small' | 'medium' | 'large';
 type Purpose = 'primary' | 'secondary' | 'danger';
 type Form = 'filled' | 'ghost' | 'rounded' | 'borderless';
@@ -108,12 +121,12 @@ export type ButtonProps = {
     loading?: boolean;
     className?: string;
     style?: React.CSSProperties;
-    icon?: JSX.Element;
+    Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({label, disabled, purpose, size, iconPosition, form, href, loading, className, style, ...rest}, ref) => {
+    ({label, disabled, purpose, size, iconPosition, form, href, loading, className, style, Icon, ...rest}, ref) => {
 
         const as: ElementType = href ? 'a' : 'button';
 
@@ -136,10 +149,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             className,
             style
         }
+
+const iconElement = (className = '') =>  Icon && <InlineIconWrapper Icon={Icon} className={className}  />;
+
         return (
             <ButtonWrapper {...wrapperProps}>
                 <ButtonContent {...contentProps}>
-                    {label}
+                    {(!label && Icon)  ?
+                    <IconWrapper size={size}>
+                        {iconElement()}
+                    </IconWrapper>
+                    : label ?
+                    <>
+                        {iconPosition === 'left' && iconElement()}
+                        <span>
+                            {label}
+                        </span>
+                        {iconPosition === 'right' && iconElement()}
+                    </>
+                : ''
+                }
                 </ButtonContent>
             </ButtonWrapper>
         );

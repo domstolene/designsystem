@@ -1,5 +1,6 @@
 import {Button as DDSButton, ButtonProps} from './Button';
 import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
+import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
 
 
 export default {
@@ -30,6 +31,18 @@ export const Danger = (args:ButtonProps) => {
   )
 }
 
+
+export const WithIcon = (args:ButtonProps) => {
+  return (
+    storyHTMLTemplate('Button with Icon', <DDSButton {...args} label={args.label || 'tekst'} iconPosition={'left'} Icon={ReportProblemOutlinedIcon} />)
+  )
+}
+
+export const Icon = (args:ButtonProps) => {
+  return (
+    storyHTMLTemplate('Button Icon', <DDSButton {...args} Icon={ReportProblemOutlinedIcon} />)
+  )
+}
 export const Ghost = (args:ButtonProps) => {
   return (
     storyHTMLTemplate('Button ghost',
