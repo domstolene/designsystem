@@ -84,5 +84,8 @@
         "tsconfig": "tsconfig.json"
       }
     }
+  },
+  "dependencies": {
+    "@norges-domstoler/dds-design-tokens": "0.0.1-beta.1"
   }
 }
