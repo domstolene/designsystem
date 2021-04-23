@@ -26,7 +26,8 @@
     "include": [
         "src",
         "rollup.config.js",
-        ".eslintrc.js"
+        ".eslintrc.js",
+        "index.ts"
     ],
     "exclude": [
         "node_modules",

@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from "./ddsBaseTokens";
 
-export const referenceTokens = {
+export const ddsReferenceTokens = {
   color: {
     focus_default: ddsBaseTokens.colors.DdsColorWarningDarker,
   },
