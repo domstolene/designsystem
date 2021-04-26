@@ -1,33 +1,32 @@
-import commonjs from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
-import typescript from "rollup-plugin-typescript2";
-import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from 'rollup-plugin-typescript2';
+import babel from '@rollup/plugin-babel';
 
-import pkg from "./package.json";
+import pkg from './package.json';
 
 const globals = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  'styled-components': 'styled',
+  'styled-components': 'styled'
 };
 
-const peerDependencies = Object.keys(pkg.peerDependencies || {})
+const peerDependencies = Object.keys(pkg.peerDependencies || {});
 const extensions = ['.jsx', '.js', '.tsx', '.ts'];
 
 export default {
-  input: "src/index.ts",
+  input: 'src/index.ts',
   output: [
     {
       file: pkg.main,
-      format: "cjs",
+      format: 'cjs',
       exports: 'named',
       globals
     },
     {
       file: pkg.module,
-      format: "esm",
+      format: 'esm',
       exports: 'named',
-      sourcemap: true,
       globals
     }
   ],
@@ -39,9 +38,11 @@ export default {
       tsconfig: 'tsconfig.json',
       tsconfigOverride: {
         exclude: [
-          "**/*.spec.ts*",
-          "**/*.stories.ts*",
-          "**/setupTests.ts"
+          '**/*.spec.ts*',
+          '**/*.stories.ts*',
+          '**/setupTests.ts',
+          '**/storybook',
+          '**/helpers'
         ]
       }
     }),
@@ -50,9 +51,9 @@ export default {
       babelHelpers: 'bundled',
       presets: ['@babel/preset-env', '@babel/preset-react'],
       extensions,
-      plugins: ['babel-plugin-styled-components'],
+      plugins: ['babel-plugin-styled-components']
     }),
-    commonjs(),
+    commonjs()
   ],
   external: peerDependencies
 };
