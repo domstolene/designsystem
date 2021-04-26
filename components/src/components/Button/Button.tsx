@@ -53,7 +53,7 @@ const buttonContentStyle = (purpose: Purpose, form: Form) => {
     `;
 }
 
-const ButtonContent = styled.span<{label?: string, size: Size, purpose: Purpose, form: Form}>`
+const ButtonContent = styled.span<{label?: string, size: Size, purpose: Purpose, form: Form, iconPosition?: IconPosition}>`
     display: flex;
     align-items: center;
     position: relative;
@@ -75,6 +75,19 @@ const ButtonContent = styled.span<{label?: string, size: Size, purpose: Purpose,
     }
     &:focus {
         outline: none;
+    }
+    .dds-icon-positioned {
+        ${
+            ({label, size, iconPosition}) => !label ?
+            ''
+            : iconPosition === "left" ? css`
+                margin-inline-end: ${tokens.sizes.icon_margin[size]};
+            `
+            : iconPosition === "right" ? css`
+                margin-inline-start: ${tokens.sizes.icon_margin[size]};
+            `
+            :''
+        }
     }
 `;
 
@@ -161,11 +174,11 @@ const iconElement = (className = '') =>  Icon && <InlineIconWrapper Icon={Icon} 
                     </IconWrapper>
                     : label ?
                     <>
-                        {iconPosition === 'left' && iconElement()}
+                        {iconPosition === 'left' && iconElement('dds-icon-positioned')}
                         <span>
                             {label}
                         </span>
-                        {iconPosition === 'right' && iconElement()}
+                        {iconPosition === 'right' && iconElement('dds-icon-positioned')}
                     </>
                 : ''
                 }
