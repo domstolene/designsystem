@@ -68,8 +68,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           onChange={handleChange}
           ref={ref}
         />
-        <Label>{label ?? children}</Label>
         <Checkmark />
+        <Label>{label ?? children}</Label>
       </StyledRadio>
     );
   }
@@ -80,8 +80,8 @@ export const StyledRadio = styled.label`
   align-items: center;
   position: relative;
   padding: 0.5rem 0;
-  padding-left: 2rem;
   margin-bottom: 0;
+  margin-right: 1rem;
   cursor: pointer;
   font-size: 0.875rem;
   font-family: 'Proxima Nova', Arial;
@@ -89,20 +89,19 @@ export const StyledRadio = styled.label`
 `;
 
 const Checkmark = styled.span`
-  position: absolute;
-  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 1rem;
   width: 1rem;
-  border: 2px solid #d2231e;
+  border: 2px solid #4a4a4a;
   border-radius: 50%;
   transition: border-color 0.3s;
 `;
 
 const Label = styled.span`
   color: #4a4a4a;
+  margin-left: 0.5rem;
 `;
 
 const Input = styled.input`
@@ -120,17 +119,17 @@ const Input = styled.input`
       height: 0;
       border-radius: 50%;
       background: #d2231e;
-      transition: all 0.3s;
+      transition: height 0.3s, width 0.3s;
     }
   }
 
-  :focus ~ ${Checkmark}:before {
+  :focus-visible ~ ${Checkmark}:before, .focus-visible ~ ${Checkmark}:before {
     content: '';
     position: absolute;
     height: 2rem;
     width: 2rem;
-    top: calc(-0.5625);
-    left: calc(-0.5625);
+    top: 0;
+    left: -0.5rem;
     background: #d2231e;
     opacity: 0.2;
     border-radius: 50%;
