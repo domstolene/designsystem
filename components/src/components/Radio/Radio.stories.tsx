@@ -25,6 +25,6 @@ export const Radio = () => {
 };
 
 export default {
-  title: 'Designsystem/Radio',
+  title: 'Design system/Radio',
   component: RadioButton
 };

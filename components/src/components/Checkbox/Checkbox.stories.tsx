@@ -1,7 +1,7 @@
 import { Checkbox as DDSCheckbox, CheckboxProps } from './Checkbox';
 
 export default {
-  title: 'Designsystem/Checkbox',
+  title: 'Design system/Checkbox',
   component: DDSCheckbox
 };
 
