@@ -114,12 +114,13 @@ const Input = styled.input`
   ~ ${Checkmark} {
     &:after {
       content: '';
+      position: absolute;
       display: block;
       width: 0;
       height: 0;
       border-radius: 50%;
       background: #d2231e;
-      transition: height 0.3s, width 0.3s;
+      transition: all 150ms ease;
     }
   }
 
@@ -137,7 +138,6 @@ const Input = styled.input`
 
   :checked ~ ${Checkmark} {
     border: 2px solid #d2231e;
-
     &:after {
       width: 0.5rem;
       height: 0.5rem;
