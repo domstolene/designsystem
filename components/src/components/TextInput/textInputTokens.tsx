@@ -73,7 +73,7 @@ const inputLabel = {
     multiline: {
         base: {
             backgroundColor: Colors.DdsColorNeutralsWhite,
-            padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx-1}px ${Spacing.SizesDdsSpacingLocalX1}px 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx-1}px`
+            padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx-1}px ${Spacing.SizesDdsSpacingLocalX1} 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx-1}px`
         }
     }
 }
