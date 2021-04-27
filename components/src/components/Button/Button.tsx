@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import InlineIconWrapper from '../../helpers/InlineIconWrapper';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
+import Spinner from '../../helpers/Spinner';
 
 const buttonContentStyle = (purpose: Purpose, form: Form) => {
 
@@ -168,6 +169,7 @@ const iconElement = (className = '') =>  Icon && <InlineIconWrapper Icon={Icon} 
         return (
             <ButtonWrapper {...wrapperProps}>
                 <ButtonContent {...contentProps}>
+                    { loading && <Spinner inline width={1} unit='em' /> }
                     {(!label && Icon)  ?
                     <IconWrapper size={size}>
                         {iconElement()}
