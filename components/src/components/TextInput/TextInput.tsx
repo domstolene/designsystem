@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, InputHTMLAttributes } from 'react';
+import React, { useState, useEffect, useRef, InputHTMLAttributes, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { inputTokens as tokens} from './textInputTokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
@@ -118,97 +118,99 @@ export type TextInputProps = {
     width?: string;
     errorMessage?: string;
 } & InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement>;
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+    ({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, multiline, onChange, id, width, type = 'text', ...rest}, ref) => {
 
-function TextInput({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, multiline, onChange, id, width, type = 'text', ...rest}: TextInputProps) {
+        const textAreaRef = useRef<HTMLTextAreaElement>(ref);
+        const [text, setText] = useState("");
+        const [textAreaHeight, setTextAreaHeight] = useState("auto");
+        const [parentHeight, setParentHeight] = useState("auto");
 
-    const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const [text, setText] = useState("");
-	const [textAreaHeight, setTextAreaHeight] = useState("auto");
-	const [parentHeight, setParentHeight] = useState("auto");
+        useEffect(() => {
+            if(textAreaRef && textAreaRef.current) {
+                setParentHeight(`${textAreaRef.current.scrollHeight}px`);
+                setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
+            }
+        }, [text]);
 
-	useEffect(() => {
-        if(textAreaRef && textAreaRef.current) {
-            setParentHeight(`${textAreaRef.current.scrollHeight}px`);
-            setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
-        }
-    }, [text]);
+        const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setText(event.target.value);
 
-    const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setText(event.target.value);
-
-        if (onChange) {
-			onChange(event);
-		}
-    }
-
-	const onChangeHandlerMultiline: React.ChangeEventHandler<HTMLTextAreaElement> = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setTextAreaHeight("auto");
-        if(textAreaRef && textAreaRef.current) {
-            setParentHeight(`${textAreaRef.current.scrollHeight}px`);
+            if (onChange) {
+                onChange(event);
+            }
         }
 
-        setText(event.target.value);
+        const onChangeHandlerMultiline: React.ChangeEventHandler<HTMLTextAreaElement> = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+            setTextAreaHeight("auto");
+            if(textAreaRef && textAreaRef.current) {
+                setParentHeight(`${textAreaRef.current.scrollHeight}px`);
+            }
 
-        if (onChange) {
-			onChange(event);
-		}
-	};
+            setText(event.target.value);
 
-    const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
+            if (onChange) {
+                onChange(event);
+            }
+        };
 
-    const generalInputProps = {
-        label,
-        errorMessage,
-        disabled: disabled || readOnly,
-        readOnly,
-        required
+        const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
+
+        const generalInputProps = {
+            label,
+            errorMessage,
+            disabled: disabled || readOnly,
+            readOnly,
+            required
+        }
+
+        return (
+            <InputFieldWrapper width={width}>
+                <InputFieldContainer
+                    style={multiline ? { minHeight: parentHeight } : {}}
+                    multiline={multiline}
+                    label={label}
+                >
+                    {multiline ?
+                        <TextArea ref={textAreaRef}
+                            style={{height: textAreaHeight}}
+                            id={uniqueId}
+                            onChange={onChangeHandlerMultiline}
+                            {...generalInputProps}
+                            {...rest}
+                        />
+                        :
+                        <Input
+                            ref={ref}
+                            id={uniqueId}
+                            onChange={onChangeHandler}
+                            type={type}
+                            {...generalInputProps}
+                            {...rest}
+                        />
+                    }
+                    {label &&
+                    <Label multiline={multiline} htmlFor={uniqueId}>
+                        {label} {required && <RequiredMarker />}
+                    </Label>
+                    }
+                </InputFieldContainer>
+                <FlexContainer>
+                    {errorMessage ?
+                        <InputMessage message={errorMessage} messageType={'error'} />
+                        : tip ?
+                        <InputMessage message={tip} messageType={'tip'} />
+                        : ''
+                    }
+                    {maxCharCount ?
+                        <CharCounter current={text.length} max={maxCharCount} />
+                        : ''
+                    }
+                </FlexContainer>
+            </InputFieldWrapper>
+        );
     }
-
-    return (
-        <InputFieldWrapper width={width}>
-            <InputFieldContainer
-                style={multiline ? { minHeight: parentHeight } : {}}
-                multiline={multiline}
-                label={label}
-            >
-                {multiline ?
-                    <TextArea ref={textAreaRef}
-                        style={{height: textAreaHeight}}
-                        id={uniqueId}
-                        onChange={onChangeHandlerMultiline}
-                        {...generalInputProps}
-                        {...rest}
-                    />
-                :
-                    <Input
-                        id={uniqueId}
-                        onChange={onChangeHandler}
-                        type={type}
-                        {...generalInputProps}
-                        {...rest}
-                    />
-                }
-                {label &&
-                <Label multiline={multiline} htmlFor={uniqueId}>
-                    {label} {required && <RequiredMarker />}
-                </Label>
-                }
-            </InputFieldContainer>
-            <FlexContainer>
-                {errorMessage ?
-                    <InputMessage message={errorMessage} messageType={'error'} />
-                    : tip ?
-                    <InputMessage message={tip} messageType={'tip'} />
-                    : ''
-                }
-                {maxCharCount ?
-                    <CharCounter current={text.length} max={maxCharCount} />
-                    : ''
-                }
-            </FlexContainer>
-        </InputFieldWrapper>
-    );
-}
+);
 
 TextInput.defaultProps = {
     disabled: false,
