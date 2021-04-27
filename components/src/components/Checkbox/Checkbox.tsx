@@ -43,6 +43,7 @@ const StyledCheckbox = styled.label<{ disabled?: boolean }>`
   color: ${containerTokens.text_color};
   ${containerTokens.typography.font}
   padding: ${containerTokens.padding};
+  cursor: pointer;
 
   input:checked ~ ${Checkmark} {
     background-color: ${inputTokens.default.color.background};
@@ -54,7 +55,14 @@ const StyledCheckbox = styled.label<{ disabled?: boolean }>`
     border-color: ${inputTokens.default.focus.marker};
   }
 
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  ${({ disabled }) => {
+    if (disabled) {
+      return `
+        cursor: not-allowed;
+        opacity: 0.7;  
+      `;
+    }
+  }}
 `;
 
 export type CheckboxProps = {
@@ -77,6 +85,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         className={className}
         style={style}
         disabled={disabled}
+        onClick={event => {
+          event.stopPropagation();
+        }}
       >
         <Input
           {...rest}
