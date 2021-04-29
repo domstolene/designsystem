@@ -99,6 +99,7 @@ const ButtonWrapper = styled.button`
     box-shadow: none;
     padding: 0;
     background-color: transparent;
+    width: fit-content;
 
     &:focus > ${ButtonContent} {
         outline: ${tokens.focusOutline.width} solid ${tokens.focusOutline.color};
