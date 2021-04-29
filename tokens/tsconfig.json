@@ -24,6 +24,7 @@
         "noImplicitAny": true
     },
     "include": [
+        "dds",
         "src",
         "rollup.config.js",
         ".eslintrc.js",
