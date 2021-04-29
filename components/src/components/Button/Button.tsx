@@ -6,7 +6,7 @@ import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import Spinner from '../../helpers/Spinner';
 
-const buttonContentStyle = (purpose: Purpose, form: Form) => {
+const buttonContentStyle = (purpose: ButtonPurpose, form: Form) => {
 
     return css`
         color: ${tokens.colors[form][purpose].text};
@@ -54,7 +54,7 @@ const buttonContentStyle = (purpose: Purpose, form: Form) => {
     `;
 }
 
-const ButtonContent = styled.span<{label?: string, size: Size, purpose: Purpose, form: Form, iconPosition?: IconPosition}>`
+const ButtonContent = styled.span<{label?: string, size: Size, purpose: ButtonPurpose, form: Form, iconPosition?: IconPosition}>`
     display: flex;
     align-items: center;
     position: relative;
@@ -120,8 +120,8 @@ const IconWrapper = styled.span<{size: Size}>`
     `}
 `;
 
+export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
 type Size = 'small' | 'medium' | 'large';
-type Purpose = 'primary' | 'secondary' | 'danger';
 type Form = 'filled' | 'ghost' | 'rounded' | 'borderless';
 type IconPosition = 'left' | 'right';
 
@@ -129,7 +129,7 @@ export type ButtonProps = {
     size: Size;
     label?: string;
     disabled?: boolean;
-    purpose: Purpose;
+    purpose: ButtonPurpose;
     iconPosition?: IconPosition;
     form: Form;
     href?: string;
