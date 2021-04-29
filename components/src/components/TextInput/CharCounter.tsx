@@ -3,7 +3,7 @@ import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 
 const Wrapper = styled.span`
     color: ${tokens.colors.DdsColorNeutralsGray6};
-    ${tokens.fontPackages.sansRegularx0_875}
+    ${tokens.fontPackages.sansRegularx0_875.base}
 `;
 
 type Props = {

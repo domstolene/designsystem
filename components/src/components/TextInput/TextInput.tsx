@@ -121,7 +121,7 @@ export type TextInputProps = {
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     ({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, multiline, onChange, id, width, type = 'text', ...rest}, ref) => {
 
-        const textAreaRef = useRef<HTMLTextAreaElement>(ref);
+        const textAreaRef = useRef<HTMLTextAreaElement>(null);
         const [text, setText] = useState("");
         const [textAreaHeight, setTextAreaHeight] = useState("auto");
         const [parentHeight, setParentHeight] = useState("auto");

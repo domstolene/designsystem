@@ -132,22 +132,22 @@ const sizes = {
         }
     },
     icon: {
-        small: `${calculateHeightWithLineHeight(FontPackages.sansRegularx0_75.lineHeightNumber, FontPackages.sansRegularx0_75.fontSizeNumber)}px`,
-        medium: `${calculateHeightWithLineHeight(FontPackages.sansRegularx1.lineHeightNumber, FontPackages.sansRegularx1.fontSizeNumber)}px`,
-        large: `${calculateHeightWithLineHeight(FontPackages.sansRegularx1_125.lineHeightNumber, FontPackages.sansRegularx1_125.fontSizeNumber)}px`,
+        small: `${calculateHeightWithLineHeight(FontPackages.sansRegularx0_75.numbers.lineHeightNumber, FontPackages.sansRegularx0_75.numbers.fontSizeNumber)}px`,
+        medium: `${calculateHeightWithLineHeight(FontPackages.sansRegularx1.numbers.lineHeightNumber, FontPackages.sansRegularx1.numbers.fontSizeNumber)}px`,
+        large: `${calculateHeightWithLineHeight(FontPackages.sansRegularx1_125.numbers.lineHeightNumber, FontPackages.sansRegularx1_125.numbers.fontSizeNumber)}px`,
     }
 }
 
 const font = {
     icon: {
-        small: FontPackages.sansRegularx1_25,
-        medium: FontPackages.sansRegularx1_5,
-        large: FontPackages.sansRegularx2
+        small: FontPackages.sansRegularx1_25.base,
+        medium: FontPackages.sansRegularx1_5.base,
+        large: FontPackages.sansRegularx2.base
     },
     text: {
-        small: FontPackages.sansRegularx0_75,
-        medium: FontPackages.sansRegularx1,
-        large: FontPackages.sansRegularx1_25
+        small: FontPackages.sansRegularx0_75.base,
+        medium: FontPackages.sansRegularx1.base,
+        large: FontPackages.sansRegularx1_25.base
     }
 }
 

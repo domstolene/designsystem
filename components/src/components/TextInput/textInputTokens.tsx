@@ -68,7 +68,7 @@ const inputLabelBase: CSSObject = {
 }
 
 const inputLabel = {
-    font: FontPackages.sansBoldx0_875,
+    font: FontPackages.sansBoldx0_875.base,
     base: inputLabelBase,
     multiline: {
         base: {
@@ -86,7 +86,7 @@ const inputLabel = {
 
 export const inputTokens = {
     base: inputBase,
-    font: FontPackages.sansRegularx1_125,
+    font: FontPackages.sansRegularx1_125.base,
     focusColor: Colors.DdsColorPrimaryBase,
     hover: {
         base: inputHoverBase
