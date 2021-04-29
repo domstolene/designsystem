@@ -2,16 +2,22 @@ import { ddsStyles } from "../build/js/fontObject";
 
 const fontPackageFormatter = (font: any) => {
   return {
-    lineHeight: font.lineHeight.value,
-    lineHeightNumber: font.lineHeight.original.value,
-    fontSize: `${font.fontSize.value}px`,
-    fontSizeNumber: font.fontSize.value,
-    letterSpacing: font.letterSpacing.value,
-    letterSpacingNumber: font.letterSpacing.original.value,
-    fontFamily: font.fontFamily.value,
-    fontWeight: font.fontWeight.value,
-    fontStyle: font.fontStyle.value,
-    paragraphSpacing: `${font.paragraphSpacing.value}px`,
+    base: {
+      lineHeight: font.lineHeight.value,
+      fontSize: `${font.fontSize.value}px`,
+      letterSpacing: font.letterSpacing.value,
+      fontFamily: font.fontFamily.value,
+      fontWeight: font.fontWeight.value,
+      fontStyle: font.fontStyle.value,
+    },
+    numbers: {
+      lineHeightNumber: font.lineHeight.original.value,
+      fontSizeNumber: font.fontSize.value,
+      letterSpacingNumber: font.letterSpacing.original.value,
+    },
+    paragraph: {
+      paragraphSpacing: `${font.paragraphSpacing.value}px`,
+    },
   };
 };
 
