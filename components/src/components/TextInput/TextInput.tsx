@@ -102,7 +102,7 @@ const TextArea = styled.textarea<{ disabled?: boolean, readOnly?: boolean, error
 
 const FlexContainer = styled.div`
  display: flex;
- justify-items: space-between;
+ justify-content: space-between;
 `;
 
 let nextUniqueId = 0;
@@ -202,7 +202,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                         <InputMessage message={tip} messageType={'tip'} />
                         : ''
                     }
-                    {maxCharCount ?
+                    {(maxCharCount && Number.isInteger(maxCharCount) && maxCharCount > 0)  ?
                         <CharCounter current={text.length} max={maxCharCount} />
                         : ''
                     }
