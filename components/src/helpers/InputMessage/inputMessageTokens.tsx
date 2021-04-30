@@ -10,8 +10,8 @@ export const inputMessageTokens = {
     padding: `${Spacing.SizesDdsSpacingLocalX0125} ${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX0125} ${Spacing.SizesDdsSpacingLocalX05}`,
     maxWidth: '320px',
     font: {
-        tip: FontPackages.sansRegularx0_875,
-        error: FontPackages.sansBoldx0_875
+        tip: FontPackages.sansRegularx0_875.base,
+        error: FontPackages.sansBoldx0_875.base
     },
     colors: {
         tip: {
