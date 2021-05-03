@@ -7,8 +7,7 @@ const {
 } = ddsBaseTokens;
 
 export const inputMessageTokens = {
-    padding: `${Spacing.SizesDdsSpacingLocalX0125} ${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX0125} ${Spacing.SizesDdsSpacingLocalX05}`,
-    maxWidth: '320px',
+    padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
     font: {
         tip: FontPackages.sansRegularx0_875.base,
         error: FontPackages.sansBoldx0_875.base

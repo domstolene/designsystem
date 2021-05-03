@@ -7,7 +7,7 @@ const InputMessageWrapper = styled.div<{messageType: MessageType, maxWidth?: str
     display: flex;
     width: fit-content;
     word-break: break-word;
-    max-width: ${({ maxWidth }) => maxWidth ? maxWidth : tokens.maxWidth};
+    max-width: ${({ maxWidth }) => maxWidth ? maxWidth : '100%'};
     padding: ${tokens.padding};
     ${({messageType}) => css`
         ${tokens.font[messageType]}
