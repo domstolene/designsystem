@@ -55,7 +55,7 @@ const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string,
     `;
 }
 
-const Label = styled.label<{multiline: boolean}>`
+const Label = styled.label<{multiline: boolean, disabled: boolean}>`
     position: absolute;
     top: 0;
     left: 0;
@@ -67,12 +67,15 @@ const Label = styled.label<{multiline: boolean}>`
         width: calc(100% - 20px);
         ${tokens.label.multiline.base}
     `}
+    ${({disabled, multiline}) => (disabled && multiline) && css`
+      background-color: ${tokens.disabled.base.backgroundColor};
+    `}
 `;
 
 const InputFieldWrapper = styled.div<{width?: string}>`
     display: flex;
     flex-direction: column;
-    width: ${({width}) => width ? width : '320px'};
+    width: ${({width}) => width ? width : tokens.wrapper.base.width};
 `;
 
 const InputFieldContainer = styled.div<{multiline?: boolean, label?: string}>`
@@ -81,7 +84,16 @@ const InputFieldContainer = styled.div<{multiline?: boolean, label?: string}>`
     ${({multiline}) => multiline && css`
     display: inline-block;
     `}
-    height: ${({multiline, label}) => multiline ? 'auto' : label ? '72px' : '48px'};
+    height: ${({multiline, label}) => {
+        if(multiline) {
+            if(label) {
+                return tokens.container.multiline.withLabel.height;
+            }
+            return tokens.container.multiline.noLabel.height;
+        }
+        if(label) return  tokens.container.singleline.withLabel.height;
+        return tokens.container.singleline.noLabel.height;
+        }};
 `;
 
 const Input = styled.input<{ readOnly?: boolean, errorMessage?: string, label?: string, disabled?: boolean}>`
@@ -93,10 +105,17 @@ const TextArea = styled.textarea<{ disabled?: boolean, readOnly?: boolean, error
    resize: vertical;
    height: auto;
    ${scrollbarStyling}
-   min-height: 97px;
+   min-height: ${({label}) => label ? tokens.container.multiline.withLabel.height : tokens.container.multiline.noLabel.height };
    ${tokens.multiline.base}
+   ${({label}) => label ? css`
+    ${tokens.multiline.withLabel.base}
+    `
+    : css`
+    ${tokens.multiline.noLabel.base}
+    `}
+
    &:hover:enabled ~ label {
-        background-color: ${tokens.hover.base.backgroundColor};
+        background-color: ${({errorMessage}) => errorMessage ? tokens.error.hover.base.backgroundColor : tokens.hover.base.backgroundColor};
     }
 `;
 
@@ -190,7 +209,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                         />
                     }
                     {label &&
-                    <Label multiline={multiline} htmlFor={uniqueId}>
+                    <Label multiline={multiline} disabled={disabled} htmlFor={uniqueId}>
                         {label} {required && <RequiredMarker />}
                     </Label>
                     }

@@ -52,8 +52,14 @@ const inputNoLabelBase: CSSObject = {
  }
 
  const inputMultilineBase: CSSObject = {
-    paddingTop: Spacing.SizesDdsSpacingLocalX2,
     paddingBottom: Spacing.SizesDdsSpacingLocalX05
+ }
+ const inputMultilineWithLabelBase: CSSObject = {
+    paddingTop: Spacing.SizesDdsSpacingLocalX2,
+ }
+
+ const inputMultilineNoLabelBase: CSSObject = {
+    paddingTop: Spacing.SizesDdsSpacingLocalX075,
  }
 
  const inputReadOnlyBase: CSSObject = {
@@ -78,6 +84,27 @@ const inputLabel = {
     }
 }
 
+const wrapperBase: CSSObject = {
+    width: '320px'
+}
+const containerTokens = {
+    singleline: {
+        withLabel: {
+            height: '72px'
+        },
+        noLabel: {
+            height: '48px'
+        }
+    },
+    multiline: {
+        withLabel: {
+            height: '99px'
+        },
+        noLabel: {
+            height: '78px'
+        }
+    }
+}
 
 
  const inputMultilineHoverBase: CSSObject = {
@@ -108,6 +135,12 @@ export const inputTokens = {
     },
     multiline: {
         base: inputMultilineBase,
+        withLabel: {
+            base: inputMultilineWithLabelBase
+        },
+        noLabel: {
+            base: inputMultilineNoLabelBase
+        },
         hover: {
             base: inputMultilineHoverBase
         }
@@ -121,5 +154,9 @@ export const inputTokens = {
             base: inputErrorFocusBase
         }
     },
-    label: inputLabel
+    label: inputLabel,
+    wrapper: {
+        base: wrapperBase
+    },
+    container: containerTokens
 }
