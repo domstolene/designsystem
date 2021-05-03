@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
+import { charCounterTokens as tokens} from './charCounterTokens';
 
-const Wrapper = styled.span`
-    color: ${tokens.colors.DdsColorNeutralsGray6};
-    ${tokens.fontPackages.sansRegularx0_875.base}
+const Wrapper = styled.div`
+    ${tokens.base}
+    ${tokens.font}
 `;
 
 type Props = {
