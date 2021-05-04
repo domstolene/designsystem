@@ -95,6 +95,10 @@ const colors = {
             text: Colors.DdsColorPrimaryBase,
             hover: Colors.DdsColorPrimaryDark,
             active: Colors.DdsColorPrimaryDarker,
+            justIcon: {
+                hover_border: Colors.DdsColorPrimaryDark,
+                active_border: Colors.DdsColorPrimaryDarker,
+            }
         },
         secondary: {
             default: 'transparent',
@@ -102,13 +106,21 @@ const colors = {
             text: Colors.DdsColorNeutralsGray7,
             hover: Colors.DdsColorNeutralsGray8,
             active: Colors.DdsColorNeutralsGray9,
+            justIcon: {
+                hover_border: Colors.DdsColorNeutralsGray8,
+                active_border: Colors.DdsColorNeutralsGray9,
+            }
         },
         danger: {
             default: 'transparent',
             border: 'transparent',
             text: Colors.DdsColorDangerBase,
             hover: Colors.DdsColorDangerDark,
-            active: Colors.DdsColorDangerDarker
+            active: Colors.DdsColorDangerDarker,
+            justIcon: {
+                hover_border: Colors.DdsColorDangerDark,
+                active_border: Colors.DdsColorDangerDarker,
+            }
         }
     }
 }

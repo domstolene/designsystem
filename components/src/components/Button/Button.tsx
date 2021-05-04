@@ -6,7 +6,7 @@ import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import Spinner from '../../helpers/Spinner';
 
-const buttonContentStyle = (purpose: ButtonPurpose, form: Form) => {
+const buttonContentStyle = (purpose: ButtonPurpose, form: Form, label?: string, Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>) => {
 
     return css`
         color: ${tokens.colors[form][purpose].text};
@@ -44,22 +44,30 @@ const buttonContentStyle = (purpose: ButtonPurpose, form: Form) => {
             &:hover {
                 color: ${tokens.colors.borderless[purpose].hover};
                 text-decoration-color: ${tokens.colors.borderless[purpose].hover};
+                ${(!label && Icon) && css`
+                    border-color: ${tokens.colors.borderless[purpose].justIcon.hover_border};
+                    box-shadow: 0 0 0 1px ${tokens.colors.borderless[purpose].justIcon.hover_border};
+                `}
             }
             &:active {
                 color: ${tokens.colors.borderless[purpose].active};
                 text-decoration-color: ${tokens.colors.borderless[purpose].active};
+                ${(!label && Icon) && css`
+                    border-color: ${tokens.colors.borderless[purpose].justIcon.active_border};
+                    box-shadow: 0 0 0 1px ${tokens.colors.borderless[purpose].justIcon.active_border};
+                `}
             }
         `
         }
     `;
 }
 
-const ButtonContent = styled.span<{label?: string, size: Size, purpose: ButtonPurpose, form: Form, iconPosition?: IconPosition}>`
+const ButtonContent = styled.span<{label?: string, size: Size, purpose: ButtonPurpose, form: Form, iconPosition?: IconPosition, Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> }>`
     display: flex;
     align-items: center;
     position: relative;
-    transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s;
-    ${({purpose, form}) => buttonContentStyle(purpose, form)}
+    transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+    ${({label, purpose, form, Icon}) => buttonContentStyle(purpose, form, label, Icon)}
 
     ${({size, label}) => {
         if(size) {
@@ -160,6 +168,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             purpose,
             label,
             size,
+            Icon,
             tabIndex: -1,
             className,
             style
