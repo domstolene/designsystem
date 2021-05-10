@@ -54,7 +54,7 @@ export const OverviewWithText = (args:ButtonProps) => {
 
 export const OverviewJustIcon = (args:ButtonProps) => {
   return (
-    storyHTMLGridTemplate('Button overview - sizes',
+    storyHTMLGridTemplate('Button overview - just icon',
      <>
       <DDSButton {...args} purpose='primary' form='filled' Icon={CloseOutlinedIcon} />
       <DDSButton {...args} purpose='secondary' form='filled' Icon={CloseOutlinedIcon} />
@@ -75,7 +75,7 @@ export const OverviewJustIcon = (args:ButtonProps) => {
 
 export const OverviewSizes = (args:ButtonProps) => {
   return (
-    storyHTMLGridTemplate('Button overview - just icon',
+    storyHTMLGridTemplate('Button overview - sizes',
      <>
       <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='small' />
       <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='medium' />
