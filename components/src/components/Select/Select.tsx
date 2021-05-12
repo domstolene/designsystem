@@ -7,6 +7,7 @@ import { selectTokens as tokens } from './selectTokens';
 import CheckOutlinedIcon  from '@material-ui/icons/CheckOutlined';
 import InlineIconWrapper from '../../helpers/InlineIconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { Option } from 'react-select/src/filters';
 
 const prefix = 'dds-select';
 
@@ -48,17 +49,6 @@ const Container = styled.div<{errorMessage?: string, width?: string, disabled?: 
         }
     `}
 
-    ${({disabled}) => disabled && css`
-        cursor: not-allowed;
-        ${tokens.container.disabled.base}
-    `}
-    ${({readOnly}) => readOnly && css`
-        ${tokens.container.readOnly.base}
-        .${prefix}__dropdown-indicator {
-            color: transparent
-        }
-    `}
-
     .${prefix}__menu-list {
       ${scrollbarStyling}
     }
@@ -66,21 +56,50 @@ const Container = styled.div<{errorMessage?: string, width?: string, disabled?: 
         margin: ${tokens.option.selected.icon.margin};
     }
     &:hover .${prefix}__dropdown-indicator, &:focus-within .${prefix}__dropdown-indicator {
-        color: ${tokens.container.focus.base.borderColor}
+        ${tokens.dropdownIndicator.hover.base}
     }
+
+    ${({disabled}) => disabled && css`
+        cursor: not-allowed;
+        ${tokens.container.disabled.base}
+        &:hover {
+            box-shadow: none;
+            ${tokens.container.disabled.base}
+            ${Label} {
+                ${tokens.label.base}
+            }
+            &:hover .${prefix}__dropdown-indicator {
+                ${tokens.dropdownIndicator.base}
+            }
+        }
+    `}
+    ${({readOnly}) => readOnly && css`
+        ${tokens.container.readOnly.base}
+        &:hover {
+            box-shadow: none;
+            ${tokens.container.readOnly.base}
+            ${Label} {
+                ${tokens.label.base}
+            }
+        }
+        .${prefix}__dropdown-indicator, &:hover .${prefix}__dropdown-indicator {
+            ${tokens.dropdownIndicator.readOnly.base}
+        }
+    `}
+
 `;
 
 const Wrapper = styled.div`
     margin: 0;
 `;
 
-const { Option, NoOptionsMessage } = components;
+const { Option: DdsOption, NoOptionsMessage } = components;
 
 const IconOption = (props: any) => (
-  <Option {...props}>
+  <DdsOption {...props}>
     { props.isSelected && <InlineIconWrapper Icon={CheckOutlinedIcon} className={`${prefix}__selected-icon`} /> }
     {props.data.label}
-  </Option>
+  </DdsOption>
 )
 
 const NoOptionsMessageCustom = (props: any) => (
@@ -108,13 +127,11 @@ const customStyles: Partial<Styles<any, false, any>> = {
             ...tokens.dropdownIndicator.base,
         }
     },
-    control: (provided, state) => {
+    control: () => {
         return {
             position: 'relative',
             display: 'flex',
             flexWrap: 'wrap',
-            border: state.isFocused ? "none" : "none",
-            boxShadow: state.isFocused ? "none" : "none",
             ...tokens.input.base
         }
     },
@@ -148,6 +165,7 @@ const customStyles: Partial<Styles<any, false, any>> = {
         return {
             display: 'flex',
             alignItems: 'center',
+            transition: '0.2s',
             ...tokens.option.base,
             '&:hover': {
                 ...tokens.option.hover.base
@@ -169,16 +187,8 @@ const customStyles: Partial<Styles<any, false, any>> = {
             }
         }
     },
-    // indicatorsContainer: () => {
-    //     return {
-    //         display: 'flex'
-    //     }
-    // }
     input: () => {
-        return {
-      margin: '0 2px',
-      padding: 0
-    }
+        return {}
     }
 };
 
@@ -204,13 +214,16 @@ export type SelectProps = {
     errorMessage?: string;
     tip?: string;
     width?: string;
+    loading?: boolean,
+    className?: string;
+    style?: React.CSSProperties;
 
 } & HTMLAttributes<HTMLSelectElement>
 
 let nextUniqueId = 0;
 
-export const Select = forwardRef<any, SelectProps>(
-    ({id, label, placeholder, errorMessage, items, tip, required, disabled, readOnly, width, ...rest}, ref) => {
+export const Select = forwardRef<HTMLDivElement, SelectProps>(
+    ({id, label, placeholder, errorMessage, items, tip, required, disabled, readOnly, width, loading, className, style, onChange, ...rest}, ref) => {
 
         const options: { value: string; label: string; }[] = [];
         items.forEach((e) => {
@@ -223,7 +236,9 @@ export const Select = forwardRef<any, SelectProps>(
             errorMessage,
             width,
             disabled,
-            readOnly
+            readOnly,
+            className,
+            style
         }
 
         const inputProps = {
@@ -233,25 +248,34 @@ export const Select = forwardRef<any, SelectProps>(
             isDisabled: disabled || readOnly,
             isClearable: true,
             inputId: uniqueId,
+            name: uniqueId,
+            isLoading: loading,
             classNamePrefix: prefix,
             styles: customStyles,
+            filterOption: (option: Option, inputValue: string) => {
+                            const { label } = option;
+                            return searchFilter(label, inputValue) || inputValue === '';
+                        },
+            components: { Option: IconOption, NoOptionsMessage: NoOptionsMessageCustom },
+            onChange,
+            // menuIsOpen brukes til testing når listen med alternativer skal alltid være åpen
             // menuIsOpen: true
         }
 
         return (
-            <Wrapper>
-                <Container {...containerProps}>
-                    <Label htmlFor={uniqueId}>
+            <Wrapper
+                ref={ref}
+            >
+                <Container
+                    {...containerProps}
+                >
+                    <Label
+                        htmlFor={uniqueId}
+                    >
                         {label} {required && <RequiredMarker />}
                     </Label>
                     <ReactSelect
-                    ref={ref}
-                    components={{ Option: IconOption, NoOptionsMessage: NoOptionsMessageCustom }}
-                    {...inputProps}
-                    filterOption={(option, inputValue) => {
-                        const { label } = option;
-                        return searchFilter(label, inputValue) || inputValue === '';
-                    }}
+                        {...inputProps}
                     />
                 </Container>
                 {errorMessage ?
