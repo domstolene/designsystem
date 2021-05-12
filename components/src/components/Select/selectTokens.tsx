@@ -26,6 +26,7 @@ const containerBase: CSSObject = {
     borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
     border: '1px solid',
     borderColor: Colors.DdsColorNeutralsGray5,
+    backgroundColor: Colors.DdsColorNeutralsWhite,
     height: '72px',
     width: '320px'
 }
@@ -65,9 +66,22 @@ const dropdownIndicatorBase: CSSObject = {
     color: Colors.DdsColorNeutralsGray6,
     padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
 }
+
+const dropdownIndicatorHoverBase: CSSObject = {
+    color: Colors.DdsColorPrimaryBase
+}
+
+const drodownIndicatorReadOnlyBase: CSSObject = {
+    color: 'transparent'
+}
+
 const clearIndicatorBase: CSSObject = {
     color: Colors.DdsColorNeutralsGray6,
     padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
+}
+
+const clearIndicatorHoverBase: CSSObject = {
+    color: Colors.DdsColorPrimaryBase
 }
 
 const optionsListBase: CSSObject = {
@@ -98,12 +112,10 @@ const noOptionsMessageBase: CSSObject = {
     ...FontPackages.sansItalicx1.base
 }
 
-const clearIndicatorHoverBase: CSSObject = {
-    color: Colors.DdsColorPrimaryBase
-}
 
 const containerDisabledBase: CSSObject = {
-    backgroundColor: Colors.DdsColorNeutralsGray1
+    backgroundColor: Colors.DdsColorNeutralsGray1,
+    borderColor: Colors.DdsColorNeutralsGray5,
 }
 
 const containerReadOnlyBase: CSSObject = {
@@ -168,7 +180,13 @@ export const selectTokens = {
         }
     },
     dropdownIndicator: {
-        base: dropdownIndicatorBase
+        base: dropdownIndicatorBase,
+        hover: {
+            base: dropdownIndicatorHoverBase
+        },
+        readOnly: {
+            base: drodownIndicatorReadOnlyBase
+        }
     },
     noOptionsMessage: {
         base: noOptionsMessageBase
@@ -177,6 +195,6 @@ export const selectTokens = {
         base: clearIndicatorBase,
         hover: {
             base: clearIndicatorHoverBase
-        }
+        },
     }
 }
