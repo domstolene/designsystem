@@ -1,4 +1,5 @@
 import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
+import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 import { Select as DDSSelect, SelectProps } from './Select';
 
 export default {
@@ -12,7 +13,9 @@ export default {
         placeholder: { control: { type: 'text' } },
         disabled: { control: { type: 'boolean' } },
         required: { control: { type: 'boolean' } },
-        readOnly: { control: { type: 'boolean' } }
+        readOnly: { control: { type: 'boolean' } },
+        loading: { control: { type: 'boolean' } },
+        className: { control: { type: 'text' } }
     },
 }
 
@@ -34,13 +37,30 @@ const itemsLong = [
     'Alternativ 6',
     'Alternativ 7'
 ];
-export const Select = (args: SelectProps) => {
-    return storyHTMLTemplate('Select', <DDSSelect {...args} label={args.label || 'Label'} items={items} />);
+
+export const Overview = (args: SelectProps) => {
+    return storyHTMLGridTemplate('Select - overview',
+    <>
+    <DDSSelect {...args} label={args.label || 'Label'} items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} required items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} disabled items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} readOnly items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} errorMessage='Dette er en feilmelding' items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} tip='Dette er en hjelpetekst' items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} placeholder='Annerledes placeholder' items={items} />
+    </>,
+    '25px',
+    2
+    );
 }
-export const SelectLong = (args: SelectProps) => {
-    return storyHTMLTemplate('Select long', <DDSSelect {...args} label={args.label || 'Label'} items={itemsLong} />);
+
+export const Default = (args: SelectProps) => {
+    return storyHTMLTemplate('Select default', <DDSSelect {...args} label={args.label || 'Label'} items={items} />);
+}
+export const ManyItems = (args: SelectProps) => {
+    return storyHTMLTemplate('Select - many items', <DDSSelect {...args} label={args.label || 'Label'} items={itemsLong} />);
 }
 
 export const SelectError = (args: SelectProps) => {
-    return storyHTMLTemplate('Select', <DDSSelect {...args} label={args.label || 'Label'} errorMessage='Dette er en feilmelding' items={items} />);
+    return storyHTMLTemplate('Select - error', <DDSSelect {...args} label={args.label || 'Label'} errorMessage='Dette er en feilmelding' items={items} />);
 }
