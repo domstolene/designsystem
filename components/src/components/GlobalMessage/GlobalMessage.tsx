@@ -22,7 +22,7 @@ const Container = styled.div<{purpose: GlobalMessagePurpose}>`
 const IconWrapper = styled.div<{purpose: GlobalMessagePurpose}>`
     display: flex;
     ${({purpose}) => purpose && css`
-        color: ${tokens.container[purpose].iconColor};
+        color: ${tokens.icon[purpose].color};
     `}
     margin-right: ${tokens.icon.marginRight};
 `;
