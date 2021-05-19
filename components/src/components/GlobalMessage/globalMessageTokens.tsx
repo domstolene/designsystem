@@ -45,18 +45,12 @@ export const globalMessageTokens = {
         base: containerBase,
         info: {
             base: containerInfoBase,
-            iconColor: Colors.DdsColorPrimaryDarkest,
-            buttonPurpose: 'secondary'
         },
         danger: {
             base: containerDangerBase,
-            iconColor: Colors.DdsColorDangerDarkest,
-            buttonPurpose: 'danger'
         },
         warning: {
             base: containerWarningBase,
-            iconColor: Colors.DdsColorWarningDarkest,
-            buttonPurpose: 'secondary'
         },
     },
     contentContainer: {
