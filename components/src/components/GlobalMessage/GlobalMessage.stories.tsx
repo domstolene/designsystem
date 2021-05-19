@@ -13,11 +13,9 @@ export const Overview = (args: GlobalMessageProps) => {
             <DDSGlobalMessage {...args} purpose='info' message='En tilfeldig melding' />
             <DDSGlobalMessage {...args} purpose='warning' message='En tilfeldig melding' />
             <DDSGlobalMessage {...args} purpose='danger' message='En tilfeldig melding' />
-            <DDSGlobalMessage {...args} purpose='system' message='En tilfeldig melding' />
             <DDSGlobalMessage {...args} purpose='info' message='En tilfeldig melding' closable />
             <DDSGlobalMessage {...args} purpose='warning' message='En tilfeldig melding' closable />
             <DDSGlobalMessage {...args} purpose='danger' message='En tilfeldig melding' closable />
-            <DDSGlobalMessage {...args} purpose='system' message='En tilfeldig melding' closable />
         </>
     );
 }

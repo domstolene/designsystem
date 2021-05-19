@@ -1,16 +1,13 @@
 import styled, {css} from 'styled-components';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
-import { Button } from '../Button';
+import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { globalMessageTokens as tokens } from './globalMessageTokens';
 
 const stylingBase = (purpose: GlobalMessagePurpose) => {
     return css`
-        ${tokens.base}
-        ${tokens.typography.font}
-        color: ${tokens.typography[purpose].color};
-        border-color: ${tokens[purpose].color.border};
-        background-color: ${tokens[purpose].color.background};
+        ${tokens.container.base}
+        ${tokens.container[purpose].base}
     `;
 }
 
@@ -25,7 +22,7 @@ const Container = styled.div<{purpose: GlobalMessagePurpose}>`
 const IconWrapper = styled.div<{purpose: GlobalMessagePurpose}>`
     display: flex;
     ${({purpose}) => purpose && css`
-        color: ${tokens[purpose].color.icon};
+        color: ${tokens.container[purpose].iconColor};
     `}
     margin-right: ${tokens.icon.marginRight};
 `;
@@ -41,7 +38,7 @@ const ContentContainer = styled.div`
     ${tokens.contentContainer.base}
 `;
 
-type GlobalMessagePurpose = 'info' | 'warning' | 'danger' | 'system';
+type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 
 export type GlobalMessageProps = {
     message: string;
@@ -53,21 +50,22 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     ({message, purpose, closable, children, ...rest}, ref) => {
 
     const [isClosed, setClosed] = useState(false);
+    const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     return (
         !isClosed ?
         <Container purpose={purpose} ref={ref} {...rest}>
             <ContentContainer>
                 <IconWrapper purpose={purpose}>
-                    {tokens[purpose].icon}
+                    {tokens.icon[purpose].icon}
                 </IconWrapper>
-                <span>{children ? children : message ? message : ''}</span>
+                <span>{children ?? message}</span>
             </ContentContainer>
             <ControlsContainer>
                 {closable ?
                     <Button
                         Icon={CloseOutlinedIcon}
-                        purpose={purpose === 'danger' ? purpose : 'secondary'}
+                        purpose={buttonPurpose}
                         form='borderless'
                         onClick={() => setClosed(true)}
                         size='small'

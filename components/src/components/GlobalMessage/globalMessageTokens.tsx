@@ -14,76 +14,78 @@ const {
 const containerBase: CSSObject = {
     borderBottom: '1px solid',
     padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX1}`,
-    minHeight: '48px',
-    width: '100%'
+    width: '100%',
+    ...FontPackages.sansRegularx1.base,
+    color: Colors.DdsColorNeutralsGray8,
 }
 
 const contentContainerBase: CSSObject = {
-    marginRight: Spacing.SizesDdsSpacingLocalX15
+    marginRight: Spacing.SizesDdsSpacingLocalX15,
+    paddingTop: Spacing.SizesDdsSpacingLocalX05,
+    paddingBottom: Spacing.SizesDdsSpacingLocalX05,
+}
+
+const containerInfoBase: CSSObject = {
+    borderColor: Colors.DdsColorPrimaryLighter,
+    backgroundColor: Colors.DdsColorPrimaryLightest,
+}
+
+const containerDangerBase: CSSObject = {
+    borderColor: Colors.DdsColorDangerLighter,
+    backgroundColor: Colors.DdsColorDangerLightest,
+}
+
+const containerWarningBase: CSSObject = {
+    borderColor: Colors.DdsColorWarningLighter,
+    backgroundColor: Colors.DdsColorWarningLightest,
 }
 
 export const globalMessageTokens = {
-    base: containerBase,
+    container: {
+        base: containerBase,
+        info: {
+            base: containerInfoBase,
+            iconColor: Colors.DdsColorPrimaryDarkest,
+            buttonPurpose: 'secondary'
+        },
+        danger: {
+            base: containerDangerBase,
+            iconColor: Colors.DdsColorDangerDarkest,
+            buttonPurpose: 'danger'
+        },
+        warning: {
+            base: containerWarningBase,
+            iconColor: Colors.DdsColorWarningDarkest,
+            buttonPurpose: 'secondary'
+        },
+    },
     contentContainer: {
         base: contentContainerBase
     },
     icon: {
         marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
-    },
-    size: {
-        small: '',
-        medium: '',
-        large: ''
-    },
-    typography: {
-        font: FontPackages.sansRegularx1.base,
         info: {
-            color: Colors.DdsColorNeutralsGray8
+            icon: <InfoOutlinedIcon />,
+            color: Colors.DdsColorPrimaryDarkest,
         },
         danger: {
-            color: Colors.DdsColorNeutralsGray8
+            icon: <DangerOutlinedIcon />,
+            color: Colors.DdsColorDangerDarkest,
         },
         warning: {
-            color: Colors.DdsColorNeutralsGray8
-        },
-        system: {
-            color: Colors.DdsColorNeutralsWhite
+            icon: <WarningOutlinedIcon />,
+            color: Colors.DdsColorWarningDarkest,
         },
     },
-    info: {
-        color: {
-            border: Colors.DdsColorPrimaryLighter,
-            background: Colors.DdsColorPrimaryLightest,
-            icon: Colors.DdsColorPrimaryDarkest,
-            button: 'secondary'
+    button: {
+        info: {
+            purpose: 'secondary'
         },
-        icon: <InfoOutlinedIcon />
-    },
-    danger: {
-        color: {
-            border: Colors.DdsColorDangerLighter,
-            background: Colors.DdsColorDangerLightest,
-            icon: Colors.DdsColorDangerDarkest,
-            button: 'danger'
+        danger: {
+            purpose: 'danger'
         },
-        icon: <DangerOutlinedIcon />
-    },
-    warning: {
-        color: {
-            border: Colors.DdsColorWarningLighter,
-            background: Colors.DdsColorWarningLightest,
-            icon: Colors.DdsColorWarningDarkest,
-            button: 'secondary'
+        warning: {
+            purpose: 'secondary'
         },
-        icon: <WarningOutlinedIcon />
-    },
-    system: {
-        color: {
-            border: Colors.DdsColorNeutralsGray9,
-            background: Colors.DdsColorNeutralsGray8,
-            icon: Colors.DdsColorNeutralsWhite,
-            button: 'secondary'
-        },
-        icon: <EmojiObjectsOutlinedIcon />
     }
 }
