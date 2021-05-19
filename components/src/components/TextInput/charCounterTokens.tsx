@@ -8,7 +8,7 @@ const {
     borderRadius: BorderRadius,
 } = ddsBaseTokens;
 
-export const charCounterBase: CSSObject = {
+const charCounterBase: CSSObject = {
     color: Colors.DdsColorNeutralsGray6,
     padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
 }
