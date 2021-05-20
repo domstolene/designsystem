@@ -3,7 +3,7 @@ import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
 import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 
 export default {
-  title: 'Design system/Checkbox2',
+  title: 'Design system/Checkbox/Checkbox2',
   component: DDSCheckbox,
   argTypes: {
     label: { control: { type: 'text' } },
