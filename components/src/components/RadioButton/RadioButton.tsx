@@ -105,23 +105,24 @@ export type RadioButtonProps = {
 let nextUniqueId = 0;
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
-    ({id, name, label, disabled, readOnly, error, style, className, children, ...rest}, ref) => {
+    ({id, name, label, disabled, readOnly, error, style, className, children, required, ...rest}, ref) => {
 
         const [uniqueId] = useState<string>(id ?? `radioButton-${nextUniqueId++}`);
 
-        const radioGroup = useRadioButtonGroup();
+        const radioButtonGroup = useRadioButtonGroup();
 
         const inputProps = {
             id: uniqueId,
-            name,
-            disabled: disabled || readOnly,
+            name: name ?? radioButtonGroup?.name,
+            disabled: disabled || readOnly || radioButtonGroup?.disabled || radioButtonGroup?.readOnly,
+            required: required || radioButtonGroup?.required,
             ...rest
         }
 
         const containerProps = {
-            error,
-            disabled,
-            readOnly,
+            error: error || radioButtonGroup?.error,
+            disabled: disabled || radioButtonGroup?.disabled,
+            readOnly: readOnly || radioButtonGroup?.readOnly,
             style,
             className
         }

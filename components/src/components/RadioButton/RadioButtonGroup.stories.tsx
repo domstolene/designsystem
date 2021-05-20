@@ -9,8 +9,8 @@ export default {
   argTypes: {
     label: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
-    // disabled: { control: { type: 'boolean' } },
-    // readOnly: { control: { type: 'boolean' } },
+    disabled: { control: { type: 'boolean' } },
+    readOnly: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     className: {control: {type: 'text'}},
   },
@@ -29,7 +29,7 @@ export const Default = (args: RadioButtonGroupProps) => {
 
 export const Overview = (args: RadioButtonGroupProps) => {
     return storyHTMLGridTemplate(
-        'Radio button group - default',
+        'Radio button group - overview',
         <>
             <DDSRadioButtonGroup {...args} direction='row' label='Label'>
                 <DDSRadioButton label='Option 1' name='test' />

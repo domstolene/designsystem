@@ -3,6 +3,7 @@ import styled from "styled-components";
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import { radioButtonGroupTokens as tokens } from './radioButtonGroupTokens';
+import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 
 const Container = styled.div`
     display: flex;
@@ -22,9 +23,12 @@ const Label = styled.label`
 type Direction = 'column' | 'row';
 
 export type RadioButtonGroupProps = {
+    name?: string;
     label?: string;
     errorMessage?: string;
     tip?: string;
+    disabled?: boolean;
+    readOnly?: boolean;
     direction?: Direction;
     children?: React.ReactNode;
     required?: boolean;
@@ -32,7 +36,7 @@ export type RadioButtonGroupProps = {
     style?: React.CSSProperties;
 }
 
-export const RadioButtonGroup = ({label, errorMessage, tip, direction, children, required, className, style, ...rest}: RadioButtonGroupProps) => {
+export const RadioButtonGroup = ({name, label, errorMessage, tip, disabled, readOnly, direction, children, required, className, style, ...rest}: RadioButtonGroupProps) => {
 
     const containerProps = {
         className,
@@ -40,12 +44,22 @@ export const RadioButtonGroup = ({label, errorMessage, tip, direction, children,
         ...rest
     }
 
+    const contextProps = {
+        name,
+        disabled,
+        error: !!errorMessage,
+        required,
+        readOnly
+    }
+
     return (
         <Container {...containerProps}>
             <Label>{label} {required && <RequiredMarker />}</Label>
-            <GroupContainer direction={direction}>
-                {children}
-            </GroupContainer>
+            <RadioButtonGroupContext.Provider value={{...contextProps}}>
+                <GroupContainer role='radiogroup' direction={direction}>
+                    {children}
+                </GroupContainer>
+            </RadioButtonGroupContext.Provider>
             {errorMessage ?
                 <InputMessage message={errorMessage} messageType={'error'} />
                 : tip ?
