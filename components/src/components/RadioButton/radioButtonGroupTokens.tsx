@@ -14,6 +14,7 @@ const labelBase: CSSObject = {
 
 export const radioButtonGroupTokens = {
     label: {
-        base: labelBase
+        base: labelBase,
+        spaceLeft: Spacing.SizesDdsSpacingLocalX025
     }
 }

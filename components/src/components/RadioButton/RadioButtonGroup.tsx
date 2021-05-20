@@ -16,6 +16,7 @@ const GroupContainer = styled.div<{direction?: Direction}>`
 
 const Label = styled.label`
     ${tokens.label.base}
+    padding-left: ${tokens.label.spaceLeft};
 `;
 
 type Direction = 'column' | 'row';
