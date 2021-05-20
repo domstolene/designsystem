@@ -16,7 +16,7 @@ export default {
 
 export const TextInputOverview = (args: TextInputProps) => {
     return (
-        storyHTMLTemplate('TextInput - overview',
+        storyHTMLGridTemplate('TextInput - overview',
             <>
                 <TextInput {...args} label={args.label || 'Label'} id='test' />
                 <TextInput {...args} id='test2' />
@@ -30,7 +30,9 @@ export const TextInputOverview = (args: TextInputProps) => {
                 <TextInput {...args} id='test6' tip={args.tip || 'Dette er en hjelpetekst'} />
                 <TextInput {...args} label={args.label || 'Label'} id='test7' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxCharCount={20} />
                 <TextInput {...args} id='test8' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxCharCount={20} />
-            </>
+            </>,
+            '20px',
+            2
         )
     );
 }
