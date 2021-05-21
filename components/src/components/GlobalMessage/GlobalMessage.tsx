@@ -15,7 +15,6 @@ const Container = styled.div<{purpose: GlobalMessagePurpose}>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     ${({purpose}) => stylingBase(purpose)}
 `;
 
@@ -32,10 +31,14 @@ const ControlsContainer = styled.div`
     align-items: center;
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.div<{closable?: boolean}>`
     display: flex;
     align-items: center;
     ${tokens.contentContainer.base}
+    ${({closable}) => closable && css`
+        ${tokens.contentContainer.withClosable.base}
+    `}
+
 `;
 
 type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
@@ -43,7 +46,7 @@ type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 export type GlobalMessageProps = {
     message: string;
     purpose: GlobalMessagePurpose;
-    closable: boolean;
+    closable?: boolean;
 } & HTMLAttributes<HTMLDivElement>
 
 export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
@@ -55,7 +58,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     return (
         !isClosed ?
         <Container purpose={purpose} ref={ref} {...rest}>
-            <ContentContainer>
+            <ContentContainer closable={closable}>
                 <IconWrapper purpose={purpose}>
                     {tokens.icon[purpose].icon}
                 </IconWrapper>
@@ -68,7 +71,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
                         purpose={buttonPurpose}
                         form='borderless'
                         onClick={() => setClosed(true)}
-                        size='small'
+                        size='medium'
                     />
                     : null
                 }

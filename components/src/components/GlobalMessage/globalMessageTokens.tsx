@@ -2,7 +2,6 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import WarningOutlinedIcon from '@material-ui/icons/ReportOutlined';
 import DangerOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import { CSSObject } from 'styled-components';
 
 const {
@@ -12,17 +11,21 @@ const {
 } = ddsBaseTokens;
 
 const containerBase: CSSObject = {
-    borderBottom: '1px solid',
-    padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX1}`,
+    borderBottom: '2px solid',
+    padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
     width: '100%',
     ...FontPackages.sansRegularx1.base,
     color: Colors.DdsColorNeutralsGray8,
 }
 
 const contentContainerBase: CSSObject = {
-    marginRight: Spacing.SizesDdsSpacingLocalX15,
-    paddingTop: Spacing.SizesDdsSpacingLocalX05,
-    paddingBottom: Spacing.SizesDdsSpacingLocalX05,
+    paddingRight: Spacing.SizesDdsSpacingLocalX15,
+    paddingTop: Spacing.SizesDdsSpacingLocalX075,
+    paddingBottom: Spacing.SizesDdsSpacingLocalX075,
+}
+
+const contentContainerWithClosableBase: CSSObject = {
+    paddingRight: Spacing.SizesDdsSpacingLocalX075,
 }
 
 const containerInfoBase: CSSObject = {
@@ -54,7 +57,10 @@ export const globalMessageTokens = {
         },
     },
     contentContainer: {
-        base: contentContainerBase
+        base: contentContainerBase,
+        withClosable: {
+            base: contentContainerWithClosableBase
+        }
     },
     icon: {
         marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
