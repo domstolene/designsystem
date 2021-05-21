@@ -3,6 +3,7 @@ import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { localMessageTokens as tokens } from './localMessageTokens';
+import * as CSS from "csstype";
 
 const stylingBase = (purpose: LocalMessagePurpose) => {
     return css`
@@ -11,12 +12,12 @@ const stylingBase = (purpose: LocalMessagePurpose) => {
     `;
 }
 
-const Container = styled.div<{purpose: LocalMessagePurpose, width?: string}>`
+const Container = styled.div<{purpose: LocalMessagePurpose, width: CSS.Property.Width<string | number>}>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: ${({width}) => width? width : tokens.container.base.width};
     ${({purpose}) => stylingBase(purpose)}
+    width: ${({width}) => width};
 `;
 
 const IconWrapper = styled.div<{purpose: LocalMessagePurpose}>`
@@ -44,7 +45,7 @@ export type LocalMessageProps = {
     message?: string;
     purpose: LocalMessagePurpose;
     closable: boolean;
-    width?: string;
+    width: CSS.Property.Width<string | number>;
 } & HTMLAttributes<HTMLDivElement>
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
@@ -80,5 +81,6 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 });
 
 LocalMessage.defaultProps = {
-    purpose: 'info'
+    purpose: 'info',
+    width: tokens.container.base.width,
 }
