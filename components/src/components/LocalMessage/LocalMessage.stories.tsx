@@ -3,7 +3,10 @@ import { LocalMessage as DDSLocalMessage, LocalMessageProps } from './LocalMessa
 
 export default {
     title: 'design system/LocalMessage',
-    component: DDSLocalMessage
+    component: DDSLocalMessage,
+    argTypes: {
+    message: { control: { type: 'text' } },
+  },
 }
 
 export const Overview = (args: LocalMessageProps) => {
