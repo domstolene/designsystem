@@ -5,6 +5,7 @@ import DangerOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import { CSSObject } from 'styled-components';
+import * as CSS from 'csstype';
 
 const {
     colors: Colors,
@@ -19,10 +20,11 @@ const containerBase: CSSObject = {
     borderRadius: BorderRadius.RadiiDdsBorderRadius2Radius,
     border: '2px solid',
     padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
-    width: '400px',
     ...FontPackages.sansRegularx1.base,
     color: Colors.DdsColorNeutralsGray8
 }
+
+const defaultWidth: CSS.Property.Width<string> = '400px';
 
 const contentContainerBase: CSSObject = {
     padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX075} 0`
@@ -61,6 +63,7 @@ const containerConfidentialBase: CSSObject = {
 export const localMessageTokens = {
     container: {
         base: containerBase,
+        defaultWidth: defaultWidth,
         info: {
             base: containerInfoBase,
             iconColor: Colors.DdsColorPrimaryDarkest,

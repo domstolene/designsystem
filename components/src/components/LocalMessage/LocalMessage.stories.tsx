@@ -6,6 +6,7 @@ export default {
     component: DDSLocalMessage,
     argTypes: {
     message: { control: { type: 'text' } },
+    width: { control: { type: 'text' } },
   },
 }
 

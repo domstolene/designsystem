@@ -12,7 +12,7 @@ const stylingBase = (purpose: LocalMessagePurpose) => {
     `;
 }
 
-const Container = styled.div<{purpose: LocalMessagePurpose, width: CSS.Property.Width<string | number>}>`
+const Container = styled.div<{purpose: LocalMessagePurpose, width: CSS.Property.Width<string>}>`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,7 +45,7 @@ export type LocalMessageProps = {
     message?: string;
     purpose: LocalMessagePurpose;
     closable: boolean;
-    width: CSS.Property.Width<string | number>;
+    width: CSS.Property.Width<string>;
 } & HTMLAttributes<HTMLDivElement>
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
@@ -82,5 +82,5 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 
 LocalMessage.defaultProps = {
     purpose: 'info',
-    width: tokens.container.base.width,
+    width: tokens.container.defaultWidth,
 }
