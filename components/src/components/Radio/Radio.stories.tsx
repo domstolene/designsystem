@@ -8,6 +8,7 @@ export const Radio = () => {
     <div className="component-container">
       <h2> Radio button</h2>
       <hr />
+      <div>OBS! kun til testing i Aktørportalen</div>
       <RadioGroup
         name="test"
         aria-label="test"
