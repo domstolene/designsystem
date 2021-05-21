@@ -33,10 +33,13 @@ const ControlsContainer = styled.div`
     align-items: center;
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.div<{closable?: boolean}>`
     display: flex;
     align-items: center;
     ${tokens.contentContainer.base}
+    ${({closable}) => closable && css`
+        ${tokens.contentContainer.withClosable.base}
+    `}
 `;
 
 type LocalMessagePurpose = 'info' | 'warning' | 'danger' | 'confidential' | 'success' | 'tips';
@@ -44,7 +47,7 @@ type LocalMessagePurpose = 'info' | 'warning' | 'danger' | 'confidential' | 'suc
 export type LocalMessageProps = {
     message?: string;
     purpose: LocalMessagePurpose;
-    closable: boolean;
+    closable?: boolean;
     width: CSS.Property.Width<string>;
 } & HTMLAttributes<HTMLDivElement>
 
@@ -57,7 +60,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     return (
         !isClosed ?
         <Container purpose={purpose} width={width} ref={ref} {...rest}>
-            <ContentContainer>
+            <ContentContainer closable={closable}>
                 <IconWrapper purpose={purpose}>
                     {tokens.icon[purpose].icon}
                 </IconWrapper>

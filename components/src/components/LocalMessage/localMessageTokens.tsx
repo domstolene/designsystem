@@ -27,7 +27,13 @@ const containerBase: CSSObject = {
 const defaultWidth: CSS.Property.Width<string> = '400px';
 
 const contentContainerBase: CSSObject = {
-    padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX075} 0`
+    paddingRight: Spacing.SizesDdsSpacingLocalX15,
+    paddingTop: Spacing.SizesDdsSpacingLocalX075,
+    paddingBottom: Spacing.SizesDdsSpacingLocalX075,
+}
+
+const contentContainerWithClosableBase: CSSObject = {
+    paddingRight: Spacing.SizesDdsSpacingLocalX075,
 }
 
 const containerInfoBase: CSSObject = {
@@ -66,38 +72,29 @@ export const localMessageTokens = {
         defaultWidth: defaultWidth,
         info: {
             base: containerInfoBase,
-            iconColor: Colors.DdsColorPrimaryDarkest,
-            buttonPurpose: 'secondary'
         },
         danger: {
             base: containerDangerBase,
-            iconColor: Colors.DdsColorDangerDarkest,
-            buttonPurpose: 'danger'
         },
         warning: {
             base: containerWarningBase,
-            iconColor: Colors.DdsColorWarningDarkest,
-            buttonPurpose: 'secondary'
         },
         success: {
             base: containerSuccessBase,
-            iconColor: Colors.DdsColorPrimaryDarkest,
-            buttonPurpose: 'secondary'
         },
         tips: {
             base: containerTipsBase,
-            iconColor: Colors.DdsColorDangerDarkest,
-            buttonPurpose: 'danger'
         },
         confidential: {
             base: containerConfidentialBase,
-            iconColor: Colors.DdsColorWarningDarkest,
-            buttonPurpose: 'secondary'
         },
 
     },
     contentContainer: {
-        base: contentContainerBase
+        base: contentContainerBase,
+        withClosable: {
+            base: contentContainerWithClosableBase
+        }
     },
     icon: {
         marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
