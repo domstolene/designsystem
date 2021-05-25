@@ -2,6 +2,7 @@ import { RadioButton as DDSRadioButton,  RadioButtonProps } from './RadioButton'
 import { RadioButtonGroup as DDSRadioButtonGroup, RadioButtonGroupProps } from './RadioButtonGroup';
 import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
 import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { ChangeEvent, useState } from 'react';
 
 export default {
   title: 'Design system/Radio/RadioButtonGroup',
@@ -17,12 +18,20 @@ export default {
 };
 
 export const Default = (args: RadioButtonGroupProps) => {
+    const [value, setValue] = useState<number | undefined>();
     return storyHTMLTemplate(
         'Radio button group - default',
-        <DDSRadioButtonGroup {...args} label='Label'>
-            <DDSRadioButton label='Option 1' name='test' />
-            <DDSRadioButton label='Option 2' name='test' />
-            <DDSRadioButton label='Option 3' name='test' />
+        <DDSRadioButtonGroup
+            {...args}
+            label='Label'
+            value={value}
+            onChange={(_event: ChangeEvent<HTMLInputElement>, value: number | undefined) => {
+                setValue(value);
+            }}
+        >
+            <DDSRadioButton value={1} label='Option 1' name='test' />
+            <DDSRadioButton value={2} label='Option 2' name='test' />
+            <DDSRadioButton value={3} label='Option 3' name='test' />
         </DDSRadioButtonGroup>
         );
 }
@@ -54,5 +63,25 @@ export const Overview = (args: RadioButtonGroupProps) => {
         </>,
         '20px',
         2
+        );
+}
+
+export const WithDefaultValue = (args: RadioButtonGroupProps) => {
+
+    const [value, setValue] = useState<number>(2);
+    return storyHTMLTemplate(
+        'Radio button group - default value',
+        <DDSRadioButtonGroup
+            {...args}
+            label='Label'
+            value={value}
+            onChange={(_event: ChangeEvent<HTMLInputElement>, value: number) => {
+                setValue(value);
+            }}
+        >
+            <DDSRadioButton value={1} label='Option 1' name='test' />
+            <DDSRadioButton value={2} label='Option 2' name='test' />
+            <DDSRadioButton value={3} label='Option 3' name='test' />
+        </DDSRadioButtonGroup>
         );
 }

@@ -7,7 +7,7 @@ export interface RadioButtonGroup {
   value?: string | number | null;
   error?: boolean;
   required?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const RadioButtonGroupContext = React.createContext<Nullable<RadioButtonGroup>>(

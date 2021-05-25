@@ -1,4 +1,4 @@
-import React, { forwardRef, InputHTMLAttributes, useState } from 'react';
+import React, { ChangeEvent, forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { RadioButtonGroup, useRadioButtonGroup } from './RadioButtonGroupContext';
 import { radioButtonTokens as tokens } from './radioButtonTokens';
@@ -104,18 +104,36 @@ export type RadioButtonProps = {
 
 let nextUniqueId = 0;
 
+const isValueEqualToGroupValueOrFalsy = (value: any, group: Nullable<RadioButtonGroup>) => {
+  if (typeof value !== 'undefined' && value !== null && group ) {
+    if (typeof value === 'number') {
+        return value === Number(group?.value);
+    }
+    return value === group?.value;
+  }
+  return value;
+};
+
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
-    ({id, name, label, disabled, readOnly, error, style, className, children, required, ...rest}, ref) => {
+    ({id, name, label, disabled, readOnly, error, style, checked, value, className, children, required, onChange, ...rest}, ref) => {
 
         const [uniqueId] = useState<string>(id ?? `radioButton-${nextUniqueId++}`);
 
         const radioButtonGroup = useRadioButtonGroup();
+
+        const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+            onChange && onChange(event);
+            radioButtonGroup?.onChange(event);
+        };
 
         const inputProps = {
             id: uniqueId,
             name: name ?? radioButtonGroup?.name,
             disabled: disabled || readOnly || radioButtonGroup?.disabled || radioButtonGroup?.readOnly,
             required: required || radioButtonGroup?.required,
+            checked: typeof checked !== 'undefined' ? checked : isValueEqualToGroupValueOrFalsy(value, radioButtonGroup),
+            onChange: handleChange,
+            value: value,
             ...rest
         }
 
