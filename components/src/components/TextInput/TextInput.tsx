@@ -5,6 +5,7 @@ import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import CharCounter from './CharCounter';
+import * as CSS from 'csstype';
 
 const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string, disabled?:boolean) => {
     return css`
@@ -50,12 +51,13 @@ const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string,
             }
         `}
         ${readOnly && css`
+            cursor: default;
             ${tokens.readOnly.base}
         `}
     `;
 }
 
-const Label = styled.label<{multiline: boolean, disabled: boolean}>`
+const Label = styled.label<{multiline?: boolean, disabled?: boolean, readOnly?: boolean}>`
     position: absolute;
     top: 0;
     left: 0;
@@ -70,12 +72,15 @@ const Label = styled.label<{multiline: boolean, disabled: boolean}>`
     ${({disabled, multiline}) => (disabled && multiline) && css`
       background-color: ${tokens.disabled.base.backgroundColor};
     `}
+    ${({readOnly, multiline}) => (readOnly && multiline) && css`
+      background-color: ${tokens.readOnly.base.backgroundColor};
+    `}
 `;
 
-const InputFieldWrapper = styled.div<{width?: string}>`
+const InputFieldWrapper = styled.div<{width: CSS.Property.Width<string>}>`
     display: flex;
     flex-direction: column;
-    width: ${({width}) => width ? width : tokens.wrapper.base.width};
+    width: ${({width}) => width };
 `;
 
 const InputFieldContainer = styled.div<{multiline?: boolean, label?: string}>`
@@ -128,20 +133,17 @@ let nextUniqueId = 0;
 
 export type TextInputProps = {
     label?: string;
-    readOnly: boolean;
-    disabled: boolean;
-    required: boolean;
-    multiline: boolean;
+    multiline?: boolean;
     tip?: string;
     maxCharCount?: number;
-    width?: string;
+    width: CSS.Property.Width<string>;
     errorMessage?: string;
     className?: string;
     style?: React.CSSProperties;
 } & InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-    ({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, multiline, onChange, id, width, type = 'text', className, style, ...rest}, ref) => {
+    ({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, maxLength, multiline, onChange, id, width, type = 'text', className, style, ...rest}, ref) => {
 
         const textAreaRef = useRef<HTMLTextAreaElement>(null);
         const [text, setText] = useState("");
@@ -176,20 +178,28 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             }
         };
 
-        const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
+        const [uniqueId] = useState<string>(id ?? `textInput-${nextUniqueId++}`);
 
         const generalInputProps = {
+            id: uniqueId,
             label,
             errorMessage,
             disabled: disabled || readOnly,
             readOnly,
-            required
+            maxLength,
+            ...rest
         }
 
         const wrapperProps = {
             className,
             style,
             width
+        }
+
+        const labelProps = {
+            multiline,
+            disabled,
+            readOnly
         }
 
         return (
@@ -200,25 +210,27 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                     label={label}
                 >
                     {multiline ?
-                        <TextArea ref={textAreaRef}
+                        <TextArea
+                            ref={textAreaRef}
                             style={{height: textAreaHeight}}
-                            id={uniqueId}
                             onChange={onChangeHandlerMultiline}
+                            required={required}
                             {...generalInputProps}
-                            {...rest}
                         />
                         :
                         <Input
                             ref={ref}
-                            id={uniqueId}
                             onChange={onChangeHandler}
                             type={type}
+                            required={required}
                             {...generalInputProps}
-                            {...rest}
                         />
                     }
                     {label &&
-                    <Label multiline={multiline} disabled={disabled} htmlFor={uniqueId}>
+                    <Label
+                        {...labelProps}
+                        htmlFor={uniqueId}
+                    >
                         {label} {required && <RequiredMarker />}
                     </Label>
                     }
@@ -230,8 +242,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                         <InputMessage message={tip} messageType={'tip'} />
                         : ''
                     }
-                    {(maxCharCount && Number.isInteger(maxCharCount) && maxCharCount > 0)  ?
-                        <CharCounter current={text.length} max={maxCharCount} />
+                    {(maxLength && Number.isInteger(maxLength) && maxLength > 0)  ?
+                        <CharCounter current={text.length} max={maxLength} />
                         : ''
                     }
                 </FlexContainer>
@@ -241,10 +253,5 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 );
 
 TextInput.defaultProps = {
-    disabled: false,
-    readOnly: false,
-    required: false,
-    multiline: false
+    width: tokens.wrapper.defaultWidth,
 }
-
-export default TextInput;

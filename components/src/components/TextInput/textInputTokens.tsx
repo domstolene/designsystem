@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import * as CSS from 'csstype';
 
 const {
     colors: Colors,
@@ -84,9 +85,8 @@ const inputLabel = {
     }
 }
 
-const wrapperBase: CSSObject = {
-    width: '320px'
-}
+const defaultWidth: CSS.Property.Width<string> = '320px';
+
 const containerTokens = {
     singleline: {
         withLabel: {
@@ -156,7 +156,7 @@ export const inputTokens = {
     },
     label: inputLabel,
     wrapper: {
-        base: wrapperBase
+        defaultWidth: defaultWidth,
     },
     container: containerTokens
 }

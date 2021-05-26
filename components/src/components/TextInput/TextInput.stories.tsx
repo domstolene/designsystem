@@ -1,6 +1,6 @@
 import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
 import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
-import TextInput, { TextInputProps } from './TextInput';
+import { TextInput, TextInputProps } from './TextInput';
 
 export default {
   title: 'Design system/TextInput',
@@ -10,7 +10,13 @@ export default {
     tip: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
     maxCharCount: { control: { type: 'number' } },
-    width: { control: { type: 'text' } }
+    maxLength: { control: { type: 'number' } },
+    width: { control: { type: 'text' } },
+    multiline: { control: { type: 'boolean' } },
+    required: { control: { type: 'boolean' } },
+    disabled: { control: { type: 'boolean' } },
+    readOnly: { control: { type: 'boolean' } },
+
   },
 };
 
