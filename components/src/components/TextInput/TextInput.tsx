@@ -136,9 +136,12 @@ export type TextInputProps = {
     maxCharCount?: number;
     width?: string;
     errorMessage?: string;
+    className?: string;
+    style?: React.CSSProperties;
 } & InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement>;
+
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-    ({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, multiline, onChange, id, width, type = 'text', ...rest}, ref) => {
+    ({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, multiline, onChange, id, width, type = 'text', className, style, ...rest}, ref) => {
 
         const textAreaRef = useRef<HTMLTextAreaElement>(null);
         const [text, setText] = useState("");
@@ -183,8 +186,14 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             required
         }
 
+        const wrapperProps = {
+            className,
+            style,
+            width
+        }
+
         return (
-            <InputFieldWrapper width={width}>
+            <InputFieldWrapper {...wrapperProps}>
                 <InputFieldContainer
                     style={multiline ? { minHeight: parentHeight } : {}}
                     multiline={multiline}
