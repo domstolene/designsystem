@@ -9,14 +9,11 @@ export default {
     label: { control: { type: 'text' } },
     tip: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
-    maxCharCount: { control: { type: 'number' } },
-    maxLength: { control: { type: 'number' } },
     width: { control: { type: 'text' } },
     multiline: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-
   },
 };
 
@@ -34,8 +31,8 @@ export const TextInputOverview = (args: TextInputProps) => {
                 <TextInput {...args} id='test4' errorMessage={args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'} />
                 <TextInput {...args} label={args.label || 'Label'} id='test5' tip={args.tip || 'Dette er en hjelpetekst'} />
                 <TextInput {...args} id='test6' tip={args.tip || 'Dette er en hjelpetekst'} />
-                <TextInput {...args} label={args.label || 'Label'} id='test7' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxCharCount={20} />
-                <TextInput {...args} id='test8' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxCharCount={20} />
+                <TextInput {...args} label={args.label || 'Label'} id='test7' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxLength={20} />
+                <TextInput {...args} id='test8' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxLength={20} />
             </>,
             '20px',
             2
@@ -57,8 +54,8 @@ export const TextareaOverview = (args: TextInputProps) => {
                 <TextInput {...args} multiline id='test4' errorMessage={args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'} />
                 <TextInput {...args} multiline label={args.label || 'Label'} id='test5' tip={args.tip || 'Dette er en hjelpetekst'} />
                 <TextInput {...args} multiline id='test6' tip={args.tip || 'Dette er en hjelpetekst'} />
-                <TextInput {...args} multiline label={args.label || 'Label'} id='test7' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxCharCount={20} />
-                <TextInput {...args} multiline id='test8' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxCharCount={20} />
+                <TextInput {...args} multiline label={args.label || 'Label'} id='test7' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxLength={20} />
+                <TextInput {...args} multiline id='test8' tip={args.tip || 'Dette er en hjelpetekst med character count'} maxLength={20} />
             </>,
             '20px',
             2
@@ -86,6 +83,12 @@ export const Textarea = (args: TextInputProps) => {
 
 export const TextareaWithLabel = (args: TextInputProps) => {
     return (
-        storyHTMLTemplate('Textarea (multiline) - default', <TextInput {...args} label={args.label || 'Label'} id='test' multiline />)
+        storyHTMLTemplate('Textarea (multiline) - with label', <TextInput {...args} label={args.label || 'Label'} id='test' multiline />)
+    );
+}
+
+export const WithCharacterCount = (args: TextInputProps) => {
+    return (
+        storyHTMLTemplate('TextInput - with character count', <TextInput {...args} maxLength={25} label={args.label || 'Label'} id='test' />)
     );
 }

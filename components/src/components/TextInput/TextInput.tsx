@@ -135,7 +135,6 @@ export type TextInputProps = {
     label?: string;
     multiline?: boolean;
     tip?: string;
-    maxCharCount?: number;
     width: CSS.Property.Width<string>;
     errorMessage?: string;
     className?: string;
@@ -143,7 +142,7 @@ export type TextInputProps = {
 } & InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-    ({label, disabled, readOnly, errorMessage, tip, required, maxCharCount, maxLength, multiline, onChange, id, width, type = 'text', className, style, ...rest}, ref) => {
+    ({label, disabled, readOnly, errorMessage, tip, required, maxLength, multiline, onChange, id, width, type = 'text', className, style, ...rest}, ref) => {
 
         const textAreaRef = useRef<HTMLTextAreaElement>(null);
         const [text, setText] = useState("");
