@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { charCounterTokens as tokens} from './charCounterTokens';
 
 const Wrapper = styled.div`
+    margin-left: auto;
     ${tokens.base}
     ${tokens.font}
 `;
