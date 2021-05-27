@@ -12,7 +12,8 @@ const {
 const inputBase: CSSObject = {
     borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
     border: `1px solid ${Colors.DdsColorNeutralsGray5}`,
-    color: Colors.DdsColorNeutralsGray9
+    color: Colors.DdsColorNeutralsGray9,
+    ...FontPackages.sansRegularx1_125.base,
 }
 const inputFocusBase: CSSObject = {
     border: `1px solid ${Colors.DdsColorPrimaryBase}`,
@@ -72,10 +73,10 @@ const inputNoLabelBase: CSSObject = {
 const inputLabelBase: CSSObject = {
     color: Colors.DdsColorNeutralsGray7,
     padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`,
+    ...FontPackages.sansBoldx0_875.base
 }
 
 const inputLabel = {
-    font: FontPackages.sansBoldx0_875.base,
     base: inputLabelBase,
     multiline: {
         base: {
@@ -113,7 +114,6 @@ const containerTokens = {
 
 export const inputTokens = {
     base: inputBase,
-    font: FontPackages.sansRegularx1_125.base,
     focusColor: Colors.DdsColorPrimaryBase,
     hover: {
         base: inputHoverBase

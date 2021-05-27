@@ -16,7 +16,6 @@ const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string,
         margin: 0;
         transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
         ${tokens.base}
-        ${tokens.font}
         ${ label ? css`
             ${tokens.withLabel.base}
         `
@@ -62,7 +61,6 @@ const Label = styled.label<{multiline?: boolean, disabled?: boolean, readOnly?: 
     top: 0;
     left: 0;
     transition: color 0.2s, background-color 0.2s;
-    ${tokens.label.font}
     ${tokens.label.base}
     ${({multiline}) => multiline && css`
         margin: 1px;
