@@ -17,6 +17,9 @@ const focus = {
   colorDefault: Colors.DdsColorWarningDarker,
   outlineWidth: Border.BordersDdsBorderStyle1StrokeWeight,
   color__TextInput: Colors.DdsColorPrimaryBase,
+  borderWidth__TextInput: `${
+    Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2
+  }px`,
 };
 
 const inputLabel = {
@@ -31,7 +34,8 @@ export const ddsReferenceTokens = {
   textInput: {
     input: {
       borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-      borderColor: Colors.DdsColorPrimaryBase,
+      borderWidth: Border.BordersDdsBorderStyle1StrokeWeight,
+      borderColor: Colors.DdsColorNeutralsGray5,
       textColor: textDefault.textColor,
       font: FontPackages.sansRegularx1_125.base,
       hover: {
@@ -39,6 +43,7 @@ export const ddsReferenceTokens = {
       },
       focus: {
         borderColor: focus.color__TextInput,
+        borderWidth: focus.borderWidth__TextInput,
       },
     },
     label: {
