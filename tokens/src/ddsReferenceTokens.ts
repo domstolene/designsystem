@@ -40,6 +40,8 @@ export const ddsReferenceTokens = {
       font: FontPackages.sansRegularx1_125.base,
       hover: {
         backgroundColor: Colors.DdsColorPrimaryLightest,
+        borderColor: focus.color__TextInput,
+        borderWidth: focus.borderWidth__TextInput,
       },
       focus: {
         borderColor: focus.color__TextInput,
@@ -48,6 +50,9 @@ export const ddsReferenceTokens = {
     },
     label: {
       base: inputLabel,
+      hover: {
+        textColor: focus.color__TextInput,
+      },
       focus: {
         textColor: focus.color__TextInput,
       },
