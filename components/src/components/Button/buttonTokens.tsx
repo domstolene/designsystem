@@ -133,20 +133,20 @@ const sizes = {
     },
     padding: {
         text: {
-            small: `${Spacing.SizesDdsSpacingLocalX05NumberPx-2}px ${Spacing.SizesDdsSpacingLocalX1NumberPx-2}`,
-            medium: `${Spacing.SizesDdsSpacingLocalX075NumberPx-2}px ${Spacing.SizesDdsSpacingLocalX15NumberPx-2}`,
-            large: `${Spacing.SizesDdsSpacingLocalX1NumberPx-2}px ${Spacing.SizesDdsSpacingLocalX2NumberPx-2}`
+            small: `${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX1NumberPx-2}`,
+            medium: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15NumberPx-2}`,
+            large: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX2NumberPx-2}`
         },
         icon: {
-            small: `${Spacing.SizesDdsSpacingLocalX05NumberPx-2}px`,
-            medium: `${Spacing.SizesDdsSpacingLocalX075NumberPx-2}px`,
-            large: `${Spacing.SizesDdsSpacingLocalX1NumberPx-2}px`
+            small: `${Spacing.SizesDdsSpacingLocalX05}`,
+            medium: `${Spacing.SizesDdsSpacingLocalX075}`,
+            large: `${Spacing.SizesDdsSpacingLocalX1}`
         }
     },
     icon: {
-        small: `${calculateHeightWithLineHeight(FontPackages.sansRegularx0_75.numbers.lineHeightNumber, FontPackages.sansRegularx0_75.numbers.fontSizeNumber)}px`,
+        small: `${calculateHeightWithLineHeight(FontPackages.sansRegularx0_875.numbers.lineHeightNumber, FontPackages.sansRegularx0_875.numbers.fontSizeNumber)}px`,
         medium: `${calculateHeightWithLineHeight(FontPackages.sansRegularx1.numbers.lineHeightNumber, FontPackages.sansRegularx1.numbers.fontSizeNumber)}px`,
-        large: `${calculateHeightWithLineHeight(FontPackages.sansRegularx1_125.numbers.lineHeightNumber, FontPackages.sansRegularx1_125.numbers.fontSizeNumber)}px`,
+        large: `${calculateHeightWithLineHeight(FontPackages.sansRegularx1_25.numbers.lineHeightNumber, FontPackages.sansRegularx1_25.numbers.fontSizeNumber)}px`,
     }
 }
 
@@ -157,7 +157,7 @@ const font = {
         large: FontPackages.sansRegularx2.base
     },
     text: {
-        small: FontPackages.sansRegularx0_75.base,
+        small: FontPackages.sansRegularx0_875.base,
         medium: FontPackages.sansRegularx1.base,
         large: FontPackages.sansRegularx1_25.base
     }
