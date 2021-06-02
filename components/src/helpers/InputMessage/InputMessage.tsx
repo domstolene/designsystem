@@ -4,14 +4,15 @@ import InlineIconWrapper from '../InlineIconWrapper';
 import { inputMessageTokens as tokens} from './inputMessageTokens';
 import * as CSS from 'csstype';
 
-const InputMessageWrapper = styled.div<{messageType: MessageType, maxWidth: CSS.Property.MaxWidth<string>}>`
+const InputMessageWrapper = styled.div<{messageType: MessageType, messageSize?: MessageSize, maxWidth?: CSS.Property.MaxWidth<string>}>`
     display: flex;
     align-items: center;
     width: fit-content;
     word-break: break-word;
     ${tokens.base}
-    ${({messageType}) => css`
+    ${({messageType, messageSize}) => (messageSize && messageType) && css`
         ${tokens[messageType].base}
+        ${tokens[messageType][messageSize].base}
 
     `}
     max-width: ${({ maxWidth }) => maxWidth};
@@ -24,15 +25,18 @@ const InputMessageWrapper = styled.div<{messageType: MessageType, maxWidth: CSS.
 
 type MessageType = 'error' | 'tip';
 
+type MessageSize = 'small' | 'medium';
+
 type Props = {
     message: string,
     messageType: MessageType;
-    maxWidth: CSS.Property.MaxWidth<string>;
+    messageSize?: MessageSize;
+    maxWidth?: CSS.Property.MaxWidth<string>;
 }
 
-function InputMessage({message, messageType, maxWidth}: Props) {
+function InputMessage({message, messageType, messageSize, maxWidth}: Props) {
 
-    const wrapperProps = {messageType, maxWidth};
+    const wrapperProps = {messageType, messageSize, maxWidth};
     return (
         <InputMessageWrapper {...wrapperProps}>
             {messageType === 'error' && <InlineIconWrapper Icon={ReportProblemOutlinedIcon} />}
@@ -44,7 +48,8 @@ function InputMessage({message, messageType, maxWidth}: Props) {
 }
 
 InputMessage.defaultProps = {
-    maxWidth: tokens.defaultMaxWidth
+    maxWidth: tokens.defaultMaxWidth,
+    messageSize: 'medium'
 }
 
 export default InputMessage;
