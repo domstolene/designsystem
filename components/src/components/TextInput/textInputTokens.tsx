@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens, ddsReferenceTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import * as CSS from 'csstype';
 
@@ -6,31 +6,20 @@ const {
     colors: Colors,
     spacing: Spacing,
     fontPackages: FontPackages,
-    borderRadius: BorderRadius,
 } = ddsBaseTokens;
 
+const { textInput: TextInput } = ddsReferenceTokens;
+
 const inputBase: CSSObject = {
-    borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
     border: `1px solid ${Colors.DdsColorNeutralsGray5}`,
-    color: Colors.DdsColorNeutralsGray9,
-    ...FontPackages.sansRegularx1_125.base,
 }
-const inputFocusBase: CSSObject = {
-    border: `1px solid ${Colors.DdsColorPrimaryBase}`,
-    boxShadow: `0 0 0 1px ${Colors.DdsColorPrimaryBase}`,
-    paddingLeft: `${Spacing.SizesDdsSpacingLocalX1NumberPx-1}px`
-}
-const inputHoverBase: CSSObject = {
-    backgroundColor: Colors.DdsColorPrimaryLightest,
-    border: `1px solid ${Colors.DdsColorPrimaryBase}`,
-    boxShadow: `0 0 0 1px ${Colors.DdsColorPrimaryBase}`
-}
+
 const inputWithLabelBase: CSSObject = {
-    padding:`${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX1} 0 ${Spacing.SizesDdsSpacingLocalX1NumberPx-1}px`
+    padding:`${Spacing.SizesDdsSpacingLocalX075NumberPx+(FontPackages.sansBoldx0_875.numbers.lineHeightNumber*0.01*FontPackages.sansBoldx0_875.numbers.fontSizeNumber)}px ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`
 }
 
 const inputNoLabelBase: CSSObject = {
-    padding: `0 ${Spacing.SizesDdsSpacingLocalX1} 0 ${Spacing.SizesDdsSpacingLocalX1NumberPx-1}px`,
+    padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`,
 }
 
  const inputDisabledBase: CSSObject = {
@@ -89,14 +78,6 @@ const inputLabel = {
 const defaultWidth: CSS.Property.Width<string> = '320px';
 
 const containerTokens = {
-    singleline: {
-        withLabel: {
-            height: '72px'
-        },
-        noLabel: {
-            height: '48px'
-        }
-    },
     multiline: {
         withLabel: {
             height: '99px'
@@ -107,20 +88,10 @@ const containerTokens = {
     }
 }
 
-
- const inputMultilineHoverBase: CSSObject = {
-
- }
-
 export const inputTokens = {
+    general: TextInput,
     base: inputBase,
-    focusColor: Colors.DdsColorPrimaryBase,
-    hover: {
-        base: inputHoverBase
-    },
-    focus: {
-        base: inputFocusBase
-    },
+    focusColor: TextInput.input.focus.borderColor,
     withLabel: {
         base: inputWithLabelBase
     },
@@ -141,9 +112,6 @@ export const inputTokens = {
         noLabel: {
             base: inputMultilineNoLabelBase
         },
-        hover: {
-            base: inputMultilineHoverBase
-        }
     },
     error: {
         base: inputErrorBase,

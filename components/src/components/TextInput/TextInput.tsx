@@ -3,18 +3,14 @@ import styled, { css } from 'styled-components';
 import { inputTokens as tokens} from './textInputTokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import CharCounter from './CharCounter';
 import * as CSS from 'csstype';
 
 const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string, disabled?:boolean) => {
     return css`
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        margin: 0;
-        transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
+        ${inputFieldStylingBase}
         ${tokens.base}
         ${ label ? css`
             ${tokens.withLabel.base}
@@ -23,14 +19,7 @@ const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string,
             ${tokens.noLabel.base}
         `
         };
-        &:hover:enabled {
-            ${tokens.hover.base}
 
-        }
-        &:focus:enabled, &:active:enabled {
-            ${tokens.focus.base}
-            outline: none;
-        }
         &:hover:enabled ~ label, &:focus:enabled ~ label {
             color: ${tokens.focusColor};
         }
@@ -94,9 +83,7 @@ const InputFieldContainer = styled.div<{multiline?: boolean, label?: string}>`
             }
             return tokens.container.multiline.noLabel.height;
         }
-        if(label) return  tokens.container.singleline.withLabel.height;
-        return tokens.container.singleline.noLabel.height;
-        }};
+    }};
 `;
 
 const Input = styled.input<{ readOnly?: boolean, errorMessage?: string, label?: string, disabled?: boolean}>`
@@ -118,7 +105,7 @@ const TextArea = styled.textarea<{ disabled?: boolean, readOnly?: boolean, error
     `}
 
    &:hover:enabled ~ label {
-        background-color: ${({errorMessage}) => errorMessage ? tokens.error.hover.base.backgroundColor : tokens.hover.base.backgroundColor};
+        background-color: ${({errorMessage}) => errorMessage ? tokens.error.hover.base.backgroundColor : tokens.general.input.hover.backgroundColor};
     }
 `;
 
