@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens, ddsReferenceTokens } from '@norges-domstoler/dds-design-tokens';
 import { calculateHeightWithLineHeight } from "../../helpers/functions";
 
 const {
@@ -9,6 +9,8 @@ const {
     borderRadius: BorderRadius,
     outerShadow: OuterShadow
 } = ddsBaseTokens;
+
+const { focus } = ddsReferenceTokens;
 
 const colorPalette = {
     primary: {
@@ -180,8 +182,8 @@ const borderRadius = {
 export const buttonTokens = {
     borderWidth: Border.BordersDdsBorderStyle1StrokeWeight,
     focusOutline: {
-        color: Colors.DdsColorWarningDarker,
-        width: Border.BordersDdsBorderStyle1StrokeWeight,
+        color: focus.colorDefault,
+        width: focus.outlineWidth,
     },
     colors,
     sizes,

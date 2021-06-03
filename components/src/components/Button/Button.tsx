@@ -62,7 +62,16 @@ const buttonContentStyle = (purpose: ButtonPurpose, appearance: Appearance, labe
     `;
 }
 
-const ButtonContent = styled.span<{label?: string, size: Size, purpose: ButtonPurpose, appearance: Appearance, iconPosition?: IconPosition, Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> }>`
+type ButtonContentProps = {
+    purpose: ButtonPurpose;
+    appearance: Appearance;
+    size: Size;
+    label?: string;
+    Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+    iconPosition?: IconPosition
+}
+
+const ButtonContent = styled.span<ButtonContentProps>`
     display: flex;
     align-items: center;
     position: relative;
@@ -81,7 +90,7 @@ const ButtonContent = styled.span<{label?: string, size: Size, purpose: ButtonPu
             `
         }
     }
-    }
+}
     &:focus {
         outline: none;
     }
@@ -174,7 +183,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             style
         }
 
-const iconElement = (className = '') =>  Icon && <InlineIconWrapper Icon={Icon} className={className}  />;
+    const iconElement = (className = '') =>  Icon && <InlineIconWrapper Icon={Icon} className={className}  />;
 
         return (
             <ButtonWrapper {...wrapperProps}>
