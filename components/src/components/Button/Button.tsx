@@ -6,36 +6,36 @@ import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import Spinner from '../../helpers/Spinner';
 
-const buttonContentStyle = (purpose: ButtonPurpose, form: Form, label?: string, Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>) => {
+const buttonContentStyle = (purpose: ButtonPurpose, appearance: Appearance, label?: string, Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>) => {
 
     return css`
-        color: ${tokens.colors[form][purpose].text};
+        color: ${tokens.colors[appearance][purpose].text};
         border: ${tokens.borderWidth} solid;
-        border-color: ${tokens.colors[form][purpose].border};
-        background-color: ${tokens.colors[form][purpose].default};
-        box-shadow: ${tokens.boxShadow[form]};
-        border-radius: ${tokens.borderRadius[form]};
-        ${form === 'borderless' && css`
+        border-color: ${tokens.colors[appearance][purpose].border};
+        background-color: ${tokens.colors[appearance][purpose].default};
+        box-shadow: ${tokens.boxShadow[appearance]};
+        border-radius: ${tokens.borderRadius[appearance]};
+        ${appearance === 'borderless' && css`
             text-decoration: underline;
             text-decoration-color: transparent;
         `
         }
-        ${form !== 'borderless' ? css`
+        ${appearance !== 'borderless' ? css`
             &:hover {
-                background-color: ${tokens.colors[form][purpose].hover};
-                border-color: ${tokens.colors[form][purpose].hover_border};
-                ${form === 'ghost' && css`
-                    color: ${tokens.colors[form][purpose].hover_text};
-                    box-shadow: 0 0 0 1px ${tokens.colors[form][purpose].hover_border};
+                background-color: ${tokens.colors[appearance][purpose].hover};
+                border-color: ${tokens.colors[appearance][purpose].hover_border};
+                ${appearance === 'ghost' && css`
+                    color: ${tokens.colors[appearance][purpose].hover_text};
+                    box-shadow: 0 0 0 1px ${tokens.colors[appearance][purpose].hover_border};
                 `
                 }
             }
             &:active {
-                background-color: ${tokens.colors[form][purpose].active};
-                border-color: ${tokens.colors[form][purpose].active_border};
-                ${form === 'ghost' && css`
-                    color: ${tokens.colors[form][purpose].active_text};
-                    box-shadow: 0 0 0 1px ${tokens.colors[form][purpose].active_border};
+                background-color: ${tokens.colors[appearance][purpose].active};
+                border-color: ${tokens.colors[appearance][purpose].active_border};
+                ${appearance === 'ghost' && css`
+                    color: ${tokens.colors[appearance][purpose].active_text};
+                    box-shadow: 0 0 0 1px ${tokens.colors[appearance][purpose].active_border};
                 `
                 }
             }
@@ -62,12 +62,12 @@ const buttonContentStyle = (purpose: ButtonPurpose, form: Form, label?: string, 
     `;
 }
 
-const ButtonContent = styled.span<{label?: string, size: Size, purpose: ButtonPurpose, form: Form, iconPosition?: IconPosition, Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> }>`
+const ButtonContent = styled.span<{label?: string, size: Size, purpose: ButtonPurpose, appearance: Appearance, iconPosition?: IconPosition, Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> }>`
     display: flex;
     align-items: center;
     position: relative;
     transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s, border-color 0.2s;
-    ${({label, purpose, form, Icon}) => buttonContentStyle(purpose, form, label, Icon)}
+    ${({label, purpose, appearance, Icon}) => buttonContentStyle(purpose, appearance, label, Icon)}
 
     ${({size, label}) => {
         if(size) {
@@ -130,7 +130,7 @@ const IconWrapper = styled.span<{size: Size}>`
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
 type Size = 'small' | 'medium' | 'large';
-type Form = 'filled' | 'ghost' | 'rounded' | 'borderless';
+type Appearance = 'filled' | 'ghost' | 'rounded' | 'borderless';
 type IconPosition = 'left' | 'right';
 
 export type ButtonProps = {
@@ -139,7 +139,7 @@ export type ButtonProps = {
     disabled?: boolean;
     purpose: ButtonPurpose;
     iconPosition?: IconPosition;
-    form: Form;
+    appearance: Appearance;
     href?: string;
     loading?: boolean;
     className?: string;
@@ -149,7 +149,7 @@ export type ButtonProps = {
 
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({label, disabled, purpose, size, iconPosition, form, href, loading, className, style, Icon, ...rest}, ref) => {
+    ({label, disabled, purpose, size, iconPosition, appearance, href, loading, className, style, Icon, ...rest}, ref) => {
 
         const as: ElementType = href ? 'a' : 'button';
 
@@ -164,7 +164,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
         const contentProps = {
             iconPosition,
-            form,
+            appearance,
             purpose,
             label,
             size,
@@ -203,5 +203,5 @@ const iconElement = (className = '') =>  Icon && <InlineIconWrapper Icon={Icon} 
 Button.defaultProps = {
     size: 'medium',
     purpose: 'primary',
-    form: 'filled'
+    appearance: 'filled'
 }

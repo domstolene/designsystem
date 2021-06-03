@@ -71,7 +71,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
                     <Button
                         Icon={CloseOutlinedIcon}
                         purpose={buttonPurpose}
-                        form='borderless'
+                        appearance='borderless'
                         onClick={() => setClosed(true)}
                         size='medium'
                     />

@@ -23,30 +23,30 @@ export const OverviewWithText = (args:ButtonProps) => {
   return (
     storyHTMLGridTemplate('Button overview - with text',
      <>
-      <DDSButton {...args} label='Primary' purpose='primary' form='filled' />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='filled' />
-      <DDSButton {...args} label='Danger' purpose='danger' form='filled' />
-      <DDSButton {...args} label={'Primary'} purpose='primary' form='ghost' />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='ghost' />
-      <DDSButton {...args} label='Danger' purpose='danger' form='ghost' />
-      <DDSButton {...args} label={'Primary'} purpose='primary' form='borderless' />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='borderless' />
-      <DDSButton {...args} label='Danger' purpose='danger' form='borderless' />
-      <DDSButton {...args} label={'Primary'} purpose='primary' form='rounded' />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='rounded' />
-      <DDSButton {...args} label='Danger' purpose='danger' form='rounded' />
-      <DDSButton {...args} label={'Primary'} purpose='primary' form='filled' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='filled' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Danger' purpose='danger' form='filled' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label={'Primary'} purpose='primary' form='ghost' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='ghost' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Danger' purpose='danger' form='ghost' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label={'Primary'} purpose='primary' form='borderless' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='borderless' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Danger' purpose='danger' form='borderless' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label={'Primary'} purpose='primary' form='rounded' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Secondary' purpose='secondary' form='rounded' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label='Danger' purpose='danger' form='rounded' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Primary' purpose='primary' appearance='filled' />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='filled' />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='filled' />
+      <DDSButton {...args} label={'Primary'} purpose='primary' appearance='ghost' />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='ghost' />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='ghost' />
+      <DDSButton {...args} label={'Primary'} purpose='primary' appearance='borderless' />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='borderless' />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='borderless' />
+      <DDSButton {...args} label={'Primary'} purpose='primary' appearance='rounded' />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='rounded' />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='rounded' />
+      <DDSButton {...args} label={'Primary'} purpose='primary' appearance='filled' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='filled' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='filled' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label={'Primary'} purpose='primary' appearance='ghost' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='ghost' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='ghost' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label={'Primary'} purpose='primary' appearance='borderless' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='borderless' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='borderless' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label={'Primary'} purpose='primary' appearance='rounded' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Secondary' purpose='secondary' appearance='rounded' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Danger' purpose='danger' appearance='rounded' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
      </>
      )
   )
@@ -56,18 +56,18 @@ export const OverviewJustIcon = (args:ButtonProps) => {
   return (
     storyHTMLGridTemplate('Button overview - just icon',
      <>
-      <DDSButton {...args} purpose='primary' form='filled' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='secondary' form='filled' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='danger' form='filled' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='primary' form='ghost' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='secondary' form='ghost' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='danger' form='ghost' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='primary' form='borderless' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='secondary' form='borderless' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='danger' form='borderless' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='primary' form='rounded' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='secondary' form='rounded' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='danger' form='rounded' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='primary' appearance='filled' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='secondary' appearance='filled' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='danger' appearance='filled' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='primary' appearance='ghost' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='secondary' appearance='ghost' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='danger' appearance='ghost' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='primary' appearance='borderless' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='secondary' appearance='borderless' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='danger' appearance='borderless' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='primary' appearance='rounded' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='secondary' appearance='rounded' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='danger' appearance='rounded' Icon={CloseOutlinedIcon} />
      </>
      )
   )
@@ -77,15 +77,15 @@ export const OverviewSizes = (args:ButtonProps) => {
   return (
     storyHTMLGridTemplate('Button overview - sizes',
      <>
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='small' />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='medium' />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='large' />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='small' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='medium' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' form='filled' size='large' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} purpose='primary' form='filled' size='small' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='primary' form='filled' size='medium' Icon={CloseOutlinedIcon} />
-      <DDSButton {...args} purpose='primary' form='filled' size='large' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='small' />
+      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='medium' />
+      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='large' />
+      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='small' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='medium' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='large' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} purpose='primary' appearance='filled' size='small' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='primary' appearance='filled' size='medium' Icon={CloseOutlinedIcon} />
+      <DDSButton {...args} purpose='primary' appearance='filled' size='large' Icon={CloseOutlinedIcon} />
      </>
      )
   )
@@ -112,9 +112,9 @@ export const Ghost = (args:ButtonProps) => {
   return (
     storyHTMLTemplate('Button ghost',
      <>
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='primary' form='ghost' />
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='secondary' form='ghost' />
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='danger' form='ghost' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='primary' appearance='ghost' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='secondary' appearance='ghost' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='danger' appearance='ghost' />
      </>
      )
   )
@@ -124,9 +124,9 @@ export const Borderless = (args:ButtonProps) => {
   return (
     storyHTMLTemplate('Button borderless',
      <>
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='primary' form='borderless' />
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='secondary' form='borderless' />
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='danger' form='borderless' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='primary' appearance='borderless' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='secondary' appearance='borderless' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='danger' appearance='borderless' />
      </>
      )
   )
@@ -136,9 +136,9 @@ export const Rounded = (args:ButtonProps) => {
   return (
     storyHTMLTemplate('Button rounded',
      <>
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='primary' form='rounded' />
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='secondary' form='rounded' />
-     <DDSButton {...args} label={args.label || 'tekst'} purpose='danger' form='rounded' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='primary' appearance='rounded' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='secondary' appearance='rounded' />
+     <DDSButton {...args} label={args.label || 'tekst'} purpose='danger' appearance='rounded' />
      </>
      )
   )

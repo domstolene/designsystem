@@ -69,7 +69,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
                     <Button
                         Icon={CloseOutlinedIcon}
                         purpose={buttonPurpose}
-                        form='borderless'
+                        appearance='borderless'
                         onClick={() => setClosed(true)}
                         size='medium'
                     />
