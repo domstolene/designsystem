@@ -1,5 +1,7 @@
 # @norges-domstoler/dds-components
 
+[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components)
+
 _biblioteket er under arbeid_
 
 React UI komponenter til bruk i Domstolenes tjenester.
