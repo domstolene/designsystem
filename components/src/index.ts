@@ -8,3 +8,4 @@ export * from './components/Select';
 export * from './components/GlobalMessage';
 export * from './components/LocalMessage';
 export * from './components/Search';
+export * from './components/Typography';
