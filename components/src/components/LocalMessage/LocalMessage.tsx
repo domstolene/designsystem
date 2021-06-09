@@ -46,13 +46,13 @@ type LocalMessagePurpose = 'info' | 'warning' | 'danger' | 'confidential' | 'suc
 
 export type LocalMessageProps = {
     message?: string;
-    purpose: LocalMessagePurpose;
+    purpose?: LocalMessagePurpose;
     closable?: boolean;
-    width: CSS.Property.Width<string>;
+    width?: CSS.Property.Width<string>;
 } & HTMLAttributes<HTMLDivElement>
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
-    ({message, purpose, closable, width, children, ...rest}, ref) => {
+    ({message, purpose ='info', closable, width = tokens.container.defaultWidth, children, ...rest}, ref) => {
 
     const [isClosed, setClosed] = useState(false);
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
@@ -82,8 +82,3 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
         : null
     );
 });
-
-LocalMessage.defaultProps = {
-    purpose: 'info',
-    width: tokens.container.defaultWidth,
-}
