@@ -23,7 +23,14 @@ const Input = styled.input.attrs(({ type = 'checkbox' }) => ({
     margin: 0;
     `;
 
-const Container = styled.label<{disabled?:boolean, readOnly?: boolean, error?: boolean, indeterminate?: boolean}>`
+type ContainerProps = {
+    disabled?: boolean;
+    readOnly?: boolean;
+    error?: boolean;
+    indeterminate?: boolean;
+}
+
+const Container = styled.label<ContainerProps>`
     position: relative;
     display: flex;
     align-items: center;
