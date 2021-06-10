@@ -143,12 +143,12 @@ type Appearance = 'filled' | 'ghost' | 'rounded' | 'borderless';
 type IconPosition = 'left' | 'right';
 
 export type ButtonProps = {
-    size: Size;
+    size?: Size;
     label?: string;
     disabled?: boolean;
-    purpose: ButtonPurpose;
+    purpose?: ButtonPurpose;
     iconPosition?: IconPosition;
-    appearance: Appearance;
+    appearance?: Appearance;
     href?: string;
     loading?: boolean;
     className?: string;
@@ -158,7 +158,7 @@ export type ButtonProps = {
 
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({label, disabled, purpose, size, iconPosition, appearance, href, loading, className, style, Icon, ...rest}, ref) => {
+    ({label, disabled, purpose = 'primary', size = 'medium', iconPosition, appearance = 'filled', href, loading, className, style, Icon, ...rest}, ref) => {
 
         const as: ElementType = href ? 'a' : 'button';
 
@@ -188,8 +188,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <ButtonWrapper {...wrapperProps}>
                 <ButtonContent {...contentProps}>
-                    { loading && <Spinner inline width={1} unit='em' /> }
-                    {(!label && Icon)  ?
+                    {/* { loading && <Spinner inline width={1} unit='em' /> } */}
+                    { loading ? <Spinner inline width={1} unit='em' /> :
+                    (!label && Icon)  ?
                     <IconWrapper size={size}>
                         {iconElement()}
                     </IconWrapper>
@@ -208,9 +209,3 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         );
     }
 )
-
-Button.defaultProps = {
-    size: 'medium',
-    purpose: 'primary',
-    appearance: 'filled'
-}
