@@ -16,7 +16,14 @@ const Label = styled.label`
     ${tokens.label.base}
 `;
 
-const Container = styled.div<{errorMessage?: string, width?: string, disabled?: boolean, readOnly?: boolean}>`
+type StyledContainerProps = {
+    errorMessage?: string,
+    width?: string,
+    disabled?: boolean,
+    readOnly?: boolean
+}
+
+const Container = styled.div<StyledContainerProps>`
     transition: 0.2s;
     position: relative;
     width: ${({width}) => width ? width : tokens.container.base.width};
@@ -161,7 +168,9 @@ const customStyles: Partial<Styles<any, false, any>> = {
     },
     option: (provided, state) => {
         let selectedBase: CSSObject = {};
+        let focusedBase: CSSObject = {};
         if(state.isSelected) selectedBase = {...tokens.option.selected.base}
+        if(state.isFocused) focusedBase = {...tokens.option.selected.base}
         return {
             display: 'flex',
             alignItems: 'center',
@@ -170,7 +179,8 @@ const customStyles: Partial<Styles<any, false, any>> = {
             '&:hover': {
                 ...tokens.option.hover.base
             },
-            ...selectedBase
+            ...selectedBase,
+            ...focusedBase
         }
     },
     noOptionsMessage: () => {
@@ -218,12 +228,12 @@ export type SelectProps = {
     className?: string;
     style?: React.CSSProperties;
 
-} & HTMLAttributes<HTMLSelectElement>
+} & HTMLAttributes<HTMLDivElement>
 
 let nextUniqueId = 0;
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
-    ({id, label, placeholder, errorMessage, items, tip, required, disabled, readOnly, width, loading, className, style, onChange, ...rest}, ref) => {
+    ({id, label, placeholder = '-- Velg fra listen --', errorMessage, items, tip, required, disabled, readOnly, width, loading, className, style, onChange, ...rest}, ref) => {
 
         const options: { value: string; label: string; }[] = [];
         items.forEach((e) => {
@@ -265,6 +275,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         return (
             <Wrapper
                 ref={ref}
+                {...rest}
             >
                 <Container
                     {...containerProps}
@@ -289,7 +300,6 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
 });
 
 Select.defaultProps = {
-    placeholder: '-- Velg fra listen --',
     required: false,
     disabled: false
 }
