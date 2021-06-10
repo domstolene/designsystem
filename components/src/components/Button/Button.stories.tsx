@@ -17,8 +17,6 @@ export default {
   },
 };
 
-const buttonLabel = (text: string) => firstLetterToUpperCase(text);
-
 export const OverviewWithText = (args:ButtonProps) => {
   return (
     storyHTMLGridTemplate('Button overview - with text',
@@ -77,12 +75,12 @@ export const OverviewSizes = (args:ButtonProps) => {
   return (
     storyHTMLGridTemplate('Button overview - sizes',
      <>
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='small' />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='medium' />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='large' />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='small' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='medium' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
-      <DDSButton {...args} label={buttonLabel(args.purpose)} purpose='primary' appearance='filled' size='large' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Primary' purpose='primary' appearance='filled' size='small' />
+      <DDSButton {...args} label='Primary' purpose='primary' appearance='filled' size='medium' />
+      <DDSButton {...args} label='Primary' purpose='primary' appearance='filled' size='large' />
+      <DDSButton {...args} label='Primary' purpose='primary' appearance='filled' size='small' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Primary' purpose='primary' appearance='filled' size='medium' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
+      <DDSButton {...args} label='Primary' purpose='primary' appearance='filled' size='large' iconPosition={ args.iconPosition || 'left'} Icon={AddCircleOutlineOutlinedIcon} />
       <DDSButton {...args} purpose='primary' appearance='filled' size='small' Icon={CloseOutlinedIcon} />
       <DDSButton {...args} purpose='primary' appearance='filled' size='medium' Icon={CloseOutlinedIcon} />
       <DDSButton {...args} purpose='primary' appearance='filled' size='large' Icon={CloseOutlinedIcon} />

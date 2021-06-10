@@ -75,7 +75,7 @@ const ButtonContent = styled.span<ButtonContentProps>`
     display: flex;
     align-items: center;
     position: relative;
-    transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+    transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s, border-color 0.2s, color 0.2s;
     ${({label, purpose, appearance, Icon}) => buttonContentStyle(purpose, appearance, label, Icon)}
 
     ${({size, label}) => {
