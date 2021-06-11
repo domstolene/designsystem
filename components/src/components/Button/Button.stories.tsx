@@ -3,8 +3,6 @@ import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
 import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import { firstLetterToUpperCase } from '../../helpers/functions';
-
 
 export default {
   title: 'Design system/Button',

@@ -103,8 +103,6 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                             <ButtonWrapper>
                                 <Button
                                     size={componentSize}
-                                    purpose='primary'
-                                    appearance='filled'
                                     label={label || 'Søk'}
                                     onClick={onClick}
                                     {...otherButtonProps}
