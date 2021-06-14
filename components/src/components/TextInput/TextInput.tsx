@@ -8,7 +8,14 @@ import scrollbarStyling from '../../helpers/scrollbarStyling';
 import CharCounter from './CharCounter';
 import * as CSS from 'csstype';
 
-const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string, disabled?:boolean) => {
+type GeneralInputProps = {
+    readOnly?: boolean;
+    errorMessage?: string;
+    label?: string;
+    disabled?: boolean;
+}
+
+const InputStyling = ({readOnly, errorMessage, label, disabled}: GeneralInputProps) => {
     return css`
         ${inputFieldStylingBase}
         ${tokens.base}
@@ -45,7 +52,13 @@ const InputStyling = (readOnly?: boolean, errorMessage?: string, label?: string,
     `;
 }
 
-const Label = styled.label<{multiline?: boolean, disabled?: boolean, readOnly?: boolean}>`
+type LabelProps = {
+    multiline?: boolean;
+    disabled?: boolean;
+    readOnly?: boolean;
+}
+
+const Label = styled.label<LabelProps>`
     position: absolute;
     top: 0;
     left: 0;
@@ -86,12 +99,12 @@ const InputFieldContainer = styled.div<{multiline?: boolean, label?: string}>`
     }};
 `;
 
-const Input = styled.input<{ readOnly?: boolean, errorMessage?: string, label?: string, disabled?: boolean}>`
-    ${({label, disabled, readOnly, errorMessage}) => InputStyling(readOnly, errorMessage, label, disabled )}
+const Input = styled.input<GeneralInputProps>`
+    ${({label, disabled, readOnly, errorMessage}) => InputStyling({readOnly, errorMessage, label, disabled} )}
 `;
 
-const TextArea = styled.textarea<{ disabled?: boolean, readOnly?: boolean, errorMessage?: string, label?: string}>`
-   ${({label, disabled, readOnly, errorMessage}) => InputStyling(readOnly, errorMessage,label, disabled)}
+const TextArea = styled.textarea<GeneralInputProps>`
+   ${({label, disabled, readOnly, errorMessage}) => InputStyling({readOnly, errorMessage, label, disabled})}
    resize: vertical;
    height: auto;
    ${scrollbarStyling}
