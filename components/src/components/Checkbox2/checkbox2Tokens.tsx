@@ -86,9 +86,16 @@ const checkmarkIndeterminateBase: CSSObject = {
 
 const containerBase: CSSObject = {
     ...FontPackages.sansRegularx1.base,
+}
+
+const containerWithLabelBase: CSSObject = {
+    ...FontPackages.sansRegularx1.base,
     marginRight: Spacing.SizesDdsSpacingLocalX075,
     padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX025} ${20+Spacing.SizesDdsSpacingLocalX075NumberPx}px`
+}
 
+const containerNoLabelBase: CSSObject = {
+    padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX0125} ${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15}`
 }
 
 export const checkbox2Tokens = {
@@ -148,5 +155,11 @@ export const checkbox2Tokens = {
             color: Colors.DdsColorWarningDarker,
             width: Border.BordersDdsBorderStyle1StrokeWeight,
         },
+        withLabel: {
+            base: containerWithLabelBase
+        },
+        noLabel: {
+            base: containerNoLabelBase
+        }
     }
 }

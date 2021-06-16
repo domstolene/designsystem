@@ -28,6 +28,7 @@ type ContainerProps = {
     readOnly?: boolean;
     error?: boolean;
     indeterminate?: boolean;
+    label?: string
 }
 
 const Container = styled.label<ContainerProps>`
@@ -38,6 +39,11 @@ const Container = styled.label<ContainerProps>`
     user-select: none;
     width: fit-content;
     ${tokens.container.base}
+    ${({label}) => label ? css`
+        ${tokens.container.withLabel.base}
+    ` : css`
+        ${tokens.container.noLabel.base}
+    `}
 
     input ~ ${CustomCheckbox} {
         transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
@@ -128,7 +134,7 @@ const Container = styled.label<ContainerProps>`
 `;
 
 export type Checkbox2Props = {
-  label: string;
+  label?: string;
   error?: boolean;
   disabled?: boolean;
   readOnly?:boolean;
@@ -140,16 +146,17 @@ export type Checkbox2Props = {
 let nextUniqueId = 0;
 
 export const Checkbox2 = forwardRef<HTMLInputElement, Checkbox2Props>(
-    ({id, name, label, error, disabled, readOnly, indeterminate, className, style, children, ...rest}, ref) => {
+    ({id, name, label, error, disabled, readOnly, indeterminate, className, style, ...rest}, ref) => {
 
         const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
-
 
         const containerProps = {
             error,
             disabled,
             indeterminate,
             readOnly,
+            htmlFor: uniqueId,
+            label,
             className,
             style,
         }
@@ -163,7 +170,7 @@ export const Checkbox2 = forwardRef<HTMLInputElement, Checkbox2Props>(
         }
 
         return (
-            <Container htmlFor={uniqueId} {...containerProps}>
+            <Container {...containerProps}>
                 <Input
                     ref={ref}
                     {...inputProps}
@@ -171,7 +178,12 @@ export const Checkbox2 = forwardRef<HTMLInputElement, Checkbox2Props>(
                     aria-readonly={readOnly ? true : false}
                 />
                 <CustomCheckbox />
-                <span>{children ? children : label ? label : ''}</span>
+                {label ?
+                    <span>
+                        {label}
+                    </span>
+                    : ''
+                }
             </Container>
         );
 });
