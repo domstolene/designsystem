@@ -34,6 +34,7 @@ export const Overview = (args: CheckboxProps) => {
           <DDSCheckbox {...args} label={args.label || 'Disabled indeterminate'} disabled indeterminate/>
           <DDSCheckbox {...args} label={args.label || 'Read only'} readOnly/>
           <DDSCheckbox {...args} label={args.label || 'Error'} error />
+          <DDSCheckbox {...args} />
         </>
         );
 }
