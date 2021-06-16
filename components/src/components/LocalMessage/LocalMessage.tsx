@@ -73,7 +73,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
                         purpose={buttonPurpose}
                         appearance='borderless'
                         onClick={() => setClosed(true)}
-                        size='medium'
+                        size='small'
                     />
                 : ''
                 }

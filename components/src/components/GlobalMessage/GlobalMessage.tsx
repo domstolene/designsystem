@@ -71,7 +71,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
                         purpose={buttonPurpose}
                         appearance='borderless'
                         onClick={() => setClosed(true)}
-                        size='medium'
+                        size='small'
                     />
                     : null
                 }
