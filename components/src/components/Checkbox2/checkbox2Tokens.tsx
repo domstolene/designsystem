@@ -91,7 +91,7 @@ const containerBase: CSSObject = {
 const containerWithLabelBase: CSSObject = {
     ...FontPackages.sansRegularx1.base,
     marginRight: Spacing.SizesDdsSpacingLocalX075,
-    padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX025} ${20+Spacing.SizesDdsSpacingLocalX075NumberPx}px`
+    padding: `0 ${Spacing.SizesDdsSpacingLocalX025} 0 ${FontPackages.sansRegularx1_125.numbers.fontSizeNumber + Spacing.SizesDdsSpacingLocalX075NumberPx}px`
 }
 
 const containerNoLabelBase: CSSObject = {
