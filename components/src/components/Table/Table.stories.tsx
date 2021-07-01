@@ -61,7 +61,7 @@ export const Default = (args:TableProps) => {
 
 export const Compact = (args:TableProps) => {
     return storyHTMLTemplate(
-        'Table - default',
+        'Table - compact',
         <DDSTable {...args} density='compact'>
             <Head>
                 <Row type='head'>
