@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Apr 2021 08:52:36 GMT
+ * Generated on Thu, 01 Jul 2021 11:40:16 GMT
  */
 
 export const RadiiDdsBorderRadius1Radius = "2px";

@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Wed, 21 Apr 2021 08:52:36 GMT
+// Generated on Thu, 01 Jul 2021 11:40:16 GMT
 
 $dds-color-primary-lightest: rgba(234, 239, 244, 1);
 $dds-color-primary-lighter: rgba(170, 193, 209, 1);
@@ -317,6 +317,11 @@ $dds-color-neutrals-gradient-gray-9-stops-0-color: rgba(11, 13, 14, 1);
 $dds-color-neutrals-gradient-gray-9-stops-1-position: 1;
 $dds-color-neutrals-gradient-gray-9-stops-1-color: rgba(0, 0, 0, 1);
 $dds-color-neutrals-gradient-gray-9-opacity: 1;
+$dds-color-secondary-lightest: rgba(230, 236, 236, 1); // --l80
+$dds-color-secondary-lighter: rgba(205, 219, 219, 1);
+$dds-color-secondary-light: rgba(167, 193, 191, 1);
+$dds-color-secondary-base: rgba(129, 166, 164, 1);
+$dds-color-secondary-dark: rgba(77, 99, 98, 1);
 $dds-font-sans-light-x-2-5-font-size: 40px;
 $dds-font-sans-light-x-2-5-text-decoration: none;
 $dds-font-sans-light-x-2-5-font-family: Source Sans Pro;
@@ -958,6 +963,9 @@ $dds-grid-xl-1920-gutter-size: 24px;
 $dds-grid-xl-1920-alignment: stretch;
 $dds-grid-xl-1920-count: 12;
 $dds-grid-xl-1920-offset: 24px;
+$dds-iconsize-medium: 24px;
+$dds-iconsize-large: 40px;
+$dds-iconsize-small: 16px;
 $sizes-dds-spacing-local-x-3: 48px; // 48px
 $sizes-dds-spacing-local-x-2-5: 40px; // 40px
 $sizes-dds-spacing-local-x-2: 32px; // 32px

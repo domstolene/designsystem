@@ -66,6 +66,15 @@
           }
         },
         {
+          "destination": "iconSize.ts",
+          "format": "custom/javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "$dds-iconsize"
+            }
+          }
+        },
+        {
           "destination": "border.ts",
           "format": "custom/javascript/es6",
           "filter": {

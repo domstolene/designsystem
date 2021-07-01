@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Apr 2021 08:52:36 GMT
+ * Generated on Thu, 01 Jul 2021 11:40:16 GMT
  */
 
 export const DdsColorPrimaryLightest = "rgba(234, 239, 244, 1)";
@@ -318,6 +318,11 @@ export const DdsColorNeutralsGradientGray9Stops0Color = "rgba(11, 13, 14, 1)";
 export const DdsColorNeutralsGradientGray9Stops1Position = 1;
 export const DdsColorNeutralsGradientGray9Stops1Color = "rgba(0, 0, 0, 1)";
 export const DdsColorNeutralsGradientGray9Opacity = 1;
+export const DdsColorSecondaryLightest = "rgba(230, 236, 236, 1)"; // --l80
+export const DdsColorSecondaryLighter = "rgba(205, 219, 219, 1)";
+export const DdsColorSecondaryLight = "rgba(167, 193, 191, 1)";
+export const DdsColorSecondaryBase = "rgba(129, 166, 164, 1)";
+export const DdsColorSecondaryDark = "rgba(77, 99, 98, 1)";
 export const DdsFontSansLightX25FontSize = "40px";
 export const DdsFontSansLightX25FontSizeNumberPx = 40;
 export const DdsFontSansLightX25TextDecoration = "none";
@@ -1129,6 +1134,12 @@ export const DdsGridXl1920Alignment = "stretch";
 export const DdsGridXl1920Count = 12;
 export const DdsGridXl1920Offset = "24px";
 export const DdsGridXl1920OffsetNumberPx = 24;
+export const DdsIconsizeMedium = "24px";
+export const DdsIconsizeMediumNumberPx = 24;
+export const DdsIconsizeLarge = "40px";
+export const DdsIconsizeLargeNumberPx = 40;
+export const DdsIconsizeSmall = "16px";
+export const DdsIconsizeSmallNumberPx = 16;
 export const SizesDdsSpacingLocalX3 = "48px";
 export const SizesDdsSpacingLocalX3NumberPx = 48; // 48px
 export const SizesDdsSpacingLocalX25 = "40px";

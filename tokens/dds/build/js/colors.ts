@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 21 Apr 2021 08:52:36 GMT
+ * Generated on Thu, 01 Jul 2021 11:40:16 GMT
  */
 
 export const DdsColorPrimaryLightest = "rgba(234, 239, 244, 1)";
@@ -318,3 +318,8 @@ export const DdsColorNeutralsGradientGray9Stops0Color = "rgba(11, 13, 14, 1)";
 export const DdsColorNeutralsGradientGray9Stops1Position = 1;
 export const DdsColorNeutralsGradientGray9Stops1Color = "rgba(0, 0, 0, 1)";
 export const DdsColorNeutralsGradientGray9Opacity = 1;
+export const DdsColorSecondaryLightest = "rgba(230, 236, 236, 1)"; // --l80
+export const DdsColorSecondaryLighter = "rgba(205, 219, 219, 1)";
+export const DdsColorSecondaryLight = "rgba(167, 193, 191, 1)";
+export const DdsColorSecondaryBase = "rgba(129, 166, 164, 1)";
+export const DdsColorSecondaryDark = "rgba(77, 99, 98, 1)";
