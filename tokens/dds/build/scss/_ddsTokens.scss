@@ -1,11 +1,15 @@
-
 // Do not edit directly
 // Generated on Thu, 01 Jul 2021 11:40:16 GMT
 
 $dds-color-primary-lightest: rgba(234, 239, 244, 1);
 $dds-color-primary-lighter: rgba(170, 193, 209, 1);
 $dds-color-primary-light: rgba(106, 146, 175, 1);
-$dds-color-primary-base: rgba(42, 99, 140, 1); // Indikerer primæraksjon eller annen interaksjon.
+$dds-color-primary-base: rgba(
+  42,
+  99,
+  140,
+  1
+); // Indikerer primæraksjon eller annen interaksjon.
 $dds-color-primary-dark: rgba(34, 79, 112, 1);
 $dds-color-primary-darker: rgba(25, 59, 84, 1);
 $dds-color-primary-darkest: rgba(17, 40, 56, 1);
@@ -54,7 +58,12 @@ $dds-color-primary-gradient-darkest-opacity: 1;
 $dds-color-success-lightest: rgba(233, 242, 239, 1);
 $dds-color-success-lighter: rgba(169, 204, 191, 1);
 $dds-color-success-light: rgba(104, 166, 142, 1);
-$dds-color-success-base: rgba(39, 128, 94, 1); // Brukes for å kommunisere suksess eller noe som er riktig.
+$dds-color-success-base: rgba(
+  39,
+  128,
+  94,
+  1
+); // Brukes for å kommunisere suksess eller noe som er riktig.
 $dds-color-success-dark: rgba(31, 102, 75, 1);
 $dds-color-success-darker: rgba(23, 77, 56, 1);
 $dds-color-success-darkest: rgba(16, 51, 38, 1);
@@ -103,7 +112,12 @@ $dds-color-success-gradient-darkest-opacity: 1;
 $dds-color-danger-lightest: rgba(251, 235, 235, 1);
 $dds-color-danger-lighter: rgba(239, 175, 175, 1);
 $dds-color-danger-light: rgba(228, 115, 115, 1);
-$dds-color-danger-base: rgba(216, 55, 55, 1); // Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.
+$dds-color-danger-base: rgba(
+  216,
+  55,
+  55,
+  1
+); // Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.
 $dds-color-danger-dark: rgba(173, 44, 44, 1);
 $dds-color-danger-darker: rgba(130, 33, 33, 1);
 $dds-color-danger-darkest: rgba(86, 22, 22, 1);
@@ -152,7 +166,12 @@ $dds-color-danger-gradient-darkest-opacity: 1;
 $dds-color-warning-lightest: rgba(254, 252, 237, 1);
 $dds-color-warning-lighter: rgba(251, 243, 184, 1);
 $dds-color-warning-light: rgba(247, 233, 130, 1);
-$dds-color-warning-base: rgba(244, 224, 77, 1); // Brukes for å kommunisere varsler.
+$dds-color-warning-base: rgba(
+  244,
+  224,
+  77,
+  1
+); // Brukes for å kommunisere varsler.
 $dds-color-warning-dark: rgba(195, 179, 62, 1);
 $dds-color-warning-darker: rgba(146, 134, 46, 1);
 $dds-color-warning-darkest: rgba(98, 90, 31, 1);
@@ -899,7 +918,6 @@ $dds-font-serif-x-1-25-paragraph-indent: 0px;
 $dds-font-serif-x-1-25-paragraph-spacing: 10px;
 $dds-font-serif-x-1-25-text-case: none;
 $borders-dds-border-style-1-stroke-align: inside;
-$borders-dds-border-style-1-dash-pattern: ;
 $borders-dds-border-style-1-stroke-cap: round;
 $borders-dds-border-style-1-stroke-join: miter;
 $borders-dds-border-style-1-stroke-miter-limit: 4;
@@ -926,18 +944,18 @@ $radii-dds-border-radius-3-radii-top-right: 8px;
 $radii-dds-border-radius-3-radii-bottom-right: 8px;
 $radii-dds-border-radius-3-radii-bottom-left: 8px;
 $radii-dds-border-radius-3-smoothing: 0;
-$dds-innershadow-1-ondark:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5) inset;
-$dds-innershadow-1-onlight:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.1) inset;
-$dds-innershadow-2-ondark:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.5) inset;
-$dds-innershadow-2-onlight:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.1) inset;
-$dds-shadow-1-ondark:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-1-onlight:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.1);
-$dds-shadow-2-ondark:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-2-onlight:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.1);
-$dds-shadow-3-ondark:  4.0px 8.0px 16.0px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-3-onlight:  4.0px 8.0px 16.0px 0px rgba(0, 0, 0, 0.1);
-$dds-shadow-4-ondark:  8.0px 16.0px 32.0px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-4-onlight:  8.0px 16.0px 32.0px 0px rgba(0, 0, 0, 0.1);
+$dds-innershadow-1-ondark: 1px 2px 4px 0px rgba(0, 0, 0, 0.5) inset;
+$dds-innershadow-1-onlight: 1px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
+$dds-innershadow-2-ondark: 2px 4px 8px 0px rgba(0, 0, 0, 0.5) inset;
+$dds-innershadow-2-onlight: 2px 4px 8px 0px rgba(0, 0, 0, 0.1) inset;
+$dds-shadow-1-ondark: 1px 2px 4px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-1-onlight: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
+$dds-shadow-2-ondark: 2px 4px 8px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-2-onlight: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
+$dds-shadow-3-ondark: 4px 8px 16px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-3-onlight: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
+$dds-shadow-4-ondark: 8px 16px 32px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-4-onlight: 8px 16px 32px 0px rgba(0, 0, 0, 0.1);
 $dds-grid-xs-0-599-pattern: columns;
 $dds-grid-xs-0-599-gutter-size: 16px;
 $dds-grid-xs-0-599-alignment: stretch;
