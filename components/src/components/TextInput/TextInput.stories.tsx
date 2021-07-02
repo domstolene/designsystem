@@ -67,7 +67,7 @@ export const Default = (args: TextInputProps) => {
     return (
         storyHTMLTemplate('TextInput - default', <TextInput {...args} id='test' />)
         );
-    }
+}
 
 export const InputWithLabel = (args: TextInputProps) => {
     return (

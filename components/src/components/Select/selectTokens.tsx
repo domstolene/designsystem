@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import * as CSS from 'csstype';
 
 const {
     colors: Colors,
@@ -27,8 +28,7 @@ const containerBase: CSSObject = {
     border: '1px solid',
     borderColor: Colors.DdsColorNeutralsGray5,
     backgroundColor: Colors.DdsColorNeutralsWhite,
-    height: '72px',
-    width: '320px'
+    height: '72px'
 }
 
 const containerHoverBase: CSSObject = {
@@ -123,10 +123,12 @@ const containerReadOnlyBase: CSSObject = {
     backgroundColor: 'transparent',
 }
 
+const defaultWidth: CSS.Property.Width<string> = '320px';
 
 export const selectTokens = {
     container: {
         base: containerBase,
+        defaultWidth: defaultWidth,
         hover: {
             base: containerHoverBase
         },

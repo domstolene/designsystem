@@ -133,14 +133,14 @@ export type TextInputProps = {
     label?: string;
     multiline?: boolean;
     tip?: string;
-    width: CSS.Property.Width<string>;
+    width?: CSS.Property.Width<string>;
     errorMessage?: string;
     className?: string;
     style?: React.CSSProperties;
 } & InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-    ({label, disabled, readOnly, errorMessage, tip, required, maxLength, multiline, onChange, id, width, type = 'text', className, style, ...rest}, ref) => {
+    ({label, disabled, readOnly, errorMessage, tip, required, maxLength, multiline, onChange, id, width = tokens.wrapper.defaultWidth, type = 'text', className, style, ...rest}, ref) => {
 
         const textAreaRef = useRef<HTMLTextAreaElement>(null);
         const [text, setText] = useState("");
@@ -248,7 +248,3 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         );
     }
 );
-
-TextInput.defaultProps = {
-    width: tokens.wrapper.defaultWidth,
-}

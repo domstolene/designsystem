@@ -26,7 +26,7 @@ type StyledContainerProps = {
 const Container = styled.div<StyledContainerProps>`
     transition: 0.2s;
     position: relative;
-    width: ${({width}) => width ? width : tokens.container.base.width};
+    width: ${({width}) => width };
     ${tokens.container.base}
     ${scrollbarStyling}
     &:hover {
@@ -233,7 +233,7 @@ export type SelectProps = {
 let nextUniqueId = 0;
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
-    ({id, label, placeholder = '-- Velg fra listen --', errorMessage, items, tip, required, disabled, readOnly, width, loading, className, style, onChange, ...rest}, ref) => {
+    ({id, label, placeholder = '-- Velg fra listen --', errorMessage, items, tip, required, disabled, readOnly, width = tokens.container.defaultWidth, loading, className, style, onChange, ...rest}, ref) => {
 
         const options: { value: string; label: string; }[] = [];
         items.forEach((e) => {
@@ -298,8 +298,3 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             </Wrapper>
         );
 });
-
-Select.defaultProps = {
-    required: false,
-    disabled: false
-}
