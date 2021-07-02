@@ -12,7 +12,7 @@ export default {
 
 export const Overview = (args: TypographyProps) => {
     return storyHTMLTemplate(
-        'Paragraph - default',
+        'Paragraph - overview',
         <>
             <Typography {...args} >
                 Jordskifterettene tilbyr hvert år studenter sommerjobb i jordskifterettene.

@@ -4,7 +4,7 @@ import { typographyTokens as tokens, textColors } from './typographyTokens';
 import InlineIconWrapper from '../../helpers/InlineIconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
 
-type TypographyType = 'a' | 'p';
+export type TypographyType = 'a' | 'p';
 
 const getElementType = (element: string): ElementType => {
     switch (element) {
@@ -32,25 +32,25 @@ const getElementStyling = (type: TypographyType) => {
 }
 
 type StyledTypographyProps = {
-    type?: TypographyType,
+    typographyType?: TypographyType,
     color?: TextColor
 }
 
 const StyledTypography = styled.p<StyledTypographyProps>`
-    ${({type}) => type && getElementStyling(type)}
+    ${({typographyType}) => typographyType && getElementStyling(typographyType)}
     ${({color}) => color && css` color: ${getColor(color)};`}
-    ${({type}) => type === 'a' && css`
+    ${({typographyType}) => typographyType === 'a' && css`
         display: inline-flex;
         align-items: center;
 
         &:hover {
-            ${tokens[type].hover}
+            ${tokens[typographyType].hover}
         }
         &:focus-visible {
-            ${tokens[type].focus}
+            ${tokens[typographyType].focus}
         }
         .DDSLink-icon-wrapper {
-            ${tokens[type].icon}
+            ${tokens[typographyType].icon}
         }
     `}
 `;
@@ -58,7 +58,7 @@ const StyledTypography = styled.p<StyledTypographyProps>`
 type TextColor = 'primary' | 'danger' | 'warning' | 'success';
 
 export type TypographyProps = {
-    type?: TypographyType,
+    typographyType?: TypographyType,
     as?: ElementType,
     externalLink?: boolean,
     color?: TextColor,
@@ -66,23 +66,23 @@ export type TypographyProps = {
 } & (HTMLAttributes<HTMLElement> | AnchorHTMLAttributes<HTMLAnchorElement>);
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
-    ({ type = 'p', as: propAs, externalLink, bold, children, ...rest }, ref) => {
+    ({ typographyType = 'p', as: propAs, externalLink, bold, children, ...rest }, ref) => {
 
-        const as = propAs ? propAs : getElementType(type as string);
+        const as = propAs ? propAs : getElementType(typographyType as string);
 
         const typographyProps = {
-            type,
+            typographyType,
             bold,
             as,
             rel: as === 'a' ? 'noopener noreferer' : undefined,
-            target: (as === 'a' && externalLink) ? '_blank' : undefined
+            target: (as === 'a' && externalLink) ? '_blank' : undefined,
+            ...rest
         }
 
         return (
             <StyledTypography
                 ref={ref}
                 {...typographyProps}
-                {...rest}
             >
                 {children} {as === 'a' && externalLink ? <InlineIconWrapper className='DDSLink-icon-wrapper' Icon={LaunchOutlinedIcon} /> : '' }
             </StyledTypography>
