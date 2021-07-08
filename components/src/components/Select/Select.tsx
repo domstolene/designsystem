@@ -225,6 +225,8 @@ export type SelectProps = {
     tip?: string;
     width?: string;
     loading?: boolean,
+    value?: string,
+    defaultValue?: string,
     className?: string;
     style?: React.CSSProperties;
 
@@ -233,7 +235,7 @@ export type SelectProps = {
 let nextUniqueId = 0;
 
 export const Select = forwardRef<HTMLDivElement, SelectProps>(
-    ({id, label, placeholder = '-- Velg fra listen --', errorMessage, items, tip, required, disabled, readOnly, width = tokens.container.defaultWidth, loading, className, style, onChange, ...rest}, ref) => {
+    ({id, label, placeholder = '-- Velg fra listen --', errorMessage, items, tip, required, disabled, readOnly, width = tokens.container.defaultWidth, loading, value, defaultValue, className, style, onChange, ...rest}, ref) => {
 
         const options: { value: string; label: string; }[] = [];
         items.forEach((e) => {
@@ -255,6 +257,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             options,
             placeholder,
             required,
+            value: value ? { value: value, label: value } : undefined,
+            defaultValue: { value: defaultValue, label: defaultValue },
             isDisabled: disabled || readOnly,
             isClearable: true,
             inputId: uniqueId,
