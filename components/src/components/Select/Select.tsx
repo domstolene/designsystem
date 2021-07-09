@@ -225,7 +225,7 @@ export type SelectProps = {
     tip?: string;
     width?: string;
     loading?: boolean,
-    value?: string,
+    value?: {value: string, label: string},
     defaultValue?: string,
     className?: string;
     style?: React.CSSProperties;
@@ -257,8 +257,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             options,
             placeholder,
             required,
-            value: value ? { value: value, label: value } : undefined,
-            defaultValue: { value: defaultValue, label: defaultValue },
+            value: value,
+            defaultValue: {value: defaultValue, label: defaultValue},
             isDisabled: disabled || readOnly,
             isClearable: true,
             inputId: uniqueId,

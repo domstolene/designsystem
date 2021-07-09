@@ -48,8 +48,8 @@ export const Overview = (args: SelectProps) => {
     <DDSSelect {...args} label={args.label || 'Label'} errorMessage='Dette er en feilmelding' items={items} />
     <DDSSelect {...args} label={args.label || 'Label'} tip='Dette er en hjelpetekst' items={items} />
     <DDSSelect {...args} label={args.label || 'Label'} placeholder='Annerledes placeholder' items={items} />
-    <DDSSelect {...args} label={args.label || 'Label'} defaultValue='Alternativ 4' items={items} />
-    <DDSSelect {...args} label={args.label || 'Label'} value='Alternativ 2' items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} defaultValue= 'Alternativ 4' items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} value={{value: 'Alternativ 4', label: 'Alternativ 4'}} items={items} />
     </>,
     '25px',
     2
