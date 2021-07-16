@@ -253,7 +253,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             style
         }
 
-        let inputProps : {[k: string]: any} = {
+        const inputProps : {[k: string]: any} = {
             options,
             placeholder,
             required,
