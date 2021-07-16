@@ -225,8 +225,8 @@ export type SelectProps = {
     tip?: string;
     width?: string;
     loading?: boolean,
-    value?: string,
-    defaultValue?: string,
+    value?: string | null,
+    defaultValue?: string | null,
     className?: string;
     style?: React.CSSProperties;
 
@@ -253,12 +253,10 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             style
         }
 
-        const inputProps = {
+        let inputProps : {[k: string]: any} = {
             options,
             placeholder,
             required,
-            value: value ? { value: value, label: value } : undefined,
-            defaultValue: { value: defaultValue, label: defaultValue },
             isDisabled: disabled || readOnly,
             isClearable: true,
             inputId: uniqueId,
@@ -274,6 +272,24 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             onChange,
             // menuIsOpen brukes til testing når listen med alternativer skal alltid være åpen
             // menuIsOpen: true
+        }
+        
+        if(value !== undefined && inputProps?.value !== value){
+            if(value === null || value === ""){
+                inputProps.value = null
+            }
+            else{
+                inputProps.value = { value: value, label: value }
+            }
+        }
+
+        if(defaultValue !== undefined && inputProps?.defaultValue !== defaultValue){            
+            if(defaultValue === null || defaultValue === ""){
+                inputProps.defaultValue = null
+            }
+            else{
+                inputProps.defaultValue = { value: defaultValue, label: defaultValue }
+            }
         }
 
         return (
