@@ -11,7 +11,8 @@ export default {
     errorMessage: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
     placeholder: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
+    isDisabled: { control: { type: 'boolean' } },
+    isClearable: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } }
@@ -23,15 +24,15 @@ export default {
   }
 };
 
-const items = [
+const options = [
   'Alternativ 1',
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',
   'Alternativ 3',
   'Alternativ 4'
-];
+].map(s => ({ label: s, value: s, test: 'flesk' }));
 
-const itemsLong = [
+const optionsLong = [
   'Alternativ 1',
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',
@@ -40,62 +41,62 @@ const itemsLong = [
   'Alternativ 5',
   'Alternativ 6',
   'Alternativ 7'
-];
+].map(s => ({ label: s, value: s }));
 
 export const Overview = (args: SelectProps) => {
   return storyHTMLGridTemplate(
     'Select - overview',
     <>
-      <DDSSelect {...args} label={args.label || 'Label'} items={items} />
+      <DDSSelect {...args} label={args.label || 'Label'} options={options} />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
         required
-        items={items}
+        options={options}
       />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
-        disabled
-        items={items}
+        isDisabled
+        options={options}
       />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
         readOnly
-        items={items}
+        options={options}
       />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
         errorMessage="Dette er en feilmelding"
-        items={items}
+        options={options}
       />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
         tip="Dette er en hjelpetekst"
-        items={items}
+        options={options}
       />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
         placeholder="Annerledes placeholder"
-        items={items}
+        options={options}
       />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
-        defaultValue="Alternativ 4"
-        items={items}
+        defaultValue={options[0]}
+        options={options}
       />
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
-        value="Alternativ 2"
-        items={items}
+        value={options[3]}
+        options={options}
       />
-      <DDSSelect {...args} items={items} />
+      <DDSSelect {...args} options={options} />
     </>,
     '25px',
     2
@@ -105,13 +106,13 @@ export const Overview = (args: SelectProps) => {
 export const Default = (args: SelectProps) => {
   return storyHTMLTemplate(
     'Select default',
-    <DDSSelect {...args} label={args.label || 'Label'} items={items} />
+    <DDSSelect {...args} label={args.label || 'Label'} options={options} />
   );
 };
 export const ManyItems = (args: SelectProps) => {
   return storyHTMLTemplate(
-    'Select - many items',
-    <DDSSelect {...args} label={args.label || 'Label'} items={itemsLong} />
+    'Select - many options',
+    <DDSSelect {...args} label={args.label || 'Label'} options={optionsLong} />
   );
 };
 
@@ -122,7 +123,7 @@ export const SelectError = (args: SelectProps) => {
       {...args}
       label={args.label || 'Label'}
       errorMessage="Dette er en feilmelding"
-      items={items}
+      options={options}
     />
   );
 };

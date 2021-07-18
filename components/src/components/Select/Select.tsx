@@ -1,13 +1,20 @@
+import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
 import React, { forwardRef, HTMLAttributes, useState } from 'react';
+import {
+  components,
+  default as ReactSelect,
+  OptionProps,
+  Props as ReactSelectProps,
+  Styles
+} from 'react-select';
+import { NoticeProps } from 'react-select/src/components/Menu';
+import { Option } from 'react-select/src/filters';
 import styled, { css, CSSObject } from 'styled-components';
-import { default as ReactSelect, components, Styles } from 'react-select';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import { selectTokens as tokens } from './selectTokens';
-import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
-import { Option } from 'react-select/src/filters';
 
 const prefix = 'dds-select';
 
@@ -19,7 +26,7 @@ const Label = styled.label`
 type StyledContainerProps = {
   errorMessage?: string;
   width?: string;
-  disabled?: boolean;
+  isDisabled?: boolean;
   readOnly?: boolean;
   label?: string;
 };
@@ -80,8 +87,8 @@ const Container = styled.div<StyledContainerProps>`
     ${tokens.dropdownIndicator.hover.base}
   }
 
-  ${({ disabled }) =>
-    disabled &&
+  ${({ isDisabled }) =>
+    isDisabled &&
     css`
       cursor: not-allowed;
       ${tokens.container.disabled.base}
@@ -123,7 +130,7 @@ const SelectedIconWrapper = styled(IconWrapper)`
 
 const { Option: DdsOption, NoOptionsMessage } = components;
 
-const IconOption = (props: any) => (
+const IconOption = (props: OptionProps<any, any>) => (
   <DdsOption {...props}>
     {props.isSelected && (
       <SelectedIconWrapper Icon={CheckOutlinedIcon} iconSize="inline" />
@@ -132,7 +139,7 @@ const IconOption = (props: any) => (
   </DdsOption>
 );
 
-const NoOptionsMessageCustom = (props: any) => (
+const NoOptionsMessageCustom = (props: NoticeProps<any, any>) => (
   <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>
 );
 
@@ -237,21 +244,15 @@ export function searchFilter(text: string, search: string): boolean {
 
 export type SelectProps = {
   label?: string;
-  items: string[];
-  placeholder?: string;
   required?: boolean;
-  disabled?: boolean;
   readOnly?: boolean;
   errorMessage?: string;
   tip?: string;
   width?: string;
-  loading?: boolean;
-  value?: string | null;
-  defaultValue?: string | null;
-  notClearable?: boolean;
   className?: string;
   style?: React.CSSProperties;
-} & HTMLAttributes<HTMLDivElement>;
+} & ReactSelectProps &
+  HTMLAttributes<HTMLDivElement>;
 
 let nextUniqueId = 0;
 
@@ -260,51 +261,40 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     {
       id,
       label,
-      placeholder = '-- Velg fra listen --',
       errorMessage,
-      items,
       tip,
       required,
-      disabled,
       readOnly,
-      width = tokens.container.defaultWidth,
-      loading,
       value,
-      defaultValue,
-      notClearable,
+      width = tokens.container.defaultWidth,
       className,
       style,
-      onChange,
+      isDisabled,
+      isClearable = true,
+      placeholder = '-- Velg fra listen --',
       ...rest
-    },
+    }: SelectProps,
     ref
   ) => {
-    const options: { value: string; label: string }[] = [];
-    items.forEach(e => {
-      options.push({ value: e, label: e });
-    });
-
     const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
 
     const containerProps = {
       errorMessage,
       width,
-      disabled,
+      isDisabled,
       readOnly,
       label,
       className,
       style
     };
 
-    const inputProps: { [k: string]: any } = {
-      options,
+    const reactSelectProps: ReactSelectProps = {
+      isDisabled: isDisabled || readOnly,
+      isClearable: value ? false : isClearable,
+      value,
       placeholder,
-      required,
-      isDisabled: disabled || readOnly,
-      isClearable: notClearable ? undefined : true,
       inputId: uniqueId,
       name: uniqueId,
-      isLoading: loading,
       classNamePrefix: prefix,
       styles: customStyles,
       filterOption: (option: Option, inputValue: string) => {
@@ -315,29 +305,8 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
         Option: IconOption,
         NoOptionsMessage: NoOptionsMessageCustom
       },
-      onChange
-      // menuIsOpen brukes til testing når listen med alternativer skal alltid være åpen
-      // menuIsOpen: true
+      ...rest
     };
-
-    if (value !== undefined && inputProps?.value !== value) {
-      if (value === null || value === '') {
-        inputProps.value = null;
-      } else {
-        inputProps.value = { value: value, label: value };
-      }
-    }
-
-    if (
-      defaultValue !== undefined &&
-      inputProps?.defaultValue !== defaultValue
-    ) {
-      if (defaultValue === null || defaultValue === '') {
-        inputProps.defaultValue = null;
-      } else {
-        inputProps.defaultValue = { value: defaultValue, label: defaultValue };
-      }
-    }
 
     return (
       <Wrapper ref={ref} {...rest}>
@@ -347,7 +316,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
               {label} {required && <RequiredMarker />}
             </Label>
           )}
-          <ReactSelect {...inputProps} />
+          <ReactSelect {...reactSelectProps} />
         </Container>
         {errorMessage ? (
           <InputMessage messageType={'error'} message={errorMessage} />
