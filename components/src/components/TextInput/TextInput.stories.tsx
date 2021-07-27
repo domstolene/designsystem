@@ -3,18 +3,18 @@ import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 import { TextInput, TextInputProps } from './TextInput';
 
 export default {
-  title: 'Design system/TextInput',
-  component: TextInput,
-  argTypes: {
-    label: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    width: { control: { type: 'text' } },
-    multiline: { control: { type: 'boolean' } },
-    required: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
-  },
+    title: 'Design system/TextInput',
+    component: TextInput,
+    argTypes: {
+        label: { control: { type: 'text' } },
+        tip: { control: { type: 'text' } },
+        errorMessage: { control: { type: 'text' } },
+        width: { control: { type: 'text' } },
+        multiline: { control: { type: 'boolean' } },
+        required: { control: { type: 'boolean' } },
+        disabled: { control: { type: 'boolean' } },
+        readOnly: { control: { type: 'boolean' } },
+    },
 };
 
 export const TextInputOverview = (args: TextInputProps) => {
@@ -66,7 +66,7 @@ export const TextareaOverview = (args: TextInputProps) => {
 export const Default = (args: TextInputProps) => {
     return (
         storyHTMLTemplate('TextInput - default', <TextInput {...args} id='test' />)
-        );
+    );
 }
 
 export const InputWithLabel = (args: TextInputProps) => {
@@ -83,7 +83,7 @@ export const Textarea = (args: TextInputProps) => {
 
 export const TextareaWithLabel = (args: TextInputProps) => {
     return (
-        storyHTMLTemplate('Textarea (multiline) - with label', <TextInput {...args} label={args.label || 'Label'} id='test' multiline />)
+        storyHTMLTemplate('Textarea (multiline) - with label', <TextInput {...args} label={args.label || 'Label'} id='test' multiline style={{ height: '150px' }} />)
     );
 }
 

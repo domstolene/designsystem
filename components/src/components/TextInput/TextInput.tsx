@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, InputHTMLAttributes, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { inputTokens as tokens} from './textInputTokens';
+import { inputTokens as tokens } from './textInputTokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
@@ -15,14 +15,14 @@ type GeneralInputProps = {
     disabled?: boolean;
 }
 
-const InputStyling = ({readOnly, errorMessage, label, disabled}: GeneralInputProps) => {
+const InputStyling = ({ readOnly, errorMessage, label, disabled }: GeneralInputProps) => {
     return css`
         ${inputFieldStylingBase}
         ${tokens.base}
-        ${ label ? css`
+        ${label ? css`
             ${tokens.withLabel.base}
         `
-        : css`
+            : css`
             ${tokens.noLabel.base}
         `
         };
@@ -36,7 +36,7 @@ const InputStyling = ({readOnly, errorMessage, label, disabled}: GeneralInputPro
             ${tokens.disabled.base}
             `
         }
-        ${errorMessage  && css`
+        ${errorMessage && css`
             ${tokens.error.base}
             &:hover:enabled {
                 ${tokens.error.hover.base}
@@ -64,34 +64,34 @@ const Label = styled.label<LabelProps>`
     left: 0;
     transition: color 0.2s, background-color 0.2s;
     ${tokens.label.base}
-    ${({multiline}) => multiline && css`
+    ${({ multiline }) => multiline && css`
         margin: 1px;
         width: calc(100% - 20px);
         ${tokens.label.multiline.base}
     `}
-    ${({disabled, multiline}) => (disabled && multiline) && css`
+    ${({ disabled, multiline }) => (disabled && multiline) && css`
       background-color: ${tokens.disabled.base.backgroundColor};
     `}
-    ${({readOnly, multiline}) => (readOnly && multiline) && css`
+    ${({ readOnly, multiline }) => (readOnly && multiline) && css`
       background-color: ${tokens.readOnly.base.backgroundColor};
     `}
 `;
 
-const InputFieldWrapper = styled.div<{width: CSS.Property.Width<string>}>`
+const InputFieldWrapper = styled.div<{ width: CSS.Property.Width<string> }>`
     display: flex;
     flex-direction: column;
-    width: ${({width}) => width };
+    width: ${({ width }) => width};
 `;
 
-const InputFieldContainer = styled.div<{multiline?: boolean, label?: string}>`
+const InputFieldContainer = styled.div<{ multiline?: boolean, label?: string }>`
     position: relative;
     width: 100%;
-    ${({multiline}) => multiline && css`
+    ${({ multiline }) => multiline && css`
     display: inline-block;
     `}
-    height: ${({multiline, label}) => {
-        if(multiline) {
-            if(label) {
+    height: ${({ multiline, label }) => {
+        if (multiline) {
+            if (label) {
                 return tokens.container.multiline.withLabel.height;
             }
             return tokens.container.multiline.noLabel.height;
@@ -100,25 +100,25 @@ const InputFieldContainer = styled.div<{multiline?: boolean, label?: string}>`
 `;
 
 const Input = styled.input<GeneralInputProps>`
-    ${({label, disabled, readOnly, errorMessage}) => InputStyling({readOnly, errorMessage, label, disabled} )}
+    ${({ label, disabled, readOnly, errorMessage }) => InputStyling({ readOnly, errorMessage, label, disabled })}
 `;
 
 const TextArea = styled.textarea<GeneralInputProps>`
-   ${({label, disabled, readOnly, errorMessage}) => InputStyling({readOnly, errorMessage, label, disabled})}
+   ${({ label, disabled, readOnly, errorMessage }) => InputStyling({ readOnly, errorMessage, label, disabled })}
    resize: vertical;
    height: auto;
    ${scrollbarStyling}
-   min-height: ${({label}) => label ? tokens.container.multiline.withLabel.height : tokens.container.multiline.noLabel.height };
+   min-height: ${({ label }) => label ? tokens.container.multiline.withLabel.height : tokens.container.multiline.noLabel.height};
    ${tokens.multiline.base}
-   ${({label}) => label ? css`
+   ${({ label }) => label ? css`
     ${tokens.multiline.withLabel.base}
     `
-    : css`
+        : css`
     ${tokens.multiline.noLabel.base}
     `}
 
    &:hover:enabled ~ label {
-        background-color: ${({errorMessage}) => errorMessage ? tokens.error.hover.base.backgroundColor : tokens.general.input.hover.backgroundColor};
+        background-color: ${({ errorMessage }) => errorMessage ? tokens.error.hover.base.backgroundColor : tokens.general.input.hover.backgroundColor};
     }
 `;
 
@@ -140,7 +140,7 @@ export type TextInputProps = {
 } & InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-    ({label, disabled, readOnly, errorMessage, tip, required, maxLength, multiline, onChange, id, width = tokens.wrapper.defaultWidth, type = 'text', className, style, ...rest}, ref) => {
+    ({ label, disabled, readOnly, errorMessage, tip, required, maxLength, multiline, onChange, id, width = tokens.wrapper.defaultWidth, type = 'text', className, style, ...rest }, ref) => {
 
         const textAreaRef = useRef<HTMLTextAreaElement>(null);
         const [text, setText] = useState("");
@@ -148,7 +148,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         const [parentHeight, setParentHeight] = useState("auto");
 
         useEffect(() => {
-            if(textAreaRef && textAreaRef.current) {
+            if (textAreaRef && textAreaRef.current) {
                 setParentHeight(`${textAreaRef.current.scrollHeight}px`);
                 setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
             }
@@ -164,7 +164,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
         const onChangeHandlerMultiline: React.ChangeEventHandler<HTMLTextAreaElement> = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
             setTextAreaHeight("auto");
-            if(textAreaRef && textAreaRef.current) {
+            if (textAreaRef && textAreaRef.current) {
                 setParentHeight(`${textAreaRef.current.scrollHeight}px`);
             }
 
@@ -209,7 +209,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                     {multiline ?
                         <TextArea
                             ref={textAreaRef}
-                            style={{height: textAreaHeight}}
+                            style={{ height: textAreaHeight }}
                             onChange={onChangeHandlerMultiline}
                             required={required}
                             {...generalInputProps}
@@ -224,22 +224,22 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                         />
                     }
                     {label &&
-                    <Label
-                        {...labelProps}
-                        htmlFor={uniqueId}
-                    >
-                        {label} {required && <RequiredMarker />}
-                    </Label>
+                        <Label
+                            {...labelProps}
+                            htmlFor={uniqueId}
+                        >
+                            {label} {required && <RequiredMarker />}
+                        </Label>
                     }
                 </InputFieldContainer>
                 <FlexContainer>
                     {errorMessage ?
                         <InputMessage message={errorMessage} messageType={'error'} />
                         : tip ?
-                        <InputMessage message={tip} messageType={'tip'} />
-                        : ''
+                            <InputMessage message={tip} messageType={'tip'} />
+                            : ''
                     }
-                    {(maxLength && Number.isInteger(maxLength) && maxLength > 0)  ?
+                    {(maxLength && Number.isInteger(maxLength) && maxLength > 0) ?
                         <CharCounter current={text.length} max={maxLength} />
                         : ''
                     }

@@ -8,7 +8,7 @@ type Props = {
     className?: string;
 }
 
-function InlineIconWrapper({Icon, className}: Props) {
+function InlineIconWrapper({ Icon, className }: Props) {
     const InlineIcon = Icon;
 
     return (
