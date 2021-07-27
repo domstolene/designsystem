@@ -10,3 +10,5 @@ export * from './components/LocalMessage';
 export * from './components/Search';
 export * from './components/Typography';
 export * from './components/Table';
+export * from './components/Breadcrumbs';
+export * from './helpers/IconWrapper';
