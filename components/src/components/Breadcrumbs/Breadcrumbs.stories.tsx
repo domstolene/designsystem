@@ -73,3 +73,24 @@ export const Default = (args: BreadcrumbsProps) => {
         </Breadcrumbs>
     );
 }
+
+export const SmallScreen = () => {
+    return storyHTMLTemplate(
+        'Breadcrumbs - small screen',
+        <Breadcrumbs smallScreen>
+            <Breadcrumb
+                href='#'
+            >
+                Side 1
+            </Breadcrumb>
+            <Breadcrumb
+                href='#'
+            >
+                Side 2
+            </Breadcrumb>
+            <Breadcrumb>
+                Side 3
+            </Breadcrumb>
+        </Breadcrumbs>
+    );
+}
