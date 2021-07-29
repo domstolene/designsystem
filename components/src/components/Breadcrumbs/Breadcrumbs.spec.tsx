@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import {Breadcrumbs, Breadcrumb } from '.';
 
 describe('Breadcrumbs', () => {
     it('has aria-label', () => {
         render (
-            <Breadcrumbs id='test'>
+            <Breadcrumbs data-testid='test'>
                 <Breadcrumb>
                     Side 1
                 </Breadcrumb>
@@ -19,6 +19,6 @@ describe('Breadcrumbs', () => {
         )
     });
 
-    const breadcrumbs = document.getElementById('test');
+    const breadcrumbs = screen.getByTestId('test');
     expect(breadcrumbs).toHaveAttribute('aria-label', 'breadcrumbs');
 });
