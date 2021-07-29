@@ -17,8 +17,7 @@ describe('Breadcrumbs', () => {
                 </Breadcrumb>
             </Breadcrumbs>
         )
+        const breadcrumbs = screen.getByLabelText('breadcrumbs');
+        expect(breadcrumbs).toHaveAttribute('aria-label', 'breadcrumbs');
     });
-
-    const breadcrumbs = screen.getByLabelText('breadcrumbs');
-    expect(breadcrumbs).toHaveAttribute('aria-label', 'breadcrumbs');
 });
