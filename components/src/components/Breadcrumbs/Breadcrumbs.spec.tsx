@@ -5,7 +5,7 @@ import {Breadcrumbs, Breadcrumb } from '.';
 describe('Breadcrumbs', () => {
     it('has aria-label', () => {
         render (
-            <Breadcrumbs data-testid='test'>
+            <Breadcrumbs>
                 <Breadcrumb>
                     Side 1
                 </Breadcrumb>
@@ -19,6 +19,6 @@ describe('Breadcrumbs', () => {
         )
     });
 
-    const breadcrumbs = screen.getByTestId('test');
+    const breadcrumbs = screen.getByLabelText('breadcrumbs');
     expect(breadcrumbs).toHaveAttribute('aria-label', 'breadcrumbs');
 });
