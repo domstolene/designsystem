@@ -99,27 +99,27 @@ export const localMessageTokens = {
     icon: {
         marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
         info: {
-            icon: <InfoOutlinedIcon />,
+            icon: InfoOutlinedIcon ,
             color: Colors.DdsColorPrimaryDarkest,
         },
         danger: {
-            icon: <DangerOutlinedIcon />,
+            icon: DangerOutlinedIcon,
             color: Colors.DdsColorDangerDarkest,
         },
         warning: {
-            icon: <WarningOutlinedIcon />,
+            icon: WarningOutlinedIcon,
             color: Colors.DdsColorWarningDarkest,
         },
         success: {
-            icon: <CheckCircleOutlinedIcon />,
+            icon: CheckCircleOutlinedIcon,
             color: Colors.DdsColorSuccessDarkest
         },
         tips: {
-            icon: <EmojiObjectsOutlinedIcon />,
+            icon: EmojiObjectsOutlinedIcon,
             color: Colors.DdsColorInfoDarkest
         },
         confidential: {
-            icon: <DangerOutlinedIcon />,
+            icon: DangerOutlinedIcon,
             color: Colors.DdsColorDangerDarkest
 
         }

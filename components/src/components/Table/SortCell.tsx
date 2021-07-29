@@ -4,12 +4,12 @@ import { cellTokens as tokens } from './cellTokens';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
-import InlineIconWrapper from '../../helpers/InlineIconWrapper';
+import { IconWrapper } from '../../helpers/IconWrapper';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import styled from 'styled-components';
 
-const SortIconWrapper = styled(InlineIconWrapper)`
+const SortIconWrapper = styled(IconWrapper)`
     ${tokens.head.sortCell.icon.base}
 `;
 
@@ -28,7 +28,7 @@ export const SortCell = forwardRef<HTMLTableHeaderCellElement, SortCellProps>(
     ({isSorted, sortOrder, children, ...rest}, ref) => {
 
     const IconRenderer = (isSorted?: boolean, sortOrder?: SortOrder) => {
-        const Wrapper = (Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>) => <SortIconWrapper Icon={Icon} />
+        const Wrapper = (Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>) => <SortIconWrapper Icon={Icon} iconSize='inline' />
         return !isSorted ?
             Wrapper(UnfoldMoreIcon)
         : sortOrder === 'ascending' ?

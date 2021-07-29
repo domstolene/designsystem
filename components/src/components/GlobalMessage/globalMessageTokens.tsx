@@ -65,15 +65,15 @@ export const globalMessageTokens = {
     icon: {
         marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
         info: {
-            icon: <InfoOutlinedIcon />,
+            icon: InfoOutlinedIcon,
             color: Colors.DdsColorPrimaryDarkest,
         },
         danger: {
-            icon: <DangerOutlinedIcon />,
+            icon: DangerOutlinedIcon,
             color: Colors.DdsColorDangerDarkest,
         },
         warning: {
-            icon: <WarningOutlinedIcon />,
+            icon: WarningOutlinedIcon,
             color: Colors.DdsColorWarningDarkest,
         },
     },

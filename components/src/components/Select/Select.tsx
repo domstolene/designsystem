@@ -5,7 +5,7 @@ import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import { selectTokens as tokens } from './selectTokens';
 import CheckOutlinedIcon  from '@material-ui/icons/CheckOutlined';
-import InlineIconWrapper from '../../helpers/InlineIconWrapper';
+import { IconWrapper } from '../../helpers/IconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { Option } from 'react-select/src/filters';
 
@@ -59,9 +59,6 @@ const Container = styled.div<StyledContainerProps>`
     .${prefix}__menu-list {
       ${scrollbarStyling}
     }
-    .${prefix}__selected-icon {
-        margin: ${tokens.option.selected.icon.margin};
-    }
     &:hover .${prefix}__dropdown-indicator, &:focus-within .${prefix}__dropdown-indicator {
         ${tokens.dropdownIndicator.hover.base}
     }
@@ -100,11 +97,15 @@ const Wrapper = styled.div`
     margin: 0;
 `;
 
+const SelectedIconWrapper = styled(IconWrapper)`
+    margin: ${tokens.option.selected.icon.margin};
+`;
+
 const { Option: DdsOption, NoOptionsMessage } = components;
 
 const IconOption = (props: any) => (
   <DdsOption {...props}>
-    { props.isSelected && <InlineIconWrapper Icon={CheckOutlinedIcon} className={`${prefix}__selected-icon`} /> }
+    { props.isSelected && <SelectedIconWrapper Icon={CheckOutlinedIcon} iconSize='inline' /> }
     {props.data.label}
   </DdsOption>
 )
@@ -273,7 +274,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             // menuIsOpen brukes til testing når listen med alternativer skal alltid være åpen
             // menuIsOpen: true
         }
-        
+
         if(value !== undefined && inputProps?.value !== value){
             if(value === null || value === ""){
                 inputProps.value = null
@@ -283,7 +284,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
             }
         }
 
-        if(defaultValue !== undefined && inputProps?.defaultValue !== defaultValue){            
+        if(defaultValue !== undefined && inputProps?.defaultValue !== defaultValue){
             if(defaultValue === null || defaultValue === ""){
                 inputProps.defaultValue = null
             }

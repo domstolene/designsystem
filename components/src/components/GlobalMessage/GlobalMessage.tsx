@@ -3,6 +3,7 @@ import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { globalMessageTokens as tokens } from './globalMessageTokens';
+import { IconWrapper } from '../../helpers/IconWrapper';
 
 const stylingBase = (purpose: GlobalMessagePurpose) => {
     return css`
@@ -18,8 +19,7 @@ const Container = styled.div<{purpose: GlobalMessagePurpose}>`
     ${({purpose}) => stylingBase(purpose)}
 `;
 
-const IconWrapper = styled.div<{purpose: GlobalMessagePurpose}>`
-    display: flex;
+const MessageIconWrapper = styled(IconWrapper)<{purpose: GlobalMessagePurpose}>`
     ${({purpose}) => purpose && css`
         color: ${tokens.icon[purpose].color};
     `}
@@ -41,7 +41,7 @@ const ContentContainer = styled.div<{closable?: boolean}>`
 
 `;
 
-type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
+export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 
 export type GlobalMessageProps = {
     message: string;
@@ -59,9 +59,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
         !isClosed ?
         <Container purpose={purpose} ref={ref} {...rest}>
             <ContentContainer closable={closable}>
-                <IconWrapper purpose={purpose}>
-                    {tokens.icon[purpose].icon}
-                </IconWrapper>
+                <MessageIconWrapper purpose={purpose} Icon={tokens.icon[purpose].icon} />
                 <span>{children ?? message}</span>
             </ContentContainer>
             <ControlsContainer>

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
-import InlineIconWrapper from '../InlineIconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import { inputMessageTokens as tokens} from './inputMessageTokens';
 import * as CSS from 'csstype';
 
@@ -39,7 +39,7 @@ function InputMessage({message, messageType, messageSize, maxWidth}: Props) {
     const wrapperProps = {messageType, messageSize, maxWidth};
     return (
         <InputMessageWrapper {...wrapperProps}>
-            {messageType === 'error' && <InlineIconWrapper Icon={ReportProblemOutlinedIcon} />}
+            {messageType === 'error' && <IconWrapper Icon={ReportProblemOutlinedIcon} iconSize='inline' />}
             <div>
                 {message}
             </div>

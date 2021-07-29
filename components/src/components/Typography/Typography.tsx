@@ -1,7 +1,7 @@
 import { forwardRef, HTMLAttributes, ElementType, AnchorHTMLAttributes } from "react";
 import styled, { css } from 'styled-components';
 import { typographyTokens as tokens, textColors } from './typographyTokens';
-import InlineIconWrapper from '../../helpers/InlineIconWrapper';
+import { IconWrapper } from '../../helpers/IconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
 
 export type TypographyType = 'a' | 'p';
@@ -36,6 +36,10 @@ type StyledTypographyProps = {
     color?: TextColor
 }
 
+const LinkIconWrapper = styled(IconWrapper)`
+    ${tokens.a.icon}
+`;
+
 const StyledTypography = styled.p<StyledTypographyProps>`
     ${({typographyType}) => typographyType && getElementStyling(typographyType)}
     ${({color}) => color && css` color: ${getColor(color)};`}
@@ -48,9 +52,6 @@ const StyledTypography = styled.p<StyledTypographyProps>`
         }
         &:focus-visible {
             ${tokens[typographyType].focus}
-        }
-        .DDSLink-icon-wrapper {
-            ${tokens[typographyType].icon}
         }
     `}
 `;
@@ -84,7 +85,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
                 ref={ref}
                 {...typographyProps}
             >
-                {children} {as === 'a' && externalLink ? <InlineIconWrapper className='DDSLink-icon-wrapper' Icon={LaunchOutlinedIcon} /> : '' }
+                {children} {as === 'a' && externalLink ? <LinkIconWrapper Icon={LaunchOutlinedIcon} iconSize='inline' /> : '' }
             </StyledTypography>
         );
     }
