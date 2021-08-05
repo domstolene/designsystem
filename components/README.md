@@ -34,7 +34,20 @@ render(<App />, document.getElementById('root'));
 
 ## Komponenter
 
-oversikten kommer snart
+Alle komponenter er under arbeid, ta kontakt for status.
+
+- Breadcrumbs
+- Button
+- Checkbox
+- GlobalMessage
+- IconWrapper
+- LocalMessage
+- RadioButton
+- Search
+- Select
+- Table
+- TextInput
+- Typography
 
 ## For bidragsytere
 

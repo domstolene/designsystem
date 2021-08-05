@@ -1,6 +1,8 @@
-# Domstolenes designsystem
+# Elsa - Domstolenes designsystem
 
-DDS er domstolenes offisielle designsystem. Det består av design i Figma, dokumentasjon og dette monorepoet. I repoet legger det to bibliotek: [dds-design-tokens](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens) og [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components).
+Elsa er Domstolenes offisielle designsystem. Det består av design i Figma, dokumentasjon og dette monorepoet. I repoet legger det to bibliotek: [dds-design-tokens](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens) og [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components).
+
+I koden brukes prefikset `dds` eller `DDS` for spesifisere assosiasjon med designsystemet.
 
 ## Bidrag
 
