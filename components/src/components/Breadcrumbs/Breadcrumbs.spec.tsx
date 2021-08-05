@@ -9,8 +9,8 @@ describe('Breadcrumbs', () => {
                 <Breadcrumb>
                     Side 1
                 </Breadcrumb>
-                    Side 2
                 <Breadcrumb>
+                    Side 2
                 </Breadcrumb>
                 <Breadcrumb>
                     Side 3
@@ -26,8 +26,8 @@ describe('Breadcrumbs', () => {
                 <Breadcrumb>
                     Side 1
                 </Breadcrumb>
-                    Side 2
                 <Breadcrumb>
+                    Side 2
                 </Breadcrumb>
                 <Breadcrumb>
                     Side 3
