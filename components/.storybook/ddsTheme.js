@@ -1,5 +1,6 @@
 import { create } from '@storybook/theming';
-import logo from '../src/assets/svg/DDS-logo.svg';
+import elsaLogo from '../src/assets/png/Elsa-logo.png';
+import elsaLogoHigh from '../src/assets/png/Elsa-logo-hoy.png';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 const {
@@ -13,7 +14,7 @@ export default create({
 
   brandTitle: 'Domstolenes Designsystem',
   brandUrl: 'https://design.domstol.no',
-  brandImage: logo,
+  brandImage: elsaLogoHigh,
 
   colorSecondary: Colors.DdsColorPrimaryBase,
 
