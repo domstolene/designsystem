@@ -3,9 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { Button } from '.';
 
 describe('<Button />', () => {
-  it('dummy test', () => {
-    expect(true).toBeTruthy();
-  });
   it('should have a label', () => {
     const label = 'button label';
     render(<Button label={label} />);
