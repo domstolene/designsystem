@@ -8,6 +8,7 @@ import { IconSize, IconWrapper } from '../../helpers/IconWrapper/IconWrapper';
 const List = styled.ul`
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 `;
 
@@ -41,8 +42,8 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(({ smallScr
     childrenArray.map((item, index) => {
         return (
             <ListItem key={`breadcrumb-${index}`}>
+                {index !== 0 ? <IconWrapper Icon={BreadcrumbIcon} iconSize={breadcrumbIconSize} /> : ''}
                 {item}
-                {index !== childrenArray.length - 1 ? <IconWrapper Icon={BreadcrumbIcon} iconSize={breadcrumbIconSize} /> : ''}
             </ListItem>
         )
     })
