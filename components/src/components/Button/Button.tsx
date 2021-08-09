@@ -172,7 +172,7 @@ export type ButtonProps = {
 
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({label, disabled, purpose = 'primary', size = 'medium', iconPosition, appearance = 'filled', href, loading, fullWidth, className, style, Icon, ...rest}, ref) => {
+    ({label, disabled, purpose = 'primary', size = 'medium', iconPosition = 'left', appearance = 'filled', href, loading, fullWidth, className, style, Icon, ...rest}, ref) => {
 
         const as: ElementType = href ? 'a' : 'button';
 
