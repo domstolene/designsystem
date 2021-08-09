@@ -8,6 +8,14 @@ export default {
     argTypes: {
         color: {control: {type: 'text'}},
   },
+  parameters: {
+        controls: {
+            exclude: [
+                'externalLink',
+                'as'
+            ]
+        }
+    }
 };
 
 export const Overview = (args: TypographyProps) => {

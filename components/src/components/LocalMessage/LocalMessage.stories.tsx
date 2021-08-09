@@ -7,6 +7,7 @@ export default {
     argTypes: {
     message: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
+    closable: { control: { type: 'boolean' } }
   },
 }
 

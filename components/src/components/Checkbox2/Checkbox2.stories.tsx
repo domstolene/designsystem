@@ -11,8 +11,15 @@ export default {
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     indeterminate: { control: { type: 'boolean' } },
-    className: {control: {type: 'text'}},
   },
+  parameters: {
+        controls: {
+            exclude: [
+              'style',
+              'className'
+            ]
+        }
+    }
 };
 
 export const Default = (args: CheckboxProps) => {

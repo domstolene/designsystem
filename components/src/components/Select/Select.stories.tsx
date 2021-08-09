@@ -15,8 +15,19 @@ export default {
         required: { control: { type: 'boolean' } },
         readOnly: { control: { type: 'boolean' } },
         loading: { control: { type: 'boolean' } },
-        className: { control: { type: 'text' } }
     },
+    parameters: {
+        controls: {
+            exclude:
+                [
+                    'style',
+                    'className',
+                    'items',
+                    'value',
+                    'defaultValue'
+                ]
+        }
+    }
 }
 
 const items = [

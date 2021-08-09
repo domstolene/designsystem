@@ -8,6 +8,15 @@ export default {
   argTypes: {
     tip: { control: { type: 'text' } },
   },
+    parameters: {
+        controls: {
+            exclude: [
+                'style',
+                'className',
+                'buttonProps'
+            ]
+        }
+    }
 };
 
 export const Overview = (args: SearchProps) => {

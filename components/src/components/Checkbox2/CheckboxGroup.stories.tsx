@@ -8,12 +8,20 @@ export default {
   component: DDSCheckboxGroup,
   argTypes: {
     label: { control: { type: 'text' } },
-    error: { control: { type: 'boolean' } },
+    errorMessage: { control: { type: 'text' } },
+    required: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     indeterminate: { control: { type: 'boolean' } },
-    className: {control: {type: 'text'}},
   },
+  parameters: {
+        controls: {
+            exclude: [
+                'style',
+                'className'
+            ]
+        }
+    }
 };
 
 export const Default = (args: CheckboxGroupProps) => {
@@ -42,14 +50,14 @@ export const Overview = (args: CheckboxGroupProps) => {
                 <DDSCheckbox label={args.label || 'Option 3'} />
             </DDSCheckboxGroup>
             <DDSCheckboxGroup {...args} label={args.label || 'Label'} errorMessage='Dette er en feilmelding'>
-                <DDSCheckbox label={args.label || 'Option 1'} />
-                <DDSCheckbox label={args.label || 'Option 2'} />
-                <DDSCheckbox label={args.label || 'Option 3'} />
+                <DDSCheckbox error label={args.label || 'Option 1'} />
+                <DDSCheckbox error label={args.label || 'Option 2'} />
+                <DDSCheckbox error label={args.label || 'Option 3'} />
             </DDSCheckboxGroup>
             <DDSCheckboxGroup {...args} label={args.label || 'Label'} direction='column' errorMessage='Dette er en feilmelding'>
-                <DDSCheckbox label={args.label || 'Option 1'} />
-                <DDSCheckbox label={args.label || 'Option 2'} />
-                <DDSCheckbox label={args.label || 'Option 3'} />
+                <DDSCheckbox error label={args.label || 'Option 1'} />
+                <DDSCheckbox error label={args.label || 'Option 2'} />
+                <DDSCheckbox error label={args.label || 'Option 3'} />
             </DDSCheckboxGroup>
         </>,
         '15px',

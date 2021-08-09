@@ -10,11 +10,22 @@ export default {
   argTypes: {
     label: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
+    tip: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
-    className: {control: {type: 'text'}},
   },
+    parameters: {
+        controls: {
+            exclude: [
+                'style',
+                'className',
+                'onChange',
+                'name',
+                'value'
+            ]
+        }
+    }
 };
 
 export const Default = (args: RadioButtonGroupProps) => {
@@ -23,7 +34,7 @@ export const Default = (args: RadioButtonGroupProps) => {
         'Radio button group - default',
         <DDSRadioButtonGroup
             {...args}
-            label='Label'
+            label={args.label || 'Label'}
             value={value}
             onChange={(_event: ChangeEvent<HTMLInputElement>, value: number | undefined) => {
                 setValue(value);

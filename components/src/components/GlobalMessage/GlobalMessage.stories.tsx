@@ -3,7 +3,11 @@ import { GlobalMessage as DDSGlobalMessage, GlobalMessageProps } from './GlobalM
 
 export default {
     title: 'design system/GlobalMessage',
-    component: DDSGlobalMessage
+    component: DDSGlobalMessage,
+    argTypes: {
+        message: { control: { type: 'text' } },
+        closable: { control: { type: 'boolean' } },
+    }
 }
 
 export const Overview = (args: GlobalMessageProps) => {

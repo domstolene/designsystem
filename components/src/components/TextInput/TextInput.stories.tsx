@@ -15,6 +15,14 @@ export default {
         disabled: { control: { type: 'boolean' } },
         readOnly: { control: { type: 'boolean' } },
     },
+    parameters: {
+        controls: {
+            exclude: [
+                'style',
+                'className'
+            ]
+        }
+    }
 };
 
 export const TextInputOverview = (args: TextInputProps) => {
@@ -66,6 +74,12 @@ export const TextareaOverview = (args: TextInputProps) => {
 export const Default = (args: TextInputProps) => {
     return (
         storyHTMLTemplate('TextInput - default', <TextInput {...args} id='test' />)
+    );
+}
+
+export const dato = (args: TextInputProps) => {
+    return (
+        storyHTMLTemplate('TextInput - default', <TextInput type='date' {...args} id='test' />)
     );
 }
 
