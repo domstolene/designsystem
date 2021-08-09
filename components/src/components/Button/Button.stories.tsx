@@ -9,6 +9,7 @@ export default {
   component: DDSButton,
   argTypes: {
     label: { control: { type: 'text' } },
+    fullWidth: {control: {type: 'boolean'}},
     loading: {control: {type: 'boolean'}},
     className: {control: {type: 'text'}},
     href: {control: {type: 'text'}},
@@ -82,6 +83,19 @@ export const OverviewSizes = (args:ButtonProps) => {
       <DDSButton {...args} purpose='primary' appearance='filled' size='small' Icon={CloseOutlinedIcon} />
       <DDSButton {...args} purpose='primary' appearance='filled' size='medium' Icon={CloseOutlinedIcon} />
       <DDSButton {...args} purpose='primary' appearance='filled' size='large' Icon={CloseOutlinedIcon} />
+     </>
+     )
+  )
+}
+
+export const OverviewFullWidth = (args:ButtonProps) => {
+  return (
+    storyHTMLTemplate('Button overview - full width',
+     <>
+      <DDSButton {...args} label={args.label || 'Primary'} purpose='primary' appearance='filled' size='medium' fullWidth />
+      <DDSButton {...args} label={args.label || 'Primary'} purpose='primary' appearance='filled' size='medium' iconPosition={'left'} Icon={AddCircleOutlineOutlinedIcon} fullWidth />
+      <DDSButton {...args} label={args.label || 'Primary'} purpose='primary' appearance='filled' size='medium' iconPosition={'right'} Icon={AddCircleOutlineOutlinedIcon} fullWidth />
+      <DDSButton {...args} purpose='primary' appearance='filled' size='medium' Icon={CloseOutlinedIcon} fullWidth />
      </>
      )
   )

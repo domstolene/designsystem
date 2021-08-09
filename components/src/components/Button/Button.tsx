@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
 import { buttonTokens as tokens } from './buttonTokens';
 import styled, { css } from 'styled-components';
-import InlineIconWrapper from '../../helpers/InlineIconWrapper';
+import { IconWrapper } from '../../helpers/IconWrapper';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import Spinner from '../../helpers/Spinner';
@@ -68,7 +68,8 @@ type ButtonContentProps = {
     size: Size;
     label?: string;
     Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
-    iconPosition?: IconPosition
+    iconPosition?: IconPosition;
+    fullWidth?: boolean
 }
 
 const ButtonContent = styled.span<ButtonContentProps>`
@@ -88,17 +89,25 @@ const ButtonContent = styled.span<ButtonContentProps>`
                 ${tokens.font.text[size]}
                 padding: ${tokens.sizes.padding.text[size]}px;
             `
+            }
         }
     }
-}
+
+    ${({fullWidth, Icon, label}) => fullWidth && (
+        !Icon || !label ? css`
+            justify-content: center;
+        ` : css`
+            justify-content: space-between;
+        `
+    )}
     &:focus {
         outline: none;
     }
-    .dds-icon-positioned {
-        ${
-            ({label, size, iconPosition}) => !label ?
-            ''
-            : iconPosition === "left" ? css`
+`;
+
+const IconWithTextWrapper = styled(IconWrapper)<{iconPosition: IconPosition, size: Size}>`
+    ${
+            ({size, iconPosition}) => iconPosition === "left" ? css`
                 margin-inline-end: ${tokens.sizes.icon_margin[size]};
             `
             : iconPosition === "right" ? css`
@@ -106,17 +115,18 @@ const ButtonContent = styled.span<ButtonContentProps>`
             `
             :''
         }
-    }
 `;
 
-const ButtonWrapper = styled.button`
+const ButtonWrapper = styled.button<{fullWidth?: boolean}>`
     display: inline-block;
     border: none;
     cursor: pointer;
     box-shadow: none;
     padding: 0;
     background-color: transparent;
-    width: fit-content;
+    ${({fullWidth}) => !fullWidth && css`
+        width: fit-content;
+    `}
 
     &:focus > ${ButtonContent} {
         outline: ${tokens.focusOutline.width} solid ${tokens.focusOutline.color};
@@ -127,15 +137,18 @@ const ButtonWrapper = styled.button`
     }
 `;
 
-const IconWrapper = styled.span<{size: Size}>`
+const JustIconWrapper = styled.span<{size: Size}>`
     display: flex;
     align-items: center;
     justify-content: center;
     ${({size}) => size && css`
-    height: ${tokens.sizes.icon[size]};
-    width: ${tokens.sizes.icon[size]};
+        height: ${tokens.sizes.icon[size]};
+        width: ${tokens.sizes.icon[size]};
     `}
 `;
+
+const Label = styled.span`
+`
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
 type Size = 'small' | 'medium' | 'large';
@@ -154,11 +167,12 @@ export type ButtonProps = {
     className?: string;
     style?: React.CSSProperties;
     Icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
+    fullWidth?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({label, disabled, purpose = 'primary', size = 'medium', iconPosition, appearance = 'filled', href, loading, className, style, Icon, ...rest}, ref) => {
+    ({label, disabled, purpose = 'primary', size = 'medium', iconPosition, appearance = 'filled', href, loading, fullWidth, className, style, Icon, ...rest}, ref) => {
 
         const as: ElementType = href ? 'a' : 'button';
 
@@ -168,6 +182,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             as,
             rel: href ? 'noreferrer noopener' : '',
             ref,
+            fullWidth,
             ...rest
         };
 
@@ -178,12 +193,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             label,
             size,
             Icon,
+            fullWidth,
             tabIndex: -1,
             className,
             style
         }
 
-    const iconElement = (className = '') =>  Icon && <InlineIconWrapper Icon={Icon} className={className}  />;
+    const iconElement = (Icon && iconPosition && size) && <IconWithTextWrapper Icon={Icon} iconPosition={iconPosition} iconSize='inline' size={size} />;
 
         return (
             <ButtonWrapper {...wrapperProps}>
@@ -191,16 +207,16 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                     {/* { loading && <Spinner inline width={1} unit='em' /> } */}
                     { loading ? <Spinner inline width={1} unit='em' /> :
                     (!label && Icon)  ?
-                    <IconWrapper size={size}>
-                        {iconElement()}
-                    </IconWrapper>
+                    <JustIconWrapper size={size}>
+                        <IconWrapper Icon={Icon} iconSize='inline' />
+                    </JustIconWrapper>
                     : label ?
                     <>
-                        {iconPosition === 'left' && iconElement('dds-icon-positioned')}
-                        <span>
+                        {iconPosition === 'left' && iconElement}
+                        <Label>
                             {label}
-                        </span>
-                        {iconPosition === 'right' && iconElement('dds-icon-positioned')}
+                        </Label>
+                        {iconPosition === 'right' && iconElement}
                     </>
                 : ''
                 }
