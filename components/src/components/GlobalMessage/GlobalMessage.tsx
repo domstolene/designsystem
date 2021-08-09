@@ -44,13 +44,13 @@ const ContentContainer = styled.div<{closable?: boolean}>`
 export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 
 export type GlobalMessageProps = {
-    message: string;
-    purpose: GlobalMessagePurpose;
+    message?: string;
+    purpose?: GlobalMessagePurpose;
     closable?: boolean;
 } & HTMLAttributes<HTMLDivElement>
 
 export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
-    ({message, purpose, closable, children, ...rest}, ref) => {
+    ({message, purpose = 'info', closable, children, ...rest}, ref) => {
 
     const [isClosed, setClosed] = useState(false);
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
@@ -78,7 +78,3 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
         : null
     );
 })
-
-GlobalMessage.defaultProps = {
-    purpose: 'info'
-}
