@@ -10,9 +10,9 @@ export interface RadioButtonGroup {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const RadioButtonGroupContext = React.createContext<Nullable<RadioButtonGroup>>(
-  null
-);
+export const RadioButtonGroupContext = React.createContext<
+  Nullable<RadioButtonGroup>
+>(null);
 
 export const useRadioButtonGroup = () => {
   return useContext(RadioButtonGroupContext);

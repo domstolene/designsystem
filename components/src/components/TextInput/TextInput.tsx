@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, InputHTMLAttributes, forwardRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  InputHTMLAttributes,
+  forwardRef
+} from 'react';
 import styled, { css } from 'styled-components';
 import { inputTokens as tokens } from './textInputTokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
@@ -9,242 +15,293 @@ import CharCounter from './CharCounter';
 import * as CSS from 'csstype';
 
 type GeneralInputProps = {
-    readOnly?: boolean;
-    errorMessage?: string;
-    label?: string;
-    disabled?: boolean;
-}
+  readOnly?: boolean;
+  errorMessage?: string;
+  label?: string;
+  disabled?: boolean;
+};
 
-const InputStyling = ({ readOnly, errorMessage, label, disabled }: GeneralInputProps) => {
-    return css`
-        ${inputFieldStylingBase}
-        ${tokens.base}
-        ${label ? css`
-            ${tokens.withLabel.base}
+const InputStyling = ({
+  readOnly,
+  errorMessage,
+  label,
+  disabled
+}: GeneralInputProps) => {
+  return css`
+    ${inputFieldStylingBase}
+    ${tokens.base}
+        ${label
+      ? css`
+          ${tokens.withLabel.base}
         `
-            : css`
-            ${tokens.noLabel.base}
-        `
-        };
+      : css`
+          ${tokens.noLabel.base}
+        `};
 
-        &:hover:enabled ~ label, &:focus:enabled ~ label {
-            color: ${tokens.focusColor};
-        }
+    &:hover:enabled ~ label,
+    &:focus:enabled ~ label {
+      color: ${tokens.focusColor};
+    }
 
-        ${disabled && css`
-            cursor: not-allowed;
-            ${tokens.disabled.base}
-            `
-        }
-        ${errorMessage && css`
-            ${tokens.error.base}
-            &:hover:enabled {
-                ${tokens.error.hover.base}
-            }
-            &:focus:enabled, &:active:enabled {
-                ${tokens.error.focus.base}
-            }
-        `}
-        ${readOnly && css`
-            cursor: default;
-            ${tokens.readOnly.base}
-        `}
-    `;
-}
+    ${disabled &&
+    css`
+      cursor: not-allowed;
+      ${tokens.disabled.base}
+    `}
+    ${errorMessage &&
+    css`
+      ${tokens.error.base}
+      &:hover:enabled {
+        ${tokens.error.hover.base}
+      }
+      &:focus:enabled,
+      &:active:enabled {
+        ${tokens.error.focus.base}
+      }
+    `}
+        ${readOnly &&
+    css`
+      cursor: default;
+      ${tokens.readOnly.base}
+    `}
+  `;
+};
 
 type LabelProps = {
-    multiline?: boolean;
-    disabled?: boolean;
-    readOnly?: boolean;
-}
+  multiline?: boolean;
+  disabled?: boolean;
+  readOnly?: boolean;
+};
 
 const Label = styled.label<LabelProps>`
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: color 0.2s, background-color 0.2s;
-    ${tokens.label.base}
-    ${({ multiline }) => multiline && css`
-        margin: 1px;
-        width: calc(100% - 20px);
-        ${tokens.label.multiline.base}
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: color 0.2s, background-color 0.2s;
+  ${tokens.label.base}
+  ${({ multiline }) =>
+    multiline &&
+    css`
+      margin: 1px;
+      width: calc(100% - 20px);
+      ${tokens.label.multiline.base}
     `}
-    ${({ disabled, multiline }) => (disabled && multiline) && css`
+    ${({ disabled, multiline }) =>
+    disabled &&
+    multiline &&
+    css`
       background-color: ${tokens.disabled.base.backgroundColor};
     `}
-    ${({ readOnly, multiline }) => (readOnly && multiline) && css`
+    ${({ readOnly, multiline }) =>
+    readOnly &&
+    multiline &&
+    css`
       background-color: ${tokens.readOnly.base.backgroundColor};
     `}
 `;
 
 const InputFieldWrapper = styled.div<{ width: CSS.Property.Width<string> }>`
-    display: flex;
-    flex-direction: column;
-    width: ${({ width }) => width};
+  display: flex;
+  flex-direction: column;
+  width: ${({ width }) => width};
 `;
 
-const InputFieldContainer = styled.div<{ multiline?: boolean, label?: string }>`
-    position: relative;
-    width: 100%;
-    ${({ multiline }) => multiline && css`
-    display: inline-block;
+const InputFieldContainer = styled.div<{ multiline?: boolean; label?: string }>`
+  position: relative;
+  width: 100%;
+  ${({ multiline }) =>
+    multiline &&
+    css`
+      display: inline-block;
     `}
-    height: ${({ multiline, label }) => {
-        if (multiline) {
-            if (label) {
-                return tokens.container.multiline.withLabel.height;
-            }
-            return tokens.container.multiline.noLabel.height;
-        }
-    }};
+  height: ${({ multiline, label }) => {
+    if (multiline) {
+      if (label) {
+        return tokens.container.multiline.withLabel.height;
+      }
+      return tokens.container.multiline.noLabel.height;
+    }
+  }};
 `;
 
 const Input = styled.input<GeneralInputProps>`
-    ${({ label, disabled, readOnly, errorMessage }) => InputStyling({ readOnly, errorMessage, label, disabled })}
+  ${({ label, disabled, readOnly, errorMessage }) =>
+    InputStyling({ readOnly, errorMessage, label, disabled })}
 `;
 
 const TextArea = styled.textarea<GeneralInputProps>`
-   ${({ label, disabled, readOnly, errorMessage }) => InputStyling({ readOnly, errorMessage, label, disabled })}
-   resize: vertical;
-   height: auto;
-   ${scrollbarStyling}
-   min-height: ${({ label }) => label ? tokens.container.multiline.withLabel.height : tokens.container.multiline.noLabel.height};
-   ${tokens.multiline.base}
-   ${({ label }) => label ? css`
-    ${tokens.multiline.withLabel.base}
-    `
-        : css`
-    ${tokens.multiline.noLabel.base}
-    `}
+  ${({ label, disabled, readOnly, errorMessage }) =>
+    InputStyling({ readOnly, errorMessage, label, disabled })}
+  resize: vertical;
+  height: auto;
+  ${scrollbarStyling}
+  min-height: ${({ label }) =>
+    label
+      ? tokens.container.multiline.withLabel.height
+      : tokens.container.multiline.noLabel.height};
+  ${tokens.multiline.base}
+  ${({ label }) =>
+    label
+      ? css`
+          ${tokens.multiline.withLabel.base}
+        `
+      : css`
+          ${tokens.multiline.noLabel.base}
+        `}
 
    &:hover:enabled ~ label {
-        background-color: ${({ errorMessage }) => errorMessage ? tokens.error.hover.base.backgroundColor : tokens.general.input.hover.backgroundColor};
-    }
+    background-color: ${({ errorMessage }) =>
+      errorMessage
+        ? tokens.error.hover.base.backgroundColor
+        : tokens.general.input.hover.backgroundColor};
+  }
 `;
 
 const FlexContainer = styled.div`
- display: flex;
- justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 `;
 
 let nextUniqueId = 0;
 
 export type TextInputProps = {
-    label?: string;
-    multiline?: boolean;
-    tip?: string;
-    width?: CSS.Property.Width<string>;
-    errorMessage?: string;
-    className?: string;
-    style?: React.CSSProperties;
-} & InputHTMLAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLTextAreaElement>;
+  label?: string;
+  multiline?: boolean;
+  tip?: string;
+  width?: CSS.Property.Width<string>;
+  errorMessage?: string;
+  className?: string;
+  style?: React.CSSProperties;
+} & InputHTMLAttributes<HTMLInputElement> &
+  InputHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-    ({ label, disabled, readOnly, errorMessage, tip, required, maxLength, multiline, onChange, id, width = tokens.wrapper.defaultWidth, type = 'text', className, style, ...rest }, ref) => {
+  (
+    {
+      label,
+      disabled,
+      readOnly,
+      errorMessage,
+      tip,
+      required,
+      maxLength,
+      multiline,
+      onChange,
+      id,
+      width = tokens.wrapper.defaultWidth,
+      type = 'text',
+      className,
+      style,
+      ...rest
+    },
+    ref
+  ) => {
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
+    const [text, setText] = useState('');
+    const [textAreaHeight, setTextAreaHeight] = useState('auto');
+    const [parentHeight, setParentHeight] = useState('auto');
 
-        const textAreaRef = useRef<HTMLTextAreaElement>(null);
-        const [text, setText] = useState("");
-        const [textAreaHeight, setTextAreaHeight] = useState("auto");
-        const [parentHeight, setParentHeight] = useState("auto");
+    useEffect(() => {
+      if (textAreaRef && textAreaRef.current) {
+        setParentHeight(`${textAreaRef.current.scrollHeight}px`);
+        setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
+      }
+    }, [text]);
 
-        useEffect(() => {
-            if (textAreaRef && textAreaRef.current) {
-                setParentHeight(`${textAreaRef.current.scrollHeight}px`);
-                setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
-            }
-        }, [text]);
+    const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
+      event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+      setText(event.target.value);
 
-        const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (event: React.ChangeEvent<HTMLInputElement>) => {
-            setText(event.target.value);
+      if (onChange) {
+        onChange(event);
+      }
+    };
 
-            if (onChange) {
-                onChange(event);
-            }
-        }
+    const onChangeHandlerMultiline: React.ChangeEventHandler<HTMLTextAreaElement> = (
+      event: React.ChangeEvent<HTMLTextAreaElement>
+    ) => {
+      setTextAreaHeight('auto');
+      if (textAreaRef && textAreaRef.current) {
+        setParentHeight(`${textAreaRef.current.scrollHeight}px`);
+      }
 
-        const onChangeHandlerMultiline: React.ChangeEventHandler<HTMLTextAreaElement> = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-            setTextAreaHeight("auto");
-            if (textAreaRef && textAreaRef.current) {
-                setParentHeight(`${textAreaRef.current.scrollHeight}px`);
-            }
+      setText(event.target.value);
 
-            setText(event.target.value);
+      if (onChange) {
+        onChange(event);
+      }
+    };
 
-            if (onChange) {
-                onChange(event);
-            }
-        };
+    const [uniqueId] = useState<string>(id ?? `textInput-${nextUniqueId++}`);
 
-        const [uniqueId] = useState<string>(id ?? `textInput-${nextUniqueId++}`);
+    const generalInputProps = {
+      id: uniqueId,
+      label,
+      errorMessage,
+      disabled: disabled || readOnly,
+      readOnly,
+      maxLength,
+      ...rest
+    };
 
-        const generalInputProps = {
-            id: uniqueId,
-            label,
-            errorMessage,
-            disabled: disabled || readOnly,
-            readOnly,
-            maxLength,
-            ...rest
-        }
+    const wrapperProps = {
+      className,
+      style,
+      width
+    };
 
-        const wrapperProps = {
-            className,
-            style,
-            width
-        }
+    const labelProps = {
+      multiline,
+      disabled,
+      readOnly
+    };
 
-        const labelProps = {
-            multiline,
-            disabled,
-            readOnly
-        }
-
-        return (
-            <InputFieldWrapper {...wrapperProps}>
-                <InputFieldContainer
-                    style={multiline ? { minHeight: parentHeight } : {}}
-                    multiline={multiline}
-                    label={label}
-                >
-                    {multiline ?
-                        <TextArea
-                            ref={textAreaRef}
-                            style={{ height: textAreaHeight }}
-                            onChange={onChangeHandlerMultiline}
-                            required={required}
-                            {...generalInputProps}
-                        />
-                        :
-                        <Input
-                            ref={ref}
-                            onChange={onChangeHandler}
-                            type={type}
-                            required={required}
-                            {...generalInputProps}
-                        />
-                    }
-                    {label &&
-                        <Label
-                            {...labelProps}
-                            htmlFor={uniqueId}
-                        >
-                            {label} {required && <RequiredMarker />}
-                        </Label>
-                    }
-                </InputFieldContainer>
-                <FlexContainer>
-                    {errorMessage ?
-                        <InputMessage message={errorMessage} messageType={'error'} />
-                        : tip ?
-                            <InputMessage message={tip} messageType={'tip'} />
-                            : ''
-                    }
-                    {(maxLength && Number.isInteger(maxLength) && maxLength > 0) ?
-                        <CharCounter current={text.length} max={maxLength} />
-                        : ''
-                    }
-                </FlexContainer>
-            </InputFieldWrapper>
-        );
-    }
+    return (
+      <InputFieldWrapper {...wrapperProps}>
+        <InputFieldContainer
+          style={multiline ? { minHeight: parentHeight } : {}}
+          multiline={multiline}
+          label={label}
+        >
+          {multiline ? (
+            <TextArea
+              ref={textAreaRef}
+              style={{ height: textAreaHeight }}
+              onChange={onChangeHandlerMultiline}
+              required={required}
+              {...generalInputProps}
+            />
+          ) : (
+            <Input
+              ref={ref}
+              onChange={onChangeHandler}
+              type={type}
+              required={required}
+              {...generalInputProps}
+            />
+          )}
+          {label && (
+            <Label {...labelProps} htmlFor={uniqueId}>
+              {label} {required && <RequiredMarker />}
+            </Label>
+          )}
+        </InputFieldContainer>
+        <FlexContainer>
+          {errorMessage ? (
+            <InputMessage message={errorMessage} messageType={'error'} />
+          ) : tip ? (
+            <InputMessage message={tip} messageType={'tip'} />
+          ) : (
+            ''
+          )}
+          {maxLength && Number.isInteger(maxLength) && maxLength > 0 ? (
+            <CharCounter current={text.length} max={maxLength} />
+          ) : (
+            ''
+          )}
+        </FlexContainer>
+      </InputFieldWrapper>
+    );
+  }
 );

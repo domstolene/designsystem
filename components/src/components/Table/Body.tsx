@@ -1,22 +1,20 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-const StyledBody = styled.tbody`
-
-`;
+const StyledBody = styled.tbody``;
 
 export type BodyProps = HTMLAttributes<HTMLTableSectionElement>;
 
 export const Body = forwardRef<HTMLTableSectionElement, BodyProps>(
-    ({ children, ...rest }, ref) => {
-
+  ({ children, ...rest }, ref) => {
     const bodyProps = {
-        ...rest
-    }
+      ...rest
+    };
 
     return (
-        <StyledBody ref={ref} {...bodyProps}>
-            {children}
-        </StyledBody>
-    )
-});
+      <StyledBody ref={ref} {...bodyProps}>
+        {children}
+      </StyledBody>
+    );
+  }
+);

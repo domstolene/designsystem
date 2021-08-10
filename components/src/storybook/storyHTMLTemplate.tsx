@@ -1,13 +1,11 @@
 import React from 'react';
 
 export const storyHTMLTemplate = (title: string, children: React.ReactNode) => {
-    return (
+  return (
     <div className="component-container">
       <h2> {title} </h2>
       <hr />
-      <div className='flex-components'>
-        {children}
-      </div>
+      <div className="flex-components">{children}</div>
     </div>
-    );
-}
+  );
+};

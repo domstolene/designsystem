@@ -9,8 +9,8 @@ describe('<Button />', () => {
     expect(screen.queryByText(label)).toBeDefined;
   });
   it('renders an anchor element if href prop is provided', () => {
-    render(<Button href='/' />)
+    render(<Button href="/" />);
     const button = screen.getByRole('link');
     expect(button).toBeInTheDocument();
-  })
+  });
 });

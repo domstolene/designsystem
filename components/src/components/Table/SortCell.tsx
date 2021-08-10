@@ -10,37 +10,39 @@ import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import styled from 'styled-components';
 
 const SortIconWrapper = styled(IconWrapper)`
-    ${tokens.head.sortCell.icon.base}
+  ${tokens.head.sortCell.icon.base}
 `;
 
 const StyledCell = styled(Cell)`
-    cursor: pointer;
+  cursor: pointer;
 `;
 
 export type SortOrder = 'ascending' | 'descending' | 'none';
 
 export type SortCellProps = {
-    isSorted?: boolean;
-    sortOrder?: SortOrder;
+  isSorted?: boolean;
+  sortOrder?: SortOrder;
 } & Omit<TableCellProps, 'type'>;
 
 export const SortCell = forwardRef<HTMLTableHeaderCellElement, SortCellProps>(
-    ({isSorted, sortOrder, children, ...rest}, ref) => {
-
+  ({ isSorted, sortOrder, children, ...rest }, ref) => {
     const IconRenderer = (isSorted?: boolean, sortOrder?: SortOrder) => {
-        const Wrapper = (Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>) => <SortIconWrapper Icon={Icon} iconSize='inline' />
-        return !isSorted ?
-            Wrapper(UnfoldMoreIcon)
-        : sortOrder === 'ascending' ?
-            Wrapper(KeyboardArrowDownIcon)
-        : sortOrder === 'descending' ?
-            Wrapper(KeyboardArrowUpIcon)
-        : ''
-    }
+      const Wrapper = (
+        Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>
+      ) => <SortIconWrapper Icon={Icon} iconSize="inline" />;
+      return !isSorted
+        ? Wrapper(UnfoldMoreIcon)
+        : sortOrder === 'ascending'
+        ? Wrapper(KeyboardArrowDownIcon)
+        : sortOrder === 'descending'
+        ? Wrapper(KeyboardArrowUpIcon)
+        : '';
+    };
 
     return (
-        <StyledCell ref={ref} type='head' {...rest}>
-            {children} {IconRenderer(isSorted, sortOrder)}
-        </StyledCell>
-    )
-});
+      <StyledCell ref={ref} type="head" {...rest}>
+        {children} {IconRenderer(isSorted, sortOrder)}
+      </StyledCell>
+    );
+  }
+);
