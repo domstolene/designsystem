@@ -1,0 +1,11 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 11 Aug 2021 10:07:36 GMT
+ */
+
+:root {
+  --dds-innershadow-1-ondark:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5) inset;
+  --dds-innershadow-1-onlight:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.1) inset;
+  --dds-innershadow-2-ondark:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.5) inset;
+  --dds-innershadow-2-onlight:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.1) inset;
+}

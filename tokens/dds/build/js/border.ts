@@ -1,12 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Jul 2021 11:40:16 GMT
+ * Generated on Wed, 11 Aug 2021 10:07:37 GMT
  */
 
 export const BordersDdsBorderStyle1StrokeAlign = "inside";
-export const BordersDdsBorderStyle1DashPattern = "";
-export const BordersDdsBorderStyle1StrokeCap = "round";
-export const BordersDdsBorderStyle1StrokeJoin = "miter";
 export const BordersDdsBorderStyle1StrokeMiterLimit = 4;
 export const BordersDdsBorderStyle1StrokeWeight = "1px";
 export const BordersDdsBorderStyle1StrokeWeightNumberPx = 1;

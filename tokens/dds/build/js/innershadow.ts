@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 01 Jul 2021 11:40:16 GMT
+ * Generated on Wed, 11 Aug 2021 10:07:37 GMT
  */
 
 export const DdsInnershadow1Ondark = " 1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5) inset";

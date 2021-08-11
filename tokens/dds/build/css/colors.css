@@ -1,0 +1,57 @@
+/**
+ * Do not edit directly
+ * Generated on Wed, 11 Aug 2021 10:07:36 GMT
+ */
+
+:root {
+  --dds-color-primary-lightest: rgba(234, 239, 244, 1);
+  --dds-color-primary-lighter: rgba(170, 193, 209, 1);
+  --dds-color-primary-light: rgba(106, 146, 175, 1);
+  --dds-color-primary-base: rgba(42, 99, 140, 1); /* Indikerer primæraksjon eller annen interaksjon. */
+  --dds-color-primary-dark: rgba(34, 79, 112, 1);
+  --dds-color-primary-darker: rgba(25, 59, 84, 1);
+  --dds-color-primary-darkest: rgba(17, 40, 56, 1);
+  --dds-color-success-lightest: rgba(233, 242, 239, 1);
+  --dds-color-success-lighter: rgba(169, 204, 191, 1);
+  --dds-color-success-light: rgba(104, 166, 142, 1);
+  --dds-color-success-base: rgba(39, 128, 94, 1); /* Brukes for å kommunisere suksess eller noe som er riktig. */
+  --dds-color-success-dark: rgba(31, 102, 75, 1);
+  --dds-color-success-darker: rgba(23, 77, 56, 1);
+  --dds-color-success-darkest: rgba(16, 51, 38, 1);
+  --dds-color-danger-lightest: rgba(251, 235, 235, 1);
+  --dds-color-danger-lighter: rgba(239, 175, 175, 1);
+  --dds-color-danger-light: rgba(228, 115, 115, 1);
+  --dds-color-danger-base: rgba(216, 55, 55, 1); /* Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett. */
+  --dds-color-danger-dark: rgba(173, 44, 44, 1);
+  --dds-color-danger-darker: rgba(130, 33, 33, 1);
+  --dds-color-danger-darkest: rgba(86, 22, 22, 1);
+  --dds-color-warning-lightest: rgba(254, 252, 237, 1);
+  --dds-color-warning-lighter: rgba(251, 243, 184, 1);
+  --dds-color-warning-light: rgba(247, 233, 130, 1);
+  --dds-color-warning-base: rgba(244, 224, 77, 1); /* Brukes for å kommunisere varsler. */
+  --dds-color-warning-dark: rgba(195, 179, 62, 1);
+  --dds-color-warning-darker: rgba(146, 134, 46, 1);
+  --dds-color-warning-darkest: rgba(98, 90, 31, 1);
+  --dds-color-info-lightest: rgba(249, 239, 234, 1);
+  --dds-color-info-lighter: rgba(229, 190, 172, 1);
+  --dds-color-info-light: rgba(210, 141, 109, 1);
+  --dds-color-info-base: rgba(190, 92, 47, 1);
+  --dds-color-info-dark: rgba(152, 74, 38, 1);
+  --dds-color-info-darker: rgba(114, 55, 28, 1);
+  --dds-color-info-darkest: rgba(76, 37, 19, 1);
+  --dds-color-neutrals-white: rgba(255, 255, 255, 1);
+  --dds-color-neutrals-gray-1: rgba(248, 249, 249, 1);
+  --dds-color-neutrals-gray-2: rgba(235, 236, 238, 1);
+  --dds-color-neutrals-gray-3: rgba(207, 212, 215, 1);
+  --dds-color-neutrals-gray-4: rgba(173, 181, 186, 1);
+  --dds-color-neutrals-gray-5: rgba(119, 131, 140, 1);
+  --dds-color-neutrals-gray-6: rgba(84, 92, 98, 1);
+  --dds-color-neutrals-gray-7: rgba(58, 65, 70, 1);
+  --dds-color-neutrals-gray-8: rgba(34, 39, 42, 1);
+  --dds-color-neutrals-gray-9: rgba(11, 13, 14, 1);
+  --dds-color-secondary-lightest: rgba(230, 236, 236, 1); /* --l80 */
+  --dds-color-secondary-lighter: rgba(205, 219, 219, 1);
+  --dds-color-secondary-light: rgba(167, 193, 191, 1);
+  --dds-color-secondary-base: rgba(129, 166, 164, 1);
+  --dds-color-secondary-dark: rgba(77, 99, 98, 1);
+}
