@@ -7,7 +7,77 @@
       "files": [
         {
           "destination": "_ddsTokens.scss",
-          "format": "scss/variables"
+          "format": "scss/variables",
+          "filter": "tokenFilter"
+        },
+        {
+          "destination": "_colors.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-color"
+            }
+          }
+        },
+        {
+          "destination": "_font.scss",
+          "format": "scss/variables",
+          "filter": "fontFilter"
+        },
+        {
+          "destination": "_spacing.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "sizes"
+            }
+          }
+        },
+        {
+          "destination": "_iconSize.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-iconsize"
+            }
+          }
+        },
+        {
+          "destination": "_border.scss",
+          "format": "scss/variables",
+          "filter": "bordersFilter"
+        },
+        {
+          "destination": "_borderRadius.scss",
+          "format": "scss/variables",
+          "filter": "radiiFilter"
+        },
+        {
+          "destination": "_grid.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-grid"
+            }
+          }
+        },
+        {
+          "destination": "_innershadow.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-innershadow"
+            }
+          }
+        },
+        {
+          "destination": "_outershadow.scss",
+          "format": "scss/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-shadow"
+            }
+          }
         }
       ]
     },
@@ -17,7 +87,77 @@
       "files": [
         {
           "destination": "ddsTokens.css",
-          "format": "css/variables"
+          "format": "css/variables",
+          "filter": "tokenFilter"
+        },
+        {
+          "destination": "colors.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-color"
+            }
+          }
+        },
+        {
+          "destination": "font.css",
+          "format": "css/variables",
+          "filter": "fontFilter"
+        },
+        {
+          "destination": "spacing.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "sizes"
+            }
+          }
+        },
+        {
+          "destination": "iconSize.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-iconsize"
+            }
+          }
+        },
+        {
+          "destination": "border.css",
+          "format": "css/variables",
+          "filter": "bordersFilter"
+        },
+        {
+          "destination": "borderRadius.css",
+          "format": "css/variables",
+          "filter": "radiiFilter"
+        },
+        {
+          "destination": "grid.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-grid"
+            }
+          }
+        },
+        {
+          "destination": "innershadow.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-innershadow"
+            }
+          }
+        },
+        {
+          "destination": "outershadow.css",
+          "format": "css/variables",
+          "filter": {
+            "attributes": {
+              "category": "$dds-shadow"
+            }
+          }
         }
       ]
     },
@@ -27,7 +167,8 @@
       "files": [
         {
           "destination": "ddsTokens.ts",
-          "format": "custom/javascript/es6"
+          "format": "custom/javascript/es6",
+          "filter": "tokenFilter"
         },
         {
           "destination": "colors.ts",
@@ -41,11 +182,7 @@
         {
           "destination": "font.ts",
           "format": "custom/javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "$dds-font"
-            }
-          }
+          "filter": "fontFilter"
         },
         {
           "destination": "fontObject.ts",
@@ -77,20 +214,12 @@
         {
           "destination": "border.ts",
           "format": "custom/javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "borders"
-            }
-          }
+          "filter": "bordersFilter"
         },
         {
           "destination": "borderRadius.ts",
           "format": "custom/javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "radii"
-            }
-          }
+          "filter": "radiiFilter"
         },
         {
           "destination": "grid.ts",
