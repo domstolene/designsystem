@@ -9,10 +9,14 @@ export default {
   component: DDSButton,
   argTypes: {
     label: { control: { type: 'text' } },
-    fullWidth: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
-    className: { control: { type: 'text' } },
+    fullWidth: { control: { type: 'boolean' } },
     href: { control: { type: 'text' } }
+  },
+  parameters: {
+    controls: {
+      exclude: ['style', 'className', 'target', 'Icon']
+    }
   }
 };
 

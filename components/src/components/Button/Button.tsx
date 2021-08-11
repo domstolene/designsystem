@@ -183,7 +183,6 @@ type IconPosition = 'left' | 'right';
 export type ButtonProps = {
   size?: Size;
   label?: string;
-  disabled?: boolean;
   purpose?: ButtonPurpose;
   iconPosition?: IconPosition;
   appearance?: Appearance;
@@ -222,8 +221,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       href,
       label,
       as,
-      rel: href ? 'noreferrer noopener' : '',
-      target: href && target ? target : '',
+      rel: href ? 'noreferrer noopener' : undefined,
+      target: href && target ? target : undefined,
       ref,
       fullWidth,
       ...rest
