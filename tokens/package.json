@@ -32,6 +32,7 @@
     "@types/node": "^14.14.41",
     "fork-ts-checker-webpack-plugin": "^6.2.1",
     "rollup": "^2.45.2",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.30.0",
