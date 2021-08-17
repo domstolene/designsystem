@@ -5,7 +5,7 @@ import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
 import { breadcrumbTokens as tokens } from './breadcrumbTokens';
 import { IconSize, IconWrapper } from '../../helpers/IconWrapper/IconWrapper';
 
-const List = styled.ul`
+const List = styled.ol`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
