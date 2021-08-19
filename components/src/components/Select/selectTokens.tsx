@@ -27,8 +27,15 @@ const containerBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
   border: '1px solid',
   borderColor: Colors.DdsColorNeutralsGray5,
-  backgroundColor: Colors.DdsColorNeutralsWhite,
+  backgroundColor: Colors.DdsColorNeutralsWhite
+};
+
+const containerWithLabelBase: CSSObject = {
   height: '72px'
+};
+
+const containerNoLabelBase: CSSObject = {
+  height: '51px'
 };
 
 const containerHoverBase: CSSObject = {
@@ -64,7 +71,7 @@ const placeholderBase: CSSObject = {
 
 const dropdownIndicatorBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
-  padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`
+  padding: `${Spacing.SizesDdsSpacingLocalX025} 0 ${Spacing.SizesDdsSpacingLocalX025} 0`
 };
 
 const dropdownIndicatorHoverBase: CSSObject = {
@@ -77,7 +84,7 @@ const drodownIndicatorReadOnlyBase: CSSObject = {
 
 const clearIndicatorBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
-  padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`
+  padding: ` 0 ${Spacing.SizesDdsSpacingLocalX025} 0 0`
 };
 
 const clearIndicatorHoverBase: CSSObject = {
@@ -127,6 +134,12 @@ export const selectTokens = {
   container: {
     base: containerBase,
     defaultWidth: defaultWidth,
+    withLabel: {
+      base: containerWithLabelBase
+    },
+    noLabel: {
+      base: containerNoLabelBase
+    },
     hover: {
       base: containerHoverBase
     },

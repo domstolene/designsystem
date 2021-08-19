@@ -95,6 +95,7 @@ export const Overview = (args: SelectProps) => {
         value="Alternativ 2"
         items={items}
       />
+      <DDSSelect {...args} items={items} />
     </>,
     '25px',
     2

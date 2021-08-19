@@ -21,6 +21,7 @@ type StyledContainerProps = {
   width?: string;
   disabled?: boolean;
   readOnly?: boolean;
+  label?: string;
 };
 
 const Container = styled.div<StyledContainerProps>`
@@ -29,6 +30,14 @@ const Container = styled.div<StyledContainerProps>`
   width: ${({ width }) => width};
   ${tokens.container.base}
   ${scrollbarStyling}
+  ${({ label }) =>
+    label
+      ? css`
+          ${tokens.container.withLabel.base}
+        `
+      : css`
+          ${tokens.container.noLabel.base}
+        `}
     &:hover {
     ${tokens.container.hover.base}
     box-shadow: 0 0 0 1px ${tokens.container.hover.base.borderColor};
@@ -236,6 +245,7 @@ export type SelectProps = {
   loading?: boolean;
   value?: string | null;
   defaultValue?: string | null;
+  notClearable?: boolean;
   className?: string;
   style?: React.CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
@@ -258,6 +268,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       loading,
       value,
       defaultValue,
+      notClearable,
       className,
       style,
       onChange,
@@ -277,6 +288,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       width,
       disabled,
       readOnly,
+      label,
       className,
       style
     };
@@ -286,7 +298,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       placeholder,
       required,
       isDisabled: disabled || readOnly,
-      isClearable: true,
+      isClearable: notClearable ? undefined : true,
       inputId: uniqueId,
       name: uniqueId,
       isLoading: loading,
