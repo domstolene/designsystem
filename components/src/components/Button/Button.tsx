@@ -11,70 +11,36 @@ const buttonContentStyle = (
   appearance: Appearance,
   label?: string,
   Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>
-) => {
-  return css`
-    color: ${tokens.colors[appearance][purpose].text};
-    border: ${tokens.borderWidth} solid;
-    border-color: ${tokens.colors[appearance][purpose].border};
-    background-color: ${tokens.colors[appearance][purpose].default};
-    box-shadow: ${tokens.boxShadow[appearance]};
-    border-radius: ${tokens.borderRadius[appearance]};
-    ${appearance === 'borderless' &&
-    css`
-      text-decoration: underline;
-      text-decoration-color: transparent;
-    `}
-    ${appearance !== 'borderless'
-      ? css`
-          &:hover {
-            background-color: ${tokens.colors[appearance][purpose].hover};
-            border-color: ${tokens.colors[appearance][purpose].hover_border};
-            ${appearance === 'ghost' &&
-            css`
-              color: ${tokens.colors[appearance][purpose].hover_text};
-              box-shadow: 0 0 0 1px
-                ${tokens.colors[appearance][purpose].hover_border};
-            `}
-          }
-          &:active {
-            background-color: ${tokens.colors[appearance][purpose].active};
-            border-color: ${tokens.colors[appearance][purpose].active_border};
-            ${appearance === 'ghost' &&
-            css`
-              color: ${tokens.colors[appearance][purpose].active_text};
-              box-shadow: 0 0 0 1px
-                ${tokens.colors[appearance][purpose].active_border};
-            `}
-          }
-        `
-      : css`
-          &:hover {
-            color: ${tokens.colors.borderless[purpose].hover};
-            text-decoration-color: ${tokens.colors.borderless[purpose].hover};
-            ${!label &&
-            Icon &&
-            css`
-              border-color: ${tokens.colors.borderless[purpose].justIcon
-                .hover_border};
-              box-shadow: 0 0 0 1px
-                ${tokens.colors.borderless[purpose].justIcon.hover_border};
-            `}
-          }
-          &:active {
-            color: ${tokens.colors.borderless[purpose].active};
-            text-decoration-color: ${tokens.colors.borderless[purpose].active};
-            ${!label &&
-            Icon &&
-            css`
-              border-color: ${tokens.colors.borderless[purpose].justIcon
-                .active_border};
-              box-shadow: 0 0 0 1px
-                ${tokens.colors.borderless[purpose].justIcon.active_border};
-            `}
-          }
-        `}
-  `;
-};
+) => css`
+  ${tokens.base}
+  ${appearance &&
+  css`
+    ${tokens.appearance[appearance].base}
+  `}
+  ${appearance &&
+  purpose &&
+  css`
+    ${tokens.appearance[appearance][purpose].base}
+    &:hover {
+      ${tokens.appearance[appearance][purpose].hover.base}
+    }
+    &:active {
+      ${tokens.appearance[appearance][purpose].active.base}
+    }
+  `}
+
+  ${Icon &&
+  !label &&
+  appearance === 'borderless' &&
+  css`
+    &:hover {
+      ${tokens.appearance[appearance][purpose].justIcon.hover.base}
+    }
+    &:active {
+      ${tokens.appearance[appearance][purpose].justIcon.active.base}
+    }
+  `}
+`;
 
 type ButtonContentProps = {
   purpose: ButtonPurpose;
@@ -94,22 +60,11 @@ const ButtonContent = styled.span<ButtonContentProps>`
     border-color 0.2s, color 0.2s;
   ${({ label, purpose, appearance, Icon }) =>
     buttonContentStyle(purpose, appearance, label, Icon)}
+  &:focus {
+    outline: none;
+  }
 
-  ${({ size, label }) => {
-    if (size) {
-      return !label
-        ? css`
-            ${tokens.font.icon[size]}
-            padding: ${tokens.sizes.padding.icon[size]};
-          `
-        : css`
-            ${tokens.font.text[size]}
-            padding: ${tokens.sizes.padding.text[size]}px;
-          `;
-    }
-  }}
-
-    ${({ fullWidth, Icon, label }) =>
+  ${({ fullWidth, Icon, label }) =>
     fullWidth &&
     (!Icon || !label
       ? css`
@@ -118,9 +73,15 @@ const ButtonContent = styled.span<ButtonContentProps>`
       : css`
           justify-content: space-between;
         `)}
-    &:focus {
-    outline: none;
-  }
+  ${({ size, label }) =>
+    size &&
+    (label
+      ? css`
+          ${tokens.sizes[size].text.base}
+        `
+      : css`
+          ${tokens.sizes[size].justIcon.base}
+        `)}
 `;
 
 const IconWithTextWrapper = styled(IconWrapper)<{
@@ -130,11 +91,11 @@ const IconWithTextWrapper = styled(IconWrapper)<{
   ${({ size, iconPosition }) =>
     iconPosition === 'left'
       ? css`
-          margin-inline-end: ${tokens.sizes.icon_margin[size]};
+          margin-inline-end: ${tokens.sizes[size].iconWithTextMargin};
         `
       : iconPosition === 'right'
       ? css`
-          margin-inline-start: ${tokens.sizes.icon_margin[size]};
+          margin-inline-start: ${tokens.sizes[size].iconWithTextMargin};
         `
       : ''}
 `;
@@ -146,6 +107,7 @@ const ButtonWrapper = styled.button<{ fullWidth?: boolean }>`
   box-shadow: none;
   padding: 0;
   background-color: transparent;
+  text-decoration: none;
   ${({ fullWidth }) =>
     !fullWidth &&
     css`
@@ -168,8 +130,7 @@ const JustIconWrapper = styled.span<{ size: Size }>`
   ${({ size }) =>
     size &&
     css`
-      height: ${tokens.sizes.icon[size]};
-      width: ${tokens.sizes.icon[size]};
+      ${tokens.sizes[size].justIconWrapper.base}
     `}
 `;
 
