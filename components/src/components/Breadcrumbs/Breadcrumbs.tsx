@@ -57,7 +57,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     );
 
     return (
-      <nav ref={ref} aria-label="breadcrumbs" {...rest}>
+      <nav ref={ref} aria-label="brødsmulesti" {...rest}>
         <List>{breadcrumbChildren}</List>
       </nav>
     );
