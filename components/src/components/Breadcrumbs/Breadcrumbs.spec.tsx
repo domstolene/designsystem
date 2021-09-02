@@ -11,8 +11,8 @@ describe('Breadcrumbs', () => {
         <Breadcrumb>Side 3</Breadcrumb>
       </Breadcrumbs>
     );
-    const breadcrumbs = screen.getByLabelText('breadcrumbs');
-    expect(breadcrumbs).toHaveAttribute('aria-label', 'breadcrumbs');
+    const breadcrumbs = screen.getByLabelText('brødsmulesti');
+    expect(breadcrumbs).toHaveAttribute('aria-label', 'brødsmulesti');
   });
   it('should render three breadcrumbs', () => {
     render(
