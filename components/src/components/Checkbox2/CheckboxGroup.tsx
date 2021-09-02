@@ -24,6 +24,7 @@ type Direction = 'column' | 'row';
 export type CheckboxGroupProps = {
   label?: string;
   direction?: Direction;
+  groupId?: string;
   errorMessage?: string;
   required?: boolean;
   className?: string;
@@ -31,14 +32,14 @@ export type CheckboxGroupProps = {
   style?: React.CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
 
-let nextUniqueId = 0;
+let nextUniqueGroupId = 0;
 
 export const CheckboxGroup = ({
   label,
   direction,
   errorMessage,
   required,
-  id,
+  groupId,
   children,
   className,
   style,
@@ -50,16 +51,18 @@ export const CheckboxGroup = ({
     ...rest
   };
 
-  const [uniqueId] = useState<string>(id ?? `checkboxGroup-${nextUniqueId++}`);
+  const [uniqueGroupId] = useState<string>(
+    groupId ?? `checkboxGroup-${nextUniqueGroupId++}`
+  );
 
   return (
     <Container {...containerProps}>
-      <Label id={uniqueId}>
+      <Label id={uniqueGroupId}>
         {label} {required && <RequiredMarker />}
       </Label>
       <GroupContainer
         role="group"
-        aria-labelledby={uniqueId}
+        aria-labelledby={uniqueGroupId}
         direction={direction}
       >
         {children}
