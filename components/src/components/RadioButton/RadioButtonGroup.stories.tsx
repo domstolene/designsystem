@@ -91,17 +91,22 @@ export const WithDefaultValue = (args: RadioButtonGroupProps) => {
   const [value, setValue] = useState<number>(2);
   return storyHTMLTemplate(
     'Radio button group - default value',
-    <DDSRadioButtonGroup
-      {...args}
-      label="Label"
-      value={value}
-      onChange={(_event: ChangeEvent<HTMLInputElement>, value: number) => {
-        setValue(value);
-      }}
-    >
-      <DDSRadioButton value={1} label="Option 1" name="test" />
-      <DDSRadioButton value={2} label="Option 2" name="test" />
-      <DDSRadioButton value={3} label="Option 3" name="test" />
-    </DDSRadioButtonGroup>
+    <>
+      <DDSRadioButtonGroup
+        {...args}
+        label="Label"
+        value={value}
+        onChange={(_event: ChangeEvent<HTMLInputElement>, value: number) => {
+          setValue(value);
+        }}
+      >
+        <DDSRadioButton value={1} label="Option 1" name="test" />
+        <DDSRadioButton value={2} label="Option 2" name="test" />
+        <DDSRadioButton value={3} label="Option 3" name="test" />
+      </DDSRadioButtonGroup>
+      <span>
+        OBS! bruk value-prop kun når brukeren ikke skal fylle ut selv.{' '}
+      </span>
+    </>
   );
 };

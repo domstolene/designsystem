@@ -1,11 +1,28 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 
-export const storyHTMLTemplate = (title: string, children: React.ReactNode) => {
+const Container = styled.div<{ gap?: string }>`
+  ${({ gap }) =>
+    gap &&
+    css`
+      & > * {
+        margin-top: ${gap};
+      }
+    `}
+`;
+
+export const storyHTMLTemplate = (
+  title: string,
+  children: React.ReactNode,
+  gap?: string
+) => {
   return (
     <div className="component-container">
       <h2> {title} </h2>
       <hr />
-      <div className="flex-components">{children}</div>
+      <Container className="flex-components" gap={gap}>
+        {children}
+      </Container>
     </div>
   );
 };

@@ -31,6 +31,7 @@ export type RadioButtonGroupProps = {
   readOnly?: boolean;
   direction?: Direction;
   value?: string | number;
+  groupId?: string;
   children?: React.ReactNode;
   required?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>, value: any) => void;
@@ -38,9 +39,12 @@ export type RadioButtonGroupProps = {
   style?: React.CSSProperties;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
+let nextUniqueGroupId = 0;
+
 export const RadioButtonGroup = ({
   name,
   label,
+  groupId,
   errorMessage,
   tip,
   disabled,
@@ -57,6 +61,10 @@ export const RadioButtonGroup = ({
   const [groupValue, setGroupValue] = useState<
     string | number | null | undefined
   >(value);
+
+  const [uniqueGroupId] = useState<string>(
+    groupId ?? `radioButtonGroup-${nextUniqueGroupId++}`
+  );
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
@@ -84,11 +92,15 @@ export const RadioButtonGroup = ({
 
   return (
     <Container {...containerProps}>
-      <Label>
+      <Label id={uniqueGroupId}>
         {label} {required && <RequiredMarker />}
       </Label>
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
-        <GroupContainer role="radiogroup" direction={direction}>
+        <GroupContainer
+          role="radiogroup"
+          direction={direction}
+          aria-labelledby={uniqueGroupId}
+        >
           {children}
         </GroupContainer>
       </RadioButtonGroupContext.Provider>

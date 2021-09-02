@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
@@ -24,18 +24,22 @@ type Direction = 'column' | 'row';
 export type CheckboxGroupProps = {
   label?: string;
   direction?: Direction;
+  groupId?: string;
   errorMessage?: string;
   required?: boolean;
   className?: string;
   children?: React.ReactNode;
   style?: React.CSSProperties;
-};
+} & HTMLAttributes<HTMLDivElement>;
+
+let nextUniqueGroupId = 0;
 
 export const CheckboxGroup = ({
   label,
   direction,
   errorMessage,
   required,
+  groupId,
   children,
   className,
   style,
@@ -47,12 +51,22 @@ export const CheckboxGroup = ({
     ...rest
   };
 
+  const [uniqueGroupId] = useState<string>(
+    groupId ?? `checkboxGroup-${nextUniqueGroupId++}`
+  );
+
   return (
     <Container {...containerProps}>
-      <Label>
+      <Label id={uniqueGroupId}>
         {label} {required && <RequiredMarker />}
       </Label>
-      <GroupContainer direction={direction}>{children}</GroupContainer>
+      <GroupContainer
+        role="group"
+        aria-labelledby={uniqueGroupId}
+        direction={direction}
+      >
+        {children}
+      </GroupContainer>
       {errorMessage ? (
         <InputMessage messageType="error" message={errorMessage} />
       ) : (

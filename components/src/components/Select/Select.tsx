@@ -21,6 +21,7 @@ type StyledContainerProps = {
   width?: string;
   disabled?: boolean;
   readOnly?: boolean;
+  label?: string;
 };
 
 const Container = styled.div<StyledContainerProps>`
@@ -29,6 +30,17 @@ const Container = styled.div<StyledContainerProps>`
   width: ${({ width }) => width};
   ${tokens.container.base}
   ${scrollbarStyling}
+  ${({ label }) =>
+    label
+      ? css`
+          ${tokens.container.withLabel.base}
+        `
+      : css`
+          ${tokens.container.noLabel.base}
+          .${prefix}__control {
+            ${tokens.input.noLabel.base}
+          }
+        `}
     &:hover {
     ${tokens.container.hover.base}
     box-shadow: 0 0 0 1px ${tokens.container.hover.base.borderColor};
@@ -170,7 +182,7 @@ const customStyles: Partial<Styles<any, false, any>> = {
       transition: '0.2s',
       width: 'calc(100% + 2px)',
       transform: 'translate(-1px)',
-      top: '14px',
+      top: tokens.optionsList.spaceTop,
       boxShadow: `0 0 0 1px ${tokens.optionsList.base.borderColor}`,
       ...tokens.optionsList.base
     };
@@ -236,6 +248,7 @@ export type SelectProps = {
   loading?: boolean;
   value?: string | null;
   defaultValue?: string | null;
+  notClearable?: boolean;
   className?: string;
   style?: React.CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
@@ -258,6 +271,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       loading,
       value,
       defaultValue,
+      notClearable,
       className,
       style,
       onChange,
@@ -277,6 +291,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       width,
       disabled,
       readOnly,
+      label,
       className,
       style
     };
@@ -286,7 +301,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       placeholder,
       required,
       isDisabled: disabled || readOnly,
-      isClearable: true,
+      isClearable: notClearable ? undefined : true,
       inputId: uniqueId,
       name: uniqueId,
       isLoading: loading,
@@ -327,9 +342,11 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     return (
       <Wrapper ref={ref} {...rest}>
         <Container {...containerProps}>
-          <Label htmlFor={uniqueId}>
-            {label} {required && <RequiredMarker />}
-          </Label>
+          {label && (
+            <Label htmlFor={uniqueId}>
+              {label} {required && <RequiredMarker />}
+            </Label>
+          )}
           <ReactSelect {...inputProps} />
         </Container>
         {errorMessage ? (

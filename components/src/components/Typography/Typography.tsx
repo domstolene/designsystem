@@ -9,7 +9,7 @@ import { typographyTokens as tokens, textColors } from './typographyTokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
 
-export type TypographyType = 'a' | 'p';
+export type TypographyType = 'a' | 'p' | 'inputLabel';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -21,6 +21,8 @@ const getElementType = (element: string): ElementType => {
     case 'h6':
     case 'a':
       return element;
+    case 'inputLabel':
+      return 'p';
     default:
       return 'p';
   }
@@ -75,11 +77,20 @@ export type TypographyProps = {
   externalLink?: boolean;
   color?: TextColor;
   bold?: boolean;
+  target?: string;
 } & (HTMLAttributes<HTMLElement> | AnchorHTMLAttributes<HTMLAnchorElement>);
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
   (
-    { typographyType = 'p', as: propAs, externalLink, bold, children, ...rest },
+    {
+      typographyType = 'p',
+      as: propAs,
+      externalLink,
+      target,
+      bold,
+      children,
+      ...rest
+    },
     ref
   ) => {
     const as = propAs ? propAs : getElementType(typographyType as string);
@@ -89,7 +100,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       bold,
       as,
       rel: as === 'a' ? 'noopener noreferer' : undefined,
-      target: as === 'a' && externalLink ? '_blank' : undefined,
+      target: as !== 'a' ? undefined : externalLink ? '_blank' : target,
       ...rest
     };
 

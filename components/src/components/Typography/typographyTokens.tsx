@@ -2,6 +2,7 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
+import { CSSObject } from 'styled-components';
 
 const {
   colors: Colors,
@@ -9,7 +10,7 @@ const {
   spacing: Spacing
 } = ddsBaseTokens;
 
-const { focus, textDefault } = ddsReferenceTokens;
+const { focus, textDefault, inputLabel } = ddsReferenceTokens;
 
 export const textColors = {
   primary: Colors.DdsColorPrimaryBase,
@@ -18,37 +19,60 @@ export const textColors = {
   warning: Colors.DdsColorWarningBase
 };
 
+const pBase: CSSObject = {
+  ...textDefault.font,
+  color: textDefault.textColor
+};
+
+const aBase: CSSObject = {
+  color: Colors.DdsColorPrimaryBase,
+  ...FontPackages.sansRegularx1,
+  textDecoration: 'underline',
+  width: 'fit-content',
+  padding: `0 ${Spacing.SizesDdsSpacingLocalX0125}`
+};
+
+const aHoverBase: CSSObject = {
+  color: Colors.DdsColorPrimaryDarker
+};
+
+const aFocusBase: CSSObject = {
+  backgroundColor: Colors.DdsColorWarningDarkest,
+  color: Colors.DdsColorNeutralsWhite,
+  textDecoration: 'none',
+  outline: 'none'
+};
+
+const aBoldBase: CSSObject = {
+  ...FontPackages.sansBoldx1
+};
+
+const inputLabelBase: CSSObject = {
+  color: inputLabel.textColor,
+  ...inputLabel.font.base,
+  margin: 0
+};
+
 export const typographyTokens = {
   p: {
-    base: {
-      ...textDefault.font,
-      color: textDefault.textColor
-    }
+    base: pBase
   },
   a: {
-    base: {
-      color: Colors.DdsColorPrimaryBase,
-      ...FontPackages.sansRegularx1,
-      textDecoration: 'underline',
-      width: 'fit-content',
-      padding: `0 ${Spacing.SizesDdsSpacingLocalX0125}`
-    },
+    base: aBase,
     hover: {
-      color: Colors.DdsColorPrimaryDarker
+      base: aHoverBase
     },
     focus: {
-      // outline: `${focus.outlineWidth} solid ${focus.colorDefault}`
-      // backgroundColor: focus.colorDefault,
-      backgroundColor: Colors.DdsColorWarningDarkest,
-      color: Colors.DdsColorNeutralsWhite,
-      textDecoration: 'none',
-      outline: 'none'
+      base: aFocusBase
     },
     bold: {
-      ...FontPackages.sansBoldx1
+      base: aBoldBase
     },
     icon: {
       marginLeft: Spacing.SizesDdsSpacingLocalX0125
     }
+  },
+  inputLabel: {
+    base: inputLabelBase
   }
 };
