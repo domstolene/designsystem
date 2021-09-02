@@ -24,15 +24,15 @@ export const inputTokens = {
     width: '4px',
     height: '8px',
     borderColor: '#4a4a4a',
-    borderWidth: '0 2px 2px 0',
+    borderWidth: '0 2px 2px 0'
   }
 };
 
 const font = {
   fontFamily: "'Proxima Nova', Arial",
   fontSize: '14px',
-  lineHeight: 1,
-}
+  lineHeight: 1
+};
 
 export const containerTokens = {
   text_color: '#4a4a4a',
