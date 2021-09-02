@@ -21,7 +21,8 @@
     "build:watch": "rollup -c -w",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o docs",
-    "lint": "eslint --ext=jsx,ts,tsx src"
+    "lint": "eslint --ext=jsx,ts,tsx src",
+    "prettier": "prettier --write '**/*.{ts,tsx}'"
   },
   "keywords": [
     "dds",
