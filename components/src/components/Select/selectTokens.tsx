@@ -6,12 +6,16 @@ const {
   colors: Colors,
   spacing: Spacing,
   fontPackages: FontPackages,
-  borderRadius: BorderRadius
+  borderRadius: BorderRadius,
+  border: Border
 } = ddsBaseTokens;
 
 const labelBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray7,
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX05} 0 ${Spacing.SizesDdsSpacingLocalX1}`,
+  paddingTop: Spacing.SizesDdsSpacingLocalX075,
+  paddingLeft: Spacing.SizesDdsSpacingLocalX05,
+  paddingBottom: 0,
+  paddingRight: Spacing.SizesDdsSpacingLocalX1,
   ...FontPackages.sansBoldx0_875.base
 };
 
@@ -25,17 +29,33 @@ const labelFocusBase: CSSObject = {
 
 const containerBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-  border: '1px solid',
+  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
   borderColor: Colors.DdsColorNeutralsGray5,
   backgroundColor: Colors.DdsColorNeutralsWhite
 };
+const withLabelHeight =
+  Spacing.SizesDdsSpacingLocalX075NumberPx * 2 +
+  FontPackages.sansBoldx0_875.numbers.lineHeightNumber *
+    0.01 *
+    FontPackages.sansBoldx0_875.numbers.fontSizeNumber +
+  FontPackages.sansRegularx1_125.numbers.lineHeightNumber *
+    0.01 *
+    FontPackages.sansRegularx1_125.numbers.fontSizeNumber +
+  Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2;
 
 const containerWithLabelBase: CSSObject = {
-  height: '72px'
+  height: `${withLabelHeight}px`
 };
 
+const noLabelHeight =
+  Spacing.SizesDdsSpacingLocalX075NumberPx * 2 +
+  FontPackages.sansRegularx1_125.numbers.lineHeightNumber *
+    0.01 *
+    FontPackages.sansRegularx1_125.numbers.fontSizeNumber +
+  Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2;
+
 const containerNoLabelBase: CSSObject = {
-  height: '51px'
+  height: `${noLabelHeight}px`
 };
 
 const containerHoverBase: CSSObject = {
@@ -64,6 +84,9 @@ const inputBase: CSSObject = {
   padding: `0 ${Spacing.SizesDdsSpacingLocalX05} 0 ${Spacing.SizesDdsSpacingLocalX1}`,
   ...FontPackages.sansRegularx1_125.base
 };
+const inputNoLabelBase: CSSObject = {
+  paddingTop: Spacing.SizesDdsSpacingLocalX075
+};
 const placeholderBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
   ...FontPackages.sansItalicx1_125.base
@@ -71,7 +94,7 @@ const placeholderBase: CSSObject = {
 
 const dropdownIndicatorBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
-  padding: `${Spacing.SizesDdsSpacingLocalX025} 0 ${Spacing.SizesDdsSpacingLocalX025} 0`
+  padding: 0
 };
 
 const dropdownIndicatorHoverBase: CSSObject = {
@@ -172,13 +195,17 @@ export const selectTokens = {
     }
   },
   input: {
-    base: inputBase
+    base: inputBase,
+    noLabel: {
+      base: inputNoLabelBase
+    }
   },
   placeholder: {
     base: placeholderBase
   },
   optionsList: {
-    base: optionsListBase
+    base: optionsListBase,
+    spaceTop: Spacing.SizesDdsSpacingLocalX1NumberPx + 2 //grunnet shadow-box
   },
   option: {
     base: optionBase,

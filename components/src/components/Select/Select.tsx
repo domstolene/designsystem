@@ -37,6 +37,9 @@ const Container = styled.div<StyledContainerProps>`
         `
       : css`
           ${tokens.container.noLabel.base}
+          .${prefix}__control {
+            ${tokens.input.noLabel.base}
+          }
         `}
     &:hover {
     ${tokens.container.hover.base}
@@ -179,7 +182,7 @@ const customStyles: Partial<Styles<any, false, any>> = {
       transition: '0.2s',
       width: 'calc(100% + 2px)',
       transform: 'translate(-1px)',
-      top: '14px',
+      top: tokens.optionsList.spaceTop,
       boxShadow: `0 0 0 1px ${tokens.optionsList.base.borderColor}`,
       ...tokens.optionsList.base
     };
@@ -339,9 +342,11 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     return (
       <Wrapper ref={ref} {...rest}>
         <Container {...containerProps}>
-          <Label htmlFor={uniqueId}>
-            {label} {required && <RequiredMarker />}
-          </Label>
+          {label && (
+            <Label htmlFor={uniqueId}>
+              {label} {required && <RequiredMarker />}
+            </Label>
+          )}
           <ReactSelect {...inputProps} />
         </Container>
         {errorMessage ? (
