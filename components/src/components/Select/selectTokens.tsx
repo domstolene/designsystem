@@ -13,9 +13,9 @@ const {
 const labelBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray7,
   paddingTop: Spacing.SizesDdsSpacingLocalX075,
-  paddingLeft: Spacing.SizesDdsSpacingLocalX05,
+  paddingLeft: Spacing.SizesDdsSpacingLocalX1,
   paddingBottom: 0,
-  paddingRight: Spacing.SizesDdsSpacingLocalX1,
+  paddingRight: Spacing.SizesDdsSpacingLocalX05,
   ...FontPackages.sansBoldx0_875.base
 };
 
