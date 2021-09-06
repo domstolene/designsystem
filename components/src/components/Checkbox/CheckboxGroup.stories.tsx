@@ -24,43 +24,32 @@ export default {
   }
 };
 
-export const Default = (args: CheckboxGroupProps) => {
-  return storyHTMLTemplate(
-    'CheckboxGroup default',
-    <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
-      <DDSCheckbox label={args.label || 'Option 1'} />
-      <DDSCheckbox label={args.label || 'Option 2'} />
-      <DDSCheckbox label={args.label || 'Option 3'} />
-    </DDSCheckboxGroup>
-  );
-};
-
 export const Overview = (args: CheckboxGroupProps) => {
   return storyHTMLGridTemplate(
     'CheckboxGroup - overview',
     <>
       <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
-        <DDSCheckbox label={args.label || 'Option 1'} />
-        <DDSCheckbox label={args.label || 'Option 2'} />
-        <DDSCheckbox label={args.label || 'Option 3'} />
+        <DDSCheckbox label="Option 1" />
+        <DDSCheckbox label="Option 2" />
+        <DDSCheckbox label="Option 3" />
       </DDSCheckboxGroup>
       <DDSCheckboxGroup
         {...args}
         label={args.label || 'Label'}
         direction="column"
       >
-        <DDSCheckbox label={args.label || 'Option 1'} />
-        <DDSCheckbox label={args.label || 'Option 2'} />
-        <DDSCheckbox label={args.label || 'Option 3'} />
+        <DDSCheckbox label="Option 1" />
+        <DDSCheckbox label="Option 2" />
+        <DDSCheckbox label="Option 3" />
       </DDSCheckboxGroup>
       <DDSCheckboxGroup
         {...args}
         label={args.label || 'Label'}
         errorMessage="Dette er en feilmelding"
       >
-        <DDSCheckbox error label={args.label || 'Option 1'} />
-        <DDSCheckbox error label={args.label || 'Option 2'} />
-        <DDSCheckbox error label={args.label || 'Option 3'} />
+        <DDSCheckbox error label="Option 1" />
+        <DDSCheckbox error label="Option 2" />
+        <DDSCheckbox error label="Option 3" />
       </DDSCheckboxGroup>
       <DDSCheckboxGroup
         {...args}
@@ -68,12 +57,23 @@ export const Overview = (args: CheckboxGroupProps) => {
         direction="column"
         errorMessage="Dette er en feilmelding"
       >
-        <DDSCheckbox error label={args.label || 'Option 1'} />
-        <DDSCheckbox error label={args.label || 'Option 2'} />
-        <DDSCheckbox error label={args.label || 'Option 3'} />
+        <DDSCheckbox error label="Option 1" />
+        <DDSCheckbox error label="Option 2" />
+        <DDSCheckbox error label="Option 3" />
       </DDSCheckboxGroup>
     </>,
     '15px',
     2
+  );
+};
+
+export const Default = (args: CheckboxGroupProps) => {
+  return storyHTMLTemplate(
+    'CheckboxGroup default',
+    <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
+      <DDSCheckbox label="Option 1" />
+      <DDSCheckbox label="Option 2" />
+      <DDSCheckbox label="Option 3" />
+    </DDSCheckboxGroup>
   );
 };
