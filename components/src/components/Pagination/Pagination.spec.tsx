@@ -21,7 +21,35 @@ describe('<Pagination />', () => {
     ).toHaveAttribute('aria-label', 'Nåværende side (side 3)');
   });
   it('should render correct number of pages', () => {
-    render(<Pagination itemsAmount={6} defaultItemsPerPage={1} />);
+    render(
+      <Pagination
+        itemsAmount={6}
+        defaultItemsPerPage={1}
+        defaultActivePage={2}
+      />
+    );
     expect(screen.getAllByRole('listitem')).toHaveLength(8); // itemsAmount + < > buttons)
+  });
+  it('should not render previous page-button while on first page', () => {
+    render(<Pagination itemsAmount={6} defaultItemsPerPage={1} />);
+    expect(screen.getAllByRole('listitem')).toHaveLength(7); // itemsAmount +  > button
+  });
+  it('should not render next page-button while on last page', () => {
+    render(
+      <Pagination
+        itemsAmount={6}
+        defaultItemsPerPage={1}
+        defaultActivePage={6}
+      />
+    );
+    expect(screen.getAllByRole('listitem')).toHaveLength(7); // itemsAmount +  < button
+  });
+  it('should render smallScreen version with three items', () => {
+    render(<Pagination itemsAmount={6} defaultItemsPerPage={1} smallScreen />);
+    expect(screen.getAllByRole('listitem')).toHaveLength(3); // active page +  > >| buttons
+  });
+  it('should render smallScreen version with five items', () => {
+    render(<Pagination itemsAmount={6} defaultItemsPerPage={2} smallScreen />);
+    expect(screen.getAllByRole('listitem')).toHaveLength(5); // active page + |< <  > >| buttons
   });
 });
