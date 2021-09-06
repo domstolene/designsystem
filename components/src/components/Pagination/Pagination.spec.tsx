@@ -49,7 +49,14 @@ describe('<Pagination />', () => {
     expect(screen.getAllByRole('listitem')).toHaveLength(3); // active page +  > >| buttons
   });
   it('should render smallScreen version with five items', () => {
-    render(<Pagination itemsAmount={6} defaultItemsPerPage={2} smallScreen />);
+    render(
+      <Pagination
+        itemsAmount={6}
+        defaultItemsPerPage={1}
+        defaultActivePage={2}
+        smallScreen
+      />
+    );
     expect(screen.getAllByRole('listitem')).toHaveLength(5); // active page + |< <  > >| buttons
   });
 });
