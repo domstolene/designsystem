@@ -1,8 +1,21 @@
 import React, { forwardRef, InputHTMLAttributes, useState } from 'react';
-import styled from 'styled-components';
-import { containerTokens, inputTokens } from './checkboxTokens';
+import styled, { css } from 'styled-components';
+import { checkboxTokens as tokens } from './checkboxTokens';
 
-const Input = styled.input`
+const CustomCheckbox = styled.span`
+  position: absolute;
+  ${tokens.checkbox.base}
+  left: ${tokens.checkbox.spaceLeft};
+  &:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+`;
+
+const Input = styled.input.attrs(({ type = 'checkbox' }) => ({
+  type
+}))`
   clip: rect(0 0 0 0);
   position: absolute;
   height: 0;
@@ -10,65 +23,138 @@ const Input = styled.input`
   margin: 0;
 `;
 
-const Checkmark = styled.span`
+type ContainerProps = {
+  disabled?: boolean;
+  readOnly?: boolean;
+  error?: boolean;
+  indeterminate?: boolean;
+  label?: string;
+};
+
+const Container = styled.label<ContainerProps>`
   position: relative;
-  height: ${inputTokens.height};
-  width: ${inputTokens.width};
-  border: ${inputTokens.border_width} solid ${inputTokens.default.color.border};
-  border-radius: ${inputTokens.border_radius};
-
-  &:after {
-    content: '';
-    position: absolute;
-    display: none;
-    left: 3px;
-    top: 0px;
-    width: 4px;
-    height: 8px;
-    border: solid ${inputTokens.default.color.marker};
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-  }
-`;
-
-const Label = styled.span`
-  margin-left: 8px;
-`;
-
-const StyledCheckbox = styled.label<{ disabled?: boolean }>`
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  position: relative;
-  user-select: none;
-  color: ${containerTokens.text_color};
-  ${containerTokens.typography.font}
-  padding: ${containerTokens.padding};
   cursor: pointer;
+  user-select: none;
+  width: fit-content;
+  ${tokens.container.base}
+  ${({ label }) =>
+    label
+      ? css`
+          ${tokens.container.withLabel.base}
+        `
+      : css`
+          ${tokens.container.noLabel.base}
+        `}
 
-  input:checked ~ ${Checkmark} {
-    background-color: ${inputTokens.default.color.background};
+    input ~ ${CustomCheckbox} {
+    transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
   }
-  input:checked ~ ${Checkmark}:after {
+
+  input:checked ~ ${CustomCheckbox}:after {
     display: block;
   }
-  input:checked:focus ~ ${Checkmark}:after, input:focus ~ ${Checkmark} {
-    border-color: ${inputTokens.default.focus.marker};
+
+  input:checked ~ ${CustomCheckbox} {
+    ${tokens.checkbox.checked.base}
   }
 
-  ${({ disabled }) => {
-    if (disabled) {
-      return `
-        cursor: not-allowed;
-        opacity: 0.7;  
-      `;
-    }
-  }}
+  &:hover input:enabled ~ ${CustomCheckbox} {
+    ${tokens.checkbox.hover.base}
+  }
+  &:hover input:checked:enabled ~ ${CustomCheckbox} {
+    ${tokens.checkbox.checked.hover.base}
+  }
+  &:focus-within {
+    outline: ${tokens.container.focusOutline.width} solid
+      ${tokens.container.focusOutline.color};
+  }
+
+  ${({ error }) =>
+    error &&
+    css`
+      input ~ ${CustomCheckbox} {
+        ${tokens.checkbox.danger.base}
+      }
+      &:hover input:enabled ~ ${CustomCheckbox} {
+        ${tokens.checkbox.danger.hover.base}
+      }
+    `}
+
+  ${({ indeterminate }) =>
+    indeterminate &&
+    css`
+      input:enabled ~ ${CustomCheckbox} {
+        ${tokens.checkbox.indeterminate.base}
+      }
+      input ~ ${CustomCheckbox}:after {
+        display: block;
+      }
+      &:hover input:enabled ~ ${CustomCheckbox} {
+        ${tokens.checkbox.indeterminate.hover.base}
+      }
+    `}
+
+    ${({ disabled, indeterminate }) =>
+    disabled &&
+    css`
+      cursor: not-allowed;
+      input ~ ${CustomCheckbox} {
+        ${tokens.checkbox.disabled.base}
+      }
+      input:checked ~ ${CustomCheckbox} {
+        ${tokens.checkbox.checked.disabled.base}
+      }
+      ${indeterminate &&
+      css`
+        input ~ ${CustomCheckbox} {
+          ${tokens.checkbox.indeterminate.disabled.base}
+        }
+      `}
+    `}
+
+    ${({ readOnly, indeterminate }) =>
+    readOnly &&
+    css`
+      cursor: default;
+      input ~ ${CustomCheckbox} {
+        ${tokens.checkbox.readOnly.base}
+      }
+      input:checked ~ ${CustomCheckbox} {
+        ${tokens.checkbox.checked.readOnly.base}
+      }
+      ${indeterminate &&
+      css`
+        input ~ ${CustomCheckbox} {
+          ${tokens.checkbox.indeterminate.readOnly.base}
+        }
+      `}
+    `}
+
+    ${CustomCheckbox}:after {
+    border: solid ${tokens.checkmark.color};
+    ${({ indeterminate }) =>
+      indeterminate
+        ? css`
+            left: 25%;
+            top: 50%;
+            width: 50%;
+            height: 1px;
+            ${tokens.checkmark.indeterminate.base}
+          `
+        : css`
+            ${tokens.checkmark.base}
+          `}
+  }
 `;
 
 export type CheckboxProps = {
-  label: string;
+  label?: string;
   error?: boolean;
   disabled?: boolean;
+  readOnly?: boolean;
+  indeterminate?: boolean;
   className?: string;
   style?: React.CSSProperties;
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -76,33 +162,53 @@ export type CheckboxProps = {
 let nextUniqueId = 0;
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ id, label, disabled, className, style, ...rest }, ref) => {
+  (
+    {
+      id,
+      name,
+      label,
+      error,
+      disabled,
+      readOnly,
+      indeterminate,
+      className,
+      style,
+      ...rest
+    },
+    ref
+  ) => {
     const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
 
+    const containerProps = {
+      error,
+      disabled,
+      indeterminate,
+      readOnly,
+      htmlFor: uniqueId,
+      label,
+      className,
+      style
+    };
+
+    const inputProps = {
+      id: uniqueId,
+      name,
+      indeterminate,
+      disabled: disabled || readOnly,
+      ...rest
+    };
+
     return (
-      <StyledCheckbox
-        htmlFor={uniqueId}
-        className={className}
-        style={style}
-        disabled={disabled}
-        onClick={event => {
-          event.stopPropagation();
-        }}
-      >
+      <Container {...containerProps}>
         <Input
-          {...rest}
-          id={uniqueId}
-          type="checkbox"
           ref={ref}
-          disabled={disabled}
+          {...inputProps}
+          data-indeterminate={indeterminate}
+          aria-readonly={readOnly ? true : false}
         />
-        <Checkmark />
-        {!!label && <Label>{label}</Label>}
-      </StyledCheckbox>
+        <CustomCheckbox />
+        {label ? <span>{label}</span> : ''}
+      </Container>
     );
   }
 );
-
-Checkbox.defaultProps = {
-  disabled: false
-};

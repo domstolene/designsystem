@@ -2,7 +2,7 @@ import {
   CheckboxGroup as DDSCheckboxGroup,
   CheckboxGroupProps
 } from './CheckboxGroup';
-import { Checkbox2 as DDSCheckbox } from './Checkbox2';
+import { Checkbox as DDSCheckbox } from './Checkbox';
 import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
 import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 

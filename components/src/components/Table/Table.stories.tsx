@@ -6,7 +6,7 @@ import { SortCell, SortOrder } from './SortCell';
 import { Body } from './Body';
 import { Head } from './Head';
 import { Button } from '../Button';
-import { Checkbox2 as Checkbox } from '../Checkbox2';
+import { Checkbox } from '../Checkbox';
 import {
   HeaderCellToSort,
   CellDataToSort,
@@ -244,7 +244,6 @@ export const WithCheckbox = (args: TableProps) => {
     row: chechboxRow
   ) {
     const currentRows = [...selectedRows];
-    console.log('change checkbox');
     if (e.target.checked) {
       currentRows.push(row);
     } else {

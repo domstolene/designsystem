@@ -1,15 +1,58 @@
 import { Checkbox as DDSCheckbox, CheckboxProps } from './Checkbox';
+import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
+import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 
 export default {
-  title: 'Design system/Checkbox',
-  component: DDSCheckbox
+  title: 'Design system/Checkbox/Checkbox',
+  component: DDSCheckbox,
+  argTypes: {
+    label: { control: { type: 'text' } },
+    error: { control: { type: 'boolean' } },
+    disabled: { control: { type: 'boolean' } },
+    readOnly: { control: { type: 'boolean' } },
+    indeterminate: { control: { type: 'boolean' } }
+  },
+  parameters: {
+    controls: {
+      exclude: ['style', 'className']
+    }
+  }
 };
 
-export const Checkbox = (args: CheckboxProps) => (
-  <div className="component-container">
-    <h2> Checkbox</h2>
-    <hr />
-    <div>OBS! kun til testing i Aktørportalen</div>
-    <DDSCheckbox {...args} id="test" label={args.label || 'Option'} />
-  </div>
-);
+export const Default = (args: CheckboxProps) => {
+  return storyHTMLTemplate(
+    'Checkbox default',
+    <DDSCheckbox {...args} label={args.label || 'Label'} />
+  );
+};
+
+export const Overview = (args: CheckboxProps) => {
+  return storyHTMLGridTemplate(
+    'Checkbox - overview',
+    <>
+      <DDSCheckbox {...args} label={args.label || 'Default'} />
+      <DDSCheckbox {...args} label={args.label || 'Checked'} checked />
+      <DDSCheckbox
+        {...args}
+        label={args.label || 'Indeterminate'}
+        indeterminate
+      />
+      <DDSCheckbox {...args} label={args.label || 'Disabled'} disabled />
+      <DDSCheckbox
+        {...args}
+        label={args.label || 'Disabled checked'}
+        disabled
+        checked
+      />
+      <DDSCheckbox
+        {...args}
+        label={args.label || 'Disabled indeterminate'}
+        disabled
+        indeterminate
+      />
+      <DDSCheckbox {...args} label={args.label || 'Read only'} readOnly />
+      <DDSCheckbox {...args} label={args.label || 'Error'} error />
+      <DDSCheckbox {...args} />
+    </>
+  );
+};

@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Checkbox2 as Checkbox } from './Checkbox2';
+import { CheckboxTest as Checkbox } from './CheckboxTest';
 
-describe('<Checkbox />', () => {
+describe('<CheckboxTest />', () => {
   it('should have a label', () => {
     const label = 'Select me';
     render(<Checkbox label={label} />);

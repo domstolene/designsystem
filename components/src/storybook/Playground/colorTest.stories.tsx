@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Button } from '../../components/Button';
-import { Checkbox2, CheckboxGroup } from '../../components/Checkbox2';
+import { Checkbox, CheckboxGroup } from '../../components/Checkbox';
 import { RadioButton, RadioButtonGroup } from '../../components/RadioButton';
 import { Breadcrumbs, Breadcrumb } from '../../components/Breadcrumbs';
 import { Typography } from '../../components/Typography';
@@ -65,7 +65,9 @@ const LocalMessageStyled = styled(LocalMessage)<{ purpose: string }>`
   ${({ purpose }) => purpose === 'info' && infoMessageStyle}
 `;
 
-const buttonStyle = (color: string) =>
+type TestColor = 'colors7' | 'colors6' | 'colors5';
+
+const buttonStyle = (color: TestColor) =>
   css`
     background-color: ${colors[color].base};
     border-color: ${colors[color].base};
@@ -79,11 +81,11 @@ const buttonStyle = (color: string) =>
     }
   `;
 
-const ButtonStyled = styled(Button)<{ colorPalette?: string }>`
+const ButtonStyled = styled(Button)<{ colorPalette?: TestColor }>`
   ${({ colorPalette }) => colorPalette && buttonStyle(colorPalette)}
 `;
 
-const selectionControlStyle = (color: string) => css`
+const selectionControlStyle = (color: TestColor) => css`
   &:hover input:enabled ~ span:first-of-type {
     background-color: ${colors[color].lightest};
     border-color: ${colors[color].base};
@@ -98,15 +100,15 @@ const selectionControlStyle = (color: string) => css`
   }
 `;
 
-const CheckboxStyled = styled(Checkbox2)<{ colorPalette?: string }>`
+const CheckboxStyled = styled(Checkbox)<{ colorPalette?: TestColor }>`
   ${({ colorPalette }) => colorPalette && selectionControlStyle(colorPalette)}
 `;
 
-const RadioButtonStyled = styled(RadioButton)<{ colorPalette?: string }>`
+const RadioButtonStyled = styled(RadioButton)<{ colorPalette?: TestColor }>`
   ${({ colorPalette }) => colorPalette && selectionControlStyle(colorPalette)}
 `;
 
-const linkStyle = (color: string, t: string) =>
+const linkStyle = (color: TestColor, t: string) =>
   t === 'a' &&
   css`
     color: ${colors[color].base};
@@ -116,14 +118,14 @@ const linkStyle = (color: string, t: string) =>
   `;
 
 const LinkStyled = styled(Typography)<{
-  colorPalette?: string;
+  colorPalette?: TestColor;
   typographyType: string;
 }>`
   ${({ colorPalette, typographyType }) =>
     colorPalette && linkStyle(colorPalette, typographyType)}
 `;
 
-const inputStyle = (color: string) => css`
+const inputStyle = (color: TestColor) => css`
   input {
     &:hover:enabled {
       border-color: ${colors[color].base};
@@ -141,11 +143,11 @@ const inputStyle = (color: string) => css`
   }
 `;
 
-const InputStyled = styled(TextInput)<{ colorPalette?: string }>`
+const InputStyled = styled(TextInput)<{ colorPalette?: TestColor }>`
   ${({ colorPalette }) => colorPalette && inputStyle(colorPalette)}
 `;
 
-const breadcrumbsStyle = (color: string) => css`
+const breadcrumbsStyle = (color: TestColor) => css`
   a {
     color: ${colors[color].base};
     &:hover {
@@ -158,7 +160,7 @@ const breadcrumbsStyle = (color: string) => css`
   }
 `;
 
-const BreadcrumbsStyled = styled(Breadcrumbs)<{ colorPalette?: string }>`
+const BreadcrumbsStyled = styled(Breadcrumbs)<{ colorPalette?: TestColor }>`
   ${({ colorPalette }) => colorPalette && breadcrumbsStyle(colorPalette)}
 `;
 
@@ -168,7 +170,7 @@ const Footer = styled.div`
   background-color: ${Colors.DdsColorSecondaryDark};
 `;
 
-const TestForm = (color?: string) => (
+const TestForm = (color?: TestColor) => (
   <>
     <GlobalMessage purpose="warning">Dette er en viktig melding</GlobalMessage>
     <BreadcrumbsStyled colorPalette={color}>
