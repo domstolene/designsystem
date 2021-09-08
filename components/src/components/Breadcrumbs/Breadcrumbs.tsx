@@ -35,7 +35,11 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     const childrenArray = Children.toArray(children);
     const breadcrumbChildren = smallScreen ? (
       <ListItem>
-        <IconWrapper Icon={BackIcon} iconSize={breadcrumbIconSize} />
+        <IconWrapper
+          Icon={BackIcon}
+          iconSize={breadcrumbIconSize}
+          color={tokens.icon.base.color}
+        />
         {childrenArray[childrenArray.length - 2]}
       </ListItem>
     ) : (
@@ -46,6 +50,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
               <IconWrapper
                 Icon={BreadcrumbIcon}
                 iconSize={breadcrumbIconSize}
+                color={tokens.icon.base.color}
               />
             ) : (
               ''
