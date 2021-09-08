@@ -19,14 +19,7 @@ const Container = styled.div<{ purpose: GlobalMessagePurpose }>`
   ${({ purpose }) => stylingBase(purpose)}
 `;
 
-const MessageIconWrapper = styled(IconWrapper)<{
-  purpose: GlobalMessagePurpose;
-}>`
-  ${({ purpose }) =>
-    purpose &&
-    css`
-      color: ${tokens.icon[purpose].color};
-    `}
+const MessageIconWrapper = styled(IconWrapper)`
   margin-right: ${tokens.icon.marginRight};
 `;
 
@@ -63,8 +56,8 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
       <Container purpose={purpose} ref={ref} {...rest}>
         <ContentContainer closable={closable}>
           <MessageIconWrapper
-            purpose={purpose}
             Icon={tokens.icon[purpose].icon}
+            color={tokens.icon[purpose].color}
           />
           <span>{children ?? message}</span>
         </ContentContainer>

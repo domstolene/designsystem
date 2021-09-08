@@ -24,14 +24,7 @@ const Container = styled.div<{
   width: ${({ width }) => width};
 `;
 
-const MessageIconWrapper = styled(IconWrapper)<{
-  purpose: LocalMessagePurpose;
-}>`
-  ${({ purpose }) =>
-    purpose &&
-    css`
-      color: ${tokens.icon[purpose].color};
-    `}
+const MessageIconWrapper = styled(IconWrapper)`
   margin-right: ${tokens.icon.marginRight};
 `;
 
@@ -85,8 +78,8 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       <Container purpose={purpose} width={width} ref={ref} {...rest}>
         <ContentContainer closable={closable}>
           <MessageIconWrapper
-            purpose={purpose}
             Icon={tokens.icon[purpose].icon}
+            color={tokens.icon[purpose].color}
           />
           <span>{children ?? message}</span>
         </ContentContainer>
