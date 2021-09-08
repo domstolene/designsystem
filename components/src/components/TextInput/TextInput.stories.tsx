@@ -26,35 +26,31 @@ export const TextInputOverview = (args: TextInputProps) => {
   return storyHTMLGridTemplate(
     'TextInput - overview',
     <>
-      <TextInput {...args} label={args.label || 'Label'} id="test" />
-      <TextInput {...args} id="test2" />
+      <TextInput {...args} label={args.label || 'Label'} />
+      <TextInput {...args} />
       <TextInput
         {...args}
         label={args.label || 'Label'}
-        id="test"
         disabled
         value="Disabled inputfelt"
       />
-      <TextInput {...args} id="test" disabled value="Disabled inputfelt" />
+      <TextInput {...args} disabled value="Disabled inputfelt" />
       <TextInput
         {...args}
         label={args.label || 'Label'}
-        id="test"
         readOnly
         value="Readonly inputfelt"
       />
-      <TextInput {...args} id="test" readOnly value="Readonly inputfelt" />
+      <TextInput {...args} readOnly value="Readonly inputfelt" />
       <TextInput
         {...args}
         label={args.label || 'Label'}
-        id="test3"
         errorMessage={
           args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
         }
       />
       <TextInput
         {...args}
-        id="test4"
         errorMessage={
           args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
         }
@@ -62,24 +58,17 @@ export const TextInputOverview = (args: TextInputProps) => {
       <TextInput
         {...args}
         label={args.label || 'Label'}
-        id="test5"
         tip={args.tip || 'Dette er en hjelpetekst'}
       />
-      <TextInput
-        {...args}
-        id="test6"
-        tip={args.tip || 'Dette er en hjelpetekst'}
-      />
+      <TextInput {...args} tip={args.tip || 'Dette er en hjelpetekst'} />
       <TextInput
         {...args}
         label={args.label || 'Label'}
-        id="test7"
         tip={args.tip || 'Dette er en hjelpetekst med character count'}
         maxLength={20}
       />
       <TextInput
         {...args}
-        id="test8"
         tip={args.tip || 'Dette er en hjelpetekst med character count'}
         maxLength={20}
       />
@@ -93,43 +82,28 @@ export const TextareaOverview = (args: TextInputProps) => {
   return storyHTMLGridTemplate(
     'Textarea (multiline) - overview',
     <>
-      <TextInput {...args} multiline label={args.label || 'Label'} id="test" />
-      <TextInput {...args} multiline id="test2" />
+      <TextInput {...args} multiline label={args.label || 'Label'} />
+      <TextInput {...args} multiline />
       <TextInput
         {...args}
         multiline
         label={args.label || 'Label'}
-        id="test"
         disabled
         value="Disabled textarea"
       />
-      <TextInput
-        {...args}
-        multiline
-        id="test"
-        disabled
-        value="Disabled textarea"
-      />
+      <TextInput {...args} multiline disabled value="Disabled textarea" />
       <TextInput
         {...args}
         multiline
         label={args.label || 'Label'}
-        id="test"
         readOnly
         value="Readonly textarea"
       />
-      <TextInput
-        {...args}
-        multiline
-        id="test"
-        readOnly
-        value="Readonly textarea"
-      />
+      <TextInput {...args} multiline readOnly value="Readonly textarea" />
       <TextInput
         {...args}
         multiline
         label={args.label || 'Label'}
-        id="test3"
         errorMessage={
           args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
         }
@@ -137,7 +111,6 @@ export const TextareaOverview = (args: TextInputProps) => {
       <TextInput
         {...args}
         multiline
-        id="test4"
         errorMessage={
           args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
         }
@@ -146,27 +119,23 @@ export const TextareaOverview = (args: TextInputProps) => {
         {...args}
         multiline
         label={args.label || 'Label'}
-        id="test5"
         tip={args.tip || 'Dette er en hjelpetekst'}
       />
       <TextInput
         {...args}
         multiline
-        id="test6"
         tip={args.tip || 'Dette er en hjelpetekst'}
       />
       <TextInput
         {...args}
         multiline
         label={args.label || 'Label'}
-        id="test7"
         tip={args.tip || 'Dette er en hjelpetekst med character count'}
         maxLength={20}
       />
       <TextInput
         {...args}
         multiline
-        id="test8"
         tip={args.tip || 'Dette er en hjelpetekst med character count'}
         maxLength={20}
       />
@@ -177,30 +146,27 @@ export const TextareaOverview = (args: TextInputProps) => {
 };
 
 export const Default = (args: TextInputProps) => {
-  return storyHTMLTemplate(
-    'TextInput - default',
-    <TextInput {...args} id="test" />
-  );
+  return storyHTMLTemplate('TextInput - default', <TextInput {...args} />);
 };
 
 export const dato = (args: TextInputProps) => {
   return storyHTMLTemplate(
     'TextInput - default',
-    <TextInput type="date" {...args} id="test" />
+    <TextInput type="date" {...args} />
   );
 };
 
 export const InputWithLabel = (args: TextInputProps) => {
   return storyHTMLTemplate(
     'TextInput - with label',
-    <TextInput {...args} label={args.label || 'Label'} id="test" />
+    <TextInput {...args} label={args.label || 'Label'} />
   );
 };
 
 export const Textarea = (args: TextInputProps) => {
   return storyHTMLTemplate(
     'Textarea (multiline) - default',
-    <TextInput {...args} id="test" multiline />
+    <TextInput {...args} multiline />
   );
 };
 
@@ -210,7 +176,6 @@ export const TextareaWithLabel = (args: TextInputProps) => {
     <TextInput
       {...args}
       label={args.label || 'Label'}
-      id="test"
       multiline
       style={{ height: '150px' }}
     />
@@ -220,11 +185,6 @@ export const TextareaWithLabel = (args: TextInputProps) => {
 export const WithCharacterCount = (args: TextInputProps) => {
   return storyHTMLTemplate(
     'TextInput - with character count',
-    <TextInput
-      {...args}
-      maxLength={25}
-      label={args.label || 'Label'}
-      id="test"
-    />
+    <TextInput {...args} maxLength={25} label={args.label || 'Label'} />
   );
 };
