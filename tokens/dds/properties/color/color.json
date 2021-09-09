@@ -2,134 +2,332 @@
   "$dds-color": {
     "primary": {
       "lightest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(234, 239, 244, 1)",
         "type": "color"
       },
       "lighter": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(170, 193, 209, 1)",
+        "value": "rgba(172, 187, 198, 1)",
         "type": "color"
       },
       "light": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(106, 146, 175, 1)",
+        "value": "rgba(79, 106, 126, 1)",
         "type": "color"
       },
       "base": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "comment": "Indikerer primæraksjon eller annen interaksjon.",
-        "value": "rgba(42, 99, 140, 1)",
+        "comment": "Primary er hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge og i komponenter.",
+        "value": "rgba(53, 71, 84, 1)",
         "type": "color"
       },
       "dark": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(34, 79, 112, 1)",
+        "value": "rgba(49, 61, 69, 1)",
         "type": "color"
       },
       "darker": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(25, 59, 84, 1)",
+        "value": "rgba(32, 43, 50, 1)",
         "type": "color"
       },
       "darkest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(17, 40, 56, 1)",
+        "value": "rgba(21, 28, 34, 1)",
+        "type": "color"
+      }
+    },
+    "neutrals": {
+      "white": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(255, 255, 255, 1)",
+        "type": "color"
+      },
+      "gray1": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(248, 249, 249, 1)",
+        "type": "color"
+      },
+      "gray2": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(235, 236, 238, 1)",
+        "type": "color"
+      },
+      "gray3": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(207, 212, 215, 1)",
+        "type": "color"
+      },
+      "gray4": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(173, 181, 186, 1)",
+        "type": "color"
+      },
+      "gray5": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(119, 131, 140, 1)",
+        "type": "color"
+      },
+      "gray6": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(84, 92, 98, 1)",
+        "type": "color"
+      },
+      "gray7": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(58, 65, 70, 1)",
+        "type": "color"
+      },
+      "gray8": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(34, 39, 42, 1)",
+        "type": "color"
+      },
+      "gray9": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(11, 13, 14, 1)",
+        "type": "color"
+      }
+    },
+    "interactive": {
+      "lightest": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(234, 242, 247, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(171, 201, 221, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(109, 161, 196, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den",
+        "value": "rgba(46, 120, 170, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(37, 96, 136, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(28, 72, 102, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(18, 48, 68, 1)",
+        "type": "color"
+      }
+    },
+    "secondary": {
+      "lightest": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "--l80",
+        "value": "rgba(230, 237, 237, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(205, 219, 219, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(184, 205, 205, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Secondary er den andre hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge og i komponenter.",
+        "value": "rgba(154, 184, 183, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(123, 147, 146, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(77, 100, 99, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(62, 74, 73, 1)",
+        "type": "color"
+      }
+    },
+    "tertiary": {
+      "lightest": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(255, 230, 223, 1)",
+        "type": "color"
+      },
+      "lighter": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(255, 214, 202, 1)",
+        "type": "color"
+      },
+      "light": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(246, 193, 177, 1)",
+        "type": "color"
+      },
+      "base": {
+        "category": "color",
+        "exportKey": "color",
+        "comment": "Tertiary er er den tredje profilfargen til Domstolene. Denne brukes gjerne som støttefarge",
+        "value": "rgba(242, 166, 143, 1)",
+        "type": "color"
+      },
+      "dark": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(245, 152, 119, 1)",
+        "type": "color"
+      },
+      "darker": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(242, 126, 85, 1)",
+        "type": "color"
+      },
+      "darkest": {
+        "category": "color",
+        "exportKey": "color",
+        "value": "rgba(194, 101, 68, 1)",
         "type": "color"
       }
     },
     "success": {
       "lightest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(233, 242, 239, 1)",
+        "value": "rgba(240, 249, 240, 1)",
         "type": "color"
       },
       "lighter": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(169, 204, 191, 1)",
+        "value": "rgba(193, 229, 194, 1)",
         "type": "color"
       },
       "light": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(104, 166, 142, 1)",
+        "value": "rgba(147, 210, 148, 1)",
         "type": "color"
       },
       "base": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "comment": "Brukes for å kommunisere suksess eller noe som er riktig.",
-        "value": "rgba(39, 128, 94, 1)",
+        "value": "rgba(101, 190, 102, 1)",
         "type": "color"
       },
       "dark": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(31, 102, 75, 1)",
+        "value": "rgba(81, 152, 82, 1)",
         "type": "color"
       },
       "darker": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(23, 77, 56, 1)",
+        "value": "rgba(61, 114, 61, 1)",
         "type": "color"
       },
       "darkest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(16, 51, 38, 1)",
+        "value": "rgba(40, 76, 41, 1)",
         "type": "color"
       }
     },
     "danger": {
       "lightest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(251, 235, 235, 1)",
         "type": "color"
       },
       "lighter": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(239, 175, 175, 1)",
         "type": "color"
       },
       "light": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(228, 115, 115, 1)",
         "type": "color"
       },
       "base": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "comment": "Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.",
         "value": "rgba(216, 55, 55, 1)",
         "type": "color"
       },
       "dark": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(173, 44, 44, 1)",
         "type": "color"
       },
       "darker": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(130, 33, 33, 1)",
         "type": "color"
       },
       "darkest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(86, 22, 22, 1)",
         "type": "color"
@@ -137,44 +335,44 @@
     },
     "warning": {
       "lightest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(254, 252, 237, 1)",
         "type": "color"
       },
       "lighter": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(251, 243, 184, 1)",
         "type": "color"
       },
       "light": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(247, 233, 130, 1)",
         "type": "color"
       },
       "base": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "comment": "Brukes for å kommunisere varsler.",
         "value": "rgba(244, 224, 77, 1)",
         "type": "color"
       },
       "dark": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(195, 179, 62, 1)",
         "type": "color"
       },
       "darker": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(146, 134, 46, 1)",
         "type": "color"
       },
       "darkest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
         "value": "rgba(98, 90, 31, 1)",
         "type": "color"
@@ -182,140 +380,45 @@
     },
     "info": {
       "lightest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(249, 239, 234, 1)",
+        "value": "rgba(241, 248, 253, 1)",
         "type": "color"
       },
       "lighter": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(229, 190, 172, 1)",
+        "value": "rgba(200, 227, 245, 1)",
         "type": "color"
       },
       "light": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(210, 141, 109, 1)",
+        "value": "rgba(158, 206, 238, 1)",
         "type": "color"
       },
       "base": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(190, 92, 47, 1)",
+        "value": "rgba(117, 185, 230, 1)",
         "type": "color"
       },
       "dark": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(152, 74, 38, 1)",
+        "value": "rgba(94, 148, 184, 1)",
         "type": "color"
       },
       "darker": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(114, 55, 28, 1)",
+        "value": "rgba(70, 111, 138, 1)",
         "type": "color"
       },
       "darkest": {
-        "category": "fill",
+        "category": "color",
         "exportKey": "color",
-        "value": "rgba(76, 37, 19, 1)",
-        "type": "color"
-      }
-    },
-    "neutrals": {
-      "white": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(255, 255, 255, 1)",
-        "type": "color"
-      },
-      "gray1": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(248, 249, 249, 1)",
-        "type": "color"
-      },
-      "gray2": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(235, 236, 238, 1)",
-        "type": "color"
-      },
-      "gray3": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(207, 212, 215, 1)",
-        "type": "color"
-      },
-      "gray4": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(173, 181, 186, 1)",
-        "type": "color"
-      },
-      "gray5": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(119, 131, 140, 1)",
-        "type": "color"
-      },
-      "gray6": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(84, 92, 98, 1)",
-        "type": "color"
-      },
-      "gray7": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(58, 65, 70, 1)",
-        "type": "color"
-      },
-      "gray8": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(34, 39, 42, 1)",
-        "type": "color"
-      },
-      "gray9": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(11, 13, 14, 1)",
-        "type": "color"
-      }
-    },
-    "secondary": {
-      "lightest": {
-        "category": "fill",
-        "exportKey": "color",
-        "comment": "--l80",
-        "value": "rgba(230, 236, 236, 1)",
-        "type": "color"
-      },
-      "lighter": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(205, 219, 219, 1)",
-        "type": "color"
-      },
-      "light": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(167, 193, 191, 1)",
-        "type": "color"
-      },
-      "base": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(129, 166, 164, 1)",
-        "type": "color"
-      },
-      "dark": {
-        "category": "fill",
-        "exportKey": "color",
-        "value": "rgba(77, 99, 98, 1)",
+        "value": "rgba(47, 74, 92, 1)",
         "type": "color"
       }
     }
