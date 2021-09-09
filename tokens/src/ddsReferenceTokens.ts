@@ -10,7 +10,7 @@ const {
 
 const textDefault = {
   textColor: Colors.DdsColorNeutralsGray9,
-  font: FontPackages.sansRegularx1.base,
+  font: FontPackages.body_sans_01.base,
 };
 
 const focus = {
@@ -24,7 +24,7 @@ const focus = {
 
 const inputLabel = {
   textColor: Colors.DdsColorNeutralsGray7,
-  font: FontPackages.sansBoldx0_875,
+  font: FontPackages.supportingStyle_label_01.base,
 };
 
 export const ddsReferenceTokens = {
@@ -37,7 +37,7 @@ export const ddsReferenceTokens = {
       borderWidth: Border.BordersDdsBorderStyle1StrokeWeight,
       borderColor: Colors.DdsColorNeutralsGray5,
       textColor: textDefault.textColor,
-      font: FontPackages.sansRegularx1_125.base,
+      font: FontPackages.supportingStyle_inputtext_02.base,
       hover: {
         backgroundColor: Colors.DdsColorPrimaryLightest,
         borderColor: focus.color__TextInput,
