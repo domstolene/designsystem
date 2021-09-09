@@ -1,21 +1,52 @@
 
 // Do not edit directly
-// Generated on Wed, 11 Aug 2021 12:40:36 GMT
+// Generated on Thu, 09 Sep 2021 11:52:49 GMT
 
 $dds-color-primary-lightest: rgba(234, 239, 244, 1);
-$dds-color-primary-lighter: rgba(170, 193, 209, 1);
-$dds-color-primary-light: rgba(106, 146, 175, 1);
-$dds-color-primary-base: rgba(42, 99, 140, 1); // Indikerer primæraksjon eller annen interaksjon.
-$dds-color-primary-dark: rgba(34, 79, 112, 1);
-$dds-color-primary-darker: rgba(25, 59, 84, 1);
-$dds-color-primary-darkest: rgba(17, 40, 56, 1);
-$dds-color-success-lightest: rgba(233, 242, 239, 1);
-$dds-color-success-lighter: rgba(169, 204, 191, 1);
-$dds-color-success-light: rgba(104, 166, 142, 1);
-$dds-color-success-base: rgba(39, 128, 94, 1); // Brukes for å kommunisere suksess eller noe som er riktig.
-$dds-color-success-dark: rgba(31, 102, 75, 1);
-$dds-color-success-darker: rgba(23, 77, 56, 1);
-$dds-color-success-darkest: rgba(16, 51, 38, 1);
+$dds-color-primary-lighter: rgba(172, 187, 198, 1);
+$dds-color-primary-light: rgba(79, 106, 126, 1);
+$dds-color-primary-base: rgba(53, 71, 84, 1); // Primary er hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge og i komponenter.
+$dds-color-primary-dark: rgba(49, 61, 69, 1);
+$dds-color-primary-darker: rgba(32, 43, 50, 1);
+$dds-color-primary-darkest: rgba(21, 28, 34, 1);
+$dds-color-neutrals-white: rgba(255, 255, 255, 1);
+$dds-color-neutrals-gray-1: rgba(248, 249, 249, 1);
+$dds-color-neutrals-gray-2: rgba(235, 236, 238, 1);
+$dds-color-neutrals-gray-3: rgba(207, 212, 215, 1);
+$dds-color-neutrals-gray-4: rgba(173, 181, 186, 1);
+$dds-color-neutrals-gray-5: rgba(119, 131, 140, 1);
+$dds-color-neutrals-gray-6: rgba(84, 92, 98, 1);
+$dds-color-neutrals-gray-7: rgba(58, 65, 70, 1);
+$dds-color-neutrals-gray-8: rgba(34, 39, 42, 1);
+$dds-color-neutrals-gray-9: rgba(11, 13, 14, 1);
+$dds-color-interactive-lightest: rgba(234, 242, 247, 1);
+$dds-color-interactive-lighter: rgba(171, 201, 221, 1);
+$dds-color-interactive-light: rgba(109, 161, 196, 1);
+$dds-color-interactive-base: rgba(46, 120, 170, 1); // Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den
+$dds-color-interactive-dark: rgba(37, 96, 136, 1);
+$dds-color-interactive-darker: rgba(28, 72, 102, 1);
+$dds-color-interactive-darkest: rgba(18, 48, 68, 1);
+$dds-color-secondary-lightest: rgba(230, 237, 237, 1); // --l80
+$dds-color-secondary-lighter: rgba(205, 219, 219, 1);
+$dds-color-secondary-light: rgba(184, 205, 205, 1);
+$dds-color-secondary-base: rgba(154, 184, 183, 1); // Secondary er den andre hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge og i komponenter.
+$dds-color-secondary-dark: rgba(123, 147, 146, 1);
+$dds-color-secondary-darker: rgba(77, 100, 99, 1);
+$dds-color-secondary-darkest: rgba(62, 74, 73, 1);
+$dds-color-tertiary-lightest: rgba(255, 230, 223, 1);
+$dds-color-tertiary-lighter: rgba(255, 214, 202, 1);
+$dds-color-tertiary-light: rgba(246, 193, 177, 1);
+$dds-color-tertiary-base: rgba(242, 166, 143, 1); // Tertiary er er den tredje profilfargen til Domstolene. Denne brukes gjerne som støttefarge
+$dds-color-tertiary-dark: rgba(245, 152, 119, 1);
+$dds-color-tertiary-darker: rgba(242, 126, 85, 1);
+$dds-color-tertiary-darkest: rgba(194, 101, 68, 1);
+$dds-color-success-lightest: rgba(240, 249, 240, 1);
+$dds-color-success-lighter: rgba(193, 229, 194, 1);
+$dds-color-success-light: rgba(147, 210, 148, 1);
+$dds-color-success-base: rgba(101, 190, 102, 1); // Brukes for å kommunisere suksess eller noe som er riktig.
+$dds-color-success-dark: rgba(81, 152, 82, 1);
+$dds-color-success-darker: rgba(61, 114, 61, 1);
+$dds-color-success-darkest: rgba(40, 76, 41, 1);
 $dds-color-danger-lightest: rgba(251, 235, 235, 1);
 $dds-color-danger-lighter: rgba(239, 175, 175, 1);
 $dds-color-danger-light: rgba(228, 115, 115, 1);
@@ -30,25 +61,10 @@ $dds-color-warning-base: rgba(244, 224, 77, 1); // Brukes for å kommunisere var
 $dds-color-warning-dark: rgba(195, 179, 62, 1);
 $dds-color-warning-darker: rgba(146, 134, 46, 1);
 $dds-color-warning-darkest: rgba(98, 90, 31, 1);
-$dds-color-info-lightest: rgba(249, 239, 234, 1);
-$dds-color-info-lighter: rgba(229, 190, 172, 1);
-$dds-color-info-light: rgba(210, 141, 109, 1);
-$dds-color-info-base: rgba(190, 92, 47, 1);
-$dds-color-info-dark: rgba(152, 74, 38, 1);
-$dds-color-info-darker: rgba(114, 55, 28, 1);
-$dds-color-info-darkest: rgba(76, 37, 19, 1);
-$dds-color-neutrals-white: rgba(255, 255, 255, 1);
-$dds-color-neutrals-gray-1: rgba(248, 249, 249, 1);
-$dds-color-neutrals-gray-2: rgba(235, 236, 238, 1);
-$dds-color-neutrals-gray-3: rgba(207, 212, 215, 1);
-$dds-color-neutrals-gray-4: rgba(173, 181, 186, 1);
-$dds-color-neutrals-gray-5: rgba(119, 131, 140, 1);
-$dds-color-neutrals-gray-6: rgba(84, 92, 98, 1);
-$dds-color-neutrals-gray-7: rgba(58, 65, 70, 1);
-$dds-color-neutrals-gray-8: rgba(34, 39, 42, 1);
-$dds-color-neutrals-gray-9: rgba(11, 13, 14, 1);
-$dds-color-secondary-lightest: rgba(230, 236, 236, 1); // --l80
-$dds-color-secondary-lighter: rgba(205, 219, 219, 1);
-$dds-color-secondary-light: rgba(167, 193, 191, 1);
-$dds-color-secondary-base: rgba(129, 166, 164, 1);
-$dds-color-secondary-dark: rgba(77, 99, 98, 1);
+$dds-color-info-lightest: rgba(241, 248, 253, 1);
+$dds-color-info-lighter: rgba(200, 227, 245, 1);
+$dds-color-info-light: rgba(158, 206, 238, 1);
+$dds-color-info-base: rgba(117, 185, 230, 1);
+$dds-color-info-dark: rgba(94, 148, 184, 1);
+$dds-color-info-darker: rgba(70, 111, 138, 1);
+$dds-color-info-darkest: rgba(47, 74, 92, 1);
