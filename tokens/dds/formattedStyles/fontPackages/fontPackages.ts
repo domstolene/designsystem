@@ -1,25 +1,5 @@
-import { ddsStyles } from "../build/js/fontObject";
-
-const fontPackageFormatter = (font: any) => {
-  return {
-    base: {
-      lineHeight: font.lineHeight.value,
-      fontSize: `${font.fontSize.value}px`,
-      letterSpacing: font.letterSpacing.value,
-      fontFamily: font.fontFamily.value,
-      fontWeight: font.fontWeight.value,
-      fontStyle: font.fontStyle.value,
-    },
-    numbers: {
-      lineHeightNumber: font.lineHeight.original.value,
-      fontSizeNumber: font.fontSize.value,
-      letterSpacingNumber: font.letterSpacing.original.value,
-    },
-    paragraph: {
-      paragraphSpacing: `${font.paragraphSpacing.value}px`,
-    },
-  };
-};
+import { ddsStyles } from "../../build/js/fontObject";
+import { fontPackageFormatter } from "../../utils/fontPackageFormatter";
 
 const prefix = ddsStyles["$dds-font"];
 
@@ -35,9 +15,11 @@ export const fontPackages = {
   body_sans_01: fontPackageFormatter(prefix["body"]["sans-01"]),
   body_sans_02: fontPackageFormatter(prefix["body"]["sans-02"]),
   body_sans_03: fontPackageFormatter(prefix["body"]["sans-03"]),
+  body_sans_04: fontPackageFormatter(prefix["body"]["sans-04"]),
   body_serif_01: fontPackageFormatter(prefix["body"]["serif-01"]),
   body_serif_02: fontPackageFormatter(prefix["body"]["serif-02"]),
   body_serif_03: fontPackageFormatter(prefix["body"]["serif-03"]),
+  body_serif_04: fontPackageFormatter(prefix["body"]["serif-04"]),
   lead_sans_01: fontPackageFormatter(prefix["lead"]["sans-01"]),
   lead_sans_02: fontPackageFormatter(prefix["lead"]["sans-02"]),
   lead_sans_03: fontPackageFormatter(prefix["lead"]["sans-03"]),
@@ -60,5 +42,8 @@ export const fontPackages = {
   ),
   supportingStyle_placeholdertext_01: fontPackageFormatter(
     prefix["supporting-style"]["placeholdertext-01"]
+  ),
+  supportingStyle_tiny_01: fontPackageFormatter(
+    prefix["supporting-style"]["tiny-01"]
   ),
 };

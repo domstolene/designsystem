@@ -7,4 +7,4 @@ export * as iconSizes from "./build/js/iconSize";
 export * as grid from "./build/js/grid";
 export * as innerShadow from "./build/js/innershadow";
 export * as outerShadow from "./build/js/outershadow";
-export { fontPackages } from "./formattedStyles/fontPackages";
+export * from "./formattedStyles/fontPackages";

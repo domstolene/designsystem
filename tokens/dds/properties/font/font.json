@@ -62,7 +62,7 @@
         "category": "font",
         "exportKey": "font",
         "fontSize": {
-          "value": 18,
+          "value": 16,
           "type": "number",
           "unit": "pixel"
         },
@@ -75,7 +75,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": 600,
           "type": "number"
         },
         "fontStyle": {
@@ -87,7 +87,7 @@
           "type": "string"
         },
         "_fontStyleOld": {
-          "value": "Regular",
+          "value": "SemiBold",
           "type": "string"
         },
         "letterSpacing": {
@@ -577,6 +577,63 @@
         "category": "font",
         "exportKey": "font",
         "fontSize": {
+          "value": 18,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "textDecoration": {
+          "value": "none",
+          "type": "string"
+        },
+        "fontFamily": {
+          "value": "IBM Plex Sans",
+          "type": "string"
+        },
+        "fontWeight": {
+          "value": 400,
+          "type": "number"
+        },
+        "fontStyle": {
+          "value": "normal",
+          "type": "string"
+        },
+        "fontStretch": {
+          "value": "normal",
+          "type": "string"
+        },
+        "_fontStyleOld": {
+          "value": "Regular",
+          "type": "string"
+        },
+        "letterSpacing": {
+          "value": 0,
+          "type": "number",
+          "unit": "percent"
+        },
+        "lineHeight": {
+          "value": 150,
+          "type": "number",
+          "unit": "percent"
+        },
+        "paragraphIndent": {
+          "value": 0,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "paragraphSpacing": {
+          "value": 10,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "textCase": {
+          "value": "none",
+          "type": "string"
+        }
+      },
+      "sans-04": {
+        "category": "font",
+        "exportKey": "font",
+        "fontSize": {
           "value": 20,
           "type": "number",
           "unit": "pixel"
@@ -745,6 +802,63 @@
         }
       },
       "serif-03": {
+        "category": "font",
+        "exportKey": "font",
+        "fontSize": {
+          "value": 18,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "textDecoration": {
+          "value": "none",
+          "type": "string"
+        },
+        "fontFamily": {
+          "value": "Georgia",
+          "type": "string"
+        },
+        "fontWeight": {
+          "value": 400,
+          "type": "number"
+        },
+        "fontStyle": {
+          "value": "normal",
+          "type": "string"
+        },
+        "fontStretch": {
+          "value": "normal",
+          "type": "string"
+        },
+        "_fontStyleOld": {
+          "value": "Regular",
+          "type": "string"
+        },
+        "letterSpacing": {
+          "value": 0,
+          "type": "number",
+          "unit": "percent"
+        },
+        "lineHeight": {
+          "value": 150,
+          "type": "number",
+          "unit": "percent"
+        },
+        "paragraphIndent": {
+          "value": 0,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "paragraphSpacing": {
+          "value": 10,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "textCase": {
+          "value": "none",
+          "type": "string"
+        }
+      },
+      "serif-04": {
         "category": "font",
         "exportKey": "font",
         "fontSize": {
@@ -1409,6 +1523,63 @@
         },
         "letterSpacing": {
           "value": 0,
+          "type": "number",
+          "unit": "percent"
+        },
+        "lineHeight": {
+          "value": 150,
+          "type": "number",
+          "unit": "percent"
+        },
+        "paragraphIndent": {
+          "value": 0,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "paragraphSpacing": {
+          "value": 7,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "textCase": {
+          "value": "none",
+          "type": "string"
+        }
+      },
+      "tiny-01": {
+        "category": "font",
+        "exportKey": "font",
+        "fontSize": {
+          "value": 12,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "textDecoration": {
+          "value": "none",
+          "type": "string"
+        },
+        "fontFamily": {
+          "value": "IBM Plex Sans",
+          "type": "string"
+        },
+        "fontWeight": {
+          "value": 400,
+          "type": "number"
+        },
+        "fontStyle": {
+          "value": "normal",
+          "type": "string"
+        },
+        "fontStretch": {
+          "value": "normal",
+          "type": "string"
+        },
+        "_fontStyleOld": {
+          "value": "Regular",
+          "type": "string"
+        },
+        "letterSpacing": {
+          "value": 1,
           "type": "number",
           "unit": "percent"
         },
