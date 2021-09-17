@@ -1,14 +1,12 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Container = styled.div<{ gap?: string }>`
-  ${({ gap }) =>
-    gap &&
-    css`
-      & > * {
-        margin-top: ${gap};
-      }
-    `}
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin-top: ${({ gap }) => (gap ? gap : '20px')};
+  }
 `;
 
 export const storyHTMLTemplate = (
@@ -20,9 +18,7 @@ export const storyHTMLTemplate = (
     <div className="component-container">
       <h2> {title} </h2>
       <hr />
-      <Container className="flex-components" gap={gap}>
-        {children}
-      </Container>
+      <Container gap={gap}>{children}</Container>
     </div>
   );
 };
