@@ -2,7 +2,6 @@ import { ddsBaseTokens } from "./ddsBaseTokens";
 
 const {
   colors: Colors,
-  spacing: Spacing,
   fontPackages: FontPackages,
   borderRadius: BorderRadius,
   border: Border,
@@ -10,26 +9,21 @@ const {
 
 const textDefault = {
   textColor: Colors.DdsColorNeutralsGray9,
-  font: FontPackages.body_sans_01.base,
+  font: FontPackages.body_sans_02.base,
 };
 
 const focus = {
   colorDefault: Colors.DdsColorWarningDarker,
   outlineWidth: Border.BordersDdsBorderStyle1StrokeWeight,
-  color__TextInput: Colors.DdsColorPrimaryBase,
+  color__TextInput: Colors.DdsColorInteractiveBase,
+  textColor__TextInput: Colors.DdsColorInteractiveDark,
   borderWidth__TextInput: `${
     Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2
   }px`,
 };
 
-const inputLabel = {
-  textColor: Colors.DdsColorNeutralsGray7,
-  font: FontPackages.supportingStyle_label_01.base,
-};
-
 export const ddsReferenceTokens = {
   focus: focus,
-  inputLabel: inputLabel,
   textDefault: textDefault,
   textInput: {
     input: {
@@ -39,7 +33,7 @@ export const ddsReferenceTokens = {
       textColor: textDefault.textColor,
       font: FontPackages.supportingStyle_inputtext_02.base,
       hover: {
-        backgroundColor: Colors.DdsColorPrimaryLightest,
+        backgroundColor: Colors.DdsColorInteractiveLightest,
         borderColor: focus.color__TextInput,
         borderWidth: focus.borderWidth__TextInput,
       },
@@ -49,12 +43,11 @@ export const ddsReferenceTokens = {
       },
     },
     label: {
-      base: inputLabel,
       hover: {
-        textColor: focus.color__TextInput,
+        textColor: focus.textColor__TextInput,
       },
       focus: {
-        textColor: focus.color__TextInput,
+        textColor: focus.textColor__TextInput,
       },
     },
   },
