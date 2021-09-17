@@ -152,7 +152,7 @@ const containerReadOnlyBase: CSSObject = {
   backgroundColor: 'transparent'
 };
 
-const defaultWidth: CSS.Property.Width<string> = '320px';
+const defaultWidth: CSS.WidthProperty<string> = '320px';
 
 export const selectTokens = {
   container: {

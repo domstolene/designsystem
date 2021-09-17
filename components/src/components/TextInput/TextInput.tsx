@@ -103,7 +103,7 @@ const Label = styled(Typography)<LabelProps>`
     `}
 `;
 
-const InputFieldWrapper = styled.div<{ width: CSS.Property.Width<string> }>`
+const InputFieldWrapper = styled.div<{ width: CSS.WidthProperty<string> }>`
   display: flex;
   flex-direction: column;
   width: ${({ width }) => width};
@@ -171,7 +171,7 @@ export type TextInputProps = {
   label?: string;
   multiline?: boolean;
   tip?: string;
-  width?: CSS.Property.Width<string>;
+  width?: CSS.WidthProperty<string>;
   errorMessage?: string;
   className?: string;
   style?: React.CSSProperties;

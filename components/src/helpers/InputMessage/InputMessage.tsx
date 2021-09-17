@@ -7,7 +7,7 @@ import { Typography } from '../../components/Typography';
 
 const InputMessageWrapper = styled.div<{
   messageType: MessageType;
-  maxWidth?: CSS.Property.MaxWidth<string>;
+  maxWidth?: CSS.MaxWidthProperty<string>;
 }>`
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ type MessageSize = 'small' | 'medium';
 type Props = {
   message: string;
   messageType: MessageType;
-  maxWidth?: CSS.Property.MaxWidth<string>;
+  maxWidth?: CSS.MaxWidthProperty<string>;
 };
 
 function InputMessage({
