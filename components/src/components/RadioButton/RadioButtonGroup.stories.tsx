@@ -25,28 +25,6 @@ export default {
   }
 };
 
-export const Default = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<number | undefined>();
-  return storyHTMLTemplate(
-    'Radio button group - default',
-    <DDSRadioButtonGroup
-      {...args}
-      label={args.label || 'Label'}
-      value={value}
-      onChange={(
-        _event: ChangeEvent<HTMLInputElement>,
-        value: number | undefined
-      ) => {
-        setValue(value);
-      }}
-    >
-      <DDSRadioButton value={1} label="Option 1" name="test" />
-      <DDSRadioButton value={2} label="Option 2" name="test" />
-      <DDSRadioButton value={3} label="Option 3" name="test" />
-    </DDSRadioButtonGroup>
-  );
-};
-
 export const Overview = (args: RadioButtonGroupProps) => {
   return storyHTMLGridTemplate(
     'Radio button group - overview',
@@ -84,6 +62,28 @@ export const Overview = (args: RadioButtonGroupProps) => {
     </>,
     '20px',
     2
+  );
+};
+
+export const Default = (args: RadioButtonGroupProps) => {
+  const [value, setValue] = useState<number | undefined>();
+  return storyHTMLTemplate(
+    'Radio button group - default',
+    <DDSRadioButtonGroup
+      {...args}
+      label={args.label || 'Label'}
+      value={value}
+      onChange={(
+        _event: ChangeEvent<HTMLInputElement>,
+        value: number | undefined
+      ) => {
+        setValue(value);
+      }}
+    >
+      <DDSRadioButton value={1} label="Option 1" name="test" />
+      <DDSRadioButton value={2} label="Option 2" name="test" />
+      <DDSRadioButton value={3} label="Option 3" name="test" />
+    </DDSRadioButtonGroup>
   );
 };
 
