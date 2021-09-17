@@ -4,10 +4,16 @@ import elsaLogoHigh from '../src/assets/png/Elsa-logo-hoy.png';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 const {
-    colors: Colors,
-    fontPackages: FontPackages,
-    borderRadius: BorderRadius
+  colors: Colors,
+  fontPackages: FontPackages,
+  borderRadius: BorderRadius
 } = ddsBaseTokens;
+
+const isFontFamily =
+  FontPackages &&
+  FontPackages.body_sans_02 &&
+  FontPackages.body_sans_02.base &&
+  FontPackages.body_sans_02.base.fontFamily;
 
 export default create({
   base: 'light',
@@ -16,16 +22,17 @@ export default create({
   brandUrl: 'https://design.domstol.no',
   brandImage: elsaLogoHigh,
 
-  colorSecondary: Colors.DdsColorPrimaryBase,
+  colorSecondary: Colors.DdsColorInteractiveBase,
 
   // Text color
   textColor: Colors.DdsColorNeutralsGray9,
 
   // Typography
-  fontBase: FontPackages.sansRegularx1.base.fontFamily,
+  fontBase: isFontFamily
+    ? FontPackages.body_sans_02.base.fontFamily
+    : 'Georgia, serif',
   fontCode: 'monospace',
 
   //UI
   appBorderRadius: BorderRadius.RadiiDdsBorderRadius1RadiusNumberPx
-
 });

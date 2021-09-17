@@ -7,10 +7,18 @@ import Flow from '../assets/svg/flow.svg';
 import Plugin from '../assets/svg/plugin.svg';
 import Repo from '../assets/svg/repo.svg';
 import StackAlt from '../assets/svg/stackalt.svg';
+import '@norges-domstoler/dds-design-tokens/dist/css/colors.css';
 
 <Meta title="Design system/Introduction" />
 
 <style>{`
+  .sbdocs {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  .sbdocs-a {
+    color: var(--dds-color-interactive-base);
+    text-decoration: underline;
+  }
   .subheading {
     --mediumdark: '#999999';
     font-weight: 900;
