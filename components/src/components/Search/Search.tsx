@@ -65,14 +65,22 @@ type ButtonProps = {
 export type SearchProps = {
   tip?: string;
   buttonProps?: ButtonProps;
-  componentSize: Size;
+  componentSize?: Size;
   className?: string;
   style?: React.CSSProperties;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Search = forwardRef<HTMLInputElement, SearchProps>(
   (
-    { componentSize, buttonProps, name, tip, className, style, ...rest },
+    {
+      componentSize = 'medium',
+      buttonProps,
+      name,
+      tip,
+      className,
+      style,
+      ...rest
+    },
     ref
   ) => {
     const containerProps = {
@@ -97,13 +105,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
             </IconWrapper>
             <Input ref={ref} {...inputProps} />
           </InputWrapper>
-          {tip && (
-            <InputMessage
-              messageType="tip"
-              message={tip}
-              messageSize={componentSize === 'small' ? componentSize : 'medium'}
-            />
-          )}
+          {tip && <InputMessage messageType="tip" message={tip} />}
         </InputContainer>
         {buttonProps && onClick && (
           <ButtonWrapper>
@@ -119,7 +121,3 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     );
   }
 );
-
-Search.defaultProps = {
-  componentSize: 'medium'
-};

@@ -4,6 +4,7 @@ import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { globalMessageTokens as tokens } from './globalMessageTokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
+import { Typography } from '../Typography';
 
 const stylingBase = (purpose: GlobalMessagePurpose) => {
   return css`
@@ -59,7 +60,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
             Icon={tokens.icon[purpose].icon}
             color={tokens.icon[purpose].color}
           />
-          <span>{children ?? message}</span>
+          {children ?? <Typography as="span">{message}</Typography>}
         </ContentContainer>
         <ControlsContainer>
           {closable ? (

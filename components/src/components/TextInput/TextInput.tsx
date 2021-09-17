@@ -13,6 +13,7 @@ import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import CharCounter from './CharCounter';
 import * as CSS from 'csstype';
+import { Typography } from '../Typography';
 
 type GeneralInputProps = {
   readOnly?: boolean;
@@ -38,9 +39,11 @@ const InputStyling = ({
           ${tokens.noLabel.base}
         `};
 
-    &:hover:enabled ~ label,
+    &:hover:enabled ~ label {
+      ${tokens.label.hover.base}
+    }
     &:focus:enabled ~ label {
-      color: ${tokens.focusColor};
+      ${tokens.label.focus.base}
     }
 
     ${disabled &&
@@ -73,7 +76,7 @@ type LabelProps = {
   readOnly?: boolean;
 };
 
-const Label = styled.label<LabelProps>`
+const Label = styled(Typography)<LabelProps>`
   position: absolute;
   top: 0;
   left: 0;
@@ -282,7 +285,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             />
           )}
           {label && (
-            <Label {...labelProps} htmlFor={uniqueId}>
+            <Label
+              {...labelProps}
+              typographyType="supportingStyleLabel01"
+              forwardedAs="label"
+              htmlFor={uniqueId}
+            >
               {label} {required && <RequiredMarker />}
             </Label>
           )}

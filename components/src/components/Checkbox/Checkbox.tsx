@@ -1,5 +1,6 @@
 import React, { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { Typography } from '../Typography';
 import { checkboxTokens as tokens } from './checkboxTokens';
 
 const CustomCheckbox = styled.span`
@@ -207,7 +208,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           aria-readonly={readOnly ? true : false}
         />
         <CustomCheckbox />
-        {label ? <span>{label}</span> : ''}
+        {label ? <Typography as="span">{label}</Typography> : ''}
       </Container>
     );
   }

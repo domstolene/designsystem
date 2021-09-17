@@ -4,6 +4,7 @@ import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import { radioButtonGroupTokens as tokens } from './radioButtonGroupTokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
+import { Typography } from '../Typography';
 
 const Container = styled.div`
   display: flex;
@@ -15,8 +16,7 @@ const GroupContainer = styled.div<{ direction?: Direction }>`
   flex-direction: ${({ direction }) => direction ?? 'row'};
 `;
 
-const Label = styled.label`
-  ${tokens.label.base}
+const Label = styled(Typography)`
   padding-left: ${tokens.label.spaceLeft};
 `;
 
@@ -92,7 +92,11 @@ export const RadioButtonGroup = ({
 
   return (
     <Container {...containerProps}>
-      <Label id={uniqueGroupId}>
+      <Label
+        forwardedAs="span"
+        typographyType="supportingStyleLabel01"
+        id={uniqueGroupId}
+      >
         {label} {required && <RequiredMarker />}
       </Label>
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>

@@ -17,69 +17,69 @@ const {
 const { focus } = ddsReferenceTokens;
 
 const justIconSmallBase: CSSObject = {
-  ...FontPackages.sansRegularx1_25.base,
+  ...FontPackages.supportingStyle_inputtext_02.base,
   padding: Spacing.SizesDdsSpacingLocalX05
 };
 
 const justIconWrapperSmallBase: CSSObject = {
   height: `${calculateHeightWithLineHeight(
-    FontPackages.sansRegularx0_875.numbers.lineHeightNumber,
-    FontPackages.sansRegularx0_875.numbers.fontSizeNumber
+    FontPackages.body_sans_01.numbers.lineHeightNumber,
+    FontPackages.body_sans_01.numbers.fontSizeNumber
   )}px`,
   width: `${calculateHeightWithLineHeight(
-    FontPackages.sansRegularx0_875.numbers.lineHeightNumber,
-    FontPackages.sansRegularx0_875.numbers.fontSizeNumber
+    FontPackages.body_sans_01.numbers.lineHeightNumber,
+    FontPackages.body_sans_01.numbers.fontSizeNumber
   )}px`
 };
 
 const textSmallBase: CSSObject = {
-  ...FontPackages.sansRegularx0_875.base,
+  ...FontPackages.body_sans_01.base,
   padding: `${Spacing.SizesDdsSpacingLocalX05} ${
     Spacing.SizesDdsSpacingLocalX1NumberPx - 2
   }px`
 };
 
 const justIconMediumBase: CSSObject = {
-  ...FontPackages.sansRegularx1_5.base,
+  ...FontPackages.heading_sans_03.base,
   padding: Spacing.SizesDdsSpacingLocalX075
 };
 
 const justIconWrapperMediumBase: CSSObject = {
   height: `${calculateHeightWithLineHeight(
-    FontPackages.sansRegularx1.numbers.lineHeightNumber,
-    FontPackages.sansRegularx1.numbers.fontSizeNumber
+    FontPackages.body_sans_02.numbers.lineHeightNumber,
+    FontPackages.body_sans_02.numbers.fontSizeNumber
   )}px`,
   width: `${calculateHeightWithLineHeight(
-    FontPackages.sansRegularx1.numbers.lineHeightNumber,
-    FontPackages.sansRegularx1.numbers.fontSizeNumber
+    FontPackages.body_sans_02.numbers.lineHeightNumber,
+    FontPackages.body_sans_02.numbers.fontSizeNumber
   )}px`
 };
 
 const textMediumBase: CSSObject = {
-  ...FontPackages.sansRegularx1.base,
+  ...FontPackages.body_sans_02.base,
   padding: `${Spacing.SizesDdsSpacingLocalX075} ${
     Spacing.SizesDdsSpacingLocalX15NumberPx - 2
   }px`
 };
 
 const justIconLargeBase: CSSObject = {
-  ...FontPackages.sansRegularx2.base,
+  ...FontPackages.heading_sans_04.base,
   padding: Spacing.SizesDdsSpacingLocalX1
 };
 
 const justIconWrapperLargeBase: CSSObject = {
   height: `${calculateHeightWithLineHeight(
-    FontPackages.sansRegularx1_25.numbers.lineHeightNumber,
-    FontPackages.sansRegularx1_25.numbers.fontSizeNumber
+    FontPackages.supportingStyle_inputtext_03.numbers.lineHeightNumber,
+    FontPackages.supportingStyle_inputtext_03.numbers.fontSizeNumber
   )}px`,
   width: `${calculateHeightWithLineHeight(
-    FontPackages.sansRegularx1_25.numbers.lineHeightNumber,
-    FontPackages.sansRegularx1_25.numbers.fontSizeNumber
+    FontPackages.supportingStyle_inputtext_03.numbers.lineHeightNumber,
+    FontPackages.supportingStyle_inputtext_03.numbers.fontSizeNumber
   )}px`
 };
 
 const textLargeBase: CSSObject = {
-  ...FontPackages.sansRegularx1_25.base,
+  ...FontPackages.supportingStyle_inputtext_03.base,
   padding: `${Spacing.SizesDdsSpacingLocalX1} ${
     Spacing.SizesDdsSpacingLocalX2NumberPx - 2
   }px`
@@ -93,19 +93,19 @@ const filledButtonColors = {
   primary: {
     base: {
       color: Colors.DdsColorNeutralsWhite,
-      backgroundColor: Colors.DdsColorPrimaryBase,
-      borderColor: Colors.DdsColorPrimaryBase
+      backgroundColor: Colors.DdsColorInteractiveBase,
+      borderColor: Colors.DdsColorInteractiveBase
     },
     hover: {
       base: {
-        backgroundColor: Colors.DdsColorPrimaryDark,
-        borderColor: Colors.DdsColorPrimaryDark
+        backgroundColor: Colors.DdsColorInteractiveDark,
+        borderColor: Colors.DdsColorInteractiveDark
       }
     },
     active: {
       base: {
-        backgroundColor: Colors.DdsColorPrimaryDarker,
-        borderColor: Colors.DdsColorPrimaryDarker
+        backgroundColor: Colors.DdsColorInteractiveDarker,
+        borderColor: Colors.DdsColorInteractiveDarker
       }
     }
   },
@@ -233,28 +233,28 @@ const borderlessBase: CSSObject = {
 };
 
 const borderlessPrimaryBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase,
-  taxtDecorationColor: Colors.DdsColorPrimaryBase
+  color: Colors.DdsColorInteractiveBase,
+  taxtDecorationColor: Colors.DdsColorInteractiveBase
 };
 
 const borderlessPrimaryHoverBase: CSSObject = {
-  color: Colors.DdsColorPrimaryDark,
-  textDecorationColor: Colors.DdsColorPrimaryDark
+  color: Colors.DdsColorInteractiveDark,
+  textDecorationColor: Colors.DdsColorInteractiveDark
 };
 
 const borderlessPrimaryActiveBase: CSSObject = {
-  color: Colors.DdsColorPrimaryDarker,
-  textDecorationColor: Colors.DdsColorPrimaryDarker
+  color: Colors.DdsColorInteractiveDarker,
+  textDecorationColor: Colors.DdsColorInteractiveDarker
 };
 
 const borderlessPrimaryIconHoverBase: CSSObject = {
-  borderColor: Colors.DdsColorPrimaryDark,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorPrimaryDark}`
+  borderColor: Colors.DdsColorInteractiveDark,
+  boxShadow: `0 0 0 1px ${Colors.DdsColorInteractiveDark}`
 };
 
 const borderlessPrimaryIconActiveBase: CSSObject = {
-  borderColor: Colors.DdsColorPrimaryDarker,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorPrimaryDarker}`
+  borderColor: Colors.DdsColorInteractiveDarker,
+  boxShadow: `0 0 0 1px ${Colors.DdsColorInteractiveDarker}`
 };
 
 const borderlessSecondaryBase: CSSObject = {
@@ -312,20 +312,20 @@ const ghostBase: CSSObject = {
 };
 
 const ghostPrimaryBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase,
-  borderColor: Colors.DdsColorPrimaryBase
+  color: Colors.DdsColorInteractiveBase,
+  borderColor: Colors.DdsColorInteractiveBase
 };
 
 const ghostPrimaryHoverBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase,
-  borderColor: Colors.DdsColorPrimaryBase,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorPrimaryBase}`
+  color: Colors.DdsColorInteractiveDark,
+  borderColor: Colors.DdsColorInteractiveDark,
+  boxShadow: `0 0 0 1px ${Colors.DdsColorInteractiveDark}`
 };
 
 const ghostPrimaryActiveBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase,
-  borderColor: Colors.DdsColorPrimaryBase,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorPrimaryBase}`
+  color: Colors.DdsColorInteractiveDarker,
+  borderColor: Colors.DdsColorInteractiveDarker,
+  boxShadow: `0 0 0 1px ${Colors.DdsColorInteractiveDarker}`
 };
 
 const ghostSecondaryBase: CSSObject = {

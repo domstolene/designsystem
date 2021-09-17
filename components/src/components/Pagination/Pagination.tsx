@@ -256,17 +256,18 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
           {withSelect && (
             <Select
               options={selectOptions}
-              width="75px"
+              width="76px"
               defaultValue={{
                 label: itemsPerPage.toString(),
                 value: itemsPerPage
               }}
               isClearable={false}
               onChange={(option: any) => option && handleSelectChange(option)}
+              aria-label="Antall elementer per side"
             />
           )}
           {withCounter && (
-            <Typography typographyType="inputLabel">
+            <Typography typographyType="supportingStyleLabel01" as="p">
               Viser {activePageFirstItem}-{activePageLastItem} av {itemsAmount}
             </Typography>
           )}

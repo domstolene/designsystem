@@ -2,6 +2,7 @@ import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { cellTokens } from './cellTokens';
+import { typographyTokens } from '../Typography/typographyTokens';
 
 const StyledTable = styled.table<{
   density: TableDensity;
@@ -9,6 +10,9 @@ const StyledTable = styled.table<{
 }>`
   border-spacing: 0;
   border-collapse: collapse;
+  *::selection {
+    ${typographyTokens.selection.base}
+  }
   ${scrollbarStyling}
   ${({ density }) =>
     density &&

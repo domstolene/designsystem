@@ -14,14 +14,14 @@ const checkboxBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
   borderColor: Colors.DdsColorNeutralsGray5,
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-  height: FontPackages.sansRegularx1_125.base.fontSize,
-  width: FontPackages.sansRegularx1_125.base.fontSize
+  height: FontPackages.supportingStyle_inputtext_02.base.fontSize,
+  width: FontPackages.supportingStyle_inputtext_02.base.fontSize
 };
 
 const checkboxCheckedBase: CSSObject = {
   border: '2px solid',
-  borderColor: Colors.DdsColorPrimaryBase,
-  backgroundColor: Colors.DdsColorPrimaryBase
+  borderColor: Colors.DdsColorInteractiveBase,
+  backgroundColor: Colors.DdsColorInteractiveBase
 };
 
 const checkboxDisabledBase: CSSObject = {
@@ -46,15 +46,15 @@ const checkboxCheckedReadOnlyBase: CSSObject = {
 };
 
 const checkboxHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorPrimaryLightest,
+  backgroundColor: Colors.DdsColorInteractiveLightest,
   border: '2px solid',
-  borderColor: Colors.DdsColorPrimaryBase
+  borderColor: Colors.DdsColorInteractiveBase
 };
 
 const checkboxCheckedHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorPrimaryDark,
+  backgroundColor: Colors.DdsColorInteractiveDark,
   border: '2px solid',
-  borderColor: Colors.DdsColorPrimaryDark
+  borderColor: Colors.DdsColorInteractiveDark
 };
 
 const checkboxIndeterminateHoverBase: CSSObject = {
@@ -85,14 +85,14 @@ const checkmarkIndeterminateBase: CSSObject = {
 };
 
 const containerBase: CSSObject = {
-  ...FontPackages.sansRegularx1.base
+  ...FontPackages.body_sans_02.base
 };
 
 const containerWithLabelBase: CSSObject = {
-  ...FontPackages.sansRegularx1.base,
+  ...FontPackages.body_sans_02.base,
   marginRight: Spacing.SizesDdsSpacingLocalX075,
   padding: `0 ${Spacing.SizesDdsSpacingLocalX025} 0 ${
-    FontPackages.sansRegularx1_125.numbers.fontSizeNumber +
+    FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
     Spacing.SizesDdsSpacingLocalX075NumberPx
   }px`
 };

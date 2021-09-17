@@ -5,6 +5,7 @@ import { IconWrapper } from '../../helpers/IconWrapper';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import Spinner from '../../helpers/Spinner';
+import { typographyTokens } from '../Typography/typographyTokens';
 
 const buttonContentStyle = (
   purpose: ButtonPurpose,
@@ -13,6 +14,9 @@ const buttonContentStyle = (
   Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>
 ) => css`
   ${tokens.base}
+  *::selection {
+    ${typographyTokens.selection.base}
+  }
   ${appearance &&
   css`
     ${tokens.appearance[appearance].base}

@@ -20,9 +20,9 @@ const inputBase: CSSObject = {
 const inputWithLabelBase: CSSObject = {
   padding: `${
     Spacing.SizesDdsSpacingLocalX075NumberPx +
-    FontPackages.sansBoldx0_875.numbers.lineHeightNumber *
+    FontPackages.supportingStyle_label_01.numbers.lineHeightNumber *
       0.01 *
-      FontPackages.sansBoldx0_875.numbers.fontSizeNumber
+      FontPackages.supportingStyle_label_01.numbers.fontSizeNumber
   }px ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX075} ${
     Spacing.SizesDdsSpacingLocalX1
   }`
@@ -70,9 +70,7 @@ const inputReadOnlyBase: CSSObject = {
 };
 
 const inputLabelBase: CSSObject = {
-  color: Colors.DdsColorNeutralsGray7,
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`,
-  ...FontPackages.sansBoldx0_875.base
+  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`
 };
 
 const inputLabel = {
@@ -83,6 +81,16 @@ const inputLabel = {
       padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx - 1}px ${
         Spacing.SizesDdsSpacingLocalX1
       } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 1}px`
+    }
+  },
+  hover: {
+    base: {
+      color: TextInput.label.hover.textColor
+    }
+  },
+  focus: {
+    base: {
+      color: TextInput.label.focus.textColor
     }
   }
 };

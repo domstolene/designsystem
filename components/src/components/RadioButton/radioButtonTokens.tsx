@@ -12,14 +12,14 @@ const radioButtonBase: CSSObject = {
   border: '1px solid',
   borderColor: Colors.DdsColorNeutralsGray5,
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  height: FontPackages.sansRegularx1_125.numbers.fontSizeNumber,
-  width: FontPackages.sansRegularx1_125.numbers.fontSizeNumber
+  height: FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber,
+  width: FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber
 };
 
 const radioButtonHoverBase: CSSObject = {
   border: '2px solid',
-  backgroundColor: Colors.DdsColorPrimaryLightest,
-  borderColor: Colors.DdsColorPrimaryBase
+  backgroundColor: Colors.DdsColorInteractiveLightest,
+  borderColor: Colors.DdsColorInteractiveBase
 };
 const radioButtonDisabledBase: CSSObject = {
   border: '1px solid',
@@ -43,14 +43,14 @@ const radioButtonDangerHoverBase: CSSObject = {
 
 const radioButtonCheckedBase: CSSObject = {
   border: '2px solid',
-  backgroundColor: Colors.DdsColorPrimaryBase,
-  borderColor: Colors.DdsColorPrimaryBase
+  backgroundColor: Colors.DdsColorInteractiveBase,
+  borderColor: Colors.DdsColorInteractiveBase
 };
 
 const radioButtonCheckedHoverBase: CSSObject = {
   border: '2px solid',
-  backgroundColor: Colors.DdsColorPrimaryDark,
-  borderColor: Colors.DdsColorPrimaryDark
+  backgroundColor: Colors.DdsColorInteractiveDark,
+  borderColor: Colors.DdsColorInteractiveDark
 };
 
 const radioButtonCheckedDisabledBase: CSSObject = {
@@ -73,7 +73,6 @@ const checkmarkBase: CSSObject = {
 };
 
 const containerBase: CSSObject = {
-  ...FontPackages.sansRegularx1.base,
   marginRight: Spacing.SizesDdsSpacingLocalX075,
   padding: `${Spacing.SizesDdsSpacingLocalX025} ${
     Spacing.SizesDdsSpacingLocalX025

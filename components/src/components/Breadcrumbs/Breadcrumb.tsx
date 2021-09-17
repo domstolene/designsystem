@@ -4,10 +4,6 @@ import { breadcrumbTokens as tokens } from './breadcrumbTokens';
 
 import { Typography, TypographyProps } from '../Typography';
 
-const LinklessItem = styled(Typography)`
-  ${tokens.lastItem.base}
-`;
-
 export type BreadcrumbProps = {} & (TypographyProps &
   AnchorHTMLAttributes<HTMLAnchorElement>);
 
@@ -18,9 +14,9 @@ export const Breadcrumb = forwardRef<HTMLAnchorElement, BreadcrumbProps>(
         {children}
       </Typography>
     ) : (
-      <LinklessItem ref={ref} {...rest}>
+      <Typography ref={ref} color="interactive" {...rest}>
         {children}
-      </LinklessItem>
+      </Typography>
     );
   }
 );

@@ -1,5 +1,6 @@
 import { css, CSSObject } from 'styled-components';
 import { ddsReferenceTokens } from '@norges-domstoler/dds-design-tokens';
+import { typographyTokens } from '../components/Typography/typographyTokens';
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
@@ -33,6 +34,9 @@ export const inputFieldStylingBase = () => {
     margin: 0;
     padding: 0;
     transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
+    &::selection {
+      ${typographyTokens.selection.base}
+    }
     ${stylingBase}
 
     &:focus:enabled, &:active:enabled {

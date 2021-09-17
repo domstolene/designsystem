@@ -14,12 +14,13 @@ const { textDefault } = ddsReferenceTokens;
 
 const bodyRowBase: CSSObject = {
   color: textDefault.textColor,
-  ...textDefault.font
+  ...FontPackages.body_sans_02.base
 };
 
 const headRowBase: CSSObject = {
   color: textDefault.textColor,
-  ...FontPackages.sansBoldx1.base,
+  ...FontPackages.body_sans_02.base,
+  fontWeight: 600,
   textAlign: 'left'
 };
 
@@ -40,7 +41,8 @@ const bodyHoverBase: CSSObject = {
 };
 
 const bodySumBase: CSSObject = {
-  ...FontPackages.sansBoldx1.base,
+  ...FontPackages.body_sans_02.base,
+  fontWeight: 600,
   borderTop: `${Border.BordersDdsBorderStyle1StrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
   borderBottom: `${Border.BordersDdsBorderStyle1StrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
   backgroundColor: Colors.DdsColorNeutralsWhite

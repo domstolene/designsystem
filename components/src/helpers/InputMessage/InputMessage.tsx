@@ -3,10 +3,10 @@ import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined'
 import { IconWrapper } from '../IconWrapper';
 import { inputMessageTokens as tokens } from './inputMessageTokens';
 import * as CSS from 'csstype';
+import { Typography } from '../../components/Typography';
 
 const InputMessageWrapper = styled.div<{
   messageType: MessageType;
-  messageSize?: MessageSize;
   maxWidth?: CSS.Property.MaxWidth<string>;
 }>`
   display: flex;
@@ -14,12 +14,10 @@ const InputMessageWrapper = styled.div<{
   width: fit-content;
   word-break: break-word;
   ${tokens.base}
-  ${({ messageType, messageSize }) =>
-    messageSize &&
+  ${({ messageType }) =>
     messageType &&
     css`
       ${tokens[messageType].base}
-      ${tokens[messageType][messageSize].base}
     `}
     max-width: ${({ maxWidth }) => maxWidth};
 
@@ -36,25 +34,35 @@ type MessageSize = 'small' | 'medium';
 type Props = {
   message: string;
   messageType: MessageType;
-  messageSize?: MessageSize;
   maxWidth?: CSS.Property.MaxWidth<string>;
 };
 
-function InputMessage({ message, messageType, messageSize, maxWidth }: Props) {
-  const wrapperProps = { messageType, messageSize, maxWidth };
+function InputMessage({
+  message,
+  messageType,
+  maxWidth = tokens.defaultMaxWidth
+}: Props) {
+  const wrapperProps = { messageType, maxWidth };
+
+  const isError = messageType === 'error';
+
   return (
     <InputMessageWrapper {...wrapperProps}>
-      {messageType === 'error' && (
+      {isError && (
         <IconWrapper Icon={ReportProblemOutlinedIcon} iconSize="inline" />
       )}
-      <div>{message}</div>
+      <Typography
+        typographyType={
+          isError ? 'supportingStyleLabel01' : 'supportingStyleHelperText01'
+        }
+        as="div"
+        bold={isError ? true : undefined}
+        color={isError ? tokens.error.base.color : undefined}
+      >
+        {message}
+      </Typography>
     </InputMessageWrapper>
   );
 }
-
-InputMessage.defaultProps = {
-  maxWidth: tokens.defaultMaxWidth,
-  messageSize: 'medium'
-};
 
 export default InputMessage;

@@ -5,6 +5,8 @@ import { forwardRef, HTMLAttributes, useState } from 'react';
 import { localMessageTokens as tokens } from './localMessageTokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import * as CSS from 'csstype';
+import { Typography } from '../Typography';
+import { typographyTokens } from '../Typography/typographyTokens';
 
 const stylingBase = (purpose: LocalMessagePurpose) => {
   return css`
@@ -15,11 +17,14 @@ const stylingBase = (purpose: LocalMessagePurpose) => {
 
 const Container = styled.div<{
   purpose: LocalMessagePurpose;
-  width: CSS.Property.Width<string>;
+  width: CSS.WidthProperty<string>;
 }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  *::selection {
+    ${typographyTokens.selection.base}
+  }
   ${({ purpose }) => stylingBase(purpose)}
   width: ${({ width }) => width};
 `;
@@ -56,7 +61,7 @@ export type LocalMessageProps = {
   message?: string;
   purpose?: LocalMessagePurpose;
   closable?: boolean;
-  width?: CSS.Property.Width<string>;
+  width?: CSS.WidthProperty<string>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
@@ -81,10 +86,10 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
             Icon={tokens.icon[purpose].icon}
             color={tokens.icon[purpose].color}
           />
-          <span>{children ?? message}</span>
+          {children ?? <Typography as="span">{message}</Typography>}
         </ContentContainer>
-        <ControlsContainer>
-          {closable ? (
+        {closable && (
+          <ControlsContainer>
             <Button
               Icon={CloseOutlinedIcon}
               purpose={buttonPurpose}
@@ -92,10 +97,8 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
               onClick={() => setClosed(true)}
               size="small"
             />
-          ) : (
-            ''
-          )}
-        </ControlsContainer>
+          </ControlsContainer>
+        )}
       </Container>
     ) : null;
   }

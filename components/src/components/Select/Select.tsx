@@ -15,10 +15,12 @@ import RequiredMarker from '../../helpers/RequiredMarker';
 import { selectTokens as tokens } from './selectTokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { Typography } from '../Typography';
+import { typographyTokens } from '../Typography/typographyTokens';
 
 const prefix = 'dds-select';
 
-const Label = styled.label`
+const Label = styled(Typography)`
   display: block;
   ${tokens.label.base}
 `;
@@ -37,6 +39,9 @@ const Container = styled.div<StyledContainerProps>`
   width: ${({ width }) => width};
   ${tokens.container.base}
   ${scrollbarStyling}
+  *::selection {
+    ${typographyTokens.selection.base}
+  }
   ${({ label }) =>
     label
       ? css`
@@ -48,7 +53,7 @@ const Container = styled.div<StyledContainerProps>`
             ${tokens.input.noLabel.base}
           }
         `}
-    &:hover {
+  &:hover {
     ${tokens.container.hover.base}
     box-shadow: 0 0 0 1px ${tokens.container.hover.base.borderColor};
     ${Label} {
@@ -312,7 +317,11 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       <Wrapper ref={ref} {...rest}>
         <Container {...containerProps}>
           {label && (
-            <Label htmlFor={uniqueId}>
+            <Label
+              htmlFor={uniqueId}
+              forwardedAs="label"
+              typographyType="supportingStyleLabel01"
+            >
               {label} {required && <RequiredMarker />}
             </Label>
           )}

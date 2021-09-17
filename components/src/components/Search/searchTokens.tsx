@@ -8,19 +8,19 @@ const inputBase: CSSObject = {
 };
 
 const smallBase: CSSObject = {
-  ...FontPackages.sansRegularx0_875.base,
+  ...FontPackages.supportingStyle_inputtext_01.base,
   paddingTop: Spacing.SizesDdsSpacingLocalX05,
   paddingBottom: Spacing.SizesDdsSpacingLocalX05
 };
 
 const mediumBase: CSSObject = {
-  ...FontPackages.sansRegularx1.base,
+  ...FontPackages.supportingStyle_inputtext_02.base,
   paddingTop: Spacing.SizesDdsSpacingLocalX075,
   paddingBottom: Spacing.SizesDdsSpacingLocalX075
 };
 
 const largeBase: CSSObject = {
-  ...FontPackages.sansRegularx1_25.base,
+  ...FontPackages.supportingStyle_inputtext_03.base,
   paddingTop: Spacing.SizesDdsSpacingLocalX1,
   paddingBottom: Spacing.SizesDdsSpacingLocalX1
 };

@@ -1,4 +1,5 @@
 import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
+import { Typography } from '../Typography';
 import {
   LocalMessage as DDSLocalMessage,
   LocalMessageProps
@@ -114,13 +115,17 @@ export const ComplexContent = (args: LocalMessageProps) => {
   return storyHTMLTemplate(
     'LocalMessage complex',
     <DDSLocalMessage {...args} purpose={args.purpose || 'info'} closable>
-      <h3>Dette er en viktig melding</h3>
-      Meldingen har en liste i seg:
-      <ul>
-        <li>Noe her</li>
-        <li>Og også her</li>
-        <li>Og litt mer info her</li>
-      </ul>
+      <div>
+        <Typography typographyType="headingSans03" withMargins>
+          Dette er en viktig melding
+        </Typography>
+        <Typography withMargins>Meldingen har en liste i seg:</Typography>
+        <ul>
+          <li>Noe her</li>
+          <li>Og også her</li>
+          <li>Og litt mer info her</li>
+        </ul>
+      </div>
     </DDSLocalMessage>
   );
 };

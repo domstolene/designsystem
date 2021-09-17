@@ -14,7 +14,7 @@ const containerBase: CSSObject = {
   borderBottom: '2px solid',
   padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
   width: '100%',
-  ...FontPackages.sansRegularx1.base,
+  ...FontPackages.body_sans_02.base,
   color: Colors.DdsColorNeutralsGray8
 };
 

@@ -16,15 +16,15 @@ const labelBase: CSSObject = {
   paddingLeft: Spacing.SizesDdsSpacingLocalX1,
   paddingBottom: 0,
   paddingRight: Spacing.SizesDdsSpacingLocalX05,
-  ...FontPackages.sansBoldx0_875.base
+  ...FontPackages.supportingStyle_label_01.base
 };
 
 const labelHoverBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase
+  color: Colors.DdsColorInteractiveBase
 };
 
 const labelFocusBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase
+  color: Colors.DdsColorInteractiveBase
 };
 
 const containerBase: CSSObject = {
@@ -35,12 +35,12 @@ const containerBase: CSSObject = {
 };
 const withLabelHeight =
   Spacing.SizesDdsSpacingLocalX075NumberPx * 2 +
-  FontPackages.sansBoldx0_875.numbers.lineHeightNumber *
+  FontPackages.supportingStyle_label_01.numbers.lineHeightNumber *
     0.01 *
-    FontPackages.sansBoldx0_875.numbers.fontSizeNumber +
-  FontPackages.sansRegularx1_125.numbers.lineHeightNumber *
+    FontPackages.supportingStyle_label_01.numbers.fontSizeNumber +
+  FontPackages.supportingStyle_inputtext_02.numbers.lineHeightNumber *
     0.01 *
-    FontPackages.sansRegularx1_125.numbers.fontSizeNumber +
+    FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
   Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2;
 
 const containerWithLabelBase: CSSObject = {
@@ -49,9 +49,9 @@ const containerWithLabelBase: CSSObject = {
 
 const noLabelHeight =
   Spacing.SizesDdsSpacingLocalX075NumberPx * 2 +
-  FontPackages.sansRegularx1_125.numbers.lineHeightNumber *
+  FontPackages.supportingStyle_inputtext_02.numbers.lineHeightNumber *
     0.01 *
-    FontPackages.sansRegularx1_125.numbers.fontSizeNumber +
+    FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
   Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2;
 
 const containerNoLabelBase: CSSObject = {
@@ -59,12 +59,12 @@ const containerNoLabelBase: CSSObject = {
 };
 
 const containerHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorPrimaryLightest,
-  borderColor: Colors.DdsColorPrimaryBase
+  backgroundColor: Colors.DdsColorInteractiveLightest,
+  borderColor: Colors.DdsColorInteractiveBase
 };
 
 const containerFocusBase: CSSObject = {
-  borderColor: Colors.DdsColorPrimaryBase
+  borderColor: Colors.DdsColorInteractiveBase
 };
 
 const containerDangerBase: CSSObject = {
@@ -82,14 +82,14 @@ const containerDangerFocusBase: CSSObject = {
 
 const inputBase: CSSObject = {
   padding: `0 ${Spacing.SizesDdsSpacingLocalX05} 0 ${Spacing.SizesDdsSpacingLocalX1}`,
-  ...FontPackages.sansRegularx1_125.base
+  ...FontPackages.supportingStyle_inputtext_02.base
 };
 const inputNoLabelBase: CSSObject = {
   paddingTop: Spacing.SizesDdsSpacingLocalX075
 };
 const placeholderBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
-  ...FontPackages.sansItalicx1_125.base
+  ...FontPackages.supportingStyle_placeholdertext_01.base
 };
 
 const dropdownIndicatorBase: CSSObject = {
@@ -98,7 +98,7 @@ const dropdownIndicatorBase: CSSObject = {
 };
 
 const dropdownIndicatorHoverBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase
+  color: Colors.DdsColorInteractiveBase
 };
 
 const drodownIndicatorReadOnlyBase: CSSObject = {
@@ -111,34 +111,35 @@ const clearIndicatorBase: CSSObject = {
 };
 
 const clearIndicatorHoverBase: CSSObject = {
-  color: Colors.DdsColorPrimaryBase
+  color: Colors.DdsColorInteractiveBase
 };
 
 const optionsListBase: CSSObject = {
   border: '1px solid',
-  borderColor: Colors.DdsColorPrimaryBase,
+  borderColor: Colors.DdsColorInteractiveBase,
   backgroundColor: Colors.DdsColorNeutralsWhite,
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
 };
 
 const optionBase: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX1}`,
-  ...FontPackages.sansRegularx1.base
+  ...FontPackages.body_sans_02.base
 };
 
 const optionHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorPrimaryLighter
+  backgroundColor: Colors.DdsColorInteractiveLighter
 };
 
 const optionSelectedBase: CSSObject = {
-  backgroundColor: Colors.DdsColorPrimaryLightest,
-  ...FontPackages.sansBoldx1.base
+  backgroundColor: Colors.DdsColorInteractiveLightest,
+  ...FontPackages.body_sans_02.base,
+  fontWeight: 600
 };
 
 const noOptionsMessageBase: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX1}`,
   color: Colors.DdsColorNeutralsGray6,
-  ...FontPackages.sansItalicx1.base
+  ...FontPackages.supportingStyle_placeholdertext_01.base
 };
 
 const containerDisabledBase: CSSObject = {

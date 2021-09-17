@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { Typography } from '../Typography';
 import { charCounterTokens as tokens } from './charCounterTokens';
 
-const Wrapper = styled.div`
+const Wrapper = styled(Typography)`
   margin-left: auto;
   ${tokens.base}
-  ${tokens.font}
 `;
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
 
 function CharCounter({ current, max }: Props) {
   return (
-    <Wrapper>
+    <Wrapper forwardedAs="div" typographyType="supportingStyleHelperText01">
       {current}/{max}
     </Wrapper>
   );

@@ -5,6 +5,7 @@ import React, {
   useState
 } from 'react';
 import styled, { css } from 'styled-components';
+import { Typography } from '../Typography';
 import {
   RadioButtonGroup,
   useRadioButtonGroup
@@ -195,7 +196,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       <Container {...containerProps} htmlFor={uniqueId}>
         <Input ref={ref} {...inputProps} />
         <CustomRadioButton />
-        <span>{children ?? label}</span>
+        <Typography as="span">{children ?? label}</Typography>
       </Container>
     );
   }

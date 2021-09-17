@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import { checkboxGroupTokens as tokens } from './checkboxGroupTokens';
+import { Typography } from '../Typography';
 
 const Container = styled.div`
   display: flex;
@@ -14,8 +15,7 @@ const GroupContainer = styled.div<{ direction?: Direction }>`
   flex-direction: ${({ direction }) => direction ?? 'row'};
 `;
 
-const Label = styled.span`
-  ${tokens.label.base}
+const Label = styled(Typography)`
   padding-left: ${tokens.label.spaceLeft};
 `;
 
@@ -57,7 +57,11 @@ export const CheckboxGroup = ({
 
   return (
     <Container {...containerProps}>
-      <Label id={uniqueGroupId}>
+      <Label
+        forwardedAs="span"
+        typographyType="supportingStyleLabel01"
+        id={uniqueGroupId}
+      >
         {label} {required && <RequiredMarker />}
       </Label>
       <GroupContainer
