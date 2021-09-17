@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 09 Sep 2021 11:52:49 GMT
+ * Generated on Fri, 17 Sep 2021 11:44:35 GMT
  */
 
 :root {
@@ -81,10 +81,10 @@
   --dds-font-heading-sans-01-paragraph-indent: 0px;
   --dds-font-heading-sans-01-paragraph-spacing: 7px;
   --dds-font-heading-sans-01-text-case: none;
-  --dds-font-heading-sans-02-font-size: 18px;
+  --dds-font-heading-sans-02-font-size: 16px;
   --dds-font-heading-sans-02-text-decoration: none;
   --dds-font-heading-sans-02-font-family: 'IBM Plex Sans';
-  --dds-font-heading-sans-02-font-weight: 400;
+  --dds-font-heading-sans-02-font-weight: 600;
   --dds-font-heading-sans-02-font-style: normal;
   --dds-font-heading-sans-02-font-stretch: normal;
   --dds-font-heading-sans-02-letter-spacing: 0em;
@@ -180,7 +180,7 @@
   --dds-font-body-sans-02-paragraph-indent: 0px;
   --dds-font-body-sans-02-paragraph-spacing: 8px;
   --dds-font-body-sans-02-text-case: none;
-  --dds-font-body-sans-03-font-size: 20px;
+  --dds-font-body-sans-03-font-size: 18px;
   --dds-font-body-sans-03-text-decoration: none;
   --dds-font-body-sans-03-font-family: 'IBM Plex Sans';
   --dds-font-body-sans-03-font-weight: 400;
@@ -191,6 +191,17 @@
   --dds-font-body-sans-03-paragraph-indent: 0px;
   --dds-font-body-sans-03-paragraph-spacing: 10px;
   --dds-font-body-sans-03-text-case: none;
+  --dds-font-body-sans-04-font-size: 20px;
+  --dds-font-body-sans-04-text-decoration: none;
+  --dds-font-body-sans-04-font-family: 'IBM Plex Sans';
+  --dds-font-body-sans-04-font-weight: 400;
+  --dds-font-body-sans-04-font-style: normal;
+  --dds-font-body-sans-04-font-stretch: normal;
+  --dds-font-body-sans-04-letter-spacing: 0em;
+  --dds-font-body-sans-04-line-height: 1.5em;
+  --dds-font-body-sans-04-paragraph-indent: 0px;
+  --dds-font-body-sans-04-paragraph-spacing: 10px;
+  --dds-font-body-sans-04-text-case: none;
   --dds-font-body-serif-01-font-size: 14px;
   --dds-font-body-serif-01-text-decoration: none;
   --dds-font-body-serif-01-font-family: 'Georgia';
@@ -213,7 +224,7 @@
   --dds-font-body-serif-02-paragraph-indent: 0px;
   --dds-font-body-serif-02-paragraph-spacing: 8px;
   --dds-font-body-serif-02-text-case: none;
-  --dds-font-body-serif-03-font-size: 20px;
+  --dds-font-body-serif-03-font-size: 18px;
   --dds-font-body-serif-03-text-decoration: none;
   --dds-font-body-serif-03-font-family: 'Georgia';
   --dds-font-body-serif-03-font-weight: 400;
@@ -224,6 +235,17 @@
   --dds-font-body-serif-03-paragraph-indent: 0px;
   --dds-font-body-serif-03-paragraph-spacing: 10px;
   --dds-font-body-serif-03-text-case: none;
+  --dds-font-body-serif-04-font-size: 20px;
+  --dds-font-body-serif-04-text-decoration: none;
+  --dds-font-body-serif-04-font-family: 'Georgia';
+  --dds-font-body-serif-04-font-weight: 400;
+  --dds-font-body-serif-04-font-style: normal;
+  --dds-font-body-serif-04-font-stretch: normal;
+  --dds-font-body-serif-04-letter-spacing: 0em;
+  --dds-font-body-serif-04-line-height: 1.5em;
+  --dds-font-body-serif-04-paragraph-indent: 0px;
+  --dds-font-body-serif-04-paragraph-spacing: 10px;
+  --dds-font-body-serif-04-text-case: none;
   --dds-font-lead-sans-01-font-size: 18px;
   --dds-font-lead-sans-01-text-decoration: none;
   --dds-font-lead-sans-01-font-family: 'IBM Plex Sans';
@@ -345,6 +367,17 @@
   --dds-font-supporting-style-placeholdertext-01-paragraph-indent: 0px;
   --dds-font-supporting-style-placeholdertext-01-paragraph-spacing: 7px;
   --dds-font-supporting-style-placeholdertext-01-text-case: none;
+  --dds-font-supporting-style-tiny-01-font-size: 12px;
+  --dds-font-supporting-style-tiny-01-text-decoration: none;
+  --dds-font-supporting-style-tiny-01-font-family: 'IBM Plex Sans';
+  --dds-font-supporting-style-tiny-01-font-weight: 400;
+  --dds-font-supporting-style-tiny-01-font-style: normal;
+  --dds-font-supporting-style-tiny-01-font-stretch: normal;
+  --dds-font-supporting-style-tiny-01-letter-spacing: 0.01em;
+  --dds-font-supporting-style-tiny-01-line-height: 1.5em;
+  --dds-font-supporting-style-tiny-01-paragraph-indent: 0px;
+  --dds-font-supporting-style-tiny-01-paragraph-spacing: 7px;
+  --dds-font-supporting-style-tiny-01-text-case: none;
   --borders-dds-border-style-1-stroke-align: inside;
   --borders-dds-border-style-1-stroke-miter-limit: 4;
   --borders-dds-border-style-1-stroke-weight: 1px;
