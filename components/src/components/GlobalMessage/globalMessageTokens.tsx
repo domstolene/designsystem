@@ -29,8 +29,8 @@ const contentContainerWithClosableBase: CSSObject = {
 };
 
 const containerInfoBase: CSSObject = {
-  borderColor: Colors.DdsColorPrimaryLighter,
-  backgroundColor: Colors.DdsColorPrimaryLightest
+  borderColor: Colors.DdsColorInfoLighter,
+  backgroundColor: Colors.DdsColorInfoLightest
 };
 
 const containerDangerBase: CSSObject = {
@@ -66,7 +66,7 @@ export const globalMessageTokens = {
     marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
     info: {
       icon: InfoOutlinedIcon,
-      color: Colors.DdsColorPrimaryDarkest
+      color: Colors.DdsColorInfoDarkest
     },
     danger: {
       icon: DangerOutlinedIcon,
