@@ -17,7 +17,8 @@ export const textColors = {
   primary: Colors.DdsColorPrimaryBase,
   danger: Colors.DdsColorDangerBase,
   success: Colors.DdsColorSuccessBase,
-  warning: Colors.DdsColorWarningBase
+  warning: Colors.DdsColorWarningBase,
+  default: textDefault.textColor
 };
 
 const aBase: CSSObject = {
