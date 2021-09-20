@@ -17,6 +17,7 @@ import { IconWrapper } from '../../helpers/IconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/typographyTokens';
+import * as CSS from 'csstype';
 
 const prefix = 'dds-select';
 
@@ -27,7 +28,6 @@ const Label = styled(Typography)`
 
 type StyledContainerProps = {
   errorMessage?: string;
-  width?: string;
   isDisabled?: boolean;
   readOnly?: boolean;
   label?: string;
@@ -36,7 +36,6 @@ type StyledContainerProps = {
 const Container = styled.div<StyledContainerProps>`
   transition: 0.2s;
   position: relative;
-  width: ${({ width }) => width};
   ${tokens.container.base}
   ${scrollbarStyling}
   *::selection {
@@ -125,8 +124,9 @@ const Container = styled.div<StyledContainerProps>`
     `}
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ width?: CSS.WidthProperty<string> }>`
   margin: 0;
+  width: ${({ width }) => width};
 `;
 
 const SelectedIconWrapper = styled(IconWrapper)`
@@ -253,7 +253,7 @@ export type SelectProps = {
   readOnly?: boolean;
   errorMessage?: string;
   tip?: string;
-  width?: string;
+  width?: CSS.WidthProperty<string>;
   className?: string;
   style?: React.CSSProperties;
 } & ReactSelectProps &
@@ -285,12 +285,16 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
 
     const containerProps = {
       errorMessage,
-      width,
       isDisabled,
       readOnly,
       label,
       className,
       style
+    };
+
+    const wrapperProps = {
+      width,
+      ...rest
     };
 
     const reactSelectProps: ReactSelectProps = {
@@ -314,7 +318,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     };
 
     return (
-      <Wrapper ref={ref} {...rest}>
+      <Wrapper ref={ref} {...wrapperProps}>
         <Container {...containerProps}>
           {label && (
             <Label
