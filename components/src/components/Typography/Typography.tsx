@@ -2,7 +2,8 @@ import {
   forwardRef,
   HTMLAttributes,
   ElementType,
-  AnchorHTMLAttributes
+  AnchorHTMLAttributes,
+  LabelHTMLAttributes
 } from 'react';
 import styled, { css } from 'styled-components';
 import { typographyTokens as tokens, textColors } from './typographyTokens';
@@ -55,51 +56,30 @@ const getElementType = (element: string): ElementType => {
     case 'headingSans05':
       return 'h2';
     case 'headingSans06':
-      return 'h1';
     case 'headingSans07':
-      return 'h1';
     case 'headingSans08':
       return 'h1';
-    case 'bodySans01':
-      return 'p';
-    case 'bodySans02':
-      return 'p';
-    case 'bodySans03':
-      return 'p';
-    case 'bodySans04':
-      return 'p';
-    case 'bodySerif01':
-      return 'p';
-    case 'bodySerif02':
-      return 'p';
-    case 'bodySerif03':
-      return 'p';
-    case 'bodySerif04':
-      return 'p';
-    case 'leadSans01':
-      return 'p';
-    case 'leadSans02':
-      return 'p';
-    case 'leadSans03':
-      return 'p';
-    case 'leadSans04':
-      return 'p';
-    case 'leadSans05':
-      return 'p';
     case 'supportingStyleLabel01':
       return 'label';
+    case 'bodySans01':
+    case 'bodySans02':
+    case 'bodySans03':
+    case 'bodySans04':
+    case 'bodySerif01':
+    case 'bodySerif02':
+    case 'bodySerif03':
+    case 'bodySerif04':
+    case 'leadSans01':
+    case 'leadSans02':
+    case 'leadSans03':
+    case 'leadSans04':
+    case 'leadSans05':
     case 'supportingStyleInputText01':
-      return 'p';
     case 'supportingStyleInputText02':
-      return 'p';
     case 'supportingStyleInputText03':
-      return 'p';
     case 'supportingStyleHelperText01':
-      return 'p';
     case 'supportingStylePlaceholderText01':
-      return 'p';
     case 'supportingStyleTiny01':
-      return 'p';
     default:
       return 'p';
   }
@@ -180,7 +160,8 @@ export type TextColor =
   | 'primary'
   | 'danger'
   | 'warning'
-  | 'success';
+  | 'success'
+  | 'default';
 
 export type TypographyProps = {
   typographyType?: TypographyType;
@@ -191,7 +172,11 @@ export type TypographyProps = {
   italic?: boolean;
   withMargins?: boolean;
   target?: string;
-} & (HTMLAttributes<HTMLElement> | AnchorHTMLAttributes<HTMLAnchorElement>);
+} & (
+  | HTMLAttributes<HTMLElement>
+  | LabelHTMLAttributes<HTMLLabelElement>
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+);
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
   (
@@ -200,7 +185,6 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       as: propAs,
       externalLink,
       target,
-      bold,
       children,
       ...rest
     },
@@ -210,7 +194,6 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     const typographyProps = {
       typographyType,
-      bold,
       as,
       rel: as === 'a' ? 'noopener noreferer' : undefined,
       target: as !== 'a' ? undefined : externalLink ? '_blank' : target,
