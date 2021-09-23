@@ -1,6 +1,4 @@
 import { forwardRef, AnchorHTMLAttributes } from 'react';
-import styled from 'styled-components';
-import { breadcrumbTokens as tokens } from './breadcrumbTokens';
 
 import { Typography, TypographyProps } from '../Typography';
 
