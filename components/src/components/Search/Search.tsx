@@ -11,7 +11,7 @@ import { searchTokens as tokens } from './searchTokens';
 import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 
-const Input = styled.input<{ componentSize: Size }>`
+const Input = styled.input<{ componentSize: SearchSize }>`
   &[type='search']::-webkit-search-decoration,
   &[type='search']::-webkit-search-cancel-button,
   &[type='search']::-webkit-search-results-button,
@@ -56,7 +56,7 @@ const ButtonWrapper = styled.div`
   margin-left: ${tokens.buttonWrapper.spaceLeft};
 `;
 
-type Size = 'small' | 'medium' | 'large';
+export type SearchSize = 'small' | 'medium' | 'large';
 type ButtonProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   label?: string;
@@ -65,7 +65,7 @@ type ButtonProps = {
 export type SearchProps = {
   tip?: string;
   buttonProps?: ButtonProps;
-  componentSize?: Size;
+  componentSize?: SearchSize;
   className?: string;
   style?: React.CSSProperties;
 } & InputHTMLAttributes<HTMLInputElement>;
