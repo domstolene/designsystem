@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-design-tokens)](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens)
 
-Biblioteket inneholder design tokens brukt i [domstolenes designsystem (DDS)](https://design.domstol.no/): farger, typografi, skygger osv. Tokens kan brukes i Domstolenes tjenester i elementer som ikke ligger i komponentbiblioteket. OBS! Domstolenes tjenester skal bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components), dds-design-tokens kan brukes direkte i egne komponenter kun som en midlertidig løsning i eldre prosjekter.
+Biblioteket inneholder design tokens brukt i [Domstolenes designsystem Elsa](https://design.domstol.no/): farger, typografi, skygger osv. Tokens kan brukes i Domstolenes tjenester i elementer som ikke ligger i komponentbiblioteket. OBS! Domstolenes tjenester skal bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components), dds-design-tokens kan brukes direkte i egne komponenter kun som en midlertidig løsning i eldre prosjekter.
 
 Tokens består av base-tokens - variabler genererte fra Figma styles, og referanse-tokens - et objekt som bruker base-tokens til å definere logikk for hvordan base-tokens skal brukes videre i komponenter og andre elementer. F.eks., referanse-tokens kan spesifisere hva fokusfargen skal være, eller font og farge for label i skjemakomponenter. Tanken med referanse-tokens er å gjøre det enklere å gjenbruke koden og eventuelt endre på styling i komponenter ved å endre kun på tokens, uten å røre CSS inni komponentene. OBS! referanse-tokens er under arbeid.
 
@@ -15,6 +15,8 @@ npm install @norges-domstoler/dds-design-tokens
 ```
 
 ## Bruk
+
+### JS
 
 ```js
 import * as React from "react";
@@ -31,6 +33,26 @@ const style = {
 const App = () => <div style={style}>Tekst</div>;
 
 render(<App />, document.getElementById("root"));
+```
+
+### CSS
+
+```css
+@import "@norges-domstoler/dds-design-tokens/dist/css/colors.css";
+
+body {
+  background-color: var(--dds-color-primary-base);
+}
+```
+
+### SCSS
+
+```scss
+@use '@norges-domstoler/dds-design-tokens/dist/scss/colors';
+
+body {
+  background-color: $dds-color-primary-base;
+}
 ```
 
 ## Tilgjengelige base-tokens

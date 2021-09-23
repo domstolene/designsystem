@@ -6,7 +6,7 @@ _biblioteket er under arbeid_
 
 React UI komponenter til bruk i Domstolenes tjenester.
 
-Sjekk ut [Domstolenes designsystem (DDS)](https://design.domstol.no/) og [Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
+Sjekk ut [Domstolenes designsystem Elsa](https://design.domstol.no/) og [Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
 
 ## Installasjon
 
@@ -34,14 +34,16 @@ render(<App />, document.getElementById('root'));
 
 ## Komponenter
 
-Alle komponenter er under arbeid, ta kontakt for status.
+Alle komponenter er under arbeid, sjekk [komponentstatus](https://design.domstol.no/987b33f71/p/438035-komponenter/b/160db9) for oppdatert status.
 
 - Breadcrumbs
 - Button
 - Checkbox
+- Divider
 - GlobalMessage
 - IconWrapper
 - LocalMessage
+- Pagination
 - RadioButton
 - Search
 - Select
