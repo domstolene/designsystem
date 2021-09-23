@@ -12,13 +12,14 @@ const {
   spacing: Spacing,
   fontPackages: FontPackages,
   borderRadius: BorderRadius,
+  border: Border,
   outerShadow: OuterShadow
 } = ddsBaseTokens;
 
 const containerBase: CSSObject = {
   boxShadow: OuterShadow.DdsShadow1Onlight,
   borderRadius: BorderRadius.RadiiDdsBorderRadius2Radius,
-  border: '2px solid',
+  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
   padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
   ...FontPackages.body_sans_02.base,
   color: Colors.DdsColorNeutralsGray8
@@ -36,9 +37,21 @@ const contentContainerWithClosableBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX075
 };
 
+const contentContainerVericalBase: CSSObject = {
+  paddingBottom: Spacing.SizesDdsSpacingLocalX15
+};
+
+const topContainerBase: CSSObject = {
+  paddingTop: Spacing.SizesDdsSpacingLocalX15
+};
+
+const topContainerWithClosableBase: CSSObject = {
+  paddingTop: Spacing.SizesDdsSpacingLocalX1
+};
+
 const containerInfoBase: CSSObject = {
-  borderColor: Colors.DdsColorPrimaryLighter,
-  backgroundColor: Colors.DdsColorPrimaryLightest
+  borderColor: Colors.DdsColorInfoLighter,
+  backgroundColor: Colors.DdsColorInfoLightest
 };
 
 const containerDangerBase: CSSObject = {
@@ -57,8 +70,8 @@ const containerSuccessBase: CSSObject = {
 };
 
 const containerTipsBase: CSSObject = {
-  borderColor: Colors.DdsColorInfoLighter,
-  backgroundColor: Colors.DdsColorInfoLightest
+  borderColor: Colors.DdsColorPrimaryLighter,
+  backgroundColor: Colors.DdsColorPrimaryLightest
 };
 
 const containerConfidentialBase: CSSObject = {
@@ -93,13 +106,22 @@ export const localMessageTokens = {
     base: contentContainerBase,
     withClosable: {
       base: contentContainerWithClosableBase
+    },
+    vertical: {
+      base: contentContainerVericalBase
+    }
+  },
+  topContainer: {
+    base: topContainerBase,
+    withClosable: {
+      base: topContainerWithClosableBase
     }
   },
   icon: {
     marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
     info: {
       icon: InfoOutlinedIcon,
-      color: Colors.DdsColorPrimaryDarkest
+      color: Colors.DdsColorInfoDarkest
     },
     danger: {
       icon: DangerOutlinedIcon,
@@ -115,7 +137,7 @@ export const localMessageTokens = {
     },
     tips: {
       icon: EmojiObjectsOutlinedIcon,
-      color: Colors.DdsColorInfoDarkest
+      color: Colors.DdsColorPrimaryDarkest
     },
     confidential: {
       icon: DangerOutlinedIcon,

@@ -51,6 +51,11 @@ export const Overview = (args: LocalMessageProps) => {
       />
       <DDSLocalMessage
         {...args}
+        message="En tilfeldig melding"
+        layout="vertical"
+      />
+      <DDSLocalMessage
+        {...args}
         purpose="info"
         message="En tilfeldig melding"
         closable
@@ -85,6 +90,12 @@ export const Overview = (args: LocalMessageProps) => {
         message="En tilfeldig melding"
         closable
       />
+      <DDSLocalMessage
+        {...args}
+        message="En tilfeldig melding"
+        layout="vertical"
+        closable
+      />
     </>
   );
 };
@@ -104,7 +115,7 @@ export const Closable = (args: LocalMessageProps) => {
     'LocalMessage - closable',
     <DDSLocalMessage
       {...args}
-      purpose={args.purpose || 'info'}
+      purpose={args.purpose}
       message={args.message || 'En tilfeldig melding'}
       closable
     />
@@ -113,8 +124,13 @@ export const Closable = (args: LocalMessageProps) => {
 
 export const ComplexContent = (args: LocalMessageProps) => {
   return storyHTMLTemplate(
-    'LocalMessage complex',
-    <DDSLocalMessage {...args} purpose={args.purpose || 'info'} closable>
+    'LocalMessage - complex content',
+    <DDSLocalMessage
+      {...args}
+      purpose={args.purpose}
+      layout="vertical"
+      closable
+    >
       <div>
         <Typography typographyType="headingSans03" withMargins>
           Dette er en viktig melding

@@ -18,10 +18,17 @@ const stylingBase = (purpose: LocalMessagePurpose) => {
 const Container = styled.div<{
   purpose: LocalMessagePurpose;
   width: CSS.WidthProperty<string>;
+  layout?: LocalMessageLayout;
 }>`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: ${({ layout }) => (layout === 'vertical' ? 'column' : 'row')};
+
+  ${({ layout }) =>
+    layout === 'horisontal' &&
+    css`
+      align-items: center;
+      justify-content: space-between;
+    `};
   *::selection {
     ${typographyTokens.selection.base}
   }
@@ -33,19 +40,36 @@ const MessageIconWrapper = styled(IconWrapper)`
   margin-right: ${tokens.icon.marginRight};
 `;
 
-const ControlsContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const ContentContainer = styled.div<{ closable?: boolean }>`
+const ContentContainer = styled.div<{
+  closable?: boolean;
+  layout: LocalMessageLayout;
+}>`
   display: flex;
   align-items: center;
   ${tokens.contentContainer.base}
+  ${({ layout }) =>
+    layout === 'vertical'
+      ? css`
+          ${tokens.contentContainer.vertical.base}
+        `
+      : ''}
   ${({ closable }) =>
     closable &&
     css`
       ${tokens.contentContainer.withClosable.base}
+    `}
+`;
+
+const TopContainer = styled.div<{ closable?: boolean }>`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ${tokens.topContainer.base}
+  ${({ closable }) =>
+    closable &&
+    css`
+      ${tokens.topContainer.withClosable.base}
     `}
 `;
 
@@ -57,11 +81,14 @@ export type LocalMessagePurpose =
   | 'success'
   | 'tips';
 
+export type LocalMessageLayout = 'horisontal' | 'vertical';
+
 export type LocalMessageProps = {
   message?: string;
   purpose?: LocalMessagePurpose;
   closable?: boolean;
   width?: CSS.WidthProperty<string>;
+  layout?: LocalMessageLayout;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
@@ -71,6 +98,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       purpose = 'info',
       closable,
       width = tokens.container.defaultWidth,
+      layout = 'horisontal',
       children,
       ...rest
     },
@@ -79,25 +107,56 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     const [isClosed, setClosed] = useState(false);
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
+    const containerProps = {
+      purpose: purpose,
+      width: width,
+      layout: layout,
+      ref: ref,
+      ...rest
+    };
+
+    const contentContainerProps = {
+      layout: layout,
+      closable: closable
+    };
+
+    const messageIconWrapper = (
+      <MessageIconWrapper
+        Icon={tokens.icon[purpose].icon}
+        color={tokens.icon[purpose].color}
+      />
+    );
+
+    const content = children ?? <Typography as="span">{message}</Typography>;
+
+    const closeButton = closable && (
+      <Button
+        Icon={CloseOutlinedIcon}
+        purpose={buttonPurpose}
+        appearance="borderless"
+        onClick={() => setClosed(true)}
+        size="small"
+      />
+    );
+
     return !isClosed ? (
-      <Container purpose={purpose} width={width} ref={ref} {...rest}>
-        <ContentContainer closable={closable}>
-          <MessageIconWrapper
-            Icon={tokens.icon[purpose].icon}
-            color={tokens.icon[purpose].color}
-          />
-          {children ?? <Typography as="span">{message}</Typography>}
-        </ContentContainer>
-        {closable && (
-          <ControlsContainer>
-            <Button
-              Icon={CloseOutlinedIcon}
-              purpose={buttonPurpose}
-              appearance="borderless"
-              onClick={() => setClosed(true)}
-              size="small"
-            />
-          </ControlsContainer>
+      <Container {...containerProps}>
+        {layout === 'horisontal' ? (
+          <>
+            <ContentContainer {...contentContainerProps}>
+              {messageIconWrapper} {content}
+            </ContentContainer>
+            {closeButton}
+          </>
+        ) : (
+          <>
+            <TopContainer closable={closable}>
+              {messageIconWrapper} {closeButton}
+            </TopContainer>
+            <ContentContainer {...contentContainerProps}>
+              {content}
+            </ContentContainer>
+          </>
         )}
       </Container>
     ) : null;
