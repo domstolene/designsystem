@@ -1,6 +1,10 @@
 import { Typography as DDSTypography, TypographyProps } from './Typography';
 import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 
+type StoryTProps = {
+  text: string;
+} & TypographyProps;
+
 export default {
   title: 'Design system/Typography/Default',
   component: DDSTypography,
@@ -11,7 +15,8 @@ export default {
     withMargins: { control: { type: 'boolean' } },
     externalLink: { control: { type: 'boolean' } },
     color: { control: { type: 'text' } },
-    href: { control: { type: 'text' } }
+    href: { control: { type: 'text' } },
+    text: { control: { type: 'text' } }
   },
   parameters: {
     controls: {
@@ -20,13 +25,10 @@ export default {
   }
 };
 
-export const Default = (args: TypographyProps) => {
+export const Default = (args: StoryTProps) => {
+  const { text, ...rest } = args;
   return storyHTMLGridTemplate(
     'Typography - default',
-    <>
-      <DDSTypography {...args}>Default</DDSTypography>
-    </>,
-    '30px',
-    1
+    <DDSTypography {...rest}>{text || 'default'}</DDSTypography>
   );
 };
