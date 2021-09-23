@@ -5,7 +5,6 @@
   rel="stylesheet"
 />
 <style>
-  @import '@norges-domstoler/dds-design-tokens/dist/css/font.css';
   *,
   ::after,
   ::before {
@@ -13,7 +12,7 @@
   }
 
   body {
-    font-family: var(--dds-font-body-sans-02-font-family);
+    font-family: var(--dds-font-body-sans-03-font-family), Georgia, serif;
   }
   .component-container {
     padding: 1.5rem;
@@ -30,14 +29,9 @@
   h4,
   h5,
   h6 {
-    font-weight: 500;
-    line-height: 1.2;
-  }
-
-  hr {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: var(--dds-font-heading-sans-06-font-size);
+    font-weight: var(--dds-font-heading-sans-06-font-weight);
+    letter-spacing: var(--dds-font-heading-sans-06-letter-spacing);
+    line-height: var(--dds-font-heading-sans-06-line-height);
   }
 </style>
