@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Divider } from '../components/Divider';
+import { Typography } from '../components/Typography';
 
 const GridContainer = styled.div<{ gap?: string; columnsCount?: number }>`
   display: grid;
@@ -18,8 +20,10 @@ export const storyHTMLGridTemplate = (
 ) => {
   return (
     <div className="component-container">
-      <h2> {title} </h2>
-      <hr />
+      <Typography as="h1" typographyType="headingSans03">
+        {title}
+      </Typography>
+      <Divider color="primaryLighter" />
       <GridContainer gap={gap} columnsCount={columnsCount}>
         {children}
       </GridContainer>

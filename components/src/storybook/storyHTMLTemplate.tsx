@@ -1,9 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Divider } from '../components/Divider';
+import { Typography } from '../components/Typography';
 
-const Container = styled.div<{ gap?: string }>`
-  display: flex;
-  flex-direction: column;
+const Container = styled.div<{ gap?: string; noFlex?: boolean }>`
+  ${({ noFlex }) =>
+    !noFlex &&
+    css`
+      display: flex;
+      flex-direction: column;
+    `}
   & > * {
     margin-top: ${({ gap }) => (gap ? gap : '20px')};
   }
@@ -12,13 +18,19 @@ const Container = styled.div<{ gap?: string }>`
 export const storyHTMLTemplate = (
   title: string,
   children: React.ReactNode,
-  gap?: string
+  gap?: string,
+  noFlex?: boolean
 ) => {
   return (
     <div className="component-container">
-      <h2> {title} </h2>
-      <hr />
-      <Container gap={gap}>{children}</Container>
+      <Typography as="h1" typographyType="headingSans03">
+        {title}
+      </Typography>
+      <Divider color="primaryLighter" />
+
+      <Container gap={gap} noFlex={noFlex}>
+        {children}
+      </Container>
     </div>
   );
 };
