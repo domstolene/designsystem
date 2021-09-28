@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import { dividerTokens as tokens, dividerColors } from './dividerTokens';
 
 export type DividerColor = 'primary' | 'primaryLighter';
-export type DividerDirection = 'horisontal' | 'vertical';
 
 const DividerLine = styled.hr<DividerProps>`
   ${tokens.base}
