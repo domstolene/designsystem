@@ -58,7 +58,8 @@ body {
 ## Tilgjengelige base-tokens
 
 - colors
-- fontPackages
+- fontPackages (kun JS)
+- font
 - spacing
 - iconSizes
 - borderRadius
@@ -68,11 +69,14 @@ body {
 
 ## For bidragsytere
 
+Bilioteket ligger under `/tokens`.
+
 ### Installasjon
 
-Klon repoet og installer style-dictionary:
+Klon repoet og installer style-dictionary i `/tokens/dds`:
 
 ```
+cd tokens/dds
 npm install -D style-dictionary
 ```
 
