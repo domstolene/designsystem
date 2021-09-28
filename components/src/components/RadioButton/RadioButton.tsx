@@ -10,7 +10,7 @@ import {
   RadioButtonGroup,
   useRadioButtonGroup
 } from './RadioButtonGroupContext';
-import { radioButtonTokens as tokens } from './radioButtonTokens';
+import { radioButtonTokens as tokens } from './RadioButton.tokens';
 
 const CustomRadioButton = styled.span`
   position: absolute;

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { Cell, TableCellProps } from './Cell';
-import { cellTokens as tokens } from './cellTokens';
+import { cellTokens as tokens } from './Cell.tokens';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from '../Typography';
-import { charCounterTokens as tokens } from './charCounterTokens';
+import { charCounterTokens as tokens } from './CharCounter.tokens';
 
 const Wrapper = styled(Typography)`
   margin-left: auto;

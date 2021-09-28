@@ -2,7 +2,7 @@ import React, { useState, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
-import { checkboxGroupTokens as tokens } from './checkboxGroupTokens';
+import { checkboxGroupTokens as tokens } from './CheckboxGroup.tokens';
 import { Typography } from '../Typography';
 
 const Container = styled.div`

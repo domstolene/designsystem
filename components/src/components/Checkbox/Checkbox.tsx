@@ -1,7 +1,7 @@
 import React, { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Typography } from '../Typography';
-import { checkboxTokens as tokens } from './checkboxTokens';
+import { checkboxTokens as tokens } from './Checkbox.tokens';
 
 const CustomCheckbox = styled.span`
   position: absolute;

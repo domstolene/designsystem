@@ -12,11 +12,11 @@ import { Option } from 'react-select/src/filters';
 import styled, { css, CSSObject } from 'styled-components';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
-import { selectTokens as tokens } from './selectTokens';
+import { selectTokens as tokens } from './Select.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { Typography } from '../Typography';
-import { typographyTokens } from '../Typography/typographyTokens';
+import { typographyTokens } from '../Typography/Typography.tokens';
 import * as CSS from 'csstype';
 
 const prefix = 'dds-select';

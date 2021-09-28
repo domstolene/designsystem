@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { rowTokens as tokens } from './rowTokens';
+import { rowTokens as tokens } from './Row.tokens';
 
 const bodyStyles = (mode?: RowMode, selected?: boolean) => {
   return css`

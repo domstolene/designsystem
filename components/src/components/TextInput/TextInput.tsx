@@ -6,7 +6,7 @@ import React, {
   forwardRef
 } from 'react';
 import styled, { css } from 'styled-components';
-import { inputTokens as tokens } from './textInputTokens';
+import { inputTokens as tokens } from './TextInput.tokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';

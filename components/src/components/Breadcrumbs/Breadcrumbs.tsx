@@ -2,7 +2,7 @@ import { forwardRef, HTMLAttributes, Children } from 'react';
 import styled from 'styled-components';
 import ChevronRightOutlinedIcon from '@material-ui/icons/ChevronRightOutlined';
 import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
-import { breadcrumbTokens as tokens } from './breadcrumbTokens';
+import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
 import { IconSize, IconWrapper } from '../../helpers/IconWrapper/IconWrapper';
 
 const List = styled.ol`

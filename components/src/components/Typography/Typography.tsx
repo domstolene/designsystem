@@ -6,40 +6,10 @@ import {
   LabelHTMLAttributes
 } from 'react';
 import styled, { css } from 'styled-components';
-import { typographyTokens as tokens, textColors } from './typographyTokens';
+import { typographyTokens as tokens, textColors } from './Typography.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
-
-export type TypographyType =
-  | 'a'
-  | 'headingSans01'
-  | 'headingSans02'
-  | 'headingSans03'
-  | 'headingSans04'
-  | 'headingSans05'
-  | 'headingSans06'
-  | 'headingSans07'
-  | 'headingSans08'
-  | 'bodySans01'
-  | 'bodySans02'
-  | 'bodySans03'
-  | 'bodySans04'
-  | 'bodySerif01'
-  | 'bodySerif02'
-  | 'bodySerif03'
-  | 'bodySerif04'
-  | 'leadSans01'
-  | 'leadSans02'
-  | 'leadSans03'
-  | 'leadSans04'
-  | 'leadSans05'
-  | 'supportingStyleLabel01'
-  | 'supportingStyleInputText01'
-  | 'supportingStyleInputText02'
-  | 'supportingStyleInputText03'
-  | 'supportingStyleHelperText01'
-  | 'supportingStylePlaceholderText01'
-  | 'supportingStyleTiny01';
+import { TypographyType } from './Typography.types';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -92,7 +62,7 @@ const getColor = (color: TextColor): string => {
 const getElementStyling = (type: TypographyType) => {
   return css`
     ${tokens.typographyType[type].base}
-    &::selection {
+    &::selection, *::selection {
       ${tokens.selection.base}
     }
   `;

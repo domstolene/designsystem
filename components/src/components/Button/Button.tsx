@@ -1,11 +1,11 @@
 import React, { ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
-import { buttonTokens as tokens } from './buttonTokens';
+import { buttonTokens as tokens } from './Button.tokens';
 import styled, { css } from 'styled-components';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import Spinner from '../../helpers/Spinner';
-import { typographyTokens } from '../Typography/typographyTokens';
+import { typographyTokens } from '../Typography/Typography.tokens';
 
 const buttonContentStyle = (
   purpose: ButtonPurpose,

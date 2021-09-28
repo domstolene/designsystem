@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { dividerTokens as tokens, dividerColors } from './dividerTokens';
+import { dividerTokens as tokens, dividerColors } from './Divider.tokens';
 
 export type DividerColor = 'primary' | 'primaryLighter';
 

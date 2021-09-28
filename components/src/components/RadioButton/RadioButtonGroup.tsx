@@ -2,7 +2,7 @@ import React, { ChangeEvent, HTMLAttributes, useState } from 'react';
 import styled from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
-import { radioButtonGroupTokens as tokens } from './radioButtonGroupTokens';
+import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 import { Typography } from '../Typography';
 

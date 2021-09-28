@@ -1,6 +1,6 @@
 import { css, CSSObject } from 'styled-components';
 import { ddsReferenceTokens } from '@norges-domstoler/dds-design-tokens';
-import { typographyTokens } from '../components/Typography/typographyTokens';
+import { typographyTokens } from '../components/Typography/Typography.tokens';
 
 const { textInput: TextInput } = ddsReferenceTokens;
 

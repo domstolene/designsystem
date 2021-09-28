@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
-import { globalMessageTokens as tokens } from './globalMessageTokens';
+import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { Typography } from '../Typography';
 
