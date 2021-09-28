@@ -81,8 +81,8 @@ const buttonStyle = (color: TestColor) =>
     }
   `;
 
-const ButtonStyled = styled(Button)<{ colorPalette?: TestColor }>`
-  ${({ colorPalette }) => colorPalette && buttonStyle(colorPalette)}
+const ButtonStyled = styled(Button)<{ colorpalette?: TestColor }>`
+  ${({ colorpalette }) => colorpalette && buttonStyle(colorpalette)}
 `;
 
 const selectionControlStyle = (color: TestColor) => css`
@@ -100,12 +100,12 @@ const selectionControlStyle = (color: TestColor) => css`
   }
 `;
 
-const CheckboxStyled = styled(Checkbox)<{ colorPalette?: TestColor }>`
-  ${({ colorPalette }) => colorPalette && selectionControlStyle(colorPalette)}
+const CheckboxStyled = styled(Checkbox)<{ colorpalette?: TestColor }>`
+  ${({ colorpalette }) => colorpalette && selectionControlStyle(colorpalette)}
 `;
 
-const RadioButtonStyled = styled(RadioButton)<{ colorPalette?: TestColor }>`
-  ${({ colorPalette }) => colorPalette && selectionControlStyle(colorPalette)}
+const RadioButtonStyled = styled(RadioButton)<{ colorpalette?: TestColor }>`
+  ${({ colorpalette }) => colorpalette && selectionControlStyle(colorpalette)}
 `;
 
 const linkStyle = (color: TestColor, t: string) =>
@@ -118,11 +118,11 @@ const linkStyle = (color: TestColor, t: string) =>
   `;
 
 const LinkStyled = styled(Typography)<{
-  colorPalette?: TestColor;
+  colorpalette?: TestColor;
   typographyType: string;
 }>`
-  ${({ colorPalette, typographyType }) =>
-    colorPalette && linkStyle(colorPalette, typographyType)}
+  ${({ colorpalette, typographyType }) =>
+    colorpalette && linkStyle(colorpalette, typographyType)}
 `;
 
 const inputStyle = (color: TestColor) => css`
@@ -143,8 +143,8 @@ const inputStyle = (color: TestColor) => css`
   }
 `;
 
-const InputStyled = styled(TextInput)<{ colorPalette?: TestColor }>`
-  ${({ colorPalette }) => colorPalette && inputStyle(colorPalette)}
+const InputStyled = styled(TextInput)<{ colorpalette?: TestColor }>`
+  ${({ colorpalette }) => colorpalette && inputStyle(colorpalette)}
 `;
 
 const breadcrumbsStyle = (color: TestColor) => css`
@@ -160,8 +160,8 @@ const breadcrumbsStyle = (color: TestColor) => css`
   }
 `;
 
-const BreadcrumbsStyled = styled(Breadcrumbs)<{ colorPalette?: TestColor }>`
-  ${({ colorPalette }) => colorPalette && breadcrumbsStyle(colorPalette)}
+const BreadcrumbsStyled = styled(Breadcrumbs)<{ colorpalette?: TestColor }>`
+  ${({ colorpalette }) => colorpalette && breadcrumbsStyle(colorpalette)}
 `;
 
 const Footer = styled.div`
@@ -173,7 +173,7 @@ const Footer = styled.div`
 const TestForm = (color?: TestColor) => (
   <>
     <GlobalMessage purpose="warning">Dette er en viktig melding</GlobalMessage>
-    <BreadcrumbsStyled colorPalette={color}>
+    <BreadcrumbsStyled colorpalette={color}>
       <Breadcrumb href="#">Norges domstoler</Breadcrumb>
       <Breadcrumb href="#">Arv og skifte</Breadcrumb>
       <Breadcrumb>Skjema</Breadcrumb>
@@ -181,17 +181,17 @@ const TestForm = (color?: TestColor) => (
     {storyHTMLTemplate(
       'Skjema',
       <>
-        <InputStyled colorPalette={color} label="Fornavn" />
-        <InputStyled colorPalette={color} label="Etternavn" />
+        <InputStyled colorpalette={color} label="Fornavn" />
+        <InputStyled colorpalette={color} label="Etternavn" />
         <CheckboxGroup label="Interesser">
-          <CheckboxStyled colorPalette={color} label="Bøker" />
-          <CheckboxStyled colorPalette={color} label="Film" />
-          <CheckboxStyled colorPalette={color} label="Sport" />
+          <CheckboxStyled colorpalette={color} label="Bøker" />
+          <CheckboxStyled colorpalette={color} label="Film" />
+          <CheckboxStyled colorpalette={color} label="Sport" />
         </CheckboxGroup>
         <Typography>
           De fleste arvinger velger å stå for skiftet selv. Privat skifte kan
           først starte når du har fått skifteattest. Skjemaet{' '}
-          <LinkStyled typographyType="a" colorPalette={color}>
+          <LinkStyled typographyType="a" colorpalette={color}>
             Erklæring om privat skifte av dødsbo
           </LinkStyled>{' '}
           må fylles ut. På skjemaet må en eller flere av arvingene overta
@@ -205,14 +205,14 @@ const TestForm = (color?: TestColor) => (
           Dette er en infomelding
         </LocalMessageStyled>
         <RadioButtonGroup label="Sivilstand">
-          <RadioButtonStyled name="test" colorPalette={color} label="Ugift" />
-          <RadioButtonStyled name="test" colorPalette={color} label="Gift" />
+          <RadioButtonStyled name="test" colorpalette={color} label="Ugift" />
+          <RadioButtonStyled name="test" colorpalette={color} label="Gift" />
         </RadioButtonGroup>
         <LocalMessage purpose="danger">
           Dette er en danger-melding for testing
         </LocalMessage>
-        <CheckboxStyled colorPalette={color} label="Jeg bekrefter noe" />
-        <ButtonStyled colorPalette={color} label="Send" />
+        <CheckboxStyled colorpalette={color} label="Jeg bekrefter noe" />
+        <ButtonStyled colorpalette={color} label="Send" />
       </>
     )}
     <Footer />
