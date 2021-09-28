@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Divider } from '../components/Divider';
 import { Typography } from '../components/Typography';
+import { StoryContainer } from './StoryContainer';
 
 const GridContainer = styled.div<{ gap?: string; columnsCount?: number }>`
   display: grid;
@@ -19,7 +20,7 @@ export const storyHTMLGridTemplate = (
   columnsCount?: number
 ) => {
   return (
-    <div className="component-container">
+    <StoryContainer>
       <Typography as="h1" typographyType="headingSans03">
         {title}
       </Typography>
@@ -27,6 +28,6 @@ export const storyHTMLGridTemplate = (
       <GridContainer gap={gap} columnsCount={columnsCount}>
         {children}
       </GridContainer>
-    </div>
+    </StoryContainer>
   );
 };

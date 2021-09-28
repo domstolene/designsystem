@@ -15,10 +15,16 @@ const isFontFamily =
   FontPackages.body_sans_02.base &&
   FontPackages.body_sans_02.base.fontFamily;
 
+const isSecondaryFontFamily =
+  FontPackages &&
+  FontPackages.body_serif_02 &&
+  FontPackages.body_serif_02.base &&
+  FontPackages.body_serif_02.base.fontFamily;
+
 export default create({
   base: 'light',
 
-  brandTitle: 'Domstolenes Designsystem',
+  brandTitle: 'Elsa - Domstolenes Designsystem',
   brandUrl: 'https://design.domstol.no',
   brandImage: elsaLogoHigh,
 
@@ -30,6 +36,8 @@ export default create({
   // Typography
   fontBase: isFontFamily
     ? FontPackages.body_sans_02.base.fontFamily
+    : isSecondaryFontFamily
+    ? FontPackages.body_serif_02.base.fontFamily
     : 'Georgia, serif',
   fontCode: 'monospace',
 

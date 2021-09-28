@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Divider } from '../components/Divider';
 import { Typography } from '../components/Typography';
+import { StoryContainer } from './StoryContainer';
 
 const Container = styled.div<{ gap?: string; noFlex?: boolean }>`
   ${({ noFlex }) =>
@@ -22,7 +23,7 @@ export const storyHTMLTemplate = (
   noFlex?: boolean
 ) => {
   return (
-    <div className="component-container">
+    <StoryContainer className="component-container">
       <Typography as="h1" typographyType="headingSans03">
         {title}
       </Typography>
@@ -31,6 +32,6 @@ export const storyHTMLTemplate = (
       <Container gap={gap} noFlex={noFlex}>
         {children}
       </Container>
-    </div>
+    </StoryContainer>
   );
 };
