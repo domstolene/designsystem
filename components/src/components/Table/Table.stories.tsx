@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Table as DDSTable, TableProps } from './Table';
-import { Row } from './Row';
-import { Cell } from './Cell';
-import { SortCell, SortOrder } from './SortCell';
-import { Body } from './Body';
-import { Head } from './Head';
+import {
+  Table as DDSTable,
+  TableProps,
+  Row,
+  Cell,
+  SortCell,
+  SortOrder,
+  Body,
+  Head
+} from '.';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
 import {
