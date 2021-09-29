@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
-import { localMessageTokens as tokens } from './localMessageTokens';
+import { localMessageTokens as tokens } from './LocalMessage.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import * as CSS from 'csstype';
 import { Typography } from '../Typography';
-import { typographyTokens } from '../Typography/typographyTokens';
+import { typographyTokens } from '../Typography/Typography.tokens';
 
 const stylingBase = (purpose: LocalMessagePurpose) => {
   return css`
