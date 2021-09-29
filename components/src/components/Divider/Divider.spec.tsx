@@ -1,7 +1,11 @@
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { Divider } from '.';
 
 describe('<Divider />', () => {
-  it('dummy test', () => {
-    expect(true).toBeTruthy();
+  it('should render a horisontal line', () => {
+    render(<Divider />);
+    const hr = screen.getByRole('separator');
+    expect(hr).toBeInTheDocument;
   });
 });
