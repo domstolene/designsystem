@@ -44,11 +44,11 @@ describe('<Pagination />', () => {
     );
     expect(screen.getAllByRole('listitem')).toHaveLength(7); // itemsAmount +  < button
   });
-  it('should render smallScreen version with three items', () => {
+  it('should render smallScreen version with three items while on first page', () => {
     render(<Pagination itemsAmount={6} defaultItemsPerPage={1} smallScreen />);
     expect(screen.getAllByRole('listitem')).toHaveLength(3); // active page +  > >| buttons
   });
-  it('should render smallScreen version with five items', () => {
+  it('should render smallScreen version with five items while neither on first or last page', () => {
     render(
       <Pagination
         itemsAmount={6}
