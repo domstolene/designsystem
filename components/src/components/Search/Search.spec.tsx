@@ -1,7 +1,23 @@
 import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { Search } from '.';
 
 describe('<Search />', () => {
-  it('dummy test', () => {
-    expect(true).toBeTruthy();
+  it('should render a searchbox', () => {
+    render(<Search />);
+    const search = screen.getByRole('searchbox');
+    expect(search).toBeInTheDocument();
+  });
+  it('should render a search button with a label', () => {
+    const label = 'Søk';
+    render(<Search buttonProps={{ onClick: e => {}, label: label }} />);
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
+    expect(screen.queryByText(label)).toBeDefined;
+  });
+  it('renders provided tip', () => {
+    const tip = 'tip';
+    render(<Search tip={tip} />);
+    expect(screen.queryByText(tip)).toBeDefined;
   });
 });
