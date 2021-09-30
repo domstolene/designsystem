@@ -49,7 +49,7 @@ describe('<Table />', () => {
         </Head>
       </Table>
     );
-    const headerTextNode = screen.getByRole('cell');
+    const headerTextNode = screen.getByRole('columnheader');
     expect(headerTextNode.nodeName).toEqual('TH');
   });
   it('renders a body cell', () => {
