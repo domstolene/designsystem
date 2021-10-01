@@ -1,4 +1,4 @@
-import { Breadcrumbs, BreadcrumbsProps, Breadcrumb } from './';
+import { Breadcrumbs, BreadcrumbsProps, Breadcrumb } from '.';
 import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
 import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
 
