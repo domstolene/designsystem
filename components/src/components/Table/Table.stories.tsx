@@ -7,7 +7,8 @@ import {
   SortCell,
   SortOrder,
   Body,
-  Head
+  Head,
+  Foot
 } from '.';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
@@ -206,13 +207,15 @@ export const WithSum = (args: TableProps) => {
             <Cell layout="right">{item.amount}</Cell>
           </Row>
         ))}
+      </Body>
+      <Foot>
         <Row mode="sum">
           <Cell>Totalt</Cell>
           <Cell layout="right">
             {sumData.reduce((a, b) => a + (b.amount || 0), 0)}
           </Cell>
         </Row>
-      </Body>
+      </Foot>
     </DDSTable>
   );
 };

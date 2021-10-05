@@ -4,3 +4,4 @@ export * from './Head';
 export * from './Row';
 export * from './Cell';
 export * from './SortCell';
+export * from './Foot';
