@@ -18,7 +18,17 @@ export const textColors = {
   danger: Colors.DdsColorDangerBase,
   success: Colors.DdsColorSuccessBase,
   warning: Colors.DdsColorWarningBase,
-  default: textDefault.textColor
+  onLight: textDefault.textColor,
+  onDark: Colors.DdsColorNeutralsWhite,
+  gray1: Colors.DdsColorNeutralsGray1,
+  gray2: Colors.DdsColorNeutralsGray2,
+  gray3: Colors.DdsColorNeutralsGray3,
+  gray4: Colors.DdsColorNeutralsGray4,
+  gray5: Colors.DdsColorNeutralsGray5,
+  gray6: Colors.DdsColorNeutralsGray6,
+  gray7: Colors.DdsColorNeutralsGray7,
+  gray8: Colors.DdsColorNeutralsGray8,
+  gray9: Colors.DdsColorNeutralsGray9
 };
 
 const aBase: CSSObject = {

@@ -131,7 +131,17 @@ export type TextColor =
   | 'danger'
   | 'warning'
   | 'success'
-  | 'default';
+  | 'onLight'
+  | 'onDark'
+  | 'gray1'
+  | 'gray2'
+  | 'gray3'
+  | 'gray4'
+  | 'gray5'
+  | 'gray6'
+  | 'gray7'
+  | 'gray8'
+  | 'gray9';
 
 export type TypographyProps = {
   typographyType?: TypographyType;
