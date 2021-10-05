@@ -9,7 +9,7 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 
 const buttonContentStyle = (
   purpose: ButtonPurpose,
-  appearance: Appearance,
+  appearance: ButtonAppearance,
   label?: string,
   Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>
 ) => css`
@@ -48,8 +48,8 @@ const buttonContentStyle = (
 
 type ButtonContentProps = {
   purpose: ButtonPurpose;
-  appearance: Appearance;
-  size: Size;
+  appearance: ButtonAppearance;
+  size: ButtonSize;
   label?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
   iconPosition?: IconPosition;
@@ -90,7 +90,7 @@ const ButtonContent = styled.span<ButtonContentProps>`
 
 const IconWithTextWrapper = styled(IconWrapper)<{
   iconPosition: IconPosition;
-  size: Size;
+  size: ButtonSize;
 }>`
   ${({ size, iconPosition }) =>
     iconPosition === 'left'
@@ -127,7 +127,7 @@ const ButtonWrapper = styled.button<{ fullWidth?: boolean }>`
   }
 `;
 
-const JustIconWrapper = styled.span<{ size: Size }>`
+const JustIconWrapper = styled.span<{ size: ButtonSize }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,16 +141,16 @@ const JustIconWrapper = styled.span<{ size: Size }>`
 const Label = styled.span``;
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
-type Size = 'small' | 'medium' | 'large';
-type Appearance = 'filled' | 'ghost' | 'rounded' | 'borderless';
-type IconPosition = 'left' | 'right';
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonAppearance = 'filled' | 'ghost' | 'rounded' | 'borderless';
+export type IconPosition = 'left' | 'right';
 
 export type ButtonProps = {
-  size?: Size;
+  size?: ButtonSize;
   label?: string;
   purpose?: ButtonPurpose;
   iconPosition?: IconPosition;
-  appearance?: Appearance;
+  appearance?: ButtonAppearance;
   href?: string;
   target?: string;
   loading?: boolean;
