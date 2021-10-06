@@ -48,7 +48,7 @@ body {
 ### SCSS
 
 ```scss
-@use '@norges-domstoler/dds-design-tokens/dist/scss/colors';
+@use "@norges-domstoler/dds-design-tokens/dist/scss/colors";
 
 body {
   background-color: $dds-color-primary-base;
@@ -60,6 +60,7 @@ body {
 - colors
 - fontPackages (kun JS)
 - font
+- grid
 - spacing
 - iconSizes
 - borderRadius
