@@ -18,7 +18,7 @@ const {
 
 const containerBase: CSSObject = {
   boxShadow: OuterShadow.DdsShadow1Onlight,
-  borderRadius: BorderRadius.RadiiDdsBorderRadius2Radius,
+  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
   border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
   padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
   ...FontPackages.body_sans_02.base,
