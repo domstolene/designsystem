@@ -6,7 +6,11 @@ import {
   LabelHTMLAttributes
 } from 'react';
 import styled, { css, CSSObject } from 'styled-components';
-import { typographyTokens as tokens, textColors } from './Typography.tokens';
+import {
+  typographyTokens as tokens,
+  textColors,
+  textColorsArray
+} from './Typography.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
 import { TypographyType } from './Typography.types';
@@ -55,8 +59,13 @@ const getElementType = (element: string): ElementType => {
   }
 };
 
-const getColor = (color: TextColor): string => {
-  return typeof textColors[color] === 'undefined' ? color : textColors[color];
+export function isTextColor(color: string): color is TextColor {
+  return textColorsArray.indexOf(color) !== -1;
+}
+
+export const getTextColor = (color: TextColor | string): string => {
+  if (isTextColor(color)) return textColors[color];
+  return color;
 };
 
 const getElementStyling = (type: TypographyType) => {
@@ -76,7 +85,8 @@ type StyledTypographyProps = Pick<
   | 'underline'
   | 'withMargins'
   | 'interactionProps'
-> & { color: TextColor };
+  | 'color'
+>;
 
 const LinkIconWrapper = styled(IconWrapper)`
   ${tokens.typographyType.a.icon}
@@ -136,7 +146,7 @@ const StyledTypography = styled.p<StyledTypographyProps>`
   ${({ color }) =>
     color &&
     css`
-      color: ${getColor(color)};
+      color: ${getTextColor(color)};
     `}
   ${({ bold }) =>
     bold &&

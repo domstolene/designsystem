@@ -31,6 +31,25 @@ export const textColors = {
   gray9: Colors.DdsColorNeutralsGray9
 };
 
+export const textColorsArray = [
+  'interactive',
+  'primary',
+  'danger',
+  'success',
+  'warning',
+  'onLight',
+  'onDark',
+  'gray1',
+  'gray2',
+  'gray3',
+  'gray4',
+  'gray5',
+  'gray6',
+  'gray7',
+  'gray8',
+  'gray9'
+];
+
 const aBase: CSSObject = {
   color: Colors.DdsColorInteractiveBase,
   // ...FontPackages.body_sans_02.base,
