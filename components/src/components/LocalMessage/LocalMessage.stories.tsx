@@ -1,4 +1,4 @@
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { List, ListItem } from '../List';
 import { Typography } from '../Typography';
 import {
@@ -17,9 +17,8 @@ export default {
 };
 
 export const Overview = (args: LocalMessageProps) => {
-  return storyHTMLTemplate(
-    'LocalMessage - overview',
-    <>
+  return (
+    <StoryTemplate title="LocalMessage - overview">
       <DDSLocalMessage
         {...args}
         purpose="info"
@@ -97,52 +96,55 @@ export const Overview = (args: LocalMessageProps) => {
         layout="vertical"
         closable
       />
-    </>
+    </StoryTemplate>
   );
 };
 
 export const Default = (args: LocalMessageProps) => {
-  return storyHTMLTemplate(
-    'LocalMessage - default',
-    <DDSLocalMessage
-      {...args}
-      message={args.message || 'En tilfeldig melding'}
-    />
+  return (
+    <StoryTemplate title="LocalMessage - default">
+      <DDSLocalMessage
+        {...args}
+        message={args.message || 'En tilfeldig melding'}
+      />
+    </StoryTemplate>
   );
 };
 
 export const Closable = (args: LocalMessageProps) => {
-  return storyHTMLTemplate(
-    'LocalMessage - closable',
-    <DDSLocalMessage
-      {...args}
-      purpose={args.purpose}
-      message={args.message || 'En tilfeldig melding'}
-      closable
-    />
+  return (
+    <StoryTemplate title="LocalMessage - closable">
+      <DDSLocalMessage
+        {...args}
+        purpose={args.purpose}
+        message={args.message || 'En tilfeldig melding'}
+        closable
+      />
+    </StoryTemplate>
   );
 };
 
 export const ComplexContent = (args: LocalMessageProps) => {
-  return storyHTMLTemplate(
-    'LocalMessage - complex content',
-    <DDSLocalMessage
-      {...args}
-      purpose={args.purpose}
-      layout="vertical"
-      closable
-    >
-      <div>
-        <Typography typographyType="headingSans03" withMargins>
-          Dette er en viktig melding
-        </Typography>
-        <Typography withMargins>Meldingen har en liste i seg:</Typography>
-        <List>
-          <ListItem>Noe her</ListItem>
-          <ListItem>Og også her</ListItem>
-          <ListItem>Og litt mer info her</ListItem>
-        </List>
-      </div>
-    </DDSLocalMessage>
+  return (
+    <StoryTemplate title="LocalMessage - complex content">
+      <DDSLocalMessage
+        {...args}
+        purpose={args.purpose}
+        layout="vertical"
+        closable
+      >
+        <div>
+          <Typography typographyType="headingSans03" withMargins>
+            Dette er en viktig melding
+          </Typography>
+          <Typography withMargins>Meldingen har en liste i seg:</Typography>
+          <List>
+            <ListItem>Noe her</ListItem>
+            <ListItem>Og også her</ListItem>
+            <ListItem>Og litt mer info her</ListItem>
+          </List>
+        </div>
+      </DDSLocalMessage>
+    </StoryTemplate>
   );
 };

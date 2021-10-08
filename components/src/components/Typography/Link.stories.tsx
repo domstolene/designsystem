@@ -1,5 +1,6 @@
-import { Typography as DDSTypography, Typography } from './Typography';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { Typography as DDSTypography, Typography } from '.';
+import { textColors } from './Typography.tokens';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Typography/Overview/Link',
@@ -12,17 +13,22 @@ export default {
 };
 
 export const Link = () => {
-  return storyHTMLGridTemplate(
-    'Link - overview',
-    <>
+  return (
+    <StoryTemplate title="Link - overview">
       <Typography typographyType="a" href="https://www.domstol.no">
         Link
       </Typography>
       <Typography typographyType="a" href="https://www.domstol.no" externalLink>
         Link
       </Typography>
-    </>,
-    '20px',
-    1
+      <Typography
+        typographyType="a"
+        href="https://www.domstol.no"
+        color={textColors.gray7}
+        interactionProps={{ hover: { color: textColors.gray4 } }}
+      >
+        Link
+      </Typography>
+    </StoryTemplate>
   );
 };

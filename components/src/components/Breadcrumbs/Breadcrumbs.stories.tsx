@@ -1,6 +1,5 @@
 import { Breadcrumbs, BreadcrumbsProps, Breadcrumb } from '.';
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Breadcrumbs',
@@ -15,9 +14,8 @@ export default {
 };
 
 export const Overview = (args: BreadcrumbsProps) => {
-  return storyHTMLGridTemplate(
-    'Breadcrumbs - overview',
-    <>
+  return (
+    <StoryTemplate title="Breadcrumbs - overview" display="grid">
       <Breadcrumbs {...args}>
         <Breadcrumb href="#">Side 1</Breadcrumb>
         <Breadcrumb href="#">Side 2</Breadcrumb>
@@ -28,28 +26,30 @@ export const Overview = (args: BreadcrumbsProps) => {
         <Breadcrumb href="#">Side 2</Breadcrumb>
         <Breadcrumb>Side 3</Breadcrumb>
       </Breadcrumbs>
-    </>
+    </StoryTemplate>
   );
 };
 
 export const Default = (args: BreadcrumbsProps) => {
-  return storyHTMLTemplate(
-    'Breadcrumbs - default',
-    <Breadcrumbs {...args}>
-      <Breadcrumb href="#">Side 1</Breadcrumb>
-      <Breadcrumb href="#">Side 2</Breadcrumb>
-      <Breadcrumb>Side 3</Breadcrumb>
-    </Breadcrumbs>
+  return (
+    <StoryTemplate title="Breadcrumbs - default" gap="0">
+      <Breadcrumbs {...args}>
+        <Breadcrumb href="#">Side 1</Breadcrumb>
+        <Breadcrumb href="#">Side 2</Breadcrumb>
+        <Breadcrumb>Side 3</Breadcrumb>
+      </Breadcrumbs>
+    </StoryTemplate>
   );
 };
 
-export const SmallScreen = () => {
-  return storyHTMLTemplate(
-    'Breadcrumbs - small screen',
-    <Breadcrumbs smallScreen>
-      <Breadcrumb href="#">Side 1</Breadcrumb>
-      <Breadcrumb href="#">Side 2</Breadcrumb>
-      <Breadcrumb>Side 3</Breadcrumb>
-    </Breadcrumbs>
+export const SmallScreen = (args: BreadcrumbsProps) => {
+  return (
+    <StoryTemplate title="Breadcrumbs - small screen" gap="0">
+      <Breadcrumbs smallScreen>
+        <Breadcrumb href="#">Side 1</Breadcrumb>
+        <Breadcrumb href="#">Side 2</Breadcrumb>
+        <Breadcrumb>Side 3</Breadcrumb>
+      </Breadcrumbs>
+    </StoryTemplate>
   );
 };

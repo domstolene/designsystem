@@ -1,6 +1,5 @@
 import { Button as DDSButton, ButtonProps } from './Button';
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 
@@ -21,9 +20,8 @@ export default {
 };
 
 export const OverviewWithText = (args: ButtonProps) => {
-  return storyHTMLGridTemplate(
-    'Button overview - with text',
-    <>
+  return (
+    <StoryTemplate title="Button overview - with text" display="grid">
       <DDSButton
         {...args}
         label="Primary"
@@ -187,14 +185,13 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-    </>
+    </StoryTemplate>
   );
 };
 
 export const OverviewJustIcon = (args: ButtonProps) => {
-  return storyHTMLGridTemplate(
-    'Button overview - just icon',
-    <>
+  return (
+    <StoryTemplate title="Button overview - just icon" display="grid">
       <DDSButton
         {...args}
         purpose="primary"
@@ -267,14 +264,13 @@ export const OverviewJustIcon = (args: ButtonProps) => {
         appearance="rounded"
         Icon={CloseOutlinedIcon}
       />
-    </>
+    </StoryTemplate>
   );
 };
 
 export const OverviewSizes = (args: ButtonProps) => {
-  return storyHTMLGridTemplate(
-    'Button overview - sizes',
-    <>
+  return (
+    <StoryTemplate title="Button overview - sizes" display="grid">
       <DDSButton
         {...args}
         label="Primary"
@@ -344,14 +340,13 @@ export const OverviewSizes = (args: ButtonProps) => {
         size="large"
         Icon={CloseOutlinedIcon}
       />
-    </>
+    </StoryTemplate>
   );
 };
 
 export const OverviewFullWidth = (args: ButtonProps) => {
-  return storyHTMLTemplate(
-    'Button overview - full width',
-    <>
+  return (
+    <StoryTemplate title="Button overview - full width">
       <DDSButton
         {...args}
         label={args.label || 'Primary'}
@@ -388,39 +383,41 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         Icon={CloseOutlinedIcon}
         fullWidth
       />
-    </>
+    </StoryTemplate>
   );
 };
 
 export const Default = (args: ButtonProps) => {
-  return storyHTMLTemplate(
-    'Button default',
-    <DDSButton {...args} label={args.label || 'Tekst'} />
+  return (
+    <StoryTemplate title="Button - default">
+      <DDSButton {...args} label={args.label || 'Tekst'} />
+    </StoryTemplate>
   );
 };
 
 export const WithIcon = (args: ButtonProps) => {
-  return storyHTMLTemplate(
-    'Button with Icon',
-    <DDSButton
-      {...args}
-      label={args.label || 'Tekst'}
-      iconPosition={args.iconPosition || 'left'}
-      Icon={AddCircleOutlineOutlinedIcon}
-    />
+  return (
+    <StoryTemplate title="Button - with icon">
+      <DDSButton
+        {...args}
+        label={args.label || 'Tekst'}
+        iconPosition={args.iconPosition || 'left'}
+        Icon={AddCircleOutlineOutlinedIcon}
+      />
+    </StoryTemplate>
   );
 };
 
 export const Icon = (args: ButtonProps) => {
-  return storyHTMLTemplate(
-    'Button Icon',
-    <DDSButton {...args} Icon={CloseOutlinedIcon} />
+  return (
+    <StoryTemplate title="Button - just icon">
+      <DDSButton {...args} Icon={CloseOutlinedIcon} />
+    </StoryTemplate>
   );
 };
 export const Ghost = (args: ButtonProps) => {
-  return storyHTMLTemplate(
-    'Button ghost',
-    <>
+  return (
+    <StoryTemplate title="Button - ghost">
       <DDSButton
         {...args}
         label={args.label || 'tekst'}
@@ -439,14 +436,13 @@ export const Ghost = (args: ButtonProps) => {
         purpose="danger"
         appearance="ghost"
       />
-    </>
+    </StoryTemplate>
   );
 };
 
 export const Borderless = (args: ButtonProps) => {
-  return storyHTMLTemplate(
-    'Button borderless',
-    <>
+  return (
+    <StoryTemplate title="Button - borderless">
       <DDSButton
         {...args}
         label={args.label || 'tekst'}
@@ -465,14 +461,13 @@ export const Borderless = (args: ButtonProps) => {
         purpose="danger"
         appearance="borderless"
       />
-    </>
+    </StoryTemplate>
   );
 };
 
 export const Rounded = (args: ButtonProps) => {
-  return storyHTMLTemplate(
-    'Button rounded',
-    <>
+  return (
+    <StoryTemplate title="Button - rounded">
       <DDSButton
         {...args}
         label={args.label || 'tekst'}
@@ -491,6 +486,6 @@ export const Rounded = (args: ButtonProps) => {
         purpose="danger"
         appearance="rounded"
       />
-    </>
+    </StoryTemplate>
   );
 };

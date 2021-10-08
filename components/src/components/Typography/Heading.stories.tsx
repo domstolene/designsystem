@@ -1,5 +1,5 @@
 import { Typography as DDSTypography } from './Typography';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Typography/Overview/Headings',
@@ -7,9 +7,8 @@ export default {
 };
 
 export const Headings = () => {
-  return storyHTMLGridTemplate(
-    'Headings - overview',
-    <>
+  return (
+    <StoryTemplate title="Headings - overview" gap="30px">
       <DDSTypography typographyType="headingSans01">
         Heading-sans-01
       </DDSTypography>
@@ -34,8 +33,6 @@ export const Headings = () => {
       <DDSTypography typographyType="headingSans08">
         Heading-sans-08
       </DDSTypography>
-    </>,
-    '30px',
-    1
+    </StoryTemplate>
   );
 };

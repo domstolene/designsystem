@@ -1,5 +1,5 @@
 import { Typography as DDSTypography, TypographyProps } from './Typography';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 type StoryTProps = {
   text: string;
@@ -27,8 +27,9 @@ export default {
 
 export const Default = (args: StoryTProps) => {
   const { text, ...rest } = args;
-  return storyHTMLGridTemplate(
-    'Typography - default',
-    <DDSTypography {...rest}>{text || 'default'}</DDSTypography>
+  return (
+    <StoryTemplate title="Typography - default">
+      <DDSTypography {...rest}>{text || 'default'}</DDSTypography>
+    </StoryTemplate>
   );
 };

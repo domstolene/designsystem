@@ -8,7 +8,7 @@ import { Typography } from '../../components/Typography';
 import { TextInput } from '../../components/TextInput';
 import { GlobalMessage } from '../../components/GlobalMessage';
 import { LocalMessage } from '../../components/LocalMessage';
-import { storyHTMLTemplate } from '../storyHTMLTemplate';
+import { StoryTemplate } from '../StoryTemplate';
 
 export default {
   title: 'Playground/color test'
@@ -178,43 +178,39 @@ const TestForm = (color?: TestColor) => (
       <Breadcrumb href="#">Arv og skifte</Breadcrumb>
       <Breadcrumb>Skjema</Breadcrumb>
     </BreadcrumbsStyled>
-    {storyHTMLTemplate(
-      'Skjema',
-      <>
-        <InputStyled colorpalette={color} label="Fornavn" />
-        <InputStyled colorpalette={color} label="Etternavn" />
-        <CheckboxGroup label="Interesser">
-          <CheckboxStyled colorpalette={color} label="Bøker" />
-          <CheckboxStyled colorpalette={color} label="Film" />
-          <CheckboxStyled colorpalette={color} label="Sport" />
-        </CheckboxGroup>
-        <Typography>
-          De fleste arvinger velger å stå for skiftet selv. Privat skifte kan
-          først starte når du har fått skifteattest. Skjemaet{' '}
-          <LinkStyled typographyType="a" colorpalette={color}>
-            Erklæring om privat skifte av dødsbo
-          </LinkStyled>{' '}
-          må fylles ut. På skjemaet må en eller flere av arvingene overta
-          ansvaret for avdødes gjeld. Den eller de som sender inn skjemaet, er
-          selv ansvarlig for at retten har fått en fullstendig oversikt over
-          hvem som er arvinger. Det er egne skjema for gjenlevende
-          ektefelle/arveberettig samboer som mener å være enearving etter
-          bestemmelsene om minstearv.
-        </Typography>
-        <LocalMessageStyled purpose="info">
-          Dette er en infomelding
-        </LocalMessageStyled>
-        <RadioButtonGroup label="Sivilstand">
-          <RadioButtonStyled name="test" colorpalette={color} label="Ugift" />
-          <RadioButtonStyled name="test" colorpalette={color} label="Gift" />
-        </RadioButtonGroup>
-        <LocalMessage purpose="danger">
-          Dette er en danger-melding for testing
-        </LocalMessage>
-        <CheckboxStyled colorpalette={color} label="Jeg bekrefter noe" />
-        <ButtonStyled colorpalette={color} label="Send" />
-      </>
-    )}
+    <StoryTemplate title="Skjema">
+      <InputStyled colorpalette={color} label="Fornavn" />
+      <InputStyled colorpalette={color} label="Etternavn" />
+      <CheckboxGroup label="Interesser">
+        <CheckboxStyled colorpalette={color} label="Bøker" />
+        <CheckboxStyled colorpalette={color} label="Film" />
+        <CheckboxStyled colorpalette={color} label="Sport" />
+      </CheckboxGroup>
+      <Typography>
+        De fleste arvinger velger å stå for skiftet selv. Privat skifte kan
+        først starte når du har fått skifteattest. Skjemaet{' '}
+        <LinkStyled typographyType="a" colorpalette={color}>
+          Erklæring om privat skifte av dødsbo
+        </LinkStyled>{' '}
+        må fylles ut. På skjemaet må en eller flere av arvingene overta ansvaret
+        for avdødes gjeld. Den eller de som sender inn skjemaet, er selv
+        ansvarlig for at retten har fått en fullstendig oversikt over hvem som
+        er arvinger. Det er egne skjema for gjenlevende ektefelle/arveberettig
+        samboer som mener å være enearving etter bestemmelsene om minstearv.
+      </Typography>
+      <LocalMessageStyled purpose="info">
+        Dette er en infomelding
+      </LocalMessageStyled>
+      <RadioButtonGroup label="Sivilstand">
+        <RadioButtonStyled name="test" colorpalette={color} label="Ugift" />
+        <RadioButtonStyled name="test" colorpalette={color} label="Gift" />
+      </RadioButtonGroup>
+      <LocalMessage purpose="danger">
+        Dette er en danger-melding for testing
+      </LocalMessage>
+      <CheckboxStyled colorpalette={color} label="Jeg bekrefter noe" />
+      <ButtonStyled colorpalette={color} label="Send" />
+    </StoryTemplate>
     <Footer />
   </>
 );

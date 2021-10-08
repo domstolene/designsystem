@@ -1,5 +1,5 @@
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
+
 import { Select as DDSSelect, SelectProps } from './Select';
 
 export default {
@@ -44,9 +44,13 @@ const optionsLong = [
 ].map(s => ({ label: s, value: s }));
 
 export const Overview = (args: SelectProps) => {
-  return storyHTMLGridTemplate(
-    'Select - overview',
-    <>
+  return (
+    <StoryTemplate
+      title="Select - overview"
+      gap="25px"
+      display="grid"
+      columnsAmount={2}
+    >
       <DDSSelect {...args} label={args.label || 'Label'} options={options} />
       <DDSSelect
         {...args}
@@ -97,33 +101,25 @@ export const Overview = (args: SelectProps) => {
         options={options}
       />
       <DDSSelect {...args} options={options} />
-    </>,
-    '25px',
-    2
+    </StoryTemplate>
   );
 };
 
 export const Default = (args: SelectProps) => {
-  return storyHTMLTemplate(
-    'Select default',
-    <DDSSelect {...args} label={args.label || 'Label'} options={options} />
+  return (
+    <StoryTemplate title="Select default">
+      <DDSSelect {...args} label={args.label || 'Label'} options={options} />
+    </StoryTemplate>
   );
 };
 export const ManyItems = (args: SelectProps) => {
-  return storyHTMLTemplate(
-    'Select - many options',
-    <DDSSelect {...args} label={args.label || 'Label'} options={optionsLong} />
-  );
-};
-
-export const SelectError = (args: SelectProps) => {
-  return storyHTMLTemplate(
-    'Select - error',
-    <DDSSelect
-      {...args}
-      label={args.label || 'Label'}
-      errorMessage="Dette er en feilmelding"
-      options={options}
-    />
+  return (
+    <StoryTemplate title="Select - many options">
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        options={optionsLong}
+      />
+    </StoryTemplate>
   );
 };

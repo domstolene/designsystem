@@ -1,5 +1,5 @@
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
+
 import { Search as DDSSearch, SearchProps } from './Search';
 
 export default {
@@ -16,9 +16,8 @@ export default {
 };
 
 export const Overview = (args: SearchProps) => {
-  return storyHTMLGridTemplate(
-    'Search - overview',
-    <>
+  return (
+    <StoryTemplate title="Search - overview" display="grid" columnsAmount={2}>
       <DDSSearch {...args} componentSize="small" />
       <DDSSearch
         {...args}
@@ -70,19 +69,22 @@ export const Overview = (args: SearchProps) => {
         tip="Dette er en hjelpetekst"
         buttonProps={{ onClick: e => {}, label: 'Søk' }}
       />
-    </>,
-    '30px',
-    2
+    </StoryTemplate>
   );
 };
 
 export const Default = (args: SearchProps) => {
-  return storyHTMLTemplate('Search - default', <DDSSearch {...args} />);
+  return (
+    <StoryTemplate title="Search - default">
+      <DDSSearch {...args} />
+    </StoryTemplate>
+  );
 };
 
 export const WithButton = (args: SearchProps) => {
-  return storyHTMLTemplate(
-    'Search - with button',
-    <DDSSearch {...args} buttonProps={{ onClick: e => {}, label: 'Søk' }} />
+  return (
+    <StoryTemplate title="Search - with button">
+      <DDSSearch {...args} buttonProps={{ onClick: e => {}, label: 'Søk' }} />
+    </StoryTemplate>
   );
 };

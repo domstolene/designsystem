@@ -19,7 +19,7 @@ import {
   headerCells,
   mapCellContents
 } from './tableData';
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import SupervisorAccountOutlinedIcon from '@material-ui/icons/SupervisorAccountOutlined';
 
@@ -44,89 +44,93 @@ const mappedHeaderCells = headerCells.map(headerCell => {
 });
 
 export const Default = (args: TableProps) => {
-  return storyHTMLTemplate(
-    'Table - default',
-    <DDSTable {...args}>
-      <Head>
-        <Row type="head">{mappedHeaderCells}</Row>
-      </Head>
-      <Body>
-        {mapCellContents(data, headerCells).map(row => (
-          <Row key={row.toString()}>
-            {row.map(cellContent => (
-              <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
-            ))}
-          </Row>
-        ))}
-      </Body>
-    </DDSTable>
+  return (
+    <StoryTemplate title="Table - default">
+      <DDSTable {...args}>
+        <Head>
+          <Row type="head">{mappedHeaderCells}</Row>
+        </Head>
+        <Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+              ))}
+            </Row>
+          ))}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
 export const Compact = (args: TableProps) => {
-  return storyHTMLTemplate(
-    'Table - compact',
-    <DDSTable {...args} density="compact">
-      <Head>
-        <Row type="head">{mappedHeaderCells}</Row>
-      </Head>
-      <Body>
-        {mapCellContents(data, headerCells).map(row => (
-          <Row key={row.toString()}>
-            {row.map(cellContent => (
-              <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
-            ))}
-          </Row>
-        ))}
-      </Body>
-    </DDSTable>
+  return (
+    <StoryTemplate title="Table - compact">
+      <DDSTable {...args} density="compact">
+        <Head>
+          <Row type="head">{mappedHeaderCells}</Row>
+        </Head>
+        <Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+              ))}
+            </Row>
+          ))}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
 export const StickyHeader = (args: TableProps) => {
-  return storyHTMLTemplate(
-    'Table - sticky header',
-    <DDSTable {...args} stickyHeader>
-      <Head>
-        <Row type="head">{mappedHeaderCells}</Row>
-      </Head>
-      <Body>
-        {mapCellContents(data, headerCells).map(row => (
-          <Row key={row.toString()}>
-            {row.map(cellContent => (
-              <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
-            ))}
-          </Row>
-        ))}
-        {mapCellContents(data, headerCells).map(row => (
-          <Row key={row.toString()}>
-            {row.map(cellContent => (
-              <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
-            ))}
-          </Row>
-        ))}
-      </Body>
-    </DDSTable>
+  return (
+    <StoryTemplate title="Table - sticky header">
+      <DDSTable {...args} stickyHeader>
+        <Head>
+          <Row type="head">{mappedHeaderCells}</Row>
+        </Head>
+        <Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+              ))}
+            </Row>
+          ))}
+          {mapCellContents(data, headerCells).map(row => (
+            <Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+              ))}
+            </Row>
+          ))}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
 export const Hoverable = (args: TableProps) => {
-  return storyHTMLTemplate(
-    'Table - hoverable',
-    <DDSTable {...args}>
-      <Head>
-        <Row type="head">{mappedHeaderCells}</Row>
-      </Head>
-      <Body>
-        {mapCellContents(data, headerCells).map(row => (
-          <Row key={row.toString()} hoverable>
-            {row.map(cellContent => (
-              <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
-            ))}
-          </Row>
-        ))}
-      </Body>
-    </DDSTable>
+  return (
+    <StoryTemplate title="Table - hoverable">
+      <DDSTable {...args}>
+        <Head>
+          <Row type="head">{mappedHeaderCells}</Row>
+        </Head>
+        <Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Row key={row.toString()} hoverable>
+              {row.map(cellContent => (
+                <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+              ))}
+            </Row>
+          ))}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
@@ -140,33 +144,33 @@ export const WithButtonAndIcons = (args: TableProps) => {
       iconPosition="left"
     />
   );
-
-  return storyHTMLTemplate(
-    'Table - buttons and icons',
-    <DDSTable {...args}>
-      <Head>
-        <Row type="head">
-          <Cell type="head">Navn</Cell>
-          <Cell type="head">Navn</Cell>
-          <Cell type="head">Rolle</Cell>
-          <Cell type="head"></Cell>
-        </Row>
-      </Head>
-      <Body>
-        {data.map(item => (
-          <Row key={item.name}>
-            <Cell layout="text and icon">
-              {adminIcon} {item.name}
-            </Cell>
-            <Cell layout="text and icon">
-              <span>{item.name}</span> {adminIcon}
-            </Cell>
-            <Cell>Admin</Cell>
-            <Cell layout="center">{deleteButton}</Cell>
+  return (
+    <StoryTemplate title="Table - with buttons and icons">
+      <DDSTable {...args}>
+        <Head>
+          <Row type="head">
+            <Cell type="head">Navn</Cell>
+            <Cell type="head">Navn</Cell>
+            <Cell type="head">Rolle</Cell>
+            <Cell type="head"></Cell>
           </Row>
-        ))}
-      </Body>
-    </DDSTable>
+        </Head>
+        <Body>
+          {data.map(item => (
+            <Row key={item.name}>
+              <Cell layout="text and icon">
+                {adminIcon} {item.name}
+              </Cell>
+              <Cell layout="text and icon">
+                <span>{item.name}</span> {adminIcon}
+              </Cell>
+              <Cell>Admin</Cell>
+              <Cell layout="center">{deleteButton}</Cell>
+            </Row>
+          ))}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
@@ -189,34 +193,35 @@ export const WithSum = (args: TableProps) => {
       amount: 23
     }
   ];
-  return storyHTMLTemplate(
-    'Table - sum',
-    <DDSTable {...args}>
-      <Head>
-        <Row type="head">
-          <Cell type="head">Saksnummer</Cell>
-          <Cell type="head" layout="right">
-            Antall dokumenter
-          </Cell>
-        </Row>
-      </Head>
-      <Body>
-        {sumData.map(item => (
-          <Row key={item.id}>
-            <Cell>{item.id}</Cell>
-            <Cell layout="right">{item.amount}</Cell>
+  return (
+    <StoryTemplate title="Table - sum">
+      <DDSTable {...args}>
+        <Head>
+          <Row type="head">
+            <Cell type="head">Saksnummer</Cell>
+            <Cell type="head" layout="right">
+              Antall dokumenter
+            </Cell>
           </Row>
-        ))}
-      </Body>
-      <Foot>
-        <Row mode="sum">
-          <Cell>Totalt</Cell>
-          <Cell layout="right">
-            {sumData.reduce((a, b) => a + (b.amount || 0), 0)}
-          </Cell>
-        </Row>
-      </Foot>
-    </DDSTable>
+        </Head>
+        <Body>
+          {sumData.map(item => (
+            <Row key={item.id}>
+              <Cell>{item.id}</Cell>
+              <Cell layout="right">{item.amount}</Cell>
+            </Row>
+          ))}
+        </Body>
+        <Foot>
+          <Row mode="sum">
+            <Cell>Totalt</Cell>
+            <Cell layout="right">
+              {sumData.reduce((a, b) => a + (b.amount || 0), 0)}
+            </Cell>
+          </Row>
+        </Foot>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
@@ -289,134 +294,136 @@ export const WithCheckbox = (args: TableProps) => {
       setselectedRows([]);
     }
   }
-
-  return storyHTMLTemplate(
-    'Table - with checkboxes',
-    <DDSTable {...args}>
-      <Head>
-        <Row type="head">
-          <Cell type="head">
-            <Checkbox
-              indeterminate={
-                selectedRows?.length > 0 && selectedRows?.length !== rows.length
-                  ? true
-                  : false
-              }
-              checked={selectedRows?.length === rows.length ? true : false}
-              onChange={e => changeAll(e)}
-              // onClick={(e) => handleCheckboxClick(e)}
-            />
-          </Cell>
-          {mappedHeaderCells}
-        </Row>
-      </Head>
-      <Body>
-        {rows.map(row => {
-          const isSelected = selectedRows.find(
-            selectedRow => row.id === selectedRow.id
-          )
-            ? true
-            : false;
-          return (
-            <Row
-              key={`row-${row.id}`}
-              hoverable
-              selected={isSelected}
-              // onClick={() => handleClick(row)}
-            >
-              <Cell>
-                <Checkbox
-                  id={row.id}
-                  name={row.name}
-                  checked={isSelected}
-                  onChange={e => handleChange(e, row)}
-                  // onClick={(e) => handleCheckboxClick(e)}
-                />
-              </Cell>
-              <Cell>{row.name}</Cell>
-              <Cell>{row.fnumber}</Cell>
-              <Cell>{row.employer}</Cell>
-              <Cell>{row.orgnumber}</Cell>
-              <Cell>{row.percentage}</Cell>
-            </Row>
-          );
-        })}
-      </Body>
-    </DDSTable>
+  return (
+    <StoryTemplate title="Table - with checkboxes">
+      <DDSTable {...args}>
+        <Head>
+          <Row type="head">
+            <Cell type="head">
+              <Checkbox
+                indeterminate={
+                  selectedRows?.length > 0 &&
+                  selectedRows?.length !== rows.length
+                    ? true
+                    : false
+                }
+                checked={selectedRows?.length === rows.length ? true : false}
+                onChange={e => changeAll(e)}
+                // onClick={(e) => handleCheckboxClick(e)}
+              />
+            </Cell>
+            {mappedHeaderCells}
+          </Row>
+        </Head>
+        <Body>
+          {rows.map(row => {
+            const isSelected = selectedRows.find(
+              selectedRow => row.id === selectedRow.id
+            )
+              ? true
+              : false;
+            return (
+              <Row
+                key={`row-${row.id}`}
+                hoverable
+                selected={isSelected}
+                // onClick={() => handleClick(row)}
+              >
+                <Cell>
+                  <Checkbox
+                    id={row.id}
+                    name={row.name}
+                    checked={isSelected}
+                    onChange={e => handleChange(e, row)}
+                    // onClick={(e) => handleCheckboxClick(e)}
+                  />
+                </Cell>
+                <Cell>{row.name}</Cell>
+                <Cell>{row.fnumber}</Cell>
+                <Cell>{row.employer}</Cell>
+                <Cell>{row.orgnumber}</Cell>
+                <Cell>{row.percentage}</Cell>
+              </Row>
+            );
+          })}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
 export const Complex = (args: TableProps) => {
-  return storyHTMLTemplate(
-    'Table - complex',
-    <DDSTable {...args} stickyHeader>
-      <colgroup>
-        <col />
-      </colgroup>
-      <colgroup span={2}></colgroup>
-      <colgroup span={2}></colgroup>
-      <Body>
-        <Row type="head">
-          <Cell rowSpan={2}></Cell>
-          <Cell type="head" colSpan={2} scope="colgroup">
-            Mars
-          </Cell>
-          <Cell type="head" colSpan={2} scope="colgroup">
-            Venus
-          </Cell>
-        </Row>
-        <Row type="head">
-          <Cell type="head" scope="col">
-            Produced
-          </Cell>
-          <Cell type="head" scope="col">
-            Sold
-          </Cell>
-          <Cell type="head" scope="col">
-            Produced
-          </Cell>
-          <Cell type="head" scope="col">
-            Sold
-          </Cell>
-        </Row>
-        <Row>
-          <Cell type="head" scope="row">
-            Teddy Bears
-          </Cell>
-          <Cell>50,000</Cell>
-          <Cell>30,000</Cell>
-          <Cell>100,000</Cell>
-          <Cell>80,000</Cell>
-        </Row>
-        <Row>
-          <Cell type="head" scope="row">
-            Board Games
-          </Cell>
-          <Cell>10,000</Cell>
-          <Cell>5,000</Cell>
-          <Cell>12,000</Cell>
-          <Cell>9,000</Cell>
-        </Row>
-        <Row>
-          <Cell type="head" scope="row">
-            Dolls
-          </Cell>
-          <Cell>50,000</Cell>
-          <Cell>30,000</Cell>
-          <Cell>100,000</Cell>
-          <Cell>80,000</Cell>
-        </Row>
-        <Row>
-          <Cell type="head" scope="row">
-            Action Figures
-          </Cell>
-          <Cell>10,000</Cell>
-          <Cell>5,000</Cell>
-          <Cell>12,000</Cell>
-          <Cell>9,000</Cell>
-        </Row>
-      </Body>
-    </DDSTable>
+  return (
+    <StoryTemplate title="Table - complex">
+      <DDSTable {...args} stickyHeader>
+        <colgroup>
+          <col />
+        </colgroup>
+        <colgroup span={2}></colgroup>
+        <colgroup span={2}></colgroup>
+        <Body>
+          <Row type="head">
+            <Cell rowSpan={2}></Cell>
+            <Cell type="head" colSpan={2} scope="colgroup">
+              Mars
+            </Cell>
+            <Cell type="head" colSpan={2} scope="colgroup">
+              Venus
+            </Cell>
+          </Row>
+          <Row type="head">
+            <Cell type="head" scope="col">
+              Produced
+            </Cell>
+            <Cell type="head" scope="col">
+              Sold
+            </Cell>
+            <Cell type="head" scope="col">
+              Produced
+            </Cell>
+            <Cell type="head" scope="col">
+              Sold
+            </Cell>
+          </Row>
+          <Row>
+            <Cell type="head" scope="row">
+              Teddy Bears
+            </Cell>
+            <Cell>50,000</Cell>
+            <Cell>30,000</Cell>
+            <Cell>100,000</Cell>
+            <Cell>80,000</Cell>
+          </Row>
+          <Row>
+            <Cell type="head" scope="row">
+              Board Games
+            </Cell>
+            <Cell>10,000</Cell>
+            <Cell>5,000</Cell>
+            <Cell>12,000</Cell>
+            <Cell>9,000</Cell>
+          </Row>
+          <Row>
+            <Cell type="head" scope="row">
+              Dolls
+            </Cell>
+            <Cell>50,000</Cell>
+            <Cell>30,000</Cell>
+            <Cell>100,000</Cell>
+            <Cell>80,000</Cell>
+          </Row>
+          <Row>
+            <Cell type="head" scope="row">
+              Action Figures
+            </Cell>
+            <Cell>10,000</Cell>
+            <Cell>5,000</Cell>
+            <Cell>12,000</Cell>
+            <Cell>9,000</Cell>
+          </Row>
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
@@ -477,71 +484,73 @@ export const Sortable = (args: TableProps) => {
       return 0;
     });
 
-  return storyHTMLTemplate(
-    'Table - sortable',
-    <DDSTable {...args}>
-      <Head>
-        <Row type="head">
-          {headerSortCells.map(headerCell => {
-            if (!headerCell.sortOrder) {
+  return (
+    <StoryTemplate title="Table - sortable">
+      <DDSTable {...args}>
+        <Head>
+          <Row type="head">
+            {headerSortCells.map(headerCell => {
+              if (!headerCell.sortOrder) {
+                return (
+                  <Cell type="head" key={`head-${headerCell.dataName}`}>
+                    {headerCell.name}
+                  </Cell>
+                );
+              }
               return (
-                <Cell type="head" key={`head-${headerCell.dataName}`}>
+                <SortCell
+                  key={`head-${headerCell.dataName}`}
+                  onClick={() => onClickSort(headerCell)}
+                  isSorted={headerCell.isSorted}
+                  sortOrder={headerCell.sortOrder}
+                >
                   {headerCell.name}
-                </Cell>
+                </SortCell>
               );
-            }
-            return (
-              <SortCell
-                key={`head-${headerCell.dataName}`}
-                onClick={() => onClickSort(headerCell)}
-                isSorted={headerCell.isSorted}
-                sortOrder={headerCell.sortOrder}
-              >
-                {headerCell.name}
-              </SortCell>
-            );
-          })}
-        </Row>
-      </Head>
-      <Body>
-        {dataCellContents?.map(row => (
-          <Row key={row.toString()}>
-            {row.map(cellContent => (
-              <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
-            ))}
+            })}
           </Row>
-        ))}
-      </Body>
-    </DDSTable>
+        </Head>
+        <Body>
+          {dataCellContents?.map(row => (
+            <Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+              ))}
+            </Row>
+          ))}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };
 
 export const ColumnAndRowHeaders = (args: TableProps) => {
-  return storyHTMLTemplate(
-    'Table - column and row headers',
-    <DDSTable {...args}>
-      <Body>
-        <Row>
-          <Cell></Cell>
-          {headerCells.map(headerCell => (
-            <Cell key={`head-${headerCell.dataName}`} type="head" scope="col">
-              {headerCell.name}
-            </Cell>
-          ))}
-        </Row>
-        {data.map(item => (
-          <Row key={item.name}>
-            <Cell type="head" scope="row">
-              Header
-            </Cell>
-            <Cell> {item.name} </Cell>
-            <Cell> {item.fnumber} </Cell>
-            <Cell> {item.employer} </Cell>
-            <Cell> {item.orgnumber} </Cell>
-            <Cell> {item.percentage} </Cell>
+  return (
+    <StoryTemplate title="Table - column and row headers">
+      <DDSTable {...args}>
+        <Body>
+          <Row>
+            <Cell></Cell>
+            {headerCells.map(headerCell => (
+              <Cell key={`head-${headerCell.dataName}`} type="head" scope="col">
+                {headerCell.name}
+              </Cell>
+            ))}
           </Row>
-        ))}
-      </Body>
-    </DDSTable>
+          {data.map(item => (
+            <Row key={item.name}>
+              <Cell type="head" scope="row">
+                Header
+              </Cell>
+              <Cell> {item.name} </Cell>
+              <Cell> {item.fnumber} </Cell>
+              <Cell> {item.employer} </Cell>
+              <Cell> {item.orgnumber} </Cell>
+              <Cell> {item.percentage} </Cell>
+            </Row>
+          ))}
+        </Body>
+      </DDSTable>
+    </StoryTemplate>
   );
 };

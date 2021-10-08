@@ -33,7 +33,8 @@ export const textColors = {
 
 const aBase: CSSObject = {
   color: Colors.DdsColorInteractiveBase,
-  ...FontPackages.body_sans_02.base,
+  // ...FontPackages.body_sans_02.base,
+  font: 'inherit',
   textDecoration: 'underline',
   width: 'fit-content'
 };
@@ -61,6 +62,10 @@ const aBoldBase: CSSObject = {
 
 const boldBase: CSSObject = {
   fontWeight: 600
+};
+
+const underlineBase: CSSObject = {
+  textDecoration: 'underline'
 };
 
 const italicBase: CSSObject = {
@@ -567,6 +572,9 @@ export const typographyTokens = {
     },
     italic: {
       base: italicBase
+    },
+    underline: {
+      base: underlineBase
     }
   }
 };

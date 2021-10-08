@@ -1,5 +1,4 @@
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { List as DDSList, ListItem, ListProps } from '.';
 import { Typography } from '../Typography';
 
@@ -9,9 +8,8 @@ export default {
 };
 
 export const Overview = (args: ListProps) => {
-  return storyHTMLGridTemplate(
-    'List - overview',
-    <>
+  return (
+    <StoryTemplate title="List - overview" display="grid" columnsAmount={4}>
       <DDSList {...args} typographyType="bodySans01">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
@@ -299,48 +297,48 @@ export const Overview = (args: ListProps) => {
           </DDSList>
         </ListItem>
       </DDSList>
-    </>,
-    '25px',
-    4
+    </StoryTemplate>
   );
 };
+
 export const Default = (args: ListProps) => {
-  return storyHTMLTemplate(
-    'List - default',
-    <DDSList {...args}>
-      <ListItem>Item</ListItem>
-      <ListItem>Item</ListItem>
-    </DDSList>
+  return (
+    <StoryTemplate title="List - default">
+      <DDSList {...args}>
+        <ListItem>Item</ListItem>
+        <ListItem>Item</ListItem>
+      </DDSList>
+    </StoryTemplate>
   );
 };
 
 export const Nested = (args: ListProps) => {
-  return storyHTMLTemplate(
-    'List - nested',
-    <DDSList {...args}>
-      <ListItem>Item</ListItem>
-      <ListItem>Item</ListItem>
-      <ListItem>
-        Item
-        <DDSList {...args}>
-          <ListItem>Item</ListItem>
-          <ListItem>
-            Item
-            <DDSList {...args}>
-              <ListItem>Item</ListItem>
-              <ListItem>Item</ListItem>
-            </DDSList>
-          </ListItem>
-        </DDSList>
-      </ListItem>
-    </DDSList>
+  return (
+    <StoryTemplate title="List - nested">
+      <DDSList {...args}>
+        <ListItem>Item</ListItem>
+        <ListItem>Item</ListItem>
+        <ListItem>
+          Item
+          <DDSList {...args}>
+            <ListItem>Item</ListItem>
+            <ListItem>
+              Item
+              <DDSList {...args}>
+                <ListItem>Item</ListItem>
+                <ListItem>Item</ListItem>
+              </DDSList>
+            </ListItem>
+          </DDSList>
+        </ListItem>
+      </DDSList>
+    </StoryTemplate>
   );
 };
 
 export const Example = (args: ListProps) => {
-  return storyHTMLTemplate(
-    'List - example',
-    <>
+  return (
+    <StoryTemplate title="List - example">
       <div style={{ maxWidth: '700px' }}>
         <Typography withMargins>
           Første gang du gjør tjeneste som arbeidslivskyndig meddommer, vil
@@ -368,6 +366,6 @@ export const Example = (args: ListProps) => {
           «Det forsikrer jeg.»
         </Typography>
       </div>
-    </>
+    </StoryTemplate>
   );
 };

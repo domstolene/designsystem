@@ -1,5 +1,5 @@
 import { Typography as DDSTypography } from './Typography';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Typography/Overview/Body',
@@ -7,9 +7,8 @@ export default {
 };
 
 export const Body = () => {
-  return storyHTMLGridTemplate(
-    'Body - overview',
-    <>
+  return (
+    <StoryTemplate title="Body - overview">
       <DDSTypography typographyType="bodySans01">
         bodySans01 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
@@ -82,8 +81,6 @@ export const Body = () => {
         slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
         til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
       </DDSTypography>
-    </>,
-    '20px',
-    1
+    </StoryTemplate>
   );
 };

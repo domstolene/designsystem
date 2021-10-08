@@ -3,8 +3,7 @@ import {
   CheckboxGroupProps
 } from './CheckboxGroup';
 import { Checkbox as DDSCheckbox } from './Checkbox';
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Checkbox/CheckboxGroup',
@@ -25,9 +24,12 @@ export default {
 };
 
 export const Overview = (args: CheckboxGroupProps) => {
-  return storyHTMLGridTemplate(
-    'CheckboxGroup - overview',
-    <>
+  return (
+    <StoryTemplate
+      title="CheckboxGroup - overview"
+      display="grid"
+      columnsAmount={2}
+    >
       <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
         <DDSCheckbox label="Option 1" />
         <DDSCheckbox label="Option 2" />
@@ -61,19 +63,18 @@ export const Overview = (args: CheckboxGroupProps) => {
         <DDSCheckbox error label="Option 2" />
         <DDSCheckbox error label="Option 3" />
       </DDSCheckboxGroup>
-    </>,
-    '15px',
-    2
+    </StoryTemplate>
   );
 };
 
 export const Default = (args: CheckboxGroupProps) => {
-  return storyHTMLTemplate(
-    'CheckboxGroup default',
-    <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
-      <DDSCheckbox label="Option 1" />
-      <DDSCheckbox label="Option 2" />
-      <DDSCheckbox label="Option 3" />
-    </DDSCheckboxGroup>
+  return (
+    <StoryTemplate title="CheckboxGroup default">
+      <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
+        <DDSCheckbox label="Option 1" />
+        <DDSCheckbox label="Option 2" />
+        <DDSCheckbox label="Option 3" />
+      </DDSCheckboxGroup>
+    </StoryTemplate>
   );
 };

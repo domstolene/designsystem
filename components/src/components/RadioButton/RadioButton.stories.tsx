@@ -1,6 +1,5 @@
 import { RadioButton as DDSRadioButton, RadioButtonProps } from './RadioButton';
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Radio/RadioButton',
@@ -14,20 +13,13 @@ export default {
   }
 };
 
-export const Default = (args: RadioButtonProps) => {
-  return storyHTMLTemplate(
-    'Radio button - default',
-    <>
-      <DDSRadioButton {...args} label={args.label || 'Label'} name="test" />
-      <DDSRadioButton {...args} label={args.label || 'Label'} name="test" />
-    </>
-  );
-};
-
 export const Overview = (args: RadioButtonProps) => {
-  return storyHTMLGridTemplate(
-    'Radio button - overview',
-    <>
+  return (
+    <StoryTemplate
+      title="Radio button - overview"
+      display="grid"
+      columnsAmount={2}
+    >
       <DDSRadioButton {...args} label={args.label || 'Default'} />
       <DDSRadioButton {...args} label={args.label || 'Checked'} checked />
       <DDSRadioButton {...args} label={args.label || 'Disabled'} disabled />
@@ -45,8 +37,15 @@ export const Overview = (args: RadioButtonProps) => {
         checked
       />
       <DDSRadioButton {...args} label={args.label || 'Error'} error />
-    </>,
-    undefined,
-    2
+    </StoryTemplate>
+  );
+};
+
+export const Default = (args: RadioButtonProps) => {
+  return (
+    <StoryTemplate title="Radio button - default">
+      <DDSRadioButton {...args} label={args.label || 'Label'} name="test" />
+      <DDSRadioButton {...args} label={args.label || 'Label'} name="test" />
+    </StoryTemplate>
   );
 };

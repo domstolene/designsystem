@@ -1,6 +1,5 @@
 import { Checkbox as DDSCheckbox, CheckboxProps } from './Checkbox';
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Checkbox/Checkbox',
@@ -19,17 +18,9 @@ export default {
   }
 };
 
-export const Default = (args: CheckboxProps) => {
-  return storyHTMLTemplate(
-    'Checkbox default',
-    <DDSCheckbox {...args} label={args.label || 'Label'} />
-  );
-};
-
 export const Overview = (args: CheckboxProps) => {
-  return storyHTMLGridTemplate(
-    'Checkbox - overview',
-    <>
+  return (
+    <StoryTemplate title="Checkbox - overview" display="grid">
       <DDSCheckbox {...args} label={args.label || 'Default'} />
       <DDSCheckbox {...args} label={args.label || 'Checked'} checked />
       <DDSCheckbox
@@ -53,6 +44,14 @@ export const Overview = (args: CheckboxProps) => {
       <DDSCheckbox {...args} label={args.label || 'Read only'} readOnly />
       <DDSCheckbox {...args} label={args.label || 'Error'} error />
       <DDSCheckbox {...args} />
-    </>
+    </StoryTemplate>
+  );
+};
+
+export const Default = (args: CheckboxProps) => {
+  return (
+    <StoryTemplate title="Checkbox - default">
+      <DDSCheckbox {...args} label={args.label || 'Label'} />
+    </StoryTemplate>
   );
 };

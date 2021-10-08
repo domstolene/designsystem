@@ -1,5 +1,5 @@
-import { storyHTMLTemplate } from '../../storybook/storyHTMLTemplate';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
+
 import { TextInput, TextInputProps } from './TextInput';
 
 export default {
@@ -23,9 +23,12 @@ export default {
 };
 
 export const TextInputOverview = (args: TextInputProps) => {
-  return storyHTMLGridTemplate(
-    'TextInput - overview',
-    <>
+  return (
+    <StoryTemplate
+      title="TextInput - overview"
+      display="grid"
+      columnsAmount={2}
+    >
       <TextInput {...args} label={args.label || 'Label'} />
       <TextInput {...args} />
       <TextInput
@@ -72,16 +75,13 @@ export const TextInputOverview = (args: TextInputProps) => {
         tip={args.tip || 'Dette er en hjelpetekst med character count'}
         maxLength={20}
       />
-    </>,
-    '20px',
-    2
+    </StoryTemplate>
   );
 };
 
 export const TextareaOverview = (args: TextInputProps) => {
-  return storyHTMLGridTemplate(
-    'Textarea (multiline) - overview',
-    <>
+  return (
+    <StoryTemplate title="Textarea (multiline) - overview" columnsAmount={2}>
       <TextInput {...args} multiline label={args.label || 'Label'} />
       <TextInput {...args} multiline />
       <TextInput
@@ -139,52 +139,55 @@ export const TextareaOverview = (args: TextInputProps) => {
         tip={args.tip || 'Dette er en hjelpetekst med character count'}
         maxLength={20}
       />
-    </>,
-    '20px',
-    2
+    </StoryTemplate>
   );
 };
 
 export const Default = (args: TextInputProps) => {
-  return storyHTMLTemplate('TextInput - default', <TextInput {...args} />);
+  return (
+    <StoryTemplate title="TextInput - default">
+      <TextInput {...args} />
+    </StoryTemplate>
+  );
 };
 
 export const dato = (args: TextInputProps) => {
-  return storyHTMLTemplate(
-    'TextInput - default',
-    <TextInput type="date" {...args} />
+  return (
+    <StoryTemplate title="TextInput - default">
+      OBS! under utvikling
+      <TextInput type="date" {...args} />
+    </StoryTemplate>
   );
 };
 
 export const InputWithLabel = (args: TextInputProps) => {
-  return storyHTMLTemplate(
-    'TextInput - with label',
-    <TextInput {...args} label={args.label || 'Label'} />
+  return (
+    <StoryTemplate title="TextInput - with label">
+      <TextInput {...args} label={args.label || 'Label'} />
+    </StoryTemplate>
   );
 };
 
 export const Textarea = (args: TextInputProps) => {
-  return storyHTMLTemplate(
-    'Textarea (multiline) - default',
-    <TextInput {...args} multiline />
+  return (
+    <StoryTemplate title="Textarea (multiline) - default">
+      <TextInput {...args} multiline />
+    </StoryTemplate>
   );
 };
 
 export const TextareaWithLabel = (args: TextInputProps) => {
-  return storyHTMLTemplate(
-    'Textarea (multiline) - with label',
-    <TextInput
-      {...args}
-      label={args.label || 'Label'}
-      multiline
-      style={{ height: '150px' }}
-    />
+  return (
+    <StoryTemplate title="Textarea (multiline) - with label">
+      <TextInput {...args} label={args.label || 'Label'} multiline />
+    </StoryTemplate>
   );
 };
 
 export const WithCharacterCount = (args: TextInputProps) => {
-  return storyHTMLTemplate(
-    'TextInput - with character count',
-    <TextInput {...args} maxLength={25} label={args.label || 'Label'} />
+  return (
+    <StoryTemplate title="TextInput - with character count">
+      <TextInput {...args} maxLength={25} label={args.label || 'Label'} />
+    </StoryTemplate>
   );
 };

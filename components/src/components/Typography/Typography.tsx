@@ -5,7 +5,7 @@ import {
   AnchorHTMLAttributes,
   LabelHTMLAttributes
 } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, CSSObject } from 'styled-components';
 import { typographyTokens as tokens, textColors } from './Typography.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
@@ -68,13 +68,15 @@ const getElementStyling = (type: TypographyType) => {
   `;
 };
 
-type StyledTypographyProps = {
-  typographyType?: TypographyType;
-  color?: TextColor;
-  bold?: boolean;
-  italic?: boolean;
-  withMargins?: boolean;
-};
+type StyledTypographyProps = Pick<
+  TypographyProps,
+  | 'typographyType'
+  | 'bold'
+  | 'italic'
+  | 'underline'
+  | 'withMargins'
+  | 'interactionProps'
+> & { color: TextColor };
 
 const LinkIconWrapper = styled(IconWrapper)`
   ${tokens.typographyType.a.icon}
@@ -82,7 +84,7 @@ const LinkIconWrapper = styled(IconWrapper)`
 
 const StyledTypography = styled.p<StyledTypographyProps>`
   ${({ typographyType }) => typographyType && getElementStyling(typographyType)}
-  ${({ typographyType }) =>
+  ${({ typographyType, interactionProps }) =>
     typographyType === 'a' &&
     css`
       display: inline-flex;
@@ -91,6 +93,13 @@ const StyledTypography = styled.p<StyledTypographyProps>`
       &:hover {
         ${tokens.typographyType[typographyType].hover.base}
       }
+      ${interactionProps &&
+      interactionProps.active &&
+      css`
+        &:active {
+          ${interactionProps.active}
+        }
+      `}
       &:focus-visible {
         ${tokens.typographyType[typographyType].focus.base}
       }
@@ -98,8 +107,24 @@ const StyledTypography = styled.p<StyledTypographyProps>`
         ${tokens.typographyType[typographyType].focus.base}
       }
     `}
+    ${({ interactionProps }) =>
+    interactionProps &&
+    interactionProps.hover &&
+    css`
+      &:hover {
+        ${interactionProps.hover}
+      }
+    `}
+      ${({ interactionProps }) =>
+    interactionProps &&
+    interactionProps.active &&
+    css`
+      &:active {
+        ${interactionProps.active}
+      }
+    `}
 
-    ${({ withMargins, typographyType }) =>
+  ${({ withMargins, typographyType }) =>
     withMargins && typographyType
       ? css`
           ${tokens.typographyType[typographyType].margins.base}
@@ -108,20 +133,25 @@ const StyledTypography = styled.p<StyledTypographyProps>`
           margin: 0;
         `}
 
-    ${({ color }) =>
+  ${({ color }) =>
     color &&
     css`
       color: ${getColor(color)};
     `}
-          ${({ bold }) =>
+  ${({ bold }) =>
     bold &&
     css`
       ${tokens.style.bold.base}
     `}
-          ${({ italic }) =>
+  ${({ italic }) =>
     italic &&
     css`
       ${tokens.style.italic.base}
+    `}
+  ${({ underline }) =>
+    underline &&
+    css`
+      ${tokens.style.underline.base}
     `}
 `;
 
@@ -143,6 +173,11 @@ export type TextColor =
   | 'gray8'
   | 'gray9';
 
+export type TypographyInteractionProps = {
+  hover?: CSSObject;
+  active?: CSSObject;
+};
+
 export type TypographyProps = {
   typographyType?: TypographyType;
   as?: ElementType;
@@ -150,7 +185,9 @@ export type TypographyProps = {
   color?: TextColor | string;
   bold?: boolean;
   italic?: boolean;
+  underline?: boolean;
   withMargins?: boolean;
+  interactionProps?: TypographyInteractionProps;
   target?: string;
 } & (
   | HTMLAttributes<HTMLElement>

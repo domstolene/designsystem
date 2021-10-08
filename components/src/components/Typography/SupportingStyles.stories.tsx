@@ -1,5 +1,5 @@
 import { Typography as DDSTypography } from './Typography';
-import { storyHTMLGridTemplate } from '../../storybook/storyHTMLGridTemplate';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Design system/Typography/Overview/Supporting',
@@ -7,9 +7,8 @@ export default {
 };
 
 export const Supporting = () => {
-  return storyHTMLGridTemplate(
-    'Supporting styles - overview',
-    <>
+  return (
+    <StoryTemplate title="Supporting styles - overview" gap="30px">
       <DDSTypography typographyType="supportingStyleLabel01">
         supportingStyleLabel01
       </DDSTypography>
@@ -31,8 +30,6 @@ export const Supporting = () => {
       <DDSTypography typographyType="supportingStyleTiny01">
         supportingStyleTiny01
       </DDSTypography>
-    </>,
-    '30px',
-    1
+    </StoryTemplate>
   );
 };
