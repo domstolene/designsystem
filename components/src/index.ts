@@ -15,3 +15,5 @@ export * from './helpers/IconWrapper';
 export * from './components/Pagination';
 export * from './components/Divider';
 export * from './components/List';
+export * from './components/DescriptionList';
+export * from './components/Spinner';
