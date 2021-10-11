@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import Spinner from '../../helpers/Spinner';
+import { Spinner } from '../Spinner';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
 const buttonContentStyle = (
@@ -46,15 +46,17 @@ const buttonContentStyle = (
   `}
 `;
 
-type ButtonContentProps = {
-  purpose: ButtonPurpose;
-  appearance: ButtonAppearance;
-  size: ButtonSize;
-  label?: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
-  iconPosition?: IconPosition;
-  fullWidth?: boolean;
-};
+type ButtonContentProps = Pick<
+  ButtonProps,
+  | 'purpose'
+  | 'appearance'
+  | 'size'
+  | 'label'
+  | 'Icon'
+  | 'iconPosition'
+  | 'fullWidth'
+  | 'loading'
+>;
 
 const ButtonContent = styled.span<ButtonContentProps>`
   display: flex;
@@ -63,14 +65,16 @@ const ButtonContent = styled.span<ButtonContentProps>`
   transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s,
     border-color 0.2s, color 0.2s;
   ${({ label, purpose, appearance, Icon }) =>
+    purpose &&
+    appearance &&
     buttonContentStyle(purpose, appearance, label, Icon)}
   &:focus {
     outline: none;
   }
 
-  ${({ fullWidth, Icon, label }) =>
+  ${({ fullWidth, Icon, label, loading }) =>
     fullWidth &&
-    (!Icon || !label
+    (!Icon || !label || loading
       ? css`
           justify-content: center;
         `
@@ -201,6 +205,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       Icon,
       fullWidth,
+      loading,
       tabIndex: -1,
       className,
       style
@@ -218,9 +223,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <ButtonWrapper {...wrapperProps}>
         <ButtonContent {...contentProps}>
-          {/* { loading && <Spinner inline width={1} unit='em' /> } */}
           {loading ? (
-            <Spinner inline width={1} unit="em" />
+            <JustIconWrapper size={size}>
+              <Spinner
+                color={tokens.appearance[appearance][purpose].base.color}
+                size={tokens.sizes[size].justIcon.base.fontSize as string}
+              />
+            </JustIconWrapper>
           ) : !label && Icon ? (
             <JustIconWrapper size={size}>
               <IconWrapper Icon={Icon} iconSize="inline" />
