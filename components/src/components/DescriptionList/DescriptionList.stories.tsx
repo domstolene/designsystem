@@ -79,7 +79,7 @@ export const Default = (args: DescriptionListProps) => {
 
 export const Group = (args: DescriptionListProps) => {
   return (
-    <StoryTemplate title="DescriptionList - group">
+    <StoryTemplate title="DescriptionList - group" gap="0px">
       <div>
         <DescriptionList {...args}>
           <DescriptionListGroup>
@@ -111,7 +111,7 @@ export const WithIcon = (args: DescriptionListProps) => {
       <DescriptionList {...args}>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
         <DescriptionListDesc Icon={PhoneOutlinedIcon}>
-          Beskrivelse
+          <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
       </DescriptionList>
     </StoryTemplate>

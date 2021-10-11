@@ -17,8 +17,14 @@ const DList = styled.dl<DListProps>`
         ${descriptionListTermTokens.appearance[appearance].base}
       }
     `}
-  & > dt:first-child, dd + dt {
-    margin-top: ${descriptionListTermTokens.unwrappedTopSpace};
+  & > dt:first-child {
+    margin-top: ${descriptionListTermTokens.unwrappedTopAndBottomSpace};
+  }
+  & > dd:last-child {
+    margin-bottom: ${descriptionListTermTokens.unwrappedTopAndBottomSpace};
+  }
+  dd + dt {
+    margin-top: ${descriptionListTermTokens.unwrappedBetweenSpace};
   }
 `;
 

@@ -27,5 +27,6 @@ export const descriptionListTermTokens = {
       base: boldBase
     }
   },
-  unwrappedTopSpace: Spacing.SizesDdsSpacingLocalX1
+  unwrappedTopAndBottomSpace: Spacing.SizesDdsSpacingLocalX15,
+  unwrappedBetweenSpace: Spacing.SizesDdsSpacingLocalX15
 };
