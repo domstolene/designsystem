@@ -19,7 +19,7 @@ export const Overview = (args: DescriptionListProps) => {
     <StoryTemplate
       display="grid"
       title="DescriptionList - overview"
-      gap="40px"
+      gap="30px"
       columnsAmount={2}
     >
       <DescriptionList>
