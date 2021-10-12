@@ -53,8 +53,8 @@ export type TableCellProps = {
   type?: TableCellType;
   layout?: TableCellLayout;
 } & (
-  | TdHTMLAttributes<HTMLTableDataCellElement>
-  | ThHTMLAttributes<HTMLTableHeaderCellElement>
+  | TdHTMLAttributes<HTMLTableCellElement>
+  | ThHTMLAttributes<HTMLTableCellElement>
 );
 
 const getTableCellType = (type: TableCellType) => {
@@ -67,25 +67,24 @@ const getTableCellType = (type: TableCellType) => {
   }
 };
 
-export const Cell = forwardRef<
-  HTMLTableDataCellElement | HTMLTableHeaderCellElement,
-  TableCellProps
->(({ children, type = 'data', layout = 'left', ...rest }, ref) => {
-  const as: ElementType = getTableCellType(type);
+export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
+  ({ children, type = 'data', layout = 'left', ...rest }, ref) => {
+    const as: ElementType = getTableCellType(type);
 
-  const cellProps = {
-    as: as,
-    type,
-    ...rest
-  };
+    const cellProps = {
+      as: as,
+      type,
+      ...rest
+    };
 
-  const innerCellProps = {
-    layout
-  };
+    const innerCellProps = {
+      layout
+    };
 
-  return (
-    <StyledCell ref={ref} {...cellProps}>
-      <InnerCell {...innerCellProps}>{children}</InnerCell>
-    </StyledCell>
-  );
-});
+    return (
+      <StyledCell ref={ref} {...cellProps}>
+        <InnerCell {...innerCellProps}>{children}</InnerCell>
+      </StyledCell>
+    );
+  }
+);
