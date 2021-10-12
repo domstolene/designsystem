@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { descriptionListDescTokens as tokens } from './DescriptionListDesc.tokens';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { SvgIconTypeMap } from '@material-ui/core';
-import { IconWrapper } from '../..';
+import { IconWrapper } from '../../helpers/IconWrapper';
 
 const DListDesc = styled.dd`
   ${tokens.base}
