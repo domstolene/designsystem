@@ -8,10 +8,9 @@ describe('<DescriptionList />', () => {
     render(
       <DescriptionList>
         <DescriptionListTerm>{termText}</DescriptionListTerm>
+        <DescriptionListDesc>desc</DescriptionListDesc>
       </DescriptionList>
     );
-    const termElement = screen.getByRole('term');
-    expect(termElement).toBeInTheDocument();
     expect(screen.queryByText(termText)).toBeDefined();
   });
   it('should render description', () => {
