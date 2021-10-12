@@ -90,10 +90,6 @@
       "ts-jest": {
         "tsconfig": "tsconfig.json"
       }
-    },
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest",
-      "\\.svg$": "<rootDir>/svgTransform.js"
     }
   },
   "dependencies": {
