@@ -11,7 +11,7 @@ Sjekk ut [Domstolenes designsystem Elsa](https://design.domstol.no/) og [Storybo
 ## Installasjon
 
 ```sh
-npm install @norges-domstoler/dds-components styled-components
+npm install @norges-domstoler/dds-components
 ```
 
 ## Bruk
@@ -34,19 +34,24 @@ render(<App />, document.getElementById('root'));
 
 ## Komponenter
 
-Alle komponenter er under arbeid, sjekk [komponentstatus](https://design.domstol.no/987b33f71/p/438035-komponenter/b/160db9) for oppdatert status.
+Sjekk [komponentstatus](https://design.domstol.no/987b33f71/p/438035-komponenter/b/160db9) for oppdatert status.
+
+Tilgjengelige komponenter:
 
 - Breadcrumbs
 - Button
 - Checkbox
+- DescriptionList
 - Divider
 - GlobalMessage
 - IconWrapper
+- List
 - LocalMessage
 - Pagination
 - RadioButton
 - Search
 - Select
+- Spinner
 - Table
 - TextInput
 - Typography
