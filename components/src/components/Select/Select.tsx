@@ -26,16 +26,15 @@ const Label = styled(Typography)`
   ${tokens.label.base}
 `;
 
-type StyledContainerProps = {
-  errorMessage?: string;
-  isDisabled?: boolean;
-  readOnly?: boolean;
-  label?: string;
-};
+type StyledContainerProps = Pick<
+  SelectProps,
+  'errorMessage' | 'isDisabled' | 'readOnly' | 'label'
+>;
 
 const Container = styled.div<StyledContainerProps>`
   transition: 0.2s;
   position: relative;
+  box-sizing: border-box;
   ${tokens.container.base}
   ${scrollbarStyling}
   *::selection {
@@ -126,6 +125,7 @@ const Container = styled.div<StyledContainerProps>`
 
 const Wrapper = styled.div<{ width?: CSS.WidthProperty<string> }>`
   margin: 0;
+  box-sizing: border-box;
   width: ${({ width }) => width};
 `;
 
@@ -190,6 +190,7 @@ const customStyles: Partial<Styles<any, false, any>> = {
   menu: () => {
     return {
       position: 'relative',
+      boxSizing: 'border-box',
       zIndex: 3,
       transition: '0.2s',
       width: 'calc(100% + 2px)',

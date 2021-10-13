@@ -15,14 +15,12 @@ const stylingBase = (purpose: LocalMessagePurpose) => {
   `;
 };
 
-const Container = styled.div<{
-  purpose: LocalMessagePurpose;
-  width: CSS.WidthProperty<string>;
-  layout?: LocalMessageLayout;
-}>`
+type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
+
+const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: ${({ layout }) => (layout === 'vertical' ? 'column' : 'row')};
-
+  box-sizing: border-box;
   ${({ layout }) =>
     layout === 'horisontal' &&
     css`
@@ -32,7 +30,7 @@ const Container = styled.div<{
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${({ purpose }) => stylingBase(purpose)}
+  ${({ purpose }) => purpose && stylingBase(purpose)}
   width: ${({ width }) => width};
 `;
 
@@ -40,10 +38,9 @@ const MessageIconWrapper = styled(IconWrapper)`
   margin-right: ${tokens.icon.marginRight};
 `;
 
-const ContentContainer = styled.div<{
-  closable?: boolean;
-  layout: LocalMessageLayout;
-}>`
+type ContentContainerProps = Pick<LocalMessageProps, 'closable' | 'layout'>;
+
+const ContentContainer = styled.div<ContentContainerProps>`
   display: flex;
   align-items: center;
   ${tokens.contentContainer.base}

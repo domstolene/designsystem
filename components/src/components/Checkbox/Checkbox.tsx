@@ -7,6 +7,7 @@ const CustomCheckbox = styled.span`
   position: absolute;
   ${tokens.checkbox.base}
   left: ${tokens.checkbox.spaceLeft};
+  box-sizing: border-box;
   &:after {
     content: '';
     position: absolute;

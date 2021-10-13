@@ -31,7 +31,8 @@ const InputStyling = ({
   return css`
     ${inputFieldStylingBase}
     ${tokens.base}
-        ${label
+    box-sizing: border-box;
+    ${label
       ? css`
           ${tokens.withLabel.base}
         `

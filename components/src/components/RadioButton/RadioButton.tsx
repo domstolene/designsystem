@@ -14,6 +14,7 @@ import { radioButtonTokens as tokens } from './RadioButton.tokens';
 
 const CustomRadioButton = styled.span`
   position: absolute;
+  box-sizing: border-box;
   border-radius: 50%;
   vertical-align: middle;
   ${tokens.radioButton.base}
