@@ -1,12 +1,22 @@
 import { forwardRef, HTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { descriptionListGroupTokens as tokens } from './DescriptionListGroup.tokens';
+import * as CSS from 'csstype';
 
-const DListGroup = styled.div`
+type StyledGroupProps = Pick<DescriptionListGroupProps, 'margin'>;
+
+const DListGroup = styled.div<StyledGroupProps>`
   ${tokens.base}
+  ${({ margin }) =>
+    margin &&
+    css`
+      margin: ${margin};
+    `}
 `;
 
-export type DescriptionListGroupProps = {} & HTMLAttributes<HTMLDivElement>;
+export type DescriptionListGroupProps = {
+  margin?: CSS.MarginProperty<string>;
+} & HTMLAttributes<HTMLDivElement>;
 
 export const DescriptionListGroup = forwardRef<
   HTMLDivElement,

@@ -4,7 +4,7 @@ import { CSSObject } from 'styled-components';
 const { spacing: Spacing } = ddsBaseTokens;
 
 const base: CSSObject = {
-  margin: Spacing.SizesDdsSpacingLocalX15
+  margin: Spacing.SizesDdsSpacingLocalX2
 };
 
 export const descriptionListGroupTokens = {

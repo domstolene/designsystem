@@ -8,6 +8,7 @@ import {
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import { Typography } from '../Typography';
+import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 
 export default {
   title: 'Design system/DescriptionList',
@@ -119,6 +120,7 @@ export const WithIcon = (args: DescriptionListProps) => {
 };
 
 export const ColumnExample = (args: DescriptionListProps) => {
+  const margin = tokens.spacing.SizesDdsSpacingLocalX1;
   return (
     <StoryTemplate title="DescriptionList - column example">
       <div>
@@ -131,36 +133,36 @@ export const ColumnExample = (args: DescriptionListProps) => {
             flexWrap: 'wrap'
           }}
         >
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 1</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 1</DescriptionListDesc>
             <DescriptionListDesc>Beskrivelse 1</DescriptionListDesc>
           </DescriptionListGroup>
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 2</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 2</DescriptionListDesc>
           </DescriptionListGroup>
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 3</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 3</DescriptionListDesc>
           </DescriptionListGroup>
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 4</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 4</DescriptionListDesc>
           </DescriptionListGroup>
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 5</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 5</DescriptionListDesc>
           </DescriptionListGroup>
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 6</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 6</DescriptionListDesc>
           </DescriptionListGroup>
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 7</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 7</DescriptionListDesc>
           </DescriptionListGroup>
-          <DescriptionListGroup>
+          <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 8</DescriptionListTerm>
             <DescriptionListDesc>Beskrivelse 8</DescriptionListDesc>
           </DescriptionListGroup>
