@@ -37,3 +37,7 @@ jobs:
       - name: Test
         working-directory: ${{ env.working-directory }}                
         run: npm run test
+
+      - name: Lint
+        working-directory: ${{ env.working-directory }}                
+        run: npm run lint
