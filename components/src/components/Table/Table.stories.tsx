@@ -267,25 +267,25 @@ export const WithCheckbox = (args: TableProps) => {
     setselectedRows(currentRows);
   }
 
-  function handleClick(row: chechboxRow) {
-    const currentRows = [...selectedRows];
-    const index = currentRows.findIndex(
-      selectedRow => selectedRow.id === row.id
-    );
-    console.log('index', index);
-    if (index >= 0) {
-      currentRows.splice(index, 1);
-    } else {
-      currentRows.push(row);
-    }
-    setselectedRows(currentRows);
-  }
+  // function handleClick(row: chechboxRow) {
+  //   const currentRows = [...selectedRows];
+  //   const index = currentRows.findIndex(
+  //     selectedRow => selectedRow.id === row.id
+  //   );
+  //   console.log('index', index);
+  //   if (index >= 0) {
+  //     currentRows.splice(index, 1);
+  //   } else {
+  //     currentRows.push(row);
+  //   }
+  //   setselectedRows(currentRows);
+  // }
 
-  function handleCheckboxClick(e: React.MouseEvent<HTMLInputElement>) {
-    e.preventDefault();
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-  }
+  // function handleCheckboxClick(e: React.MouseEvent<HTMLInputElement>) {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   e.nativeEvent.stopImmediatePropagation();
+  // }
 
   function changeAll(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.checked) {

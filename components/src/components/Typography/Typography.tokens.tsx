@@ -10,7 +10,7 @@ const {
   spacing: Spacing
 } = ddsBaseTokens;
 
-const { focus, textDefault } = ddsReferenceTokens;
+const { textDefault } = ddsReferenceTokens;
 
 export const textColors = {
   interactive: Colors.DdsColorInteractiveBase,

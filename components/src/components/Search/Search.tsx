@@ -90,6 +90,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
 
     const inputProps = {
       componentSize,
+      name,
       type: 'search',
       ...rest
     };

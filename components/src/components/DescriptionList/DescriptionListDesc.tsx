@@ -17,7 +17,7 @@ const StyledIconWrapper = styled(IconWrapper)`
 `;
 
 export type DescriptionListDescProps = {
-  Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
+  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & HTMLAttributes<HTMLElement>;
 
 export const DescriptionListDesc = forwardRef<

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledHead = styled.thead``;
 
-export type HeadProps = {} & HTMLAttributes<HTMLTableSectionElement>;
+export type HeadProps = HTMLAttributes<HTMLTableSectionElement>;
 
 export const Head = forwardRef<HTMLTableSectionElement, HeadProps>(
   ({ children, ...rest }, ref) => {

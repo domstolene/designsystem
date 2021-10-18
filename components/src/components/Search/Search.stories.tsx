@@ -22,19 +22,19 @@ export const Overview = (args: SearchProps) => {
       <DDSSearch
         {...args}
         componentSize="small"
-        buttonProps={{ onClick: e => {}, label: 'Søk' }}
+        buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
       <DDSSearch {...args} componentSize="medium" />
       <DDSSearch
         {...args}
         componentSize="medium"
-        buttonProps={{ onClick: e => {}, label: 'Søk' }}
+        buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
       <DDSSearch {...args} componentSize="large" />
       <DDSSearch
         {...args}
         componentSize="large"
-        buttonProps={{ onClick: e => {}, label: 'Søk' }}
+        buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
       <DDSSearch
         {...args}
@@ -45,7 +45,7 @@ export const Overview = (args: SearchProps) => {
         {...args}
         componentSize="small"
         tip="Dette er en hjelpetekst"
-        buttonProps={{ onClick: e => {}, label: 'Søk' }}
+        buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
       <DDSSearch
         {...args}
@@ -56,7 +56,7 @@ export const Overview = (args: SearchProps) => {
         {...args}
         componentSize="medium"
         tip="Dette er en hjelpetekst"
-        buttonProps={{ onClick: e => {}, label: 'Søk' }}
+        buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
       <DDSSearch
         {...args}
@@ -67,7 +67,7 @@ export const Overview = (args: SearchProps) => {
         {...args}
         componentSize="large"
         tip="Dette er en hjelpetekst"
-        buttonProps={{ onClick: e => {}, label: 'Søk' }}
+        buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
     </StoryTemplate>
   );
@@ -84,7 +84,7 @@ export const Default = (args: SearchProps) => {
 export const WithButton = (args: SearchProps) => {
   return (
     <StoryTemplate title="Search - with button">
-      <DDSSearch {...args} buttonProps={{ onClick: e => {}, label: 'Søk' }} />
+      <DDSSearch {...args} buttonProps={{ onClick: () => {}, label: 'Søk' }} />
     </StoryTemplate>
   );
 };

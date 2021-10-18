@@ -6,7 +6,7 @@ const StyledListItem = styled.li`
   ${tokens.base}
 `;
 
-export type ListItemProps = {} & HTMLAttributes<HTMLLIElement>;
+export type ListItemProps = HTMLAttributes<HTMLLIElement>;
 
 export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
   ({ children, ...rest }, ref) => {

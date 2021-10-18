@@ -22,7 +22,7 @@ const getSize = (iconSize: IconSize): string => {
 export type IconSize = 'small' | 'medium' | 'large' | 'inline';
 
 export type IconWrapperProps = {
-  Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
+  Icon: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
   iconSize?: IconSize;
   color?: CSS.ColorProperty;
   className?: string;
