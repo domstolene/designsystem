@@ -30,7 +30,7 @@ const options = [
   'Veldig langt alternativ her veldig langt alternativ her',
   'Alternativ 3',
   'Alternativ 4'
-].map(s => ({ label: s, value: s, test: 'flesk' }));
+].map(s => ({ label: s, value: s }));
 
 const optionsLong = [
   'Alternativ 1',
