@@ -1,6 +1,6 @@
 import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
 import * as CSS from 'csstype';
-import React, { forwardRef, HTMLAttributes, useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import {
   components,
   default as ReactSelect,
@@ -8,7 +8,6 @@ import {
   Props as ReactSelectProps
 } from 'react-select';
 import { NoticeProps } from 'react-select/src/components/Menu';
-import { Option } from 'react-select/src/filters';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
@@ -28,7 +27,7 @@ const IconOption = (props: OptionProps<any, any>) => (
     {props.isSelected && (
       <SelectedIconWrapper Icon={CheckOutlinedIcon} iconSize="inline" />
     )}
-    {props.data.label}
+    {props.children}
   </DdsOption>
 );
 
@@ -48,6 +47,12 @@ export function searchFilter(text: string, search: string): boolean {
   return searchFilterRegex.test(text.toLowerCase());
 }
 
+export type SelectOption = {
+  label: string;
+  value: string | number;
+  data?: unknown;
+};
+
 export type SelectProps = {
   label?: string;
   required?: boolean;
@@ -57,12 +62,11 @@ export type SelectProps = {
   width?: CSS.WidthProperty<string>;
   className?: string;
   style?: React.CSSProperties;
-} & ReactSelectProps &
-  HTMLAttributes<HTMLDivElement>;
+} & ReactSelectProps<SelectOption>;
 
 let nextUniqueId = 0;
 
-export const Select = forwardRef<HTMLDivElement, SelectProps>(
+export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
   (
     {
       id,
@@ -71,7 +75,9 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       tip,
       required,
       readOnly,
+      options,
       value,
+      defaultValue,
       width = tokens.container.defaultWidth,
       className,
       style,
@@ -84,6 +90,10 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
   ) => {
     const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
 
+    const wrapperProps = {
+      width
+    };
+
     const containerProps = {
       errorMessage,
       isDisabled,
@@ -93,21 +103,18 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
       style
     };
 
-    const wrapperProps = {
-      width,
-      ...rest
-    };
-
-    const reactSelectProps: ReactSelectProps = {
+    const reactSelectProps: ReactSelectProps<SelectOption> = {
+      options: options,
+      value: value,
+      defaultValue: defaultValue,
       isDisabled: isDisabled || readOnly,
       isClearable: value ? false : isClearable,
-      value,
-      placeholder,
+      placeholder: placeholder,
       inputId: uniqueId,
       name: uniqueId,
       classNamePrefix: prefix,
       styles: CustomStyles,
-      filterOption: (option: Option, inputValue: string) => {
+      filterOption: (option: SelectOption, inputValue: string) => {
         const { label } = option;
         return searchFilter(label, inputValue) || inputValue === '';
       },
@@ -119,7 +126,7 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
     };
 
     return (
-      <Wrapper ref={ref} {...wrapperProps}>
+      <Wrapper {...wrapperProps}>
         <Container {...containerProps}>
           {label && (
             <Label
@@ -130,14 +137,15 @@ export const Select = forwardRef<HTMLDivElement, SelectProps>(
               {label} {required && <RequiredMarker />}
             </Label>
           )}
-          <ReactSelect {...reactSelectProps} />
+          <ReactSelect {...reactSelectProps} ref={ref} />
         </Container>
-        {errorMessage ? (
+
+        {errorMessage && (
           <InputMessage messageType={'error'} message={errorMessage} />
-        ) : tip ? (
+        )}
+
+        {tip && !errorMessage && (
           <InputMessage messageType={'tip'} message={tip} />
-        ) : (
-          ''
         )}
       </Wrapper>
     );

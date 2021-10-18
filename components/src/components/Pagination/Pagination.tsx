@@ -7,7 +7,7 @@ import FirstPageOutlinedIcon from '@material-ui/icons/FirstPageOutlined';
 import LastPageOutlinedIcon from '@material-ui/icons/LastPageOutlined';
 import { Typography } from '../../components/Typography';
 import { Button } from '../../components/Button';
-import { Select } from '../Select';
+import { Select, SelectOption } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { paginationTokens as tokens } from './Pagination.tokens';
@@ -51,8 +51,6 @@ const IndicatorsContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
   align-items: center;
-  /* display: inline-flex;
-  align-items: center; */
   gap: ${tokens.indicatorsContainer.spacing};
 `;
 
@@ -63,7 +61,7 @@ export type PaginationProps = {
   withPagination?: boolean;
   withCounter?: boolean;
   withSelect?: boolean;
-  selectOptions?: { label: string; value: number }[];
+  selectOptions?: SelectOption[];
   smallScreen?: boolean;
   onChange?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -105,12 +103,11 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       page && setActivePage(page);
       if (event && onChange) {
         onChange(event, page);
-      } else return undefined;
+      }
     };
 
-    const handleSelectChange = (option: React.FormEvent<HTMLDivElement>) => {
-      // @ts-ignore
-      setItemsPerPage(option.value);
+    const handleSelectChange = (option: SelectOption | null) => {
+      setItemsPerPage(option?.value as number);
     };
 
     const listItems =
@@ -259,10 +256,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               width="76px"
               defaultValue={{
                 label: itemsPerPage.toString(),
-                value: itemsPerPage
+                value: itemsPerPage.toString()
               }}
               isClearable={false}
-              onChange={(option: any) => option && handleSelectChange(option)}
+              onChange={handleSelectChange}
               aria-label="Antall elementer per side"
             />
           )}
