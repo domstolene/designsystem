@@ -108,7 +108,7 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
       value: value,
       defaultValue: defaultValue,
       isDisabled: isDisabled || readOnly,
-      isClearable: value ? false : isClearable,
+      isClearable: isClearable,
       placeholder: placeholder,
       inputId: uniqueId,
       name: uniqueId,
