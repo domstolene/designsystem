@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const DListTerm = styled.dt``;
 
-export type DescriptionListTermProps = {} & HTMLAttributes<HTMLElement>;
+export type DescriptionListTermProps = HTMLAttributes<HTMLElement>;
 
 export const DescriptionListTerm = forwardRef<
   HTMLElement,

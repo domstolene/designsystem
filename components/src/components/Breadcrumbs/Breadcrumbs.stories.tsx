@@ -42,7 +42,7 @@ export const Default = (args: BreadcrumbsProps) => {
   );
 };
 
-export const SmallScreen = (args: BreadcrumbsProps) => {
+export const SmallScreen = () => {
   return (
     <StoryTemplate title="Breadcrumbs - small screen" gap="0">
       <Breadcrumbs smallScreen>

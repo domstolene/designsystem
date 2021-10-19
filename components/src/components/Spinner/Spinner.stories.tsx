@@ -11,7 +11,7 @@ export default {
   }
 };
 
-export const Overview = (args: SpinnerProps) => (
+export const Overview = () => (
   <StoryTemplate
     title="Spinner - overview"
     display="grid"

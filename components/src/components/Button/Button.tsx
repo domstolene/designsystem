@@ -11,7 +11,7 @@ const buttonContentStyle = (
   purpose: ButtonPurpose,
   appearance: ButtonAppearance,
   label?: string,
-  Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>
+  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>
 ) => css`
   ${tokens.base}
   *::selection {
@@ -160,7 +160,7 @@ export type ButtonProps = {
   loading?: boolean;
   className?: string;
   style?: React.CSSProperties;
-  Icon?: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
+  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
   fullWidth?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -194,6 +194,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       target: href && target ? target : undefined,
       ref,
       fullWidth,
+      disabled,
       ...rest
     };
 

@@ -15,7 +15,7 @@ export default {
   component: DescriptionList
 };
 
-export const Overview = (args: DescriptionListProps) => {
+export const Overview = () => {
   return (
     <StoryTemplate
       display="grid"

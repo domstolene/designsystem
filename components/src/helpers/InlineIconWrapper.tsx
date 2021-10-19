@@ -3,7 +3,7 @@ import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 
 type Props = {
-  Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>>;
+  Icon: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
   className?: string;
 };
 

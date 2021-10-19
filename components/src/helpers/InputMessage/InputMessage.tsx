@@ -29,8 +29,6 @@ const InputMessageWrapper = styled.div<{
 
 type MessageType = 'error' | 'tip';
 
-type MessageSize = 'small' | 'medium';
-
 type Props = {
   message: string;
   messageType: MessageType;

@@ -57,10 +57,6 @@ const checkboxCheckedHoverBase: CSSObject = {
   borderColor: Colors.DdsColorInteractiveDark
 };
 
-const checkboxIndeterminateHoverBase: CSSObject = {
-  ...checkboxCheckedBase
-};
-
 const checkboxDangerBase: CSSObject = {
   border: '2px solid',
   borderColor: Colors.DdsColorDangerBase
