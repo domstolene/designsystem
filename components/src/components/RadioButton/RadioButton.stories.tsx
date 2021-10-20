@@ -2,7 +2,7 @@ import { RadioButton as DDSRadioButton, RadioButtonProps } from './RadioButton';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
-  title: 'Design system/Radio/RadioButton',
+  title: 'Design system/RadioButton/RadioButton',
   component: DDSRadioButton,
   argTypes: {
     label: { control: { type: 'text' } },

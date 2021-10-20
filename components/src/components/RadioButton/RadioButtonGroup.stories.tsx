@@ -7,7 +7,7 @@ import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { ChangeEvent, useState } from 'react';
 
 export default {
-  title: 'Design system/Radio/RadioButtonGroup',
+  title: 'Design system/RadioButton/RadioButtonGroup',
   component: DDSRadioButtonGroup,
   argTypes: {
     label: { control: { type: 'text' } },
