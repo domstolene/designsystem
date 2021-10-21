@@ -5,3 +5,4 @@ export * from './Row';
 export * from './Cell';
 export * from './SortCell';
 export * from './Foot';
+export * from './TableWrapper';
