@@ -15,3 +15,4 @@ export * from './components/Divider';
 export * from './components/List';
 export * from './components/DescriptionList';
 export * from './components/Spinner';
+export * from './components/Card';
