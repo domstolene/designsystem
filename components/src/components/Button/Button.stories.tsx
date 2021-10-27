@@ -1,4 +1,5 @@
-import { Button as DDSButton, ButtonProps } from './Button';
+import { Button as DDSButton } from './Button';
+import { ButtonProps } from './Button.types';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
