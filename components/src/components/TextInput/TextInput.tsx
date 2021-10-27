@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  InputHTMLAttributes,
-  forwardRef
-} from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { inputTokens as tokens } from './TextInput.tokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
@@ -12,15 +6,13 @@ import InputMessage from '../../helpers/InputMessage/InputMessage';
 import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import CharCounter from './CharCounter';
-import * as CSS from 'csstype';
 import { Typography } from '../Typography';
+import { TextInputProps } from './TextInput.types';
 
-type GeneralInputProps = {
-  readOnly?: boolean;
-  errorMessage?: string;
-  label?: string;
-  disabled?: boolean;
-};
+type GeneralInputProps = Pick<
+  TextInputProps,
+  'readOnly' | 'errorMessage' | 'label' | 'disabled'
+>;
 
 const InputStyling = ({
   readOnly,
@@ -71,11 +63,7 @@ const InputStyling = ({
   `;
 };
 
-type LabelProps = {
-  multiline?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
-};
+type LabelProps = Pick<TextInputProps, 'multiline' | 'disabled' | 'readOnly'>;
 
 const Label = styled(Typography)<LabelProps>`
   position: absolute;
@@ -104,13 +92,17 @@ const Label = styled(Typography)<LabelProps>`
     `}
 `;
 
-const InputFieldWrapper = styled.div<{ width: CSS.WidthProperty<string> }>`
+type InputFieldWrapperProps = Pick<TextInputProps, 'width'>;
+
+const InputFieldWrapper = styled.div<InputFieldWrapperProps>`
   display: flex;
   flex-direction: column;
   width: ${({ width }) => width};
 `;
 
-const InputFieldContainer = styled.div<{ multiline?: boolean; label?: string }>`
+type InputFieldContainerProps = Pick<TextInputProps, 'multiline' | 'label'>;
+
+const InputFieldContainer = styled.div<InputFieldContainerProps>`
   position: relative;
   width: 100%;
   ${({ multiline }) =>
@@ -167,17 +159,6 @@ const FlexContainer = styled.div`
 `;
 
 let nextUniqueId = 0;
-
-export type TextInputProps = {
-  label?: string;
-  multiline?: boolean;
-  tip?: string;
-  width?: CSS.WidthProperty<string>;
-  errorMessage?: string;
-  className?: string;
-  style?: React.CSSProperties;
-} & InputHTMLAttributes<HTMLInputElement> &
-  InputHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
