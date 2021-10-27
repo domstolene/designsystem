@@ -1,4 +1,5 @@
-import { RadioButton as DDSRadioButton, RadioButtonProps } from './RadioButton';
+import { RadioButton as DDSRadioButton } from './RadioButton';
+import { RadioButtonProps } from './RadioButton.types';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {

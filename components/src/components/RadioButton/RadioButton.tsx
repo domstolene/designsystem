@@ -1,9 +1,5 @@
-import React, {
-  ChangeEvent,
-  forwardRef,
-  InputHTMLAttributes,
-  useState
-} from 'react';
+import { ChangeEvent, forwardRef, useState } from 'react';
+import { RadioButtonProps } from './RadioButton.types';
 import styled, { css } from 'styled-components';
 import { Typography } from '../Typography';
 import {
@@ -114,14 +110,6 @@ const Container = styled.label<{
     ${tokens.checkmark.base}
   }
 `;
-
-export type RadioButtonProps = {
-  label?: string;
-  disabled?: boolean;
-  error?: boolean;
-  className?: string;
-  style?: React.CSSProperties;
-} & InputHTMLAttributes<HTMLInputElement>;
 
 let nextUniqueId = 0;
 
