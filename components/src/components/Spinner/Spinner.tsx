@@ -68,7 +68,6 @@ export function Spinner({
 
   const spinnerProps = {
     outerAnimationDelay,
-    innerAnimationDelay,
     size
   };
 
