@@ -1,6 +1,6 @@
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 
-import { TextInput, TextInputProps } from './TextInput';
+import { TextInput, TextInputProps } from '.';
 
 export default {
   title: 'Design system/TextInput',

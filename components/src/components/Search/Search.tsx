@@ -11,7 +11,9 @@ import { searchTokens as tokens } from './Search.tokens';
 import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 
-const Input = styled.input<{ componentSize: SearchSize }>`
+type InputProps = Pick<SearchProps, 'componentSize'>;
+
+const Input = styled.input<InputProps>`
   &[type='search']::-webkit-search-decoration,
   &[type='search']::-webkit-search-cancel-button,
   &[type='search']::-webkit-search-results-button,

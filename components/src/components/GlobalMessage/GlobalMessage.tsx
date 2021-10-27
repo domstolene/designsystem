@@ -6,19 +6,19 @@ import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { Typography } from '../Typography';
 
-const stylingBase = (purpose: GlobalMessagePurpose) => {
-  return css`
-    ${tokens.container.base}
-    ${tokens.container[purpose].base}
-  `;
-};
+type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
 
-const Container = styled.div<{ purpose: GlobalMessagePurpose }>`
+const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  ${({ purpose }) => stylingBase(purpose)}
+  ${({ purpose }) =>
+    purpose &&
+    css`
+      ${tokens.container.base}
+      ${tokens.container[purpose].base}
+    `}
 `;
 
 const MessageIconWrapper = styled(IconWrapper)`
@@ -30,7 +30,9 @@ const ControlsContainer = styled.div`
   align-items: center;
 `;
 
-const ContentContainer = styled.div<{ closable?: boolean }>`
+type ContentContainerProps = Pick<GlobalMessageProps, 'closable'>;
+
+const ContentContainer = styled.div<ContentContainerProps>`
   display: flex;
   align-items: center;
   ${tokens.contentContainer.base}
@@ -54,8 +56,14 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     const [isClosed, setClosed] = useState(false);
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
+    const containerProps = {
+      ref,
+      purpose,
+      ...rest
+    };
+
     return !isClosed ? (
-      <Container purpose={purpose} ref={ref} {...rest}>
+      <Container {...containerProps}>
         <ContentContainer closable={closable}>
           <MessageIconWrapper
             Icon={tokens.icon[purpose].icon}
@@ -64,7 +72,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
           {children ?? <Typography as="span">{message}</Typography>}
         </ContentContainer>
         <ControlsContainer>
-          {closable ? (
+          {closable && (
             <Button
               Icon={CloseOutlinedIcon}
               purpose={buttonPurpose}
@@ -72,7 +80,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
               onClick={() => setClosed(true)}
               size="small"
             />
-          ) : null}
+          )}
         </ControlsContainer>
       </Container>
     ) : null;

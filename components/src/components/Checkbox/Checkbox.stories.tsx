@@ -1,4 +1,5 @@
-import { Checkbox as DDSCheckbox, CheckboxProps } from './Checkbox';
+import { Checkbox as DDSCheckbox } from './Checkbox';
+import { CheckboxProps } from './Checkbox.types';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
