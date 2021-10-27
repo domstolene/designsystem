@@ -8,13 +8,6 @@ import * as CSS from 'csstype';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
-const stylingBase = (purpose: LocalMessagePurpose) => {
-  return css`
-    ${tokens.container.base}
-    ${tokens.container[purpose].base}
-  `;
-};
-
 type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
 
 const Container = styled.div<ContainerProps>`
@@ -30,7 +23,12 @@ const Container = styled.div<ContainerProps>`
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${({ purpose }) => purpose && stylingBase(purpose)}
+  ${({ purpose }) =>
+    purpose &&
+    css`
+      ${tokens.container.base}
+      ${tokens.container[purpose].base}
+    `}
   width: ${({ width }) => width};
 `;
 
@@ -57,7 +55,9 @@ const ContentContainer = styled.div<ContentContainerProps>`
     `}
 `;
 
-const TopContainer = styled.div<{ closable?: boolean }>`
+type TopContainerProps = Pick<LocalMessageProps, 'closable'>;
+
+const TopContainer = styled.div<TopContainerProps>`
   width: 100%;
   display: flex;
   justify-content: space-between;
