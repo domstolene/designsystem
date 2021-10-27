@@ -4,10 +4,9 @@ import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { cellTokens } from './Cell.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
-const StyledTable = styled.table<{
-  density: TableDensity;
-  stickyHeader?: boolean;
-}>`
+type StyledTableProps = Pick<TableProps, 'density' | 'stickyHeader'>;
+
+const StyledTable = styled.table<StyledTableProps>`
   border-spacing: 0;
   border-collapse: collapse;
   *::selection {
@@ -44,14 +43,11 @@ export type TableProps = {
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ density = 'normal', children, ...rest }, ref) => {
     const tableProps = {
+      ref,
       density,
       ...rest
     };
 
-    return (
-      <StyledTable ref={ref} {...tableProps}>
-        {children}
-      </StyledTable>
-    );
+    return <StyledTable {...tableProps}>{children}</StyledTable>;
   }
 );
