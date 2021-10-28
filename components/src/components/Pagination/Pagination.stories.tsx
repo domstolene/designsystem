@@ -27,7 +27,6 @@ const customOptions = [17, 32, 100].map(o => ({
 
 export const Overview = (args: PaginationProps) => (
   <StoryTemplate title="Pagination - overview" gap="50px">
-    {' '}
     <Pagination {...args} itemsAmount={70} />
     <Pagination {...args} itemsAmount={100} />
     <Pagination {...args} defaultActivePage={6} itemsAmount={100} />

@@ -109,9 +109,9 @@ export const RadioButtonGroup = ({
         </GroupContainer>
       </RadioButtonGroupContext.Provider>
       {errorMessage ? (
-        <InputMessage message={errorMessage} messageType={'error'} />
+        <InputMessage message={errorMessage} messageType="error" />
       ) : tip ? (
-        <InputMessage message={tip} messageType={'tip'} />
+        <InputMessage message={tip} messageType="tip" />
       ) : (
         ''
       )}
