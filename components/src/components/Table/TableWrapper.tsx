@@ -24,7 +24,6 @@ export const TableWrapper = ({ children, ...rest }: TableWrapperProps) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log('overflowX', overflowX, 'window.innerWidth', window.innerWidth);
     if (
       wrapperRef &&
       wrapperRef.current &&
