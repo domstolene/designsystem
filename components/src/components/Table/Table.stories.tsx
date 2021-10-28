@@ -285,7 +285,6 @@ export const WithCheckbox = (args: TableProps) => {
   //   const index = currentRows.findIndex(
   //     selectedRow => selectedRow.id === row.id
   //   );
-  //   console.log('index', index);
   //   if (index >= 0) {
   //     currentRows.splice(index, 1);
   //   } else {

@@ -43,7 +43,7 @@ export const OverviewWithText = (args: ButtonProps) => {
       />
       <DDSButton
         {...args}
-        label={'Primary'}
+        label="Primary"
         purpose="primary"
         appearance="ghost"
       />
@@ -56,7 +56,7 @@ export const OverviewWithText = (args: ButtonProps) => {
       <DDSButton {...args} label="Danger" purpose="danger" appearance="ghost" />
       <DDSButton
         {...args}
-        label={'Primary'}
+        label="Primary"
         purpose="primary"
         appearance="borderless"
       />
@@ -74,7 +74,7 @@ export const OverviewWithText = (args: ButtonProps) => {
       />
       <DDSButton
         {...args}
-        label={'Primary'}
+        label="Primary"
         purpose="primary"
         appearance="rounded"
       />
@@ -92,7 +92,7 @@ export const OverviewWithText = (args: ButtonProps) => {
       />
       <DDSButton
         {...args}
-        label={'Primary'}
+        label="Primary"
         purpose="primary"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
@@ -116,7 +116,7 @@ export const OverviewWithText = (args: ButtonProps) => {
       />
       <DDSButton
         {...args}
-        label={'Primary'}
+        label="Primary"
         purpose="primary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
@@ -140,7 +140,7 @@ export const OverviewWithText = (args: ButtonProps) => {
       />
       <DDSButton
         {...args}
-        label={'Primary'}
+        label="Primary"
         purpose="primary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
@@ -164,7 +164,7 @@ export const OverviewWithText = (args: ButtonProps) => {
       />
       <DDSButton
         {...args}
-        label={'Primary'}
+        label="Primary"
         purpose="primary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
@@ -362,7 +362,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="medium"
-        iconPosition={'left'}
+        iconPosition="left"
         Icon={AddCircleOutlineOutlinedIcon}
         fullWidth
       />
@@ -372,7 +372,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="medium"
-        iconPosition={'right'}
+        iconPosition="right"
         Icon={AddCircleOutlineOutlinedIcon}
         fullWidth
       />

@@ -141,11 +141,11 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
         </Container>
 
         {errorMessage && (
-          <InputMessage messageType={'error'} message={errorMessage} />
+          <InputMessage messageType="error" message={errorMessage} />
         )}
 
         {tip && !errorMessage && (
-          <InputMessage messageType={'tip'} message={tip} />
+          <InputMessage messageType="tip" message={tip} />
         )}
       </Wrapper>
     );

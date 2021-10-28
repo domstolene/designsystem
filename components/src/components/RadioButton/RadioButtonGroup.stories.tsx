@@ -104,9 +104,6 @@ export const WithDefaultValue = (args: RadioButtonGroupProps) => {
         <DDSRadioButton value={2} label="Option 2" name="test" />
         <DDSRadioButton value={3} label="Option 3" name="test" />
       </DDSRadioButtonGroup>
-      <span>
-        OBS! bruk value-prop kun når brukeren ikke skal fylle ut selv.{' '}
-      </span>
     </StoryTemplate>
   );
 };

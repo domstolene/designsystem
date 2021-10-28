@@ -134,10 +134,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         </InputFieldContainer>
         <FlexContainer>
           {errorMessage && (
-            <InputMessage message={errorMessage} messageType={'error'} />
+            <InputMessage message={errorMessage} messageType="error" />
           )}
           {tip && !errorMessage && (
-            <InputMessage message={tip} messageType={'tip'} />
+            <InputMessage message={tip} messageType="tip" />
           )}
           {maxLength && Number.isInteger(maxLength) && maxLength > 0 && (
             <CharCounter current={text.length} max={maxLength} />
