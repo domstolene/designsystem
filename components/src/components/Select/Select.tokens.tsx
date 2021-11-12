@@ -1,4 +1,7 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import * as CSS from 'csstype';
 
@@ -9,6 +12,8 @@ const {
   borderRadius: BorderRadius,
   border: Border
 } = ddsBaseTokens;
+
+const { textDefault } = ddsReferenceTokens;
 
 const labelBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray7,
@@ -123,7 +128,8 @@ const optionsListBase: CSSObject = {
 
 const optionBase: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX1}`,
-  ...FontPackages.body_sans_02.base
+  ...FontPackages.body_sans_02.base,
+  color: textDefault.textColor
 };
 
 const optionHoverBase: CSSObject = {
