@@ -7,6 +7,7 @@ import { TypographyBodyType } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { listItemTokens } from './ListItem.tokens';
 import { listTokens as tokens } from './List.tokens';
+import '../../styles/fontStyles.css';
 
 const liTextPadding = `1em + ${listItemTokens.bulletSpacing}`;
 const ulPaddingLeft = `${tokens.spaceLeft} - (${liTextPadding})`;

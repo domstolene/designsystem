@@ -14,6 +14,7 @@ import {
 import { IconWrapper } from '../../helpers/IconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
 import { TypographyType } from './Typography.types';
+import '../../styles/fontStyles.css';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {

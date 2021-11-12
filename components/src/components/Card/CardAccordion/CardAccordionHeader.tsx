@@ -6,6 +6,7 @@ import {
 } from 'react';
 import styled, { css } from 'styled-components';
 import { cardAccordionHeaderTokens as tokens } from './CardAccordionHeader.tokens';
+import '../../../styles/fontStyles.css';
 
 const ContentWrapper = styled.div``;
 

@@ -5,6 +5,7 @@ import { forwardRef, HTMLAttributes, useState } from 'react';
 import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { Typography } from '../Typography';
+import '../../styles/fontStyles.css';
 
 type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
 

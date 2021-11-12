@@ -5,6 +5,7 @@ import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { selectTokens as tokens } from './Select.tokens';
+import '../../styles/fontStyles.css';
 
 export const prefix = 'dds-select';
 
