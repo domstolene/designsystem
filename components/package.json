@@ -90,6 +90,9 @@
         "tsconfig": "tsconfig.json"
       }
     },
+    "moduleNameMapper": {
+      "\\.css$": "<rootDir>/__mocks__/styleMock.js"
+    },
     "transform": {
       "\\.svg$": "<rootDir>/svgTransform.js"
     }
