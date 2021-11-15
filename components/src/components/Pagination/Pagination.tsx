@@ -62,6 +62,7 @@ export type PaginationProps = {
   withCounter?: boolean;
   withSelect?: boolean;
   selectOptions?: SelectOption[];
+  onSelectOptionChange?: (option: SelectOption | null) => void;
   smallScreen?: boolean;
   onChange?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -85,6 +86,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       ],
       smallScreen,
       onChange,
+      onSelectOptionChange,
       ...rest
     },
     ref
@@ -108,6 +110,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
     const handleSelectChange = (option: SelectOption | null) => {
       setItemsPerPage(option?.value as number);
+      if (onSelectOptionChange) {
+        onSelectOptionChange(option);
+      }
     };
 
     const listItems =
