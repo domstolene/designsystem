@@ -4,6 +4,7 @@ import { IconWrapper } from '../IconWrapper';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import * as CSS from 'csstype';
 import { Typography } from '../../components/Typography';
+import '../../styles/fontStyles.css';
 
 const InputMessageWrapper = styled.div<{
   messageType: MessageType;

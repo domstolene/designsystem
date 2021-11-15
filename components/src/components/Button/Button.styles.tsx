@@ -5,6 +5,7 @@ import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { typographyTokens } from '../Typography/Typography.tokens';
+import '../../styles/fontStyles.css';
 
 export const buttonContentStyle = (
   purpose: ButtonPurpose,

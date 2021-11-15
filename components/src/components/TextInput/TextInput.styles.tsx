@@ -4,6 +4,7 @@ import { inputTokens as tokens } from './TextInput.tokens';
 import { Typography } from '../Typography';
 import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
+import '../../styles/fontStyles.css';
 
 type GeneralInputProps = Pick<
   TextInputProps,

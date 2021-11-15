@@ -1,12 +1,16 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
 const {
   spacing: Spacing,
   fontPackages: FontPackages,
-  colors: Colors,
-  border: Border
+  colors: Colors
 } = ddsBaseTokens;
+
+const { textDefault } = ddsReferenceTokens;
 
 const base: CSSObject = {
   padding: Spacing.SizesDdsSpacingLocalX1,

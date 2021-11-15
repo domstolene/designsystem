@@ -10,6 +10,7 @@ import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
+import '../../styles/fontStyles.css';
 
 type InputProps = Pick<SearchProps, 'componentSize'>;
 
@@ -34,6 +35,7 @@ const Input = styled.input<InputProps>`
 `;
 
 const IconWrapper = styled.span`
+  ${tokens.iconWrapper.base}
   position: absolute;
   top: ${tokens.icon.spaceTop};
   left: ${tokens.icon.spaceLeft};

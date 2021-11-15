@@ -90,6 +90,9 @@
         "tsconfig": "tsconfig.json"
       }
     },
+    "moduleNameMapper": {
+      "\\.css$": "<rootDir>/__mocks__/styleMock.js"
+    },
     "transform": {
       "\\.svg$": "<rootDir>/svgTransform.js"
     }
@@ -97,6 +100,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
-    "@norges-domstoler/dds-design-tokens": "0.0.4"
+    "@norges-domstoler/dds-design-tokens": "0.0.4",
+    "rollup-plugin-import-css": "^3.0.2"
   }
 }
