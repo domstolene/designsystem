@@ -2,6 +2,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans Italic'), local('IBMPlexSans-Italic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/complete/woff2/IBMPlexSans-Italic.woff2')
       format('woff2'),
@@ -13,6 +14,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans Italic'), local('IBMPlexSans-Italic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Italic-Pi.woff2')
       format('woff2');
@@ -28,6 +30,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans Italic'), local('IBMPlexSans-Italic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Italic-Latin3.woff2')
       format('woff2');
@@ -38,6 +41,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans Italic'), local('IBMPlexSans-Italic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Italic-Latin2.woff2')
       format('woff2');
@@ -49,6 +53,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans Italic'), local('IBMPlexSans-Italic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Italic-Latin1.woff2')
       format('woff2');
@@ -62,6 +67,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light'), local('IBMPlexSans-Light'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/complete/woff2/IBMPlexSans-Light.woff2')
       format('woff2'),
@@ -73,6 +79,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light'), local('IBMPlexSans-Light'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Light-Pi.woff2')
       format('woff2');
@@ -88,6 +95,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light'), local('IBMPlexSans-Light'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Light-Latin3.woff2')
       format('woff2');
@@ -98,6 +106,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light'), local('IBMPlexSans-Light'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Light-Latin2.woff2')
       format('woff2');
@@ -109,6 +118,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light'), local('IBMPlexSans-Light'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Light-Latin1.woff2')
       format('woff2');
@@ -122,6 +132,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light Italic'), local('IBMPlexSans-LightItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/complete/woff2/IBMPlexSans-LightItalic.woff2')
       format('woff2'),
@@ -133,6 +144,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light Italic'), local('IBMPlexSans-LightItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-LightItalic-Pi.woff2')
       format('woff2');
@@ -148,6 +160,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light Italic'), local('IBMPlexSans-LightItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-LightItalic-Latin3.woff2')
       format('woff2');
@@ -158,6 +171,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light Italic'), local('IBMPlexSans-LightItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-LightItalic-Latin2.woff2')
       format('woff2');
@@ -169,6 +183,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 300;
+  font-display: swap;
   src: local('IBM Plex Sans Light Italic'), local('IBMPlexSans-LightItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-LightItalic-Latin1.woff2')
       format('woff2');
@@ -182,6 +197,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans'), local('IBMPlexSans'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/complete/woff2/IBMPlexSans-Regular.woff2')
       format('woff2'),
@@ -193,6 +209,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans'), local('IBMPlexSans'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Regular-Pi.woff2')
       format('woff2');
@@ -208,6 +225,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans'), local('IBMPlexSans'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Regular-Latin3.woff2')
       format('woff2');
@@ -218,6 +236,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans'), local('IBMPlexSans'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Regular-Latin2.woff2')
       format('woff2');
@@ -229,6 +248,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: local('IBM Plex Sans'), local('IBMPlexSans'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-Regular-Latin1.woff2')
       format('woff2');
@@ -242,6 +262,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/complete/woff2/IBMPlexSans-SemiBold.woff2')
       format('woff2'),
@@ -253,6 +274,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBold-Pi.woff2')
       format('woff2');
@@ -268,6 +290,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBold-Latin3.woff2')
       format('woff2');
@@ -278,6 +301,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBold-Latin2.woff2')
       format('woff2');
@@ -289,6 +313,7 @@
   font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold'), local('IBMPlexSans-SemiBold'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBold-Latin1.woff2')
       format('woff2');
@@ -302,6 +327,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold Italic'),
     local('IBMPlexSans-SemiBoldItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/complete/woff2/IBMPlexSans-SemiBoldItalic.woff2')
@@ -314,6 +340,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold Italic'),
     local('IBMPlexSans-SemiBoldItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-Pi.woff2')
@@ -330,6 +357,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold Italic'),
     local('IBMPlexSans-SemiBoldItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-Latin3.woff2')
@@ -341,6 +369,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold Italic'),
     local('IBMPlexSans-SemiBoldItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-Latin2.woff2')
@@ -353,6 +382,7 @@
   font-family: 'IBM Plex Sans';
   font-style: italic;
   font-weight: 600;
+  font-display: swap;
   src: local('IBM Plex Sans SemiBold Italic'),
     local('IBMPlexSans-SemiBoldItalic'),
     url('../assets/fonts/IBM-Plex-Sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-Latin1.woff2')
