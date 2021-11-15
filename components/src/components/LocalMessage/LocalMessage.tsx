@@ -7,6 +7,7 @@ import { IconWrapper } from '../../helpers/IconWrapper';
 import * as CSS from 'csstype';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
+import '../../styles/fontStyles.css';
 
 type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
 
