@@ -24,8 +24,7 @@ const linkHoverBase: CSSObject = {
 };
 
 const linkActiveBase: CSSObject = {
-  color: Colors.DdsColorInteractiveBase,
-  fontWeight: 'bold'
+  color: Colors.DdsColorInteractiveBase
 };
 
 const wrapperBase: CSSObject = {
