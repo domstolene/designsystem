@@ -11,7 +11,17 @@ const navigationLink = {
   title: 'menypunkt'
 };
 
-const navigationLinks = [navigationLink, navigationLink, navigationLink];
+const longNavigationLink = {
+  href: '#',
+  title: 'Veldig veldig veldig velidg lang tittel her'
+};
+
+const navigationLinks = [
+  navigationLink,
+  navigationLink,
+  navigationLink,
+  longNavigationLink
+];
 
 const user = {
   name: 'Navn Navnesen',
