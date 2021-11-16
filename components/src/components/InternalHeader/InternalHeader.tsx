@@ -89,6 +89,8 @@ const ContextMenuWrapper = styled.div<ContextMenuWrapperProps>`
   top: 100%;
   right: ${tokens.banner.base.paddingRight};
   overflow-y: auto;
+  min-width: 180px;
+  max-width: 300px;
   max-height: calc(100vh - 110px);
   transition: visibility 0.4s, opacity 0.2s;
   visibility: ${({ closed }) => (closed ? 'hidden' : 'visible')};
@@ -111,6 +113,7 @@ const ContextMenuLink = styled.a`
   ${tokens.contextMenuLink.base}
   display: flex;
   align-items: center;
+  transition: background-color 0.2s;
   &:hover {
     ${tokens.contextMenuLink.hover.base}
   }
