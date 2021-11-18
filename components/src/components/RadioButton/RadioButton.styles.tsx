@@ -1,7 +1,6 @@
 import { RadioButtonProps } from './RadioButton.types';
 import styled, { css } from 'styled-components';
 import { radioButtonTokens as tokens } from './RadioButton.tokens';
-import '../../styles/fontStyles.css';
 
 export const CustomRadioButton = styled.span`
   position: absolute;

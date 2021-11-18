@@ -4,7 +4,6 @@ import { descriptionListDescTokens as tokens } from './DescriptionListDesc.token
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { SvgIconTypeMap } from '@material-ui/core';
 import { IconWrapper } from '../../helpers/IconWrapper';
-import '../../styles/fontStyles.css';
 
 const DListDesc = styled.dd`
   ${tokens.base}

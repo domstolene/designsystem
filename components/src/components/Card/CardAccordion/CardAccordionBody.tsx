@@ -1,7 +1,6 @@
 import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
-import '../../../styles/fontStyles.css';
 
 const expandingAnimation = css`
   transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
