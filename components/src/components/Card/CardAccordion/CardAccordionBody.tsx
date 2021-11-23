@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
 
 const expandingAnimation = css`
-  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: visibility 0.3s, max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 type BodyProps = Pick<CardAccordionBodyProps, 'isExpanded'>;
@@ -18,13 +18,14 @@ const Body = styled.div<BodyProps>`
     `}
 `;
 
-type WrapperProps = {
+type WrapperProps = Pick<CardAccordionBodyProps, 'isExpanded'> & {
   maxHeight?: number;
 };
 
 const BodyWrapper = styled.div<WrapperProps>`
   ${expandingAnimation}
   overflow: hidden;
+  visibility: ${({ isExpanded }) => (isExpanded ? 'visible' : 'hidden')};
   max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : 0)}px;
 `;
 
@@ -57,7 +58,8 @@ export const CardAccordionBody = forwardRef<
   };
   const bodyWrapperProps = {
     ref: bodyRef,
-    maxHeight: maxHeight
+    maxHeight: maxHeight,
+    isExpanded
   };
 
   return (
