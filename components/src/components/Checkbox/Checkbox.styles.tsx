@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { checkboxTokens as tokens } from './Checkbox.tokens';
 import { CheckboxProps } from './Checkbox.types';
-import '../../styles/fontStyles.css';
 
 export const CustomCheckbox = styled.span`
   position: absolute;

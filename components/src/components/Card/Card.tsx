@@ -7,7 +7,6 @@ import {
 import styled, { css } from 'styled-components';
 import { cardTokens as tokens } from './Card.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
-import '../../styles/fontStyles.css';
 
 type ContainerProps = Pick<CardProps, 'color' | 'cardType'>;
 

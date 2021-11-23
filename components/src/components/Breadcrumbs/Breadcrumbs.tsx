@@ -4,7 +4,6 @@ import ChevronRightOutlinedIcon from '@material-ui/icons/ChevronRightOutlined';
 import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
 import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
 import { IconSize, IconWrapper } from '../../helpers/IconWrapper/IconWrapper';
-import '../../styles/fontStyles.css';
 
 const List = styled.ol`
   list-style: none;

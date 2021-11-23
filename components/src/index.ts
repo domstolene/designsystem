@@ -1,3 +1,4 @@
+import './styles/fontStyles.css';
 export * from './components/RadioButton';
 export * from './components/Checkbox';
 export * from './components/Button';

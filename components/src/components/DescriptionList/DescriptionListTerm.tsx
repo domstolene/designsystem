@@ -1,6 +1,5 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import '../../styles/fontStyles.css';
 
 const DListTerm = styled.dt``;
 
