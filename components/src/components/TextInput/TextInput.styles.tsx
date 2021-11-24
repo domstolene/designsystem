@@ -97,14 +97,17 @@ export const FlexContainer = styled.div`
   justify-content: space-between;
 `;
 
-type LabelProps = Pick<TextInputProps, 'multiline' | 'disabled' | 'readOnly'>;
-
-export const Label = styled(Typography)<LabelProps>`
+export const SingleLineLabel = styled(Typography)`
   position: absolute;
   top: 0;
   left: 0;
   transition: color 0.2s, background-color 0.2s;
   ${tokens.label.base}
+`;
+
+type LabelProps = Pick<TextInputProps, 'multiline' | 'disabled' | 'readOnly'>;
+
+export const Label = styled(SingleLineLabel)<LabelProps>`
   ${({ multiline }) =>
     multiline &&
     css`
@@ -112,7 +115,7 @@ export const Label = styled(Typography)<LabelProps>`
       width: calc(100% - 20px);
       ${tokens.label.multiline.base}
     `}
-    ${({ disabled, multiline }) =>
+  ${({ disabled, multiline }) =>
     disabled &&
     multiline &&
     css`
