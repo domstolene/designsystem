@@ -1,5 +1,4 @@
 import { forwardRef, useState } from 'react';
-import styled, { css } from 'styled-components';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import { Input } from '../../helpers/Input/Input.styles';
@@ -9,17 +8,6 @@ import {
   OuterInputContainer
 } from '../../helpers/Input/Input.styles';
 import { InputProps } from '../../helpers/Input/Input.types';
-
-type InputWrapperProps = Pick<DatepickerProps, 'width'>;
-
-const InputWrapper = styled.div<InputWrapperProps>`
-  position: relative;
-  ${({ width }) =>
-    width &&
-    css`
-      width: ${width};
-    `}
-`;
 
 export type DatepickerProps = {} & InputProps;
 
@@ -35,6 +23,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       width = '200px',
       errorMessage,
       tip,
+      style,
+      className,
       ...rest
     },
     ref
@@ -55,7 +45,9 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     };
 
     const outerInputContainerProps = {
-      width
+      width,
+      style,
+      className
     };
 
     const labelProps = {
