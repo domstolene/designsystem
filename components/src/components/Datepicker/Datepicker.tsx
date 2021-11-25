@@ -1,12 +1,14 @@
-import { forwardRef, InputHTMLAttributes, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import * as CSS from 'csstype';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
+import { Input } from '../../helpers/Input/Input.styles';
 import {
-  Input as StyledInput,
-  SingleLineLabel as Label
-} from '../TextInput/TextInput.styles';
+  SingleLineLabel as Label,
+  InputContainer,
+  OuterInputContainer
+} from '../../helpers/Input/Input.styles';
+import { InputProps } from '../../helpers/Input/Input.types';
 
 type InputWrapperProps = Pick<DatepickerProps, 'width'>;
 
@@ -19,18 +21,22 @@ const InputWrapper = styled.div<InputWrapperProps>`
     `}
 `;
 
-export type DatepickerProps = {
-  label?: string;
-  tip?: string;
-  width?: CSS.WidthProperty<string>;
-  errorMessage?: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+export type DatepickerProps = {} & InputProps;
 
 let nextUniqueId = 0;
 
 export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   (
-    { id, required, label, width = '200px', errorMessage, tip, ...rest },
+    {
+      id,
+      required,
+      readOnly,
+      label,
+      width = '200px',
+      errorMessage,
+      tip,
+      ...rest
+    },
     ref
   ) => {
     const [uniqueId] = useState<string>(
@@ -41,38 +47,42 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       label,
       errorMessage,
       ref,
-
+      readOnly,
+      tabIndex: readOnly ? -1 : 0,
       required,
       type: 'date',
       ...rest
     };
 
-    const inputWrapperProps = {
+    const outerInputContainerProps = {
       width
     };
 
-    const labelProps = {};
+    const labelProps = {
+      htmlFor: uniqueId
+    };
 
     return (
-      <InputWrapper {...inputWrapperProps}>
-        <StyledInput {...inputProps} />
-        {label && (
-          <Label
-            {...labelProps}
-            typographyType="supportingStyleLabel01"
-            forwardedAs="label"
-            htmlFor={uniqueId}
-          >
-            {label} {required && <RequiredMarker />}
-          </Label>
-        )}
+      <OuterInputContainer {...outerInputContainerProps}>
+        <InputContainer>
+          <Input {...inputProps} />
+          {label && (
+            <Label
+              {...labelProps}
+              typographyType="supportingStyleLabel01"
+              forwardedAs="label"
+            >
+              {label} {required && <RequiredMarker />}
+            </Label>
+          )}
+        </InputContainer>
         {errorMessage && (
           <InputMessage message={errorMessage} messageType="error" />
         )}
         {tip && !errorMessage && (
           <InputMessage message={tip} messageType="tip" />
         )}
-      </InputWrapper>
+      </OuterInputContainer>
     );
   }
 );

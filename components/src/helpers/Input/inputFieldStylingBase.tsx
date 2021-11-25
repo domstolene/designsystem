@@ -1,6 +1,6 @@
 import { css, CSSObject } from 'styled-components';
 import { ddsReferenceTokens } from '@norges-domstoler/dds-design-tokens';
-import { typographyTokens } from '../components/Typography/Typography.tokens';
+import { typographyTokens } from '../../components/Typography/Typography.tokens';
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
@@ -39,11 +39,14 @@ export const inputFieldStylingBase = () => {
     }
     ${stylingBase}
 
-    &:focus:enabled, &:active:enabled {
+    &:focus:enabled:read-write, &:focus-visible:enabled:read-write, &:active:enabled:read-write {
       ${focusBase}
     }
+    &:focus {
+      outline: none;
+    }
 
-    &:hover:enabled {
+    &:hover:enabled:read-write {
       ${hoverBase}
     }
   `;

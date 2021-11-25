@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
-import { inputTokens as tokens } from './TextInput.tokens';
+import { textInputTokens as tokens } from './TextInput.tokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
+import { Input, OuterInputContainer } from '../../helpers/Input/Input.styles';
 import {
   Label,
-  InputFieldWrapper,
-  InputFieldContainer,
-  FlexContainer,
-  Input,
+  InputContainer,
+  MessageContainer,
   TextArea
 } from './TextInput.styles';
 
@@ -79,16 +78,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       id: uniqueId,
       label,
       errorMessage,
-      disabled: disabled || readOnly,
+      disabled,
       readOnly,
+      tabIndex: readOnly ? -1 : 0,
       maxLength,
       ...rest
-    };
-
-    const wrapperProps = {
-      className,
-      style,
-      width
     };
 
     const labelProps = {
@@ -97,13 +91,21 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       readOnly
     };
 
+    const inputContainerProps = {
+      style: multiline ? { minHeight: parentHeight } : {},
+      multiline,
+      label
+    };
+
+    const outerInputContainerProps = {
+      className,
+      style,
+      width
+    };
+
     return (
-      <InputFieldWrapper {...wrapperProps}>
-        <InputFieldContainer
-          style={multiline ? { minHeight: parentHeight } : {}}
-          multiline={multiline}
-          label={label}
-        >
+      <OuterInputContainer {...outerInputContainerProps}>
+        <InputContainer {...inputContainerProps}>
           {multiline ? (
             <TextArea
               ref={textAreaRef}
@@ -131,8 +133,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
               {label} {required && <RequiredMarker />}
             </Label>
           )}
-        </InputFieldContainer>
-        <FlexContainer>
+        </InputContainer>
+        <MessageContainer>
           {errorMessage && (
             <InputMessage message={errorMessage} messageType="error" />
           )}
@@ -142,8 +144,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           {maxLength && Number.isInteger(maxLength) && maxLength > 0 && (
             <CharCounter current={text.length} max={maxLength} />
           )}
-        </FlexContainer>
-      </InputFieldWrapper>
+        </MessageContainer>
+      </OuterInputContainer>
     );
   }
 );
