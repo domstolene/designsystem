@@ -20,37 +20,11 @@ const inputMultilineNoLabelBase: CSSObject = {
   paddingTop: Spacing.SizesDdsSpacingLocalX075
 };
 
-const inputLabelBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`
-};
-
 const inputLabelMultilineBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
   padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx - 1}px ${
     Spacing.SizesDdsSpacingLocalX1
   } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 1}px`
-};
-
-const inputLabel = {
-  base: inputLabelBase,
-  multiline: {
-    base: {
-      backgroundColor: Colors.DdsColorNeutralsWhite,
-      padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx - 1}px ${
-        Spacing.SizesDdsSpacingLocalX1
-      } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 1}px`
-    }
-  },
-  hover: {
-    base: {
-      color: TextInput.label.hover.textColor
-    }
-  },
-  focus: {
-    base: {
-      color: TextInput.label.focus.textColor
-    }
-  }
 };
 
 const defaultWidth: CSS.WidthProperty<string> = '320px';
