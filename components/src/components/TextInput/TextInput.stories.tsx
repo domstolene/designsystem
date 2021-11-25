@@ -81,7 +81,11 @@ export const TextInputOverview = (args: TextInputProps) => {
 
 export const TextareaOverview = (args: TextInputProps) => {
   return (
-    <StoryTemplate title="Textarea (multiline) - overview" columnsAmount={2}>
+    <StoryTemplate
+      title="Textarea (multiline) - overview"
+      display="grid"
+      columnsAmount={2}
+    >
       <TextInput {...args} multiline label={args.label || 'Label'} />
       <TextInput {...args} multiline />
       <TextInput
