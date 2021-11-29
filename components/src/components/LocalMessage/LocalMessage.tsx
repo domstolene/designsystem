@@ -84,6 +84,7 @@ export type LocalMessageProps = {
   message?: string;
   purpose?: LocalMessagePurpose;
   closable?: boolean;
+  onClose?: () => void;
   width?: CSS.WidthProperty<string>;
   layout?: LocalMessageLayout;
 } & HTMLAttributes<HTMLDivElement>;
@@ -94,6 +95,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       message,
       purpose = 'info',
       closable,
+      onClose,
       width = tokens.container.defaultWidth,
       layout = 'horisontal',
       children,
@@ -131,7 +133,10 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
         Icon={CloseOutlinedIcon}
         purpose={buttonPurpose}
         appearance="borderless"
-        onClick={() => setClosed(true)}
+        onClick={() => {
+          setClosed(true);
+          onClose && onClose();
+        }}
         size="small"
       />
     );

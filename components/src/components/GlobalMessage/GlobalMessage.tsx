@@ -49,10 +49,14 @@ export type GlobalMessageProps = {
   message?: string;
   purpose?: GlobalMessagePurpose;
   closable?: boolean;
+  onClose?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
-  ({ message, purpose = 'info', closable, children, ...rest }, ref) => {
+  (
+    { message, purpose = 'info', closable, onClose, children, ...rest },
+    ref
+  ) => {
     const [isClosed, setClosed] = useState(false);
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
@@ -77,7 +81,10 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
               Icon={CloseOutlinedIcon}
               purpose={buttonPurpose}
               appearance="borderless"
-              onClick={() => setClosed(true)}
+              onClick={() => {
+                setClosed(true);
+                onClose && onClose();
+              }}
               size="small"
             />
           )}
