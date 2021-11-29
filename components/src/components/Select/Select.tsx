@@ -76,9 +76,11 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
       required,
       readOnly,
       options,
+      isMulti,
       value,
       defaultValue,
       width = tokens.container.defaultWidth,
+      closeMenuOnSelect,
       className,
       style,
       isDisabled,
@@ -104,12 +106,15 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
     };
 
     const reactSelectProps: ReactSelectProps<SelectOption> = {
-      options: options,
-      value: value,
-      defaultValue: defaultValue,
+      ref,
+      options,
+      value,
+      defaultValue,
       isDisabled: isDisabled || readOnly,
-      isClearable: isClearable,
-      placeholder: placeholder,
+      isClearable,
+      placeholder,
+      closeMenuOnSelect,
+      isMulti,
       inputId: uniqueId,
       name: uniqueId,
       classNamePrefix: prefix,
@@ -137,7 +142,7 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
               {label} {required && <RequiredMarker />}
             </Label>
           )}
-          <ReactSelect {...reactSelectProps} ref={ref} />
+          <ReactSelect {...reactSelectProps} />
         </Container>
 
         {errorMessage && (
