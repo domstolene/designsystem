@@ -31,12 +31,22 @@ export const Container = styled.div<StyledContainerProps>`
   ${({ label }) =>
     label
       ? css`
-          ${tokens.container.withLabel.base}
+          .${prefix}__value-container {
+            ${tokens.valueContainer.withLabel.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.withLabel.base}
+          }
         `
       : css`
-          ${tokens.container.noLabel.base}
           .${prefix}__control {
             ${tokens.input.noLabel.base}
+          }
+          .${prefix}__value-container {
+            ${tokens.valueContainer.noLabel.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.noLabel.base}
           }
         `}
   &:hover {
@@ -159,14 +169,35 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       margin: 0
     };
   },
-  menu: () => {
+  multiValue: provided => {
     return {
-      position: 'relative',
+      ...provided,
+      ...tokens.multiValue.base
+    };
+  },
+  multiValueLabel: provided => {
+    return {
+      ...provided,
+      ...tokens.multiValueLabel.base
+    };
+  },
+  multiValueRemove: provided => {
+    return {
+      ...provided,
+      transition: '0.2s',
+      ...tokens.multiValueRemove.base,
+      '&:hover': {
+        ...tokens.multiValueRemove.hover.base
+      }
+    };
+  },
+  menu: provided => {
+    return {
+      ...provided,
       zIndex: 3,
       transition: '0.2s',
       width: 'calc(100% + 2px)',
       transform: 'translate(-1px)',
-      top: tokens.optionsList.spaceTop,
       boxShadow: `0 0 0 1px ${tokens.optionsList.base.borderColor}`,
       ...tokens.optionsList.base
     };
@@ -195,6 +226,11 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
   noOptionsMessage: () => {
     return {
       ...tokens.noOptionsMessage.base
+    };
+  },
+  indicatorsContainer: provided => {
+    return {
+      ...provided
     };
   },
   clearIndicator: () => {

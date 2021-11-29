@@ -32,35 +32,19 @@ const labelFocusBase: CSSObject = {
   color: Colors.DdsColorInteractiveBase
 };
 
+const valueContainerWithLabelBase: CSSObject = {
+  marginBottom: Spacing.SizesDdsSpacingLocalX1
+};
+
+const valueContainerNoLabelBase: CSSObject = {
+  marginBottom: Spacing.SizesDdsSpacingLocalX075
+};
+
 const containerBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
   border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
   borderColor: Colors.DdsColorNeutralsGray5,
   backgroundColor: Colors.DdsColorNeutralsWhite
-};
-const withLabelHeight =
-  Spacing.SizesDdsSpacingLocalX075NumberPx * 2 +
-  FontPackages.supportingStyle_label_01.numbers.lineHeightNumber *
-    0.01 *
-    FontPackages.supportingStyle_label_01.numbers.fontSizeNumber +
-  FontPackages.supportingStyle_inputtext_02.numbers.lineHeightNumber *
-    0.01 *
-    FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
-  Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2;
-
-const containerWithLabelBase: CSSObject = {
-  height: `${withLabelHeight}px`
-};
-
-const noLabelHeight =
-  Spacing.SizesDdsSpacingLocalX075NumberPx * 2 +
-  FontPackages.supportingStyle_inputtext_02.numbers.lineHeightNumber *
-    0.01 *
-    FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
-  Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2;
-
-const containerNoLabelBase: CSSObject = {
-  height: `${noLabelHeight}px`
 };
 
 const containerHoverBase: CSSObject = {
@@ -95,6 +79,13 @@ const inputNoLabelBase: CSSObject = {
 const placeholderBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
   ...FontPackages.supportingStyle_placeholdertext_01.base
+};
+
+const indicatorsContainerWithLabelBase: CSSObject = {
+  marginBottom: Spacing.SizesDdsSpacingLocalX1
+};
+const indicatorsContainerNoLabelBase: CSSObject = {
+  marginBottom: Spacing.SizesDdsSpacingLocalX075
 };
 
 const dropdownIndicatorBase: CSSObject = {
@@ -148,6 +139,27 @@ const noOptionsMessageBase: CSSObject = {
   ...FontPackages.supportingStyle_placeholdertext_01.base
 };
 
+const multiValueBase: CSSObject = {
+  backgroundColor: Colors.DdsColorInfoLighter,
+  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
+};
+
+const multiValueLabelBase: CSSObject = {
+  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
+  color: Colors.DdsColorNeutralsGray6,
+  ...FontPackages.supportingStyle_label_01.base
+};
+const multiValueRemoveBase: CSSObject = {
+  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
+  color: Colors.DdsColorNeutralsGray6
+};
+
+const multiValueRemoveHoverBase: CSSObject = {
+  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
+  color: Colors.DdsColorDangerBase,
+  backgroundColor: Colors.DdsColorDangerLightest
+};
+
 const containerDisabledBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsGray1,
   borderColor: Colors.DdsColorNeutralsGray5
@@ -164,12 +176,6 @@ export const selectTokens = {
   container: {
     base: containerBase,
     defaultWidth: defaultWidth,
-    withLabel: {
-      base: containerWithLabelBase
-    },
-    noLabel: {
-      base: containerNoLabelBase
-    },
     hover: {
       base: containerHoverBase
     },
@@ -224,6 +230,34 @@ export const selectTokens = {
       icon: {
         margin: `0 ${Spacing.SizesDdsSpacingLocalX05} 0 0`
       }
+    }
+  },
+  valueContainer: {
+    withLabel: {
+      base: valueContainerWithLabelBase
+    },
+    noLabel: {
+      base: valueContainerNoLabelBase
+    }
+  },
+  multiValue: {
+    base: multiValueBase
+  },
+  multiValueLabel: {
+    base: multiValueLabelBase
+  },
+  multiValueRemove: {
+    base: multiValueRemoveBase,
+    hover: {
+      base: multiValueRemoveHoverBase
+    }
+  },
+  indicatorsContainer: {
+    withLabel: {
+      base: indicatorsContainerWithLabelBase
+    },
+    noLabel: {
+      base: indicatorsContainerNoLabelBase
     }
   },
   dropdownIndicator: {
