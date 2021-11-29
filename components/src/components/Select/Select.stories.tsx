@@ -101,6 +101,13 @@ export const Overview = (args: SelectProps) => {
         options={options}
       />
       <DDSSelect {...args} options={options} />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        options={options}
+        isMulti
+        closeMenuOnSelect={false}
+      />
     </StoryTemplate>
   );
 };
@@ -108,10 +115,19 @@ export const Overview = (args: SelectProps) => {
 export const Default = (args: SelectProps) => {
   return (
     <StoryTemplate title="Select default">
+      <DDSSelect {...args} options={options} />
+    </StoryTemplate>
+  );
+};
+
+export const WithLabel = (args: SelectProps) => {
+  return (
+    <StoryTemplate title="Select - with label">
       <DDSSelect {...args} label={args.label || 'Label'} options={options} />
     </StoryTemplate>
   );
 };
+
 export const ManyItems = (args: SelectProps) => {
   return (
     <StoryTemplate title="Select - many options">
@@ -119,6 +135,20 @@ export const ManyItems = (args: SelectProps) => {
         {...args}
         label={args.label || 'Label'}
         options={optionsLong}
+      />
+    </StoryTemplate>
+  );
+};
+
+export const Multiselect = (args: SelectProps) => {
+  return (
+    <StoryTemplate title="Select - multiselect">
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        options={options}
+        isMulti
+        closeMenuOnSelect={false}
       />
     </StoryTemplate>
   );
