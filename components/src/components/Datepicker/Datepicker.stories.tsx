@@ -15,7 +15,7 @@ export default {
   }
 };
 
-export const Overview = () => (
+export const OverviewDate = () => (
   <StoryTemplate display="grid" columnsAmount={2} title="Datepicker - default">
     <Datepicker label="Label" />
     <Datepicker />
@@ -25,8 +25,36 @@ export const Overview = () => (
     <Datepicker readOnly />
     <Datepicker label="Label" errorMessage="Feilmelding" />
     <Datepicker errorMessage="Feilmelding" />
-    <Datepicker label="Label" tip="Hejlpetekst" />
-    <Datepicker tip="Hejlpetekst" />
+    <Datepicker label="Label" tip="Hjelpetekst" />
+    <Datepicker tip="Hjelpetekst" />
+    <Datepicker label="Label" min="2021-11-11" max="2021-12-11" />
+    <Datepicker min="2021-11-11" max="2021-12-11" />
+  </StoryTemplate>
+);
+
+export const OverviewDatetime = () => (
+  <StoryTemplate display="grid" columnsAmount={2} title="Datepicker - default">
+    <Datepicker type="datetime-local" label="Label" />
+    <Datepicker type="datetime-local" />
+    <Datepicker type="datetime-local" label="Label" disabled />
+    <Datepicker type="datetime-local" disabled />
+    <Datepicker type="datetime-local" label="Label" readOnly />
+    <Datepicker type="datetime-local" readOnly />
+    <Datepicker
+      type="datetime-local"
+      label="Label"
+      errorMessage="Feilmelding"
+    />
+    <Datepicker type="datetime-local" errorMessage="Feilmelding" />
+    <Datepicker type="datetime-local" label="Label" tip="Hjelpetekst" />
+    <Datepicker type="datetime-local" tip="Hjelpetekst" />
+    <Datepicker
+      type="datetime-local"
+      label="Label"
+      min="2021-11-11"
+      max="2021-12-11"
+    />
+    <Datepicker type="datetime-local" min="2021-11-11" max="2021-12-11" />
   </StoryTemplate>
 );
 
@@ -39,5 +67,17 @@ export const Default = (args: DatepickerProps) => (
 export const WithLabel = (args: DatepickerProps) => (
   <StoryTemplate title="Datepicker - with label">
     <Datepicker {...args} label={args.label || 'Label'} />
+  </StoryTemplate>
+);
+
+export const Datetime = (args: DatepickerProps) => (
+  <StoryTemplate title="Datepicker - default">
+    <Datepicker {...args} type="datetime-local" />
+  </StoryTemplate>
+);
+
+export const DatetimeWithLabel = (args: DatepickerProps) => (
+  <StoryTemplate title="Datepicker - with label">
+    <Datepicker {...args} type="datetime-local" label={args.label || 'Label'} />
   </StoryTemplate>
 );
