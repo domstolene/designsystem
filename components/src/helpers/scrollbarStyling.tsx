@@ -23,6 +23,12 @@ const scrollbarStyling = css`
   &::-webkit-scrollbar-thumb:hover {
     background: ${tokens.colors.DdsColorPrimaryDarkest.slice(0, -2) + '0.5)'};
   }
+
+  /* Firefox */
+  scrollbar-color: ${tokens.colors.DdsColorPrimaryDarkest.slice(0, -2) +
+    '0.35)'}
+    transparent;
+  scrollbar-width: thin;
 `;
 
 export default scrollbarStyling;
