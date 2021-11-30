@@ -155,15 +155,6 @@ export const Default = (args: TextInputProps) => {
   );
 };
 
-export const dato = (args: TextInputProps) => {
-  return (
-    <StoryTemplate title="TextInput - default">
-      OBS! under utvikling
-      <TextInput type="date" {...args} />
-    </StoryTemplate>
-  );
-};
-
 export const InputWithLabel = (args: TextInputProps) => {
   return (
     <StoryTemplate title="TextInput - with label">
