@@ -1,72 +1,18 @@
 import styled, { css } from 'styled-components';
 import { TextInputProps } from './TextInput.types';
-import { inputTokens as tokens } from './TextInput.tokens';
-import { Typography } from '../Typography';
-import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
+import { textInputTokens as tokens } from './TextInput.tokens';
+import {
+  inputStyling,
+  SingleLineLabel,
+  InputContainer as GeneralInputContainer,
+  StyledInputProps,
+  inputTokens
+} from '../../helpers/Input';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 
-type GeneralInputProps = Pick<
-  TextInputProps,
-  'readOnly' | 'errorMessage' | 'label' | 'disabled'
->;
-
-const InputStyling = ({
-  readOnly,
-  errorMessage,
-  label,
-  disabled
-}: GeneralInputProps) => {
-  return css`
-    ${inputFieldStylingBase}
-    ${tokens.base}
-    box-sizing: border-box;
-    ${label
-      ? css`
-          ${tokens.withLabel.base}
-        `
-      : css`
-          ${tokens.noLabel.base}
-        `};
-
-    &:hover:enabled ~ label {
-      ${tokens.label.hover.base}
-    }
-    &:focus:enabled ~ label {
-      ${tokens.label.focus.base}
-    }
-
-    ${disabled &&
-    css`
-      cursor: not-allowed;
-      ${tokens.disabled.base}
-    `}
-    ${errorMessage &&
-    css`
-      ${tokens.error.base}
-      &:hover:enabled {
-        ${tokens.error.hover.base}
-      }
-      &:focus:enabled,
-      &:active:enabled {
-        ${tokens.error.focus.base}
-      }
-    `}
-        ${readOnly &&
-    css`
-      cursor: default;
-      ${tokens.readOnly.base}
-    `}
-  `;
-};
-
-export const Input = styled.input<GeneralInputProps>`
+export const TextArea = styled.textarea<StyledInputProps>`
   ${({ label, disabled, readOnly, errorMessage }) =>
-    InputStyling({ readOnly, errorMessage, label, disabled })}
-`;
-
-export const TextArea = styled.textarea<GeneralInputProps>`
-  ${({ label, disabled, readOnly, errorMessage }) =>
-    InputStyling({ readOnly, errorMessage, label, disabled })}
+    inputStyling({ readOnly, errorMessage, label, disabled })}
   resize: vertical;
   height: auto;
   ${scrollbarStyling}
@@ -84,27 +30,22 @@ export const TextArea = styled.textarea<GeneralInputProps>`
           ${tokens.multiline.noLabel.base}
         `}
 
-   &:hover:enabled ~ label {
+   &:hover:enabled:read-write ~ label {
     background-color: ${({ errorMessage }) =>
       errorMessage
-        ? tokens.error.hover.base.backgroundColor
-        : tokens.general.input.hover.backgroundColor};
+        ? inputTokens.error.hover.base.backgroundColor
+        : inputTokens.general.input.hover.backgroundColor};
   }
 `;
 
-export const FlexContainer = styled.div`
+export const MessageContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 
 type LabelProps = Pick<TextInputProps, 'multiline' | 'disabled' | 'readOnly'>;
 
-export const Label = styled(Typography)<LabelProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: color 0.2s, background-color 0.2s;
-  ${tokens.label.base}
+export const Label = styled(SingleLineLabel)<LabelProps>`
   ${({ multiline }) =>
     multiline &&
     css`
@@ -112,33 +53,25 @@ export const Label = styled(Typography)<LabelProps>`
       width: calc(100% - 20px);
       ${tokens.label.multiline.base}
     `}
-    ${({ disabled, multiline }) =>
+  ${({ disabled, multiline }) =>
     disabled &&
     multiline &&
     css`
-      background-color: ${tokens.disabled.base.backgroundColor};
+      background-color: ${inputTokens.disabled.base.backgroundColor};
     `}
     ${({ readOnly, multiline }) =>
     readOnly &&
     multiline &&
     css`
-      background-color: ${tokens.readOnly.base.backgroundColor};
+      background-color: ${inputTokens.readOnly.base.backgroundColor};
     `}
 `;
 
-type InputFieldWrapperProps = Pick<TextInputProps, 'width'>;
+type InputContainerProps = Pick<TextInputProps, 'multiline' | 'label'>;
 
-export const InputFieldWrapper = styled.div<InputFieldWrapperProps>`
-  display: flex;
-  flex-direction: column;
-  width: ${({ width }) => width};
-`;
-
-type InputFieldContainerProps = Pick<TextInputProps, 'multiline' | 'label'>;
-
-export const InputFieldContainer = styled.div<InputFieldContainerProps>`
-  position: relative;
-  width: 100%;
+export const InputContainer = styled(
+  GeneralInputContainer
+)<InputContainerProps>`
   ${({ multiline }) =>
     multiline &&
     css`
