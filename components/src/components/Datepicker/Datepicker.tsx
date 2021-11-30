@@ -1,8 +1,8 @@
 import { forwardRef, useState } from 'react';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
-import { Input } from '../../helpers/Input/Input.styles';
 import {
+  Input,
   SingleLineLabel as Label,
   InputContainer,
   OuterInputContainer
