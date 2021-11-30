@@ -8,8 +8,24 @@ import {
   OuterInputContainer
 } from '../../helpers/Input/Input.styles';
 import { InputProps } from '../../helpers/Input/Input.types';
+import * as CSS from 'csstype';
+import styled from 'styled-components';
 
-export type DatepickerProps = {} & InputProps;
+const getWidth = (type: string): CSS.WidthProperty<string> => {
+  return type === 'date'
+    ? '205px'
+    : type === 'datetime-local'
+    ? '235px'
+    : '320px';
+};
+
+const StyledInput = styled(Input)`
+  ::-webkit-calendar-picker-indicator {
+    margin-left: 0px;
+  }
+`;
+
+export type DatepickerProps = InputProps;
 
 let nextUniqueId = 0;
 
@@ -17,11 +33,12 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   (
     {
       id,
+      type = 'date',
       required,
       readOnly,
       disabled,
       label,
-      width = '200px',
+      width,
       errorMessage,
       tip,
       style,
@@ -34,6 +51,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       id ?? `datepickerInput-${nextUniqueId++}`
     );
 
+    const componentWidth = width ? width : getWidth(type);
+
     const inputProps = {
       label,
       errorMessage,
@@ -42,12 +61,12 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       tabIndex: readOnly ? -1 : 0,
       required,
       disabled,
-      type: 'date',
+      type,
       ...rest
     };
 
     const outerInputContainerProps = {
-      width,
+      width: componentWidth,
       style,
       className
     };
@@ -60,7 +79,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     return (
       <OuterInputContainer {...outerInputContainerProps}>
         <InputContainer>
-          <Input {...inputProps} />
+          <StyledInput {...inputProps} />
           {label && (
             <Label
               {...labelProps}
