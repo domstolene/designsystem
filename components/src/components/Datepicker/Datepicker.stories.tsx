@@ -23,8 +23,10 @@ export const Overview = () => (
     <Datepicker disabled />
     <Datepicker label="Label" readOnly />
     <Datepicker readOnly />
-    <Datepicker label="Label" errorMessage="An error" />
-    <Datepicker errorMessage="An error" />
+    <Datepicker label="Label" errorMessage="Feilmelding" />
+    <Datepicker errorMessage="Feilmelding" />
+    <Datepicker label="Label" tip="Hejlpetekst" />
+    <Datepicker tip="Hejlpetekst" />
   </StoryTemplate>
 );
 
