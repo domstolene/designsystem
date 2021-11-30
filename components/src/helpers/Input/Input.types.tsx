@@ -12,3 +12,5 @@ export type StyledInputProps = Pick<
   InputProps,
   'readOnly' | 'errorMessage' | 'label' | 'disabled'
 >;
+
+export type StyledLabelProps = Pick<InputProps, 'disabled'>;

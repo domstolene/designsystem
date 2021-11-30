@@ -32,6 +32,7 @@ const inputNoLabelBase: CSSObject = {
 };
 
 const inputDisabledBase: CSSObject = {
+  color: Colors.DdsColorNeutralsGray7,
   backgroundColor: Colors.DdsColorNeutralsGray1
 };
 
@@ -69,6 +70,10 @@ const inputLabelFocusBase: CSSObject = {
   color: TextInput.label.focus.textColor
 };
 
+const inputLabelDisabledBase: CSSObject = {
+  color: Colors.DdsColorNeutralsGray6
+};
+
 export const inputTokens = {
   general: TextInput,
   base: inputBase,
@@ -101,6 +106,9 @@ export const inputTokens = {
     },
     focus: {
       base: inputLabelFocusBase
+    },
+    disabled: {
+      base: inputLabelDisabledBase
     }
   }
 };

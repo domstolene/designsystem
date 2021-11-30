@@ -19,6 +19,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       id,
       required,
       readOnly,
+      disabled,
       label,
       width = '200px',
       errorMessage,
@@ -40,6 +41,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       readOnly,
       tabIndex: readOnly ? -1 : 0,
       required,
+      disabled,
       type: 'date',
       ...rest
     };
@@ -51,7 +53,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     };
 
     const labelProps = {
-      htmlFor: uniqueId
+      htmlFor: uniqueId,
+      disabled
     };
 
     return (
