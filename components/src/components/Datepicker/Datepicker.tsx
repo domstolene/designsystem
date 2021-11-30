@@ -5,9 +5,9 @@ import {
   Input,
   SingleLineLabel as Label,
   InputContainer,
-  OuterInputContainer
-} from '../../helpers/Input/Input.styles';
-import { InputProps } from '../../helpers/Input/Input.types';
+  OuterInputContainer,
+  InputProps
+} from '../../helpers/Input';
 import * as CSS from 'csstype';
 import styled from 'styled-components';
 

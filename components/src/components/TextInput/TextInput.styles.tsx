@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components';
 import { TextInputProps } from './TextInput.types';
 import { textInputTokens as tokens } from './TextInput.tokens';
-import { inputTokens } from '../../helpers/Input/Input.tokens';
 import {
   inputStyling,
   SingleLineLabel,
-  InputContainer as GeneralInputContainer
-} from '../../helpers/Input/Input.styles';
-import { StyledInputProps } from '../../helpers/Input/Input.types';
+  InputContainer as GeneralInputContainer,
+  StyledInputProps,
+  inputTokens
+} from '../../helpers/Input';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 
 export const TextArea = styled.textarea<StyledInputProps>`

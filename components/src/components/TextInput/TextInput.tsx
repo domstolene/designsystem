@@ -4,7 +4,7 @@ import RequiredMarker from '../../helpers/RequiredMarker';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
-import { Input, OuterInputContainer } from '../../helpers/Input/Input.styles';
+import { Input, OuterInputContainer } from '../../helpers/Input';
 import {
   Label,
   InputContainer,

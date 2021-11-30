@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import { InputProps } from '../../helpers/Input/Input.types';
+import { InputProps } from '../../helpers/Input';
 
 export type TextInputProps = {
   multiline?: boolean;
