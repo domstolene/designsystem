@@ -1,5 +1,6 @@
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { InternalHeader } from '.';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 
 export default {
   title: 'design system/InternalHeader',
@@ -8,6 +9,11 @@ export default {
 
 const navigationLink = {
   href: '#',
+  title: 'menypunkt'
+};
+
+const uniqueNavigationLink = {
+  href: '#/',
   title: 'menypunkt'
 };
 
@@ -24,33 +30,50 @@ const navigationLinks = [
 ];
 
 const user = {
-  name: 'Navn Navnesen',
+  name: 'Navn Navnesen'
+};
+
+const menuElementWithIcon = {
+  title: 'action',
+  Icon: CreateOutlinedIcon
+};
+const menuElement = {
+  title: 'menypunkt',
   href: '#'
 };
+
+const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
 export const Overview = () => (
   <StoryTemplate title="InternalHeader - overview" gap="40px">
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
-      contextMenuElements={navigationLinks}
+      contextMenuElements={menuElements}
       userProps={user}
     />
     <InternalHeader
       applicationName="Navn på applikasjon"
-      contextMenuElements={navigationLinks}
+      navigationElements={[navigationLink, uniqueNavigationLink]}
+      contextMenuElements={menuElements}
+      userProps={user}
+      currentPageHref="#"
+    />
+    <InternalHeader
+      applicationName="Navn på applikasjon"
+      contextMenuElements={menuElements}
       userProps={user}
     />
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
-      contextMenuElements={navigationLinks}
+      contextMenuElements={menuElements}
       userProps={user}
       smallScreen
     />
     <InternalHeader
       applicationName="Navn på applikasjon"
-      contextMenuElements={navigationLinks}
+      contextMenuElements={menuElements}
       userProps={user}
       smallScreen
     />
@@ -67,6 +90,20 @@ export const Default = () => (
     />
   </StoryTemplate>
 );
+
+export const WithCurrentPage = () => {
+  return (
+    <StoryTemplate title="InternalHeader">
+      <InternalHeader
+        applicationName="Navn på applikasjon"
+        navigationElements={[navigationLink, uniqueNavigationLink]}
+        contextMenuElements={navigationLinks}
+        userProps={user}
+        currentPageHref="#"
+      />
+    </StoryTemplate>
+  );
+};
 
 export const NoStoryHeading = () => (
   <InternalHeader

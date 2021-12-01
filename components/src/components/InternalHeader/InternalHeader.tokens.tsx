@@ -66,6 +66,12 @@ const navigationLinkFocusBase: CSSObject = {
   color: Colors.DdsColorNeutralsWhite,
   backgroundColor: Colors.DdsColorWarningDarkest
 };
+
+const navigationLinkCurrentBase: CSSObject = {
+  color: Colors.DdsColorNeutralsWhite,
+  backgroundColor: Colors.DdsColorInteractiveDark
+};
+
 const contextMenuBase: CSSObject = {
   border: `${Border.BordersDdsBorderStyle1StrokeWeight} ${borderColor} solid `,
   backgroundColor: Colors.DdsColorNeutralsWhite,
@@ -125,6 +131,9 @@ export const internalHeaderTokens = {
     },
     focus: {
       base: navigationLinkFocusBase
+    },
+    current: {
+      base: navigationLinkCurrentBase
     }
   },
   contextMenu: {

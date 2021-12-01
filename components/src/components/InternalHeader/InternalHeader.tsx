@@ -65,7 +65,9 @@ const NavigationList = styled.ul<NavListProps>`
 `;
 const NavigationListItem = styled.li``;
 
-const NavigationLink = styled.a`
+type StyledNavigationListProps = Pick<NavigationLinkProps, 'current'>;
+
+const NavigationLink = styled.a<StyledNavigationListProps>`
   display: block;
   transition: background-color 0.2s;
   ${tokens.navigationLink.base}
@@ -79,6 +81,11 @@ const NavigationLink = styled.a`
     outline: none;
     ${tokens.navigationLink.focus.base}
   }
+  ${({ current }) =>
+    current &&
+    css`
+      ${tokens.navigationLink.current.base}
+    `}
 `;
 
 type ContextMenuWrapperProps = { closed?: boolean };
@@ -86,7 +93,7 @@ type ContextMenuWrapperProps = { closed?: boolean };
 const ContextMenuWrapper = styled.div<ContextMenuWrapperProps>`
   position: absolute;
   z-index: 3;
-  top: 100%;
+  top: calc(100% - 2px);
   right: ${tokens.banner.base.paddingRight};
   overflow-y: auto;
   min-width: 180px;
@@ -109,7 +116,21 @@ const ContextMenuList = styled.ul`
 
 const ContextMenuListItem = styled.li``;
 
+const ContextMenuElement = styled.span`
+  ${tokens.contextMenuLink.base}
+  display: flex;
+  align-items: center;
+`;
+
 const ContextMenuLink = styled.a`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  width: 100%;
   ${tokens.contextMenuLink.base}
   display: flex;
   align-items: center;
@@ -134,12 +155,16 @@ const StyledIconWrapper = styled(IconWrapper)`
   ${tokens.icon.base}
 `;
 
-export type MenuLink = {
+export type NavigationLinkProps = {
+  id?: string;
   href: string;
   title: string;
+  current?: boolean;
 };
 
-export type ContextMenuLink = MenuLink & {
+export type ContextMenuElement = {
+  title: string;
+  href?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 };
 
@@ -152,8 +177,10 @@ type InternalHeaderProps = {
   applicationName?: string;
   smallScreen?: boolean;
   userProps?: InternaHeaderUserProps;
-  navigationElements?: MenuLink[];
-  contextMenuElements?: ContextMenuLink[];
+  navigationElements?: NavigationLinkProps[];
+  contextMenuElements?: ContextMenuElement[];
+  currentPageHref?: string;
+  onCurrentPageChange?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const InternalHeader = ({
@@ -161,10 +188,15 @@ export const InternalHeader = ({
   smallScreen,
   navigationElements,
   contextMenuElements,
+  currentPageHref,
   userProps,
+  onCurrentPageChange,
   ...rest
 }: InternalHeaderProps) => {
   const [contextMenuIsClosed, setContextMenuIsClosed] = useState(true);
+  const [currentPage, setCurrentPage] = useState<string | undefined>(
+    currentPageHref
+  );
   const contextMenuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -191,6 +223,11 @@ export const InternalHeader = ({
     };
   });
 
+  const handleCurrentPageChange = (href: string) => {
+    setCurrentPage(href);
+    onCurrentPageChange && onCurrentPageChange();
+  };
+
   const handleContextMenuClick = () => {
     setContextMenuIsClosed(!contextMenuIsClosed);
   };
@@ -204,11 +241,22 @@ export const InternalHeader = ({
 
   const navigationContent =
     navigationElements &&
-    navigationElements.map((item, index) => (
-      <NavigationListItem key={index}>
-        <NavigationLink href={item.href}>{item.title}</NavigationLink>
-      </NavigationListItem>
-    ));
+    navigationElements.map((item, index) => {
+      const { href, title, ...rest } = item;
+      const isCurrent = href === currentPage;
+      return (
+        <NavigationListItem key={index}>
+          <NavigationLink
+            {...rest}
+            href={href}
+            current={isCurrent}
+            onClick={() => handleCurrentPageChange(href)}
+          >
+            {title}
+          </NavigationLink>
+        </NavigationListItem>
+      );
+    });
 
   const navigation = navigationElements && (
     <Navigation>
@@ -220,26 +268,43 @@ export const InternalHeader = ({
     <ContextMenuList role="menu">
       {userProps && (
         <ContextMenuListItem>
-          <ContextMenuLink {...userElementProps}>
-            <StyledIconWrapper
-              iconSize="inline"
-              Icon={PersonOutlineOutlinedIcon}
-            />
-            {userProps.name}
-          </ContextMenuLink>
+          {userProps.href ? (
+            <ContextMenuLink {...userElementProps}>
+              <StyledIconWrapper
+                iconSize="inline"
+                Icon={PersonOutlineOutlinedIcon}
+              />
+              {userProps.name}
+            </ContextMenuLink>
+          ) : (
+            <ContextMenuElement {...userElementProps}>
+              <StyledIconWrapper
+                iconSize="inline"
+                Icon={PersonOutlineOutlinedIcon}
+              />
+              {userProps.name}
+            </ContextMenuElement>
+          )}
         </ContextMenuListItem>
       )}
       {contextMenuElements &&
-        contextMenuElements.map((item, index) => (
-          <ContextMenuListItem key={index} role="menuitem">
-            <ContextMenuLink href={item.href}>
-              {item.Icon && (
-                <StyledIconWrapper iconSize="inline" Icon={item.Icon} />
-              )}
-              {item.title}
-            </ContextMenuLink>
-          </ContextMenuListItem>
-        ))}
+        contextMenuElements.map((item, index) => {
+          const { Icon, href, title, ...rest } = item;
+          const as: ElementType = href ? 'a' : 'button';
+          const props = {
+            as: as,
+            href,
+            ...rest
+          };
+          return (
+            <ContextMenuListItem key={index} role="menuitem">
+              <ContextMenuLink {...props}>
+                {Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />}
+                {title}
+              </ContextMenuLink>
+            </ContextMenuListItem>
+          );
+        })}
     </ContextMenuList>
   );
 
