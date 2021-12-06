@@ -62,27 +62,32 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       />
     );
 
+    const hasLabel = !!label;
+    const isIconButton = !hasLabel && !!Icon;
+
     return (
       <ButtonWrapper {...wrapperProps}>
-        {loading ? (
+        {loading && (
           <JustIconWrapper size={size}>
             <Spinner
               color={tokens.appearance[appearance][purpose].base.color}
               size={tokens.sizes[size].justIcon.base.fontSize as string}
             />
           </JustIconWrapper>
-        ) : !label && Icon ? (
+        )}
+
+        {isIconButton && !loading && (
           <JustIconWrapper size={size}>
             <IconWrapper Icon={Icon} iconSize="inline" />
           </JustIconWrapper>
-        ) : label ? (
+        )}
+
+        {hasLabel && !loading && (
           <>
             {iconPosition === 'left' && iconElement}
             <Label>{label}</Label>
             {iconPosition === 'right' && iconElement}
           </>
-        ) : (
-          ''
         )}
       </ButtonWrapper>
     );
