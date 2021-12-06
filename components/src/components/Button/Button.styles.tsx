@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { IconWrapper } from '../../helpers/IconWrapper';
+import { typographyTokens } from '../Typography/Typography.tokens';
 import { buttonTokens as tokens } from './Button.tokens';
 import {
   ButtonAppearance,
@@ -83,6 +84,10 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   &:focus-visible, &.focus-visible {
     outline: ${tokens.focusOutline.width} solid ${tokens.focusOutline.color};
     outline-offset: 2px;
+  }
+
+  *::selection {
+    ${typographyTokens.selection.base}
   }
 `;
 
