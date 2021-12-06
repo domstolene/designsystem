@@ -4,7 +4,6 @@ import { IconWrapper } from '../../helpers/IconWrapper';
 import { Spinner } from '../Spinner';
 import { ButtonProps } from './Button.types';
 import {
-  ButtonContent,
   ButtonWrapper,
   IconWithTextWrapper,
   JustIconWrapper,
@@ -22,8 +21,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       appearance = 'filled',
       href,
       target,
-      loading,
-      fullWidth,
+      loading = false,
+      fullWidth = false,
       className,
       style,
       Icon,
@@ -40,23 +39,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       rel: href ? 'noreferrer noopener' : undefined,
       target: href && target ? target : undefined,
       ref,
+      appearance,
+      purpose,
+      iconPosition,
       fullWidth,
+      hasLabel: !!label,
+      hasIcon: !!Icon,
+      loading,
       disabled,
+      size,
       className,
       style,
       ...rest
-    };
-
-    const contentProps = {
-      iconPosition,
-      appearance,
-      purpose,
-      label,
-      size,
-      Icon,
-      fullWidth,
-      loading,
-      tabIndex: -1
     };
 
     const iconElement = Icon && iconPosition && size && (
@@ -70,28 +64,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <ButtonWrapper {...wrapperProps}>
-        <ButtonContent {...contentProps}>
-          {loading ? (
-            <JustIconWrapper size={size}>
-              <Spinner
-                color={tokens.appearance[appearance][purpose].base.color}
-                size={tokens.sizes[size].justIcon.base.fontSize as string}
-              />
-            </JustIconWrapper>
-          ) : !label && Icon ? (
-            <JustIconWrapper size={size}>
-              <IconWrapper Icon={Icon} iconSize="inline" />
-            </JustIconWrapper>
-          ) : label ? (
-            <>
-              {iconPosition === 'left' && iconElement}
-              <Label>{label}</Label>
-              {iconPosition === 'right' && iconElement}
-            </>
-          ) : (
-            ''
-          )}
-        </ButtonContent>
+        {loading ? (
+          <JustIconWrapper size={size}>
+            <Spinner
+              color={tokens.appearance[appearance][purpose].base.color}
+              size={tokens.sizes[size].justIcon.base.fontSize as string}
+            />
+          </JustIconWrapper>
+        ) : !label && Icon ? (
+          <JustIconWrapper size={size}>
+            <IconWrapper Icon={Icon} iconSize="inline" />
+          </JustIconWrapper>
+        ) : label ? (
+          <>
+            {iconPosition === 'left' && iconElement}
+            <Label>{label}</Label>
+            {iconPosition === 'right' && iconElement}
+          </>
+        ) : (
+          ''
+        )}
       </ButtonWrapper>
     );
   }
