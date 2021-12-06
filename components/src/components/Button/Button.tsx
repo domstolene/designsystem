@@ -42,6 +42,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ref,
       fullWidth,
       disabled,
+      className,
+      style,
       ...rest
     };
 
@@ -54,9 +56,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       Icon,
       fullWidth,
       loading,
-      tabIndex: -1,
-      className,
-      style
+      tabIndex: -1
     };
 
     const iconElement = Icon && iconPosition && size && (

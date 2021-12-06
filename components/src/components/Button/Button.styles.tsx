@@ -18,9 +18,11 @@ export const buttonContentStyle = (
   transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s,
     border-color 0.2s, color 0.2s;
   ${tokens.base}
+
   *::selection {
     ${typographyTokens.selection.base}
   }
+
   ${appearance &&
   purpose &&
   css`
@@ -98,11 +100,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   padding: 0;
   background-color: transparent;
   text-decoration: none;
-  ${({ fullWidth }) =>
-    !fullWidth &&
-    css`
-      width: fit-content;
-    `}
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
 
   &:focus > ${ButtonContent} {
     outline: ${tokens.focusOutline.width} solid ${tokens.focusOutline.color};
