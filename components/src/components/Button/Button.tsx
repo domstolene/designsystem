@@ -45,7 +45,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       fullWidth,
       hasLabel: !!label,
       hasIcon: !!Icon,
-      loading,
+      isLoading: loading,
       disabled,
       size,
       className,

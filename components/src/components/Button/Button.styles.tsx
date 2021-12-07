@@ -16,7 +16,7 @@ type ButtonWrapperProps = {
   fullWidth: boolean;
   hasIcon: boolean;
   hasLabel: boolean;
-  loading: boolean;
+  isLoading: boolean;
 };
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
@@ -68,9 +68,9 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
           ${tokens.sizes[size].justIcon.base}
         `}
 
-  ${({ fullWidth, hasIcon, hasLabel, loading }) =>
+  ${({ fullWidth, hasIcon, hasLabel, isLoading }) =>
     fullWidth &&
-    (!hasIcon || !hasLabel || loading
+    (!hasIcon || !hasLabel || isLoading
       ? css`
           justify-content: center;
         `
