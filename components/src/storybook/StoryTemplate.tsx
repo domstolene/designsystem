@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { Divider } from '../components/Divider';
 import { Typography } from '../components/Typography';
 import { StoryContainer } from './StoryContainer';
+import 'focus-visible';
 
 const Container = styled.div<{
   gap?: string;
