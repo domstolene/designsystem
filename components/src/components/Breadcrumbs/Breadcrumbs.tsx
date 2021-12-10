@@ -15,6 +15,7 @@ const List = styled.ol`
 const ListItem = styled.li`
   align-items: center;
   display: flex;
+  ${tokens.breadcrumb.base}
 `;
 
 const BreadcrumbIcon = styled(ChevronRightOutlinedIcon)`
