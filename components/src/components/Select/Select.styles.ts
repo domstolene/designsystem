@@ -17,7 +17,7 @@ type StyledContainerProps = {
   errorMessage?: string;
   isDisabled?: boolean;
   readOnly?: boolean;
-  label?: string;
+  hasLabel: boolean;
 };
 
 export const Container = styled.div<StyledContainerProps>`
@@ -28,8 +28,8 @@ export const Container = styled.div<StyledContainerProps>`
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${({ label }) =>
-    label
+  ${({ hasLabel }) =>
+    hasLabel
       ? css`
           .${prefix}__value-container {
             ${tokens.valueContainer.withLabel.base}

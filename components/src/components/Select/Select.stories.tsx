@@ -148,7 +148,6 @@ export const Multiselect = (args: SelectProps) => {
         label={args.label || 'Label'}
         options={options}
         isMulti
-        closeMenuOnSelect={false}
       />
     </StoryTemplate>
   );

@@ -92,6 +92,8 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
   ) => {
     const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
 
+    const hasLabel = !!label;
+
     const wrapperProps = {
       width
     };
@@ -100,7 +102,7 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
       errorMessage,
       isDisabled,
       readOnly,
-      label,
+      hasLabel,
       className,
       style
     };
@@ -113,7 +115,11 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
       isDisabled: isDisabled || readOnly,
       isClearable,
       placeholder,
-      closeMenuOnSelect,
+      closeMenuOnSelect: closeMenuOnSelect
+        ? closeMenuOnSelect
+        : isMulti
+        ? false
+        : true,
       isMulti,
       inputId: uniqueId,
       name: uniqueId,
