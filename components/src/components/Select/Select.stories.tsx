@@ -3,7 +3,7 @@ import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Select as DDSSelect, SelectProps } from './Select';
 
 export default {
-  title: 'design system/Select',
+  title: 'design system/Select/SingleValue',
   component: DDSSelect,
   argTypes: {
     label: { control: { type: 'text' } },
@@ -135,19 +135,6 @@ export const ManyItems = (args: SelectProps) => {
         {...args}
         label={args.label || 'Label'}
         options={optionsLong}
-      />
-    </StoryTemplate>
-  );
-};
-
-export const Multiselect = (args: SelectProps) => {
-  return (
-    <StoryTemplate title="Select - multiselect">
-      <DDSSelect
-        {...args}
-        label={args.label || 'Label'}
-        options={options}
-        isMulti
       />
     </StoryTemplate>
   );
