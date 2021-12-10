@@ -101,6 +101,7 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
     const containerProps = {
       errorMessage,
       isDisabled,
+      isMulti,
       readOnly,
       hasLabel,
       className,

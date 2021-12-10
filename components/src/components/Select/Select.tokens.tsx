@@ -4,6 +4,7 @@ import {
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import * as CSS from 'csstype';
+import { calculateHeightWithLineHeight } from '../../helpers/functions';
 
 const {
   colors: Colors,
@@ -14,6 +15,14 @@ const {
 } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
+
+const multiValueContainerHeight = `${
+  Spacing.SizesDdsSpacingLocalX025NumberPx * 2 +
+  calculateHeightWithLineHeight(
+    FontPackages.supportingStyle_inputtext_01.numbers.lineHeightNumber,
+    FontPackages.supportingStyle_inputtext_01.numbers.fontSizeNumber
+  )
+}px`;
 
 const labelBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray7,
@@ -38,6 +47,11 @@ const valueContainerWithLabelBase: CSSObject = {
 
 const valueContainerNoLabelBase: CSSObject = {
   marginBottom: Spacing.SizesDdsSpacingLocalX075
+};
+
+const valueContainerIsMultiBase: CSSObject = {
+  height: multiValueContainerHeight,
+  marginBottom: Spacing.SizesDdsSpacingLocalX05
 };
 
 const containerBase: CSSObject = {
@@ -86,6 +100,10 @@ const indicatorsContainerWithLabelBase: CSSObject = {
 };
 const indicatorsContainerNoLabelBase: CSSObject = {
   marginBottom: Spacing.SizesDdsSpacingLocalX075
+};
+
+const indicatorsContainerIsMultiBase: CSSObject = {
+  marginBottom: Spacing.SizesDdsSpacingLocalX05
 };
 
 const dropdownIndicatorBase: CSSObject = {
@@ -140,10 +158,17 @@ const noOptionsMessageBase: CSSObject = {
 };
 
 const multiValueBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveLighter,
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
   margin: Spacing.SizesDdsSpacingLocalX0125
 };
+const multiValueEnabledBase: CSSObject = {
+  backgroundColor: Colors.DdsColorInteractiveLighter
+};
+
+const multiValueDisabledBase: CSSObject = {
+  backgroundColor: Colors.DdsColorNeutralsGray3
+};
+
 const multiValueLabelBase: CSSObject = {
   paddingTop: `${Spacing.SizesDdsSpacingLocalX025}`,
   paddingRight: `${Spacing.SizesDdsSpacingLocalX05}`,
@@ -241,10 +266,19 @@ export const selectTokens = {
     },
     noLabel: {
       base: valueContainerNoLabelBase
+    },
+    isMulti: {
+      base: valueContainerIsMultiBase
     }
   },
   multiValue: {
-    base: multiValueBase
+    base: multiValueBase,
+    enabled: {
+      base: multiValueEnabledBase
+    },
+    disabled: {
+      base: multiValueDisabledBase
+    }
   },
   multiValueLabel: {
     base: multiValueLabelBase
@@ -261,6 +295,9 @@ export const selectTokens = {
     },
     noLabel: {
       base: indicatorsContainerNoLabelBase
+    },
+    isMulti: {
+      base: indicatorsContainerIsMultiBase
     }
   },
   dropdownIndicator: {

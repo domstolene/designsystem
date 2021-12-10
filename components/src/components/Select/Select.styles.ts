@@ -18,6 +18,7 @@ type StyledContainerProps = {
   isDisabled?: boolean;
   readOnly?: boolean;
   hasLabel: boolean;
+  isMulti?: boolean;
 };
 
 export const Container = styled.div<StyledContainerProps>`
@@ -28,8 +29,17 @@ export const Container = styled.div<StyledContainerProps>`
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${({ hasLabel }) =>
-    hasLabel
+  ${({ hasLabel, isMulti }) =>
+    isMulti
+      ? css`
+          .${prefix}__value-container {
+            ${tokens.valueContainer.isMulti.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.isMulti.base}
+          }
+        `
+      : hasLabel
       ? css`
           .${prefix}__value-container {
             ${tokens.valueContainer.withLabel.base}
@@ -169,10 +179,18 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       margin: 0
     };
   },
-  multiValue: provided => {
+  multiValue: (provided, state) => {
+    const variantStyles: CSSObject = state.selectProps.isDisabled
+      ? {
+          ...tokens.multiValue.disabled.base
+        }
+      : {
+          ...tokens.multiValue.enabled.base
+        };
     return {
       ...provided,
-      ...tokens.multiValue.base
+      ...tokens.multiValue.base,
+      ...variantStyles
     };
   },
   multiValueLabel: provided => {
@@ -181,15 +199,19 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       ...tokens.multiValueLabel.base
     };
   },
-  multiValueRemove: provided => {
-    return {
-      ...provided,
-      transition: '0.2s',
-      ...tokens.multiValueRemove.base,
-      '&:hover': {
-        ...tokens.multiValueRemove.hover.base
-      }
-    };
+  multiValueRemove: (provided, state) => {
+    return state.selectProps.isDisabled
+      ? {
+          display: 'none'
+        }
+      : {
+          ...provided,
+          transition: '0.2s',
+          ...tokens.multiValueRemove.base,
+          '&:hover': {
+            ...tokens.multiValueRemove.hover.base
+          }
+        };
   },
   menu: provided => {
     return {
