@@ -37,7 +37,7 @@ const ContentContainer = styled.div`
   padding: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX075};
 `;
 
-export const Overview = (args: CardProps) => {
+export const Overview = () => {
   return (
     <StoryTemplate title="Card - overview" display="grid" columnsAmount={4}>
       <DDSCard>
