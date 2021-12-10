@@ -140,24 +140,27 @@ const noOptionsMessageBase: CSSObject = {
 };
 
 const multiValueBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInfoLighter,
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
+  backgroundColor: Colors.DdsColorInteractiveLighter,
+  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
+  margin: Spacing.SizesDdsSpacingLocalX0125
 };
-
 const multiValueLabelBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
-  color: Colors.DdsColorNeutralsGray6,
-  ...FontPackages.supportingStyle_label_01.base
+  paddingTop: `${Spacing.SizesDdsSpacingLocalX025}`,
+  paddingRight: `${Spacing.SizesDdsSpacingLocalX05}`,
+  paddingLeft: `${Spacing.SizesDdsSpacingLocalX05}`,
+  paddingBottom: `${Spacing.SizesDdsSpacingLocalX025}`,
+  color: Colors.DdsColorNeutralsGray9,
+  ...FontPackages.supportingStyle_inputtext_01.base,
+  fontWeight: 'bold'
 };
 const multiValueRemoveBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
-  color: Colors.DdsColorNeutralsGray6
+  padding: `${Spacing.SizesDdsSpacingLocalX05}`,
+  color: Colors.DdsColorNeutralsGray9
 };
 
 const multiValueRemoveHoverBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
-  color: Colors.DdsColorDangerBase,
-  backgroundColor: Colors.DdsColorDangerLightest
+  color: Colors.DdsColorNeutralsWhite,
+  backgroundColor: Colors.DdsColorInteractiveBase
 };
 
 const containerDisabledBase: CSSObject = {
