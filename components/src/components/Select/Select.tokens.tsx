@@ -24,6 +24,12 @@ const multiValueContainerHeight = `${
   )
 }px`;
 
+//custom spacing so that multiselect has same height as single value select
+const valueContainerMarginBottomMulti = `${
+  Spacing.SizesDdsSpacingLocalX05NumberPx +
+  Spacing.SizesDdsSpacingLocalX0125NumberPx
+}px`;
+
 const labelBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray7,
   paddingTop: Spacing.SizesDdsSpacingLocalX075,
@@ -42,7 +48,7 @@ const labelFocusBase: CSSObject = {
 };
 
 const valueContainerWithLabelBase: CSSObject = {
-  marginBottom: Spacing.SizesDdsSpacingLocalX1
+  marginBottom: Spacing.SizesDdsSpacingLocalX075
 };
 
 const valueContainerNoLabelBase: CSSObject = {
@@ -51,7 +57,7 @@ const valueContainerNoLabelBase: CSSObject = {
 
 const valueContainerIsMultiBase: CSSObject = {
   height: multiValueContainerHeight,
-  marginBottom: Spacing.SizesDdsSpacingLocalX05
+  marginBottom: valueContainerMarginBottomMulti
 };
 
 const containerBase: CSSObject = {
