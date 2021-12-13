@@ -11,12 +11,14 @@ const {
   spacing: Spacing,
   fontPackages: FontPackages,
   borderRadius: BorderRadius,
-  border: Border
+  border: Border,
+  iconSizes: IconSizes
 } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
 
-const multiValueContainerHeight = `${
+export const multiValueContainerMinHeight = `${
+  Spacing.SizesDdsSpacingLocalX0125NumberPx * 2 +
   Spacing.SizesDdsSpacingLocalX025NumberPx * 2 +
   calculateHeightWithLineHeight(
     FontPackages.supportingStyle_inputtext_01.numbers.lineHeightNumber,
@@ -26,7 +28,7 @@ const multiValueContainerHeight = `${
 
 //custom spacing so that multiselect has same height as single value select
 const valueContainerMarginBottomMulti = `${
-  Spacing.SizesDdsSpacingLocalX05NumberPx +
+  Spacing.SizesDdsSpacingLocalX025NumberPx +
   Spacing.SizesDdsSpacingLocalX0125NumberPx
 }px`;
 
@@ -56,7 +58,7 @@ const valueContainerNoLabelBase: CSSObject = {
 };
 
 const valueContainerIsMultiBase: CSSObject = {
-  height: multiValueContainerHeight,
+  minHeight: multiValueContainerMinHeight,
   marginBottom: valueContainerMarginBottomMulti
 };
 
@@ -185,13 +187,18 @@ const multiValueLabelBase: CSSObject = {
   fontWeight: 'bold'
 };
 const multiValueRemoveBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX05}`,
+  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
   color: Colors.DdsColorNeutralsGray9
 };
 
 const multiValueRemoveHoverBase: CSSObject = {
   color: Colors.DdsColorNeutralsWhite,
   backgroundColor: Colors.DdsColorInteractiveBase
+};
+
+const multiValueRemoveIconBase: CSSObject = {
+  height: IconSizes.DdsIconsizeSmall,
+  width: IconSizes.DdsIconsizeSmall
 };
 
 const containerDisabledBase: CSSObject = {
@@ -293,6 +300,9 @@ export const selectTokens = {
     base: multiValueRemoveBase,
     hover: {
       base: multiValueRemoveHoverBase
+    },
+    icon: {
+      base: multiValueRemoveIconBase
     }
   },
   indicatorsContainer: {

@@ -208,6 +208,9 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
           ...provided,
           transition: '0.2s',
           ...tokens.multiValueRemove.base,
+          svg: {
+            ...tokens.multiValueRemove.icon.base
+          },
           '&:hover': {
             ...tokens.multiValueRemove.hover.base
           }
