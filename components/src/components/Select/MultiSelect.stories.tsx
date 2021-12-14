@@ -43,15 +43,101 @@ const optionsLong = [
   'Alternativ 7'
 ].map(s => ({ label: s, value: s }));
 
-export const Default = (args: SelectProps) => {
+export const Overview = (args: SelectProps) => {
   return (
-    <StoryTemplate title="MultiSelect - default">
+    <StoryTemplate
+      title="Multiselect - overview"
+      gap="25px"
+      display="grid"
+      columnsAmount={2}
+    >
       <DDSSelect
         {...args}
         label={args.label || 'Label'}
         options={options}
         isMulti
       />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        required
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        isDisabled
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        isDisabled
+        value={options[0]}
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        readOnly
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        readOnly
+        value={options[0]}
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        errorMessage="Dette er en feilmelding"
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        tip="Dette er en hjelpetekst"
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        placeholder="Annerledes placeholder"
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        defaultValue={options[0]}
+        options={options}
+        isMulti
+      />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        value={options[3]}
+        options={options}
+        isMulti
+      />
+      <DDSSelect {...args} options={options} isMulti />
+    </StoryTemplate>
+  );
+};
+
+export const Default = (args: SelectProps) => {
+  return (
+    <StoryTemplate title="MultiSelect - default">
+      <DDSSelect {...args} options={options} isMulti />
     </StoryTemplate>
   );
 };
