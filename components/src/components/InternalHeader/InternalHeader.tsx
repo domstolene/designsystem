@@ -1,187 +1,28 @@
-import {
-  ElementType,
-  HTMLAttributes,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
-import styled, { css } from 'styled-components';
+import { ElementType, useEffect, useRef, useState } from 'react';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
-import { IconWrapper } from '../../helpers/IconWrapper';
-import { typographyTokens } from '../Typography/Typography.tokens';
-import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { Divider } from '../Divider';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
-
-const Wrapper = styled.div`
-  *::selection {
-    ${typographyTokens.selection.base}
-  }
-  ${tokens.wrapper.base}
-`;
-
-const BannerWrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  ${tokens.banner.base}
-`;
-
-const BannerLeftWrapper = styled.div`
-  display: flex;
-  ${tokens.bannerLeft.base}
-`;
-
-const ApplicationNameWrapper = styled.div`
-  ${tokens.applicationNameWrapper.base}
-`;
-const LovisaWrapper = styled.div`
-  ${tokens.lovisaWrapper.base}
-`;
-
-const Navigation = styled.nav`
-  ${tokens.navigation.base}
-`;
-
-type NavListProps = Pick<InternalHeaderProps, 'smallScreen'>;
-
-const NavigationList = styled.ul<NavListProps>`
-  display: flex;
-  ${({ smallScreen }) =>
-    smallScreen &&
-    css`
-      flex-direction: column;
-    `}
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-`;
-const NavigationListItem = styled.li``;
-
-type StyledNavigationListProps = Pick<NavigationLinkProps, 'current'>;
-
-const NavigationLink = styled.a<StyledNavigationListProps>`
-  display: block;
-  transition: background-color 0.2s;
-  ${tokens.navigationLink.base}
-  &:hover {
-    ${tokens.navigationLink.hover.base}
-  }
-  &:active {
-    ${tokens.navigationLink.active.base}
-  }
-  &:focus-visible {
-    outline: none;
-    ${tokens.navigationLink.focus.base}
-  }
-  ${({ current }) =>
-    current &&
-    css`
-      ${tokens.navigationLink.current.base}
-    `}
-`;
-
-type ContextMenuWrapperProps = { closed?: boolean };
-
-const ContextMenuWrapper = styled.div<ContextMenuWrapperProps>`
-  position: absolute;
-  z-index: 3;
-  top: calc(100% - 2px);
-  right: ${tokens.banner.base.paddingRight};
-  overflow-y: auto;
-  min-width: 180px;
-  max-width: 300px;
-  max-height: calc(100vh - 110px);
-  transition: visibility 0.4s, opacity 0.2s;
-  visibility: ${({ closed }) => (closed ? 'hidden' : 'visible')};
-  opacity: ${({ closed }) => (closed ? 0 : 1)};
-  ${tokens.contextMenu.base}
-  ${scrollbarStyling}
-`;
-
-const ContextMenuList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const ContextMenuListItem = styled.li``;
-
-const ContextMenuElement = styled.span`
-  ${tokens.contextMenuLink.base}
-  display: flex;
-  align-items: center;
-`;
-
-const ContextMenuLink = styled.a`
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  width: 100%;
-  ${tokens.contextMenuLink.base}
-  display: flex;
-  align-items: center;
-  transition: background-color 0.2s;
-  &:hover {
-    ${tokens.contextMenuLink.hover.base}
-  }
-  &:active {
-    ${tokens.contextMenuLink.active.base}
-  }
-  &:focus-visible {
-    outline: none;
-    ${tokens.contextMenuLink.focus.base}
-  }
-`;
-
-const StyledDivider = styled(Divider)`
-  ${tokens.contextMenuDivider.base}
-`;
-
-const StyledIconWrapper = styled(IconWrapper)`
-  ${tokens.icon.base}
-`;
-
-export type NavigationLinkProps = {
-  id?: string;
-  href: string;
-  title: string;
-  current?: boolean;
-};
-
-export type ContextMenuElement = {
-  title: string;
-  href?: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-};
-
-export type InternaHeaderUserProps = {
-  name: string;
-  href?: string;
-};
-
-type InternalHeaderProps = {
-  applicationName?: string;
-  smallScreen?: boolean;
-  userProps?: InternaHeaderUserProps;
-  navigationElements?: NavigationLinkProps[];
-  contextMenuElements?: ContextMenuElement[];
-  currentPageHref?: string;
-  onCurrentPageChange?: () => void;
-} & HTMLAttributes<HTMLDivElement>;
+import { InternalHeaderProps } from './InternalHeader.types';
+import {
+  Wrapper,
+  NavigationListItem,
+  NavigationLink,
+  Navigation,
+  NavigationList,
+  ContextMenuList,
+  ContextMenuListItem,
+  ContextMenuLink,
+  StyledIconWrapper,
+  ContextMenuElement,
+  ContextMenuWrapper,
+  StyledDivider,
+  BannerWrapper,
+  BannerLeftWrapper,
+  LovisaWrapper,
+  ApplicationNameWrapper
+} from './InternalHeader.styles';
 
 export const InternalHeader = ({
   applicationName,
