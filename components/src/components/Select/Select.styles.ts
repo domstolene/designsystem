@@ -29,14 +29,28 @@ export const Container = styled.div<StyledContainerProps>`
   *::selection {
     ${typographyTokens.selection.base}
   }
+  ${({ isMulti }) => isMulti && css``}
+
   ${({ hasLabel, isMulti }) =>
-    isMulti
+    isMulti && hasLabel
       ? css`
           .${prefix}__value-container {
-            ${tokens.valueContainer.isMulti.base}
+            ${tokens.valueContainer.isMulti.withLabel.base}
           }
           .${prefix}__indicators {
-            ${tokens.indicatorsContainer.isMulti.base}
+            ${tokens.indicatorsContainer.isMulti.withLabel.base}
+          }
+        `
+      : isMulti && !hasLabel
+      ? css`
+          .${prefix}__control {
+            ${tokens.input.isMulti.noLabel.base}
+          }
+          .${prefix}__value-container {
+            ${tokens.valueContainer.isMulti.noLabel.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.isMulti.noLabel.base}
           }
         `
       : hasLabel
@@ -167,9 +181,15 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       ...tokens.input.base
     };
   },
-  valueContainer: provided => {
+  valueContainer: (provided, state) => {
+    const isMultiStyles = state.selectProps.isMulti
+      ? {
+          ...tokens.valueContainer.isMulti.base
+        }
+      : {};
     return {
       ...provided,
+      ...isMultiStyles,
       padding: 0
     };
   },
@@ -213,6 +233,9 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
           },
           '&:hover': {
             ...tokens.multiValueRemove.hover.base
+          },
+          '&:focus': {
+            backgroundColor: 'blue'
           }
         };
   },

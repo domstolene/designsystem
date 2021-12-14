@@ -27,8 +27,14 @@ export const multiValueContainerMinHeight = `${
 }px`;
 
 //custom spacing so that multiselect has same height as single value select
-const valueContainerMarginBottomMulti = `${
+const valueContainerMarginBottomMultiWithLabel = `${
   Spacing.SizesDdsSpacingLocalX025NumberPx +
+  Spacing.SizesDdsSpacingLocalX0125NumberPx
+}px`;
+
+//custom spacing so that multiselect has same height as single value select
+const inputMultiNoLabelPaddingTop = `${
+  Spacing.SizesDdsSpacingLocalX05NumberPx +
   Spacing.SizesDdsSpacingLocalX0125NumberPx
 }px`;
 
@@ -58,8 +64,15 @@ const valueContainerNoLabelBase: CSSObject = {
 };
 
 const valueContainerIsMultiBase: CSSObject = {
-  minHeight: multiValueContainerMinHeight,
-  marginBottom: valueContainerMarginBottomMulti
+  minHeight: multiValueContainerMinHeight
+};
+
+const valueContainerIsMultiWithLabelBase: CSSObject = {
+  marginBottom: valueContainerMarginBottomMultiWithLabel
+};
+
+const valueContainerIsMultiNoLabelBase: CSSObject = {
+  marginBottom: Spacing.SizesDdsSpacingLocalX05
 };
 
 const containerBase: CSSObject = {
@@ -98,6 +111,11 @@ const inputBase: CSSObject = {
 const inputNoLabelBase: CSSObject = {
   paddingTop: Spacing.SizesDdsSpacingLocalX075
 };
+
+const inputIsMultiNoLabelBase: CSSObject = {
+  paddingTop: inputMultiNoLabelPaddingTop
+};
+
 const placeholderBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
   ...FontPackages.supportingStyle_placeholdertext_01.base
@@ -110,7 +128,11 @@ const indicatorsContainerNoLabelBase: CSSObject = {
   marginBottom: Spacing.SizesDdsSpacingLocalX075
 };
 
-const indicatorsContainerIsMultiBase: CSSObject = {
+const indicatorsContainerIsMultiWithLabelBase: CSSObject = {
+  marginBottom: valueContainerMarginBottomMultiWithLabel
+};
+
+const indicatorsContainerIsMultiNoLabelBase: CSSObject = {
   marginBottom: Spacing.SizesDdsSpacingLocalX05
 };
 
@@ -252,6 +274,11 @@ export const selectTokens = {
     base: inputBase,
     noLabel: {
       base: inputNoLabelBase
+    },
+    isMulti: {
+      noLabel: {
+        base: inputIsMultiNoLabelBase
+      }
     }
   },
   placeholder: {
@@ -281,7 +308,13 @@ export const selectTokens = {
       base: valueContainerNoLabelBase
     },
     isMulti: {
-      base: valueContainerIsMultiBase
+      base: valueContainerIsMultiBase,
+      withLabel: {
+        base: valueContainerIsMultiWithLabelBase
+      },
+      noLabel: {
+        base: valueContainerIsMultiNoLabelBase
+      }
     }
   },
   multiValue: {
@@ -313,7 +346,12 @@ export const selectTokens = {
       base: indicatorsContainerNoLabelBase
     },
     isMulti: {
-      base: indicatorsContainerIsMultiBase
+      withLabel: {
+        base: indicatorsContainerIsMultiWithLabelBase
+      },
+      noLabel: {
+        base: indicatorsContainerIsMultiNoLabelBase
+      }
     }
   },
   dropdownIndicator: {
