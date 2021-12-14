@@ -17,7 +17,8 @@ type StyledContainerProps = {
   errorMessage?: string;
   isDisabled?: boolean;
   readOnly?: boolean;
-  label?: string;
+  hasLabel: boolean;
+  isMulti?: boolean;
 };
 
 export const Container = styled.div<StyledContainerProps>`
@@ -28,15 +29,48 @@ export const Container = styled.div<StyledContainerProps>`
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${({ label }) =>
-    label
+  ${({ isMulti }) => isMulti && css``}
+
+  ${({ hasLabel, isMulti }) =>
+    isMulti && hasLabel
       ? css`
-          ${tokens.container.withLabel.base}
+          .${prefix}__value-container {
+            ${tokens.valueContainer.isMulti.withLabel.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.isMulti.withLabel.base}
+          }
+        `
+      : isMulti && !hasLabel
+      ? css`
+          .${prefix}__control {
+            ${tokens.input.isMulti.noLabel.base}
+          }
+          .${prefix}__value-container {
+            ${tokens.valueContainer.isMulti.noLabel.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.isMulti.noLabel.base}
+          }
+        `
+      : hasLabel
+      ? css`
+          .${prefix}__value-container {
+            ${tokens.valueContainer.withLabel.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.withLabel.base}
+          }
         `
       : css`
-          ${tokens.container.noLabel.base}
           .${prefix}__control {
             ${tokens.input.noLabel.base}
+          }
+          .${prefix}__value-container {
+            ${tokens.valueContainer.noLabel.base}
+          }
+          .${prefix}__indicators {
+            ${tokens.indicatorsContainer.noLabel.base}
           }
         `}
   &:hover {
@@ -147,9 +181,15 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       ...tokens.input.base
     };
   },
-  valueContainer: provided => {
+  valueContainer: (provided, state) => {
+    const isMultiStyles = state.selectProps.isMulti
+      ? {
+          ...tokens.valueContainer.isMulti.base
+        }
+      : {};
     return {
       ...provided,
+      ...isMultiStyles,
       padding: 0
     };
   },
@@ -159,14 +199,53 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       margin: 0
     };
   },
-  menu: () => {
+  multiValue: (provided, state) => {
+    const variantStyles: CSSObject = state.selectProps.isDisabled
+      ? {
+          ...tokens.multiValue.disabled.base
+        }
+      : {
+          ...tokens.multiValue.enabled.base
+        };
     return {
-      position: 'relative',
+      ...provided,
+      ...tokens.multiValue.base,
+      ...variantStyles
+    };
+  },
+  multiValueLabel: provided => {
+    return {
+      ...provided,
+      ...tokens.multiValueLabel.base
+    };
+  },
+  multiValueRemove: (provided, state) => {
+    return state.selectProps.isDisabled
+      ? {
+          display: 'none'
+        }
+      : {
+          ...provided,
+          transition: '0.2s',
+          ...tokens.multiValueRemove.base,
+          svg: {
+            ...tokens.multiValueRemove.icon.base
+          },
+          '&:hover': {
+            ...tokens.multiValueRemove.hover.base
+          },
+          '&:focus': {
+            backgroundColor: 'blue'
+          }
+        };
+  },
+  menu: provided => {
+    return {
+      ...provided,
       zIndex: 3,
       transition: '0.2s',
       width: 'calc(100% + 2px)',
       transform: 'translate(-1px)',
-      top: tokens.optionsList.spaceTop,
       boxShadow: `0 0 0 1px ${tokens.optionsList.base.borderColor}`,
       ...tokens.optionsList.base
     };
@@ -197,6 +276,11 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       ...tokens.noOptionsMessage.base
     };
   },
+  indicatorsContainer: provided => {
+    return {
+      ...provided
+    };
+  },
   clearIndicator: () => {
     return {
       display: 'flex',
@@ -204,6 +288,12 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       '&:hover': {
         ...tokens.clearIndicator.hover.base
       }
+    };
+  },
+  loadingIndicator: provided => {
+    return {
+      ...provided,
+      ...tokens.loadingIndicator.base
     };
   },
   input: () => {
