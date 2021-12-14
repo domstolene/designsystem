@@ -290,6 +290,12 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
       }
     };
   },
+  loadingIndicator: provided => {
+    return {
+      ...provided,
+      ...tokens.loadingIndicator.base
+    };
+  },
   input: () => {
     return {};
   }

@@ -153,6 +153,10 @@ const clearIndicatorBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
   padding: ` 0 ${Spacing.SizesDdsSpacingLocalX025} 0 0`
 };
+const loadingIndicatorBase: CSSObject = {
+  color: Colors.DdsColorNeutralsGray6,
+  padding: 0
+};
 
 const clearIndicatorHoverBase: CSSObject = {
   color: Colors.DdsColorInteractiveBase
@@ -371,5 +375,8 @@ export const selectTokens = {
     hover: {
       base: clearIndicatorHoverBase
     }
+  },
+  loadingIndicator: {
+    base: loadingIndicatorBase
   }
 };

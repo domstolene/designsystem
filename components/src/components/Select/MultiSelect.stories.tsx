@@ -15,7 +15,7 @@ export default {
     isClearable: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    loading: { control: { type: 'boolean' } }
+    isLoading: { control: { type: 'boolean' } }
   },
   parameters: {
     controls: {
@@ -30,17 +30,6 @@ const options = [
   'Veldig langt alternativ her veldig langt alternativ her',
   'Alternativ 3',
   'Alternativ 4'
-].map(s => ({ label: s, value: s }));
-
-const optionsLong = [
-  'Alternativ 1',
-  'Alternativ 2',
-  'Veldig langt alternativ her veldig langt alternativ her',
-  'Alternativ 3',
-  'Alternativ 4',
-  'Alternativ 5',
-  'Alternativ 6',
-  'Alternativ 7'
 ].map(s => ({ label: s, value: s }));
 
 export const Overview = (args: SelectProps) => {

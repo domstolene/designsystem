@@ -15,7 +15,7 @@ export default {
     isClearable: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    loading: { control: { type: 'boolean' } }
+    isLoading: { control: { type: 'boolean' } }
   },
   parameters: {
     controls: {
