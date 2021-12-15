@@ -63,6 +63,7 @@ export type SearchSize = 'small' | 'medium' | 'large';
 type ButtonProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   label?: string;
+  loading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type SearchProps = {
