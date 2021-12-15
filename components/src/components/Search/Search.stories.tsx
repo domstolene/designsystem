@@ -69,6 +69,21 @@ export const Overview = (args: SearchProps) => {
         tip="Dette er en hjelpetekst"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
+      <DDSSearch
+        {...args}
+        componentSize="small"
+        buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
+      />
+      <DDSSearch
+        {...args}
+        componentSize="medium"
+        buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
+      />
+      <DDSSearch
+        {...args}
+        componentSize="large"
+        buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
+      />
     </StoryTemplate>
   );
 };
