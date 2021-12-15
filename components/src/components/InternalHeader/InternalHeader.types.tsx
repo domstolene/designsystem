@@ -3,17 +3,16 @@ import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { HTMLAttributes } from 'react';
 
 export type NavigationLinkProps = {
-  id?: string;
   href: string;
   title: string;
   current?: boolean;
-};
+} & HTMLAttributes<HTMLAnchorElement>;
 
-export type ContextMenuElement = {
+export type ContextMenuElementProps = {
   title: string;
   href?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-};
+} & (HTMLAttributes<HTMLAnchorElement> | HTMLAttributes<HTMLButtonElement>);
 
 export type InternaHeaderUserProps = {
   name: string;
@@ -25,7 +24,7 @@ export type InternalHeaderProps = {
   smallScreen?: boolean;
   userProps?: InternaHeaderUserProps;
   navigationElements?: NavigationLinkProps[];
-  contextMenuElements?: ContextMenuElement[];
+  contextMenuElements?: ContextMenuElementProps[];
   currentPageHref?: string;
   onCurrentPageChange?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
