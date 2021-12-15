@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 17 Sep 2021 11:44:35 GMT
+ * Generated on Wed, 15 Dec 2021 11:11:43 GMT
  */
 
 :root {
@@ -79,7 +79,7 @@
   --dds-font-heading-sans-01-letter-spacing: 0.01em;
   --dds-font-heading-sans-01-line-height: 1.5em;
   --dds-font-heading-sans-01-paragraph-indent: 0px;
-  --dds-font-heading-sans-01-paragraph-spacing: 7px;
+  --dds-font-heading-sans-01-paragraph-spacing: 14px;
   --dds-font-heading-sans-01-text-case: none;
   --dds-font-heading-sans-02-font-size: 16px;
   --dds-font-heading-sans-02-text-decoration: none;
@@ -90,7 +90,7 @@
   --dds-font-heading-sans-02-letter-spacing: 0em;
   --dds-font-heading-sans-02-line-height: 1.5em;
   --dds-font-heading-sans-02-paragraph-indent: 0px;
-  --dds-font-heading-sans-02-paragraph-spacing: 9px;
+  --dds-font-heading-sans-02-paragraph-spacing: 16px;
   --dds-font-heading-sans-02-text-case: none;
   --dds-font-heading-sans-03-font-size: 24px;
   --dds-font-heading-sans-03-text-decoration: none;
@@ -101,7 +101,7 @@
   --dds-font-heading-sans-03-letter-spacing: 0em;
   --dds-font-heading-sans-03-line-height: 1.35em;
   --dds-font-heading-sans-03-paragraph-indent: 0px;
-  --dds-font-heading-sans-03-paragraph-spacing: 8px;
+  --dds-font-heading-sans-03-paragraph-spacing: 16px;
   --dds-font-heading-sans-03-text-case: none;
   --dds-font-heading-sans-04-font-size: 32px;
   --dds-font-heading-sans-04-text-decoration: none;
@@ -112,7 +112,7 @@
   --dds-font-heading-sans-04-letter-spacing: 0em;
   --dds-font-heading-sans-04-line-height: 1.35em;
   --dds-font-heading-sans-04-paragraph-indent: 0px;
-  --dds-font-heading-sans-04-paragraph-spacing: 10px;
+  --dds-font-heading-sans-04-paragraph-spacing: 21px;
   --dds-font-heading-sans-04-text-case: none;
   --dds-font-heading-sans-05-font-size: 40px;
   --dds-font-heading-sans-05-text-decoration: none;
@@ -123,7 +123,7 @@
   --dds-font-heading-sans-05-letter-spacing: -0.01em;
   --dds-font-heading-sans-05-line-height: 1.35em;
   --dds-font-heading-sans-05-paragraph-indent: 0px;
-  --dds-font-heading-sans-05-paragraph-spacing: 13px;
+  --dds-font-heading-sans-05-paragraph-spacing: 26px;
   --dds-font-heading-sans-05-text-case: none;
   --dds-font-heading-sans-06-font-size: 48px;
   --dds-font-heading-sans-06-text-decoration: none;
@@ -134,7 +134,7 @@
   --dds-font-heading-sans-06-letter-spacing: -0.01em;
   --dds-font-heading-sans-06-line-height: 1.2em;
   --dds-font-heading-sans-06-paragraph-indent: 0px;
-  --dds-font-heading-sans-06-paragraph-spacing: 12px;
+  --dds-font-heading-sans-06-paragraph-spacing: 24px;
   --dds-font-heading-sans-06-text-case: none;
   --dds-font-heading-sans-07-font-size: 64px;
   --dds-font-heading-sans-07-text-decoration: none;
@@ -145,7 +145,7 @@
   --dds-font-heading-sans-07-letter-spacing: -0.01em;
   --dds-font-heading-sans-07-line-height: 1.2em;
   --dds-font-heading-sans-07-paragraph-indent: 0px;
-  --dds-font-heading-sans-07-paragraph-spacing: 16px;
+  --dds-font-heading-sans-07-paragraph-spacing: 32px;
   --dds-font-heading-sans-07-text-case: none;
   --dds-font-heading-sans-08-font-size: 80px;
   --dds-font-heading-sans-08-text-decoration: none;
@@ -156,7 +156,7 @@
   --dds-font-heading-sans-08-letter-spacing: -0.01em;
   --dds-font-heading-sans-08-line-height: 1.2em;
   --dds-font-heading-sans-08-paragraph-indent: 0px;
-  --dds-font-heading-sans-08-paragraph-spacing: 20px;
+  --dds-font-heading-sans-08-paragraph-spacing: 40px;
   --dds-font-heading-sans-08-text-case: none;
   --dds-font-body-sans-01-font-size: 14px;
   --dds-font-body-sans-01-text-decoration: none;
@@ -167,7 +167,7 @@
   --dds-font-body-sans-01-letter-spacing: 0.01em;
   --dds-font-body-sans-01-line-height: 1.5em;
   --dds-font-body-sans-01-paragraph-indent: 0px;
-  --dds-font-body-sans-01-paragraph-spacing: 7px;
+  --dds-font-body-sans-01-paragraph-spacing: 14px;
   --dds-font-body-sans-01-text-case: none;
   --dds-font-body-sans-02-font-size: 16px;
   --dds-font-body-sans-02-text-decoration: none;
@@ -178,7 +178,7 @@
   --dds-font-body-sans-02-letter-spacing: 0em;
   --dds-font-body-sans-02-line-height: 1.5em;
   --dds-font-body-sans-02-paragraph-indent: 0px;
-  --dds-font-body-sans-02-paragraph-spacing: 8px;
+  --dds-font-body-sans-02-paragraph-spacing: 16px;
   --dds-font-body-sans-02-text-case: none;
   --dds-font-body-sans-03-font-size: 18px;
   --dds-font-body-sans-03-text-decoration: none;
@@ -189,7 +189,7 @@
   --dds-font-body-sans-03-letter-spacing: 0em;
   --dds-font-body-sans-03-line-height: 1.5em;
   --dds-font-body-sans-03-paragraph-indent: 0px;
-  --dds-font-body-sans-03-paragraph-spacing: 10px;
+  --dds-font-body-sans-03-paragraph-spacing: 18px;
   --dds-font-body-sans-03-text-case: none;
   --dds-font-body-sans-04-font-size: 20px;
   --dds-font-body-sans-04-text-decoration: none;
@@ -200,7 +200,7 @@
   --dds-font-body-sans-04-letter-spacing: 0em;
   --dds-font-body-sans-04-line-height: 1.5em;
   --dds-font-body-sans-04-paragraph-indent: 0px;
-  --dds-font-body-sans-04-paragraph-spacing: 10px;
+  --dds-font-body-sans-04-paragraph-spacing: 20px;
   --dds-font-body-sans-04-text-case: none;
   --dds-font-body-serif-01-font-size: 14px;
   --dds-font-body-serif-01-text-decoration: none;
@@ -211,7 +211,7 @@
   --dds-font-body-serif-01-letter-spacing: 0.01em;
   --dds-font-body-serif-01-line-height: 1.5em;
   --dds-font-body-serif-01-paragraph-indent: 0px;
-  --dds-font-body-serif-01-paragraph-spacing: 7px;
+  --dds-font-body-serif-01-paragraph-spacing: 14px;
   --dds-font-body-serif-01-text-case: none;
   --dds-font-body-serif-02-font-size: 16px;
   --dds-font-body-serif-02-text-decoration: none;
@@ -222,7 +222,7 @@
   --dds-font-body-serif-02-letter-spacing: 0em;
   --dds-font-body-serif-02-line-height: 1.5em;
   --dds-font-body-serif-02-paragraph-indent: 0px;
-  --dds-font-body-serif-02-paragraph-spacing: 8px;
+  --dds-font-body-serif-02-paragraph-spacing: 16px;
   --dds-font-body-serif-02-text-case: none;
   --dds-font-body-serif-03-font-size: 18px;
   --dds-font-body-serif-03-text-decoration: none;
@@ -233,7 +233,7 @@
   --dds-font-body-serif-03-letter-spacing: 0em;
   --dds-font-body-serif-03-line-height: 1.5em;
   --dds-font-body-serif-03-paragraph-indent: 0px;
-  --dds-font-body-serif-03-paragraph-spacing: 10px;
+  --dds-font-body-serif-03-paragraph-spacing: 18px;
   --dds-font-body-serif-03-text-case: none;
   --dds-font-body-serif-04-font-size: 20px;
   --dds-font-body-serif-04-text-decoration: none;
@@ -244,7 +244,7 @@
   --dds-font-body-serif-04-letter-spacing: 0em;
   --dds-font-body-serif-04-line-height: 1.5em;
   --dds-font-body-serif-04-paragraph-indent: 0px;
-  --dds-font-body-serif-04-paragraph-spacing: 10px;
+  --dds-font-body-serif-04-paragraph-spacing: 20px;
   --dds-font-body-serif-04-text-case: none;
   --dds-font-lead-sans-01-font-size: 18px;
   --dds-font-lead-sans-01-text-decoration: none;
@@ -255,7 +255,7 @@
   --dds-font-lead-sans-01-letter-spacing: 0em;
   --dds-font-lead-sans-01-line-height: 1.5em;
   --dds-font-lead-sans-01-paragraph-indent: 0px;
-  --dds-font-lead-sans-01-paragraph-spacing: 9px;
+  --dds-font-lead-sans-01-paragraph-spacing: 18px;
   --dds-font-lead-sans-01-text-case: none;
   --dds-font-lead-sans-02-font-size: 24px;
   --dds-font-lead-sans-02-text-decoration: none;
@@ -266,7 +266,7 @@
   --dds-font-lead-sans-02-letter-spacing: 0em;
   --dds-font-lead-sans-02-line-height: 1.35em;
   --dds-font-lead-sans-02-paragraph-indent: 0px;
-  --dds-font-lead-sans-02-paragraph-spacing: 8px;
+  --dds-font-lead-sans-02-paragraph-spacing: 16px;
   --dds-font-lead-sans-02-text-case: none;
   --dds-font-lead-sans-03-font-size: 24px;
   --dds-font-lead-sans-03-text-decoration: none;
@@ -277,7 +277,7 @@
   --dds-font-lead-sans-03-letter-spacing: 0em;
   --dds-font-lead-sans-03-line-height: 1.35em;
   --dds-font-lead-sans-03-paragraph-indent: 0px;
-  --dds-font-lead-sans-03-paragraph-spacing: 8px;
+  --dds-font-lead-sans-03-paragraph-spacing: 16px;
   --dds-font-lead-sans-03-text-case: none;
   --dds-font-lead-sans-04-font-size: 32px;
   --dds-font-lead-sans-04-text-decoration: none;
@@ -288,7 +288,7 @@
   --dds-font-lead-sans-04-letter-spacing: 0em;
   --dds-font-lead-sans-04-line-height: 1.35em;
   --dds-font-lead-sans-04-paragraph-indent: 0px;
-  --dds-font-lead-sans-04-paragraph-spacing: 10px;
+  --dds-font-lead-sans-04-paragraph-spacing: 21px;
   --dds-font-lead-sans-04-text-case: none;
   --dds-font-lead-sans-05-font-size: 40px;
   --dds-font-lead-sans-05-text-decoration: none;
@@ -299,7 +299,7 @@
   --dds-font-lead-sans-05-letter-spacing: -0.01em;
   --dds-font-lead-sans-05-line-height: 1.35em;
   --dds-font-lead-sans-05-paragraph-indent: 0px;
-  --dds-font-lead-sans-05-paragraph-spacing: 13px;
+  --dds-font-lead-sans-05-paragraph-spacing: 26px;
   --dds-font-lead-sans-05-text-case: none;
   --dds-font-supporting-style-label-01-font-size: 14px;
   --dds-font-supporting-style-label-01-text-decoration: none;
@@ -310,7 +310,7 @@
   --dds-font-supporting-style-label-01-letter-spacing: 0.01em;
   --dds-font-supporting-style-label-01-line-height: 1.5em;
   --dds-font-supporting-style-label-01-paragraph-indent: 0px;
-  --dds-font-supporting-style-label-01-paragraph-spacing: 7px;
+  --dds-font-supporting-style-label-01-paragraph-spacing: 14px;
   --dds-font-supporting-style-label-01-text-case: none;
   --dds-font-supporting-style-helpertext-01-font-size: 14px;
   --dds-font-supporting-style-helpertext-01-text-decoration: none;
@@ -321,7 +321,7 @@
   --dds-font-supporting-style-helpertext-01-letter-spacing: 0.01em;
   --dds-font-supporting-style-helpertext-01-line-height: 1.5em;
   --dds-font-supporting-style-helpertext-01-paragraph-indent: 0px;
-  --dds-font-supporting-style-helpertext-01-paragraph-spacing: 7px;
+  --dds-font-supporting-style-helpertext-01-paragraph-spacing: 14px;
   --dds-font-supporting-style-helpertext-01-text-case: none;
   --dds-font-supporting-style-inputtext-01-font-size: 14px;
   --dds-font-supporting-style-inputtext-01-text-decoration: none;
@@ -332,7 +332,7 @@
   --dds-font-supporting-style-inputtext-01-letter-spacing: 0.01em;
   --dds-font-supporting-style-inputtext-01-line-height: 1.5em;
   --dds-font-supporting-style-inputtext-01-paragraph-indent: 0px;
-  --dds-font-supporting-style-inputtext-01-paragraph-spacing: 7px;
+  --dds-font-supporting-style-inputtext-01-paragraph-spacing: 14px;
   --dds-font-supporting-style-inputtext-01-text-case: none;
   --dds-font-supporting-style-inputtext-02-font-size: 18px;
   --dds-font-supporting-style-inputtext-02-text-decoration: none;
@@ -343,7 +343,7 @@
   --dds-font-supporting-style-inputtext-02-letter-spacing: 0em;
   --dds-font-supporting-style-inputtext-02-line-height: 1.5em;
   --dds-font-supporting-style-inputtext-02-paragraph-indent: 0px;
-  --dds-font-supporting-style-inputtext-02-paragraph-spacing: 9px;
+  --dds-font-supporting-style-inputtext-02-paragraph-spacing: 18px;
   --dds-font-supporting-style-inputtext-02-text-case: none;
   --dds-font-supporting-style-inputtext-03-font-size: 20px;
   --dds-font-supporting-style-inputtext-03-text-decoration: none;
@@ -354,7 +354,7 @@
   --dds-font-supporting-style-inputtext-03-letter-spacing: 0em;
   --dds-font-supporting-style-inputtext-03-line-height: 1.5em;
   --dds-font-supporting-style-inputtext-03-paragraph-indent: 0px;
-  --dds-font-supporting-style-inputtext-03-paragraph-spacing: 10px;
+  --dds-font-supporting-style-inputtext-03-paragraph-spacing: 20px;
   --dds-font-supporting-style-inputtext-03-text-case: none;
   --dds-font-supporting-style-placeholdertext-01-font-size: 18px;
   --dds-font-supporting-style-placeholdertext-01-text-decoration: none;
@@ -365,7 +365,7 @@
   --dds-font-supporting-style-placeholdertext-01-letter-spacing: 0em;
   --dds-font-supporting-style-placeholdertext-01-line-height: 1.5em;
   --dds-font-supporting-style-placeholdertext-01-paragraph-indent: 0px;
-  --dds-font-supporting-style-placeholdertext-01-paragraph-spacing: 7px;
+  --dds-font-supporting-style-placeholdertext-01-paragraph-spacing: 18px;
   --dds-font-supporting-style-placeholdertext-01-text-case: none;
   --dds-font-supporting-style-tiny-01-font-size: 12px;
   --dds-font-supporting-style-tiny-01-text-decoration: none;
@@ -376,7 +376,7 @@
   --dds-font-supporting-style-tiny-01-letter-spacing: 0.01em;
   --dds-font-supporting-style-tiny-01-line-height: 1.5em;
   --dds-font-supporting-style-tiny-01-paragraph-indent: 0px;
-  --dds-font-supporting-style-tiny-01-paragraph-spacing: 7px;
+  --dds-font-supporting-style-tiny-01-paragraph-spacing: 12px;
   --dds-font-supporting-style-tiny-01-text-case: none;
   --borders-dds-border-style-1-stroke-align: inside;
   --borders-dds-border-style-1-stroke-miter-limit: 4;

@@ -49,7 +49,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel"
         },
@@ -106,7 +106,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 9,
+          "value": 16,
           "type": "number",
           "unit": "pixel"
         },
@@ -163,7 +163,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel"
         },
@@ -220,7 +220,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 21,
           "type": "number",
           "unit": "pixel"
         },
@@ -277,7 +277,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 13,
+          "value": 26,
           "type": "number",
           "unit": "pixel"
         },
@@ -334,7 +334,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 12,
+          "value": 24,
           "type": "number",
           "unit": "pixel"
         },
@@ -391,7 +391,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": 32,
           "type": "number",
           "unit": "pixel"
         },
@@ -448,7 +448,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 20,
+          "value": 40,
           "type": "number",
           "unit": "pixel"
         },
@@ -507,7 +507,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel"
         },
@@ -564,7 +564,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel"
         },
@@ -621,7 +621,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 18,
           "type": "number",
           "unit": "pixel"
         },
@@ -678,7 +678,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 20,
           "type": "number",
           "unit": "pixel"
         },
@@ -735,7 +735,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel"
         },
@@ -792,7 +792,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel"
         },
@@ -849,7 +849,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 18,
           "type": "number",
           "unit": "pixel"
         },
@@ -906,7 +906,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 20,
           "type": "number",
           "unit": "pixel"
         },
@@ -965,7 +965,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 9,
+          "value": 18,
           "type": "number",
           "unit": "pixel"
         },
@@ -1022,7 +1022,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel"
         },
@@ -1079,7 +1079,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel"
         },
@@ -1136,7 +1136,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 21,
           "type": "number",
           "unit": "pixel"
         },
@@ -1193,7 +1193,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 13,
+          "value": 26,
           "type": "number",
           "unit": "pixel"
         },
@@ -1252,7 +1252,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel"
         },
@@ -1309,7 +1309,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel"
         },
@@ -1366,7 +1366,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel"
         },
@@ -1423,7 +1423,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 9,
+          "value": 18,
           "type": "number",
           "unit": "pixel"
         },
@@ -1480,7 +1480,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 20,
           "type": "number",
           "unit": "pixel"
         },
@@ -1537,7 +1537,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 18,
           "type": "number",
           "unit": "pixel"
         },
@@ -1594,7 +1594,7 @@
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 12,
           "type": "number",
           "unit": "pixel"
         },
