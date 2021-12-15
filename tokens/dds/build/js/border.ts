@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 17 Sep 2021 11:44:35 GMT
+ * Generated on Wed, 15 Dec 2021 11:11:43 GMT
  */
 
 export const BordersDdsBorderStyle1StrokeAlign = "inside";
