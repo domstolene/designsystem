@@ -33,6 +33,11 @@ const user = {
   name: 'Navn Navnesen'
 };
 
+const userWithHref = {
+  ...user,
+  href: '#'
+};
+
 const menuElementWithIcon = {
   title: 'action',
   Icon: CreateOutlinedIcon
@@ -58,6 +63,17 @@ export const Overview = () => (
       contextMenuElements={menuElements}
       userProps={user}
       currentPageHref="#"
+    />
+    <InternalHeader
+      applicationName="Navn på applikasjon"
+      navigationElements={navigationLinks}
+      userProps={userWithHref}
+    />
+    <InternalHeader
+      applicationName="Navn på applikasjon"
+      navigationElements={navigationLinks}
+      contextMenuElements={menuElements}
+      userProps={userWithHref}
     />
     <InternalHeader
       applicationName="Navn på applikasjon"
