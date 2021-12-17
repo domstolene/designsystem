@@ -64,6 +64,24 @@ export const InternalHeader = ({
     };
   });
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Esc' || e.key === 'Escape') {
+      setContextMenuIsClosed(true);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown, true);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown, true);
+    };
+  }, []);
+
+  const onBlurContextMenu = () => {
+    setContextMenuIsClosed(true);
+  };
+
   const handleCurrentPageChange = (href: string) => {
     setCurrentPage(href);
     onCurrentPageChange && onCurrentPageChange();
@@ -74,10 +92,13 @@ export const InternalHeader = ({
   };
 
   const userLinkAs: ElementType = userProps?.href ? 'a' : 'span';
+  const userIsLastFocusableItem =
+    !contextMenuElements && userProps && userProps.href;
 
   const userElementProps = {
     as: userLinkAs,
-    href: userProps?.href
+    href: userProps?.href,
+    onBlur: userIsLastFocusableItem ? onBlurContextMenu : undefined
   };
 
   const navigationContent =
@@ -90,7 +111,7 @@ export const InternalHeader = ({
           <NavigationLink
             {...rest}
             href={href}
-            current={isCurrent}
+            isCurrent={isCurrent}
             onClick={() => handleCurrentPageChange(href)}
           >
             {title}
@@ -132,9 +153,12 @@ export const InternalHeader = ({
         contextMenuElements.map((item, index) => {
           const { Icon, href, title, ...rest } = item;
           const as: ElementType = href ? 'a' : 'button';
+          const isLastItem =
+            index === contextMenuElements.length - 1 ? true : false;
           const props = {
             as: as,
             href,
+            onBlur: isLastItem ? onBlurContextMenu : undefined,
             ...rest
           };
           return (
