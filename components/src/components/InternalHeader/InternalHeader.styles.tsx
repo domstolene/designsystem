@@ -1,10 +1,7 @@
 import { typographyTokens } from '../Typography/Typography.tokens';
 import styled, { css } from 'styled-components';
 import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
-import {
-  InternalHeaderProps,
-  NavigationLinkProps
-} from './InternalHeader.types';
+import { InternalHeaderProps } from './InternalHeader.types';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { Divider } from '../Divider';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
@@ -55,11 +52,13 @@ export const NavigationList = styled.ul<NavListProps>`
 `;
 export const NavigationListItem = styled.li``;
 
-type StyledNavigationListProps = Pick<NavigationLinkProps, 'current'>;
+type StyledNavigationListProps = { isCurrent?: boolean };
 
 export const NavigationLink = styled.a<StyledNavigationListProps>`
-  display: block;
+  display: flex;
+  align-items: center;
   transition: background-color 0.2s;
+  height: 100%;
   ${tokens.navigationLink.base}
   &:hover {
     ${tokens.navigationLink.hover.base}
@@ -71,8 +70,8 @@ export const NavigationLink = styled.a<StyledNavigationListProps>`
     outline: none;
     ${tokens.navigationLink.focus.base}
   }
-  ${({ current }) =>
-    current &&
+  ${({ isCurrent }) =>
+    isCurrent &&
     css`
       ${tokens.navigationLink.current.base}
     `}
