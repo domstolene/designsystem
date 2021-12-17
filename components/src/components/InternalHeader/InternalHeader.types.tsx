@@ -1,18 +1,24 @@
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
-import { HTMLAttributes } from 'react';
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  HTMLAttributes
+} from 'react';
 
 export type NavigationLinkProps = {
   href: string;
   title: string;
-  current?: boolean;
 } & HTMLAttributes<HTMLAnchorElement>;
 
 export type ContextMenuElementProps = {
   title: string;
   href?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-} & (HTMLAttributes<HTMLAnchorElement> | HTMLAttributes<HTMLButtonElement>);
+} & (
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
+);
 
 export type InternaHeaderUserProps = {
   name: string;
