@@ -40,7 +40,8 @@ const userWithHref = {
 
 const menuElementWithIcon = {
   title: 'action',
-  Icon: CreateOutlinedIcon
+  Icon: CreateOutlinedIcon,
+  onClick: () => {}
 };
 const menuElement = {
   title: 'menypunkt',
