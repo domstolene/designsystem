@@ -67,6 +67,7 @@ export const InternalHeader = ({
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Esc' || e.key === 'Escape') {
       setContextMenuIsClosed(true);
+      buttonRef.current?.focus();
     }
   };
 
