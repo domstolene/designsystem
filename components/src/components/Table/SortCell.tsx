@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, MouseEvent } from 'react';
 import { Cell, TableCellProps } from './Cell';
 import { cellTokens as tokens } from './Cell.tokens';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
@@ -13,8 +13,14 @@ const SortIconWrapper = styled(IconWrapper)`
   ${tokens.head.sortCell.icon.base}
 `;
 
-const StyledCell = styled(Cell)`
+const StyledButton = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
   cursor: pointer;
+  outline: inherit;
 `;
 
 export type SortOrder = 'ascending' | 'descending' | 'none';
@@ -22,10 +28,11 @@ export type SortOrder = 'ascending' | 'descending' | 'none';
 export type SortCellProps = {
   isSorted?: boolean;
   sortOrder?: SortOrder;
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 } & Omit<TableCellProps, 'type'>;
 
 export const SortCell = forwardRef<HTMLTableHeaderCellElement, SortCellProps>(
-  ({ isSorted, sortOrder, children, ...rest }, ref) => {
+  ({ isSorted, sortOrder, onClick, children, ...rest }, ref) => {
     const IconRenderer = (isSorted?: boolean, sortOrder?: SortOrder) => {
       const Wrapper = (
         Icon: OverridableComponent<
@@ -42,9 +49,16 @@ export const SortCell = forwardRef<HTMLTableHeaderCellElement, SortCellProps>(
     };
 
     return (
-      <StyledCell ref={ref} type="head" {...rest}>
-        {children} {IconRenderer(isSorted, sortOrder)}
-      </StyledCell>
+      <Cell
+        ref={ref}
+        type="head"
+        aria-sort={sortOrder !== 'none' ? sortOrder : undefined}
+        {...rest}
+      >
+        <StyledButton onClick={onClick}>
+          {children} {IconRenderer(isSorted, sortOrder)}
+        </StyledButton>
+      </Cell>
     );
   }
 );
