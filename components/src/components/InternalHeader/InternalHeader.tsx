@@ -131,7 +131,7 @@ export const InternalHeader = ({
       {userProps && (
         <ContextMenuListItem>
           {userProps.href ? (
-            <ContextMenuLink {...userElementProps}>
+            <ContextMenuLink {...userElementProps} role="menuitem">
               <StyledIconWrapper
                 iconSize="inline"
                 Icon={PersonOutlineOutlinedIcon}
@@ -151,19 +151,23 @@ export const InternalHeader = ({
       )}
       {contextMenuElements &&
         contextMenuElements.map((item, index) => {
-          const { Icon, href, title, ...rest } = item;
+          const { Icon, href, title, onClick, ...rest } = item;
           const as: ElementType = href ? 'a' : 'button';
           const isLastItem =
             index === contextMenuElements.length - 1 ? true : false;
           const props = {
             as: as,
             href,
+            onClick,
             onBlur: isLastItem ? onBlurContextMenu : undefined,
             ...rest
           };
           return (
-            <ContextMenuListItem key={index} role="menuitem">
-              <ContextMenuLink {...props}>
+            <ContextMenuListItem key={index}>
+              <ContextMenuLink
+                {...props}
+                role={href || onClick ? 'menuitem' : undefined}
+              >
                 {Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />}
                 {title}
               </ContextMenuLink>
@@ -239,6 +243,8 @@ export const InternalHeader = ({
           appearance="borderless"
           purpose="secondary"
           onClick={handleContextMenuClick}
+          aria-haspopup="menu"
+          aria-expanded={!contextMenuIsClosed ? true : undefined}
         />
         {smallScreen ? contextMenuMobile : contextMenu}
       </BannerWrapper>
