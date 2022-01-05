@@ -123,61 +123,59 @@ export const InternalHeader = ({
     });
 
   const navigation = navigationElements && (
-    <Navigation>
+    <Navigation aria-label="sidenavigasjon">
       <NavigationList>{navigationContent}</NavigationList>
     </Navigation>
   );
 
-  const contextMenuContent = (userProps || contextMenuElements) && (
-    <ContextMenuList role="menu">
-      {userProps && (
-        <ContextMenuListItem>
-          {userProps.href ? (
-            <ContextMenuLink {...userElementProps} role="menuitem">
-              <StyledIconWrapper
-                iconSize="inline"
-                Icon={PersonOutlineOutlinedIcon}
-              />
-              {userProps.name}
-            </ContextMenuLink>
-          ) : (
-            <ContextMenuElement {...userElementProps}>
-              <StyledIconWrapper
-                iconSize="inline"
-                Icon={PersonOutlineOutlinedIcon}
-              />
-              {userProps.name}
-            </ContextMenuElement>
-          )}
-        </ContextMenuListItem>
+  const userContextMenuItem = userProps && (
+    <ContextMenuListItem>
+      {userProps.href ? (
+        <ContextMenuLink {...userElementProps} role="menuitem">
+          <StyledIconWrapper
+            iconSize="inline"
+            Icon={PersonOutlineOutlinedIcon}
+          />
+          {userProps.name}
+        </ContextMenuLink>
+      ) : (
+        <ContextMenuElement {...userElementProps}>
+          <StyledIconWrapper
+            iconSize="inline"
+            Icon={PersonOutlineOutlinedIcon}
+          />
+          {userProps.name}
+        </ContextMenuElement>
       )}
-      {contextMenuElements &&
-        contextMenuElements.map((item, index) => {
-          const { Icon, href, title, onClick, ...rest } = item;
-          const as: ElementType = href ? 'a' : 'button';
-          const isLastItem =
-            index === contextMenuElements.length - 1 ? true : false;
-          const props = {
-            as: as,
-            href,
-            onClick,
-            onBlur: isLastItem ? onBlurContextMenu : undefined,
-            ...rest
-          };
-          return (
-            <ContextMenuListItem key={index}>
-              <ContextMenuLink
-                {...props}
-                role={href || onClick ? 'menuitem' : undefined}
-              >
-                {Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />}
-                {title}
-              </ContextMenuLink>
-            </ContextMenuListItem>
-          );
-        })}
-    </ContextMenuList>
+    </ContextMenuListItem>
   );
+
+  const contextMenuElementsContent =
+    contextMenuElements &&
+    contextMenuElements.map((item, index) => {
+      const { Icon, href, title, onClick, ...rest } = item;
+      const as: ElementType = href ? 'a' : 'button';
+      const isLastItem =
+        index === contextMenuElements.length - 1 ? true : false;
+      const props = {
+        as: as,
+        href,
+        onClick,
+        onBlur: isLastItem ? onBlurContextMenu : undefined,
+        ...rest
+      };
+      return (
+        <ContextMenuListItem key={index}>
+          <ContextMenuLink
+            {...props}
+            role={href || onClick ? 'menuitem' : undefined}
+          >
+            {Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />}
+            {title}
+          </ContextMenuLink>
+        </ContextMenuListItem>
+      );
+    });
 
   const contextMenuWrapperProps = {
     ref: contextMenuRef,
@@ -188,8 +186,12 @@ export const InternalHeader = ({
     <ContextMenuWrapper
       {...contextMenuWrapperProps}
       aria-hidden={contextMenuIsClosed}
+      role="menu"
     >
-      {contextMenuContent}
+      <ContextMenuList>
+        {userContextMenuItem}
+        {contextMenuElementsContent}
+      </ContextMenuList>
     </ContextMenuWrapper>
   );
 
@@ -203,18 +205,22 @@ export const InternalHeader = ({
     <ContextMenuWrapper
       {...contextMenuWrapperProps}
       aria-hidden={contextMenuIsClosed}
+      role="menu"
     >
+      <ContextMenuList>{userContextMenuItem}</ContextMenuList>
       {navigationElements && (
-        <nav>
+        <nav aria-label="sidenavigasjon">
           <NavigationList {...navListProps}>{navigationContent}</NavigationList>
         </nav>
       )}
       {contextMenuElements && navigationElements && (
         <StyledDivider color="primaryLighter" />
       )}
-      {contextMenuContent}
+      <ContextMenuList>{contextMenuElementsContent}</ContextMenuList>
     </ContextMenuWrapper>
   );
+
+  const isSmallScreenAndHasNavElements = smallScreen && navigationElements;
 
   const wrapperProps = {
     ...rest
@@ -235,11 +241,11 @@ export const InternalHeader = ({
             </Typography>
           </ApplicationNameWrapper>
         </BannerLeftWrapper>
-        {((navigationElements && smallScreen) || contextMenuElements) && (
+        {(isSmallScreenAndHasNavElements || contextMenuElements) && (
           <Button
             ref={buttonRef}
             Icon={
-              smallScreen && navigationElements
+              isSmallScreenAndHasNavElements
                 ? MenuOutlinedIcon
                 : MoreVertOutlinedIcon
             }
@@ -248,6 +254,7 @@ export const InternalHeader = ({
             onClick={handleContextMenuClick}
             aria-haspopup="menu"
             aria-expanded={!contextMenuIsClosed ? true : undefined}
+            aria-label="åpne meny"
           />
         )}
         {smallScreen ? contextMenuMobile : contextMenu}
