@@ -18,4 +18,5 @@ export * from './components/List';
 export * from './components/DescriptionList';
 export * from './components/Spinner';
 export * from './components/Card';
+export * from './components/InternalHeader';
 export * from './components/Datepicker';
