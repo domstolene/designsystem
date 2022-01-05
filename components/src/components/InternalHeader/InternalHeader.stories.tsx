@@ -52,6 +52,7 @@ const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
 export const Overview = () => (
   <StoryTemplate title="InternalHeader - overview" gap="40px">
+    <InternalHeader applicationName="Navn på applikasjon" />
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
