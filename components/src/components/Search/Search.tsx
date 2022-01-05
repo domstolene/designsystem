@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
-import { inputFieldStylingBase } from '../../helpers/inputFieldStylingBase';
+import { inputFieldStylingBase } from '../../helpers/Input/inputFieldStylingBase';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 
 type InputProps = Pick<SearchProps, 'componentSize'>;
@@ -34,6 +34,7 @@ const Input = styled.input<InputProps>`
 `;
 
 const IconWrapper = styled.span`
+  ${tokens.iconWrapper.base}
   position: absolute;
   top: ${tokens.icon.spaceTop};
   left: ${tokens.icon.spaceLeft};
@@ -62,6 +63,7 @@ export type SearchSize = 'small' | 'medium' | 'large';
 type ButtonProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   label?: string;
+  loading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type SearchProps = {

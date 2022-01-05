@@ -4,8 +4,7 @@ import { CSSObject } from 'styled-components';
 const {
   spacing: Spacing,
   fontPackages: FontPackages,
-  colors: Colors,
-  border: Border
+  colors: Colors
 } = ddsBaseTokens;
 
 const base: CSSObject = {

@@ -1,7 +1,11 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
 const { spacing: Spacing, fontPackages: FontPackages } = ddsBaseTokens;
+const { textDefault } = ddsReferenceTokens;
 
 const inheritBase: CSSObject = {
   font: 'inherit'
@@ -40,7 +44,8 @@ const bodySerif04Base: CSSObject = {
 };
 
 const base: CSSObject = {
-  margin: `${Spacing.SizesDdsSpacingLocalX1} 0`
+  margin: `${Spacing.SizesDdsSpacingLocalX1} 0`,
+  color: textDefault.textColor
 };
 
 export const listTokens = {

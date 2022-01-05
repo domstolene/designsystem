@@ -1,10 +1,19 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
-const { colors: Colors, border: Border } = ddsBaseTokens;
+const {
+  colors: Colors,
+  border: Border,
+  fontPackages: FontPackages
+} = ddsBaseTokens;
+const { textDefault } = ddsReferenceTokens;
 
 const base: CSSObject = {
-  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`
+  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
+  ...FontPackages.body_sans_02.base
 };
 
 const navigationHoverBase: CSSObject = {
@@ -25,17 +34,20 @@ const filledDarkBase: CSSObject = {
 
 const filledLightBase: CSSObject = {
   backgroundColor: Colors.DdsColorPrimaryLightest,
-  borderColor: Colors.DdsColorPrimaryLightest
+  borderColor: Colors.DdsColorPrimaryLightest,
+  color: textDefault.textColor
 };
 
 const strokeLightBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  borderColor: Colors.DdsColorNeutralsGray5
+  borderColor: Colors.DdsColorNeutralsGray5,
+  color: textDefault.textColor
 };
 
 const strokeDarkBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  borderColor: Colors.DdsColorNeutralsGray9
+  borderColor: Colors.DdsColorNeutralsGray9,
+  color: textDefault.textColor
 };
 
 export const cardTokens = {

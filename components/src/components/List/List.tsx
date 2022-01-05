@@ -48,13 +48,22 @@ const StyledList = styled.ul<StyledListProps>`
               left: 0;
               background-size: contain;
               background-repeat: no-repeat;
-              background-image: url(${bullet});
+              // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+              // eslint-disable-next-line
+              // prettier-ignore
+              background-image: url("${bullet}");
             }
             ul > li:before {
-              background-image: url(${bulletLvl2});
+              // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+              // eslint-disable-next-line
+              // prettier-ignore
+              background-image: url("${bulletLvl2}");
             }
             ul > li > ul > li:before {
-              background-image: url(${bulletLvl3});
+              // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+              // eslint-disable-next-line
+              // prettier-ignore
+              background-image: url("${bulletLvl3}");
             }
           }
         `

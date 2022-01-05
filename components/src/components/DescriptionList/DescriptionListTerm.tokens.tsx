@@ -1,4 +1,7 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
@@ -8,9 +11,12 @@ const {
   colors: Colors
 } = ddsBaseTokens;
 
+const { textDefault } = ddsReferenceTokens;
+
 const boldBase: CSSObject = {
   ...FontPackages.body_sans_03.base,
-  ...typographyTokens.style.bold.base
+  ...typographyTokens.style.bold.base,
+  color: textDefault.textColor
 };
 
 const smallBase: CSSObject = {

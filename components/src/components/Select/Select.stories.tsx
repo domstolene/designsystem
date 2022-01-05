@@ -3,7 +3,7 @@ import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Select as DDSSelect, SelectProps } from './Select';
 
 export default {
-  title: 'design system/Select',
+  title: 'design system/Select/SingleValue',
   component: DDSSelect,
   argTypes: {
     label: { control: { type: 'text' } },
@@ -15,7 +15,7 @@ export default {
     isClearable: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    loading: { control: { type: 'boolean' } }
+    isLoading: { control: { type: 'boolean' } }
   },
   parameters: {
     controls: {
@@ -101,6 +101,13 @@ export const Overview = (args: SelectProps) => {
         options={options}
       />
       <DDSSelect {...args} options={options} />
+      <DDSSelect
+        {...args}
+        label={args.label || 'Label'}
+        options={options}
+        isMulti
+        closeMenuOnSelect={false}
+      />
     </StoryTemplate>
   );
 };
@@ -108,10 +115,19 @@ export const Overview = (args: SelectProps) => {
 export const Default = (args: SelectProps) => {
   return (
     <StoryTemplate title="Select default">
+      <DDSSelect {...args} options={options} />
+    </StoryTemplate>
+  );
+};
+
+export const WithLabel = (args: SelectProps) => {
+  return (
+    <StoryTemplate title="Select - with label">
       <DDSSelect {...args} label={args.label || 'Label'} options={options} />
     </StoryTemplate>
   );
 };
+
 export const ManyItems = (args: SelectProps) => {
   return (
     <StoryTemplate title="Select - many options">

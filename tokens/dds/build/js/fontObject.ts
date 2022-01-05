@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 17 Sep 2021 11:44:35 GMT
+ * Generated on Wed, 15 Dec 2021 11:11:43 GMT
  */
 
  export const ddsStyles = {
@@ -226,11 +226,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 14,
             "type": "number",
             "unit": "pixel"
           },
@@ -490,11 +490,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 9,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 9,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -754,11 +754,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 8,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -1018,11 +1018,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 21,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 10,
+            "value": 21,
             "type": "number",
             "unit": "pixel"
           },
@@ -1282,11 +1282,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 13,
+          "value": 26,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 13,
+            "value": 26,
             "type": "number",
             "unit": "pixel"
           },
@@ -1546,11 +1546,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 12,
+          "value": 24,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 12,
+            "value": 24,
             "type": "number",
             "unit": "pixel"
           },
@@ -1810,11 +1810,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": 32,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 16,
+            "value": 32,
             "type": "number",
             "unit": "pixel"
           },
@@ -2074,11 +2074,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 20,
+          "value": 40,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 20,
+            "value": 40,
             "type": "number",
             "unit": "pixel"
           },
@@ -2340,11 +2340,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 14,
             "type": "number",
             "unit": "pixel"
           },
@@ -2604,11 +2604,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 8,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -2868,11 +2868,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 18,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 10,
+            "value": 18,
             "type": "number",
             "unit": "pixel"
           },
@@ -3132,11 +3132,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 20,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 10,
+            "value": 20,
             "type": "number",
             "unit": "pixel"
           },
@@ -3396,11 +3396,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 14,
             "type": "number",
             "unit": "pixel"
           },
@@ -3660,11 +3660,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 8,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -3924,11 +3924,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 18,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 10,
+            "value": 18,
             "type": "number",
             "unit": "pixel"
           },
@@ -4188,11 +4188,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 20,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 10,
+            "value": 20,
             "type": "number",
             "unit": "pixel"
           },
@@ -4454,11 +4454,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 9,
+          "value": 18,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 9,
+            "value": 18,
             "type": "number",
             "unit": "pixel"
           },
@@ -4718,11 +4718,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 8,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -4982,11 +4982,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 8,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 8,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -5246,11 +5246,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 21,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 10,
+            "value": 21,
             "type": "number",
             "unit": "pixel"
           },
@@ -5510,11 +5510,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 13,
+          "value": 26,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 13,
+            "value": 26,
             "type": "number",
             "unit": "pixel"
           },
@@ -5776,11 +5776,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 14,
             "type": "number",
             "unit": "pixel"
           },
@@ -6040,11 +6040,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 14,
             "type": "number",
             "unit": "pixel"
           },
@@ -6304,11 +6304,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 14,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 14,
             "type": "number",
             "unit": "pixel"
           },
@@ -6568,11 +6568,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 9,
+          "value": 18,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 9,
+            "value": 18,
             "type": "number",
             "unit": "pixel"
           },
@@ -6832,11 +6832,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 10,
+          "value": 20,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 10,
+            "value": 20,
             "type": "number",
             "unit": "pixel"
           },
@@ -7096,11 +7096,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 18,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 18,
             "type": "number",
             "unit": "pixel"
           },
@@ -7360,11 +7360,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 7,
+          "value": 12,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 7,
+            "value": 12,
             "type": "number",
             "unit": "pixel"
           },

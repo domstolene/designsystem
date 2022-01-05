@@ -3,6 +3,8 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
 import babel from '@rollup/plugin-babel';
 import image from '@rollup/plugin-image';
+import css from 'rollup-plugin-import-css';
+import copy from 'rollup-plugin-copy';
 
 import pkg from './package.json';
 
@@ -55,7 +57,14 @@ export default {
       plugins: ['babel-plugin-styled-components']
     }),
     commonjs(),
-    image()
+    image(),
+    css(),
+    copy({
+      targets: [
+        { src: 'src/assets/fonts/*', dest: 'dist/assets/fonts' },
+        { src: 'src/styles/*', dest: 'dist/styles' }
+      ]
+    })
   ],
   external: peerDependencies
 };

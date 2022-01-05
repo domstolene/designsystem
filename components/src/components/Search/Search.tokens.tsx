@@ -1,7 +1,11 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
 const { spacing: Spacing, fontPackages: FontPackages } = ddsBaseTokens;
+const { textDefault } = ddsReferenceTokens;
 
 const inputBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX05
@@ -25,6 +29,10 @@ const largeBase: CSSObject = {
   paddingBottom: Spacing.SizesDdsSpacingLocalX1
 };
 
+const iconWrapperBase: CSSObject = {
+  color: textDefault.textColor
+};
+
 export const searchTokens = {
   input: {
     base: inputBase,
@@ -42,6 +50,9 @@ export const searchTokens = {
   icon: {
     spaceTop: `calc(50% - ${Spacing.SizesDdsSpacingLocalX15NumberPx / 2}px)`,
     spaceLeft: Spacing.SizesDdsSpacingLocalX075
+  },
+  iconWrapper: {
+    base: iconWrapperBase
   },
   buttonWrapper: {
     spaceLeft: Spacing.SizesDdsSpacingLocalX05
