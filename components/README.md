@@ -40,11 +40,14 @@ Tilgjengelige komponenter:
 
 - Breadcrumbs
 - Button
+- Card (inkludert CardAccordion)
 - Checkbox
+- Datepicker
 - DescriptionList
 - Divider
 - GlobalMessage
 - IconWrapper
+- InternaHeader
 - List
 - LocalMessage
 - Pagination
