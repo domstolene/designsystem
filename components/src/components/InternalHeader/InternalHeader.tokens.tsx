@@ -68,8 +68,8 @@ const navigationLinkFocusBase: CSSObject = {
 };
 
 const navigationLinkCurrentBase: CSSObject = {
-  color: Colors.DdsColorNeutralsWhite,
-  backgroundColor: Colors.DdsColorInteractiveDark
+  color: Colors.DdsColorInteractiveDarker,
+  backgroundColor: Colors.DdsColorPrimaryLightest
 };
 
 const contextMenuBase: CSSObject = {
