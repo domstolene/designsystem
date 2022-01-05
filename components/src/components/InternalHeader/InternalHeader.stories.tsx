@@ -1,10 +1,25 @@
 import { StoryTemplate } from '../../storybook/StoryTemplate';
-import { InternalHeader } from '.';
+import { InternalHeader, InternalHeaderProps } from '.';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 
 export default {
   title: 'design system/InternalHeader',
-  component: InternalHeader
+  component: InternalHeader,
+  argTypes: {
+    applicationName: { control: { type: 'text' } },
+    currentPageHref: { control: { type: 'text' } },
+    smallScreen: { control: { type: 'boolean' } }
+  },
+  parameters: {
+    controls: {
+      exclude: [
+        'style',
+        'contextMenuElements',
+        'navigationElements',
+        'userProps'
+      ]
+    }
+  }
 };
 
 const navigationLink = {
@@ -98,18 +113,19 @@ export const Overview = () => (
   </StoryTemplate>
 );
 
-export const Default = () => (
+export const Default = (args: InternalHeaderProps) => (
   <StoryTemplate title="InternalHeader">
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
       contextMenuElements={navigationLinks}
       userProps={user}
+      {...args}
     />
   </StoryTemplate>
 );
 
-export const WithCurrentPage = () => {
+export const WithCurrentPage = (args: InternalHeaderProps) => {
   return (
     <StoryTemplate title="InternalHeader">
       <InternalHeader
@@ -118,17 +134,19 @@ export const WithCurrentPage = () => {
         contextMenuElements={navigationLinks}
         userProps={user}
         currentPageHref="#"
+        {...args}
       />
     </StoryTemplate>
   );
 };
 
-export const NoStoryHeading = () => (
+export const NoStoryHeading = (args: InternalHeaderProps) => (
   <InternalHeader
     applicationName="Navn på applikasjon"
     navigationElements={navigationLinks}
     contextMenuElements={navigationLinks}
     userProps={user}
+    {...args}
   />
 );
 
