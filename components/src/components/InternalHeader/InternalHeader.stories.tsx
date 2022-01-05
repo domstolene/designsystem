@@ -91,7 +91,7 @@ export const Overview = () => (
     />
     <InternalHeader
       applicationName="Navn på applikasjon"
-      contextMenuElements={menuElements}
+      navigationElements={navigationLinks}
       userProps={user}
       smallScreen
     />
