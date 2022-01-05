@@ -114,6 +114,7 @@ export const InternalHeader = ({
             href={href}
             isCurrent={isCurrent}
             onClick={() => handleCurrentPageChange(href)}
+            role={smallScreen ? 'menuitem' : undefined}
           >
             {title}
           </NavigationLink>
@@ -234,19 +235,21 @@ export const InternalHeader = ({
             </Typography>
           </ApplicationNameWrapper>
         </BannerLeftWrapper>
-        <Button
-          ref={buttonRef}
-          Icon={
-            smallScreen && navigationElements
-              ? MenuOutlinedIcon
-              : MoreVertOutlinedIcon
-          }
-          appearance="borderless"
-          purpose="secondary"
-          onClick={handleContextMenuClick}
-          aria-haspopup="menu"
-          aria-expanded={!contextMenuIsClosed ? true : undefined}
-        />
+        {((navigationElements && smallScreen) || contextMenuElements) && (
+          <Button
+            ref={buttonRef}
+            Icon={
+              smallScreen && navigationElements
+                ? MenuOutlinedIcon
+                : MoreVertOutlinedIcon
+            }
+            appearance="borderless"
+            purpose="secondary"
+            onClick={handleContextMenuClick}
+            aria-haspopup="menu"
+            aria-expanded={!contextMenuIsClosed ? true : undefined}
+          />
+        )}
         {smallScreen ? contextMenuMobile : contextMenu}
       </BannerWrapper>
       {!smallScreen && navigation}
