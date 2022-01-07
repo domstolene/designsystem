@@ -1,20 +1,26 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
+import * as CSS from 'csstype';
 
-const Wrapper = styled.div`
+type WrapperProps = {
+  top: CSS.TopProperty<string | number>;
+};
+
+const Wrapper = styled.div<WrapperProps>`
   position: absolute;
+  top: ${({ top }) => top};
   text-align: center;
   opacity: 0;
   transition: opacity 0.2s;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
+  width: 1px;
   white-space: nowrap;
   ${tokens.wrapper.base}
-  /* transform: translateY(-100%); */
+
   &:focus-within {
-    /* transform: translateY(0); */
     clip: auto;
     height: auto;
     overflow: auto;
@@ -35,12 +41,19 @@ const Link = styled.a`
 export type SkipToContentProps = {
   text?: string;
   href?: string;
+  top?: CSS.TopProperty<string | number>;
 } & HTMLAttributes<HTMLAnchorElement>;
 
 export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
-  ({ text = 'Til hovedinnhold', ...rest }, ref) => {
+  ({ text = 'Til hovedinnhold', top = 0, style, className, ...rest }, ref) => {
+    const wrapperProps = {
+      top,
+      className,
+      style
+    };
+
     return (
-      <Wrapper>
+      <Wrapper {...wrapperProps}>
         <Link ref={ref} {...rest}>
           {text}
         </Link>
