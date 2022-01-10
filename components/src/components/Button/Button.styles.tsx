@@ -78,10 +78,14 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
           justify-content: space-between;
         `)}
 
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: default;
+  }
 
-
-
-  &:focus-visible, &.focus-visible {
+  &:focus-visible,
+  &.focus-visible {
     outline: ${tokens.focusOutline.width} solid ${tokens.focusOutline.color};
     outline-offset: 2px;
   }
