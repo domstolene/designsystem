@@ -77,8 +77,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       defaultItemsPerPage = 10,
       defaultActivePage = 1,
       withPagination = true,
-      withCounter,
-      withSelect,
+      withCounter = false,
+      withSelect = false,
       selectOptions = [
         { label: '10', value: 10 },
         { label: '25', value: 25 },
@@ -153,6 +153,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         onClick={event => {
           onPageChange(event, activePage - 1);
         }}
+        disabled={activePage === 1}
         aria-label="Gå til forrige siden"
       />
     );
@@ -166,6 +167,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         onClick={event => {
           onPageChange(event, activePage + 1);
         }}
+        disabled={activePage === pagesLength}
         aria-label="Gå til neste siden"
       />
     );
@@ -183,9 +185,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const navigation = withPagination ? (
       <Nav ref={ref} aria-label="paginering" {...navProps}>
         <List>
-          {activePage > 1 && <ListItem> {previousPageButton}</ListItem>}
+          <ListItem> {previousPageButton}</ListItem>
           {listItems}
-          {activePage < pagesLength && <ListItem> {nextPageButton} </ListItem>}
+          <ListItem> {nextPageButton} </ListItem>
         </List>
       </Nav>
     ) : null;
@@ -193,23 +195,20 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const smallScreenNavigation = withPagination ? (
       <Nav ref={ref} aria-label="paginering" {...navProps}>
         <List>
-          {activePage > 1 && (
-            <>
-              <ListItem>
-                <Button
-                  purpose="secondary"
-                  appearance="ghost"
-                  size="small"
-                  Icon={FirstPageOutlinedIcon}
-                  onClick={event => {
-                    onPageChange(event, 1);
-                  }}
-                  aria-label="Gå til første siden"
-                />
-              </ListItem>
-              <ListItem>{previousPageButton}</ListItem>
-            </>
-          )}
+          <ListItem>
+            <Button
+              purpose="secondary"
+              appearance="ghost"
+              size="small"
+              Icon={FirstPageOutlinedIcon}
+              onClick={event => {
+                onPageChange(event, 1);
+              }}
+              disabled={activePage === 1}
+              aria-label="Gå til første siden"
+            />
+          </ListItem>
+          <ListItem>{previousPageButton}</ListItem>
           <ListItem>
             <Button
               label={activePage.toString()}
@@ -219,23 +218,20 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               }}
             />
           </ListItem>
-          {activePage < pagesLength && (
-            <>
-              <ListItem>{nextPageButton}</ListItem>
-              <ListItem>
-                <Button
-                  purpose="secondary"
-                  appearance="ghost"
-                  size="small"
-                  Icon={LastPageOutlinedIcon}
-                  onClick={event => {
-                    onPageChange(event, pagesLength);
-                  }}
-                  aria-label="Gå til siste siden"
-                />
-              </ListItem>
-            </>
-          )}
+          <ListItem>{nextPageButton}</ListItem>
+          <ListItem>
+            <Button
+              purpose="secondary"
+              appearance="ghost"
+              size="small"
+              Icon={LastPageOutlinedIcon}
+              onClick={event => {
+                onPageChange(event, pagesLength);
+              }}
+              disabled={activePage === pagesLength}
+              aria-label="Gå til siste siden"
+            />
+          </ListItem>
         </List>
       </Nav>
     ) : null;
