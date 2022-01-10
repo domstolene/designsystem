@@ -62,8 +62,8 @@ export type PaginationProps = {
   withCounter?: boolean;
   withSelect?: boolean;
   selectOptions?: SelectOption[];
-  onSelectOptionChange?: (option: SelectOption | null) => void;
   smallScreen?: boolean;
+  onSelectOptionChange?: (option: SelectOption) => void;
   onChange?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     page: number
@@ -74,13 +74,13 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
   (
     {
       itemsAmount,
-      defaultItemsPerPage = 10,
+      defaultItemsPerPage = 2,
       defaultActivePage = 1,
       withPagination = true,
       withCounter = false,
       withSelect = false,
       selectOptions = [
-        { label: '10', value: 10 },
+        { label: '2', value: 2 },
         { label: '25', value: 25 },
         { label: '50', value: 50 }
       ],
@@ -108,8 +108,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       }
     };
 
-    const handleSelectChange = (option: SelectOption | null) => {
-      setItemsPerPage(option?.value as number);
+    const handleSelectChange = (option: SelectOption) => {
+      setItemsPerPage(option.value as number);
       if (onSelectOptionChange) {
         onSelectOptionChange(option);
       }
@@ -172,18 +172,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       />
     );
 
-    const navProps = !withSelect &&
-      !withCounter && {
-        ...rest
-      };
-
-    const containerProps = {
-      smallScreen,
-      ...rest
-    };
-
     const navigation = withPagination ? (
-      <Nav ref={ref} aria-label="paginering" {...navProps}>
+      <Nav ref={ref} aria-label="paginering" {...rest}>
         <List>
           <ListItem> {previousPageButton}</ListItem>
           {listItems}
@@ -193,7 +183,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     ) : null;
 
     const smallScreenNavigation = withPagination ? (
-      <Nav ref={ref} aria-label="paginering" {...navProps}>
+      <Nav ref={ref} aria-label="paginering" {...rest}>
         <List>
           <ListItem>
             <Button
@@ -249,7 +239,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     return !withCounter && !withSelect ? (
       navigationToBeRendered
     ) : (
-      <Container {...containerProps}>
+      <Container smallScreen={smallScreen} {...rest}>
         <IndicatorsContainer>
           {withSelect && (
             <Select
