@@ -40,7 +40,7 @@ const Link = styled.a`
 
 export type SkipToContentProps = {
   text?: string;
-  href?: string;
+  href: string;
   top?: CSS.TopProperty<string | number>;
 } & HTMLAttributes<HTMLAnchorElement>;
 
