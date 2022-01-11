@@ -2,8 +2,6 @@
 
 [![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components)
 
-_biblioteket er under arbeid_
-
 React UI komponenter til bruk i Domstolenes tjenester.
 
 Sjekk ut [Domstolenes designsystem Elsa](https://design.domstol.no/) og [Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
@@ -54,6 +52,7 @@ Tilgjengelige komponenter:
 - RadioButton
 - Search
 - Select
+- SkipToContent
 - Spinner
 - Table
 - TextInput
