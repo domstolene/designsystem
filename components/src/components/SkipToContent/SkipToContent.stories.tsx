@@ -24,7 +24,7 @@ export const Overview = () => (
     <div style={{ position: 'relative' }}>
       <SkipToContent href="#innhold" />
       <SkipToContent href="#innhold" top={'30px'} text="Alternativ tekst" />
-      'Tab' for å se komponenten
+      'Tab' når du er i frame for å se varianter av komponenten
       <Typography id="innhold">Innhold</Typography>
     </div>
   </StoryTemplate>
@@ -33,8 +33,8 @@ export const Overview = () => (
 export const Default = (args: SkipToContentProps) => (
   <StoryTemplate title="Skip to content - default">
     <div style={{ position: 'relative' }}>
-      <SkipToContent href="#innhold" {...args} />
-      'Tab' for å se komponenten
+      <SkipToContent {...args} href="#innhold" />
+      'Tab' når du er i frame for å se komponenten
       <Typography id="innhold">Innhold</Typography>
     </div>
   </StoryTemplate>
@@ -43,8 +43,9 @@ export const Default = (args: SkipToContentProps) => (
 export const Example = (args: SkipToContentProps) => (
   <StoryTemplate title="Skip to content - example">
     <div style={{ position: 'relative' }}>
-      <SkipToContent href="#innhold" {...args} />
-      'Tab' for å se komponenten
+      <SkipToContent {...args} href="#innhold" />
+      'Tab' når du er i frame for å se komponenten; 'Enter' for å åpne i ny side
+      og teste
       <Typography typographyType="headingSans08" withMargins>
         Placeholder
       </Typography>
@@ -53,7 +54,9 @@ export const Example = (args: SkipToContentProps) => (
           height: '800px',
           backgroundColor: Colors.DdsColorPrimaryLightest
         }}
-      ></div>
+      >
+        Placeholder
+      </div>
       <Typography id="innhold" withMargins>
         Innhold
       </Typography>
