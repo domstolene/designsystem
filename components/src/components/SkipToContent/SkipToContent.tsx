@@ -8,6 +8,7 @@ type WrapperProps = {
 };
 
 const Wrapper = styled.div<WrapperProps>`
+  box-sizing: border-box;
   position: absolute;
   top: ${({ top }) => top};
   text-align: center;
