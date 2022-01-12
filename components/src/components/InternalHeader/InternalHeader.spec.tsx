@@ -29,7 +29,7 @@ describe('<InternalHeader />', () => {
   it('should have a link in navigation', () => {
     const href = '#';
     const element = {
-      title: 'action',
+      title: 'link',
       href: href
     };
     const { container } = render(
@@ -37,6 +37,21 @@ describe('<InternalHeader />', () => {
     );
     const navigationLink = container.querySelector('nav')?.querySelector('a');
     expect(navigationLink).toHaveAttribute('href', href);
+  });
+
+  it('should have a link in navigation with target attribute', () => {
+    const href = '#';
+    const target = '_blank';
+    const element = {
+      title: 'link',
+      href: href,
+      target: target
+    };
+    const { container } = render(
+      <InternalHeader navigationElements={[element]} />
+    );
+    const navigationLink = container.querySelector('nav')?.querySelector('a');
+    expect(navigationLink).toHaveAttribute('target', target);
   });
 
   it('should have a link in context menu', () => {
