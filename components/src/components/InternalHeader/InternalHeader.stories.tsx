@@ -114,7 +114,13 @@ export const Overview = () => (
 );
 
 export const Default = (args: InternalHeaderProps) => (
-  <StoryTemplate title="InternalHeader">
+  <StoryTemplate title="InternalHeader - default">
+    <InternalHeader applicationName="Navn på applikasjon" {...args} />
+  </StoryTemplate>
+);
+
+export const WithNavigationAndContextMenu = (args: InternalHeaderProps) => (
+  <StoryTemplate title="InternalHeader - default">
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
@@ -127,7 +133,7 @@ export const Default = (args: InternalHeaderProps) => (
 
 export const WithCurrentPage = (args: InternalHeaderProps) => {
   return (
-    <StoryTemplate title="InternalHeader">
+    <StoryTemplate title="InternalHeader - with current page">
       <InternalHeader
         applicationName="Navn på applikasjon"
         navigationElements={[navigationLink, uniqueNavigationLink]}
@@ -171,7 +177,7 @@ export const NoStoryHeadingSmallScreenLong = () => (
 );
 
 export const SmallScreen = () => (
-  <StoryTemplate title="InternalHeader">
+  <StoryTemplate title="InternalHeader - small screen">
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
