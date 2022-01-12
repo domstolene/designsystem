@@ -40,6 +40,7 @@ export const Navigation = styled.nav`
 type NavListProps = Pick<InternalHeaderProps, 'smallScreen'>;
 
 export const NavigationList = styled.ul<NavListProps>`
+  box-sizing: border-box;
   display: flex;
   ${({ smallScreen }) =>
     smallScreen &&
@@ -50,7 +51,9 @@ export const NavigationList = styled.ul<NavListProps>`
   padding: 0;
   margin: 0;
 `;
-export const NavigationListItem = styled.li``;
+export const NavigationListItem = styled.li`
+  box-sizing: border-box;
+`;
 
 type StyledNavigationListProps = { isCurrent?: boolean };
 
@@ -59,6 +62,7 @@ export const NavigationLink = styled.a<StyledNavigationListProps>`
   align-items: center;
   transition: background-color 0.2s;
   height: 100%;
+  box-sizing: border-box;
   ${tokens.navigationLink.base}
   &:hover {
     ${tokens.navigationLink.hover.base}
@@ -112,6 +116,7 @@ export const ContextMenuElement = styled.span`
 `;
 
 export const ContextMenuLink = styled.a`
+  box-sizing: border-box;
   background: none;
   color: inherit;
   border: none;

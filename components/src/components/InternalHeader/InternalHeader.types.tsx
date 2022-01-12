@@ -9,7 +9,7 @@ import {
 export type NavigationLinkProps = {
   href: string;
   title: string;
-} & HTMLAttributes<HTMLAnchorElement>;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type ContextMenuElementProps = {
   title: string;
