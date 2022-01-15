@@ -458,32 +458,25 @@ export const Sortable = (args: TableProps) => {
   }, [headerSortCells]);
 
   const onClickSort = (sortHeaderCell: HeaderCellToSort) => {
-    const updateSortInfo = headerSortCells.map(headerCell => {
-      if (sortHeaderCell.dataName === headerCell.dataName) {
-        let sortOrder: SortOrder = 'none';
-        switch (sortHeaderCell.sortOrder) {
-          case 'descending':
-            sortOrder = 'ascending';
-            break;
-          case 'ascending':
-            sortOrder = 'descending';
-            break;
-          default:
-            sortOrder = 'ascending';
-            break;
+    const updateSortInfo = headerSortCells.map(
+      (headerCell): HeaderCellToSort => {
+        if (sortHeaderCell.dataName === headerCell.dataName) {
+          return {
+            ...sortHeaderCell,
+            isSorted: true,
+            sortOrder:
+              sortHeaderCell.sortOrder === 'ascending'
+                ? 'descending'
+                : 'ascending'
+          };
         }
         return {
-          ...sortHeaderCell,
-          isSorted: true,
-          sortOrder
+          ...headerCell,
+          isSorted: false,
+          sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined
         };
       }
-      return {
-        ...headerCell,
-        isSorted: false,
-        sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined
-      };
-    });
+    );
     setHeaderSortCells(updateSortInfo);
   };
 
@@ -519,7 +512,11 @@ export const Sortable = (args: TableProps) => {
                     key={`head-${headerCell.dataName}`}
                     onClick={() => onClickSort(headerCell)}
                     isSorted={headerCell.isSorted}
-                    sortOrder={headerCell.sortOrder}
+                    sortOrder={
+                      headerCell.sortOrder === 'none'
+                        ? undefined
+                        : headerCell.sortOrder
+                    }
                   >
                     {headerCell.name}
                   </SortCell>

@@ -24,7 +24,11 @@ describe('<SortCell />', () => {
       <Table>
         <Head>
           <Row>
-            <SortCell sortOrder="ascending" onClick={() => {}}></SortCell>
+            <SortCell
+              isSorted={true}
+              sortOrder="ascending"
+              onClick={() => {}}
+            ></SortCell>
           </Row>
         </Head>
       </Table>
