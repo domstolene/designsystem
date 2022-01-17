@@ -4,10 +4,12 @@ import React, { forwardRef, useState } from 'react';
 import {
   components,
   default as ReactSelect,
+  GroupBase,
+  NoticeProps,
   OptionProps,
-  Props as ReactSelectProps
+  Props as ReactSelectProps,
+  SelectInstance
 } from 'react-select';
-import { NoticeProps } from 'react-select/src/components/Menu';
 import InputMessage from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
@@ -66,7 +68,10 @@ export type SelectProps = {
 
 let nextUniqueId = 0;
 
-export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
+export const Select = forwardRef<
+  SelectInstance<SelectOption, boolean, GroupBase<SelectOption>>,
+  SelectProps
+>(
   (
     {
       id,
@@ -109,7 +114,6 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
     };
 
     const reactSelectProps: ReactSelectProps<SelectOption> = {
-      ref,
       options,
       value,
       defaultValue,
@@ -149,7 +153,7 @@ export const Select = forwardRef<ReactSelect<SelectOption>, SelectProps>(
               {label} {required && <RequiredMarker />}
             </Label>
           )}
-          <ReactSelect {...reactSelectProps} />
+          <ReactSelect {...reactSelectProps} ref={ref} />
         </Container>
 
         {errorMessage && (
