@@ -1,6 +1,6 @@
 import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
 import * as CSS from 'csstype';
-import React, { forwardRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   components,
   default as ReactSelect,
@@ -55,7 +55,7 @@ export type SelectOption = {
   data?: unknown;
 };
 
-export type SelectProps = {
+export type SelectProps<IsMulti extends boolean> = {
   label?: string;
   required?: boolean;
   readOnly?: boolean;
@@ -64,106 +64,109 @@ export type SelectProps = {
   width?: CSS.WidthProperty<string>;
   className?: string;
   style?: React.CSSProperties;
-} & ReactSelectProps<SelectOption>;
+} & ReactSelectProps<SelectOption, IsMulti, GroupBase<SelectOption>>;
 
 let nextUniqueId = 0;
 
-export const Select = forwardRef<
-  SelectInstance<SelectOption, boolean, GroupBase<SelectOption>>,
-  SelectProps
->(
-  (
-    {
-      id,
-      label,
-      errorMessage,
-      tip,
-      required,
-      readOnly,
-      options,
-      isMulti,
-      value,
-      defaultValue,
-      width = tokens.container.defaultWidth,
-      closeMenuOnSelect,
-      className,
-      style,
-      isDisabled,
-      isClearable = true,
-      placeholder = '-- Velg fra listen --',
-      ...rest
-    }: SelectProps,
-    ref
-  ) => {
-    const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
+type ForwardRefType<IsMulti extends boolean> = React.ForwardedRef<
+  SelectInstance<SelectOption, IsMulti, GroupBase<SelectOption>>
+>;
 
-    const hasLabel = !!label;
+const SelectInner = <IsMulti extends boolean = false>(
+  {
+    id,
+    label,
+    errorMessage,
+    tip,
+    required,
+    readOnly,
+    options,
+    isMulti,
+    value,
+    defaultValue,
+    width = tokens.container.defaultWidth,
+    closeMenuOnSelect,
+    className,
+    style,
+    isDisabled,
+    isClearable = true,
+    placeholder = '-- Velg fra listen --',
+    ...rest
+  }: SelectProps<IsMulti>,
+  ref: ForwardRefType<IsMulti>
+) => {
+  const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
 
-    const wrapperProps = {
-      width
-    };
+  const hasLabel = !!label;
 
-    const containerProps = {
-      errorMessage,
-      isDisabled,
-      isMulti,
-      readOnly,
-      hasLabel,
-      className,
-      style
-    };
+  const wrapperProps = {
+    width
+  };
 
-    const reactSelectProps: ReactSelectProps<SelectOption> = {
-      options,
-      value,
-      defaultValue,
-      isDisabled: isDisabled || readOnly,
-      isClearable,
-      placeholder,
-      closeMenuOnSelect: closeMenuOnSelect
-        ? closeMenuOnSelect
-        : isMulti
-        ? false
-        : true,
-      isMulti,
-      inputId: uniqueId,
-      name: uniqueId,
-      classNamePrefix: prefix,
-      styles: CustomStyles,
-      filterOption: (option: SelectOption, inputValue: string) => {
-        const { label } = option;
-        return searchFilter(label, inputValue) || inputValue === '';
-      },
-      components: {
-        Option: IconOption,
-        NoOptionsMessage: NoOptionsMessageCustom
-      },
-      ...rest
-    };
+  const containerProps = {
+    errorMessage,
+    isDisabled,
+    isMulti,
+    readOnly,
+    hasLabel,
+    className,
+    style
+  };
 
-    return (
-      <Wrapper {...wrapperProps}>
-        <Container {...containerProps}>
-          {label && (
-            <Label
-              htmlFor={uniqueId}
-              forwardedAs="label"
-              typographyType="supportingStyleLabel01"
-            >
-              {label} {required && <RequiredMarker />}
-            </Label>
-          )}
-          <ReactSelect {...reactSelectProps} ref={ref} />
-        </Container>
+  const reactSelectProps: ReactSelectProps<
+    SelectOption,
+    IsMulti,
+    GroupBase<SelectOption>
+  > = {
+    options,
+    value,
+    defaultValue,
+    isDisabled: isDisabled || readOnly,
+    isClearable,
+    placeholder,
+    closeMenuOnSelect: closeMenuOnSelect
+      ? closeMenuOnSelect
+      : isMulti
+      ? false
+      : true,
+    isMulti,
+    inputId: uniqueId,
+    name: uniqueId,
+    classNamePrefix: prefix,
+    styles: CustomStyles,
+    filterOption: (option: SelectOption, inputValue: string) => {
+      const { label } = option;
+      return searchFilter(label, inputValue) || inputValue === '';
+    },
+    components: {
+      Option: IconOption,
+      NoOptionsMessage: NoOptionsMessageCustom
+    },
+    ...rest
+  };
 
-        {errorMessage && (
-          <InputMessage messageType="error" message={errorMessage} />
+  return (
+    <Wrapper {...wrapperProps}>
+      <Container {...containerProps}>
+        {label && (
+          <Label
+            htmlFor={uniqueId}
+            forwardedAs="label"
+            typographyType="supportingStyleLabel01"
+          >
+            {label} {required && <RequiredMarker />}
+          </Label>
         )}
+        <ReactSelect {...reactSelectProps} ref={ref} />
+      </Container>
 
-        {tip && !errorMessage && (
-          <InputMessage messageType="tip" message={tip} />
-        )}
-      </Wrapper>
-    );
-  }
-);
+      {errorMessage && (
+        <InputMessage messageType="error" message={errorMessage} />
+      )}
+
+      {tip && !errorMessage && <InputMessage messageType="tip" message={tip} />}
+    </Wrapper>
+  );
+};
+
+export const Select = React.forwardRef(SelectInner) as typeof SelectInner;
