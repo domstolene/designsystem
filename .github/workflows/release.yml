@@ -1,0 +1,41 @@
+name: Build, test and release
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-and-test:
+    env:
+      working-directory: ./components
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - name: Clean install
+        working-directory: ${{ env.working-directory }}
+        run: npm ci
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Test
+        working-directory: ${{ env.working-directory }}
+        run: npm run test
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build
+        working-directory: ${{ env.working-directory }}        
+        run: npm run build
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to npm
+        working-directory: ${{ env.working-directory }}
+        run: npm publish --tag latest
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
