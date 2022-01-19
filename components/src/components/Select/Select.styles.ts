@@ -1,9 +1,10 @@
-import { Styles } from 'react-select';
-import styled, { css, CSSObject } from 'styled-components';
+import { GroupBase, StylesConfig } from 'react-select';
+import styled, { css } from 'styled-components';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
+import { SelectOption } from './Select';
 import { selectTokens as tokens } from './Select.tokens';
 
 export const prefix = 'dds-select';
@@ -154,73 +155,55 @@ export const SelectedIconWrapper = styled(IconWrapper)`
   margin: ${tokens.option.selected.icon.margin};
 `;
 
-export const CustomStyles: Partial<Styles<any, false, any>> = {
-  placeholder: () => {
-    return {
-      ...tokens.placeholder.base
-    };
-  },
-  indicatorSeparator: () => {
-    return {
-      backgroundColor: 'transparent'
-    };
-  },
-  dropdownIndicator: (provided, state) => {
-    return {
-      display: 'flex',
-      transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
-      transition: '0.2s',
-      ...tokens.dropdownIndicator.base
-    };
-  },
-  control: () => {
-    return {
-      position: 'relative',
-      display: 'flex',
-      flexWrap: 'wrap',
-      ...tokens.input.base
-    };
-  },
-  valueContainer: (provided, state) => {
-    const isMultiStyles = state.selectProps.isMulti
-      ? {
-          ...tokens.valueContainer.isMulti.base
-        }
-      : {};
-    return {
-      ...provided,
-      ...isMultiStyles,
-      padding: 0
-    };
-  },
-  singleValue: provided => {
-    return {
-      ...provided,
-      margin: 0
-    };
-  },
-  multiValue: (provided, state) => {
-    const variantStyles: CSSObject = state.selectProps.isDisabled
-      ? {
-          ...tokens.multiValue.disabled.base
-        }
-      : {
-          ...tokens.multiValue.enabled.base
-        };
-    return {
-      ...provided,
-      ...tokens.multiValue.base,
-      ...variantStyles
-    };
-  },
-  multiValueLabel: provided => {
-    return {
-      ...provided,
-      ...tokens.multiValueLabel.base
-    };
-  },
-  multiValueRemove: (provided, state) => {
-    return state.selectProps.isDisabled
+export const CustomStyles: Partial<
+  StylesConfig<SelectOption, boolean, GroupBase<SelectOption>>
+> = {
+  control: () => ({
+    position: 'relative',
+    display: 'flex',
+    flexWrap: 'wrap',
+    ...tokens.input.base
+  }),
+  placeholder: provided => ({
+    ...provided,
+    ...tokens.placeholder.base,
+    margin: 0
+  }),
+  input: provided => ({
+    ...provided,
+    margin: 0,
+    padding: 0
+  }),
+  indicatorSeparator: () => ({}),
+  dropdownIndicator: (provided, state) => ({
+    display: 'inline-flex',
+    transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
+    transition: '0.2s',
+    ...tokens.dropdownIndicator.base
+  }),
+
+  valueContainer: (provided, state) => ({
+    ...provided,
+    ...(state.selectProps.isMulti ? tokens.valueContainer.isMulti.base : {}),
+    padding: 0
+  }),
+  singleValue: provided => ({
+    ...provided,
+    margin: 0
+  }),
+  multiValue: (provided, state) => ({
+    ...provided,
+    ...tokens.multiValue.base,
+    ...(state.selectProps.isDisabled
+      ? tokens.multiValue.disabled.base
+      : tokens.multiValue.enabled.base)
+  }),
+  multiValueLabel: provided => ({
+    ...provided,
+    ...tokens.multiValueLabel.base
+  }),
+  multiValueRemove: (provided, state) =>
+    state.selectProps.isDisabled
       ? {
           display: 'none'
         }
@@ -237,66 +220,39 @@ export const CustomStyles: Partial<Styles<any, false, any>> = {
           '&:focus': {
             backgroundColor: 'blue'
           }
-        };
-  },
-  menu: provided => {
-    return {
-      ...provided,
-      zIndex: 3,
-      transition: '0.2s',
-      width: 'calc(100% + 2px)',
-      transform: 'translate(-1px)',
-      boxShadow: `0 0 0 1px ${tokens.optionsList.base.borderColor}`,
-      ...tokens.optionsList.base
-    };
-  },
-  option: (provided, state) => {
-    const selectedBase: CSSObject = state.isSelected
-      ? { ...tokens.option.selected.base }
-      : {};
-
-    const focusedBase: CSSObject = state.isFocused
-      ? { ...tokens.option.selected.base }
-      : {};
-
-    return {
-      display: 'flex',
-      alignItems: 'center',
-      transition: '0.2s',
-      ...tokens.option.base,
-      '&:hover': {
-        ...tokens.option.hover.base
-      },
-      ...selectedBase,
-      ...focusedBase
-    };
-  },
-  noOptionsMessage: () => {
-    return {
-      ...tokens.noOptionsMessage.base
-    };
-  },
-  indicatorsContainer: provided => {
-    return {
-      ...provided
-    };
-  },
-  clearIndicator: () => {
-    return {
-      display: 'flex',
-      ...tokens.clearIndicator.base,
-      '&:hover': {
-        ...tokens.clearIndicator.hover.base
-      }
-    };
-  },
-  loadingIndicator: provided => {
-    return {
-      ...provided,
-      ...tokens.loadingIndicator.base
-    };
-  },
-  input: () => {
-    return {};
-  }
+        },
+  menu: provided => ({
+    ...provided,
+    zIndex: 3,
+    transition: '0.2s',
+    width: 'calc(100% + 2px)',
+    transform: 'translate(-1px)',
+    boxShadow: `0 0 0 1px ${tokens.optionsList.base.borderColor}`,
+    ...tokens.optionsList.base
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    display: 'flex',
+    alignItems: 'center',
+    transition: '0.2s',
+    ...tokens.option.base,
+    '&:hover': {
+      ...tokens.option.hover.base
+    },
+    ...(state.isSelected || state.isFocused ? tokens.option.selected.base : {})
+  }),
+  noOptionsMessage: () => ({
+    ...tokens.noOptionsMessage.base
+  }),
+  clearIndicator: () => ({
+    display: 'inline-flex',
+    ...tokens.clearIndicator.base,
+    '&:hover': {
+      ...tokens.clearIndicator.hover.base
+    }
+  }),
+  loadingIndicator: provided => ({
+    ...provided,
+    ...tokens.loadingIndicator.base
+  })
 };
