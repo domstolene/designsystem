@@ -1,10 +1,10 @@
-name: Build, test and release
+name: Build, test and publish
 on:
   release:
     types: [published]
 
 jobs:
-  build-and-test:
+  publish:
     env:
       working-directory: ./components
     runs-on: ubuntu-latest
