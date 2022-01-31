@@ -69,7 +69,7 @@ export type PopoverSizeProps = {
 
 export type PopoverProps = {
   title?: string | ReactNode;
-  onCloseButton?: () => void;
+  onCloseButtonClick?: () => void;
   isOpen?: boolean;
   withCloseButton?: boolean;
   anchorElement?: RefObject<HTMLElement>;
@@ -84,7 +84,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       title,
       isOpen = false,
       withCloseButton = true,
-      onCloseButton,
+      onCloseButtonClick,
       anchorElement,
       children,
       placement = 'bottom',
@@ -141,7 +141,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
                 appearance="borderless"
                 purpose="secondary"
                 size="small"
-                onClick={onCloseButton}
+                onClick={onCloseButtonClick}
               />
             )}
           </TopContainer>
@@ -164,7 +164,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             appearance="borderless"
             purpose="secondary"
             size="small"
-            onClick={onCloseButton}
+            onClick={onCloseButtonClick}
             aria-label="Lukk"
           />
         )}

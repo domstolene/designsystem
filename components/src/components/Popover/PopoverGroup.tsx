@@ -11,7 +11,7 @@ import {
 import { useOnKeyDown, useOnClickOutside } from '../../hooks';
 
 export type PopoverGroupProps = {
-  onCloseButton?: () => void;
+  onCloseButtonClick?: () => void;
   onTriggerClick?: () => void;
   isOpen?: boolean;
   popoverId?: string;
@@ -22,7 +22,7 @@ let nextUniqueId = 0;
 
 export const PopoverGroup = ({
   isOpen = false,
-  onCloseButton,
+  onCloseButtonClick,
   onTriggerClick,
   children,
   popoverId
@@ -36,9 +36,9 @@ export const PopoverGroup = ({
     setOpen(isOpen);
   }, [isOpen]);
 
-  const handleOnCloseButton = () => {
+  const handleOnCloseButtonClick = () => {
     setOpen(false);
-    onCloseButton && onCloseButton();
+    onCloseButtonClick && onCloseButtonClick();
   };
 
   const handleOnTriggerClick = () => {
@@ -70,7 +70,7 @@ export const PopoverGroup = ({
         : cloneElement(child as ReactElement, {
             isOpen: open,
             id: uniquePopoverId,
-            onCloseButton: handleOnCloseButton,
+            onCloseButtonClick: handleOnCloseButtonClick,
             anchorElement: buttonRef.current,
             ref: popoverRef
           }))
