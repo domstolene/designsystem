@@ -38,6 +38,6 @@ export const popoverTokens = {
     base: titleBase
   },
   content: {
-    spaceTopNoTitle: Spacing.SizesDdsSpacingLocalX15
+    spaceTopNoTitle: Spacing.SizesDdsSpacingLocalX2
   }
 };
