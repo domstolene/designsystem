@@ -50,6 +50,7 @@ export const StoryTemplate = ({
   columnsAmount = 3,
   display = 'flex',
   children,
+  containerStyle,
   ...rest
 }: StoryTemplateProps) => {
   return (
@@ -58,7 +59,12 @@ export const StoryTemplate = ({
         {title}
       </Typography>
       <Divider color="primaryLighter" />
-      <Container gap={gap} display={display} columnsAmount={columnsAmount}>
+      <Container
+        gap={gap}
+        display={display}
+        style={containerStyle}
+        columnsAmount={columnsAmount}
+      >
         {children}
       </Container>
     </StoryContainer>
