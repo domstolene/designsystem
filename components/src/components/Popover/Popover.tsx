@@ -74,7 +74,7 @@ export type PopoverProps = {
   withCloseButton?: boolean;
   anchorElement?: RefObject<HTMLElement>;
   placement?: Placement;
-  spaceFromAnchor?: number;
+  offset?: number;
   sizeProps?: PopoverSizeProps;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -88,7 +88,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement,
       children,
       placement = 'bottom',
-      spaceFromAnchor = Spacing.SizesDdsSpacingLocalX05NumberPx,
+      offset = Spacing.SizesDdsSpacingLocalX05NumberPx,
 
       ...rest
     },
@@ -103,7 +103,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       popperElement,
       undefined,
       placement,
-      spaceFromAnchor
+      offset
     );
 
     useEffect(() => {
