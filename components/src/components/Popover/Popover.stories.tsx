@@ -73,12 +73,7 @@ export const PlacementOverview = () => {
     <div>
       <PopoverGroup>
         <Button label="Åpne" />
-        <Popover placement={placement}>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography withMargins>tekst</Typography>
-            <Button label="Klikk" />
-          </div>
-        </Popover>
+        <Popover placement={placement}>{placement}</Popover>
       </PopoverGroup>
     </div>
   );
