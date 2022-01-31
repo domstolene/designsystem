@@ -24,7 +24,7 @@ const buttonBase: CSSObject = {
 };
 
 const titleBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX25
+  marginRight: Spacing.SizesDdsSpacingLocalX2
 };
 
 export const popoverTokens = {
