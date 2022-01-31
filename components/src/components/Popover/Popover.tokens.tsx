@@ -19,8 +19,12 @@ const wrapperBase: CSSObject = {
 
 const buttonBase: CSSObject = {
   position: 'absolute',
-  top: Spacing.SizesDdsSpacingLocalX05,
-  right: Spacing.SizesDdsSpacingLocalX05
+  top: Spacing.SizesDdsSpacingLocalX025,
+  right: Spacing.SizesDdsSpacingLocalX025
+};
+
+const titleBase: CSSObject = {
+  marginRight: Spacing.SizesDdsSpacingLocalX25
 };
 
 export const popoverTokens = {
@@ -29,6 +33,9 @@ export const popoverTokens = {
   },
   button: {
     base: buttonBase
+  },
+  title: {
+    base: titleBase
   },
   content: {
     spaceTopNoTitle: Spacing.SizesDdsSpacingLocalX15
