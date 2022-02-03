@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 
-export const useOnKeyDown = (key: string | string[], handler: Function) => {
+export const useOnKeyDown = (
+  key: string | string[],
+  handler: (event: KeyboardEvent) => void
+) => {
   useEffect(() => {
     const listener = (event: KeyboardEvent) => {
       const keys = Array.isArray(key) ? key : [key];
