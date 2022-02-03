@@ -29,7 +29,7 @@ const Wrapper = styled.div<WrapperProps>`
   box-sizing: border-box;
   position: absolute;
   width: fit-content;
-  z-index: 200;
+  z-index: 20;
   ${tokens.wrapper.base}
   ${({ sizeProps }) =>
     sizeProps &&
@@ -61,6 +61,8 @@ const StyledButton = styled(Button)`
 `;
 
 export type PopoverSizeProps = {
+  width?: CSS.WidthProperty<string>;
+  height?: CSS.HeightProperty<string>;
   minWidth?: CSS.MinWidthProperty<string>;
   minHeight?: CSS.MinHeightProperty<string>;
   maxWidth?: CSS.MaxWidthProperty<string>;
@@ -70,6 +72,7 @@ export type PopoverSizeProps = {
 export type PopoverProps = {
   title?: string | ReactNode;
   onCloseButtonClick?: () => void;
+  onCloseButtonBlur?: () => void;
   isOpen?: boolean;
   withCloseButton?: boolean;
   anchorElement?: RefObject<HTMLElement>;
@@ -85,11 +88,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       isOpen = false,
       withCloseButton = true,
       onCloseButtonClick,
+      onCloseButtonBlur,
       anchorElement,
       children,
       placement = 'bottom',
       offset = Spacing.SizesDdsSpacingLocalX05NumberPx,
-
+      style,
       ...rest
     },
     ref
@@ -114,38 +118,14 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     const wrapperProps = {
       ref: multiRef,
       isOpen,
-      style: styles.popper,
+      style: { ...style, ...styles.popper },
       ...rest,
-      ...attributes.popper
+      ...attributes.popper,
+      role: 'dialog'
     };
 
     return (
       <Wrapper {...wrapperProps}>
-        {/* {(title || withCloseButton) && (
-          <TopContainer hasTitle={!!title}>
-            {title && (
-              <TitleContainer>
-                {typeof title === 'string' ? (
-                  <Typography typographyType="headingSans02">
-                    {title}
-                  </Typography>
-                ) : (
-                  title
-                )}
-              </TitleContainer>
-            )}
-
-            {withCloseButton && (
-              <StyledButton
-                Icon={CloseOutlinedIcon}
-                appearance="borderless"
-                purpose="secondary"
-                size="small"
-                onClick={onCloseButtonClick}
-              />
-            )}
-          </TopContainer>
-        )} */}
         {title && (
           <TitleContainer>
             {typeof title === 'string' ? (
@@ -166,6 +146,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             size="small"
             onClick={onCloseButtonClick}
             aria-label="Lukk"
+            onBlur={onCloseButtonBlur}
           />
         )}
       </Wrapper>

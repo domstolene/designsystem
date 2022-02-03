@@ -28,13 +28,15 @@ export const PopoverGroup = ({
   popoverId
 }: PopoverGroupProps) => {
   const [open, setOpen] = useState(isOpen);
+
+  useEffect(() => {
+    setOpen(isOpen);
+  }, [isOpen]);
+
   const uniqueId = nextUniqueId++;
   const [uniquePopoverId] = useState<string>(
     popoverId ?? `popover-${uniqueId}`
   );
-  useEffect(() => {
-    setOpen(isOpen);
-  }, [isOpen]);
 
   const handleOnCloseButtonClick = () => {
     setOpen(false);
@@ -46,12 +48,22 @@ export const PopoverGroup = ({
     onTriggerClick && onTriggerClick();
   };
 
-  useOnKeyDown(['Esc', 'Escape'], () => {
-    setOpen(false);
-  });
+  const buttonRef = useRef<HTMLElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
 
-  const buttonRef = useRef(null);
-  const popoverRef = useRef(null);
+  const handleBlur = () => {
+    setTimeout(function () {
+      buttonRef.current?.focus();
+    }, 5);
+    setOpen(false);
+  };
+
+  useOnKeyDown(['Esc', 'Escape'], () => {
+    if (open) {
+      setOpen(false);
+      buttonRef.current?.focus();
+    }
+  });
 
   useOnClickOutside([popoverRef.current, buttonRef.current], () => {
     if (open) setOpen(false);
@@ -62,19 +74,23 @@ export const PopoverGroup = ({
       isValidElement(child) &&
       (childIndex === 0
         ? cloneElement(child as ReactElement, {
-            'aria-haspopup': true,
+            'aria-haspopup': 'dialog',
             'aria-controls': uniquePopoverId,
+            'aria-expanded': open,
             onClick: handleOnTriggerClick,
             ref: buttonRef
           })
         : cloneElement(child as ReactElement, {
             isOpen: open,
+            'aria-hidden': !open,
             id: uniquePopoverId,
             onCloseButtonClick: handleOnCloseButtonClick,
+            onCloseButtonBlur: handleBlur,
             anchorElement: buttonRef.current,
             ref: popoverRef
           }))
     );
   });
+
   return <>{Children}</>;
 };
