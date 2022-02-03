@@ -5,8 +5,6 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
 import { IconWrapper } from '../../helpers/IconWrapper';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import styled from 'styled-components';
 
 const SortIconWrapper = styled(IconWrapper)`
@@ -23,7 +21,7 @@ const StyledButton = styled.button`
   outline: inherit;
 `;
 
-export type SortOrder = 'ascending' | 'descending' | 'none';
+export type SortOrder = 'ascending' | 'descending';
 
 export type SortCellProps = {
   isSorted?: boolean;
@@ -31,34 +29,29 @@ export type SortCellProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 } & Omit<TableCellProps, 'type'>;
 
-export const SortCell = forwardRef<HTMLTableHeaderCellElement, SortCellProps>(
-  ({ isSorted, sortOrder, onClick, children, ...rest }, ref) => {
-    const IconRenderer = (isSorted?: boolean, sortOrder?: SortOrder) => {
-      const Wrapper = (
-        Icon: OverridableComponent<
-          SvgIconTypeMap<Record<string, unknown>, 'svg'>
-        >
-      ) => <SortIconWrapper Icon={Icon} iconSize="inline" />;
-      return !isSorted
-        ? Wrapper(UnfoldMoreIcon)
-        : sortOrder === 'ascending'
-        ? Wrapper(KeyboardArrowDownIcon)
-        : sortOrder === 'descending'
-        ? Wrapper(KeyboardArrowUpIcon)
-        : '';
-    };
-
-    return (
-      <Cell
-        ref={ref}
-        type="head"
-        aria-sort={sortOrder !== 'none' ? sortOrder : undefined}
-        {...rest}
-      >
-        <StyledButton onClick={onClick}>
-          {children} {IconRenderer(isSorted, sortOrder)}
-        </StyledButton>
-      </Cell>
-    );
+const makeSortIcon = (isSorted?: boolean, sortOrder?: SortOrder) => {
+  if (!isSorted || !sortOrder) {
+    return <SortIconWrapper Icon={UnfoldMoreIcon} iconSize="inline" />;
   }
+
+  return sortOrder === 'ascending' ? (
+    <SortIconWrapper Icon={KeyboardArrowDownIcon} iconSize="inline" />
+  ) : (
+    <SortIconWrapper Icon={KeyboardArrowUpIcon} iconSize="inline" />
+  );
+};
+
+export const SortCell = forwardRef<HTMLTableCellElement, SortCellProps>(
+  ({ isSorted, sortOrder, onClick, children, ...rest }, ref) => (
+    <Cell
+      ref={ref}
+      type="head"
+      aria-sort={isSorted && sortOrder ? sortOrder : undefined}
+      {...rest}
+    >
+      <StyledButton onClick={onClick}>
+        {children} {makeSortIcon(isSorted, sortOrder)}
+      </StyledButton>
+    </Cell>
+  )
 );

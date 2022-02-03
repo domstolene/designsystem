@@ -58,6 +58,17 @@ Tilgjengelige komponenter:
 - TextInput
 - Typography
 
+## Release av ny versjon
+
+Det brukes en egen workflow for release av ny versjon av `@norges-domstoler/dds-components` som kjører på publisering av ny github release. Her brukes `npm publish` for å publisere en ny versjon av pakken til npm sitt pakkeregister, hvor det nye versjonsnummeret leses fra `package.json`. For å lage en ny release gjøres følgende:
+
+1. Versjonsnummeret i `package.json` må oppdateres manuelt med en egen commit i forkant av publisering av ny github release.
+
+2. Lag en ny release på github med _release tag = versjonsnummer_ for best mulig oversikt, og legg ved en passende beskrivelse av hva som er nytt i denne versjonen. Publiser så releasen når alt er klart.
+   Man kan også lage en Draft-release i forkant, og publisere denne releasen når alt som skal være med er merget inn i master.
+
+For versjonering brukes [_semantisk versjonering_](https://semver.org/) for å holde ting organisert og for å enkelt kommunisere utviklingsløpet til pakken.
+
 ## For bidragsytere
 
 Sjekk ut [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).

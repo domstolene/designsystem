@@ -14,30 +14,30 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-            ${{ runner.OS }}-build-
-
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
 
       - name: Clean install
         working-directory: ${{ env.working-directory }}
         run: npm ci
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
         working-directory: ${{ env.working-directory }}        
         run: npm run build
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Test
         working-directory: ${{ env.working-directory }}                
         run: npm run test
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Lint
         working-directory: ${{ env.working-directory }}                
         run: npm run lint
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
