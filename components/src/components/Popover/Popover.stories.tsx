@@ -5,7 +5,10 @@ import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Placement } from '../../hooks';
 import { Typography } from '../Typography';
 import styled from 'styled-components';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 
 export default {
   title: 'design system/Popover',
@@ -14,7 +17,7 @@ export default {
     withCloseButton: { control: { type: 'boolean' } },
     placement: { control: { type: 'text' } },
     title: { control: { type: 'text' } },
-    spaceFromAnchor: { control: { type: 'number' } }
+    offset: { control: { type: 'number' } }
   },
   parameters: {
     controls: {
@@ -122,6 +125,34 @@ export const Default = (args: PopoverProps) => {
   );
 };
 
+export const Overflow = (args: PopoverProps) => {
+  return (
+    <StoryTemplate title="Popover - overflow" display="block">
+      <PopoverGroup>
+        <Button label="Åpne" />
+        <Popover
+          {...args}
+          sizeProps={{ maxWidth: '150px', maxHeight: '200px' }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography
+              withMargins
+              style={{
+                textOverflow: 'ellipsis',
+                overflow: 'hidden',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Dette er en popover med tekst og knapp
+            </Typography>
+            <Button label="Klikk" />
+          </div>
+        </Popover>
+      </PopoverGroup>
+    </StoryTemplate>
+  );
+};
+
 export const InlineExample = (args: PopoverProps) => {
   const Trigger = styled.button`
     background: none;
@@ -133,6 +164,14 @@ export const InlineExample = (args: PopoverProps) => {
     outline: inherit;
     text-decoration: underline;
     color: ${ddsBaseTokens.colors.DdsColorInteractiveBase};
+    &:hover {
+      color: ${ddsBaseTokens.colors.DdsColorInteractiveDark};
+    }
+    &:focus {
+      color: ${ddsBaseTokens.colors.DdsColorNeutralsWhite};
+      background-color: ${ddsReferenceTokens.focus.colorDefault};
+      text-decoration: none;
+    }
   `;
   return (
     <StoryTemplate title="Popover - inline example" display="block">
