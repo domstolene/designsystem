@@ -17,7 +17,7 @@ const {
 const { focus } = ddsReferenceTokens;
 
 const justIconSmallBase: CSSObject = {
-  ...FontPackages.supportingStyle_inputtext_02.base,
+  ...FontPackages.supportingStyle_inputtext_03.base,
   padding: Spacing.SizesDdsSpacingLocalX05
 };
 
