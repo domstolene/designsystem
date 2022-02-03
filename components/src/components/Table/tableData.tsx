@@ -3,7 +3,7 @@ import { SortOrder } from './SortCell';
 export type HeaderCellToSort = {
   name: string;
   dataName: string;
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | 'none';
   isSorted?: boolean;
 };
 
