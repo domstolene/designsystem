@@ -79,7 +79,7 @@ export const CardAccordionHeader = forwardRef<
   };
 
   const chevronProps = {
-    isExpanded
+    isUp: isExpanded
   };
 
   return (

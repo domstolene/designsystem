@@ -11,18 +11,18 @@ const svgChevronLeftPath =
 const svgChevronRightPath =
   'M 3 4 L 7 0 L 8 1 C 8 1 8 1 8 1 L 4 5 L 3 4 C 3 4 3 4 3 4 L 3 4 Z';
 
-export const AnimatedChevronUpDown = ({ isExpanded }: SvgChevronProps) => {
+export const AnimatedChevronUpDown = ({ isUp }: SvgChevronProps) => {
   return (
     <SvgChevron
       viewBox="0 0 8 5"
       width="8px"
       height="5px"
       fill="currentColor"
-      isExpanded={isExpanded}
+      isUp={isUp}
     >
-      <SvgChevronlGroup isExpanded={isExpanded}>
-        <SvgChevronlLeft d={svgChevronLeftPath} isExpanded={isExpanded} />
-        <SvgChevronlRight d={svgChevronRightPath} isExpanded={isExpanded} />
+      <SvgChevronlGroup isUp={isUp}>
+        <SvgChevronlLeft d={svgChevronLeftPath} isUp={isUp} />
+        <SvgChevronlRight d={svgChevronRightPath} isUp={isUp} />
       </SvgChevronlGroup>
     </SvgChevron>
   );
