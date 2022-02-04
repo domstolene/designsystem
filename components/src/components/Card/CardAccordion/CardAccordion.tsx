@@ -19,7 +19,7 @@ export type CardAccordionProps = {
 let nextUniqueId = 0;
 
 export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
-  ({ isExpanded, id, children, ...rest }, ref) => {
+  ({ isExpanded = false, id, children, ...rest }, ref) => {
     const [expanded, setExpanded] = useState(isExpanded);
 
     const uniqueId = nextUniqueId++;

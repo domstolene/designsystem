@@ -4,8 +4,9 @@ import {
   KeyboardEventHandler,
   KeyboardEvent
 } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { cardAccordionHeaderTokens as tokens } from './CardAccordionHeader.tokens';
+import { AnimatedChevronUpDown } from '../../../helpers/Chevron';
 
 const ContentWrapper = styled.div``;
 
@@ -13,6 +14,7 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: box-shadow 0.2s;
   ${tokens.base}
   &:focus {
     outline: none;
@@ -22,7 +24,7 @@ const HeaderContainer = styled.div`
 const HeaderWrapper = styled.div`
   position: relative;
   cursor: pointer;
-
+  transition: box-shadow 0.2s;
   &:hover {
     ${tokens.hover.base}
   }
@@ -35,41 +37,6 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-const chevronPseudoElementStyling = css`
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 50%;
-  background: currentColor;
-  transition: transform 0.2s;
-`;
-
-type ChevronProps = Pick<CardAccordionHeaderProps, 'isExpanded'>;
-
-const Chevron = styled.span<ChevronProps>`
-  display: inline-block;
-  flex-shrink: 0;
-  height: 2px;
-  line-height: 2px;
-  width: 17px;
-  position: relative;
-  text-align: center;
-  vertical-align: middle;
-  &::before {
-    ${chevronPseudoElementStyling}
-    left: 2px;
-    transform: translateX(2px)
-      ${({ isExpanded }) => (isExpanded ? 'rotate(-45deg)' : 'rotate(45deg)')};
-  }
-  &::after {
-    ${chevronPseudoElementStyling}
-    right: 2px;
-    transform: translateX(2px)
-      ${({ isExpanded }) => (isExpanded ? 'rotate(45deg)' : 'rotate(-45deg)')};
-  }
-`;
-
 export type CardAccordionHeaderProps = {
   isExpanded?: boolean;
   toggleExpanded?: () => void;
@@ -79,7 +46,7 @@ export type CardAccordionHeaderProps = {
 export const CardAccordionHeader = forwardRef<
   HTMLDivElement,
   CardAccordionHeaderProps
->(({ children, isExpanded, toggleExpanded, bodyId, ...rest }, ref) => {
+>(({ children, isExpanded = false, toggleExpanded, bodyId, ...rest }, ref) => {
   const handleClick = () => {
     if (toggleExpanded) {
       toggleExpanded();
@@ -123,7 +90,7 @@ export const CardAccordionHeader = forwardRef<
     >
       <HeaderContainer {...headerContainerProps}>
         <ContentWrapper> {children} </ContentWrapper>
-        <Chevron {...chevronProps} />
+        <AnimatedChevronUpDown {...chevronProps} />
       </HeaderContainer>
     </HeaderWrapper>
   );
