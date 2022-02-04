@@ -22,17 +22,24 @@ const Container = styled.div<ContainerProps>`
       ${tokens.colors[color].base}
     `}
   ${({ cardType }) =>
-    cardType === 'navigation' &&
-    css`
-      text-decoration: none;
-      &:hover {
-        ${tokens.navigation.hover.base}
-      }
-      &:focus {
-        outline: none;
-        ${tokens.navigation.focus.base}
-      }
-    `}
+    cardType === 'navigation'
+      ? css`
+          text-decoration: none;
+          &:hover {
+            ${tokens.navigation.hover.base}
+          }
+          &:focus {
+            outline: none;
+            ${tokens.navigation.focus.base}
+          }
+        `
+      : cardType === 'expandable'
+      ? css`
+          &:not(:first-of-type) {
+            border-top: none;
+          }
+        `
+      : ''}
 `;
 export type CardColor =
   | 'filledDark'
@@ -40,7 +47,7 @@ export type CardColor =
   | 'strokeDark'
   | 'strokeLight';
 
-export type CardType = 'info' | 'navigation';
+export type CardType = 'info' | 'navigation' | 'expandable';
 
 export type CardProps = {
   color?: CardColor;

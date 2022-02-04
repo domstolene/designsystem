@@ -131,7 +131,7 @@ export const Default = (args: CardProps) => {
 export const Accordion = (args: CardProps) => {
   return (
     <StoryTemplate title="Card - accordion" gap="0">
-      <DDSCard {...args}>
+      <DDSCard {...args} cardType="expandable">
         <DDSAccordion>
           <CardAccordionHeader>Dekning av reiseutgifter</CardAccordionHeader>
           <CardAccordionBody>
@@ -153,7 +153,7 @@ export const Accordion = (args: CardProps) => {
           </CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard {...args}>
+      <DDSCard {...args} cardType="expandable">
         <DDSAccordion>
           <CardAccordionHeader>Ansvar for behandlingen</CardAccordionHeader>
           <CardAccordionBody>
@@ -167,7 +167,7 @@ export const Accordion = (args: CardProps) => {
           </CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard {...args}>
+      <DDSCard {...args} cardType="expandable">
         <DDSAccordion>
           <CardAccordionHeader>Header</CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
