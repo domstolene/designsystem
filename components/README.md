@@ -1,6 +1,6 @@
 # @norges-domstoler/dds-components
 
-[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components)
+[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components) [![Build, test and publish](https://img.shields.io/github/workflow/status/domstolene/designsystem/release.yml)](https://github.com/domstolene/designsystem/actions/workflows/release.yml)
 
 React UI komponenter til bruk i Domstolenes tjenester.
 
@@ -49,6 +49,7 @@ Tilgjengelige komponenter:
 - List
 - LocalMessage
 - Pagination
+- Popover
 - RadioButton
 - Search
 - Select
