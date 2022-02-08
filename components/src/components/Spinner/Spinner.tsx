@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import * as CSS from 'csstype';
 import { getTextColor, TextColor } from '../Typography';
@@ -52,7 +52,7 @@ const Circle = styled.circle<CircleProps>`
 export type SpinnerProps = {
   color?: TextColor | string;
   size?: CSS.WidthProperty<string>;
-};
+} & HTMLAttributes<SVGElement>;
 
 let nextUniqueId = 0;
 
