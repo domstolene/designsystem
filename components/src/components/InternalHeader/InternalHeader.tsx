@@ -1,21 +1,16 @@
-import { ElementType, useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+import { useOnClickOutside, useOnKeyDown, useRoveFocus } from '../../hooks';
 import { InternalHeaderProps } from './InternalHeader.types';
 import {
   Wrapper,
-  NavigationListItem,
-  NavigationLink,
   Navigation,
   NavigationList,
   ContextMenuList,
-  ContextMenuListItem,
-  ContextMenuLink,
-  StyledIconWrapper,
-  ContextMenuElement,
   ContextMenuWrapper,
   StyledDivider,
   BannerWrapper,
@@ -23,6 +18,10 @@ import {
   LovisaWrapper,
   ApplicationNameWrapper
 } from './InternalHeader.styles';
+
+import { NavigationItem } from './NavigationItem';
+import { ContextMenuItem } from './ContextMenuItem';
+import { InternalHeaderListItem } from './InternalHeaderListItem';
 
 export const InternalHeader = ({
   applicationName,
@@ -38,50 +37,26 @@ export const InternalHeader = ({
   const [currentPage, setCurrentPage] = useState<string | undefined>(
     currentPageHref
   );
+
   const contextMenuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleContextMenuClickOutside = (e: MouseEvent | TouchEvent) => {
-    if (
-      contextMenuIsClosed !== true &&
-      contextMenuRef.current !== null &&
-      !contextMenuRef.current.contains(e.target as Node) &&
-      buttonRef.current !== null &&
-      !buttonRef.current.contains(e.target as Node)
-    ) {
-      setContextMenuIsClosed(true);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleContextMenuClickOutside, true);
-    return () => {
-      document.removeEventListener(
-        'click',
-        handleContextMenuClickOutside,
-        true
-      );
-    };
+  useOnClickOutside([contextMenuRef.current, buttonRef.current], () => {
+    setContextMenuIsClosed(true);
   });
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Esc' || e.key === 'Escape') {
+  useOnKeyDown(['Esc', 'Escape'], () => {
+    if (!contextMenuIsClosed) {
       setContextMenuIsClosed(true);
       buttonRef.current?.focus();
     }
-  };
+  });
 
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown, true);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown, true);
-    };
-  }, []);
-
-  const onBlurContextMenu = () => {
-    setContextMenuIsClosed(true);
-  };
+  useOnKeyDown(['Tab'], () => {
+    if (!contextMenuIsClosed) {
+      setContextMenuIsClosed(true);
+    }
+  });
 
   const handleCurrentPageChange = (href: string) => {
     setCurrentPage(href);
@@ -92,33 +67,43 @@ export const InternalHeader = ({
     setContextMenuIsClosed(!contextMenuIsClosed);
   };
 
-  const userLinkAs: ElementType = userProps?.href ? 'a' : 'span';
-  const userIsLastFocusableItem =
-    !contextMenuElements && userProps && userProps.href;
+  const completeContextMenuElements = [];
 
-  const userElementProps = {
-    as: userLinkAs,
-    href: userProps?.href,
-    onBlur: userIsLastFocusableItem ? onBlurContextMenu : undefined
-  };
+  // if (smallScreen && navigationElements) completeContextMenuElements.push(...navigationElements);
+
+  if (userProps && userProps.href) {
+    completeContextMenuElements.push({
+      title: userProps.name,
+      href: userProps.href,
+      Icon: PersonOutlineOutlinedIcon
+    });
+  }
+
+  if (contextMenuElements)
+    completeContextMenuElements.push(...contextMenuElements);
+
+  const [focus, setFocus] = useRoveFocus(
+    completeContextMenuElements && completeContextMenuElements.length,
+    contextMenuIsClosed
+  );
 
   const navigationContent =
     navigationElements &&
     navigationElements.map((item, index) => {
-      const { href, title, ...rest } = item;
+      const { href, ...rest } = item;
       const isCurrent = href === currentPage;
       return (
-        <NavigationListItem key={index}>
-          <NavigationLink
-            {...rest}
+        <InternalHeaderListItem key={index}>
+          <NavigationItem
+            key={index}
             href={href}
+            {...rest}
             isCurrent={isCurrent}
             onClick={() => handleCurrentPageChange(href)}
             role={smallScreen ? 'menuitem' : undefined}
-          >
-            {title}
-          </NavigationLink>
-        </NavigationListItem>
+            aria-current="page"
+          />
+        </InternalHeaderListItem>
       );
     });
 
@@ -129,51 +114,29 @@ export const InternalHeader = ({
   );
 
   const userContextMenuItem = userProps && (
-    <ContextMenuListItem>
-      {userProps.href ? (
-        <ContextMenuLink {...userElementProps} role="menuitem">
-          <StyledIconWrapper
-            iconSize="inline"
-            Icon={PersonOutlineOutlinedIcon}
-          />
-          {userProps.name}
-        </ContextMenuLink>
-      ) : (
-        <ContextMenuElement {...userElementProps}>
-          <StyledIconWrapper
-            iconSize="inline"
-            Icon={PersonOutlineOutlinedIcon}
-          />
-          {userProps.name}
-        </ContextMenuElement>
-      )}
-    </ContextMenuListItem>
+    <ContextMenuItem
+      key={userProps.name}
+      title={userProps.name}
+      Icon={PersonOutlineOutlinedIcon}
+    />
   );
 
   const contextMenuElementsContent =
-    contextMenuElements &&
-    contextMenuElements.map((item, index) => {
-      const { Icon, href, title, onClick, ...rest } = item;
-      const as: ElementType = href ? 'a' : 'button';
-      const isLastItem =
-        index === contextMenuElements.length - 1 ? true : false;
-      const props = {
-        as: as,
-        href,
-        onClick,
-        onBlur: isLastItem ? onBlurContextMenu : undefined,
-        ...rest
-      };
+    completeContextMenuElements &&
+    completeContextMenuElements.map((item, index) => {
+      const { ...rest } = item;
+
       return (
-        <ContextMenuListItem key={index}>
-          <ContextMenuLink
-            {...props}
-            role={href || onClick ? 'menuitem' : undefined}
-          >
-            {Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />}
-            {title}
-          </ContextMenuLink>
-        </ContextMenuListItem>
+        <InternalHeaderListItem key={index}>
+          <ContextMenuItem
+            key={index}
+            focus={focus === index && !contextMenuIsClosed}
+            setFocus={setFocus}
+            index={index}
+            {...rest}
+          />
+          {console.log(focus, contextMenuIsClosed)}
+        </InternalHeaderListItem>
       );
     });
 
@@ -189,7 +152,13 @@ export const InternalHeader = ({
       role="menu"
     >
       <ContextMenuList>
-        {userContextMenuItem}
+        {userProps && !userProps.href && (
+          <ContextMenuItem
+            key={userProps.name}
+            title={userProps.name}
+            Icon={PersonOutlineOutlinedIcon}
+          />
+        )}
         {contextMenuElementsContent}
       </ContextMenuList>
     </ContextMenuWrapper>
