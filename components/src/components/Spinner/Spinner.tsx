@@ -58,7 +58,8 @@ let nextUniqueId = 0;
 
 export function Spinner({
   size = ddsBaseTokens.iconSizes.DdsIconsizeMedium,
-  color = 'interactive'
+  color = 'interactive',
+  ...rest
 }: SpinnerProps) {
   const mountTime = React.useRef(Date.now());
   const outerAnimationDelay = -(mountTime.current % 2000);
@@ -68,7 +69,8 @@ export function Spinner({
 
   const spinnerProps = {
     outerAnimationDelay,
-    size
+    size,
+    ...rest
   };
 
   const circleProps = {
