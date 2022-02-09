@@ -15,6 +15,7 @@ export function useRoveFocus(
   const handleKeyDown = useCallback(
     e => {
       if (!size) return;
+      if (reset) setCurrentFocus(-1);
       if (e.keyCode === 40) {
         // Down arrow
         e.preventDefault();
@@ -22,11 +23,9 @@ export function useRoveFocus(
       } else if (e.keyCode === 38) {
         // Up arrow
         e.preventDefault();
-        setCurrentFocus(currentFocus === 0 ? size - 1 : currentFocus - 1);
-      }
-      if (reset && currentFocus >= 0) {
-        console.log(reset);
-        setCurrentFocus(-1);
+        if (currentFocus !== -1) {
+          setCurrentFocus(currentFocus === 0 ? size - 1 : currentFocus - 1);
+        } else setCurrentFocus(size - 1);
       }
     },
     [size, currentFocus, setCurrentFocus, reset]
@@ -41,5 +40,3 @@ export function useRoveFocus(
 
   return [currentFocus, setCurrentFocus];
 }
-
-export default useRoveFocus;
