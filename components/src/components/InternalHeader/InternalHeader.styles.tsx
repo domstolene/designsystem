@@ -2,7 +2,6 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 import styled, { css } from 'styled-components';
 import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
 import { InternalHeaderProps } from './InternalHeader.types';
-import { IconWrapper } from '../../helpers/IconWrapper';
 import { Divider } from '../Divider';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 
@@ -51,39 +50,11 @@ export const NavigationList = styled.ul<NavListProps>`
   padding: 0;
   margin: 0;
 `;
-export const NavigationListItem = styled.li`
-  box-sizing: border-box;
-`;
-
-type StyledNavigationListProps = { isCurrent?: boolean };
-
-export const NavigationLink = styled.a<StyledNavigationListProps>`
-  display: flex;
-  align-items: center;
-  transition: background-color 0.2s;
-  height: 100%;
-  box-sizing: border-box;
-  ${tokens.navigationLink.base}
-  &:hover {
-    ${tokens.navigationLink.hover.base}
-  }
-  &:active {
-    ${tokens.navigationLink.active.base}
-  }
-  &:focus-visible {
-    outline: none;
-    ${tokens.navigationLink.focus.base}
-  }
-  ${({ isCurrent }) =>
-    isCurrent &&
-    css`
-      ${tokens.navigationLink.current.base}
-    `}
-`;
 
 type ContextMenuWrapperProps = { closed?: boolean };
 
 export const ContextMenuWrapper = styled.div<ContextMenuWrapperProps>`
+  box-sizing: border-box;
   position: absolute;
   z-index: 3;
   top: calc(100% - 2px);
@@ -107,44 +78,6 @@ export const ContextMenuList = styled.ul`
   margin: 0;
 `;
 
-export const ContextMenuListItem = styled.li``;
-
-export const ContextMenuElement = styled.span`
-  ${tokens.contextMenuLink.base}
-  display: flex;
-  align-items: center;
-`;
-
-export const ContextMenuLink = styled.a`
-  box-sizing: border-box;
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  width: 100%;
-  ${tokens.contextMenuLink.base}
-  display: flex;
-  align-items: center;
-  transition: background-color 0.2s;
-  &:hover {
-    ${tokens.contextMenuLink.hover.base}
-  }
-  &:active {
-    ${tokens.contextMenuLink.active.base}
-  }
-  &:focus-visible {
-    outline: none;
-    ${tokens.contextMenuLink.focus.base}
-  }
-`;
-
 export const StyledDivider = styled(Divider)`
   ${tokens.contextMenuDivider.base}
-`;
-
-export const StyledIconWrapper = styled(IconWrapper)`
-  ${tokens.icon.base}
 `;
