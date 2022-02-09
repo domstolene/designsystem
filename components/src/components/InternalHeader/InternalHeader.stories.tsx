@@ -124,7 +124,7 @@ export const WithNavigationAndContextMenu = (args: InternalHeaderProps) => (
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
-      contextMenuElements={navigationLinks}
+      contextMenuElements={menuElements}
       userProps={user}
       {...args}
     />
