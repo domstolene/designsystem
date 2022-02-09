@@ -1,8 +1,8 @@
 {
   "name": "@norges-domstoler/dds-components",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "React components used in Domstolenes designsystem",
-  "author": "DDS team",
+  "author": "Elsa team",
   "license": "MIT",
   "repository": {
     "type": "git",
