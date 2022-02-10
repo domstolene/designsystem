@@ -137,7 +137,7 @@ export const WithCurrentPage = (args: InternalHeaderProps) => {
       <InternalHeader
         applicationName="Navn på applikasjon"
         navigationElements={[navigationLink, uniqueNavigationLink]}
-        contextMenuElements={navigationLinks}
+        contextMenuElements={menuElements}
         userProps={user}
         currentPageHref="#"
         {...args}
@@ -150,7 +150,7 @@ export const NoStoryHeading = (args: InternalHeaderProps) => (
   <InternalHeader
     applicationName="Navn på applikasjon"
     navigationElements={navigationLinks}
-    contextMenuElements={navigationLinks}
+    contextMenuElements={menuElements}
     userProps={user}
     {...args}
   />
@@ -160,7 +160,7 @@ export const NoStoryHeadingSmallScreen = () => (
   <InternalHeader
     applicationName="Navn på applikasjon"
     navigationElements={navigationLinks}
-    contextMenuElements={navigationLinks}
+    contextMenuElements={menuElements}
     userProps={user}
     smallScreen
   />
@@ -181,7 +181,7 @@ export const SmallScreen = () => (
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
-      contextMenuElements={navigationLinks}
+      contextMenuElements={menuElements}
       userProps={user}
       smallScreen
     />
