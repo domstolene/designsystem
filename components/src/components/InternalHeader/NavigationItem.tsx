@@ -36,11 +36,17 @@ export type NavigationItemProps = {
 export const NavigationItem = forwardRef<
   HTMLAnchorElement,
   NavigationItemProps
->(({ title, ...rest }, ref) => {
+>(({ title, isCurrent, ...rest }, ref) => {
   const linkProps = {
     ref,
+    isCurrent,
+
     ...rest
   };
 
-  return <Link {...linkProps}>{title}</Link>;
+  return (
+    <Link {...linkProps} aria-current={isCurrent ? 'page' : undefined}>
+      {title}
+    </Link>
+  );
 });
