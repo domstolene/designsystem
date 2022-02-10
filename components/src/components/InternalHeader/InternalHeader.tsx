@@ -22,6 +22,7 @@ import {
 import { NavigationItem } from './NavigationItem';
 import { ContextMenuItem } from './ContextMenuItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
+import { ContextMenuElementProps, NavigationLinkProps } from '.';
 
 export const InternalHeader = ({
   applicationName,
@@ -67,9 +68,10 @@ export const InternalHeader = ({
     setContextMenuIsClosed(!contextMenuIsClosed);
   };
 
-  const completeContextMenuElements = [];
-
-  // if (smallScreen && navigationElements) completeContextMenuElements.push(...navigationElements);
+  const completeContextMenuElements: (
+    | NavigationLinkProps
+    | ContextMenuElementProps
+  )[] = [];
 
   if (userProps && userProps.href) {
     completeContextMenuElements.push({
@@ -79,6 +81,9 @@ export const InternalHeader = ({
     });
   }
 
+  if (smallScreen && navigationElements)
+    completeContextMenuElements.push(...navigationElements);
+
   if (contextMenuElements)
     completeContextMenuElements.push(...contextMenuElements);
 
@@ -87,33 +92,30 @@ export const InternalHeader = ({
     contextMenuIsClosed
   );
 
-  const navigationContent =
-    navigationElements &&
-    navigationElements.map((item, index) => {
-      const { href, ...rest } = item;
-      const isCurrent = href === currentPage;
-      return (
-        <InternalHeaderListItem key={index}>
-          <NavigationItem
-            key={index}
-            href={href}
-            {...rest}
-            isCurrent={isCurrent}
-            onClick={() => handleCurrentPageChange(href)}
-            role={smallScreen ? 'menuitem' : undefined}
-            aria-current="page"
-          />
-        </InternalHeaderListItem>
-      );
-    });
+  const navigation =
+    navigationElements && !smallScreen ? (
+      <Navigation aria-label="sidenavigasjon">
+        <NavigationList>
+          {navigationElements &&
+            navigationElements.map((item, index) => {
+              const { href, ...rest } = item;
+              const isCurrent = href === currentPage;
+              return (
+                <InternalHeaderListItem key={index}>
+                  <NavigationItem
+                    href={href}
+                    {...rest}
+                    isCurrent={isCurrent}
+                    onClick={() => handleCurrentPageChange(href)}
+                  />
+                </InternalHeaderListItem>
+              );
+            })}
+        </NavigationList>
+      </Navigation>
+    ) : null;
 
-  const navigation = navigationElements && (
-    <Navigation aria-label="sidenavigasjon">
-      <NavigationList>{navigationContent}</NavigationList>
-    </Navigation>
-  );
-
-  const userContextMenuItem = userProps && (
+  const userContextMenuItemNonInteractive = userProps && (
     <ContextMenuItem
       key={userProps.name}
       title={userProps.name}
@@ -121,54 +123,78 @@ export const InternalHeader = ({
     />
   );
 
-  const contextMenuElementsContent =
-    completeContextMenuElements &&
-    completeContextMenuElements.map((item, index) => {
-      const { ...rest } = item;
-
-      return (
-        <InternalHeaderListItem key={index}>
-          <ContextMenuItem
-            key={index}
-            focus={focus === index && !contextMenuIsClosed}
-            setFocus={setFocus}
-            index={index}
-            {...rest}
-          />
-          {console.log(focus, contextMenuIsClosed)}
-        </InternalHeaderListItem>
-      );
-    });
-
   const contextMenuWrapperProps = {
     ref: contextMenuRef,
     closed: contextMenuIsClosed
   };
 
-  const contextMenu = (contextMenuElements || userProps) && (
-    <ContextMenuWrapper
-      {...contextMenuWrapperProps}
-      aria-hidden={contextMenuIsClosed}
-      role="menu"
-    >
-      <ContextMenuList>
-        {userProps && !userProps.href && (
-          <ContextMenuItem
-            key={userProps.name}
-            title={userProps.name}
-            Icon={PersonOutlineOutlinedIcon}
-          />
-        )}
-        {contextMenuElementsContent}
-      </ContextMenuList>
-    </ContextMenuWrapper>
-  );
+  const contextMenu =
+    (contextMenuElements || userProps) && !smallScreen ? (
+      <ContextMenuWrapper
+        {...contextMenuWrapperProps}
+        aria-hidden={contextMenuIsClosed}
+        role="menu"
+      >
+        <ContextMenuList>
+          {userProps && !userProps.href && (
+            <ContextMenuItem
+              key={userProps.name}
+              title={userProps.name}
+              Icon={PersonOutlineOutlinedIcon}
+            />
+          )}
+          {completeContextMenuElements &&
+            completeContextMenuElements.map((item, index) => {
+              const { ...rest } = item;
 
-  const navListProps = {
-    smallScreen
-  };
+              return (
+                <InternalHeaderListItem key={index}>
+                  <ContextMenuItem
+                    focus={focus === index && !contextMenuIsClosed}
+                    setFocus={setFocus}
+                    index={index}
+                    {...rest}
+                  />
+                  {console.log(focus, contextMenuIsClosed)}
+                </InternalHeaderListItem>
+              );
+            })}
+        </ContextMenuList>
+      </ContextMenuWrapper>
+    ) : null;
 
-  const contextMenuMobile = (contextMenuElements ||
+  const contextMenuSmallScreenContent =
+    completeContextMenuElements && smallScreen
+      ? completeContextMenuElements.map((item, index) => {
+          const { ...rest } = item;
+          return (
+            <InternalHeaderListItem key={index}>
+              <ContextMenuItem
+                index={index}
+                focus={focus === index && !contextMenuIsClosed}
+                setFocus={setFocus}
+                {...rest}
+              />
+            </InternalHeaderListItem>
+          );
+        })
+      : null;
+
+  const hasInteractiveUser = userProps && userProps.href;
+  const userPropsInteractivePos = hasInteractiveUser ? 0 : -1;
+  const navItemsFirstPos = navigationElements
+    ? userPropsInteractivePos + 1
+    : -1;
+  const navItemsLastPos = navigationElements
+    ? userPropsInteractivePos + navigationElements.length
+    : -1;
+  const contextItemsFirstPos = !contextMenuElements
+    ? -1
+    : navigationElements
+    ? navItemsLastPos + 1
+    : userPropsInteractivePos + 1;
+
+  const contextMenuSmallScreen = (contextMenuElements ||
     navigationElements ||
     userProps) && (
     <ContextMenuWrapper
@@ -176,27 +202,35 @@ export const InternalHeader = ({
       aria-hidden={contextMenuIsClosed}
       role="menu"
     >
-      <ContextMenuList>{userContextMenuItem}</ContextMenuList>
+      {userProps && !userProps.href
+        ? userContextMenuItemNonInteractive
+        : contextMenuSmallScreenContent?.slice(0, 1)}
       {navigationElements && (
         <nav aria-label="sidenavigasjon">
-          <NavigationList {...navListProps}>{navigationContent}</NavigationList>
+          <NavigationList smallScreen={smallScreen}>
+            {contextMenuSmallScreenContent?.slice(
+              navItemsFirstPos,
+              navItemsLastPos + 1
+            )}
+          </NavigationList>
         </nav>
       )}
       {contextMenuElements && navigationElements && (
         <StyledDivider color="primaryLighter" />
       )}
-      <ContextMenuList>{contextMenuElementsContent}</ContextMenuList>
+      {contextMenuElements && (
+        <ContextMenuList>
+          {contextMenuSmallScreenContent?.slice(contextItemsFirstPos)}
+        </ContextMenuList>
+      )}
     </ContextMenuWrapper>
   );
 
-  const isSmallScreenAndHasNavElements = smallScreen && navigationElements;
-
-  const wrapperProps = {
-    ...rest
-  };
+  const isSmallScreenAndHasNavElements =
+    smallScreen && navigationElements ? true : false;
 
   return (
-    <Wrapper {...wrapperProps}>
+    <Wrapper {...rest}>
       <BannerWrapper>
         <BannerLeftWrapper>
           <LovisaWrapper>
@@ -210,7 +244,7 @@ export const InternalHeader = ({
             </Typography>
           </ApplicationNameWrapper>
         </BannerLeftWrapper>
-        {(isSmallScreenAndHasNavElements || contextMenuElements) && (
+        {completeContextMenuElements && (
           <Button
             ref={buttonRef}
             Icon={
@@ -226,7 +260,7 @@ export const InternalHeader = ({
             aria-label="åpne meny"
           />
         )}
-        {smallScreen ? contextMenuMobile : contextMenu}
+        {smallScreen ? contextMenuSmallScreen : contextMenu}
       </BannerWrapper>
       {!smallScreen && navigation}
     </Wrapper>
