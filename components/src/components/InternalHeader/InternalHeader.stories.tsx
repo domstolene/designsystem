@@ -120,7 +120,7 @@ export const Default = (args: InternalHeaderProps) => (
 );
 
 export const WithNavigationAndContextMenu = (args: InternalHeaderProps) => (
-  <StoryTemplate title="InternalHeader - default">
+  <StoryTemplate title="InternalHeader - with nav and context menu">
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
@@ -189,7 +189,7 @@ export const SmallScreen = () => (
 );
 
 export const NonInteractiveUserOnly = () => (
-  <StoryTemplate title="InternalHeader - small screen">
+  <StoryTemplate title="InternalHeader - non-interactive user only">
     <InternalHeader applicationName="Navn på applikasjon" userProps={user} />
   </StoryTemplate>
 );
