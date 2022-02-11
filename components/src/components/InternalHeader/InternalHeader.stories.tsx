@@ -24,12 +24,12 @@ export default {
 
 const navigationLink = {
   href: '#',
-  title: 'menypunkt'
+  title: 'navigasjonspunkt'
 };
 
 const uniqueNavigationLink = {
   href: '#/',
-  title: 'menypunkt'
+  title: 'unik navigasjonspunkt'
 };
 
 const longNavigationLink = {
@@ -59,7 +59,7 @@ const menuElementWithIcon = {
   onClick: () => {}
 };
 const menuElement = {
-  title: 'menypunkt',
+  title: 'kontekstmenypunkt',
   href: '#'
 };
 
@@ -185,5 +185,11 @@ export const SmallScreen = () => (
       userProps={user}
       smallScreen
     />
+  </StoryTemplate>
+);
+
+export const NonInteractiveUserOnly = () => (
+  <StoryTemplate title="InternalHeader - small screen">
+    <InternalHeader applicationName="Navn på applikasjon" userProps={user} />
   </StoryTemplate>
 );
