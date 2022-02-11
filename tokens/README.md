@@ -86,7 +86,7 @@ npm install -D style-dictionary
 Biblioteket bruker [Style-dictionary](https://amzn.github.io/style-dictionary) for å generere tokens som JS-konstanter, CSS-variabler og SCSS-variabler fra en eller flere JSON-filer. JSON-filen(e) ligger i `/dds/properties`. For å generere variabler fra JSON kjør følgende kommando fra `/dds`:
 
 ```
-npm run build
+npm run build-tokens
 ```
 
 Genererte variabler ligger i `/dds/build` organisert etter plattform.
