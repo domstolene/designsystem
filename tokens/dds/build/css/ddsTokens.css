@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 15 Dec 2021 11:11:43 GMT
+ * Generated on Fri, 11 Feb 2022 13:10:58 GMT
  */
 
 :root {
@@ -378,10 +378,26 @@
   --dds-font-supporting-style-tiny-01-paragraph-indent: 0px;
   --dds-font-supporting-style-tiny-01-paragraph-spacing: 12px;
   --dds-font-supporting-style-tiny-01-text-case: none;
-  --borders-dds-border-style-1-stroke-align: inside;
-  --borders-dds-border-style-1-stroke-miter-limit: 4;
-  --borders-dds-border-style-1-stroke-weight: 1px;
-  --borders-dds-border-style-1-stroke: rgba(119, 131, 140, 1);
+  --borders-dds-border-focus-base-stroke-align: inside;
+  --borders-dds-border-focus-base-stroke-miter-limit: 4;
+  --borders-dds-border-focus-base-stroke-weight: 1px;
+  --borders-dds-border-focus-base-stroke: rgba(98, 90, 31, 1);
+  --borders-dds-border-focus-inputfield-stroke-align: inside;
+  --borders-dds-border-focus-inputfield-stroke-miter-limit: 4;
+  --borders-dds-border-focus-inputfield-stroke-weight: 2px;
+  --borders-dds-border-focus-inputfield-stroke: rgba(46, 120, 170, 1);
+  --borders-dds-border-focus-card-stroke-align: outside;
+  --borders-dds-border-focus-card-stroke-miter-limit: 4;
+  --borders-dds-border-focus-card-stroke-weight: 2px;
+  --borders-dds-border-focus-card-stroke: rgba(98, 90, 31, 1);
+  --borders-dds-border-style-light-stroke-align: inside;
+  --borders-dds-border-style-light-stroke-miter-limit: 4;
+  --borders-dds-border-style-light-stroke-weight: 1px;
+  --borders-dds-border-style-light-stroke: rgba(172, 187, 198, 1);
+  --borders-dds-border-style-dark-stroke-align: inside;
+  --borders-dds-border-style-dark-stroke-miter-limit: 4;
+  --borders-dds-border-style-dark-stroke-weight: 1px;
+  --borders-dds-border-style-dark-stroke: rgba(53, 71, 84, 1);
   --radii-dds-border-radius-1-radius: 2px;
   --radii-dds-border-radius-1-radii-top-left: 2px;
   --radii-dds-border-radius-1-radii-top-right: 2px;

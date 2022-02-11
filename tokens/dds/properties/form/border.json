@@ -1,161 +1,299 @@
 {
   "borders": {
     "$dds-border": {
-        "style-1": {
-            "category": "border",
-            "comment": null,
-            "strokeAlign": {
-                "value": "inside",
-                "type": "string"
-            },
-            "dashPattern": {
-                "value": "",
-                "type": "string"
-            },
-            "strokeCap": {
-                "value": "round",
-                "type": "string"
-            },
-            "strokeJoin": {
-                "value": "miter",
-                "type": "string"
-            },
-            "strokeMiterLimit": {
-                "value": 4,
-                "type": "number",
-                "unit": "degree"
-            },
-            "strokeWeight": {
-                "value": 1,
-                "type": "number",
-                "unit": "pixel"
-            },
-            "stroke": {
-                "value": "rgba(119, 131, 140, 1)",
-                "type": "color"
-            }
+      "focus": {
+        "base": {
+          "category": "border",
+          "exportKey": "border",
+          "strokeAlign": {
+            "value": "inside",
+            "type": "string"
+          },
+          "dashPattern": {
+            "value": "",
+            "type": "string"
+          },
+          "strokeCap": {
+            "value": "none",
+            "type": "string"
+          },
+          "strokeJoin": {
+            "value": "miter",
+            "type": "string"
+          },
+          "strokeMiterLimit": {
+            "value": 4,
+            "type": "number",
+            "unit": "degree"
+          },
+          "strokeWeight": {
+            "value": 1,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "stroke": {
+            "value": "rgba(98, 90, 31, 1)",
+            "type": "color"
+          }
+        },
+        "inputfield": {
+          "category": "border",
+          "exportKey": "border",
+          "strokeAlign": {
+            "value": "inside",
+            "type": "string"
+          },
+          "dashPattern": {
+            "value": "",
+            "type": "string"
+          },
+          "strokeCap": {
+            "value": "none",
+            "type": "string"
+          },
+          "strokeJoin": {
+            "value": "miter",
+            "type": "string"
+          },
+          "strokeMiterLimit": {
+            "value": 4,
+            "type": "number",
+            "unit": "degree"
+          },
+          "strokeWeight": {
+            "value": 2,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "stroke": {
+            "value": "rgba(46, 120, 170, 1)",
+            "type": "color"
+          }
+        },
+        "card": {
+          "category": "border",
+          "exportKey": "border",
+          "strokeAlign": {
+            "value": "outside",
+            "type": "string"
+          },
+          "dashPattern": {
+            "value": "",
+            "type": "string"
+          },
+          "strokeCap": {
+            "value": "none",
+            "type": "string"
+          },
+          "strokeJoin": {
+            "value": "miter",
+            "type": "string"
+          },
+          "strokeMiterLimit": {
+            "value": 4,
+            "type": "number",
+            "unit": "degree"
+          },
+          "strokeWeight": {
+            "value": 2,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "stroke": {
+            "value": "rgba(98, 90, 31, 1)",
+            "type": "color"
+          }
         }
+      },
+      "style-light": {
+        "category": "border",
+        "exportKey": "border",
+        "strokeAlign": {
+          "value": "inside",
+          "type": "string"
+        },
+        "dashPattern": {
+          "value": "",
+          "type": "string"
+        },
+        "strokeCap": {
+          "value": "none",
+          "type": "string"
+        },
+        "strokeJoin": {
+          "value": "miter",
+          "type": "string"
+        },
+        "strokeMiterLimit": {
+          "value": 4,
+          "type": "number",
+          "unit": "degree"
+        },
+        "strokeWeight": {
+          "value": 1,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "stroke": {
+          "value": "rgba(172, 187, 198, 1)",
+          "type": "color"
+        }
+      },
+      "style-dark": {
+        "category": "border",
+        "exportKey": "border",
+        "strokeAlign": {
+          "value": "inside",
+          "type": "string"
+        },
+        "dashPattern": {
+          "value": "",
+          "type": "string"
+        },
+        "strokeCap": {
+          "value": "none",
+          "type": "string"
+        },
+        "strokeJoin": {
+          "value": "miter",
+          "type": "string"
+        },
+        "strokeMiterLimit": {
+          "value": 4,
+          "type": "number",
+          "unit": "degree"
+        },
+        "strokeWeight": {
+          "value": 1,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "stroke": {
+          "value": "rgba(53, 71, 84, 1)",
+          "type": "color"
+        }
+      }
     }
-},
-"radii": {
+  },
+  "radii": {
     "$dds-border": {
-        "radius-1": {
-            "category": "radius",
-            "comment": null,
-            "radius": {
-                "value": 2,
-                "type": "number",
-                "unit": "pixel"
-            },
-            "radiusType": {
-                "value": "single",
-                "type": "string"
-            },
-            "radii": {
-                "topLeft": {
-                    "value": 2,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "topRight": {
-                    "value": 2,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "bottomRight": {
-                    "value": 2,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "bottomLeft": {
-                    "value": 2,
-                    "type": "number",
-                    "unit": "pixel"
-                }
-            },
-            "smoothing": {
-                "value": 0,
-                "type": "number"
-            }
+      "radius-1": {
+        "category": "radius",
+        "comment": null,
+        "radius": {
+          "value": 2,
+          "type": "number",
+          "unit": "pixel"
         },
-        "radius-2": {
-            "category": "radius",
-            "comment": null,
-            "radius": {
-                "value": 4,
-                "type": "number",
-                "unit": "pixel"
-            },
-            "radiusType": {
-                "value": "single",
-                "type": "string"
-            },
-            "radii": {
-                "topLeft": {
-                    "value": 4,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "topRight": {
-                    "value": 4,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "bottomRight": {
-                    "value": 4,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "bottomLeft": {
-                    "value": 4,
-                    "type": "number",
-                    "unit": "pixel"
-                }
-            },
-            "smoothing": {
-                "value": 0,
-                "type": "number"
-            }
+        "radiusType": {
+          "value": "single",
+          "type": "string"
         },
-        "radius-3": {
-            "category": "radius",
-            "comment": null,
-            "radius": {
-                "value": 8,
-                "type": "number",
-                "unit": "pixel"
-            },
-            "radiusType": {
-                "value": "single",
-                "type": "string"
-            },
-            "radii": {
-                "topLeft": {
-                    "value": 8,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "topRight": {
-                    "value": 8,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "bottomRight": {
-                    "value": 8,
-                    "type": "number",
-                    "unit": "pixel"
-                },
-                "bottomLeft": {
-                    "value": 8,
-                    "type": "number",
-                    "unit": "pixel"
-                }
-            },
-            "smoothing": {
-                "value": 0,
-                "type": "number"
-            }
+        "radii": {
+          "topLeft": {
+            "value": 2,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "topRight": {
+            "value": 2,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "bottomRight": {
+            "value": 2,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "bottomLeft": {
+            "value": 2,
+            "type": "number",
+            "unit": "pixel"
+          }
+        },
+        "smoothing": {
+          "value": 0,
+          "type": "number"
         }
+      },
+      "radius-2": {
+        "category": "radius",
+        "comment": null,
+        "radius": {
+          "value": 4,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "radiusType": {
+          "value": "single",
+          "type": "string"
+        },
+        "radii": {
+          "topLeft": {
+            "value": 4,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "topRight": {
+            "value": 4,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "bottomRight": {
+            "value": 4,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "bottomLeft": {
+            "value": 4,
+            "type": "number",
+            "unit": "pixel"
+          }
+        },
+        "smoothing": {
+          "value": 0,
+          "type": "number"
+        }
+      },
+      "radius-3": {
+        "category": "radius",
+        "comment": null,
+        "radius": {
+          "value": 8,
+          "type": "number",
+          "unit": "pixel"
+        },
+        "radiusType": {
+          "value": "single",
+          "type": "string"
+        },
+        "radii": {
+          "topLeft": {
+            "value": 8,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "topRight": {
+            "value": 8,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "bottomRight": {
+            "value": 8,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "bottomLeft": {
+            "value": 8,
+            "type": "number",
+            "unit": "pixel"
+          }
+        },
+        "smoothing": {
+          "value": 0,
+          "type": "number"
+        }
+      }
     }
   }
 }
