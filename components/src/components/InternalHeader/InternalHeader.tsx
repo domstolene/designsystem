@@ -68,13 +68,14 @@ export const InternalHeader = ({
     setContextMenuIsClosed(!contextMenuIsClosed);
   };
 
-  const completeContextMenuElements: (
+  const interactiveContextMenuElements: (
     | NavigationLinkProps
     | ContextMenuElementProps
   )[] = [];
 
-  if (userProps && userProps.href) {
-    completeContextMenuElements.push({
+  const hasInteractiveUser = userProps && userProps.href;
+  if (hasInteractiveUser) {
+    interactiveContextMenuElements.push({
       title: userProps.name,
       href: userProps.href,
       Icon: PersonOutlineOutlinedIcon
@@ -82,149 +83,139 @@ export const InternalHeader = ({
   }
 
   if (smallScreen && navigationElements)
-    completeContextMenuElements.push(...navigationElements);
+    interactiveContextMenuElements.push(...navigationElements);
 
   if (contextMenuElements)
-    completeContextMenuElements.push(...contextMenuElements);
+    interactiveContextMenuElements.push(...contextMenuElements);
 
   const [focus, setFocus] = useRoveFocus(
-    completeContextMenuElements && completeContextMenuElements.length,
+    interactiveContextMenuElements && interactiveContextMenuElements.length,
     contextMenuIsClosed
   );
 
+  const hasInteractiveContextMenuElements =
+    interactiveContextMenuElements.length > 0;
+  const hasNavigationElements =
+    navigationElements && navigationElements.length > 0;
+  const hasContextMenuElements =
+    contextMenuElements && contextMenuElements.length > 0;
+
   const navigation =
-    navigationElements && !smallScreen ? (
+    hasNavigationElements && !smallScreen ? (
       <Navigation aria-label="sidenavigasjon">
         <NavigationList>
-          {navigationElements &&
-            navigationElements.map((item, index) => {
-              const { href, ...rest } = item;
-              const isCurrent = href === currentPage;
-              return (
-                <InternalHeaderListItem key={index}>
-                  <NavigationItem
-                    href={href}
-                    {...rest}
-                    isCurrent={isCurrent}
-                    onClick={() => handleCurrentPageChange(href)}
-                  />
-                </InternalHeaderListItem>
-              );
-            })}
+          {navigationElements.map((item, index) => {
+            const { href, ...rest } = item;
+            const isCurrent = href === currentPage;
+            return (
+              <InternalHeaderListItem key={index}>
+                <NavigationItem
+                  href={href}
+                  {...rest}
+                  isCurrent={isCurrent}
+                  onClick={() => handleCurrentPageChange(href)}
+                />
+              </InternalHeaderListItem>
+            );
+          })}
         </NavigationList>
       </Navigation>
     ) : null;
 
-  const userContextMenuItemNonInteractive = userProps && (
-    <ContextMenuItem
-      key={userProps.name}
-      title={userProps.name}
-      Icon={PersonOutlineOutlinedIcon}
-    />
-  );
+  const userContextMenuItemNonInteractive =
+    userProps && !userProps.href ? (
+      <ContextMenuItem
+        key={userProps.name}
+        title={userProps.name}
+        Icon={PersonOutlineOutlinedIcon}
+      />
+    ) : null;
+
+  const contextMenuContentArray = hasInteractiveContextMenuElements
+    ? interactiveContextMenuElements.map((item, index) => {
+        const { ...rest } = item;
+        return (
+          <InternalHeaderListItem key={index}>
+            <ContextMenuItem
+              index={index}
+              focus={focus === index && !contextMenuIsClosed}
+              setFocus={setFocus}
+              {...rest}
+            />
+          </InternalHeaderListItem>
+        );
+      })
+    : null;
 
   const contextMenuWrapperProps = {
     ref: contextMenuRef,
-    closed: contextMenuIsClosed
+    closed: contextMenuIsClosed,
+    'aria-hidden': contextMenuIsClosed,
+    role: 'menu'
   };
 
   const contextMenu =
-    (contextMenuElements || userProps) && !smallScreen ? (
-      <ContextMenuWrapper
-        {...contextMenuWrapperProps}
-        aria-hidden={contextMenuIsClosed}
-        role="menu"
-      >
-        <ContextMenuList>
-          {userProps && !userProps.href && (
-            <ContextMenuItem
-              key={userProps.name}
-              title={userProps.name}
-              Icon={PersonOutlineOutlinedIcon}
-            />
-          )}
-          {completeContextMenuElements &&
-            completeContextMenuElements.map((item, index) => {
-              const { ...rest } = item;
-
-              return (
-                <InternalHeaderListItem key={index}>
-                  <ContextMenuItem
-                    focus={focus === index && !contextMenuIsClosed}
-                    setFocus={setFocus}
-                    index={index}
-                    {...rest}
-                  />
-                  {console.log(focus, contextMenuIsClosed)}
-                </InternalHeaderListItem>
-              );
-            })}
-        </ContextMenuList>
+    (hasInteractiveContextMenuElements || userProps) && !smallScreen ? (
+      <ContextMenuWrapper {...contextMenuWrapperProps}>
+        {userContextMenuItemNonInteractive}
+        <ContextMenuList>{contextMenuContentArray}</ContextMenuList>
       </ContextMenuWrapper>
     ) : null;
 
-  const contextMenuSmallScreenContent =
-    completeContextMenuElements && smallScreen
-      ? completeContextMenuElements.map((item, index) => {
-          const { ...rest } = item;
-          return (
-            <InternalHeaderListItem key={index}>
-              <ContextMenuItem
-                index={index}
-                focus={focus === index && !contextMenuIsClosed}
-                setFocus={setFocus}
-                {...rest}
-              />
-            </InternalHeaderListItem>
-          );
-        })
-      : null;
+  const contextMenuSmallScreen = () => {
+    if ((hasInteractiveContextMenuElements || userProps) && smallScreen) {
+      if (hasInteractiveContextMenuElements) {
+        const userPropsInteractivePos = hasInteractiveUser ? 0 : -1;
+        const navItemsFirstPos = navigationElements
+          ? userPropsInteractivePos + 1
+          : -1;
+        const navItemsLastPos = navigationElements
+          ? userPropsInteractivePos + navigationElements.length
+          : -1;
+        const contextItemsFirstPos = !contextMenuElements
+          ? -1
+          : navigationElements
+          ? navItemsLastPos + 1
+          : userPropsInteractivePos + 1;
 
-  const hasInteractiveUser = userProps && userProps.href;
-  const userPropsInteractivePos = hasInteractiveUser ? 0 : -1;
-  const navItemsFirstPos = navigationElements
-    ? userPropsInteractivePos + 1
-    : -1;
-  const navItemsLastPos = navigationElements
-    ? userPropsInteractivePos + navigationElements.length
-    : -1;
-  const contextItemsFirstPos = !contextMenuElements
-    ? -1
-    : navigationElements
-    ? navItemsLastPos + 1
-    : userPropsInteractivePos + 1;
-
-  const contextMenuSmallScreen = (contextMenuElements ||
-    navigationElements ||
-    userProps) && (
-    <ContextMenuWrapper
-      {...contextMenuWrapperProps}
-      aria-hidden={contextMenuIsClosed}
-      role="menu"
-    >
-      {userProps && !userProps.href
-        ? userContextMenuItemNonInteractive
-        : contextMenuSmallScreenContent?.slice(0, 1)}
-      {navigationElements && (
-        <nav aria-label="sidenavigasjon">
-          <NavigationList smallScreen={smallScreen}>
-            {contextMenuSmallScreenContent?.slice(
-              navItemsFirstPos,
-              navItemsLastPos + 1
+        return (
+          <ContextMenuWrapper {...contextMenuWrapperProps}>
+            {userProps && !userProps.href ? (
+              userContextMenuItemNonInteractive
+            ) : (
+              <ContextMenuList>
+                {contextMenuContentArray?.slice(0, 1)}
+              </ContextMenuList>
             )}
-          </NavigationList>
-        </nav>
-      )}
-      {contextMenuElements && navigationElements && (
-        <StyledDivider color="primaryLighter" />
-      )}
-      {contextMenuElements && (
-        <ContextMenuList>
-          {contextMenuSmallScreenContent?.slice(contextItemsFirstPos)}
-        </ContextMenuList>
-      )}
-    </ContextMenuWrapper>
-  );
+            {hasNavigationElements && (
+              <nav aria-label="sidenavigasjon">
+                <NavigationList smallScreen={smallScreen}>
+                  {contextMenuContentArray?.slice(
+                    navItemsFirstPos,
+                    navItemsLastPos + 1
+                  )}
+                </NavigationList>
+              </nav>
+            )}
+            {hasContextMenuElements && hasNavigationElements && (
+              <StyledDivider color="primaryLighter" />
+            )}
+            {hasContextMenuElements && (
+              <ContextMenuList>
+                {contextMenuContentArray?.slice(contextItemsFirstPos)}
+              </ContextMenuList>
+            )}
+          </ContextMenuWrapper>
+        );
+      } else if (userProps) {
+        return (
+          <ContextMenuWrapper {...contextMenuWrapperProps}>
+            {userContextMenuItemNonInteractive}
+          </ContextMenuWrapper>
+        );
+      }
+    }
+  };
 
   const isSmallScreenAndHasNavElements =
     smallScreen && navigationElements ? true : false;
@@ -244,7 +235,7 @@ export const InternalHeader = ({
             </Typography>
           </ApplicationNameWrapper>
         </BannerLeftWrapper>
-        {completeContextMenuElements && (
+        {(hasInteractiveContextMenuElements || userProps) && (
           <Button
             ref={buttonRef}
             Icon={
@@ -260,7 +251,7 @@ export const InternalHeader = ({
             aria-label="åpne meny"
           />
         )}
-        {smallScreen ? contextMenuSmallScreen : contextMenu}
+        {smallScreen ? contextMenuSmallScreen() : contextMenu}
       </BannerWrapper>
       {!smallScreen && navigation}
     </Wrapper>
