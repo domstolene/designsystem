@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 15 Dec 2021 11:11:43 GMT
+ * Generated on Fri, 11 Feb 2022 13:10:58 GMT
  */
 
 export const DdsIconsizeMedium = "24px";
