@@ -5,7 +5,7 @@ const Li = styled.li`
   box-sizing: border-box;
 `;
 
-export type InternalHeaderListItemProps = {} & HTMLAttributes<HTMLLIElement>;
+export type InternalHeaderListItemProps = HTMLAttributes<HTMLLIElement>;
 
 export const InternalHeaderListItem = forwardRef<
   HTMLLIElement,
