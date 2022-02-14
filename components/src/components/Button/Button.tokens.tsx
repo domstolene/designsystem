@@ -1,7 +1,4 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens
-} from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { calculateHeightWithLineHeight } from '../../helpers/functions';
 
@@ -13,8 +10,6 @@ const {
   borderRadius: BorderRadius,
   outerShadow: OuterShadow
 } = ddsBaseTokens;
-
-const { focus } = ddsReferenceTokens;
 
 const justIconSmallBase: CSSObject = {
   ...FontPackages.supportingStyle_inputtext_03.base,
@@ -86,7 +81,7 @@ const textLargeBase: CSSObject = {
 };
 
 const buttonBase: CSSObject = {
-  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`
 };
 
 const filledButtonColors = {
@@ -369,8 +364,8 @@ const roundedBase: CSSObject = {
 export const buttonTokens = {
   base: buttonBase,
   focusOutline: {
-    color: focus.colorDefault,
-    width: focus.outlineWidth
+    color: Border.BordersDdsBorderFocusBaseStroke,
+    width: Border.BordersDdsBorderStyleLightStrokeWeight
   },
   sizes: {
     small: {

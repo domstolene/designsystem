@@ -7,7 +7,8 @@ import { CSSObject } from 'styled-components';
 const {
   colors: Colors,
   fontPackages: FontPackages,
-  spacing: Spacing
+  spacing: Spacing,
+  border: Border
 } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
@@ -68,7 +69,7 @@ const aHoverBase: CSSObject = {
 };
 
 const aFocusBase: CSSObject = {
-  backgroundColor: Colors.DdsColorWarningDarkest,
+  backgroundColor: Border.BordersDdsBorderFocusBaseStroke,
   color: Colors.DdsColorNeutralsWhite,
   textDecoration: 'none',
   outline: 'none'

@@ -119,8 +119,8 @@ export const radioButtonTokens = {
   container: {
     base: containerBase,
     focusOutline: {
-      color: Colors.DdsColorWarningDarker,
-      width: Border.BordersDdsBorderStyle1StrokeWeight
+      color: Border.BordersDdsBorderFocusBaseStroke,
+      width: Border.BordersDdsBorderFocusBaseStrokeWeight
     }
   }
 };

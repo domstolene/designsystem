@@ -12,18 +12,18 @@ const {
 const { textDefault } = ddsReferenceTokens;
 
 const base: CSSObject = {
-  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
   ...FontPackages.body_sans_02.base
 };
 
 const navigationHoverBase: CSSObject = {
-  borderColor: Colors.DdsColorInteractiveBase,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorInteractiveBase}`
+  borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
+  boxShadow: `0 0 0 1px ${Border.BordersDdsBorderFocusInputfieldStroke}`
 };
 
 const navigationFocusBase: CSSObject = {
-  borderColor: Colors.DdsColorWarningDarkest,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorWarningDarkest}`
+  borderColor: Border.BordersDdsBorderFocusCardStroke,
+  boxShadow: `0 0 0 1px ${Border.BordersDdsBorderFocusCardStroke}`
 };
 
 const filledDarkBase: CSSObject = {

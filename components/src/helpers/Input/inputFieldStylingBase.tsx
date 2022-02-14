@@ -1,27 +1,32 @@
 import { css, CSSObject } from 'styled-components';
-import { ddsReferenceTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens
+} from '@norges-domstoler/dds-design-tokens';
 import { typographyTokens } from '../../components/Typography/Typography.tokens';
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
+const { border: Border } = ddsBaseTokens;
+
 const stylingBase: CSSObject = {
   color: TextInput.input.textColor,
   borderRadius: TextInput.input.borderRadius,
-  border: `${TextInput.input.borderWidth} solid`,
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
   borderColor: TextInput.input.borderColor,
   ...TextInput.input.font
 };
 
 const focusBase: CSSObject = {
-  border: `${TextInput.input.borderWidth} solid`,
-  borderColor: TextInput.input.focus.borderColor,
-  boxShadow: ` 0 0 0 1px ${TextInput.input.focus.borderColor}`,
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
+  borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
+  boxShadow: ` 0 0 0 1px ${Border.BordersDdsBorderFocusInputfieldStroke}`,
   outline: 'none'
 };
 
 const hoverBase: CSSObject = {
-  border: `${TextInput.input.borderWidth} solid`,
-  borderColor: TextInput.input.hover.borderColor,
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
+  borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
   boxShadow: ` 0 0 0 1px ${TextInput.input.focus.borderColor}`,
   backgroundColor: TextInput.input.hover.backgroundColor
 };

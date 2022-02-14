@@ -19,7 +19,7 @@ const {
 const containerBase: CSSObject = {
   boxShadow: OuterShadow.DdsShadow1Onlight,
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
   padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
   ...FontPackages.body_sans_02.base,
   color: Colors.DdsColorNeutralsGray8

@@ -4,7 +4,7 @@ import { CSSObject } from 'styled-components';
 const {
   spacing: Spacing,
   fontPackages: FontPackages,
-  colors: Colors
+  border: Border
 } = ddsBaseTokens;
 
 const base: CSSObject = {
@@ -13,11 +13,11 @@ const base: CSSObject = {
 };
 
 const focusBase: CSSObject = {
-  boxShadow: `0 0 0 2px ${Colors.DdsColorWarningDarkest}`
+  boxShadow: `0 0 0 ${Border.BordersDdsBorderFocusCardStrokeWeight} ${Border.BordersDdsBorderFocusCardStroke}`
 };
 
 const hoverBase: CSSObject = {
-  boxShadow: `0 0 0 2px ${Colors.DdsColorInteractiveBase}`
+  boxShadow: `0 0 0 ${Border.BordersDdsBorderFocusInputfieldStrokeWeight} ${Border.BordersDdsBorderFocusInputfieldStroke}`
 };
 
 export const cardAccordionHeaderTokens = {

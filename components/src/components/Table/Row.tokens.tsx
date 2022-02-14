@@ -43,8 +43,8 @@ const bodyHoverBase: CSSObject = {
 const bodySumBase: CSSObject = {
   ...FontPackages.body_sans_02.base,
   fontWeight: 600,
-  borderTop: `${Border.BordersDdsBorderStyle1StrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
-  borderBottom: `${Border.BordersDdsBorderStyle1StrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
+  borderTop: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
+  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
   backgroundColor: Colors.DdsColorNeutralsWhite
 };
 
