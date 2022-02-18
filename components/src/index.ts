@@ -21,4 +21,5 @@ export * from './components/Card';
 export * from './components/InternalHeader';
 export * from './components/Datepicker';
 export * from './components/SkipToContent';
+export * from './components/Tooltip';
 export * from './components/Popover';

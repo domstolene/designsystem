@@ -1,0 +1,89 @@
+import { Tooltip, TooltipProps } from '.';
+import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { Button } from '../Button';
+
+export default {
+  title: 'Design system/Tooltip',
+  component: Tooltip,
+  argTypes: {
+    text: { control: { type: 'text' } }
+  },
+  parameters: {
+    controls: {
+      exclude: ['style', 'className']
+    }
+  }
+};
+
+export const Overview = () => (
+  <StoryTemplate
+    title="Tooltip - overview"
+    display="grid"
+    containerStyle={{
+      alignContent: 'center',
+      justifyContent: 'center',
+      padding: '70px 40px 70px 40px'
+    }}
+  >
+    <Tooltip placement="top" text="top">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="top-start" text="top-start">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="top-end" text="top-end">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="bottom" text="bottom">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="bottom-start" text="bottom-start">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="bottom-end" text="bottom-end">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="left" text="left">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="left-start" text="left-start">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="left-end" text="left-end">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="right" text="right">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="right-start" text="right-start">
+      <Button label="Knapp" />
+    </Tooltip>
+    <Tooltip placement="right-end" text="right-end">
+      <Button label="Knapp" />
+    </Tooltip>
+  </StoryTemplate>
+);
+
+export const Default = (args: TooltipProps) => (
+  <StoryTemplate title="Tooltip - default" display="block">
+    <Tooltip {...args} text="dette er en tooltip">
+      <Button label="Knapp" />
+    </Tooltip>
+  </StoryTemplate>
+);
+
+export const Centered = (args: TooltipProps) => (
+  <StoryTemplate
+    title="Tooltip - centered"
+    display="block"
+    containerStyle={{
+      alignContent: 'center',
+      justifyContent: 'center',
+      padding: ' 100px 50%'
+    }}
+  >
+    <Tooltip {...args} text="dette er en tooltip">
+      <Button label="Knapp" />
+    </Tooltip>
+  </StoryTemplate>
+);
