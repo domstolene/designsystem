@@ -26,7 +26,8 @@ export const useReactPopper = (
   popperElement: HTMLElement,
   arrowRef?: HTMLElement | string,
   placement = 'auto' as Placement,
-  offset = defaultOffset
+  offset = defaultOffset,
+  offsetAlong = 0
 ): {
   styles: { [key: string]: CSSProperties };
   attributes: { [key: string]: { [key: string]: string } | undefined };
@@ -44,7 +45,7 @@ export const useReactPopper = (
       {
         name: 'offset',
         options: {
-          offset: [0, offset]
+          offset: [offsetAlong, offset]
         }
       }
     ]
