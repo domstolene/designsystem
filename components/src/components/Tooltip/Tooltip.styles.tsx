@@ -8,7 +8,9 @@ export const SvgArrow = styled.svg`
 
 export const ArrowWrapper = styled.div``;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: fit-content;
+`;
 
 type WrapperProps = {
   open?: boolean;
