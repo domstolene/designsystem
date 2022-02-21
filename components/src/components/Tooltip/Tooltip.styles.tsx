@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { typographyTokens } from '../Typography/Typography.tokens';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
 
 export const SvgArrow = styled.svg`
@@ -17,6 +18,9 @@ type WrapperProps = {
 };
 
 export const TooltipWrapper = styled.div<WrapperProps>`
+&::selection {
+    ${typographyTokens.selection.base}
+  }
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   opacity: ${({ open }) => (open ? 1 : 0)};
   transition: 0.2s;
