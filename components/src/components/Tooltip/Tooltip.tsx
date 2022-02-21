@@ -4,7 +4,8 @@ import React, {
   useState,
   Children as ReactChildren,
   isValidElement,
-  cloneElement
+  cloneElement,
+  useEffect
 } from 'react';
 import {
   Placement,
@@ -14,7 +15,12 @@ import {
 } from '../../hooks';
 import { combineHandlers } from '../../utils';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
-import { SvgArrow, ArrowWrapper, Wrapper } from './Tooltip.styles';
+import {
+  SvgArrow,
+  ArrowWrapper,
+  TooltipWrapper,
+  Container
+} from './Tooltip.styles';
 
 type AnchorElement = React.ReactElement & React.RefAttributes<HTMLElement>;
 
@@ -22,30 +28,83 @@ export type TooltipProps = {
   text: string;
   placement?: Placement;
   children: AnchorElement;
+  delay?: number;
+  withPointerSupport?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 let nextUniqueId = 0;
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  ({ text, placement = 'bottom', children, id, ...rest }, ref) => {
+  (
+    {
+      text,
+      placement = 'bottom',
+      children,
+      id,
+      delay = 100,
+      style,
+      onMouseLeave,
+      onMouseOver,
+      withPointerSupport,
+      ...rest
+    },
+    ref
+  ) => {
     const uniqueId = nextUniqueId++;
     const [uniqueTooltipId] = useState<string>(id ?? `tooltip-${uniqueId}`);
+
     const [open, setOpen] = useState(false);
     const [popperElement, setPopperElement] = useState(null) as any;
     const [referenceElement, setReferenceElement] = useState(null) as any;
     const [arrowElement, setArrowElement] = useState(null) as any;
     const combinedRef = useCombinedRef(ref, setPopperElement);
+    let timer: ReturnType<typeof setTimeout>;
+
+    useEffect(() => {
+      return () => clearTimeout(timer);
+    }, []);
 
     useOnKeyDown(['Escape', 'Esc'], () => {
       if (open) setOpen(false);
     });
 
     const closeTooltip = () => {
+      clearTimeout(timer);
       setOpen(false);
     };
     const openTooltip = () => {
-      if (!open) setOpen(true);
+      if (!open) {
+        clearTimeout(timer);
+        timer = setTimeout(() => setOpen(true), delay);
+        console.log(timer);
+      }
     };
+
+    const anchorProps = children.props as HTMLAttributes<HTMLDivElement>;
+
+    const pointerSupport = withPointerSupport
+      ? {
+          onPointerOver: combineHandlers(
+            openTooltip,
+            anchorProps.onPointerOver
+          ),
+          onPointerLeave: combineHandlers(
+            closeTooltip,
+            anchorProps.onPointerLeave
+          )
+        }
+      : {};
+
+    const anchorElement = ReactChildren.only(
+      isValidElement(children) &&
+        cloneElement(children, {
+          ref: setReferenceElement,
+          onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
+          onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
+          'aria-describedby': uniqueTooltipId,
+          ...pointerSupport
+        })
+    );
 
     type PlacementSuffix = 'start' | 'end';
     type PlacementPrefix = 'left' | 'right' | 'top' | 'bottom';
@@ -66,29 +125,20 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       offsetAlong
     );
 
-    const anchorProps = children.props as HTMLAttributes<HTMLDivElement>;
-
-    const anchorElement = ReactChildren.only(
-      isValidElement(children) &&
-        cloneElement(children, {
-          ref: setReferenceElement,
-          onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
-          onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
-          onMouseOver: combineHandlers(openTooltip, anchorProps.onMouseOver),
-          onMouseLeave: combineHandlers(closeTooltip, anchorProps.onMouseLeave),
-          'aria-describedby': uniqueTooltipId
-        })
-    );
-
     const wrapperProps = {
       id,
       ref: combinedRef,
       role: 'tooltip',
       'aria-hidden': !open,
       open,
-      style: { ...styles.popper },
+      style: { ...style, ...styles.popper },
       ...rest,
       ...attributes.popper
+    };
+
+    const containerProps = {
+      onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
+      onMouseOver: combineHandlers(openTooltip, onMouseOver)
     };
 
     const arrowWrapperProps = {
@@ -97,9 +147,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     };
 
     return (
-      <>
+      <Container {...containerProps}>
         {anchorElement}
-        <Wrapper {...wrapperProps}>
+        <TooltipWrapper {...wrapperProps}>
           {text}
           <ArrowWrapper {...arrowWrapperProps}>
             <SvgArrow>
@@ -113,8 +163,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
               />
             </SvgArrow>
           </ArrowWrapper>
-        </Wrapper>
-      </>
+        </TooltipWrapper>
+      </Container>
     );
   }
 );

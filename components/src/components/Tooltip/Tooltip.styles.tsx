@@ -8,11 +8,13 @@ export const SvgArrow = styled.svg`
 
 export const ArrowWrapper = styled.div``;
 
+export const Container = styled.div``;
+
 type WrapperProps = {
   open?: boolean;
 };
 
-export const Wrapper = styled.div<WrapperProps>`
+export const TooltipWrapper = styled.div<WrapperProps>`
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   opacity: ${({ open }) => (open ? 1 : 0)};
   transition: 0.2s;
