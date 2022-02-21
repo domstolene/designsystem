@@ -29,7 +29,6 @@ export type TooltipProps = {
   placement?: Placement;
   children: AnchorElement;
   delay?: number;
-  withPointerSupport?: boolean;
   tooltipId?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -46,7 +45,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       style,
       onMouseLeave,
       onMouseOver,
-      withPointerSupport,
       className,
       ...rest
     },
@@ -85,27 +83,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
 
     const anchorProps = children.props as HTMLAttributes<HTMLElement>;
 
-    const pointerSupport = withPointerSupport
-      ? {
-          onPointerOver: combineHandlers(
-            openTooltip,
-            anchorProps.onPointerOver
-          ),
-          onPointerLeave: combineHandlers(
-            closeTooltip,
-            anchorProps.onPointerLeave
-          )
-        }
-      : {};
-
     const anchorElement = ReactChildren.only(
       isValidElement(children) &&
         cloneElement(children, {
           ref: setReferenceElement,
           onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
           onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
-          'aria-describedby': uniqueTooltipId,
-          ...pointerSupport
+          'aria-describedby': uniqueTooltipId
         })
     );
 
