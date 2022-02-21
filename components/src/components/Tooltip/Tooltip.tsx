@@ -80,7 +80,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       if (!open) {
         clearTimeout(timer);
         timer = setTimeout(() => setOpen(true), delay);
-        console.log(timer);
       }
     };
 
