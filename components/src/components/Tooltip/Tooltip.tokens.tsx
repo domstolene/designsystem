@@ -20,21 +20,6 @@ const wrapperBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
 };
 
-const offsetAlongTemplate = {
-  start: {
-    top: 30,
-    bottom: 30,
-    left: -4,
-    right: -4
-  },
-  end: {
-    top: -30,
-    bottom: -30,
-    left: 8,
-    right: 8
-  }
-};
-
 const arrowPlacementTemplate = {
   top: '-18px',
   bottom: '-15px',
@@ -55,6 +40,5 @@ export const tooltipTokens = {
     }
   },
   arrowPlacementTemplate: arrowPlacementTemplate,
-  offsetAlongTemplate: offsetAlongTemplate,
   offset: Spacing.SizesDdsSpacingLocalX05NumberPx
 };

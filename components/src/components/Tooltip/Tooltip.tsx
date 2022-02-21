@@ -109,23 +109,12 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         })
     );
 
-    type PlacementSuffix = 'start' | 'end';
-    type PlacementPrefix = 'left' | 'right' | 'top' | 'bottom';
-
-    const offsetAlong =
-      placement.indexOf('-') > -1
-        ? tokens.offsetAlongTemplate[
-            placement.split('-')[1] as PlacementSuffix
-          ][placement.split('-')[0] as PlacementPrefix]
-        : 0;
-
     const { styles, attributes } = useReactPopper(
       referenceElement,
       popperElement,
       arrowElement,
       placement,
-      tokens.offset,
-      offsetAlong
+      tokens.offset
     );
 
     const wrapperProps = {
