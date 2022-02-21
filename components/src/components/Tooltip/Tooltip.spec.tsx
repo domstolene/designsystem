@@ -11,8 +11,8 @@ describe('<Tooltip />', () => {
         <Button />
       </Tooltip>
     );
-    const tooltip = screen.getByRole('tooltip');
-    expect(tooltip).toBeDefined();
+    const tooltip = screen.getByText(text);
+    expect(tooltip).toHaveAttribute('role', 'tooltip');
   });
   it('should render tooltip text', () => {
     const text = 'text';
@@ -34,6 +34,8 @@ describe('<Tooltip />', () => {
     );
     const anchorElement = screen.getByRole('button');
     expect(anchorElement).toHaveAttribute('aria-describedby', id);
+    const tooltip = screen.getByText(text);
+    expect(tooltip).toHaveAttribute('id', id);
   });
   it('should call onFocus event', () => {
     const event = jest.fn();
