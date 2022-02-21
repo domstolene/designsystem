@@ -46,6 +46,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       onMouseLeave,
       onMouseOver,
       withPointerSupport,
+      className,
       ...rest
     },
     ref
@@ -126,17 +127,19 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     );
 
     const wrapperProps = {
-      id,
+      id: uniqueTooltipId,
       ref: combinedRef,
       role: 'tooltip',
       'aria-hidden': !open,
       open,
-      style: { ...style, ...styles.popper },
+      style: { ...styles.popper },
       ...rest,
       ...attributes.popper
     };
 
     const containerProps = {
+      style,
+      className,
       onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
       onMouseOver: combineHandlers(openTooltip, onMouseOver)
     };
