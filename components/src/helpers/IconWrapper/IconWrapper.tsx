@@ -1,7 +1,7 @@
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSProperties } from 'react';
+import { HTMLAttributes } from 'react';
 import * as CSS from 'csstype';
 
 const getSize = (iconSize: IconSize): string => {
@@ -25,16 +25,15 @@ export type IconWrapperProps = {
   Icon: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
   iconSize?: IconSize;
   color?: CSS.ColorProperty;
-  className?: string;
-  style?: CSSProperties;
-};
+} & HTMLAttributes<SVGElement>;
 
 export function IconWrapper({
   Icon,
   iconSize = 'medium',
   color,
   className,
-  style
+  style,
+  ...rest
 }: IconWrapperProps) {
   const PropIcon = Icon;
   const size = getSize(iconSize);
@@ -42,6 +41,7 @@ export function IconWrapper({
     <PropIcon
       className={className}
       style={{ ...style, color: color ? color : 'inherit', fontSize: size }}
+      {...rest}
     />
   );
 }
