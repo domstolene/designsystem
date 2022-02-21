@@ -1,6 +1,7 @@
 import { Tooltip, TooltipProps } from '.';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Button } from '../Button';
+import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 
 export default {
   title: 'Design system/Tooltip',
@@ -26,40 +27,100 @@ export const Overview = () => (
     }}
   >
     <Tooltip placement="top" text="top">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="top-start" text="top-start">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="top-end" text="top-end">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="bottom" text="bottom">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="bottom-start" text="bottom-start">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="bottom-end" text="bottom-end">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="left" text="left">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="left-start" text="left-start">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="left-end" text="left-end">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="right" text="right">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="right-start" text="right-start">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
     <Tooltip placement="right-end" text="right-end">
-      <Button label="Knapp" />
+      <Button
+        size="large"
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
   </StoryTemplate>
 );
@@ -67,7 +128,11 @@ export const Overview = () => (
 export const Default = (args: TooltipProps) => (
   <StoryTemplate title="Tooltip - default" display="block">
     <Tooltip {...args} text="dette er en tooltip">
-      <Button label="Knapp" />
+      <Button
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
   </StoryTemplate>
 );
@@ -82,6 +147,18 @@ export const Centered = (args: TooltipProps) => (
       padding: ' 100px 50%'
     }}
   >
+    <Tooltip {...args} text="dette er en tooltip">
+      <Button
+        Icon={HelpOutlineOutlinedIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
+    </Tooltip>
+  </StoryTemplate>
+);
+
+export const TextButton = (args: TooltipProps) => (
+  <StoryTemplate title="Tooltip - text button" display="block">
     <Tooltip {...args} text="dette er en tooltip">
       <Button label="Knapp" />
     </Tooltip>
