@@ -30,6 +30,7 @@ export type TooltipProps = {
   children: AnchorElement;
   delay?: number;
   withPointerSupport?: boolean;
+  tooltipId?: string;
 } & HTMLAttributes<HTMLDivElement>;
 
 let nextUniqueId = 0;
@@ -40,7 +41,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       text,
       placement = 'bottom',
       children,
-      id,
+      tooltipId,
       delay = 100,
       style,
       onMouseLeave,
@@ -52,7 +53,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     ref
   ) => {
     const uniqueId = nextUniqueId++;
-    const [uniqueTooltipId] = useState<string>(id ?? `tooltip-${uniqueId}`);
+    const [uniqueTooltipId] = useState<string>(
+      tooltipId ?? `tooltip-${uniqueId}`
+    );
 
     const [open, setOpen] = useState(false);
     const [popperElement, setPopperElement] = useState(null) as any;
@@ -81,7 +84,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       }
     };
 
-    const anchorProps = children.props as HTMLAttributes<HTMLDivElement>;
+    const anchorProps = children.props as HTMLAttributes<HTMLElement>;
 
     const pointerSupport = withPointerSupport
       ? {
@@ -133,7 +136,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       'aria-hidden': !open,
       open,
       style: { ...styles.popper },
-      ...rest,
       ...attributes.popper
     };
 
@@ -141,7 +143,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       style,
       className,
       onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
-      onMouseOver: combineHandlers(openTooltip, onMouseOver)
+      onMouseOver: combineHandlers(openTooltip, onMouseOver),
+      ...rest
     };
 
     const arrowWrapperProps = {
