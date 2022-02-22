@@ -1,16 +1,12 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens
-} from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
 const {
   colors: Colors,
   spacing: Spacing,
-  fontPackages: FontPackages
+  fontPackages: FontPackages,
+  border: Border
 } = ddsBaseTokens;
-
-const { focus } = ddsReferenceTokens;
 
 const linkBase: CSSObject = {
   color: Colors.DdsColorNeutralsWhite,
@@ -27,8 +23,8 @@ export const skipToContentTokens = {
   link: {
     base: linkBase,
     focusOutline: {
-      color: focus.colorDefault,
-      width: focus.outlineWidth
+      color: Colors.DdsColorWarningDark,
+      width: Border.BordersDdsBorderFocusBaseStrokeWeight
     }
   },
   wrapper: {

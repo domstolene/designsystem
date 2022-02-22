@@ -77,7 +77,7 @@ const valueContainerIsMultiNoLabelBase: CSSObject = {
 
 const containerBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid`,
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
   borderColor: Colors.DdsColorNeutralsGray5,
   backgroundColor: Colors.DdsColorNeutralsWhite
 };

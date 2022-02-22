@@ -14,7 +14,7 @@ const wrapperBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
   padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX1}`,
   boxShadow: OuterShadow.DdsShadow3Onlight,
-  border: `${Border.BordersDdsBorderStyle1StrokeWeight} solid ${Colors.DdsColorPrimaryLighter}`
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Border.BordersDdsBorderStyleLightStroke}`
 };
 
 const buttonBase: CSSObject = {

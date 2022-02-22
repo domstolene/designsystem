@@ -13,13 +13,11 @@ const textDefault = {
 };
 
 const focus = {
-  colorDefault: Colors.DdsColorWarningDarker,
-  outlineWidth: Border.BordersDdsBorderStyle1StrokeWeight,
+  colorDefault: Border.BordersDdsBorderFocusBaseStroke,
+  outlineWidth: Border.BordersDdsBorderFocusBaseStrokeWeight,
   color__TextInput: Colors.DdsColorInteractiveBase,
   textColor__TextInput: Colors.DdsColorInteractiveDark,
-  borderWidth__TextInput: `${
-    Border.BordersDdsBorderStyle1StrokeWeightNumberPx * 2
-  }px`,
+  borderWidth__TextInput: Border.BordersDdsBorderFocusInputfieldStrokeWeight,
 };
 
 export const ddsReferenceTokens = {
@@ -28,7 +26,7 @@ export const ddsReferenceTokens = {
   textInput: {
     input: {
       borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-      borderWidth: Border.BordersDdsBorderStyle1StrokeWeight,
+      borderWidth: Border.BordersDdsBorderStyleLightStrokeWeight,
       borderColor: Colors.DdsColorNeutralsGray5,
       textColor: textDefault.textColor,
       font: FontPackages.supportingStyle_inputtext_02.base,

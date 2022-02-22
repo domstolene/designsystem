@@ -7,13 +7,14 @@ import { CSSObject } from 'styled-components';
 const {
   colors: Colors,
   spacing: Spacing,
-  fontPackages: FontPackages
+  fontPackages: FontPackages,
+  border: Border
 } = ddsBaseTokens;
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
 const inputBase: CSSObject = {
-  border: `1px solid ${Colors.DdsColorNeutralsGray5}`
+  border: ` ${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray5}`
 };
 
 const inputWithLabelBase: CSSObject = {

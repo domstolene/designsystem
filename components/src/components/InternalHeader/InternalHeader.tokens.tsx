@@ -9,7 +9,7 @@ const {
   fontPackages: FontPackages
 } = ddsBaseTokens;
 
-const borderColor = Colors.DdsColorPrimaryLighter;
+const borderColor = Border.BordersDdsBorderStyleLightStroke;
 
 const linkBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray9,
@@ -37,18 +37,18 @@ const applicationNameWrapperBase: CSSObject = {
 
 const lovisaWrapperBase: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15}`,
-  borderRight: `${Border.BordersDdsBorderStyle1StrokeWeight} ${borderColor} solid `
+  borderRight: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `
 };
 
 const bannerBase: CSSObject = {
-  borderBottom: `${Border.BordersDdsBorderStyle1StrokeWeight} ${borderColor} solid `,
+  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
   paddingRight: Spacing.SizesDdsSpacingLocalX1
 };
 
 const bannerLeftBase: CSSObject = {};
 
 const navigationBase: CSSObject = {
-  borderBottom: `${Border.BordersDdsBorderStyle1StrokeWeight} ${borderColor} solid `
+  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `
 };
 
 const navigationLinkBase: CSSObject = {
@@ -64,7 +64,7 @@ const navigationLinkActiveBase: CSSObject = {
 
 const navigationLinkFocusBase: CSSObject = {
   color: Colors.DdsColorNeutralsWhite,
-  backgroundColor: Colors.DdsColorWarningDarkest
+  backgroundColor: Border.BordersDdsBorderFocusBaseStroke
 };
 
 const navigationLinkCurrentBase: CSSObject = {
@@ -73,7 +73,7 @@ const navigationLinkCurrentBase: CSSObject = {
 };
 
 const contextMenuBase: CSSObject = {
-  border: `${Border.BordersDdsBorderStyle1StrokeWeight} ${borderColor} solid `,
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
   backgroundColor: Colors.DdsColorNeutralsWhite,
 
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
@@ -91,7 +91,7 @@ const contextMenuLinkActiveBase: CSSObject = {
 };
 const contextMenuLinkFocusBase: CSSObject = {
   color: Colors.DdsColorNeutralsWhite,
-  backgroundColor: Colors.DdsColorWarningDarkest
+  backgroundColor: Border.BordersDdsBorderFocusBaseStroke
 };
 const iconBase: CSSObject = {
   marginRight: Spacing.SizesDdsSpacingLocalX025
