@@ -271,7 +271,18 @@ export const OverviewJustIcon = (args: ButtonProps) => {
 
 export const OverviewSizes = (args: ButtonProps) => {
   return (
-    <StoryTemplate title="Button overview - sizes" display="grid">
+    <StoryTemplate
+      title="Button overview - sizes"
+      display="grid"
+      columnsAmount={4}
+    >
+      <DDSButton
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="filled"
+        size="tiny"
+      />
       <DDSButton
         {...args}
         label="Primary"
@@ -298,6 +309,15 @@ export const OverviewSizes = (args: ButtonProps) => {
         label="Primary"
         purpose="primary"
         appearance="filled"
+        size="tiny"
+        iconPosition={args.iconPosition || 'left'}
+        Icon={AddCircleOutlineOutlinedIcon}
+      />
+      <DDSButton
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="filled"
         size="small"
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
@@ -319,6 +339,13 @@ export const OverviewSizes = (args: ButtonProps) => {
         size="large"
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
+      />
+      <DDSButton
+        {...args}
+        purpose="primary"
+        appearance="filled"
+        size="tiny"
+        Icon={CloseOutlinedIcon}
       />
       <DDSButton
         {...args}
