@@ -80,6 +80,27 @@ const textLargeBase: CSSObject = {
   }px`
 };
 
+const justIconTinyBase: CSSObject = {
+  ...FontPackages.body_sans_04.base,
+  padding: Spacing.SizesDdsSpacingLocalX025
+};
+
+const justIconWrapperTinyBase: CSSObject = {
+  height: `${calculateHeightWithLineHeight(
+    FontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
+    FontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
+  )}px`,
+  width: `${calculateHeightWithLineHeight(
+    FontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
+    FontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
+  )}px`
+};
+
+const textTinyBase: CSSObject = {
+  ...FontPackages.supportingStyle_tiny_01.base,
+  padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX075}`
+};
+
 const buttonBase: CSSObject = {
   border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`
 };
@@ -403,6 +424,18 @@ export const buttonTokens = {
         base: textLargeBase
       },
       iconWithTextMargin: Spacing.SizesDdsSpacingLocalX075
+    },
+    tiny: {
+      justIcon: {
+        base: justIconTinyBase
+      },
+      justIconWrapper: {
+        base: justIconWrapperTinyBase
+      },
+      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX025,
+      text: {
+        base: textTinyBase
+      }
     }
   },
   appearance: {
