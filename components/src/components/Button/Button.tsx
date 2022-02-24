@@ -3,12 +3,7 @@ import { buttonTokens as tokens } from './Button.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { Spinner } from '../Spinner';
 import { ButtonProps } from './Button.types';
-import {
-  ButtonWrapper,
-  IconWithTextWrapper,
-  JustIconWrapper,
-  Label
-} from './Button.styles';
+import { ButtonWrapper, StyledIconWrapperSpan, Label } from './Button.styles';
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -53,34 +48,30 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     };
 
-    const iconElement = Icon && iconPosition && size && (
-      <IconWithTextWrapper
-        Icon={Icon}
-        iconPosition={iconPosition}
-        iconSize="inline"
-        size={size}
-      />
-    );
-
     const hasLabel = !!label;
     const isIconButton = !hasLabel && !!Icon;
+
+    const iconElement = Icon && (
+      <StyledIconWrapperSpan
+        iconPosition={isIconButton ? undefined : iconPosition}
+        size={size}
+      >
+        <IconWrapper Icon={Icon} iconSize="inline" />
+      </StyledIconWrapperSpan>
+    );
 
     return (
       <ButtonWrapper {...wrapperProps}>
         {loading && (
-          <JustIconWrapper size={size}>
+          <StyledIconWrapperSpan size={size}>
             <Spinner
               color={tokens.appearance[appearance][purpose].base.color}
               size={tokens.sizes[size].justIcon.base.fontSize as string}
             />
-          </JustIconWrapper>
+          </StyledIconWrapperSpan>
         )}
 
-        {isIconButton && !loading && (
-          <JustIconWrapper size={size}>
-            <IconWrapper Icon={Icon} iconSize="inline" />
-          </JustIconWrapper>
-        )}
+        {isIconButton && !loading && iconElement}
 
         {hasLabel && !loading && (
           <>

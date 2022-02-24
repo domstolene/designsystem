@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { IconWrapper } from '../../helpers/IconWrapper';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { buttonTokens as tokens } from './Button.tokens';
 import {
@@ -78,9 +77,6 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
           justify-content: space-between;
         `)}
 
-
-
-
   &:focus-visible, &.focus-visible {
     outline: ${tokens.focusOutline.width} solid ${tokens.focusOutline.color};
     outline-offset: 2px;
@@ -91,14 +87,15 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   }
 `;
 
-type IconWithTextWrapperProps = {
-  iconPosition: IconPosition;
+type StyledIconWrapperSpanProps = {
+  iconPosition?: IconPosition;
   size: ButtonSize;
 };
 
-export const IconWithTextWrapper = styled(
-  IconWrapper
-)<IconWithTextWrapperProps>`
+export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   ${({ size, iconPosition }) =>
     iconPosition === 'left'
       ? css`
@@ -108,21 +105,9 @@ export const IconWithTextWrapper = styled(
       ? css`
           margin-inline-start: ${tokens.sizes[size].iconWithTextMargin};
         `
-      : ''}
-`;
-
-type JustIconWrapperProps = {
-  size: ButtonSize;
-};
-
-export const JustIconWrapper = styled.span<JustIconWrapperProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  ${({ size }) =>
-    css`
-      ${tokens.sizes[size].justIconWrapper.base}
-    `}
+      : css`
+          ${tokens.sizes[size].justIconWrapper.base}
+        `}
 `;
 
 export const Label = styled.span``;
