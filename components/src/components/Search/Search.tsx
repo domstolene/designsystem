@@ -9,7 +9,7 @@ import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import { inputFieldStylingBase } from '../../helpers/Input/inputFieldStylingBase';
-import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 
 type InputProps = Pick<SearchProps, 'componentSize'>;
 

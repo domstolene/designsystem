@@ -10,7 +10,7 @@ import {
   Props as ReactSelectProps,
   SelectInstance
 } from 'react-select';
-import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
   Container,

@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react';
-import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
   Input,
@@ -52,10 +52,11 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     );
 
     const componentWidth = width ? width : getWidth(type);
+    const hasErrorMessage = !!errorMessage;
 
     const inputProps = {
       label,
-      errorMessage,
+      hasErrorMessage,
       ref,
       readOnly,
       tabIndex: readOnly ? -1 : 0,

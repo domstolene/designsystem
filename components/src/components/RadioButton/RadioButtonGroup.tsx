@@ -1,7 +1,7 @@
 import React, { ChangeEvent, HTMLAttributes, useState } from 'react';
 import styled from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
-import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 import { Typography } from '../Typography';
@@ -74,6 +74,9 @@ export const RadioButtonGroup = ({
       onChange(event, target.value);
     }
   };
+
+  const hasErrorMessage = !!errorMessage;
+
   const containerProps = {
     className,
     style,
@@ -83,7 +86,7 @@ export const RadioButtonGroup = ({
   const contextProps = {
     name,
     disabled,
-    error: !!errorMessage,
+    error: hasErrorMessage,
     required,
     readOnly,
     value: groupValue,
@@ -108,7 +111,7 @@ export const RadioButtonGroup = ({
           {children}
         </GroupContainer>
       </RadioButtonGroupContext.Provider>
-      {errorMessage ? (
+      {hasErrorMessage ? (
         <InputMessage message={errorMessage} messageType="error" />
       ) : tip ? (
         <InputMessage message={tip} messageType="tip" />

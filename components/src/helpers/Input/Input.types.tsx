@@ -10,7 +10,7 @@ export type InputProps = {
 
 export type StyledInputProps = Pick<
   InputProps,
-  'readOnly' | 'errorMessage' | 'label' | 'disabled'
->;
+  'readOnly' | 'label' | 'disabled'
+> & { hasErrorMessage: boolean };
 
 export type StyledLabelProps = Pick<InputProps, 'disabled'>;
