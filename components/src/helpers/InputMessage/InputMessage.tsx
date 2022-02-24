@@ -4,6 +4,7 @@ import { IconWrapper } from '../IconWrapper';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import * as CSS from 'csstype';
 import { Typography } from '../../components/Typography';
+import { forwardRef, HTMLAttributes } from 'react';
 
 const InputMessageWrapper = styled.div<{
   messageType: MessageType;
@@ -29,38 +30,45 @@ const InputMessageWrapper = styled.div<{
 
 type MessageType = 'error' | 'tip';
 
-type Props = {
+type InputMessageProps = {
   message: string;
   messageType: MessageType;
   maxWidth?: CSS.MaxWidthProperty<string>;
-};
+  messageId?: string;
+} & HTMLAttributes<HTMLDivElement>;
 
-function InputMessage({
-  message,
-  messageType,
-  maxWidth = tokens.defaultMaxWidth
-}: Props) {
-  const wrapperProps = { messageType, maxWidth };
+export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
+  (
+    {
+      message,
+      messageType,
+      maxWidth = tokens.defaultMaxWidth,
+      messageId,
+      ...rest
+    },
+    ref
+  ) => {
+    const wrapperProps = { ref, messageType, maxWidth, ...rest };
 
-  const isError = messageType === 'error';
+    const isError = messageType === 'error';
 
-  return (
-    <InputMessageWrapper {...wrapperProps}>
-      {isError && (
-        <IconWrapper Icon={ReportProblemOutlinedIcon} iconSize="inline" />
-      )}
-      <Typography
-        typographyType={
-          isError ? 'supportingStyleLabel01' : 'supportingStyleHelperText01'
-        }
-        as="div"
-        bold={isError ? true : undefined}
-        color={isError ? tokens.error.base.color : undefined}
-      >
-        {message}
-      </Typography>
-    </InputMessageWrapper>
-  );
-}
-
-export default InputMessage;
+    return (
+      <InputMessageWrapper {...wrapperProps}>
+        {isError && (
+          <IconWrapper Icon={ReportProblemOutlinedIcon} iconSize="inline" />
+        )}
+        <Typography
+          typographyType={
+            isError ? 'supportingStyleLabel01' : 'supportingStyleHelperText01'
+          }
+          as="span"
+          id={messageId}
+          bold={isError ? true : undefined}
+          color={isError ? tokens.error.base.color : undefined}
+        >
+          {message}
+        </Typography>
+      </InputMessageWrapper>
+    );
+  }
+);
