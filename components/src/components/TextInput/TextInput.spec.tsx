@@ -18,6 +18,25 @@ describe('<TextInput />', () => {
     render(<TextInput tip={tip} />);
     expect(screen.queryByText(tip)).toBeDefined;
   });
+  it('should have aria-describedby when tip provided', () => {
+    const id = 'id';
+    const tip = 'this is a tip';
+    render(<TextInput id={id} tip={tip} />);
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-describedby',
+      `${id}-tip`
+    );
+  });
+  it('should have aria-errormessage when errorMessage provided', () => {
+    const id = 'id';
+    const errorMessage = 'this is a errorMessage';
+    render(<TextInput id={id} errorMessage={errorMessage} />);
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-errormessage',
+      `${id}-errorMessage`
+    );
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid');
+  });
   it('renders error message instead of tip when both are provided', () => {
     const tip = 'this is a tip';
     const errorMessage = 'this is an error';

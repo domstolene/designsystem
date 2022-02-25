@@ -80,7 +80,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const characterCounterId = maxLength
       ? `${uniqueId}-characterCounter`
       : undefined;
-    const tipId = hasTip ? `${uniqueId}-message` : undefined;
+    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
     const errorMessageId = hasErrorMessage
       ? `${uniqueId}-errorMessage`
       : undefined;
