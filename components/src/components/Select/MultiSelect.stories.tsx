@@ -32,7 +32,9 @@ const options = [
   'Alternativ 4'
 ].map(s => ({ label: s, value: s }));
 
-export const Overview = (args: SelectProps) => {
+type MultiSelectProps = SelectProps<true>;
+
+export const Overview = (args: MultiSelectProps) => {
   return (
     <StoryTemplate
       title="Multiselect - overview"
@@ -123,7 +125,7 @@ export const Overview = (args: SelectProps) => {
   );
 };
 
-export const Default = (args: SelectProps) => {
+export const Default = (args: MultiSelectProps) => {
   return (
     <StoryTemplate title="MultiSelect - default">
       <DDSSelect {...args} options={options} isMulti />
@@ -131,7 +133,7 @@ export const Default = (args: SelectProps) => {
   );
 };
 
-export const WithLabel = (args: SelectProps) => {
+export const WithLabel = (args: MultiSelectProps) => {
   return (
     <StoryTemplate title="MultiSelect - with label">
       <DDSSelect
@@ -144,7 +146,7 @@ export const WithLabel = (args: SelectProps) => {
   );
 };
 
-export const WithDefaultValue = (args: SelectProps) => {
+export const WithDefaultValue = (args: MultiSelectProps) => {
   return (
     <StoryTemplate title="Select - multiselect with value">
       <DDSSelect
@@ -158,7 +160,7 @@ export const WithDefaultValue = (args: SelectProps) => {
   );
 };
 
-export const WithFitContent = (args: SelectProps) => {
+export const WithFitContent = (args: MultiSelectProps) => {
   return (
     <StoryTemplate title="Select - multiselect with value">
       <DDSSelect
