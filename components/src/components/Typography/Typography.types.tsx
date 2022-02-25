@@ -46,3 +46,21 @@ export type TypographyType =
   | TypographyBodyType
   | TypographyLeadType
   | TypographySupportingType;
+
+export type TextColor =
+  | 'interactive'
+  | 'primary'
+  | 'danger'
+  | 'warning'
+  | 'success'
+  | 'onLight'
+  | 'onDark'
+  | 'gray1'
+  | 'gray2'
+  | 'gray3'
+  | 'gray4'
+  | 'gray5'
+  | 'gray6'
+  | 'gray7'
+  | 'gray8'
+  | 'gray9';

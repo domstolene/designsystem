@@ -13,7 +13,7 @@ import {
 } from './Typography.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
-import { TypographyType } from './Typography.types';
+import { TypographyType, TextColor } from './Typography.types';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -99,6 +99,7 @@ const StyledTypography = styled.p<StyledTypographyProps>`
     css`
       display: inline-flex;
       align-items: center;
+      transition: 0.2s;
 
       &:hover {
         ${tokens.typographyType[typographyType].hover.base}
@@ -164,24 +165,6 @@ const StyledTypography = styled.p<StyledTypographyProps>`
       ${tokens.style.underline.base}
     `}
 `;
-
-export type TextColor =
-  | 'interactive'
-  | 'primary'
-  | 'danger'
-  | 'warning'
-  | 'success'
-  | 'onLight'
-  | 'onDark'
-  | 'gray1'
-  | 'gray2'
-  | 'gray3'
-  | 'gray4'
-  | 'gray5'
-  | 'gray6'
-  | 'gray7'
-  | 'gray8'
-  | 'gray9';
 
 export type TypographyInteractionProps = {
   hover?: CSSObject;
