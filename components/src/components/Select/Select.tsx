@@ -5,6 +5,7 @@ import {
   components,
   default as ReactSelect,
   GroupBase,
+  InputProps,
   NoticeProps,
   OptionProps,
   Props as ReactSelectProps,
@@ -22,7 +23,7 @@ import {
 } from './Select.styles';
 import { selectTokens as tokens } from './Select.tokens';
 
-const { Option: DdsOption, NoOptionsMessage } = components;
+const { Option: DdsOption, NoOptionsMessage, Input } = components;
 
 const IconOption = (props: OptionProps<any, any>) => (
   <DdsOption {...props}>
@@ -98,6 +99,16 @@ const SelectInner = <IsMulti extends boolean = false>(
   const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
 
   const hasLabel = !!label;
+  const hasTip = !!tip;
+  const hasErrorMessage = !!errorMessage;
+  const tipId = hasTip ? `${uniqueId}-tip` : undefined;
+  const errorMessageId = hasErrorMessage
+    ? `${uniqueId}-errorMessage`
+    : undefined;
+
+  const CustomInput = (props: InputProps<any, any>) => (
+    <Input {...props} aria-describedby={`${tipId}`} />
+  );
 
   const wrapperProps = {
     width
@@ -140,8 +151,12 @@ const SelectInner = <IsMulti extends boolean = false>(
     },
     components: {
       Option: IconOption,
-      NoOptionsMessage: NoOptionsMessageCustom
+      NoOptionsMessage: NoOptionsMessageCustom,
+      Input: CustomInput
     },
+    'aria-errormessage': errorMessageId,
+    'aria-invalid': hasErrorMessage ? true : undefined,
+
     ...rest
   };
 
@@ -161,10 +176,16 @@ const SelectInner = <IsMulti extends boolean = false>(
       </Container>
 
       {errorMessage && (
-        <InputMessage messageType="error" message={errorMessage} />
+        <InputMessage
+          messageType="error"
+          messageId={errorMessageId}
+          message={errorMessage}
+        />
       )}
 
-      {tip && !errorMessage && <InputMessage messageType="tip" message={tip} />}
+      {tip && !errorMessage && (
+        <InputMessage messageType="tip" messageId={tipId} message={tip} />
+      )}
     </Wrapper>
   );
 };
