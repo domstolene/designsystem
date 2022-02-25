@@ -2,14 +2,15 @@ import React, {
   ButtonHTMLAttributes,
   forwardRef,
   InputHTMLAttributes,
-  MouseEvent
+  MouseEvent,
+  useState
 } from 'react';
 import styled, { css } from 'styled-components';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import { inputFieldStylingBase } from '../../helpers/Input/inputFieldStylingBase';
-import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 
 type InputProps = Pick<SearchProps, 'componentSize'>;
 
@@ -59,6 +60,8 @@ const ButtonWrapper = styled.div`
   margin-left: ${tokens.buttonWrapper.spaceLeft};
 `;
 
+let nextUniqueId = 0;
+
 export type SearchSize = 'small' | 'medium' | 'large';
 type ButtonProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -81,22 +84,29 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       buttonProps,
       name,
       tip,
+      id,
       className,
       style,
       ...rest
     },
     ref
   ) => {
+    const [uniqueId] = useState<string>(id ?? `searchInput-${nextUniqueId++}`);
+    const hasTip = !!tip;
+    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
+
     const containerProps = {
       className,
       style
     };
 
     const inputProps = {
+      ...rest,
       componentSize,
       name,
       type: 'search',
-      ...rest
+      id: uniqueId,
+      'aria-describedby': tipId
     };
 
     const { label, onClick, ...otherButtonProps } = buttonProps || {};
@@ -110,7 +120,9 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
             </IconWrapper>
             <Input ref={ref} {...inputProps} />
           </InputWrapper>
-          {tip && <InputMessage messageType="tip" message={tip} />}
+          {hasTip && (
+            <InputMessage messageId={tipId} messageType="tip" message={tip} />
+          )}
         </InputContainer>
         {buttonProps && onClick && (
           <ButtonWrapper>

@@ -43,7 +43,9 @@ const optionsLong = [
   'Alternativ 7'
 ].map(s => ({ label: s, value: s }));
 
-export const Overview = (args: SelectProps) => {
+type SingleSelectProps = SelectProps<false>;
+
+export const Overview = (args: SingleSelectProps) => {
   return (
     <StoryTemplate
       title="Select - overview"
@@ -101,18 +103,11 @@ export const Overview = (args: SelectProps) => {
         options={options}
       />
       <DDSSelect {...args} options={options} />
-      <DDSSelect
-        {...args}
-        label={args.label || 'Label'}
-        options={options}
-        isMulti
-        closeMenuOnSelect={false}
-      />
     </StoryTemplate>
   );
 };
 
-export const Default = (args: SelectProps) => {
+export const Default = (args: SingleSelectProps) => {
   return (
     <StoryTemplate title="Select default">
       <DDSSelect {...args} options={options} />
@@ -120,7 +115,7 @@ export const Default = (args: SelectProps) => {
   );
 };
 
-export const WithLabel = (args: SelectProps) => {
+export const WithLabel = (args: SingleSelectProps) => {
   return (
     <StoryTemplate title="Select - with label">
       <DDSSelect {...args} label={args.label || 'Label'} options={options} />
@@ -128,7 +123,7 @@ export const WithLabel = (args: SelectProps) => {
   );
 };
 
-export const ManyItems = (args: SelectProps) => {
+export const ManyItems = (args: SingleSelectProps) => {
   return (
     <StoryTemplate title="Select - many options">
       <DDSSelect

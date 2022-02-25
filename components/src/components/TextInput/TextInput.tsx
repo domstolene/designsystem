@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { textInputTokens as tokens } from './TextInput.tokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
-import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
 import { Input, OuterInputContainer } from '../../helpers/Input';
@@ -74,14 +74,34 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const [uniqueId] = useState<string>(id ?? `textInput-${nextUniqueId++}`);
 
+    const hasErrorMessage = !!errorMessage;
+    const hasTip = !!tip;
+
+    const characterCounterId = maxLength
+      ? `${uniqueId}-characterCounter`
+      : undefined;
+    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
+    const errorMessageId = hasErrorMessage
+      ? `${uniqueId}-errorMessage`
+      : undefined;
+
+    const describedByIds = [];
+    if (characterCounterId) describedByIds.push(characterCounterId);
+    if (tipId) describedByIds.push(tipId);
+
     const generalInputProps = {
       id: uniqueId,
       label,
       errorMessage,
+      hasErrorMessage,
       disabled,
       readOnly,
       tabIndex: readOnly ? -1 : 0,
       maxLength,
+      'aria-describedby':
+        describedByIds.length > 0 ? describedByIds.join(' ') : undefined,
+      'aria-errormessage': errorMessageId,
+      'aria-invalid': hasErrorMessage ? true : undefined,
       ...rest
     };
 
@@ -135,14 +155,22 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           )}
         </InputContainer>
         <MessageContainer>
-          {errorMessage && (
-            <InputMessage message={errorMessage} messageType="error" />
+          {hasErrorMessage && (
+            <InputMessage
+              message={errorMessage}
+              messageType="error"
+              messageId={errorMessageId}
+            />
           )}
-          {tip && !errorMessage && (
-            <InputMessage message={tip} messageType="tip" />
+          {hasTip && !errorMessage && (
+            <InputMessage message={tip} messageType="tip" messageId={tipId} />
           )}
           {maxLength && Number.isInteger(maxLength) && maxLength > 0 && (
-            <CharCounter current={text.length} max={maxLength} />
+            <CharCounter
+              id={characterCounterId}
+              current={text.length}
+              max={maxLength}
+            />
           )}
         </MessageContainer>
       </OuterInputContainer>

@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react';
-import InputMessage from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
   Input,
@@ -52,16 +52,25 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     );
 
     const componentWidth = width ? width : getWidth(type);
+    const hasErrorMessage = !!errorMessage;
+    const hasTip = !!tip;
+    const errorMessageId = hasErrorMessage
+      ? `${uniqueId}-errorMessage`
+      : undefined;
+    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
 
     const inputProps = {
       label,
-      errorMessage,
+      hasErrorMessage,
       ref,
       readOnly,
       tabIndex: readOnly ? -1 : 0,
       required,
       disabled,
       type,
+      'aria-describedby': tipId,
+      'aria-errormessage': errorMessageId,
+      'aria-invalid': hasErrorMessage ? true : undefined,
       ...rest
     };
 
@@ -91,10 +100,14 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
           )}
         </InputContainer>
         {errorMessage && (
-          <InputMessage message={errorMessage} messageType="error" />
+          <InputMessage
+            message={errorMessage}
+            messageId={errorMessageId}
+            messageType="error"
+          />
         )}
         {tip && !errorMessage && (
-          <InputMessage message={tip} messageType="tip" />
+          <InputMessage message={tip} messageId={tipId} messageType="tip" />
         )}
       </OuterInputContainer>
     );

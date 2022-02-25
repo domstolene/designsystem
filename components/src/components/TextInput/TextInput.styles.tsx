@@ -11,8 +11,8 @@ import {
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 
 export const TextArea = styled.textarea<StyledInputProps>`
-  ${({ label, disabled, readOnly, errorMessage }) =>
-    inputStyling({ readOnly, errorMessage, label, disabled })}
+  ${({ label, disabled, readOnly, hasErrorMessage }) =>
+    inputStyling({ readOnly, label, disabled, hasErrorMessage })}
   resize: vertical;
   height: auto;
   ${scrollbarStyling}
@@ -31,8 +31,8 @@ export const TextArea = styled.textarea<StyledInputProps>`
         `}
 
    &:hover:enabled:read-write ~ label {
-    background-color: ${({ errorMessage }) =>
-      errorMessage
+    background-color: ${({ hasErrorMessage }) =>
+      hasErrorMessage
         ? inputTokens.error.hover.base.backgroundColor
         : inputTokens.general.input.hover.backgroundColor};
   }

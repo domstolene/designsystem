@@ -20,4 +20,13 @@ describe('<Search />', () => {
     render(<Search tip={tip} />);
     expect(screen.queryByText(tip)).toBeDefined;
   });
+  it('should have aria-dsecribedby when tip provided', () => {
+    const tip = 'tip';
+    const id = 'id';
+    render(<Search tip={tip} id={id} />);
+    expect(screen.getByRole('searchbox')).toHaveAttribute(
+      'aria-describedby',
+      `${id}-tip`
+    );
+  });
 });

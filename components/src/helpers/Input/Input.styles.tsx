@@ -6,9 +6,9 @@ import { InputProps, StyledInputProps, StyledLabelProps } from './Input.types';
 
 export const inputStyling = ({
   readOnly,
-  errorMessage,
   label,
-  disabled
+  disabled,
+  hasErrorMessage
 }: StyledInputProps) => {
   return css`
     ${inputFieldStylingBase}
@@ -34,7 +34,7 @@ export const inputStyling = ({
       cursor: not-allowed;
       ${tokens.disabled.base}
     `}
-    ${errorMessage &&
+    ${hasErrorMessage &&
     css`
       ${tokens.error.base}
       &:hover:enabled:read-write {
@@ -54,8 +54,8 @@ export const inputStyling = ({
 };
 
 export const Input = styled.input<StyledInputProps>`
-  ${({ label, disabled, readOnly, errorMessage }) =>
-    inputStyling({ readOnly, errorMessage, label, disabled })}
+  ${({ label, disabled, readOnly, hasErrorMessage }) =>
+    inputStyling({ readOnly, label, disabled, hasErrorMessage })}
 `;
 
 export const SingleLineLabel = styled(Typography)<StyledLabelProps>`
