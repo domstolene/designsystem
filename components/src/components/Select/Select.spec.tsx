@@ -12,9 +12,12 @@ describe('<Select />', () => {
     expect(labelElement).toBeDefined();
   });
   it('should have aria-describedby when tip provided', () => {
-    render(<Select options={[{ label: 'label', value: 'item' }]} tip="tip" />);
+    const id = 'id';
+    render(
+      <Select options={[{ label: 'label', value: 'item' }]} tip="tip" id={id} />
+    );
     const inputElement = screen.getByRole('combobox');
-    expect(inputElement).toHaveAttribute('aria-describedby');
+    expect(inputElement).toHaveAttribute('aria-describedby', `${id}-tip`);
   });
   it('should have aria-errormessage and aria-invalid when errorMessage provided', () => {
     render(
