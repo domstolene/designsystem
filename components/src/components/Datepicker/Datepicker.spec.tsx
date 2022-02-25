@@ -25,4 +25,16 @@ describe('<Datepicker />', () => {
     expect(screen.queryByText(errorMessage)).toBeDefined;
     expect(screen.queryByText(tip)).not.toBeDefined;
   });
+  it('should have aria-describedby when tip provided', () => {
+    const id = 'id';
+    const { container } = render(<Datepicker tip="tip" id={id} />);
+    const inputElement = container.querySelector('input');
+    expect(inputElement).toHaveAttribute('aria-describedby', `${id}-tip`);
+  });
+  it('should have aria-errormessage and aria-invalid when errorMessage provided', () => {
+    const { container } = render(<Datepicker errorMessage="error" />);
+    const inputElement = container.querySelector('input');
+    expect(inputElement).toHaveAttribute('aria-errormessage');
+    expect(inputElement).toHaveAttribute('aria-invalid');
+  });
 });

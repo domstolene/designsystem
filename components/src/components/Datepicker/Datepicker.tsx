@@ -53,6 +53,11 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
 
     const componentWidth = width ? width : getWidth(type);
     const hasErrorMessage = !!errorMessage;
+    const hasTip = !!tip;
+    const errorMessageId = hasErrorMessage
+      ? `${uniqueId}-errorMessage`
+      : undefined;
+    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
 
     const inputProps = {
       label,
@@ -63,6 +68,9 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       required,
       disabled,
       type,
+      'aria-describedby': tipId,
+      'aria-errormessage': errorMessageId,
+      'aria-invalid': hasErrorMessage ? true : undefined,
       ...rest
     };
 
@@ -92,10 +100,14 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
           )}
         </InputContainer>
         {errorMessage && (
-          <InputMessage message={errorMessage} messageType="error" />
+          <InputMessage
+            message={errorMessage}
+            messageId={errorMessageId}
+            messageType="error"
+          />
         )}
         {tip && !errorMessage && (
-          <InputMessage message={tip} messageType="tip" />
+          <InputMessage message={tip} messageId={tipId} messageType="tip" />
         )}
       </OuterInputContainer>
     );
