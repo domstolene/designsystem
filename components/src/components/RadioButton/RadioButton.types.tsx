@@ -6,4 +6,5 @@ export type RadioButtonProps = {
   error?: boolean;
   className?: string;
   style?: React.CSSProperties;
+  hideDefaultRadio?: boolean;
 } & InputHTMLAttributes<HTMLInputElement>;

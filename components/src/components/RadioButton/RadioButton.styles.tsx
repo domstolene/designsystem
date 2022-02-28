@@ -26,7 +26,7 @@ export const Input = styled.input.attrs(({ type = 'radio' }) => ({
   margin: 0;
 `;
 
-type ContainerProps = Pick<RadioButtonProps, 'error' | 'disabled' | 'readOnly'>;
+type ContainerProps = Pick<RadioButtonProps, 'error' | 'disabled' | 'readOnly' | 'hideDefaultRadio'>;
 
 export const Container = styled.label<ContainerProps>`
   position: relative;
@@ -36,7 +36,12 @@ export const Container = styled.label<ContainerProps>`
   width: fit-content;
   display: flex;
   align-items: center;
-  ${tokens.container.base}
+
+  ${({ hideDefaultRadio }) =>
+    hideDefaultRadio ?
+    tokens.container.hideRadio :
+    tokens.container.base
+  }
 
   input:checked ~ ${CustomRadioButton}:after {
     display: block;

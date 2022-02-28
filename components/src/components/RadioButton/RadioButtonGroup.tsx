@@ -14,6 +14,7 @@ const Container = styled.div`
 const GroupContainer = styled.div<{ direction?: Direction }>`
   display: flex;
   flex-direction: ${({ direction }) => direction ?? 'row'};
+  flex-wrap: wrap;
 `;
 
 const Label = styled(Typography)`
@@ -37,6 +38,7 @@ export type RadioButtonGroupProps = {
   onChange?: (event: ChangeEvent<HTMLInputElement>, value: any) => void;
   className?: string;
   style?: React.CSSProperties;
+  hideDefaultRadio?: boolean;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 let nextUniqueGroupId = 0;
@@ -56,6 +58,7 @@ export const RadioButtonGroup = ({
   onChange,
   className,
   style,
+  hideDefaultRadio,
   ...rest
 }: RadioButtonGroupProps) => {
   const [groupValue, setGroupValue] = useState<
@@ -90,6 +93,7 @@ export const RadioButtonGroup = ({
     required,
     readOnly,
     value: groupValue,
+    hideDefaultRadio,
     onChange: handleChange
   };
 

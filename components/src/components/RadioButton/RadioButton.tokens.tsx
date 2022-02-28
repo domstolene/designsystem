@@ -81,6 +81,11 @@ const containerBase: CSSObject = {
   }px`
 };
 
+const containerWithHiddenRadio: CSSObject = {
+  marginRight: Spacing.SizesDdsSpacingLocalX075,
+  padding: Spacing.SizesDdsSpacingLocalX025
+};
+
 export const radioButtonTokens = {
   radioButton: {
     base: radioButtonBase,
@@ -118,6 +123,7 @@ export const radioButtonTokens = {
   },
   container: {
     base: containerBase,
+    hideRadio: containerWithHiddenRadio,
     focusOutline: {
       color: Border.BordersDdsBorderFocusBaseStroke,
       width: Border.BordersDdsBorderFocusBaseStrokeWeight

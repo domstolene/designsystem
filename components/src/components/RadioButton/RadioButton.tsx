@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef, useState } from 'react';
+import { ChangeEvent, forwardRef, ReactElement, useState, isValidElement, cloneElement, Children } from 'react';
 import { RadioButtonProps } from './RadioButton.types';
 import { Typography } from '../Typography';
 import {
@@ -6,6 +6,7 @@ import {
   useRadioButtonGroup
 } from './RadioButtonGroupContext';
 import { CustomRadioButton, Input, Container } from './RadioButton.styles';
+import styled from 'styled-components';
 
 let nextUniqueId = 0;
 
@@ -21,6 +22,13 @@ const isValueEqualToGroupValueOrFalsy = (
   }
   return value;
 };
+
+const LabelAndChildrenWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+`
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
   (
@@ -38,6 +46,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       children,
       required,
       onChange,
+      hideDefaultRadio,
       ...rest
     },
     ref
@@ -73,6 +82,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       error: error || radioButtonGroup?.error,
       disabled: disabled || radioButtonGroup?.disabled,
       readOnly: readOnly || radioButtonGroup?.readOnly,
+      hideDefaultRadio: hideDefaultRadio || radioButtonGroup?.hideDefaultRadio,
       style,
       className
     };
@@ -80,8 +90,14 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     return (
       <Container {...containerProps} htmlFor={uniqueId}>
         <Input ref={ref} {...inputProps} />
-        <CustomRadioButton />
-        <Typography as="span">{children ?? label}</Typography>
+        { !(hideDefaultRadio || radioButtonGroup?.hideDefaultRadio) && <CustomRadioButton /> }
+        <Typography as="span">
+        {
+          isValidElement(children) ?
+          <LabelAndChildrenWrapper>{ cloneElement(children, { checked: inputProps.checked })}{label}</LabelAndChildrenWrapper> :
+          label
+        }
+        </Typography>
       </Container>
     );
   }
