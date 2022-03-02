@@ -38,6 +38,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       children,
       required,
       onChange,
+      'aria-describedby': ariaDescribedby,
       ...rest
     },
     ref
@@ -50,6 +51,11 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       onChange && onChange(event);
       radioButtonGroup?.onChange(event);
     };
+
+    const describedByIds = [];
+    if (radioButtonGroup?.errorMessageId)
+      describedByIds.push(radioButtonGroup?.errorMessageId);
+    if (ariaDescribedby) describedByIds.push(ariaDescribedby);
 
     const inputProps = {
       id: uniqueId,
@@ -66,6 +72,9 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           : isValueEqualToGroupValueOrFalsy(value, radioButtonGroup),
       onChange: handleChange,
       value: value,
+      'aria-describedby':
+        describedByIds.length > 0 ? describedByIds.join(' ') : undefined,
+      'aria-invalid': error || radioButtonGroup?.error ? true : undefined,
       ...rest
     };
 

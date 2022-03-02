@@ -5,6 +5,7 @@ import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 import { Typography } from '../Typography';
+import { combineHandlers } from '../../utils';
 
 const Container = styled.div`
   display: flex;
@@ -66,16 +67,18 @@ export const RadioButtonGroup = ({
     groupId ?? `radioButtonGroup-${nextUniqueGroupId++}`
   );
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement;
-    setGroupValue(target.value);
-
-    if (onChange) {
-      onChange(event, target.value);
-    }
-  };
+  const handleChange = combineHandlers(
+    (e: ChangeEvent<HTMLInputElement>) => setGroupValue(e.target.value),
+    e => onChange && onChange(e, e.target.value)
+  );
 
   const hasErrorMessage = !!errorMessage;
+  const hasTip = !!tip;
+
+  const tipId = hasTip ? `${uniqueGroupId}-tip` : undefined;
+  const errorMessageId = hasErrorMessage
+    ? `${uniqueGroupId}-errorMessage`
+    : undefined;
 
   const containerProps = {
     className,
@@ -87,6 +90,7 @@ export const RadioButtonGroup = ({
     name,
     disabled,
     error: hasErrorMessage,
+    errorMessageId: errorMessageId,
     required,
     readOnly,
     value: groupValue,
@@ -102,21 +106,26 @@ export const RadioButtonGroup = ({
       >
         {label} {required && <RequiredMarker />}
       </Label>
+      {hasTip && (
+        <InputMessage message={tip} messageType="tip" messageId={tipId} />
+      )}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
           role="radiogroup"
           direction={direction}
           aria-labelledby={uniqueGroupId}
+          aria-describedby={tipId}
+          aria-errormessage={errorMessageId}
         >
           {children}
         </GroupContainer>
       </RadioButtonGroupContext.Provider>
-      {hasErrorMessage ? (
-        <InputMessage message={errorMessage} messageType="error" />
-      ) : tip ? (
-        <InputMessage message={tip} messageType="tip" />
-      ) : (
-        ''
+      {hasErrorMessage && (
+        <InputMessage
+          message={errorMessage}
+          messageType="error"
+          messageId={errorMessageId}
+        />
       )}
     </Container>
   );

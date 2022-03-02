@@ -6,6 +6,7 @@ export interface RadioButtonGroup {
   name?: string;
   value?: string | number | null;
   error?: boolean;
+  errorMessageId?: string;
   required?: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
