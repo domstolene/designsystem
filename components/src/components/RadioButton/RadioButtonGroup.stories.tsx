@@ -43,6 +43,26 @@ export const Overview = (args: RadioButtonGroupProps) => {
       </DDSRadioButtonGroup>
       <DDSRadioButtonGroup
         {...args}
+        tip="Dette er en hjelpetekst"
+        direction="row"
+        label="Label"
+      >
+        <DDSRadioButton label="Option 1" name="test2" />
+        <DDSRadioButton label="Option 2" name="test2" />
+        <DDSRadioButton label="Option 3" name="test2" />
+      </DDSRadioButtonGroup>
+      <DDSRadioButtonGroup
+        {...args}
+        tip="Dette er en hjelpetekst"
+        direction="column"
+        label="Label"
+      >
+        <DDSRadioButton label="Option 1" name="test3" />
+        <DDSRadioButton label="Option 2" name="test3" />
+        <DDSRadioButton label="Option 3" name="test3" />
+      </DDSRadioButtonGroup>
+      <DDSRadioButtonGroup
+        {...args}
         errorMessage="Dette er en feilmelding"
         direction="row"
         label="Label"
@@ -54,6 +74,28 @@ export const Overview = (args: RadioButtonGroupProps) => {
       <DDSRadioButtonGroup
         {...args}
         errorMessage="Dette er en feilmelding"
+        direction="column"
+        label="Label"
+      >
+        <DDSRadioButton label="Option 1" name="test3" />
+        <DDSRadioButton label="Option 2" name="test3" />
+        <DDSRadioButton label="Option 3" name="test3" />
+      </DDSRadioButtonGroup>
+      <DDSRadioButtonGroup
+        {...args}
+        errorMessage="Dette er en feilmelding"
+        tip="Dette er en hjelpetekst"
+        direction="row"
+        label="Label"
+      >
+        <DDSRadioButton label="Option 1" name="test2" />
+        <DDSRadioButton label="Option 2" name="test2" />
+        <DDSRadioButton label="Option 3" name="test2" />
+      </DDSRadioButtonGroup>
+      <DDSRadioButtonGroup
+        {...args}
+        errorMessage="Dette er en feilmelding"
+        tip="Dette er en hjelpetekst"
         direction="column"
         label="Label"
       >
