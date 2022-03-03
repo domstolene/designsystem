@@ -11,6 +11,10 @@ import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import { inputFieldStylingBase } from '../../helpers/Input/inputFieldStylingBase';
 import { InputMessage } from '../../helpers/InputMessage/InputMessage';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator
+} from '../../utils';
 
 type InputProps = Pick<SearchProps, 'componentSize'>;
 
@@ -87,13 +91,14 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       id,
       className,
       style,
+      'aria-describedby': ariaDescribedby,
       ...rest
     },
     ref
   ) => {
     const [uniqueId] = useState<string>(id ?? `searchInput-${nextUniqueId++}`);
     const hasTip = !!tip;
-    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
+    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
 
     const containerProps = {
       className,
@@ -106,7 +111,10 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       name,
       type: 'search',
       id: uniqueId,
-      'aria-describedby': tipId
+      'aria-describedby': spaceSeparatedIdListGenerator([
+        tipId,
+        ariaDescribedby
+      ])
     };
 
     const { label, onClick, ...otherButtonProps } = buttonProps || {};

@@ -14,6 +14,10 @@ import {
 import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator
+} from '../../utils';
+import {
   Container,
   CustomStyles,
   Label,
@@ -99,15 +103,19 @@ const SelectInner = <IsMulti extends boolean = false>(
   const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
 
   const hasLabel = !!label;
-  const hasTip = !!tip;
   const hasErrorMessage = !!errorMessage;
-  const tipId = hasTip ? `${uniqueId}-tip` : undefined;
-  const errorMessageId = hasErrorMessage
-    ? `${uniqueId}-errorMessage`
-    : undefined;
+  const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
+  const errorMessageId = derivativeIdGenerator(
+    uniqueId,
+    'errorMessage',
+    errorMessage
+  );
 
   const CustomInput = (props: InputProps<any, any>) => (
-    <Input {...props} aria-describedby={`${tipId}`} />
+    <Input
+      {...props}
+      aria-describedby={spaceSeparatedIdListGenerator([tipId, errorMessageId])}
+    />
   );
 
   const wrapperProps = {
@@ -154,7 +162,6 @@ const SelectInner = <IsMulti extends boolean = false>(
       NoOptionsMessage: NoOptionsMessageCustom,
       Input: CustomInput
     },
-    'aria-errormessage': errorMessageId,
     'aria-invalid': hasErrorMessage ? true : undefined,
 
     ...rest

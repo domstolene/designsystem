@@ -11,6 +11,10 @@ import {
   MessageContainer,
   TextArea
 } from './TextInput.styles';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator
+} from '../../utils';
 
 let nextUniqueId = 0;
 
@@ -31,6 +35,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       type = 'text',
       className,
       style,
+      'aria-describedby': ariaDescribedby,
       ...rest
     },
     ref
@@ -77,17 +82,17 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasErrorMessage = !!errorMessage;
     const hasTip = !!tip;
 
-    const characterCounterId = maxLength
-      ? `${uniqueId}-characterCounter`
-      : undefined;
-    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
-    const errorMessageId = hasErrorMessage
-      ? `${uniqueId}-errorMessage`
-      : undefined;
-
-    const describedByIds = [];
-    if (characterCounterId) describedByIds.push(characterCounterId);
-    if (tipId) describedByIds.push(tipId);
+    const characterCounterId = derivativeIdGenerator(
+      uniqueId,
+      'characterCounter',
+      maxLength
+    );
+    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
+    const errorMessageId = derivativeIdGenerator(
+      uniqueId,
+      'errorMessage',
+      errorMessage
+    );
 
     const generalInputProps = {
       id: uniqueId,
@@ -98,9 +103,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       readOnly,
       tabIndex: readOnly ? -1 : 0,
       maxLength,
-      'aria-describedby':
-        describedByIds.length > 0 ? describedByIds.join(' ') : undefined,
-      'aria-errormessage': errorMessageId,
+      'aria-describedby': spaceSeparatedIdListGenerator([
+        tipId,
+        errorMessageId,
+        characterCounterId,
+        ariaDescribedby
+      ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
       ...rest
     };
