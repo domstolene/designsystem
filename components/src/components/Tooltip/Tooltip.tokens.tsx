@@ -11,8 +11,7 @@ const {
 } = ddsBaseTokens;
 
 const wrapperBase: CSSObject = {
-  //   border: `${Border.BordersDdsBorderStyleLightStroke} solid ${Border.BordersDdsBorderFocusBaseStrokeWeight}`,
-  border: `1px solid ${Colors.DdsColorPrimaryLighter}`,
+  border: `${Border.BordersDdsBorderStyleLightStroke} solid ${Border.BordersDdsBorderFocusBaseStrokeWeight}`,
   backgroundColor: Colors.DdsColorNeutralsWhite,
   ...FontPackages.body_sans_02.base,
   padding: `${Spacing.SizesDdsSpacingLocalX075}`,
