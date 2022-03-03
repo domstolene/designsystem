@@ -27,15 +27,15 @@ describe('<TextInput />', () => {
       `${id}-tip`
     );
   });
-  it('should have aria-errormessage when errorMessage provided', () => {
+  it('should have aria-describedby when errorMessage provided', () => {
     const id = 'id';
-    const errorMessage = 'this is a errorMessage';
+    const errorMessage = 'this is an errorMessage';
     render(<TextInput id={id} errorMessage={errorMessage} />);
     expect(screen.getByRole('textbox')).toHaveAttribute(
-      'aria-errormessage',
+      'aria-describedby',
       `${id}-errorMessage`
     );
-    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid');
+    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
   });
   it('renders error message instead of tip when both are provided', () => {
     const tip = 'this is a tip';
