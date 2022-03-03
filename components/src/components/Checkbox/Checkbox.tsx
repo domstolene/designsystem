@@ -3,6 +3,7 @@ import { Typography } from '../Typography';
 import { CustomCheckbox, Input, Container } from './Checkbox.styles';
 import { CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
+import { spaceSeparatedIdListGenerator } from '../../utils';
 
 let nextUniqueId = 0;
 
@@ -36,12 +37,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       className,
       style
     };
-
-    const describedbyIds = [];
-    if (checkboxGroup?.tipId) describedbyIds.push(checkboxGroup?.tipId);
-    if (checkboxGroup?.errorMessageId)
-      describedbyIds.push(checkboxGroup?.errorMessageId);
-    if (ariaDescribedby) describedbyIds.push(ariaDescribedby);
     type AriaChecked = 'mixed' | boolean | undefined;
 
     const inputProps = {
@@ -50,8 +45,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       name,
       indeterminate,
       disabled: disabled || readOnly,
-      'aria-describedby':
-        describedbyIds.length > 0 ? describedbyIds.join(' ') : undefined,
+      'aria-describedby': spaceSeparatedIdListGenerator([
+        checkboxGroup?.tipId,
+        checkboxGroup?.errorMessageId,
+        ariaDescribedby
+      ]),
       'aria-invalid': error || checkboxGroup?.error ? true : undefined,
       'aria-labelledby': checkboxGroup?.uniqueGroupId,
       'aria-checked': indeterminate ? ('mixed' as AriaChecked) : undefined,

@@ -5,6 +5,7 @@ import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import { checkboxGroupTokens as tokens } from './CheckboxGroup.tokens';
 import { CheckboxGroupContext } from './CheckboxGroupContext';
 import { Typography } from '../Typography';
+import { derivativeIdGenerator } from '../../utils';
 
 const Container = styled.div`
   display: flex;
@@ -58,11 +59,12 @@ export const CheckboxGroup = ({
     groupId ?? `checkboxGroup-${nextUniqueGroupId++}`
   );
   const hasErrorMessage = !!errorMessage;
-  const errorMessageId = hasErrorMessage
-    ? `${uniqueGroupId}-errorMessage`
-    : undefined;
-  const hasTip = !!tip;
-  const tipId = hasTip ? `${uniqueGroupId}-tip` : undefined;
+  const errorMessageId = derivativeIdGenerator(
+    uniqueGroupId,
+    'errorMessage',
+    errorMessage
+  );
+  const tipId = derivativeIdGenerator(uniqueGroupId, 'tip', tip);
 
   const contextProps = {
     error: hasErrorMessage,
