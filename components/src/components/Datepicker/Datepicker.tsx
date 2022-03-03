@@ -10,6 +10,10 @@ import {
 } from '../../helpers/Input';
 import * as CSS from 'csstype';
 import styled from 'styled-components';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator
+} from '../../utils';
 
 const getWidth = (type: string): CSS.WidthProperty<string> => {
   return type === 'date'
@@ -43,6 +47,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       tip,
       style,
       className,
+      'aria-describedby': ariaDescribedby,
       ...rest
     },
     ref
@@ -53,11 +58,12 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
 
     const componentWidth = width ? width : getWidth(type);
     const hasErrorMessage = !!errorMessage;
-    const hasTip = !!tip;
-    const errorMessageId = hasErrorMessage
-      ? `${uniqueId}-errorMessage`
-      : undefined;
-    const tipId = hasTip ? `${uniqueId}-tip` : undefined;
+    const errorMessageId = derivativeIdGenerator(
+      uniqueId,
+      'errorMessage',
+      errorMessage
+    );
+    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
 
     const inputProps = {
       label,
@@ -68,8 +74,11 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       required,
       disabled,
       type,
-      'aria-describedby': tipId,
-      'aria-errormessage': errorMessageId,
+      'aria-describedby': spaceSeparatedIdListGenerator([
+        tipId,
+        errorMessageId,
+        ariaDescribedby
+      ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
       ...rest
     };

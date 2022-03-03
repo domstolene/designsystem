@@ -67,12 +67,13 @@ export const TextInputOverview = (args: TextInputProps) => {
       <TextInput
         {...args}
         label={args.label || 'Label'}
-        tip={args.tip || 'Dette er en hjelpetekst med character count'}
+        autoComplete="off"
+        tip={args.tip || 'Dette er en hjelpetekst med en tegnteller'}
         maxLength={20}
       />
       <TextInput
         {...args}
-        tip={args.tip || 'Dette er en hjelpetekst med character count'}
+        tip={args.tip || 'Dette er en hjelpetekst med en tegnteller'}
         maxLength={20}
       />
     </StoryTemplate>

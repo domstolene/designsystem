@@ -19,15 +19,20 @@ describe('<Select />', () => {
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toHaveAttribute('aria-describedby', `${id}-tip`);
   });
-  it('should have aria-errormessage and aria-invalid when errorMessage provided', () => {
+  it('should have aria-describedby and aria-invalid when errorMessage provided', () => {
+    const id = 'id';
     render(
       <Select
         options={[{ label: 'label', value: 'item' }]}
         errorMessage="error"
+        id={id}
       />
     );
     const inputElement = screen.getByRole('combobox');
-    expect(inputElement).toHaveAttribute('aria-errormessage');
-    expect(inputElement).toHaveAttribute('aria-invalid');
+    expect(inputElement).toHaveAttribute(
+      'aria-describedby',
+      `${id}-errorMessage`
+    );
+    expect(inputElement).toHaveAttribute('aria-invalid', 'true');
   });
 });
