@@ -258,6 +258,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
           {withSelect && (
             <Select
               options={selectOptions}
+              isSearchable={false}
               width="76px"
               defaultValue={{
                 label: itemsPerPage.toString(),
