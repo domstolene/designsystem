@@ -44,6 +44,40 @@ export const Overview = (args: CheckboxGroupProps) => {
         <DDSCheckbox label="Option 2" />
         <DDSCheckbox label="Option 3" />
       </DDSCheckboxGroup>
+      <DDSCheckboxGroup {...args} label={args.label || 'Label'} required>
+        <DDSCheckbox label="Option 1" />
+        <DDSCheckbox label="Option 2" />
+        <DDSCheckbox label="Option 3" />
+      </DDSCheckboxGroup>
+      <DDSCheckboxGroup
+        {...args}
+        label={args.label || 'Label'}
+        direction="column"
+        required
+      >
+        <DDSCheckbox label="Option 1" />
+        <DDSCheckbox label="Option 2" />
+        <DDSCheckbox label="Option 3" />
+      </DDSCheckboxGroup>
+      <DDSCheckboxGroup
+        {...args}
+        label={args.label || 'Label'}
+        tip="Dette er en hjelpetekst"
+      >
+        <DDSCheckbox label="Option 1" />
+        <DDSCheckbox label="Option 2" />
+        <DDSCheckbox label="Option 3" />
+      </DDSCheckboxGroup>
+      <DDSCheckboxGroup
+        {...args}
+        label={args.label || 'Label'}
+        direction="column"
+        tip="Dette er en hjelpetekst"
+      >
+        <DDSCheckbox label="Option 1" />
+        <DDSCheckbox label="Option 2" />
+        <DDSCheckbox label="Option 3" />
+      </DDSCheckboxGroup>
       <DDSCheckboxGroup
         {...args}
         label={args.label || 'Label'}
@@ -57,6 +91,27 @@ export const Overview = (args: CheckboxGroupProps) => {
         {...args}
         label={args.label || 'Label'}
         direction="column"
+        errorMessage="Dette er en feilmelding"
+      >
+        <DDSCheckbox error label="Option 1" />
+        <DDSCheckbox error label="Option 2" />
+        <DDSCheckbox error label="Option 3" />
+      </DDSCheckboxGroup>
+      <DDSCheckboxGroup
+        {...args}
+        label={args.label || 'Label'}
+        tip="Dette er en hjelpetekst"
+        errorMessage="Dette er en feilmelding"
+      >
+        <DDSCheckbox error label="Option 1" />
+        <DDSCheckbox error label="Option 2" />
+        <DDSCheckbox error label="Option 3" />
+      </DDSCheckboxGroup>
+      <DDSCheckboxGroup
+        {...args}
+        label={args.label || 'Label'}
+        direction="column"
+        tip="Dette er en hjelpetekst"
         errorMessage="Dette er en feilmelding"
       >
         <DDSCheckbox error label="Option 1" />
