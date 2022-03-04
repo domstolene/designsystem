@@ -138,6 +138,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
           onClose && onClose();
         }}
         size="small"
+        aria-label="Lukk melding"
       />
     );
 
