@@ -15,12 +15,6 @@ const isFontFamily =
   FontPackages.body_sans_02.base &&
   FontPackages.body_sans_02.base.fontFamily;
 
-const isSecondaryFontFamily =
-  FontPackages &&
-  FontPackages.body_serif_02 &&
-  FontPackages.body_serif_02.base &&
-  FontPackages.body_serif_02.base.fontFamily;
-
 export default create({
   base: 'light',
 
@@ -34,11 +28,9 @@ export default create({
   textColor: Colors.DdsColorNeutralsGray9,
 
   // Typography
-  fontBase: isFontFamily
-    ? FontPackages.body_sans_02.base.fontFamily
-    : isSecondaryFontFamily
-    ? FontPackages.body_serif_02.base.fontFamily
-    : 'Georgia, serif',
+  fontBase: `${
+    isFontFamily && FontPackages.body_sans_02.base.fontFamily + ', '
+  }'Trebuchet MS', sans-serif`,
   fontCode: 'monospace',
 
   //UI
