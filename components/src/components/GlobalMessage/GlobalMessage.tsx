@@ -86,6 +86,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
                 onClose && onClose();
               }}
               size="small"
+              aria-label="Lukk melding"
             />
           )}
         </ControlsContainer>
