@@ -51,7 +51,7 @@ export const SortCell = forwardRef<HTMLTableCellElement, SortCellProps>(
     >
       <StyledButton
         onClick={onClick}
-        aria-description={`Aktiver for å endre sorteringsrekkefølge`}
+        aria-description="Aktiver for å endre sorteringsrekkefølge"
       >
         {children} {makeSortIcon(isSorted, sortOrder)}
       </StyledButton>
