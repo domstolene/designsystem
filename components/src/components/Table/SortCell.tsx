@@ -6,19 +6,16 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import styled from 'styled-components';
+import { removeButtonStyling } from '../../helpers/styling';
 
 const SortIconWrapper = styled(IconWrapper)`
   ${tokens.head.sortCell.icon.base}
 `;
 
 const StyledButton = styled.button`
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
+  ${removeButtonStyling}
+  display: flex;
+  align-items: center;
 `;
 
 export type SortOrder = 'ascending' | 'descending';

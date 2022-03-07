@@ -9,6 +9,7 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
+import { removeButtonStyling } from '../../helpers/styling';
 
 export default {
   title: 'design system/Popover',
@@ -155,13 +156,7 @@ export const Overflow = (args: PopoverProps) => {
 
 export const InlineExample = (args: PopoverProps) => {
   const Trigger = styled.button`
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
+    ${removeButtonStyling}
     text-decoration: underline;
     color: ${ddsBaseTokens.colors.DdsColorInteractiveBase};
     &:hover {
