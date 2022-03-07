@@ -14,7 +14,8 @@ const {
 const { textInput: TextInput } = ddsReferenceTokens;
 
 const inputBase: CSSObject = {
-  border: ` ${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray5}`
+  border: ` ${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray5}`,
+  backgroundColor: Colors.DdsColorNeutralsWhite
 };
 
 const inputWithLabelBase: CSSObject = {
