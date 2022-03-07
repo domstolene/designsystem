@@ -14,6 +14,7 @@ export const inputStyling = ({
     ${inputFieldStylingBase}
     ${tokens.base}
     box-sizing: border-box;
+    -webkit-appearance: textfield;
     ${label
       ? css`
           ${tokens.withLabel.base}
