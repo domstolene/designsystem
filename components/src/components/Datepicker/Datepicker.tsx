@@ -37,13 +37,10 @@ const StyledInput = styled(Input)`
     padding: 0;
     top: 50%;
     transform: translate(0, -50%);
-    transition: 0.2;
     box-sizing: border-box;
   }
 
   ::-webkit-calendar-picker-indicator:focus-visible {
-    outline: none;
-    padding: 0;
     ${tokens.calendarIndicator.focus.base}
   }
 
