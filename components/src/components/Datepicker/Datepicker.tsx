@@ -27,6 +27,9 @@ const StyledInput = styled(Input)`
   ::-webkit-calendar-picker-indicator {
     margin-left: 0px;
   }
+  ::-webkit-inner-spin-button {
+    display: none;
+  }
 `;
 
 export type DatepickerProps = InputProps;
