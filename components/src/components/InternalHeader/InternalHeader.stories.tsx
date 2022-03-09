@@ -44,6 +44,8 @@ const navigationLinks = [
   longNavigationLink
 ];
 
+const shortNavigationLinks = [navigationLink, navigationLink, navigationLink];
+
 const user = {
   name: 'Navn Navnesen'
 };
@@ -149,7 +151,7 @@ export const WithCurrentPage = (args: InternalHeaderProps) => {
 export const NoStoryHeading = (args: InternalHeaderProps) => (
   <InternalHeader
     applicationName="Navn på applikasjon"
-    navigationElements={navigationLinks}
+    navigationElements={shortNavigationLinks}
     contextMenuElements={menuElements}
     userProps={user}
     {...args}
