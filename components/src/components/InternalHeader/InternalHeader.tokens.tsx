@@ -102,6 +102,11 @@ const contextMenuDividerBase: CSSObject = {
   marginLeft: Spacing.SizesDdsSpacingLocalX15
 };
 
+const contextGroupBase: CSSObject = {
+  right: Spacing.SizesDdsSpacingLocalX075,
+  top: Spacing.SizesDdsSpacingLocalX025
+};
+
 export const internalHeaderTokens = {
   wrapper: {
     base: wrapperBase
@@ -157,5 +162,8 @@ export const internalHeaderTokens = {
   },
   icon: {
     base: iconBase
+  },
+  contextGroup: {
+    base: contextGroupBase
   }
 };

@@ -6,6 +6,7 @@ import { Divider } from '../Divider';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 
 export const Wrapper = styled.div`
+  position: relative;
   *::selection {
     ${typographyTokens.selection.base}
   }
@@ -26,6 +27,8 @@ export const BannerLeftWrapper = styled.div`
 `;
 
 export const ApplicationNameWrapper = styled.div`
+  display: flex;
+  align-items: center;
   ${tokens.applicationNameWrapper.base}
 `;
 export const LovisaWrapper = styled.div`
@@ -57,8 +60,8 @@ export const ContextMenuWrapper = styled.div<ContextMenuWrapperProps>`
   box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  top: calc(100% - 2px);
-  right: ${tokens.banner.base.paddingRight};
+  top: 100%;
+  right: 0;
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;
@@ -80,4 +83,9 @@ export const ContextMenuList = styled.ul`
 
 export const StyledDivider = styled(Divider)`
   ${tokens.contextMenuDivider.base}
+`;
+
+export const ContextMenuGroup = styled.div`
+  position: absolute;
+  ${tokens.contextGroup.base}
 `;

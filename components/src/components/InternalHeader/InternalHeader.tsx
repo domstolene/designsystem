@@ -16,7 +16,8 @@ import {
   BannerWrapper,
   BannerLeftWrapper,
   LovisaWrapper,
-  ApplicationNameWrapper
+  ApplicationNameWrapper,
+  ContextMenuGroup
 } from './InternalHeader.styles';
 
 import { NavigationItem } from './NavigationItem';
@@ -235,7 +236,10 @@ export const InternalHeader = ({
             </Typography>
           </ApplicationNameWrapper>
         </BannerLeftWrapper>
-        {(hasInteractiveContextMenuElements || userProps) && (
+      </BannerWrapper>
+      {!smallScreen && navigation}
+      {(hasInteractiveContextMenuElements || userProps) && (
+        <ContextMenuGroup>
           <Button
             ref={buttonRef}
             Icon={
@@ -250,10 +254,9 @@ export const InternalHeader = ({
             aria-expanded={!contextMenuIsClosed ? true : undefined}
             aria-label="åpne meny"
           />
-        )}
-        {smallScreen ? contextMenuSmallScreen() : contextMenu}
-      </BannerWrapper>
-      {!smallScreen && navigation}
+          {smallScreen ? contextMenuSmallScreen() : contextMenu}
+        </ContextMenuGroup>
+      )}
     </Wrapper>
   );
 };
