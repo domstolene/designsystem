@@ -46,6 +46,7 @@ export const inputFieldStylingBase = () => {
     &[type='date'],
     &[type='url'],
     &[type='email'],
+    &[type='search'],
     &[type='datetime-local'] {
       -webkit-appearance: none;
     }
