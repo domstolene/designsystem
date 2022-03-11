@@ -24,6 +24,7 @@ const getWidth = (type: string): CSS.WidthProperty<string> => {
 };
 
 const StyledInput = styled(Input)`
+  min-height: 76px;
   ::-webkit-calendar-picker-indicator {
     margin-left: 0px;
   }
@@ -69,6 +70,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
 
     const inputProps = {
+      id: uniqueId,
       label,
       hasErrorMessage,
       ref,
