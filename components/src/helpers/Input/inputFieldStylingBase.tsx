@@ -39,6 +39,16 @@ export const inputFieldStylingBase = () => {
     margin: 0;
     padding: 0;
     transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
+    &[type='text'],
+    &[type='password'],
+    &[type='number'],
+    &[type='tel'],
+    &[type='date'],
+    &[type='url'],
+    &[type='email'],
+    &[type='datetime-local'] {
+      -webkit-appearance: none;
+    }
     &::selection {
       ${typographyTokens.selection.base}
     }
