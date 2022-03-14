@@ -27,11 +27,7 @@
         {
           "destination": "_spacing.scss",
           "format": "scss/variables",
-          "filter": {
-            "attributes": {
-              "category": "sizes"
-            }
-          }
+          "filter": "spacingFilter"
         },
         {
           "destination": "_iconSize.scss",
@@ -107,11 +103,7 @@
         {
           "destination": "spacing.css",
           "format": "css/variables",
-          "filter": {
-            "attributes": {
-              "category": "sizes"
-            }
-          }
+          "filter": "spacingFilter"
         },
         {
           "destination": "iconSize.css",
@@ -196,11 +188,7 @@
         {
           "destination": "spacing.ts",
           "format": "custom/javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "sizes"
-            }
-          }
+          "filter": "spacingFilter"
         },
         {
           "destination": "iconSize.ts",
