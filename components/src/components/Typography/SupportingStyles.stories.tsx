@@ -30,6 +30,9 @@ export const Supporting = () => {
       <DDSTypography typographyType="supportingStyleTiny01">
         supportingStyleTiny01
       </DDSTypography>
+      <DDSTypography typographyType="supportingStyleTiny02">
+        supportingStyleTiny02
+      </DDSTypography>
     </StoryTemplate>
   );
 };

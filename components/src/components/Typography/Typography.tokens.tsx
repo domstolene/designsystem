@@ -53,14 +53,13 @@ export const textColorsArray = [
 
 const aBase: CSSObject = {
   color: Colors.DdsColorInteractiveBase,
-  // ...FontPackages.body_sans_02.base,
   font: 'inherit',
   textDecoration: 'underline',
   width: 'fit-content'
 };
 
 const aMarginsBase: CSSObject = {
-  marginTop: FontPackages.body_sans_02.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_sans_02.paragraph.paragraphSpacing
 };
 
@@ -98,8 +97,9 @@ const headingSans01Base: CSSObject = {
 };
 
 const headingSans01MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_01.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_01.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_01.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans01Top
 };
 
 const headingSans02Base: CSSObject = {
@@ -108,8 +108,9 @@ const headingSans02Base: CSSObject = {
 };
 
 const headingSans02MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_02.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_02.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_02.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans02Top
 };
 
 const headingSans03Base: CSSObject = {
@@ -118,8 +119,9 @@ const headingSans03Base: CSSObject = {
 };
 
 const headingSans03MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_03.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_03.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_03.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans03Top
 };
 
 const headingSans04Base: CSSObject = {
@@ -128,8 +130,9 @@ const headingSans04Base: CSSObject = {
 };
 
 const headingSans04MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_04.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_04.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_04.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans04Top
 };
 
 const headingSans05Base: CSSObject = {
@@ -138,8 +141,9 @@ const headingSans05Base: CSSObject = {
 };
 
 const headingSans05MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_05.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_05.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_05.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans05Top
 };
 
 const headingSans06Base: CSSObject = {
@@ -148,8 +152,9 @@ const headingSans06Base: CSSObject = {
 };
 
 const headingSans06MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_06.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_06.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_06.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans06Top
 };
 
 const headingSans07Base: CSSObject = {
@@ -158,8 +163,9 @@ const headingSans07Base: CSSObject = {
 };
 
 const headingSans07MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_07.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_07.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_07.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans07Top
 };
 
 const headingSans08Base: CSSObject = {
@@ -168,8 +174,9 @@ const headingSans08Base: CSSObject = {
 };
 
 const headingSans08MarginsBase: CSSObject = {
-  marginTop: FontPackages.heading_sans_08.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.heading_sans_08.paragraph.paragraphSpacing
+  marginTop: 0,
+  marginBottom: FontPackages.heading_sans_08.paragraph.paragraphSpacing,
+  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans08Top
 };
 
 const bodySans01Base: CSSObject = {
@@ -178,7 +185,7 @@ const bodySans01Base: CSSObject = {
 };
 
 const bodySans01MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_sans_01.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_sans_01.paragraph.paragraphSpacing
 };
 
@@ -188,7 +195,7 @@ const bodySans02Base: CSSObject = {
 };
 
 const bodySans02MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_sans_02.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_sans_02.paragraph.paragraphSpacing
 };
 
@@ -198,7 +205,7 @@ const bodySans03Base: CSSObject = {
 };
 
 const bodySans03MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_sans_03.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_sans_03.paragraph.paragraphSpacing
 };
 
@@ -208,7 +215,7 @@ const bodySans04Base: CSSObject = {
 };
 
 const bodySans04MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_sans_04.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_sans_04.paragraph.paragraphSpacing
 };
 
@@ -218,7 +225,7 @@ const bodySerif01Base: CSSObject = {
 };
 
 const bodySerif01MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_serif_01.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_serif_01.paragraph.paragraphSpacing
 };
 
@@ -228,7 +235,7 @@ const bodySerif02Base: CSSObject = {
 };
 
 const bodySerif02MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_serif_02.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_serif_02.paragraph.paragraphSpacing
 };
 
@@ -238,7 +245,7 @@ const bodySerif03Base: CSSObject = {
 };
 
 const bodySerif03MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_serif_03.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_serif_03.paragraph.paragraphSpacing
 };
 
@@ -248,7 +255,7 @@ const bodySerif04Base: CSSObject = {
 };
 
 const bodySerif04MarginsBase: CSSObject = {
-  marginTop: FontPackages.body_serif_04.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.body_serif_04.paragraph.paragraphSpacing
 };
 
@@ -258,7 +265,7 @@ const leadSans01Base: CSSObject = {
 };
 
 const leadSans01MarginsBase: CSSObject = {
-  marginTop: FontPackages.lead_sans_01.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.lead_sans_01.paragraph.paragraphSpacing
 };
 
@@ -268,7 +275,7 @@ const leadSans02Base: CSSObject = {
 };
 
 const leadSans02MarginsBase: CSSObject = {
-  marginTop: FontPackages.lead_sans_02.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.lead_sans_02.paragraph.paragraphSpacing
 };
 
@@ -278,7 +285,7 @@ const leadSans03Base: CSSObject = {
 };
 
 const leadSans03MarginsBase: CSSObject = {
-  marginTop: FontPackages.lead_sans_03.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.lead_sans_03.paragraph.paragraphSpacing
 };
 
@@ -288,7 +295,7 @@ const leadSans04Base: CSSObject = {
 };
 
 const leadSans04MarginsBase: CSSObject = {
-  marginTop: FontPackages.lead_sans_04.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.lead_sans_04.paragraph.paragraphSpacing
 };
 
@@ -298,7 +305,7 @@ const leadSans05Base: CSSObject = {
 };
 
 const leadSans05MarginsBase: CSSObject = {
-  marginTop: FontPackages.lead_sans_05.paragraph.paragraphSpacing,
+  marginTop: 0,
   marginBottom: FontPackages.lead_sans_05.paragraph.paragraphSpacing
 };
 
@@ -387,6 +394,17 @@ const supportingStyleTiny01Base: CSSObject = {
 const supportingStyleTiny01MarginsBase: CSSObject = {
   marginTop: FontPackages.supportingStyle_tiny_01.paragraph.paragraphSpacing,
   marginBottom: FontPackages.supportingStyle_tiny_01.paragraph.paragraphSpacing
+};
+
+const supportingStyleTiny02Base: CSSObject = {
+  color: textDefault.textColor,
+  ...FontPackages.supportingStyle_tiny_02.base,
+  margin: 0
+};
+
+const supportingStyleTiny02MarginsBase: CSSObject = {
+  marginTop: FontPackages.supportingStyle_tiny_02.paragraph.paragraphSpacing,
+  marginBottom: FontPackages.supportingStyle_tiny_02.paragraph.paragraphSpacing
 };
 
 const selectionBase: CSSObject = {
@@ -583,6 +601,12 @@ export const typographyTokens = {
       base: supportingStyleTiny01Base,
       margins: {
         base: supportingStyleTiny01MarginsBase
+      }
+    },
+    supportingStyleTiny02: {
+      base: supportingStyleTiny02Base,
+      margins: {
+        base: supportingStyleTiny02MarginsBase
       }
     }
   },
