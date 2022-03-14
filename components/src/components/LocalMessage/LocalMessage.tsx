@@ -107,16 +107,16 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
-      purpose: purpose,
-      width: width,
-      layout: layout,
-      ref: ref,
+      purpose,
+      width,
+      layout,
+      ref,
       ...rest
     };
 
     const contentContainerProps = {
-      layout: layout,
-      closable: closable
+      layout,
+      closable
     };
 
     const messageIconWrapper = (
