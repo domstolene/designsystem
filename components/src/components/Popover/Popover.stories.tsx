@@ -34,7 +34,13 @@ export const ContentOverview = (args: PopoverProps) => {
         <PopoverGroup>
           <Button label="Åpne" />
           <Popover {...args} title="Tittel">
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                paddingTop: '16px'
+              }}
+            >
               <Typography withMargins>
                 Dette er en popover med tittel, innhold og lukkeknapp
               </Typography>
