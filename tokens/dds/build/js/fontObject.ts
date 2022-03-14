@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 11 Feb 2022 13:10:58 GMT
+ * Generated on Mon, 14 Mar 2022 12:29:21 GMT
  */
 
  export const ddsStyles = {
@@ -8,11 +8,11 @@
     "heading": {
       "sans-01": {
         "fontSize": {
-          "value": 14,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 14,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -157,11 +157,11 @@
           ]
         },
         "letterSpacing": {
-          "value": "0.01em",
+          "value": "0em",
           "type": "number",
           "unit": "percent",
           "original": {
-            "value": 1,
+            "value": 0,
             "type": "number",
             "unit": "percent"
           },
@@ -226,11 +226,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 14,
+          "value": 6.400000095367432,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 14,
+            "value": 6.400000095367432,
             "type": "number",
             "unit": "pixel"
           },
@@ -272,11 +272,11 @@
       },
       "sans-02": {
         "fontSize": {
-          "value": 16,
+          "value": 18,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 16,
+            "value": 18,
             "type": "number",
             "unit": "pixel"
           },
@@ -490,11 +490,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": 7.199999809265137,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 16,
+            "value": 7.199999809265137,
             "type": "number",
             "unit": "pixel"
           },
@@ -754,11 +754,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": 9.600000381469727,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 16,
+            "value": 9.600000381469727,
             "type": "number",
             "unit": "pixel"
           },
@@ -1018,11 +1018,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 21,
+          "value": 12.800000190734863,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 21,
+            "value": 12.800000190734863,
             "type": "number",
             "unit": "pixel"
           },
@@ -1282,11 +1282,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 26,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 26,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -1546,11 +1546,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 24,
+          "value": 19.200000762939453,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 24,
+            "value": 19.200000762939453,
             "type": "number",
             "unit": "pixel"
           },
@@ -1810,11 +1810,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 32,
+          "value": 25.600000381469727,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 32,
+            "value": 25.600000381469727,
             "type": "number",
             "unit": "pixel"
           },
@@ -2074,11 +2074,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 40,
+          "value": 32,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 40,
+            "value": 32,
             "type": "number",
             "unit": "pixel"
           },
@@ -7400,6 +7400,270 @@
             "$dds-font",
             "supporting-style",
             "tiny-01",
+            "textCase"
+          ]
+        }
+      },
+      "tiny-02": {
+        "fontSize": {
+          "value": 12,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 12,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStyleTiny02FontSize",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "fontSize"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "fontSize"
+          ]
+        },
+        "textDecoration": {
+          "value": "none",
+          "type": "string",
+          "original": {
+            "value": "none",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStyleTiny02TextDecoration",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "textDecoration"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "textDecoration"
+          ]
+        },
+        "fontFamily": {
+          "value": "IBM Plex Sans",
+          "type": "string",
+          "original": {
+            "value": "IBM Plex Sans",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStyleTiny02FontFamily",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "fontFamily"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "fontFamily"
+          ]
+        },
+        "fontWeight": {
+          "value": 300,
+          "type": "number",
+          "original": {
+            "value": 300,
+            "type": "number"
+          },
+          "name": "DdsFontSupportingStyleTiny02FontWeight",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "fontWeight"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "fontWeight"
+          ]
+        },
+        "fontStyle": {
+          "value": "normal",
+          "type": "string",
+          "original": {
+            "value": "normal",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStyleTiny02FontStyle",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "fontStyle"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "fontStyle"
+          ]
+        },
+        "fontStretch": {
+          "value": "normal",
+          "type": "string",
+          "original": {
+            "value": "normal",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStyleTiny02FontStretch",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "fontStretch"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "fontStretch"
+          ]
+        },
+        "_fontStyleOld": {
+          "value": "Light",
+          "type": "string",
+          "original": {
+            "value": "Light",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStyleTiny02FontStyleOld",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "_fontStyleOld"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "_fontStyleOld"
+          ]
+        },
+        "letterSpacing": {
+          "value": "0.01em",
+          "type": "number",
+          "unit": "percent",
+          "original": {
+            "value": 1,
+            "type": "number",
+            "unit": "percent"
+          },
+          "name": "DdsFontSupportingStyleTiny02LetterSpacing",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "letterSpacing"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "letterSpacing"
+          ]
+        },
+        "lineHeight": {
+          "value": "1.5em",
+          "type": "number",
+          "unit": "percent",
+          "original": {
+            "value": 150,
+            "type": "number",
+            "unit": "percent"
+          },
+          "name": "DdsFontSupportingStyleTiny02LineHeight",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "lineHeight"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "lineHeight"
+          ]
+        },
+        "paragraphIndent": {
+          "value": 0,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 0,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStyleTiny02ParagraphIndent",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "paragraphIndent"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "paragraphIndent"
+          ]
+        },
+        "paragraphSpacing": {
+          "value": 12,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 12,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStyleTiny02ParagraphSpacing",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "paragraphSpacing"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "paragraphSpacing"
+          ]
+        },
+        "textCase": {
+          "value": "none",
+          "type": "string",
+          "original": {
+            "value": "none",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStyleTiny02TextCase",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "textCase"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
             "textCase"
           ]
         }
