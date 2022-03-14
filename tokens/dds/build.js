@@ -178,6 +178,10 @@ const isFontToken = (token) =>
   token.attributes.category === "$dds-font" &&
   token.path[token.path.length - 1] !== "_fontStyleOld";
 
+const isSpacingToken = (token) =>
+  token.attributes.category === "sizes" ||
+  token.attributes.category === "spacing";
+
 StyleDictionary.registerFilter({
   name: "bordersFilter",
   matcher: function (token) {
@@ -196,6 +200,12 @@ StyleDictionary.registerFilter({
   name: "fontFilter",
   matcher: function (token) {
     return token.value !== "" && isFontToken(token);
+  },
+});
+StyleDictionary.registerFilter({
+  name: "spacingFilter",
+  matcher: function (token) {
+    return token.value !== "" && isSpacingToken(token);
   },
 });
 
