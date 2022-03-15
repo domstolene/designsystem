@@ -1,7 +1,7 @@
 {
   "name": "@norges-domstoler/dds-components",
-  "version": "0.0.27",
-  "description": "React components used in Domstolenes designsystem",
+  "version": "0.0.28",
+  "description": "React components used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
   "repository": {
@@ -28,6 +28,7 @@
     "dds",
     "design",
     "tokens",
+    "design tokens",
     "design system",
     "domstolene",
     "norges domstoler",
