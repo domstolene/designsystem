@@ -38,7 +38,8 @@ export type TypographySupportingType =
   | 'supportingStyleInputText03'
   | 'supportingStyleHelperText01'
   | 'supportingStylePlaceholderText01'
-  | 'supportingStyleTiny01';
+  | 'supportingStyleTiny01'
+  | 'supportingStyleTiny02';
 
 export type TypographyType =
   | 'a'

@@ -133,17 +133,15 @@ export const ComplexContent = (args: LocalMessageProps) => {
         layout="vertical"
         closable
       >
-        <div>
-          <Typography typographyType="headingSans03" withMargins>
-            Dette er en viktig melding
-          </Typography>
-          <Typography withMargins>Meldingen har en liste i seg:</Typography>
-          <List>
-            <ListItem>Noe her</ListItem>
-            <ListItem>Og også her</ListItem>
-            <ListItem>Og litt mer info her</ListItem>
-          </List>
-        </div>
+        <Typography typographyType="headingSans03" withMargins>
+          Dette er en viktig melding
+        </Typography>
+        <Typography withMargins>Meldingen har en liste i seg:</Typography>
+        <List>
+          <ListItem>Noe her</ListItem>
+          <ListItem>Og også her</ListItem>
+          <ListItem>Og litt mer info her</ListItem>
+        </List>
       </DDSLocalMessage>
     </StoryTemplate>
   );

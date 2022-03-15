@@ -39,15 +39,16 @@ const MessageIconWrapper = styled(IconWrapper)`
 type ContentContainerProps = Pick<LocalMessageProps, 'closable' | 'layout'>;
 
 const ContentContainer = styled.div<ContentContainerProps>`
-  display: flex;
-  align-items: center;
   ${tokens.contentContainer.base}
   ${({ layout }) =>
     layout === 'vertical'
       ? css`
           ${tokens.contentContainer.vertical.base}
         `
-      : ''}
+      : css`
+          display: flex;
+          align-items: center;
+        `}
   ${({ closable }) =>
     closable &&
     css`
@@ -107,16 +108,16 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
-      purpose: purpose,
-      width: width,
-      layout: layout,
-      ref: ref,
+      purpose,
+      width,
+      layout,
+      ref,
       ...rest
     };
 
     const contentContainerProps = {
-      layout: layout,
-      closable: closable
+      layout,
+      closable
     };
 
     const messageIconWrapper = (

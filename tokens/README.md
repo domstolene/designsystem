@@ -93,4 +93,4 @@ Genererte variabler ligger i `/dds/build` organisert etter plattform.
 
 ### Build
 
-Det brukes custom build for generering av variabler, den ligger i `/dds/build.js`. I tillegg spesifiserer `/dds/config.json` hva output skal være og mappestruktur for den etter `npm run build` kjøres.
+Det brukes custom build for generering av variabler, den ligger i `/dds/build.js`. I tillegg spesifiserer `/dds/config.json` hva output skal være og mappestruktur for den etter `npm run build-tokens` kjøres.

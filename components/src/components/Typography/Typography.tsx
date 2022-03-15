@@ -54,6 +54,7 @@ const getElementType = (element: string): ElementType => {
     case 'supportingStyleHelperText01':
     case 'supportingStylePlaceholderText01':
     case 'supportingStyleTiny01':
+    case 'supportingStyleTiny02':
     default:
       return 'p';
   }

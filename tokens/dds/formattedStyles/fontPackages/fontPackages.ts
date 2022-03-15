@@ -46,4 +46,7 @@ export const fontPackages = {
   supportingStyle_tiny_01: fontPackageFormatter(
     prefix["supporting-style"]["tiny-01"]
   ),
+  supportingStyle_tiny_02: fontPackageFormatter(
+    prefix["supporting-style"]["tiny-02"]
+  ),
 };

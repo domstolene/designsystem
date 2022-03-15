@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-design-tokens",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Design tokens used in Domstolenes designsystem",
   "author": "DDS team",
   "license": "MIT",
@@ -18,9 +18,11 @@
     "dds",
     "design",
     "tokens",
+    "design tokens",
     "design system",
     "domstolene",
-    "norges domstoler"
+    "norges domstoler",
+    "elsa"
   ],
   "scripts": {
     "build": "rollup -c",
