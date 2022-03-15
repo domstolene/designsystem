@@ -3,7 +3,7 @@ import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import React, { ButtonHTMLAttributes } from 'react';
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
-export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonSize = 'tiny' | 'small' | 'medium' | 'large';
 export type ButtonAppearance = 'filled' | 'ghost' | 'rounded' | 'borderless';
 export type IconPosition = 'left' | 'right';
 

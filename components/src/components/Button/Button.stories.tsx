@@ -271,7 +271,18 @@ export const OverviewJustIcon = (args: ButtonProps) => {
 
 export const OverviewSizes = (args: ButtonProps) => {
   return (
-    <StoryTemplate title="Button overview - sizes" display="grid">
+    <StoryTemplate
+      title="Button overview - sizes"
+      display="grid"
+      columnsAmount={4}
+    >
+      <DDSButton
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="filled"
+        size="tiny"
+      />
       <DDSButton
         {...args}
         label="Primary"
@@ -292,6 +303,15 @@ export const OverviewSizes = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="large"
+      />
+      <DDSButton
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="filled"
+        size="tiny"
+        iconPosition={args.iconPosition || 'left'}
+        Icon={AddCircleOutlineOutlinedIcon}
       />
       <DDSButton
         {...args}
@@ -324,6 +344,13 @@ export const OverviewSizes = (args: ButtonProps) => {
         {...args}
         purpose="primary"
         appearance="filled"
+        size="tiny"
+        Icon={CloseOutlinedIcon}
+      />
+      <DDSButton
+        {...args}
+        purpose="primary"
+        appearance="filled"
         size="small"
         Icon={CloseOutlinedIcon}
       />
@@ -340,6 +367,209 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="large"
         Icon={CloseOutlinedIcon}
+      />
+    </StoryTemplate>
+  );
+};
+
+export const OverviewLoading = (args: ButtonProps) => {
+  return (
+    <StoryTemplate
+      title="Button overview - loading"
+      display="grid"
+      columnsAmount={4}
+    >
+      <DDSButton
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="filled"
+        size="tiny"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="filled"
+        size="small"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="filled"
+        size="medium"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="filled"
+        size="large"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="filled"
+        size="tiny"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="filled"
+        size="small"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="filled"
+        size="medium"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="filled"
+        size="large"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="filled"
+        size="tiny"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="filled"
+        size="small"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="filled"
+        size="medium"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="filled"
+        size="large"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="ghost"
+        size="tiny"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="ghost"
+        size="small"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="ghost"
+        size="medium"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="ghost"
+        size="large"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="ghost"
+        size="tiny"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="ghost"
+        size="small"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="ghost"
+        size="medium"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="secondary"
+        appearance="ghost"
+        size="large"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="ghost"
+        size="tiny"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="ghost"
+        size="small"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="ghost"
+        size="medium"
+        loading
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="danger"
+        appearance="ghost"
+        size="large"
+        loading
       />
     </StoryTemplate>
   );
@@ -382,6 +612,15 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         Icon={CloseOutlinedIcon}
+        fullWidth
+      />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="filled"
+        size="medium"
+        loading
         fullWidth
       />
     </StoryTemplate>
