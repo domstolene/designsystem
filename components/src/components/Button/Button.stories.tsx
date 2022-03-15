@@ -614,6 +614,15 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         Icon={CloseOutlinedIcon}
         fullWidth
       />
+      <DDSButton
+        {...args}
+        label="label"
+        purpose="primary"
+        appearance="filled"
+        size="medium"
+        loading
+        fullWidth
+      />
     </StoryTemplate>
   );
 };
