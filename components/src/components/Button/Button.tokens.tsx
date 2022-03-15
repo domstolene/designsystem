@@ -11,20 +11,35 @@ const {
   outerShadow: OuterShadow
 } = ddsBaseTokens;
 
+const iconSizeTinyPx = calculateHeightWithLineHeight(
+  FontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
+  FontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
+);
+
+const iconSizeSmallPx = calculateHeightWithLineHeight(
+  FontPackages.body_sans_01.numbers.lineHeightNumber,
+  FontPackages.body_sans_01.numbers.fontSizeNumber
+);
+
+const iconSizeMediumPx = calculateHeightWithLineHeight(
+  FontPackages.body_sans_02.numbers.lineHeightNumber,
+  FontPackages.body_sans_02.numbers.fontSizeNumber
+);
+const iconSizeLargePx = calculateHeightWithLineHeight(
+  FontPackages.body_sans_04.numbers.lineHeightNumber,
+  FontPackages.body_sans_04.numbers.fontSizeNumber
+);
+
+const svgOffset = Spacing.SizesDdsSpacingLocalX0125NumberPx;
+
 const justIconSmallBase: CSSObject = {
-  ...FontPackages.supportingStyle_inputtext_03.base,
+  fontSize: `${iconSizeSmallPx + svgOffset}px`,
   padding: Spacing.SizesDdsSpacingLocalX05
 };
 
 const justIconWrapperSmallBase: CSSObject = {
-  height: `${calculateHeightWithLineHeight(
-    FontPackages.body_sans_01.numbers.lineHeightNumber,
-    FontPackages.body_sans_01.numbers.fontSizeNumber
-  )}px`,
-  width: `${calculateHeightWithLineHeight(
-    FontPackages.body_sans_01.numbers.lineHeightNumber,
-    FontPackages.body_sans_01.numbers.fontSizeNumber
-  )}px`
+  height: `${iconSizeSmallPx}px`,
+  width: `${iconSizeSmallPx}px`
 };
 
 const textSmallBase: CSSObject = {
@@ -35,19 +50,13 @@ const textSmallBase: CSSObject = {
 };
 
 const justIconMediumBase: CSSObject = {
-  ...FontPackages.heading_sans_03.base,
+  fontSize: `${iconSizeMediumPx + svgOffset}px`,
   padding: Spacing.SizesDdsSpacingLocalX075
 };
 
 const justIconWrapperMediumBase: CSSObject = {
-  height: `${calculateHeightWithLineHeight(
-    FontPackages.body_sans_02.numbers.lineHeightNumber,
-    FontPackages.body_sans_02.numbers.fontSizeNumber
-  )}px`,
-  width: `${calculateHeightWithLineHeight(
-    FontPackages.body_sans_02.numbers.lineHeightNumber,
-    FontPackages.body_sans_02.numbers.fontSizeNumber
-  )}px`
+  height: `${iconSizeMediumPx}px`,
+  width: `${iconSizeMediumPx}px`
 };
 
 const textMediumBase: CSSObject = {
@@ -58,42 +67,31 @@ const textMediumBase: CSSObject = {
 };
 
 const justIconLargeBase: CSSObject = {
-  ...FontPackages.heading_sans_04.base,
+  fontSize: `${iconSizeLargePx + svgOffset}px`,
   padding: Spacing.SizesDdsSpacingLocalX1
 };
 
 const justIconWrapperLargeBase: CSSObject = {
-  height: `${calculateHeightWithLineHeight(
-    FontPackages.supportingStyle_inputtext_03.numbers.lineHeightNumber,
-    FontPackages.supportingStyle_inputtext_03.numbers.fontSizeNumber
-  )}px`,
-  width: `${calculateHeightWithLineHeight(
-    FontPackages.supportingStyle_inputtext_03.numbers.lineHeightNumber,
-    FontPackages.supportingStyle_inputtext_03.numbers.fontSizeNumber
-  )}px`
+  height: `${iconSizeLargePx}px`,
+  width: `${iconSizeLargePx}px`
 };
 
 const textLargeBase: CSSObject = {
-  ...FontPackages.supportingStyle_inputtext_03.base,
+  ...FontPackages.body_sans_04.base,
+
   padding: `${Spacing.SizesDdsSpacingLocalX1} ${
     Spacing.SizesDdsSpacingLocalX2NumberPx - 2
   }px`
 };
 
 const justIconTinyBase: CSSObject = {
-  ...FontPackages.body_sans_04.base,
+  fontSize: `${iconSizeTinyPx + svgOffset}px`,
   padding: Spacing.SizesDdsSpacingLocalX025
 };
 
 const justIconWrapperTinyBase: CSSObject = {
-  height: `${calculateHeightWithLineHeight(
-    FontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
-    FontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
-  )}px`,
-  width: `${calculateHeightWithLineHeight(
-    FontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
-    FontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
-  )}px`
+  height: `${iconSizeTinyPx}px`,
+  width: `${iconSizeTinyPx}px`
 };
 
 const textTinyBase: CSSObject = {
@@ -399,7 +397,7 @@ export const buttonTokens = {
       text: {
         base: textSmallBase
       },
-      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX025
+      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX05
     },
     medium: {
       justIcon: {
@@ -411,7 +409,7 @@ export const buttonTokens = {
       text: {
         base: textMediumBase
       },
-      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX05
+      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX075
     },
     large: {
       justIcon: {
@@ -423,7 +421,7 @@ export const buttonTokens = {
       text: {
         base: textLargeBase
       },
-      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX075
+      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX1
     },
     tiny: {
       justIcon: {
@@ -432,10 +430,10 @@ export const buttonTokens = {
       justIconWrapper: {
         base: justIconWrapperTinyBase
       },
-      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX025,
       text: {
         base: textTinyBase
-      }
+      },
+      iconWithTextMargin: Spacing.SizesDdsSpacingLocalX05
     }
   },
   appearance: {
