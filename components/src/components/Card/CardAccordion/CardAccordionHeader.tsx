@@ -1,14 +1,12 @@
-import {
-  forwardRef,
-  HTMLAttributes,
-  KeyboardEventHandler,
-  KeyboardEvent
-} from 'react';
+import { forwardRef, ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { cardAccordionHeaderTokens as tokens } from './CardAccordionHeader.tokens';
 import { AnimatedChevronUpDown } from '../../../helpers/Chevron';
+import { removeButtonStyling } from '../../../helpers/styling';
 
-const ContentWrapper = styled.div``;
+const ContentWrapper = styled.div`
+  text-align: left;
+`;
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -16,35 +14,41 @@ const HeaderContainer = styled.div`
   align-items: center;
   transition: box-shadow 0.2s;
   ${tokens.base}
-  &:focus {
-    outline: none;
-  }
 `;
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.button`
   position: relative;
   cursor: pointer;
   transition: box-shadow 0.2s;
+  ${removeButtonStyling}
+  display: block;
+  width: 100%;
   &:hover {
     ${tokens.hover.base}
   }
-  &:focus > ${HeaderContainer} {
+
+  &:focus-visible,
+  &.focus-visible {
     outline: none;
     ${tokens.focus.base}
   }
-  &:focus {
-    outline: none;
-  }
+`;
+
+const ChevronWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${tokens.chevronWrapper.base}
 `;
 
 export type CardAccordionHeaderProps = {
   isExpanded?: boolean;
   toggleExpanded?: () => void;
   bodyId?: string;
-} & HTMLAttributes<HTMLDivElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const CardAccordionHeader = forwardRef<
-  HTMLDivElement,
+  HTMLButtonElement,
   CardAccordionHeaderProps
 >(({ children, isExpanded = false, toggleExpanded, bodyId, ...rest }, ref) => {
   const handleClick = () => {
@@ -53,44 +57,28 @@ export const CardAccordionHeader = forwardRef<
     }
   };
 
-  const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = (
-    event: KeyboardEvent<HTMLDivElement>
-  ) => {
-    const { key } = event;
-    if (key === 'Enter' || key === ' ') {
-      if (toggleExpanded) {
-        toggleExpanded();
-      }
-      event.preventDefault();
-    }
-  };
-
-  const headerProps = {
-    tabIndex: 0,
+  const headerWrapperProps = {
+    'aria-expanded': isExpanded,
+    'aria-controls': bodyId,
     ref,
     role: 'button',
     onClick: handleClick,
-    onKeyDown: handleKeyDown,
     ...rest
   };
 
-  const headerContainerProps = {
-    tabIndex: -1
-  };
-
   const chevronProps = {
-    isUp: isExpanded
+    isUp: isExpanded,
+    width: tokens.chevron.width,
+    height: tokens.chevron.height
   };
 
   return (
-    <HeaderWrapper
-      aria-controls={bodyId}
-      aria-expanded={isExpanded}
-      {...headerProps}
-    >
-      <HeaderContainer {...headerContainerProps}>
+    <HeaderWrapper {...headerWrapperProps}>
+      <HeaderContainer>
         <ContentWrapper> {children} </ContentWrapper>
-        <AnimatedChevronUpDown {...chevronProps} />
+        <ChevronWrapper>
+          <AnimatedChevronUpDown {...chevronProps} />
+        </ChevronWrapper>
       </HeaderContainer>
     </HeaderWrapper>
   );

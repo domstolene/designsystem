@@ -39,6 +39,7 @@ export const cardAccordionHeaderTokens = {
     base: chevronWrapperBase
   },
   chevron: {
-    width: IconSizes.DdsIconsizeMedium
+    width: IconSizes.DdsIconsizeMedium,
+    height: Spacing.SizesDdsSpacingLocalX05
   }
 };
