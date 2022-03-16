@@ -4,7 +4,10 @@ import { CSSObject } from 'styled-components';
 const { spacing: Spacing, fontPackages: FontPackages } = ddsBaseTokens;
 
 const base: CSSObject = {
-  padding: `0 ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX1}`,
+  padding: `${Spacing.SizesDdsSpacingLocalX1} ${
+    Spacing.SizesDdsSpacingLocalX2NumberPx +
+    Spacing.SizesDdsSpacingLocalX075NumberPx
+  }px ${Spacing.SizesDdsSpacingLocalX2} ${Spacing.SizesDdsSpacingLocalX15}`,
   ...FontPackages.body_sans_03.base
 };
 
