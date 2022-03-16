@@ -61,7 +61,6 @@ export const CardAccordionHeader = forwardRef<
     'aria-expanded': isExpanded,
     'aria-controls': bodyId,
     ref,
-    role: 'button',
     onClick: handleClick,
     ...rest
   };
