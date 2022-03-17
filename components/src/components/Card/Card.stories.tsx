@@ -169,6 +169,24 @@ export const Accordion = (args: CardProps) => {
       </DDSCard>
       <DDSCard {...args} cardType="expandable">
         <DDSAccordion>
+          <CardAccordionHeader>Bli vitnestøtte?</CardAccordionHeader>
+          <CardAccordionBody paddingTop="4px">
+            <Typography typographyType="headingSans02" withMargins>
+              Opplæringsfilm
+            </Typography>
+            <Typography withMargins>
+              Film «Vitnestøtte» viser fire problemstillinger for hvordan man
+              møter vitner med ulike behov. Den viser både gode og mindre gode
+              løsninger, vitnestøtter kan diskutere.
+            </Typography>
+            <Typography>
+              Filmen viser altså ikke «beste praksis», men er en opplæringsfilm.
+            </Typography>
+          </CardAccordionBody>
+        </DDSAccordion>
+      </DDSCard>
+      <DDSCard {...args} cardType="expandable">
+        <DDSAccordion>
           <CardAccordionHeader>Header</CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
         </DDSAccordion>

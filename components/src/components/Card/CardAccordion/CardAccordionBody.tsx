@@ -1,28 +1,40 @@
 import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
+import * as CSS from 'csstype';
 
 const expandingAnimation = css`
-  transition: visibility 0.3s, max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: padding 0.2s, visibility 0.3s,
+    max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
-type BodyProps = Pick<CardAccordionBodyProps, 'isExpanded'>;
+type BodyProps = {
+  isExpanded?: boolean;
+  paddingTop?: CSS.PaddingTopProperty<string>;
+};
 
 const Body = styled.div<BodyProps>`
   ${expandingAnimation}
   ${tokens.base}
+  ${({ paddingTop }) =>
+    paddingTop &&
+    css`
+      padding-top: ${paddingTop};
+    `}
   ${({ isExpanded }) =>
     !isExpanded &&
     css`
+      padding-top: 0;
       padding-bottom: 0;
     `}
 `;
 
-type WrapperProps = Pick<CardAccordionBodyProps, 'isExpanded'> & {
+type BodyContainerProps = {
+  isExpanded?: boolean;
   maxHeight?: number;
 };
 
-const BodyWrapper = styled.div<WrapperProps>`
+const BodyContainer = styled.div<BodyContainerProps>`
   ${expandingAnimation}
   overflow: hidden;
   visibility: ${({ isExpanded }) => (isExpanded ? 'visible' : 'hidden')};
@@ -32,6 +44,7 @@ const BodyWrapper = styled.div<WrapperProps>`
 export type CardAccordionBodyProps = {
   isExpanded?: boolean;
   headerId?: string;
+  paddingTop?: CSS.PaddingTopProperty<string>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const CardAccordionBody = forwardRef<
@@ -56,7 +69,7 @@ export const CardAccordionBody = forwardRef<
     role: 'region',
     ...rest
   };
-  const bodyWrapperProps = {
+  const bodyContainerProps = {
     ref: bodyRef,
     maxHeight: maxHeight,
     isExpanded
@@ -64,7 +77,7 @@ export const CardAccordionBody = forwardRef<
 
   return (
     <Body aria-labelledby={headerId} aria-hidden={!isExpanded} {...bodyProps}>
-      <BodyWrapper {...bodyWrapperProps}> {children} </BodyWrapper>
+      <BodyContainer {...bodyContainerProps}> {children} </BodyContainer>
     </Body>
   );
 });
