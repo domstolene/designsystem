@@ -40,13 +40,13 @@ const filledLightBase: CSSObject = {
 
 const strokeLightBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  borderColor: Colors.DdsColorNeutralsGray5,
+  borderColor: Border.BordersDdsBorderStyleLightStroke,
   color: textDefault.textColor
 };
 
 const strokeDarkBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  borderColor: Colors.DdsColorNeutralsGray9,
+  borderColor: Border.BordersDdsBorderStyleDarkStroke,
   color: textDefault.textColor
 };
 
