@@ -14,6 +14,9 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator
 } from '../../utils';
+import { typographyTokens } from '../Typography/Typography.tokens';
+import CalendarIcon from '../../assets/svg/calendar_today.svg';
+import { datepickerTokens as tokens } from './Datepicker.tokens';
 
 const getWidth = (type: string): CSS.WidthProperty<string> => {
   return type === 'date'
@@ -26,10 +29,36 @@ const getWidth = (type: string): CSS.WidthProperty<string> => {
 const StyledInput = styled(Input)`
   min-height: 76px;
   ::-webkit-calendar-picker-indicator {
+    // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+    // eslint-disable-next-line
+    // prettier-ignore
+    background-image: url("${CalendarIcon}");
+    ${tokens.calendarIndicator.base}
     margin-left: 0px;
+    padding: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    box-sizing: border-box;
   }
+
+  ::-webkit-calendar-picker-indicator:focus-visible {
+    ${tokens.calendarIndicator.focus.base}
+  }
+
   ::-webkit-inner-spin-button {
     display: none;
+  }
+
+  ::-webkit-datetime-edit-day-field,
+  ::-webkit-datetime-edit-month-field,
+  ::-webkit-datetime-edit-year-field {
+    transition: 0.2s;
+  }
+
+  ::-webkit-datetime-edit-day-field:focus,
+  ::-webkit-datetime-edit-month-field:focus,
+  ::-webkit-datetime-edit-year-field:focus {
+    ${typographyTokens.selection.base}
   }
 `;
 
