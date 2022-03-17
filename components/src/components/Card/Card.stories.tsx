@@ -104,13 +104,13 @@ export const Overview = () => {
           <CardAccordionBody>Content</CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard color="strokeLight">
+      <DDSCard color="strokeDark">
         <DDSAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard color="strokeDark">
+      <DDSCard color="strokeLight">
         <DDSAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
