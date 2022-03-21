@@ -6,13 +6,13 @@ React UI komponenter til bruk i Domstolenes tjenester.
 
 Sjekk ut [Domstolenes designsystem Elsa](https://design.domstol.no/) og [Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
 
-## Installasjon
+## 📦 Installasjon
 
 ```sh
 npm install @norges-domstoler/dds-components
 ```
 
-## Bruk
+## 🔨 Bruk
 
 ```js
 import * as React from 'react';
@@ -30,7 +30,7 @@ const App = () => (
 render(<App />, document.getElementById('root'));
 ```
 
-## Komponenter
+## 📃 Komponenter
 
 Sjekk [komponentstatus](https://design.domstol.no/987b33f71/p/438035-komponenter/b/160db9) for oppdatert status.
 
@@ -59,7 +59,7 @@ Tilgjengelige komponenter:
 - TextInput
 - Typography
 
-## Release av ny versjon
+## ⏫ Release av ny versjon
 
 Det brukes en egen workflow for release av ny versjon av `@norges-domstoler/dds-components` som kjører på publisering av ny github release. Her brukes `npm publish` for å publisere en ny versjon av pakken til npm sitt pakkeregister, hvor det nye versjonsnummeret leses fra `package.json`. For å lage en ny release gjøres følgende:
 
@@ -70,6 +70,6 @@ Det brukes en egen workflow for release av ny versjon av `@norges-domstoler/dds-
 
 For versjonering brukes [_semantisk versjonering_](https://semver.org/) for å holde ting organisert og for å enkelt kommunisere utviklingsløpet til pakken.
 
-## For bidragsytere
+## ⌨️ For bidragsytere
 
 Sjekk ut [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).

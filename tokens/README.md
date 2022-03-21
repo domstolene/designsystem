@@ -2,19 +2,36 @@
 
 [![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-design-tokens)](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens)
 
-Biblioteket inneholder design tokens brukt i [Domstolenes designsystem Elsa](https://design.domstol.no/): farger, typografi, skygger osv. Tokens kan brukes i Domstolenes tjenester i elementer som ikke ligger i komponentbiblioteket. OBS! Domstolenes tjenester skal bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components), dds-design-tokens kan brukes direkte i egne komponenter kun som en midlertidig løsning i eldre prosjekter.
+Biblioteket inneholder design tokens brukt i [Domstolenes designsystem Elsa](https://design.domstol.no/): farger, typografi, avstander skygger og størrelser. Design tokens kan brukes i domstolenes tjenester i bl.a. global styling og custom elementer. Ellers er det obligatorisk å bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components).
 
-Tokens består av base-tokens - variabler genererte fra Figma styles, og referanse-tokens - et objekt som bruker base-tokens til å definere logikk for hvordan base-tokens skal brukes videre i komponenter og andre elementer. F.eks., referanse-tokens kan spesifisere hva fokusfargen skal være, eller font og farge for label i skjemakomponenter. Tanken med referanse-tokens er å gjøre det enklere å gjenbruke koden og eventuelt endre på styling i komponenter ved å endre kun på tokens, uten å røre CSS inni komponentene. OBS! referanse-tokens er under arbeid.
+## 🔍 Oversikt
 
-Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. Les mer under [Kom i gang](https://design.domstol.no/987b33f71/p/956e78-kom-i-gang/b/0174a7) og [Design tokens](https://design.domstol.no/987b33f71/p/18bd6f-design-tokens/b/499a2c) i dokumentasjonen.
+Design tokens består av base-tokens og referanse-tokens. Base-tokens er variabler genererte fra Figma styles og tilsvarer identiteten til domstolene definert i designprofilen.
 
-## Installasjon
+Referanse-tokens (OBS! under arbeid) bruker base-tokens til å definere logikk for hvordan base-tokens skal brukes videre i komponenter og andre elementer. F.eks., referanse-tokens kan spesifisere hva fokusfargen skal være, eller font og farge for label i skjemakomponenter. Tanken med referanse-tokens er å gjøre det enklere å gjenbruke koden og eventuelt endre på styling i komponenter ved å endre kun på tokens, uten å røre CSS inni komponentene.
+
+### 📃 Tilgjengelige base-tokens
+
+- colors
+- fontPackages (kun JS)
+- font
+- grid
+- spacing
+- iconSizes
+- borderRadius
+- border
+- outerShadow
+- innerShadow
+
+## 📦 Installasjon
 
 ```sh
 npm install @norges-domstoler/dds-design-tokens
 ```
 
-## Bruk
+## 🔨 Bruk
+
+Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. Les mer under [Kom i gang](https://design.domstol.no/987b33f71/p/956e78-kom-i-gang/b/0174a7) og [Design tokens](https://design.domstol.no/987b33f71/p/18bd6f-design-tokens/b/499a2c) i dokumentasjonen.
 
 ### JS
 
@@ -55,20 +72,7 @@ body {
 }
 ```
 
-## Tilgjengelige base-tokens
-
-- colors
-- fontPackages (kun JS)
-- font
-- grid
-- spacing
-- iconSizes
-- borderRadius
-- border
-- outerShadow
-- innerShadow
-
-## For bidragsytere
+## ⌨️ For bidragsytere
 
 Bilioteket ligger under `/tokens`.
 
@@ -81,9 +85,9 @@ cd tokens/dds
 npm install -D style-dictionary
 ```
 
-### Bruk
+### Generere design tokens i kode
 
-Biblioteket bruker [Style-dictionary](https://amzn.github.io/style-dictionary) for å generere tokens som JS-konstanter, CSS-variabler og SCSS-variabler fra en eller flere JSON-filer. JSON-filen(e) ligger i `/dds/properties`. For å generere variabler fra JSON kjør følgende kommando fra `/dds`:
+Biblioteket bruker [Style-dictionary](https://amzn.github.io/style-dictionary) for å generere design tokens som JS-konstanter, CSS-variabler og SCSS-variabler fra en eller flere JSON-filer. JSON-filen(e) ligger i `/dds/properties`. For å generere variabler fra JSON kjør følgende kommando fra `/dds`:
 
 ```
 npm run build-tokens
