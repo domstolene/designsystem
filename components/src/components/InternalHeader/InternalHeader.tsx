@@ -155,8 +155,11 @@ export const InternalHeader = ({
     role: 'menu'
   };
 
+  const hasContextMenuElementsOrUserProps =
+    hasInteractiveContextMenuElements || !!userProps;
+
   const contextMenu =
-    (hasInteractiveContextMenuElements || userProps) && !smallScreen ? (
+    hasContextMenuElementsOrUserProps && !smallScreen ? (
       <ContextMenuWrapper {...contextMenuWrapperProps}>
         {userContextMenuItemNonInteractive}
         <ContextMenuList>{contextMenuContentArray}</ContextMenuList>
@@ -164,7 +167,7 @@ export const InternalHeader = ({
     ) : null;
 
   const contextMenuSmallScreen = () => {
-    if ((hasInteractiveContextMenuElements || userProps) && smallScreen) {
+    if (hasContextMenuElementsOrUserProps && smallScreen) {
       if (hasInteractiveContextMenuElements) {
         const userPropsInteractivePos = hasInteractiveUser ? 0 : -1;
         const navItemsFirstPos = navigationElements
@@ -221,9 +224,11 @@ export const InternalHeader = ({
   const isSmallScreenAndHasNavElements =
     smallScreen && navigationElements ? true : false;
 
+  const hasContextMenu =
+    hasContextMenuElementsOrUserProps || (hasNavigationElements && smallScreen);
   return (
     <Wrapper {...rest}>
-      <BannerWrapper>
+      <BannerWrapper hasContextMenu={hasContextMenu}>
         <BannerLeftWrapper>
           <LovisaWrapper>
             <Typography typographyType="bodySans02" bold as="span">
@@ -238,7 +243,7 @@ export const InternalHeader = ({
         </BannerLeftWrapper>
       </BannerWrapper>
       {!smallScreen && navigation}
-      {(hasInteractiveContextMenuElements || userProps) && (
+      {hasContextMenuElementsOrUserProps && (
         <ContextMenuGroup>
           <Button
             ref={buttonRef}

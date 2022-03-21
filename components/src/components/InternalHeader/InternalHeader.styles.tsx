@@ -13,12 +13,20 @@ export const Wrapper = styled.div`
   ${tokens.wrapper.base}
 `;
 
-export const BannerWrapper = styled.div`
+type BannerProps = {
+  hasContextMenu?: boolean;
+};
+
+export const BannerWrapper = styled.div<BannerProps>`
   position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   ${tokens.banner.base}
+  ${({ hasContextMenu }) =>
+    hasContextMenu &&
+    css`
+      padding-right: ${tokens.banner.contextMenuSpacing};
+    `}
 `;
 
 export const BannerLeftWrapper = styled.div`
