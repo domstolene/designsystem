@@ -16,7 +16,8 @@ import {
   BannerWrapper,
   BannerLeftWrapper,
   LovisaWrapper,
-  ApplicationNameWrapper
+  ApplicationNameWrapper,
+  ContextMenuGroup
 } from './InternalHeader.styles';
 
 import { NavigationItem } from './NavigationItem';
@@ -154,8 +155,11 @@ export const InternalHeader = ({
     role: 'menu'
   };
 
+  const hasContextMenuElementsOrUserProps =
+    hasInteractiveContextMenuElements || !!userProps;
+
   const contextMenu =
-    (hasInteractiveContextMenuElements || userProps) && !smallScreen ? (
+    hasContextMenuElementsOrUserProps && !smallScreen ? (
       <ContextMenuWrapper {...contextMenuWrapperProps}>
         {userContextMenuItemNonInteractive}
         <ContextMenuList>{contextMenuContentArray}</ContextMenuList>
@@ -163,7 +167,7 @@ export const InternalHeader = ({
     ) : null;
 
   const contextMenuSmallScreen = () => {
-    if ((hasInteractiveContextMenuElements || userProps) && smallScreen) {
+    if (hasContextMenuElementsOrUserProps && smallScreen) {
       if (hasInteractiveContextMenuElements) {
         const userPropsInteractivePos = hasInteractiveUser ? 0 : -1;
         const navItemsFirstPos = navigationElements
@@ -220,9 +224,11 @@ export const InternalHeader = ({
   const isSmallScreenAndHasNavElements =
     smallScreen && navigationElements ? true : false;
 
+  const hasContextMenu =
+    hasContextMenuElementsOrUserProps || (hasNavigationElements && smallScreen);
   return (
     <Wrapper {...rest}>
-      <BannerWrapper>
+      <BannerWrapper hasContextMenu={hasContextMenu}>
         <BannerLeftWrapper>
           <LovisaWrapper>
             <Typography typographyType="bodySans02" bold as="span">
@@ -235,7 +241,10 @@ export const InternalHeader = ({
             </Typography>
           </ApplicationNameWrapper>
         </BannerLeftWrapper>
-        {(hasInteractiveContextMenuElements || userProps) && (
+      </BannerWrapper>
+      {!smallScreen && navigation}
+      {hasContextMenuElementsOrUserProps && (
+        <ContextMenuGroup>
           <Button
             ref={buttonRef}
             Icon={
@@ -250,10 +259,9 @@ export const InternalHeader = ({
             aria-expanded={!contextMenuIsClosed ? true : undefined}
             aria-label="åpne meny"
           />
-        )}
-        {smallScreen ? contextMenuSmallScreen() : contextMenu}
-      </BannerWrapper>
-      {!smallScreen && navigation}
+          {smallScreen ? contextMenuSmallScreen() : contextMenu}
+        </ContextMenuGroup>
+      )}
     </Wrapper>
   );
 };

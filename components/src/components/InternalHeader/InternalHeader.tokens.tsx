@@ -102,6 +102,11 @@ const contextMenuDividerBase: CSSObject = {
   marginLeft: Spacing.SizesDdsSpacingLocalX15
 };
 
+const contextGroupBase: CSSObject = {
+  right: Spacing.SizesDdsSpacingLocalX075,
+  top: Spacing.SizesDdsSpacingLocalX025
+};
+
 export const internalHeaderTokens = {
   wrapper: {
     base: wrapperBase
@@ -113,7 +118,8 @@ export const internalHeaderTokens = {
     base: lovisaWrapperBase
   },
   banner: {
-    base: bannerBase
+    base: bannerBase,
+    contextMenuSpacing: Spacing.SizesDdsSpacingLayoutX4
   },
   bannerLeft: {
     base: bannerLeftBase
@@ -157,5 +163,8 @@ export const internalHeaderTokens = {
   },
   icon: {
     base: iconBase
+  },
+  contextGroup: {
+    base: contextGroupBase
   }
 };

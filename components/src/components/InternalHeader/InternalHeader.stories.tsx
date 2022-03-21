@@ -44,6 +44,8 @@ const navigationLinks = [
   longNavigationLink
 ];
 
+const shortNavigationLinks = [navigationLink, navigationLink, navigationLink];
+
 const user = {
   name: 'Navn Navnesen'
 };
@@ -146,10 +148,45 @@ export const WithCurrentPage = (args: InternalHeaderProps) => {
   );
 };
 
+export const SmallScreenWithNavigation = () => (
+  <StoryTemplate title="InternalHeader - small screen with navigation">
+    <InternalHeader
+      applicationName="Navn på applikasjon"
+      navigationElements={navigationLinks}
+      smallScreen
+    />
+  </StoryTemplate>
+);
+
+export const SmallScreenWithContextMenu = (args: InternalHeaderProps) => {
+  return (
+    <StoryTemplate title="InternalHeader - small screen with context menu">
+      <InternalHeader
+        applicationName="Navn på applikasjon"
+        contextMenuElements={menuElements}
+        userProps={user}
+        {...args}
+      />
+    </StoryTemplate>
+  );
+};
+
+export const SmallScreenWithNavigationAndContextMEnu = () => (
+  <StoryTemplate title="InternalHeader - small screen with navigation and context menu">
+    <InternalHeader
+      applicationName="Navn på applikasjon"
+      navigationElements={navigationLinks}
+      contextMenuElements={menuElements}
+      userProps={user}
+      smallScreen
+    />
+  </StoryTemplate>
+);
+
 export const NoStoryHeading = (args: InternalHeaderProps) => (
   <InternalHeader
     applicationName="Navn på applikasjon"
-    navigationElements={navigationLinks}
+    navigationElements={shortNavigationLinks}
     contextMenuElements={menuElements}
     userProps={user}
     {...args}
@@ -174,18 +211,6 @@ export const NoStoryHeadingSmallScreenLong = () => (
     userProps={user}
     smallScreen
   />
-);
-
-export const SmallScreen = () => (
-  <StoryTemplate title="InternalHeader - small screen">
-    <InternalHeader
-      applicationName="Navn på applikasjon"
-      navigationElements={navigationLinks}
-      contextMenuElements={menuElements}
-      userProps={user}
-      smallScreen
-    />
-  </StoryTemplate>
 );
 
 export const NonInteractiveUserOnly = () => (
