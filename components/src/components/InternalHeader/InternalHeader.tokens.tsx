@@ -118,7 +118,8 @@ export const internalHeaderTokens = {
     base: lovisaWrapperBase
   },
   banner: {
-    base: bannerBase
+    base: bannerBase,
+    contextMenuSpacing: Spacing.SizesDdsSpacingLayoutX4
   },
   bannerLeft: {
     base: bannerLeftBase
