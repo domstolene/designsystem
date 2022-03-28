@@ -9,9 +9,7 @@ export const trapFocus = (modalRef: Ref<HTMLDivElement>) => {
     const lastElement = focusableElements[
       focusableElements.length - 1
     ] as HTMLElement;
-    window.setTimeout(() => {
-      if (firstElement) firstElement.focus();
-    }, 300);
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key !== 'Tab') return;
       if (!e.shiftKey && document.activeElement === lastElement) {

@@ -10,9 +10,7 @@ export default {
 
 export const Overview = (args: ModalProps) => {
   const [closed, setClosed] = useState(true);
-  const show = () => {
-    setClosed(false);
-  };
+  const show = () => setClosed(false);
   const close = () => setClosed(true);
 
   const [closed2, setClosed2] = useState(true);
@@ -23,17 +21,9 @@ export const Overview = (args: ModalProps) => {
 
   return (
     <StoryTemplate title="Modal - overview">
-      <Button
-        aria-haspopup="dialog"
-        label="Åpne"
-        onClick={() => {
-          show();
-        }}
-      />
-      <Modal ref={ref} isOpen={!closed} onClose={close} title="Tittel">
-        <ModalBody>
-          Lukkbar modal Lukkbar modalLukkbar modal Lukkbar modal Lukkbar modal
-        </ModalBody>
+      <Button aria-haspopup="dialog" label="Åpne" onClick={show} />
+      <Modal isOpen={!closed} onClose={close} title="Tittel">
+        <ModalBody>Lukkbar modal</ModalBody>
         <ModalControls>
           <Button label="OK" onClick={close} />
           <Button purpose="secondary" label="Avbryt" onClick={close} />
