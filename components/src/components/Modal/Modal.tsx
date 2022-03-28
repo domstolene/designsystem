@@ -3,7 +3,8 @@ import {
   HTMLAttributes,
   ReactNode,
   useEffect,
-  useRef
+  useRef,
+  useState
 } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
@@ -47,7 +48,7 @@ const ContentContainer = styled.div`
   display: grid;
   ${tokens.contentContainer.base}
 `;
-const TitleContainer = styled.div``;
+const HeaderContainer = styled.div``;
 
 const StyledButton = styled(Button)`
   align-self: flex-end;
@@ -57,8 +58,10 @@ export type ModalProps = {
   onClose?: () => void;
   isOpen?: boolean;
   parentElement?: HTMLElement;
-  title?: string | ReactNode;
+  header?: string | ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
+
+let nextUniqueId = 0;
 
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   (
@@ -66,22 +69,23 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       isOpen = false,
       parentElement = document.body,
       children,
-      title,
+      header,
       onClose,
+      id,
       ...rest
     },
     ref
   ) => {
-    const titleId = 'id';
+    const uniqueId = nextUniqueId++;
+    const [modalId] = useState<string>(id ?? `modal-${uniqueId}`);
+    const headerId = `${modalId}-header`;
 
     const modalRef = useRef<HTMLDivElement>(null);
     const combinedRef = useCombinedRef(ref, modalRef);
-    const buttonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
-      console.log('isOpen', isOpen);
       if (isOpen) {
-        setTimeout(() => modalRef.current?.focus(), 0);
+        modalRef.current?.focus();
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = '';
@@ -106,28 +110,29 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       'aria-modal': true,
       'aria-hidden': !isOpen,
       tabIndex: 0,
-      'aria-labelledby': titleId,
+      'aria-labelledby': headerId,
+      id: modalId,
       ...rest
     };
 
-    const titleContainerProps = {
-      id: titleId
+    const headerContainerProps = {
+      id: headerId
     };
 
     return createPortal(
       <Backdrop {...backdropProps}>
         <Container {...containerProps}>
           <ContentContainer>
-            {title && (
-              <TitleContainer {...titleContainerProps}>
-                {typeof title === 'string' ? (
+            {header && (
+              <HeaderContainer {...headerContainerProps}>
+                {typeof header === 'string' ? (
                   <Typography typographyType="headingSans03">
-                    {title}
+                    {header}
                   </Typography>
                 ) : (
-                  title
+                  header
                 )}
-              </TitleContainer>
+              </HeaderContainer>
             )}
             {children}
           </ContentContainer>
