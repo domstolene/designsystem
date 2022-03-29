@@ -5,7 +5,8 @@ const {
   borderRadius: BorderRadius,
   colors: Colors,
   outerShadow: OuterShadow,
-  spacing: Spacing
+  spacing: Spacing,
+  border: Border
 } = ddsBaseTokens;
 
 const base: CSSObject = {
@@ -23,12 +24,18 @@ const controlsContainerBase: CSSObject = {
   gap: Spacing.SizesDdsSpacingLocalX1
 };
 
+const focusBase: CSSObject = {
+  outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Border.BordersDdsBorderFocusBaseStroke} solid`,
+  outlineOffset: '1px'
+};
+
 export const modalTokens = {
   base: base,
+  focus: { base: focusBase },
   contentContainer: {
     base: contentContainerBase
   },
   controlsContainer: {
-    base: contentContainerBase
+    base: controlsContainerBase
   }
 };

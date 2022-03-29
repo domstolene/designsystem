@@ -3,45 +3,37 @@ import {
   HTMLAttributes,
   ReactNode,
   useEffect,
-  useRef,
   useState
 } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
-import { trapFocus } from '../../utils';
+import { useFocusTrap } from '../../hooks';
 import { useCombinedRef, useOnClickOutside, useOnKeyDown } from '../../hooks';
-import { visibilityTransition } from '../../helpers/styling';
 import { createPortal } from 'react-dom';
 import { Typography } from '../Typography';
+import {
+  Backdrop,
+  handleElementWithBackdropMount,
+  handleElementWithBackdropUnmount
+} from '../../helpers/Backdrop';
+import { useMountTransition } from '../../hooks/useMountTransition';
+import { typographyTokens } from '../Typography/Typography.tokens';
 
-type BackdropProps = { isOpen: boolean };
-
-const Backdrop = styled.div<BackdropProps>`
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ isOpen }) =>
-    isOpen ? 'rgb(0 0 0 / 30%)' : 'transparent'};
-  overflow-y: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 50;
-  ${({ isOpen }) => visibilityTransition(isOpen)}
-`;
 const Container = styled.div`
   display: flex;
   flex-direction: column-reverse;
   box-sizing: border-box;
   margin: 0;
   min-width: 200px;
+  &::selection,
+  *::selection {
+    ${typographyTokens.selection.base}
+  }
   ${tokens.base}
-  :focus {
-    /* outline: none; */
+  :focus-visible {
+    ${tokens.focus.base}
   }
 `;
 const ContentContainer = styled.div`
@@ -80,15 +72,14 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
     const [modalId] = useState<string>(id ?? `modal-${uniqueId}`);
     const headerId = `${modalId}-header`;
 
-    const modalRef = useRef<HTMLDivElement>(null);
+    const modalRef = useFocusTrap<HTMLDivElement>(isOpen);
     const combinedRef = useCombinedRef(ref, modalRef);
 
     useEffect(() => {
       if (isOpen) {
-        modalRef.current?.focus();
-        document.body.style.overflow = 'hidden';
+        handleElementWithBackdropMount(document.body);
       } else {
-        document.body.style.overflow = '';
+        handleElementWithBackdropUnmount(document.body);
       }
     }, [isOpen]);
 
@@ -98,10 +89,10 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       onClose && isOpen && onClose();
     });
 
-    trapFocus(modalRef);
+    const hasTransitionedIn = useMountTransition(isOpen, 200);
 
     const backdropProps = {
-      isOpen
+      isOpen: hasTransitionedIn && isOpen
     };
 
     const containerProps = {
@@ -109,7 +100,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       role: 'dialog',
       'aria-modal': true,
       'aria-hidden': !isOpen,
-      tabIndex: 0,
+      tabIndex: -1,
       'aria-labelledby': headerId,
       id: modalId,
       ...rest
@@ -119,36 +110,38 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       id: headerId
     };
 
-    return createPortal(
-      <Backdrop {...backdropProps}>
-        <Container {...containerProps}>
-          <ContentContainer>
-            {header && (
-              <HeaderContainer {...headerContainerProps}>
-                {typeof header === 'string' ? (
-                  <Typography typographyType="headingSans03">
-                    {header}
-                  </Typography>
-                ) : (
-                  header
+    return isOpen || hasTransitionedIn
+      ? createPortal(
+          <Backdrop {...backdropProps}>
+            <Container {...containerProps}>
+              <ContentContainer>
+                {header && (
+                  <HeaderContainer {...headerContainerProps}>
+                    {typeof header === 'string' ? (
+                      <Typography typographyType="headingSans03">
+                        {header}
+                      </Typography>
+                    ) : (
+                      header
+                    )}
+                  </HeaderContainer>
                 )}
-              </HeaderContainer>
-            )}
-            {children}
-          </ContentContainer>
-          {onClose && (
-            <StyledButton
-              size="small"
-              appearance="borderless"
-              purpose="secondary"
-              Icon={CloseOutlinedIcon}
-              onClick={onClose}
-              aria-label="Lukk dialog"
-            />
-          )}
-        </Container>
-      </Backdrop>,
-      parentElement
-    );
+                {children}
+              </ContentContainer>
+              {onClose && (
+                <StyledButton
+                  size="small"
+                  appearance="borderless"
+                  purpose="secondary"
+                  Icon={CloseOutlinedIcon}
+                  onClick={onClose}
+                  aria-label="Lukk dialog"
+                />
+              )}
+            </Container>
+          </Backdrop>,
+          parentElement
+        )
+      : null;
   }
 );
