@@ -33,7 +33,7 @@ export const Overview = (args: ModalProps) => {
     <StoryTemplate title="Modal - overview">
       <Button
         aria-haspopup="dialog"
-        label="Åpne"
+        label="Åpne lukkbar"
         onClick={show}
         ref={buttonRef}
       />
@@ -46,7 +46,7 @@ export const Overview = (args: ModalProps) => {
       </Modal>
       <Button
         aria-haspopup="dialog"
-        label="Åpne"
+        label="Åpne ikke lukkbar"
         onClick={show2}
         ref={buttonRef2}
       />
@@ -54,6 +54,7 @@ export const Overview = (args: ModalProps) => {
         <ModalBody>Ikke lukkbar modal</ModalBody>
         <ModalActions>
           <Button label="OK" onClick={close2} />
+
           <Button purpose="secondary" label="Avbryt" onClick={close2} />
         </ModalActions>
       </Modal>
@@ -104,7 +105,7 @@ export const Scrollable = (args: ModalProps) => {
     <StoryTemplate title="Modal - scrollable">
       <Button
         aria-haspopup="dialog"
-        label="Åpne"
+        label="Åpne scrollable"
         onClick={show}
         ref={buttonRef}
       />
@@ -113,12 +114,13 @@ export const Scrollable = (args: ModalProps) => {
         isOpen={!closed}
         onClose={close}
         style={{ width: '300px' }}
+        header="Fritt valg av forsvarer"
       >
-        <ModalBody scrollable>
-          Innhold Innhold Innhold Innhold Innhold Innhold Innhold Innhold{' '}
-          Innhold Innhold Innhold Innhold Innhold InInnhold Innhold Innhold
-          Innhold Innhold Innhold Innhold Innhold Innhold Innhold Innhold
-          Innhold Innhold Innhold Innhold Innhold nhold Innhold Innhold{' '}
+        <ModalBody scrollable style={{ height: '100px' }}>
+          Du kan vanligvis fritt velge hvilken advokat du vil ha som forsvarer i
+          saken. Det må spesielle grunner til for at du ikke skal få oppfylt
+          ditt ønske, for eksempel at advokaten er opptatt i lang tid slik at
+          rettssaken din vil bli veldig forsinket.
         </ModalBody>
         <ModalActions>
           <Button label="OK" onClick={close} />
