@@ -20,7 +20,7 @@ const contentContainerBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX1,
   gap: Spacing.SizesDdsSpacingLocalX1
 };
-const controlsContainerBase: CSSObject = {
+const actionsContainerBase: CSSObject = {
   gap: Spacing.SizesDdsSpacingLocalX1
 };
 
@@ -29,13 +29,19 @@ const focusBase: CSSObject = {
   outlineOffset: '1px'
 };
 
+const bodyScrollableBase: CSSObject = {
+  overflowY: 'auto'
+};
 export const modalTokens = {
   base: base,
   focus: { base: focusBase },
   contentContainer: {
     base: contentContainerBase
   },
-  controlsContainer: {
-    base: controlsContainerBase
+  actionsContainer: {
+    base: actionsContainerBase
+  },
+  bodyScrollable: {
+    base: bodyScrollableBase
   }
 };
