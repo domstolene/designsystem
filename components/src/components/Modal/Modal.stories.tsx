@@ -1,5 +1,5 @@
 import { StoryTemplate } from '../../storybook/StoryTemplate';
-import { Modal, ModalBody, ModalControls, ModalProps } from '.';
+import { Modal, ModalBody, ModalActions, ModalProps } from '.';
 import { Button } from '../Button';
 import { useRef, useState } from 'react';
 
@@ -39,10 +39,10 @@ export const Overview = (args: ModalProps) => {
       />
       <Modal isOpen={!closed} onClose={close} header="Tittel">
         <ModalBody>Lukkbar modal</ModalBody>
-        <ModalControls>
+        <ModalActions>
           <Button label="OK" onClick={close} />
           <Button purpose="secondary" label="Avbryt" onClick={close} />
-        </ModalControls>
+        </ModalActions>
       </Modal>
       <Button
         aria-haspopup="dialog"
@@ -52,10 +52,10 @@ export const Overview = (args: ModalProps) => {
       />
       <Modal isOpen={!closed2} header="Tittel">
         <ModalBody>Ikke lukkbar modal</ModalBody>
-        <ModalControls>
+        <ModalActions>
           <Button label="OK" onClick={close2} />
           <Button purpose="secondary" label="Avbryt" onClick={close2} />
-        </ModalControls>
+        </ModalActions>
       </Modal>
     </StoryTemplate>
   );
@@ -81,10 +81,49 @@ export const Default = (args: ModalProps) => {
       />
       <Modal {...args} isOpen={!closed} onClose={close}>
         <ModalBody>Modal</ModalBody>
-        <ModalControls>
+        <ModalActions>
           <Button label="OK" onClick={close} />
           <Button purpose="secondary" label="Avbryt" onClick={close} />
-        </ModalControls>
+        </ModalActions>
+      </Modal>
+    </StoryTemplate>
+  );
+};
+
+export const Scrollable = (args: ModalProps) => {
+  const [closed, setClosed] = useState(true);
+  const show = () => setClosed(false);
+  const close = () => {
+    setClosed(true);
+    buttonRef.current?.focus();
+  };
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  return (
+    <StoryTemplate title="Modal - scrollable">
+      <Button
+        aria-haspopup="dialog"
+        label="Åpne"
+        onClick={show}
+        ref={buttonRef}
+      />
+      <Modal
+        {...args}
+        isOpen={!closed}
+        onClose={close}
+        style={{ width: '300px' }}
+      >
+        <ModalBody scrollable>
+          Innhold Innhold Innhold Innhold Innhold Innhold Innhold Innhold{' '}
+          Innhold Innhold Innhold Innhold Innhold InInnhold Innhold Innhold
+          Innhold Innhold Innhold Innhold Innhold Innhold Innhold Innhold
+          Innhold Innhold Innhold Innhold Innhold nhold Innhold Innhold{' '}
+        </ModalBody>
+        <ModalActions>
+          <Button label="OK" onClick={close} />
+          <Button purpose="secondary" label="Avbryt" onClick={close} />
+        </ModalActions>
       </Modal>
     </StoryTemplate>
   );
