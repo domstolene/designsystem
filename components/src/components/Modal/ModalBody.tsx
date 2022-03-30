@@ -13,6 +13,9 @@ const Container = styled.div<ContainerProps>`
     scrollable &&
     css`
       ${tokens.bodyScrollable.base}
+      &:focus-visible {
+        ${tokens.bodyScrollable.focus.base}
+      }
     `}
 `;
 
@@ -21,9 +24,11 @@ export type ModalBodyProps = {
 } & HTMLAttributes<HTMLDivElement>;
 
 export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
-  ({ children, ...rest }, ref) => {
+  ({ children, scrollable, ...rest }, ref) => {
     const containerProps = {
       ref,
+      tabIndex: scrollable ? 0 : undefined,
+      scrollable,
       ...rest
     };
 

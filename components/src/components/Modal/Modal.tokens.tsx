@@ -9,6 +9,11 @@ const {
   border: Border
 } = ddsBaseTokens;
 
+const focus: CSSObject = {
+  outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Border.BordersDdsBorderFocusBaseStroke} solid`,
+  outlineOffset: '1px'
+};
+
 const base: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
   boxShadow: OuterShadow.DdsShadow4Onlight,
@@ -25,12 +30,14 @@ const actionsContainerBase: CSSObject = {
 };
 
 const focusBase: CSSObject = {
-  outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Border.BordersDdsBorderFocusBaseStroke} solid`,
-  outlineOffset: '1px'
+  ...focus
 };
 
 const bodyScrollableBase: CSSObject = {
   overflowY: 'auto'
+};
+const bodyScrollableFocusBase: CSSObject = {
+  ...focus
 };
 export const modalTokens = {
   base: base,
@@ -42,6 +49,9 @@ export const modalTokens = {
     base: actionsContainerBase
   },
   bodyScrollable: {
-    base: bodyScrollableBase
+    base: bodyScrollableBase,
+    focus: {
+      base: bodyScrollableFocusBase
+    }
   }
 };
