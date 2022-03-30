@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { changeRGBAAlpha } from '../color';
 
 type BackdropProps = { isOpen: boolean };
 
@@ -7,8 +9,10 @@ export const Backdrop = styled.div<BackdropProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ isOpen }) =>
-    isOpen ? 'rgb(0 0 0 / 30%)' : 'transparent'};
+  background-color: ${changeRGBAAlpha(
+    ddsBaseTokens.colors.DdsColorNeutralsGray9,
+    0.5
+  )};
   overflow-y: auto;
   top: 0;
   right: 0;
