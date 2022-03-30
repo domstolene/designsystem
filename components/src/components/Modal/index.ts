@@ -1,3 +1,3 @@
 export * from './Modal';
 export * from './ModalBody';
-export * from './ModalControls';
+export * from './ModalActions';
