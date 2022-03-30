@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { modalTokens as tokens } from './Modal.tokens';
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, fit-content(100%));
+  display: flex;
+  flex-wrap: wrap;
   ${tokens.actionsContainer.base}
 `;
 
