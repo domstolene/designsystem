@@ -8,7 +8,7 @@ const Container = styled.div`
   ${tokens.actionsContainer.base}
 `;
 
-export type ModalActionsProps = {} & HTMLAttributes<HTMLDivElement>;
+export type ModalActionsProps = HTMLAttributes<HTMLDivElement>;
 
 export const ModalActions = forwardRef<HTMLDivElement, ModalActionsProps>(
   ({ children, ...rest }, ref) => {
