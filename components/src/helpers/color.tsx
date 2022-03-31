@@ -58,3 +58,11 @@ export const RGBToHex = (value: string): string => {
 
   return hex;
 };
+
+export const changeRGBAAlpha = (value: string, alpha: number): string => {
+  if (value.slice(0, 5) !== 'rgba(' || value.slice(-1) !== ')') {
+    return '';
+  }
+
+  return value.replace(/[\d\.]+\)$/g, alpha.toString() + ')');
+};
