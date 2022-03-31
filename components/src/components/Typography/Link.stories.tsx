@@ -21,14 +21,6 @@ export const Link = () => {
       <Typography typographyType="a" href="https://www.domstol.no" externalLink>
         Link
       </Typography>
-      <Typography
-        typographyType="a"
-        href="https://www.domstol.no"
-        color={textColors.gray7}
-        interactionProps={{ hover: { color: textColors.gray4 } }}
-      >
-        Link
-      </Typography>
     </StoryTemplate>
   );
 };
