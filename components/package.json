@@ -19,7 +19,7 @@
     "test:watch": "jest --no-cache --watch",
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/images",
     "build-storybook": "build-storybook -o docs",
     "lint": "eslint --ext=jsx,ts,tsx src",
     "prettier": "prettier --write '**/*.{ts,tsx}'"
