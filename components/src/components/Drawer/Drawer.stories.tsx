@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Button } from '../Button';
 import { Drawer, DrawerProps } from './Drawer';
@@ -17,20 +17,30 @@ export const Overview = (args: DrawerProps) => {
   const show2 = () => setClosed2(false);
   const close2 = () => setClosed2(true);
 
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef2 = useRef<HTMLButtonElement>(null);
+
   return (
     <StoryTemplate title="Drawer - overview">
-      <Button label="Åpne høyre" onClick={show} />
-      <Drawer {...args} onClose={close} isOpen={!closed} header="Tittel">
+      <Button label="Åpne høyre" onClick={show} ref={buttonRef} />
+      <Drawer
+        {...args}
+        onClose={close}
+        isOpen={!closed}
+        header="Tittel"
+        triggerRef={buttonRef}
+      >
         Innhold
         <Button label="Gjør noe" />
       </Drawer>
-      <Button label="Åpne venstre" onClick={show2} />
+      <Button label="Åpne venstre" onClick={show2} ref={buttonRef2} />
       <Drawer
         {...args}
         onClose={close2}
         isOpen={!closed2}
         header="Tittel"
         placement="left"
+        triggerRef={buttonRef2}
       >
         Innhold
         <Button label="Gjør noe" />
