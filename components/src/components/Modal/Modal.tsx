@@ -2,6 +2,7 @@ import {
   forwardRef,
   HTMLAttributes,
   ReactNode,
+  RefObject,
   useEffect,
   useState
 } from 'react';
@@ -51,6 +52,7 @@ export type ModalProps = {
   isOpen?: boolean;
   parentElement?: HTMLElement;
   header?: string | ReactNode;
+  triggerRef?: RefObject<HTMLElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
 let nextUniqueId = 0;
@@ -64,6 +66,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       header,
       onClose,
       id,
+      triggerRef,
       ...rest
     },
     ref
@@ -86,7 +89,10 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
     useOnClickOutside(modalRef.current, () => onClose && isOpen && onClose());
 
     useOnKeyDown(['Escape', 'Esc'], () => {
-      onClose && isOpen && onClose();
+      if (onClose && isOpen) {
+        triggerRef && triggerRef.current?.focus();
+        onClose();
+      }
     });
 
     const hasTransitionedIn = useMountTransition(isOpen, 200);
