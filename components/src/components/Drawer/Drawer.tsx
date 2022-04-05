@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef, HTMLAttributes, ReactNode, RefObject } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
@@ -14,10 +14,12 @@ import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling/focusVisible';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { Paper } from '../../helpers/Paper';
+import { WidthProperty, MinWidthProperty, MaxWidthProperty } from 'csstype';
 
 type ContainerProps = {
-  placement: Placement;
+  placement: DrawerPlacement;
   isOpen: boolean;
+  widthProps?: WidthProps;
 };
 
 const Container = styled(Paper)<ContainerProps>`
@@ -27,7 +29,13 @@ const Container = styled(Paper)<ContainerProps>`
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
-  min-width: 200px;
+  min-width: 300px;
+  max-width: 400px;
+  ${({ widthProps }) =>
+    widthProps &&
+    css`
+      ${widthProps}
+    `}
   z-index: 50;
   ${({ placement, isOpen }) =>
     placement === 'left'
@@ -58,15 +66,21 @@ const StyledButton = styled(Button)`
   align-self: flex-end;
 `;
 
-type Placement = 'left' | 'right';
+export type DrawerPlacement = 'left' | 'right';
+export type WidthProps = {
+  minWidth?: MinWidthProperty<string>;
+  maxWidth?: MaxWidthProperty<string>;
+  width?: WidthProperty<string>;
+};
 
 export type DrawerProps = {
   isOpen?: boolean;
-  withBackdrop?: boolean;
-  placement?: Placement;
+  placement?: DrawerPlacement;
   onClose: () => void;
   parentElement?: HTMLElement;
   header?: string | ReactNode;
+  widthProps?: WidthProps;
+  triggerRef?: RefObject<HTMLElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
@@ -78,6 +92,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       isOpen = false,
       placement = 'right',
       parentElement = document.body,
+      triggerRef,
       ...rest
     },
     ref
@@ -85,11 +100,18 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
     const drawerRef = useFocusTrap<HTMLDivElement>(isOpen);
 
     const combinedRef = useCombinedRef(ref, drawerRef);
-    const handleClose = () => isOpen && onClose && onClose();
 
-    useOnKeyDown(['Esc', 'Escape'], () => handleClose());
+    useOnKeyDown(['Esc', 'Escape'], () => {
+      if (isOpen) {
+        triggerRef && triggerRef.current?.focus();
+        onClose();
+      }
+    });
 
-    useOnClickOutside(drawerRef.current, () => handleClose());
+    const elements: (HTMLElement | null)[] = [drawerRef.current as HTMLElement];
+    if (triggerRef) elements.push(triggerRef.current);
+
+    useOnClickOutside(elements, () => isOpen && onClose());
 
     const hasTransitionedIn = useMountTransition(isOpen, 200);
 
@@ -98,6 +120,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       ref: combinedRef,
       isOpen: hasTransitionedIn && isOpen,
       tabIndex: -1,
+      role: 'dialog',
       ...rest
     };
 
