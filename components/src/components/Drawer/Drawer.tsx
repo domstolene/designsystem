@@ -12,6 +12,7 @@ import {
 } from '../../hooks';
 import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling/focusVisible';
+import scrollbarStyling from '../../helpers/scrollbarStyling';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import { Paper } from '../../helpers/Paper';
 import { WidthProperty, MinWidthProperty, MaxWidthProperty } from 'csstype';
@@ -59,6 +60,8 @@ const Container = styled(Paper)<ContainerProps>`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-x: auto;
+  ${scrollbarStyling}
   ${tokens.contentContainer.base}
 `;
 
