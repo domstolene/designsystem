@@ -1,4 +1,10 @@
-import { forwardRef, HTMLAttributes, ReactNode, RefObject } from 'react';
+import {
+  forwardRef,
+  HTMLAttributes,
+  ReactNode,
+  RefObject,
+  useState
+} from 'react';
 import { createPortal } from 'react-dom';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
@@ -65,6 +71,8 @@ const ContentContainer = styled.div`
   ${tokens.contentContainer.base}
 `;
 
+const HeaderContainer = styled.div``;
+
 const StyledButton = styled(Button)`
   align-self: flex-end;
 `;
@@ -86,6 +94,8 @@ export type DrawerProps = {
   triggerRef?: RefObject<HTMLElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
+let nextUniqueId = 0;
+
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
   (
     {
@@ -96,12 +106,16 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       placement = 'right',
       parentElement = document.body,
       triggerRef,
+      id,
       ...rest
     },
     ref
   ) => {
-    const drawerRef = useFocusTrap<HTMLDivElement>(isOpen);
+    const [uniqueId] = useState<string>(id ?? `drawer-${nextUniqueId++}`);
+    const hasHeader = !!header;
+    const headerId = hasHeader ? `${uniqueId}-header` : undefined;
 
+    const drawerRef = useFocusTrap<HTMLDivElement>(isOpen);
     const combinedRef = useCombinedRef(ref, drawerRef);
 
     useOnKeyDown(['Esc', 'Escape'], () => {
@@ -124,19 +138,29 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       isOpen: hasTransitionedIn && isOpen,
       tabIndex: -1,
       role: 'dialog',
+      id: uniqueId,
+      'aria-labelledby': headerId,
       ...rest
     };
 
-    const hasHeader = !!header;
+    const headerContainerProps = {
+      id: headerId
+    };
 
     return isOpen || hasTransitionedIn
       ? createPortal(
           <Container {...containerProps}>
             <ContentContainer>
-              {!hasHeader ? null : typeof header === 'string' ? (
-                <Typography typographyType="headingSans03">{header}</Typography>
-              ) : (
-                header
+              {hasHeader && (
+                <HeaderContainer {...headerContainerProps}>
+                  {typeof header === 'string' ? (
+                    <Typography typographyType="headingSans03">
+                      {header}
+                    </Typography>
+                  ) : (
+                    header
+                  )}
+                </HeaderContainer>
               )}
               {children}
             </ContentContainer>
