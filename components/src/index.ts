@@ -23,4 +23,5 @@ export * from './components/Datepicker';
 export * from './components/SkipToContent';
 export * from './components/Tooltip';
 export * from './components/Modal';
+export * from './components/Drawer';
 export * from './components/Popover';
