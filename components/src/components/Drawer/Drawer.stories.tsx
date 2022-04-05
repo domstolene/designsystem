@@ -53,11 +53,18 @@ export const Default = (args: DrawerProps) => {
   const [closed, setClosed] = useState(true);
   const show = () => setClosed(false);
   const close = () => setClosed(true);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   return (
     <StoryTemplate title="Drawer - default">
-      <Button label="Åpne" onClick={show} />
-      <Drawer {...args} onClose={close} isOpen={!closed} header="Rettsmekling">
+      <Button label="Åpne" onClick={show} ref={buttonRef} />
+      <Drawer
+        {...args}
+        onClose={close}
+        isOpen={!closed}
+        header="Rettsmekling"
+        triggerRef={buttonRef}
+      >
         <Typography>
           En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
           hovedforhandling og dom. Det går ut på at partene kommer fram til en
