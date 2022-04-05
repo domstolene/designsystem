@@ -77,6 +77,12 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
 
     const modalRef = useFocusTrap<HTMLDivElement>(isOpen);
     const combinedRef = useCombinedRef(ref, modalRef);
+    const handleClose = () => {
+      if (onClose && isOpen) {
+        triggerRef && triggerRef.current?.focus();
+        onClose();
+      }
+    };
 
     useEffect(() => {
       if (isOpen) {
@@ -86,14 +92,9 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
       }
     }, [isOpen]);
 
-    useOnClickOutside(modalRef.current, () => onClose && isOpen && onClose());
+    useOnClickOutside(modalRef.current, () => handleClose());
 
-    useOnKeyDown(['Escape', 'Esc'], () => {
-      if (onClose && isOpen) {
-        triggerRef && triggerRef.current?.focus();
-        onClose();
-      }
-    });
+    useOnKeyDown(['Escape', 'Esc'], () => handleClose());
 
     const hasTransitionedIn = useMountTransition(isOpen, 200);
 
@@ -140,7 +141,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   appearance="borderless"
                   purpose="secondary"
                   Icon={CloseOutlinedIcon}
-                  onClick={onClose}
+                  onClick={handleClose}
                   aria-label="Lukk dialog"
                 />
               )}
