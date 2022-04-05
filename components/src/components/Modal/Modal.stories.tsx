@@ -11,7 +11,7 @@ export default {
   }
 };
 
-export const Overview = (args: ModalProps) => {
+export const Overview = () => {
   const [closed, setClosed] = useState(true);
   const show = () => setClosed(false);
   const close = () => {
@@ -86,6 +86,34 @@ export const Default = (args: ModalProps) => {
           <Button label="OK" onClick={close} />
           <Button purpose="secondary" label="Avbryt" onClick={close} />
         </ModalActions>
+      </Modal>
+    </StoryTemplate>
+  );
+};
+
+export const NoActionButtons = (args: ModalProps) => {
+  const [closed, setClosed] = useState(true);
+  const show = () => setClosed(false);
+  const close = () => setClosed(true);
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  return (
+    <StoryTemplate title="Modal - default">
+      <Button
+        aria-haspopup="dialog"
+        label="Åpne"
+        onClick={show}
+        ref={buttonRef}
+      />
+      <Modal
+        {...args}
+        isOpen={!closed}
+        triggerRef={buttonRef}
+        onClose={close}
+        header="Info"
+      >
+        <ModalBody>Infotekst</ModalBody>
       </Modal>
     </StoryTemplate>
   );
