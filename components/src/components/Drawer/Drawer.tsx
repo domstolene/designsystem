@@ -27,6 +27,7 @@ type ContainerProps = {
   placement: DrawerPlacement;
   isOpen: boolean;
   widthProps?: WidthProps;
+  size: DrawerSize;
 };
 
 const Container = styled(Paper)<ContainerProps>`
@@ -37,7 +38,10 @@ const Container = styled(Paper)<ContainerProps>`
   flex-direction: column-reverse;
   justify-content: flex-end;
   min-width: 300px;
-  max-width: 400px;
+  /* max-width: 400px; */
+  ${({ size }) => css`
+    ${tokens.container.size[size].base}
+  `}
   ${({ widthProps }) =>
     widthProps &&
     css`
@@ -77,6 +81,7 @@ const StyledButton = styled(Button)`
   align-self: flex-end;
 `;
 
+export type DrawerSize = 'medium' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export type WidthProps = {
   minWidth?: MinWidthProperty<string>;
@@ -87,6 +92,7 @@ export type WidthProps = {
 export type DrawerProps = {
   isOpen?: boolean;
   placement?: DrawerPlacement;
+  size?: DrawerSize;
   onClose: () => void;
   parentElement?: HTMLElement;
   header?: string | ReactNode;
@@ -105,6 +111,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       isOpen = false,
       placement = 'right',
       parentElement = document.body,
+      size = 'medium',
       triggerRef,
       id,
       ...rest
@@ -140,6 +147,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       role: 'dialog',
       id: uniqueId,
       'aria-labelledby': headerId,
+      size,
       ...rest
     };
 

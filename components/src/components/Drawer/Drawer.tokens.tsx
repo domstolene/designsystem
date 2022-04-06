@@ -12,9 +12,25 @@ const contentContainerBase: CSSObject = {
   gap: Spacing.SizesDdsSpacingLocalX1
 };
 
+const containerLarge: CSSObject = {
+  maxWidth: '800px'
+};
+
+const containerMedium: CSSObject = {
+  maxWidth: '400px'
+};
+
 export const drawerTokens = {
   container: {
-    base: containerBase
+    base: containerBase,
+    size: {
+      large: {
+        base: containerLarge
+      },
+      medium: {
+        base: containerMedium
+      }
+    }
   },
   contentContainer: {
     base: contentContainerBase
