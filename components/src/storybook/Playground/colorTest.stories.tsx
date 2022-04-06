@@ -215,6 +215,6 @@ const TestForm = (color?: TestColor) => (
   </>
 );
 
-export const color5 = () => TestForm('colors5');
-export const color6 = () => TestForm('colors6');
-export const color7 = () => TestForm('colors7');
+export const Color5 = () => TestForm('colors5');
+export const Color6 = () => TestForm('colors6');
+export const Color7 = () => TestForm('colors7');
