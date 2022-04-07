@@ -23,4 +23,5 @@ export * from './components/Datepicker';
 export * from './components/SkipToContent';
 export * from './components/Tooltip';
 export * from './components/Modal';
+export * from './components/OverflowMenu';
 export * from './components/Popover';
