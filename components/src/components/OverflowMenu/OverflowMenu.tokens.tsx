@@ -39,6 +39,11 @@ const linkFocusBase: CSSObject = {
   backgroundColor: Border.BordersDdsBorderFocusBaseStroke
 };
 
+const dividerBase: CSSObject = {
+  marginRight: Spacing.SizesDdsSpacingLocalX15,
+  marginLeft: Spacing.SizesDdsSpacingLocalX15
+};
+
 export const overflowMenuTokens = {
   wrapper: {
     base: contextMenuBase
@@ -54,5 +59,8 @@ export const overflowMenuTokens = {
     focus: {
       base: linkFocusBase
     }
+  },
+  divider: {
+    base: dividerBase
   }
 };
