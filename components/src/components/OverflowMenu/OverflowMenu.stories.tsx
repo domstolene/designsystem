@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { OverflowMenu } from '.';
+import { OverflowMenu, OverflowMenuProps } from '.';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Button } from '../Button';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
@@ -10,7 +10,7 @@ export default {
   component: OverflowMenu
 };
 
-export const Default = () => {
+export const Default = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
@@ -40,6 +40,7 @@ export const Default = () => {
         aria-haspopup="menu"
       />
       <OverflowMenu
+        {...args}
         isOpen={!isClosed}
         onClose={close}
         triggerRef={buttonRef}
@@ -49,7 +50,7 @@ export const Default = () => {
   );
 };
 
-export const WithStaticUser = () => {
+export const WithStaticUser = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
@@ -77,6 +78,7 @@ export const WithStaticUser = () => {
         aria-haspopup="menu"
       />
       <OverflowMenu
+        {...args}
         isOpen={!isClosed}
         onClose={close}
         triggerRef={buttonRef}
@@ -87,7 +89,7 @@ export const WithStaticUser = () => {
   );
 };
 
-export const WithInteractiveUser = () => {
+export const WithInteractiveUser = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
@@ -115,6 +117,7 @@ export const WithInteractiveUser = () => {
         aria-haspopup="menu"
       />
       <OverflowMenu
+        {...args}
         isOpen={!isClosed}
         onClose={close}
         triggerRef={buttonRef}
@@ -125,7 +128,7 @@ export const WithInteractiveUser = () => {
   );
 };
 
-export const WithNavigation = () => {
+export const WithNavigation = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
@@ -164,6 +167,7 @@ export const WithNavigation = () => {
         aria-haspopup="menu"
       />
       <OverflowMenu
+        {...args}
         isOpen={!isClosed}
         onClose={close}
         triggerRef={buttonRef}
@@ -174,7 +178,7 @@ export const WithNavigation = () => {
   );
 };
 
-export const WithNavigationAndInteractiveUser = () => {
+export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
@@ -213,6 +217,7 @@ export const WithNavigationAndInteractiveUser = () => {
         aria-haspopup="menu"
       />
       <OverflowMenu
+        {...args}
         isOpen={!isClosed}
         onClose={close}
         triggerRef={buttonRef}
@@ -224,7 +229,7 @@ export const WithNavigationAndInteractiveUser = () => {
   );
 };
 
-export const Long = () => {
+export const Long = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
@@ -276,6 +281,7 @@ export const Long = () => {
         aria-haspopup="menu"
       />
       <OverflowMenu
+        {...args}
         isOpen={!isClosed}
         onClose={close}
         triggerRef={buttonRef}
