@@ -1,18 +1,7 @@
-import { SvgIconTypeMap } from '@material-ui/core';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import {
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  forwardRef,
-  HTMLAttributes,
-  RefObject,
-  useEffect,
-  useState
-} from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import {
-  Placement,
   useCombinedRef,
   useId,
   useOnClickOutside,
@@ -24,6 +13,11 @@ import { OverflowMenuItem } from '.';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import { Divider } from '../Divider';
+import {
+  OverflowMenuContextItem,
+  OverflowMenuNavItem,
+  OverflowMenuProps
+} from '.';
 
 type ContextMenuWrapperProps = { isOpen?: boolean };
 
@@ -52,36 +46,6 @@ export const OverflowMenuList = styled.ul`
 const StyledDivider = styled(Divider)`
   ${tokens.divider.base}
 `;
-
-export type OverflowMenuContextItem = {
-  text: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-} & (
-  | AnchorHTMLAttributes<HTMLAnchorElement>
-  | ButtonHTMLAttributes<HTMLButtonElement>
-);
-export type OverflowMenuNavItem = {
-  text: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
-
-export type UserProps = {
-  text: string;
-  href?: string;
-} & (
-  | AnchorHTMLAttributes<HTMLAnchorElement>
-  | ButtonHTMLAttributes<HTMLButtonElement>
-);
-
-export type OverflowMenuProps = {
-  isOpen?: boolean;
-  triggerRef: RefObject<HTMLButtonElement>;
-  onClose: () => void;
-  placement?: Placement;
-  userProps?: UserProps;
-  items?: OverflowMenuContextItem[];
-  navItems?: OverflowMenuNavItem[];
-} & HTMLAttributes<HTMLDivElement>;
 
 export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
   (
