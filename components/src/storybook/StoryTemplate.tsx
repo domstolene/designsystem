@@ -5,11 +5,13 @@ import { Typography } from '../components/Typography';
 import { StoryContainer } from './StoryContainer';
 import 'focus-visible';
 
-const Container = styled.div<{
+type ContainerProps = {
   gap?: string;
   display?: StoryDisplay;
   columnsAmount?: number;
-}>`
+};
+
+const Container = styled.div<ContainerProps>`
   ${({ display, gap, columnsAmount }) =>
     gap &&
     display &&
@@ -31,10 +33,16 @@ const Container = styled.div<{
             fit-content(100%)`}
           );
           `
+      : display === 'flex-centered'
+      ? css`
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        `
       : '')}
 `;
 
-export type StoryDisplay = 'block' | 'flex' | 'grid';
+export type StoryDisplay = 'block' | 'flex' | 'grid' | 'flex-centered';
 
 type StoryTemplateProps = {
   title: string;
