@@ -18,15 +18,15 @@ export const Default = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      name: 'Handling',
+      text: 'Handling',
       onClick: () => {}
     },
     {
-      name: 'Handling 2',
+      text: 'Handling 2',
       onClick: () => {}
     },
     {
-      name: 'Handling 3',
+      text: 'Handling 3',
       onClick: () => {},
       Icon: AddCircleOutlineOutlinedIcon
     }
@@ -57,11 +57,11 @@ export const WithStaticUser = () => {
 
   const items = [
     {
-      name: 'Handling',
+      text: 'Handling',
       onClick: () => {}
     },
     {
-      name: 'Handling 2',
+      text: 'Handling 2',
       onClick: () => {}
     }
   ];
@@ -81,8 +81,7 @@ export const WithStaticUser = () => {
         onClose={close}
         triggerRef={buttonRef}
         items={items}
-        staticUsername="Brukernavn"
-        userProps={{ name: 'Brukernavn' }}
+        userProps={{ text: 'Brukernavn' }}
       />
     </StoryTemplate>
   );
@@ -96,11 +95,11 @@ export const WithInteractiveUser = () => {
 
   const items = [
     {
-      name: 'Handling',
+      text: 'Handling',
       onClick: () => {}
     },
     {
-      name: 'Handling 2',
+      text: 'Handling 2',
       onClick: () => {}
     }
   ];
@@ -120,8 +119,7 @@ export const WithInteractiveUser = () => {
         onClose={close}
         triggerRef={buttonRef}
         items={items}
-        staticUsername="Brukernavn"
-        userProps={{ name: 'Brukernavn', onClick: () => {} }}
+        userProps={{ text: 'Brukernavn', onClick: () => {} }}
       />
     </StoryTemplate>
   );
@@ -135,22 +133,22 @@ export const WithNavigation = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      name: 'Handling',
+      text: 'Handling',
       onClick: () => {}
     },
     {
-      name: 'Handling 2',
+      text: 'Handling 2',
       onClick: () => {}
     }
   ];
 
   const navItems = [
     {
-      name: 'Link',
+      text: 'Link',
       href: '#'
     },
     {
-      name: 'Link 2',
+      text: 'Link 2',
       href: '#'
     }
   ];
@@ -184,22 +182,22 @@ export const WithNavigationAndInteractiveUser = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      name: 'Handling',
+      text: 'Handling',
       onClick: () => {}
     },
     {
-      name: 'Handling 2',
+      text: 'Handling 2',
       onClick: () => {}
     }
   ];
 
   const navItems = [
     {
-      name: 'Link',
+      text: 'Link',
       href: '#'
     },
     {
-      name: 'Link 2',
+      text: 'Link 2',
       href: '#'
     }
   ];
@@ -220,7 +218,7 @@ export const WithNavigationAndInteractiveUser = () => {
         triggerRef={buttonRef}
         items={items}
         navItems={navItems}
-        userProps={{ name: 'Brukernavn', onClick: () => {} }}
+        userProps={{ text: 'Brukernavn', onClick: () => {} }}
       ></OverflowMenu>
     </StoryTemplate>
   );
@@ -234,38 +232,38 @@ export const Long = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      name: 'Handling',
+      text: 'Handling',
       onClick: () => {}
     },
     {
-      name: 'Handling 2',
+      text: 'Handling 2',
       onClick: () => {}
     },
     {
-      name: 'Handling 3',
+      text: 'Handling 3',
       onClick: () => {}
     },
     {
-      name: 'Handling 4',
+      text: 'Handling 4',
       onClick: () => {}
     }
   ];
 
   const navItems = [
     {
-      name: 'Link',
+      text: 'Link',
       href: '#'
     },
     {
-      name: 'Link 2',
+      text: 'Link 2',
       href: '#'
     },
     {
-      name: 'Link 3',
+      text: 'Link 3',
       href: '#'
     },
     {
-      name: 'Link 4',
+      text: 'Link 4',
       href: '#'
     }
   ];
@@ -283,7 +281,7 @@ export const Long = () => {
         triggerRef={buttonRef}
         items={items}
         navItems={navItems}
-        userProps={{ name: 'Brukernavn', onClick: () => {} }}
+        userProps={{ text: 'Brukernavn', onClick: () => {} }}
       ></OverflowMenu>
     </StoryTemplate>
   );

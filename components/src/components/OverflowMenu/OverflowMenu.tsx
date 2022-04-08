@@ -54,19 +54,19 @@ const StyledDivider = styled(Divider)`
 `;
 
 export type OverflowMenuContextItem = {
-  name: string;
+  text: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
 );
 export type OverflowMenuNavItem = {
-  name: string;
+  text: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type UserProps = {
-  name: string;
+  text: string;
   href?: string;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
@@ -78,7 +78,6 @@ export type OverflowMenuProps = {
   triggerRef: RefObject<HTMLButtonElement>;
   onClose: () => void;
   placement?: Placement;
-  staticUsername?: string;
   userProps?: UserProps;
   items?: OverflowMenuContextItem[];
   navItems?: OverflowMenuNavItem[];
@@ -92,7 +91,6 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       children,
       isOpen,
       placement = 'bottom-end',
-      staticUsername,
       items,
       navItems,
       userProps,
@@ -226,7 +224,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       <Container {...containerProps}>
         {hasStaticUser && (
           <OverflowMenuItem
-            name={userProps.name}
+            text={userProps.text}
             Icon={PersonOutlineOutlinedIcon}
           />
         )}

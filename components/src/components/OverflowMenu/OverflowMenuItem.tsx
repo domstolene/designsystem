@@ -54,7 +54,7 @@ export const Link = styled.a`
 export const StyledIconWrapper = styled(IconWrapper)``;
 
 export type OverflowMenuItemProps = {
-  name: string;
+  text: string;
   href?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
   focus?: boolean;
@@ -72,7 +72,7 @@ export const OverflowMenuItem = forwardRef<
   OverflowMenuItemProps
 >(
   (
-    { name, href, onClick, onKeyDown, Icon, focus, setFocus, index, ...rest },
+    { text, href, onClick, onKeyDown, Icon, focus, setFocus, index, ...rest },
     ref
   ) => {
     const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
@@ -123,12 +123,12 @@ export const OverflowMenuItem = forwardRef<
     return !href && !onClick ? (
       <Span {...elementProps}>
         {icon}
-        {name}
+        {text}
       </Span>
     ) : (
       <Link as={href ? 'a' : 'button'} {...linkProps}>
         {icon}
-        {name}
+        {text}
       </Link>
     );
   }
