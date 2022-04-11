@@ -9,19 +9,19 @@ import {
 } from 'react';
 
 export type OverflowMenuContextItem = {
-  text: string;
+  title: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
 );
 export type OverflowMenuNavItem = {
-  text: string;
+  title: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type UserProps = {
-  text: string;
+  name: string;
   href?: string;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>

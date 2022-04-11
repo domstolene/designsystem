@@ -18,15 +18,15 @@ export const Default = (args: OverflowMenuProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      text: 'Handling',
+      title: 'Handling',
       onClick: () => {}
     },
     {
-      text: 'Handling 2',
+      title: 'Handling 2',
       onClick: () => {}
     },
     {
-      text: 'Handling 3',
+      title: 'Handling 3',
       onClick: () => {},
       Icon: AddCircleOutlineOutlinedIcon
     }
@@ -58,11 +58,11 @@ export const WithStaticUser = (args: OverflowMenuProps) => {
 
   const items = [
     {
-      text: 'Handling',
+      title: 'Handling',
       onClick: () => {}
     },
     {
-      text: 'Handling 2',
+      title: 'Handling 2',
       onClick: () => {}
     }
   ];
@@ -83,7 +83,7 @@ export const WithStaticUser = (args: OverflowMenuProps) => {
         onClose={close}
         triggerRef={buttonRef}
         items={items}
-        userProps={{ text: 'Brukernavn' }}
+        userProps={{ name: 'Brukernavn' }}
       />
     </StoryTemplate>
   );
@@ -97,11 +97,11 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
 
   const items = [
     {
-      text: 'Handling',
+      title: 'Handling',
       onClick: () => {}
     },
     {
-      text: 'Handling 2',
+      title: 'Handling 2',
       onClick: () => {}
     }
   ];
@@ -122,7 +122,7 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
         onClose={close}
         triggerRef={buttonRef}
         items={items}
-        userProps={{ text: 'Brukernavn', onClick: () => {} }}
+        userProps={{ name: 'Brukernavn', onClick: () => {} }}
       />
     </StoryTemplate>
   );
@@ -136,22 +136,22 @@ export const WithNavigation = (args: OverflowMenuProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      text: 'Handling',
+      title: 'Handling',
       onClick: () => {}
     },
     {
-      text: 'Handling 2',
+      title: 'Handling 2',
       onClick: () => {}
     }
   ];
 
   const navItems = [
     {
-      text: 'Link',
+      title: 'Link',
       href: '#'
     },
     {
-      text: 'Link 2',
+      title: 'Link 2',
       href: '#'
     }
   ];
@@ -186,22 +186,22 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      text: 'Handling',
+      title: 'Handling',
       onClick: () => {}
     },
     {
-      text: 'Handling 2',
+      title: 'Handling 2',
       onClick: () => {}
     }
   ];
 
   const navItems = [
     {
-      text: 'Link',
+      title: 'Link',
       href: '#'
     },
     {
-      text: 'Link 2',
+      title: 'Link 2',
       href: '#'
     }
   ];
@@ -223,7 +223,7 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
         triggerRef={buttonRef}
         items={items}
         navItems={navItems}
-        userProps={{ text: 'Brukernavn', onClick: () => {} }}
+        userProps={{ name: 'Brukernavn', onClick: () => {} }}
       ></OverflowMenu>
     </StoryTemplate>
   );
@@ -237,38 +237,38 @@ export const Long = (args: OverflowMenuProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const items = [
     {
-      text: 'Handling',
+      title: 'Handling',
       onClick: () => {}
     },
     {
-      text: 'Handling 2',
+      title: 'Handling 2',
       onClick: () => {}
     },
     {
-      text: 'Handling 3',
+      title: 'Handling 3',
       onClick: () => {}
     },
     {
-      text: 'Handling 4',
+      title: 'Handling 4',
       onClick: () => {}
     }
   ];
 
   const navItems = [
     {
-      text: 'Link',
+      title: 'Link',
       href: '#'
     },
     {
-      text: 'Link 2',
+      title: 'Link 2',
       href: '#'
     },
     {
-      text: 'Link 3',
+      title: 'Link 3',
       href: '#'
     },
     {
-      text: 'Link 4',
+      title: 'Link 4',
       href: '#'
     }
   ];
@@ -287,7 +287,7 @@ export const Long = (args: OverflowMenuProps) => {
         triggerRef={buttonRef}
         items={items}
         navItems={navItems}
-        userProps={{ text: 'Brukernavn', onClick: () => {} }}
+        userProps={{ name: 'Brukernavn', onClick: () => {} }}
       ></OverflowMenu>
     </StoryTemplate>
   );

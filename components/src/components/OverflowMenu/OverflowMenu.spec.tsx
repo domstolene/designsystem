@@ -19,7 +19,7 @@ const TestComponent = () => {
         triggerRef={buttonRef}
         isOpen={!closed}
         onClose={close}
-        items={[{ text: text, onClick: () => {} }]}
+        items={[{ title: text, onClick: () => {} }]}
       />
     </>
   );
@@ -38,7 +38,7 @@ const TestComponentLink = () => {
         triggerRef={buttonRef}
         isOpen={!closed}
         onClose={close}
-        navItems={[{ text: text, href: href }]}
+        navItems={[{ title: text, href: href }]}
       />
     </>
   );
@@ -57,7 +57,7 @@ const TestComponentStatic = () => {
         triggerRef={buttonRef}
         isOpen={!closed}
         onClose={close}
-        userProps={{ text: text }}
+        userProps={{ name: text }}
       />
     </>
   );

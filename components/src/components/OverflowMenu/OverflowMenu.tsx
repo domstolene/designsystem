@@ -105,10 +105,13 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
 
     const hasContextItems = !!items && items.length > 0;
     const hasNavItems = !!navItems && navItems.length > 0;
-    const hasStaticUser = userProps && !userProps.href && !userProps.onClick;
+    const { name: username, ...userPropsRest } = userProps || {};
+    const hasStaticUser =
+      username && userProps && !userProps.href && !userProps.onClick;
     const hasInteractiveUser =
-      userProps && (!!userProps.href || !!userProps.onClick);
-    hasInteractiveUser && allItems.push(userProps);
+      username && userProps && (!!userProps.href || !!userProps.onClick);
+
+    hasInteractiveUser && allItems.push({ title: username, ...userPropsRest });
     hasNavItems && allItems.push(...navItems);
     hasContextItems && allItems.push(...items);
 
@@ -188,10 +191,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     return (
       <Container {...containerProps}>
         {hasStaticUser && (
-          <OverflowMenuItem
-            text={userProps.text}
-            Icon={PersonOutlineOutlinedIcon}
-          />
+          <OverflowMenuItem title={username} Icon={PersonOutlineOutlinedIcon} />
         )}
 
         {content()}
