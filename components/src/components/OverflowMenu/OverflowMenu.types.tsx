@@ -36,4 +36,5 @@ export type OverflowMenuProps = {
   userProps?: UserProps;
   items?: OverflowMenuContextItem[];
   navItems?: OverflowMenuNavItem[];
+  offset?: number;
 } & HTMLAttributes<HTMLDivElement>;

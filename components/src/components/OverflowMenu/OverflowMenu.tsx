@@ -59,6 +59,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       navItems,
       userProps,
       id,
+      offset = tokens.offset,
       style,
       ...rest
     },
@@ -73,7 +74,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       popperElement,
       undefined,
       placement,
-      4
+      offset
     );
 
     useEffect(() => {

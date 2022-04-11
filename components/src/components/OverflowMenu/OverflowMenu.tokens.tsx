@@ -62,5 +62,6 @@ export const overflowMenuTokens = {
   },
   divider: {
     base: dividerBase
-  }
+  },
+  offset: Spacing.SizesDdsSpacingLocalX0125NumberPx
 };
