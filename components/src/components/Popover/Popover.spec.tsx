@@ -1,5 +1,4 @@
-import '@testing-library/jest-dom';
-import { screen, fireEvent, render, waitFor } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import { Popover, PopoverGroup } from '.';
 import { Button } from '../Button';
 
