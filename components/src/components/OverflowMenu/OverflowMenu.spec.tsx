@@ -16,7 +16,7 @@ const TestComponent = () => {
     <>
       <Button onClick={toggle} />
       <OverflowMenu
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         isOpen={!closed}
         onClose={close}
         items={[{ title: text, onClick: () => {} }]}
@@ -35,7 +35,7 @@ const TestComponentLink = () => {
     <>
       <Button onClick={toggle} />
       <OverflowMenu
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         isOpen={!closed}
         onClose={close}
         navItems={[{ title: text, href: href }]}
@@ -54,7 +54,7 @@ const TestComponentStatic = () => {
     <>
       <Button onClick={toggle} />
       <OverflowMenu
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         isOpen={!closed}
         onClose={close}
         userProps={{ name: text }}

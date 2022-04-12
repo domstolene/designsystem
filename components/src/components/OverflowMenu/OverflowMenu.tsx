@@ -50,7 +50,7 @@ const StyledDivider = styled(Divider)`
 export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
   (
     {
-      triggerRef,
+      anchorRef,
       onClose,
       children,
       isOpen,
@@ -79,19 +79,19 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
 
     useEffect(() => {
       isOpen
-        ? setReferenceElement(triggerRef.current)
+        ? setReferenceElement(anchorRef.current)
         : setReferenceElement(null);
       return () => setReferenceElement(null);
-    }, [triggerRef, isOpen]);
+    }, [anchorRef, isOpen]);
 
     useOnClickOutside([popperElement, referenceElement], () => {
-      onClose();
+      if (isOpen) onClose();
     });
 
     useOnKeyDown(['Esc', 'Escape'], () => {
       if (isOpen) {
         onClose();
-        triggerRef.current?.focus();
+        anchorRef.current?.focus();
       }
     });
 

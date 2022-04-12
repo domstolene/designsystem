@@ -109,7 +109,7 @@ export const InternalHeader = ({
           <OverflowMenu
             isOpen={!contextMenuIsClosed}
             onClose={onOveflowMenuClose}
-            triggerRef={buttonRef}
+            anchorRef={buttonRef}
             navItems={hasNavInContextMenu ? navigationElements : undefined}
             items={hasContextMenuElements ? contextMenuElements : undefined}
             userProps={userProps}

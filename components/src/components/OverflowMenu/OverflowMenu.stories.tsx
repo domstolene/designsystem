@@ -43,7 +43,7 @@ export const Default = (args: OverflowMenuProps) => {
         {...args}
         isOpen={!isClosed}
         onClose={close}
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         items={items}
       ></OverflowMenu>
     </StoryTemplate>
@@ -81,7 +81,7 @@ export const WithStaticUser = (args: OverflowMenuProps) => {
         {...args}
         isOpen={!isClosed}
         onClose={close}
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         items={items}
         userProps={{ name: 'Brukernavn' }}
       />
@@ -120,7 +120,7 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
         {...args}
         isOpen={!isClosed}
         onClose={close}
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         items={items}
         userProps={{ name: 'Brukernavn', onClick: () => {} }}
       />
@@ -170,7 +170,7 @@ export const WithNavigation = (args: OverflowMenuProps) => {
         {...args}
         isOpen={!isClosed}
         onClose={close}
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         items={items}
         navItems={navItems}
       ></OverflowMenu>
@@ -220,7 +220,7 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
         {...args}
         isOpen={!isClosed}
         onClose={close}
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         items={items}
         navItems={navItems}
         userProps={{ name: 'Brukernavn', onClick: () => {} }}
@@ -284,7 +284,7 @@ export const Long = (args: OverflowMenuProps) => {
         {...args}
         isOpen={!isClosed}
         onClose={close}
-        triggerRef={buttonRef}
+        anchorRef={buttonRef}
         items={items}
         navItems={navItems}
         userProps={{ name: 'Brukernavn', onClick: () => {} }}
