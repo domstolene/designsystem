@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { useRef, useState } from 'react';
 import { Button } from '../Button';
 import { OverflowMenu } from './OverflowMenu';
@@ -6,7 +6,13 @@ import { OverflowMenu } from './OverflowMenu';
 const text = 'text';
 const href = '#';
 
-const TestComponent = () => {
+type props = {
+  navItem?: { title: string; href: string };
+  item?: { title: string; onClick: () => void };
+  user?: { name: string; href?: string };
+};
+
+function TestComponent({ navItem, item, user }: props) {
   const [closed, setClosed] = useState(true);
   const toggle = () => setClosed(!closed);
   const close = () => setClosed(true);
@@ -19,65 +25,54 @@ const TestComponent = () => {
         anchorRef={buttonRef}
         isOpen={!closed}
         onClose={close}
-        items={[{ title: text, onClick: () => {} }]}
+        items={item ? [item] : undefined}
+        navItems={navItem ? [navItem] : undefined}
+        userProps={user ? user : undefined}
       />
     </>
   );
-};
-
-const TestComponentLink = () => {
-  const [closed, setClosed] = useState(true);
-  const toggle = () => setClosed(!closed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  return (
-    <>
-      <Button onClick={toggle} />
-      <OverflowMenu
-        anchorRef={buttonRef}
-        isOpen={!closed}
-        onClose={close}
-        navItems={[{ title: text, href: href }]}
-      />
-    </>
-  );
-};
-
-const TestComponentStatic = () => {
-  const [closed, setClosed] = useState(true);
-  const toggle = () => setClosed(!closed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  return (
-    <>
-      <Button onClick={toggle} />
-      <OverflowMenu
-        anchorRef={buttonRef}
-        isOpen={!closed}
-        onClose={close}
-        userProps={{ name: text }}
-      />
-    </>
-  );
-};
+}
 
 describe('<OverflowMenu />', () => {
   it('should display context menu item as button', () => {
-    render(<TestComponent />);
+    const item = { title: text, onClick: () => {} };
+    render(<TestComponent item={item} />);
     const buttonElement = screen.getByRole('button');
     expect(buttonElement).toBeInTheDocument();
   });
   it('should display nav menu item as link', () => {
-    render(<TestComponentLink />);
+    const navItem = { title: text, href: href };
+    render(<TestComponent navItem={navItem} />);
     const aElement = screen.getByText(text);
     expect(aElement).toBeInTheDocument();
     expect(aElement).toHaveAttribute('href', href);
   });
-  it('should display static usertext', () => {
-    render(<TestComponentStatic />);
+  it('should display static username', () => {
+    render(<TestComponent user={{ name: text }} />);
     const element = screen.getByText(text);
     expect(element).toBeInTheDocument();
+  });
+  it('should display username as link', () => {
+    render(<TestComponent user={{ name: text, href: href }} />);
+    const element = screen.getByText(text);
+    expect(element).toBeInTheDocument();
+    expect(element).toHaveAttribute('href', href);
+  });
+  it('should show OverflowMenu on button click', () => {
+    render(<TestComponent />);
+    const contextMenuButton = screen.getByRole('button');
+    fireEvent.click(contextMenuButton!);
+    const menu = screen.getByRole('menu');
+    expect(menu).toHaveAttribute('aria-hidden', 'false');
+  });
+  it('should run onclick event from context menu', () => {
+    const event = jest.fn();
+    const item = { title: text, onClick: event };
+    const { container } = render(<TestComponent item={item} />);
+    const contextMenuButton = container
+      .querySelector('li')
+      ?.querySelector('button');
+    fireEvent.click(contextMenuButton!);
+    expect(event).toHaveBeenCalled();
   });
 });
