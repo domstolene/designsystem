@@ -1,10 +1,9 @@
-import '@testing-library/jest-dom';
 import { screen, fireEvent, render, waitFor } from '@testing-library/react';
 import { Tooltip } from '.';
 import { Button } from '../Button';
 
 describe('<Tooltip />', () => {
-  it('should render tooltip', () => {
+  it('should render tooltip', async () => {
     const text = 'text';
     render(
       <Tooltip text={text}>
@@ -12,9 +11,11 @@ describe('<Tooltip />', () => {
       </Tooltip>
     );
     const tooltip = screen.getByText(text);
-    expect(tooltip).toHaveAttribute('role', 'tooltip');
+    await waitFor(() => {
+      expect(tooltip).toHaveAttribute('role', 'tooltip');
+    });
   });
-  it('should render tooltip text', () => {
+  it('should render tooltip text', async () => {
     const text = 'text';
     render(
       <Tooltip text={text}>
@@ -22,9 +23,11 @@ describe('<Tooltip />', () => {
       </Tooltip>
     );
     const textElement = screen.getByText(text);
-    expect(textElement).toBeDefined();
+    await waitFor(() => {
+      expect(textElement).toBeDefined();
+    });
   });
-  it('anchor element should have tooltip id as aria-describedby', () => {
+  it('anchor element should have tooltip id as aria-describedby', async () => {
     const text = 'text';
     const id = 'id';
     render(
@@ -33,9 +36,11 @@ describe('<Tooltip />', () => {
       </Tooltip>
     );
     const anchorElement = screen.getByRole('button');
-    expect(anchorElement).toHaveAttribute('aria-describedby', id);
     const tooltip = screen.getByText(text);
-    expect(tooltip).toHaveAttribute('id', id);
+    await waitFor(() => {
+      expect(anchorElement).toHaveAttribute('aria-describedby', id);
+      expect(tooltip).toHaveAttribute('id', id);
+    });
   });
   it('should give tooltip aria-hidden=false on focus', async () => {
     const text = 'text';
@@ -64,7 +69,7 @@ describe('<Tooltip />', () => {
       expect(screen.getByText(text)).toHaveAttribute('aria-hidden', 'false');
     });
   });
-  it('should call button onFocus event', () => {
+  it('should call button onFocus event', async () => {
     const event = jest.fn();
     const text = 'text';
     render(
@@ -74,9 +79,11 @@ describe('<Tooltip />', () => {
     );
     const anchorElement = screen.getByRole('button');
     fireEvent.focus(anchorElement!);
-    expect(event).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(event).toHaveBeenCalled();
+    });
   });
-  it('should call container onMouseLeave event', () => {
+  it('should call container onMouseLeave event', async () => {
     const event = jest.fn();
     const text = 'text';
     const testId = 'test1';
@@ -87,6 +94,8 @@ describe('<Tooltip />', () => {
     );
     const containerElement = screen.getByTestId(testId);
     fireEvent.mouseLeave(containerElement!);
-    expect(event).toHaveBeenCalled();
+    await waitFor(() => {
+      expect(event).toHaveBeenCalled();
+    });
   });
 });
