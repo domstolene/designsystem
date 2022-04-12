@@ -78,11 +78,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     );
 
     useEffect(() => {
-      isOpen
+      anchorRef
         ? setReferenceElement(anchorRef.current)
         : setReferenceElement(null);
-      return () => setReferenceElement(null);
-    }, [anchorRef, isOpen]);
+    }, [anchorRef]);
 
     useOnClickOutside([popperElement, referenceElement], () => {
       if (isOpen) onClose();
