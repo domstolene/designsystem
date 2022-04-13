@@ -29,7 +29,7 @@ const containerLarge: CSSObject = {
   maxWidth: '800px'
 };
 
-const containerMedium: CSSObject = {
+const containerSmall: CSSObject = {
   maxWidth: '400px'
 };
 
@@ -40,8 +40,8 @@ export const drawerTokens = {
       large: {
         base: containerLarge
       },
-      medium: {
-        base: containerMedium
+      small: {
+        base: containerSmall
       }
     }
   },

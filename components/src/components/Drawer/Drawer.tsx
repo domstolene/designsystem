@@ -60,7 +60,7 @@ const Container = styled(Paper)<ContainerProps>`
           transform: ${isOpen ? 'translate(0px)' : 'translateX(100%)'};
         `
       : ''}
-  transition: 0.2s;
+  transition: 0.5s;
   ${tokens.container.base}
   &:focus-visible {
     ${focusVisible}
@@ -81,7 +81,7 @@ const StyledButton = styled(Button)`
   align-self: flex-end;
 `;
 
-export type DrawerSize = 'medium' | 'large';
+export type DrawerSize = 'small' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export type WidthProps = {
   minWidth?: MinWidthProperty<string>;
@@ -111,7 +111,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
       isOpen = false,
       placement = 'right',
       parentElement = document.body,
-      size = 'medium',
+      size = 'small',
       triggerRef,
       id,
       ...rest
@@ -137,7 +137,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
 
     useOnClickOutside(elements, () => isOpen && onClose());
 
-    const hasTransitionedIn = useMountTransition(isOpen, 200);
+    const hasTransitionedIn = useMountTransition(isOpen, 500);
 
     const containerProps = {
       placement,
