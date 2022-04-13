@@ -5,11 +5,24 @@ const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
 const containerBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX15}`
+  padding: `${
+    Spacing.SizesDdsSpacingLocalX1NumberPx -
+    Spacing.SizesDdsSpacingLocalX025NumberPx
+  }px ${
+    Spacing.SizesDdsSpacingLocalX1NumberPx -
+    Spacing.SizesDdsSpacingLocalX025NumberPx
+  }px ${
+    Spacing.SizesDdsSpacingLocalX1NumberPx -
+    Spacing.SizesDdsSpacingLocalX025NumberPx
+  }px ${
+    Spacing.SizesDdsSpacingLocalX15NumberPx -
+    Spacing.SizesDdsSpacingLocalX025NumberPx
+  }px`
 };
 
 const contentContainerBase: CSSObject = {
-  gap: Spacing.SizesDdsSpacingLocalX1
+  gap: Spacing.SizesDdsSpacingLocalX1,
+  padding: Spacing.SizesDdsSpacingLocalX025
 };
 
 const containerLarge: CSSObject = {
