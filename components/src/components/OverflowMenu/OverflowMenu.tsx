@@ -18,6 +18,7 @@ import {
   OverflowMenuNavItem,
   OverflowMenuProps
 } from '.';
+import { typographyTokens } from '../Typography/Typography.tokens';
 
 type ContextMenuWrapperProps = { isOpen?: boolean };
 
@@ -33,6 +34,9 @@ export const Container = styled.div<ContextMenuWrapperProps>`
   opacity: ${({ isOpen }) => (!isOpen ? 0 : 1)};
   ${tokens.wrapper.base}
   ${scrollbarStyling}
+  *::selection {
+    ${typographyTokens.selection.base}
+  }
 `;
 
 export const OverflowMenuList = styled.ul`
