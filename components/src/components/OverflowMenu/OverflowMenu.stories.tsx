@@ -10,27 +10,43 @@ export default {
   component: OverflowMenu
 };
 
+const items = [
+  {
+    title: 'Handling',
+    onClick: () => {}
+  },
+  {
+    title: 'Handling 2',
+    onClick: () => {}
+  },
+  {
+    title: 'Handling 3',
+    onClick: () => {},
+    Icon: AddCircleOutlineOutlinedIcon
+  },
+  {
+    title: 'Lenke 1',
+    href: '#'
+  }
+];
+
+const navItems = [
+  {
+    title: 'Navigasjon',
+    href: '#'
+  },
+  {
+    title: 'Navigasjon 2',
+    href: '#'
+  }
+];
+
 export const Default = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
-
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const items = [
-    {
-      title: 'Handling',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 2',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 3',
-      onClick: () => {},
-      Icon: AddCircleOutlineOutlinedIcon
-    }
-  ];
+
   return (
     <StoryTemplate title="OverflowMenu - default" display="flex-centered">
       <Button
@@ -56,16 +72,6 @@ export const WithStaticUser = (args: OverflowMenuProps) => {
   const close = () => setClosed(true);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const items = [
-    {
-      title: 'Handling',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 2',
-      onClick: () => {}
-    }
-  ];
   return (
     <StoryTemplate
       title="OverflowMenu - with static user"
@@ -95,16 +101,6 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
   const close = () => setClosed(true);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const items = [
-    {
-      title: 'Handling',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 2',
-      onClick: () => {}
-    }
-  ];
   return (
     <StoryTemplate
       title="OverflowMenu - with interactive user"
@@ -132,29 +128,8 @@ export const WithNavigation = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
-
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const items = [
-    {
-      title: 'Handling',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 2',
-      onClick: () => {}
-    }
-  ];
 
-  const navItems = [
-    {
-      title: 'Link',
-      href: '#'
-    },
-    {
-      title: 'Link 2',
-      href: '#'
-    }
-  ];
   return (
     <StoryTemplate
       title="OverflowMenu - with navigation"
@@ -182,29 +157,8 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
-
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const items = [
-    {
-      title: 'Handling',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 2',
-      onClick: () => {}
-    }
-  ];
 
-  const navItems = [
-    {
-      title: 'Link',
-      href: '#'
-    },
-    {
-      title: 'Link 2',
-      href: '#'
-    }
-  ];
   return (
     <StoryTemplate
       title="OverflowMenu - with navigation and interactive user"
@@ -233,45 +187,8 @@ export const Long = (args: OverflowMenuProps) => {
   const [isClosed, setClosed] = useState(true);
   const toggle = () => setClosed(!isClosed);
   const close = () => setClosed(true);
-
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const items = [
-    {
-      title: 'Handling',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 2',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 3',
-      onClick: () => {}
-    },
-    {
-      title: 'Handling 4',
-      onClick: () => {}
-    }
-  ];
 
-  const navItems = [
-    {
-      title: 'Link',
-      href: '#'
-    },
-    {
-      title: 'Link 2',
-      href: '#'
-    },
-    {
-      title: 'Link 3',
-      href: '#'
-    },
-    {
-      title: 'Link 4',
-      href: '#'
-    }
-  ];
   return (
     <StoryTemplate title="OverflowMenu - long" display="flex-centered">
       <Button
@@ -286,7 +203,13 @@ export const Long = (args: OverflowMenuProps) => {
         onClose={close}
         anchorRef={buttonRef}
         items={items}
-        navItems={navItems}
+        navItems={[
+          ...navItems,
+          {
+            title: 'Navigasjon 4',
+            href: '#'
+          }
+        ]}
         userProps={{ name: 'Brukernavn', onClick: () => {} }}
       ></OverflowMenu>
     </StoryTemplate>
