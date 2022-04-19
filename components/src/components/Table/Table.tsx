@@ -2,16 +2,12 @@ import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { cellTokens } from './Cell.tokens';
-import { typographyTokens } from '../Typography/Typography.tokens';
 
 type StyledTableProps = Pick<TableProps, 'density' | 'stickyHeader'>;
 
 const StyledTable = styled.table<StyledTableProps>`
   border-spacing: 0;
   border-collapse: collapse;
-  *::selection {
-    ${typographyTokens.selection.base}
-  }
   ${scrollbarStyling}
   ${({ density }) =>
     density &&

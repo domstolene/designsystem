@@ -9,7 +9,7 @@ import {
   useReactPopper,
   useRoveFocus
 } from '../../hooks';
-import { OverflowMenuItem } from '.';
+import { OverflowMenuItem } from './OverflowMenuItem';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import { Divider } from '../Divider';
@@ -100,7 +100,8 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       }
     });
 
-    const allItems: (OverflowMenuContextItem | OverflowMenuNavItem)[] = [];
+    const interactiveItems: (OverflowMenuContextItem | OverflowMenuNavItem)[] =
+      [];
 
     const hasContextItems = !!items && items.length > 0;
     const hasNavItems = !!navItems && navItems.length > 0;
@@ -110,19 +111,20 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     const hasInteractiveUser =
       username && userProps && (!!userProps.href || !!userProps.onClick);
 
-    hasInteractiveUser && allItems.push({ title: username, ...userPropsRest });
-    hasNavItems && allItems.push(...navItems);
-    hasContextItems && allItems.push(...items);
+    hasInteractiveUser &&
+      interactiveItems.push({ title: username, ...userPropsRest });
+    hasNavItems && interactiveItems.push(...navItems);
+    hasContextItems && interactiveItems.push(...items);
 
-    const hasAnyItems = allItems.length > 0;
+    const hasInteractiveItems = interactiveItems.length > 0;
 
     const [focus, setFocus] = useRoveFocus(
-      allItems && allItems.length,
+      interactiveItems && interactiveItems.length,
       !isOpen
     );
 
-    const allItemsList = hasAnyItems
-      ? allItems.map((item, index) => (
+    const interactiveItemsList = hasInteractiveItems
+      ? interactiveItems.map((item, index) => (
           <li key={index}>
             <OverflowMenuItem
               index={index}
@@ -139,8 +141,8 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         ))
       : null;
 
-    const content = () => {
-      if (hasAnyItems) {
+    const interactiveContent = () => {
+      if (hasInteractiveItems) {
         const userPropsPos = hasInteractiveUser ? 0 : -1;
         const navItemsFirstPos = hasNavItems ? userPropsPos + 1 : -1;
         const navItemsLastPos = hasNavItems
@@ -154,12 +156,15 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         return (
           <>
             {hasInteractiveUser && (
-              <OverflowMenuList>{allItemsList?.[0]}</OverflowMenuList>
+              <OverflowMenuList>{interactiveItemsList?.[0]}</OverflowMenuList>
             )}
             {hasNavItems && (
               <nav>
                 <OverflowMenuList>
-                  {allItemsList?.slice(navItemsFirstPos, navItemsLastPos + 1)}
+                  {interactiveItemsList?.slice(
+                    navItemsFirstPos,
+                    navItemsLastPos + 1
+                  )}
                 </OverflowMenuList>
               </nav>
             )}
@@ -168,7 +173,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
             )}
             {hasContextItems && (
               <OverflowMenuList aria-label="kontekstmeny">
-                {allItemsList?.slice(contextItemsFirstPos, allItemsList.length)}
+                {interactiveItemsList?.slice(
+                  contextItemsFirstPos,
+                  interactiveItemsList.length
+                )}
               </OverflowMenuList>
             )}
           </>
@@ -193,7 +201,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
           <OverflowMenuItem title={username} Icon={PersonOutlineOutlinedIcon} />
         )}
 
-        {content()}
+        {interactiveContent()}
       </Container>
     );
   }
