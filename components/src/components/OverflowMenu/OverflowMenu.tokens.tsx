@@ -27,7 +27,7 @@ const linkActiveBase: CSSObject = {
   color: Colors.DdsColorInteractiveBase
 };
 
-const contextMenuBase: CSSObject = {
+const wrapperBase: CSSObject = {
   border: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${Border.BordersDdsBorderStyleLightStroke} solid `,
   backgroundColor: Colors.DdsColorNeutralsWhite,
 
@@ -45,8 +45,8 @@ const dividerBase: CSSObject = {
 };
 
 export const overflowMenuTokens = {
-  wrapper: {
-    base: contextMenuBase
+  container: {
+    base: wrapperBase
   },
   link: {
     base: linkBase,

@@ -20,9 +20,9 @@ import {
 } from '.';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
-type ContextMenuWrapperProps = { isOpen?: boolean };
+type ContainerProps = { isOpen?: boolean };
 
-export const Container = styled.div<ContextMenuWrapperProps>`
+export const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
   z-index: 3;
   overflow-y: auto;
@@ -31,7 +31,7 @@ export const Container = styled.div<ContextMenuWrapperProps>`
   transition: visibility 0.4s, opacity 0.2s;
   visibility: ${({ isOpen }) => (!isOpen ? 'hidden' : 'visible')};
   opacity: ${({ isOpen }) => (!isOpen ? 0 : 1)};
-  ${tokens.wrapper.base}
+  ${tokens.container.base}
   ${scrollbarStyling}
   *::selection {
     ${typographyTokens.selection.base}

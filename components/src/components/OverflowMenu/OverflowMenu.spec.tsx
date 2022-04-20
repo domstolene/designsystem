@@ -69,8 +69,8 @@ describe('<OverflowMenu />', () => {
     render(<TestComponent />);
     const menu = screen.queryByRole('menu');
     expect(menu).not.toBeInTheDocument();
-    const contextMenuButton = screen.getByRole('button');
-    fireEvent.click(contextMenuButton!);
+    const menuButton = screen.getByRole('button');
+    fireEvent.click(menuButton!);
     const menuOpened = screen.getByRole('menu');
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
   });
@@ -78,16 +78,14 @@ describe('<OverflowMenu />', () => {
     const event = jest.fn();
     const item = { title: text, onClick: event };
     const { container } = render(<TestComponent item={item} />);
-    const contextMenuButton = container
-      .querySelector('li')
-      ?.querySelector('button');
-    fireEvent.click(contextMenuButton!);
+    const menuButton = container.querySelector('li')?.querySelector('button');
+    fireEvent.click(menuButton!);
     expect(event).toHaveBeenCalled();
   });
   it('should hide menu after Esc keydown', () => {
     render(<TestComponent />);
-    const contextMenuButton = screen.getByRole('button');
-    fireEvent.click(contextMenuButton!);
+    const menuButton = screen.getByRole('button');
+    fireEvent.click(menuButton!);
     const menuOpened = screen.getByRole('menu');
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
     fireEvent.keyDown(menuOpened, { key: 'Escape', code: 'Escape' });
