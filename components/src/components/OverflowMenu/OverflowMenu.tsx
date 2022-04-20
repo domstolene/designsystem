@@ -139,8 +139,11 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
                   : undefined
               }
               {...item}
-              onClick={() => {
-                item.onClick && item.onClick;
+              onClick={(
+                e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
+                  React.MouseEvent<HTMLButtonElement, MouseEvent>
+              ) => {
+                item.onClick && item.onClick(e);
                 onClose();
               }}
             />
