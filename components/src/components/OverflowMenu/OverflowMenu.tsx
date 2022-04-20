@@ -28,7 +28,6 @@ export const Container = styled.div<ContextMenuWrapperProps>`
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;
-  max-height: calc(100vh - 110px);
   transition: visibility 0.4s, opacity 0.2s;
   visibility: ${({ isOpen }) => (!isOpen ? 'hidden' : 'visible')};
   opacity: ${({ isOpen }) => (!isOpen ? 0 : 1)};
@@ -140,6 +139,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
                   : undefined
               }
               {...item}
+              onClick={() => {
+                item.onClick && item.onClick;
+                onClose();
+              }}
             />
           </li>
         ))

@@ -12,13 +12,11 @@ import {
   BannerLeftWrapper,
   LovisaWrapper,
   ApplicationNameWrapper,
-  ContextMenuGroup
+  ContextMenuGroup,
+  StyledOverflowMenu
 } from './InternalHeader.styles';
-
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
-
-import { OverflowMenu } from '../OverflowMenu';
 
 export const InternalHeader = ({
   applicationName,
@@ -106,7 +104,7 @@ export const InternalHeader = ({
             aria-expanded={!contextMenuIsClosed ? true : undefined}
             aria-label="åpne meny"
           />
-          <OverflowMenu
+          <StyledOverflowMenu
             isOpen={!contextMenuIsClosed}
             onClose={onOveflowMenuClose}
             anchorRef={buttonRef}

@@ -2,6 +2,7 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 import styled, { css } from 'styled-components';
 import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
 import { InternalHeaderProps } from './InternalHeader.types';
+import { OverflowMenu } from '../OverflowMenu';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -63,4 +64,8 @@ export const NavigationList = styled.ul<NavListProps>`
 export const ContextMenuGroup = styled.div`
   position: absolute;
   ${tokens.contextGroup.base}
+`;
+
+export const StyledOverflowMenu = styled(OverflowMenu)`
+  max-height: calc(100vh - 110px);
 `;
