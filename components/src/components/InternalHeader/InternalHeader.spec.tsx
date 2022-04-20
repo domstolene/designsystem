@@ -55,8 +55,9 @@ describe('<InternalHeader />', () => {
 
   it('should have a link in context menu', () => {
     const href = '#';
+    const title = 'title';
     const element = {
-      title: 'link',
+      title: title,
       href: href
     };
     const { container } = render(
@@ -64,5 +65,57 @@ describe('<InternalHeader />', () => {
     );
     const contextMenuLink = container.querySelector('li')?.querySelector('a');
     expect(contextMenuLink).toHaveAttribute('href', href);
+  });
+
+  it('should have a link in context menu', () => {
+    const href = '#';
+    const title = 'title';
+    const element = {
+      title: title,
+      href: href
+    };
+    const { container } = render(
+      <InternalHeader contextMenuElements={[element]} />
+    );
+    const contextMenuLink = container.querySelector('li')?.querySelector('a');
+    expect(contextMenuLink).toHaveAttribute('href', href);
+  });
+
+  it('should have a nav link in context menu', () => {
+    const href = '#';
+    const title = 'title';
+    const element = {
+      title: title,
+      href: href
+    };
+    const { container } = render(
+      <InternalHeader navigationElements={[element]} smallScreen />
+    );
+    const navigationLink = container.querySelector('nav')?.querySelector('a');
+    expect(navigationLink).toHaveAttribute('href', href);
+  });
+
+  it('should have a static username in context menu', () => {
+    const name = 'name';
+    const user = {
+      name: name
+    };
+
+    render(<InternalHeader userProps={user} />);
+    const element = screen.getByText(name);
+    expect(element).toBeInTheDocument();
+  });
+
+  it('should have a user link in context menu', () => {
+    const name = 'name';
+    const href = '#';
+    const user = {
+      name: name,
+      href: href
+    };
+
+    render(<InternalHeader userProps={user} />);
+    const element = screen.getByText(name);
+    expect(element).toHaveAttribute('href', href);
   });
 });
