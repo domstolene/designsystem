@@ -17,10 +17,6 @@ const items = [
   },
   {
     title: 'Handling 2',
-    onClick: () => {}
-  },
-  {
-    title: 'Handling 3',
     onClick: () => {},
     Icon: AddCircleOutlineOutlinedIcon
   },
@@ -177,39 +173,6 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
         anchorRef={buttonRef}
         items={items}
         navItems={navItems}
-        userProps={{ name: 'Brukernavn', onClick: () => {} }}
-      ></OverflowMenu>
-    </StoryTemplate>
-  );
-};
-
-export const Long = (args: OverflowMenuProps) => {
-  const [isClosed, setClosed] = useState(true);
-  const toggle = () => setClosed(!isClosed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
-  return (
-    <StoryTemplate title="OverflowMenu - long" display="flex-centered">
-      <Button
-        Icon={MenuOutlinedIcon}
-        onClick={toggle}
-        ref={buttonRef}
-        aria-haspopup="menu"
-      />
-      <OverflowMenu
-        {...args}
-        isOpen={!isClosed}
-        onClose={close}
-        anchorRef={buttonRef}
-        items={items}
-        navItems={[
-          ...navItems,
-          {
-            title: 'Navigasjon 4',
-            href: '#'
-          }
-        ]}
         userProps={{ name: 'Brukernavn', onClick: () => {} }}
       ></OverflowMenu>
     </StoryTemplate>
