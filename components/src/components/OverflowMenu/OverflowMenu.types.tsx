@@ -1,6 +1,6 @@
 import { SvgIconTypeMap } from '@material-ui/core';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { Placement } from '@popperjs/core';
+import { Placement } from '../../hooks/useReactPopper';
 import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
