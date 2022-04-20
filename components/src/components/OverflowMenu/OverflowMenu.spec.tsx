@@ -8,7 +8,7 @@ const href = '#';
 
 type props = {
   navItem?: { title: string; href: string };
-  item?: { title: string; onClick: () => void };
+  item?: { title: string; onClick?: () => void; href?: string };
   user?: { name: string; href?: string };
 };
 
@@ -40,6 +40,13 @@ describe('<OverflowMenu />', () => {
     const buttonElement = screen.getByRole('button');
     expect(buttonElement).toBeInTheDocument();
   });
+  it('should display context menu item as link', () => {
+    const item = { title: text, href: href };
+    render(<TestComponent item={item} />);
+    const aElement = screen.getByText(text);
+    expect(aElement).toBeInTheDocument();
+    expect(aElement).toHaveAttribute('href', href);
+  });
   it('should display nav menu item as link', () => {
     const navItem = { title: text, href: href };
     render(<TestComponent navItem={navItem} />);
@@ -60,10 +67,12 @@ describe('<OverflowMenu />', () => {
   });
   it('should show OverflowMenu on button click', () => {
     render(<TestComponent />);
+    const menu = screen.queryByRole('menu');
+    expect(menu).not.toBeInTheDocument();
     const contextMenuButton = screen.getByRole('button');
     fireEvent.click(contextMenuButton!);
-    const menu = screen.getByRole('menu');
-    expect(menu).toHaveAttribute('aria-hidden', 'false');
+    const menuOpened = screen.getByRole('menu');
+    expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
   });
   it('should run onclick event from context menu', () => {
     const event = jest.fn();
@@ -74,5 +83,15 @@ describe('<OverflowMenu />', () => {
       ?.querySelector('button');
     fireEvent.click(contextMenuButton!);
     expect(event).toHaveBeenCalled();
+  });
+  it('should hide menu after Esc keydown', () => {
+    render(<TestComponent />);
+    const contextMenuButton = screen.getByRole('button');
+    fireEvent.click(contextMenuButton!);
+    const menuOpened = screen.getByRole('menu');
+    expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
+    fireEvent.keyDown(menuOpened, { key: 'Escape', code: 'Escape' });
+    const elQuery = screen.queryByRole('menu');
+    expect(elQuery).not.toBeInTheDocument();
   });
 });
