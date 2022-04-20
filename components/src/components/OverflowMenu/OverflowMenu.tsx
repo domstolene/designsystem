@@ -55,7 +55,6 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     {
       anchorRef,
       onClose,
-      children,
       isOpen,
       placement = 'bottom-end',
       items,
