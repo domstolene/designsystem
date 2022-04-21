@@ -1,5 +1,4 @@
 import { Typography as DDSTypography, Typography } from '.';
-import { textColors } from './Typography.tokens';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {

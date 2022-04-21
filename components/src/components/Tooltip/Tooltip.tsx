@@ -63,7 +63,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     let timer: ReturnType<typeof setTimeout>;
 
     useEffect(() => {
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+      };
     }, []);
 
     useOnKeyDown(['Escape', 'Esc'], () => {

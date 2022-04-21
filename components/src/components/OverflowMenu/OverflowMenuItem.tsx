@@ -12,14 +12,14 @@ import {
   KeyboardEvent
 } from 'react';
 import styled from 'styled-components';
-import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
+import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
 import { OverridableComponent } from '@material-ui/core/OverridableComponent';
 import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { useCombinedRef } from '../../hooks';
 
-export const Element = styled.span`
-  ${tokens.contextMenuLink.base}
+export const Span = styled.span`
+  ${tokens.link.base}
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -35,27 +35,25 @@ export const Link = styled.a`
   cursor: pointer;
   outline: inherit;
   width: 100%;
-  ${tokens.contextMenuLink.base}
+  ${tokens.link.base}
   display: flex;
   align-items: center;
   transition: background-color 0.2s;
   &:hover {
-    ${tokens.contextMenuLink.hover.base}
+    ${tokens.link.hover.base}
   }
   &:active {
-    ${tokens.contextMenuLink.active.base}
+    ${tokens.link.active.base}
   }
   &:focus-visible {
     outline: none;
-    ${tokens.contextMenuLink.focus.base}
+    ${tokens.link.focus.base}
   }
 `;
 
-export const StyledIconWrapper = styled(IconWrapper)`
-  ${tokens.icon.base}
-`;
+export const StyledIconWrapper = styled(IconWrapper)``;
 
-export type ContextMenuItemProps = {
+export type OverflowMenuItemProps = {
   title: string;
   href?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
@@ -69,15 +67,15 @@ export type ContextMenuItemProps = {
   | HTMLAttributes<HTMLSpanElement>
 );
 
-export const ContextMenuItem = forwardRef<
+export const OverflowMenuItem = forwardRef<
   HTMLAnchorElement,
-  ContextMenuItemProps
+  OverflowMenuItemProps
 >(
   (
     { title, href, onClick, onKeyDown, Icon, focus, setFocus, index, ...rest },
     ref
   ) => {
-    const itemRef = useRef<HTMLAnchorElement | HTMLAnchorElement>(null);
+    const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
     const combinedRef = useCombinedRef(ref, itemRef);
 
     useEffect(() => {
@@ -123,10 +121,10 @@ export const ContextMenuItem = forwardRef<
     const icon = Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />;
 
     return !href && !onClick ? (
-      <Element {...elementProps}>
+      <Span {...elementProps}>
         {icon}
         {title}
-      </Element>
+      </Span>
     ) : (
       <Link as={href ? 'a' : 'button'} {...linkProps}>
         {icon}

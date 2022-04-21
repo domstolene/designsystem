@@ -3,7 +3,6 @@ import { CSSObject } from 'styled-components';
 
 const {
   border: Border,
-  borderRadius: BorderRadius,
   colors: Colors,
   spacing: Spacing,
   fontPackages: FontPackages
@@ -72,36 +71,6 @@ const navigationLinkCurrentBase: CSSObject = {
   backgroundColor: Colors.DdsColorPrimaryLightest
 };
 
-const contextMenuBase: CSSObject = {
-  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
-};
-
-const contextMenuLinkBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15}`,
-  ...linkBase
-};
-const contextMenuLinkHoverBase: CSSObject = {
-  ...linkHoverBase
-};
-const contextMenuLinkActiveBase: CSSObject = {
-  ...linkActiveBase
-};
-const contextMenuLinkFocusBase: CSSObject = {
-  color: Colors.DdsColorNeutralsWhite,
-  backgroundColor: Border.BordersDdsBorderFocusBaseStroke
-};
-const iconBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX025
-};
-
-const contextMenuDividerBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX15,
-  marginLeft: Spacing.SizesDdsSpacingLocalX15
-};
-
 const contextGroupBase: CSSObject = {
   right: Spacing.SizesDdsSpacingLocalX075,
   top: Spacing.SizesDdsSpacingLocalX025
@@ -141,28 +110,6 @@ export const internalHeaderTokens = {
     current: {
       base: navigationLinkCurrentBase
     }
-  },
-  contextMenu: {
-    base: contextMenuBase,
-    spaceFromButtonTop: Spacing.SizesDdsSpacingLocalX025
-  },
-  contextMenuLink: {
-    base: contextMenuLinkBase,
-    hover: {
-      base: contextMenuLinkHoverBase
-    },
-    active: {
-      base: contextMenuLinkActiveBase
-    },
-    focus: {
-      base: contextMenuLinkFocusBase
-    }
-  },
-  contextMenuDivider: {
-    base: contextMenuDividerBase
-  },
-  icon: {
-    base: iconBase
   },
   contextGroup: {
     base: contextGroupBase
