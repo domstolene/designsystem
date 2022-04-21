@@ -38,7 +38,6 @@ const Container = styled(Paper)<ContainerProps>`
   flex-direction: column-reverse;
   justify-content: flex-end;
   min-width: 300px;
-  /* max-width: 400px; */
   ${({ size }) => css`
     ${tokens.container.size[size].base}
   `}
@@ -93,7 +92,7 @@ export type DrawerProps = {
   isOpen?: boolean;
   placement?: DrawerPlacement;
   size?: DrawerSize;
-  onClose: () => void;
+  onClose?: () => void;
   parentElement?: HTMLElement;
   header?: string | ReactNode;
   widthProps?: WidthProps;
@@ -128,14 +127,14 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
     useOnKeyDown(['Esc', 'Escape'], () => {
       if (isOpen) {
         triggerRef && triggerRef.current?.focus();
-        onClose();
+        onClose && onClose();
       }
     });
 
     const elements: (HTMLElement | null)[] = [drawerRef.current as HTMLElement];
     if (triggerRef) elements.push(triggerRef.current);
 
-    useOnClickOutside(elements, () => isOpen && onClose());
+    useOnClickOutside(elements, () => isOpen && onClose && onClose());
 
     const hasTransitionedIn = useMountTransition(isOpen, 500);
 
