@@ -1,10 +1,9 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
-const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
+const { spacing: Spacing } = ddsBaseTokens;
 
 const containerBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite,
   padding: `${
     Spacing.SizesDdsSpacingLocalX1NumberPx -
     Spacing.SizesDdsSpacingLocalX025NumberPx
