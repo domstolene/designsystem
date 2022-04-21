@@ -1,5 +1,4 @@
-import { useRef, useState } from 'react';
-import { OverflowMenu, OverflowMenuProps } from '.';
+import { OverflowMenu, OverflowMenuProps, OverflowMenuGroup } from '.';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Button } from '../Button';
 import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
@@ -38,143 +37,85 @@ const navItems = [
 ];
 
 export const Default = (args: OverflowMenuProps) => {
-  const [isClosed, setClosed] = useState(true);
-  const toggle = () => setClosed(!isClosed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   return (
     <StoryTemplate title="OverflowMenu - default" display="flex-centered">
-      <Button
-        Icon={MenuOutlinedIcon}
-        onClick={toggle}
-        ref={buttonRef}
-        aria-haspopup="menu"
-      />
-      <OverflowMenu
-        {...args}
-        isOpen={!isClosed}
-        onClose={close}
-        anchorRef={buttonRef}
-        items={items}
-      ></OverflowMenu>
+      <OverflowMenuGroup
+        onClose={() => console.log('onClose')}
+        onOpen={() => console.log('onopen')}
+      >
+        <Button Icon={MenuOutlinedIcon} />
+        <OverflowMenu {...args} items={items} />
+      </OverflowMenuGroup>
     </StoryTemplate>
   );
 };
 
 export const WithStaticUser = (args: OverflowMenuProps) => {
-  const [isClosed, setClosed] = useState(true);
-  const toggle = () => setClosed(!isClosed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   return (
     <StoryTemplate
       title="OverflowMenu - with static user"
       display="flex-centered"
     >
-      <Button
-        Icon={MenuOutlinedIcon}
-        onClick={toggle}
-        ref={buttonRef}
-        aria-haspopup="menu"
-      />
-      <OverflowMenu
-        {...args}
-        isOpen={!isClosed}
-        onClose={close}
-        anchorRef={buttonRef}
-        items={items}
-        userProps={{ name: 'Brukernavn' }}
-      />
+      <OverflowMenuGroup>
+        <Button Icon={MenuOutlinedIcon} />
+        <OverflowMenu
+          {...args}
+          items={items}
+          userProps={{ name: 'Brukernavn' }}
+        />
+      </OverflowMenuGroup>
     </StoryTemplate>
   );
 };
 
 export const WithInteractiveUser = (args: OverflowMenuProps) => {
-  const [isClosed, setClosed] = useState(true);
-  const toggle = () => setClosed(!isClosed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   return (
     <StoryTemplate
       title="OverflowMenu - with interactive user"
       display="flex-centered"
     >
-      <Button
-        Icon={MenuOutlinedIcon}
-        onClick={toggle}
-        ref={buttonRef}
-        aria-haspopup="menu"
-      />
-      <OverflowMenu
-        {...args}
-        isOpen={!isClosed}
-        onClose={close}
-        anchorRef={buttonRef}
-        items={items}
-        userProps={{ name: 'Brukernavn', onClick: () => {} }}
-      />
+      <OverflowMenuGroup>
+        <Button Icon={MenuOutlinedIcon} />
+        <OverflowMenu
+          {...args}
+          items={items}
+          userProps={{ name: 'Brukernavn', onClick: () => {} }}
+        />
+      </OverflowMenuGroup>
     </StoryTemplate>
   );
 };
 
 export const WithNavigation = (args: OverflowMenuProps) => {
-  const [isClosed, setClosed] = useState(true);
-  const toggle = () => setClosed(!isClosed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   return (
     <StoryTemplate
       title="OverflowMenu - with navigation"
       display="flex-centered"
     >
-      <Button
-        Icon={MenuOutlinedIcon}
-        onClick={toggle}
-        ref={buttonRef}
-        aria-haspopup="menu"
-      />
-      <OverflowMenu
-        {...args}
-        isOpen={!isClosed}
-        onClose={close}
-        anchorRef={buttonRef}
-        items={items}
-        navItems={navItems}
-      ></OverflowMenu>
+      ¨
+      <OverflowMenuGroup>
+        <Button Icon={MenuOutlinedIcon} />
+        <OverflowMenu {...args} items={items} navItems={navItems} />
+      </OverflowMenuGroup>
     </StoryTemplate>
   );
 };
 
 export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
-  const [isClosed, setClosed] = useState(true);
-  const toggle = () => setClosed(!isClosed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   return (
     <StoryTemplate
       title="OverflowMenu - with navigation and interactive user"
       display="flex-centered"
     >
-      <Button
-        Icon={MenuOutlinedIcon}
-        onClick={toggle}
-        ref={buttonRef}
-        aria-haspopup="menu"
-      />
-      <OverflowMenu
-        {...args}
-        isOpen={!isClosed}
-        onClose={close}
-        anchorRef={buttonRef}
-        items={items}
-        navItems={navItems}
-        userProps={{ name: 'Brukernavn', onClick: () => {} }}
-      ></OverflowMenu>
+      <OverflowMenuGroup>
+        <Button Icon={MenuOutlinedIcon} />
+        <OverflowMenu
+          {...args}
+          items={items}
+          navItems={navItems}
+          userProps={{ name: 'Brukernavn', onClick: () => {} }}
+        ></OverflowMenu>
+      </OverflowMenuGroup>
     </StoryTemplate>
   );
 };

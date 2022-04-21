@@ -86,20 +86,18 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     }, [anchorRef]);
 
     useOnClickOutside([popperElement, referenceElement], () => {
-      if (isOpen) onClose();
+      if (isOpen) onClose && onClose();
     });
 
     useOnKeyDown(['Esc', 'Escape'], () => {
       if (isOpen) {
-        onClose();
-        anchorRef.current?.focus();
+        onClose && onClose();
+        anchorRef && anchorRef.current?.focus();
       }
     });
 
     useOnKeyDown(['Tab'], () => {
-      if (isOpen) {
-        onClose();
-      }
+      if (isOpen) onClose && onClose();
     });
 
     const interactiveItems: (OverflowMenuContextItem | OverflowMenuNavItem)[] =
@@ -143,7 +141,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
                   React.MouseEvent<HTMLButtonElement, MouseEvent>
               ) => {
                 item.onClick && item.onClick(e);
-                onClose();
+                onClose && onClose();
               }}
             />
           </li>
@@ -205,7 +203,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     };
 
     return (
-      <Container {...containerProps}>
+      <Container {...containerProps} aria-label="bruk piltaster for å navigere">
         {hasStaticUser && (
           <OverflowMenuItem title={username} Icon={PersonOutlineOutlinedIcon} />
         )}
