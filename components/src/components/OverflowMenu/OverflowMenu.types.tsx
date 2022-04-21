@@ -30,8 +30,8 @@ export type UserProps = {
 
 export type OverflowMenuProps = {
   isOpen?: boolean;
-  anchorRef: RefObject<HTMLButtonElement>;
-  onClose: () => void;
+  anchorRef?: RefObject<HTMLButtonElement>;
+  onClose?: () => void;
   placement?: Placement;
   userProps?: UserProps;
   items?: OverflowMenuContextItem[];
