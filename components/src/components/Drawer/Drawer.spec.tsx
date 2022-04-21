@@ -1,25 +1,16 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { useRef, useState } from 'react';
-import { Drawer } from '.';
+import { Drawer, DrawerGroup } from '.';
 import { Button } from '../Button';
 
 const buttonLabel = 'label';
 const content = 'content';
 
 const TestComponent = () => {
-  const [isClosed, setIsClosed] = useState(true);
-  const close = () => setIsClosed(true);
-  const show = () => setIsClosed(false);
-
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   return (
-    <>
-      <Button label={buttonLabel} ref={buttonRef} onClick={show} />
-      <Drawer isOpen={!isClosed} onClose={close} triggerRef={buttonRef}>
-        {content}
-      </Drawer>
-    </>
+    <DrawerGroup>
+      <Button label={buttonLabel} />
+      <Drawer>{content}</Drawer>
+    </DrawerGroup>
   );
 };
 
@@ -70,5 +61,47 @@ describe('<Drawer />', () => {
     await waitFor(() => {
       expect(elQuery).not.toBeInTheDocument();
     });
+  });
+
+  it('should call additional onClose event on click', () => {
+    const event = jest.fn();
+    render(
+      <DrawerGroup onClose={event}>
+        <Button label={buttonLabel} />
+        <Drawer>{content}</Drawer>
+      </DrawerGroup>
+    );
+    const button = screen.getByText(buttonLabel);
+    button.click();
+    const closeButton = screen.getAllByRole('button')[1];
+    fireEvent.click(closeButton!);
+    expect(event).toHaveBeenCalled();
+  });
+  it('should call additional onClose event on Esc keydown', () => {
+    const event = jest.fn();
+    render(
+      <DrawerGroup onClose={event}>
+        <Button label={buttonLabel} />
+        <Drawer>{content}</Drawer>
+      </DrawerGroup>
+    );
+    const button = screen.getByText(buttonLabel);
+    button.click();
+    const el = screen.getByRole('dialog');
+    expect(el).toBeInTheDocument();
+    fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
+    expect(event).toHaveBeenCalled();
+  });
+  it('should call additional onOpen event on click', () => {
+    const event = jest.fn();
+    render(
+      <DrawerGroup onOpen={event}>
+        <Button label={buttonLabel} />
+        <Drawer>{content}</Drawer>
+      </DrawerGroup>
+    );
+    const button = screen.getByText(buttonLabel);
+    fireEvent.click(button!);
+    expect(event).toHaveBeenCalled();
   });
 });
