@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { useRef, useState } from 'react';
 import { Button } from '../Button';
-import { OverflowMenu } from './OverflowMenu';
+import { OverflowMenu, OverflowMenuGroup } from '.';
 
 const text = 'text';
 const href = '#';
@@ -13,23 +12,15 @@ type props = {
 };
 
 function TestComponent({ navItem, item, user }: props) {
-  const [closed, setClosed] = useState(true);
-  const toggle = () => setClosed(!closed);
-  const close = () => setClosed(true);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   return (
-    <>
-      <Button onClick={toggle} />
+    <OverflowMenuGroup>
+      <Button />
       <OverflowMenu
-        anchorRef={buttonRef}
-        isOpen={!closed}
-        onClose={close}
         items={item ? [item] : undefined}
         navItems={navItem ? [navItem] : undefined}
         userProps={user ? user : undefined}
       />
-    </>
+    </OverflowMenuGroup>
   );
 }
 
@@ -74,6 +65,33 @@ describe('<OverflowMenu />', () => {
     const menuOpened = screen.getByRole('menu');
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
   });
+
+  it('should call onToggle event on button click', () => {
+    const event = jest.fn();
+    render(
+      <OverflowMenuGroup onToggle={event}>
+        <Button />
+        <OverflowMenu />
+      </OverflowMenuGroup>
+    );
+    const menuButton = screen.getByRole('button');
+    menuButton.click();
+    expect(event).toBeCalled();
+  });
+
+  it('should call onOpen event button click', () => {
+    const event = jest.fn();
+    render(
+      <OverflowMenuGroup onOpen={event}>
+        <Button />
+        <OverflowMenu />
+      </OverflowMenuGroup>
+    );
+    const menuButton = screen.getByRole('button');
+    menuButton.click();
+    expect(event).toBeCalled();
+  });
+
   it('should run onclick event from context menu', () => {
     const event = jest.fn();
     const item = { title: text, onClick: event };
