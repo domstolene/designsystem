@@ -81,7 +81,7 @@ export const InternalHeader = ({
         <BannerLeftWrapper>
           <LovisaWrapper>
             <Typography typographyType="bodySans02" bold as="span">
-              Lovisa Web
+              Lovisa Next
             </Typography>
           </LovisaWrapper>
           <ApplicationNameWrapper>
