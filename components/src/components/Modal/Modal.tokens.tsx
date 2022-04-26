@@ -1,18 +1,13 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { focusVisible } from '../../helpers/styling';
 
 const {
   borderRadius: BorderRadius,
   colors: Colors,
   outerShadow: OuterShadow,
-  spacing: Spacing,
-  border: Border
+  spacing: Spacing
 } = ddsBaseTokens;
-
-const focus: CSSObject = {
-  outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Border.BordersDdsBorderFocusBaseStroke} solid`,
-  outlineOffset: '1px'
-};
 
 const base: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
@@ -30,14 +25,14 @@ const actionsContainerBase: CSSObject = {
 };
 
 const focusBase: CSSObject = {
-  ...focus
+  ...focusVisible
 };
 
 const bodyScrollableBase: CSSObject = {
   overflowY: 'auto'
 };
 const bodyScrollableFocusBase: CSSObject = {
-  ...focus
+  ...focusVisible
 };
 export const modalTokens = {
   base: base,

@@ -33,7 +33,7 @@ const Container = styled.div`
     ${typographyTokens.selection.base}
   }
   ${tokens.base}
-  :focus-visible {
+  :focus-visible, &.focus-visible {
     ${tokens.focus.base}
   }
 `;

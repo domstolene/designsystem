@@ -83,8 +83,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
         `)}
 
   &:focus-visible, &.focus-visible {
-    outline: ${tokens.focusOutline.width} solid ${tokens.focusOutline.color};
-    outline-offset: 2px;
+    ${tokens.focus.base}
   }
 
   *::selection {

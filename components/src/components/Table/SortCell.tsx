@@ -16,6 +16,9 @@ const StyledButton = styled.button`
   ${removeButtonStyling}
   display: flex;
   align-items: center;
+  &:focus-visible {
+    ${tokens.head.sortCell.focus.base}
+  }
 `;
 
 export type SortOrder = 'ascending' | 'descending';

@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { focusVisible } from '../../helpers/styling/focusVisible';
 
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
@@ -23,6 +24,10 @@ const sortCellIconBase: CSSObject = {
   marginInlineStart: Spacing.SizesDdsSpacingLocalX05
 };
 
+const sortCellFocusBase: CSSObject = {
+  ...focusVisible
+};
+
 const textAndIconBase: CSSObject = {
   marginRight: Spacing.SizesDdsSpacingLocalX075
 };
@@ -42,6 +47,9 @@ export const cellTokens = {
     sortCell: {
       icon: {
         base: sortCellIconBase
+      },
+      focus: {
+        base: sortCellFocusBase
       }
     }
   },
