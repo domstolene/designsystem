@@ -1,4 +1,4 @@
-import {
+import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   HTMLAttributes,
@@ -110,23 +110,44 @@ export const OverflowMenuItem = forwardRef<
     };
 
     const linkProps = {
-      ref: combinedRef,
       href,
       onClick: handleOnClick,
       onKeyDown: handleOnKeyDown,
       role: 'menuitem',
-      tabIndex: focus ? 0 : -1,
-      ...rest
+      tabIndex: focus ? 0 : -1
     };
     const icon = Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />;
 
-    return !href && !onClick ? (
-      <Span {...elementProps}>
-        {icon}
-        {title}
-      </Span>
-    ) : (
-      <Link as={href ? 'a' : 'button'} {...linkProps}>
+    if (!href && !onClick) {
+      return (
+        <Span {...elementProps}>
+          {icon}
+          {title}
+        </Span>
+      );
+    }
+
+    if (!href) {
+      return (
+        <Link
+          as="button"
+          {...linkProps}
+          {...(rest as HTMLAttributes<HTMLButtonElement>)}
+          ref={combinedRef as React.ForwardedRef<HTMLButtonElement>}
+        >
+          {icon}
+          {title}
+        </Link>
+      );
+    }
+
+    return (
+      <Link
+        as="a"
+        {...linkProps}
+        {...(rest as HTMLAttributes<HTMLAnchorElement>)}
+        ref={combinedRef as React.ForwardedRef<HTMLAnchorElement>}
+      >
         {icon}
         {title}
       </Link>
