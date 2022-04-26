@@ -10,7 +10,7 @@ const expandingAnimation = css`
 
 type BodyProps = {
   isExpanded?: boolean;
-  paddingTop?: CSS.PaddingTopProperty<string>;
+  paddingTop?: CSS.Property.PaddingTop<string>;
 };
 
 const Body = styled.div<BodyProps>`
@@ -44,7 +44,7 @@ const BodyContainer = styled.div<BodyContainerProps>`
 export type CardAccordionBodyProps = {
   isExpanded?: boolean;
   headerId?: string;
-  paddingTop?: CSS.PaddingTopProperty<string>;
+  paddingTop?: CSS.Property.PaddingTop<string>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const CardAccordionBody = forwardRef<

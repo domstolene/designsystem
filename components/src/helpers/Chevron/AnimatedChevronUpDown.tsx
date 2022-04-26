@@ -13,8 +13,8 @@ const svgChevronRightPath =
 
 type SvgChevronProps = {
   isUp?: boolean;
-  height?: CSS.HeightProperty<string>;
-  width?: CSS.WidthProperty<string>;
+  height?: CSS.Property.Height<string>;
+  width?: CSS.Property.Width<string>;
 };
 
 export const AnimatedChevronUpDown = ({

@@ -86,7 +86,7 @@ export type LocalMessageProps = {
   purpose?: LocalMessagePurpose;
   closable?: boolean;
   onClose?: () => void;
-  width?: CSS.WidthProperty<string>;
+  width?: CSS.Property.Width<string>;
   layout?: LocalMessageLayout;
 } & HTMLAttributes<HTMLDivElement>;
 

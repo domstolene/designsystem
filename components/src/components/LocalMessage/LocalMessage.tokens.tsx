@@ -25,7 +25,7 @@ const containerBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray8
 };
 
-const defaultWidth: CSS.WidthProperty<string> = '400px';
+const defaultWidth: CSS.Property.Width<string> = '400px';
 
 const contentContainerBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX15,

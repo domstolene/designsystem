@@ -4,7 +4,7 @@ import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 import * as CSS from 'csstype';
 
 type WrapperProps = {
-  top: CSS.TopProperty<string | number>;
+  top: CSS.Property.Top<string | number>;
 };
 
 const Wrapper = styled.div<WrapperProps>`
@@ -42,7 +42,7 @@ const Link = styled.a`
 export type SkipToContentProps = {
   text?: string;
   href: string;
-  top?: CSS.TopProperty<string | number>;
+  top?: CSS.Property.Top<string | number>;
 } & HTMLAttributes<HTMLAnchorElement>;
 
 export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(

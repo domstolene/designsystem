@@ -15,7 +15,7 @@ const DListGroup = styled.div<StyledGroupProps>`
 `;
 
 export type DescriptionListGroupProps = {
-  margin?: CSS.MarginProperty<string>;
+  margin?: CSS.Property.Margin<string>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const DescriptionListGroup = forwardRef<

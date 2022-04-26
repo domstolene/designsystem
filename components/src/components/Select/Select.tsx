@@ -68,7 +68,7 @@ export type SelectProps<IsMulti extends boolean> = {
   readOnly?: boolean;
   errorMessage?: string;
   tip?: string;
-  width?: CSS.WidthProperty<string>;
+  width?: CSS.Property.Width<string>;
   className?: string;
   style?: React.CSSProperties;
 } & ReactSelectProps<SelectOption, IsMulti, GroupBase<SelectOption>>;

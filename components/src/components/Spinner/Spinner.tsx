@@ -51,7 +51,7 @@ const Circle = styled.circle<CircleProps>`
 
 export type SpinnerProps = {
   color?: TextColor | string;
-  size?: CSS.WidthProperty<string>;
+  size?: CSS.Property.Width<string>;
 } & HTMLAttributes<SVGElement>;
 
 let nextUniqueId = 0;

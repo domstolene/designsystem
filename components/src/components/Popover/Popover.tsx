@@ -54,12 +54,12 @@ const StyledButton = styled(Button)`
 `;
 
 export type PopoverSizeProps = {
-  width?: CSS.WidthProperty<string>;
-  height?: CSS.HeightProperty<string>;
-  minWidth?: CSS.MinWidthProperty<string>;
-  minHeight?: CSS.MinHeightProperty<string>;
-  maxWidth?: CSS.MaxWidthProperty<string>;
-  maxHeight?: CSS.MaxHeightProperty<string>;
+  width?: CSS.Property.Width<string>;
+  height?: CSS.Property.Height<string>;
+  minWidth?: CSS.Property.MinWidth<string>;
+  minHeight?: CSS.Property.MinHeight<string>;
+  maxWidth?: CSS.Property.MaxWidth<string>;
+  maxHeight?: CSS.Property.MaxHeight<string>;
 };
 
 export type PopoverProps = {

@@ -24,7 +24,7 @@ export type IconSize = 'small' | 'medium' | 'large' | 'inline';
 export type IconWrapperProps = {
   Icon: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
   iconSize?: IconSize;
-  color?: CSS.ColorProperty;
+  color?: CSS.Property.Color;
 } & HTMLAttributes<SVGElement>;
 
 export function IconWrapper({

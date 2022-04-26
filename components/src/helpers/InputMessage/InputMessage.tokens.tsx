@@ -8,7 +8,7 @@ const base: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`
 };
 
-const defaultMaxWidth: CSS.MaxWidthProperty<string> = '100%';
+const defaultMaxWidth: CSS.Property.MaxWidth<string> = '100%';
 
 const tipBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite
