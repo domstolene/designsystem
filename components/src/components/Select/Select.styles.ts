@@ -76,14 +76,12 @@ export const Container = styled.div<StyledContainerProps>`
         `}
   &:hover {
     ${tokens.container.hover.base}
-    box-shadow: 0 0 0 1px ${tokens.container.hover.base.borderColor};
     ${Label} {
       ${tokens.label.hover.base}
     }
   }
   &:focus-within {
     ${tokens.container.focus.base}
-    box-shadow: 0 0 0 1px ${tokens.container.focus.base.borderColor};
     ${Label} {
       ${tokens.label.focus.base}
     }
@@ -92,14 +90,11 @@ export const Container = styled.div<StyledContainerProps>`
     errorMessage &&
     css`
       ${tokens.container.danger.base}
-      box-shadow: 0 0 0 1px ${tokens.container.danger.base.borderColor};
       &:hover {
         ${tokens.container.danger.hover.base}
-        box-shadow: 0 0 0 1px ${tokens.container.danger.hover.base.borderColor};
       }
       &:focus-within {
         ${tokens.container.danger.focus.base}
-        box-shadow: 0 0 0 1px ${tokens.container.danger.focus.base.borderColor};
       }
     `}
 
@@ -227,8 +222,13 @@ export const CustomStyles: Partial<
     transition: '0.2s',
     width: 'calc(100% + 2px)',
     transform: 'translate(-1px)',
-    boxShadow: `0 0 0 1px ${tokens.optionsList.base.borderColor}`,
-    ...tokens.optionsList.base
+    boxShadow: `inset 0 0 0 1px ${tokens.menu.base.borderColor}`,
+    ...tokens.menu.base
+  }),
+  menuList: provided => ({
+    ...provided,
+    paddingLeft: '1px',
+    paddingRight: '1px'
   }),
   option: (provided, state) => ({
     ...provided,
