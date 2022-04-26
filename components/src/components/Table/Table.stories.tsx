@@ -67,6 +67,35 @@ export const Default = (args: TableProps) => {
   );
 };
 
+export const Focusable = (args: TableProps) => {
+  return (
+    <StoryTemplate title="Table - default">
+      <TableWrapper>
+        <DDSTable {...args}>
+          <Head>
+            <Row type="head">{mappedHeaderCells}</Row>
+          </Head>
+          <Body>
+            {mapCellContents(data, headerCells).map(row => (
+              <Row
+                key={row.toString()}
+                tabIndex={0}
+                onClick={() => {
+                  console.log('click');
+                }}
+              >
+                {row.map(cellContent => (
+                  <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+                ))}
+              </Row>
+            ))}
+          </Body>
+        </DDSTable>
+      </TableWrapper>
+    </StoryTemplate>
+  );
+};
+
 export const Compact = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - compact">
@@ -444,9 +473,8 @@ export const Complex = (args: TableProps) => {
 };
 
 export const Sortable = (args: TableProps) => {
-  const [headerSortCells, setHeaderSortCells] = useState<HeaderCellToSort[]>(
-    headerCells
-  );
+  const [headerSortCells, setHeaderSortCells] =
+    useState<HeaderCellToSort[]>(headerCells);
   const [dataCellContents, setDataCellContents] = useState<string[][]>();
 
   useEffect(() => {
