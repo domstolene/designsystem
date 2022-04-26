@@ -1,26 +1,26 @@
 import React, {
+  Children as ReactChildren,
+  cloneElement,
   forwardRef,
   HTMLAttributes,
-  useState,
-  Children as ReactChildren,
   isValidElement,
-  cloneElement,
-  useEffect
+  useEffect,
+  useState
 } from 'react';
 import {
   Placement,
   useCombinedRef,
   useOnKeyDown,
-  useReactPopper
+  useFloatPosition
 } from '../../hooks';
 import { combineHandlers } from '../../utils';
-import { tooltipTokens as tokens } from './Tooltip.tokens';
 import {
-  SvgArrow,
   ArrowWrapper,
-  TooltipWrapper,
-  Container
+  Container,
+  SvgArrow,
+  TooltipWrapper
 } from './Tooltip.styles';
+import { tooltipTokens as tokens } from './Tooltip.tokens';
 
 type AnchorElement = React.ReactElement & React.RefAttributes<HTMLElement>;
 
@@ -56,12 +56,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     );
 
     const [open, setOpen] = useState(false);
-    const [popperElement, setPopperElement] =
-      useState<HTMLElement | null>(null);
-    const [referenceElement, setReferenceElement] =
-      useState<HTMLElement | null>(null);
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-    const combinedRef = useCombinedRef(ref, setPopperElement);
+    const { reference, floating, styles } = useFloatPosition(
+      arrowElement,
+      placement
+    );
+    const combinedRef = useCombinedRef(ref, floating);
+
     let timer: ReturnType<typeof setTimeout>;
 
     useEffect(() => {
@@ -90,19 +91,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const anchorElement = ReactChildren.only(
       isValidElement(children) &&
         cloneElement(children, {
-          ref: setReferenceElement,
+          ref: reference,
           onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
           onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
           'aria-describedby': uniqueTooltipId
         })
-    );
-
-    const { styles, attributes } = useReactPopper(
-      referenceElement,
-      popperElement,
-      arrowElement,
-      placement,
-      tokens.offset
     );
 
     const wrapperProps = {
@@ -111,8 +104,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       role: 'tooltip',
       'aria-hidden': !open,
       open,
-      style: { ...styles.popper },
-      ...attributes.popper
+      style: { ...styles.floating }
     };
 
     const containerProps = {

@@ -18,7 +18,7 @@ type WrapperProps = {
 };
 
 export const TooltipWrapper = styled.div<WrapperProps>`
-&::selection {
+  &::selection {
     ${typographyTokens.selection.base}
   }
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
@@ -29,27 +29,4 @@ export const TooltipWrapper = styled.div<WrapperProps>`
   z-index: 20;
   text-align: center;
   ${tokens.wrapper.base}
-  &[data-popper-placement^='top'] > ${ArrowWrapper} {
-    bottom: ${tokens.arrowPlacementTemplate.bottom};
-  }
-  &[data-popper-placement^='bottom'] > ${ArrowWrapper} {
-    top: ${tokens.arrowPlacementTemplate.top};
-    ${SvgArrow} {
-      transform: rotate(180deg);
-    }
-  }
-
-  &[data-popper-placement^='right'] > ${ArrowWrapper} {
-    left: ${tokens.arrowPlacementTemplate.left};
-    ${SvgArrow} {
-      transform: rotate(90deg);
-    }
-  }
-}
-
-&[data-popper-placement^='left'] > ${ArrowWrapper} {
-  right: ${tokens.arrowPlacementTemplate.right};
-  ${SvgArrow} {
-    transform: rotate(270deg);
-  }
 `;

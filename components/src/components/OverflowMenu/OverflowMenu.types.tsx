@@ -1,5 +1,6 @@
 import { SvgIconTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { Placement } from '../../hooks/useFloatPosition';
 import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
