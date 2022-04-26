@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 14 Mar 2022 12:29:21 GMT
+ * Generated on Tue, 26 Apr 2022 14:02:28 GMT
  */
 
 export const DdsColorPrimaryLightest = "rgba(234, 239, 244, 1)";

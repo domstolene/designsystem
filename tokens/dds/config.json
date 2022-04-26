@@ -74,6 +74,11 @@
               "category": "$dds-shadow"
             }
           }
+        },
+        {
+          "destination": "_breakpoints.scss",
+          "format": "scss/variables",
+          "filter": "breakpointFilter"
         }
       ]
     },
@@ -150,6 +155,11 @@
               "category": "$dds-shadow"
             }
           }
+        },
+        {
+          "destination": "breakpoints.css",
+          "format": "css/variables",
+          "filter": "breakpointFilter"
         }
       ]
     },
@@ -235,6 +245,11 @@
               "category": "$dds-shadow"
             }
           }
+        },
+        {
+          "destination": "breakpoints.ts",
+          "format": "custom/javascript/es6",
+          "filter": "breakpointFilter"
         }
       ]
     }
