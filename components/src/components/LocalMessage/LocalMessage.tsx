@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { localMessageTokens as tokens } from './LocalMessage.tokens';

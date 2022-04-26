@@ -6,7 +6,7 @@ import React, {
   useState
 } from 'react';
 import styled, { css } from 'styled-components';
-import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import { inputFieldStylingBase } from '../../helpers/Input/inputFieldStylingBase';

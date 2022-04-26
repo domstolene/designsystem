@@ -1,4 +1,4 @@
-import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import * as CSS from 'csstype';
 import React, { useState } from 'react';
 import {

@@ -1,5 +1,5 @@
-import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
+import { SvgIconTypeMap } from '@mui/material/SvgIcon';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 import React, { ButtonHTMLAttributes } from 'react';
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';

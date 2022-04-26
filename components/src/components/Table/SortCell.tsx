@@ -1,9 +1,9 @@
 import { forwardRef, MouseEvent } from 'react';
 import { Cell, TableCellProps } from './Cell';
 import { cellTokens as tokens } from './Cell.tokens';
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import UnfoldMoreIcon from '@material-ui/icons/UnfoldMore';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import styled from 'styled-components';
 import { removeButtonStyling } from '../../helpers/styling';

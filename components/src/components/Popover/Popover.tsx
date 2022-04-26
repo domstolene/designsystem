@@ -1,11 +1,4 @@
-import {
-  forwardRef,
-  HTMLAttributes,
-  ReactNode,
-  RefObject,
-  useEffect,
-  useState
-} from 'react';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import styled, { css } from 'styled-components';
 import { popoverTokens as tokens } from './Popover.tokens';
 import { Button } from '../Button';

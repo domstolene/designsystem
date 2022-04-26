@@ -1,9 +1,9 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import CheckCircleOutlinedIcon from '@material-ui/icons/CheckCircleOutlined';
-import WarningOutlinedIcon from '@material-ui/icons/ReportOutlined';
-import DangerOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
+import WarningOutlinedIcon from '@mui/icons-material/ReportOutlined';
+import DangerOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import EmojiObjectsOutlinedIcon from '@mui/icons-material/EmojiObjectsOutlined';
 import { CSSObject } from 'styled-components';
 import * as CSS from 'csstype';
 

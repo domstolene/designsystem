@@ -11,7 +11,7 @@ import {
 } from '../../hooks';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { Divider } from '../Divider';
 import {
   OverflowMenuContextItem,

@@ -19,7 +19,7 @@ import {
 import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling/focusVisible';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Paper } from '../../helpers/Paper';
 import { WidthProperty, MinWidthProperty, MaxWidthProperty } from 'csstype';
 

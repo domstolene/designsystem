@@ -1,8 +1,8 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { descriptionListDescTokens as tokens } from './DescriptionListDesc.tokens';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
-import { SvgIconTypeMap } from '@material-ui/core';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { SvgIconTypeMap } from '@mui/material';
 import { IconWrapper } from '../../helpers/IconWrapper';
 
 const DListDesc = styled.dd`

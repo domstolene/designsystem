@@ -21,8 +21,8 @@ import {
   mapCellContents
 } from './tableData';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
-import SupervisorAccountOutlinedIcon from '@material-ui/icons/SupervisorAccountOutlined';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
 
 export default {
   title: 'design system/Table',

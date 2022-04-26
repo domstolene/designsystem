@@ -1,6 +1,6 @@
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { InternalHeader, InternalHeaderProps } from '.';
-import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 
 export default {
   title: 'design system/InternalHeader',

@@ -1,10 +1,10 @@
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
-import ChevronRightOutlinedIcon from '@material-ui/icons/ChevronRightOutlined';
-import ChevronLeftOutlinedIcon from '@material-ui/icons/ChevronLeftOutlined';
-import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
-import FirstPageOutlinedIcon from '@material-ui/icons/FirstPageOutlined';
-import LastPageOutlinedIcon from '@material-ui/icons/LastPageOutlined';
+import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import FirstPageOutlinedIcon from '@mui/icons-material/FirstPageOutlined';
+import LastPageOutlinedIcon from '@mui/icons-material/LastPageOutlined';
 import { Typography } from '../../components/Typography';
 import { Button } from '../../components/Button';
 import { Select, SelectOption } from '../Select';

@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
-import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
-import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { InternalHeaderProps } from './InternalHeader.types';
 import {
   Wrapper,
@@ -13,7 +13,7 @@ import {
   LovisaWrapper,
   ApplicationNameWrapper,
   ContextMenuGroup,
-  StyledOverflowMenu
+  StyledOverflowMenu,
 } from './InternalHeader.styles';
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';

@@ -1,7 +1,7 @@
 import { Tooltip, TooltipProps } from '.';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Button } from '../Button';
-import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 export default {
   title: 'Design system/Tooltip',

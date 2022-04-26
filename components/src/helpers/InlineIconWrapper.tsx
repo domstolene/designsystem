@@ -1,6 +1,6 @@
 import React from 'react';
-import { SvgIconTypeMap } from '@material-ui/core/SvgIcon';
-import { OverridableComponent } from '@material-ui/core/OverridableComponent';
+import { SvgIconTypeMap } from '@mui/material/SvgIcon';
+import { OverridableComponent } from '@mui/material/OverridableComponent';
 
 type Props = {
   Icon: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;

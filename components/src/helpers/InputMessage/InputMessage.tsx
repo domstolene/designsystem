@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
+import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 import { IconWrapper } from '../IconWrapper';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import * as CSS from 'csstype';
