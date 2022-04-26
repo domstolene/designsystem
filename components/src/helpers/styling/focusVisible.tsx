@@ -17,13 +17,15 @@ export const focusVisibleOnDark = {
 export const focusVisibleLink = {
   outline: 'none',
   backgroundColor: Border.BordersDdsBorderFocusBaseStroke,
-  color: Colors.DdsColorNeutralsWhite
+  color: Colors.DdsColorNeutralsWhite,
+  textDecoration: 'none'
 };
 
 export const focusVisibleLinkOnDark = {
   outline: 'none',
   backgroundColor: Colors.DdsColorWarningLighter,
-  color: Colors.DdsColorNeutralsGray9
+  color: Colors.DdsColorNeutralsGray9,
+  textDecoration: 'none'
 };
 
 export const focusVisibleWithBorder = {

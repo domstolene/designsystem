@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { focusVisibleLink } from '../../helpers/styling';
 
 const {
   border: Border,
@@ -35,8 +36,7 @@ const wrapperBase: CSSObject = {
 };
 
 const linkFocusBase: CSSObject = {
-  color: Colors.DdsColorNeutralsWhite,
-  backgroundColor: Border.BordersDdsBorderFocusBaseStroke
+  ...focusVisibleLink
 };
 
 const dividerBase: CSSObject = {

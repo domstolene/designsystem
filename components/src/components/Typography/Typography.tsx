@@ -112,10 +112,10 @@ const StyledTypography = styled.p<StyledTypographyProps>`
           ${interactionProps.active}
         }
       `}
-      &:focus-visible {
+      &:focus-visible, &.focus-visible {
         ${tokens.typographyType[typographyType].focus.base}
       }
-      &:focus-visible::selection {
+      &:focus-visible::selection &.focus-visible::selection {
         ${tokens.typographyType[typographyType].focus.base}
       }
     `}

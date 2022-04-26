@@ -45,8 +45,8 @@ export const Link = styled.a`
   &:active {
     ${tokens.link.active.base}
   }
-  &:focus-visible {
-    outline: none;
+  &:focus-visible,
+  &.focus-visible {
     ${tokens.link.focus.base}
   }
 `;

@@ -3,6 +3,7 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { focusVisibleLink } from '../../helpers/styling';
 
 const {
   colors: Colors,
@@ -68,10 +69,7 @@ const aHoverBase: CSSObject = {
 };
 
 const aFocusBase: CSSObject = {
-  backgroundColor: Border.BordersDdsBorderFocusBaseStroke,
-  color: Colors.DdsColorNeutralsWhite,
-  textDecoration: 'none',
-  outline: 'none'
+  ...focusVisibleLink
 };
 
 const aBoldBase: CSSObject = {
