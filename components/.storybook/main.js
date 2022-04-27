@@ -7,6 +7,9 @@ module.exports = {
     "@storybook/addon-actions",
     "@storybook/addon-essentials"
   ],
+  features: {
+    previewMdx2: true,
+  },
   typescript: {
     check: false,
     checkOptions: {},
