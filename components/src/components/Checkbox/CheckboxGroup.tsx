@@ -1,5 +1,5 @@
 import React, { useState, HTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import { checkboxGroupTokens as tokens } from './CheckboxGroup.tokens';
@@ -10,11 +10,15 @@ import { derivativeIdGenerator } from '../../utils';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  ${tokens.container.base}
 `;
 
-const GroupContainer = styled.div<{ direction?: Direction }>`
+const GroupContainer = styled.div<{ direction: Direction }>`
   display: flex;
-  flex-direction: ${({ direction }) => direction ?? 'row'};
+  ${({ direction }) => css`
+    flex-direction: ${direction};
+    ${tokens.groupContainer.direction[direction].base}
+  `}
 `;
 
 const Label = styled(Typography)`
@@ -39,7 +43,7 @@ let nextUniqueGroupId = 0;
 
 export const CheckboxGroup = ({
   label,
-  direction,
+  direction = 'row',
   errorMessage,
   tip,
   required,

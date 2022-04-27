@@ -85,7 +85,6 @@ const containerBase: CSSObject = {
 
 const containerWithLabelBase: CSSObject = {
   ...FontPackages.body_sans_02.base,
-  marginRight: Spacing.SizesDdsSpacingLocalX075,
   padding: `0 ${Spacing.SizesDdsSpacingLocalX025} 0 ${
     FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
     Spacing.SizesDdsSpacingLocalX075NumberPx
