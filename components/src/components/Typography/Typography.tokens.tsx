@@ -8,8 +8,7 @@ import { focusVisibleLink } from '../../helpers/styling';
 const {
   colors: Colors,
   fontPackages: FontPackages,
-  spacing: Spacing,
-  border: Border
+  spacing: Spacing
 } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
