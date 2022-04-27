@@ -17,7 +17,7 @@ const DList = styled.dl<DListProps>`
         ${descriptionListTermTokens.appearance[appearance].base}
       }
     `}
-  & > dt:first-child {
+  & > dt:first-of-type {
     margin-top: ${descriptionListTermTokens.unwrappedTopAndBottomSpace};
   }
   & > dd:last-child {

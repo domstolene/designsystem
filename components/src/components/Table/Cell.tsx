@@ -19,7 +19,7 @@ const layoutStyle = (layout: TableCellLayout) => {
       `;
     case 'text and icon':
       return css`
-        & > *:first-child {
+        & > *:first-of-type {
           ${tokens.data.layout.textAndIcon.base}
         }
       `;
