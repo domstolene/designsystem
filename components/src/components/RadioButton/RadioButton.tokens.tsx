@@ -9,7 +9,6 @@ import {
 
 const {
   colors: Colors,
-  border: Border,
   spacing: Spacing,
   fontPackages: FontPackages
 } = ddsBaseTokens;
