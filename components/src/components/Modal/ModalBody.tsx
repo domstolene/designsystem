@@ -13,7 +13,7 @@ const Container = styled.div<ContainerProps>`
     scrollable &&
     css`
       ${tokens.bodyScrollable.base}
-      &:focus-visible {
+      &:focus-visible, &.focus-visible {
         ${tokens.bodyScrollable.focus.base}
       }
     `}

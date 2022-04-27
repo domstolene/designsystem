@@ -1,6 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { calculateHeightWithLineHeight } from '../../helpers/functions';
+import { focusVisible } from '../../helpers/styling';
 
 const {
   colors: Colors,
@@ -380,11 +381,14 @@ const roundedBase: CSSObject = {
   boxShadow: OuterShadow.DdsShadow1Onlight
 };
 
+const focusBase: CSSObject = {
+  ...focusVisible
+};
+
 export const buttonTokens = {
   base: buttonBase,
-  focusOutline: {
-    color: Border.BordersDdsBorderFocusBaseStroke,
-    width: Border.BordersDdsBorderStyleLightStrokeWeight
+  focus: {
+    base: focusBase
   },
   sizes: {
     small: {

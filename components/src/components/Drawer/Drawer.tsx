@@ -61,7 +61,7 @@ const Container = styled(Paper)<ContainerProps>`
       : ''}
   transition: 0.5s;
   ${tokens.container.base}
-  &:focus-visible {
+  &:focus-visible, &.focus-visible {
     ${focusVisible}
   }
 `;

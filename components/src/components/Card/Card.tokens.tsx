@@ -3,6 +3,8 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { hoverWithBorder } from '../../helpers/styling';
+import { focusVisibleWithBorder } from '../../helpers/styling/focusVisible';
 
 const {
   colors: Colors,
@@ -17,13 +19,15 @@ const base: CSSObject = {
 };
 
 const navigationHoverBase: CSSObject = {
-  borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
-  boxShadow: `0 0 0 1px ${Border.BordersDdsBorderFocusInputfieldStroke}`
+  // borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
+  // boxShadow: `0 0 0 1px ${Border.BordersDdsBorderFocusInputfieldStroke}`
+  ...hoverWithBorder
 };
 
 const navigationFocusBase: CSSObject = {
-  borderColor: Border.BordersDdsBorderFocusCardStroke,
-  boxShadow: `0 0 0 1px ${Border.BordersDdsBorderFocusCardStroke}`
+  // borderColor: Border.BordersDdsBorderFocusCardStroke,
+  // boxShadow: `0 0 0 1px ${Border.BordersDdsBorderFocusCardStroke}`
+  ...focusVisibleWithBorder
 };
 
 const filledDarkBase: CSSObject = {

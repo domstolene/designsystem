@@ -1,9 +1,14 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import {
+  dangerInputfield,
+  focusVisible,
+  hoverDangerInputfield,
+  hoverInputfield
+} from '../../helpers/styling';
 
 const {
   colors: Colors,
-  border: Border,
   spacing: Spacing,
   fontPackages: FontPackages
 } = ddsBaseTokens;
@@ -17,12 +22,9 @@ const radioButtonBase: CSSObject = {
 };
 
 const radioButtonHoverBase: CSSObject = {
-  border: '2px solid',
-  backgroundColor: Colors.DdsColorInteractiveLightest,
-  borderColor: Colors.DdsColorInteractiveBase
+  ...hoverInputfield
 };
 const radioButtonDisabledBase: CSSObject = {
-  border: '1px solid',
   borderColor: Colors.DdsColorNeutralsGray5,
   color: Colors.DdsColorNeutralsGray6
 };
@@ -31,35 +33,29 @@ const radioButtonReadOnlyBase: CSSObject = {
 };
 
 const radioButtonDangerBase: CSSObject = {
-  border: '2px solid',
-  borderColor: Colors.DdsColorDangerBase
+  ...dangerInputfield
 };
 
 const radioButtonDangerHoverBase: CSSObject = {
-  border: '2px solid',
-  backgroundColor: Colors.DdsColorDangerLightest,
-  borderColor: Colors.DdsColorDangerBase
+  ...hoverDangerInputfield
 };
 
 const radioButtonCheckedBase: CSSObject = {
-  border: '2px solid',
   backgroundColor: Colors.DdsColorInteractiveBase,
   borderColor: Colors.DdsColorInteractiveBase
 };
 
 const radioButtonCheckedHoverBase: CSSObject = {
-  border: '2px solid',
   backgroundColor: Colors.DdsColorInteractiveDark,
-  borderColor: Colors.DdsColorInteractiveDark
+  borderColor: Colors.DdsColorInteractiveDark,
+  boxShadow: `inset 0 0 0 1px  ${Colors.DdsColorInteractiveDark}`
 };
 
 const radioButtonCheckedDisabledBase: CSSObject = {
-  border: '1px solid',
   borderColor: Colors.DdsColorNeutralsGray6,
   backgroundColor: Colors.DdsColorNeutralsGray6
 };
 const radioButtonCheckedReadOnlyBase: CSSObject = {
-  border: '2px solid',
   borderColor: Colors.DdsColorNeutralsGray6,
   backgroundColor: Colors.DdsColorNeutralsGray6
 };
@@ -73,12 +69,13 @@ const checkmarkBase: CSSObject = {
 };
 
 const containerBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX075,
-  padding: `${Spacing.SizesDdsSpacingLocalX025} ${
-    Spacing.SizesDdsSpacingLocalX025
-  } ${Spacing.SizesDdsSpacingLocalX025} ${
+  padding: `0 ${Spacing.SizesDdsSpacingLocalX025} 0 ${
     20 + Spacing.SizesDdsSpacingLocalX075NumberPx
   }px`
+};
+
+const focusBase: CSSObject = {
+  ...focusVisible
 };
 
 export const radioButtonTokens = {
@@ -118,9 +115,8 @@ export const radioButtonTokens = {
   },
   container: {
     base: containerBase,
-    focusOutline: {
-      color: Border.BordersDdsBorderFocusBaseStroke,
-      width: Border.BordersDdsBorderFocusBaseStrokeWeight
+    focus: {
+      base: focusBase
     }
   }
 };

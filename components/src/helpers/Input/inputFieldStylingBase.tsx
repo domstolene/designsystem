@@ -4,6 +4,7 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { typographyTokens } from '../../components/Typography/Typography.tokens';
+import { focusInputfield, hoverInputfield } from '../styling';
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
@@ -18,17 +19,11 @@ const stylingBase: CSSObject = {
 };
 
 const focusBase: CSSObject = {
-  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
-  borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
-  boxShadow: ` 0 0 0 1px ${Border.BordersDdsBorderFocusInputfieldStroke}`,
-  outline: 'none'
+  ...focusInputfield
 };
 
 const hoverBase: CSSObject = {
-  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
-  borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
-  boxShadow: ` 0 0 0 1px ${TextInput.input.focus.borderColor}`,
-  backgroundColor: TextInput.input.hover.backgroundColor
+  ...hoverInputfield
 };
 
 export const inputFieldStylingBase = () => {
@@ -55,7 +50,7 @@ export const inputFieldStylingBase = () => {
     }
     ${stylingBase}
 
-    &:focus:enabled:read-write, &:focus-visible:enabled:read-write, &:active:enabled:read-write {
+    &:focus:enabled:read-write, &:active:enabled:read-write {
       ${focusBase}
     }
     &:focus {

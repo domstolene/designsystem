@@ -21,7 +21,7 @@ type StyledProps = Pick<
 >;
 
 const StyledRow = styled.tr<StyledProps>`
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 
   ${({ type }) =>
     type &&
@@ -48,6 +48,9 @@ const StyledRow = styled.tr<StyledProps>`
           ${tokens.body.hover.base}
         }
       `}
+      &:focus-visible, &.focus-visible {
+        ${tokens.body.focus.base}
+      }
     `}
 `;
 

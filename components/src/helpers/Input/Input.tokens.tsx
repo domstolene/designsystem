@@ -3,6 +3,11 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import {
+  dangerInputfield,
+  focusDangerInputfield,
+  hoverDangerInputfield
+} from '../styling';
 
 const {
   colors: Colors,
@@ -39,19 +44,15 @@ const inputDisabledBase: CSSObject = {
 };
 
 const inputErrorBase: CSSObject = {
-  borderColor: Colors.DdsColorDangerBase,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorDangerBase}`
+  ...dangerInputfield
 };
 
 const inputErrorHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorDangerLightest,
-  borderColor: Colors.DdsColorDangerBase,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorDangerBase}`
+  ...hoverDangerInputfield
 };
 
 const inputErrorFocusBase: CSSObject = {
-  borderColor: Colors.DdsColorDangerDarker,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorDangerDarker}`
+  ...focusDangerInputfield
 };
 
 const inputReadOnlyBase: CSSObject = {

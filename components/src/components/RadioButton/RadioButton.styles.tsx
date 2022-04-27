@@ -58,8 +58,7 @@ export const Container = styled.label<ContainerProps>`
   }
 
   &:focus-within {
-    outline: ${tokens.container.focusOutline.width} solid
-      ${tokens.container.focusOutline.color};
+    ${tokens.container.focus.base}
   }
 
   ${({ error }) =>

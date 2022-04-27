@@ -1,9 +1,14 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import {
+  dangerInputfield,
+  focusVisible,
+  hoverDangerInputfield,
+  hoverInputfield
+} from '../../helpers/styling';
 
 const {
   colors: Colors,
-  border: Border,
   spacing: Spacing,
   fontPackages: FontPackages,
   borderRadius: BorderRadius
@@ -19,19 +24,16 @@ const checkboxBase: CSSObject = {
 };
 
 const checkboxCheckedBase: CSSObject = {
-  border: '2px solid',
   borderColor: Colors.DdsColorInteractiveBase,
   backgroundColor: Colors.DdsColorInteractiveBase
 };
 
 const checkboxDisabledBase: CSSObject = {
-  border: '1px solid',
   borderColor: Colors.DdsColorNeutralsGray5,
   color: Colors.DdsColorNeutralsGray6
 };
 
 const checkboxCheckedDisabledBase: CSSObject = {
-  border: '2px solid',
   borderColor: Colors.DdsColorNeutralsGray6,
   backgroundColor: Colors.DdsColorNeutralsGray6
 };
@@ -40,31 +42,28 @@ const checkboxReadOnlyBase: CSSObject = {
 };
 
 const checkboxCheckedReadOnlyBase: CSSObject = {
-  border: '2px solid',
   borderColor: Colors.DdsColorNeutralsGray6,
   backgroundColor: Colors.DdsColorNeutralsGray6
 };
 
 const checkboxHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveLightest,
-  border: '2px solid',
-  borderColor: Colors.DdsColorInteractiveBase
+  ...hoverInputfield
 };
 
 const checkboxCheckedHoverBase: CSSObject = {
   backgroundColor: Colors.DdsColorInteractiveDark,
-  border: '2px solid',
+  boxShadow: `inset 0 0 0 1px  ${Colors.DdsColorInteractiveDark}`,
   borderColor: Colors.DdsColorInteractiveDark
 };
 
 const checkboxDangerBase: CSSObject = {
-  border: '2px solid',
-  borderColor: Colors.DdsColorDangerBase
+  ...dangerInputfield
 };
 const checkboxDangerHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorDangerLightest,
-  border: '2px solid',
-  borderColor: Colors.DdsColorDangerBase
+  ...hoverDangerInputfield
+};
+const focusBase: CSSObject = {
+  ...focusVisible
 };
 
 const checkmarkBase: CSSObject = {
@@ -86,7 +85,6 @@ const containerBase: CSSObject = {
 
 const containerWithLabelBase: CSSObject = {
   ...FontPackages.body_sans_02.base,
-  marginRight: Spacing.SizesDdsSpacingLocalX075,
   padding: `0 ${Spacing.SizesDdsSpacingLocalX025} 0 ${
     FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
     Spacing.SizesDdsSpacingLocalX075NumberPx
@@ -150,9 +148,8 @@ export const checkboxTokens = {
   },
   container: {
     base: containerBase,
-    focusOutline: {
-      color: Border.BordersDdsBorderFocusBaseStroke,
-      width: Border.BordersDdsBorderFocusBaseStrokeWeight
+    focus: {
+      base: focusBase
     },
     withLabel: {
       base: containerWithLabelBase

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, HTMLAttributes, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import { InputMessage } from '../../helpers/InputMessage/InputMessage';
 import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
@@ -10,11 +10,15 @@ import { combineHandlers } from '../../utils';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  ${tokens.container.base}
 `;
 
-const GroupContainer = styled.div<{ direction?: Direction }>`
+const GroupContainer = styled.div<{ direction: Direction }>`
   display: flex;
-  flex-direction: ${({ direction }) => direction ?? 'row'};
+  ${({ direction }) => css`
+    flex-direction: ${direction};
+    ${tokens.groupContainer.direction[direction].base}
+  `}
 `;
 
 const Label = styled(Typography)`
@@ -50,7 +54,7 @@ export const RadioButtonGroup = ({
   tip,
   disabled,
   readOnly,
-  direction,
+  direction = 'row',
   value,
   children,
   required,
@@ -59,9 +63,8 @@ export const RadioButtonGroup = ({
   style,
   ...rest
 }: RadioButtonGroupProps) => {
-  const [groupValue, setGroupValue] = useState<
-    string | number | null | undefined
-  >(value);
+  const [groupValue, setGroupValue] =
+    useState<string | number | null | undefined>(value);
 
   const [uniqueGroupId] = useState<string>(
     groupId ?? `radioButtonGroup-${nextUniqueGroupId++}`

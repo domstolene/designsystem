@@ -163,7 +163,6 @@ const SelectInner = <IsMulti extends boolean = false>(
       Input: CustomInput
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
-
     ...rest
   };
 

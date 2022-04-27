@@ -5,6 +5,13 @@ import {
 import { CSSObject } from 'styled-components';
 import * as CSS from 'csstype';
 import { calculateHeightWithLineHeight } from '../../helpers/functions';
+import {
+  dangerInputfield,
+  focusDangerInputfield,
+  focusInputfield,
+  hoverDangerInputfield,
+  hoverInputfield
+} from '../../helpers/styling';
 
 const {
   colors: Colors,
@@ -83,25 +90,23 @@ const containerBase: CSSObject = {
 };
 
 const containerHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveLightest,
-  borderColor: Colors.DdsColorInteractiveBase
+  ...hoverInputfield
 };
 
 const containerFocusBase: CSSObject = {
-  borderColor: Colors.DdsColorInteractiveBase
+  ...focusInputfield
 };
 
 const containerDangerBase: CSSObject = {
-  borderColor: Colors.DdsColorDangerBase
+  ...dangerInputfield
 };
 
 const containerDangerHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorDangerLightest,
-  borderColor: Colors.DdsColorDangerBase
+  ...hoverDangerInputfield
 };
 
 const containerDangerFocusBase: CSSObject = {
-  borderColor: Colors.DdsColorDangerDark
+  ...focusDangerInputfield
 };
 
 const inputBase: CSSObject = {
@@ -162,11 +167,13 @@ const clearIndicatorHoverBase: CSSObject = {
   color: Colors.DdsColorInteractiveBase
 };
 
-const optionsListBase: CSSObject = {
+const menuBase: CSSObject = {
   border: '1px solid',
   borderColor: Colors.DdsColorInteractiveBase,
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
+  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
+  marginTop: Spacing.SizesDdsSpacingLocalX025,
+  marginBottom: Spacing.SizesDdsSpacingLocalX025
 };
 
 const optionBase: CSSObject = {
@@ -288,8 +295,8 @@ export const selectTokens = {
   placeholder: {
     base: placeholderBase
   },
-  optionsList: {
-    base: optionsListBase,
+  menu: {
+    base: menuBase,
     spaceTop: Spacing.SizesDdsSpacingLocalX1NumberPx + 2 //grunnet shadow-box
   },
   option: {

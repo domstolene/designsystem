@@ -39,10 +39,7 @@ const navItems = [
 export const Default = (args: OverflowMenuProps) => {
   return (
     <StoryTemplate title="OverflowMenu - default" display="flex-centered">
-      <OverflowMenuGroup
-        onClose={() => console.log('onClose')}
-        onOpen={() => console.log('onopen')}
-      >
+      <OverflowMenuGroup>
         <Button Icon={MenuOutlinedIcon} />
         <OverflowMenu {...args} items={items} />
       </OverflowMenuGroup>

@@ -17,8 +17,8 @@ export const Link = styled.a<LinkProps>`
   &:active {
     ${tokens.navigationLink.active.base}
   }
-  &:focus-visible {
-    outline: none;
+  &:focus-visible,
+  &.focus-visible {
     ${tokens.navigationLink.focus.base}
   }
   ${({ isCurrent }) =>

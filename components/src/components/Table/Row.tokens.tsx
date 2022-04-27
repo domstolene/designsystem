@@ -3,6 +3,7 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { focusVisibleInset } from '../../helpers/styling/focusVisible';
 
 const {
   colors: Colors,
@@ -40,6 +41,10 @@ const bodyHoverBase: CSSObject = {
   backgroundColor: Colors.DdsColorSecondaryLightest
 };
 
+const bodyFocusBase: CSSObject = {
+  ...focusVisibleInset
+};
+
 const bodySumBase: CSSObject = {
   ...FontPackages.body_sans_02.base,
   fontWeight: 600,
@@ -65,6 +70,9 @@ export const rowTokens = {
     },
     hover: {
       base: bodyHoverBase
+    },
+    focus: {
+      base: bodyFocusBase
     },
     mode: {
       sum: {
