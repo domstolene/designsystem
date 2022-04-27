@@ -1,8 +1,18 @@
 /**
  * Do not edit directly
- * Generated on Mon, 14 Mar 2022 12:29:21 GMT
+ * Generated on Tue, 26 Apr 2022 14:02:28 GMT
  */
 
+export const DdsBreakpointXs = "1px";
+export const DdsBreakpointXsNumberPx = 1;
+export const DdsBreakpointSm = "600px";
+export const DdsBreakpointSmNumberPx = 600;
+export const DdsBreakpointMd = "960px";
+export const DdsBreakpointMdNumberPx = 960;
+export const DdsBreakpointLg = "1280px";
+export const DdsBreakpointLgNumberPx = 1280;
+export const DdsBreakpointXl = "1920px";
+export const DdsBreakpointXlNumberPx = 1920;
 export const DdsColorPrimaryLightest = "rgba(234, 239, 244, 1)";
 export const DdsColorPrimaryLighter = "rgba(172, 187, 198, 1)";
 export const DdsColorPrimaryLight = "rgba(79, 106, 126, 1)";

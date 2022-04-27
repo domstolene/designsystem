@@ -1,0 +1,39 @@
+{
+  "$dds-breakpoint": {
+    "xs": {
+      "category": "breakpoint",
+      "exportKey": "breakpoint",
+      "value": 1,
+      "type": "number",
+      "unit": "pixel"
+    },
+    "sm": {
+      "category": "breakpoint",
+      "exportKey": "breakpoint",
+      "value": 600,
+      "type": "number",
+      "unit": "pixel"
+    },
+    "md": {
+      "category": "breakpoint",
+      "exportKey": "breakpoint",
+      "value": 960,
+      "type": "number",
+      "unit": "pixel"
+    },
+    "lg": {
+      "category": "breakpoint",
+      "exportKey": "breakpoint",
+      "value": 1280,
+      "type": "number",
+      "unit": "pixel"
+    },
+    "xl": {
+      "category": "breakpoint",
+      "exportKey": "breakpoint",
+      "value": 1920,
+      "type": "number",
+      "unit": "pixel"
+    }
+  }
+}

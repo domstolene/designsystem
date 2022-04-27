@@ -182,6 +182,9 @@ const isSpacingToken = (token) =>
   token.attributes.category === "sizes" ||
   token.attributes.category === "spacing";
 
+const isBreakpointToken = (token) =>
+  token.attributes.category === "$dds-breakpoint";
+
 StyleDictionary.registerFilter({
   name: "bordersFilter",
   matcher: function (token) {
@@ -210,6 +213,13 @@ StyleDictionary.registerFilter({
 });
 
 StyleDictionary.registerFilter({
+  name: "breakpointFilter",
+  matcher: function (token) {
+    return token.value !== "" && isBreakpointToken(token);
+  },
+});
+
+StyleDictionary.registerFilter({
   name: "tokenFilter",
   matcher: function (token) {
     return (
@@ -217,6 +227,7 @@ StyleDictionary.registerFilter({
       (isFontToken(token) ||
         isRadiusToken(token) ||
         isBorderToken(token) ||
+        isBreakpointToken(token) ||
         token.attributes.category === "$dds-color" ||
         token.attributes.category === "$dds-grid" ||
         token.attributes.category === "$dds-iconsize" ||
