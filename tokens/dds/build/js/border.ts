@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 26 Apr 2022 14:02:28 GMT
+ * Generated on Wed, 27 Apr 2022 10:41:33 GMT
  */
 
 export const BordersDdsBorderFocusBaseStrokeAlign = "inside";
@@ -8,6 +8,11 @@ export const BordersDdsBorderFocusBaseStrokeMiterLimit = 4;
 export const BordersDdsBorderFocusBaseStrokeWeight = "1px";
 export const BordersDdsBorderFocusBaseStrokeWeightNumberPx = 1;
 export const BordersDdsBorderFocusBaseStroke = "rgba(98, 90, 31, 1)";
+export const BordersDdsBorderFocusOndarkStrokeAlign = "inside";
+export const BordersDdsBorderFocusOndarkStrokeMiterLimit = 4;
+export const BordersDdsBorderFocusOndarkStrokeWeight = "1px";
+export const BordersDdsBorderFocusOndarkStrokeWeightNumberPx = 1;
+export const BordersDdsBorderFocusOndarkStroke = "rgba(251, 243, 184, 1)";
 export const BordersDdsBorderFocusInputfieldStrokeAlign = "inside";
 export const BordersDdsBorderFocusInputfieldStrokeMiterLimit = 4;
 export const BordersDdsBorderFocusInputfieldStrokeWeight = "2px";
