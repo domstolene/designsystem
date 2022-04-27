@@ -167,7 +167,8 @@ StyleDictionary.registerFormat({
 const isBorderToken = (token) =>
   token.attributes.category === "borders" &&
   token.path[token.path.length - 1] !== "strokeCap" &&
-  token.path[token.path.length - 1] !== "strokeJoin";
+  token.path[token.path.length - 1] !== "strokeJoin" &&
+  token.path[token.path.length - 1] !== "dashPattern";
 
 const isRadiusToken = (token) =>
   token.attributes.category === "radii" &&

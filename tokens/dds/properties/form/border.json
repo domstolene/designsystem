@@ -10,7 +10,7 @@
             "type": "string"
           },
           "dashPattern": {
-            "value": "",
+            "value": "0, 0",
             "type": "string"
           },
           "strokeCap": {
@@ -36,6 +36,40 @@
             "type": "color"
           }
         },
+        "ondark": {
+          "category": "border",
+          "exportKey": "border",
+          "strokeAlign": {
+            "value": "inside",
+            "type": "string"
+          },
+          "dashPattern": {
+            "value": "0, 0",
+            "type": "string"
+          },
+          "strokeCap": {
+            "value": "none",
+            "type": "string"
+          },
+          "strokeJoin": {
+            "value": "miter",
+            "type": "string"
+          },
+          "strokeMiterLimit": {
+            "value": 4,
+            "type": "number",
+            "unit": "degree"
+          },
+          "strokeWeight": {
+            "value": 1,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "stroke": {
+            "value": "rgba(251, 243, 184, 1)",
+            "type": "color"
+          }
+        },
         "inputfield": {
           "category": "border",
           "exportKey": "border",
@@ -44,7 +78,7 @@
             "type": "string"
           },
           "dashPattern": {
-            "value": "",
+            "value": "0, 0",
             "type": "string"
           },
           "strokeCap": {
@@ -78,7 +112,7 @@
             "type": "string"
           },
           "dashPattern": {
-            "value": "",
+            "value": "0, 0",
             "type": "string"
           },
           "strokeCap": {
@@ -113,7 +147,7 @@
           "type": "string"
         },
         "dashPattern": {
-          "value": "",
+          "value": "0, 0",
           "type": "string"
         },
         "strokeCap": {
@@ -147,7 +181,7 @@
           "type": "string"
         },
         "dashPattern": {
-          "value": "",
+          "value": "0, 0",
           "type": "string"
         },
         "strokeCap": {
