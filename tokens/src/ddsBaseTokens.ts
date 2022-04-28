@@ -1,6 +1,7 @@
 import {
   colors,
   font,
+  breakpoints,
   border,
   borderRadius,
   spacing,
@@ -14,6 +15,7 @@ import {
 export const ddsBaseTokens = {
   colors,
   font,
+  breakpoints,
   border,
   borderRadius,
   spacing,
