@@ -2,6 +2,13 @@ import { screen, fireEvent, render, waitFor } from '@testing-library/react';
 import { Tooltip } from '.';
 import { Button } from '../Button';
 
+// Mock the ResizeObserver
+window.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}))
+
 describe('<Tooltip />', () => {
   it('should render tooltip', async () => {
     const text = 'text';
