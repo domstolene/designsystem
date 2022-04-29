@@ -39,7 +39,7 @@ export type RadioButtonGroupProps = {
   groupId?: string;
   children?: React.ReactNode;
   required?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>, value: any) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>, value: unknown) => void;
   className?: string;
   style?: React.CSSProperties;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;

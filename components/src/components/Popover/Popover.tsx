@@ -98,8 +98,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     },
     ref
   ) => {
-    const [referenceElement, setReferenceElement] = useState(null) as any;
-    const [popperElement, setPopperElement] = useState(null) as any;
+    const [referenceElement, setReferenceElement] =
+      useState<HTMLElement | null>(null);
+    const [popperElement, setPopperElement] =
+      useState<HTMLElement | null>(null);
     const multiRef = useCombinedRef(ref, setPopperElement);
 
     const { styles, attributes } = useReactPopper(
@@ -111,7 +113,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     );
 
     useEffect(() => {
-      isOpen ? setReferenceElement(anchorElement) : setReferenceElement(null);
+      isOpen && anchorElement?.current
+        ? setReferenceElement(anchorElement.current)
+        : setReferenceElement(null);
       return () => setReferenceElement(null);
     }, [anchorElement, isOpen]);
 

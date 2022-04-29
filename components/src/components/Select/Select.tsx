@@ -29,7 +29,9 @@ import { selectTokens as tokens } from './Select.tokens';
 
 const { Option: DdsOption, NoOptionsMessage, Input } = components;
 
-const IconOption = (props: OptionProps<any, any>) => (
+const IconOption = <TValue, IsMulti extends boolean>(
+  props: OptionProps<TValue, IsMulti>
+) => (
   <DdsOption {...props}>
     {props.isSelected && (
       <SelectedIconWrapper Icon={CheckOutlinedIcon} iconSize="inline" />
@@ -38,9 +40,9 @@ const IconOption = (props: OptionProps<any, any>) => (
   </DdsOption>
 );
 
-const NoOptionsMessageCustom = (props: NoticeProps<any, any>) => (
-  <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>
-);
+const NoOptionsMessageCustom = <TValue, IsMulti extends boolean>(
+  props: NoticeProps<TValue, IsMulti>
+) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
 
 function escapeRegexCharacters(text: string) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -111,7 +113,7 @@ const SelectInner = <IsMulti extends boolean = false>(
     errorMessage
   );
 
-  const CustomInput = (props: InputProps<any, any>) => (
+  const CustomInput = <TValue,>(props: InputProps<TValue, IsMulti>) => (
     <Input
       {...props}
       aria-describedby={spaceSeparatedIdListGenerator([tipId, errorMessageId])}
