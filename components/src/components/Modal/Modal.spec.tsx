@@ -61,19 +61,19 @@ describe('<Modal />', () => {
     expect(el).toBeInTheDocument();
   });
 
-  it('should show after trigger button click', () => {
+  it('should show after trigger button click', async () => {
     render(<TestComponent />);
     const button = screen.getAllByRole('button')[0];
     button.click();
-    const el = screen.getByRole('dialog');
+    const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
   });
 
-  it('should hide after Esc keydown', () => {
+  it('should hide after Esc keydown', async () => {
     render(<TestComponent />);
     const button = screen.getAllByRole('button')[0];
     button.click();
-    const el = screen.getByRole('dialog');
+    const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
     fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
     const elQuery = screen.queryByRole('dialog');

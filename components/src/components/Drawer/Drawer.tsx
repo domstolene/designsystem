@@ -172,6 +172,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
               {children}
             </ContentContainer>
             <StyledButton
+              data-testid="drawer-close-btn"
               size="small"
               purpose="secondary"
               appearance="borderless"
