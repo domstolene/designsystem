@@ -10,16 +10,16 @@ import { CustomRadioButton, Input, Container } from './RadioButton.styles';
 let nextUniqueId = 0;
 
 const isValueEqualToGroupValueOrFalsy = (
-  value: any,
+  value: unknown,
   group: Nullable<RadioButtonGroup>
-) => {
+): boolean => {
   if (typeof value !== 'undefined' && value !== null && group) {
     if (typeof value === 'number') {
       return value === Number(group?.value);
     }
     return value === group?.value;
   }
-  return value;
+  return !!value;
 };
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(

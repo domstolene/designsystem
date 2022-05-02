@@ -22,9 +22,9 @@ export type Placement =
   | 'left-end';
 
 export const useReactPopper = (
-  referenceElement: HTMLElement,
-  popperElement: HTMLElement,
-  arrowRef?: HTMLElement | string,
+  referenceElement: HTMLElement | null,
+  popperElement: HTMLElement | null,
+  arrowRef?: HTMLElement | string | null,
   placement = 'auto' as Placement,
   offset = defaultOffset,
   offsetAlong = 0

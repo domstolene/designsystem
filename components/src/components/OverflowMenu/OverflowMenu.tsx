@@ -67,8 +67,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     },
     ref
   ) => {
-    const [referenceElement, setReferenceElement] = useState(null) as any;
-    const [popperElement, setPopperElement] = useState(null) as any;
+    const [referenceElement, setReferenceElement] =
+      useState<HTMLElement | null>(null);
+    const [popperElement, setPopperElement] =
+      useState<HTMLElement | null>(null);
     const combinedRef = useCombinedRef(ref, setPopperElement);
 
     const { styles, attributes } = useReactPopper(

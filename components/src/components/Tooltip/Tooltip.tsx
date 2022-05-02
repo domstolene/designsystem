@@ -56,9 +56,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     );
 
     const [open, setOpen] = useState(false);
-    const [popperElement, setPopperElement] = useState(null) as any;
-    const [referenceElement, setReferenceElement] = useState(null) as any;
-    const [arrowElement, setArrowElement] = useState(null) as any;
+    const [popperElement, setPopperElement] =
+      useState<HTMLElement | null>(null);
+    const [referenceElement, setReferenceElement] =
+      useState<HTMLElement | null>(null);
+    const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
     const combinedRef = useCombinedRef(ref, setPopperElement);
     let timer: ReturnType<typeof setTimeout>;
 
