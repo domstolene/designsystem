@@ -4,7 +4,6 @@ import { IconWrapper } from '../../helpers/IconWrapper';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
-import { SelectOption } from './Select';
 import { selectTokens as tokens } from './Select.tokens';
 
 export const prefix = 'dds-select';
@@ -150,9 +149,9 @@ export const SelectedIconWrapper = styled(IconWrapper)`
   margin: ${tokens.option.selected.icon.margin};
 `;
 
-export const CustomStyles: Partial<
-  StylesConfig<SelectOption, boolean, GroupBase<SelectOption>>
-> = {
+export const getCustomStyles = <TOption>(): Partial<
+  StylesConfig<TOption, boolean, GroupBase<TOption>>
+> => ({
   control: () => ({
     position: 'relative',
     display: 'flex',
@@ -255,4 +254,4 @@ export const CustomStyles: Partial<
     ...provided,
     ...tokens.loadingIndicator.base
   })
-};
+});

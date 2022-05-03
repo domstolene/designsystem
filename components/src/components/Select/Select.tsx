@@ -19,7 +19,7 @@ import {
 } from '../../utils';
 import {
   Container,
-  CustomStyles,
+  getCustomStyles,
   Label,
   prefix,
   SelectedIconWrapper,
@@ -56,13 +56,7 @@ export function searchFilter(text: string, search: string): boolean {
   return searchFilterRegex.test(text.toLowerCase());
 }
 
-export type SelectOption = {
-  label: string;
-  value: string | number;
-  data?: unknown;
-};
-
-export type SelectProps<IsMulti extends boolean> = {
+export type SelectProps<TOption, IsMulti extends boolean> = {
   label?: string;
   required?: boolean;
   readOnly?: boolean;
@@ -71,15 +65,15 @@ export type SelectProps<IsMulti extends boolean> = {
   width?: CSS.WidthProperty<string>;
   className?: string;
   style?: React.CSSProperties;
-} & ReactSelectProps<SelectOption, IsMulti, GroupBase<SelectOption>>;
+} & ReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
 
 let nextUniqueId = 0;
 
-type ForwardRefType<IsMulti extends boolean> = React.ForwardedRef<
-  SelectInstance<SelectOption, IsMulti, GroupBase<SelectOption>>
+type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
+  SelectInstance<TOption, IsMulti, GroupBase<TOption>>
 >;
 
-const SelectInner = <IsMulti extends boolean = false>(
+const SelectInner = <TOption, IsMulti extends boolean = false>(
   {
     id,
     label,
@@ -99,8 +93,8 @@ const SelectInner = <IsMulti extends boolean = false>(
     isClearable = true,
     placeholder = '-- Velg fra listen --',
     ...rest
-  }: SelectProps<IsMulti>,
-  ref: ForwardRefType<IsMulti>
+  }: SelectProps<TOption, IsMulti>,
+  ref: ForwardRefType<TOption, IsMulti>
 ) => {
   const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
 
@@ -135,9 +129,9 @@ const SelectInner = <IsMulti extends boolean = false>(
   };
 
   const reactSelectProps: ReactSelectProps<
-    SelectOption,
+    TOption,
     IsMulti,
-    GroupBase<SelectOption>
+    GroupBase<TOption>
   > = {
     options,
     value,
@@ -154,8 +148,8 @@ const SelectInner = <IsMulti extends boolean = false>(
     inputId: uniqueId,
     name: uniqueId,
     classNamePrefix: prefix,
-    styles: CustomStyles,
-    filterOption: (option: SelectOption, inputValue: string) => {
+    styles: getCustomStyles<TOption>(),
+    filterOption: (option, inputValue: string) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';
     },
