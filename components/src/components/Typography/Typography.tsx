@@ -12,7 +12,7 @@ import {
   textColorsArray
 } from './Typography.tokens';
 import { IconWrapper } from '../../helpers/IconWrapper';
-import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
+import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import { TypographyType, TextColor } from './Typography.types';
 
 const getElementType = (element: string): ElementType => {

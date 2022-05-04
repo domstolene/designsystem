@@ -3,7 +3,7 @@ import * as CSS from 'csstype';
 
 export type InputProps = {
   label?: string;
-  width?: CSS.WidthProperty<string>;
+  width?: CSS.Property.Width<string>;
   tip?: string;
   errorMessage?: string;
 } & InputHTMLAttributes<HTMLInputElement>;

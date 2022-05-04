@@ -1,7 +1,7 @@
 import { forwardRef, HTMLAttributes, Children } from 'react';
 import styled from 'styled-components';
-import ChevronRightOutlinedIcon from '@material-ui/icons/ChevronRightOutlined';
-import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
+import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
 import { IconSize, IconWrapper } from '../../helpers/IconWrapper/IconWrapper';
 

@@ -18,7 +18,7 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
 import { datepickerTokens as tokens } from './Datepicker.tokens';
 
-const getWidth = (type: string): CSS.WidthProperty<string> => {
+const getWidth = (type: string): CSS.Property.Width<string> => {
   return type === 'date'
     ? '205px'
     : type === 'datetime-local'

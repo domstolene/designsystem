@@ -1,14 +1,12 @@
-import {
-  AnchorHTMLAttributes,
-  ElementType,
-  forwardRef,
-  HTMLAttributes
-} from 'react';
+import { AnchorHTMLAttributes, HTMLAttributes, RefObject } from 'react';
 import styled, { css } from 'styled-components';
 import { cardTokens as tokens } from './Card.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
-type ContainerProps = Pick<CardProps, 'color' | 'cardType'>;
+type ContainerProps = {
+  color: CardColor;
+  cardType: CardType;
+};
 
 const Container = styled.div<ContainerProps>`
   ${tokens.base}
@@ -49,23 +47,55 @@ export type CardColor =
 
 export type CardType = 'info' | 'navigation' | 'expandable';
 
-export type CardProps = {
+export type InfoCardProps = {
   color?: CardColor;
-  cardType?: CardType;
-} & (HTMLAttributes<HTMLDivElement> | AnchorHTMLAttributes<HTMLAnchorElement>);
+  cardType: 'info';
+  cardRef?: RefObject<HTMLDivElement>;
+} & HTMLAttributes<HTMLDivElement>;
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(
-  ({ children, cardType = 'info', color = 'filledLight', ...rest }, ref) => {
-    const as: ElementType = cardType === 'navigation' ? 'a' : 'div';
+export type NavigationCardProps = {
+  color?: CardColor;
+  cardType: 'navigation';
+  cardRef?: RefObject<HTMLAnchorElement>;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-    const containerProps = {
-      ref,
-      as,
-      cardType,
-      color,
-      ...rest
-    };
+export type ExpandableCardProps = {
+  color?: CardColor;
+  cardType: 'expandable';
+  cardRef?: RefObject<HTMLDivElement>;
+} & HTMLAttributes<HTMLDivElement>;
 
-    return <Container {...containerProps}>{children}</Container>;
+export type CardProps =
+  | InfoCardProps
+  | NavigationCardProps
+  | ExpandableCardProps;
+
+export const Card = (props: CardProps) => {
+  const color = props.color ?? 'filledLight';
+
+  if (props.cardType === 'navigation') {
+    return (
+      <Container
+        {...props}
+        cardType={props.cardType}
+        color={color}
+        as="a"
+        ref={props.cardRef}
+      >
+        {props.children}
+      </Container>
+    );
   }
-);
+
+  return (
+    <Container
+      {...props}
+      cardType={props.cardType}
+      color={color}
+      as="div"
+      ref={props.cardRef}
+    >
+      {props.children}
+    </Container>
+  );
+};

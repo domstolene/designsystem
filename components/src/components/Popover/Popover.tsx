@@ -1,19 +1,12 @@
-import {
-  forwardRef,
-  HTMLAttributes,
-  ReactNode,
-  RefObject,
-  useEffect,
-  useState
-} from 'react';
-import styled, { css } from 'styled-components';
-import { popoverTokens as tokens } from './Popover.tokens';
-import { Button } from '../Button';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
-import { useCombinedRef, useReactPopper, Placement } from '../../hooks';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { Typography } from '../Typography';
 import * as CSS from 'csstype';
+import { forwardRef, HTMLAttributes, ReactNode, useEffect } from 'react';
+import styled, { css } from 'styled-components';
+import { Placement, useCombinedRef, useFloatPosition } from '../../hooks';
+import { Button } from '../Button';
+import { Typography } from '../Typography';
+import { popoverTokens as tokens } from './Popover.tokens';
 
 const { spacing: Spacing } = ddsBaseTokens;
 
@@ -61,12 +54,12 @@ const StyledButton = styled(Button)`
 `;
 
 export type PopoverSizeProps = {
-  width?: CSS.WidthProperty<string>;
-  height?: CSS.HeightProperty<string>;
-  minWidth?: CSS.MinWidthProperty<string>;
-  minHeight?: CSS.MinHeightProperty<string>;
-  maxWidth?: CSS.MaxWidthProperty<string>;
-  maxHeight?: CSS.MaxHeightProperty<string>;
+  width?: CSS.Property.Width<string>;
+  height?: CSS.Property.Height<string>;
+  minWidth?: CSS.Property.MinWidth<string>;
+  minHeight?: CSS.Property.MinHeight<string>;
+  maxWidth?: CSS.Property.MaxWidth<string>;
+  maxHeight?: CSS.Property.MaxHeight<string>;
 };
 
 export type PopoverProps = {
@@ -75,7 +68,7 @@ export type PopoverProps = {
   onCloseButtonBlur?: () => void;
   isOpen?: boolean;
   withCloseButton?: boolean;
-  anchorElement?: RefObject<HTMLElement>;
+  anchorElement?: HTMLElement;
   placement?: Placement;
   offset?: number;
   sizeProps?: PopoverSizeProps;
@@ -98,33 +91,23 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     },
     ref
   ) => {
-    const [referenceElement, setReferenceElement] =
-      useState<HTMLElement | null>(null);
-    const [popperElement, setPopperElement] =
-      useState<HTMLElement | null>(null);
-    const multiRef = useCombinedRef(ref, setPopperElement);
-
-    const { styles, attributes } = useReactPopper(
-      referenceElement,
-      popperElement,
-      undefined,
+    const { reference, floating, styles } = useFloatPosition(
+      null,
       placement,
       offset
     );
+    const multiRef = useCombinedRef(ref, floating);
 
     useEffect(() => {
-      isOpen && anchorElement?.current
-        ? setReferenceElement(anchorElement.current)
-        : setReferenceElement(null);
-      return () => setReferenceElement(null);
+      isOpen && anchorElement ? reference(anchorElement) : reference(null);
+      return () => reference(null);
     }, [anchorElement, isOpen]);
 
     const wrapperProps = {
       ref: multiRef,
       isOpen,
-      style: { ...style, ...styles.popper },
+      style: { ...style, ...styles.floating },
       ...rest,
-      ...attributes.popper,
       role: 'dialog'
     };
 

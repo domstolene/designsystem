@@ -1,6 +1,6 @@
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { IconWrapper, IconWrapperProps } from './IconWrapper';
-import LaunchOutlinedIcon from '@material-ui/icons/LaunchOutlined';
+import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import { Typography } from '../../components/Typography';
 
 export default {

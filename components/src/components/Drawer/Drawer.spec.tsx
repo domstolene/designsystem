@@ -41,7 +41,7 @@ describe('<Drawer />', () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
     button.click();
-    const el = screen.getByRole('dialog');
+    const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
     fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
     const elQuery = screen.queryByRole('dialog');
@@ -53,7 +53,7 @@ describe('<Drawer />', () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
     button.click();
-    const el = screen.getByRole('dialog');
+    const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
     const closeButton = screen.getByLabelText('Lukk');
     fireEvent.click(closeButton!);
@@ -63,7 +63,7 @@ describe('<Drawer />', () => {
     });
   });
 
-  it('should call additional onClose event on click', () => {
+  it('should call additional onClose event on click', async () => {
     const event = jest.fn();
     render(
       <DrawerGroup onClose={event}>
@@ -73,11 +73,11 @@ describe('<Drawer />', () => {
     );
     const button = screen.getByText(buttonLabel);
     button.click();
-    const closeButton = screen.getAllByRole('button')[1];
+    const closeButton = await screen.findByTestId('drawer-close-btn');
     fireEvent.click(closeButton!);
     expect(event).toHaveBeenCalled();
   });
-  it('should call additional onClose event on Esc keydown', () => {
+  it('should call additional onClose event on Esc keydown', async () => {
     const event = jest.fn();
     render(
       <DrawerGroup onClose={event}>
@@ -87,7 +87,7 @@ describe('<Drawer />', () => {
     );
     const button = screen.getByText(buttonLabel);
     button.click();
-    const el = screen.getByRole('dialog');
+    const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
     fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
     expect(event).toHaveBeenCalled();

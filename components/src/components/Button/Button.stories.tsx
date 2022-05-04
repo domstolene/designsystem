@@ -1,8 +1,8 @@
 import { Button as DDSButton } from './Button';
 import { ButtonProps } from './Button.types';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 
 export default {
   title: 'Design system/Button',

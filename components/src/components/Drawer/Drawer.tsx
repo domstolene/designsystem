@@ -19,9 +19,9 @@ import {
 import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling/focusVisible';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Paper } from '../../helpers/Paper';
-import { WidthProperty, MinWidthProperty, MaxWidthProperty } from 'csstype';
+import { Property } from 'csstype';
 
 type ContainerProps = {
   placement: DrawerPlacement;
@@ -83,9 +83,9 @@ const StyledButton = styled(Button)`
 export type DrawerSize = 'small' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export type WidthProps = {
-  minWidth?: MinWidthProperty<string>;
-  maxWidth?: MaxWidthProperty<string>;
-  width?: WidthProperty<string>;
+  minWidth?: Property.MinWidth<string>;
+  maxWidth?: Property.MaxWidth<string>;
+  width?: Property.Width<string>;
 };
 
 export type DrawerProps = {
@@ -172,6 +172,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
               {children}
             </ContentContainer>
             <StyledButton
+              data-testid="drawer-close-btn"
               size="small"
               purpose="secondary"
               appearance="borderless"

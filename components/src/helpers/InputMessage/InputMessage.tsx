@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import ReportProblemOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
+import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 import { IconWrapper } from '../IconWrapper';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import * as CSS from 'csstype';
@@ -8,7 +8,7 @@ import { forwardRef, HTMLAttributes } from 'react';
 
 const InputMessageWrapper = styled.div<{
   messageType: MessageType;
-  maxWidth?: CSS.MaxWidthProperty<string>;
+  maxWidth?: CSS.Property.MaxWidth<string>;
 }>`
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ type MessageType = 'error' | 'tip';
 type InputMessageProps = {
   message: string;
   messageType: MessageType;
-  maxWidth?: CSS.MaxWidthProperty<string>;
+  maxWidth?: CSS.Property.MaxWidth<string>;
   messageId?: string;
 } & HTMLAttributes<HTMLDivElement>;
 

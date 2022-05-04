@@ -1,7 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import WarningOutlinedIcon from '@material-ui/icons/ReportOutlined';
-import DangerOutlinedIcon from '@material-ui/icons/ReportProblemOutlined';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import WarningOutlinedIcon from '@mui/icons-material/ReportOutlined';
+import DangerOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { CSSObject } from 'styled-components';
 
 const {

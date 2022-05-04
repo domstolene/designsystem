@@ -1,8 +1,8 @@
 import { OverflowMenu, OverflowMenuProps, OverflowMenuGroup } from '.';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Button } from '../Button';
-import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 
 export default {
   title: 'design system/OverflowMenu',

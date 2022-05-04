@@ -3,7 +3,8 @@ import {
   CardAccordionHeader,
   CardAccordionBody,
   Card as DDSCard,
-  CardProps
+  CardProps,
+  ExpandableCardProps
 } from '.';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { Divider } from '../Divider';
@@ -40,13 +41,13 @@ const ContentContainer = styled.div`
 export const Overview = () => {
   return (
     <StoryTemplate title="Card - overview" display="grid" columnsAmount={4}>
-      <DDSCard>
+      <DDSCard cardType="info">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
       </DDSCard>
-      <DDSCard color="filledDark">
+      <DDSCard cardType="info" color="filledDark">
         <ContentContainer>
           <Typography color="onDark" typographyType="headingSans03">
             Title
@@ -54,13 +55,13 @@ export const Overview = () => {
           {bodyOnDark}
         </ContentContainer>
       </DDSCard>
-      <DDSCard color="strokeDark">
+      <DDSCard cardType="info" color="strokeDark">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
       </DDSCard>
-      <DDSCard color="strokeLight">
+      <DDSCard cardType="info" color="strokeLight">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
@@ -92,25 +93,25 @@ export const Overview = () => {
           {body}
         </ContentContainer>
       </DDSCard>
-      <DDSCard color="filledLight">
+      <DDSCard cardType="info" color="filledLight">
         <DDSAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard color="filledDark">
+      <DDSCard cardType="info" color="filledDark">
         <DDSAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard color="strokeDark">
+      <DDSCard cardType="info" color="strokeDark">
         <DDSAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard color="strokeLight">
+      <DDSCard cardType="info" color="strokeLight">
         <DDSAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
@@ -128,10 +129,10 @@ export const Default = (args: CardProps) => {
   );
 };
 
-export const Accordion = (args: CardProps) => {
+export const Accordion = (args: ExpandableCardProps) => {
   return (
     <StoryTemplate title="Card - accordion" gap="0">
-      <DDSCard {...args} cardType="expandable">
+      <DDSCard {...(args)} cardType="expandable">
         <DDSAccordion>
           <CardAccordionHeader>Dekning av reiseutgifter</CardAccordionHeader>
           <CardAccordionBody>
@@ -153,7 +154,7 @@ export const Accordion = (args: CardProps) => {
           </CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard {...args} cardType="expandable">
+      <DDSCard {...(args)} cardType="expandable">
         <DDSAccordion>
           <CardAccordionHeader>Ansvar for behandlingen</CardAccordionHeader>
           <CardAccordionBody>
@@ -167,7 +168,7 @@ export const Accordion = (args: CardProps) => {
           </CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard {...args} cardType="expandable">
+      <DDSCard {...(args)} cardType="expandable">
         <DDSAccordion>
           <CardAccordionHeader>Bli vitnestøtte?</CardAccordionHeader>
           <CardAccordionBody paddingTop="4px">
@@ -185,7 +186,7 @@ export const Accordion = (args: CardProps) => {
           </CardAccordionBody>
         </DDSAccordion>
       </DDSCard>
-      <DDSCard {...args} cardType="expandable">
+      <DDSCard {...(args)} cardType="expandable">
         <DDSAccordion>
           <CardAccordionHeader>Header</CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>

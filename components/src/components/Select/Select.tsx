@@ -1,4 +1,4 @@
-import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import * as CSS from 'csstype';
 import React, { useState } from 'react';
 import {
@@ -62,7 +62,7 @@ export type SelectProps<TOption, IsMulti extends boolean> = {
   readOnly?: boolean;
   errorMessage?: string;
   tip?: string;
-  width?: CSS.WidthProperty<string>;
+  width?: CSS.Property.Width<string>;
   className?: string;
   style?: React.CSSProperties;
 } & ReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;

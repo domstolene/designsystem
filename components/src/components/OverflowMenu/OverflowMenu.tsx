@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { forwardRef, useEffect } from 'react';
 import styled from 'styled-components';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 import {
@@ -6,12 +6,12 @@ import {
   useId,
   useOnClickOutside,
   useOnKeyDown,
-  useReactPopper,
+  useFloatPosition,
   useRoveFocus
 } from '../../hooks';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { Divider } from '../Divider';
 import {
   OverflowMenuContextItem,
@@ -67,27 +67,21 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     },
     ref
   ) => {
-    const [referenceElement, setReferenceElement] =
-      useState<HTMLElement | null>(null);
-    const [popperElement, setPopperElement] =
-      useState<HTMLElement | null>(null);
-    const combinedRef = useCombinedRef(ref, setPopperElement);
-
-    const { styles, attributes } = useReactPopper(
-      referenceElement,
-      popperElement,
-      undefined,
+    const { reference, floating, refs, styles } = useFloatPosition(
+      null,
       placement,
       offset
     );
 
+    const combinedRef = useCombinedRef(ref, floating);
+
     useEffect(() => {
       anchorRef
-        ? setReferenceElement(anchorRef.current)
-        : setReferenceElement(null);
+        ? reference(anchorRef.current)
+        : reference(null);
     }, [anchorRef]);
 
-    useOnClickOutside([popperElement, referenceElement], () => {
+    useOnClickOutside([refs?.floating?.current, refs?.reference?.current as (HTMLElement | null)], () => {
       if (isOpen) onClose && onClose();
     });
 
@@ -197,9 +191,8 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       ref: combinedRef,
       id: id ?? useId('overflowMenu'),
       isOpen,
-      style: { ...style, ...styles.popper },
+      style: { ...style, ...styles.floating },
       ...rest,
-      ...attributes.popper,
       'aria-hidden': !isOpen,
       role: 'menu'
     };

@@ -19,13 +19,6 @@ const wrapperBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
 };
 
-const arrowPlacementTemplate = {
-  top: '-18px',
-  bottom: '-15px',
-  left: '-22.5px',
-  right: '-22.5px'
-};
-
 export const tooltipTokens = {
   wrapper: {
     base: wrapperBase
@@ -37,7 +30,5 @@ export const tooltipTokens = {
     background: {
       fill: Colors.DdsColorNeutralsWhite
     }
-  },
-  arrowPlacementTemplate: arrowPlacementTemplate,
-  offset: Spacing.SizesDdsSpacingLocalX05NumberPx
+  }
 };

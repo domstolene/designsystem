@@ -9,7 +9,7 @@ import {
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
-import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useFocusTrap } from '../../hooks';
 import { useCombinedRef, useOnClickOutside, useOnKeyDown } from '../../hooks';
 import { createPortal } from 'react-dom';
