@@ -7,7 +7,7 @@ import FirstPageOutlinedIcon from '@material-ui/icons/FirstPageOutlined';
 import LastPageOutlinedIcon from '@material-ui/icons/LastPageOutlined';
 import { Typography } from '../../components/Typography';
 import { Button } from '../../components/Button';
-import { Select, SelectOption } from '../Select';
+import { Select } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
 import { IconWrapper } from '../../helpers/IconWrapper';
 import { paginationTokens as tokens } from './Pagination.tokens';
@@ -54,6 +54,11 @@ const IndicatorsContainer = styled.div`
   gap: ${tokens.indicatorsContainer.spacing};
 `;
 
+export type PaginationOption = {
+  label: string;
+  value: number;
+};
+
 export type PaginationProps = {
   itemsAmount: number;
   defaultItemsPerPage?: number;
@@ -61,8 +66,8 @@ export type PaginationProps = {
   withPagination?: boolean;
   withCounter?: boolean;
   withSelect?: boolean;
-  selectOptions?: SelectOption[];
-  onSelectOptionChange?: (option: SelectOption | null) => void;
+  selectOptions?: PaginationOption[];
+  onSelectOptionChange?: (option: PaginationOption | null) => void;
   smallScreen?: boolean;
   onChange?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -108,7 +113,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       }
     };
 
-    const handleSelectChange = (option: SelectOption | null) => {
+    const handleSelectChange = (option: PaginationOption | null) => {
       setItemsPerPage(option?.value as number);
       if (onSelectOptionChange) {
         onSelectOptionChange(option);
@@ -262,7 +267,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               width="76px"
               defaultValue={{
                 label: itemsPerPage.toString(),
-                value: itemsPerPage.toString()
+                value: itemsPerPage
               }}
               isClearable={false}
               onChange={handleSelectChange}
