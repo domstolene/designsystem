@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { focusVisibleOnDark } from '../../helpers/styling';
 
 const {
   colors: Colors,
@@ -14,6 +15,14 @@ const linkBase: CSSObject = {
   textDecoration: 'none'
 };
 
+const linkHoverBase: CSSObject = {
+  color: Colors.DdsColorNeutralsWhite
+};
+
+const linkFocusBase: CSSObject = {
+  ...focusVisibleOnDark
+};
+
 const wrapperBase: CSSObject = {
   backgroundColor: Colors.DdsColorPrimaryBase,
   padding: Spacing.SizesDdsSpacingLocalX025
@@ -22,6 +31,12 @@ const wrapperBase: CSSObject = {
 export const skipToContentTokens = {
   link: {
     base: linkBase,
+    hover: {
+      base: linkHoverBase
+    },
+    focus: {
+      base: linkFocusBase
+    },
     focusOutline: {
       color: Colors.DdsColorWarningDark,
       width: Border.BordersDdsBorderFocusBaseStrokeWeight
