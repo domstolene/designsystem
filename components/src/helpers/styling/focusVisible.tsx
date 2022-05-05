@@ -10,7 +10,7 @@ export const focusVisible = {
 };
 
 export const focusVisibleOnDark = {
-  outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Colors.DdsColorWarningLighter} solid`,
+  outline: `${Border.BordersDdsBorderFocusOndarkStrokeWeight} ${Border.BordersDdsBorderFocusOndarkStroke} solid`,
   outlineOffset: outlineOffset
 };
 
@@ -23,7 +23,7 @@ export const focusVisibleLink = {
 
 export const focusVisibleLinkOnDark = {
   outline: 'none',
-  backgroundColor: Colors.DdsColorWarningLighter,
+  backgroundColor: Border.BordersDdsBorderFocusOndarkStroke,
   color: Colors.DdsColorNeutralsGray9,
   textDecoration: 'none'
 };
@@ -36,8 +36,8 @@ export const focusVisibleWithBorder = {
 
 export const focusVisibleThickWithBorderOnDark = {
   outline: 'none',
-  borderColor: Colors.DdsColorWarningLighter,
-  boxShadow: `inset 0 0 0 1px ${Colors.DdsColorWarningLighter}`
+  borderColor: Border.BordersDdsBorderFocusOndarkStroke,
+  boxShadow: `inset 0 0 0 1px ${Border.BordersDdsBorderFocusOndarkStroke}`
 };
 
 export const focusVisibleInset = {
