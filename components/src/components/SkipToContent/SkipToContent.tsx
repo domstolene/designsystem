@@ -34,8 +34,10 @@ const Wrapper = styled.div<WrapperProps>`
 const Link = styled.a`
   ${tokens.link.base}
   &:focus {
-    outline: ${tokens.link.focusOutline.width} solid
-      ${tokens.link.focusOutline.color};
+    ${tokens.link.focus.base}
+  }
+  &:hover {
+    ${tokens.link.hover.base}
   }
 `;
 
