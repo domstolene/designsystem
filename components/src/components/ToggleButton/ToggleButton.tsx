@@ -36,7 +36,7 @@ const Container = styled.label`
     ${tokens.checked.base}
   }
   ${Input}:checked + ${Content}:hover {
-    ${tokens.hover.base}
+    ${tokens.checked.hover.base}
   }
   ${Input}:focus-visible + ${Content} {
     ${tokens.focus.base}
