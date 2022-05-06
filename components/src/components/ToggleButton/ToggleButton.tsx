@@ -13,6 +13,8 @@ const Input = styled.input`
 `;
 
 const Content = styled.span`
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 100%;
   transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;

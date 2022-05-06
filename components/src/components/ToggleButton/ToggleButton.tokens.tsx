@@ -2,12 +2,13 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { focusVisible } from '../../helpers/styling';
 import { checkboxTokens } from '../Checkbox/Checkbox.tokens';
+
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
 const base: CSSObject = {
-  borderColor: Colors.DdsColorNeutralsGray5,
   backgroundColor: Colors.DdsColorNeutralsWhite,
   color: Colors.DdsColorNeutralsGray7,
+  gap: Spacing.SizesDdsSpacingLocalX05,
   boxShadow: 'none'
 };
 
