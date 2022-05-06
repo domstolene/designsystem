@@ -39,18 +39,18 @@ export const ToggleButtonGroup = ({
   );
 
   const groupProps = {
-    direction,
-    ...props
+    direction
   };
 
   const containerProps = {
     role: 'group',
-    'aria-labelledby': uniqueLabelId
+    'aria-labelledby': label ? uniqueLabelId : undefined,
+    ...props
   };
 
-  if (!!label)
-    return (
-      <Container {...containerProps}>
+  return (
+    <Container {...containerProps}>
+      {!!label && (
         <Typography
           as="span"
           typographyType="supportingStyleLabel01"
@@ -58,13 +58,8 @@ export const ToggleButtonGroup = ({
         >
           {label}
         </Typography>
-        <Group {...groupProps}>{children}</Group>
-      </Container>
-    );
-  else
-    return (
-      <Group {...groupProps} role="group">
-        {children}
-      </Group>
-    );
+      )}
+      <Group {...groupProps}>{children}</Group>
+    </Container>
+  );
 };
