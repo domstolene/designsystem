@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { textInputTokens as tokens } from './TextInput.tokens';
 import RequiredMarker from '../../helpers/RequiredMarker';
-import { InputMessage } from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
 import { Input, OuterInputContainer } from '../../helpers/Input';
@@ -62,9 +62,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       }
     };
 
-    const onChangeHandlerMultiline: React.ChangeEventHandler<HTMLTextAreaElement> = (
-      event: React.ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    const onChangeHandlerMultiline: React.ChangeEventHandler<
+      HTMLTextAreaElement
+    > = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       setTextAreaHeight('auto');
       if (textAreaRef && textAreaRef.current) {
         setParentHeight(`${textAreaRef.current.scrollHeight}px`);
@@ -167,11 +167,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             <InputMessage
               message={errorMessage}
               messageType="error"
-              messageId={errorMessageId}
+              id={errorMessageId}
             />
           )}
           {hasTip && !errorMessage && (
-            <InputMessage message={tip} messageType="tip" messageId={tipId} />
+            <InputMessage message={tip} messageType="tip" id={tipId} />
           )}
           {maxLength && Number.isInteger(maxLength) && maxLength > 0 && (
             <CharCounter

@@ -11,7 +11,7 @@ import {
   Props as ReactSelectProps,
   SelectInstance
 } from 'react-select';
-import { InputMessage } from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
   derivativeIdGenerator,
@@ -180,13 +180,13 @@ const SelectInner = <TOption, IsMulti extends boolean = false>(
       {errorMessage && (
         <InputMessage
           messageType="error"
-          messageId={errorMessageId}
+          id={errorMessageId}
           message={errorMessage}
         />
       )}
 
       {tip && !errorMessage && (
-        <InputMessage messageType="tip" messageId={tipId} message={tip} />
+        <InputMessage messageType="tip" id={tipId} message={tip} />
       )}
     </Wrapper>
   );

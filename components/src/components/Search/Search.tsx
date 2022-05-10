@@ -10,7 +10,7 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import { inputFieldStylingBase } from '../../helpers/Input/inputFieldStylingBase';
-import { InputMessage } from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../InputMessage';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator
@@ -129,7 +129,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
             <Input ref={ref} {...inputProps} />
           </InputWrapper>
           {hasTip && (
-            <InputMessage messageId={tipId} messageType="tip" message={tip} />
+            <InputMessage id={tipId} messageType="tip" message={tip} />
           )}
         </InputContainer>
         {buttonProps && onClick && (
