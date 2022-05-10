@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react';
-import { InputMessage } from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
   Input,
@@ -145,12 +145,12 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
         {errorMessage && (
           <InputMessage
             message={errorMessage}
-            messageId={errorMessageId}
+            id={errorMessageId}
             messageType="error"
           />
         )}
         {tip && !errorMessage && (
-          <InputMessage message={tip} messageId={tipId} messageType="tip" />
+          <InputMessage message={tip} id={tipId} messageType="tip" />
         )}
       </OuterInputContainer>
     );

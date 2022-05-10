@@ -1,7 +1,7 @@
 import React, { ChangeEvent, HTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
 import RequiredMarker from '../../helpers/RequiredMarker';
-import { InputMessage } from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../InputMessage';
 import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 import { Typography } from '../Typography';
@@ -63,8 +63,9 @@ export const RadioButtonGroup = ({
   style,
   ...rest
 }: RadioButtonGroupProps) => {
-  const [groupValue, setGroupValue] =
-    useState<string | number | null | undefined>(value);
+  const [groupValue, setGroupValue] = useState<
+    string | number | null | undefined
+  >(value);
 
   const [uniqueGroupId] = useState<string>(
     groupId ?? `radioButtonGroup-${nextUniqueGroupId++}`
@@ -109,9 +110,7 @@ export const RadioButtonGroup = ({
       >
         {label} {required && <RequiredMarker />}
       </Label>
-      {hasTip && (
-        <InputMessage message={tip} messageType="tip" messageId={tipId} />
-      )}
+      {hasTip && <InputMessage message={tip} messageType="tip" id={tipId} />}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
           role="radiogroup"
@@ -127,7 +126,7 @@ export const RadioButtonGroup = ({
         <InputMessage
           message={errorMessage}
           messageType="error"
-          messageId={errorMessageId}
+          id={errorMessageId}
         />
       )}
     </Container>
