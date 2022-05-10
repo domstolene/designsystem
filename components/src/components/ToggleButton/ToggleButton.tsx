@@ -53,7 +53,7 @@ export type ToggleButtonProps = {
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ({ children, id, text, Icon, ...rest }, ref) => {
+  ({ id, text, Icon, ...rest }, ref) => {
     const [uniqueId] = useState<string>(id ?? `toggleButton-${nextUniqueId++}`);
 
     const inputProps = {
