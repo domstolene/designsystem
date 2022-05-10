@@ -28,3 +28,4 @@ export * from './components/Drawer';
 export * from './components/OverflowMenu';
 export * from './components/Popover';
 export * from './components/InputMessage';
+export * from './components/ToggleButton';
