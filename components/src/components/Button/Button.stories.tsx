@@ -1,4 +1,4 @@
-import { Button as DDSButton } from './Button';
+import { Button } from './Button';
 import { ButtonProps } from './Button.types';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
@@ -6,7 +6,7 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 
 export default {
   title: 'Design system/Button',
-  component: DDSButton,
+  component: Button,
   argTypes: {
     label: { control: { type: 'text' } },
     loading: { control: { type: 'boolean' } },
@@ -23,74 +23,54 @@ export default {
 export const OverviewWithText = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button overview - with text" display="grid">
-      <DDSButton
-        {...args}
-        label="Primary"
-        purpose="primary"
-        appearance="filled"
-      />
-      <DDSButton
+      <Button {...args} label="Primary" purpose="primary" appearance="filled" />
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
         appearance="filled"
       />
-      <DDSButton
-        {...args}
-        label="Danger"
-        purpose="danger"
-        appearance="filled"
-      />
-      <DDSButton
-        {...args}
-        label="Primary"
-        purpose="primary"
-        appearance="ghost"
-      />
-      <DDSButton
+      <Button {...args} label="Danger" purpose="danger" appearance="filled" />
+      <Button {...args} label="Primary" purpose="primary" appearance="ghost" />
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
         appearance="ghost"
       />
-      <DDSButton {...args} label="Danger" purpose="danger" appearance="ghost" />
-      <DDSButton
+      <Button {...args} label="Danger" purpose="danger" appearance="ghost" />
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
         appearance="borderless"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
         appearance="borderless"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Danger"
         purpose="danger"
         appearance="borderless"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
         appearance="rounded"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
         appearance="rounded"
       />
-      <DDSButton
-        {...args}
-        label="Danger"
-        purpose="danger"
-        appearance="rounded"
-      />
-      <DDSButton
+      <Button {...args} label="Danger" purpose="danger" appearance="rounded" />
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -98,7 +78,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
@@ -106,7 +86,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Danger"
         purpose="danger"
@@ -114,7 +94,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -122,7 +102,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
@@ -130,7 +110,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Danger"
         purpose="danger"
@@ -138,7 +118,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -146,7 +126,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
@@ -154,7 +134,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Danger"
         purpose="danger"
@@ -162,7 +142,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -170,7 +150,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Secondary"
         purpose="secondary"
@@ -178,7 +158,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Danger"
         purpose="danger"
@@ -193,73 +173,73 @@ export const OverviewWithText = (args: ButtonProps) => {
 export const OverviewJustIcon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button overview - just icon" display="grid">
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="filled"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="secondary"
         appearance="filled"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="danger"
         appearance="filled"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="ghost"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="secondary"
         appearance="ghost"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="danger"
         appearance="ghost"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="borderless"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="secondary"
         appearance="borderless"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="danger"
         appearance="borderless"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="rounded"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="secondary"
         appearance="rounded"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="danger"
         appearance="rounded"
@@ -276,35 +256,35 @@ export const OverviewSizes = (args: ButtonProps) => {
       display="grid"
       columnsAmount={4}
     >
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
         appearance="filled"
         size="tiny"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
         appearance="filled"
         size="small"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
         appearance="filled"
         size="medium"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
         appearance="filled"
         size="large"
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -313,7 +293,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -322,7 +302,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -331,7 +311,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -340,28 +320,28 @@ export const OverviewSizes = (args: ButtonProps) => {
         iconPosition={args.iconPosition || 'left'}
         Icon={AddCircleOutlineOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="tiny"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="small"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="medium"
         Icon={CloseOutlinedIcon}
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="filled"
@@ -379,7 +359,7 @@ export const OverviewLoading = (args: ButtonProps) => {
       display="grid"
       columnsAmount={4}
     >
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -387,7 +367,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="tiny"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="Primary"
         purpose="primary"
@@ -395,7 +375,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="small"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="primary"
@@ -403,7 +383,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="medium"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="primary"
@@ -411,7 +391,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="large"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -419,7 +399,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="tiny"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -427,7 +407,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="small"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -435,7 +415,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="medium"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -443,7 +423,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="large"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -451,7 +431,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="tiny"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -459,7 +439,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="small"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -467,7 +447,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="medium"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -475,7 +455,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="large"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="primary"
@@ -483,7 +463,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="tiny"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="primary"
@@ -491,7 +471,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="small"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="primary"
@@ -499,7 +479,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="medium"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="primary"
@@ -507,7 +487,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="large"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -515,7 +495,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="tiny"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -523,7 +503,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="small"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -531,7 +511,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="medium"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="secondary"
@@ -539,7 +519,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="large"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -547,7 +527,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="tiny"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -555,7 +535,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="small"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -563,7 +543,7 @@ export const OverviewLoading = (args: ButtonProps) => {
         size="medium"
         loading
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="danger"
@@ -578,7 +558,7 @@ export const OverviewLoading = (args: ButtonProps) => {
 export const OverviewFullWidth = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button overview - full width">
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'Primary'}
         purpose="primary"
@@ -586,7 +566,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         size="medium"
         fullWidth
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'Primary'}
         purpose="primary"
@@ -596,7 +576,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         Icon={AddCircleOutlineOutlinedIcon}
         fullWidth
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'Primary'}
         purpose="primary"
@@ -606,7 +586,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         Icon={AddCircleOutlineOutlinedIcon}
         fullWidth
       />
-      <DDSButton
+      <Button
         {...args}
         purpose="primary"
         appearance="filled"
@@ -614,7 +594,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         Icon={CloseOutlinedIcon}
         fullWidth
       />
-      <DDSButton
+      <Button
         {...args}
         label="label"
         purpose="primary"
@@ -630,7 +610,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
 export const Default = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - default">
-      <DDSButton {...args} label={args.label || 'Tekst'} />
+      <Button {...args} label={args.label || 'Tekst'} />
     </StoryTemplate>
   );
 };
@@ -638,7 +618,7 @@ export const Default = (args: ButtonProps) => {
 export const WithIcon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - with icon">
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'Tekst'}
         iconPosition={args.iconPosition || 'left'}
@@ -651,26 +631,26 @@ export const WithIcon = (args: ButtonProps) => {
 export const Icon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - just icon">
-      <DDSButton {...args} Icon={CloseOutlinedIcon} />
+      <Button {...args} Icon={CloseOutlinedIcon} />
     </StoryTemplate>
   );
 };
 export const Ghost = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - ghost">
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="primary"
         appearance="ghost"
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="secondary"
         appearance="ghost"
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="danger"
@@ -683,19 +663,19 @@ export const Ghost = (args: ButtonProps) => {
 export const Borderless = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - borderless">
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="primary"
         appearance="borderless"
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="secondary"
         appearance="borderless"
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="danger"
@@ -708,19 +688,19 @@ export const Borderless = (args: ButtonProps) => {
 export const Rounded = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - rounded">
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="primary"
         appearance="rounded"
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="secondary"
         appearance="rounded"
       />
-      <DDSButton
+      <Button
         {...args}
         label={args.label || 'tekst'}
         purpose="danger"
