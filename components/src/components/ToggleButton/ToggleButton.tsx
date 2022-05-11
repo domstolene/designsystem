@@ -48,12 +48,12 @@ const Container = styled.label`
 let nextUniqueId = 0;
 
 export type ToggleButtonProps = {
-  text?: string;
+  label?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ({ id, text, Icon, ...rest }, ref) => {
+  ({ id, label, Icon, ...rest }, ref) => {
     const [uniqueId] = useState<string>(id ?? `toggleButton-${nextUniqueId++}`);
 
     const inputProps = {
@@ -71,7 +71,7 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
       <Container {...containerProps}>
         <Input {...inputProps} />
         <Content>
-          {Icon && <IconWrapper Icon={Icon} iconSize="inline" />} {text}
+          {Icon && <IconWrapper Icon={Icon} iconSize="inline" />} {label}
         </Content>
       </Container>
     );

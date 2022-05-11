@@ -4,12 +4,12 @@ import { ToggleButton, ToggleButtonGroup } from '.';
 describe('<ToggleButton />', () => {
   it('should render label', () => {
     const label = 'label';
-    render(<ToggleButton text={label} />);
+    render(<ToggleButton label={label} />);
     expect(screen.getByText(label)).toBeInTheDocument;
   });
 
   it('should be selectable', () => {
-    render(<ToggleButton text="label" />);
+    render(<ToggleButton label="label" />);
     const toggleButton = screen.getByRole('checkbox');
     expect(toggleButton).not.toBeChecked();
     toggleButton?.click();
@@ -21,7 +21,7 @@ describe('<ToggleButton />', () => {
     const label = 'label';
     render(
       <ToggleButtonGroup labelId={labelId} label={label}>
-        <ToggleButton text="Test" />
+        <ToggleButton label="Test" />
       </ToggleButtonGroup>
     );
     expect(screen.getByText(label)).toBeInTheDocument;

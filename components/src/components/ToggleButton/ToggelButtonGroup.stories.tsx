@@ -9,9 +9,9 @@ export default {
 export const Group = (args: ToggleButtonGroupProps) => (
   <StoryTemplate title="ToggleButtonGroup - default">
     <ToggleButtonGroup {...args}>
-      <ToggleButton text="Tekst" /> <ToggleButton text="Tekst" />{' '}
-      <ToggleButton text="Tekst" /> <ToggleButton text="Tekst" />{' '}
-      <ToggleButton text="Tekst" /> <ToggleButton text="Tekst" />
+      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
+      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
+      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />
     </ToggleButtonGroup>
   </StoryTemplate>
 );
@@ -19,9 +19,9 @@ export const Group = (args: ToggleButtonGroupProps) => (
 export const WithLabel = (args: ToggleButtonGroupProps) => (
   <StoryTemplate title="ToggleButtonGroup - with label">
     <ToggleButtonGroup {...args} label="Label">
-      <ToggleButton text="Tekst" /> <ToggleButton text="Tekst" />{' '}
-      <ToggleButton text="Tekst" /> <ToggleButton text="Tekst" />{' '}
-      <ToggleButton text="Tekst" /> <ToggleButton text="Tekst" />
+      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
+      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
+      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />
     </ToggleButtonGroup>
   </StoryTemplate>
 );
