@@ -9,12 +9,16 @@ export default {
 
 export const Default = (args: ToggleButtonProps) => (
   <StoryTemplate title="ToggleButton - default">
-    <ToggleButton text="Tekst" {...args} />
+    <ToggleButton label="Tekst" {...args} />
   </StoryTemplate>
 );
 
 export const WithIcon = (args: ToggleButtonProps) => (
   <StoryTemplate title="ToggleButton - with icon">
-    <ToggleButton text="Tekst" Icon={NotificationsNoneOutlinedIcon} {...args} />
+    <ToggleButton
+      label="Tekst"
+      Icon={NotificationsNoneOutlinedIcon}
+      {...args}
+    />
   </StoryTemplate>
 );
