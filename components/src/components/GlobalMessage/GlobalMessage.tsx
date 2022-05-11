@@ -46,9 +46,13 @@ const ContentContainer = styled.div<ContentContainerProps>`
 export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 
 export type GlobalMessageProps = {
+  /**Meldingen som vises til brukeren. Brukes kun når meldingen er en `string`. */
   message?: string;
+  /**Formålet med meldingen. Påvirker styling. */
   purpose?: GlobalMessagePurpose;
+  /**Indikerer om meldingen skal være lukkbar. */
   closable?: boolean;
+  /**Ekstra logikk å kjøre når meldingen lukkes. */
   onClose?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 

@@ -1,0 +1,17 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Drawer, DrawerGroup } from '.';
+
+<Meta title="Design system/Drawer/API" component={Drawer} />
+
+# Drawer
+
+Hovedkomponenten `<Drawer/>`.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface, f.eks. `id` osv.
+
+# DrawerGroup
+
+En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<Drawer />` ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer />` som andre barn. Valgfri å bruke.
+
+<ArgsTable of={DrawerGroup} />
