@@ -26,6 +26,7 @@ const BackIcon = styled(ArrowBackOutlinedIcon)`
 `;
 
 export type BreadcrumbsProps = {
+  /** Spesifiserer om versjonen for små skjermer skal vises; den viser `<Breadcrumb />` kun til den forrige siden.  */
   smallScreen?: boolean;
 } & HTMLAttributes<HTMLElement>;
 
