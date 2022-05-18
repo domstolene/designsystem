@@ -2,7 +2,7 @@ import { forwardRef, AnchorHTMLAttributes } from 'react';
 
 import { Typography, TypographyProps } from '../Typography';
 
-export type BreadcrumbProps = Pick<TypographyProps, 'interactionProps'> &
+export type BreadcrumbProps = TypographyProps &
   AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const Breadcrumb = forwardRef<HTMLAnchorElement, BreadcrumbProps>(
