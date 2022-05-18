@@ -1,0 +1,56 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Table, Row, Cell, SortCell } from '.';
+
+<Meta title="Design system/Table/API" component={Table} />
+
+## TableWrapper
+
+En wrapper som sørger for at tabellen får scrolling når den ikke får plass i bredden.
+
+Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+## Table
+
+Tilsvarer `<table>`-elementet.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableElement>`-interface.
+
+## Body
+
+Tilsvarer `<body>`.
+
+Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
+
+## Head
+
+Tilsvarer `<thead>`.
+
+Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
+
+## Foot
+
+Tilsvarer `<foot>`.
+
+Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
+
+Row
+Tilsvarer `<tr>`.
+
+<ArgsTable of={Row} />
+
+Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
+
+## Cell
+
+<ArgsTable of={Cell} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableDataCellElement>` og `HTMLAttributes<HTMLTableHeaderCellElement>`-interface.
+
+## SortCell
+
+Et styled `<Cell type='head'>`-element som brukes som head-celle i sorteringskolonner. **OBS!** komponenten stiller kun med styling og ikoner, sortering implementeres i de respektive løsningene.
+
+<ArgsTable of={SortCell} />
+
+I tillegg støttes `<Cell>`-props, bortsett fra `type` da den er satt til `'head'`.

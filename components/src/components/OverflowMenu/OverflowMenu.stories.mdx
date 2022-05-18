@@ -1,0 +1,17 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { OverflowMenu, OverflowMenuGroup } from '.';
+
+<Meta title="Design system/OverflowMenu/API" component={OverflowMenu} />
+
+## OverflowMenu
+
+Hovedkomponenten `<OverflowMenu/>`.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+## OverflowMenuGroup
+
+En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<OverflowMenu />` ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu />` som andre barn. Ikke obligatorisk, men da må oppførsel osv. håndteres utenfor komponenten.
+
+<ArgsTable of={OverflowMenuGroup} />

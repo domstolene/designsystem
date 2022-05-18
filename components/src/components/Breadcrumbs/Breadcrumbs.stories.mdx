@@ -1,12 +1,20 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Breadcrumb, Breadcrumbs } from '.';
 
-<Meta title="Design system/Breadcrumbs/Docs" component={Breadcrumbs} />
+<Meta title="Design system/Breadcrumbs/API" component={Breadcrumbs} />
 
-# Breadcrumbs
+## Breadcrumbs
+
+Selve brødsmulestien. Skal ha `<Breadcrumb />` som barn.
 
 <ArgsTable story={PRIMARY_STORY} />
 
-# Breadcrumb
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
+
+## Breadcrumb
+
+Brødsmule. Er en lenke eller et tekstelement. **OBS!** Alle Breadcrumb-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
 
 <ArgsTable of={Breadcrumb} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>`-interface.

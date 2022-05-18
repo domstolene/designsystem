@@ -1,0 +1,19 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { RadioButton, RadioButtonGroup } from '.';
+
+<Meta title="Design system/RadioButton/API" component={RadioButton} />
+
+## RadioButton
+
+En radioknapp.
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
+
+## RadioButtonGroup
+
+Wrapper for en `<RadioButton />` gruppe. Brukes ved flere barn.
+
+<ArgsTable of={RadioButtonGroup} />
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface.

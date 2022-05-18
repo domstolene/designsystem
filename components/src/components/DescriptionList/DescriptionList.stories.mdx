@@ -1,0 +1,39 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  DescriptionList,
+  DescriptionListTerm,
+  DescriptionListDesc,
+  DescriptionListGroup
+} from '.';
+
+<Meta title="Design system/DescriptionList/API" component={DescriptionList} />
+
+## DescriptionList
+
+Tilsvarer `<dl>`.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDListElement>`-interface.
+
+## DescriptionListTerm
+
+Tilsvarer `<dt>`.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
+
+## DescriptionListDesc
+
+Tilsvarer `<dd>`.
+
+<ArgsTable of={DescriptionListDesc} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
+
+## DescriptionListGroup
+
+En valgfri subkomponent som kan brukes til å gruppere terms
+og descriptions. Den kan være relevant for å få til riktig layout, eller wrappe gruppen
+til andre formål. F.eks hvis beskrivelseslisten skal legge seg over flere kolonner
+på en spesifikk måte kan custom styling brukes:
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
