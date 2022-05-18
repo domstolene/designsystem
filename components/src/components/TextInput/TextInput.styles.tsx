@@ -11,18 +11,18 @@ import {
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 
 export const TextArea = styled.textarea<StyledInputProps>`
-  ${({ label, disabled, readOnly, hasErrorMessage }) =>
-    inputStyling({ readOnly, label, disabled, hasErrorMessage })}
+  ${({ hasLabel, disabled, readOnly, hasErrorMessage }) =>
+    inputStyling({ readOnly, hasLabel, disabled, hasErrorMessage })}
   resize: vertical;
   height: auto;
   ${scrollbarStyling}
-  min-height: ${({ label }) =>
-    label
+  min-height: ${({ hasLabel }) =>
+    hasLabel
       ? tokens.container.multiline.withLabel.height
       : tokens.container.multiline.noLabel.height};
   ${tokens.multiline.base}
-  ${({ label }) =>
-    label
+  ${({ hasLabel }) =>
+    hasLabel
       ? css`
           ${tokens.multiline.withLabel.base}
         `

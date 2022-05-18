@@ -6,7 +6,7 @@ import { InputProps, StyledInputProps, StyledLabelProps } from './Input.types';
 
 export const inputStyling = ({
   readOnly,
-  label,
+  hasLabel,
   disabled,
   hasErrorMessage
 }: StyledInputProps) => {
@@ -16,7 +16,7 @@ export const inputStyling = ({
     box-sizing: border-box;
     box-shadow: none;
     -webkit-appearance: textfield;
-    ${label
+    ${hasLabel
       ? css`
           ${tokens.withLabel.base}
         `
@@ -56,8 +56,8 @@ export const inputStyling = ({
 };
 
 export const Input = styled.input<StyledInputProps>`
-  ${({ label, disabled, readOnly, hasErrorMessage }) =>
-    inputStyling({ readOnly, label, disabled, hasErrorMessage })}
+  ${({ hasLabel, disabled, readOnly, hasErrorMessage }) =>
+    inputStyling({ readOnly, hasLabel, disabled, hasErrorMessage })}
 `;
 
 export const SingleLineLabel = styled(Typography)<StyledLabelProps>`
