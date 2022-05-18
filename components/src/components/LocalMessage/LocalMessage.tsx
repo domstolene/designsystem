@@ -82,12 +82,18 @@ export type LocalMessagePurpose =
 export type LocalMessageLayout = 'horisontal' | 'vertical';
 
 export type LocalMessageProps = {
+  /**Meldingen som vises til brukeren. Brukes kun når meldingen er string. */
   message?: string;
+  /**Formålet med meldingen. Påvirker styling. */
   purpose?: LocalMessagePurpose;
+  /** Indikerer om meldingen skal være lukkbar.*/
   closable?: boolean;
+  /**Ekstra logikk å kjøre når meldingen lukkes. */
   onClose?: () => void;
-  width?: CSS.Property.Width<string>;
+  /**Layoutet i komponenten. Ved kompleks innhold anbefales `layout='vertical'`. */
   layout?: LocalMessageLayout;
+  /**Custom bredde ved behov. */
+  width?: CSS.Property.Width<string>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(

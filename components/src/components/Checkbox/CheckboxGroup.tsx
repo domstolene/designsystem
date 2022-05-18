@@ -37,7 +37,7 @@ export type CheckboxGroupProps = {
   /**Meldingen som vises ved valideringsfeil. Sender error-tilstand til barna når det finnes  og setter `aria-describedby` for barna. */
   errorMessage?: string;
   tip?: string;
-  /**Indikerer at det er påkrevd å velge minst ett alternativ. Innebærer visuell endring. OBS! `required` må i tillegg gis til `<Checkbox />` manuelt. */
+  /**Indikerer at det er påkrevd å velge minst ett alternativ. Innebærer visuell endring. **OBS!** `required` må i tillegg gis til `<Checkbox />` manuelt. */
   required?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 

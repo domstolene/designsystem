@@ -28,20 +28,28 @@ const Label = styled(Typography)`
 type Direction = 'column' | 'row';
 
 export type RadioButtonGroupProps = {
+  /** Gir alle barna `name` prop.*/
   name?: string;
+  /**Label for hele gruppen. */
   label?: string;
-  errorMessage?: string;
-  tip?: string;
-  disabled?: boolean;
-  readOnly?: boolean;
-  direction?: Direction;
-  value?: string | number;
-  groupId?: string;
-  children?: React.ReactNode;
-  required?: boolean;
+  /**Funksjonen for onChange-event for barna. */
   onChange?: (event: ChangeEvent<HTMLInputElement>, value: unknown) => void;
-  className?: string;
-  style?: React.CSSProperties;
+  /**Legger en markør (*) bak label som indikerer at input er påkrevd. Gjør alle barna påkrevd ved å gi dem `required` prop. */
+  required?: boolean;
+  /**Meldingen som vises ved valideringsfeil. Gir alle barna error prop. */
+  errorMessage?: string;
+  /**Hjelpetekst for gruppen. */
+  tip?: string;
+  /**Gir alle barna `disabled` prop. */
+  disabled?: boolean;
+  /**Gir alle barna `readOnly` prop */
+  readOnly?: boolean;
+  /**Retningen radioknappene skal gjengis i. */
+  direction?: Direction;
+  /**Default verdi - en `<RadioButton />` blir forhåndsvalgt. **OBS!** brukes kun når brukeren ikke skal fylle ut selv. */
+  value?: string | number;
+  /**custom id for for gruppen, knytter `label` til gruppen via `aria-label`. */
+  groupId?: string;
 } & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
 
 let nextUniqueGroupId = 0;
@@ -63,8 +71,9 @@ export const RadioButtonGroup = ({
   style,
   ...rest
 }: RadioButtonGroupProps) => {
-  const [groupValue, setGroupValue] =
-    useState<string | number | null | undefined>(value);
+  const [groupValue, setGroupValue] = useState<
+    string | number | null | undefined
+  >(value);
 
   const [uniqueGroupId] = useState<string>(
     groupId ?? `radioButtonGroup-${nextUniqueGroupId++}`

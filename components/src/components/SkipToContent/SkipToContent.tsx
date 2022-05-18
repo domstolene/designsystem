@@ -42,8 +42,11 @@ const Link = styled.a`
 `;
 
 export type SkipToContentProps = {
+  /** Teksten som vises i lenka. */
   text?: string;
+  /**Spesifiserer hvor det skal hoppes til via `id`-attributtet til innholdet. */
   href: string;
+  /**Avstand fra top i nærmeste posisjonert container. */
   top?: CSS.Property.Top<string | number>;
 } & HTMLAttributes<HTMLAnchorElement>;
 

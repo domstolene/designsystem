@@ -36,7 +36,9 @@ const StyledTable = styled.table<StyledTableProps>`
 export type TableDensity = 'normal' | 'compact';
 
 export type TableProps = {
+  /**Spesifiserer hvor romslige cellene i tabellen skal være. */
   density?: TableDensity;
+  /**Spesifiserer om cellene i `<Head>` skal bli sticky ved scrolling. */
   stickyHeader?: boolean;
 } & HTMLAttributes<HTMLTableElement>;
 

@@ -11,7 +11,7 @@ import {
 type drawerGroupProps = {
   /**Barna til komponenten. */
   children: ReactNode;
-  /**Id til Drawer. */
+  /**`id` til Drawer. */
   drawerId?: string;
   /**Ekstra logikk som kjøres når Drawer åpnes. */
   onOpen?: () => void;

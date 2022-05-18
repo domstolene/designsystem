@@ -74,11 +74,12 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type SearchProps = {
-  tip?: string;
-  buttonProps?: ButtonProps;
+  /**Størrelsen på komponenten. */
   componentSize?: SearchSize;
-  className?: string;
-  style?: React.CSSProperties;
+  /**Hjelpetekst. */
+  tip?: string;
+  /**Props for søkeknappen. */
+  buttonProps?: ButtonProps;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Search = forwardRef<HTMLInputElement, SearchProps>(

@@ -50,7 +50,7 @@ export type CardType = 'info' | 'navigation' | 'expandable';
 export type InfoCardProps = {
   /** Fargepalett i komponenten. */
   color?: CardColor;
-  /** Spesifiserer funksjonalitet og formål med komponenten. OBS! ved `'navigation'` må `href` oppgis. Ved `'expandable'` må alle `<Card />` grupperte sammen ligge egen `<div>` container. */
+  /** Spesifiserer funksjonalitet og formål med komponenten. **OBS!** ved `'navigation'` må `href` oppgis. Ved `'expandable'` må alle `<Card />` grupperte sammen ligge egen `<div>` container. */
   cardType: 'info';
   /** Referanse til komponenten. */
   cardRef?: RefObject<HTMLDivElement>;

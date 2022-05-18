@@ -42,8 +42,11 @@ const ChevronWrapper = styled.span`
 `;
 
 export type CardAccordionHeaderProps = {
+  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller body er utvidet.  */
   isExpanded?: boolean;
+  /** **OBS!** denne propen blir satt automatisk av forelder. Callback for å styre utvidelse og sammentrukking.  */
   toggleExpanded?: () => void;
+  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionBody />`.  */
   bodyId?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 

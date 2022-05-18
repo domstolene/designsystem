@@ -60,19 +60,29 @@ export type PaginationOption = {
 };
 
 export type PaginationProps = {
+  /**Totalt antall elementer å paginere. */
   itemsAmount: number;
+  /**Antall elementer per side ved innlastning av komponenten. */
   defaultItemsPerPage?: number;
+  /**Den aktive siden ved innlastning av komponenten. */
   defaultActivePage?: number;
+  /**Spesifiserer om selve pagineringen skal vises. */
   withPagination?: boolean;
+  /**Spesifiserer om teksten `'Vis x-y av z'` skal vises. */
   withCounter?: boolean;
+  /**Spesifiserer om `<Select />` til å velge antall resultater per side skal vises. */
   withSelect?: boolean;
+  /**Custom options for `<Select />`. **OBS!** hvis det settes custom `selectOptions` bør "alle"-alternativet inkluderes der det er relevant, da brukere ofte liker å ha muligheten. */
   selectOptions?: PaginationOption[];
-  onSelectOptionChange?: (option: PaginationOption | null) => void;
-  smallScreen?: boolean;
+  /**Brukes til å hente side og eventuelt annen logikk ved endring av side. */
   onChange?: (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     page: number
   ) => void;
+  /**Brukes til å hente `selectedOption` og eventuelt kjøre annen logikk når `withSelect=true` ved endring av alternativ. */
+  onSelectOptionChange?: (option: PaginationOption | null) => void;
+  /**Spesifiserer om versjonen for små skjermer skal vises; den viser færre sideknapper og stacker subkomponentene. */
+  smallScreen?: boolean;
 } & Omit<HTMLAttributes<HTMLElement>, 'onChange'>;
 
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(

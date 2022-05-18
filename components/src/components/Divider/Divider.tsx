@@ -14,7 +14,7 @@ const DividerLine = styled.hr<DividerProps>`
 `;
 
 export type DividerProps = {
-  /** Farge. */
+  /** Farge på horisontal linje. */
   color?: DividerColor;
 } & HTMLAttributes<HTMLHRElement>;
 

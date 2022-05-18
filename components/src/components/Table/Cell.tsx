@@ -50,7 +50,9 @@ export type TableCellType = 'data' | 'head';
 export type TableCellLayout = 'left' | 'right' | 'center' | 'text and icon';
 
 export type TableCellProps = {
+  /**Type celle. Returnerer enten `<td>` eller `<th>`. */
   type?: TableCellType;
+  /**Layout av innholdet i cellen. 'tekst and icon' legger margin mellom første barnet og andre barnet i cellen, og skal hovedsakelig brukes når innholdet er tekst og ikon; tekst må bli wrappet i `<span>` hvis det er det første barnet.  */
   layout?: TableCellLayout;
 } & (
   | TdHTMLAttributes<HTMLTableCellElement>

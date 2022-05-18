@@ -62,9 +62,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       }
     };
 
-    const onChangeHandlerMultiline: React.ChangeEventHandler<HTMLTextAreaElement> = (
-      event: React.ChangeEvent<HTMLTextAreaElement>
-    ) => {
+    const onChangeHandlerMultiline: React.ChangeEventHandler<
+      HTMLTextAreaElement
+    > = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       setTextAreaHeight('auto');
       if (textAreaRef && textAreaRef.current) {
         setParentHeight(`${textAreaRef.current.scrollHeight}px`);

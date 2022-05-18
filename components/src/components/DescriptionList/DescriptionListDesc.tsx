@@ -17,6 +17,7 @@ const StyledIconWrapper = styled(IconWrapper)`
 `;
 
 export type DescriptionListDescProps = {
+  /**Ikon som vises ved siden av teksten. */
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & HTMLAttributes<HTMLElement>;
 
