@@ -5,3 +5,13 @@ import { Search } from '.';
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
+
+## Types
+
+```tsx
+type ButtonProps = {
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  label?: string;
+  loading?: boolean;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+```
