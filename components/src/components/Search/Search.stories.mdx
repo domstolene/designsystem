@@ -1,17 +1,18 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Search } from '.';
+import { Source } from '../../storybook/Source.tsx';
 
 <Meta title="Design system/Search/API" component={Search} />
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 
-## Types
+### Types
 
-```tsx
-type ButtonProps = {
+<Source
+  code={`type ButtonProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   label?: string;
   loading?: boolean;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
-```
+} & ButtonHTMLAttributes<HTMLButtonElement>;`}
+/>

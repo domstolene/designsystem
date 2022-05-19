@@ -1,5 +1,6 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { InternalHeader } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/InternalHeader/API" component={InternalHeader} />
 
@@ -7,26 +8,34 @@ import { InternalHeader } from '.';
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
-## Types
+### Types
 
-```tsx
+<Source
+  code={`
 type NavigationLinkProps = {
   href: string;
   title: string;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
+`}
+/>
 
+<Source code={`
 type ContextMenuElementProps = {
   title: string;
   href?: string;
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
   onClick?: () => void;
 } & (
-  | AnchorHTMLAttributes<HTMLAnchorElement>
-  | ButtonHTMLAttributes<HTMLButtonElement>
+| AnchorHTMLAttributes<HTMLAnchorElement>
+| ButtonHTMLAttributes<HTMLButtonElement>
 );
 
+`} />
+
+<Source code={`
 type InternaHeaderUserProps = {
   name: string;
   href?: string;
 };
-```
+
+`} />

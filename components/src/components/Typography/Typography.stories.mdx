@@ -1,4 +1,5 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Source } from '../../storybook/Source.tsx';
 import { Typography } from '.';
 
 <Meta title="Design system/Typography/API" component={Typography} />
@@ -7,11 +8,11 @@ import { Typography } from '.';
 
 I tillegg støttes native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface, `AnchorHTMLAttributes<HTMLAnchorElement>`-interface eller `LabelHTMLAttributes<HTMLLabelElement>`-interface.
 
-## Types
+### Types
 
-```tsx
-type TypographyInteractionProps = {
+<Source
+  code={`type TypographyInteractionProps = {
   hover?: CSSObject;
   active?: CSSObject;
-};
-```
+};`}
+/>

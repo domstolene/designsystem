@@ -1,5 +1,6 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { OverflowMenu, OverflowMenuGroup } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/OverflowMenu/API" component={OverflowMenu} />
 
@@ -9,6 +10,40 @@ Hovedkomponenten `<OverflowMenu/>`.
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### Types
+
+<Source code={`
+export type OverflowMenuContextItem = {
+  title: string,
+  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>
+} & (
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
+);
+
+`} />
+
+<Source code={`
+export type OverflowMenuNavItem = {
+  title: string,
+  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+`} />
+
+<Source code={`
+export type UserProps = {
+  name: string,
+  href?: string
+} & (
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
+);
+
+`} />
+
+<Source code={``} />
 
 ## OverflowMenuGroup
 
