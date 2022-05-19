@@ -1,6 +1,6 @@
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
-import React, { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
 export type ButtonSize = 'tiny' | 'small' | 'medium' | 'large';
