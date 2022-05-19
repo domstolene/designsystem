@@ -90,6 +90,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     );
 
     const componentWidth = width ? width : getWidth(type);
+    const hasLabel = !!label;
     const hasErrorMessage = !!errorMessage;
     const errorMessageId = derivativeIdGenerator(
       uniqueId,
@@ -100,7 +101,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
 
     const inputProps = {
       id: uniqueId,
-      label,
+      hasLabel,
       hasErrorMessage,
       ref,
       readOnly,
@@ -132,7 +133,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       <OuterInputContainer {...outerInputContainerProps}>
         <InputContainer>
           <StyledInput {...inputProps} />
-          {label && (
+          {hasLabel && (
             <Label
               {...labelProps}
               typographyType="supportingStyleLabel01"
@@ -142,14 +143,14 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
             </Label>
           )}
         </InputContainer>
-        {errorMessage && (
+        {hasErrorMessage && (
           <InputMessage
             message={errorMessage}
             messageId={errorMessageId}
             messageType="error"
           />
         )}
-        {tip && !errorMessage && (
+        {tip && !hasErrorMessage && (
           <InputMessage message={tip} messageId={tipId} messageType="tip" />
         )}
       </OuterInputContainer>
