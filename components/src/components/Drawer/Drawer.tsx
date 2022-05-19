@@ -89,21 +89,21 @@ export type WidthProps = {
 };
 
 export type DrawerProps = {
-  /**Størrelsen på Drawer. */
+  /**Størrelsen på `<Drawer />`. */
   size?: DrawerSize;
-  /** Plasseringen til Drawer. */
+  /** Plasseringen til `<Drawer />`. */
   placement?: DrawerPlacement;
-  /**Header for Drawer. Har default styling hvis verdien er en string. */
+  /**Header for `<Drawer />`. Har default styling hvis verdien er en string. */
   header?: string | ReactNode;
-  /**Spesifiserer om Drawer skal legges inn i DOM. **OBS!** nødvendig kun hvis DrawerGroup ikke er i bruk. */
+  /**Spesifiserer om `<Drawer />` skal legges vises. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
   isOpen?: boolean;
-  /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis DrawerGroup ikke er i bruk. */
+  /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
   onClose?: () => void;
-  /**Spesifiserer hvilken DOM node Drawer skal ha som forelder via React portal. Brukes med f.eks document.getElementById("id") (skaper ikke ny DOM node). */
+  /**Spesifiserer hvilken DOM node `<Drawer />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
   parentElement?: HTMLElement;
   /**Custom props for breddehåndtering ved behov. */
   widthProps?: WidthProps;
-  /**Ref til elementet som åpner Drawer.  **OBS!** nødvendig kun hvis DrawerGroup ikke er i bruk. */
+  /**Ref til elementet som åpner `<Drawer />`.  **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
   triggerRef?: RefObject<HTMLElement>;
 } & HTMLAttributes<HTMLDivElement>;
 
