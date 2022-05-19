@@ -30,7 +30,7 @@ type Direction = 'column' | 'row';
 export type RadioButtonGroupProps = {
   /** Gir alle barna `name` prop.*/
   name?: string;
-  /**Label for hele gruppen. */
+  /**Ledetekst for hele gruppen. */
   label?: string;
   /**Funksjonen for onChange-event for barna. */
   onChange?: (event: ChangeEvent<HTMLInputElement>, value: unknown) => void;
