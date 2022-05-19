@@ -1,7 +1,18 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { GlobalMessage } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/GlobalMessage/API" component={GlobalMessage} />
+
+## Bruk i koden
+
+<Source code={`
+import { GlobalMessage } from '@norges-domstoler/dds-components';
+
+<GlobalMessage message="Dette er en global melding" />
+`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

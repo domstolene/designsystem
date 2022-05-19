@@ -1,18 +1,40 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Checkbox, CheckboxGroup } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/Checkbox/API" component={Checkbox} />
 
-## Checkbox
+## Bruk i koden
+
+<Source code={`
+import { Checkbox, CheckboxGroup } from '@norges-domstoler/dds-components';
+
+<Checkbox label="Option" />
+
+<CheckboxGroup label="Label">
+  <Checkbox label="Option" />
+  <Checkbox label="Option" />
+</CheckboxGroup>
+`} />
+
+## API
+
+### Checkbox
 
 En avkrysningboks.
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 
-## CheckboxGroup
+### CheckboxGroup
 
 Wrapper for en `<Checkbox />` gruppe. Brukes ved flere barn.
 
 <ArgsTable of={CheckboxGroup} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+## Retningslinjer
+
+- Bruk `onChange` slik at brukeren kan få umiddelbar tilbakemelding på deres
+  input baser på validering.
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.

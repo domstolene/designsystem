@@ -4,14 +4,36 @@ import { Source } from '../../storybook';
 
 <Meta title="Design system/OverflowMenu/API" component={OverflowMenu} />
 
-## OverflowMenu
+## Oversikt
+
+`<OverflowMenu />` er en komponent som viser og skjuler en liste med handlinger og/eller lenker når brukeren trykker på en knapp. `<OverflowMenu />` plasseres i forhold til knappen, som kalles anchor-element. **OBS!** Anchor-elementet er ikke en del av komponenten, men den knyttes til `<OverflowMenu />` via props (se API).
+
+For at typisk logikk ved åpning, lukking, refs og ARIA-attributter skal håndteres ut av boksen bruk `<OverflowMenuGroup />`-subkomponent. Den er ikke obligatorisk å bruke, men oppførsel og UU må da håndteres på eget ansvar.
+
+## Bruk i koden
+
+<Source code={`import { OverflowMenu, OverflowMenuGroup, Button } from '@norges-domstoler/dds-components';
+
+const items = [
+{ title: 'handling', onClick: () => {} }
+];
+
+<OverflowMenuGroup>
+  <Button label="Åpne meny" />
+  <OverflowMenu items={items} />
+</OverflowMenuGroup>
+`} />
+
+## API
+
+### OverflowMenu
 
 Hovedkomponenten `<OverflowMenu/>`.
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
-### Types
+#### Types
 
 <Source code={`
 export type OverflowMenuContextItem = {
@@ -43,9 +65,7 @@ export type UserProps = {
 
 `} />
 
-<Source code={``} />
-
-## OverflowMenuGroup
+### OverflowMenuGroup
 
 En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<OverflowMenu />` ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu />` som andre barn. Ikke obligatorisk, men da må oppførsel osv. håndteres utenfor komponenten.
 

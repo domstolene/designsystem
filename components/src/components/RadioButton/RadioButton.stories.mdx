@@ -1,9 +1,22 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { RadioButton, RadioButtonGroup } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/RadioButton/API" component={RadioButton} />
 
-## RadioButton
+## Bruk i koden
+
+<Source code={`import { RadioButton, RadioButtonGroup } from '@norges-domstoler/dds-components';
+
+<RadioButtonGroup label="Gruppe">
+  <RadioButton label="Alternativ 1" />
+  <RadioButton label="Alternativ 2" />
+</RadioButtonGroup>
+`} />
+
+## API
+
+### RadioButton
 
 En radioknapp.
 
@@ -11,7 +24,7 @@ En radioknapp.
 
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 
-## RadioButtonGroup
+### RadioButtonGroup
 
 Wrapper for en `<RadioButton />` gruppe. Brukes ved flere barn.
 

@@ -4,10 +4,19 @@ import { Source } from '../../storybook';
 
 <Meta title="Design system/Pagination/API" component={Pagination} />
 
+## Bruk i koden
+
+<Source code={`import { Pagination } from '@norges-domstoler/dds-components';
+
+<Pagination itemsAmount={100} withCounter />
+`} />
+
+## API
+
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
 
-## Types
+### Types
 
 <Source
   code={`
@@ -17,3 +26,7 @@ export type PaginationOption = {
 };
 `}
 />
+
+### Indeksering
+
+Det brukes 1-indeksering slik at sidenummeret blir brukt som label i knappene.

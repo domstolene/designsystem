@@ -1,7 +1,18 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Button } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/Button/API" component={Button} />
+
+## Bruk i koden
+
+<Source code={`
+import { Button } from '@norges-domstoler/dds-components';
+
+<Button label="Knapp" />
+`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface.

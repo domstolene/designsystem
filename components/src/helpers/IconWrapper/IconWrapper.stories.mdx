@@ -1,7 +1,18 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { IconWrapper } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/IconWrapper/API" component={IconWrapper} />
+
+## Bruk i koden
+
+<Source code={`import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import { IconWrapper } from '@norges-domstoler/dds-components';
+
+<IconWrapper Icon={CheckOutlinedIcon} />
+`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSVGElement>`-interface.

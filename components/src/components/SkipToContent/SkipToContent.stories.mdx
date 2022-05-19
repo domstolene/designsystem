@@ -1,7 +1,22 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { SkipToContent } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/SkipToContent/API" component={SkipToContent} />
+
+## Bruk i koden
+
+<Source code={`import { SkipToContent } from '@norges-domstoler/dds-components';
+
+<body>
+  <SkipToContent {...args} href="#innhold" />
+
+{/* ...navigasjon o.l. */}
+
+  <Typography id="innhold">Innhold</Typography>
+</body>`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLAnchorElement>`-interface.

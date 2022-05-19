@@ -4,6 +4,29 @@ import { Typography } from '.';
 
 <Meta title="Design system/Typography/API" component={Typography} />
 
+## Bruk i koden
+
+<Source code={`import { Typography } from '@norges-domstoler/dds-components';
+
+<Typography typographyType="headingSans06" withMargins>
+  Vitne
+</Typography>
+<Typography typographyType="leadSans03" withMargins>
+  Et vitne har sett, hørt eller erfart noe av betydning for en rettssak. Denne
+  siden er for deg som skal vitne i en straffesak eller en sivil sak.
+</Typography>
+<Typography typographyType="headingSans05" as="h2" withMargins>
+  Hvorfor vitne?
+</Typography>
+<Typography typographyType="bodySerif02" withMargins>
+  Vitner er svært viktige for rettssikkerheten i samfunnet. Du har fått en
+  innkalling (kalles stevning) til saken fordi partene eller retten mener du
+  kjenner til noe som kan være viktig for retten å vite. Du har plikt til å møte
+  opp i tråd med innkallingen og forklare deg for retten.
+</Typography>`} />
+
+## API
+
 <ArgsTable story={PRIMARY_STORY} />
 
 I tillegg støttes native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface, `AnchorHTMLAttributes<HTMLAnchorElement>`-interface eller `LabelHTMLAttributes<HTMLLabelElement>`-interface.
@@ -16,3 +39,30 @@ I tillegg støttes native HTML-attributter som er en del av `HTMLAttributes<HTML
   active?: CSSObject;
 };`}
 />
+
+### Med styled-components
+
+Hvis du bruker styled components til å style `<Typography />` videre og skal bruke `as` prop, bruk `forwardedAs` prop istedenfor:
+
+<Source code={`
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { Typography } from '@norges-domstoler/dds-components';
+
+const Label = styled(Typography)\` padding-left: \${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};\`;
+
+export const StyledLabel = ({ label }) => {
+
+return (
+<Label
+      forwardedAs="span"
+      typographyType="supportingStyleLabel01"
+      >
+{label}
+</Label>
+);
+};
+`} />
+
+### Bruk av typografi-tokens
+
+Det er også mulig å bruke typografi-tokens direkte. **OBS!** dette bør gjøres kun hvis det er umulig å bruke Typography-komponenten. Se [Bruk av font tokens i tekster med typografisk hierarki](https://zeroheight.com/987b33f71/p/18bd6f-design-tokens).

@@ -4,6 +4,40 @@ import { Source } from '../../storybook';
 
 <Meta title="Design system/InternalHeader/API" component={InternalHeader} />
 
+## Oversikt
+
+`<InternalHeader />` er ment for å bli brukt som header i alle Lovisa
+webapplikasjoner. Ettersom Lovisa-plattformen blir utviklet
+vil `<InternalHeader />` også bli videreutviklet til å bli et felles
+navigasjonspunkt mellom ulike tjenester og applikasjoner. Lenker ti andre
+applikasjoner vil være tilgjengelige ved å trykke på "Lovisa Web" som i dag er
+en placeholder.
+
+Komponenten støtter horisontal navigasjon med lenker og en kontekstmeny til høyre som kan inneholde et en lenke eller tekst som viser brukernavnet og en liste med lenker eller knapper. Se detaljer i API.
+
+## Bruk i koden
+
+<Source code={`
+import { InternalHeader } from '@norges-domstoler/dds-components';
+
+const navLinks = [
+{ title: 'Title', href: '#' },
+{ title: 'Title', href: '#' },
+]
+
+const user = {
+name: 'Name'
+}
+
+<InternalHeader
+  applicationName="App"
+  navigationElements={navLinks}
+  userProps={user}
+/>
+`} />
+
+## API
+
 <ArgsTable story={PRIMARY_STORY} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

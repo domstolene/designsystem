@@ -1,7 +1,17 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { LocalMessage } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/LocalMessage/API" component={LocalMessage} />
+
+## Bruk i koden
+
+<Source code={`import { LocalMessage } from '@norges-domstoler/dds-components';
+
+<LocalMessage message="Dette er en lokal melding" />
+`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface. `children` kan brukes istedenfor `message`.

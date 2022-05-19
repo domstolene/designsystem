@@ -1,7 +1,18 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { TextInput } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/TextInput/API" component={TextInput} />
+
+## Bruk i koden
+
+<Source code={`import { TextInput } from '@norges-domstoler/dds-components';
+
+<TextInput label="Ledetekst" />
+<TextInput label="Ledetekst" multiline />
+`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>` eller `InputHTMLAttributes<HTMLTextAreaElement>`-interface.

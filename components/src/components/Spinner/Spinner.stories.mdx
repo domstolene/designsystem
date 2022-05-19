@@ -1,7 +1,21 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Spinner } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/Spinner/API" component={Spinner} />
+
+## Oversikt
+
+`<Spinner />` er et animert `<svg>`-element som bruker nåværende tid til å bestemme hvor den skal starte i animasjonen.
+
+## Bruk i koden
+
+<Source code={`import { Spinner } from '@norges-domstoler/dds-components';
+
+<Spinner />
+`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSVGElement>`-interface.

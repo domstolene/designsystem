@@ -4,6 +4,22 @@ import { Source } from '../../storybook/Source.tsx';
 
 <Meta title="Design system/Search/API" component={Search} />
 
+## Bruk i koden
+
+<Source code={`import { Search } from '@norges-domstoler/dds-components';
+import React from 'react';
+
+const handleKeyPress = (e: React.KeyboardEvent<FormControl>) => {
+${' '}if( e.key == 'Enter' ){
+${' '}${' '}this.send();
+${' '}}
+};
+
+<Search onKeyPress={handleKeyPress} />
+`} />
+
+## API
+
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 

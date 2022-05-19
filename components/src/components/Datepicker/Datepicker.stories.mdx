@@ -1,7 +1,21 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Datepicker } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/Datepicker/API" component={Datepicker} />
+## Oversikt
+
+Datepicker er i utgangspunktet en styled `<input type='date' />` eller `<input type='datetime-local' />`. Placeholder, kalender popup og ikon følger nettleser default. Disse skal bli custom i en senere versjon.
+
+## Bruk i koden
+
+<Source code={`
+import {Datepicker} from '@norges-domstoler/dds-components';
+
+<Datepicker label="Dato" />
+`} />
+
+## API
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.

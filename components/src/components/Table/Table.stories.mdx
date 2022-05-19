@@ -1,40 +1,80 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Table, Row, Cell, SortCell } from '.';
+import { Source } from '../../storybook';
 
 <Meta title="Design system/Table/API" component={Table} />
 
-## TableWrapper
+## Oversikt
+
+Tabeller bygges ved å bruke styled versjoner av native HTML elementer. Disse komponentene er:
+
+- `<TableWrapper />` - wrapper for tabell.
+- `<Table />` - selve tabellen.
+- Subkomponenter: `<Head />`, `<Body />`, `<Foot />`, `<Row />`, `<Cell />`, `<SortCell />`.
+
+Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel, mens andre har kun native props, som forklart under.
+
+## Bruk i koden
+
+<Source
+  code={`import { Table, TableWrapper, Head, Body, Row, Cell } from '@norges-domstoler/dds-components';
+
+<TableWrapper>
+  <Table>
+    <Head>
+      <Row type="head">
+        <Cell type="head">Navn</Cell>
+        <Cell type="head">Rolle</Cell>
+      </Row>
+    </Head>
+    <Body>
+      <Row>
+        <Cell>Sandra Lovsetter</Cell>
+        <Cell>Admin</Cell>
+      </Row>
+      <Row>
+        <Cell>Marie Bjerke</Cell>
+        <Cell>Admin</Cell>
+      </Row>
+    </Body>
+  </Table>
+</TableWrapper>
+`} />
+
+## API
+
+### TableWrapper
 
 En wrapper som sørger for at tabellen får scrolling når den ikke får plass i bredden.
 
 Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
-## Table
+### Table
 
-Tilsvarer `<table>`-elementet.
+Tilsvarer `<table>`.
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableElement>`-interface.
 
-## Body
+### Body
 
 Tilsvarer `<body>`.
 
 Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
 
-## Head
+### Head
 
 Tilsvarer `<thead>`.
 
 Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
 
-## Foot
+### Foot
 
 Tilsvarer `<foot>`.
 
 Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
 
-## Row
+### Row
 
 Tilsvarer `<tr>`.
 
@@ -42,13 +82,13 @@ Tilsvarer `<tr>`.
 
 Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
 
-## Cell
+### Cell
 
 <ArgsTable of={Cell} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableDataCellElement>` og `HTMLAttributes<HTMLTableHeaderCellElement>`-interface.
 
-## SortCell
+### SortCell
 
 Et styled `<Cell type='head'>`-element som brukes som head-celle i sorteringskolonner. **OBS!** komponenten stiller kun med styling og ikoner, sortering implementeres i de respektive løsningene.
 
