@@ -15,7 +15,7 @@ import styled from 'styled-components';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import { useCombinedRef } from '../../hooks';
 
 export const Span = styled.span`

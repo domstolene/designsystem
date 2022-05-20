@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
-import { IconSize, IconWrapper } from '../../helpers/IconWrapper/IconWrapper';
+import { IconSize, IconWrapper } from '../IconWrapper';
 
 const List = styled.ol`
   list-style: none;

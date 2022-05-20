@@ -9,7 +9,7 @@ import { Typography } from '../../components/Typography';
 import { Button } from '../../components/Button';
 import { Select } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import { paginationTokens as tokens } from './Pagination.tokens';
 
 const Nav = styled.nav`

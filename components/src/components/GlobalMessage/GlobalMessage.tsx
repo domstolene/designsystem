@@ -3,7 +3,7 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import { Typography } from '../Typography';
 
 type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;

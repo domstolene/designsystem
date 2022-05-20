@@ -1,6 +1,6 @@
 import { ElementType, forwardRef } from 'react';
 import { buttonTokens as tokens } from './Button.tokens';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import { Spinner } from '../Spinner';
 import { ButtonProps } from './Button.types';
 import { ButtonWrapper, StyledIconWrapperSpan, Label } from './Button.styles';

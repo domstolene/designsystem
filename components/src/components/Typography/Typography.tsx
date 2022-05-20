@@ -11,7 +11,7 @@ import {
   textColors,
   textColorsArray
 } from './Typography.tokens';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import { TypographyType, TextColor } from './Typography.types';
 

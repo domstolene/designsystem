@@ -3,7 +3,7 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { localMessageTokens as tokens } from './LocalMessage.tokens';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import * as CSS from 'csstype';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
