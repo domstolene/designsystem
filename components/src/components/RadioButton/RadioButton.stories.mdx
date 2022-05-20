@@ -1,0 +1,38 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { RadioButton, RadioButtonGroup } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/RadioButton/API" component={RadioButton} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/75d63e-radiobutton/b/939219"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/RadioButton"
+/>
+
+## Bruk i koden
+
+<Source code={`import { RadioButton, RadioButtonGroup } from '@norges-domstoler/dds-components';
+
+<RadioButtonGroup label="Gruppe">
+  <RadioButton label="Alternativ 1" />
+  <RadioButton label="Alternativ 2" />
+</RadioButtonGroup>
+`} />
+
+## API
+
+### RadioButton
+
+En radioknapp.
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
+
+### RadioButtonGroup
+
+Wrapper for en `<RadioButton />` gruppe. Brukes ved flere barn.
+
+<ArgsTable of={RadioButtonGroup} />
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface.

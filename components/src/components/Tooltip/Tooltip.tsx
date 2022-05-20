@@ -25,12 +25,17 @@ import { tooltipTokens as tokens } from './Tooltip.tokens';
 type AnchorElement = React.ReactElement & React.RefAttributes<HTMLElement>;
 
 export type TooltipProps = {
+  /**Innhold i tooltip. */
   text: string;
+  /**Plassering i forhold til anchor-elementet. */
   placement?: Placement;
+  /**Anchor-elementet. */
   children: AnchorElement;
+  /**Forsinkelse for når tooltip skal dukke opp. Oppgis i millisekunder.  */
   delay?: number;
+  /**`id` for tooltip. */
   tooltipId?: string;
-} & HTMLAttributes<HTMLDivElement>;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
 
 let nextUniqueId = 0;
 

@@ -1,0 +1,65 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Modal, ModalBody, ModalActions } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/Modal/API" component={Modal} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/257775-modal/b/8773a7"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3767%3A95031"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Modal"
+/>
+
+## Oversikt
+
+En modal kan ha valgfritt innhold, men for å simplifisere implementasjonen av vanlige mønstre har vi predefinert visuell formatering av typiske elementer i en modal:
+
+- **tittel**, settes via `header`-prop
+- **hovedinnhold**, legges i `<ModalBody />`-subkomponent
+- **handlingselementer** (knapper), legges i `<ModalActions />`-subkomponent
+
+Ved bruk av disse elementene vil innholdet i `<Modal />` få spacing utav boksen vha. CSS grid.
+
+Siden modal er en komponent som låser sideinnholdet idet den dukker opp er det viktig å sørge for at det er mulig å lukke modalen, enten ved å gjøre den generelt lukkbar (se API) og/eller ved interaksjon med handlingselementene.
+
+## Bruk i koden
+
+<Source code={`import { Modal, ModalBody, ModalActions, Button } from '@norges-domstoler/dds-components';
+import { useState } from 'react';
+
+const [open, setOpen] = useState(false);
+const show = () => setOpen(true);
+const close = () => setOpen(false);
+
+<Button label="Åpne" onClick={show} />
+
+<Modal header="Tittel" isOpen={open} onClose={close}>
+  <ModalBody>Innhold</ModalBody>
+  <ModalActions>
+    <Button label="OK" onClick={close} />
+  </ModalActions>
+</Modal>
+`} />
+
+## API
+
+### Modal
+
+Hovedkomponenten for modal. Kan ha `<ModalBody />`, `<ModalActions />` og ellers fritt valgt innhold som barn. Legger vertikal spacing mellom barn.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### ModalBody
+
+Subkomponent for hovedinnhold i modal (tekstlig informasjon o.l.). Brukes som barn i `<Modal />`.
+
+<ArgsTable of={ModalBody} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLLiElement>`-interface.
+
+### ModalActions
+
+Subkomponent for handlingselementer, typisk knapper. Brukes som barn i `<Modal />`. Legger horisontal spacing mellom barn og legger de over flere rader ved behov.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLLiElement>`-interface.

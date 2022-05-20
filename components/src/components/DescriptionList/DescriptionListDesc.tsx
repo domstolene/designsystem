@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { descriptionListDescTokens as tokens } from './DescriptionListDesc.tokens';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 
 const DListDesc = styled.dd`
   ${tokens.base}
@@ -17,6 +17,7 @@ const StyledIconWrapper = styled(IconWrapper)`
 `;
 
 export type DescriptionListDescProps = {
+  /**Ikon som vises ved siden av teksten. */
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & HTMLAttributes<HTMLElement>;
 

@@ -4,7 +4,7 @@ import { cellTokens as tokens } from './Cell.tokens';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import styled from 'styled-components';
 import { removeButtonStyling } from '../../helpers/styling';
 
@@ -24,8 +24,11 @@ const StyledButton = styled.button`
 export type SortOrder = 'ascending' | 'descending';
 
 export type SortCellProps = {
+  /**Spesifiserer om kolonnen er sortert. */
   isSorted?: boolean;
+  /**Sorteringsrekkefølge i kolonnen. Avgjør hvilket ikon skal vises i cellen. */
   sortOrder?: SortOrder;
+  /**onClick-funksjon for sortering og annen logikk. */
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 } & Omit<TableCellProps, 'type'>;
 

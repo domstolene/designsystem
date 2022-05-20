@@ -1,0 +1,74 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Card, CardAccordion, CardAccordionBody } from '.';
+import { Source, StorybookLink, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/Card/API" component={Card} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/0822fe-card/b/79dd5d"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3421%3A94375"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Card"
+/>
+
+## Oversikt
+
+`<Card />` er en fleksibel komponent som kan ha stort sett valgfritt innhold.
+
+Det finnes følgene typer `<Card />`:
+
+- **info**: statisk wrapper; innholdet er valgfritt, inkludert interaktive elementer.
+- **navigation**: gjør `<Card />` klikkbart og rendrer en lenke. Skal ikke inneholde interaktive elementer.
+- **expandable**: brukes når `<Card />` skal ha en tittel og ekspanderbart panel. Ved expandable Card skal subkomponentene `<CardAccordion />`, `<CardAccordionHeader />` og `<CardAccordionBody />` brukes. En gruppe med expandable Cards skal legges i en `<div>` container.
+- **selectable _(kommer)_**: en `<Card />` som kan bli valgt vha. en radioknapp eller checkbox.
+  `<Card />` får typen via cardType-prop (se [Card API](#card)). Ved expandable skal i tillegg brukes `<CardAccordion />`-subkomponenter.
+
+## Bruk i koden
+
+<Source code={`
+import {
+  Card,
+  CardAccordion,
+  CardAccordionBody,
+  CardAccordionHeader
+} from '@norges-domstoler/dds-components';
+
+<Card cardType="info"> Content </Card>
+
+<Card cardType="expandable">
+  <CardAccordion>
+    <CardAccordionHeader>Title</CardAccordionHeader>
+    <CardAccordionBody>Body</CardAccordionBody>
+  </CardAccordion>
+</Card>
+`} />
+
+## API
+
+### <a id="card"></a> Card
+
+Wrapper for innhold i et kort. Bruk design-tokens for spacing og annet styling der relevant. Har default typografi. Ved bruk av `<Typography />` som barn må du sørge for å bruke `color='onDark'` på mørk bakgrunn.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av  `HTMLAttributes<HTMLDivElement>` eller `AnchorHTMLAttributes<HTMLAnchorElement>`-interface.
+
+### CardAccordion
+
+En container for CardAccordion-subkomponenter som håndterer utviding, sammentrukking og ARIA-attributter av subkomponentene. Den skal ha `<Card cardType='expandable' />` som forelder og `<CardAccordionHeader />` som første barn og `<CardAccordionBody />` som andre barn.
+
+En gruppe med expandable `<Card cardType='expandable' />` skal legges i en `<div>` container.
+
+<ArgsTable of={CardAccordion} />
+
+### CardAccordionHeader
+
+Header i `<CardAccordion />`. Skal brukes som første barn og den får automatisk riktig id fra `<CardAccordion />`. Komponenten har default typografi som kan bli overskrevet ved å bruke `<Typography />` som barneelement.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### CardAccordionBody
+
+Body i `<CardAccordion />`. Skal brukes som andre barn og den får automatisk riktig `id` fra `<CardAccordion />`. Komponenten har default typografi som kan bli overskrevet ved å bruke `<Typography />` som barneelement(er).
+
+<ArgsTable of={CardAccordionBody} />
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

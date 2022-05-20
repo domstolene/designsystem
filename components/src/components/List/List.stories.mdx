@@ -1,0 +1,44 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { List, ListItem } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/List/API" component={List} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/89ffb5-list/b/685e71"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94240"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/List"
+/>
+
+## Oversikt
+
+Lister bygges med to subkomponenter som tilsvarer native HTML-elementer:
+
+- `<List />`
+- `<ListItem />`
+
+## Bruk i koden
+
+<Source code={`
+import { List, ListItem } from '@norges-domstoler/dds-components';
+
+<List>
+  <ListItem> Item </ListItem>
+  <ListItem> Item </ListItem>
+</List>
+`} />
+
+## API
+
+### List
+
+Tilsvarer `<ul>` eller `<ol>`.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLOListElement>` og `HTMLAttributes<HTMLUListElement>`-interface.
+
+### ListItem
+
+Tilsvarer `<li>`.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLLiElement>`-interface.

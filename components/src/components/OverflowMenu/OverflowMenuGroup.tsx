@@ -9,10 +9,15 @@ import {
 } from 'react';
 
 export type OverflowMenuGroupProps = {
+  /**Ekstra logikk som kjøres når `<OverflowMenu />` åpnes og lukkes. */
   onToggle?: () => void;
+  /**Ekstra logikk som kjøres når `<OverflowMenu />` åpnes. */
   onOpen?: () => void;
+  /**Ekstra logikk som kjøres når `<OverflowMenu />` lukkes. */
   onClose?: () => void;
+  /**Barn, anchor-elementet som første og `<OverflowMenu />` som andre. */
   children: ReactNode;
+  /**Custom id for `<OverflowMenu />`. */
   overflowMenuId?: string;
 };
 

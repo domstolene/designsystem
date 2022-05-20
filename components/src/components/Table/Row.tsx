@@ -58,9 +58,13 @@ export type TableRowType = 'body' | 'head';
 export type RowMode = 'normal' | 'sum';
 
 export type TableRowProps = {
+  /**Spesifiserer om raden skal brukes i `<head>` eller `<body>`-seksjonen. */
   type?: TableRowType;
+  /**Custom modus for rader som har ytterligere semantisk betydning (f.eks. summeringsrad), definerer kun styling. Ved bruk av sum må `<Cell>` med tall i høyrestilles vha layout prop.  */
   mode?: RowMode;
+  /**Spesifiserer om raden har blitt valgt/markert. */
   selected?: boolean;
+  /**Spesifiserer om raden skal ha hover styling. Brukes hovedsakelig på klikkbare rader. */
   hoverable?: boolean;
 } & HTMLAttributes<HTMLTableRowElement>;
 

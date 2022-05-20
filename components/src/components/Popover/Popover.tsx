@@ -63,14 +63,21 @@ export type PopoverSizeProps = {
 };
 
 export type PopoverProps = {
+  /**Tittel. */
   title?: string | ReactNode;
-  onCloseButtonClick?: () => void;
-  onCloseButtonBlur?: () => void;
   isOpen?: boolean;
+  /**Om lukkeknapp skal vises. */
   withCloseButton?: boolean;
   anchorElement?: HTMLElement;
+  /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet. */
   placement?: Placement;
+  /**Avstand fra anchor-elementet i px. */
   offset?: number;
+  /** Ekstra logikk kjørt når lukkeknappen trykkes. */
+  onCloseButtonClick?: () => void;
+  /** Ekstra logikk kjørt når lukkeknappen mister fokus. */
+  onCloseButtonBlur?: () => void;
+  /**Custom størrelse. */
   sizeProps?: PopoverSizeProps;
 } & HTMLAttributes<HTMLDivElement>;
 

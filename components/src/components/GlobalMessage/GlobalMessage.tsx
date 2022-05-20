@@ -3,7 +3,7 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import { Typography } from '../Typography';
 
 type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
@@ -46,9 +46,13 @@ const ContentContainer = styled.div<ContentContainerProps>`
 export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 
 export type GlobalMessageProps = {
+  /**Meldingen som vises til brukeren. Brukes kun når meldingen er en `string`. */
   message?: string;
+  /**Formålet med meldingen. Påvirker styling. */
   purpose?: GlobalMessagePurpose;
+  /**Indikerer om meldingen skal være lukkbar. */
   closable?: boolean;
+  /**Ekstra logikk å kjøre når meldingen lukkes. */
   onClose?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 

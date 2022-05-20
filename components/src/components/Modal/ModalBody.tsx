@@ -20,6 +20,7 @@ const Container = styled.div<ContainerProps>`
 `;
 
 export type ModalBodyProps = {
+  /**Gjør at innholdet kan scrolles. Det må eventuelt settes (max)bredde og (max)høyde styling på både denne subkomponenten og `<Modal />`.  */
   scrollable?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 

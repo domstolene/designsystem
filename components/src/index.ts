@@ -12,7 +12,7 @@ export * from './components/Search';
 export * from './components/Typography';
 export * from './components/Table';
 export * from './components/Breadcrumbs';
-export * from './helpers/IconWrapper';
+export * from './components/IconWrapper';
 export * from './components/Pagination';
 export * from './components/Divider';
 export * from './components/List';

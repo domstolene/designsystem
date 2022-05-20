@@ -11,7 +11,7 @@ import {
   textColors,
   textColorsArray
 } from './Typography.tokens';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import { TypographyType, TextColor } from './Typography.types';
 
@@ -173,15 +173,25 @@ export type TypographyInteractionProps = {
 };
 
 export type TypographyProps = {
+  /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
   typographyType?: TypographyType;
-  as?: ElementType;
-  externalLink?: boolean;
-  color?: TextColor | string;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
+  /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa. Brukes hovedsakelig i artikler og lignende. **OBS!** har forskjellig virkning på ulike typografityper. `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens `supportingStyles` får margin topp og bunn. */
   withMargins?: boolean;
+  /**HTML tag som skal brukes istedenfor default definert via `typographyType`.  */
+  as?: ElementType;
+  /** Spesifiserer om lenka er ekstern ved `typographyType='a'` eller `as='a'`.*/
+  externalLink?: boolean;
+  /**Tekstfarge fra utvalget eller custom. **OBS!** Bruk farger fra `@dds-design-tokens`. */
+  color?: TextColor | string;
+  /**Setter `bold` styling. */
+  bold?: boolean;
+  /**Setter `italic` styling. */
+  italic?: boolean;
+  /**Setter en linje under. */
+  underline?: boolean;
+  /**Støtte for å enkelt kunne endre på hover- og active-styling. Bruk `@dds-design-tokens` til farger osv. */
   interactionProps?: TypographyInteractionProps;
+  /**nativ `target`-prop ved `typographyType='a'`.  */
   target?: string;
 } & (
   | HTMLAttributes<HTMLElement>

@@ -50,7 +50,9 @@ const Circle = styled.circle<CircleProps>`
 `;
 
 export type SpinnerProps = {
+  /**Farge på spinneren. */
   color?: TextColor | string;
+  /**Størrelse; Setter høyde og bredde på spinneren. */
   size?: CSS.Property.Width<string>;
 } & HTMLAttributes<SVGElement>;
 

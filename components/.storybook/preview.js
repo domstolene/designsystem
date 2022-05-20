@@ -1,5 +1,9 @@
 import '../src/styles/fontStyles.css';
 import '../src/styles/selection.css';
+import '@norges-domstoler/dds-design-tokens/dist/css/borderRadius.css';
+import '@norges-domstoler/dds-design-tokens/dist/css/spacing.css';
+import '@norges-domstoler/dds-design-tokens/dist/css/colors.css';
+import '@norges-domstoler/dds-design-tokens/dist/css/font.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

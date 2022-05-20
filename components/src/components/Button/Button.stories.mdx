@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Button } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/Button/API" component={Button} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A37"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Button"
+/>
+
+## Bruk i koden
+
+<Source code={`
+import { Button } from '@norges-domstoler/dds-components';
+
+<Button label="Knapp" />
+`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface.

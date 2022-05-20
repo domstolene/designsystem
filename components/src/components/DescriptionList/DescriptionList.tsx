@@ -31,6 +31,7 @@ const DList = styled.dl<DListProps>`
 export type DescriptionListAppearance = 'small' | 'bold';
 
 export type DescriptionListProps = {
+  /**Påvirker tekst styling. */
   appearance?: DescriptionListAppearance;
 } & HTMLAttributes<HTMLDListElement>;
 

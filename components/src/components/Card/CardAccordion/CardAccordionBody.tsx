@@ -42,8 +42,11 @@ const BodyContainer = styled.div<BodyContainerProps>`
 `;
 
 export type CardAccordionBodyProps = {
+  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller komponenten om den skal utvides.  */
   isExpanded?: boolean;
+  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionHeader />`.  */
   headerId?: string;
+  /**Overskriver default padding på toppen. Brukes når barn har spacing på toppen, f.eks. en overskrift. */
   paddingTop?: CSS.Property.PaddingTop<string>;
 } & HTMLAttributes<HTMLDivElement>;
 

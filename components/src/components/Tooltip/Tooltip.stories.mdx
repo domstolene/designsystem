@@ -1,0 +1,33 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Tooltip } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/Tooltip/API" component={Tooltip} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/815808-tooltip/b/93bc8f"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=4985%3A127667"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Tooltip"
+/>
+
+## Oversikt
+
+En tooltip består av:
+
+- `<Tooltip />`- wrapper som håndterer kontroll og rendering av tooltip
+- Valgfritt anchor element som skal være det eneste barnet til `<Tooltip />`. Det kontrollerer når tooltip vises via tastaturfokus og tooltip plasseres i forhold til dette elementet. Et anchor element er et interaktivt element. `<Tooltip />` sender enkelte props til anchor-elementet som ikke kan overskrives, som `aria-describedby` og `ref`.
+  `<Tooltip />` returnerer anchor elementet og en tooltip wrappet i en `<div>`.
+
+## Bruk i koden
+
+<Source code={`import { Tooltip, Button } from '@norges-domstoler/dds-components';
+
+<Tooltip text="Tooltip">
+  <Button label="tekst" />
+</Tooltip>
+`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

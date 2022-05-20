@@ -1,0 +1,50 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Breadcrumb, Breadcrumbs } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/Breadcrumbs/API" component={Breadcrumbs} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/376bad-breadcrumbs/b/719cb3"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=1676%3A0"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Breadcrumbs"
+/>
+
+## Oversikt
+
+Komponenten består av to subkomponenter:
+
+- `<Breadcrumbs />` som er selve brødsmulestien
+- `<Breadcrumb />` som er barna i brødsmulestien
+
+Siste `<Breadcrumb />` skal være den siden brukeren er på, uten oppgitt URL.
+
+## Bruk i koden
+
+<Source code={`
+import { Breadcrumb, Breadcrumbs } from '@norges-domstoler/dds-components';
+
+<Breadcrumbs>
+  <Breadcrumb href="#">Side 1</Breadcrumb>
+  <Breadcrumb href="#">Side 2</Breadcrumb>
+  <Breadcrumb>Side 3</Breadcrumb>
+</Breadcrumbs>
+`} />
+
+## API
+
+### Breadcrumbs
+
+Selve brødsmulestien. Skal ha `<Breadcrumb />` som barn.
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
+
+### Breadcrumb
+
+Brødsmule. Er en lenke eller et tekstelement. **OBS!** Alle Breadcrumb-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
+
+<ArgsTable of={Breadcrumb} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>`-interface.

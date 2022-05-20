@@ -81,6 +81,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const hasErrorMessage = !!errorMessage;
     const hasTip = !!tip;
+    const hasLabel = !!label;
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -96,7 +97,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const generalInputProps = {
       id: uniqueId,
-      label,
+      hasLabel,
       errorMessage,
       hasErrorMessage,
       disabled,
@@ -151,7 +152,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
               {...generalInputProps}
             />
           )}
-          {label && (
+          {hasLabel && (
             <Label
               {...labelProps}
               typographyType="supportingStyleLabel01"

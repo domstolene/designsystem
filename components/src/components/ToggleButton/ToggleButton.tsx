@@ -2,7 +2,7 @@ import { SvgIconTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { CSSObject } from 'styled-components';
-import { IconWrapper } from '../../helpers/IconWrapper';
+import { IconWrapper } from '../IconWrapper';
 import { hideInput } from '../../helpers/styling';
 import { buttonTokens } from '../Button/Button.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';

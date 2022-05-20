@@ -28,15 +28,17 @@ const Label = styled(Typography)`
 type Direction = 'column' | 'row';
 
 export type CheckboxGroupProps = {
+  /**Ledetekst for gruppen. */
   label?: string;
+  /**Retningen barna gjengis i. */
   direction?: Direction;
+  /**Custom id for for gruppen, knytter ledetekst til gruppen via `aria-label`. */
   groupId?: string;
+  /**Meldingen som vises ved valideringsfeil. Sender error-tilstand til barna når det finnes  og setter `aria-describedby` for barna. */
   errorMessage?: string;
   tip?: string;
+  /**Indikerer at det er påkrevd å velge minst ett alternativ. Innebærer visuell endring. **OBS!** `required` må i tillegg gis til `<Checkbox />` manuelt. */
   required?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-  style?: React.CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
 
 let nextUniqueGroupId = 0;

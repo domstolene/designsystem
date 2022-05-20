@@ -57,13 +57,21 @@ export function searchFilter(text: string, search: string): boolean {
 }
 
 export type SelectProps<TOption, IsMulti extends boolean> = {
+  /**Ledetekst for nedtrekkslisten. */
   label?: string;
+  /**Gir required styling. **OBS!** støtter ikke DOM `required` attributt.   */
   required?: boolean;
+  /**Nedtrekkslisten blir disabled og får readOnly styling. */
   readOnly?: boolean;
+  /**Meldingen som vises ved valideringsfeil. */
   errorMessage?: string;
+  /**Hjelpetekst. */
   tip?: string;
+  /**Custom bredde ved behov. */
   width?: CSS.Property.Width<string>;
+  /** CSS klassenavn. */
   className?: string;
+  /** Inline styling. */
   style?: React.CSSProperties;
 } & ReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
 

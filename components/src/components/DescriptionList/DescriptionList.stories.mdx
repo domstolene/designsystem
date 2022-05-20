@@ -1,0 +1,91 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  DescriptionList,
+  DescriptionListTerm,
+  DescriptionListDesc,
+  DescriptionListGroup
+} from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/DescriptionList/API" component={DescriptionList} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/46584e-descriptionlist/b/304a53"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94241"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/DescriptionList"
+/>
+
+## Oversikt
+
+Beskrivelseslister bygges med styled versjoner av native HTML elementer og et wrapper-subkomponent ved behov. Disse styled komponentene er `<DescriptionList />` og dens subkomponenter: `<DescriptionListTerm />`, `<DescriptionListDesc />` og `<DescriptionListGroup />`.
+
+## Bruk i koden
+
+<Source code={`
+import {
+  DescriptionList,
+  DescriptionListDesc,
+  DescriptionListTerm
+} from '@norges-domstoler/dds-components';
+
+<DescriptionList>
+  <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+  <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+  <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+  <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+</DescriptionList>
+`} />
+
+## API
+
+### DescriptionList
+
+Tilsvarer `<dl>`.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDListElement>`-interface.
+
+### DescriptionListTerm
+
+Tilsvarer `<dt>`.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
+
+### DescriptionListDesc
+
+Tilsvarer `<dd>`.
+
+<ArgsTable of={DescriptionListDesc} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
+
+### DescriptionListGroup
+
+En valgfri subkomponent som kan brukes til å gruppere terms
+og descriptions. Den kan være relevant for å få til riktig layout, eller wrappe gruppen
+til andre formål. F.eks hvis beskrivelseslisten skal legge seg over flere kolonner
+på en spesifikk måte kan custom styling brukes:
+
+<Source code={`
+const columnStyle = {
+  height: '275px',
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'wrap'
+}
+
+<DescriptionList style={columnStyle}>
+  <DescriptionListGroup>
+    <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+    <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+    <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+  </DescriptionListGroup>
+  <DescriptionListGroup>
+    <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+    <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+  </DescriptionListGroup>
+  {/* ...flere grupper */}
+</DescriptionList>
+`} />
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

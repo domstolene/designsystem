@@ -1,0 +1,24 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Divider } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/Divider/API" component={Divider} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/57aa58-divider/b/587136"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3209%3A94239"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Divider"
+/>
+
+## Bruk i koden
+
+<Source code={`
+import { Divider } from '@norges-domstoler/dds-components';
+
+<Divider />
+`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLHRElement>`-interface.

@@ -1,0 +1,49 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Popover, PopoverGroup } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/Popover/API" component={Popover} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/185219-popover/b/656a67"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=4988%3A128366"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Popover"
+/>
+
+## Oversikt
+
+Komponenten består av tre elementer:
+
+- **`<PopoverGroup />`** - wrapper for to barn: et anchor-element som styrer popover og selve popover-elementet: `<Popover />`.
+- **Anchor-element**, som er også et trigger-element. Et valgfritt interaktivt element, typisk en knapp, som åpner og lukker popover. Elementet får attributtene `onClick`, `ref`, `aria-haspopup` og `aria-controls` fra `<PopoverGroup />`.
+- **`<Popover />`** - en komponent som dukker opp via museklikk på anchor-elementet. Får enkelte props fra `<PopoverGroup />` som ikke kan overskrives.
+
+## Bruk i koden
+
+<Source code={`import { Button, Popover, PopoverGroup } from '@norges-domstoler/dds-components';
+
+<PopoverGroup>
+  <Button label="Åpne" />
+  <Popover title="Tittel">Dette er en popover</Popover>
+</PopoverGroup>
+`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### Types
+
+<Source
+  code={`
+export type PopoverSizeProps = {
+  width?: CSS.Property.Width<string>;
+  height?: CSS.Property.Height<string>;
+  minWidth?: CSS.Property.MinWidth<string>;
+  minHeight?: CSS.Property.MinHeight<string>;
+  maxWidth?: CSS.Property.MaxWidth<string>;
+  maxHeight?: CSS.Property.MaxHeight<string>;
+};
+`}
+/>

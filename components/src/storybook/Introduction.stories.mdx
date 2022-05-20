@@ -1,43 +1,54 @@
 import { Meta } from '@storybook/addon-docs';
-import '@norges-domstoler/dds-design-tokens/dist/css/colors.css';
-import '@norges-domstoler/dds-design-tokens/dist/css/font.css';
+import { StorybookLink } from './StorybookLink';
+import { StorybookLinkRow } from './StorybookLinkRow';
 
-<Meta title="Design system/Introduction" />
+<Meta title="Introduction" />
 
 <style>{`
-  *::selection {
-    color: var(--dds-color-neutrals-gray-9);
-    background-color: var(--dds-color-tertiary-lightest);
-  }
-  .sbdocs {
-    font-family: var(--dds-font-heading-sans-06-font-family);
-  }
   .sbdocs-content {
     max-width: 600px;
-  }
-  p a {
-    color: var(--dds-color-interactive-base);
-    text-decoration: underline;
-  }
-  p a:hover {
-    color: var(--dds-color-interactive-dark);
-  }
-  h1 {
-    font-size: var(--dds-font-heading-sans-06-font-size);
-    font-weight: var(--dds-font-heading-sans-06-font-weight);
-    letter-spacing: var(--dds-font-heading-sans-06-letter-spacing);
-    line-height: var(--dds-font-heading-sans-06-line-height);
-  }
-  p {
-    font-size: var(--dds-font-body-sans-02-font-size);
-    font-weight: var(--dds-font-body-sans-02-font-weight);
-    letter-spacing: var(--dds-font-body-sans-02-letter-spacing);
-    line-height: var(--dds-font-body-sans-02-line-height);
+    text-align: center;
   }
 `}</style>
 
-# Domstolenes designsystem: UI komponenter
+# Elsa Storybook
 
-Velkommen til Domstolenes Storybook! Her kan du se oversikten over og interagere med alle UI komponentene som ligger i vårt [**komponentbibliotek**](https://www.npmjs.com/org/norges-domstoler/dds-components).
-Storybook kan brukes til å finne informasjon om komponentene, testing og utvikling i isolasjon.
-Vår Storybook er også integrert med designsystemets [**dokumentasjon**](https://design.domstol.no/), sjekk den ut for mer info om både komponentene og designsystemet.
+Velkommen til Elsa Storybook! Her kan du se oversikten over og interagere med demoer av alle UI komponentene som ligger i domstolenes designsystem - Elsa.
+
+Elsa Storybook kan brukes til å finne informasjon om komponentene samt testing og utvikling i isolasjon.
+Elsa Storybook er også integrert med designsystemets [**dokumentasjon**](https://design.domstol.no/) - sjekk den ut for mer info om både komponentene og Elsa.
+
+Bli kjent med våre ressurser (stjerne indikerer begrenset tilgang):
+
+<StorybookLinkRow withSpacing>
+  <StorybookLink
+    text="dds-components"
+    href="https://www.npmjs.com/package/@norges-domstoler/dds-components"
+    linkType="npm"
+  />
+  <StorybookLink
+    text="dds-design-tokens"
+    href="https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens"
+    linkType="npm"
+  />
+  <StorybookLink
+    text="Dokumentasjon"
+    href="https://design.domstol.no/"
+    linkType="zeroheight"
+  />
+  <StorybookLink
+    text="Github *"
+    href="https://github.com/domstolene/designsystem"
+    linkType="github"
+  />
+  <StorybookLink
+    text="Figma *"
+    href="https://www.figma.com/files/project/17499991/Designsystem?fuid=902545492424722130"
+    linkType="figma"
+  />
+  <StorybookLink
+    text="Slack *"
+    href="https://app.slack.com/client/T0L26CARG/C01HNLSPTT9"
+    linkType="slack"
+  />
+</StorybookLinkRow>

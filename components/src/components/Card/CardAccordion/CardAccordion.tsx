@@ -13,6 +13,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div``;
 
 export type CardAccordionProps = {
+  /**Spesifiserer om body skal være utvidet ved innlastning. */
   isExpanded?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 

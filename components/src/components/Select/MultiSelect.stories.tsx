@@ -24,7 +24,12 @@ export default {
   }
 };
 
-const options = [
+type Option = {
+  label: string;
+  value: string;
+};
+
+const options: Option[] = [
   'Alternativ 1',
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',
@@ -32,7 +37,7 @@ const options = [
   'Alternativ 4'
 ].map(s => ({ label: s, value: s }));
 
-type MultiSelectProps = SelectProps<true>;
+type MultiSelectProps = SelectProps<Option, true>;
 
 export const Overview = (args: MultiSelectProps) => {
   return (
