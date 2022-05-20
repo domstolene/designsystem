@@ -97,7 +97,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       selectOptions = [
         { label: '10', value: 10 },
         { label: '25', value: 25 },
-        { label: '50', value: 50 }
+        { label: '50', value: 50 },
+        { label: 'Alle', value: itemsAmount }
       ],
       smallScreen,
       onChange,
@@ -274,7 +275,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             <Select
               options={selectOptions}
               isSearchable={false}
-              width="76px"
+              width="80px"
               defaultValue={{
                 label: itemsPerPage.toString(),
                 value: itemsPerPage

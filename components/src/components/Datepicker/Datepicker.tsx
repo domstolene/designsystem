@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react';
-import { InputMessage } from '../../helpers/InputMessage/InputMessage';
+import { InputMessage } from '../InputMessage';
 import RequiredMarker from '../../helpers/RequiredMarker';
 import {
   Input,
@@ -146,7 +146,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
         {hasErrorMessage && (
           <InputMessage
             message={errorMessage}
-            messageId={errorMessageId}
+            id={errorMessageId}
             messageType="error"
           />
         )}
