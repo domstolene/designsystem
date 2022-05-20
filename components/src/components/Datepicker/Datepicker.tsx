@@ -151,7 +151,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
           />
         )}
         {tip && !hasErrorMessage && (
-          <InputMessage message={tip} messageId={tipId} messageType="tip" />
+          <InputMessage message={tip} id={tipId} messageType="tip" />
         )}
       </OuterInputContainer>
     );
