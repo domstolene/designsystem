@@ -20,8 +20,11 @@ const Container = styled.div`
 type Direction = 'row' | 'column';
 
 export type ToggleButtonGroupProps = {
-  direction?: Direction;
+  /** Ledetekst for gruppen. */
   label?: string;
+  /**Retningen barna legger seg i. */
+  direction?: Direction;
+  /** Custom `id` for ledetekst. Blir generert som default for å knytte ledetekst til gruppen.  */
   labelId?: string;
 } & HTMLAttributes<HTMLDivElement>;
 

@@ -29,7 +29,9 @@ const InputMessageWrapper = styled.div<WrapperProps>`
 export type InputMessageType = 'error' | 'tip';
 
 export type InputMessageProps = {
+  /** Meldingen som vises til brukeren. */
   message: string;
+  /** Formålet med meldingen. Påvirker styling. */
   messageType: InputMessageType;
 } & HTMLAttributes<HTMLDivElement>;
 

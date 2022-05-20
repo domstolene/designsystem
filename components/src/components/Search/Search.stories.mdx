@@ -38,3 +38,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttri
   loading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;`}
 />
+
+## Retningslinjer
+
+- Mens resultater lastes inn bør det indikeres til brukeren. Hvis det brukes en søkeknapp gjøres det via `loading` i `buttonProps`. Hvis søkeknappen ikke brukes bør det gjøres med `<Spinner />` i resultatlista.

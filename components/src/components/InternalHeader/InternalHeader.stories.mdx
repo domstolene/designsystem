@@ -79,3 +79,10 @@ type InternaHeaderUserProps = {
 };
 
 `} />
+
+## Retningslinjer
+
+- Bruk `<SkipToContent />`-komponenten over `<InternalHeader />` slik at brukeren kan hoppe rett til innholdet.
+- Ikke bruk `smallScreen`-prop på store skjermer og så lenge alle navigasjonselementer vises på én linje - navigasjonen skal ikke skjules hvis det er nok plass til å vise den.
+- Sørg for at hvert klikkbart element har størrelse på minst 1cmx1cm.
+- Bruk `currentPageHref` prop til å markere i navigasjonen hvilken side brukeren er på for å ha en visuell indikator.

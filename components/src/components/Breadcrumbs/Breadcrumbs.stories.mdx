@@ -48,3 +48,9 @@ Brødsmule. Er en lenke eller et tekstelement. **OBS!** Alle Breadcrumb-komponen
 <ArgsTable of={Breadcrumb} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>`-interface.
+
+## Retningslinjer
+
+- Helst unngå at brødsmulene legger seg over flere linjer. Test på mindre skjermer og bruk `smallScreen`-prop.
+- Ikke bruk sesjonshistorikken i brødsmulene.
+- Den siste brødsmulen skal tilsvare nåværende siden og bør dermed ikke være en lenke. Det er valgfritt å bruke `aria-current="page"` på den.

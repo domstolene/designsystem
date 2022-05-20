@@ -3,11 +3,12 @@ import { ReactNode } from 'react';
 
 type SourceProps = {
   children?: ReactNode;
+  language?: string;
   code?: string;
 };
 
-export const Source = ({ children, code }: SourceProps) => (
-  <StorybookSource dark code={code} language="tsx">
+export const Source = ({ children, code, language = 'tsx' }: SourceProps) => (
+  <StorybookSource dark code={code} language={language}>
     {children}
   </StorybookSource>
 );
