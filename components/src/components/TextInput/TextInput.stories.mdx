@@ -1,4 +1,10 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Story,
+  Canvas
+} from '@storybook/addon-docs';
 import { TextInput } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
 
@@ -22,3 +28,18 @@ import { Source, ComponentLinkRow } from '../../storybook';
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>` eller `InputHTMLAttributes<HTMLTextAreaElement>`-interface.
+
+### maxLength
+
+Når native attributtet `maxLength` brukes dukker det opp en tegnteller til høyre under inputfeltet:
+
+<Canvas>
+  <Story id="design-system-textinput--with-character-count" />
+</Canvas>
+
+## Retningslinjer
+
+- Bruk gjerne `autofocus` for å indikere hvor brukeren skal starte.
+- Unngå å bruke `placeholder` - inputfeltet kan se ferdig fylt ut.
+- Bruk `onChange` slik at brukeren kan få umiddelbar tilbakemelding på deres input baser på validering.
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.

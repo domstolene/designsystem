@@ -1,6 +1,7 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Tooltip } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
+import { TableWrapper, Table, Body, Cell, Head, Row } from '../Table';
 
 <Meta title="Design system/Tooltip/API" component={Tooltip} />
 
@@ -16,7 +17,8 @@ En tooltip består av:
 
 - `<Tooltip />`- wrapper som håndterer kontroll og rendering av tooltip
 - Valgfritt anchor element som skal være det eneste barnet til `<Tooltip />`. Det kontrollerer når tooltip vises via tastaturfokus og tooltip plasseres i forhold til dette elementet. Et anchor element er et interaktivt element. `<Tooltip />` sender enkelte props til anchor-elementet som ikke kan overskrives, som `aria-describedby` og `ref`.
-  `<Tooltip />` returnerer anchor elementet og en tooltip wrappet i en `<div>`.
+
+`<Tooltip />` returnerer anchor elementet og en tooltip wrappet i en `<div>`.
 
 ## Bruk i koden
 
@@ -31,3 +33,49 @@ En tooltip består av:
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### Events
+
+Det brukes ulike events til å lukke eller åpne tooltip. For å bruke callback på event som styrer tooltip må den sendes som prop til riktig element. Se oversikt over hvilket element bruker hvilken event:
+
+<TableWrapper>
+  <Table density="compact" style={{ width: '100%' }}>
+    <Head>
+      <Row type="head">
+        <Cell type="head">Event</Cell>
+        <Cell type="head">`Tooltip`</Cell>
+        <Cell type="head">Anchor-element</Cell>
+      </Row>
+    </Head>
+    <Body>
+      <Row>
+        <Cell> `onMouseOver` </Cell>
+        <Cell> ✅ </Cell>
+        <Cell> </Cell>
+      </Row>
+      <Row>
+        <Cell> `onMouseLeave`</Cell>
+        <Cell> ✅ </Cell>
+        <Cell> </Cell>
+      </Row>
+      <Row>
+        <Cell> `onFocus` </Cell>
+        <Cell> </Cell>
+        <Cell> ✅ </Cell>
+      </Row>
+      <Row>
+        <Cell> `onBlur` </Cell>
+        <Cell> </Cell>
+        <Cell> ✅ </Cell>
+      </Row>
+    </Body>
+  </Table>
+</TableWrapper>
+
+## Retningslinjer
+
+- `<Tooltip />` brukes kun til kort tekst. Ingen interaktive elementer er tillatt. Sjekk Popover for andre bruksområder.
+- Hvis anchor element er et ikon bruk `Button` med `Icon`-prop der det er mulig.
+- Husk tilgjengelig ledetekst i anchor element som ikke har synlig tekst i seg.
+- Sørg for at `<Tooltip />` brukes konsekvent i løsningen.
+- Sørg for at `<Tooltip />` får riktig plassering i forhold til resten av innholdet og ikke dekker til relatert informasjon.

@@ -26,3 +26,10 @@ import { Source, ComponentLinkRow } from '../../storybook';
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLAnchorElement>`-interface.
+
+## Retningslinjer
+
+- Komponenten skal brukes i alle løsninger som har navigasjon og annet sekunært innhold som kan hopper over.
+- Legg `<SkipToContent />` inn som første fokuserbart element i koden.
+- Komponenten bruker CSS-reglene `position: absolute`, `top: 0` (som default) og `width: 100%`, og det er i utgangspunktet meningen at den skal dekke hele bredden på siden. Sørg for at komponenten har riktig plass i hierarkiet med tanke på posisjonering.
+- Hvis nettsiden er kompleks og består av mange seksjoner kan det være relevant å bruke flere `<SkipToContent />` komponenter. Det er som regel ikke nødvendig, men det bør tas en individuell vurdering.

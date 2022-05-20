@@ -48,7 +48,9 @@ const Container = styled.label`
 let nextUniqueId = 0;
 
 export type ToggleButtonProps = {
+  /**Ledetekst for inputelementet. */
   label?: string;
+  /** Ikon. */
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
 } & InputHTMLAttributes<HTMLInputElement>;
 

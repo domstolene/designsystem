@@ -26,3 +26,7 @@ import {Datepicker} from '@norges-domstoler/dds-components';
 
 <ArgsTable story={PRIMARY_STORY} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
+
+## Retningslinjer
+
+- Det er flere forskjeller mellom nettlesere for `<input type='date' />` og `<input type='datetime-local' />`, der Firefox skiller seg ut mest. I tillegg mangler det støtte for `type='month'` og `type='week'` i både Firefox og Safari. Test dermed i alle nettlesere at alt funker slik det skal.

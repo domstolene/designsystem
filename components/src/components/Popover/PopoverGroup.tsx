@@ -11,10 +11,15 @@ import {
 import { useOnKeyDown, useOnClickOutside } from '../../hooks';
 
 export type PopoverGroupProps = {
+  /**Callback når det trykkes på lukkeknappen. */
   onCloseButtonClick?: () => void;
+  /** Callback når det trykkes på anchor-elementet (trigger-elementet). */
   onTriggerClick?: () => void;
+  /**Forteller `<Popover />` om den skal være åpen.  */
   isOpen?: boolean;
+  /** `id` til `<Popover />.` */
   popoverId?: string;
+  /** Barna til wrapperen: anchor-element som det første og `<Popover />` so det adnre.  */
   children: ReactNode;
 };
 

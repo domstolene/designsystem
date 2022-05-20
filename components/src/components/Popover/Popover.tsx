@@ -65,9 +65,11 @@ export type PopoverSizeProps = {
 export type PopoverProps = {
   /**Tittel. */
   title?: string | ReactNode;
+  /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Spesifiserer om `<Popover />` skal vises. */
   isOpen?: boolean;
   /**Om lukkeknapp skal vises. */
   withCloseButton?: boolean;
+  /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Anchor-elementet. */
   anchorElement?: HTMLElement;
   /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet. */
   placement?: Placement;

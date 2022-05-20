@@ -30,6 +30,38 @@ const items = [
 </OverflowMenuGroup>
 `} />
 
+### Uten `<OverflowMenuGroup />`
+
+<Source code={`
+import { OverflowMenu, Button } from '@norges-domstoler/dds-components';
+import { useState, useRef } from 'react';
+
+const [isClosed, setIsClosed] = useState(true);
+const toggle = () => setIsClosed(!isClosed);
+const close = () => setIsClosed(true);
+const buttonRef = userRef(null);
+const id = 'id';
+
+const items = [
+{ title: 'handling', onClick: () => {} }
+];
+
+<Button
+  label="Åpne meny"
+  ref={buttonRef}
+  aria-haspopup="menu"
+  aria-expanded={!isClosed ? true : undefined}
+  aria-controls={id}
+/>
+<OverflowMenu
+  isOpen={!isClosed}
+  onClose={close}
+  anchorRef={buttonRef}
+  items={items}
+  id={id}
+/>
+`} />
+
 ## API
 
 ### OverflowMenu

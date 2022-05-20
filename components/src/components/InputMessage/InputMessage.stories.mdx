@@ -1,0 +1,29 @@
+import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import { InputMessage } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+
+<Meta title="Design system/InputMessage/API" component={InputMessage} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/305b33-inputmessage/b/878177"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/InputMessage"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+/>
+
+## Oversikt
+
+`<InputMessage />` brukes til å vise hjelpetekst eller feilmelding som tilhører et custom inputelement (radio, checkbox, inputfelt...).
+
+**OBS!** Komponenten brukes kun i corner cases der custom inputelementer må brukes istedenfor komponentene fra Elsa.
+
+## Bruk i koden
+
+<Source code={`import { InputMessage } fra '@norges-domstoler/dds-components';
+
+<InputMessage messageType="tip" message="hjelpetekst" />
+`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

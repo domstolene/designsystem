@@ -41,6 +41,42 @@ const close = () => setOpen(false);
 </Modal>
 `} />
 
+### Returnering av fokus
+
+Når modalen lukkes skal fokus returneres til elementet som åpnet den. Hvis det brukes en lukkbar variant av `<Modal />` (se API) og det er ingen handlingselementer som skal lukke den er returnering av fokus håndtert internt i komponenten. Bruk `triggerRef`-prop for å aktivere det:
+
+<Source code={`
+const [open, setOpen] = useState(false);
+const show = () => setOpen(true);
+const close = () => setOpen(false);
+
+const buttonRef = useRef(null);
+
+<Button label="Åpne" ref={buttonRef} onClick={show} />
+
+<Modal isOpen={open} onClose={close} triggerRef={buttonRef}>
+  <ModalBody>Innhold</ModalBody>
+</Modal>
+`} />
+
+Hvis du bruker handlingselementer i `<Modal />` kan det håndteres for eksempel slik:
+
+<Source code={`const [open, setOpen] = useState(false);
+const show = () => setOpen(true);
+const close = () => {
+  setOpen(false);
+  buttonRef.current?.focus(); // <--- gir åpningsknappen focus når modal lukkes
+}
+
+const buttonRef = useRef(null);
+
+<Button label="Åpne" ref={buttonRef} onClick={show} />
+
+<Modal isOpen={open}>
+  <Button label="OK" onClick={close} />
+</Modal>
+`} />
+
 ## API
 
 ### Modal
@@ -56,10 +92,10 @@ Subkomponent for hovedinnhold i modal (tekstlig informasjon o.l.). Brukes som ba
 
 <ArgsTable of={ModalBody} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLLiElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
 ### ModalActions
 
 Subkomponent for handlingselementer, typisk knapper. Brukes som barn i `<Modal />`. Legger horisontal spacing mellom barn og legger de over flere rader ved behov.
 
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLLiElement>`-interface.
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
