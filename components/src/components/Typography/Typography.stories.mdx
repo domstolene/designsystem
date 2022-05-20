@@ -1,8 +1,13 @@
 import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
-import { Source } from '../../storybook/Source.tsx';
+import { Source, ComponentLinkRow } from '../../storybook';
 import { Typography } from '.';
 
 <Meta title="Design system/Typography/API" component={Typography} />
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography"
+/>
 
 ## Bruk i koden
 
@@ -53,15 +58,11 @@ const Label = styled(Typography)\` padding-left: \${ddsBaseTokens.spacing.SizesD
 export const StyledLabel = ({ label }) => {
 
 return (
-<Label
-      forwardedAs="span"
-      typographyType="supportingStyleLabel01"
-      >
-{label}
+
+<Label forwardedAs="span" typographyType="supportingStyleLabel01">
+  {label}
 </Label>
-);
-};
-`} />
+); }; `} />
 
 ### Bruk av typografi-tokens
 

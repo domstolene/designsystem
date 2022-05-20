@@ -1,7 +1,7 @@
-export const zeroheightSvg = (
+export const ZeroheightSvg = ({ size = '50' }) => (
   <svg
-    width="50"
-    height="50"
+    width={size}
+    height={size}
     viewBox="0 0 44 53"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -30,23 +30,23 @@ export const zeroheightSvg = (
   </svg>
 );
 
-export const npmSvg = (
+export const NpmSvg = ({ size = '50' }) => (
   <svg
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 256 256"
     xmlns="http://www.w3.org/2000/svg"
-    width="50"
-    height="50"
+    width={size}
+    height={size}
   >
     <path d="M0 256V0h256v256z" fill="#C12127"></path>
     <path d="M48 48h160v160h-32V80h-48v128H48z" fill="#FFF"></path>
   </svg>
 );
 
-export const figmaSvg = (
+export const FigmaSvg = ({ size = '50' }) => (
   <svg
-    width="50"
-    height="50"
+    width={size}
+    height={size}
     viewBox="0 0 288 432"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -81,10 +81,10 @@ export const figmaSvg = (
   </svg>
 );
 
-export const slackSvg = (
+export const SlackSvg = ({ size = '50' }) => (
   <svg
-    width="50"
-    height="50"
+    width={size}
+    height={size}
     viewBox="0 0 127 127"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -107,10 +107,10 @@ export const slackSvg = (
   </svg>
 );
 
-export const githubSvg = (
+export const GithubSvg = ({ size = '50' }) => (
   <svg
-    width="50"
-    height="50"
+    width={size}
+    height={size}
     viewBox="0 0 1024 1024"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
