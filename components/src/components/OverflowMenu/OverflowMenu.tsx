@@ -76,14 +76,15 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     const combinedRef = useCombinedRef(ref, floating);
 
     useEffect(() => {
-      anchorRef
-        ? reference(anchorRef.current)
-        : reference(null);
+      anchorRef ? reference(anchorRef.current) : reference(null);
     }, [anchorRef]);
 
-    useOnClickOutside([refs?.floating?.current, refs?.reference?.current as (HTMLElement | null)], () => {
-      if (isOpen) onClose && onClose();
-    });
+    useOnClickOutside(
+      [refs?.floating?.current, refs?.reference?.current as HTMLElement | null],
+      () => {
+        if (isOpen) onClose && onClose();
+      }
+    );
 
     useOnKeyDown(['Esc', 'Escape'], () => {
       if (isOpen) {
