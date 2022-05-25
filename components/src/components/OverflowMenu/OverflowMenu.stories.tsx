@@ -89,7 +89,6 @@ export const WithNavigation = (args: OverflowMenuProps) => {
       title="OverflowMenu - with navigation"
       display="flex-centered"
     >
-      ¨
       <OverflowMenuGroup>
         <Button Icon={MenuOutlinedIcon} />
         <OverflowMenu {...args} items={items} navItems={navItems} />
