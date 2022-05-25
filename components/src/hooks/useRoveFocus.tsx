@@ -6,21 +6,27 @@ import {
   SetStateAction
 } from 'react';
 
+type Direction = 'column' | 'row';
+
 export function useRoveFocus(
   size: number | undefined,
-  reset?: boolean
+  reset?: boolean,
+  direction: Direction = 'column'
 ): [number, Dispatch<SetStateAction<number>>] {
   const [currentFocus, setCurrentFocus] = useState(0);
+
+  const nextKey = direction === 'row' ? 39 : 40;
+  const previousKey = direction === 'row' ? 37 : 38;
 
   const handleKeyDown = useCallback(
     e => {
       if (!size) return;
       if (reset) setCurrentFocus(-1);
-      if (e.keyCode === 40) {
+      if (e.keyCode === nextKey) {
         // Down arrow
         e.preventDefault();
         setCurrentFocus(currentFocus === size - 1 ? 0 : currentFocus + 1);
-      } else if (e.keyCode === 38) {
+      } else if (e.keyCode === previousKey) {
         // Up arrow
         e.preventDefault();
         if (currentFocus !== -1) {
