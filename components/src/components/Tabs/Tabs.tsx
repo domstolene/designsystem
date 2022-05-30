@@ -18,6 +18,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
     const [uniqueId] = useState(id ?? `tabs-${nextUniqueId++}`);
 
     const [thisSelectedTab, setSelectedTab] = useState(selectedTab);
+    const [hasTabFocus, setHasTabFocus] = useState(false);
     const tabListRef = useRef<HTMLDivElement>(null);
     const tabPanelsRef = useRef<HTMLDivElement>(null);
 
@@ -38,7 +39,9 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
           selectedTab: thisSelectedTab,
           handleTabChange,
           tabListRef,
-          tabPanelsRef
+          tabPanelsRef,
+          hasTabFocus,
+          setHasTabFocus
         }}
       >
         <Container {...containerProps} />

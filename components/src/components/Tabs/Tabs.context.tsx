@@ -6,6 +6,8 @@ type Tabs = {
   handleTabChange: (index: number) => void;
   tabListRef: RefObject<HTMLDivElement> | null;
   tabPanelsRef: RefObject<HTMLDivElement> | null;
+  hasTabFocus: boolean;
+  setHasTabFocus: (hasFocus: boolean) => void;
 };
 
 export const TabsContext = createContext<Tabs>({
@@ -13,6 +15,8 @@ export const TabsContext = createContext<Tabs>({
   tabsId: '',
   handleTabChange: () => null,
   tabListRef: null,
-  tabPanelsRef: null
+  tabPanelsRef: null,
+  hasTabFocus: false,
+  setHasTabFocus: () => null
 });
 export const useTabsContext = () => useContext(TabsContext);

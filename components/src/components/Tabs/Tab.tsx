@@ -83,15 +83,20 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   ) => {
     const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
     const combinedRef = useCombinedRef(ref, itemRef);
-    const { tabPanelsRef } = useTabsContext();
+    const { tabPanelsRef, hasTabFocus, setHasTabFocus } = useTabsContext();
 
     useEffect(() => {
       if (focus) {
         itemRef.current?.focus();
+        setHasTabFocus(true);
+        console.log('setHasTabFocus if(focus)', hasTabFocus);
       }
     }, [focus]);
 
-    useOnKeyDown('Tab', () => tabPanelsRef?.current?.focus());
+    useOnKeyDown('Tab', () => {
+      setHasTabFocus(false);
+      tabPanelsRef?.current?.focus();
+    });
 
     // kopiert fra OverflowMenuItem:
 
