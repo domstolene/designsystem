@@ -6,6 +6,7 @@ import { removeButtonStyling } from '../../helpers/styling';
 const { border: Border, spacing: Spacing, colors: Colors } = ddsBaseTokens;
 
 const tabListBase: CSSObject = {
+  transition: '0.2s',
   display: 'flex',
   borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Border.BordersDdsBorderStyleLightStroke}`,
   overflowX: 'auto'
