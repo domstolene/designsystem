@@ -4,7 +4,8 @@ import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 const scrollbarStyling = css`
   /* width */
   &::-webkit-scrollbar {
-    width: 16px;
+    width: 10px;
+    height: 10px;
   }
 
   /* Track */
