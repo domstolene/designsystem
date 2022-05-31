@@ -12,18 +12,18 @@ export type TabPanelsProps = HTMLAttributes<HTMLDivElement>;
 
 export const TabPanels = forwardRef<HTMLDivElement, TabPanelsProps>(
   ({ children, ...rest }, ref) => {
-    const { selectedTab, tabsId, tabPanelsRef } = useTabsContext();
+    const { activeTab, tabsId, tabPanelsRef } = useTabsContext();
     const combinedRef = useCombinedRef(ref, tabPanelsRef);
 
     const panelChildren = Children.map(children, (child, index) => {
-      const selected = index === selectedTab;
+      const active = index === activeTab;
       return (
         isValidElement(child) &&
         cloneElement(child, {
           id: `${tabsId}-panel-${index}`,
           'aria-labelledby': `${tabsId}-tab-${index}`,
-          selected,
-          'aria-expanded': selected
+          active,
+          'aria-expanded': active
         })
       );
     });

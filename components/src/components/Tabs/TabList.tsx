@@ -4,7 +4,8 @@ import {
   Children,
   isValidElement,
   cloneElement,
-  useState
+  useState,
+  FocusEvent
 } from 'react';
 import styled from 'styled-components';
 import { tabsTokens as tokens } from './Tabs.tokens';
@@ -15,7 +16,6 @@ import {
   useRoveFocus
 } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
-import { Property } from 'csstype';
 import scrollbarStyling from '../../helpers/scrollbarStyling';
 
 const TabRow = styled.div`
@@ -33,21 +33,19 @@ const TabRow = styled.div`
   }
 `;
 
-export type TabListProps = {
-  /**Custom bredde lik for alle `<Tab />`. */
-  width?: Property.Width;
-} & HTMLAttributes<HTMLDivElement>;
+export type TabListProps = HTMLAttributes<HTMLDivElement>;
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
-  ({ children, id, width, ...rest }, ref) => {
+  ({ children, id, onFocus, ...rest }, ref) => {
     const {
-      selectedTab,
+      activeTab,
       tabsId,
       handleTabChange,
       tabListRef,
       hasTabFocus,
       tabPanelsRef,
-      setHasTabFocus
+      setHasTabFocus,
+      tabWidth
     } = useTabsContext();
 
     const [uniqueId] = useState<string>(id ?? `${tabsId}-tablist`);
@@ -61,11 +59,10 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
         cloneElement(child, {
           id: `${tabsId}-tab-${index}`,
           'aria-controls': `${tabsId}-panel-${index}`,
-          selected: selectedTab === index,
+          active: activeTab === index,
           index,
-          focus: focus === index,
+          focus: focus === index && hasTabFocus,
           setFocus,
-          width,
           onClick: () => handleTabChange(index)
         })
       );
@@ -76,10 +73,14 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       tabPanelsRef?.current?.focus();
     });
 
-    useOnClickOutside(tabListRef?.current as HTMLElement | null, () => {
+    useOnClickOutside((tabListRef?.current as HTMLElement) || null, () => {
       setHasTabFocus(false);
-      tabPanelsRef?.current?.focus();
     });
+
+    const handleOnFocus = (event: FocusEvent<HTMLDivElement, Element>) => {
+      setHasTabFocus(true);
+      onFocus && onFocus(event);
+    };
 
     const tabListProps = {
       ref: combinedRef,
@@ -87,6 +88,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       'aria-label': 'Bruk venste og høyre piltast for å bla',
       id: uniqueId,
       tabIndex: 0,
+      onFocus: handleOnFocus,
       ...rest
     };
 

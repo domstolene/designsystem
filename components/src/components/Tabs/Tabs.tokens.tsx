@@ -37,7 +37,7 @@ const tabColumnBase: CSSObject = {
   gap: Spacing.SizesDdsSpacingLocalX025
 };
 
-const tabSelectedBase: CSSObject = {
+const tabActiveBase: CSSObject = {
   backgroundColor: Colors.DdsColorInteractiveLightest,
   color: Colors.DdsColorInteractiveDarkest,
   boxShadow: `inset 0 -2px 0 0 ${Colors.DdsColorInteractiveDarker}`,
@@ -50,7 +50,7 @@ const tabHoverBase: CSSObject = {
   borderBottom: `1px solid ${Colors.DdsColorInteractiveDarker}`
 };
 
-const tabSelectedHoverBase: CSSObject = {
+const tabActiveHoverBase: CSSObject = {
   backgroundColor: Colors.DdsColorInteractiveLightest,
   color: Colors.DdsColorInteractiveDarkest,
   boxShadow: `inset 0 -2px 0 0 ${Colors.DdsColorInteractiveDarker}`,
@@ -83,13 +83,13 @@ export const tabsTokens = {
         base: tabColumnBase
       }
     },
-    selected: {
-      base: tabSelectedBase
+    active: {
+      base: tabActiveBase
     },
     hover: {
       base: tabHoverBase,
-      selected: {
-        base: tabSelectedHoverBase
+      active: {
+        base: tabActiveHoverBase
       }
     },
     focus: {

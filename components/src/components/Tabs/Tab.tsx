@@ -16,11 +16,13 @@ import { IconWrapper } from '../IconWrapper';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useCombinedRef, useOnKeyDown } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
+import { Direction } from '../../../typings';
+import { Property } from 'csstype';
 
 type ButtonProps = {
-  selected: boolean;
+  active: boolean;
   direction: Direction;
-  width: string;
+  width: Property.Width;
 };
 
 const Button = styled.button<ButtonProps>`
@@ -30,10 +32,10 @@ const Button = styled.button<ButtonProps>`
 
   ${({ direction }) => tokens.tab.direction[direction].base};
 
-  ${({ selected }) =>
-    selected &&
+  ${({ active }) =>
+    active &&
     css`
-      ${tokens.tab.selected.base}
+      ${tokens.tab.active.base}
     `}
 
   &:focus-visible {
@@ -45,17 +47,13 @@ const Button = styled.button<ButtonProps>`
   }
 `;
 
-type Direction = 'row' | 'column';
-
 export type TabProps = {
   /**Spesifiserer om fanen er aktiv. */
-  selected?: boolean;
+  active?: boolean;
   /** Ikon. */
   Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-  /** Retningen ikon og tekst gjengis i. */
-  direction?: Direction;
-  /** Custom bredde. */
-  width?: string;
+  /** Custom bredde for enkel fane. */
+  width?: Property.Width;
   /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
   focus?: boolean;
   /**  Callback som setter fokus. **OBS!** settes automatisk av forelder.*/
@@ -67,9 +65,8 @@ export type TabProps = {
 export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   (
     {
-      selected = false,
-      direction = 'row',
-      width = '150px',
+      active = false,
+      width,
       Icon,
       children,
       focus,
@@ -83,7 +80,13 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
   ) => {
     const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
     const combinedRef = useCombinedRef(ref, itemRef);
-    const { tabPanelsRef, hasTabFocus, setHasTabFocus } = useTabsContext();
+    const {
+      tabPanelsRef,
+      hasTabFocus,
+      setHasTabFocus,
+      tabContentDirection,
+      tabWidth
+    } = useTabsContext();
 
     useEffect(() => {
       if (focus) {
@@ -97,8 +100,6 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
       setHasTabFocus(false);
       tabPanelsRef?.current?.focus();
     });
-
-    // kopiert fra OverflowMenuItem:
 
     const handleSelect = useCallback(() => {
       if (setFocus && index) {
@@ -120,11 +121,11 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>(
 
     const buttonProps = {
       ref: combinedRef,
-      'aria-selected': selected,
+      'aria-selected': active,
       role: 'tab',
-      selected,
-      width,
-      direction,
+      active,
+      width: width ?? tabWidth,
+      direction: tabContentDirection,
       onClick: handleOnClick,
       onKeyDown: handleOnKeyDown,
       tabIndex: focus ? 0 : -1,

@@ -12,6 +12,14 @@ export default {
     Tab: Tab,
     TabPanel: TabPanel,
     TabPanels: TabPanels
+  },
+  argTypes: {
+    activeTab: {
+      control: 'number'
+    },
+    tabWidth: {
+      control: 'text'
+    }
   }
 };
 
@@ -19,31 +27,23 @@ export const Overview = (args: TabsProps) => (
   <StoryTemplate title="Tabs - overview">
     <Tabs>
       <TabList>
-        <Tab selected>Restriksjoner</Tab>
+        <Tab>Restriksjoner</Tab>
         <Tab>Aktører</Tab>
         <Tab>Logg</Tab>
       </TabList>
     </Tabs>
     <Tabs>
       <TabList>
-        <Tab selected Icon={NotificationsOutlinedIcon}>
-          Restriksjoner
-        </Tab>
+        <Tab Icon={NotificationsOutlinedIcon}>Restriksjoner</Tab>
         <Tab Icon={NotificationsOutlinedIcon}>Aktører</Tab>
         <Tab Icon={NotificationsOutlinedIcon}>Logg</Tab>
       </TabList>
     </Tabs>
-    <Tabs>
+    <Tabs tabContentDirection="column">
       <TabList>
-        <Tab selected Icon={NotificationsOutlinedIcon} direction="column">
-          Restriksjoner
-        </Tab>
-        <Tab Icon={NotificationsOutlinedIcon} direction="column">
-          Aktører
-        </Tab>
-        <Tab Icon={NotificationsOutlinedIcon} direction="column">
-          Logg
-        </Tab>
+        <Tab Icon={NotificationsOutlinedIcon}>Restriksjoner</Tab>
+        <Tab Icon={NotificationsOutlinedIcon}>Aktører</Tab>
+        <Tab Icon={NotificationsOutlinedIcon}>Logg</Tab>
       </TabList>
     </Tabs>
   </StoryTemplate>
@@ -66,18 +66,71 @@ export const Default = (args: TabsProps) => (
   </StoryTemplate>
 );
 
+export const WithIcon = (args: TabsProps) => (
+  <StoryTemplate title="Tabs - with icon">
+    <Tabs {...args}>
+      <TabList>
+        <Tab Icon={NotificationsOutlinedIcon}>Tab 1</Tab>
+        <Tab Icon={NotificationsOutlinedIcon}>Tab 2</Tab>
+        <Tab Icon={NotificationsOutlinedIcon}>Tab 3</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel> Innhold 1</TabPanel>
+        <TabPanel> Innhold 2</TabPanel>
+        <TabPanel> Innhold 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  </StoryTemplate>
+);
+
+export const ActiveTab = (args: TabsProps) => (
+  <StoryTemplate title="Tabs - active tab">
+    <Tabs {...args} activeTab={1}>
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel> Innhold 1</TabPanel>
+        <TabPanel> Innhold 2</TabPanel>
+        <TabPanel> Innhold 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  </StoryTemplate>
+);
+
+export const TabWidth = (args: TabsProps) => (
+  <StoryTemplate title="Tabs - tab width">
+    <Tabs {...args} tabWidth="300px">
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel> Innhold 1</TabPanel>
+        <TabPanel> Innhold 2</TabPanel>
+        <TabPanel> Innhold 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  </StoryTemplate>
+);
+
 export const ManyTabs = (args: TabsProps) => (
   <StoryTemplate title="Tabs - many tabs">
     <Tabs {...args}>
       <TabList>
         <Tab>Tab1</Tab>
-        <Tab>Tab2</Tab>
+        <Tab>Restriksjoner</Tab>
         <Tab>Tab3</Tab>
-        <Tab>Tab4</Tab>
+        <Tab>Aktører</Tab>
         <Tab>Tab5</Tab>
-        <Tab>Tab6</Tab>
+        <Tab>Restriksjoner</Tab>
         <Tab>Tab7</Tab>
         <Tab>Tab8</Tab>
+        <Tab>Tab9</Tab>
+        <Tab>Tab10</Tab>
       </TabList>
       <TabPanels>
         <TabPanel> Innhold 1</TabPanel>
@@ -88,6 +141,8 @@ export const ManyTabs = (args: TabsProps) => (
         <TabPanel> Innhold 6</TabPanel>
         <TabPanel> Innhold 7</TabPanel>
         <TabPanel> Innhold 8</TabPanel>
+        <TabPanel> Innhold 9</TabPanel>
+        <TabPanel> Innhold 10</TabPanel>
       </TabPanels>
     </Tabs>
   </StoryTemplate>

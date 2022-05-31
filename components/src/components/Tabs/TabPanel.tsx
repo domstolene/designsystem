@@ -4,34 +4,34 @@ import { focusVisible } from '../../helpers/styling';
 import { tabsTokens as tokens } from './Tabs.tokens';
 
 type PanelProps = {
-  selected: boolean;
+  active: boolean;
 };
 
 const Panel = styled.div<PanelProps>`
   transition: 0.2s;
   ${tokens.panel.base}
-  ${({ selected }) =>
-    !selected &&
+  ${({ active }) =>
+    !active &&
     css`
       display: none;
     `}
-  &:focus-visible {
+    &:focus-visible {
     ${focusVisible}
   }
 `;
 
 export type TabPanelProps = {
-  /** Spesifiserer om panelet skal vises baser på aktiv fane. */
-  selected?: boolean;
+  /** Spesifiserer om panelet skal vises basert på aktiv fane. */
+  active?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
-  ({ selected = false, children, ...rest }, ref) => {
+  ({ active = false, children, ...rest }, ref) => {
     const panelProps = {
       ref,
       tabIndex: 0,
       role: 'tabpanel',
-      selected,
+      active,
       ...rest
     };
     return <Panel {...panelProps}>{children}</Panel>;
