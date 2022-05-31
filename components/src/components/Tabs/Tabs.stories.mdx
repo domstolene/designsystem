@@ -26,7 +26,7 @@ import { Source, ComponentLinkRow } from '../../storybook';
 
 Komponenten består av flere subkomponenter:
 
-- `<Tabs />` - ytterste container for andre subkomponenter. Håndterer oppførsel. Har `<TabList />` og `<TabPanels />` som barn.
+- `<Tabs />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har `<TabList />` og `<TabPanels />` som barn.
 - `<Tab />` - en fane.
 - `<TabList />` - liste med faner.
 - `<TabPanel />` - panel med innhold som hører til en spesifikk fane.
@@ -54,7 +54,7 @@ Komponenten består av flere subkomponenter:
 
 ### Tabs
 
-Ytterste container som styrer hvilket panel skal vises. Har `<TabList />` og `<TabPanels />` som barn.
+Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList />` og `<TabPanels />` som barn.
 
 <ArgsTable story={PRIMARY_STORY} />
 
@@ -74,9 +74,7 @@ En liste med `<Tab />`.
 
 `<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
 
-<ArgsTable of={TabList} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
 ### TabPanel
 
@@ -92,4 +90,4 @@ En liste med `<TabPanel />`.
 
 `<TabPanels />` skal ha `<TabPanel />` som barn i samme rekkefølge som tilhørende paneler i `<TabList />`.
 
-<ArgsTable of={TabPanels} />
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
