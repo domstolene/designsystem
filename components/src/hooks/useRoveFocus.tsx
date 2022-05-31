@@ -5,8 +5,7 @@ import {
   Dispatch,
   SetStateAction
 } from 'react';
-
-type Direction = 'column' | 'row';
+import { Direction } from '../../typings';
 
 export function useRoveFocus(
   size: number | undefined,
