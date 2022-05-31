@@ -1,5 +1,30 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { useEffect, useRef } from 'react';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
+
+const activeText = 'active tab';
+const inactiveText = 'inactive tab';
+
+const WithRefs = () => {
+  const activeRef = useRef<HTMLButtonElement>(null);
+  const inactiveRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (activeRef && activeRef?.current) activeRef.current.append(activeText);
+    if (inactiveRef && inactiveRef?.current)
+      inactiveRef.current.append(inactiveText);
+  }, []);
+
+  return (
+    <Tabs>
+      <TabList>
+        <Tab ref={activeRef}>Tab 1</Tab>
+        <Tab ref={inactiveRef}>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+    </Tabs>
+  );
+};
 
 describe('<Tabs />', () => {
   it('renders elements with correct tab related roles', () => {
@@ -151,5 +176,10 @@ describe('<Tabs />', () => {
     const id = 'id';
     render(<Tabs data-testid={id} />);
     expect(screen.getByTestId(id)).toBeInTheDocument();
+  });
+  it('combines forwarded and local refs', () => {
+    render(<WithRefs />);
+    expect(screen.getByText(activeText)).toBeInTheDocument();
+    expect(screen.getByText(inactiveText)).toBeInTheDocument();
   });
 });
