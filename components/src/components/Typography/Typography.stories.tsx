@@ -6,7 +6,7 @@ type StoryTProps = {
 } & TypographyProps;
 
 export default {
-  title: 'Design system/Typography/Default',
+  title: 'Design system/Typography',
   component: DDSTypography,
   argTypes: {
     typographyType: { control: { type: 'select' } },

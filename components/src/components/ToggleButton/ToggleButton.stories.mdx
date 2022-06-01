@@ -1,14 +1,34 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Story,
+  Canvas
+} from '@storybook/addon-docs';
 import { ToggleButton, ToggleButtonGroup } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/ToggleButton/API" component={ToggleButton} />
+
+# ToggleButton
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/93162b-togglebutton/b/5004f4"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=6990%3A142094"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/ToggleButton"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-togglebutton-togglebutton--default" />
+</Canvas>
+<Canvas>
+  <Story id="design-system-togglebutton-togglebuttongroup--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-togglebutton-togglebutton`}>Storybook</Typography>.
 
 ## Oversikt
 

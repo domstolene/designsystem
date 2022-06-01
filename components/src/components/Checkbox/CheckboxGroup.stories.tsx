@@ -124,7 +124,7 @@ export const Overview = (args: CheckboxGroupProps) => {
 
 export const Default = (args: CheckboxGroupProps) => {
   return (
-    <StoryTemplate title="CheckboxGroup default">
+    <StoryTemplate title="CheckboxGroup - default">
       <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
         <DDSCheckbox label="Option 1" />
         <DDSCheckbox label="Option 2" />

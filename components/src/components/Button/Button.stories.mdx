@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Story,
+  Canvas,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
 import { Button } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/Button/API" component={Button} />
+
+# Button
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A37"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Button"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-button--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-button'>Storybook</Typography>.
 
 ## Bruk i koden
 

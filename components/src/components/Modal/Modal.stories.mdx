@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Canvas,
+  Story
+} from '@storybook/addon-docs';
 import { Modal, ModalBody, ModalActions } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/Modal/API" component={Modal} />
+
+# Modal
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/257775-modal/b/8773a7"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3767%3A95031"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Modal"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-modal--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-modal`}>Storybook</Typography>.
 
 ## Oversikt
 

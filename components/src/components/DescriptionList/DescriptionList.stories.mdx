@@ -1,4 +1,10 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Story,
+  Canvas,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
 import {
   DescriptionList,
   DescriptionListTerm,
@@ -6,14 +12,25 @@ import {
   DescriptionListGroup
 } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/DescriptionList/API" component={DescriptionList} />
+
+# DescriptionList
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/46584e-descriptionlist/b/304a53"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94241"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/DescriptionList"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-descriptionlist--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-descriptionlist'>Storybook</Typography>.
 
 ## Oversikt
 

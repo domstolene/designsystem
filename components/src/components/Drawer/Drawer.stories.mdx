@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
 import { Drawer, DrawerGroup } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/Drawer/API" component={Drawer} />
+
+# Drawer
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/79af30-drawer/b/15dc45"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=5023%3A128351"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Drawer"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-drawer--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-drawer'>Storybook</Typography>.
 
 ## Oversikt
 
