@@ -1,15 +1,32 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Canvas,
+  Story
+} from '@storybook/addon-docs';
 import { Tooltip } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
 import { TableWrapper, Table, Body, Cell, Head, Row } from '../Table';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/Tooltip/API" component={Tooltip} />
+
+# Tooltip
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/815808-tooltip/b/93bc8f"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=4985%3A127667"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Tooltip"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-tooltip--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-tooltip`}>Storybook</Typography>.
 
 ## Oversikt
 

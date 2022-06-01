@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
 import { Divider } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/Divider/API" component={Divider} />
+
+# Divider
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/57aa58-divider/b/587136"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3209%3A94239"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Divider"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-divider--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-divider'>Storybook</Typography>.
 
 ## Bruk i koden
 

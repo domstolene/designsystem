@@ -6,15 +6,29 @@ import {
   Canvas
 } from '@storybook/addon-docs';
 import { TextInput } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/TextInput/API" component={TextInput} />
+
+# TextInput
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/8048eb-textinput/b/800765"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/TextInput"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-textinput--input-with-label" />
+</Canvas>
+<Canvas>
+  <Story id="design-system-textinput--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-textinput`}>Storybook</Typography>.
 
 ## Bruk i koden
 

@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Canvas,
+  Story
+} from '@storybook/addon-docs';
 import { LocalMessage } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/LocalMessage/API" component={LocalMessage} />
+
+# LocalMessage
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/99d09e-messages/b/164d4b"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A39"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/LocalMessage"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-localmessage--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-localmessage`}>Storybook</Typography>.
 
 ## Bruk i koden
 

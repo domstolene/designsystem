@@ -2,11 +2,11 @@ import { StoryTemplate } from '../../storybook/StoryTemplate';
 import { ToggleButton, ToggleButtonGroup, ToggleButtonGroupProps } from '.';
 
 export default {
-  title: 'Design system/ToggleButton/Group',
+  title: 'Design system/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup
 };
 
-export const Group = (args: ToggleButtonGroupProps) => (
+export const Default = (args: ToggleButtonGroupProps) => (
   <StoryTemplate title="ToggleButtonGroup - default">
     <ToggleButtonGroup {...args}>
       <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}

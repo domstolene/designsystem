@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Story,
+  Canvas,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
 import { Search } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/Search/API" component={Search} />
+
+# Search
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/207165-search/b/875fab"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=1461%3A0"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Search"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-search--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-search`}>Storybook</Typography>.
 
 ## Bruk i koden
 

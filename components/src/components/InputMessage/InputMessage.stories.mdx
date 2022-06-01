@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
 import { InputMessage } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/InputMessage/API" component={InputMessage} />
+
+# InputMessage
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/305b33-inputmessage/b/878177"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/InputMessage"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-inputmessage--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-inputmessage`}>Storybook</Typography>.
 
 ## Oversikt
 

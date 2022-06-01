@@ -1,14 +1,31 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Canvas,
+  Story
+} from '@storybook/addon-docs';
 import { List, ListItem } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
 
 <Meta title="Design system/List/API" component={List} />
+
+# List
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/89ffb5-list/b/685e71"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94240"
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/List"
 />
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-list--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-list`}>Storybook</Typography>.
 
 ## Oversikt
 
