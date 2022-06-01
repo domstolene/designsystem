@@ -1,8 +1,7 @@
 import { StoryTemplate } from '../../storybook/StoryTemplate';
-import { Tabs, TabList, Tab, TabsProps } from '.';
+import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
-import { TabPanel } from './TabPanel';
-import { TabPanels } from './TabPanels';
+import { Story, Meta } from '@storybook/react';
 
 export default {
   title: 'Design system/Tabs',
@@ -21,9 +20,9 @@ export default {
       control: 'text'
     }
   }
-};
+} as Meta;
 
-export const Overview = (args: TabsProps) => (
+export const Overview: Story<TabsProps> = () => (
   <StoryTemplate title="Tabs - overview">
     <Tabs>
       <TabList>
@@ -49,7 +48,7 @@ export const Overview = (args: TabsProps) => (
   </StoryTemplate>
 );
 
-export const Default = (args: TabsProps) => (
+export const Default: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - default">
     <Tabs {...args}>
       <TabList>
@@ -58,15 +57,15 @@ export const Default = (args: TabsProps) => (
         <Tab>Tab 3</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel> Innhold 1</TabPanel>
-        <TabPanel> Innhold 2</TabPanel>
-        <TabPanel> Innhold 3</TabPanel>
+        <TabPanel>Innhold 1</TabPanel>
+        <TabPanel>Innhold 2</TabPanel>
+        <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
   </StoryTemplate>
 );
 
-export const WithIcon = (args: TabsProps) => (
+export const WithIcon: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - with icon">
     <Tabs {...args}>
       <TabList>
@@ -75,15 +74,15 @@ export const WithIcon = (args: TabsProps) => (
         <Tab Icon={NotificationsOutlinedIcon}>Tab 3</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel> Innhold 1</TabPanel>
-        <TabPanel> Innhold 2</TabPanel>
-        <TabPanel> Innhold 3</TabPanel>
+        <TabPanel>Innhold 1</TabPanel>
+        <TabPanel>Innhold 2</TabPanel>
+        <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
   </StoryTemplate>
 );
 
-export const ActiveTab = (args: TabsProps) => (
+export const ActiveTab: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - active tab">
     <Tabs {...args} activeTab={1}>
       <TabList>
@@ -92,15 +91,15 @@ export const ActiveTab = (args: TabsProps) => (
         <Tab>Tab 3</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel> Innhold 1</TabPanel>
-        <TabPanel> Innhold 2</TabPanel>
-        <TabPanel> Innhold 3</TabPanel>
+        <TabPanel>Innhold 1</TabPanel>
+        <TabPanel>Innhold 2</TabPanel>
+        <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
   </StoryTemplate>
 );
 
-export const TabWidth = (args: TabsProps) => (
+export const TabWidth: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - tab width">
     <Tabs {...args} tabWidth="300px">
       <TabList>
@@ -109,15 +108,15 @@ export const TabWidth = (args: TabsProps) => (
         <Tab>Tab 3</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel> Innhold 1</TabPanel>
-        <TabPanel> Innhold 2</TabPanel>
-        <TabPanel> Innhold 3</TabPanel>
+        <TabPanel>Innhold 1</TabPanel>
+        <TabPanel>Innhold 2</TabPanel>
+        <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
   </StoryTemplate>
 );
 
-export const ManyTabs = (args: TabsProps) => (
+export const ManyTabs: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - many tabs">
     <Tabs {...args}>
       <TabList>
@@ -133,16 +132,16 @@ export const ManyTabs = (args: TabsProps) => (
         <Tab>Tab10</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel> Innhold 1</TabPanel>
-        <TabPanel> Innhold 2</TabPanel>
-        <TabPanel> Innhold 3</TabPanel>
-        <TabPanel> Innhold 4</TabPanel>
-        <TabPanel> Innhold 5</TabPanel>
-        <TabPanel> Innhold 6</TabPanel>
-        <TabPanel> Innhold 7</TabPanel>
-        <TabPanel> Innhold 8</TabPanel>
-        <TabPanel> Innhold 9</TabPanel>
-        <TabPanel> Innhold 10</TabPanel>
+        <TabPanel>Innhold 1</TabPanel>
+        <TabPanel>Innhold 2</TabPanel>
+        <TabPanel>Innhold 3</TabPanel>
+        <TabPanel>Innhold 4</TabPanel>
+        <TabPanel>Innhold 5</TabPanel>
+        <TabPanel>Innhold 6</TabPanel>
+        <TabPanel>Innhold 7</TabPanel>
+        <TabPanel>Innhold 8</TabPanel>
+        <TabPanel>Innhold 9</TabPanel>
+        <TabPanel>Innhold 10</TabPanel>
       </TabPanels>
     </Tabs>
   </StoryTemplate>
