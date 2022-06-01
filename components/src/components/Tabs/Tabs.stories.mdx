@@ -1,0 +1,98 @@
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Canvas,
+  Story
+} from '@storybook/addon-docs';
+import { Tabs, TabList, Tab, TabPanel, TabPanels } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+import { Typography } from '../Typography';
+
+<Meta title="Design system/Tabs/API" component={Tabs} />
+
+# Tabs
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7003%3A143267"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Tabs"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-tabs--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-tabs'>Storybook</Typography>.
+
+## Oversikt
+
+Komponenten består av flere subkomponenter:
+
+- `<Tabs />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har `<TabList />` og `<TabPanels />` som barn.
+- `<Tab />` - en fane.
+- `<TabList />` - liste med faner.
+- `<TabPanel />` - panel med innhold som hører til en spesifikk fane.
+- `<TabPanels />` - liste med paneler.
+
+## Bruk i koden
+
+<Source
+  code={`import { Tabs, Tab } from '@norges-domstoler/dds-components';
+    <Tabs>
+        <TabList>
+            <Tab> Tab 1 </Tab>
+            <Tab> Tab 2 </Tab>
+        </TabList>
+        <TabPanels>
+            <TabPanel> Innhold 1 </TabPanel>
+            <TabPanel> Innhold 2 </TabPanel>
+        </TabPanels>
+    </Tabs>
+
+`}
+/>
+
+## API
+
+### Tabs
+
+Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList />` og `<TabPanels />` som barn.
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### Tab
+
+En fane. Tilhørende `<TabPanel />` vises ved museklikk.
+
+<ArgsTable of={Tab} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface.
+
+### TabList
+
+En liste med `<Tab />`.
+
+`<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### TabPanel
+
+Panel med innhold. Vises ved museklikk på tilhørende `<Tab />`.
+
+<ArgsTable of={TabPanel} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface.
+
+### TabPanels
+
+En liste med `<TabPanel />`.
+
+`<TabPanels />` skal ha `<TabPanel />` som barn i samme rekkefølge som tilhørende paneler i `<TabList />`.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
