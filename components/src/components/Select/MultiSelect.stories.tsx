@@ -167,7 +167,7 @@ export const WithDefaultValue = (args: MultiSelectProps) => {
 
 export const WithFitContent = (args: MultiSelectProps) => {
   return (
-    <StoryTemplate title="Select - multiselect with value">
+    <StoryTemplate title="Select - multiselect with fit content">
       <DDSSelect
         {...args}
         label={args.label || 'Label'}

@@ -156,10 +156,18 @@ export const Default = (args: TextInputProps) => {
   );
 };
 
-export const InputWithLabel = (args: TextInputProps) => {
+export const WithLabel = (args: TextInputProps) => {
   return (
     <StoryTemplate title="TextInput - with label">
       <TextInput {...args} label={args.label || 'Label'} />
+    </StoryTemplate>
+  );
+};
+
+export const WithCharacterCount = (args: TextInputProps) => {
+  return (
+    <StoryTemplate title="TextInput - with character count">
+      <TextInput {...args} maxLength={25} label={args.label || 'Label'} />
     </StoryTemplate>
   );
 };
@@ -176,14 +184,6 @@ export const TextareaWithLabel = (args: TextInputProps) => {
   return (
     <StoryTemplate title="Textarea (multiline) - with label">
       <TextInput {...args} label={args.label || 'Label'} multiline />
-    </StoryTemplate>
-  );
-};
-
-export const WithCharacterCount = (args: TextInputProps) => {
-  return (
-    <StoryTemplate title="TextInput - with character count">
-      <TextInput {...args} maxLength={25} label={args.label || 'Label'} />
     </StoryTemplate>
   );
 };

@@ -33,9 +33,9 @@ Komponenten består av flere subkomponenter:
 
 - `<Tabs />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har `<TabList />` og `<TabPanels />` som barn.
 - `<Tab />` - en fane.
-- `<TabList />` - liste med faner.
+- `<TabList />` - liste med faner. Håndterer ARIA-attributter og `id` for barna.
 - `<TabPanel />` - panel med innhold som hører til en spesifikk fane.
-- `<TabPanels />` - liste med paneler.
+- `<TabPanels />` - liste med paneler. Håndterer ARIA-attributter og `id` for barna.
 
 ## Bruk i koden
 
@@ -75,9 +75,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttr
 
 ### TabList
 
-En liste med `<Tab />`.
-
-`<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
+En liste med `<Tab />`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
 
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
@@ -91,8 +89,6 @@ I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttr
 
 ### TabPanels
 
-En liste med `<TabPanel />`.
-
-`<TabPanels />` skal ha `<TabPanel />` som barn i samme rekkefølge som tilhørende paneler i `<TabList />`.
+En liste med `<TabPanel />`. Setter attributter som `aria-labelledby` for barna. `<TabPanels />` skal ha `<TabPanel />` som barn i samme rekkefølge som tilhørende paneler i `<TabList />`.
 
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

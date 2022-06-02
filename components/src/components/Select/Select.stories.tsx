@@ -114,7 +114,7 @@ export const Overview = (args: SingleSelectProps) => {
 
 export const Default = (args: SingleSelectProps) => {
   return (
-    <StoryTemplate title="Select default">
+    <StoryTemplate title="Select - default">
       <DDSSelect {...args} options={options} />
     </StoryTemplate>
   );

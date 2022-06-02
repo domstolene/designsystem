@@ -99,7 +99,7 @@ export const NoActionButtons = (args: ModalProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <StoryTemplate title="Modal - default">
+    <StoryTemplate title="Modal - no action buttons">
       <Button
         aria-haspopup="dialog"
         label="Åpne"
