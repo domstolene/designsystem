@@ -100,3 +100,9 @@ overflow: hidden;
 white-space: nowrap;
 `}
 />
+
+## Retningslinjer
+
+- `<Popover />` skal dukke opp kun via eksplisitt interaksjon fra brukeren; Den skal for eksempel ikke vises når siden lastes inn - den kan bli plassert feil eller være i veien.
+- `<Popover />` skal brukes på en måte som ikke forstyrrer brukeren.
+- Hvis anchor-elementet ikke er en knapp bør det settes `role='button'` på den i de fleste tilfeller.

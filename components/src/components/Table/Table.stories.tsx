@@ -69,7 +69,7 @@ export const Default = (args: TableProps) => {
 
 export const Focusable = (args: TableProps) => {
   return (
-    <StoryTemplate title="Table - default">
+    <StoryTemplate title="Table - focusable">
       <TableWrapper>
         <DDSTable {...args}>
           <Head>

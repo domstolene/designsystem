@@ -89,6 +89,16 @@ Det brukes ulike events til å lukke eller åpne tooltip. For å bruke callback 
   </Table>
 </TableWrapper>
 
+#### Eksempel
+
+<Source code={`const onFocus = () => { ... } // noe logikk
+const onMouseOver = () => { ... } // noe logikk
+
+<Tooltip text="Tooltip" onMouseOver={onMouseOver}>
+  <Button label="tekst" onFocus={onFocus} />
+</Tooltip>
+`} />
+
 ## Retningslinjer
 
 - `<Tooltip />` brukes kun til kort tekst. Ingen interaktive elementer er tillatt. Sjekk Popover for andre bruksområder.

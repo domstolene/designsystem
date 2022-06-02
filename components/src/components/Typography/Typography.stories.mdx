@@ -15,7 +15,31 @@ import { Typography } from '.';
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography"
 />
 
+## Introduksjon
+
+`<Typography />` er en code-only komponent som ikke har en tilsvarende Figma komponent. Den bruker oversikten over typografistiler definert i <Typography typographyType='a' href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Typography> til å gi tekst riktig styling. Hver stil har et default HTML element det blir rendered som. Den kan eventuelt overskrives med en annen HTML tag hvis default ikke passer.
+
 ## Demo
+
+<Canvas>
+  <Story id="design-system-typography-overview--body" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-typography-overview--headings" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-typography-overview--leads" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-typography-overview--supporting" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-typography-overview--link" />
+</Canvas>
 
 <Canvas>
   <Story id="design-system-typography--default" />
@@ -80,4 +104,4 @@ return (
 
 ### Bruk av typografi-tokens
 
-Det er også mulig å bruke typografi-tokens direkte. **OBS!** dette bør gjøres kun hvis det er umulig å bruke Typography-komponenten. Se [Bruk av font tokens i tekster med typografisk hierarki](https://zeroheight.com/987b33f71/p/18bd6f-design-tokens).
+Det er også mulig å bruke typografi-tokens direkte. **OBS!** dette bør gjøres kun hvis det er umulig å bruke `<Typography />`-komponenten. Se [Bruk av font tokens i tekster med typografisk hierarki](https://zeroheight.com/987b33f71/p/18bd6f-design-tokens).

@@ -16,7 +16,11 @@ export default {
 };
 
 export const OverviewDate = () => (
-  <StoryTemplate display="grid" columnsAmount={2} title="Datepicker - default">
+  <StoryTemplate
+    display="grid"
+    columnsAmount={2}
+    title="Datepicker - date overview"
+  >
     <Datepicker label="Label" />
     <Datepicker />
     <Datepicker label="Label" disabled />
@@ -33,7 +37,11 @@ export const OverviewDate = () => (
 );
 
 export const OverviewDatetime = () => (
-  <StoryTemplate display="grid" columnsAmount={2} title="Datepicker - default">
+  <StoryTemplate
+    display="grid"
+    columnsAmount={2}
+    title="Datepicker - datetime overview"
+  >
     <Datepicker type="datetime-local" label="Label" />
     <Datepicker type="datetime-local" />
     <Datepicker type="datetime-local" label="Label" disabled />
@@ -71,13 +79,13 @@ export const WithLabel = (args: DatepickerProps) => (
 );
 
 export const Datetime = (args: DatepickerProps) => (
-  <StoryTemplate title="Datepicker - default">
+  <StoryTemplate title="Datepicker - datetime">
     <Datepicker {...args} type="datetime-local" />
   </StoryTemplate>
 );
 
 export const DatetimeWithLabel = (args: DatepickerProps) => (
-  <StoryTemplate title="Datepicker - with label">
+  <StoryTemplate title="Datepicker - datetime with label">
     <Datepicker {...args} type="datetime-local" label={args.label || 'Label'} />
   </StoryTemplate>
 );

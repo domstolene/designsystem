@@ -10,7 +10,7 @@ export default {
 
 export const OverviewPlacement = (args: DrawerProps) => {
   return (
-    <StoryTemplate title="Drawer - overview">
+    <StoryTemplate title="Drawer - placement overview">
       <DrawerGroup>
         <Button label="Åpne høyre" />
         <Drawer {...args} header="Tittel">
@@ -31,7 +31,7 @@ export const OverviewPlacement = (args: DrawerProps) => {
 
 export const OverviewSizes = (args: DrawerProps) => {
   return (
-    <StoryTemplate title="Drawer - overview">
+    <StoryTemplate title="Drawer - size overview">
       <DrawerGroup>
         <Button label="Åpne liten" />
         <Drawer {...args} header="Rettsmekling">
