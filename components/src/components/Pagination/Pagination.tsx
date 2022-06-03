@@ -51,7 +51,7 @@ const Container = styled.div<{ smallScreen?: boolean }>`
           align-items: center;
         `
       : css`
-          justify-content: space-between;
+          justify-content: space-around;
           flex-wrap: wrap;
         `}
 `;
