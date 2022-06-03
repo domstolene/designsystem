@@ -1,6 +1,6 @@
 import { RadioButton, RadioButtonGroup, RadioButtonGroupProps } from '.';
 import { StoryTemplate } from '../../storybook';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
 export default {
   title: 'Design system/RadioButton/RadioButtonGroup',
@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Overview = (args: RadioButtonGroupProps) => {
+export const Overview = (args: RadioButtonGroupProps<string>) => {
   return (
     <StoryTemplate
       title="Radio button group - overview"
@@ -103,7 +103,7 @@ export const Overview = (args: RadioButtonGroupProps) => {
   );
 };
 
-export const Default = (args: RadioButtonGroupProps) => {
+export const Default = (args: RadioButtonGroupProps<number>) => {
   const [value, setValue] = useState<number | undefined>();
   return (
     <StoryTemplate title="Radio button group - default">
@@ -111,10 +111,7 @@ export const Default = (args: RadioButtonGroupProps) => {
         {...args}
         label={args.label || 'Label'}
         value={value}
-        onChange={(
-          _event: ChangeEvent<HTMLInputElement>,
-          value: number | undefined
-        ) => {
+        onChange={(_event, value) => {
           setValue(value);
         }}
       >
@@ -126,15 +123,15 @@ export const Default = (args: RadioButtonGroupProps) => {
   );
 };
 
-export const WithDefaultValue = (args: RadioButtonGroupProps) => {
-  const [value, setValue] = useState<number>(2);
+export const WithDefaultValue = (args: RadioButtonGroupProps<number>) => {
+  const [value, setValue] = useState<number | undefined>(2);
   return (
     <StoryTemplate title="Radio button group - default value">
       <RadioButtonGroup
         {...args}
         label="Label"
         value={value}
-        onChange={(_event: ChangeEvent<HTMLInputElement>, value: number) => {
+        onChange={(_event, value) => {
           setValue(value);
         }}
       >
