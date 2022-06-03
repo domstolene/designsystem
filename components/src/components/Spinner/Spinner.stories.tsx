@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Spinner, SpinnerProps } from '.';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 

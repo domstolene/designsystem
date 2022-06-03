@@ -1,6 +1,5 @@
-import { Button } from './Button';
-import { ButtonProps } from './Button.types';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { Button, ButtonProps } from '.';
+import { StoryTemplate } from '../../storybook';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 

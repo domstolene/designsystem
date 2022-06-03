@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { SkipToContent, SkipToContentProps } from '.';
 import { Typography } from '../Typography';

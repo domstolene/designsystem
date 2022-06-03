@@ -1,14 +1,10 @@
-import { RadioButton as DDSRadioButton } from './RadioButton';
-import {
-  RadioButtonGroup as DDSRadioButtonGroup,
-  RadioButtonGroupProps
-} from './RadioButtonGroup';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { RadioButton, RadioButtonGroup, RadioButtonGroupProps } from '.';
+import { StoryTemplate } from '../../storybook';
 import { ChangeEvent, useState } from 'react';
 
 export default {
   title: 'Design system/RadioButton/RadioButtonGroup',
-  component: DDSRadioButtonGroup,
+  component: RadioButtonGroup,
   argTypes: {
     label: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
@@ -31,78 +27,78 @@ export const Overview = (args: RadioButtonGroupProps) => {
       display="grid"
       columnsAmount={2}
     >
-      <DDSRadioButtonGroup {...args} direction="row" label="Label">
-        <DDSRadioButton label="Option 1" name="test" />
-        <DDSRadioButton label="Option 2" name="test" />
-        <DDSRadioButton label="Option 3" name="test" />
-      </DDSRadioButtonGroup>
-      <DDSRadioButtonGroup {...args} direction="column" label="Label">
-        <DDSRadioButton label="Option 1" name="test1" />
-        <DDSRadioButton label="Option 2" name="test1" />
-        <DDSRadioButton label="Option 3" name="test1" />
-      </DDSRadioButtonGroup>
-      <DDSRadioButtonGroup
+      <RadioButtonGroup {...args} direction="row" label="Label">
+        <RadioButton label="Option 1" name="test" />
+        <RadioButton label="Option 2" name="test" />
+        <RadioButton label="Option 3" name="test" />
+      </RadioButtonGroup>
+      <RadioButtonGroup {...args} direction="column" label="Label">
+        <RadioButton label="Option 1" name="test1" />
+        <RadioButton label="Option 2" name="test1" />
+        <RadioButton label="Option 3" name="test1" />
+      </RadioButtonGroup>
+      <RadioButtonGroup
         {...args}
         tip="Dette er en hjelpetekst"
         direction="row"
         label="Label"
       >
-        <DDSRadioButton label="Option 1" name="test2" />
-        <DDSRadioButton label="Option 2" name="test2" />
-        <DDSRadioButton label="Option 3" name="test2" />
-      </DDSRadioButtonGroup>
-      <DDSRadioButtonGroup
+        <RadioButton label="Option 1" name="test2" />
+        <RadioButton label="Option 2" name="test2" />
+        <RadioButton label="Option 3" name="test2" />
+      </RadioButtonGroup>
+      <RadioButtonGroup
         {...args}
         tip="Dette er en hjelpetekst"
         direction="column"
         label="Label"
       >
-        <DDSRadioButton label="Option 1" name="test3" />
-        <DDSRadioButton label="Option 2" name="test3" />
-        <DDSRadioButton label="Option 3" name="test3" />
-      </DDSRadioButtonGroup>
-      <DDSRadioButtonGroup
+        <RadioButton label="Option 1" name="test3" />
+        <RadioButton label="Option 2" name="test3" />
+        <RadioButton label="Option 3" name="test3" />
+      </RadioButtonGroup>
+      <RadioButtonGroup
         {...args}
         errorMessage="Dette er en feilmelding"
         direction="row"
         label="Label"
       >
-        <DDSRadioButton label="Option 1" name="test2" />
-        <DDSRadioButton label="Option 2" name="test2" />
-        <DDSRadioButton label="Option 3" name="test2" />
-      </DDSRadioButtonGroup>
-      <DDSRadioButtonGroup
+        <RadioButton label="Option 1" name="test2" />
+        <RadioButton label="Option 2" name="test2" />
+        <RadioButton label="Option 3" name="test2" />
+      </RadioButtonGroup>
+      <RadioButtonGroup
         {...args}
         errorMessage="Dette er en feilmelding"
         direction="column"
         label="Label"
       >
-        <DDSRadioButton label="Option 1" name="test3" />
-        <DDSRadioButton label="Option 2" name="test3" />
-        <DDSRadioButton label="Option 3" name="test3" />
-      </DDSRadioButtonGroup>
-      <DDSRadioButtonGroup
+        <RadioButton label="Option 1" name="test3" />
+        <RadioButton label="Option 2" name="test3" />
+        <RadioButton label="Option 3" name="test3" />
+      </RadioButtonGroup>
+      <RadioButtonGroup
         {...args}
         errorMessage="Dette er en feilmelding"
         tip="Dette er en hjelpetekst"
         direction="row"
         label="Label"
       >
-        <DDSRadioButton label="Option 1" name="test2" />
-        <DDSRadioButton label="Option 2" name="test2" />
-        <DDSRadioButton label="Option 3" name="test2" />
-      </DDSRadioButtonGroup>
-      <DDSRadioButtonGroup
+        <RadioButton label="Option 1" name="test2" />
+        <RadioButton label="Option 2" name="test2" />
+        <RadioButton label="Option 3" name="test2" />
+      </RadioButtonGroup>
+      <RadioButtonGroup
         {...args}
         errorMessage="Dette er en feilmelding"
         tip="Dette er en hjelpetekst"
         direction="column"
         label="Label"
       >
-        <DDSRadioButton label="Option 1" name="test3" />
-        <DDSRadioButton label="Option 2" name="test3" />
-        <DDSRadioButton label="Option 3" name="test3" />
-      </DDSRadioButtonGroup>
+        <RadioButton label="Option 1" name="test3" />
+        <RadioButton label="Option 2" name="test3" />
+        <RadioButton label="Option 3" name="test3" />
+      </RadioButtonGroup>
     </StoryTemplate>
   );
 };
@@ -111,7 +107,7 @@ export const Default = (args: RadioButtonGroupProps) => {
   const [value, setValue] = useState<number | undefined>();
   return (
     <StoryTemplate title="Radio button group - default">
-      <DDSRadioButtonGroup
+      <RadioButtonGroup
         {...args}
         label={args.label || 'Label'}
         value={value}
@@ -122,10 +118,10 @@ export const Default = (args: RadioButtonGroupProps) => {
           setValue(value);
         }}
       >
-        <DDSRadioButton value={1} label="Option 1" name="test" />
-        <DDSRadioButton value={2} label="Option 2" name="test" />
-        <DDSRadioButton value={3} label="Option 3" name="test" />
-      </DDSRadioButtonGroup>
+        <RadioButton value={1} label="Option 1" name="test" />
+        <RadioButton value={2} label="Option 2" name="test" />
+        <RadioButton value={3} label="Option 3" name="test" />
+      </RadioButtonGroup>
     </StoryTemplate>
   );
 };
@@ -134,7 +130,7 @@ export const WithDefaultValue = (args: RadioButtonGroupProps) => {
   const [value, setValue] = useState<number>(2);
   return (
     <StoryTemplate title="Radio button group - default value">
-      <DDSRadioButtonGroup
+      <RadioButtonGroup
         {...args}
         label="Label"
         value={value}
@@ -142,10 +138,10 @@ export const WithDefaultValue = (args: RadioButtonGroupProps) => {
           setValue(value);
         }}
       >
-        <DDSRadioButton value={1} label="Option 1" name="test" />
-        <DDSRadioButton value={2} label="Option 2" name="test" />
-        <DDSRadioButton value={3} label="Option 3" name="test" />
-      </DDSRadioButtonGroup>
+        <RadioButton value={1} label="Option 1" name="test" />
+        <RadioButton value={2} label="Option 2" name="test" />
+        <RadioButton value={3} label="Option 3" name="test" />
+      </RadioButtonGroup>
     </StoryTemplate>
   );
 };

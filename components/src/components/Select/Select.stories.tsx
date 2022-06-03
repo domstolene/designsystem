@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 
-import { Select as DDSSelect, SelectProps } from './Select';
+import { Select, SelectProps } from '.';
 
 export default {
   title: 'design system/Select/SingleValue',
-  component: DDSSelect,
+  component: Select,
   argTypes: {
     label: { control: { type: 'text' } },
     tip: { control: { type: 'text' } },
@@ -58,56 +58,56 @@ export const Overview = (args: SingleSelectProps) => {
       display="grid"
       columnsAmount={2}
     >
-      <DDSSelect {...args} label={args.label || 'Label'} options={options} />
-      <DDSSelect
+      <Select {...args} label={args.label || 'Label'} options={options} />
+      <Select
         {...args}
         label={args.label || 'Label'}
         required
         options={options}
       />
-      <DDSSelect
+      <Select
         {...args}
         label={args.label || 'Label'}
         isDisabled
         options={options}
       />
-      <DDSSelect
+      <Select
         {...args}
         label={args.label || 'Label'}
         readOnly
         options={options}
       />
-      <DDSSelect
+      <Select
         {...args}
         label={args.label || 'Label'}
         errorMessage="Dette er en feilmelding"
         options={options}
       />
-      <DDSSelect
+      <Select
         {...args}
         label={args.label || 'Label'}
         tip="Dette er en hjelpetekst"
         options={options}
       />
-      <DDSSelect
+      <Select
         {...args}
         label={args.label || 'Label'}
         placeholder="Annerledes placeholder"
         options={options}
       />
-      <DDSSelect
+      <Select
         {...args}
         label={args.label || 'Label'}
         defaultValue={options[0]}
         options={options}
       />
-      <DDSSelect
+      <Select
         {...args}
         label={args.label || 'Label'}
         value={options[3]}
         options={options}
       />
-      <DDSSelect {...args} options={options} />
+      <Select {...args} options={options} />
     </StoryTemplate>
   );
 };
@@ -115,7 +115,7 @@ export const Overview = (args: SingleSelectProps) => {
 export const Default = (args: SingleSelectProps) => {
   return (
     <StoryTemplate title="Select - default">
-      <DDSSelect {...args} options={options} />
+      <Select {...args} options={options} />
     </StoryTemplate>
   );
 };
@@ -123,7 +123,7 @@ export const Default = (args: SingleSelectProps) => {
 export const WithLabel = (args: SingleSelectProps) => {
   return (
     <StoryTemplate title="Select - with label">
-      <DDSSelect {...args} label={args.label || 'Label'} options={options} />
+      <Select {...args} label={args.label || 'Label'} options={options} />
     </StoryTemplate>
   );
 };
@@ -131,11 +131,7 @@ export const WithLabel = (args: SingleSelectProps) => {
 export const ManyItems = (args: SingleSelectProps) => {
   return (
     <StoryTemplate title="Select - many options">
-      <DDSSelect
-        {...args}
-        label={args.label || 'Label'}
-        options={optionsLong}
-      />
+      <Select {...args} label={args.label || 'Label'} options={optionsLong} />
     </StoryTemplate>
   );
 };

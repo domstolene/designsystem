@@ -1,5 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
-
+import { StoryTemplate } from '../../storybook';
 import { TextInput, TextInputProps } from '.';
 
 export default {

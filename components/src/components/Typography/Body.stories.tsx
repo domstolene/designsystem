@@ -1,5 +1,5 @@
-import { Typography } from './Typography';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { Typography } from '.';
+import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Typography/Overview',

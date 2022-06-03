@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { InternalHeader, InternalHeaderProps } from '.';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 

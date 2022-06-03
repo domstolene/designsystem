@@ -1,302 +1,302 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
-import { List as DDSList, ListItem, ListProps } from '.';
+import { StoryTemplate } from '../../storybook';
+import { List, ListItem, ListProps } from '.';
 import { Typography } from '../Typography';
 
 export default {
   title: 'design system/List',
-  component: DDSList
+  component: List
 };
 
 export const Overview = (args: ListProps) => {
   return (
     <StoryTemplate title="List - overview" display="grid" columnsAmount={4}>
-      <DDSList {...args} typographyType="bodySans01">
+      <List {...args} typographyType="bodySans01">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList typographyType="bodySans01">
+          <List typographyType="bodySans01">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered" typographyType="bodySans01">
+      <List {...args} listType="ordered" typographyType="bodySans01">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered" typographyType="bodySans01">
+          <List listType="ordered" typographyType="bodySans01">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} typographyType="bodySerif01">
+      <List {...args} typographyType="bodySerif01">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList typographyType="bodySerif01">
+          <List typographyType="bodySerif01">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered" typographyType="bodySerif01">
+      <List {...args} listType="ordered" typographyType="bodySerif01">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered" typographyType="bodySerif01">
+          <List listType="ordered" typographyType="bodySerif01">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args}>
+      <List {...args}>
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList>
+          <List>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered">
+      <List {...args} listType="ordered">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered">
+          <List listType="ordered">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} typographyType="bodySerif02">
+      <List {...args} typographyType="bodySerif02">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList>
+          <List>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered" typographyType="bodySerif02">
+      <List {...args} listType="ordered" typographyType="bodySerif02">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered">
+          <List listType="ordered">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} typographyType="bodySans03">
+      <List {...args} typographyType="bodySans03">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList>
+          <List>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered" typographyType="bodySans03">
+      <List {...args} listType="ordered" typographyType="bodySans03">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered">
+          <List listType="ordered">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} typographyType="bodySerif03">
+      <List {...args} typographyType="bodySerif03">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList>
+          <List>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered" typographyType="bodySerif03">
+      <List {...args} listType="ordered" typographyType="bodySerif03">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered">
+          <List listType="ordered">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} typographyType="bodySans04">
+      <List {...args} typographyType="bodySans04">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList>
+          <List>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered" typographyType="bodySans04">
+      <List {...args} listType="ordered" typographyType="bodySans04">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered">
+          <List listType="ordered">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} typographyType="bodySerif04">
+      <List {...args} typographyType="bodySerif04">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList>
+          <List>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList>
+              <List>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
 
-      <DDSList {...args} listType="ordered" typographyType="bodySerif04">
+      <List {...args} listType="ordered" typographyType="bodySerif04">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList listType="ordered">
+          <List listType="ordered">
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList listType="ordered">
+              <List listType="ordered">
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
     </StoryTemplate>
   );
 };
@@ -304,10 +304,10 @@ export const Overview = (args: ListProps) => {
 export const Default = (args: ListProps) => {
   return (
     <StoryTemplate title="List - default">
-      <DDSList {...args}>
+      <List {...args}>
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
-      </DDSList>
+      </List>
     </StoryTemplate>
   );
 };
@@ -315,23 +315,23 @@ export const Default = (args: ListProps) => {
 export const Nested = (args: ListProps) => {
   return (
     <StoryTemplate title="List - nested">
-      <DDSList {...args}>
+      <List {...args}>
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
           Item
-          <DDSList {...args}>
+          <List {...args}>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <DDSList {...args}>
+              <List {...args}>
                 <ListItem>Item</ListItem>
                 <ListItem>Item</ListItem>
-              </DDSList>
+              </List>
             </ListItem>
-          </DDSList>
+          </List>
         </ListItem>
-      </DDSList>
+      </List>
     </StoryTemplate>
   );
 };
@@ -344,7 +344,7 @@ export const Example = (args: ListProps) => {
           Første gang du gjør tjeneste som arbeidslivskyndig meddommer, vil
           rettens leder be deg om:
         </Typography>
-        <DDSList {...args}>
+        <List {...args}>
           <ListItem>å følge nøye med i forhandlingen</ListItem>
           <ListItem>
             merke deg forklaringene som blir gitt og bevisene som blir fremlagt
@@ -356,7 +356,7 @@ export const Example = (args: ListProps) => {
           <ListItem>
             å ikke legge vekt på andre forhold enn bevisene som er ført i saken
           </ListItem>
-        </DDSList>
+        </List>
         <Typography withMargins>
           Første gang du er i retten må du også avgi en forsikring. Den sier at
           du både i den aktuelle saken og i fremtidige saker vil gi vel akt på

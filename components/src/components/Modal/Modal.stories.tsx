@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Modal, ModalBody, ModalActions, ModalProps } from '.';
 import { Button } from '../Button';
 import { useRef, useState } from 'react';

@@ -1,5 +1,5 @@
 import { InputMessage, InputMessageProps } from '.';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'design system/InputMessage',

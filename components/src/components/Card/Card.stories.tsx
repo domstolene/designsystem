@@ -1,12 +1,12 @@
 import {
-  CardAccordion as DDSAccordion,
+  CardAccordion,
   CardAccordionHeader,
   CardAccordionBody,
-  Card as DDSCard,
+  Card,
   CardProps,
   ExpandableCardProps
 } from '.';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Divider } from '../Divider';
 import {
   DescriptionList,
@@ -19,7 +19,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 export default {
   title: 'Design system/Card',
-  component: DDSCard
+  component: Card
 };
 
 const body = (
@@ -41,82 +41,82 @@ const ContentContainer = styled.div`
 export const Overview = () => {
   return (
     <StoryTemplate title="Card - overview" display="grid" columnsAmount={4}>
-      <DDSCard cardType="info">
+      <Card cardType="info">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard cardType="info" color="filledDark">
+      </Card>
+      <Card cardType="info" color="filledDark">
         <ContentContainer>
           <Typography color="onDark" typographyType="headingSans03">
             Title
           </Typography>
           {bodyOnDark}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard cardType="info" color="strokeDark">
+      </Card>
+      <Card cardType="info" color="strokeDark">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard cardType="info" color="strokeLight">
+      </Card>
+      <Card cardType="info" color="strokeLight">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard cardType="navigation" href="#">
+      </Card>
+      <Card cardType="navigation" href="#">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard color="filledDark" cardType="navigation" href="#">
+      </Card>
+      <Card color="filledDark" cardType="navigation" href="#">
         <ContentContainer>
           <Typography color="onDark" typographyType="headingSans03">
             Title
           </Typography>
           {bodyOnDark}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard color="strokeDark" cardType="navigation" href="#">
+      </Card>
+      <Card color="strokeDark" cardType="navigation" href="#">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard color="strokeLight" cardType="navigation" href="#">
+      </Card>
+      <Card color="strokeLight" cardType="navigation" href="#">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
         </ContentContainer>
-      </DDSCard>
-      <DDSCard cardType="info" color="filledLight">
-        <DDSAccordion>
+      </Card>
+      <Card cardType="info" color="filledLight">
+        <CardAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
-      <DDSCard cardType="info" color="filledDark">
-        <DDSAccordion>
+        </CardAccordion>
+      </Card>
+      <Card cardType="info" color="filledDark">
+        <CardAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
-      <DDSCard cardType="info" color="strokeDark">
-        <DDSAccordion>
+        </CardAccordion>
+      </Card>
+      <Card cardType="info" color="strokeDark">
+        <CardAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
-      <DDSCard cardType="info" color="strokeLight">
-        <DDSAccordion>
+        </CardAccordion>
+      </Card>
+      <Card cardType="info" color="strokeLight">
+        <CardAccordion>
           <CardAccordionHeader> Title </CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
+        </CardAccordion>
+      </Card>
     </StoryTemplate>
   );
 };
@@ -124,7 +124,7 @@ export const Overview = () => {
 export const Default = (args: CardProps) => {
   return (
     <StoryTemplate title="Card - default">
-      <DDSCard {...args}>Content</DDSCard>
+      <Card {...args}>Content</Card>
     </StoryTemplate>
   );
 };
@@ -132,8 +132,8 @@ export const Default = (args: CardProps) => {
 export const Accordion = (args: ExpandableCardProps) => {
   return (
     <StoryTemplate title="Card - accordion" gap="0">
-      <DDSCard {...(args)} cardType="expandable">
-        <DDSAccordion>
+      <Card {...args} cardType="expandable">
+        <CardAccordion>
           <CardAccordionHeader>Dekning av reiseutgifter</CardAccordionHeader>
           <CardAccordionBody>
             I sivile saker avtales dekning av utgifter med den part som innkalte
@@ -152,10 +152,10 @@ export const Accordion = (args: ExpandableCardProps) => {
             av utgifter til reise og kost. Dersom enkeltmåltider er dekket av
             andre enn deg selv, må du registrere måltidsfradrag.
           </CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
-      <DDSCard {...(args)} cardType="expandable">
-        <DDSAccordion>
+        </CardAccordion>
+      </Card>
+      <Card {...args} cardType="expandable">
+        <CardAccordion>
           <CardAccordionHeader>Ansvar for behandlingen</CardAccordionHeader>
           <CardAccordionBody>
             DA er behandlingsansvarlig for opplysningene som registreres i
@@ -166,10 +166,10 @@ export const Accordion = (args: ExpandableCardProps) => {
               Lenke
             </Typography>
           </CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
-      <DDSCard {...(args)} cardType="expandable">
-        <DDSAccordion>
+        </CardAccordion>
+      </Card>
+      <Card {...args} cardType="expandable">
+        <CardAccordion>
           <CardAccordionHeader>Bli vitnestøtte?</CardAccordionHeader>
           <CardAccordionBody paddingTop="4px">
             <Typography typographyType="headingSans02" withMargins>
@@ -184,14 +184,14 @@ export const Accordion = (args: ExpandableCardProps) => {
               Filmen viser altså ikke «beste praksis», men er en opplæringsfilm.
             </Typography>
           </CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
-      <DDSCard {...(args)} cardType="expandable">
-        <DDSAccordion>
+        </CardAccordion>
+      </Card>
+      <Card {...args} cardType="expandable">
+        <CardAccordion>
           <CardAccordionHeader>Header</CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
-        </DDSAccordion>
-      </DDSCard>
+        </CardAccordion>
+      </Card>
     </StoryTemplate>
   );
 };
@@ -199,7 +199,7 @@ export const Accordion = (args: ExpandableCardProps) => {
 export const Examples = (args: CardProps) => {
   return (
     <StoryTemplate title="Card - examples">
-      <DDSCard {...args}>
+      <Card {...args}>
         <ContentContainer>
           <DescriptionList>
             <DescriptionListTerm>Title</DescriptionListTerm>
@@ -211,7 +211,7 @@ export const Examples = (args: CardProps) => {
             <DescriptionListDesc>Description</DescriptionListDesc>
           </DescriptionList>
         </ContentContainer>
-      </DDSCard>
+      </Card>
     </StoryTemplate>
   );
 };

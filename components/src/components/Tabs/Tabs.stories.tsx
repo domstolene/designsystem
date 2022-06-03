@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import { Story, Meta } from '@storybook/react';

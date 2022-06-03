@@ -1,5 +1,5 @@
 import { Tooltip, TooltipProps } from '.';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 

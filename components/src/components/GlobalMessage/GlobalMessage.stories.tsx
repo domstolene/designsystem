@@ -1,12 +1,9 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
-import {
-  GlobalMessage as DDSGlobalMessage,
-  GlobalMessageProps
-} from './GlobalMessage';
+import { StoryTemplate } from '../../storybook';
+import { GlobalMessage, GlobalMessageProps } from './GlobalMessage';
 
 export default {
   title: 'design system/GlobalMessage',
-  component: DDSGlobalMessage,
+  component: GlobalMessage,
   argTypes: {
     message: { control: { type: 'text' } },
     closable: { control: { type: 'boolean' } }
@@ -16,34 +13,30 @@ export default {
 export const Overview = (args: GlobalMessageProps) => {
   return (
     <StoryTemplate title="GlobalMessage - overview">
-      <DDSGlobalMessage
-        {...args}
-        purpose="info"
-        message="En tilfeldig melding"
-      />
-      <DDSGlobalMessage
+      <GlobalMessage {...args} purpose="info" message="En tilfeldig melding" />
+      <GlobalMessage
         {...args}
         purpose="warning"
         message="En tilfeldig melding"
       />
-      <DDSGlobalMessage
+      <GlobalMessage
         {...args}
         purpose="danger"
         message="En tilfeldig melding"
       />
-      <DDSGlobalMessage
+      <GlobalMessage
         {...args}
         purpose="info"
         message="En tilfeldig melding"
         closable
       />
-      <DDSGlobalMessage
+      <GlobalMessage
         {...args}
         purpose="warning"
         message="En tilfeldig melding"
         closable
       />
-      <DDSGlobalMessage
+      <GlobalMessage
         {...args}
         purpose="danger"
         message="En tilfeldig melding"
@@ -56,7 +49,7 @@ export const Overview = (args: GlobalMessageProps) => {
 export const Default = (args: GlobalMessageProps) => {
   return (
     <StoryTemplate title="GlobalMessage - default">
-      <DDSGlobalMessage
+      <GlobalMessage
         {...args}
         message={args.message || 'En tilfeldig melding'}
       />
@@ -67,7 +60,7 @@ export const Default = (args: GlobalMessageProps) => {
 export const Closable = (args: GlobalMessageProps) => {
   return (
     <StoryTemplate title="GlobalMessage - closable">
-      <DDSGlobalMessage
+      <GlobalMessage
         {...args}
         purpose={args.purpose || 'info'}
         message={args.message || 'En tilfeldig melding'}
