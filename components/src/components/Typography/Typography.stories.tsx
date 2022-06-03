@@ -1,5 +1,5 @@
-import { Typography as DDSTypography, TypographyProps } from './Typography';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { Typography, TypographyProps } from '.';
+import { StoryTemplate } from '../../storybook';
 
 type StoryTProps = {
   text: string;
@@ -7,7 +7,7 @@ type StoryTProps = {
 
 export default {
   title: 'Design system/Typography',
-  component: DDSTypography,
+  component: Typography,
   argTypes: {
     typographyType: { control: { type: 'select' } },
     bold: { control: { type: 'boolean' } },
@@ -29,7 +29,7 @@ export const Default = (args: StoryTProps) => {
   const { text, ...rest } = args;
   return (
     <StoryTemplate title="Typography - default">
-      <DDSTypography {...rest}>{text || 'default'}</DDSTypography>
+      <Typography {...rest}>{text || 'default'}</Typography>
     </StoryTemplate>
   );
 };

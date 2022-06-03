@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import { focusVisible } from '../../helpers/styling/focusVisible';
+import { focusVisible } from '../../helpers/styling';
 
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 

@@ -5,7 +5,7 @@ import {
   DescriptionListGroup,
   DescriptionListProps
 } from '.';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import { Typography } from '../Typography';
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';

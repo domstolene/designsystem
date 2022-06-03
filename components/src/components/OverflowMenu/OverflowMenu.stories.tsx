@@ -1,5 +1,5 @@
 import { OverflowMenu, OverflowMenuProps, OverflowMenuGroup } from '.';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';

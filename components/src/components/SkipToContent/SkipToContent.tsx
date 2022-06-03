@@ -1,10 +1,10 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 
 type WrapperProps = {
-  top: CSS.Property.Top<string | number>;
+  top: Property.Top<string | number>;
 };
 
 const Wrapper = styled.div<WrapperProps>`
@@ -47,7 +47,7 @@ export type SkipToContentProps = {
   /**Spesifiserer hvor det skal hoppes til via `id`-attributtet til innholdet. */
   href: string;
   /**Avstand fra top i nærmeste posisjonert container. */
-  top?: CSS.Property.Top<string | number>;
+  top?: Property.Top<string | number>;
 } & HTMLAttributes<HTMLAnchorElement>;
 
 export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, ChangeEvent } from 'react';
 import {
-  Table as DDSTable,
+  Table,
   TableProps,
   Row,
   Cell,
@@ -20,13 +20,13 @@ import {
   headerCells,
   mapCellContents
 } from './tableData';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
 
 export default {
   title: 'design system/Table',
-  component: DDSTable,
+  component: Table,
   argTypes: {
     stickyHeader: {
       control: {
@@ -48,7 +48,7 @@ export const Default = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - default">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Head>
             <Row type="head">{mappedHeaderCells}</Row>
           </Head>
@@ -61,7 +61,7 @@ export const Default = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -71,7 +71,7 @@ export const Focusable = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - focusable">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Head>
             <Row type="head">{mappedHeaderCells}</Row>
           </Head>
@@ -90,7 +90,7 @@ export const Focusable = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -100,7 +100,7 @@ export const Compact = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - compact">
       <TableWrapper>
-        <DDSTable {...args} density="compact">
+        <Table {...args} density="compact">
           <Head>
             <Row type="head">{mappedHeaderCells}</Row>
           </Head>
@@ -113,7 +113,7 @@ export const Compact = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -123,7 +123,7 @@ export const StickyHeader = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - sticky header">
       <TableWrapper>
-        <DDSTable {...args} stickyHeader>
+        <Table {...args} stickyHeader>
           <Head>
             <Row type="head">{mappedHeaderCells}</Row>
           </Head>
@@ -143,7 +143,7 @@ export const StickyHeader = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -153,7 +153,7 @@ export const Hoverable = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - hoverable">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Head>
             <Row type="head">{mappedHeaderCells}</Row>
           </Head>
@@ -166,7 +166,7 @@ export const Hoverable = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -185,7 +185,7 @@ export const WithButtonAndIcons = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - with buttons and icons">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Head>
             <Row type="head">
               <Cell type="head">Navn</Cell>
@@ -208,7 +208,7 @@ export const WithButtonAndIcons = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -236,7 +236,7 @@ export const WithSum = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - sum">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Head>
             <Row type="head">
               <Cell type="head">Saksnummer</Cell>
@@ -261,7 +261,7 @@ export const WithSum = (args: TableProps) => {
               </Cell>
             </Row>
           </Foot>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -293,10 +293,7 @@ export const WithCheckbox = (args: TableProps) => {
 
   const [selectedRows, setselectedRows] = useState<chechboxRow[]>([]);
 
-  function handleChange(
-    e: React.ChangeEvent<HTMLInputElement>,
-    row: chechboxRow
-  ) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>, row: chechboxRow) {
     const currentRows = [...selectedRows];
     if (e.target.checked) {
       currentRows.push(row);
@@ -328,7 +325,7 @@ export const WithCheckbox = (args: TableProps) => {
   //   e.nativeEvent.stopImmediatePropagation();
   // }
 
-  function changeAll(e: React.ChangeEvent<HTMLInputElement>) {
+  function changeAll(e: ChangeEvent<HTMLInputElement>) {
     if (e.target.checked) {
       setselectedRows([...rows]);
     } else {
@@ -338,7 +335,7 @@ export const WithCheckbox = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - with checkboxes">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Head>
             <Row type="head">
               <Cell type="head">
@@ -389,7 +386,7 @@ export const WithCheckbox = (args: TableProps) => {
               );
             })}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -399,7 +396,7 @@ export const Complex = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - complex">
       <TableWrapper>
-        <DDSTable {...args} stickyHeader>
+        <Table {...args} stickyHeader>
           <colgroup>
             <col />
           </colgroup>
@@ -466,7 +463,7 @@ export const Complex = (args: TableProps) => {
               <Cell>9,000</Cell>
             </Row>
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -524,7 +521,7 @@ export const Sortable = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - sortable">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Head>
             <Row type="head">
               {headerSortCells.map(headerCell => {
@@ -561,7 +558,7 @@ export const Sortable = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );
@@ -571,7 +568,7 @@ export const ColumnAndRowHeaders = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - column and row headers">
       <TableWrapper>
-        <DDSTable {...args}>
+        <Table {...args}>
           <Body>
             <Row>
               <Cell></Cell>
@@ -598,7 +595,7 @@ export const ColumnAndRowHeaders = (args: TableProps) => {
               </Row>
             ))}
           </Body>
-        </DDSTable>
+        </Table>
       </TableWrapper>
     </StoryTemplate>
   );

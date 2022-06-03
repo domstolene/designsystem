@@ -1,4 +1,4 @@
-import React, {
+import {
   ButtonHTMLAttributes,
   forwardRef,
   InputHTMLAttributes,
@@ -9,7 +9,7 @@ import styled, { css } from 'styled-components';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
-import { inputFieldStylingBase } from '../../helpers/Input/inputFieldStylingBase';
+import { inputFieldStylingBase } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import {
   derivativeIdGenerator,

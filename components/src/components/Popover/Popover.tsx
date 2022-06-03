@@ -1,6 +1,6 @@
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 import { forwardRef, HTMLAttributes, ReactNode, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Placement, useCombinedRef, useFloatPosition } from '../../hooks';
@@ -54,12 +54,12 @@ const StyledButton = styled(Button)`
 `;
 
 export type PopoverSizeProps = {
-  width?: CSS.Property.Width<string>;
-  height?: CSS.Property.Height<string>;
-  minWidth?: CSS.Property.MinWidth<string>;
-  minHeight?: CSS.Property.MinHeight<string>;
-  maxWidth?: CSS.Property.MaxWidth<string>;
-  maxHeight?: CSS.Property.MaxHeight<string>;
+  width?: Property.Width<string>;
+  height?: Property.Height<string>;
+  minWidth?: Property.MinWidth<string>;
+  minHeight?: Property.MinHeight<string>;
+  maxWidth?: Property.MaxWidth<string>;
+  maxHeight?: Property.MaxHeight<string>;
 };
 
 export type PopoverProps = {

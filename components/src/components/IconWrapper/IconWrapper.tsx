@@ -2,7 +2,7 @@ import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { HTMLAttributes } from 'react';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 
 const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
@@ -27,7 +27,7 @@ export type IconWrapperProps = {
   /**Størrelsen til ikonet. */
   iconSize?: IconSize;
   /**Fargen til ikonet. */
-  color?: CSS.Property.Color;
+  color?: Property.Color;
 } & HTMLAttributes<SVGElement>;
 
 export function IconWrapper({

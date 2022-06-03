@@ -1,6 +1,6 @@
-import React, { useState, HTMLAttributes } from 'react';
+import { useState, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import RequiredMarker from '../../helpers/RequiredMarker';
+import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import { checkboxGroupTokens as tokens } from './CheckboxGroup.tokens';
 import { CheckboxGroupContext } from './CheckboxGroupContext';

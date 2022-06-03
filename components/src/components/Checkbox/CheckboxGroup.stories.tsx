@@ -1,13 +1,9 @@
-import {
-  CheckboxGroup as DDSCheckboxGroup,
-  CheckboxGroupProps
-} from './CheckboxGroup';
-import { Checkbox as DDSCheckbox } from './Checkbox';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { Checkbox, CheckboxGroup, CheckboxGroupProps } from '.';
+import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Checkbox/CheckboxGroup',
-  component: DDSCheckboxGroup,
+  component: CheckboxGroup,
   argTypes: {
     label: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
@@ -30,94 +26,90 @@ export const Overview = (args: CheckboxGroupProps) => {
       display="grid"
       columnsAmount={2}
     >
-      <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
-        <DDSCheckbox label="Option 1" />
-        <DDSCheckbox label="Option 2" />
-        <DDSCheckbox label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
-        {...args}
-        label={args.label || 'Label'}
-        direction="column"
-      >
-        <DDSCheckbox label="Option 1" />
-        <DDSCheckbox label="Option 2" />
-        <DDSCheckbox label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup {...args} label={args.label || 'Label'} required>
-        <DDSCheckbox label="Option 1" />
-        <DDSCheckbox label="Option 2" />
-        <DDSCheckbox label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
+      <CheckboxGroup {...args} label={args.label || 'Label'}>
+        <Checkbox label="Option 1" />
+        <Checkbox label="Option 2" />
+        <Checkbox label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup {...args} label={args.label || 'Label'} direction="column">
+        <Checkbox label="Option 1" />
+        <Checkbox label="Option 2" />
+        <Checkbox label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup {...args} label={args.label || 'Label'} required>
+        <Checkbox label="Option 1" />
+        <Checkbox label="Option 2" />
+        <Checkbox label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup
         {...args}
         label={args.label || 'Label'}
         direction="column"
         required
       >
-        <DDSCheckbox label="Option 1" />
-        <DDSCheckbox label="Option 2" />
-        <DDSCheckbox label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
+        <Checkbox label="Option 1" />
+        <Checkbox label="Option 2" />
+        <Checkbox label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup
         {...args}
         label={args.label || 'Label'}
         tip="Dette er en hjelpetekst"
       >
-        <DDSCheckbox label="Option 1" />
-        <DDSCheckbox label="Option 2" />
-        <DDSCheckbox label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
+        <Checkbox label="Option 1" />
+        <Checkbox label="Option 2" />
+        <Checkbox label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup
         {...args}
         label={args.label || 'Label'}
         direction="column"
         tip="Dette er en hjelpetekst"
       >
-        <DDSCheckbox label="Option 1" />
-        <DDSCheckbox label="Option 2" />
-        <DDSCheckbox label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
+        <Checkbox label="Option 1" />
+        <Checkbox label="Option 2" />
+        <Checkbox label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup
         {...args}
         label={args.label || 'Label'}
         errorMessage="Dette er en feilmelding"
       >
-        <DDSCheckbox error label="Option 1" />
-        <DDSCheckbox error label="Option 2" />
-        <DDSCheckbox error label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
+        <Checkbox error label="Option 1" />
+        <Checkbox error label="Option 2" />
+        <Checkbox error label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup
         {...args}
         label={args.label || 'Label'}
         direction="column"
         errorMessage="Dette er en feilmelding"
       >
-        <DDSCheckbox error label="Option 1" />
-        <DDSCheckbox error label="Option 2" />
-        <DDSCheckbox error label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
+        <Checkbox error label="Option 1" />
+        <Checkbox error label="Option 2" />
+        <Checkbox error label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup
         {...args}
         label={args.label || 'Label'}
         tip="Dette er en hjelpetekst"
         errorMessage="Dette er en feilmelding"
       >
-        <DDSCheckbox error label="Option 1" />
-        <DDSCheckbox error label="Option 2" />
-        <DDSCheckbox error label="Option 3" />
-      </DDSCheckboxGroup>
-      <DDSCheckboxGroup
+        <Checkbox error label="Option 1" />
+        <Checkbox error label="Option 2" />
+        <Checkbox error label="Option 3" />
+      </CheckboxGroup>
+      <CheckboxGroup
         {...args}
         label={args.label || 'Label'}
         direction="column"
         tip="Dette er en hjelpetekst"
         errorMessage="Dette er en feilmelding"
       >
-        <DDSCheckbox error label="Option 1" />
-        <DDSCheckbox error label="Option 2" />
-        <DDSCheckbox error label="Option 3" />
-      </DDSCheckboxGroup>
+        <Checkbox error label="Option 1" />
+        <Checkbox error label="Option 2" />
+        <Checkbox error label="Option 3" />
+      </CheckboxGroup>
     </StoryTemplate>
   );
 };
@@ -125,11 +117,11 @@ export const Overview = (args: CheckboxGroupProps) => {
 export const Default = (args: CheckboxGroupProps) => {
   return (
     <StoryTemplate title="CheckboxGroup - default">
-      <DDSCheckboxGroup {...args} label={args.label || 'Label'}>
-        <DDSCheckbox label="Option 1" />
-        <DDSCheckbox label="Option 2" />
-        <DDSCheckbox label="Option 3" />
-      </DDSCheckboxGroup>
+      <CheckboxGroup {...args} label={args.label || 'Label'}>
+        <Checkbox label="Option 1" />
+        <Checkbox label="Option 2" />
+        <Checkbox label="Option 3" />
+      </CheckboxGroup>
     </StoryTemplate>
   );
 };

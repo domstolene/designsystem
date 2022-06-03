@@ -1,7 +1,7 @@
 import { GroupBase, StylesConfig } from 'react-select';
 import styled, { css } from 'styled-components';
 import { IconWrapper } from '../IconWrapper';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { scrollbarStyling } from '../../helpers/styling';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { selectTokens as tokens } from './Select.tokens';

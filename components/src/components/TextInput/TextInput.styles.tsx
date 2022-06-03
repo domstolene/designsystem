@@ -7,8 +7,8 @@ import {
   InputContainer as GeneralInputContainer,
   StyledInputProps,
   inputTokens
-} from '../../helpers/Input';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+} from '../../helpers';
+import { scrollbarStyling } from '../../helpers/styling';
 
 export const TextArea = styled.textarea<StyledInputProps>`
   ${({ hasLabel, disabled, readOnly, hasErrorMessage }) =>

@@ -3,7 +3,7 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import { focusVisibleInset } from '../../helpers/styling/focusVisible';
+import { focusVisibleInset } from '../../helpers/styling';
 
 const {
   colors: Colors,

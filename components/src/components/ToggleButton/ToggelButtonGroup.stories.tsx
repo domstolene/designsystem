@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { ToggleButton, ToggleButtonGroup, ToggleButtonGroupProps } from '.';
 
 export default {

@@ -1,5 +1,5 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
-import { IconWrapper, IconWrapperProps } from './IconWrapper';
+import { StoryTemplate } from '../../storybook';
+import { IconWrapper, IconWrapperProps } from '.';
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import { Typography } from '../Typography';
 

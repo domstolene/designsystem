@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
 import { Drawer, DrawerProps, DrawerGroup } from '.';
 import { Typography } from '../Typography';

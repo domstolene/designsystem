@@ -1,6 +1,6 @@
 import React, { useState, HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 import { getTextColor, TextColor } from '../Typography';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { spinnerTokens as tokens } from './Spinner.tokens';
@@ -53,7 +53,7 @@ export type SpinnerProps = {
   /**Farge på spinneren. */
   color?: TextColor | string;
   /**Størrelse; Setter høyde og bredde på spinneren. */
-  size?: CSS.Property.Width<string>;
+  size?: Property.Width<string>;
 } & HTMLAttributes<SVGElement>;
 
 let nextUniqueId = 0;

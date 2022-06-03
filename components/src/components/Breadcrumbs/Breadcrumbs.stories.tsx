@@ -1,5 +1,5 @@
 import { Breadcrumbs, BreadcrumbsProps, Breadcrumb } from '.';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Breadcrumbs',

@@ -1,7 +1,7 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { modalTokens as tokens } from './Modal.tokens';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { scrollbarStyling } from '../../helpers/styling';
 
 type ContainerProps = {
   scrollable?: boolean;

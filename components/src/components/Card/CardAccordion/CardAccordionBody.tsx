@@ -1,7 +1,7 @@
 import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 
 const expandingAnimation = css`
   transition: padding 0.2s, visibility 0.3s,
@@ -10,7 +10,7 @@ const expandingAnimation = css`
 
 type BodyProps = {
   isExpanded?: boolean;
-  paddingTop?: CSS.Property.PaddingTop<string>;
+  paddingTop?: Property.PaddingTop<string>;
 };
 
 const Body = styled.div<BodyProps>`
@@ -47,7 +47,7 @@ export type CardAccordionBodyProps = {
   /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionHeader />`.  */
   headerId?: string;
   /**Overskriver default padding på toppen. Brukes når barn har spacing på toppen, f.eks. en overskrift. */
-  paddingTop?: CSS.Property.PaddingTop<string>;
+  paddingTop?: Property.PaddingTop<string>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const CardAccordionBody = forwardRef<

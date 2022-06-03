@@ -1,11 +1,11 @@
 import { InputHTMLAttributes } from 'react';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 
 export type InputProps = {
   /**Ledetekst for input. */
   label?: string;
   /**Bredde for inputfeltet. */
-  width?: CSS.Property.Width<string>;
+  width?: Property.Width<string>;
   /**Hjelpetekst. */
   tip?: string;
   /**Feilmelding. Setter også error state. */

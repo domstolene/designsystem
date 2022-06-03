@@ -1,10 +1,9 @@
-import { Pagination as DDSPagination, PaginationProps } from './Pagination';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
-import { Pagination } from './Pagination';
+import { Pagination, PaginationProps } from '.';
+import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Pagination',
-  component: DDSPagination,
+  component: Pagination,
   argTypes: {
     withCounter: { control: 'boolean' },
     withPagination: { control: 'boolean' },

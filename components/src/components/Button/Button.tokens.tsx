@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import { calculateHeightWithLineHeight } from '../../helpers/functions';
+import { calculateHeightWithLineHeight } from '../../utils';
 import { focusVisible } from '../../helpers/styling';
 
 const {

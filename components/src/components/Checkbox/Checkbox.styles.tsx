@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled, { css, CSSObject } from 'styled-components';
+import { hideInput } from '../../helpers/styling';
 import { checkboxTokens as tokens } from './Checkbox.tokens';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -17,11 +18,7 @@ export const CustomCheckbox = styled.span`
 export const Input = styled.input.attrs(({ type = 'checkbox' }) => ({
   type
 }))`
-  clip: rect(0 0 0 0);
-  position: absolute;
-  height: 0;
-  width: 0;
-  margin: 0;
+  ${hideInput as CSSObject}
 `;
 
 type ContainerProps = Pick<

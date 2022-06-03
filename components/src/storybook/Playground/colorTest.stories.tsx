@@ -8,7 +8,7 @@ import { Typography } from '../../components/Typography';
 import { TextInput } from '../../components/TextInput';
 import { GlobalMessage } from '../../components/GlobalMessage';
 import { LocalMessage } from '../../components/LocalMessage';
-import { StoryTemplate } from '../StoryTemplate';
+import { StoryTemplate } from '..';
 
 export default {
   title: 'Playground/color test'

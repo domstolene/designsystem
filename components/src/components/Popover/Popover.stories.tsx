@@ -1,7 +1,6 @@
 import { Popover, PopoverProps, PopoverGroup } from '.';
 import { Button } from '../Button';
-
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../../storybook';
 import { Placement } from '../../hooks';
 import { Typography } from '../Typography';
 import styled from 'styled-components';

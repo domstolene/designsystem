@@ -1,10 +1,9 @@
-import { RadioButton as DDSRadioButton } from './RadioButton';
-import { RadioButtonProps } from './RadioButton.types';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { RadioButton, RadioButtonProps } from '.';
+import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/RadioButton/RadioButton',
-  component: DDSRadioButton,
+  component: RadioButton,
   argTypes: {
     label: { control: { type: 'text' } },
     error: { control: { type: 'boolean' } },
@@ -21,23 +20,23 @@ export const Overview = (args: RadioButtonProps) => {
       display="grid"
       columnsAmount={2}
     >
-      <DDSRadioButton {...args} label={args.label || 'Default'} />
-      <DDSRadioButton {...args} label={args.label || 'Checked'} checked />
-      <DDSRadioButton {...args} label={args.label || 'Disabled'} disabled />
-      <DDSRadioButton
+      <RadioButton {...args} label={args.label || 'Default'} />
+      <RadioButton {...args} label={args.label || 'Checked'} checked />
+      <RadioButton {...args} label={args.label || 'Disabled'} disabled />
+      <RadioButton
         {...args}
         label={args.label || 'Disabled checked'}
         disabled
         checked
       />
-      <DDSRadioButton {...args} label={args.label || 'Read only'} readOnly />
-      <DDSRadioButton
+      <RadioButton {...args} label={args.label || 'Read only'} readOnly />
+      <RadioButton
         {...args}
         label={args.label || 'Read only checked'}
         readOnly
         checked
       />
-      <DDSRadioButton {...args} label={args.label || 'Error'} error />
+      <RadioButton {...args} label={args.label || 'Error'} error />
     </StoryTemplate>
   );
 };
@@ -45,8 +44,8 @@ export const Overview = (args: RadioButtonProps) => {
 export const Default = (args: RadioButtonProps) => {
   return (
     <StoryTemplate title="Radio button - default">
-      <DDSRadioButton {...args} label={args.label || 'Label'} name="test" />
-      <DDSRadioButton {...args} label={args.label || 'Label'} name="test" />
+      <RadioButton {...args} label={args.label || 'Label'} name="test" />
+      <RadioButton {...args} label={args.label || 'Label'} name="test" />
     </StoryTemplate>
   );
 };

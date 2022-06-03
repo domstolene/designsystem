@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { scrollbarStyling } from '../../helpers/styling';
 import { cellTokens } from './Cell.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
 

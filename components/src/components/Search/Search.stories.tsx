@@ -1,10 +1,9 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
-
-import { Search as DDSSearch, SearchProps } from './Search';
+import { StoryTemplate } from '../../storybook';
+import { Search, SearchProps } from './Search';
 
 export default {
   title: 'Design system/Search',
-  component: DDSSearch,
+  component: Search,
   argTypes: {
     tip: { control: { type: 'text' } }
   },
@@ -18,68 +17,56 @@ export default {
 export const Overview = (args: SearchProps) => {
   return (
     <StoryTemplate title="Search - overview" display="grid" columnsAmount={2}>
-      <DDSSearch {...args} componentSize="small" />
-      <DDSSearch
+      <Search {...args} componentSize="small" />
+      <Search
         {...args}
         componentSize="small"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
-      <DDSSearch {...args} componentSize="medium" />
-      <DDSSearch
+      <Search {...args} componentSize="medium" />
+      <Search
         {...args}
         componentSize="medium"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
-      <DDSSearch {...args} componentSize="large" />
-      <DDSSearch
+      <Search {...args} componentSize="large" />
+      <Search
         {...args}
         componentSize="large"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
-      <DDSSearch
-        {...args}
-        componentSize="small"
-        tip="Dette er en hjelpetekst"
-      />
-      <DDSSearch
+      <Search {...args} componentSize="small" tip="Dette er en hjelpetekst" />
+      <Search
         {...args}
         componentSize="small"
         tip="Dette er en hjelpetekst"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
-      <DDSSearch
-        {...args}
-        componentSize="medium"
-        tip="Dette er en hjelpetekst"
-      />
-      <DDSSearch
+      <Search {...args} componentSize="medium" tip="Dette er en hjelpetekst" />
+      <Search
         {...args}
         componentSize="medium"
         tip="Dette er en hjelpetekst"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
-      <DDSSearch
-        {...args}
-        componentSize="large"
-        tip="Dette er en hjelpetekst"
-      />
-      <DDSSearch
+      <Search {...args} componentSize="large" tip="Dette er en hjelpetekst" />
+      <Search
         {...args}
         componentSize="large"
         tip="Dette er en hjelpetekst"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
       />
-      <DDSSearch
+      <Search
         {...args}
         componentSize="small"
         buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
       />
-      <DDSSearch
+      <Search
         {...args}
         componentSize="medium"
         buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
       />
-      <DDSSearch
+      <Search
         {...args}
         componentSize="large"
         buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
@@ -91,7 +78,7 @@ export const Overview = (args: SearchProps) => {
 export const Default = (args: SearchProps) => {
   return (
     <StoryTemplate title="Search - default">
-      <DDSSearch {...args} />
+      <Search {...args} />
     </StoryTemplate>
   );
 };
@@ -99,7 +86,7 @@ export const Default = (args: SearchProps) => {
 export const WithButton = (args: SearchProps) => {
   return (
     <StoryTemplate title="Search - with button">
-      <DDSSearch {...args} buttonProps={{ onClick: () => {}, label: 'Søk' }} />
+      <Search {...args} buttonProps={{ onClick: () => {}, label: 'Søk' }} />
     </StoryTemplate>
   );
 };

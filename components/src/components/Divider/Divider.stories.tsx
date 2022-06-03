@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook/StoryTemplate';
-import { Divider as DDSDivider, DividerProps } from '.';
+import { StoryTemplate } from '../../storybook';
+import { Divider, DividerProps } from '.';
 import { Typography } from '../Typography';
 
 export default {
   title: 'design system/Divider',
-  component: DDSDivider,
+  component: Divider,
   argTypes: {}
 };
 
@@ -12,8 +12,8 @@ export const Overview = (args: DividerProps) => {
   return (
     <StoryTemplate title="Divider - overview" gap="40px">
       <div>
-        <DDSDivider {...args} />
-        <DDSDivider {...args} color="primaryLighter" />
+        <Divider {...args} />
+        <Divider {...args} color="primaryLighter" />
       </div>
     </StoryTemplate>
   );
@@ -23,7 +23,7 @@ export const Default = (args: DividerProps) => {
   return (
     <StoryTemplate title="Divider - default" gap="40px">
       <div>
-        <DDSDivider {...args} />
+        <Divider {...args} />
       </div>
     </StoryTemplate>
   );
@@ -40,7 +40,7 @@ export const Example = (args: DividerProps) => {
           plikt til å møte opp i tråd med innkallingen og forklare deg for
           retten.
         </Typography>
-        <DDSDivider {...args} />
+        <Divider {...args} />
         <Typography withMargins>
           En rettssak avgjøres med bakgrunn i det som er kommet fram i
           rettssalen. Derfor må vitner forklare seg for retten slik at dommerne

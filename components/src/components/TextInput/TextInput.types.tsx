@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 
-import { InputProps } from '../../helpers/Input';
+import { InputProps } from '../../helpers';
 
 export type TextInputProps = {
   /**Gjør inputfeltet om til `<textarea>`. */

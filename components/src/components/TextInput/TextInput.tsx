@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { textInputTokens as tokens } from './TextInput.tokens';
-import RequiredMarker from '../../helpers/RequiredMarker';
+import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
-import { Input, OuterInputContainer } from '../../helpers/Input';
+import { Input, OuterInputContainer } from '../../helpers';
 import {
   Label,
   InputContainer,

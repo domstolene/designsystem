@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 import styled from 'styled-components';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { scrollbarStyling } from '../../helpers/styling';
 import {
   useCombinedRef,
   useId,
