@@ -5,8 +5,8 @@ import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import FirstPageOutlinedIcon from '@mui/icons-material/FirstPageOutlined';
 import LastPageOutlinedIcon from '@mui/icons-material/LastPageOutlined';
-import { Typography } from '../../components/Typography';
-import { Button } from '../../components/Button';
+import { Typography } from '../Typography';
+import { Button } from '../Button';
 import { Select } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
 import { IconWrapper } from '../IconWrapper';
@@ -26,10 +26,19 @@ const List = styled.ol`
   padding: 0;
 `;
 
-const ListItem = styled.li`
+type ListItemProps = {
+  isHidden?: boolean;
+};
+
+const ListItem = styled.li<ListItemProps>`
   list-style: none;
   display: inline-grid;
   align-content: center;
+  ${({ isHidden }) =>
+    isHidden &&
+    css`
+      visibility: hidden;
+    `}
 `;
 
 const Container = styled.div<{ smallScreen?: boolean }>`
@@ -42,7 +51,7 @@ const Container = styled.div<{ smallScreen?: boolean }>`
           align-items: center;
         `
       : css`
-          justify-content: space-between;
+          justify-content: space-around;
           flex-wrap: wrap;
         `}
 `;
@@ -196,12 +205,19 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       ...rest
     };
 
+    const isOnFirstPage = activePage === 1;
+    const isOnLastPage = activePage === pagesLength;
+
     const navigation = withPagination ? (
       <Nav ref={ref} aria-label="paginering" {...navProps}>
         <List>
-          {activePage > 1 && <ListItem> {previousPageButton}</ListItem>}
+          <ListItem isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+            {previousPageButton}
+          </ListItem>
           {listItems}
-          {activePage < pagesLength && <ListItem> {nextPageButton} </ListItem>}
+          <ListItem isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+            {nextPageButton}
+          </ListItem>
         </List>
       </Nav>
     ) : null;
@@ -209,23 +225,21 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const smallScreenNavigation = withPagination ? (
       <Nav ref={ref} aria-label="paginering" {...navProps}>
         <List>
-          {activePage > 1 && (
-            <>
-              <ListItem>
-                <Button
-                  purpose="secondary"
-                  appearance="ghost"
-                  size="small"
-                  Icon={FirstPageOutlinedIcon}
-                  onClick={event => {
-                    onPageChange(event, 1);
-                  }}
-                  aria-label="Gå til første siden"
-                />
-              </ListItem>
-              <ListItem>{previousPageButton}</ListItem>
-            </>
-          )}
+          <ListItem isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+            <Button
+              purpose="secondary"
+              appearance="ghost"
+              size="small"
+              Icon={FirstPageOutlinedIcon}
+              onClick={event => {
+                onPageChange(event, 1);
+              }}
+              aria-label="Gå til første siden"
+            />
+          </ListItem>
+          <ListItem isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+            {previousPageButton}
+          </ListItem>
           <ListItem>
             <Button
               label={activePage.toString()}
@@ -235,23 +249,21 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               }}
             />
           </ListItem>
-          {activePage < pagesLength && (
-            <>
-              <ListItem>{nextPageButton}</ListItem>
-              <ListItem>
-                <Button
-                  purpose="secondary"
-                  appearance="ghost"
-                  size="small"
-                  Icon={LastPageOutlinedIcon}
-                  onClick={event => {
-                    onPageChange(event, pagesLength);
-                  }}
-                  aria-label="Gå til siste siden"
-                />
-              </ListItem>
-            </>
-          )}
+          <ListItem isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+            {nextPageButton}
+          </ListItem>
+          <ListItem isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+            <Button
+              purpose="secondary"
+              appearance="ghost"
+              size="small"
+              Icon={LastPageOutlinedIcon}
+              onClick={event => {
+                onPageChange(event, pagesLength);
+              }}
+              aria-label="Gå til siste siden"
+            />
+          </ListItem>
         </List>
       </Nav>
     ) : null;
