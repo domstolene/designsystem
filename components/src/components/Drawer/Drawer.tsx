@@ -17,10 +17,10 @@ import {
   useFocusTrap
 } from '../../hooks';
 import { drawerTokens as tokens } from './Drawer.tokens';
-import { focusVisible } from '../../helpers/styling/focusVisible';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { focusVisible } from '../../helpers/styling';
+import { scrollbarStyling } from '../../helpers/styling';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import { Paper } from '../../helpers/Paper';
+import { Paper } from '../../helpers';
 import { Property } from 'csstype';
 
 type ContainerProps = {

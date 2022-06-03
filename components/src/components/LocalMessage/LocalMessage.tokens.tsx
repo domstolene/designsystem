@@ -5,7 +5,7 @@ import DangerOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import EmojiObjectsOutlinedIcon from '@mui/icons-material/EmojiObjectsOutlined';
 import { CSSObject } from 'styled-components';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 
 const {
   colors: Colors,
@@ -25,7 +25,7 @@ const containerBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray8
 };
 
-const defaultWidth: CSS.Property.Width<string> = '400px';
+const defaultWidth: Property.Width<string> = '400px';
 
 const contentContainerBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX15,

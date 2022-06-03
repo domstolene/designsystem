@@ -5,8 +5,4 @@ const MarkerWrapper = styled.span`
   color: ${tokens.colors.DdsColorDangerBase};
 `;
 
-function RequiredMarker() {
-  return <MarkerWrapper>*</MarkerWrapper>;
-}
-
-export default RequiredMarker;
+export const RequiredMarker = () => <MarkerWrapper>*</MarkerWrapper>;

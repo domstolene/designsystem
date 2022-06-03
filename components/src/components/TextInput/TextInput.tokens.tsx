@@ -3,7 +3,7 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
@@ -27,7 +27,7 @@ const inputLabelMultilineBase: CSSObject = {
   } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 1}px`
 };
 
-const defaultWidth: CSS.Property.Width<string> = '320px';
+const defaultWidth: Property.Width<string> = '320px';
 
 export const textInputTokens = {
   general: TextInput,

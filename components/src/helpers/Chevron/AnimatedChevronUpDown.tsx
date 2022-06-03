@@ -4,7 +4,7 @@ import {
   SvgChevronlGroup,
   SvgChevron
 } from './AnimatedChevronUpDown.styles';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 
 const svgChevronLeftPath =
   'M 1 0 L 5 4 C 5 4 5 4 5 4 L 4 5 C 4 5 4 5 4 5 C 4 5 4 5 4 5 L 0 1 C 0 1 0 1 0 1 L 1 0 C 1 0 1 0 1 0 C 1 0 1 0 1 0 L 1 0 Z';
@@ -13,8 +13,8 @@ const svgChevronRightPath =
 
 type SvgChevronProps = {
   isUp?: boolean;
-  height?: CSS.Property.Height<string>;
-  width?: CSS.Property.Width<string>;
+  height?: Property.Height<string>;
+  width?: Property.Width<string>;
 };
 
 export const AnimatedChevronUpDown = ({

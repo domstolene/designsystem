@@ -4,7 +4,7 @@ import {
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { hoverWithBorder } from '../../helpers/styling';
-import { focusVisibleWithBorder } from '../../helpers/styling/focusVisible';
+import { focusVisibleWithBorder } from '../../helpers/styling';
 
 const {
   colors: Colors,

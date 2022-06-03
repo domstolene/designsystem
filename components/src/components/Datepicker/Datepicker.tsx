@@ -1,14 +1,14 @@
 import { forwardRef, useState } from 'react';
 import { InputMessage } from '../InputMessage';
-import RequiredMarker from '../../helpers/RequiredMarker';
+import { RequiredMarker } from '../../helpers';
 import {
   Input,
   SingleLineLabel as Label,
   InputContainer,
   OuterInputContainer,
   InputProps
-} from '../../helpers/Input';
-import * as CSS from 'csstype';
+} from '../../helpers';
+import { Property } from 'csstype';
 import styled from 'styled-components';
 import {
   derivativeIdGenerator,
@@ -18,7 +18,7 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
 import { datepickerTokens as tokens } from './Datepicker.tokens';
 
-const getWidth = (type: string): CSS.Property.Width<string> => {
+const getWidth = (type: string): Property.Width<string> => {
   return type === 'date'
     ? '205px'
     : type === 'datetime-local'

@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 
-const scrollbarStyling = css`
+export const scrollbarStyling = css`
   /* width */
   &::-webkit-scrollbar {
     width: 10px;
@@ -31,5 +31,3 @@ const scrollbarStyling = css`
     transparent;
   scrollbar-width: thin;
 `;
-
-export default scrollbarStyling;

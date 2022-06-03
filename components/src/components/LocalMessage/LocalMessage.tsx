@@ -4,7 +4,7 @@ import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { localMessageTokens as tokens } from './LocalMessage.tokens';
 import { IconWrapper } from '../IconWrapper';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
@@ -93,7 +93,7 @@ export type LocalMessageProps = {
   /**Layoutet i komponenten. Ved kompleks innhold anbefales `layout='vertical'`. */
   layout?: LocalMessageLayout;
   /**Custom bredde ved behov. */
-  width?: CSS.Property.Width<string>;
+  width?: Property.Width<string>;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(

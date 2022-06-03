@@ -1,5 +1,5 @@
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
-import * as CSS from 'csstype';
+import { Property } from 'csstype';
 import React, { useState } from 'react';
 import {
   components,
@@ -12,7 +12,7 @@ import {
   SelectInstance
 } from 'react-select';
 import { InputMessage } from '../InputMessage';
-import RequiredMarker from '../../helpers/RequiredMarker';
+import { RequiredMarker } from '../../helpers';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator
@@ -68,7 +68,7 @@ export type SelectProps<TOption, IsMulti extends boolean> = {
   /**Hjelpetekst. */
   tip?: string;
   /**Custom bredde ved behov. */
-  width?: CSS.Property.Width<string>;
+  width?: Property.Width<string>;
   /** CSS klassenavn. */
   className?: string;
   /** Inline styling. */

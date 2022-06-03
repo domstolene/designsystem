@@ -1,6 +1,6 @@
-import React, { ChangeEvent, HTMLAttributes, useState } from 'react';
+import { ChangeEvent, HTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
-import RequiredMarker from '../../helpers/RequiredMarker';
+import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';

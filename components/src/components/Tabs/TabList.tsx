@@ -16,7 +16,7 @@ import {
   useRoveFocus
 } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { scrollbarStyling } from '../../helpers/styling';
 
 const TabRow = styled.div`
   ${tokens.tabList.base}
@@ -44,8 +44,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       tabListRef,
       hasTabFocus,
       tabPanelsRef,
-      setHasTabFocus,
-      tabWidth
+      setHasTabFocus
     } = useTabsContext();
 
     const [uniqueId] = useState<string>(id ?? `${tabsId}-tablist`);

@@ -1,6 +1,6 @@
 import { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import scrollbarStyling from '../../helpers/scrollbarStyling';
+import { scrollbarStyling } from '../../helpers/styling';
 
 const Wrapper = styled.div<{ overflowX: boolean }>`
   ${({ overflowX }) =>

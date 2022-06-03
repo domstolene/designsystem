@@ -1,7 +1,7 @@
 import { forwardRef, ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { cardAccordionHeaderTokens as tokens } from './CardAccordionHeader.tokens';
-import { AnimatedChevronUpDown } from '../../../helpers/Chevron';
+import { AnimatedChevronUpDown } from '../../../helpers';
 import { removeButtonStyling } from '../../../helpers/styling';
 
 const ContentWrapper = styled.div`

@@ -18,7 +18,7 @@ import {
   Backdrop,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount
-} from '../../helpers/Backdrop';
+} from '../../helpers';
 import { useMountTransition } from '../../hooks/useMountTransition';
 import { typographyTokens } from '../Typography/Typography.tokens';
 

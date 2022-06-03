@@ -3,8 +3,8 @@ import {
   ddsReferenceTokens
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import * as CSS from 'csstype';
-import { calculateHeightWithLineHeight } from '../../helpers/functions';
+import { Property } from 'csstype';
+import { calculateHeightWithLineHeight } from '../../utils';
 import {
   dangerInputfield,
   focusDangerInputfield,
@@ -244,7 +244,7 @@ const containerReadOnlyBase: CSSObject = {
   backgroundColor: 'transparent'
 };
 
-const defaultWidth: CSS.Property.Width<string> = '320px';
+const defaultWidth: Property.Width<string> = '320px';
 
 export const selectTokens = {
   container: {
