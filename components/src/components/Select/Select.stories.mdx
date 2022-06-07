@@ -1,7 +1,236 @@
-import { Meta, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import {
+  Story,
+  Canvas,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
 import { Select } from '.';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
+import { TableWrapper, Table, Body, Cell, Head, Row } from '../Table';
 
 <Meta title="Design system/Select/API" component={Select} />
 
-<ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface.
+# Select
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/19970c-select/b/98ef83"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Select"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-select-singlevalue--default" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-select-multiselect--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-select`}>Storybook</Typography>.
+
+## Bruk i koden
+
+<Source code={`import { Select } from '@norges-domstoler/dds-components';
+
+const items = [
+{value: 'alternativ 1', label: 'alternativ 1'},
+{value: 'alternativ 2', label: 'alternativ 2'}
+];
+
+//Single value
+
+<Select label="Label" items={items} />
+//Multiselect
+<Select label="Label" items={items} isMulti />
+`} />
+
+## Filtrering
+
+Brukeren kan filtrere alternativer ved å gi tekstlig input. Det brukes en custom filtreringsfunksjon der søkeordet er enten først i teksten, eller så har det mellomrom, bindestrek eller start-parentes før seg.
+
+## API
+
+Komponenten bruker <Typography href='https://react-select.com/home' typographyType='a'>React-select</Typography>. Det støttes props definert i designsystemet (Elsa props) og native React-select props.
+
+### Elsa props
+
+<TableWrapper>
+  <Table density="compact" style={{ width: '100%' }}>
+    <Head>
+      <Row type="head">
+        <Cell type="head">Property</Cell>
+        <Cell type="head">Datatype</Cell>
+        <Cell type="head">Påkrevd</Cell>
+        <Cell type="head">Default</Cell>
+        <Cell type="head">Beskrivelse</Cell>
+      </Row>
+    </Head>
+    <Body>
+      <Row>
+        <Cell> `label` </Cell>
+        <Cell> `string` </Cell>
+        <Cell> nei </Cell>
+        <Cell> - </Cell>
+        <Cell> Label for nedtrekkslisten. </Cell>
+      </Row>
+      <Row>
+        <Cell> `width` </Cell>
+        <Cell> `string` </Cell>
+        <Cell> nei </Cell>
+        <Cell> `'320px'` </Cell>
+        <Cell> Custom bredde ved behov.</Cell>
+      </Row>
+      <Row>
+        <Cell> `tip` </Cell>
+        <Cell> `string` </Cell>
+        <Cell> nei</Cell>
+        <Cell>-</Cell>
+        <Cell>Hjelpetekst.</Cell>
+      </Row>
+      <Row>
+        <Cell> `errorMessage` </Cell>
+        <Cell> `string` </Cell>
+        <Cell> nei </Cell>
+        <Cell>-</Cell>
+        <Cell> Meldingen som vises ved valideringsfeil.</Cell>
+      </Row>
+      <Row>
+        <Cell> `required` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell>
+          Gir `required` styling. OBS! støtter ikke DOM required attributt.{' '}
+        </Cell>
+      </Row>
+      <Row>
+        <Cell> `readOnly` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell>Nedtrekkslisten blir disabled og får `readOnly` styling. </Cell>
+      </Row>
+    </Body>
+  </Table>
+</TableWrapper>
+<br />
+### Native React-select props
+
+Ofte brukt native props:
+
+<TableWrapper>
+  <Table density="compact" style={{ width: '100%' }}>
+    <Head>
+      <Row type="head">
+                <Cell type="head">Property</Cell>
+        <Cell type="head">Datatype</Cell>
+        <Cell type="head">Påkrevd</Cell>
+        <Cell type="head">Default</Cell>
+        <Cell type="head">Beskrivelse</Cell>
+      </Row>
+    </Head>
+    <Body>
+      <Row>
+        <Cell> `options` </Cell>
+        <Cell> `{ label: string, value: string }[]` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell>Alternativer som havner i nedtrekkslisten. </Cell>
+      </Row>
+       <Row>
+        <Cell> `onChange` </Cell>
+        <Cell> `(newValue: { label: string, value: string } | null, ActionMeta: ActionMeta<TOption>) => void` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell> onChange funksjon.</Cell>
+      </Row>
+       <Row>
+        <Cell> `isDisabled` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell>Gjør nedtrekkslisten disabled og gir den relevant styling. </Cell>
+      </Row>
+      <Row>
+        <Cell> `value` </Cell>
+        <Cell> `{ label: string; value: string; } | null` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell> Forhåndsvalgt alternativ som brukeren ikke kan endre. OBS! Brukes kun i oppsummering av brukerens valg og lignende tilfeller.</Cell>
+      </Row>
+      <Row>
+        <Cell> `defaultValue` </Cell>
+        <Cell> `{ label: string; value: string; } | null` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell>Forhåndsvalgt alternativ som brukeren kan endre. OBS! Brukes ikke i standard skjema da brukeren skal ta et bevisst valg. </Cell>
+      </Row>
+      <Row>
+        <Cell> `isMulti` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell>Gjør komponenten om til multiselect.</Cell>
+      </Row>
+            <Row>
+        <Cell> `closeMenuOnSelect` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>false ved isMulti, true ellers</Cell>
+        <Cell>Spesifiserer om listen med alternativer skal lukkes når brukeren har valgt en alternativ.</Cell>
+      </Row>
+            <Row>
+        <Cell> `isClearable` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>`true`</Cell>
+        <Cell>Spesifiserer om valgt alternativ kan tømmes. OBS! settes til false i spesialtilfeller, bruker skal ha mulighet til å tømme valget i standard skjema.</Cell>
+      </Row>
+            <Row>
+        <Cell> `placeholder` </Cell>
+        <Cell> `string` </Cell>
+        <Cell>nei </Cell>
+        <Cell>`'-- Velg fra listen --'`</Cell>
+        <Cell>Tekst som vises når ingen alternativ er valgt.</Cell>
+      </Row>
+      <Row>
+        <Cell> `isLoading` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>-</Cell>
+        <Cell>Kan brukes mens komponenten lastes inn, rendrer en innlastningsindikator i inputfeltet.</Cell>
+      </Row>
+      <Row>
+        <Cell> `isSearchable` </Cell>
+        <Cell> `boolean` </Cell>
+        <Cell>nei </Cell>
+        <Cell>`true`</Cell>
+        <Cell>Spesifiserer om brukeren kan søke på alternativene.</Cell>
+      </Row>
+    </Body>
+
+  </Table>
+</TableWrapper>
+<br />
+Full liste over props er tilgjengelig i <Typography href='https://react-select.com/props' typographyType='a' >react-select API</Typography>.
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### Bredde ved isMulti
+
+Komponenten har default bredde. Dette gjør at valgte alternativer ved `isMulti` vil prøve å fylle opp bredden og videre legge seg nedover. Hvis det er ønsket at komponenten skal utvide seg i bredden når flere alternativer blir valgt bør det settes f.eks. `width='fit-content'` og `min-width` i styling:
+
+<Canvas>
+  <Story
+    id="design-system-select-multiselect--with-fit-content"
+    height="500px"
+  />
+</Canvas>
+
+## Retningslinjer
+
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.
