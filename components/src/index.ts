@@ -30,3 +30,4 @@ export * from './components/Popover';
 export * from './components/InputMessage';
 export * from './components/ToggleButton';
 export * from './components/Tabs';
+export * from './components/Tag';
