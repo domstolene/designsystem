@@ -19,11 +19,11 @@ export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
 export type TagProps = {
   /**Tekst som vises i `<Tag />.` */
   text?: string;
-  /**Formål med komponenten. Påvirker styling. */
+  /**Formål med status eller kategorisering. Påvirker styling. */
   purpose?: TagPurpose;
-} & HTMLAttributes<HTMLDivElement>;
+} & HTMLAttributes<HTMLSpanElement>;
 
-export const Tag = forwardRef<HTMLDivElement, TagProps>(
+export const Tag = forwardRef<HTMLSpanElement, TagProps>(
   ({ text, purpose = 'default', ...rest }, ref) => {
     return (
       <Wrapper
