@@ -14,10 +14,12 @@ const Wrapper = styled(Typography)<WrapperProps>`
   `}
 `;
 
-export type TagPurpose = 'success' | 'info' | 'error' | 'warning' | 'default';
+export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
 
 export type TagProps = {
+  /**Tekst som vises i `<Tag />.` */
   text?: string;
+  /**Formål med komponenten. Påvirker styling. */
   purpose?: TagPurpose;
 } & HTMLAttributes<HTMLDivElement>;
 

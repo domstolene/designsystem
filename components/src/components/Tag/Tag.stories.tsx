@@ -13,7 +13,7 @@ export const Overview = () => (
   <StoryTemplate title="Tag - overview">
     <Tag text="default" />
     <Tag text="success" purpose="success" />
-    <Tag text="error" purpose="error" />
+    <Tag text="danger" purpose="danger" />
     <Tag text="warning" purpose="warning" />
     <Tag text="info" purpose="info" />
   </StoryTemplate>

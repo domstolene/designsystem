@@ -20,7 +20,7 @@ const successBase: CSSObject = { ...localMessageTokens.container.success.base };
 
 const warningBase: CSSObject = { ...localMessageTokens.container.warning.base };
 
-const errorBase: CSSObject = { ...localMessageTokens.container.danger.base };
+const dangerBase: CSSObject = { ...localMessageTokens.container.danger.base };
 
 const infoBase: CSSObject = { ...localMessageTokens.container.info.base };
 
@@ -33,8 +33,8 @@ export const tagTokens = {
     warning: {
       base: warningBase
     },
-    error: {
-      base: errorBase
+    danger: {
+      base: dangerBase
     },
     default: {
       base: defaultBase
