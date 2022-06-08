@@ -42,7 +42,6 @@ export default {
       tsconfigOverride: {
         exclude: [
           '**/*.spec.ts*',
-          '**/*.stories.ts*',
           '**/setupTests.ts',
           '**/storybook',
           '**/helpers'
