@@ -4,6 +4,7 @@ import { Divider } from '../components/Divider';
 import { Typography } from '../components/Typography';
 import { StoryContainer } from './StoryContainer';
 import 'focus-visible';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 type ContainerProps = {
   gap?: string;
@@ -12,17 +13,17 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
+  padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingLayoutX1};
   ${({ display, gap, columnsAmount }) =>
     gap &&
     display &&
     columnsAmount &&
-    (display === 'flex'
+    (display === 'flex-column'
       ? css`
           display: flex;
           flex-direction: column;
-          & > * {
-            margin-top: ${gap};
-          }
+          align-items: flex-start;
+          gap: ${gap};
         `
       : display === 'grid'
       ? css`
@@ -30,19 +31,23 @@ const Container = styled.div<ContainerProps>`
           gap: ${gap};
           grid-template-columns: ${`repeat(
             ${columnsAmount},
-            fit-content(100%)`}
-          );
-          `
+            fit-content(100%) )`};
+        `
       : display === 'flex-centered'
       ? css`
           display: flex;
           align-items: center;
           justify-content: center;
+          gap: ${gap};
+        `
+      : display === 'block'
+      ? css`
+          margin-top: ${gap};
         `
       : '')}
 `;
 
-export type StoryDisplay = 'block' | 'flex' | 'grid' | 'flex-centered';
+export type StoryDisplay = 'block' | 'flex-column' | 'grid' | 'flex-centered';
 
 type StoryTemplateProps = {
   title: string;
@@ -56,7 +61,7 @@ export const StoryTemplate = ({
   title,
   gap = '20px',
   columnsAmount = 3,
-  display = 'flex',
+  display = 'flex-column',
   children,
   containerStyle,
   ...rest

@@ -10,7 +10,7 @@ export default {
 
 export const Overview = (args: DividerProps) => {
   return (
-    <StoryTemplate title="Divider - overview" gap="40px">
+    <StoryTemplate title="Divider - overview" display="block">
       <div>
         <Divider {...args} />
         <Divider {...args} color="primaryLighter" />
@@ -21,7 +21,7 @@ export const Overview = (args: DividerProps) => {
 
 export const Default = (args: DividerProps) => {
   return (
-    <StoryTemplate title="Divider - default" gap="40px">
+    <StoryTemplate title="Divider - default" display="block">
       <div>
         <Divider {...args} />
       </div>
