@@ -360,7 +360,6 @@ export const OverviewLoading = (args: ButtonProps) => {
     >
       <Button
         {...args}
-        label="Primary"
         purpose="primary"
         appearance="filled"
         size="tiny"
@@ -368,7 +367,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="Primary"
         purpose="primary"
         appearance="filled"
         size="small"
@@ -376,7 +374,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="primary"
         appearance="filled"
         size="medium"
@@ -384,7 +381,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="primary"
         appearance="filled"
         size="large"
@@ -392,7 +388,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="filled"
         size="tiny"
@@ -400,7 +395,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="filled"
         size="small"
@@ -408,7 +402,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="filled"
         size="medium"
@@ -416,7 +409,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="filled"
         size="large"
@@ -424,7 +416,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="filled"
         size="tiny"
@@ -432,7 +423,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="filled"
         size="small"
@@ -440,7 +430,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="filled"
         size="medium"
@@ -448,7 +437,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="filled"
         size="large"
@@ -456,7 +444,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="primary"
         appearance="ghost"
         size="tiny"
@@ -464,7 +451,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="primary"
         appearance="ghost"
         size="small"
@@ -472,7 +458,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="primary"
         appearance="ghost"
         size="medium"
@@ -480,7 +465,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="primary"
         appearance="ghost"
         size="large"
@@ -488,7 +472,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="ghost"
         size="tiny"
@@ -496,7 +479,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="ghost"
         size="small"
@@ -504,7 +486,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="ghost"
         size="medium"
@@ -512,7 +493,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="secondary"
         appearance="ghost"
         size="large"
@@ -520,7 +500,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="ghost"
         size="tiny"
@@ -528,7 +507,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="ghost"
         size="small"
@@ -536,7 +514,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="ghost"
         size="medium"
@@ -544,7 +521,6 @@ export const OverviewLoading = (args: ButtonProps) => {
       />
       <Button
         {...args}
-        label="label"
         purpose="danger"
         appearance="ghost"
         size="large"
