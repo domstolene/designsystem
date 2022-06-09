@@ -4,11 +4,19 @@ import { localMessageTokens } from '../LocalMessage/LocalMessage.tokens';
 
 const { colors, borderRadius, spacing } = ddsBaseTokens;
 
-const base: CSSObject = {
+const wrapperBase: CSSObject = {
   border: '1px solid',
-  width: 'fit-content',
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`
+  padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`,
+  maxWidth: '100%',
+  display: 'inline-flex',
+  alignItems: 'center'
+};
+
+const innerBase: CSSObject = {
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis'
 };
 
 const defaultBase: CSSObject = {
@@ -25,22 +33,27 @@ const dangerBase: CSSObject = { ...localMessageTokens.container.danger.base };
 const infoBase: CSSObject = { ...localMessageTokens.container.info.base };
 
 export const tagTokens = {
-  base: base,
-  type: {
-    success: {
-      base: successBase
-    },
-    warning: {
-      base: warningBase
-    },
-    danger: {
-      base: dangerBase
-    },
-    default: {
-      base: defaultBase
-    },
-    info: {
-      base: infoBase
+  wrapper: {
+    base: wrapperBase,
+    type: {
+      success: {
+        base: successBase
+      },
+      warning: {
+        base: warningBase
+      },
+      danger: {
+        base: dangerBase
+      },
+      default: {
+        base: defaultBase
+      },
+      info: {
+        base: infoBase
+      }
     }
+  },
+  inner: {
+    base: innerBase
   }
 };

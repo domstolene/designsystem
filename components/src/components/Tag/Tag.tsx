@@ -8,10 +8,14 @@ type WrapperProps = {
 };
 
 const Wrapper = styled(Typography)<WrapperProps>`
-  ${tokens.base}
+  ${tokens.wrapper.base}
   ${({ purpose }) => css`
-    ${tokens.type[purpose].base}
+    ${tokens.wrapper.type[purpose].base}
   `}
+`;
+
+const Inner = styled.span`
+  ${tokens.inner.base}
 `;
 
 export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
@@ -33,7 +37,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>(
         purpose={purpose}
         {...rest}
       >
-        {text}
+        <Inner>{text}</Inner>
       </Wrapper>
     );
   }

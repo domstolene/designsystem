@@ -20,7 +20,7 @@ export const Overview = () => (
 );
 
 export const Default = (args: TagProps) => (
-  <StoryTemplate title="Tag - default">
+  <StoryTemplate title="Tag - default" display="block">
     <Tag text="default" {...args} />
   </StoryTemplate>
 );
