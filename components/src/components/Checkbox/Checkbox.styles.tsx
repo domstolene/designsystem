@@ -44,7 +44,8 @@ export const Container = styled.label<ContainerProps>`
         `}
 
     input ~ ${CustomCheckbox} {
-    transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
+    transition: box-shadow 0.2s, background-color 0.2s, border 0.2s,
+      outline-offset 0.2s;
   }
 
   input:checked ~ ${CustomCheckbox}:after {
@@ -63,6 +64,7 @@ export const Container = styled.label<ContainerProps>`
   }
   &:focus-within {
     ${tokens.container.focus.base}
+    transition: outline-offset 0.2s;
   }
 
   ${({ error }) =>

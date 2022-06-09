@@ -56,6 +56,7 @@ export const Container = styled.label<ContainerProps>`
 
   &:focus-within {
     ${tokens.container.focus.base}
+    transition: outline-offset 0.2s;
   }
 
   ${({ error }) =>

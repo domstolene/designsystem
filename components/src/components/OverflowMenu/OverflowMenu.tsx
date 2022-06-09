@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { scrollbarStyling } from '../../helpers/styling';
+import { scrollbarStyling, visibilityTransition } from '../../helpers/styling';
 import {
   useCombinedRef,
   useId,
@@ -20,7 +20,7 @@ import {
 } from '.';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
-type ContainerProps = { isOpen?: boolean };
+type ContainerProps = { isOpen: boolean };
 
 export const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
@@ -28,9 +28,7 @@ export const Container = styled.div<ContainerProps>`
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;
-  transition: visibility 0.4s, opacity 0.2s;
-  visibility: ${({ isOpen }) => (!isOpen ? 'hidden' : 'visible')};
-  opacity: ${({ isOpen }) => (!isOpen ? 0 : 1)};
+  ${({ isOpen }) => visibilityTransition(isOpen)}
   ${tokens.container.base}
   ${scrollbarStyling}
   *::selection {
@@ -55,7 +53,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     {
       anchorRef,
       onClose,
-      isOpen,
+      isOpen = false,
       placement = 'bottom-end',
       items,
       navItems,

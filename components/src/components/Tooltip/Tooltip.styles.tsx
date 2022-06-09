@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { visibilityTransition } from '../../helpers/styling';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
 
@@ -14,16 +15,14 @@ export const Container = styled.div`
 `;
 
 type WrapperProps = {
-  open?: boolean;
+  open: boolean;
 };
 
 export const TooltipWrapper = styled.div<WrapperProps>`
   &::selection {
     ${typographyTokens.selection.base}
   }
-  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
-  opacity: ${({ open }) => (open ? 1 : 0)};
-  transition: 0.2s;
+  ${({ open }) => visibilityTransition(open)}
   width: fit-content;
   position: absolute;
   z-index: 20;
