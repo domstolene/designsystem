@@ -35,6 +35,7 @@ const Link = styled.a`
   ${tokens.link.base}
   &:focus {
     ${tokens.link.focus.base}
+    transition: outline-offset 0.2s;
   }
   &:hover {
     ${tokens.link.hover.base}

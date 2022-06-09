@@ -17,7 +17,8 @@ const Content = styled.span`
   align-items: center;
   width: 100%;
   height: 100%;
-  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s,
+    outline-offset 0.2s;
   cursor: pointer;
   ${buttonTokens.base}
   width: fit-content;
