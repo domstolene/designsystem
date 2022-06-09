@@ -3,6 +3,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
 import { forwardRef, HTMLAttributes, ReactNode, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import { visibilityTransition } from '../../helpers/styling';
 import { Placement, useCombinedRef, useFloatPosition } from '../../hooks';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
@@ -16,9 +17,7 @@ type WrapperProps = {
 };
 
 const Wrapper = styled.div<WrapperProps>`
-  transition: visibility 0.4s, opacity 0.2s;
-  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
-  opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
+  ${({ isOpen }) => visibilityTransition(isOpen)}
   box-sizing: border-box;
   position: absolute;
   width: fit-content;
