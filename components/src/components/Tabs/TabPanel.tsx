@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { focusVisible } from '../../helpers/styling';
+import { focusVisibleTransitionValue } from '../../helpers/styling';
 import { tabsTokens as tokens } from './Tabs.tokens';
 
 type PanelProps = {
@@ -8,7 +8,7 @@ type PanelProps = {
 };
 
 const Panel = styled.div<PanelProps>`
-  transition: 0.2s;
+  transition: ${focusVisibleTransitionValue};
   ${tokens.panel.base}
   ${({ active }) =>
     !active &&
@@ -16,7 +16,7 @@ const Panel = styled.div<PanelProps>`
       display: none;
     `}
     &:focus-visible {
-    ${focusVisible}
+    ${tokens.panel.focusVisible.base}
   }
 `;
 

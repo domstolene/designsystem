@@ -3,7 +3,7 @@ import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { CSSObject } from 'styled-components';
 import { IconWrapper } from '../IconWrapper';
-import { hideInput } from '../../helpers/styling';
+import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
 import { buttonTokens } from '../Button/Button.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
@@ -18,7 +18,7 @@ const Content = styled.span`
   width: 100%;
   height: 100%;
   transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s,
-    outline-offset 0.2s;
+    ${focusVisibleTransitionValue};
   cursor: pointer;
   ${buttonTokens.base}
   width: fit-content;

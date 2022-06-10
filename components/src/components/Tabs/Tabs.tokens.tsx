@@ -66,6 +66,10 @@ const tabPanelBase: CSSObject = {
   padding: Spacing.SizesDdsSpacingLocalX025
 };
 
+const tabPanelFocusVisibleBase: CSSObject = {
+  ...focusVisible
+};
+
 export const tabsTokens = {
   tabList: {
     base: tabListBase,
@@ -97,6 +101,9 @@ export const tabsTokens = {
     }
   },
   panel: {
-    base: tabPanelBase
+    base: tabPanelBase,
+    focusVisible: {
+      base: tabPanelFocusVisibleBase
+    }
   }
 };
