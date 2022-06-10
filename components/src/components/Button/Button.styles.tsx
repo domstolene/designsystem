@@ -94,12 +94,24 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
 type StyledIconWrapperSpanProps = {
   iconPosition?: IconPosition;
   size: ButtonSize;
+  absolutePosition?: boolean;
+  isHidden?: boolean;
 };
 
 export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${({ absolutePosition }) =>
+    absolutePosition &&
+    css`
+      position: absolute;
+    `}
+  ${({ isHidden }) =>
+    isHidden &&
+    css`
+      visibility: hidden;
+    `}
   ${({ size, iconPosition }) =>
     iconPosition === 'left'
       ? css`
@@ -114,4 +126,14 @@ export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
         `}
 `;
 
-export const Label = styled.span``;
+type LabelProps = {
+  isHidden?: boolean;
+};
+
+export const Label = styled.span<LabelProps>`
+  ${({ isHidden }) =>
+    isHidden &&
+    css`
+      visibility: hidden;
+    `}
+`;
