@@ -30,6 +30,9 @@ export const focusVisibleLinkOnDark = {
   textDecoration: 'none'
 };
 
+export const focusVisibleLinkTransitionValue =
+  'background-color 0.2s, text-decoration 0.2s, color 0.2s';
+
 export const focusVisibleWithBorder = {
   outline: 'none',
   borderColor: Border.BordersDdsBorderFocusCardStroke,

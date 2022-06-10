@@ -1,7 +1,10 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { modalTokens as tokens } from './Modal.tokens';
-import { scrollbarStyling } from '../../helpers/styling';
+import {
+  focusVisibleTransitionValue,
+  scrollbarStyling
+} from '../../helpers/styling';
 
 type ContainerProps = {
   scrollable?: boolean;
@@ -9,6 +12,7 @@ type ContainerProps = {
 
 const Container = styled.div<ContainerProps>`
   ${scrollbarStyling}
+  transition: ${focusVisibleTransitionValue};
   ${({ scrollable }) =>
     scrollable &&
     css`

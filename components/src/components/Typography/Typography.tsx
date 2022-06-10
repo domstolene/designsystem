@@ -14,6 +14,7 @@ import {
 import { IconWrapper } from '../IconWrapper';
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import { TypographyType, TextColor } from './Typography.types';
+import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -100,7 +101,7 @@ const StyledTypography = styled.p<StyledTypographyProps>`
     css`
       display: inline-flex;
       align-items: center;
-      transition: 0.2s;
+      transition: ${focusVisibleLinkTransitionValue};
 
       &:hover {
         ${tokens.typographyType[typographyType].hover.base}
