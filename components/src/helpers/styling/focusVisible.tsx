@@ -14,6 +14,8 @@ export const focusVisibleOnDark = {
   outlineOffset: outlineOffset
 };
 
+export const focusVisibleTransitionValue = 'outline-offset 0.2s';
+
 export const focusVisibleLink = {
   outline: 'none',
   backgroundColor: Border.BordersDdsBorderFocusBaseStroke,

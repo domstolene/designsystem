@@ -1,5 +1,5 @@
 import styled, { css, CSSObject } from 'styled-components';
-import { hideInput } from '../../helpers/styling';
+import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
 import { checkboxTokens as tokens } from './Checkbox.tokens';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -44,8 +44,7 @@ export const Container = styled.label<ContainerProps>`
         `}
 
     input ~ ${CustomCheckbox} {
-    transition: box-shadow 0.2s, background-color 0.2s, border 0.2s,
-      outline-offset 0.2s;
+    transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
   }
 
   input:checked ~ ${CustomCheckbox}:after {
@@ -64,7 +63,7 @@ export const Container = styled.label<ContainerProps>`
   }
   &:focus-within {
     ${tokens.container.focus.base}
-    transition: outline-offset 0.2s;
+    transition: ${focusVisibleTransitionValue};
   }
 
   ${({ error }) =>

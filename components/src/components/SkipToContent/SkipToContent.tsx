@@ -2,6 +2,7 @@ import { forwardRef, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 import { Property } from 'csstype';
+import { focusVisibleTransitionValue } from '../../helpers/styling';
 
 type WrapperProps = {
   top: Property.Top<string | number>;
@@ -35,7 +36,7 @@ const Link = styled.a`
   ${tokens.link.base}
   &:focus {
     ${tokens.link.focus.base}
-    transition: outline-offset 0.2s;
+    transition: ${focusVisibleTransitionValue};
   }
   &:hover {
     ${tokens.link.hover.base}

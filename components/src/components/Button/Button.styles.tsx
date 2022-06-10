@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { focusVisibleTransitionValue } from '../../helpers/styling';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { buttonTokens as tokens } from './Button.tokens';
 import {
@@ -30,7 +31,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   box-shadow: none;
   text-decoration: none;
   transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s,
-    border-color 0.2s, color 0.2s, outline-offset 0.2s;
+    border-color 0.2s, color 0.2s, ${focusVisibleTransitionValue};
 
   ${({ appearance, purpose }) =>
     css`

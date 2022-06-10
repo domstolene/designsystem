@@ -1,7 +1,7 @@
 import { RadioButtonProps } from './RadioButton.types';
 import styled, { css, CSSObject } from 'styled-components';
 import { radioButtonTokens as tokens } from './RadioButton.tokens';
-import { hideInput } from '../../helpers/styling';
+import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
 
 export const CustomRadioButton = styled.span`
   position: absolute;
@@ -56,7 +56,7 @@ export const Container = styled.label<ContainerProps>`
 
   &:focus-within {
     ${tokens.container.focus.base}
-    transition: outline-offset 0.2s;
+    transition: ${focusVisibleTransitionValue};
   }
 
   ${({ error }) =>
