@@ -1,11 +1,14 @@
 import { css } from 'styled-components';
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 
+export const scrollbarWidthNumberPx = 10;
+export const scrollbarWidth = `${scrollbarWidthNumberPx}px`;
+
 export const scrollbarStyling = css`
   /* width */
   &::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: ${scrollbarWidth};
+    height: ${scrollbarWidth};
   }
 
   /* Track */
