@@ -4,13 +4,8 @@ import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
-import { Input, OuterInputContainer } from '../../helpers';
-import {
-  Label,
-  InputContainer,
-  MessageContainer,
-  TextArea
-} from './TextInput.styles';
+import { Input, InputContainer, OuterInputContainer } from '../../helpers';
+import { Label, MessageContainer, TextArea } from './TextInput.styles';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator
@@ -42,13 +37,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ) => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const [text, setText] = useState('');
-    const [textAreaHeight, setTextAreaHeight] = useState('auto');
-    const [parentHeight, setParentHeight] = useState('auto');
 
     useEffect(() => {
       if (textAreaRef && textAreaRef.current) {
-        setParentHeight(`${textAreaRef.current.scrollHeight}px`);
-        setTextAreaHeight(`${textAreaRef.current.scrollHeight}px`);
+        textAreaRef.current.style.height = `${
+          textAreaRef.current.scrollHeight + 2
+        }px`;
       }
     }, [text]);
 
@@ -65,11 +59,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const onChangeHandlerMultiline: React.ChangeEventHandler<
       HTMLTextAreaElement
     > = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setTextAreaHeight('auto');
-      if (textAreaRef && textAreaRef.current) {
-        setParentHeight(`${textAreaRef.current.scrollHeight}px`);
-      }
-
       setText(event.target.value);
 
       if (onChange) {
@@ -82,6 +71,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasErrorMessage = !!errorMessage;
     const hasTip = !!tip;
     const hasLabel = !!label;
+    const hasMessage = hasErrorMessage || hasTip || !!maxLength;
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -100,6 +90,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       hasLabel,
       errorMessage,
       hasErrorMessage,
+      required,
       disabled,
       readOnly,
       tabIndex: readOnly ? -1 : 0,
@@ -121,7 +112,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     };
 
     const inputContainerProps = {
-      style: multiline ? { minHeight: parentHeight } : {},
       multiline,
       label
     };
@@ -138,9 +128,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           {multiline ? (
             <TextArea
               ref={textAreaRef}
-              style={{ height: textAreaHeight }}
               onChange={onChangeHandlerMultiline}
-              required={required}
               {...generalInputProps}
             />
           ) : (
@@ -148,7 +136,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
               ref={ref}
               onChange={onChangeHandler}
               type={type}
-              required={required}
               {...generalInputProps}
             />
           )}
@@ -163,25 +150,27 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             </Label>
           )}
         </InputContainer>
-        <MessageContainer>
-          {hasErrorMessage && (
-            <InputMessage
-              message={errorMessage}
-              messageType="error"
-              id={errorMessageId}
-            />
-          )}
-          {hasTip && !errorMessage && (
-            <InputMessage message={tip} messageType="tip" id={tipId} />
-          )}
-          {maxLength && Number.isInteger(maxLength) && maxLength > 0 && (
-            <CharCounter
-              id={characterCounterId}
-              current={text.length}
-              max={maxLength}
-            />
-          )}
-        </MessageContainer>
+        {hasMessage && (
+          <MessageContainer>
+            {hasErrorMessage && (
+              <InputMessage
+                message={errorMessage}
+                messageType="error"
+                id={errorMessageId}
+              />
+            )}
+            {hasTip && !errorMessage && (
+              <InputMessage message={tip} messageType="tip" id={tipId} />
+            )}
+            {maxLength && Number.isInteger(maxLength) && maxLength > 0 && (
+              <CharCounter
+                id={characterCounterId}
+                current={text.length}
+                max={maxLength}
+              />
+            )}
+          </MessageContainer>
+        )}
       </OuterInputContainer>
     );
   }

@@ -4,35 +4,42 @@ import {
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { Property } from 'csstype';
+import { scrollbarWidthNumberPx } from '../../helpers/styling';
 
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
 const inputMultilineBase: CSSObject = {
-  paddingBottom: Spacing.SizesDdsSpacingLocalX05
+  paddingBottom: Spacing.SizesDdsSpacingLocalX05,
+  verticalAlign: 'bottom'
 };
 const inputMultilineWithLabelBase: CSSObject = {
-  paddingTop: Spacing.SizesDdsSpacingLocalX2
+  paddingTop: Spacing.SizesDdsSpacingLocalX2,
+  minHeight: '99px'
 };
 
 const inputMultilineNoLabelBase: CSSObject = {
-  paddingTop: Spacing.SizesDdsSpacingLocalX075
+  paddingTop: Spacing.SizesDdsSpacingLocalX075,
+  minHeight: '78px'
 };
 
 const inputLabelMultilineBase: CSSObject = {
+  marginTop: Spacing.SizesDdsSpacingLocalX0125,
+  marginLeft: Spacing.SizesDdsSpacingLocalX0125,
+  width: `calc(100% - ${
+    scrollbarWidthNumberPx + Spacing.SizesDdsSpacingLocalX0125NumberPx + 1
+  }px)`,
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx - 1}px ${
+  padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx - 2}px ${
     Spacing.SizesDdsSpacingLocalX1
-  } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 1}px`
+  } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 2}px`
 };
 
 const defaultWidth: Property.Width<string> = '320px';
 
 export const textInputTokens = {
   general: TextInput,
-  focusColor: TextInput.input.focus.borderColor,
-
   multiline: {
     base: inputMultilineBase,
     withLabel: {
@@ -49,15 +56,5 @@ export const textInputTokens = {
   },
   wrapper: {
     defaultWidth: defaultWidth
-  },
-  container: {
-    multiline: {
-      withLabel: {
-        height: '99px'
-      },
-      noLabel: {
-        height: '78px'
-      }
-    }
   }
 };

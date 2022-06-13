@@ -4,7 +4,6 @@ import { textInputTokens as tokens } from './TextInput.tokens';
 import {
   inputStyling,
   SingleLineLabel,
-  InputContainer as GeneralInputContainer,
   StyledInputProps,
   inputTokens
 } from '../../helpers';
@@ -16,10 +15,6 @@ export const TextArea = styled.textarea<StyledInputProps>`
   resize: vertical;
   height: auto;
   ${scrollbarStyling}
-  min-height: ${({ hasLabel }) =>
-    hasLabel
-      ? tokens.container.multiline.withLabel.height
-      : tokens.container.multiline.noLabel.height};
   ${tokens.multiline.base}
   ${({ hasLabel }) =>
     hasLabel
@@ -30,7 +25,7 @@ export const TextArea = styled.textarea<StyledInputProps>`
           ${tokens.multiline.noLabel.base}
         `}
 
-   &:hover:enabled:read-write ~ label {
+  &:hover:enabled:read-write ~ label {
     background-color: ${({ hasErrorMessage }) =>
       hasErrorMessage
         ? inputTokens.error.hover.base.backgroundColor
@@ -49,8 +44,6 @@ export const Label = styled(SingleLineLabel)<LabelProps>`
   ${({ multiline }) =>
     multiline &&
     css`
-      margin: 1px;
-      width: calc(100% - 20px);
       ${tokens.label.multiline.base}
     `}
   ${({ disabled, multiline }) =>
@@ -65,24 +58,4 @@ export const Label = styled(SingleLineLabel)<LabelProps>`
     css`
       background-color: ${inputTokens.readOnly.base.backgroundColor};
     `}
-`;
-
-type InputContainerProps = Pick<TextInputProps, 'multiline' | 'label'>;
-
-export const InputContainer = styled(
-  GeneralInputContainer
-)<InputContainerProps>`
-  ${({ multiline }) =>
-    multiline &&
-    css`
-      display: inline-block;
-    `}
-  height: ${({ multiline, label }) => {
-    if (multiline) {
-      if (label) {
-        return tokens.container.multiline.withLabel.height;
-      }
-      return tokens.container.multiline.noLabel.height;
-    }
-  }};
 `;
