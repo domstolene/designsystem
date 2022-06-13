@@ -33,6 +33,13 @@ export const TextInputOverview = (args: TextInputProps) => {
       <TextInput
         {...args}
         label={args.label || 'Label'}
+        required
+        value="Påkrevd inputfelt"
+      />
+      <TextInput {...args} required value="Påkrevd inputfelt" />
+      <TextInput
+        {...args}
+        label={args.label || 'Label'}
         disabled
         value="Disabled inputfelt"
       />
@@ -88,6 +95,14 @@ export const TextareaOverview = (args: TextInputProps) => {
     >
       <TextInput {...args} multiline label={args.label || 'Label'} />
       <TextInput {...args} multiline />
+      <TextInput
+        {...args}
+        multiline
+        label={args.label || 'Label'}
+        required
+        value="Påkrevd textarea"
+      />
+      <TextInput {...args} multiline required value="Påkrevd textarea" />
       <TextInput
         {...args}
         multiline
