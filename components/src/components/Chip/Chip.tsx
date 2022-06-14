@@ -9,7 +9,9 @@ const Container = styled.span`
 `;
 
 export type ChipProps = {
+  /** Teksten som vises i komponenten. */
   text?: string;
+  /** Ekstra logikk når `<Chip />` lukkes. */
   onClose?: () => void;
 } & HTMLAttributes<HTMLSpanElement>;
 
