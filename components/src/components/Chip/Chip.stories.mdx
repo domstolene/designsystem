@@ -1,0 +1,62 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY
+} from '@storybook/addon-docs';
+import { Chip, ChipGroup } from '.';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
+
+<Meta title="Design system/Chip/API" component={Chip} />
+
+# Chip
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/54a74c-chip"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7788%3A148018"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Chip"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-chip-chip--default" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-chip-chipgroup--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href={`${SB_DESIGNSYSTEM_URL}-chip`}>Storybook</Typography>.
+
+## Oversikt
+
+Komponenten består av to subkomponenter:
+
+- `<Chip />` - hovedkomponenten
+- `<ChipGroup />` - en gruppe som rendrer en liste med `<Chip />`-barn
+
+## Bruk i koden
+
+<Source code={`
+import { Chip, ChipGroup } from '@norges-domstoler/dds-components';
+
+<Chip text="text" />
+
+<ChipGroup>
+  <Chip text="text" />
+</ChipGroup>
+`} />
+
+## API
+
+### Chip
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSpanElement>`-interface.
+
+### ChipGroup
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLUListElement>`-interface.
