@@ -6,8 +6,8 @@ export default {
   component: ChipGroup
 };
 
-export const Group = (args: ChipGroupProps) => (
-  <StoryTemplate title="Chip - default">
+export const Default = (args: ChipGroupProps) => (
+  <StoryTemplate title="ChipGroup - default">
     <ChipGroup {...args}>
       <Chip text="Chip 1" />
       <Chip text="Chip 2" />
