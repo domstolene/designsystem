@@ -3,7 +3,10 @@ import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Chip/Chip',
-  component: Chip
+  component: Chip,
+  argTypes: {
+    text: { control: { type: 'text' } }
+  }
 };
 
 export const Default = (args: ChipProps) => (
