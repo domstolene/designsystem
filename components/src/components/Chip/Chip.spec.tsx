@@ -18,7 +18,7 @@ describe('<Chip />', () => {
     const text = 'text';
     render(<Chip text={text} />);
     const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('aria-label', `Fjern ${text}`);
+    expect(button).toHaveAttribute('aria-label', `Fjern chip ${text}`);
   });
   it('Should have generic aria-label', () => {
     render(<Chip />);
