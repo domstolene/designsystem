@@ -12,6 +12,13 @@ const containerBase: CSSObject = {
   border: `1px solid ${colors.DdsColorNeutralsGray3}`,
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
   color: colors.DdsColorNeutralsGray9,
+  maxWidth: '100%'
+};
+
+const textBase: CSSObject = {
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
   ...fontPackages.body_sans_01.base
 };
 
@@ -26,5 +33,8 @@ export const chipTokens = {
   },
   group: {
     base: groupBase
+  },
+  text: {
+    base: textBase
   }
 };

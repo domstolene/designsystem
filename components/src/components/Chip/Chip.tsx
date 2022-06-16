@@ -4,8 +4,12 @@ import { Button } from '../Button';
 import { chipTokens as tokens } from './Chip.tokens';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
-const Container = styled.span`
+const Container = styled.div`
   ${tokens.container.base}
+`;
+
+const TextWrapper = styled.span`
+  ${tokens.text.base}
 `;
 
 export type ChipProps = {
@@ -13,9 +17,9 @@ export type ChipProps = {
   text?: string;
   /** Ekstra logikk når `<Chip />` lukkes. */
   onClose?: () => void;
-} & HTMLAttributes<HTMLSpanElement>;
+} & HTMLAttributes<HTMLDivElement>;
 
-export const Chip = forwardRef<HTMLSpanElement, ChipProps>(
+export const Chip = forwardRef<HTMLDivElement, ChipProps>(
   ({ text, onClose, 'aria-label': ariaLabel, ...rest }, ref) => {
     const [isOpen, setIsOpen] = useState(true);
 
@@ -26,14 +30,14 @@ export const Chip = forwardRef<HTMLSpanElement, ChipProps>(
 
     return isOpen ? (
       <Container {...rest} ref={ref}>
-        {text}
+        <TextWrapper>{text}</TextWrapper>
         <Button
           size="tiny"
           Icon={CloseOutlinedIcon}
           appearance="borderless"
           purpose="secondary"
           onClick={onClick}
-          aria-label={ariaLabel || `Fjern ${text ?? 'chip'}`}
+          aria-label={ariaLabel || `Fjern ${text ? `chip ${text}` : 'chip'}`}
         />
       </Container>
     ) : null;
