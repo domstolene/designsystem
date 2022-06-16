@@ -1,9 +1,9 @@
 import { forwardRef, useState } from 'react';
 import { InputMessage } from '../InputMessage';
-import { RequiredMarker } from '../../helpers';
+import { LabelPresence, RequiredMarker } from '../../helpers';
 import {
-  Input,
-  SingleLineLabel as Label,
+  StatefulInput,
+  Label,
   InputContainer,
   OuterInputContainer,
   InputProps
@@ -26,8 +26,7 @@ const getWidth = (type: string): Property.Width<string> => {
     : '320px';
 };
 
-const StyledInput = styled(Input)`
-  min-height: 76px;
+const StyledInput = styled(StatefulInput)`
   ::-webkit-calendar-picker-indicator {
     // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
     // eslint-disable-next-line
@@ -48,16 +47,21 @@ const StyledInput = styled(Input)`
   ::-webkit-inner-spin-button {
     display: none;
   }
-
-  ::-webkit-datetime-edit-day-field,
-  ::-webkit-datetime-edit-month-field,
-  ::-webkit-datetime-edit-year-field {
-    transition: 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    ::-webkit-datetime-edit-day-field,
+    ::-webkit-datetime-edit-month-field,
+    ::-webkit-datetime-edit-year-field,
+    ::-webkit-datetime-edit-hour-field,
+    ::-webkit-datetime-edit-minute-field {
+      transition: 0.2s;
+    }
   }
 
   ::-webkit-datetime-edit-day-field:focus,
   ::-webkit-datetime-edit-month-field:focus,
-  ::-webkit-datetime-edit-year-field:focus {
+  ::-webkit-datetime-edit-year-field:focus,
+  ::-webkit-datetime-edit-hour-field:focus,
+  ::-webkit-datetime-edit-minute-field:focus {
     ${typographyTokens.selection.base}
   }
 `;
@@ -91,6 +95,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
 
     const componentWidth = width ? width : getWidth(type);
     const hasLabel = !!label;
+    const labelPresence: LabelPresence = hasLabel ? 'hasLabel' : 'noLabel';
     const hasErrorMessage = !!errorMessage;
     const errorMessageId = derivativeIdGenerator(
       uniqueId,
@@ -101,7 +106,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
 
     const inputProps = {
       id: uniqueId,
-      hasLabel,
+      hasLabel: labelPresence,
       hasErrorMessage,
       ref,
       readOnly,

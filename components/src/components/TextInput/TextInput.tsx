@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import { textInputTokens as tokens } from './TextInput.tokens';
-import { RequiredMarker } from '../../helpers';
+import { LabelPresence, RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
-import { Input, InputContainer, OuterInputContainer } from '../../helpers';
+import {
+  StatefulInput,
+  InputContainer,
+  OuterInputContainer
+} from '../../helpers';
 import { Label, MessageContainer, TextArea } from './TextInput.styles';
 import {
   derivativeIdGenerator,
@@ -71,6 +75,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasErrorMessage = !!errorMessage;
     const hasTip = !!tip;
     const hasLabel = !!label;
+    const labelPresence: LabelPresence = hasLabel ? 'hasLabel' : 'noLabel';
     const hasMessage = hasErrorMessage || hasTip || !!maxLength;
 
     const characterCounterId = derivativeIdGenerator(
@@ -87,7 +92,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const generalInputProps = {
       id: uniqueId,
-      hasLabel,
+      hasLabel: labelPresence,
       errorMessage,
       hasErrorMessage,
       required,
@@ -128,11 +133,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           {multiline ? (
             <TextArea
               ref={textAreaRef}
+              as="textarea"
               onChange={onChangeHandlerMultiline}
               {...generalInputProps}
             />
           ) : (
-            <Input
+            <StatefulInput
               ref={ref}
               onChange={onChangeHandler}
               type={type}

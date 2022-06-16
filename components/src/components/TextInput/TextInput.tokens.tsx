@@ -11,6 +11,8 @@ const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 const { textInput: TextInput } = ddsReferenceTokens;
 
 const inputMultilineBase: CSSObject = {
+  height: 'auto',
+  resize: 'vertical',
   paddingBottom: Spacing.SizesDdsSpacingLocalX05,
   verticalAlign: 'bottom'
 };
@@ -42,7 +44,7 @@ export const textInputTokens = {
   general: TextInput,
   multiline: {
     base: inputMultilineBase,
-    withLabel: {
+    hasLabel: {
       base: inputMultilineWithLabelBase
     },
     noLabel: {

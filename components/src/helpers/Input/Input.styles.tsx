@@ -1,42 +1,62 @@
 import styled, { css } from 'styled-components';
 import { inputTokens as tokens } from './Input.tokens';
 import { Typography } from '../../components/Typography';
-import { inputFieldStylingBase } from './inputFieldStylingBase';
-import { InputProps, StyledInputProps, StyledLabelProps } from './Input.types';
+import { typographyTokens } from '../../components/Typography/Typography.tokens';
+import { StyledInputProps, StyledLabelProps } from '.';
+import { Property } from 'csstype';
 
-export const inputStyling = ({
-  readOnly,
-  hasLabel,
-  disabled,
-  hasErrorMessage
-}: StyledInputProps) => {
-  return css`
-    ${inputFieldStylingBase}
-    ${tokens.base}
-    box-sizing: border-box;
-    box-shadow: none;
-    -webkit-appearance: textfield;
-    ${hasLabel
-      ? css`
-          ${tokens.withLabel.base}
-        `
-      : css`
-          ${tokens.noLabel.base}
-        `};
+export const Input = styled.input`
+  ${tokens.baseInput.base}
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  box-shadow: none;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
+  }
+  &[type='text'],
+  &[type='password'],
+  &[type='number'],
+  &[type='tel'],
+  &[type='date'],
+  &[type='url'],
+  &[type='email'],
+  &[type='search'],
+  &[type='datetime-local'] {
+    -webkit-appearance: none;
+  }
+  &::selection {
+    ${typographyTokens.selection.base}
+  }
 
-    &:hover:enabled:read-write ~ label {
-      ${tokens.label.hover.base}
-    }
-    &:focus:enabled:read-write ~ label {
-      ${tokens.label.focus.base}
-    }
+  &:focus:enabled:read-write,
+  &:active:enabled:read-write {
+    ${tokens.baseInput.focus.base}
+  }
 
-    ${disabled &&
+  &:hover:enabled:read-write {
+    ${tokens.baseInput.hover.base}
+  }
+`;
+
+export const StatefulInput = styled(Input)<StyledInputProps>`
+  -webkit-appearance: textfield;
+  ${({ hasLabel }) =>
     css`
-      cursor: not-allowed;
-      ${tokens.disabled.base}
-    `}
-    ${hasErrorMessage &&
+      ${tokens[hasLabel].base}
+    `};
+
+  &:hover:enabled:read-write ~ label {
+    ${tokens.label.hover.base}
+  }
+  &:focus:enabled:read-write ~ label {
+    ${tokens.label.focus.base}
+  }
+  ${({ hasErrorMessage }) =>
+    hasErrorMessage &&
     css`
       ${tokens.error.base}
       &:hover:enabled:read-write {
@@ -47,24 +67,21 @@ export const inputStyling = ({
         ${tokens.error.focus.base}
       }
     `}
-        ${readOnly &&
-    css`
-      cursor: default;
-      ${tokens.readOnly.base}
-    `}
-  `;
-};
-
-export const Input = styled.input<StyledInputProps>`
-  ${({ hasLabel, disabled, readOnly, hasErrorMessage }) =>
-    inputStyling({ readOnly, hasLabel, disabled, hasErrorMessage })}
+  &:enabled:read-only {
+    ${tokens.readOnly.base}
+  }
+  &:disabled {
+    ${tokens.disabled.base}
+  }
 `;
 
-export const SingleLineLabel = styled(Typography)<StyledLabelProps>`
+export const Label = styled(Typography)<StyledLabelProps>`
   position: absolute;
   top: 0;
   left: 0;
-  transition: color 0.2s, background-color 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color 0.2s, background-color 0.2s;
+  }
   ${tokens.label.base}
   ${({ disabled }) =>
     disabled &&
@@ -75,13 +92,16 @@ export const SingleLineLabel = styled(Typography)<StyledLabelProps>`
 
 export const InputContainer = styled.div`
   position: relative;
-  width: 100%;
 `;
 
-type OuterInputContainerProps = Pick<InputProps, 'width'>;
+type OuterInputContainerProps = { width?: Property.Width<string> };
 
 export const OuterInputContainer = styled.div<OuterInputContainerProps>`
   display: flex;
   flex-direction: column;
-  width: ${({ width }) => width};
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `};
 `;

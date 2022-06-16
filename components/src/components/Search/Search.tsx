@@ -9,33 +9,33 @@ import styled, { css } from 'styled-components';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
-import { inputFieldStylingBase } from '../../helpers';
+import {
+  Input as BaseInput,
+  InputContainer,
+  OuterInputContainer,
+  InputProps as BaseInputProps
+} from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator
 } from '../../utils';
 
-type InputProps = Pick<SearchProps, 'componentSize'>;
+type InputProps = { componentSize: SearchSize };
 
-const Input = styled.input<InputProps>`
+const Input = styled(BaseInput)<InputProps>`
   &[type='search']::-webkit-search-decoration,
   &[type='search']::-webkit-search-cancel-button,
   &[type='search']::-webkit-search-results-button,
   &[type='search']::-webkit-search-results-decoration {
     -webkit-appearance: none;
   }
-
-  ${inputFieldStylingBase}
   ${tokens.input.base}
 
-    ${({ componentSize }) =>
-    componentSize &&
+  ${({ componentSize }) =>
     css`
       ${tokens.input[componentSize].base}
     `}
-
-    padding-left: ${tokens.input.spaceLeft};
 `;
 
 const IconWrapper = styled.span`
@@ -46,23 +46,10 @@ const IconWrapper = styled.span`
 `;
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: row;
+  ${tokens.container.base}
 `;
 
-const InputContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-const InputWrapper = styled.div`
-  position: relative;
-`;
-
-const ButtonWrapper = styled.div`
-  margin-left: ${tokens.buttonWrapper.spaceLeft};
-`;
+const ButtonWrapper = styled.div``;
 
 let nextUniqueId = 0;
 
@@ -73,11 +60,9 @@ type ButtonProps = {
   loading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type SearchProps = {
+export type SearchProps = Pick<BaseInputProps, 'tip'> & {
   /**Størrelsen på komponenten. */
   componentSize?: SearchSize;
-  /**Hjelpetekst. */
-  tip?: string;
   /**Props for søkeknappen. */
   buttonProps?: ButtonProps;
 } & InputHTMLAttributes<HTMLInputElement>;
@@ -107,6 +92,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     };
 
     const inputProps = {
+      ref,
       ...rest,
       componentSize,
       name,
@@ -122,17 +108,17 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
 
     return (
       <Container {...containerProps}>
-        <InputContainer>
-          <InputWrapper>
+        <OuterInputContainer width="100%">
+          <InputContainer>
             <IconWrapper>
               <SearchOutlinedIcon />
             </IconWrapper>
-            <Input ref={ref} {...inputProps} />
-          </InputWrapper>
+            <Input {...inputProps} />
+          </InputContainer>
           {hasTip && (
             <InputMessage id={tipId} messageType="tip" message={tip} />
           )}
-        </InputContainer>
+        </OuterInputContainer>
         {buttonProps && onClick && (
           <ButtonWrapper>
             <Button
