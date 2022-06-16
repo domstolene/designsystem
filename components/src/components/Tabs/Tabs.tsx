@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Direction } from '../../../typings';
+import { Direction } from '../../types';
 import { TabsContext } from './Tabs.context';
 import { Property } from 'csstype';
 

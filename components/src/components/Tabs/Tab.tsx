@@ -16,7 +16,7 @@ import { IconWrapper } from '../IconWrapper';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useCombinedRef, useOnKeyDown } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
-import { Direction } from '../../../typings';
+import { Direction } from '../../types';
 import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
 
