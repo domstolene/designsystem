@@ -55,8 +55,12 @@ import { Chip, ChipGroup } from '@norges-domstoler/dds-components';
 ### Chip
 
 <ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSpanElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
 ### ChipGroup
 
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLUListElement>`-interface.
+
+## Retningslinjer
+
+- bruk gjerne `title`-attributtet for å vise teksten.
