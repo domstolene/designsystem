@@ -4,39 +4,45 @@ import {
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
-const { spacing: Spacing, fontPackages: FontPackages } = ddsBaseTokens;
+const { spacing, fontPackages } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
 const inputBase: CSSObject = {
-  paddingRight: Spacing.SizesDdsSpacingLocalX05
+  paddingRight: spacing.SizesDdsSpacingLocalX05,
+  paddingLeft: spacing.SizesDdsSpacingLocalX3
 };
 
 const smallBase: CSSObject = {
-  ...FontPackages.supportingStyle_inputtext_01.base,
-  paddingTop: Spacing.SizesDdsSpacingLocalX05,
-  paddingBottom: Spacing.SizesDdsSpacingLocalX05
+  ...fontPackages.supportingStyle_inputtext_01.base,
+  paddingTop: spacing.SizesDdsSpacingLocalX05,
+  paddingBottom: spacing.SizesDdsSpacingLocalX05
 };
 
 const mediumBase: CSSObject = {
-  ...FontPackages.supportingStyle_inputtext_02.base,
-  paddingTop: Spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: Spacing.SizesDdsSpacingLocalX075
+  ...fontPackages.supportingStyle_inputtext_02.base,
+  paddingTop: spacing.SizesDdsSpacingLocalX075,
+  paddingBottom: spacing.SizesDdsSpacingLocalX075
 };
 
 const largeBase: CSSObject = {
-  ...FontPackages.supportingStyle_inputtext_03.base,
-  paddingTop: Spacing.SizesDdsSpacingLocalX1,
-  paddingBottom: Spacing.SizesDdsSpacingLocalX1
+  ...fontPackages.supportingStyle_inputtext_03.base,
+  paddingTop: spacing.SizesDdsSpacingLocalX1,
+  paddingBottom: spacing.SizesDdsSpacingLocalX1
 };
 
 const iconWrapperBase: CSSObject = {
   color: textDefault.textColor
 };
 
+const containerBase: CSSObject = {
+  display: 'flex',
+  flexDirection: 'row',
+  gap: spacing.SizesDdsSpacingLocalX05
+};
+
 export const searchTokens = {
   input: {
     base: inputBase,
-    spaceLeft: Spacing.SizesDdsSpacingLocalX3,
     small: {
       base: smallBase
     },
@@ -48,13 +54,13 @@ export const searchTokens = {
     }
   },
   icon: {
-    spaceTop: `calc(50% - ${Spacing.SizesDdsSpacingLocalX15NumberPx / 2}px)`,
-    spaceLeft: Spacing.SizesDdsSpacingLocalX075
+    spaceTop: `calc(50% - ${spacing.SizesDdsSpacingLocalX15NumberPx / 2}px)`,
+    spaceLeft: spacing.SizesDdsSpacingLocalX075
   },
   iconWrapper: {
     base: iconWrapperBase
   },
-  buttonWrapper: {
-    spaceLeft: Spacing.SizesDdsSpacingLocalX05
+  container: {
+    base: containerBase
   }
 };

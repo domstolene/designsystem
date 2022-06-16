@@ -6,41 +6,51 @@ import { CSSObject } from 'styled-components';
 import {
   dangerInputfield,
   focusDangerInputfield,
-  hoverDangerInputfield
+  focusInputfield,
+  hoverDangerInputfield,
+  hoverInputfield
 } from '../styling';
 
-const {
-  colors: Colors,
-  spacing: Spacing,
-  fontPackages: FontPackages,
-  border: Border
-} = ddsBaseTokens;
+const { colors, spacing, fontPackages, border } = ddsBaseTokens;
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
 const inputBase: CSSObject = {
-  border: ` ${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray5}`,
-  backgroundColor: Colors.DdsColorNeutralsWhite
+  color: TextInput.input.textColor,
+  borderRadius: TextInput.input.borderRadius,
+  border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
+  borderColor: TextInput.input.borderColor,
+  backgroundColor: colors.DdsColorNeutralsWhite,
+  ...TextInput.input.font
 };
 
-const inputWithLabelBase: CSSObject = {
+const inputFocusBase: CSSObject = {
+  ...focusInputfield
+};
+
+const inputHoverBase: CSSObject = {
+  ...hoverInputfield
+};
+
+const inputHasLabelBase: CSSObject = {
   padding: `${
-    Spacing.SizesDdsSpacingLocalX075NumberPx +
-    FontPackages.supportingStyle_label_01.numbers.lineHeightNumber *
+    spacing.SizesDdsSpacingLocalX075NumberPx +
+    fontPackages.supportingStyle_label_01.numbers.lineHeightNumber *
       0.01 *
-      FontPackages.supportingStyle_label_01.numbers.fontSizeNumber
-  }px ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX075} ${
-    Spacing.SizesDdsSpacingLocalX1
+      fontPackages.supportingStyle_label_01.numbers.fontSizeNumber
+  }px ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX075} ${
+    spacing.SizesDdsSpacingLocalX1
   }`
 };
 
 const inputNoLabelBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`
+  padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1}`
 };
 
 const inputDisabledBase: CSSObject = {
-  color: Colors.DdsColorNeutralsGray7,
-  backgroundColor: Colors.DdsColorNeutralsGray1
+  cursor: 'not-allowed',
+  color: colors.DdsColorNeutralsGray7,
+  backgroundColor: colors.DdsColorNeutralsGray1
 };
 
 const inputErrorBase: CSSObject = {
@@ -57,12 +67,14 @@ const inputErrorFocusBase: CSSObject = {
 
 const inputReadOnlyBase: CSSObject = {
   border: 'none',
+  outline: 'none',
+  cursor: 'default',
   backgroundColor: 'transparent',
-  paddingLeft: Spacing.SizesDdsSpacingLocalX1
+  paddingLeft: spacing.SizesDdsSpacingLocalX1
 };
 
 const inputLabelBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1}`
+  padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1}`
 };
 
 const inputLabelHoverBase: CSSObject = {
@@ -74,15 +86,22 @@ const inputLabelFocusBase: CSSObject = {
 };
 
 const inputLabelDisabledBase: CSSObject = {
-  color: Colors.DdsColorNeutralsGray6
+  color: colors.DdsColorNeutralsGray6
 };
 
 export const inputTokens = {
+  baseInput: {
+    base: inputBase,
+    focus: {
+      base: inputFocusBase
+    },
+    hover: {
+      base: inputHoverBase
+    }
+  },
   general: TextInput,
-  base: inputBase,
-  focusColor: TextInput.input.focus.borderColor,
-  withLabel: {
-    base: inputWithLabelBase
+  hasLabel: {
+    base: inputHasLabelBase
   },
   noLabel: {
     base: inputNoLabelBase

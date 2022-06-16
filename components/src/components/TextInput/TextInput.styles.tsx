@@ -2,28 +2,20 @@ import styled, { css } from 'styled-components';
 import { TextInputProps } from './TextInput.types';
 import { textInputTokens as tokens } from './TextInput.tokens';
 import {
-  inputStyling,
-  SingleLineLabel,
+  Label as BaseLabel,
   StyledInputProps,
-  inputTokens
+  inputTokens,
+  StatefulInput
 } from '../../helpers';
 import { scrollbarStyling } from '../../helpers/styling';
 
-export const TextArea = styled.textarea<StyledInputProps>`
-  ${({ hasLabel, disabled, readOnly, hasErrorMessage }) =>
-    inputStyling({ readOnly, hasLabel, disabled, hasErrorMessage })}
-  resize: vertical;
-  height: auto;
+export const TextArea = styled(StatefulInput)<StyledInputProps>`
   ${scrollbarStyling}
   ${tokens.multiline.base}
   ${({ hasLabel }) =>
-    hasLabel
-      ? css`
-          ${tokens.multiline.withLabel.base}
-        `
-      : css`
-          ${tokens.multiline.noLabel.base}
-        `}
+    css`
+      ${tokens.multiline[hasLabel].base}
+    `}
 
   &:hover:enabled:read-write ~ label {
     background-color: ${({ hasErrorMessage }) =>
@@ -40,22 +32,20 @@ export const MessageContainer = styled.div`
 
 type LabelProps = Pick<TextInputProps, 'multiline' | 'disabled' | 'readOnly'>;
 
-export const Label = styled(SingleLineLabel)<LabelProps>`
+export const Label = styled(BaseLabel)<LabelProps>`
   ${({ multiline }) =>
     multiline &&
     css`
       ${tokens.label.multiline.base}
     `}
-  ${({ disabled, multiline }) =>
-    disabled &&
-    multiline &&
-    css`
-      background-color: ${inputTokens.disabled.base.backgroundColor};
-    `}
-    ${({ readOnly, multiline }) =>
-    readOnly &&
-    multiline &&
-    css`
-      background-color: ${inputTokens.readOnly.base.backgroundColor};
-    `}
+  ${({ multiline, disabled, readOnly }) =>
+    multiline && readOnly
+      ? css`
+          background-color: ${inputTokens.readOnly.base.backgroundColor};
+        `
+      : multiline && disabled
+      ? css`
+          background-color: ${inputTokens.readOnly.base.backgroundColor};
+        `
+      : ''}
 `;

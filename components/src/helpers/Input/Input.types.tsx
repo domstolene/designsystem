@@ -12,9 +12,11 @@ export type InputProps = {
   errorMessage?: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
+export type LabelPresence = 'hasLabel' | 'noLabel';
+
 export type StyledInputProps = Pick<InputProps, 'readOnly' | 'disabled'> & {
   hasErrorMessage: boolean;
-  hasLabel: boolean;
+  hasLabel: LabelPresence;
 };
 
 export type StyledLabelProps = { disabled?: boolean };
