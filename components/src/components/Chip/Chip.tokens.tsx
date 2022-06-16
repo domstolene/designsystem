@@ -17,7 +17,7 @@ const containerBase: CSSObject = {
 
 const groupBase: CSSObject = {
   display: 'flex',
-  gap: spacing.SizesDdsSpacingLocalX025
+  gap: spacing.SizesDdsSpacingLocalX075
 };
 
 export const chipTokens = {
