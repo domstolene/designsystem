@@ -5,7 +5,7 @@ import {
   Dispatch,
   SetStateAction
 } from 'react';
-import { Direction } from '../../typings';
+import { Direction } from '../types';
 
 export function useRoveFocus(
   size: number | undefined,

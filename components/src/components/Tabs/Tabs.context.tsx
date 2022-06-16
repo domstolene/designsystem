@@ -1,5 +1,5 @@
 import { createContext, RefObject, useContext } from 'react';
-import { Direction } from '../../../typings';
+import { Direction } from '../../types';
 import { Property } from 'csstype';
 
 type Tabs = {
