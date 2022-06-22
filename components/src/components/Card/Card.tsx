@@ -33,6 +33,7 @@ const Container = styled.div<ContainerProps>`
         `
       : cardType === 'expandable'
       ? css`
+          width: 100%;
           &:not(:first-of-type) {
             border-top: none;
           }
