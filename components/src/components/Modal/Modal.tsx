@@ -1,11 +1,4 @@
-import {
-  forwardRef,
-  HTMLAttributes,
-  ReactNode,
-  RefObject,
-  useEffect,
-  useState
-} from 'react';
+import { forwardRef, ReactNode, RefObject, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
@@ -21,6 +14,7 @@ import {
 } from '../../helpers';
 import { useMountTransition } from '../../hooks/useMountTransition';
 import { typographyTokens } from '../Typography/Typography.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const Container = styled.div`
   display: flex;
@@ -47,113 +41,114 @@ const StyledButton = styled(Button)`
   align-self: flex-end;
 `;
 
-export type ModalProps = {
-  /**Spesifiserer om modal skal vises. */
-  isOpen?: boolean;
-  /**Funksjon kjørt ved lukking; Settes hvis modal skal være lukkbar. Legger en lukkeknapp i hjørnet og kjøres ved Esc-trykk, lukkeknappklikk og museklikk utenfor. */
-  onClose?: () => void;
-  /**Spesifiserer hvilken DOM node `<Modal />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
-  parentElement?: HTMLElement;
-  /**Tittel/header i modal. Setter `aria-labelledby`. */
-  header?: string | ReactNode;
-  /**Ref som brukes til returnering av fokus. */
-  triggerRef?: RefObject<HTMLElement>;
-} & HTMLAttributes<HTMLDivElement>;
+export type ModalProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**Spesifiserer om modal skal vises. */
+    isOpen?: boolean;
+    /**Funksjon kjørt ved lukking; Settes hvis modal skal være lukkbar. Legger en lukkeknapp i hjørnet og kjøres ved Esc-trykk, lukkeknappklikk og museklikk utenfor. */
+    onClose?: () => void;
+    /**Spesifiserer hvilken DOM node `<Modal />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
+    parentElement?: HTMLElement;
+    /**Tittel/header i modal. Setter `aria-labelledby`. */
+    header?: string | ReactNode;
+    /**Ref som brukes til returnering av fokus. */
+    triggerRef?: RefObject<HTMLElement>;
+  }
+>;
 
 let nextUniqueId = 0;
 
-export const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  (
-    {
-      isOpen = false,
-      parentElement = document.body,
-      children,
-      header,
-      onClose,
-      id,
-      triggerRef,
-      ...rest
-    },
-    ref
-  ) => {
-    const uniqueId = nextUniqueId++;
-    const [modalId] = useState<string>(id ?? `modal-${uniqueId}`);
-    const headerId = `${modalId}-header`;
+export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
+  const {
+    isOpen = false,
+    parentElement = document.body,
+    children,
+    header,
+    onClose,
+    id,
+    triggerRef,
+    htmlProps,
+    ...rest
+  } = props;
 
-    const modalRef = useFocusTrap<HTMLDivElement>(isOpen);
-    const combinedRef = useCombinedRef(ref, modalRef);
-    const handleClose = () => {
-      if (onClose && isOpen) {
-        triggerRef && triggerRef.current?.focus();
-        onClose();
-      }
-    };
+  const uniqueId = nextUniqueId++;
+  const [modalId] = useState<string>(id ?? `modal-${uniqueId}`);
+  const headerId = `${modalId}-header`;
 
-    useEffect(() => {
-      if (isOpen) {
-        handleElementWithBackdropMount(document.body);
-      } else {
-        handleElementWithBackdropUnmount(document.body);
-      }
-    }, [isOpen]);
+  const modalRef = useFocusTrap<HTMLDivElement>(isOpen);
+  const combinedRef = useCombinedRef(ref, modalRef);
+  const handleClose = () => {
+    if (onClose && isOpen) {
+      triggerRef && triggerRef.current?.focus();
+      onClose();
+    }
+  };
 
-    useOnClickOutside(modalRef.current, () => handleClose());
+  useEffect(() => {
+    if (isOpen) {
+      handleElementWithBackdropMount(document.body);
+    } else {
+      handleElementWithBackdropUnmount(document.body);
+    }
+  }, [isOpen]);
 
-    useOnKeyDown(['Escape', 'Esc'], () => handleClose());
+  useOnClickOutside(modalRef.current, () => handleClose());
 
-    const hasTransitionedIn = useMountTransition(isOpen, 200);
+  useOnKeyDown(['Escape', 'Esc'], () => handleClose());
 
-    const backdropProps = {
-      isOpen: hasTransitionedIn && isOpen
-    };
+  const hasTransitionedIn = useMountTransition(isOpen, 200);
 
-    const containerProps = {
-      ref: combinedRef,
-      role: 'dialog',
-      'aria-modal': true,
-      'aria-hidden': !isOpen,
-      tabIndex: -1,
-      'aria-labelledby': headerId,
-      id: modalId,
-      ...rest
-    };
+  const backdropProps = {
+    isOpen: hasTransitionedIn && isOpen
+  };
 
-    const headerContainerProps = {
-      id: headerId
-    };
+  const containerProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
+    ref: combinedRef,
+    role: 'dialog',
+    'aria-modal': true,
+    'aria-hidden': !isOpen,
+    tabIndex: -1,
+    'aria-labelledby': headerId,
+    id: modalId
+  };
 
-    return isOpen || hasTransitionedIn
-      ? createPortal(
-          <Backdrop {...backdropProps}>
-            <Container {...containerProps}>
-              <ContentContainer>
-                {header && (
-                  <HeaderContainer {...headerContainerProps}>
-                    {typeof header === 'string' ? (
-                      <Typography typographyType="headingSans03">
-                        {header}
-                      </Typography>
-                    ) : (
-                      header
-                    )}
-                  </HeaderContainer>
-                )}
-                {children}
-              </ContentContainer>
-              {onClose && (
-                <StyledButton
-                  size="small"
-                  appearance="borderless"
-                  purpose="secondary"
-                  Icon={CloseOutlinedIcon}
-                  onClick={handleClose}
-                  aria-label="Lukk dialog"
-                />
+  const headerContainerProps = {
+    id: headerId
+  };
+
+  return isOpen || hasTransitionedIn
+    ? createPortal(
+        <Backdrop {...backdropProps}>
+          <Container {...containerProps}>
+            <ContentContainer>
+              {header && (
+                <HeaderContainer {...headerContainerProps}>
+                  {typeof header === 'string' ? (
+                    <Typography typographyType="headingSans03">
+                      {header}
+                    </Typography>
+                  ) : (
+                    header
+                  )}
+                </HeaderContainer>
               )}
-            </Container>
-          </Backdrop>,
-          parentElement
-        )
-      : null;
-  }
-);
+              {children}
+            </ContentContainer>
+            {onClose && (
+              <StyledButton
+                size="small"
+                appearance="borderless"
+                purpose="secondary"
+                Icon={CloseOutlinedIcon}
+                onClick={handleClose}
+                aria-label="Lukk dialog"
+              />
+            )}
+          </Container>
+        </Backdrop>,
+        parentElement
+      )
+    : null;
+});

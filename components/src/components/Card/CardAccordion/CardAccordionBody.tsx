@@ -1,7 +1,11 @@
-import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
 import { Property } from 'csstype';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps
+} from '../../../types';
 
 const expandingAnimation = css`
   transition: padding 0.2s, visibility 0.3s,
@@ -41,19 +45,24 @@ const BodyContainer = styled.div<BodyContainerProps>`
   max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : 0)}px;
 `;
 
-export type CardAccordionBodyProps = {
-  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller komponenten om den skal utvides.  */
-  isExpanded?: boolean;
-  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionHeader />`.  */
-  headerId?: string;
-  /**Overskriver default padding på toppen. Brukes når barn har spacing på toppen, f.eks. en overskrift. */
-  paddingTop?: Property.PaddingTop<string>;
-} & HTMLAttributes<HTMLDivElement>;
+export type CardAccordionBodyProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller komponenten om den skal utvides.  */
+    isExpanded?: boolean;
+    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionHeader />`.  */
+    headerId?: string;
+    /**Overskriver default padding på toppen. Brukes når barn har spacing på toppen, f.eks. en overskrift. */
+    paddingTop?: Property.PaddingTop<string>;
+  }
+>;
 
 export const CardAccordionBody = forwardRef<
   HTMLDivElement,
   CardAccordionBodyProps
->(({ children, isExpanded, headerId, ...rest }, ref) => {
+>((props, ref) => {
+  const { children, isExpanded, headerId, id, htmlProps, ...rest } = props;
+
   const bodyRef = useRef<HTMLDivElement>(null);
 
   const [maxHeight, setMaxHeight] = useState(0);
@@ -67,10 +76,10 @@ export const CardAccordionBody = forwardRef<
   }, [isExpanded]);
 
   const bodyProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
     ref,
     isExpanded,
-    role: 'region',
-    ...rest
+    role: 'region'
   };
   const bodyContainerProps = {
     ref: bodyRef,
@@ -79,7 +88,7 @@ export const CardAccordionBody = forwardRef<
   };
 
   return (
-    <Body aria-labelledby={headerId} aria-hidden={!isExpanded} {...bodyProps}>
+    <Body {...bodyProps} aria-labelledby={headerId} aria-hidden={!isExpanded}>
       <BodyContainer {...bodyContainerProps}> {children} </BodyContainer>
     </Body>
   );

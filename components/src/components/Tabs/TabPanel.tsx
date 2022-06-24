@@ -1,6 +1,7 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { tabsTokens as tokens } from './Tabs.tokens';
 
 type PanelProps = {
@@ -20,19 +21,22 @@ const Panel = styled.div<PanelProps>`
   }
 `;
 
-export type TabPanelProps = {
-  /** Spesifiserer om panelet skal vises basert på aktiv fane. */
-  active?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+export type TabPanelProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /** Spesifiserer om panelet skal vises basert på aktiv fane. */
+    active?: boolean;
+  }
+>;
 
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
-  ({ active = false, children, ...rest }, ref) => {
+  ({ active = false, children, id, htmlProps, ...rest }, ref) => {
     const panelProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       ref,
       tabIndex: 0,
       role: 'tabpanel',
-      active,
-      ...rest
+      active
     };
     return <Panel {...panelProps}>{children}</Panel>;
   }

@@ -16,7 +16,11 @@ import { IconWrapper } from '../IconWrapper';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useCombinedRef, useOnKeyDown } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
-import { Direction } from '../../types';
+import {
+  BaseComponentPropsWithChildren,
+  Direction,
+  getBaseHTMLProps
+} from '../../types';
 import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
 
@@ -49,95 +53,98 @@ const Button = styled.button<ButtonProps>`
   }
 `;
 
-export type TabProps = {
-  /**Spesifiserer om fanen er aktiv. */
-  active?: boolean;
-  /** Ikon. */
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-  /** Custom bredde for enkel fane. */
-  width?: Property.Width;
-  /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
-  focus?: boolean;
-  /**  Callback som setter fokus. **OBS!** settes automatisk av forelder.*/
-  setFocus?: Dispatch<SetStateAction<number>>;
-  /** Indeksen til `<Tab />`. **OBS!** settes automatisk av forelder.*/
-  index?: number;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+export type TabProps = BaseComponentPropsWithChildren<
+  HTMLButtonElement,
+  {
+    /**Spesifiserer om fanen er aktiv. */
+    active?: boolean;
+    /** Ikon. */
+    Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+    /** Custom bredde for enkel fane. */
+    width?: Property.Width;
+    /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
+    focus?: boolean;
+    /**  Callback som setter fokus. **OBS!** settes automatisk av forelder.*/
+    setFocus?: Dispatch<SetStateAction<number>>;
+    /** Indeksen til `<Tab />`. **OBS!** settes automatisk av forelder.*/
+    index?: number;
+  } & Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>,
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>
+>;
 
-export const Tab = forwardRef<HTMLButtonElement, TabProps>(
-  (
-    {
-      active = false,
-      width,
-      Icon,
-      children,
-      focus,
-      setFocus,
-      index,
-      onClick,
-      onKeyDown,
-      ...rest
-    },
-    ref
+export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
+  const {
+    active = false,
+    width,
+    Icon,
+    children,
+    focus,
+    setFocus,
+    index,
+    onClick,
+    onKeyDown,
+    id,
+    htmlProps,
+    ...rest
+  } = props;
+
+  const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
+  const combinedRef = useCombinedRef(ref, itemRef);
+  const {
+    tabPanelsRef,
+    hasTabFocus,
+    setHasTabFocus,
+    tabContentDirection,
+    tabWidth
+  } = useTabsContext();
+
+  useEffect(() => {
+    if (focus) {
+      itemRef.current?.focus();
+      setHasTabFocus(true);
+      console.log('setHasTabFocus if(focus)', hasTabFocus);
+    }
+  }, [focus]);
+
+  useOnKeyDown('Tab', () => {
+    setHasTabFocus(false);
+    tabPanelsRef?.current?.focus();
+  });
+
+  const handleSelect = useCallback(() => {
+    if (setFocus && index) {
+      setFocus(index);
+    }
+  }, [index, setFocus]);
+
+  const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
+    handleSelect();
+    onClick && onClick(e);
+  };
+
+  const handleOnKeyDown = (
+    e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>
   ) => {
-    const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
-    const combinedRef = useCombinedRef(ref, itemRef);
-    const {
-      tabPanelsRef,
-      hasTabFocus,
-      setHasTabFocus,
-      tabContentDirection,
-      tabWidth
-    } = useTabsContext();
+    handleSelect();
+    onKeyDown && onKeyDown(e);
+  };
 
-    useEffect(() => {
-      if (focus) {
-        itemRef.current?.focus();
-        setHasTabFocus(true);
-        console.log('setHasTabFocus if(focus)', hasTabFocus);
-      }
-    }, [focus]);
-
-    useOnKeyDown('Tab', () => {
-      setHasTabFocus(false);
-      tabPanelsRef?.current?.focus();
-    });
-
-    const handleSelect = useCallback(() => {
-      if (setFocus && index) {
-        setFocus(index);
-      }
-    }, [index, setFocus]);
-
-    const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
-      handleSelect();
-      onClick && onClick(e);
-    };
-
-    const handleOnKeyDown = (
-      e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>
-    ) => {
-      handleSelect();
-      onKeyDown && onKeyDown(e);
-    };
-
-    const buttonProps = {
-      ref: combinedRef,
-      'aria-selected': active,
-      role: 'tab',
-      active,
-      width: width ?? tabWidth,
-      direction: tabContentDirection,
-      onClick: handleOnClick,
-      onKeyDown: handleOnKeyDown,
-      tabIndex: focus ? 0 : -1,
-      ...rest
-    };
-    return (
-      <Button {...buttonProps}>
-        {Icon && <IconWrapper Icon={Icon} iconSize="inline" />}
-        <span>{children}</span>
-      </Button>
-    );
-  }
-);
+  const buttonProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
+    ref: combinedRef,
+    'aria-selected': active,
+    role: 'tab',
+    active,
+    width: width ?? tabWidth,
+    direction: tabContentDirection,
+    onClick: handleOnClick,
+    onKeyDown: handleOnKeyDown,
+    tabIndex: focus ? 0 : -1
+  };
+  return (
+    <Button {...buttonProps}>
+      {Icon && <IconWrapper Icon={Icon} iconSize="inline" />}
+      <span>{children}</span>
+    </Button>
+  );
+});

@@ -7,6 +7,7 @@ import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
 import { buttonTokens } from '../Button/Button.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 const Input = styled.input`
   ${hideInput as CSSObject}
@@ -49,22 +50,26 @@ const Container = styled.label`
 
 let nextUniqueId = 0;
 
-export type ToggleButtonProps = {
-  /**Ledetekst for inputelementet. */
-  label?: string;
-  /** Ikon. */
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
-} & InputHTMLAttributes<HTMLInputElement>;
+export type ToggleButtonProps = BaseComponentProps<
+  HTMLInputElement,
+  {
+    /**Ledetekst for inputelementet. */
+    label?: string;
+    /** Ikon. */
+    Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  },
+  InputHTMLAttributes<HTMLInputElement>
+>;
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ({ id, label, Icon, ...rest }, ref) => {
+  ({ id, label, Icon, htmlProps, ...rest }, ref) => {
     const [uniqueId] = useState<string>(id ?? `toggleButton-${nextUniqueId++}`);
 
     const inputProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       ref,
       id: uniqueId,
-      type: 'checkbox',
-      ...rest
+      type: 'checkbox'
     };
 
     const containerProps = {

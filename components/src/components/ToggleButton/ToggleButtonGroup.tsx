@@ -1,5 +1,6 @@
-import { HTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Typography } from '../Typography';
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
 
@@ -19,24 +20,31 @@ const Container = styled.div`
 
 type Direction = 'row' | 'column';
 
-export type ToggleButtonGroupProps = {
-  /** Ledetekst for gruppen. */
-  label?: string;
-  /**Retningen barna legger seg i. */
-  direction?: Direction;
-  /** Custom `id` for ledetekst. Blir generert som default for å knytte ledetekst til gruppen.  */
-  labelId?: string;
-} & HTMLAttributes<HTMLDivElement>;
+export type ToggleButtonGroupProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /** Ledetekst for gruppen. */
+    label?: string;
+    /**Retningen barna legger seg i. */
+    direction?: Direction;
+    /** Custom `id` for ledetekst. Blir generert som default for å knytte ledetekst til gruppen.  */
+    labelId?: string;
+  }
+>;
 
 let nextUniqueId = 0;
 
-export const ToggleButtonGroup = ({
-  children,
-  direction = 'row',
-  label,
-  labelId,
-  ...props
-}: ToggleButtonGroupProps) => {
+export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
+  const {
+    children,
+    direction = 'row',
+    label,
+    labelId,
+    id,
+    htmlProps,
+    ...rest
+  } = props;
+
   const [uniqueLabelId] = useState<string>(
     labelId ?? `ToggleButtonGroupLabel-${nextUniqueId++}`
   );
@@ -46,9 +54,9 @@ export const ToggleButtonGroup = ({
   };
 
   const containerProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
     role: 'group',
-    'aria-labelledby': label ? uniqueLabelId : undefined,
-    ...props
+    'aria-labelledby': label ? uniqueLabelId : undefined
   };
 
   return (

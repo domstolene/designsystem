@@ -3,7 +3,8 @@ import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined
 import { IconWrapper } from '../IconWrapper';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import { Typography } from '../../components/Typography';
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 type WrapperProps = {
   messageType: InputMessageType;
@@ -28,16 +29,25 @@ const InputMessageWrapper = styled.div<WrapperProps>`
 
 export type InputMessageType = 'error' | 'tip';
 
-export type InputMessageProps = {
-  /** Meldingen som vises til brukeren. */
-  message: string;
-  /** Formålet med meldingen. Påvirker styling. */
-  messageType: InputMessageType;
-} & HTMLAttributes<HTMLDivElement>;
+export type InputMessageProps = BaseComponentProps<
+  HTMLDivElement,
+  {
+    /** Meldingen som vises til brukeren. */
+    message: string;
+    /** Formålet med meldingen. Påvirker styling. */
+    messageType: InputMessageType;
+  }
+>;
 
 export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
-  ({ message, messageType, ...rest }, ref) => {
-    const wrapperProps = { ref, messageType, ...rest };
+  (props, ref) => {
+    const { message, messageType, id, htmlProps, ...rest } = props;
+
+    const wrapperProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
+      ref,
+      messageType
+    };
 
     const isError = messageType === 'error';
 

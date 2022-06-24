@@ -1,7 +1,8 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { tagTokens as tokens } from './Tag.tokens';
 import { Typography } from '../Typography';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 type WrapperProps = {
   purpose: TagPurpose;
@@ -20,25 +21,28 @@ const Inner = styled.span`
 
 export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
 
-export type TagProps = {
-  /**Tekst som vises i `<Tag />.` */
-  text?: string;
-  /**Formål med status eller kategorisering. Påvirker styling. */
-  purpose?: TagPurpose;
-} & HTMLAttributes<HTMLSpanElement>;
-
-export const Tag = forwardRef<HTMLSpanElement, TagProps>(
-  ({ text, purpose = 'default', ...rest }, ref) => {
-    return (
-      <Wrapper
-        forwardedAs="span"
-        typographyType="bodySans01"
-        ref={ref}
-        purpose={purpose}
-        {...rest}
-      >
-        <Inner>{text}</Inner>
-      </Wrapper>
-    );
+export type TagProps = BaseComponentProps<
+  HTMLSpanElement,
+  {
+    /**Tekst som vises i `<Tag />.` */
+    text?: string;
+    /**Formål med status eller kategorisering. Påvirker styling. */
+    purpose?: TagPurpose;
   }
-);
+>;
+
+export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
+  const { text, purpose = 'default', id, htmlProps, ...rest } = props;
+
+  return (
+    <Wrapper
+      {...getBaseHTMLProps(id, htmlProps, rest)}
+      forwardedAs="span"
+      typographyType="bodySans01"
+      ref={ref}
+      purpose={purpose}
+    >
+      <Inner>{text}</Inner>
+    </Wrapper>
+  );
+});

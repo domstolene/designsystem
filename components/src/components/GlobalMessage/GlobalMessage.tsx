@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
-import { forwardRef, HTMLAttributes, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
 import { IconWrapper } from '../IconWrapper';
 import { Typography } from '../Typography';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
 
@@ -45,29 +46,40 @@ const ContentContainer = styled.div<ContentContainerProps>`
 
 export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 
-export type GlobalMessageProps = {
-  /**Meldingen som vises til brukeren. Brukes kun når meldingen er en `string`. */
-  message?: string;
-  /**Formålet med meldingen. Påvirker styling. */
-  purpose?: GlobalMessagePurpose;
-  /**Indikerer om meldingen skal være lukkbar. */
-  closable?: boolean;
-  /**Ekstra logikk å kjøre når meldingen lukkes. */
-  onClose?: () => void;
-} & HTMLAttributes<HTMLDivElement>;
+export type GlobalMessageProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**Meldingen som vises til brukeren. Brukes kun når meldingen er en `string`. */
+    message?: string;
+    /**Formålet med meldingen. Påvirker styling. */
+    purpose?: GlobalMessagePurpose;
+    /**Indikerer om meldingen skal være lukkbar. */
+    closable?: boolean;
+    /**Ekstra logikk å kjøre når meldingen lukkes. */
+    onClose?: () => void;
+  }
+>;
 
 export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
-  (
-    { message, purpose = 'info', closable, onClose, children, ...rest },
-    ref
-  ) => {
+  (props, ref) => {
+    const {
+      message,
+      purpose = 'info',
+      closable,
+      onClose,
+      children,
+      id,
+      htmlProps,
+      ...rest
+    } = props;
+
     const [isClosed, setClosed] = useState(false);
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       ref,
-      purpose,
-      ...rest
+      purpose
     };
 
     return !isClosed ? (

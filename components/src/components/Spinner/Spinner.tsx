@@ -1,9 +1,10 @@
-import React, { useState, HTMLAttributes } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
 import { getTextColor, TextColor } from '../Typography';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { spinnerTokens as tokens } from './Spinner.tokens';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 type StyledSpinnerProps = Pick<SpinnerProps, 'size'> & {
   outerAnimationDelay: number;
@@ -49,20 +50,27 @@ const Circle = styled.circle<CircleProps>`
   animation-delay: ${({ innerAnimationDelay }) => innerAnimationDelay}ms;
 `;
 
-export type SpinnerProps = {
-  /**Farge på spinneren. */
-  color?: TextColor | string;
-  /**Størrelse; Setter høyde og bredde på spinneren. */
-  size?: Property.Width<string>;
-} & HTMLAttributes<SVGElement>;
+export type SpinnerProps = BaseComponentProps<
+  SVGElement,
+  {
+    /**Farge på spinneren. */
+    color?: TextColor | string;
+    /**Størrelse; Setter høyde og bredde på spinneren. */
+    size?: Property.Width<string>;
+  }
+>;
 
 let nextUniqueId = 0;
 
-export function Spinner({
-  size = ddsBaseTokens.iconSizes.DdsIconsizeMedium,
-  color = 'interactive',
-  ...rest
-}: SpinnerProps) {
+export function Spinner(props: SpinnerProps) {
+  const {
+    size = ddsBaseTokens.iconSizes.DdsIconsizeMedium,
+    color = 'interactive',
+    id,
+    htmlProps,
+    ...rest
+  } = props;
+
   const mountTime = React.useRef(Date.now());
   const outerAnimationDelay = -(mountTime.current % 2000);
   const innerAnimationDelay = -(mountTime.current % 1500);
@@ -70,9 +78,9 @@ export function Spinner({
   const [uniqueId] = useState<string>(`spinnerTitle-${nextUniqueId++}`);
 
   const spinnerProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
     outerAnimationDelay,
-    size,
-    ...rest
+    size
   };
 
   const circleProps = {

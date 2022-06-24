@@ -1,7 +1,8 @@
-import { AnchorHTMLAttributes, HTMLAttributes, RefObject } from 'react';
+import { AnchorHTMLAttributes, RefObject } from 'react';
 import styled, { css } from 'styled-components';
 import { cardTokens as tokens } from './Card.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 type ContainerProps = {
   color: CardColor;
@@ -49,26 +50,29 @@ export type CardColor =
 
 export type CardType = 'info' | 'navigation' | 'expandable';
 
-export type InfoCardProps = {
-  /** Fargepalett i komponenten. */
-  color?: CardColor;
+type BaseCardProps<T extends HTMLElement> = BaseComponentPropsWithChildren<
+  T,
+  {
+    /** Fargepalett i komponenten. */
+    color?: CardColor;
+
+    /** Referanse til komponenten. */
+    cardRef?: RefObject<T>;
+  }
+>;
+
+export type InfoCardProps = BaseCardProps<HTMLDivElement> & {
   /** Spesifiserer funksjonalitet og formål med komponenten. **OBS!** ved `'navigation'` må `href` oppgis. Ved `'expandable'` må alle `<Card />` grupperte sammen ligge egen `<div>` container. */
   cardType: 'info';
-  /** Referanse til komponenten. */
-  cardRef?: RefObject<HTMLDivElement>;
-} & HTMLAttributes<HTMLDivElement>;
+};
 
-export type NavigationCardProps = {
-  color?: CardColor;
+export type NavigationCardProps = BaseCardProps<HTMLAnchorElement> & {
   cardType: 'navigation';
-  cardRef?: RefObject<HTMLAnchorElement>;
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+} & Pick<AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target'>;
 
-export type ExpandableCardProps = {
-  color?: CardColor;
+export type ExpandableCardProps = BaseCardProps<HTMLDivElement> & {
   cardType: 'expandable';
-  cardRef?: RefObject<HTMLDivElement>;
-} & HTMLAttributes<HTMLDivElement>;
+};
 
 export type CardProps =
   | InfoCardProps
@@ -76,31 +80,43 @@ export type CardProps =
   | ExpandableCardProps;
 
 export const Card = (props: CardProps) => {
-  const color = props.color ?? 'filledLight';
+  const {
+    color = 'filledLight',
+    cardType,
+    cardRef,
+    children,
+    id,
+    htmlProps,
+    ...rest
+  } = props;
 
-  if (props.cardType === 'navigation') {
+  if (cardType === 'navigation') {
+    const { href, target } = props;
+
     return (
       <Container
-        {...props}
-        cardType={props.cardType}
+        {...getBaseHTMLProps(id, htmlProps, rest)}
+        cardType={cardType}
         color={color}
         as="a"
-        ref={props.cardRef}
+        ref={cardRef}
+        href={href}
+        target={target}
       >
-        {props.children}
+        {children}
       </Container>
     );
   }
 
   return (
     <Container
-      {...props}
-      cardType={props.cardType}
+      {...getBaseHTMLProps(id, htmlProps, rest)}
+      cardType={cardType}
       color={color}
       as="div"
-      ref={props.cardRef}
+      ref={cardRef}
     >
-      {props.children}
+      {children}
     </Container>
   );
 };

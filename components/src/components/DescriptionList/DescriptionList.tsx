@@ -1,5 +1,6 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { descriptionListTermTokens } from './DescriptionListTerm.tokens';
 
@@ -30,19 +31,24 @@ const DList = styled.dl<DListProps>`
 
 export type DescriptionListAppearance = 'small' | 'bold';
 
-export type DescriptionListProps = {
-  /**Påvirker tekst styling. */
-  appearance?: DescriptionListAppearance;
-} & HTMLAttributes<HTMLDListElement>;
+export type DescriptionListProps = BaseComponentPropsWithChildren<
+  HTMLDListElement,
+  {
+    /**Påvirker tekst styling. */
+    appearance?: DescriptionListAppearance;
+  }
+>;
 
 export const DescriptionList = forwardRef<
   HTMLDListElement,
   DescriptionListProps
->(({ appearance = 'bold', children, ...rest }, ref) => {
+>((props, ref) => {
+  const { appearance = 'bold', children, id, htmlProps, ...rest } = props;
+
   const dListProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
     appearance,
-    ref,
-    ...rest
+    ref
   };
 
   return <DList {...dListProps}>{children}</DList>;

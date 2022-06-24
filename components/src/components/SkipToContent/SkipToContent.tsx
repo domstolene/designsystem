@@ -1,8 +1,9 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 type WrapperProps = {
   top: Property.Top<string | number>;
@@ -43,17 +44,30 @@ const Link = styled.a`
   }
 `;
 
-export type SkipToContentProps = {
-  /** Teksten som vises i lenka. */
-  text?: string;
-  /**Spesifiserer hvor det skal hoppes til via `id`-attributtet til innholdet. */
-  href: string;
-  /**Avstand fra top i nærmeste posisjonert container. */
-  top?: Property.Top<string | number>;
-} & HTMLAttributes<HTMLAnchorElement>;
+export type SkipToContentProps = BaseComponentProps<
+  HTMLAnchorElement,
+  {
+    /** Teksten som vises i lenka. */
+    text?: string;
+    /**Spesifiserer hvor det skal hoppes til via `id`-attributtet til innholdet. */
+    href: string;
+    /**Avstand fra top i nærmeste posisjonert container. */
+    top?: Property.Top<string | number>;
+  }
+>;
 
 export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
-  ({ text = 'Til hovedinnhold', top = 0, style, className, ...rest }, ref) => {
+  (props, ref) => {
+    const {
+      text = 'Til hovedinnhold',
+      top = 0,
+      id,
+      htmlProps = {},
+      ...rest
+    } = props;
+
+    const { className, style, ...restHtmlProps } = htmlProps;
+
     const wrapperProps = {
       top,
       className,
@@ -62,7 +76,7 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
 
     return (
       <Wrapper {...wrapperProps}>
-        <Link ref={ref} {...rest}>
+        <Link {...getBaseHTMLProps(id, restHtmlProps, rest)} ref={ref}>
           {text}
         </Link>
       </Wrapper>
