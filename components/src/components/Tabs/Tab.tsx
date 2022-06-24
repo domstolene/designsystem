@@ -27,8 +27,10 @@ type ButtonProps = {
 };
 
 const Button = styled.button<ButtonProps>`
-  transition: box-shadow 0.2s, border-bottom 0.2s, color 0.2s,
-    ${focusVisibleTransitionValue};
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s, border-bottom 0.2s, color 0.2s,
+      ${focusVisibleTransitionValue};
+  }
   ${tokens.tab.base}
   width: ${({ width }) => width};
 

@@ -18,8 +18,10 @@ const Content = styled.span`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s,
-    ${focusVisibleTransitionValue};
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  }
+  ${focusVisibleTransitionValue};
   cursor: pointer;
   ${buttonTokens.base}
   width: fit-content;

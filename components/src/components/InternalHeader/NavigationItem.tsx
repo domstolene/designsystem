@@ -7,7 +7,9 @@ type LinkProps = { isCurrent?: boolean };
 export const Link = styled.a<LinkProps>`
   display: flex;
   align-items: center;
-  transition: background-color 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s;
+  }
   height: 100%;
   box-sizing: border-box;
   ${tokens.navigationLink.base}

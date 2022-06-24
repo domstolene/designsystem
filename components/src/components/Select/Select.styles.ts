@@ -22,7 +22,9 @@ type StyledContainerProps = {
 };
 
 export const Container = styled.div<StyledContainerProps>`
-  transition: 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
+  }
   position: relative;
   ${tokens.container.base}
   ${scrollbarStyling}
@@ -172,7 +174,9 @@ export const getCustomStyles = <TOption>(): Partial<
   dropdownIndicator: (provided, state) => ({
     display: 'inline-flex',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
-    transition: '0.2s',
+    '@media (prefers-reduced-motion: no-preference)': {
+      transition: 'color 0.2s, transform 0.2s'
+    },
     ...tokens.dropdownIndicator.base
   }),
 
@@ -203,7 +207,9 @@ export const getCustomStyles = <TOption>(): Partial<
         }
       : {
           ...provided,
-          transition: '0.2s',
+          '@media (prefers-reduced-motion: no-preference)': {
+            transition: 'color 0.2s, background-color 0.2s'
+          },
           ...tokens.multiValueRemove.base,
           svg: {
             ...tokens.multiValueRemove.icon.base
@@ -233,7 +239,9 @@ export const getCustomStyles = <TOption>(): Partial<
     ...provided,
     display: 'flex',
     alignItems: 'center',
-    transition: '0.2s',
+    '@media (prefers-reduced-motion: no-preference)': {
+      transition: 'color 0.2s, background-color 0.2s'
+    },
     ...tokens.option.base,
     '&:hover': {
       ...tokens.option.hover.base

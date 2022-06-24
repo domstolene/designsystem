@@ -8,7 +8,9 @@ type PanelProps = {
 };
 
 const Panel = styled.div<PanelProps>`
-  transition: ${focusVisibleTransitionValue};
+  @media (prefers-reduced-motion: no-preference) {
+    transition: ${focusVisibleTransitionValue};
+  }
   ${tokens.panel.base}
   ${({ active }) =>
     !active &&

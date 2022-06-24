@@ -38,7 +38,9 @@ export const Link = styled.a`
   ${tokens.link.base}
   display: flex;
   align-items: center;
-  transition: background-color 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s;
+  }
   &:hover {
     ${tokens.link.hover.base}
   }

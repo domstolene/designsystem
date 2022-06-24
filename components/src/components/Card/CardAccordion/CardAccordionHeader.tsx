@@ -12,14 +12,18 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: box-shadow 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s;
+  }
   ${tokens.base}
 `;
 
 const HeaderWrapper = styled.button`
   position: relative;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s;
+  }
   ${removeButtonStyling}
   display: block;
   width: 100%;

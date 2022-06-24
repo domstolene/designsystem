@@ -21,7 +21,9 @@ type StyledProps = Pick<
 >;
 
 const StyledRow = styled.tr<StyledProps>`
-  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
 
   ${({ type }) =>
     type &&
