@@ -1,5 +1,5 @@
 import { Modal, ModalBody } from '.';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { Button } from '../Button';
 
@@ -64,7 +64,11 @@ describe('<Modal />', () => {
   it('should show after trigger button click', async () => {
     render(<TestComponent />);
     const button = screen.getAllByRole('button')[0];
-    button.click();
+
+    act(() => {
+      button.click();
+    });
+
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
   });
@@ -72,10 +76,18 @@ describe('<Modal />', () => {
   it('should hide after Esc keydown', async () => {
     render(<TestComponent />);
     const button = screen.getAllByRole('button')[0];
-    button.click();
+
+    act(() => {
+      button.click();
+    });
+
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
-    fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
+
+    act(() => {
+      fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
+    });
+
     const elQuery = screen.queryByRole('dialog');
     expect(elQuery).not.toBeInTheDocument();
   });
