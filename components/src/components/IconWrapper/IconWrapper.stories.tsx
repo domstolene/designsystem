@@ -1,5 +1,5 @@
 import { StoryTemplate } from '../../storybook';
-import { IconWrapper, IconWrapperProps } from '.';
+import { IconWrapper, IconWrapper2, IconWrapperProps } from '.';
 import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
 import { Typography } from '../Typography';
 
@@ -35,6 +35,16 @@ export const Default = (args: IconWrapperProps) => {
   return (
     <StoryTemplate title="IconWrapper - default">
       <IconWrapper {...args} Icon={LaunchOutlinedIcon} />
+    </StoryTemplate>
+  );
+};
+
+export const Default2 = (args: IconWrapperProps) => {
+  return (
+    <StoryTemplate title="IconWrapper2 - default">
+      <IconWrapper2 {...args} iconName="sortByAlpha" />
+      <IconWrapper2 {...args} color="red" iconName="sortByAlpha" />
+      <IconWrapper2 {...args} iconName="sortByAlpha" iconSize="inline" />
     </StoryTemplate>
   );
 };

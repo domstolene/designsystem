@@ -1,8 +1,9 @@
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import { Property } from 'csstype';
+import { iconPaths, IconName } from '../../icons';
 
 const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
@@ -17,6 +18,14 @@ const getSize = (iconSize: IconSize): string => {
     default:
       return ddsBaseTokens.iconSizes.DdsIconsizeMedium;
   }
+};
+export function isIconName(name: string): name is IconName {
+  return iconPaths.hasOwnProperty(name);
+}
+
+export const getIcon = (iconName: string): ReactNode => {
+  if (isIconName(iconName)) return iconPaths[iconName];
+  return null;
 };
 
 export type IconSize = 'small' | 'medium' | 'large' | 'inline';
@@ -46,5 +55,42 @@ export function IconWrapper({
       style={{ ...style, color: color ? color : 'inherit', fontSize: size }}
       {...rest}
     />
+  );
+}
+
+export type IconWrapperProps2 = {
+  /**Størrelsen til ikonet. */
+  iconSize?: IconSize;
+  /**Fargen til ikonet. */
+  color?: Property.Color;
+  /**Navnet til ikonet. */
+  iconName: IconName;
+} & HTMLAttributes<SVGElement>;
+
+export function IconWrapper2({
+  iconSize = 'medium',
+  color = 'currentcolor',
+  className,
+  style,
+  iconName,
+  title,
+  'aria-hidden': ariaHidden = true,
+
+  ...rest
+}: IconWrapperProps2) {
+  const size = getSize(iconSize);
+  return (
+    <svg
+      {...rest}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      height={size}
+      width={size}
+      fill={color}
+      aria-hidden={ariaHidden}
+    >
+      <title>{title}</title>
+      {getIcon(iconName)}
+    </svg>
   );
 }
