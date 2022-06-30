@@ -1,8 +1,7 @@
 import { OverflowMenu, OverflowMenuProps, OverflowMenuGroup } from '.';
+import { IconName } from '../../icons';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 
 export default {
   title: 'design system/OverflowMenu',
@@ -17,7 +16,7 @@ const items = [
   {
     title: 'Handling 2',
     onClick: () => {},
-    Icon: AddCircleOutlineOutlinedIcon
+    icon: 'addCircled' as IconName
   },
   {
     title: 'Lenke 1',
@@ -40,7 +39,7 @@ export const Default = (args: OverflowMenuProps) => {
   return (
     <StoryTemplate title="OverflowMenu - default" display="flex-centered">
       <OverflowMenuGroup>
-        <Button Icon={MenuOutlinedIcon} />
+        <Button icon="menu" />
         <OverflowMenu {...args} items={items} />
       </OverflowMenuGroup>
     </StoryTemplate>
@@ -54,7 +53,7 @@ export const WithStaticUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button Icon={MenuOutlinedIcon} />
+        <Button icon="menu" />
         <OverflowMenu
           {...args}
           items={items}
@@ -72,7 +71,7 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button Icon={MenuOutlinedIcon} />
+        <Button icon="menu" />
         <OverflowMenu
           {...args}
           items={items}
@@ -90,7 +89,7 @@ export const WithNavigation = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button Icon={MenuOutlinedIcon} />
+        <Button icon="menu" />
         <OverflowMenu {...args} items={items} navItems={navItems} />
       </OverflowMenuGroup>
     </StoryTemplate>
@@ -104,7 +103,7 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button Icon={MenuOutlinedIcon} />
+        <Button icon="menu" />
         <OverflowMenu
           {...args}
           items={items}

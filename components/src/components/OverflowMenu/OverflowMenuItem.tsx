@@ -13,9 +13,7 @@ import React, {
 } from 'react';
 import styled from 'styled-components';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { SvgIconTypeMap } from '@mui/material/SvgIcon';
-import { IconWrapper } from '../IconWrapper';
+import { Icon, IconName } from '../Icon';
 import { useCombinedRef } from '../../hooks';
 
 export const Span = styled.span`
@@ -51,12 +49,10 @@ export const Link = styled.a`
   }
 `;
 
-export const StyledIconWrapper = styled(IconWrapper)``;
-
 export type OverflowMenuItemProps = {
   title: string;
   href?: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: IconName;
   focus?: boolean;
   setFocus?: Dispatch<SetStateAction<number>>;
   index?: number;
@@ -72,7 +68,7 @@ export const OverflowMenuItem = forwardRef<
   OverflowMenuItemProps
 >(
   (
-    { title, href, onClick, onKeyDown, Icon, focus, setFocus, index, ...rest },
+    { title, href, onClick, onKeyDown, icon, focus, setFocus, index, ...rest },
     ref
   ) => {
     const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
@@ -116,12 +112,12 @@ export const OverflowMenuItem = forwardRef<
       role: 'menuitem',
       tabIndex: focus ? 0 : -1
     };
-    const icon = Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />;
+    const iconElement = icon && <Icon iconSize="inherit" iconName={icon} />;
 
     if (!href && !onClick) {
       return (
         <Span {...elementProps}>
-          {icon}
+          {iconElement}
           {title}
         </Span>
       );
@@ -135,7 +131,7 @@ export const OverflowMenuItem = forwardRef<
           {...(rest as HTMLAttributes<HTMLButtonElement>)}
           ref={combinedRef as React.ForwardedRef<HTMLButtonElement>}
         >
-          {icon}
+          {iconElement}
           {title}
         </Link>
       );
@@ -148,7 +144,7 @@ export const OverflowMenuItem = forwardRef<
         {...(rest as HTMLAttributes<HTMLAnchorElement>)}
         ref={combinedRef as React.ForwardedRef<HTMLAnchorElement>}
       >
-        {icon}
+        {iconElement}
         {title}
       </Link>
     );

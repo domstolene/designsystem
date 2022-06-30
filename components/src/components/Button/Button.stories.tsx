@@ -1,7 +1,5 @@
 import { Button, ButtonProps } from '.';
 import { StoryTemplate } from '../../storybook';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 
 export default {
   title: 'Design system/Button',
@@ -75,7 +73,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -83,7 +81,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -91,7 +89,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -99,7 +97,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -107,7 +105,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -115,7 +113,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -123,7 +121,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -131,7 +129,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -139,7 +137,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -147,7 +145,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -155,7 +153,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -163,7 +161,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
     </StoryTemplate>
   );
@@ -172,78 +170,28 @@ export const OverviewWithText = (args: ButtonProps) => {
 export const OverviewJustIcon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button overview - just icon" display="grid">
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="filled"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="filled"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="ghost"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="ghost"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="ghost"
-        Icon={CloseOutlinedIcon}
-      />
+      <Button {...args} purpose="primary" appearance="filled" icon="close" />
+      <Button {...args} purpose="secondary" appearance="filled" icon="close" />
+      <Button {...args} purpose="danger" appearance="filled" icon="close" />
+      <Button {...args} purpose="primary" appearance="ghost" icon="close" />
+      <Button {...args} purpose="secondary" appearance="ghost" icon="close" />
+      <Button {...args} purpose="danger" appearance="ghost" icon="close" />
       <Button
         {...args}
         purpose="primary"
         appearance="borderless"
-        Icon={CloseOutlinedIcon}
+        icon="close"
       />
       <Button
         {...args}
         purpose="secondary"
         appearance="borderless"
-        Icon={CloseOutlinedIcon}
+        icon="close"
       />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="borderless"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="rounded"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="rounded"
-        Icon={CloseOutlinedIcon}
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="rounded"
-        Icon={CloseOutlinedIcon}
-      />
+      <Button {...args} purpose="danger" appearance="borderless" icon="close" />
+      <Button {...args} purpose="primary" appearance="rounded" icon="close" />
+      <Button {...args} purpose="secondary" appearance="rounded" icon="close" />
+      <Button {...args} purpose="danger" appearance="rounded" icon="close" />
     </StoryTemplate>
   );
 };
@@ -290,7 +238,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="tiny"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -299,7 +247,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="small"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -308,7 +256,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
@@ -317,35 +265,35 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="large"
         iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="tiny"
-        Icon={CloseOutlinedIcon}
+        icon="close"
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="small"
-        Icon={CloseOutlinedIcon}
+        icon="close"
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="medium"
-        Icon={CloseOutlinedIcon}
+        icon="close"
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="large"
-        Icon={CloseOutlinedIcon}
+        icon="close"
       />
     </StoryTemplate>
   );
@@ -548,7 +496,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="left"
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
         fullWidth
       />
       <Button
@@ -558,7 +506,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="right"
-        Icon={AddCircleOutlineOutlinedIcon}
+        icon="addCircled"
         fullWidth
       />
       <Button
@@ -566,7 +514,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="medium"
-        Icon={CloseOutlinedIcon}
+        icon="close"
         fullWidth
       />
       <Button
@@ -590,23 +538,10 @@ export const Default = (args: ButtonProps) => {
   );
 };
 
-export const WithIcon = (args: ButtonProps) => {
-  return (
-    <StoryTemplate title="Button - with icon">
-      <Button
-        {...args}
-        label={args.label || 'Tekst'}
-        iconPosition={args.iconPosition || 'left'}
-        Icon={AddCircleOutlineOutlinedIcon}
-      />
-    </StoryTemplate>
-  );
-};
-
 export const Icon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - just icon">
-      <Button {...args} Icon={CloseOutlinedIcon} />
+      <Button {...args} icon="close" />
     </StoryTemplate>
   );
 };

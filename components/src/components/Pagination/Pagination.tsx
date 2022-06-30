@@ -1,15 +1,10 @@
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
-import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import FirstPageOutlinedIcon from '@mui/icons-material/FirstPageOutlined';
-import LastPageOutlinedIcon from '@mui/icons-material/LastPageOutlined';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Select } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import { paginationTokens as tokens } from './Pagination.tokens';
 
 const Nav = styled.nav`
@@ -162,7 +157,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                     }
                   />
                 ) : (
-                  <IconWrapper Icon={MoreHorizOutlinedIcon} />
+                  <Icon iconName="moreHorizontal" />
                 )}
               </ListItem>
             );
@@ -174,7 +169,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         purpose="secondary"
         appearance="ghost"
         size="small"
-        Icon={ChevronLeftOutlinedIcon}
+        icon="chevronLeft"
         onClick={event => {
           onPageChange(event, activePage - 1);
         }}
@@ -187,7 +182,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         purpose="secondary"
         appearance="ghost"
         size="small"
-        Icon={ChevronRightOutlinedIcon}
+        icon="chevronRight"
         onClick={event => {
           onPageChange(event, activePage + 1);
         }}
@@ -230,7 +225,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               purpose="secondary"
               appearance="ghost"
               size="small"
-              Icon={FirstPageOutlinedIcon}
+              icon="chevronFirst"
               onClick={event => {
                 onPageChange(event, 1);
               }}
@@ -257,7 +252,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               purpose="secondary"
               appearance="ghost"
               size="small"
-              Icon={LastPageOutlinedIcon}
+              icon="chevronLast"
               onClick={event => {
                 onPageChange(event, pagesLength);
               }}

@@ -11,8 +11,7 @@ import {
   textColors,
   textColorsArray
 } from './Typography.tokens';
-import { IconWrapper } from '../IconWrapper';
-import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
+import { Icon } from '../Icon';
 import { TypographyType, TextColor } from './Typography.types';
 import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
 
@@ -90,7 +89,7 @@ type StyledTypographyProps = Pick<
   | 'color'
 >;
 
-const LinkIconWrapper = styled(IconWrapper)`
+const LinkIcon = styled(Icon)`
   ${tokens.typographyType.a.icon}
 `;
 
@@ -226,7 +225,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       <StyledTypography ref={ref} {...typographyProps}>
         {children}{' '}
         {as === 'a' && externalLink ? (
-          <LinkIconWrapper Icon={LaunchOutlinedIcon} iconSize="inline" />
+          <LinkIcon iconName="openInNew" iconSize="inherit" />
         ) : (
           ''
         )}

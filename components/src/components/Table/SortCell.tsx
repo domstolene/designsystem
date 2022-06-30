@@ -1,14 +1,11 @@
 import { forwardRef, MouseEvent } from 'react';
 import { Cell, TableCellProps } from './Cell';
 import { cellTokens as tokens } from './Cell.tokens';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import styled from 'styled-components';
 import { removeButtonStyling } from '../../helpers/styling';
 
-const SortIconWrapper = styled(IconWrapper)`
+const SortIcon = styled(Icon)`
   ${tokens.head.sortCell.icon.base}
 `;
 
@@ -34,13 +31,13 @@ export type SortCellProps = {
 
 const makeSortIcon = (isSorted?: boolean, sortOrder?: SortOrder) => {
   if (!isSorted || !sortOrder) {
-    return <SortIconWrapper Icon={UnfoldMoreIcon} iconSize="inline" />;
+    return <SortIcon iconName="unfoldMore" iconSize="inherit" />;
   }
 
   return sortOrder === 'ascending' ? (
-    <SortIconWrapper Icon={KeyboardArrowDownIcon} iconSize="inline" />
+    <SortIcon iconName="chevronDown" iconSize="inherit" />
   ) : (
-    <SortIconWrapper Icon={KeyboardArrowUpIcon} iconSize="inline" />
+    <SortIcon iconName="chevronUp" iconSize="inherit" />
   );
 };
 

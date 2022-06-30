@@ -1,9 +1,7 @@
 import { forwardRef, HTMLAttributes, Children } from 'react';
 import styled from 'styled-components';
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
-import { IconSize, IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 
 const List = styled.ol`
   list-style: none;
@@ -18,13 +16,14 @@ const ListItem = styled.li`
   ${tokens.breadcrumb.base}
 `;
 
-const BreadcrumbIcon = styled(ChevronRightOutlinedIcon)`
+const StyledIcon = styled(Icon).attrs(
+  ({ iconSize = tokens.icon.size, color = tokens.icon.base.color }) => ({
+    iconSize,
+    color
+  })
+)`
   ${tokens.icon.base}
 `;
-const BackIcon = styled(ArrowBackOutlinedIcon)`
-  ${tokens.icon.base}
-`;
-
 export type BreadcrumbsProps = {
   /** Spesifiserer om versjonen for små skjermer skal vises; den viser `<Breadcrumb />` kun til den forrige siden.  */
   smallScreen?: boolean;
@@ -32,31 +31,18 @@ export type BreadcrumbsProps = {
 
 export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
   ({ smallScreen, children, ...rest }, ref) => {
-    const breadcrumbIconSize = tokens.icon.size as IconSize;
-
     const childrenArray = Children.toArray(children);
+
     const breadcrumbChildren = smallScreen ? (
       <ListItem>
-        <IconWrapper
-          Icon={BackIcon}
-          iconSize={breadcrumbIconSize}
-          color={tokens.icon.base.color}
-        />
+        <StyledIcon iconName="arrowLeft" />
         {childrenArray[childrenArray.length - 2]}
       </ListItem>
     ) : (
       childrenArray.map((item, index) => {
         return (
           <ListItem key={`breadcrumb-${index}`}>
-            {index !== 0 ? (
-              <IconWrapper
-                Icon={BreadcrumbIcon}
-                iconSize={breadcrumbIconSize}
-                color={tokens.icon.base.color}
-              />
-            ) : (
-              ''
-            )}
+            {index !== 0 && <StyledIcon iconName="chevronRight" />}
             {item}
           </ListItem>
         );

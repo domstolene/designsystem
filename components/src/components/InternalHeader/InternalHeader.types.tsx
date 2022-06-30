@@ -1,10 +1,9 @@
-import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   HTMLAttributes
 } from 'react';
+import { IconName } from '../../icons';
 
 export type NavigationLinkProps = {
   href: string;
@@ -14,7 +13,7 @@ export type NavigationLinkProps = {
 export type ContextMenuElementProps = {
   title: string;
   href?: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: IconName;
   onClick?: () => void;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>

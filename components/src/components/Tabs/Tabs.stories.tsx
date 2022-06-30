@@ -1,6 +1,5 @@
 import { StoryTemplate } from '../../storybook';
 import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
-import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import { Story, Meta } from '@storybook/react';
 
 export default {
@@ -33,16 +32,16 @@ export const Overview: Story<TabsProps> = () => (
     </Tabs>
     <Tabs>
       <TabList>
-        <Tab Icon={NotificationsOutlinedIcon}>Restriksjoner</Tab>
-        <Tab Icon={NotificationsOutlinedIcon}>Aktører</Tab>
-        <Tab Icon={NotificationsOutlinedIcon}>Logg</Tab>
+        <Tab icon="notifications">Restriksjoner</Tab>
+        <Tab icon="notifications">Aktører</Tab>
+        <Tab icon="notifications">Logg</Tab>
       </TabList>
     </Tabs>
     <Tabs tabContentDirection="column">
       <TabList>
-        <Tab Icon={NotificationsOutlinedIcon}>Restriksjoner</Tab>
-        <Tab Icon={NotificationsOutlinedIcon}>Aktører</Tab>
-        <Tab Icon={NotificationsOutlinedIcon}>Logg</Tab>
+        <Tab icon="notifications">Restriksjoner</Tab>
+        <Tab icon="notifications">Aktører</Tab>
+        <Tab icon="notifications">Logg</Tab>
       </TabList>
     </Tabs>
   </StoryTemplate>
@@ -69,9 +68,9 @@ export const WithIcon: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - with icon">
     <Tabs {...args}>
       <TabList>
-        <Tab Icon={NotificationsOutlinedIcon}>Tab 1</Tab>
-        <Tab Icon={NotificationsOutlinedIcon}>Tab 2</Tab>
-        <Tab Icon={NotificationsOutlinedIcon}>Tab 3</Tab>
+        <Tab icon="notifications">Tab 1</Tab>
+        <Tab icon="notifications">Tab 2</Tab>
+        <Tab icon="notifications">Tab 3</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>Innhold 1</TabPanel>

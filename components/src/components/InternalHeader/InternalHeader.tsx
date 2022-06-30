@@ -1,8 +1,6 @@
 import { useRef, useState } from 'react';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { InternalHeaderProps } from './InternalHeader.types';
 import {
   Wrapper,
@@ -13,7 +11,7 @@ import {
   LovisaWrapper,
   ApplicationNameWrapper,
   ContextMenuGroup,
-  StyledOverflowMenu,
+  StyledOverflowMenu
 } from './InternalHeader.styles';
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
@@ -29,8 +27,9 @@ export const InternalHeader = ({
   ...rest
 }: InternalHeaderProps) => {
   const [contextMenuIsClosed, setContextMenuIsClosed] = useState(true);
-  const [currentPage, setCurrentPage] =
-    useState<string | undefined>(currentPageHref);
+  const [currentPage, setCurrentPage] = useState<string | undefined>(
+    currentPageHref
+  );
 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -96,7 +95,7 @@ export const InternalHeader = ({
         <ContextMenuGroup>
           <Button
             ref={buttonRef}
-            Icon={hasNavInContextMenu ? MenuOutlinedIcon : MoreVertOutlinedIcon}
+            icon={hasNavInContextMenu ? 'menu' : 'moreVertical'}
             appearance="borderless"
             purpose="secondary"
             onClick={handleContextMenuClick}

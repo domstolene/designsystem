@@ -1,5 +1,3 @@
-import { SvgIconTypeMap } from '@mui/material';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { Placement } from '../../hooks/useFloatPosition';
 import {
   AnchorHTMLAttributes,
@@ -7,17 +5,18 @@ import {
   HTMLAttributes,
   RefObject
 } from 'react';
+import { IconName } from '../../icons';
 
 export type OverflowMenuContextItem = {
   title: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: IconName;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
 );
 export type OverflowMenuNavItem = {
   title: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: IconName;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type UserProps = {

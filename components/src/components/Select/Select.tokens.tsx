@@ -177,6 +177,9 @@ const menuBase: CSSObject = {
 };
 
 const optionBase: CSSObject = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: Spacing.SizesDdsSpacingLocalX05,
   padding: `${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX1}`,
   ...FontPackages.body_sans_02.base,
   color: textDefault.textColor

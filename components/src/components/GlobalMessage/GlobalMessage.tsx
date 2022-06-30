@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
-import { IconWrapper } from '../IconWrapper';
+import { Icon, IconName } from '../Icon';
 import { Typography } from '../Typography';
 
 type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
@@ -21,7 +20,7 @@ const Container = styled.div<ContainerProps>`
     `}
 `;
 
-const MessageIconWrapper = styled(IconWrapper)`
+const MessageIconWrapper = styled(Icon)`
   margin-right: ${tokens.icon.marginRight};
 `;
 
@@ -74,7 +73,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
       <Container {...containerProps}>
         <ContentContainer closable={closable}>
           <MessageIconWrapper
-            Icon={tokens.icon[purpose].icon}
+            iconName={tokens.icon[purpose].icon as IconName}
             color={tokens.icon[purpose].color}
           />
           {children ?? <Typography as="span">{message}</Typography>}
@@ -82,7 +81,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
         <ControlsContainer>
           {closable && (
             <Button
-              Icon={CloseOutlinedIcon}
+              icon="close"
               purpose={buttonPurpose}
               appearance="borderless"
               onClick={() => {

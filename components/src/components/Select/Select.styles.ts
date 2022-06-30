@@ -1,6 +1,5 @@
 import { GroupBase, StylesConfig } from 'react-select';
 import styled, { css } from 'styled-components';
-import { IconWrapper } from '../IconWrapper';
 import { scrollbarStyling } from '../../helpers/styling';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
@@ -29,7 +28,6 @@ export const Container = styled.div<StyledContainerProps>`
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${({ isMulti }) => isMulti && css``}
 
   ${({ hasLabel, isMulti }) =>
     isMulti && hasLabel
@@ -145,10 +143,6 @@ export const Wrapper = styled.div<{ width?: number | string }>`
   width: ${({ width }) => width};
 `;
 
-export const SelectedIconWrapper = styled(IconWrapper)`
-  margin: ${tokens.option.selected.icon.margin};
-`;
-
 export const getCustomStyles = <TOption>(): Partial<
   StylesConfig<TOption, boolean, GroupBase<TOption>>
 > => ({
@@ -231,8 +225,6 @@ export const getCustomStyles = <TOption>(): Partial<
   }),
   option: (provided, state) => ({
     ...provided,
-    display: 'flex',
-    alignItems: 'center',
     transition: '0.2s',
     ...tokens.option.base,
     '&:hover': {

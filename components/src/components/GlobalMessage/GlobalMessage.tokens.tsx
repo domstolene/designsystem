@@ -1,7 +1,4 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import WarningOutlinedIcon from '@mui/icons-material/ReportOutlined';
-import DangerOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { CSSObject } from 'styled-components';
 
 const {
@@ -21,7 +18,8 @@ const containerBase: CSSObject = {
 const contentContainerBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX15,
   paddingTop: Spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: Spacing.SizesDdsSpacingLocalX075
+  paddingBottom: Spacing.SizesDdsSpacingLocalX075,
+  gap: Spacing.SizesDdsSpacingLocalX075
 };
 
 const contentContainerWithClosableBase: CSSObject = {
@@ -65,15 +63,15 @@ export const globalMessageTokens = {
   icon: {
     marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
     info: {
-      icon: InfoOutlinedIcon,
+      icon: 'info',
       color: Colors.DdsColorInfoDarkest
     },
     danger: {
-      icon: DangerOutlinedIcon,
+      icon: 'error',
       color: Colors.DdsColorDangerDarkest
     },
     warning: {
-      icon: WarningOutlinedIcon,
+      icon: 'warning',
       color: Colors.DdsColorWarningDarkest
     }
   },

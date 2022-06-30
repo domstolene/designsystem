@@ -9,7 +9,6 @@ import {
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useFocusTrap } from '../../hooks';
 import { useCombinedRef, useOnClickOutside, useOnKeyDown } from '../../hooks';
 import { createPortal } from 'react-dom';
@@ -145,7 +144,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                   size="small"
                   appearance="borderless"
                   purpose="secondary"
-                  Icon={CloseOutlinedIcon}
+                  icon="close"
                   onClick={handleClose}
                   aria-label="Lukk dialog"
                 />

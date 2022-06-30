@@ -1,8 +1,6 @@
-import { SvgIconTypeMap } from '@mui/material';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { CSSObject } from 'styled-components';
-import { IconWrapper } from '../IconWrapper';
+import { Icon, IconName } from '../Icon';
 import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
 import { buttonTokens } from '../Button/Button.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
@@ -53,11 +51,11 @@ export type ToggleButtonProps = {
   /**Ledetekst for inputelementet. */
   label?: string;
   /** Ikon. */
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: IconName;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ({ id, label, Icon, ...rest }, ref) => {
+  ({ id, label, icon, ...rest }, ref) => {
     const [uniqueId] = useState<string>(id ?? `toggleButton-${nextUniqueId++}`);
 
     const inputProps = {
@@ -75,7 +73,7 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
       <Container {...containerProps}>
         <Input {...inputProps} />
         <Content>
-          {Icon && <IconWrapper Icon={Icon} iconSize="inline" />} {label}
+          {icon && <Icon iconName={icon} iconSize="inherit" />} {label}
         </Content>
       </Container>
     );

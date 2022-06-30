@@ -19,7 +19,6 @@ import {
 import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling';
 import { scrollbarStyling } from '../../helpers/styling';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Paper } from '../../helpers';
 import { Property } from 'csstype';
 
@@ -186,7 +185,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
               appearance="borderless"
               onClick={onClose}
               aria-label="Lukk"
-              Icon={CloseOutlinedIcon}
+              icon="close"
             />
           </Container>,
           parentElement

@@ -1,4 +1,3 @@
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
 import { forwardRef, HTMLAttributes, ReactNode, useEffect } from 'react';
@@ -135,7 +134,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         </ContentContainer>
         {withCloseButton && (
           <StyledButton
-            Icon={CloseOutlinedIcon}
+            icon="close"
             appearance="borderless"
             purpose="secondary"
             size="small"

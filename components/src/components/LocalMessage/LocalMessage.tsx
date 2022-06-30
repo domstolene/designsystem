@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import { localMessageTokens as tokens } from './LocalMessage.tokens';
-import { IconWrapper } from '../IconWrapper';
+import { Icon, IconName } from '../Icon';
 import { Property } from 'csstype';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
@@ -32,7 +31,7 @@ const Container = styled.div<ContainerProps>`
   width: ${({ width }) => width};
 `;
 
-const MessageIconWrapper = styled(IconWrapper)`
+const MessageIconWrapper = styled(Icon)`
   margin-right: ${tokens.icon.marginRight};
 `;
 
@@ -128,7 +127,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 
     const messageIconWrapper = (
       <MessageIconWrapper
-        Icon={tokens.icon[purpose].icon}
+        iconName={tokens.icon[purpose].icon as IconName}
         color={tokens.icon[purpose].color}
       />
     );
@@ -137,7 +136,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 
     const closeButton = closable && (
       <Button
-        Icon={CloseOutlinedIcon}
+        icon="close"
         purpose={buttonPurpose}
         appearance="borderless"
         onClick={() => {

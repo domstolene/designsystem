@@ -11,7 +11,6 @@ import {
 } from '../../hooks';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { Divider } from '../Divider';
 import {
   OverflowMenuContextItem,
@@ -125,11 +124,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
               index={index}
               focus={focus === index && isOpen}
               setFocus={setFocus}
-              Icon={
-                hasInteractiveUser && index === 0
-                  ? PersonOutlineOutlinedIcon
-                  : undefined
-              }
+              icon={hasInteractiveUser && index === 0 ? 'person' : undefined}
               {...item}
               onClick={(
                 e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
@@ -198,9 +193,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
 
     return (
       <Container {...containerProps} aria-label="bruk piltaster for å navigere">
-        {hasStaticUser && (
-          <OverflowMenuItem title={username} Icon={PersonOutlineOutlinedIcon} />
-        )}
+        {hasStaticUser && <OverflowMenuItem title={username} icon="person" />}
 
         {interactiveContent()}
       </Container>
