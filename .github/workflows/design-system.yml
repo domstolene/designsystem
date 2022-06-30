@@ -2,10 +2,7 @@ name: Design system ci
 on:
   push:
     branches: [ master ]
-    paths: [components/src/**]
   pull_request:
-    branches: [ master ]
-    paths: [components/src/**]
 jobs:
   build-and-test:
     env:
@@ -25,19 +22,19 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
-        working-directory: ${{ env.working-directory }}        
+        working-directory: ${{ env.working-directory }}
         run: npm run build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Test
-        working-directory: ${{ env.working-directory }}                
+        working-directory: ${{ env.working-directory }}
         run: npm run test
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Lint
-        working-directory: ${{ env.working-directory }}                
+        working-directory: ${{ env.working-directory }}
         run: npm run lint
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
