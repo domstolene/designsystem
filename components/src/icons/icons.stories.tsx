@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { IconWrapper2 } from '../components/IconWrapper';
+import { Icon, IconName } from '../components/Icon';
 import { Typography } from '../components/Typography';
 import { StoryTemplate } from '../storybook';
-import { IconName, iconPaths } from './icons';
+import { iconPaths } from './icons';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 const { spacing } = ddsBaseTokens;
@@ -46,11 +46,7 @@ export const Overview = () => {
           .sort()
           .map(e => (
             <IconContainer>
-              <IconWrapper2
-                iconSize="large"
-                iconName={e as IconName}
-                title={e}
-              />
+              <Icon iconSize="large" iconName={e as IconName} title={e} />
               <Name typographyType="supportingStyleTiny01" title={e}>
                 {e}
               </Name>
