@@ -1,10 +1,11 @@
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
-import { forwardRef, HTMLAttributes, ReactNode, useEffect } from 'react';
+import { forwardRef, ReactNode, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { visibilityTransition } from '../../helpers/styling';
 import { Placement, useCombinedRef, useFloatPosition } from '../../hooks';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { popoverTokens as tokens } from './Popover.tokens';
@@ -61,30 +62,33 @@ export type PopoverSizeProps = {
   maxHeight?: Property.MaxHeight<string>;
 };
 
-export type PopoverProps = {
-  /**Tittel. */
-  title?: string | ReactNode;
-  /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Spesifiserer om `<Popover />` skal vises. */
-  isOpen?: boolean;
-  /**Om lukkeknapp skal vises. */
-  withCloseButton?: boolean;
-  /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Anchor-elementet. */
-  anchorElement?: HTMLElement;
-  /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet. */
-  placement?: Placement;
-  /**Avstand fra anchor-elementet i px. */
-  offset?: number;
-  /** Ekstra logikk kjørt når lukkeknappen trykkes. */
-  onCloseButtonClick?: () => void;
-  /** Ekstra logikk kjørt når lukkeknappen mister fokus. */
-  onCloseButtonBlur?: () => void;
-  /**Custom størrelse. */
-  sizeProps?: PopoverSizeProps;
-} & HTMLAttributes<HTMLDivElement>;
+export type PopoverProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**Tittel. */
+    title?: string | ReactNode;
+    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Spesifiserer om `<Popover />` skal vises. */
+    isOpen?: boolean;
+    /**Om lukkeknapp skal vises. */
+    withCloseButton?: boolean;
+    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Anchor-elementet. */
+    anchorElement?: HTMLElement;
+    /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet. */
+    placement?: Placement;
+    /**Avstand fra anchor-elementet i px. */
+    offset?: number;
+    /** Ekstra logikk kjørt når lukkeknappen trykkes. */
+    onCloseButtonClick?: () => void;
+    /** Ekstra logikk kjørt når lukkeknappen mister fokus. */
+    onCloseButtonBlur?: () => void;
+    /**Custom størrelse. */
+    sizeProps?: PopoverSizeProps;
+  }
+>;
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       title,
       isOpen = false,
       withCloseButton = true,
@@ -94,11 +98,11 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       children,
       placement = 'bottom',
       offset = Spacing.SizesDdsSpacingLocalX05NumberPx,
-      style,
+      id,
+      htmlProps = {},
       ...rest
-    },
-    ref
-  ) => {
+    } = props;
+
     const { reference, floating, styles } = useFloatPosition(
       null,
       placement,
@@ -112,10 +116,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     }, [anchorElement, isOpen]);
 
     const wrapperProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       ref: multiRef,
       isOpen,
-      style: { ...style, ...styles.floating },
-      ...rest,
+      style: { ...htmlProps.style, ...styles.floating },
       role: 'dialog'
     };
 

@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '../Button';
 import { OverflowMenu, OverflowMenuGroup } from '.';
 
@@ -61,7 +61,11 @@ describe('<OverflowMenu />', () => {
     const menu = screen.queryByRole('menu');
     expect(menu).not.toBeInTheDocument();
     const menuButton = screen.getByRole('button');
-    fireEvent.click(menuButton!);
+
+    act(() => {
+      fireEvent.click(menuButton!);
+    });
+
     const menuOpened = screen.getByRole('menu');
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
   });
@@ -74,8 +78,12 @@ describe('<OverflowMenu />', () => {
         <OverflowMenu />
       </OverflowMenuGroup>
     );
-    const menuButton = screen.getByRole('button');
-    menuButton.click();
+
+    act(() => {
+      const menuButton = screen.getByRole('button');
+      menuButton.click();
+    });
+
     expect(event).toBeCalled();
   });
 
@@ -87,8 +95,12 @@ describe('<OverflowMenu />', () => {
         <OverflowMenu />
       </OverflowMenuGroup>
     );
+
     const menuButton = screen.getByRole('button');
-    menuButton.click();
+    act(() => {
+      menuButton.click();
+    });
+
     expect(event).toBeCalled();
   });
 
@@ -96,8 +108,12 @@ describe('<OverflowMenu />', () => {
     const event = jest.fn();
     const item = { title: text, onClick: event };
     const { container } = render(<TestComponent item={item} />);
+
     const menuButton = container.querySelector('li')?.querySelector('button');
-    fireEvent.click(menuButton!);
+    act(() => {
+      fireEvent.click(menuButton!);
+    });
+
     expect(event).toHaveBeenCalled();
   });
   it('should hide menu after Esc keydown', () => {
@@ -106,7 +122,11 @@ describe('<OverflowMenu />', () => {
     fireEvent.click(menuButton!);
     const menuOpened = screen.getByRole('menu');
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
-    fireEvent.keyDown(menuOpened, { key: 'Escape', code: 'Escape' });
+
+    act(() => {
+      fireEvent.keyDown(menuOpened, { key: 'Escape', code: 'Escape' });
+    });
+
     const elQuery = screen.queryByRole('menu');
     expect(elQuery).not.toBeInTheDocument();
   });

@@ -13,6 +13,7 @@ import {
   useOnKeyDown,
   useFloatPosition
 } from '../../hooks';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
 import {
   ArrowWrapper,
@@ -24,24 +25,33 @@ import { tooltipTokens as tokens } from './Tooltip.tokens';
 
 type AnchorElement = React.ReactElement & React.RefAttributes<HTMLElement>;
 
-export type TooltipProps = {
-  /**Innhold i tooltip. */
-  text: string;
-  /**Plassering i forhold til anchor-elementet. */
-  placement?: Placement;
-  /**Anchor-elementet. */
-  children: AnchorElement;
-  /**Forsinkelse for når tooltip skal dukke opp. Oppgis i millisekunder.  */
-  delay?: number;
-  /**`id` for tooltip. */
-  tooltipId?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
+type PickedHTMLAttributes = Pick<
+  HTMLAttributes<HTMLDivElement>,
+  'style' | 'onMouseLeave' | 'onMouseOver' | 'className'
+>;
+
+export type TooltipProps = BaseComponentProps<
+  HTMLDivElement,
+  {
+    /**Innhold i tooltip. */
+    text: string;
+    /**Plassering i forhold til anchor-elementet. */
+    placement?: Placement;
+    /**Anchor-elementet. */
+    children: AnchorElement;
+    /**Forsinkelse for når tooltip skal dukke opp. Oppgis i millisekunder.  */
+    delay?: number;
+    /**`id` for tooltip. */
+    tooltipId?: string;
+  } & PickedHTMLAttributes,
+  Omit<HTMLAttributes<HTMLDivElement>, 'children' | keyof PickedHTMLAttributes>
+>;
 
 let nextUniqueId = 0;
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       text,
       placement = 'bottom',
       children,
@@ -51,10 +61,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       onMouseLeave,
       onMouseOver,
       className,
+      id,
+      htmlProps,
       ...rest
-    },
-    ref
-  ) => {
+    } = props;
+
     const uniqueId = nextUniqueId++;
     const [uniqueTooltipId] = useState<string>(
       tooltipId ?? `tooltip-${uniqueId}`
@@ -103,6 +114,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         })
     );
 
+    const containerProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
+      style,
+      className,
+      onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
+      onMouseOver: combineHandlers(openTooltip, onMouseOver)
+    };
+
     const wrapperProps = {
       id: uniqueTooltipId,
       ref: combinedRef,
@@ -110,14 +129,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       'aria-hidden': !open,
       open,
       style: { ...styles.floating }
-    };
-
-    const containerProps = {
-      style,
-      className,
-      onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
-      onMouseOver: combineHandlers(openTooltip, onMouseOver),
-      ...rest
     };
 
     const arrowWrapperProps = {

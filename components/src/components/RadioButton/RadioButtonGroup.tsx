@@ -6,6 +6,7 @@ import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 import { Typography } from '../Typography';
 import { combineHandlers } from '../../utils';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const Container = styled.div`
   display: flex;
@@ -27,33 +28,38 @@ const Label = styled(Typography)`
 
 type Direction = 'column' | 'row';
 
-export type RadioButtonGroupProps<T extends string | number> = {
-  /** Gir alle barna `name` prop.*/
-  name?: string;
-  /**Ledetekst for hele gruppen. */
-  label?: string;
-  /**Funksjonen for onChange-event for barna. */
-  onChange?: (
-    event: ChangeEvent<HTMLInputElement>,
-    value: T | undefined
-  ) => void;
-  /**Legger en markør (*) bak label som indikerer at input er påkrevd. Gjør alle barna påkrevd ved å gi dem `required` prop. */
-  required?: boolean;
-  /**Meldingen som vises ved valideringsfeil. Gir alle barna error prop. */
-  errorMessage?: string;
-  /**Hjelpetekst for gruppen. */
-  tip?: string;
-  /**Gir alle barna `disabled` prop. */
-  disabled?: boolean;
-  /**Gir alle barna `readOnly` prop */
-  readOnly?: boolean;
-  /**Retningen radioknappene skal gjengis i. */
-  direction?: Direction;
-  /**Default verdi - en `<RadioButton />` blir forhåndsvalgt. **OBS!** brukes kun når brukeren ikke skal fylle ut selv. */
-  value?: T | undefined;
-  /**custom id for for gruppen, knytter `label` til gruppen via `aria-label`. */
-  groupId?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
+export type RadioButtonGroupProps<T extends string | number> =
+  BaseComponentPropsWithChildren<
+    HTMLDivElement,
+    {
+      /** Gir alle barna `name` prop.*/
+      name?: string;
+      /**Ledetekst for hele gruppen. */
+      label?: string;
+      /**Funksjonen for onChange-event for barna. */
+      onChange?: (
+        event: ChangeEvent<HTMLInputElement>,
+        value: T | undefined
+      ) => void;
+      /**Legger en markør (*) bak label som indikerer at input er påkrevd. Gjør alle barna påkrevd ved å gi dem `required` prop. */
+      required?: boolean;
+      /**Meldingen som vises ved valideringsfeil. Gir alle barna error prop. */
+      errorMessage?: string;
+      /**Hjelpetekst for gruppen. */
+      tip?: string;
+      /**Gir alle barna `disabled` prop. */
+      disabled?: boolean;
+      /**Gir alle barna `readOnly` prop */
+      readOnly?: boolean;
+      /**Retningen radioknappene skal gjengis i. */
+      direction?: Direction;
+      /**Default verdi - en `<RadioButton />` blir forhåndsvalgt. **OBS!** brukes kun når brukeren ikke skal fylle ut selv. */
+      value?: T | undefined;
+      /**custom id for for gruppen, knytter `label` til gruppen via `aria-label`. */
+      groupId?: string;
+    },
+    Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
+  >;
 
 let nextUniqueGroupId = 0;
 
@@ -70,12 +76,13 @@ export const RadioButtonGroup = <T extends string | number = string>({
   children,
   required,
   onChange,
-  className,
-  style,
+  id,
+  htmlProps,
   ...rest
 }: RadioButtonGroupProps<T>) => {
-  const [groupValue, setGroupValue] =
-    useState<string | number | null | undefined>(value);
+  const [groupValue, setGroupValue] = useState<
+    string | number | null | undefined
+  >(value);
 
   const [uniqueGroupId] = useState<string>(
     groupId ?? `radioButtonGroup-${nextUniqueGroupId++}`
@@ -94,12 +101,6 @@ export const RadioButtonGroup = <T extends string | number = string>({
     ? `${uniqueGroupId}-errorMessage`
     : undefined;
 
-  const containerProps = {
-    className,
-    style,
-    ...rest
-  };
-
   const contextProps = {
     name,
     disabled,
@@ -112,7 +113,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
   };
 
   return (
-    <Container {...containerProps}>
+    <Container {...getBaseHTMLProps(id, htmlProps, rest)}>
       <Label
         forwardedAs="span"
         typographyType="supportingStyleLabel01"

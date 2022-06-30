@@ -1,4 +1,10 @@
-import { OverflowMenu, OverflowMenuProps, OverflowMenuGroup } from '.';
+import {
+  OverflowMenu,
+  OverflowMenuProps,
+  OverflowMenuGroup,
+  OverflowMenuContextItem,
+  OverflowMenuNavItem
+} from '.';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -9,7 +15,7 @@ export default {
   component: OverflowMenu
 };
 
-const items = [
+const items: OverflowMenuContextItem[] = [
   {
     title: 'Handling',
     onClick: () => {}
@@ -25,7 +31,7 @@ const items = [
   }
 ];
 
-const navItems = [
+const navItems: OverflowMenuNavItem[] = [
   {
     title: 'Navigasjon',
     href: '#'

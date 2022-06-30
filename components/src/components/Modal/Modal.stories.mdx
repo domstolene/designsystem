@@ -101,7 +101,7 @@ const buttonRef = useRef(null);
 Hovedkomponenten for modal. Kan ha `<ModalBody />`, `<ModalActions />` og ellers fritt valgt innhold som barn. Legger vertikal spacing mellom barn.
 
 <ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
 ### ModalBody
 
@@ -109,10 +109,10 @@ Subkomponent for hovedinnhold i modal (tekstlig informasjon o.l.). Brukes som ba
 
 <ArgsTable of={ModalBody} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
 ### ModalActions
 
 Subkomponent for handlingselementer, typisk knapper. Brukes som barn i `<Modal />`. Legger horisontal spacing mellom barn og legger de over flere rader ved behov.
 
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

@@ -141,10 +141,12 @@ export const Scrollable = (args: ModalProps) => {
         {...args}
         isOpen={!closed}
         onClose={close}
-        style={{ width: '300px' }}
+        htmlProps={{
+          style: { width: '300px' }
+        }}
         header="Fritt valg av forsvarer"
       >
-        <ModalBody scrollable style={{ height: '100px' }}>
+        <ModalBody scrollable htmlProps={{ style: { height: '100px' } }}>
           Du kan vanligvis fritt velge hvilken advokat du vil ha som forsvarer i
           saken. Det må spesielle grunner til for at du ikke skal få oppfylt
           ditt ønske, for eksempel at advokaten er opptatt i lang tid slik at

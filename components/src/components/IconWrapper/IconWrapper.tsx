@@ -21,14 +21,19 @@ const getSize = (iconSize: IconSize): string => {
 
 export type IconSize = 'small' | 'medium' | 'large' | 'inline';
 
+type SvgIconTypeProps = SvgIconTypeMap<Record<string, unknown>, 'svg'>;
+
 export type IconWrapperProps = {
   /**Ikon. */
-  Icon: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  Icon: OverridableComponent<SvgIconTypeProps>;
   /**Størrelsen til ikonet. */
   iconSize?: IconSize;
   /**Fargen til ikonet. */
   color?: Property.Color;
-} & HTMLAttributes<SVGElement>;
+  className?: HTMLAttributes<SVGElement>['className'];
+  style?: HTMLAttributes<SVGElement>['style'];
+  svgProps?: SvgIconTypeProps['props'];
+};
 
 export function IconWrapper({
   Icon,
@@ -36,15 +41,15 @@ export function IconWrapper({
   color,
   className,
   style,
-  ...rest
+  svgProps
 }: IconWrapperProps) {
   const PropIcon = Icon;
   const size = getSize(iconSize);
   return (
     <PropIcon
+      {...svgProps}
       className={className}
       style={{ ...style, color: color ? color : 'inherit', fontSize: size }}
-      {...rest}
     />
   );
 }

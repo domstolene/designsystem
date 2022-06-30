@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Button, ButtonPurpose } from '../Button';
-import { forwardRef, HTMLAttributes, useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { localMessageTokens as tokens } from './LocalMessage.tokens';
 import { IconWrapper } from '../IconWrapper';
 import { Property } from 'csstype';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
 
@@ -81,24 +82,27 @@ export type LocalMessagePurpose =
 
 export type LocalMessageLayout = 'horisontal' | 'vertical';
 
-export type LocalMessageProps = {
-  /**Meldingen som vises til brukeren. Brukes kun når meldingen er string. */
-  message?: string;
-  /**Formålet med meldingen. Påvirker styling. */
-  purpose?: LocalMessagePurpose;
-  /** Indikerer om meldingen skal være lukkbar.*/
-  closable?: boolean;
-  /**Ekstra logikk å kjøre når meldingen lukkes. */
-  onClose?: () => void;
-  /**Layoutet i komponenten. Ved kompleks innhold anbefales `layout='vertical'`. */
-  layout?: LocalMessageLayout;
-  /**Custom bredde ved behov. */
-  width?: Property.Width<string>;
-} & HTMLAttributes<HTMLDivElement>;
+export type LocalMessageProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**Meldingen som vises til brukeren. Brukes kun når meldingen er string. */
+    message?: string;
+    /**Formålet med meldingen. Påvirker styling. */
+    purpose?: LocalMessagePurpose;
+    /** Indikerer om meldingen skal være lukkbar.*/
+    closable?: boolean;
+    /**Ekstra logikk å kjøre når meldingen lukkes. */
+    onClose?: () => void;
+    /**Layoutet i komponenten. Ved kompleks innhold anbefales `layout='vertical'`. */
+    layout?: LocalMessageLayout;
+    /**Custom bredde ved behov. */
+    width?: Property.Width<string>;
+  }
+>;
 
 export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       message,
       purpose = 'info',
       closable,
@@ -106,19 +110,20 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       width = tokens.container.defaultWidth,
       layout = 'horisontal',
       children,
+      id,
+      htmlProps,
       ...rest
-    },
-    ref
-  ) => {
+    } = props;
+
     const [isClosed, setClosed] = useState(false);
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       purpose,
       width,
       layout,
-      ref,
-      ...rest
+      ref
     };
 
     const contentContainerProps = {

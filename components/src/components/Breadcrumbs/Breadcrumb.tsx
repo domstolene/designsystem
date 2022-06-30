@@ -8,11 +8,11 @@ export type BreadcrumbProps = TypographyProps &
 export const Breadcrumb = forwardRef<HTMLAnchorElement, BreadcrumbProps>(
   ({ children, href, ...rest }, ref) => {
     return href ? (
-      <Typography ref={ref} href={href} typographyType="a" {...rest}>
+      <Typography {...rest} ref={ref} href={href} typographyType="a">
         {children}
       </Typography>
     ) : (
-      <Typography ref={ref} color="interactive" {...rest}>
+      <Typography {...rest} ref={ref} color="interactive">
         {children}
       </Typography>
     );

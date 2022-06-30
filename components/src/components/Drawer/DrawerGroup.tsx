@@ -8,7 +8,7 @@ import {
   useRef
 } from 'react';
 
-type drawerGroupProps = {
+type DrawerGroupProps = {
   /**Barna til komponenten. */
   children: ReactNode;
   /**`id` til `<Drawer />`. */
@@ -26,7 +26,7 @@ export const DrawerGroup = ({
   drawerId,
   onOpen,
   onClose
-}: drawerGroupProps) => {
+}: DrawerGroupProps) => {
   const uniqueId = nextUniqueId++;
   const [uniqueDrawerId] = useState<string>(drawerId ?? `drawer-${uniqueId}`);
 

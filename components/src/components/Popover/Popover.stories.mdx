@@ -65,7 +65,7 @@ Wrapper der anchor-elementet skal være første barnet og `<Popover />` skal væ
 Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og onBlur.
 
 <ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface. **OBS!** `id` er ekskludert da den blir sendt som prop fra <PopoverGroup /> for å sørge for riktig oppførsel. `id` settes via `<PopoverGroup />` `popoverId`-prop.
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`. **OBS!** `id` er ekskludert da den blir sendt som prop fra <PopoverGroup /> for å sørge for riktig oppførsel. `id` settes via `<PopoverGroup />` `popoverId`-prop.
 
 #### Types
 

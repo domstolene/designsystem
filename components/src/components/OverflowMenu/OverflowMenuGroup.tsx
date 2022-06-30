@@ -72,5 +72,5 @@ export const OverflowMenuGroup = ({
     );
   });
 
-  return <> {Children} </>;
+  return <>{Children}</>;
 };

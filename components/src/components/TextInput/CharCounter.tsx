@@ -1,5 +1,6 @@
-import { HTMLAttributes, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Typography } from '../Typography';
 import { charCounterTokens as tokens } from './CharCounter.tokens';
 
@@ -8,24 +9,30 @@ const Wrapper = styled(Typography)`
   ${tokens.base}
 `;
 
-type Props = {
-  current: number;
-  max: number;
-} & HTMLAttributes<HTMLDivElement>;
+type Props = BaseComponentProps<
+  HTMLElement,
+  {
+    current: number;
+    max: number;
+  }
+>;
 
 let nextUniqueId = 0;
 
-function CharCounter({ current, max, id, ...rest }: Props) {
+function CharCounter(props: Props) {
+  const { current, max, id, htmlProps, ...rest } = props;
+
   const [uniqueId] = useState<string>(
     id ?? `characterCounter-${nextUniqueId++}`
   );
+
   return (
     <Wrapper
+      {...getBaseHTMLProps(id, htmlProps, rest)}
       forwardedAs="div"
       typographyType="supportingStyleHelperText01"
       id={uniqueId}
       aria-label={`${current} av ${max} tegn skrevet`}
-      {...rest}
     >
       {current}/{max}
     </Wrapper>
