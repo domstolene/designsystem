@@ -18,6 +18,7 @@ import {
   OverflowMenuProps
 } from '.';
 import { typographyTokens } from '../Typography/Typography.tokens';
+import { getBaseHTMLProps } from '../../types';
 
 type ContainerProps = { isOpen: boolean };
 
@@ -48,8 +49,8 @@ const StyledDivider = styled(Divider)`
 `;
 
 export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       anchorRef,
       onClose,
       isOpen = false,
@@ -59,11 +60,12 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       userProps,
       id,
       offset = tokens.offset,
-      style,
+      htmlProps = {},
       ...rest
-    },
-    ref
-  ) => {
+    } = props;
+
+    const { style = {} } = htmlProps;
+
     const { reference, floating, refs, styles } = useFloatPosition(
       null,
       placement,
@@ -182,11 +184,11 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     };
 
     const containerProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       ref: combinedRef,
       id: id ?? useId('overflowMenu'),
       isOpen,
       style: { ...style, ...styles.floating },
-      ...rest,
       'aria-hidden': !isOpen,
       role: 'menu'
     };

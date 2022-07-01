@@ -1,10 +1,4 @@
-import {
-  forwardRef,
-  HTMLAttributes,
-  ReactNode,
-  RefObject,
-  useState
-} from 'react';
+import { forwardRef, ReactNode, RefObject, useState } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
@@ -21,6 +15,7 @@ import { focusVisible } from '../../helpers/styling';
 import { scrollbarStyling } from '../../helpers/styling';
 import { Paper } from '../../helpers';
 import { Property } from 'csstype';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 type ContainerProps = {
   placement: DrawerPlacement;
@@ -87,109 +82,110 @@ export type WidthProps = {
   width?: Property.Width<string>;
 };
 
-export type DrawerProps = {
-  /**Størrelsen på `<Drawer />`. */
-  size?: DrawerSize;
-  /** Plasseringen til `<Drawer />`. */
-  placement?: DrawerPlacement;
-  /**Header for `<Drawer />`. Har default styling hvis verdien er en string. */
-  header?: string | ReactNode;
-  /**Spesifiserer om `<Drawer />` skal legges vises. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
-  isOpen?: boolean;
-  /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
-  onClose?: () => void;
-  /**Spesifiserer hvilken DOM node `<Drawer />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
-  parentElement?: HTMLElement;
-  /**Custom props for breddehåndtering ved behov. */
-  widthProps?: WidthProps;
-  /**Ref til elementet som åpner `<Drawer />`.  **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
-  triggerRef?: RefObject<HTMLElement>;
-} & HTMLAttributes<HTMLDivElement>;
+export type DrawerProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**Størrelsen på `<Drawer />`. */
+    size?: DrawerSize;
+    /** Plasseringen til `<Drawer />`. */
+    placement?: DrawerPlacement;
+    /**Header for `<Drawer />`. Har default styling hvis verdien er en string. */
+    header?: string | ReactNode;
+    /**Spesifiserer om `<Drawer />` skal legges vises. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
+    isOpen?: boolean;
+    /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
+    onClose?: () => void;
+    /**Spesifiserer hvilken DOM node `<Drawer />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
+    parentElement?: HTMLElement;
+    /**Custom props for breddehåndtering ved behov. */
+    widthProps?: WidthProps;
+    /**Ref til elementet som åpner `<Drawer />`.  **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
+    triggerRef?: RefObject<HTMLElement>;
+  }
+>;
 
 let nextUniqueId = 0;
 
-export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(
-  (
-    {
-      children,
-      onClose,
-      header,
-      isOpen = false,
-      placement = 'right',
-      parentElement = document.body,
-      size = 'small',
-      triggerRef,
-      id,
-      ...rest
-    },
-    ref
-  ) => {
-    const [uniqueId] = useState<string>(id ?? `drawer-${nextUniqueId++}`);
-    const hasHeader = !!header;
-    const headerId = hasHeader ? `${uniqueId}-header` : undefined;
+export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
+  const {
+    children,
+    onClose,
+    header,
+    isOpen = false,
+    placement = 'right',
+    parentElement = document.body,
+    size = 'small',
+    triggerRef,
+    id,
+    htmlProps,
+    ...rest
+  } = props;
 
-    const drawerRef = useFocusTrap<HTMLDivElement>(isOpen);
-    const combinedRef = useCombinedRef(ref, drawerRef);
+  const [uniqueId] = useState<string>(id ?? `drawer-${nextUniqueId++}`);
+  const hasHeader = !!header;
+  const headerId = hasHeader ? `${uniqueId}-header` : undefined;
 
-    useOnKeyDown(['Esc', 'Escape'], () => {
-      if (isOpen) {
-        triggerRef && triggerRef.current?.focus();
-        onClose && onClose();
-      }
-    });
+  const drawerRef = useFocusTrap<HTMLDivElement>(isOpen);
+  const combinedRef = useCombinedRef(ref, drawerRef);
 
-    const elements: (HTMLElement | null)[] = [drawerRef.current as HTMLElement];
-    if (triggerRef) elements.push(triggerRef.current);
+  useOnKeyDown(['Esc', 'Escape'], () => {
+    if (isOpen) {
+      triggerRef && triggerRef.current?.focus();
+      onClose && onClose();
+    }
+  });
 
-    useOnClickOutside(elements, () => isOpen && onClose && onClose());
+  const elements: (HTMLElement | null)[] = [drawerRef.current as HTMLElement];
+  if (triggerRef) elements.push(triggerRef.current);
 
-    const hasTransitionedIn = useMountTransition(isOpen, 500);
+  useOnClickOutside(elements, () => isOpen && onClose && onClose());
 
-    const containerProps = {
-      placement,
-      ref: combinedRef,
-      isOpen: hasTransitionedIn && isOpen,
-      tabIndex: -1,
-      role: 'dialog',
-      id: uniqueId,
-      'aria-labelledby': headerId,
-      size,
-      ...rest
-    };
+  const hasTransitionedIn = useMountTransition(isOpen, 500);
 
-    const headerContainerProps = {
-      id: headerId
-    };
+  const containerProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
+    placement,
+    ref: combinedRef,
+    isOpen: hasTransitionedIn && isOpen,
+    tabIndex: -1,
+    role: 'dialog',
+    id: uniqueId,
+    'aria-labelledby': headerId,
+    size
+  };
 
-    return isOpen || hasTransitionedIn
-      ? createPortal(
-          <Container {...containerProps}>
-            <ContentContainer>
-              {hasHeader && (
-                <HeaderContainer {...headerContainerProps}>
-                  {typeof header === 'string' ? (
-                    <Typography typographyType="headingSans03">
-                      {header}
-                    </Typography>
-                  ) : (
-                    header
-                  )}
-                </HeaderContainer>
-              )}
-              {children}
-            </ContentContainer>
-            <StyledButton
-              data-testid="drawer-close-btn"
-              size="small"
-              purpose="secondary"
-              appearance="borderless"
-              onClick={onClose}
-              aria-label="Lukk"
-              icon="close"
-            />
-          </Container>,
-          parentElement
-        )
-      : null;
-  }
-);
+  const headerContainerProps = {
+    id: headerId
+  };
+
+  return isOpen || hasTransitionedIn
+    ? createPortal(
+        <Container {...containerProps}>
+          <ContentContainer>
+            {hasHeader && (
+              <HeaderContainer {...headerContainerProps}>
+                {typeof header === 'string' ? (
+                  <Typography typographyType="headingSans03">
+                    {header}
+                  </Typography>
+                ) : (
+                  header
+                )}
+              </HeaderContainer>
+            )}
+            {children}
+          </ContentContainer>
+          <StyledButton
+            data-testid="drawer-close-btn"
+            size="small"
+            purpose="secondary"
+            appearance="borderless"
+            onClick={onClose}
+            aria-label="Lukk"
+            icon="close"
+          />
+        </Container>,
+        parentElement
+      )
+    : null;
+});

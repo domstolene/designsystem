@@ -65,7 +65,7 @@ Wrapper der anchor-elementet skal være første barnet og `<Popover />` skal væ
 Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og onBlur.
 
 <ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface. **OBS!** `id` er ekskludert da den blir sendt som prop fra <PopoverGroup /> for å sørge for riktig oppførsel. `id` settes via `<PopoverGroup />` `popoverId`-prop.
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`. **OBS!** `id` er ekskludert da den blir sendt som prop fra <PopoverGroup /> for å sørge for riktig oppførsel. `id` settes via `<PopoverGroup />` `popoverId`-prop.
 
 #### Types
 
@@ -90,7 +90,7 @@ Det kan være relevant å begrense størrelsen på Popover slik at ikke hele tek
   <Story height="350px" id="design-system-popover--overflow" />
 </Canvas>
 For å oppnå det kan du sette sizeProps til ønskede verdier og gi tekstelementet som
-er barnet i <Popover /> følgende CSS:
+er barnet i `<Popover />` følgende CSS:
 
 <Source
   language="css"

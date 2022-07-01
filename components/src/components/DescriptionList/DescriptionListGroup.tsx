@@ -1,7 +1,8 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { descriptionListGroupTokens as tokens } from './DescriptionListGroup.tokens';
 import { Property } from 'csstype';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 type StyledGroupProps = Pick<DescriptionListGroupProps, 'margin'>;
 
@@ -14,19 +15,25 @@ const DListGroup = styled.div<StyledGroupProps>`
     `}
 `;
 
-export type DescriptionListGroupProps = {
-  /**Custom margin. */
-  margin?: Property.Margin<string>;
-} & HTMLAttributes<HTMLDivElement>;
+export type DescriptionListGroupProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**Custom margin. */
+    margin?: Property.Margin<string>;
+  }
+>;
 
 export const DescriptionListGroup = forwardRef<
   HTMLDivElement,
   DescriptionListGroupProps
->(({ children, ...rest }, ref) => {
+>((props, ref) => {
+  const { children, margin, id, htmlProps, ...rest } = props;
+
   const dListGroupProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
     children,
     ref,
-    ...rest
+    margin
   };
 
   return <DListGroup {...dListGroupProps}>{children}</DListGroup>;

@@ -125,11 +125,13 @@ export const ColumnExample = (args: DescriptionListProps) => {
       <div>
         <DescriptionList
           {...args}
-          style={{
-            height: '275px',
-            display: 'flex',
-            flexDirection: 'column',
-            flexWrap: 'wrap'
+          htmlProps={{
+            style: {
+              height: '275px',
+              display: 'flex',
+              flexDirection: 'column',
+              flexWrap: 'wrap'
+            }
           }}
         >
           <DescriptionListGroup margin={margin}>

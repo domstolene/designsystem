@@ -63,7 +63,7 @@ Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList
 
 <ArgsTable story={PRIMARY_STORY} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
 ### Tab
 
@@ -71,13 +71,13 @@ En fane. Tilhørende `<TabPanel />` vises ved museklikk.
 
 <ArgsTable of={Tab} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`.
 
 ### TabList
 
 En liste med `<Tab />`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
 
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
 ### TabPanel
 
@@ -85,10 +85,10 @@ Panel med innhold. Vises ved museklikk på tilhørende `<Tab />`.
 
 <ArgsTable of={TabPanel} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`.
 
 ### TabPanels
 
 En liste med `<TabPanel />`. Setter attributter som `aria-labelledby` for barna. `<TabPanels />` skal ha `<TabPanel />` som barn i samme rekkefølge som tilhørende paneler i `<TabList />`.
 
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

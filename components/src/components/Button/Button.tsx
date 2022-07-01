@@ -4,12 +4,12 @@ import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
 import { ButtonProps } from './Button.types';
 import { ButtonWrapper, StyledIconWrapperSpan, Label } from './Button.styles';
+import { getBaseHTMLProps } from '../../types';
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       label,
-      disabled,
       purpose = 'primary',
       size = 'medium',
       iconPosition = 'left',
@@ -18,19 +18,22 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       target,
       loading = false,
       fullWidth = false,
-      className,
-      style,
       icon,
+      onClick,
+      onFocus,
+      onBlur,
+      id,
+      htmlProps,
       ...rest
-    },
-    ref
-  ) => {
+    } = props;
+
     const as: ElementType = href ? 'a' : 'button';
 
     const hasLabel = !!label;
     const hasIcon = !!icon;
 
     const wrapperProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       href,
       label,
       as,
@@ -44,11 +47,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       hasLabel: hasLabel,
       hasIcon: hasIcon,
       isLoading: loading,
-      disabled,
       size,
-      className,
-      style,
-      ...rest
+      onClick,
+      onFocus,
+      onBlur
     };
 
     const isIconButton = !hasLabel && hasIcon;

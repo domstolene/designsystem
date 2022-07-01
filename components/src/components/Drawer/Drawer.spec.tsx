@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor
+} from '@testing-library/react';
 import { Drawer, DrawerGroup } from '.';
 import { Button } from '../Button';
 
@@ -26,24 +32,40 @@ describe('<Drawer />', () => {
   it('should open on click', () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
-    fireEvent.click(button);
+
+    act(() => {
+      fireEvent.click(button);
+    });
+
     const drawer = screen.getByRole('dialog');
     expect(drawer).toBeInTheDocument();
   });
   it('should render content when open', () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
-    fireEvent.click(button);
+
+    act(() => {
+      fireEvent.click(button);
+    });
+
     const element = screen.getByText(content);
     expect(element).toBeInTheDocument();
   });
   it('should hide after Esc keydown', async () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
-    button.click();
+
+    act(() => {
+      button.click();
+    });
+
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
-    fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
+
+    act(() => {
+      fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
+    });
+
     const elQuery = screen.queryByRole('dialog');
     await waitFor(() => {
       expect(elQuery).not.toBeInTheDocument();
@@ -52,11 +74,19 @@ describe('<Drawer />', () => {
   it('should hide after close button click', async () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
-    button.click();
+
+    act(() => {
+      button.click();
+    });
+
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
     const closeButton = screen.getByLabelText('Lukk');
-    fireEvent.click(closeButton!);
+
+    act(() => {
+      fireEvent.click(closeButton!);
+    });
+
     const elQuery = screen.queryByRole('dialog');
     await waitFor(() => {
       expect(elQuery).not.toBeInTheDocument();
@@ -72,9 +102,17 @@ describe('<Drawer />', () => {
       </DrawerGroup>
     );
     const button = screen.getByText(buttonLabel);
-    button.click();
+
+    act(() => {
+      button.click();
+    });
+
     const closeButton = await screen.findByTestId('drawer-close-btn');
-    fireEvent.click(closeButton!);
+
+    act(() => {
+      fireEvent.click(closeButton!);
+    });
+
     expect(event).toHaveBeenCalled();
   });
   it('should call additional onClose event on Esc keydown', async () => {
@@ -86,10 +124,18 @@ describe('<Drawer />', () => {
       </DrawerGroup>
     );
     const button = screen.getByText(buttonLabel);
-    button.click();
+
+    act(() => {
+      button.click();
+    });
+
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
-    fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
+
+    act(() => {
+      fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
+    });
+
     expect(event).toHaveBeenCalled();
   });
   it('should call additional onOpen event on click', () => {
@@ -101,7 +147,11 @@ describe('<Drawer />', () => {
       </DrawerGroup>
     );
     const button = screen.getByText(buttonLabel);
-    fireEvent.click(button!);
+
+    act(() => {
+      fireEvent.click(button!);
+    });
+
     expect(event).toHaveBeenCalled();
   });
 });

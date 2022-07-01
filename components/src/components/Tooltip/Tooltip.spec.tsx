@@ -1,4 +1,10 @@
-import { screen, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  screen,
+  fireEvent,
+  render,
+  waitFor,
+  act
+} from '@testing-library/react';
 import { Tooltip } from '.';
 import { Button } from '../Button';
 
@@ -6,8 +12,8 @@ import { Button } from '../Button';
 window.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
-  disconnect: jest.fn(),
-}))
+  disconnect: jest.fn()
+}));
 
 describe('<Tooltip />', () => {
   it('should render tooltip', async () => {
@@ -70,8 +76,13 @@ describe('<Tooltip />', () => {
         <Button />
       </Tooltip>
     );
+
     const containerElement = screen.getByTestId(testId);
-    fireEvent.mouseOver(containerElement);
+
+    act(() => {
+      fireEvent.mouseOver(containerElement!);
+    });
+
     await waitFor(() => {
       expect(screen.getByText(text)).toHaveAttribute('aria-hidden', 'false');
     });
@@ -99,8 +110,13 @@ describe('<Tooltip />', () => {
         <Button />
       </Tooltip>
     );
+
     const containerElement = screen.getByTestId(testId);
-    fireEvent.mouseLeave(containerElement!);
+
+    act(() => {
+      fireEvent.mouseLeave(containerElement!);
+    });
+
     await waitFor(() => {
       expect(event).toHaveBeenCalled();
     });

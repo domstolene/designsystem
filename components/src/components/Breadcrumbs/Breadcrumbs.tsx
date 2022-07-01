@@ -1,7 +1,8 @@
-import { forwardRef, HTMLAttributes, Children } from 'react';
+import { forwardRef, Children } from 'react';
 import styled from 'styled-components';
 import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
 import { Icon } from '../Icon';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const List = styled.ol`
   list-style: none;
@@ -24,13 +25,19 @@ const StyledIcon = styled(Icon).attrs(
 )`
   ${tokens.icon.base}
 `;
-export type BreadcrumbsProps = {
-  /** Spesifiserer om versjonen for små skjermer skal vises; den viser `<Breadcrumb />` kun til den forrige siden.  */
-  smallScreen?: boolean;
-} & HTMLAttributes<HTMLElement>;
+
+export type BreadcrumbsProps = BaseComponentPropsWithChildren<
+  HTMLElement,
+  {
+    /** Spesifiserer om versjonen for små skjermer skal vises; den viser `<Breadcrumb />` kun til den forrige siden.  */
+    smallScreen?: boolean;
+  }
+>;
 
 export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
-  ({ smallScreen, children, ...rest }, ref) => {
+  (props, ref) => {
+    const { smallScreen, children, id, htmlProps, ...rest } = props;
+
     const childrenArray = Children.toArray(children);
 
     const breadcrumbChildren = smallScreen ? (
@@ -50,7 +57,11 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     );
 
     return (
-      <nav ref={ref} aria-label="brødsmulesti" {...rest}>
+      <nav
+        {...getBaseHTMLProps(id, htmlProps, rest)}
+        ref={ref}
+        aria-label="brødsmulesti"
+      >
         <List>{breadcrumbChildren}</List>
       </nav>
     );

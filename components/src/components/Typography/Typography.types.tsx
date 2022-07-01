@@ -1,10 +1,10 @@
-export type TypographyBodySansType =
+type TypographyBodySansType =
   | 'bodySans01'
   | 'bodySans02'
   | 'bodySans03'
   | 'bodySans04';
 
-export type TypographyBodySerifType =
+type TypographyBodySerifType =
   | 'bodySerif01'
   | 'bodySerif02'
   | 'bodySerif03'
@@ -14,7 +14,7 @@ export type TypographyBodyType =
   | TypographyBodySansType
   | TypographyBodySerifType;
 
-export type TypographyHeadingType =
+type TypographyHeadingType =
   | 'headingSans01'
   | 'headingSans02'
   | 'headingSans03'
@@ -24,15 +24,14 @@ export type TypographyHeadingType =
   | 'headingSans07'
   | 'headingSans08';
 
-export type TypographyLeadType =
+type TypographyLeadType =
   | 'leadSans01'
   | 'leadSans02'
   | 'leadSans03'
   | 'leadSans04'
   | 'leadSans05';
 
-export type TypographySupportingType =
-  | 'supportingStyleLabel01'
+type TypographySupportingType =
   | 'supportingStyleInputText01'
   | 'supportingStyleInputText02'
   | 'supportingStyleInputText03'
@@ -41,12 +40,20 @@ export type TypographySupportingType =
   | 'supportingStyleTiny01'
   | 'supportingStyleTiny02';
 
-export type TypographyType =
-  | 'a'
+export type AnchorTypographyType = 'a';
+
+export type LabelTypographyType = 'supportingStyleLabel01';
+
+export type OtherTypographyType =
   | TypographyHeadingType
   | TypographyBodyType
   | TypographyLeadType
   | TypographySupportingType;
+
+export type TypographyType =
+  | AnchorTypographyType
+  | LabelTypographyType
+  | OtherTypographyType;
 
 export type TextColor =
   | 'interactive'

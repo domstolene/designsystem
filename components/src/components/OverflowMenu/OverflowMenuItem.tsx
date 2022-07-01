@@ -1,7 +1,6 @@
-import React, {
+import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
-  HTMLAttributes,
   forwardRef,
   useCallback,
   useEffect,
@@ -9,12 +8,14 @@ import React, {
   Dispatch,
   SetStateAction,
   MouseEvent,
-  KeyboardEvent
+  KeyboardEvent,
+  ForwardedRef
 } from 'react';
 import styled from 'styled-components';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
 import { Icon, IconName } from '../Icon';
 import { useCombinedRef } from '../../hooks';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 export const Span = styled.span`
   ${tokens.link.base}
@@ -49,104 +50,145 @@ export const Link = styled.a`
   }
 `;
 
-export type OverflowMenuItemProps = {
+type BaseOverflowMenuItemProps = {
   title: string;
-  href?: string;
   icon?: IconName;
   focus?: boolean;
   setFocus?: Dispatch<SetStateAction<number>>;
   index?: number;
   isMenuClosed?: boolean;
-} & (
-  | AnchorHTMLAttributes<HTMLAnchorElement>
-  | ButtonHTMLAttributes<HTMLButtonElement>
-  | HTMLAttributes<HTMLSpanElement>
-);
+};
+
+type AnchorOverflowMenuItemProps = BaseOverflowMenuItemProps &
+  BaseComponentProps<
+    HTMLAnchorElement,
+    {
+      href?: string;
+    },
+    AnchorHTMLAttributes<HTMLAnchorElement>
+  >;
+
+type ButtonOverflowMenuItemProps = BaseOverflowMenuItemProps &
+  BaseComponentProps<
+    HTMLButtonElement,
+    Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>,
+    ButtonHTMLAttributes<HTMLButtonElement>
+  >;
+
+type OtherOverflowMenuItemProps = BaseOverflowMenuItemProps &
+  BaseComponentProps<HTMLSpanElement>;
+
+export type OverflowMenuItemProps =
+  | AnchorOverflowMenuItemProps
+  | ButtonOverflowMenuItemProps
+  | OtherOverflowMenuItemProps;
+
+const isAnchorProps = (
+  props: OverflowMenuItemProps
+): props is AnchorOverflowMenuItemProps =>
+  (props as AnchorOverflowMenuItemProps).href !== undefined;
+
+const isButtonProps = (
+  props: OverflowMenuItemProps
+): props is ButtonOverflowMenuItemProps =>
+  (props as AnchorOverflowMenuItemProps).href === undefined &&
+  (props as ButtonOverflowMenuItemProps).onClick !== undefined;
 
 export const OverflowMenuItem = forwardRef<
   HTMLAnchorElement,
   OverflowMenuItemProps
->(
-  (
-    { title, href, onClick, onKeyDown, icon, focus, setFocus, index, ...rest },
-    ref
+>((props, ref) => {
+  const {
+    title,
+    icon,
+    focus,
+    setFocus,
+    index,
+    id,
+    htmlProps = {},
+    ...rest
+  } = props;
+
+  const { onKeyDown } = htmlProps;
+
+  let href: AnchorOverflowMenuItemProps['href'];
+  let onClick: ButtonOverflowMenuItemProps['onClick'];
+  if (isAnchorProps(props)) {
+    href = props.href;
+  } else if (isButtonProps(props)) {
+    onClick = props.onClick;
+  }
+
+  const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
+  const combinedRef = useCombinedRef(ref, itemRef);
+
+  useEffect(() => {
+    if (focus) {
+      itemRef.current?.focus();
+    }
+  }, [focus]);
+
+  const handleSelect = useCallback(() => {
+    if (setFocus && index) {
+      setFocus(index);
+    }
+  }, [index, setFocus]);
+
+  const handleOnClick = (
+    e: MouseEvent<HTMLAnchorElement> & MouseEvent<HTMLButtonElement>
   ) => {
-    const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
-    const combinedRef = useCombinedRef(ref, itemRef);
+    handleSelect();
+    onClick && onClick(e);
+  };
 
-    useEffect(() => {
-      if (focus) {
-        itemRef.current?.focus();
-      }
-    }, [focus]);
+  const handleOnKeyDown = (
+    e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>
+  ) => {
+    handleSelect();
+    onKeyDown && onKeyDown(e);
+  };
 
-    const handleSelect = useCallback(() => {
-      if (setFocus && index) {
-        setFocus(index);
-      }
-    }, [index, setFocus]);
+  const linkProps = {
+    href,
+    onClick: handleOnClick,
+    onKeyDown: handleOnKeyDown,
+    role: 'menuitem',
+    tabIndex: focus ? 0 : -1
+  };
+  const iconElement = icon && <Icon iconSize="inherit" iconName={icon} />;
 
-    const handleOnClick = (
-      e: MouseEvent<HTMLAnchorElement> & MouseEvent<HTMLButtonElement>
-    ) => {
-      handleSelect();
-      onClick && onClick(e);
-    };
+  if (!href && !onClick) {
+    return (
+      <Span {...{ ...getBaseHTMLProps(id, htmlProps, rest), ref }}>
+        {iconElement}
+        {title}
+      </Span>
+    );
+  }
 
-    const handleOnKeyDown = (
-      e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>
-    ) => {
-      handleSelect();
-      onKeyDown && onKeyDown(e);
-    };
-
-    const elementProps = {
-      ref: ref,
-      ...rest
-    };
-
-    const linkProps = {
-      href,
-      onClick: handleOnClick,
-      onKeyDown: handleOnKeyDown,
-      role: 'menuitem',
-      tabIndex: focus ? 0 : -1
-    };
-    const iconElement = icon && <Icon iconSize="inherit" iconName={icon} />;
-
-    if (!href && !onClick) {
-      return (
-        <Span {...elementProps}>
-          {iconElement}
-          {title}
-        </Span>
-      );
-    }
-
-    if (!href) {
-      return (
-        <Link
-          as="button"
-          {...linkProps}
-          {...(rest as HTMLAttributes<HTMLButtonElement>)}
-          ref={combinedRef as React.ForwardedRef<HTMLButtonElement>}
-        >
-          {iconElement}
-          {title}
-        </Link>
-      );
-    }
-
+  if (!href) {
     return (
       <Link
-        as="a"
+        {...getBaseHTMLProps(id, htmlProps, rest)}
         {...linkProps}
-        {...(rest as HTMLAttributes<HTMLAnchorElement>)}
-        ref={combinedRef as React.ForwardedRef<HTMLAnchorElement>}
+        as="button"
+        ref={combinedRef as ForwardedRef<HTMLButtonElement>}
       >
         {iconElement}
         {title}
       </Link>
     );
   }
-);
+
+  return (
+    <Link
+      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...linkProps}
+      as="a"
+      ref={combinedRef as ForwardedRef<HTMLAnchorElement>}
+    >
+      {iconElement}
+      {title}
+    </Link>
+  );
+});

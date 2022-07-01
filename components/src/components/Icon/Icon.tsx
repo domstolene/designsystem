@@ -1,8 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { HTMLAttributes } from 'react';
 import { Property } from 'csstype';
 import { iconPaths } from '../../icons';
 import styled from 'styled-components';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
@@ -29,27 +29,34 @@ const Svg = styled.svg`
   flex-shrink: 0;
 `;
 
-export type IconProps = {
-  /**Navnet til ikonet. */
-  iconName: IconName;
-  /**Størrelsen på ikonet. */
-  iconSize?: IconSize;
-  /**Fargen på ikonet. */
-  color?: Property.Color;
-} & HTMLAttributes<SVGElement>;
+export type IconProps = BaseComponentProps<
+  SVGElement,
+  {
+    /**Navnet til ikonet. */
+    iconName: IconName;
+    /**Størrelsen på ikonet. */
+    iconSize?: IconSize;
+    /**Fargen på ikonet. */
+    color?: Property.Color;
+  }
+>;
 
-export function Icon({
-  iconSize = 'medium',
-  color = 'currentcolor',
-  iconName,
-  title,
-  'aria-hidden': ariaHidden = true,
-  ...rest
-}: IconProps) {
+export function Icon(props: IconProps) {
+  const {
+    id,
+    iconSize = 'medium',
+    color = 'currentcolor',
+    iconName,
+    htmlProps = {},
+    ...rest
+  } = props;
+  const { title, 'aria-hidden': ariaHidden = true } = htmlProps;
+
   const size = getSize(iconSize);
+
   return iconName ? (
     <Svg
-      {...rest}
+      {...getBaseHTMLProps(id, htmlProps, rest)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       height={size}

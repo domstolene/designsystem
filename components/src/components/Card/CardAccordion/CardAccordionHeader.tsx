@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import { cardAccordionHeaderTokens as tokens } from './CardAccordionHeader.tokens';
 import { AnimatedChevronUpDown } from '../../../helpers';
 import { removeButtonStyling } from '../../../helpers/styling';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps
+} from '../../../types';
 
 const ContentWrapper = styled.div`
   text-align: left;
@@ -41,19 +45,33 @@ const ChevronWrapper = styled.span`
   ${tokens.chevronWrapper.base}
 `;
 
-export type CardAccordionHeaderProps = {
-  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller body er utvidet.  */
-  isExpanded?: boolean;
-  /** **OBS!** denne propen blir satt automatisk av forelder. Callback for å styre utvidelse og sammentrukking.  */
-  toggleExpanded?: () => void;
-  /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionBody />`.  */
-  bodyId?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+export type CardAccordionHeaderProps = BaseComponentPropsWithChildren<
+  HTMLButtonElement,
+  {
+    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller body er utvidet.  */
+    isExpanded?: boolean;
+    /** **OBS!** denne propen blir satt automatisk av forelder. Callback for å styre utvidelse og sammentrukking.  */
+    toggleExpanded?: () => void;
+    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionBody />`.  */
+    bodyId?: string;
+  },
+  ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
 export const CardAccordionHeader = forwardRef<
   HTMLButtonElement,
   CardAccordionHeaderProps
->(({ children, isExpanded = false, toggleExpanded, bodyId, ...rest }, ref) => {
+>((props, ref) => {
+  const {
+    children,
+    isExpanded = false,
+    toggleExpanded,
+    bodyId,
+    id,
+    htmlProps,
+    ...rest
+  } = props;
+
   const handleClick = () => {
     if (toggleExpanded) {
       toggleExpanded();
@@ -61,11 +79,11 @@ export const CardAccordionHeader = forwardRef<
   };
 
   const headerWrapperProps = {
+    ...getBaseHTMLProps(id, htmlProps, rest),
     'aria-expanded': isExpanded,
     'aria-controls': bodyId,
     ref,
-    onClick: handleClick,
-    ...rest
+    onClick: handleClick
   };
 
   const chevronProps = {

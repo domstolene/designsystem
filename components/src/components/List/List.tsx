@@ -1,4 +1,4 @@
-import { ElementType, forwardRef, HTMLAttributes } from 'react';
+import { ElementType, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import bullet from '../../assets/svg/bullets/jordskifterett_bullet1.svg';
 import bulletLvl2 from '../../assets/svg/bullets/lagmannsrett_bullet2.svg';
@@ -7,6 +7,7 @@ import { TypographyBodyType } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { listItemTokens } from './ListItem.tokens';
 import { listTokens as tokens } from './List.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const liTextPadding = `1em + ${listItemTokens.bulletSpacing}`;
 const ulPaddingLeft = `${tokens.spaceLeft} - (${liTextPadding})`;
@@ -81,26 +82,35 @@ const StyledList = styled.ul<StyledListProps>`
 export type ListType = 'ordered' | 'unordered';
 export type ListTypographyType = TypographyBodyType | 'inherit';
 
-export type ListProps = {
-  /**Spesifiserer om komponenten skal returnere `<ul />` (punktliste) eller `<ol />` (nummerert liste). */
-  listType?: ListType;
-  /**Spesifiserer typografi for listen. Komponenten arver i utgangspunktet fra forelder, men hvis forelder stiller ikke med relevant styling  må det velges `TypographyBodyType` som brukes i `<body>` ellers på siden. */
-  typographyType?: ListTypographyType;
-} & HTMLAttributes<HTMLUListElement | HTMLOListElement>;
+export type ListProps = BaseComponentPropsWithChildren<
+  HTMLUListElement | HTMLOListElement,
+  {
+    /**Spesifiserer om komponenten skal returnere `<ul />` (punktliste) eller `<ol />` (nummerert liste). */
+    listType?: ListType;
+    /**Spesifiserer typografi for listen. Komponenten arver i utgangspunktet fra forelder, men hvis forelder stiller ikke med relevant styling  må det velges `TypographyBodyType` som brukes i `<body>` ellers på siden. */
+    typographyType?: ListTypographyType;
+  }
+>;
 
 export const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
-  (
-    { listType = 'unordered', typographyType = 'inherit', children, ...rest },
-    ref
-  ) => {
+  (props, ref) => {
+    const {
+      listType = 'unordered',
+      typographyType = 'inherit',
+      children,
+      id,
+      htmlProps,
+      ...rest
+    } = props;
+
     const as: ElementType = listType === 'ordered' ? 'ol' : 'ul';
 
     const listProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
       listType,
       typographyType,
       as,
-      ref,
-      ...rest
+      ref
     };
 
     return <StyledList {...listProps}>{children}</StyledList>;

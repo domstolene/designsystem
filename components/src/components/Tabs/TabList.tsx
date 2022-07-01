@@ -82,13 +82,13 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     };
 
     const tabListProps = {
+      ...rest,
       ref: combinedRef,
       role: 'tablist',
       'aria-label': 'Bruk venste og høyre piltast for å bla',
       id: uniqueId,
       tabIndex: 0,
-      onFocus: handleOnFocus,
-      ...rest
+      onFocus: handleOnFocus
     };
 
     return <TabRow {...tabListProps}>{tabListChildren}</TabRow>;

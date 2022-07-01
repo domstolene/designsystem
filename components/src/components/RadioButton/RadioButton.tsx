@@ -6,6 +6,7 @@ import {
   useRadioButtonGroup
 } from './RadioButtonGroupContext';
 import { CustomRadioButton, Input, Container } from './RadioButton.styles';
+import { getBaseHTMLProps } from '../../types';
 
 let nextUniqueId = 0;
 
@@ -23,26 +24,26 @@ const isValueEqualToGroupValueOrFalsy = (
 };
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       id,
       name,
       label,
       disabled,
       readOnly,
       error,
-      style,
       checked,
       value,
-      className,
       children,
       required,
       onChange,
       'aria-describedby': ariaDescribedby,
+      htmlProps = {},
       ...rest
-    },
-    ref
-  ) => {
+    } = props;
+
+    const { className, style, ...restHtmlProps } = htmlProps;
+
     const [uniqueId] = useState<string>(id ?? `radioButton-${nextUniqueId++}`);
 
     const radioButtonGroup = useRadioButtonGroup();
@@ -58,6 +59,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     if (ariaDescribedby) describedByIds.push(ariaDescribedby);
 
     const inputProps = {
+      ...getBaseHTMLProps(id, restHtmlProps, rest),
       id: uniqueId,
       name: name ?? radioButtonGroup?.name,
       disabled:
@@ -74,8 +76,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       value: value,
       'aria-describedby':
         describedByIds.length > 0 ? describedByIds.join(' ') : undefined,
-      'aria-invalid': error || radioButtonGroup?.error ? true : undefined,
-      ...rest
+      'aria-invalid': error || radioButtonGroup?.error ? true : undefined
     };
 
     const containerProps = {

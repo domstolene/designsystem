@@ -15,17 +15,22 @@ import {
 } from './InternalHeader.styles';
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
+import { getBaseHTMLProps } from '../../types';
 
-export const InternalHeader = ({
-  applicationName,
-  smallScreen,
-  navigationElements,
-  contextMenuElements,
-  currentPageHref,
-  userProps,
-  onCurrentPageChange,
-  ...rest
-}: InternalHeaderProps) => {
+export const InternalHeader = (props: InternalHeaderProps) => {
+  const {
+    applicationName,
+    smallScreen,
+    navigationElements,
+    contextMenuElements,
+    currentPageHref,
+    userProps,
+    onCurrentPageChange,
+    id,
+    htmlProps,
+    ...rest
+  } = props;
+
   const [contextMenuIsClosed, setContextMenuIsClosed] = useState(true);
   const [currentPage, setCurrentPage] = useState<string | undefined>(
     currentPageHref
@@ -75,7 +80,7 @@ export const InternalHeader = ({
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
   return (
-    <Wrapper {...rest}>
+    <Wrapper {...getBaseHTMLProps(id, htmlProps, rest)}>
       <BannerWrapper hasContextMenu={hasContextMenu}>
         <BannerLeftWrapper>
           <LovisaWrapper>

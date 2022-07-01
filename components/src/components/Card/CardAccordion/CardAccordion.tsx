@@ -3,24 +3,32 @@ import {
   useState,
   useEffect,
   ReactElement,
-  HTMLAttributes,
   Children as ReactChildren,
   cloneElement,
   isValidElement
 } from 'react';
 import styled from 'styled-components';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps
+} from '../../../types';
 
 const Wrapper = styled.div``;
 
-export type CardAccordionProps = {
-  /**Spesifiserer om body skal være utvidet ved innlastning. */
-  isExpanded?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+export type CardAccordionProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**Spesifiserer om body skal være utvidet ved innlastning. */
+    isExpanded?: boolean;
+  }
+>;
 
 let nextUniqueId = 0;
 
 export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
-  ({ isExpanded = false, id, children, ...rest }, ref) => {
+  (props, ref) => {
+    const { isExpanded = false, id, children, htmlProps, ...rest } = props;
+
     const [expanded, setExpanded] = useState(isExpanded);
 
     const uniqueId = nextUniqueId++;
@@ -55,10 +63,10 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
       );
     });
 
-    const props = {
-      ref,
-      ...rest
+    const wrapperProps = {
+      ...getBaseHTMLProps(id, htmlProps, rest),
+      ref
     };
-    return <Wrapper {...props}>{Children}</Wrapper>;
+    return <Wrapper {...wrapperProps}>{Children}</Wrapper>;
   }
 );
