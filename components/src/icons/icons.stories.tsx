@@ -4,8 +4,10 @@ import { Typography } from '../components/Typography';
 import { StoryTemplate } from '../storybook';
 import { iconPaths } from './icons';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { LocalMessage } from '../components/LocalMessage';
+import { useEffect, useState } from 'react';
 
-const { spacing } = ddsBaseTokens;
+const { colors, spacing } = ddsBaseTokens;
 
 export default {
   title: 'Icons/Overview'
@@ -18,8 +20,13 @@ const IconContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   gap: ${spacing.SizesDdsSpacingLocalX075};
   width: 70px;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: ${colors.DdsColorInteractiveLightest};
+  }
 `;
 
 const OverviewContainer = styled.div`
@@ -28,7 +35,15 @@ const OverviewContainer = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: ${spacing.SizesDdsSpacingLocalX075};
+`;
+
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: ${spacing.SizesDdsSpacingLayoutX15};
   max-width: 800px;
+  margin: auto;
 `;
 
 const Name = styled(Typography)`
@@ -38,21 +53,56 @@ const Name = styled(Typography)`
   text-align: center;
 `;
 
+const MessageWrapper = styled.div`
+  position: sticky;
+  top: 10%;
+`;
+
 export const Overview = () => {
+  const [name, setName] = useState<string | undefined>();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setName(undefined), 5000);
+    return () => clearTimeout(timer);
+  }, [name]);
+
+  const copyName = (name: string) => {
+    navigator.clipboard.writeText(name);
+    setName(name);
+  };
+
   return (
     <StoryTemplate title="Icons - overview" display="block">
-      <OverviewContainer>
-        {Object.keys(iconPaths)
-          .sort()
-          .map(e => (
-            <IconContainer>
-              <Icon iconSize="large" iconName={e as IconName} title={e} />
-              <Name typographyType="supportingStyleTiny01" title={e}>
-                {e}
-              </Name>
-            </IconContainer>
-          ))}
-      </OverviewContainer>
+      <Container>
+        <Typography typographyType="bodySans03">
+          Klikk på ikonet for å kopiere navnet til utklippstavlen.
+        </Typography>
+        {name && (
+          <MessageWrapper>
+            <LocalMessage
+              purpose="success"
+              width="100%"
+              message={`Ikonnavnet "${name}" ble kopiert til utklippstavlen.`}
+            />
+          </MessageWrapper>
+        )}
+        <OverviewContainer>
+          {Object.keys(iconPaths)
+            .sort()
+            .map(e => (
+              <IconContainer onClick={() => copyName(e)}>
+                <Icon
+                  iconSize="large"
+                  iconName={e as IconName}
+                  htmlProps={{ title: e }}
+                />
+                <Name typographyType="supportingStyleTiny01" title={e}>
+                  {e}
+                </Name>
+              </IconContainer>
+            ))}
+        </OverviewContainer>
+      </Container>
     </StoryTemplate>
   );
 };
