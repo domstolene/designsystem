@@ -15,14 +15,14 @@ export default {
 
 const IconContainer = styled.div`
   padding: ${spacing.SizesDdsSpacingLocalX05}
-    ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX025};
+    ${spacing.SizesDdsSpacingLocalX025};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   gap: ${spacing.SizesDdsSpacingLocalX075};
-  width: 70px;
+  width: 75px;
   transition: background-color 0.2s;
   &:hover {
     background-color: ${colors.DdsColorInteractiveLightest};
@@ -34,7 +34,7 @@ const OverviewContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: ${spacing.SizesDdsSpacingLocalX075};
+  gap: ${spacing.SizesDdsSpacingLocalX05};
 `;
 
 const Container = styled.div`
