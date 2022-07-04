@@ -35,6 +35,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     tabContentDirection = 'row',
     tabWidth = '150px',
     children,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -52,9 +53,8 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   };
 
   const containerProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
-    ref,
-    id: uniqueId
+    ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
+    ref
   };
   return (
     <TabsContext.Provider

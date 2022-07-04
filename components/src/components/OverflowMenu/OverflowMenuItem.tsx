@@ -108,6 +108,7 @@ export const OverflowMenuItem = forwardRef<
     setFocus,
     index,
     id,
+    className,
     htmlProps = {},
     ...rest
   } = props;
@@ -162,7 +163,7 @@ export const OverflowMenuItem = forwardRef<
 
   if (!href && !onClick) {
     return (
-      <Span {...{ ...getBaseHTMLProps(id, htmlProps, rest), ref }}>
+      <Span {...{ ...getBaseHTMLProps(id, className, htmlProps, rest), ref }}>
         {icon}
         {title}
       </Span>
@@ -172,7 +173,7 @@ export const OverflowMenuItem = forwardRef<
   if (!href) {
     return (
       <Link
-        {...getBaseHTMLProps(id, htmlProps, rest)}
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
         {...linkProps}
         as="button"
         ref={combinedRef as React.ForwardedRef<HTMLButtonElement>}
@@ -185,7 +186,7 @@ export const OverflowMenuItem = forwardRef<
 
   return (
     <Link
-      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
       {...linkProps}
       as="a"
       ref={combinedRef as React.ForwardedRef<HTMLAnchorElement>}

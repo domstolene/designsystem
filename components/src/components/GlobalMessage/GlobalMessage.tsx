@@ -69,6 +69,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
       onClose,
       children,
       id,
+      className,
       htmlProps,
       ...rest
     } = props;
@@ -77,7 +78,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
       purpose
     };

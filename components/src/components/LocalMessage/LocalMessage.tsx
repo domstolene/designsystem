@@ -111,6 +111,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       layout = 'horisontal',
       children,
       id,
+      className,
       htmlProps,
       ...rest
     } = props;
@@ -119,7 +120,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       purpose,
       width,
       layout,

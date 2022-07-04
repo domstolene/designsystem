@@ -61,11 +61,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       userProps,
       id,
       offset = tokens.offset,
+      className,
       htmlProps = {},
       ...rest
     } = props;
-
-    const { style = {} } = htmlProps;
 
     const { reference, floating, refs, styles } = useFloatPosition(
       null,
@@ -188,8 +187,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       }
     };
 
+    const { style = {}, ...restHTMLProps } = htmlProps;
+
     const containerProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, restHTMLProps, rest),
       ref: combinedRef,
       id: id ?? useId('overflowMenu'),
       isOpen,

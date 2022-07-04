@@ -61,7 +61,8 @@ export const CardAccordionBody = forwardRef<
   HTMLDivElement,
   CardAccordionBodyProps
 >((props, ref) => {
-  const { children, isExpanded, headerId, id, htmlProps, ...rest } = props;
+  const { children, isExpanded, headerId, id, className, htmlProps, ...rest } =
+    props;
 
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -76,7 +77,7 @@ export const CardAccordionBody = forwardRef<
   }, [isExpanded]);
 
   const bodyProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     ref,
     isExpanded,
     role: 'region'

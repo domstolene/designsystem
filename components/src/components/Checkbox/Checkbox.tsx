@@ -4,7 +4,7 @@ import { CustomCheckbox, Input, Container } from './Checkbox.styles';
 import { CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
 import { spaceSeparatedIdListGenerator } from '../../utils';
-import { getBaseHTMLProps } from '../../types';
+import { getBaseHTMLProps, joinClassNames } from '../../types';
 
 let nextUniqueId = 0;
 
@@ -19,6 +19,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       readOnly,
       indeterminate,
       'aria-describedby': ariaDescribedby,
+      className,
       htmlProps = {},
       ...rest
     } = props;
@@ -26,7 +27,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
     const checkboxGroup = useCheckboxGroup();
 
-    const { className, style, ...restHtmlProps } = htmlProps;
+    const {
+      style,
+      className: htmlPropsClassName,
+      ...restHtmlProps
+    } = htmlProps;
 
     const containerProps = {
       error: error || checkboxGroup?.error,
@@ -35,15 +40,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       readOnly,
       htmlFor: uniqueId,
       label,
-      className,
+      className: joinClassNames(className, htmlPropsClassName),
       style
     };
     type AriaChecked = 'mixed' | boolean | undefined;
 
     const inputProps = {
-      ...getBaseHTMLProps(id, restHtmlProps, rest),
+      ...getBaseHTMLProps(uniqueId, restHtmlProps, rest),
       ref,
-      id: uniqueId,
       name,
       indeterminate,
       disabled: disabled || readOnly,

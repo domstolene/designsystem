@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+  joinClassNames
+} from '../../types';
 
 type WrapperProps = {
   top: Property.Top<string | number>;
@@ -62,15 +66,20 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
       text = 'Til hovedinnhold',
       top = 0,
       id,
+      className,
       htmlProps = {},
       ...rest
     } = props;
 
-    const { className, style, ...restHtmlProps } = htmlProps;
+    const {
+      className: htmlPropsClassName,
+      style,
+      ...restHtmlProps
+    } = htmlProps;
 
     const wrapperProps = {
       top,
-      className,
+      className: joinClassNames(className, htmlPropsClassName),
       style
     };
 

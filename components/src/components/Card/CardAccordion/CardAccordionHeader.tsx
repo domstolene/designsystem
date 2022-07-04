@@ -68,6 +68,7 @@ export const CardAccordionHeader = forwardRef<
     toggleExpanded,
     bodyId,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -79,7 +80,7 @@ export const CardAccordionHeader = forwardRef<
   };
 
   const headerWrapperProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     'aria-expanded': isExpanded,
     'aria-controls': bodyId,
     ref,

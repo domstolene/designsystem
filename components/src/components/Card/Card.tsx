@@ -86,6 +86,7 @@ export const Card = (props: CardProps) => {
     cardRef,
     children,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -95,7 +96,7 @@ export const Card = (props: CardProps) => {
 
     return (
       <Container
-        {...getBaseHTMLProps(id, htmlProps, rest)}
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
         cardType={cardType}
         color={color}
         as="a"
@@ -110,7 +111,7 @@ export const Card = (props: CardProps) => {
 
   return (
     <Container
-      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
       cardType={cardType}
       color={color}
       as="div"

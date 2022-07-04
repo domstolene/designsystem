@@ -56,6 +56,7 @@ export const CheckboxGroup = ({
   groupId,
   children,
   id,
+  className,
   htmlProps,
   ...rest
 }: CheckboxGroupProps) => {
@@ -78,7 +79,7 @@ export const CheckboxGroup = ({
   };
 
   return (
-    <Container {...getBaseHTMLProps(id, htmlProps, rest)}>
+    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
       <Label
         forwardedAs="span"
         typographyType="supportingStyleLabel01"
