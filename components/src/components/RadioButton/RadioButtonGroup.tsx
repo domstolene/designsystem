@@ -77,6 +77,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
   required,
   onChange,
   id,
+  className,
   htmlProps,
   ...rest
 }: RadioButtonGroupProps<T>) => {
@@ -113,7 +114,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
   };
 
   return (
-    <Container {...getBaseHTMLProps(id, htmlProps, rest)}>
+    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
       <Label
         forwardedAs="span"
         typographyType="supportingStyleLabel01"

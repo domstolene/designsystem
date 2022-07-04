@@ -27,7 +27,7 @@ type AnchorElement = React.ReactElement & React.RefAttributes<HTMLElement>;
 
 type PickedHTMLAttributes = Pick<
   HTMLAttributes<HTMLDivElement>,
-  'style' | 'onMouseLeave' | 'onMouseOver' | 'className'
+  'style' | 'onMouseLeave' | 'onMouseOver'
 >;
 
 export type TooltipProps = BaseComponentProps<
@@ -60,8 +60,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       style,
       onMouseLeave,
       onMouseOver,
-      className,
       id,
+      className,
       htmlProps,
       ...rest
     } = props;
@@ -115,9 +115,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     );
 
     const containerProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       style,
-      className,
       onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
       onMouseOver: combineHandlers(openTooltip, onMouseOver)
     };

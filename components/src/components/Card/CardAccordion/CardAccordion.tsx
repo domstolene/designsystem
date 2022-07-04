@@ -27,7 +27,14 @@ let nextUniqueId = 0;
 
 export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
   (props, ref) => {
-    const { isExpanded = false, id, children, htmlProps, ...rest } = props;
+    const {
+      isExpanded = false,
+      id,
+      children,
+      className,
+      htmlProps,
+      ...rest
+    } = props;
 
     const [expanded, setExpanded] = useState(isExpanded);
 
@@ -64,7 +71,7 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
     });
 
     const wrapperProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref
     };
     return <Wrapper {...wrapperProps}>{Children}</Wrapper>;

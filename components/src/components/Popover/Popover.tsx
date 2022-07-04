@@ -99,6 +99,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       placement = 'bottom',
       offset = Spacing.SizesDdsSpacingLocalX05NumberPx,
       id,
+      className,
       htmlProps = {},
       ...rest
     } = props;
@@ -116,7 +117,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     }, [anchorElement, isOpen]);
 
     const wrapperProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref: multiRef,
       isOpen,
       style: { ...htmlProps.style, ...styles.floating },

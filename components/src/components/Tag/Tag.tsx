@@ -32,11 +32,18 @@ export type TagProps = BaseComponentProps<
 >;
 
 export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
-  const { text, purpose = 'default', id, htmlProps, ...rest } = props;
+  const {
+    text,
+    purpose = 'default',
+    id,
+    className,
+    htmlProps,
+    ...rest
+  } = props;
 
   return (
     <Wrapper
-      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
       forwardedAs="span"
       typographyType="bodySans01"
       ref={ref}

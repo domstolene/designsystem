@@ -30,9 +30,9 @@ export type TabPanelProps = BaseComponentPropsWithChildren<
 >;
 
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
-  ({ active = false, children, id, htmlProps, ...rest }, ref) => {
+  ({ active = false, children, id, className, htmlProps, ...rest }, ref) => {
     const panelProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
       tabIndex: 0,
       role: 'tabpanel',

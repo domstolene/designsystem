@@ -84,6 +84,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     onClick,
     onKeyDown,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -130,7 +131,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   };
 
   const buttonProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     ref: combinedRef,
     'aria-selected': active,
     role: 'tab',

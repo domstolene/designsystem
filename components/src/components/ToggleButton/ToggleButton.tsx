@@ -62,13 +62,12 @@ export type ToggleButtonProps = BaseComponentProps<
 >;
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ({ id, label, Icon, htmlProps, ...rest }, ref) => {
+  ({ id, label, Icon, className, htmlProps, ...rest }, ref) => {
     const [uniqueId] = useState<string>(id ?? `toggleButton-${nextUniqueId++}`);
 
     const inputProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
       ref,
-      id: uniqueId,
       type: 'checkbox'
     };
 

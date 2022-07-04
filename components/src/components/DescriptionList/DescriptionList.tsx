@@ -43,10 +43,17 @@ export const DescriptionList = forwardRef<
   HTMLDListElement,
   DescriptionListProps
 >((props, ref) => {
-  const { appearance = 'bold', children, id, htmlProps, ...rest } = props;
+  const {
+    appearance = 'bold',
+    children,
+    id,
+    className,
+    htmlProps,
+    ...rest
+  } = props;
 
   const dListProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     appearance,
     ref
   };

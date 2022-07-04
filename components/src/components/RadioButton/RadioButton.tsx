@@ -6,7 +6,7 @@ import {
   useRadioButtonGroup
 } from './RadioButtonGroupContext';
 import { CustomRadioButton, Input, Container } from './RadioButton.styles';
-import { getBaseHTMLProps } from '../../types';
+import { getBaseHTMLProps, joinClassNames } from '../../types';
 
 let nextUniqueId = 0;
 
@@ -38,11 +38,16 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       required,
       onChange,
       'aria-describedby': ariaDescribedby,
+      className,
       htmlProps = {},
       ...rest
     } = props;
 
-    const { className, style, ...restHtmlProps } = htmlProps;
+    const {
+      className: htmlPropsClassName,
+      style,
+      ...restHtmlProps
+    } = htmlProps;
 
     const [uniqueId] = useState<string>(id ?? `radioButton-${nextUniqueId++}`);
 
@@ -59,8 +64,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     if (ariaDescribedby) describedByIds.push(ariaDescribedby);
 
     const inputProps = {
-      ...getBaseHTMLProps(id, restHtmlProps, rest),
-      id: uniqueId,
+      ...getBaseHTMLProps(uniqueId, restHtmlProps, rest),
       name: name ?? radioButtonGroup?.name,
       disabled:
         disabled ||
@@ -84,7 +88,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       disabled: disabled || radioButtonGroup?.disabled,
       readOnly: readOnly || radioButtonGroup?.readOnly,
       style,
-      className
+      className: joinClassNames(className, htmlPropsClassName)
     };
 
     return (

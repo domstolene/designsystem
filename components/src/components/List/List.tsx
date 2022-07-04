@@ -99,6 +99,7 @@ export const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
       typographyType = 'inherit',
       children,
       id,
+      className,
       htmlProps,
       ...rest
     } = props;
@@ -106,7 +107,7 @@ export const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
     const as: ElementType = listType === 'ordered' ? 'ol' : 'ul';
 
     const listProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       listType,
       typographyType,
       as,

@@ -118,6 +118,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     size = 'small',
     triggerRef,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -144,13 +145,12 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   const hasTransitionedIn = useMountTransition(isOpen, 500);
 
   const containerProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
     placement,
     ref: combinedRef,
     isOpen: hasTransitionedIn && isOpen,
     tabIndex: -1,
     role: 'dialog',
-    id: uniqueId,
     'aria-labelledby': headerId,
     size
   };

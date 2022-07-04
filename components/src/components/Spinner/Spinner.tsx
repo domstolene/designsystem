@@ -67,6 +67,7 @@ export function Spinner(props: SpinnerProps) {
     size = ddsBaseTokens.iconSizes.DdsIconsizeMedium,
     color = 'interactive',
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -78,7 +79,7 @@ export function Spinner(props: SpinnerProps) {
   const [uniqueId] = useState<string>(`spinnerTitle-${nextUniqueId++}`);
 
   const spinnerProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     outerAnimationDelay,
     size
   };

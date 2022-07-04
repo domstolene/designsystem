@@ -20,7 +20,7 @@ type Props = BaseComponentProps<
 let nextUniqueId = 0;
 
 function CharCounter(props: Props) {
-  const { current, max, id, htmlProps, ...rest } = props;
+  const { current, max, id, className, htmlProps, ...rest } = props;
 
   const [uniqueId] = useState<string>(
     id ?? `characterCounter-${nextUniqueId++}`
@@ -28,10 +28,9 @@ function CharCounter(props: Props) {
 
   return (
     <Wrapper
-      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
       forwardedAs="div"
       typographyType="supportingStyleHelperText01"
-      id={uniqueId}
       aria-label={`${current} av ${max} tegn skrevet`}
     >
       {current}/{max}
