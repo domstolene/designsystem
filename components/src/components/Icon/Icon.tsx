@@ -54,7 +54,7 @@ export function Icon(props: IconProps) {
 
   const size = getSize(iconSize);
 
-  return iconName ? (
+  return (
     <Svg
       {...getBaseHTMLProps(id, htmlProps, rest)}
       xmlns="http://www.w3.org/2000/svg"
@@ -67,5 +67,5 @@ export function Icon(props: IconProps) {
       <title>{title}</title>
       {iconPaths[iconName]}
     </Svg>
-  ) : null;
+  );
 }
