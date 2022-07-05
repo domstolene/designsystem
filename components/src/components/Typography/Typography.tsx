@@ -198,7 +198,7 @@ type BaseTypographyProps = PropsWithChildren<{
 }> &
   Pick<HTMLAttributes<HTMLElement>, 'style'>;
 
-export type AnchorTypographyProps = BaseComponentProps<
+type AnchorTypographyProps = BaseComponentProps<
   HTMLAnchorElement,
   BaseTypographyProps & {
     href?: string | undefined;
