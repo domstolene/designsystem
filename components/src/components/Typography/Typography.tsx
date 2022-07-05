@@ -108,7 +108,9 @@ const StyledTypography = styled.p<StyledTypographyProps>`
     css`
       display: inline-flex;
       align-items: center;
-      transition: ${focusVisibleLinkTransitionValue};
+      @media (prefers-reduced-motion: no-preference) {
+        transition: ${focusVisibleLinkTransitionValue};
+      }
 
       &:hover {
         ${tokens.typographyType[typographyType].hover.base}

@@ -19,7 +19,9 @@ const Wrapper = styled.div<WrapperProps>`
   top: ${({ top }) => top};
   text-align: center;
   opacity: 0;
-  transition: opacity 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s;
+  }
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
@@ -41,7 +43,9 @@ const Link = styled.a`
   ${tokens.link.base}
   &:focus {
     ${tokens.link.focus.base}
-    transition: ${focusVisibleTransitionValue};
+    @media (prefers-reduced-motion: no-preference) {
+      transition: ${focusVisibleTransitionValue};
+    }
   }
   &:hover {
     ${tokens.link.hover.base}

@@ -8,8 +8,10 @@ import {
 } from '../../../types';
 
 const expandingAnimation = css`
-  transition: padding 0.2s, visibility 0.3s,
-    max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  @media (prefers-reduced-motion: no-preference) {
+    transition: padding 0.2s, visibility 0.3s,
+      max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;
 
 type BodyProps = {
@@ -18,7 +20,9 @@ type BodyProps = {
 };
 
 const Body = styled.div<BodyProps>`
-  ${expandingAnimation}
+  @media (prefers-reduced-motion: no-preference) {
+    ${expandingAnimation}
+  }
   ${tokens.base}
   ${({ paddingTop }) =>
     paddingTop &&

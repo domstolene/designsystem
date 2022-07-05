@@ -14,7 +14,9 @@ const Container = styled.div<ContainerProps>`
   &::selection, *::selection {
     ${typographyTokens.selection.base}
   }
-  transition: box-shadow 0.2s, border-color 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
   ${({ color }) =>
     color &&
     css`

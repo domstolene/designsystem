@@ -12,28 +12,19 @@ type StyledSpinnerProps = Pick<SpinnerProps, 'size'> & {
 
 const StyledSpinner = styled.svg<StyledSpinnerProps>`
   display: block;
-  animation: rotate 2s linear infinite;
-  animation-delay: ${({ outerAnimationDelay }) => outerAnimationDelay}ms;
   width: ${({ size }) => size};
   height: ${({ size }) => size};
+  stroke-dasharray: 90, 150;
+  animation: rotate 1.5s linear infinite;
+  animation-delay: ${({ outerAnimationDelay }) => outerAnimationDelay}ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotate 2s linear infinite;
+  }
 
   @keyframes rotate {
     100% {
       transform: rotate(360deg);
-    }
-  }
-  @keyframes dash {
-    0% {
-      stroke-dasharray: 1, 150;
-      stroke-dashoffset: 0;
-    }
-    50% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -35;
-    }
-    100% {
-      stroke-dasharray: 90, 150;
-      stroke-dashoffset: -124;
     }
   }
 `;
@@ -46,8 +37,26 @@ const Circle = styled.circle<CircleProps>`
   ${tokens.circle.base}
   stroke: ${({ color }) => color && getTextColor(color)};
   stroke-linecap: round;
-  animation: dash 1.5s ease-in-out infinite;
-  animation-delay: ${({ innerAnimationDelay }) => innerAnimationDelay}ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: dash 1.5s ease-in-out infinite;
+    animation-delay: ${({ innerAnimationDelay }) => innerAnimationDelay}ms;
+
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+      }
+      100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+      }
+    }
+  }
 `;
 
 export type SpinnerProps = BaseComponentProps<

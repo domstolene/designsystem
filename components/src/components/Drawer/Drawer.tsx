@@ -54,7 +54,9 @@ const Container = styled(Paper)<ContainerProps>`
           transform: ${isOpen ? 'translate(0px)' : 'translateX(100%)'};
         `
       : ''}
-  transition: transform 0.5s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.5s;
+  }
   ${tokens.container.base}
   &:focus-visible, &.focus-visible {
     ${focusVisible}

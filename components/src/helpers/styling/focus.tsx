@@ -9,6 +9,6 @@ export const focusInputfield = {
 };
 
 export const focusDangerInputfield = {
-  borderColor: Colors.DdsColorDangerBase,
-  boxShadow: `inset 0 0 0 1px ${Colors.DdsColorDangerBase}`
+  borderColor: Colors.DdsColorDangerDarker,
+  boxShadow: `inset 0 0 0 1px ${Colors.DdsColorDangerDarker}`
 };
