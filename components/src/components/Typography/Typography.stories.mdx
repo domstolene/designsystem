@@ -72,7 +72,12 @@ Se stories med kontrollere i <Typography externalLink typographyType="a" href={`
 
 <ArgsTable story={PRIMARY_STORY} />
 
-I tillegg støttes native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface, `AnchorHTMLAttributes<HTMLAnchorElement>`-interface eller `LabelHTMLAttributes<HTMLLabelElement>`-interface.
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLElement>`-interface,
+`AnchorHTMLAttributes<HTMLAnchorElement>`-interface eller
+`LabelHTMLAttributes<HTMLLabelElement>`-interface i `htmlProps`.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten.
 
 ### Types
 
