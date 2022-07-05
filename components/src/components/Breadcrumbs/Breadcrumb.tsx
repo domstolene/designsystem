@@ -14,12 +14,20 @@ const isAnchorTypographyProps = (
 
 export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
   (props, ref) => {
+    const { children, ...rest } = props;
+
     if (isAnchorTypographyProps(props)) {
-      return <Typography htmlProps={props} ref={ref} typographyType="a" />;
+      return (
+        <Typography htmlProps={rest} ref={ref} typographyType="a">
+          {children}
+        </Typography>
+      );
     }
 
     return (
-      <Typography htmlProps={props} ref={ref} as="span" color="interactive" />
+      <Typography htmlProps={rest} ref={ref} as="span" color="interactive">
+        {children}
+      </Typography>
     );
   }
 );
