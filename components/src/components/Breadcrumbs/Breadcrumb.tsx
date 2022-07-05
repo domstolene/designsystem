@@ -1,20 +1,28 @@
-import { forwardRef, AnchorHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
-import { Typography, TypographyProps } from '../Typography';
+import {
+  AnchorTypographyProps,
+  Typography,
+  TypographyProps
+} from '../Typography';
 
-export type BreadcrumbProps = TypographyProps &
-  AnchorHTMLAttributes<HTMLAnchorElement>;
+export type BreadcrumbProps = TypographyProps;
 
-export const Breadcrumb = forwardRef<HTMLAnchorElement, BreadcrumbProps>(
-  ({ children, href, ...rest }, ref) => {
-    return href ? (
-      <Typography {...rest} ref={ref} href={href} typographyType="a">
-        {children}
-      </Typography>
-    ) : (
-      <Typography {...rest} ref={ref} color="interactive">
-        {children}
-      </Typography>
-    );
+const isAnchorTypographyProps = (
+  props: BreadcrumbProps
+): props is AnchorTypographyProps => {
+  return (
+    props.typographyType === 'a' ||
+    (props as AnchorTypographyProps).href != undefined
+  );
+};
+
+export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
+  (props, ref) => {
+    if (isAnchorTypographyProps(props)) {
+      return <Typography {...props} ref={ref} typographyType="a" />;
+    }
+
+    return <Typography {...props} ref={ref} color="interactive" />;
   }
 );
