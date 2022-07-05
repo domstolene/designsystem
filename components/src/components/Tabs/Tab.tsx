@@ -91,19 +91,13 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
 
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
-  const {
-    tabPanelsRef,
-    hasTabFocus,
-    setHasTabFocus,
-    tabContentDirection,
-    tabWidth
-  } = useTabsContext();
+  const { tabPanelsRef, setHasTabFocus, tabContentDirection, tabWidth } =
+    useTabsContext();
 
   useEffect(() => {
     if (focus) {
       itemRef.current?.focus();
       setHasTabFocus(true);
-      console.log('setHasTabFocus if(focus)', hasTabFocus);
     }
   }, [focus]);
 
