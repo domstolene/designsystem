@@ -23,5 +23,8 @@ describe('Breadcrumbs', () => {
     );
     const breadcrumbItems = screen.getAllByRole('listitem');
     expect(breadcrumbItems).toHaveLength(3);
+    expect(breadcrumbItems[0].textContent).toBe('Side 1');
+    expect(breadcrumbItems[1].textContent).toBe('Side 2');
+    expect(breadcrumbItems[2].textContent).toBe('Side 3');
   });
 });
