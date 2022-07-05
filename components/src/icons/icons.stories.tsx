@@ -90,7 +90,7 @@ export const Overview = () => {
           {Object.keys(iconPaths)
             .sort()
             .map(e => (
-              <IconContainer onClick={() => copyName(e)}>
+              <IconContainer key={e} onClick={() => copyName(e)}>
                 <Icon
                   iconSize="large"
                   iconName={e as IconName}
