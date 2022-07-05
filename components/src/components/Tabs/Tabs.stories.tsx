@@ -2,6 +2,7 @@ import { StoryTemplate } from '../../storybook';
 import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import { Story, Meta } from '@storybook/react';
+import { useState } from 'react';
 
 export default {
   title: 'Design system/Tabs',
@@ -82,22 +83,26 @@ export const WithIcon: Story<TabsProps> = args => (
   </StoryTemplate>
 );
 
-export const ActiveTab: Story<TabsProps> = args => (
-  <StoryTemplate title="Tabs - active tab">
-    <Tabs {...args} activeTab={1}>
-      <TabList>
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-      </TabPanels>
-    </Tabs>
-  </StoryTemplate>
-);
+export const ActiveTab: Story<TabsProps> = args => {
+  const [activeTab, setActiveTab] = useState(1);
+
+  return (
+    <StoryTemplate title="Tabs - active tab">
+      <Tabs {...args} activeTab={activeTab} onChange={tab => setActiveTab(tab)}>
+        <TabList>
+          <Tab>Tab 1</Tab>
+          <Tab>Tab 2</Tab>
+          <Tab>Tab 3</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Innhold 1</TabPanel>
+          <TabPanel>Innhold 2</TabPanel>
+          <TabPanel>Innhold 3</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </StoryTemplate>
+  );
+};
 
 export const TabWidth: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - tab width">
