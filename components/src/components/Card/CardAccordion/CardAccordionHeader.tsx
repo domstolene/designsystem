@@ -16,14 +16,18 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: box-shadow 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s;
+  }
   ${tokens.base}
 `;
 
 const HeaderWrapper = styled.button`
   position: relative;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s;
+  }
   ${removeButtonStyling}
   display: block;
   width: 100%;
@@ -68,6 +72,7 @@ export const CardAccordionHeader = forwardRef<
     toggleExpanded,
     bodyId,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -79,7 +84,7 @@ export const CardAccordionHeader = forwardRef<
   };
 
   const headerWrapperProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     'aria-expanded': isExpanded,
     'aria-controls': bodyId,
     ref,

@@ -27,10 +27,10 @@ export const DescriptionListGroup = forwardRef<
   HTMLDivElement,
   DescriptionListGroupProps
 >((props, ref) => {
-  const { children, margin, id, htmlProps, ...rest } = props;
+  const { children, margin, id, className, htmlProps, ...rest } = props;
 
   const dListGroupProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     children,
     ref,
     margin

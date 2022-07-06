@@ -8,8 +8,10 @@ import {
 } from '../../../types';
 
 const expandingAnimation = css`
-  transition: padding 0.2s, visibility 0.3s,
-    max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  @media (prefers-reduced-motion: no-preference) {
+    transition: padding 0.2s, visibility 0.3s,
+      max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;
 
 type BodyProps = {
@@ -18,7 +20,9 @@ type BodyProps = {
 };
 
 const Body = styled.div<BodyProps>`
-  ${expandingAnimation}
+  @media (prefers-reduced-motion: no-preference) {
+    ${expandingAnimation}
+  }
   ${tokens.base}
   ${({ paddingTop }) =>
     paddingTop &&
@@ -61,7 +65,8 @@ export const CardAccordionBody = forwardRef<
   HTMLDivElement,
   CardAccordionBodyProps
 >((props, ref) => {
-  const { children, isExpanded, headerId, id, htmlProps, ...rest } = props;
+  const { children, isExpanded, headerId, id, className, htmlProps, ...rest } =
+    props;
 
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -76,7 +81,7 @@ export const CardAccordionBody = forwardRef<
   }, [isExpanded]);
 
   const bodyProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     ref,
     isExpanded,
     role: 'region'

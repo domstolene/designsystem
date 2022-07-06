@@ -20,6 +20,7 @@ import {
   LabelTypographyType
 } from './Typography.types';
 import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -106,7 +107,9 @@ const StyledTypography = styled.p<StyledTypographyProps>`
     css`
       display: inline-flex;
       align-items: center;
-      transition: ${focusVisibleLinkTransitionValue};
+      @media (prefers-reduced-motion: no-preference) {
+        transition: ${focusVisibleLinkTransitionValue};
+      }
 
       &:hover {
         ${tokens.typographyType[typographyType].hover.base}
@@ -193,35 +196,48 @@ type BaseTypographyProps = PropsWithChildren<{
   underline?: boolean;
   /**Støtte for å enkelt kunne endre på hover- og active-styling. Bruk `@dds-design-tokens` til farger osv. */
   interactionProps?: TypographyInteractionProps;
-}>;
+}> &
+  Pick<HTMLAttributes<HTMLElement>, 'style'>;
 
-type AnchorTypographyProps = BaseTypographyProps & {
-  /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
-  typographyType?: AnchorTypographyType;
+type AnchorTypographyProps = BaseComponentProps<
+  HTMLAnchorElement,
+  BaseTypographyProps & {
+    href?: string | undefined;
 
-  href?: string | undefined;
+    /** Spesifiserer om lenka er ekstern ved `typographyType='a'` eller `as='a'`.*/
+    externalLink?: boolean;
 
-  /** Spesifiserer om lenka er ekstern ved `typographyType='a'` eller `as='a'`.*/
-  externalLink?: boolean;
+    /**nativ `target`-prop ved `typographyType='a'`.  */
+    target?: string;
+  },
+  AnchorHTMLAttributes<HTMLAnchorElement>
+>;
 
-  /**nativ `target`-prop ved `typographyType='a'`.  */
-  target?: string;
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+type LabelTypographyProps = BaseComponentProps<
+  HTMLLabelElement,
+  BaseTypographyProps,
+  HTMLAttributes<HTMLLabelElement>
+>;
 
-type LabelTypographyProps = BaseTypographyProps & {
-  /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
-  typographyType?: LabelTypographyType;
-} & HTMLAttributes<HTMLLabelElement>;
-
-type OtherTypographyProps = BaseTypographyProps & {
-  /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
-  typographyType?: OtherTypographyType;
-} & HTMLAttributes<HTMLLabelElement>;
+type OtherTypographyProps = BaseComponentProps<
+  HTMLElement,
+  BaseTypographyProps,
+  HTMLAttributes<HTMLElement>
+>;
 
 export type TypographyProps =
-  | AnchorTypographyProps
-  | LabelTypographyProps
-  | OtherTypographyProps;
+  | ({
+      /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
+      typographyType?: AnchorTypographyType;
+    } & AnchorTypographyProps)
+  | ({
+      /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
+      typographyType?: LabelTypographyType;
+    } & LabelTypographyProps)
+  | ({
+      /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
+      typographyType?: OtherTypographyType;
+    } & OtherTypographyProps);
 
 const isAnchorProps = (
   props: TypographyProps
@@ -233,8 +249,14 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       typographyType = 'bodySans02',
       as: propAs,
       children,
+      style,
+      id,
+      className,
+      htmlProps = {},
       ...rest
     } = props;
+
+    const { style: htmlPropsStyle, ...restHtmlProps } = htmlProps;
 
     const as = propAs ? propAs : getElementType(typographyType as string);
 
@@ -250,9 +272,10 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     }
 
     const typographyProps = {
-      ...rest,
+      ...getBaseHTMLProps<HTMLElement>(id, className, restHtmlProps, rest),
       typographyType,
       as,
+      style: { ...htmlPropsStyle, ...style },
       rel: relProp,
       target: targetProp
     };

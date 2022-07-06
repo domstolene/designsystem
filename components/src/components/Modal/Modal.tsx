@@ -67,6 +67,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     onClose,
     id,
     triggerRef,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -103,7 +104,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   };
 
   const containerProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     ref: combinedRef,
     role: 'dialog',
     'aria-modal': true,

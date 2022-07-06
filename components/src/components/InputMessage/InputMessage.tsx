@@ -40,10 +40,10 @@ export type InputMessageProps = BaseComponentProps<
 
 export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
   (props, ref) => {
-    const { message, messageType, id, htmlProps, ...rest } = props;
+    const { message, messageType, id, className, htmlProps, ...rest } = props;
 
     const wrapperProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
       messageType
     };

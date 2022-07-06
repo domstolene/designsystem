@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes, useRef, useState } from 'react';
+import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
@@ -13,7 +13,7 @@ const Container = styled.div``;
 export type TabsProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /** Indeksen til den aktive fanen. */
+    /** Indeksen til den aktive fanen. **OBS!** Ved å sette denne vil brukere aldri kunne endre tab uten at du også registrerer en `onChange`-lytter for å ta vare på aktiv tab utenfor komponenten. */
     activeTab?: number;
     /** Ekstra logikk ved endring av aktiv fane. */
     onChange?: (index: number) => void;
@@ -35,6 +35,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     tabContentDirection = 'row',
     tabWidth = '150px',
     children,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -51,11 +52,17 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     onChange && onChange(index);
   };
 
+  useEffect(() => {
+    if (activeTab && activeTab != thisActiveTab) {
+      setActiveTab(activeTab);
+    }
+  }, [activeTab, thisActiveTab]);
+
   const containerProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
-    ref,
-    id: uniqueId
+    ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
+    ref
   };
+
   return (
     <TabsContext.Provider
       value={{

@@ -14,7 +14,9 @@ const Container = styled.div<ContainerProps>`
   &::selection, *::selection {
     ${typographyTokens.selection.base}
   }
-  transition: box-shadow 0.2s, border-color 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
   ${({ color }) =>
     color &&
     css`
@@ -86,6 +88,7 @@ export const Card = (props: CardProps) => {
     cardRef,
     children,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -95,7 +98,7 @@ export const Card = (props: CardProps) => {
 
     return (
       <Container
-        {...getBaseHTMLProps(id, htmlProps, rest)}
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
         cardType={cardType}
         color={color}
         as="a"
@@ -110,7 +113,7 @@ export const Card = (props: CardProps) => {
 
   return (
     <Container
-      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
       cardType={cardType}
       color={color}
       as="div"

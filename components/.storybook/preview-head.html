@@ -62,7 +62,9 @@
 
   .sbdocs p a:not(.docs-story *),
   .sbdocs li a:not(.docs-story *) {
-    transition: 0.2s;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: 0.2s;
+    }
     color: var(--dds-color-interactive-base);
     text-decoration: underline;
   }

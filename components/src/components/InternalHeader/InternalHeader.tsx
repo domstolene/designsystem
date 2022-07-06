@@ -27,6 +27,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     userProps,
     onCurrentPageChange,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
@@ -80,7 +81,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
   return (
-    <Wrapper {...getBaseHTMLProps(id, htmlProps, rest)}>
+    <Wrapper {...getBaseHTMLProps(id, className, htmlProps, rest)}>
       <BannerWrapper hasContextMenu={hasContextMenu}>
         <BannerLeftWrapper>
           <LovisaWrapper>

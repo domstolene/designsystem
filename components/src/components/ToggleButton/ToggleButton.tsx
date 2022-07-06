@@ -17,8 +17,10 @@ const Content = styled.span`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s,
-    ${focusVisibleTransitionValue};
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+  }
+  ${focusVisibleTransitionValue};
   cursor: pointer;
   ${buttonTokens.base}
   width: fit-content;
@@ -60,13 +62,12 @@ export type ToggleButtonProps = BaseComponentProps<
 >;
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ({ id, label, icon, htmlProps, ...rest }, ref) => {
+  ({ id, label, icon, className, htmlProps, ...rest }, ref) => {
     const [uniqueId] = useState<string>(id ?? `toggleButton-${nextUniqueId++}`);
 
     const inputProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
       ref,
-      id: uniqueId,
       type: 'checkbox'
     };
 

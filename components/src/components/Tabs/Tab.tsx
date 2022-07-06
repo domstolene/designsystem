@@ -29,8 +29,10 @@ type ButtonProps = {
 };
 
 const Button = styled.button<ButtonProps>`
-  transition: box-shadow 0.2s, border-bottom 0.2s, color 0.2s,
-    ${focusVisibleTransitionValue};
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 0.2s, border-bottom 0.2s, color 0.2s,
+      ${focusVisibleTransitionValue};
+  }
   ${tokens.tab.base}
   width: ${({ width }) => width};
 
@@ -82,25 +84,20 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     onClick,
     onKeyDown,
     id,
+    className,
     htmlProps,
     ...rest
   } = props;
 
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
-  const {
-    tabPanelsRef,
-    hasTabFocus,
-    setHasTabFocus,
-    tabContentDirection,
-    tabWidth
-  } = useTabsContext();
+  const { tabPanelsRef, setHasTabFocus, tabContentDirection, tabWidth } =
+    useTabsContext();
 
   useEffect(() => {
     if (focus) {
       itemRef.current?.focus();
       setHasTabFocus(true);
-      console.log('setHasTabFocus if(focus)', hasTabFocus);
     }
   }, [focus]);
 
@@ -128,7 +125,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   };
 
   const buttonProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     ref: combinedRef,
     'aria-selected': active,
     role: 'tab',

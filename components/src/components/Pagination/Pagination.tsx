@@ -113,6 +113,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       onChange,
       onSelectOptionChange,
       id,
+      className,
       htmlProps,
       ...rest
     } = props;
@@ -198,11 +199,11 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
     const navProps = !withSelect &&
       !withCounter && {
-        ...getBaseHTMLProps(id, htmlProps, rest)
+        ...getBaseHTMLProps(id, className, htmlProps, rest)
       };
 
     const containerProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       smallScreen
     };
 

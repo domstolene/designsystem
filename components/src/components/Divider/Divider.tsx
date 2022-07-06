@@ -23,10 +23,10 @@ export type DividerProps = BaseComponentProps<
 >;
 
 export const Divider = forwardRef<HTMLHRElement, DividerProps>((props, ref) => {
-  const { color = 'primary', id, htmlProps, ...rest } = props;
+  const { color = 'primary', id, className, htmlProps, ...rest } = props;
 
   const lineProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     color
   };
 

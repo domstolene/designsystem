@@ -20,5 +20,7 @@ export const Backdrop = styled.div<BackdropProps>`
   left: 0;
   z-index: 50;
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
-  transition: opacity 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s;
+  }
 `;

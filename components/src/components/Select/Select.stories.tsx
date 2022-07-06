@@ -1,6 +1,6 @@
 import { StoryTemplate } from '../../storybook';
 
-import { Select, SelectProps } from '.';
+import { createSelectOptions, Select, SelectOption, SelectProps } from '.';
 
 export default {
   title: 'design system/Select/SingleValue',
@@ -24,20 +24,15 @@ export default {
   }
 };
 
-type Option = {
-  label: string;
-  value: string;
-};
-
-const options: Option[] = [
+const options = createSelectOptions(
   'Alternativ 1',
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',
   'Alternativ 3',
   'Alternativ 4'
-].map(s => ({ label: s, value: s }));
+);
 
-const optionsLong: Option[] = [
+const optionsLong = createSelectOptions(
   'Alternativ 1',
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',
@@ -46,9 +41,9 @@ const optionsLong: Option[] = [
   'Alternativ 5',
   'Alternativ 6',
   'Alternativ 7'
-].map(s => ({ label: s, value: s }));
+);
 
-type SingleSelectProps = SelectProps<Option, false>;
+type SingleSelectProps = SelectProps<SelectOption, false>;
 
 export const Overview = (args: SingleSelectProps) => {
   return (

@@ -23,9 +23,9 @@ export type ChipProps = BaseComponentProps<
 >;
 
 export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
-  const { text, onClose, id, htmlProps = {}, ...rest } = props;
+  const { text, onClose, id, className, htmlProps = {}, ...rest } = props;
 
-  const { 'aria-label': ariaLabel } = htmlProps;
+  const { 'aria-label': ariaLabel, ...restHTMLprops } = htmlProps;
 
   const [isOpen, setIsOpen] = useState(true);
 
@@ -35,7 +35,10 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
   };
 
   return isOpen ? (
-    <Container {...getBaseHTMLProps(id, htmlProps, rest)} ref={ref}>
+    <Container
+      {...getBaseHTMLProps(id, className, restHTMLprops, rest)}
+      ref={ref}
+    >
       <TextWrapper>{text}</TextWrapper>
       <Button
         size="tiny"

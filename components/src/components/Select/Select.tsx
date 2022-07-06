@@ -25,8 +25,18 @@ import {
 } from './Select.styles';
 import { selectTokens as tokens } from './Select.tokens';
 import { Icon } from '../Icon';
+import { WithRequiredIf } from '../../types/utils';
 
 const { Option: DdsOption, NoOptionsMessage, Input } = components;
+
+export type SelectOption<TValue = unknown> = {
+  label: string | number;
+  value: TValue;
+};
+
+export const createSelectOptions = <TValue extends string | number>(
+  ...args: TValue[]
+): SelectOption<TValue>[] => args.map(v => ({ label: v, value: v }));
 
 const IconOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>
@@ -53,7 +63,20 @@ export function searchFilter(text: string, search: string): boolean {
   return searchFilterRegex.test(text.toLowerCase());
 }
 
-export type SelectProps<TOption, IsMulti extends boolean> = {
+type WrappedReactSelectProps<
+  TOption extends Record<string, unknown>,
+  IsMulti extends boolean,
+  Group extends GroupBase<TOption>
+> = WithRequiredIf<
+  TOption extends SelectOption ? false : true,
+  ReactSelectProps<TOption, IsMulti, Group>,
+  'getOptionLabel' | 'getOptionValue'
+>;
+
+export type SelectProps<
+  TOption extends Record<string, unknown>,
+  IsMulti extends boolean
+> = {
   /**Ledetekst for nedtrekkslisten. */
   label?: string;
   /**Gir required styling. **OBS!** støtter ikke DOM `required` attributt.   */
@@ -70,7 +93,7 @@ export type SelectProps<TOption, IsMulti extends boolean> = {
   className?: string;
   /** Inline styling. */
   style?: React.CSSProperties;
-} & ReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
+} & WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
 
 let nextUniqueId = 0;
 
@@ -78,7 +101,10 @@ type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
   SelectInstance<TOption, IsMulti, GroupBase<TOption>>
 >;
 
-const SelectInner = <TOption, IsMulti extends boolean = false>(
+const SelectInner = <
+  TOption extends Record<string, unknown>,
+  IsMulti extends boolean = false
+>(
   {
     id,
     label,
@@ -112,7 +138,7 @@ const SelectInner = <TOption, IsMulti extends boolean = false>(
     errorMessage
   );
 
-  const CustomInput = <TValue,>(props: InputProps<TValue, IsMulti>) => (
+  const CustomInput = (props: InputProps<TOption, IsMulti>) => (
     <Input
       {...props}
       aria-describedby={spaceSeparatedIdListGenerator([tipId, errorMessageId])}
@@ -154,7 +180,7 @@ const SelectInner = <TOption, IsMulti extends boolean = false>(
     name: uniqueId,
     classNamePrefix: prefix,
     styles: getCustomStyles<TOption>(),
-    filterOption: (option, inputValue: string) => {
+    filterOption: (option, inputValue) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';
     },

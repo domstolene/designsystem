@@ -34,10 +34,10 @@ export type ModalBodyProps = BaseComponentPropsWithChildren<
 
 export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
   (props, ref) => {
-    const { children, scrollable, id, htmlProps, ...rest } = props;
+    const { children, scrollable, id, className, htmlProps, ...rest } = props;
 
     const containerProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
       tabIndex: scrollable ? 0 : undefined,
       scrollable

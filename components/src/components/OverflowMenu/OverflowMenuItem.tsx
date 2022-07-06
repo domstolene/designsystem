@@ -37,7 +37,9 @@ export const Link = styled.a`
   ${tokens.link.base}
   display: flex;
   align-items: center;
-  transition: background-color 0.2s;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s;
+  }
   &:hover {
     ${tokens.link.hover.base}
   }
@@ -105,6 +107,7 @@ export const OverflowMenuItem = forwardRef<
     setFocus,
     index,
     id,
+    className,
     htmlProps = {},
     ...rest
   } = props;
@@ -159,7 +162,7 @@ export const OverflowMenuItem = forwardRef<
 
   if (!href && !onClick) {
     return (
-      <Span {...{ ...getBaseHTMLProps(id, htmlProps, rest), ref }}>
+      <Span {...{ ...getBaseHTMLProps(id, className, htmlProps, rest), ref }}>
         {iconElement}
         {title}
       </Span>
@@ -169,7 +172,7 @@ export const OverflowMenuItem = forwardRef<
   if (!href) {
     return (
       <Link
-        {...getBaseHTMLProps(id, htmlProps, rest)}
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
         {...linkProps}
         as="button"
         ref={combinedRef as ForwardedRef<HTMLButtonElement>}
@@ -182,7 +185,7 @@ export const OverflowMenuItem = forwardRef<
 
   return (
     <Link
-      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
       {...linkProps}
       as="a"
       ref={combinedRef as ForwardedRef<HTMLAnchorElement>}

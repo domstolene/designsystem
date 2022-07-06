@@ -36,7 +36,7 @@ export type BreadcrumbsProps = BaseComponentPropsWithChildren<
 
 export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
   (props, ref) => {
-    const { smallScreen, children, id, htmlProps, ...rest } = props;
+    const { smallScreen, children, id, className, htmlProps, ...rest } = props;
 
     const childrenArray = Children.toArray(children);
 
@@ -58,7 +58,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
 
     return (
       <nav
-        {...getBaseHTMLProps(id, htmlProps, rest)}
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
         ref={ref}
         aria-label="brødsmulesti"
       >

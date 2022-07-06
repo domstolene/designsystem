@@ -21,10 +21,10 @@ export const DescriptionListDesc = forwardRef<
   HTMLElement,
   DescriptionListDescProps
 >((props, ref) => {
-  const { children, icon, id, htmlProps, ...rest } = props;
+  const { children, icon, id, className, htmlProps, ...rest } = props;
 
   const dListDescProps = {
-    ...getBaseHTMLProps(id, htmlProps, rest),
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
     children,
     ref
   };

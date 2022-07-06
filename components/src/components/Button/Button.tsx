@@ -23,6 +23,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onFocus,
       onBlur,
       id,
+      className,
       htmlProps,
       ...rest
     } = props;
@@ -33,7 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const hasIcon = !!icon;
 
     const wrapperProps = {
-      ...getBaseHTMLProps(id, htmlProps, rest),
+      ...getBaseHTMLProps(id, className, htmlProps, rest),
       href,
       label,
       as,

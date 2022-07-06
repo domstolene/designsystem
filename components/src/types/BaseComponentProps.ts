@@ -16,11 +16,10 @@ export type BaseComponentProps<
   TOtherProps extends Record<string, unknown> = Record<string, unknown>,
   THTMLAttributesProps extends HTMLAttributes<TElement> = HTMLAttributes<TElement>
 > = {
-  /**ID til HTML-elementet som genereres. */
-  id?: THTMLAttributesProps['id'];
-  /**Ekstra HTML-attributter som vil settes på elementet som genereres. Untatt ID som settes på toppnivå. */
-  htmlProps?: Omit<THTMLAttributesProps, 'id'>;
-} & TOtherProps;
+  /**Ekstra HTML-attributter som vil settes på elementet som genereres. Untatt `id` og `className` som settes på toppnivå. */
+  htmlProps?: THTMLAttributesProps;
+} & Pick<THTMLAttributesProps, 'id' | 'className'> &
+  TOtherProps;
 
 /**
  * Utvidelese av {@link BaseComponentProps} med prop for `children`.
@@ -33,9 +32,26 @@ export type BaseComponentPropsWithChildren<
   THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>
 > = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
 
+export const joinClassNames = (...classNames: (string | undefined)[]) =>
+  classNames.filter(Boolean).join(' ');
+
+type GetBaseHTMLProps = {
+  <T extends Element>(
+    id: HTMLAttributes<T>['id'],
+    className: HTMLAttributes<T>['className'],
+    htmlProps: HTMLAttributes<T> | undefined,
+    unknownProps: object
+  ): HTMLAttributes<T> & object;
+  <T extends Element>(
+    id: HTMLAttributes<T>['id'],
+    htmlProps: HTMLAttributes<T> | undefined,
+    unknownProps: object
+  ): HTMLAttributes<T> & object;
+};
+
 /**
- * Slår sammen htmlProps, id, og unknownProps til ett objekt som
- * kan spreades som baseprops for en komponent. `unknownProps` er
+ * Slår sammen id, className, htmlProps og unknownProps til ett objekt
+ * som kan spreades som baseprops for en komponent. `unknownProps` er
  * med for å sikre at aria- og data- attributter blir spreadet, alle
  * komponenter må derfor ta hensyn til `...rest` når de leser props.
  *
@@ -47,20 +63,66 @@ export type BaseComponentPropsWithChildren<
  * }>
  *
  * const MyComponent = (props: Props) => {
- *   const { propA, propB, id, htmlProps, ...rest } = props;
+ *   const { propA, propB, id, className, htmlProps, ...rest } = props;
  *
- *   const wrapperProps = getBaseHTMLProps(id, htmlProps, rest)
+ *   const wrapperProps = getBaseHTMLProps(id, className, htmlProps, rest)
  *
  *   return <div {...wrapperProps}>innhold</div>
  * }
  * ```
  * @param id id fra props til komponenten.
+ * @param className className for komponenten.
  * @param htmlProps htmlProps fra komponenten.
  * @param unknownProps andre ukjente props som skal spreades, kommer typisk fra `...rest` når man leser props til komponenten.
  * @returns Objekt med alle argumentene som kan spreades.
+ *
+ * Kan også kalles uten `className`-parameteret. Oppførselen er lik.
  */
-export const getBaseHTMLProps = <T extends Element>(
+export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
   id: HTMLAttributes<T>['id'],
-  htmlProps: Omit<HTMLAttributes<T>, 'id'> | undefined,
-  unknownProps: object
-) => ({ ...unknownProps, ...htmlProps, id });
+  htmlPropsOrClassName:
+    | HTMLAttributes<T>['className']
+    | (HTMLAttributes<T> | undefined),
+  htmlPropsOrUnknownProps: (HTMLAttributes<T> | undefined) | object,
+  unknownPropsOrUndefined?: object
+): HTMLAttributes<T> & object => {
+  if (
+    typeof htmlPropsOrClassName === 'string' ||
+    unknownPropsOrUndefined != undefined
+  ) {
+    const {
+      id: idFromHtmlProps,
+      className: classNameFromHtmlProps,
+      ...restHTMLProps
+    } = (htmlPropsOrUnknownProps as HTMLAttributes<T> | undefined) ?? {};
+
+    const propId = id ?? idFromHtmlProps;
+
+    const propClassName = joinClassNames(
+      htmlPropsOrClassName as string | undefined,
+      classNameFromHtmlProps
+    );
+
+    return {
+      ...unknownPropsOrUndefined,
+      ...restHTMLProps,
+      ...(propClassName && { className: propClassName }),
+      ...(propId && { id: propId })
+    };
+  } else {
+    const {
+      id: htmlPropsId,
+      className: htmlPropsClassName,
+      ...restHTMLProps
+    } = (htmlPropsOrClassName as HTMLAttributes<T> | undefined) ?? {};
+
+    const propId = id ?? htmlPropsId;
+
+    return {
+      ...htmlPropsOrUnknownProps,
+      ...restHTMLProps,
+      ...(htmlPropsClassName && { className: htmlPropsClassName }),
+      ...(propId && { id: propId })
+    };
+  }
+};

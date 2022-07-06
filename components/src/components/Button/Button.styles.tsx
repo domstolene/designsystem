@@ -30,8 +30,11 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   cursor: pointer;
   box-shadow: none;
   text-decoration: none;
-  transition: background-color 0.2s, text-decoration-color 0.2s, box-shadow 0.2s,
-    border-color 0.2s, color 0.2s, ${focusVisibleTransitionValue};
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s, text-decoration-color 0.2s,
+      box-shadow 0.2s, border-color 0.2s, color 0.2s,
+      ${focusVisibleTransitionValue};
+  }
 
   ${({ appearance, purpose }) =>
     css`
