@@ -92,7 +92,7 @@ type NavigationLinkProps = {
 type ContextMenuElementProps = {
   title: string;
   href?: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: IconName;
   onClick?: () => void;
 } & (
 | AnchorHTMLAttributes<HTMLAnchorElement>

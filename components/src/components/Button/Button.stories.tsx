@@ -20,68 +20,105 @@ export default {
 export const OverviewWithText = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button overview - with text" display="grid">
-      <Button {...args} label="Primary" purpose="primary" appearance="filled" />
-      <Button
-        {...args}
-        label="Secondary"
-        purpose="secondary"
-        appearance="filled"
-      />
-      <Button {...args} label="Danger" purpose="danger" appearance="filled" />
-      <Button {...args} label="Primary" purpose="primary" appearance="ghost" />
-      <Button
-        {...args}
-        label="Secondary"
-        purpose="secondary"
-        appearance="ghost"
-      />
-      <Button {...args} label="Danger" purpose="danger" appearance="ghost" />
-      <Button
-        {...args}
-        label="Primary"
-        purpose="primary"
-        appearance="borderless"
-      />
-      <Button
-        {...args}
-        label="Secondary"
-        purpose="secondary"
-        appearance="borderless"
-      />
-      <Button
-        {...args}
-        label="Danger"
-        purpose="danger"
-        appearance="borderless"
-      />
-      <Button
-        {...args}
-        label="Primary"
-        purpose="primary"
-        appearance="rounded"
-      />
-      <Button
-        {...args}
-        label="Secondary"
-        purpose="secondary"
-        appearance="rounded"
-      />
-      <Button {...args} label="Danger" purpose="danger" appearance="rounded" />
       <Button
         {...args}
         label="Primary"
         purpose="primary"
         appearance="filled"
-        iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={undefined}
       />
       <Button
         {...args}
         label="Secondary"
         purpose="secondary"
         appearance="filled"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Danger"
+        purpose="danger"
+        appearance="filled"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="ghost"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Secondary"
+        purpose="secondary"
+        appearance="ghost"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Danger"
+        purpose="danger"
+        appearance="ghost"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="borderless"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Secondary"
+        purpose="secondary"
+        appearance="borderless"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Danger"
+        purpose="danger"
+        appearance="borderless"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="rounded"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Secondary"
+        purpose="secondary"
+        appearance="rounded"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Danger"
+        purpose="danger"
+        appearance="rounded"
+        icon={undefined}
+      />
+      <Button
+        {...args}
+        label="Primary"
+        purpose="primary"
+        appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
+      />
+      <Button
+        {...args}
+        label="Secondary"
+        purpose="secondary"
+        appearance="filled"
+        iconPosition={args.iconPosition || 'left'}
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -89,7 +126,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -97,7 +134,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -105,7 +142,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -113,7 +150,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -121,7 +158,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -129,7 +166,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -137,7 +174,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -145,7 +182,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -153,7 +190,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -161,7 +198,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
     </StoryTemplate>
   );
@@ -170,28 +207,78 @@ export const OverviewWithText = (args: ButtonProps) => {
 export const OverviewJustIcon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button overview - just icon" display="grid">
-      <Button {...args} purpose="primary" appearance="filled" icon="close" />
-      <Button {...args} purpose="secondary" appearance="filled" icon="close" />
-      <Button {...args} purpose="danger" appearance="filled" icon="close" />
-      <Button {...args} purpose="primary" appearance="ghost" icon="close" />
-      <Button {...args} purpose="secondary" appearance="ghost" icon="close" />
-      <Button {...args} purpose="danger" appearance="ghost" icon="close" />
+      <Button
+        {...args}
+        purpose="primary"
+        appearance="filled"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="secondary"
+        appearance="filled"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="danger"
+        appearance="filled"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="primary"
+        appearance="ghost"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="secondary"
+        appearance="ghost"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="danger"
+        appearance="ghost"
+        icon={args.icon || 'close'}
+      />
       <Button
         {...args}
         purpose="primary"
         appearance="borderless"
-        icon="close"
+        icon={args.icon || 'close'}
       />
       <Button
         {...args}
         purpose="secondary"
         appearance="borderless"
-        icon="close"
+        icon={args.icon || 'close'}
       />
-      <Button {...args} purpose="danger" appearance="borderless" icon="close" />
-      <Button {...args} purpose="primary" appearance="rounded" icon="close" />
-      <Button {...args} purpose="secondary" appearance="rounded" icon="close" />
-      <Button {...args} purpose="danger" appearance="rounded" icon="close" />
+      <Button
+        {...args}
+        purpose="danger"
+        appearance="borderless"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="primary"
+        appearance="rounded"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="secondary"
+        appearance="rounded"
+        icon={args.icon || 'close'}
+      />
+      <Button
+        {...args}
+        purpose="danger"
+        appearance="rounded"
+        icon={args.icon || 'close'}
+      />
     </StoryTemplate>
   );
 };
@@ -206,6 +293,7 @@ export const OverviewSizes = (args: ButtonProps) => {
       <Button
         {...args}
         label="Primary"
+        icon={undefined}
         purpose="primary"
         appearance="filled"
         size="tiny"
@@ -213,6 +301,7 @@ export const OverviewSizes = (args: ButtonProps) => {
       <Button
         {...args}
         label="Primary"
+        icon={undefined}
         purpose="primary"
         appearance="filled"
         size="small"
@@ -220,6 +309,7 @@ export const OverviewSizes = (args: ButtonProps) => {
       <Button
         {...args}
         label="Primary"
+        icon={undefined}
         purpose="primary"
         appearance="filled"
         size="medium"
@@ -227,6 +317,7 @@ export const OverviewSizes = (args: ButtonProps) => {
       <Button
         {...args}
         label="Primary"
+        icon={undefined}
         purpose="primary"
         appearance="filled"
         size="large"
@@ -238,7 +329,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="tiny"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -247,7 +338,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="small"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -256,7 +347,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
@@ -265,35 +356,35 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="large"
         iconPosition={args.iconPosition || 'left'}
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="tiny"
-        icon="close"
+        icon={args.icon || 'close'}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="small"
-        icon="close"
+        icon={args.icon || 'close'}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="medium"
-        icon="close"
+        icon={args.icon || 'close'}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="large"
-        icon="close"
+        icon={args.icon || 'close'}
       />
     </StoryTemplate>
   );
@@ -484,6 +575,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
       <Button
         {...args}
         label={args.label || 'Primary'}
+        icon={undefined}
         purpose="primary"
         appearance="filled"
         size="medium"
@@ -496,7 +588,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="left"
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
         fullWidth
       />
       <Button
@@ -506,7 +598,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="right"
-        icon="addCircled"
+        icon={args.icon || 'addCircled'}
         fullWidth
       />
       <Button
@@ -514,7 +606,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="medium"
-        icon="close"
+        icon={args.icon || 'close'}
         fullWidth
       />
       <Button
@@ -533,7 +625,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
 export const Default = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - default">
-      <Button {...args} label={args.label || 'Tekst'} />
+      <Button label="Tekst" {...args} />
     </StoryTemplate>
   );
 };
@@ -541,7 +633,7 @@ export const Default = (args: ButtonProps) => {
 export const Icon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - just icon">
-      <Button {...args} icon="close" />
+      <Button {...args} icon={args.icon || 'close'} />
     </StoryTemplate>
   );
 };

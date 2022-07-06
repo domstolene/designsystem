@@ -104,7 +104,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 <Source code={`
 export type OverflowMenuContextItem = {
   title: string,
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>
+  icon?: IconName,
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
@@ -115,7 +115,7 @@ export type OverflowMenuContextItem = {
 <Source code={`
 export type OverflowMenuNavItem = {
   title: string,
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>
+  icon?: IconName
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 `} />
