@@ -1,3 +1,4 @@
+import path from 'path';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
@@ -6,31 +7,31 @@ import image from '@rollup/plugin-image';
 import css from 'rollup-plugin-import-css';
 import copy from 'rollup-plugin-copy';
 
-import pkg from './package.json';
-
-const globals = {
-  react: 'React',
-  'react-dom': 'ReactDOM',
-  'styled-components': 'styled'
-};
-
-const peerDependencies = Object.keys(pkg.peerDependencies || {});
 const extensions = ['.jsx', '.js', '.tsx', '.ts'];
+
+function isBareModuleId(id) {
+  return (
+    !id.startsWith('.') &&
+    !id.includes(path.join(process.cwd(), 'src')) &&
+    !id.includes(path.join(process.cwd(), 'modules')) &&
+    !id.includes(path.join(process.cwd(), 'typings'))
+  );
+}
 
 export default {
   input: 'src/index.ts',
   output: [
     {
-      file: pkg.main,
+      dir: 'dist/cjs',
       format: 'cjs',
-      exports: 'named',
-      globals
+      exports: 'named'
     },
     {
-      file: pkg.module,
+      dir: 'dist',
       format: 'esm',
       exports: 'named',
-      globals
+      preserveModules: true,
+      preserveModulesRoot: 'src'
     }
   ],
   plugins: [
@@ -65,5 +66,5 @@ export default {
       ]
     })
   ],
-  external: peerDependencies
+  external: isBareModuleId
 };

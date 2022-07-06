@@ -1,26 +1,31 @@
+import path from 'path';
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import copy from "rollup-plugin-copy";
 
-import pkg from "./package.json";
+function isBareModuleId(id) {
+  return !id.startsWith('.') &&
+    !id.includes(path.join(process.cwd(), 'src')) &&
+    !id.includes(path.join(process.cwd(), 'dds'));
+}
 
-const peerDependencies = Object.keys(pkg.peerDependencies || {});
 const extensions = [".jsx", ".js", ".tsx", ".ts"];
 
 export default {
   input: "./index.ts",
   output: [
     {
-      file: pkg.main,
+      dir: 'dist/cjs',
       format: "cjs",
       exports: "named",
     },
     {
-      file: pkg.module,
+      dir: 'dist',
       format: "esm",
       exports: "named",
-      sourcemap: true,
+      preserveModules: true,
+      preserveModulesRoot: 'src'
     },
   ],
   plugins: [
@@ -38,5 +43,5 @@ export default {
       ],
     }),
   ],
-  external: peerDependencies,
+  external: isBareModuleId,
 };
