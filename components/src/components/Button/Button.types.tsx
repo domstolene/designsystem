@@ -10,7 +10,7 @@ export type IconPosition = 'left' | 'right';
 
 type PickedHTMLAttributes = Pick<
   ButtonHTMLAttributes<HTMLButtonElement>,
-  'onClick' | 'onFocus' | 'onBlur'
+  'onClick' | 'onFocus' | 'onBlur' | 'type'
 >;
 
 export type ButtonProps = BaseComponentProps<
