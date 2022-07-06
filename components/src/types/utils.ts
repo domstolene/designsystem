@@ -9,4 +9,4 @@ export type WithRequiredIf<
   Condition extends boolean,
   T,
   K extends keyof T
-> = Omit<T, K> & Pick<Condition extends true ? Required<T> : T, K>;
+> = Omit<T, K> & Pick<true extends Condition ? Required<T> : T, K>;
