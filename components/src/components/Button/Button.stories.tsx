@@ -110,7 +110,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -118,7 +118,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -126,7 +126,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -134,7 +134,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -142,7 +142,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -150,7 +150,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -158,7 +158,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -166,7 +166,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -174,7 +174,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -182,7 +182,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -190,7 +190,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -198,7 +198,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
     </StoryTemplate>
   );
@@ -329,7 +329,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="tiny"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -338,7 +338,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="small"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -347,7 +347,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -356,7 +356,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="large"
         iconPosition={args.iconPosition || 'left'}
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
       />
       <Button
         {...args}
@@ -588,7 +588,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="left"
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
         fullWidth
       />
       <Button
@@ -598,7 +598,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="right"
-        icon={args.icon || 'addCircled'}
+        icon={args.icon || 'plusCircled'}
         fullWidth
       />
       <Button
