@@ -10,7 +10,7 @@ export default {
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className', 'Icon']
+      exclude: ['className']
     }
   }
 };
@@ -21,22 +21,22 @@ export const Overview = (args: IconProps) => {
       <Icon
         {...args}
         iconSize="inherit"
-        iconName={args.iconName || 'openInNew'}
+        iconName={args.iconName || 'openExternal'}
       />
       <Icon
         {...args}
         iconSize="small"
-        iconName={args.iconName || 'openInNew'}
+        iconName={args.iconName || 'openExternal'}
       />
       <Icon
         {...args}
         iconSize="medium"
-        iconName={args.iconName || 'openInNew'}
+        iconName={args.iconName || 'openExternal'}
       />
       <Icon
         {...args}
         iconSize="large"
-        iconName={args.iconName || 'openInNew'}
+        iconName={args.iconName || 'openExternal'}
       />
     </StoryTemplate>
   );
@@ -45,7 +45,7 @@ export const Overview = (args: IconProps) => {
 export const Default = (args: IconProps) => {
   return (
     <StoryTemplate title="Icon - default">
-      <Icon {...args} iconName={args.iconName || 'openInNew'} />
+      <Icon {...args} iconName={args.iconName || 'openExternal'} />
     </StoryTemplate>
   );
 };
@@ -59,7 +59,7 @@ export const Inherit = (args: IconProps) => {
       >
         <Icon
           {...args}
-          iconName={args.iconName || 'openInNew'}
+          iconName={args.iconName || 'openExternal'}
           iconSize="inherit"
         />
         Tekst

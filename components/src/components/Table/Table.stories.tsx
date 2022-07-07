@@ -177,7 +177,7 @@ export const WithButtonAndIcons = (args: TableProps) => {
     <Button
       label="Fjern tilgang"
       appearance="borderless"
-      icon="trashcan"
+      icon="trash"
       iconPosition="left"
     />
   );
