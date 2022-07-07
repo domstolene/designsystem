@@ -47,6 +47,7 @@ export function Icon(props: IconProps) {
     iconSize = 'medium',
     color = 'currentcolor',
     iconName,
+    className,
     htmlProps = {},
     ...rest
   } = props;
@@ -56,7 +57,7 @@ export function Icon(props: IconProps) {
 
   return (
     <Svg
-      {...getBaseHTMLProps(id, htmlProps, rest)}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       height={size}
