@@ -35,7 +35,7 @@
     "build:clean": "npm run clean && npm run build"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@types/node": "^18.0.3",
     "fork-ts-checker-webpack-plugin": "^6.2.1",
