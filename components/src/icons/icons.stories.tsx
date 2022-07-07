@@ -22,7 +22,7 @@ const IconContainer = styled.div`
   align-items: center;
   cursor: pointer;
   gap: ${spacing.SizesDdsSpacingLocalX075};
-  width: 75px;
+  width: 80px;
   transition: background-color 0.2s;
   &:hover {
     background-color: ${colors.DdsColorInteractiveLightest};
@@ -96,7 +96,10 @@ export const Overview = () => {
                   iconName={e as IconName}
                   htmlProps={{ title: e }}
                 />
-                <Name typographyType="supportingStyleTiny01" title={e}>
+                <Name
+                  typographyType="supportingStyleTiny01"
+                  htmlProps={{ title: e }}
+                >
                   {e}
                 </Name>
               </IconContainer>
