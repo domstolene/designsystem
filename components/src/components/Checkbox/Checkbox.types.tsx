@@ -3,7 +3,14 @@ import { BaseComponentProps } from '../../types';
 
 type PickedHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
-  'aria-describedby' | 'name' | 'checked' | 'onChange'
+  | 'aria-describedby'
+  | 'name'
+  | 'checked'
+  | 'defaultChecked'
+  | 'value'
+  | 'defaultValue'
+  | 'onChange'
+  | 'onBlur'
 >;
 
 export type CheckboxProps = BaseComponentProps<
