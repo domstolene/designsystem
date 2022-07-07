@@ -85,10 +85,10 @@
     "typescript": "^4.6.3"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "styled-components": ">=5.3.5",
-    "@norges-domstoler/dds-design-tokens": ">=1.2.0"
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18",
+    "styled-components": "^5",
+    "@norges-domstoler/dds-design-tokens": "^1"
   },
   "jest": {
     "preset": "ts-jest",
@@ -114,10 +114,8 @@
     "@floating-ui/react-dom": "^0.6.3",
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.3",
-    "@norges-domstoler/dds-design-tokens": "^1.2.0",
     "focus-visible": "^5.2.0",
     "react-select": "^5.3.0",
-    "styled-components": "^5.3.5",
     "tslib": "^2.4.0"
   }
 }
