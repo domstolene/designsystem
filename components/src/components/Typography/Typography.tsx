@@ -202,6 +202,7 @@ type BaseTypographyProps = PropsWithChildren<{
 type AnchorTypographyProps = BaseComponentProps<
   HTMLAnchorElement,
   BaseTypographyProps & {
+    /**nativ `href`-prop ved `typographyType='a'`.  */
     href?: string | undefined;
 
     /** Spesifiserer om lenka er ekstern ved `typographyType='a'` eller `as='a'`.*/
@@ -283,7 +284,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     return (
       <StyledTypography ref={ref} {...typographyProps}>
         {children}
-        {renderIcon && <LinkIcon iconName="openInNew" iconSize="inherit" />}
+        {renderIcon && <LinkIcon iconName="openExternal" iconSize="inherit" />}
       </StyledTypography>
     );
   }
