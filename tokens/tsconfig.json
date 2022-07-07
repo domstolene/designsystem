@@ -1,16 +1,9 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "es6",
-            "es2017"
-        ],
+        "target": "es6",
         "module": "esnext",
         "moduleResolution": "node",
         "declaration": true,
-        "declarationDir": "build",
         "sourceMap": true,
         "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
