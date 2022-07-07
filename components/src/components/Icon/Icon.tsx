@@ -64,7 +64,7 @@ export function Icon(props: IconProps) {
       fill={color}
       aria-hidden={ariaHidden}
     >
-      <title>{title}</title>
+      {title && <title>{title}</title>}
       {iconPaths[iconName]}
     </Svg>
   );
