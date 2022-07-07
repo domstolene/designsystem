@@ -12,16 +12,17 @@ Referanse-tokens (OBS! under arbeid) bruker base-tokens til å definere logikk f
 
 ### 📃 Tilgjengelige base-tokens
 
-- colors
-- fontPackages (kun JS)
-- font
-- grid
-- spacing
-- iconSizes
-- borderRadius
 - border
-- outerShadow
+- borderRadius
+- breakpoints
+- colors
+- font
+- fontPackages (kun JS)
+- grid
+- iconSizes
 - innerShadow
+- outerShadow
+- spacing
 
 ## 📦 Installasjon
 
@@ -65,10 +66,10 @@ body {
 ### SCSS
 
 ```scss
-@use "@norges-domstoler/dds-design-tokens/dist/scss/colors";
+@use "@norges-domstoler/dds-design-tokens/dist/scss/colors" as colors;
 
 body {
-  background-color: $dds-color-primary-base;
+  background-color: colors.$dds-color-primary-base;
 }
 ```
 
