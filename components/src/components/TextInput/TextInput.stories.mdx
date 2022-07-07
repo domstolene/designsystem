@@ -6,7 +6,12 @@ import {
   Canvas
 } from '@storybook/addon-docs';
 import { TextInput } from '.';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/TextInput/API" component={TextInput} />
@@ -35,7 +40,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-textinput--textarea-with-label" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-textinput`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-textinput`} />
 
 ## Bruk i koden
 

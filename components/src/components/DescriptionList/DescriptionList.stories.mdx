@@ -11,7 +11,12 @@ import {
   DescriptionListDesc,
   DescriptionListGroup
 } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/DescriptionList/API" component={DescriptionList} />
@@ -30,7 +35,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-descriptionlist--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-descriptionlist'>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-descriptionlist`} />
 
 ## Oversikt
 

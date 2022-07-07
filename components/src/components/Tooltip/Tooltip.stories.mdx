@@ -6,7 +6,12 @@ import {
   Story
 } from '@storybook/addon-docs';
 import { Tooltip } from '.';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { TableWrapper, Table, Body, Cell, Head, Row } from '../Table';
 import { Typography } from '../Typography';
 
@@ -26,7 +31,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-tooltip--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-tooltip`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-tooltip`} />
 
 ## Oversikt
 

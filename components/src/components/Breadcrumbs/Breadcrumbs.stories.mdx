@@ -6,7 +6,12 @@ import {
   PRIMARY_STORY
 } from '@storybook/addon-docs';
 import { Breadcrumb, Breadcrumbs } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  LinkToInteractiveStory,
+  SB_DESIGNSYSTEM_URL
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/Breadcrumbs/API" component={Breadcrumbs} />
@@ -25,7 +30,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-breadcrumbs--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-breadcrumbs'>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-breadcrumbs`} />
 
 ## Oversikt
 

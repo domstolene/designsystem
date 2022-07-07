@@ -6,7 +6,13 @@ import {
   PRIMARY_STORY
 } from '@storybook/addon-docs';
 import { Card, CardAccordion, CardAccordionBody } from '.';
-import { Source, StorybookLink, ComponentLinkRow } from '../../storybook';
+import {
+  Source,
+  StorybookLink,
+  ComponentLinkRow,
+  LinkToInteractiveStory,
+  SB_DESIGNSYSTEM_URL
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/Card/API" component={Card} />
@@ -25,7 +31,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-card--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-card'>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-card`} />
 
 ## Oversikt
 
