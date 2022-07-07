@@ -12,10 +12,10 @@ export const replay = (
   <path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z" />
 );
 
-export const jordskifterett = <circle cx="11.5" cy="11.5" r="4.5" />;
-export const lagmannsrett = <rect x="5" y="10" width="12" height="3" />;
+export const jordskifterett = <circle cx="12" cy="12" r="6" />;
+export const lagmannsrett = <rect x="4" y="10" width="15.65" height="3.9125" />;
 export const tingrett = (
-  <path d="M11.5 16C15.0899 16 18 12.866 18 9H5C5 12.866 7.91015 16 11.5 16Z" />
+  <path d="M12 16.6154C16.4183 16.6154 20 12.7581 20 8H4C4 12.7581 7.58172 16.6154 12 16.6154Z" />
 );
 
 export const sortByAlpha = (
@@ -183,14 +183,6 @@ export const archive = (
   </>
 );
 
-export const saveFile = (
-  <path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z" />
-);
-
-export const save = (
-  <path d="M21 7v12q0 .825-.587 1.413Q19.825 21 19 21H5q-.825 0-1.413-.587Q3 19.825 3 19V5q0-.825.587-1.413Q4.175 3 5 3h12Zm-2 .85L16.15 5H5v14h14ZM12 18q1.25 0 2.125-.875T15 15q0-1.25-.875-2.125T12 12q-1.25 0-2.125.875T9 15q0 1.25.875 2.125T12 18Zm-6-8h9V6H6ZM5 7.85V19 5Z" />
-);
-
 export const pdf = (
   <path d="M20 2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm12 6V9c0-.55-.45-1-1-1h-2v5h2c.55 0 1-.45 1-1zm-2-3h1v3h-1V9zm4 2h1v-1h-1V9h1V8h-2v5h1zm-8 0h1c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1H9v5h1v-2zm0-2h1v1h-1V9z" />
 );
@@ -289,8 +281,6 @@ export const unfoldLess = (
 export const unfoldMore = (
   <path d="M12 5.83L15.17 9l1.41-1.41L12 3 7.41 7.59 8.83 9 12 5.83zm0 12.34L8.83 15l-1.41 1.41L12 21l4.59-4.59L15.17 15 12 18.17z" />
 );
-
-export const arrowDropdown = <path d="M7 10l5 5 5-5z" />;
 
 export const chevronLargeLeft = (
   <path d="M11.67 3.87L9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z" />
@@ -413,10 +403,6 @@ export const filterList = <path d="M10 18v-2h4v2Zm-4-5v-2h12v2ZM3 8V6h18v2Z" />;
 
 export const filterListOff = (
   <path d="m19.775 22.625-18.4-18.4L2.8 2.8l18.4 18.4ZM3 8V6h2.15v2Zm3 5v-2h4.15v2Zm4.825-5-2-2H21v2ZM10 18v-2h4v2Zm5.825-5-2-2H18v2Z" />
-);
-
-export const folderOpen = (
-  <path d="M4 20q-.825 0-1.412-.587Q2 18.825 2 18V6q0-.825.588-1.412Q3.175 4 4 4h6l2 2h8q.825 0 1.413.588Q22 7.175 22 8H11.175l-2-2H4v12l2.4-8h17.1l-2.575 8.575q-.2.65-.737 1.038Q19.65 20 19 20Zm2.1-2H19l1.8-6H7.9Zm0 0 1.8-6-1.8 6ZM4 8V6v2Z" />
 );
 
 export const file = (
@@ -559,7 +545,12 @@ export const fullscreen = (
 
 export const dragHandle = <path d="M20 9H4v2h16V9zM4 15h16v-2H4v2z"></path>;
 
+export const checklist = (
+  <path d="M22 6.99999H13V8.99999H22V6.99999ZM22 15H13V17H22V15ZM5.54 11L2 7.45999L3.41 6.04999L5.53 8.16999L9.77 3.92999L11.18 5.33999L5.54 11ZM5.54 19L2 15.46L3.41 14.05L5.53 16.17L9.77 11.93L11.18 13.34L5.54 19Z" />
+);
+
 export const iconPaths = {
+  checklist,
   dragHandle,
   fullscreen,
   fullsceenExit,
@@ -596,11 +587,10 @@ export const iconPaths = {
   info,
   tip,
   fileCopy,
-  save,
+
   downloadDone,
   file,
   copy,
-  folderOpen,
   filterListOff,
   filterList,
   warning,
@@ -632,7 +622,6 @@ export const iconPaths = {
   person,
   chevronLargeRight,
   chevronLargeLeft,
-  arrowDropdown,
   unfoldLess,
   visibility,
   visibilityOff,
@@ -687,7 +676,6 @@ export const iconPaths = {
   minus,
   replay,
   minusCircled,
-  saveFile,
   sms,
   sortByAlpha,
   sync,
