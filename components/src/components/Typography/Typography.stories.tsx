@@ -16,11 +16,12 @@ export default {
     externalLink: { control: { type: 'boolean' } },
     color: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
-    text: { control: { type: 'text' } }
+    text: { control: { type: 'text' } },
+    as: { control: { type: 'text' } }
   },
   parameters: {
     controls: {
-      exclude: ['style', 'target', 'as']
+      exclude: ['style', 'target']
     }
   }
 };
