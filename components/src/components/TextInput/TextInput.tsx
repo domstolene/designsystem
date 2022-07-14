@@ -32,6 +32,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       id,
       width = tokens.wrapper.defaultWidth,
       type = 'text',
+      withCharacterCounter = true,
       className,
       style,
       'aria-describedby': ariaDescribedby,
@@ -81,7 +82,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
       'characterCounter',
-      maxLength
+      maxLength && withCharacterCounter
     );
     const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
     const errorMessageId = derivativeIdGenerator(
@@ -168,13 +169,16 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             {hasTip && !errorMessage && (
               <InputMessage message={tip} messageType="tip" id={tipId} />
             )}
-            {maxLength && Number.isInteger(maxLength) && maxLength > 0 && (
-              <CharCounter
-                id={characterCounterId}
-                current={text.length}
-                max={maxLength}
-              />
-            )}
+            {maxLength &&
+              Number.isInteger(maxLength) &&
+              maxLength > 0 &&
+              withCharacterCounter && (
+                <CharCounter
+                  id={characterCounterId}
+                  current={text.length}
+                  max={maxLength}
+                />
+              )}
           </MessageContainer>
         )}
       </OuterInputContainer>

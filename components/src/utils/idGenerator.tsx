@@ -1,7 +1,7 @@
 export const derivativeIdGenerator = (
   prefix: string,
   suffix: string,
-  value?: string | number
+  value?: string | number | boolean
 ) => (value ? `${prefix}-${suffix}` : undefined);
 
 export const idArrayGenerator = (

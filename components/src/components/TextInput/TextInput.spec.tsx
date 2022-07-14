@@ -36,6 +36,28 @@ describe('<TextInput />', () => {
     );
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
   });
+  it('should have character counter and aria-describedby when maxLength provided', () => {
+    const id = 'id';
+    const length = 5;
+    render(<TextInput id={id} maxLength={length} />);
+    expect(screen.getByRole('textbox')).toHaveAttribute(
+      'aria-describedby',
+      `${id}-characterCounter`
+    );
+    expect(screen.queryByText(`0/${length}`)).toBeDefined;
+  });
+  it('should not have character counter when both maxLength and withCharacterCounter=false provided', () => {
+    const id = 'id';
+    const length = 5;
+    render(
+      <TextInput id={id} maxLength={length} withCharacterCounter={false} />
+    );
+    expect(screen.getByRole('textbox')).not.toHaveAttribute(
+      'aria-describedby',
+      `${id}-characterCounter`
+    );
+    expect(screen.queryByText(`0/${length}`)).not.toBeDefined;
+  });
   it('renders error message instead of tip when both are provided', () => {
     const tip = 'this is a tip';
     const errorMessage = 'this is an error';
