@@ -1,13 +1,17 @@
 import styled from 'styled-components';
-import { Icon, IconName } from '../components/Icon';
+import { Icon } from '../components/Icon';
 import { Typography } from '../components/Typography';
 import { StoryTemplate } from '../storybook';
-import { iconPaths } from './icons';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { LocalMessage } from '../components/LocalMessage';
 import { useEffect, useState } from 'react';
+import { Modal, ModalBody } from '../components/Modal';
+import * as icons from './tsx';
+import { Button } from '../components/Button';
+import { CopyIcon } from './tsx';
+import { LocalMessage } from '../components/LocalMessage';
+import { SvgIcon } from './utils';
 
-const { colors, spacing } = ddsBaseTokens;
+const { colors, spacing, borderRadius } = ddsBaseTokens;
 
 export default {
   title: 'Icons/Overview'
@@ -54,57 +58,152 @@ const Name = styled(Typography)`
 `;
 
 const MessageWrapper = styled.div`
-  position: sticky;
-  top: 10%;
+  position: absolute;
+  right: 50%;
+`;
+
+const GroupHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${spacing.SizesDdsSpacingLocalX025};
+  position: relative;
+`;
+
+const CodeBlock = styled.div`
+  background-color: ${colors.DdsColorNeutralsGray8};
+  color: white;
+  padding: ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1};
+  margin: ${spacing.SizesDdsSpacingLayoutX1} 0;
+  border-radius: ${borderRadius.RadiiDdsBorderRadius1Radius};
+`;
+
+const IconRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: ${spacing.SizesDdsSpacingLocalX05};
+  margin-bottom: ${spacing.SizesDdsSpacingLocalX1};
 `;
 
 export const Overview = () => {
-  const [name, setName] = useState<string | undefined>();
+  const [iconState, setIconState] = useState<
+    { name: string; icon: SvgIcon } | undefined
+  >();
+  const [closed, setClosed] = useState(true);
+  const [copiedUse, setCopiedUse] = useState(false);
+  const [copiedImport, setCopiedImport] = useState(false);
+  const close = () => {
+    setClosed(true);
+  };
 
   useEffect(() => {
-    const timer = setTimeout(() => setName(undefined), 5000);
+    const timer = setTimeout(() => setCopiedUse(false), 2000);
     return () => clearTimeout(timer);
-  }, [name]);
+  }, [copiedUse]);
 
-  const copyName = (name: string) => {
-    navigator.clipboard.writeText(name);
-    setName(name);
+  useEffect(() => {
+    const timer = setTimeout(() => setCopiedImport(false), 2000);
+    return () => clearTimeout(timer);
+  }, [copiedImport]);
+
+  const onIconClick = (name: string, icon: SvgIcon) => {
+    setIconState({ name: name, icon: icon });
+    setClosed(false);
   };
+
+  const copy = (text: string) => {
+    navigator.clipboard.writeText(text);
+  };
+
+  const trim = (name: string) => {
+    return name.replace('Icon', '');
+  };
+
+  const handleCopyUse = (text: string) => {
+    copy(text);
+    setCopiedUse(true);
+  };
+
+  const handleCopyImport = (text: string) => {
+    copy(text);
+    setCopiedImport(true);
+  };
+
+  const iconOverview = () => {
+    const overview = [];
+    const values = Object.values(icons);
+    const keys = Object.keys(icons);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const value = values[i];
+      overview.push(
+        <IconContainer key={key} onClick={() => onIconClick(key, value)}>
+          <Icon iconSize="large" icon={value} />
+          <Name typographyType="supportingStyleTiny01">{trim(key)}</Name>
+        </IconContainer>
+      );
+    }
+    return overview;
+  };
+
+  const importCode = `import { ${iconState?.name} } from '@norges-domstoler/dds-components';`;
+  const useCode = `<Icon icon={${iconState?.name}} />`;
+  const copyConfirmation = (
+    <MessageWrapper>
+      <LocalMessage width="fit-content" message="kopiert" purpose="success" />
+    </MessageWrapper>
+  );
 
   return (
     <StoryTemplate title="Icons - overview" display="block">
       <Container>
         <Typography typographyType="bodySans03">
-          Klikk på ikonet for å kopiere navnet til utklippstavlen.
+          Klikk på ikonet for mer info.
         </Typography>
-        {name && (
-          <MessageWrapper>
-            <LocalMessage
-              purpose="success"
-              width="100%"
-              message={`Ikonnavnet "${name}" ble kopiert til utklippstavlen.`}
-            />
-          </MessageWrapper>
-        )}
-        <OverviewContainer>
-          {Object.keys(iconPaths)
-            .sort()
-            .map(e => (
-              <IconContainer key={e} onClick={() => copyName(e)}>
-                <Icon
-                  iconSize="large"
-                  iconName={e as IconName}
-                  htmlProps={{ title: e }}
-                />
-                <Name
-                  typographyType="supportingStyleTiny01"
-                  htmlProps={{ title: e }}
-                >
-                  {e}
-                </Name>
-              </IconContainer>
-            ))}
-        </OverviewContainer>
+        <OverviewContainer>{iconOverview()}</OverviewContainer>
+        <Modal
+          isOpen={!closed}
+          onClose={close}
+          header={iconState?.name && trim(iconState.name)}
+        >
+          <ModalBody>
+            {iconState && (
+              <IconRow>
+                <Icon icon={iconState.icon} iconSize="small" />
+                <Icon icon={iconState.icon} iconSize="medium" />
+                <Icon icon={iconState.icon} iconSize="large" />
+                <Button icon={iconState.icon} />
+              </IconRow>
+            )}
+            <GroupHeader>
+              <Typography typographyType="headingSans02">Import</Typography>
+              <Button
+                icon={CopyIcon}
+                size="tiny"
+                appearance="borderless"
+                onClick={() => handleCopyImport(importCode)}
+              />
+              {copiedImport && copyConfirmation}
+            </GroupHeader>
+            <CodeBlock className="icon-code">
+              <code>{importCode}</code>
+            </CodeBlock>
+            <GroupHeader>
+              <Typography typographyType="headingSans02">Bruk</Typography>
+              <Button
+                icon={CopyIcon}
+                size="tiny"
+                appearance="borderless"
+                onClick={() => handleCopyUse(useCode)}
+              />
+              {copiedUse && copyConfirmation}
+            </GroupHeader>
+            <CodeBlock className="icon-code">
+              <code>{useCode}</code>
+            </CodeBlock>
+          </ModalBody>
+        </Modal>
       </Container>
     </StoryTemplate>
   );
