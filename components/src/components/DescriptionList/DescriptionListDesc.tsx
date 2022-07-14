@@ -1,8 +1,9 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { descriptionListDescTokens as tokens } from './DescriptionListDesc.tokens';
-import { Icon, IconName } from '../Icon';
+import { Icon } from '../Icon';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { SvgIcon } from '../../icons/utils';
 
 const DListDesc = styled.dd`
   ${tokens.base}
@@ -13,7 +14,7 @@ export type DescriptionListDescProps = BaseComponentPropsWithChildren<
   HTMLElement,
   {
     /**Ikon som vises ved siden av teksten. */
-    icon?: IconName;
+    icon?: SvgIcon;
   }
 >;
 
@@ -31,7 +32,7 @@ export const DescriptionListDesc = forwardRef<
 
   return (
     <DListDesc {...dListDescProps}>
-      {icon && <Icon iconName={icon} />} {children}
+      {icon && <Icon icon={icon} />} {children}
     </DListDesc>
   );
 });

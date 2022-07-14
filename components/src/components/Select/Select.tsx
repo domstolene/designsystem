@@ -25,6 +25,7 @@ import {
 } from './Select.styles';
 import { selectTokens as tokens } from './Select.tokens';
 import { Icon } from '../Icon';
+import { CheckIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 
 const { Option: DdsOption, NoOptionsMessage, Input } = components;
@@ -42,7 +43,7 @@ const IconOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>
 ) => (
   <DdsOption {...props}>
-    {props.isSelected && <Icon iconName="check" iconSize="inherit" />}
+    {props.isSelected && <Icon icon={CheckIcon} iconSize="inherit" />}
     {props.children}
   </DdsOption>
 );

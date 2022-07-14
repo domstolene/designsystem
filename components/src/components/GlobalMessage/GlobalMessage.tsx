@@ -2,9 +2,10 @@ import styled, { css } from 'styled-components';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, useState } from 'react';
 import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
-import { Icon, IconName } from '../Icon';
+import { Icon } from '../Icon';
 import { Typography } from '../Typography';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { CloseIcon } from '../../icons/tsx';
 
 type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
 
@@ -86,7 +87,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
       <Container {...containerProps}>
         <ContentContainer closable={closable}>
           <MessageIconWrapper
-            iconName={tokens.icon[purpose].icon as IconName}
+            icon={tokens.icon[purpose].icon}
             color={tokens.icon[purpose].color}
           />
           {children ?? <Typography as="span">{message}</Typography>}
@@ -94,7 +95,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
         <ControlsContainer>
           {closable && (
             <Button
-              icon="close"
+              icon={CloseIcon}
               purpose={buttonPurpose}
               appearance="borderless"
               onClick={() => {

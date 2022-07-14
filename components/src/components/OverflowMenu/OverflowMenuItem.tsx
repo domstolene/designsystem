@@ -13,9 +13,10 @@ import {
 } from 'react';
 import styled from 'styled-components';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import { Icon, IconName } from '../Icon';
+import { Icon } from '../Icon';
 import { useCombinedRef } from '../../hooks';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { SvgIcon } from '../../icons/utils';
 
 export const Span = styled.span`
   ${tokens.link.base}
@@ -54,7 +55,7 @@ export const Link = styled.a`
 
 type BaseOverflowMenuItemProps = {
   title: string;
-  icon?: IconName;
+  icon?: SvgIcon;
   focus?: boolean;
   setFocus?: Dispatch<SetStateAction<number>>;
   index?: number;
@@ -158,7 +159,7 @@ export const OverflowMenuItem = forwardRef<
     role: 'menuitem',
     tabIndex: focus ? 0 : -1
   };
-  const iconElement = icon && <Icon iconSize="inherit" iconName={icon} />;
+  const iconElement = icon && <Icon iconSize="inherit" icon={icon} />;
 
   if (!href && !onClick) {
     return (

@@ -2,6 +2,11 @@ import { forwardRef, MouseEvent } from 'react';
 import { Cell, TableCellProps } from './Cell';
 import { cellTokens as tokens } from './Cell.tokens';
 import { Icon } from '../Icon';
+import {
+  UnfoldMoreIcon,
+  ChevronUpIcon,
+  ChevronDownIcon
+} from '../../icons/tsx';
 import styled from 'styled-components';
 import { removeButtonStyling } from '../../helpers/styling';
 
@@ -31,13 +36,13 @@ export type SortCellProps = {
 
 const makeSortIcon = (isSorted?: boolean, sortOrder?: SortOrder) => {
   if (!isSorted || !sortOrder) {
-    return <SortIcon iconName="unfoldMore" iconSize="inherit" />;
+    return <SortIcon icon={UnfoldMoreIcon} iconSize="inherit" />;
   }
 
   return sortOrder === 'ascending' ? (
-    <SortIcon iconName="chevronDown" iconSize="inherit" />
+    <SortIcon icon={ChevronDownIcon} iconSize="inherit" />
   ) : (
-    <SortIcon iconName="chevronUp" iconSize="inherit" />
+    <SortIcon icon={ChevronUpIcon} iconSize="inherit" />
   );
 };
 

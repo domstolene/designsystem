@@ -1,8 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
-import { iconPaths } from '../../icons';
-import styled from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { SvgIcon } from '../../icons/utils/propTypes';
 
 const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
@@ -19,21 +18,13 @@ const getSize = (iconSize: IconSize): string => {
   }
 };
 
-export type IconName = keyof typeof iconPaths;
-
 export type IconSize = 'small' | 'medium' | 'large' | 'inherit';
-
-const Svg = styled.svg`
-  display: inline-block;
-  transition: fill 0.2s;
-  flex-shrink: 0;
-`;
 
 export type IconProps = BaseComponentProps<
   SVGElement,
   {
-    /**Navnet til ikonet. */
-    iconName: IconName;
+    /**Ikonet importert fra `@norges-domstoler/dds-components`. */
+    icon: SvgIcon;
     /**Størrelsen på ikonet. */
     iconSize?: IconSize;
     /**Fargen på ikonet. */
@@ -46,7 +37,7 @@ export function Icon(props: IconProps) {
     id,
     iconSize = 'medium',
     color = 'currentcolor',
-    iconName,
+    icon,
     className,
     htmlProps = {},
     ...rest
@@ -55,18 +46,13 @@ export function Icon(props: IconProps) {
 
   const size = getSize(iconSize);
 
-  return (
-    <Svg
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      height={size}
-      width={size}
-      fill={color}
-      aria-hidden={ariaHidden}
-    >
-      {title && <title>{title}</title>}
-      {iconPaths[iconName]}
-    </Svg>
-  );
+  return icon({
+    ...getBaseHTMLProps(id, className, htmlProps, rest),
+    title,
+    height: size,
+    width: size,
+    fill: color,
+    viewBox: '0 0 24 24',
+    'aria-hidden': ariaHidden
+  });
 }

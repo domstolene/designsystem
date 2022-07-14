@@ -109,7 +109,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 <Source code={`
 export type OverflowMenuContextItem = {
   title: string,
-  icon?: IconName,
+  icon?: SvgIcon,
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
@@ -120,7 +120,7 @@ export type OverflowMenuContextItem = {
 <Source code={`
 export type OverflowMenuNavItem = {
   title: string,
-  icon?: IconName
+  icon?: SvgIcon
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 `} />

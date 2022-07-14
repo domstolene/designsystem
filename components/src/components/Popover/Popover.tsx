@@ -8,6 +8,7 @@ import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { popoverTokens as tokens } from './Popover.tokens';
+import { CloseIcon } from '../../icons/tsx';
 
 const { spacing: Spacing } = ddsBaseTokens;
 
@@ -139,7 +140,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         </ContentContainer>
         {withCloseButton && (
           <StyledButton
-            icon="close"
+            icon={CloseIcon}
             appearance="borderless"
             purpose="secondary"
             size="small"

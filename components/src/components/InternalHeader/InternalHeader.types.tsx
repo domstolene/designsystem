@@ -1,5 +1,5 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { IconName } from '../../icons';
+import { SvgIcon } from '../../icons/utils';
 import { BaseComponentProps } from '../../types';
 
 type NavigationLinkProps = {
@@ -10,7 +10,7 @@ type NavigationLinkProps = {
 type ContextMenuElementProps = {
   title: string;
   href?: string;
-  icon?: IconName;
+  icon?: SvgIcon;
   onClick?: () => void;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>

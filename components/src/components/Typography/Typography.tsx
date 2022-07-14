@@ -21,6 +21,7 @@ import {
 } from './Typography.types';
 import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { OpenExternalIcon } from '../../icons/tsx';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -284,7 +285,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     return (
       <StyledTypography ref={ref} {...typographyProps}>
         {children}
-        {renderIcon && <LinkIcon iconName="openExternal" iconSize="inherit" />}
+        {renderIcon && <LinkIcon icon={OpenExternalIcon} iconSize="inherit" />}
       </StyledTypography>
     );
   }

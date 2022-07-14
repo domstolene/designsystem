@@ -16,6 +16,7 @@ import {
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
 import { getBaseHTMLProps } from '../../types';
+import { MenuIcon, MoreVerticalIcon } from '../../icons/tsx';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {
@@ -101,7 +102,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
         <ContextMenuGroup>
           <Button
             ref={buttonRef}
-            icon={hasNavInContextMenu ? 'menu' : 'moreVertical'}
+            icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
             appearance="borderless"
             purpose="secondary"
             onClick={handleContextMenuClick}

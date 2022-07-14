@@ -10,7 +10,7 @@ import {
   KeyboardEvent
 } from 'react';
 import styled, { css } from 'styled-components';
-import { Icon, IconName } from '../Icon';
+import { Icon } from '../Icon';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useCombinedRef, useOnKeyDown } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
@@ -21,6 +21,7 @@ import {
 } from '../../types';
 import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
+import { SvgIcon } from '../../icons/utils';
 
 type ButtonProps = {
   active: boolean;
@@ -59,7 +60,7 @@ export type TabProps = BaseComponentPropsWithChildren<
     /**Spesifiserer om fanen er aktiv. */
     active?: boolean;
     /** Ikon. */
-    icon?: IconName;
+    icon?: SvgIcon;
     /** Custom bredde for enkel fane. */
     width?: Property.Width;
     /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
@@ -138,7 +139,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   };
   return (
     <Button {...buttonProps}>
-      {icon && <Icon iconName={icon} iconSize="inherit" />}
+      {icon && <Icon icon={icon} iconSize="inherit" />}
       <span>{children}</span>
     </Button>
   );

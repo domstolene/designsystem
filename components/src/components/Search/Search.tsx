@@ -20,6 +20,7 @@ import {
   spaceSeparatedIdListGenerator
 } from '../../utils';
 import { Icon, IconSize } from '../Icon';
+import { SearchIcon } from '../../icons/tsx';
 
 type InputProps = { componentSize: SearchSize };
 
@@ -117,7 +118,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
         <OuterInputContainer width="100%">
           <InputContainer>
             <IconWrapper
-              iconName="search"
+              icon={SearchIcon}
               size={componentSize}
               iconSize={tokens.icon[componentSize].size as IconSize}
             />

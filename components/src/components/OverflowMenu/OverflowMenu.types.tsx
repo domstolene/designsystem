@@ -1,18 +1,19 @@
 import { Placement } from '../../hooks/useFloatPosition';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, RefObject } from 'react';
 import { BaseComponentProps } from '../../types';
-import { IconName } from '../../icons';
+
+import { SvgIcon } from '../../icons/utils';
 
 export type OverflowMenuContextItem = {
   title: string;
-  icon?: IconName;
+  icon?: SvgIcon;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
 );
 export type OverflowMenuNavItem = {
   title: string;
-  icon?: IconName;
+  icon?: SvgIcon;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 type UserProps = {

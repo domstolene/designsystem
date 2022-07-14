@@ -2,6 +2,7 @@ import { StoryTemplate } from '../../storybook';
 import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
 import { Story, Meta } from '@storybook/react';
 import { useState } from 'react';
+import { NotificationsIcon } from '../../icons/tsx';
 
 export default {
   title: 'Design system/Tabs',
@@ -33,16 +34,16 @@ export const Overview: Story<TabsProps> = () => (
     </Tabs>
     <Tabs>
       <TabList>
-        <Tab icon="notifications">Restriksjoner</Tab>
-        <Tab icon="notifications">Aktører</Tab>
-        <Tab icon="notifications">Logg</Tab>
+        <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+        <Tab icon={NotificationsIcon}>Aktører</Tab>
+        <Tab icon={NotificationsIcon}>Logg</Tab>
       </TabList>
     </Tabs>
     <Tabs tabContentDirection="column">
       <TabList>
-        <Tab icon="notifications">Restriksjoner</Tab>
-        <Tab icon="notifications">Aktører</Tab>
-        <Tab icon="notifications">Logg</Tab>
+        <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+        <Tab icon={NotificationsIcon}>Aktører</Tab>
+        <Tab icon={NotificationsIcon}>Logg</Tab>
       </TabList>
     </Tabs>
   </StoryTemplate>
@@ -69,9 +70,9 @@ export const WithIcon: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - with icon">
     <Tabs {...args}>
       <TabList>
-        <Tab icon="notifications">Tab 1</Tab>
-        <Tab icon="notifications">Tab 2</Tab>
-        <Tab icon="notifications">Tab 3</Tab>
+        <Tab icon={NotificationsIcon}>Tab 1</Tab>
+        <Tab icon={NotificationsIcon}>Tab 2</Tab>
+        <Tab icon={NotificationsIcon}>Tab 3</Tab>
       </TabList>
       <TabPanels>
         <TabPanel>Innhold 1</TabPanel>

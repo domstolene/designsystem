@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
+import { ErrorIcon, InfoIcon, WarningIcon } from '../../icons/tsx';
 
 const {
   colors: Colors,
@@ -63,15 +64,15 @@ export const globalMessageTokens = {
   icon: {
     marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
     info: {
-      icon: 'info',
+      icon: InfoIcon,
       color: Colors.DdsColorInfoDarkest
     },
     danger: {
-      icon: 'error',
+      icon: ErrorIcon,
       color: Colors.DdsColorDangerDarkest
     },
     warning: {
-      icon: 'warning',
+      icon: WarningIcon,
       color: Colors.DdsColorWarningDarkest
     }
   },

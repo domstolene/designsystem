@@ -22,6 +22,7 @@ import {
 } from './tableData';
 import { StoryTemplate } from '../../storybook';
 import { Icon } from '../Icon';
+import { PersonIcon, TrashIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/Table',
@@ -172,12 +173,12 @@ export const Hoverable = (args: TableProps) => {
 };
 
 export const WithButtonAndIcons = (args: TableProps) => {
-  const adminIcon = <Icon iconName="person" />;
+  const adminIcon = <Icon icon={PersonIcon} />;
   const deleteButton = (
     <Button
       label="Fjern tilgang"
       appearance="borderless"
-      icon="trash"
+      icon={TrashIcon}
       iconPosition="left"
     />
   );

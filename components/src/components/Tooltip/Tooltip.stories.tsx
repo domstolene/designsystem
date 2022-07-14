@@ -1,6 +1,7 @@
 import { Tooltip, TooltipProps } from '.';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
+import { HelpIcon } from '../../icons/tsx';
 
 export default {
   title: 'Design system/Tooltip',
@@ -28,7 +29,7 @@ export const Overview = () => (
     <Tooltip placement="top" text="top">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -36,7 +37,7 @@ export const Overview = () => (
     <Tooltip placement="top-start" text="top-start">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -44,7 +45,7 @@ export const Overview = () => (
     <Tooltip placement="top-end" text="top-end">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -52,7 +53,7 @@ export const Overview = () => (
     <Tooltip placement="bottom" text="bottom">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -60,7 +61,7 @@ export const Overview = () => (
     <Tooltip placement="bottom-start" text="bottom-start">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -68,7 +69,7 @@ export const Overview = () => (
     <Tooltip placement="bottom-end" text="bottom-end">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -76,7 +77,7 @@ export const Overview = () => (
     <Tooltip placement="left" text="left">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -84,7 +85,7 @@ export const Overview = () => (
     <Tooltip placement="left-start" text="left-start">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -92,7 +93,7 @@ export const Overview = () => (
     <Tooltip placement="left-end" text="left-end">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -100,7 +101,7 @@ export const Overview = () => (
     <Tooltip placement="right" text="right">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -108,7 +109,7 @@ export const Overview = () => (
     <Tooltip placement="right-start" text="right-start">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -116,7 +117,7 @@ export const Overview = () => (
     <Tooltip placement="right-end" text="right-end">
       <Button
         size="large"
-        icon="help"
+        icon={HelpIcon}
         appearance="rounded"
         aria-label="Vis forklaring"
       />
@@ -127,7 +128,11 @@ export const Overview = () => (
 export const Default = (args: TooltipProps) => (
   <StoryTemplate title="Tooltip - default" display="block">
     <Tooltip {...args} text="dette er en tooltip">
-      <Button icon="help" appearance="rounded" aria-label="Vis forklaring" />
+      <Button
+        icon={HelpIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
   </StoryTemplate>
 );
@@ -143,7 +148,11 @@ export const Centered = (args: TooltipProps) => (
     }}
   >
     <Tooltip {...args} text="dette er en tooltip">
-      <Button icon="help" appearance="rounded" aria-label="Vis forklaring" />
+      <Button
+        icon={HelpIcon}
+        appearance="rounded"
+        aria-label="Vis forklaring"
+      />
     </Tooltip>
   </StoryTemplate>
 );

@@ -1,6 +1,6 @@
 import { StoryTemplate } from '../../storybook';
 import { InternalHeader, InternalHeaderProps } from '.';
-import { IconName } from '../../icons';
+import { EditIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/InternalHeader',
@@ -57,7 +57,7 @@ const userWithHref = {
 
 const menuElementWithIcon = {
   title: 'action',
-  icon: 'edit' as IconName,
+  icon: EditIcon,
   onClick: () => {}
 };
 const menuElement = {

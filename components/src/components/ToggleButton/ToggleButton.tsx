@@ -1,11 +1,12 @@
 import { forwardRef, InputHTMLAttributes, useState } from 'react';
 import styled, { CSSObject } from 'styled-components';
-import { Icon, IconName } from '../Icon';
+import { Icon } from '../Icon';
 import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
 import { buttonTokens } from '../Button/Button.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { SvgIcon } from '../../icons/utils';
 
 const Input = styled.input`
   ${hideInput as CSSObject}
@@ -56,7 +57,7 @@ export type ToggleButtonProps = BaseComponentProps<
     /**Ledetekst for inputelementet. */
     label?: string;
     /** Ikon. */
-    icon?: IconName;
+    icon?: SvgIcon;
   },
   InputHTMLAttributes<HTMLInputElement>
 >;
@@ -79,7 +80,7 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
       <Container {...containerProps}>
         <Input {...inputProps} />
         <Content>
-          {icon && <Icon iconName={icon} iconSize="inherit" />} {label}
+          {icon && <Icon icon={icon} iconSize="inherit" />} {label}
         </Content>
       </Container>
     );

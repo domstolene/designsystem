@@ -6,6 +6,13 @@ import { Select } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
 import { Icon } from '../Icon';
 import { paginationTokens as tokens } from './Pagination.tokens';
+import {
+  MoreHorizontalIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronFirstIcon,
+  ChevronLastIcon
+} from '../../icons/tsx';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 const Nav = styled.nav`
@@ -164,7 +171,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                     }
                   />
                 ) : (
-                  <Icon iconName="moreHorizontal" />
+                  <Icon icon={MoreHorizontalIcon} />
                 )}
               </ListItem>
             );
@@ -176,7 +183,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         purpose="secondary"
         appearance="ghost"
         size="small"
-        icon="chevronLeft"
+        icon={ChevronLeftIcon}
         onClick={event => {
           onPageChange(event, activePage - 1);
         }}
@@ -189,7 +196,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         purpose="secondary"
         appearance="ghost"
         size="small"
-        icon="chevronRight"
+        icon={ChevronRightIcon}
         onClick={event => {
           onPageChange(event, activePage + 1);
         }}
@@ -232,7 +239,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               purpose="secondary"
               appearance="ghost"
               size="small"
-              icon="chevronFirst"
+              icon={ChevronFirstIcon}
               onClick={event => {
                 onPageChange(event, 1);
               }}
@@ -259,7 +266,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               purpose="secondary"
               appearance="ghost"
               size="small"
-              icon="chevronLast"
+              icon={ChevronLastIcon}
               onClick={event => {
                 onPageChange(event, pagesLength);
               }}

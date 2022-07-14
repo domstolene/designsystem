@@ -1,4 +1,3 @@
-import { IconName } from '../../icons';
 import {
   OverflowMenu,
   OverflowMenuProps,
@@ -8,6 +7,7 @@ import {
 } from '.';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
+import { MenuIcon, PlusCircledIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/OverflowMenu',
@@ -22,7 +22,7 @@ const items: OverflowMenuContextItem[] = [
   {
     title: 'Handling 2',
     onClick: () => {},
-    icon: 'addCircled' as IconName
+    icon: PlusCircledIcon
   },
   {
     title: 'Lenke 1',
@@ -45,7 +45,7 @@ export const Default = (args: OverflowMenuProps) => {
   return (
     <StoryTemplate title="OverflowMenu - default" display="flex-centered">
       <OverflowMenuGroup>
-        <Button icon="menu" />
+        <Button icon={MenuIcon} />
         <OverflowMenu {...args} items={items} />
       </OverflowMenuGroup>
     </StoryTemplate>
@@ -59,7 +59,7 @@ export const WithStaticUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon="menu" />
+        <Button icon={MenuIcon} />
         <OverflowMenu
           {...args}
           items={items}
@@ -77,7 +77,7 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon="menu" />
+        <Button icon={MenuIcon} />
         <OverflowMenu
           {...args}
           items={items}
@@ -95,7 +95,7 @@ export const WithNavigation = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon="menu" />
+        <Button icon={MenuIcon} />
         <OverflowMenu {...args} items={items} navItems={navItems} />
       </OverflowMenuGroup>
     </StoryTemplate>
@@ -109,7 +109,7 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon="menu" />
+        <Button icon={MenuIcon} />
         <OverflowMenu
           {...args}
           items={items}

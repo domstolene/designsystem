@@ -4,6 +4,7 @@ import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import { Typography } from '../../components/Typography';
 import { forwardRef } from 'react';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { ErrorIcon } from '../../icons/tsx';
 
 type WrapperProps = {
   messageType: InputMessageType;
@@ -52,7 +53,7 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
 
     return (
       <InputMessageWrapper {...wrapperProps}>
-        {isError && <Icon iconName="error" iconSize="inherit" />}
+        {isError && <Icon icon={ErrorIcon} iconSize="inherit" />}
         <Typography
           typographyType={
             isError ? 'supportingStyleLabel01' : 'supportingStyleHelperText01'

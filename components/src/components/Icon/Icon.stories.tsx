@@ -1,6 +1,7 @@
 import { StoryTemplate } from '../../storybook';
 import { Icon, IconProps } from '.';
 import { Typography } from '../Typography';
+import { OpenExternalIcon as OpenExternal } from '../../icons/tsx';
 
 export default {
   title: 'Design system/Icon',
@@ -18,26 +19,10 @@ export default {
 export const Overview = (args: IconProps) => {
   return (
     <StoryTemplate title="Icon - overview" display="grid" columnsAmount={4}>
-      <Icon
-        {...args}
-        iconSize="inherit"
-        iconName={args.iconName || 'openExternal'}
-      />
-      <Icon
-        {...args}
-        iconSize="small"
-        iconName={args.iconName || 'openExternal'}
-      />
-      <Icon
-        {...args}
-        iconSize="medium"
-        iconName={args.iconName || 'openExternal'}
-      />
-      <Icon
-        {...args}
-        iconSize="large"
-        iconName={args.iconName || 'openExternal'}
-      />
+      <Icon {...args} iconSize="inherit" icon={OpenExternal} />
+      <Icon {...args} iconSize="small" icon={OpenExternal} />
+      <Icon {...args} iconSize="medium" icon={OpenExternal} />
+      <Icon {...args} iconSize="large" icon={OpenExternal} />
     </StoryTemplate>
   );
 };
@@ -45,7 +30,7 @@ export const Overview = (args: IconProps) => {
 export const Default = (args: IconProps) => {
   return (
     <StoryTemplate title="Icon - default">
-      <Icon {...args} iconName={args.iconName || 'openExternal'} />
+      <Icon {...args} icon={OpenExternal} />
     </StoryTemplate>
   );
 };
@@ -57,11 +42,7 @@ export const Inherit = (args: IconProps) => {
         typographyType="bodySans04"
         style={{ display: 'flex', alignItems: 'center' }}
       >
-        <Icon
-          {...args}
-          iconName={args.iconName || 'openExternal'}
-          iconSize="inherit"
-        />
+        <Icon {...args} icon={OpenExternal} iconSize="inherit" />
         Tekst
       </Typography>
     </StoryTemplate>

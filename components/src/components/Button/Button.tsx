@@ -62,7 +62,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         size={size}
         isHidden={hasIcon && loading}
       >
-        <Icon iconName={icon} iconSize="inherit" />
+        <Icon icon={icon} iconSize="inherit" />
       </StyledIconWrapperSpan>
     );
 

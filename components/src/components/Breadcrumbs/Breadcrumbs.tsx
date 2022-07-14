@@ -2,6 +2,7 @@ import { forwardRef, Children } from 'react';
 import styled from 'styled-components';
 import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
 import { Icon } from '../Icon';
+import { ChevronRightIcon, ArrowLeftIcon } from '../../icons/tsx';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const List = styled.ol`
@@ -42,14 +43,14 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
 
     const breadcrumbChildren = smallScreen ? (
       <ListItem>
-        <StyledIcon iconName="arrowLeft" />
+        <StyledIcon icon={ArrowLeftIcon} />
         {childrenArray[childrenArray.length - 2]}
       </ListItem>
     ) : (
       childrenArray.map((item, index) => {
         return (
           <ListItem key={`breadcrumb-${index}`}>
-            {index !== 0 && <StyledIcon iconName="chevronRight" />}
+            {index !== 0 && <StyledIcon icon={ChevronRightIcon} />}
             {item}
           </ListItem>
         );

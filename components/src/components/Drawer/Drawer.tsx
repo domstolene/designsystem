@@ -16,6 +16,7 @@ import { scrollbarStyling } from '../../helpers/styling';
 import { Paper } from '../../helpers';
 import { Property } from 'csstype';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { CloseIcon } from '../../icons/tsx';
 
 type ContainerProps = {
   placement: DrawerPlacement;
@@ -184,7 +185,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
             appearance="borderless"
             onClick={onClose}
             aria-label="Lukk"
-            icon="close"
+            icon={CloseIcon}
           />
         </Container>,
         parentElement

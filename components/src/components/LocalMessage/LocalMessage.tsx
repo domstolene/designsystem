@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components';
 import { Button, ButtonPurpose } from '../Button';
 import { forwardRef, useState } from 'react';
 import { localMessageTokens as tokens } from './LocalMessage.tokens';
-import { Icon, IconName } from '../Icon';
+import { Icon } from '../Icon';
 import { Property } from 'csstype';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { CloseIcon } from '../../icons/tsx';
 
 type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
 
@@ -133,7 +134,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 
     const messageIconWrapper = (
       <MessageIconWrapper
-        iconName={tokens.icon[purpose].icon as IconName}
+        icon={tokens.icon[purpose].icon}
         color={tokens.icon[purpose].color}
       />
     );
@@ -142,7 +143,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 
     const closeButton = closable && (
       <Button
-        icon="close"
+        icon={CloseIcon}
         purpose={buttonPurpose}
         appearance="borderless"
         onClick={() => {
