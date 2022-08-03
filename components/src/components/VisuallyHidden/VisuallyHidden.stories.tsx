@@ -2,7 +2,7 @@ import { VisuallyHidden, VisuallyHiddenProps } from '.';
 import { StoryTemplate } from '../../storybook';
 import { Typography } from '../Typography';
 import { SB_DESIGNSYSTEM_PREFIX } from '../../storybook';
-import { Table, Cell, Row } from '../Table';
+import { Table, Cell, Row, Head, Body } from '../Table';
 import { Button } from '../Button';
 
 export default {
@@ -39,27 +39,31 @@ export const Link = () => (
 export const TableButtons = () => (
   <StoryTemplate title="VisuallyHidden - table example">
     <Table density="compact">
-      <Row type="head">
-        <Cell type="head">Navn</Cell>
-        <Cell type="head">Rolle</Cell>
-        <Cell type="head">
-          <VisuallyHidden as="span">Aksjoner</VisuallyHidden>
-        </Cell>
-      </Row>
-      <Row type="body">
-        <Cell>Ane Bjerke</Cell>
-        <Cell>Administrator</Cell>
-        <Cell>
-          <Button label="Slett" size="small" purpose="danger" />
-        </Cell>
-      </Row>
-      <Row type="body">
-        <Cell>Sandra Lovsetter</Cell>
-        <Cell>Bruker</Cell>
-        <Cell>
-          <Button label="Slett" size="small" purpose="danger" />
-        </Cell>
-      </Row>
+      <Head>
+        <Row type="head">
+          <Cell type="head">Navn</Cell>
+          <Cell type="head">Rolle</Cell>
+          <Cell type="head">
+            <VisuallyHidden as="span">Aksjoner</VisuallyHidden>
+          </Cell>
+        </Row>
+      </Head>
+      <Body>
+        <Row type="body">
+          <Cell>Ane Bjerke</Cell>
+          <Cell>Administrator</Cell>
+          <Cell>
+            <Button label="Slett" size="small" purpose="danger" />
+          </Cell>
+        </Row>
+        <Row type="body">
+          <Cell>Sandra Lovsetter</Cell>
+          <Cell>Bruker</Cell>
+          <Cell>
+            <Button label="Slett" size="small" purpose="danger" />
+          </Cell>
+        </Row>
+      </Body>
     </Table>
   </StoryTemplate>
 );
