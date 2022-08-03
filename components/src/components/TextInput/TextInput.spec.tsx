@@ -65,4 +65,14 @@ describe('<TextInput />', () => {
     expect(screen.queryByText(errorMessage)).toBeDefined;
     expect(screen.queryByText(tip)).not.toBeDefined;
   });
+  it('should render correct number of characters when both maxLength and value are provided', () => {
+    const value = 'Test';
+    const valueLength = value.length;
+    const maxLength = 10;
+
+    render(<TextInput maxLength={maxLength} value={value} />);
+
+    const textElement = screen.getByText(`${valueLength}/${maxLength}`);
+    expect(textElement).toBeInTheDocument();
+  });
 });
