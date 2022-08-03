@@ -20,7 +20,10 @@ type VisuallyHiddenDivProps = BaseComponentPropsWithChildren<
 
 type VisuallyHiddenSpanProps = BaseComponentPropsWithChildren<
   HTMLSpanElement,
-  { /**Spesifiserer hvilken HTML tag skal returneres. */ as: 'span' }
+  {
+    /**Spesifiserer hvilken HTML tag skal returneres. */
+    as: 'span';
+  }
 >;
 
 export type VisuallyHiddenProps =
