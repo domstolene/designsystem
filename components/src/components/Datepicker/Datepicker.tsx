@@ -84,6 +84,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       tip,
       style,
       className,
+      max,
       'aria-describedby': ariaDescribedby,
       ...rest
     },
@@ -120,6 +121,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
         ariaDescribedby
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
+      max: max || '9999-12-31', // Limit the year-part to only four digits by default
       ...rest
     };
 
