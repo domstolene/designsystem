@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-components",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "React components used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
@@ -72,7 +72,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-storybook": "^0.5.13",
+    "eslint-plugin-storybook": "^0.6.1",
     "jest": "^27.5.1 ",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

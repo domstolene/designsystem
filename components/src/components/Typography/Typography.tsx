@@ -17,7 +17,8 @@ import {
   TextColor,
   OtherTypographyType,
   AnchorTypographyType,
-  LabelTypographyType
+  LabelTypographyType,
+  InlineElement
 } from './Typography.types';
 import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
@@ -68,6 +69,65 @@ const getElementType = (element: string): ElementType => {
   }
 };
 
+export const inlineElements: ElementType[] = [
+  'a',
+  'abbr',
+  'audio',
+  'b',
+  'bdi',
+  'bdo',
+  'big',
+  'br',
+  'button',
+  'canvas',
+  'cite',
+  'code',
+  'data',
+  'datalist',
+  'del',
+  'dfn',
+  'em',
+  'embed',
+  'i',
+  'iframe',
+  'img',
+  'input',
+  'ins',
+  'kbd',
+  'label',
+  'map',
+  'mark',
+  'meter',
+  'noscript',
+  'object',
+  'output',
+  'picture',
+  'progress',
+  'q',
+  'ruby',
+  's',
+  'samp',
+  'script',
+  'select',
+  'slot',
+  'small',
+  'span',
+  'strong',
+  'sub',
+  'sup',
+  'svg',
+  'template',
+  'textarea',
+  'time',
+  'u',
+  'var',
+  'video',
+  'wbr'
+];
+
+const isInlineElement = (as: ElementType): as is InlineElement =>
+  inlineElements.indexOf(as) !== -1;
+
 export function isTextColor(color: string): color is TextColor {
   return textColorsArray.indexOf(color) !== -1;
 }
@@ -86,7 +146,7 @@ const getElementStyling = (type: TypographyType) => {
   `;
 };
 
-type StyledTypographyProps = Pick<
+type StyledTypographyProps = { as: ElementType } & Pick<
   TypographyProps,
   | 'typographyType'
   | 'bold'
@@ -146,8 +206,13 @@ const StyledTypography = styled.p<StyledTypographyProps>`
       }
     `}
 
-  ${({ withMargins, typographyType }) =>
-    withMargins && typographyType
+  ${({ withMargins, typographyType, as }) =>
+    withMargins && typographyType && isInlineElement(as)
+      ? css`
+          ${tokens.typographyType[typographyType].margins.base}
+          display: block;
+        `
+      : withMargins && typographyType
       ? css`
           ${tokens.typographyType[typographyType].margins.base}
         `
