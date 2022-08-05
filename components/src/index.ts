@@ -33,3 +33,4 @@ export * from './components/Tabs';
 export * from './components/Tag';
 export * from './components/Chip';
 export * from './components/VisuallyHidden';
+export * from './components/Scrollbar';
