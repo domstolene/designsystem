@@ -344,6 +344,12 @@
     box-sizing: border-box;
   }
 
+  #docs-root .sbdocs-wrapper {
+    padding: 0 20px 4rem 20px;
+    margin: auto;
+    max-width: 850px;
+  }
+
   body,
   .docblock-argstable,
   .docblock-argstable-head th,
@@ -399,14 +405,19 @@
     margin-top: 0;
   }
 
-  .sbdocs p a:not(.docs-story *),
-  .sbdocs li a:not(.docs-story *) {
-    @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sbdocs p a:not(.docs-story *),
+    .sbdocs li a:not(.docs-story *) {
       transition: 0.2s;
     }
+  }
+
+  .sbdocs p a:not(.docs-story *),
+  .sbdocs li a:not(.docs-story *) {
     color: var(--dds-color-interactive-base);
     text-decoration: underline;
   }
+
   .sbdocs p a:hover:not(.docs-story *),
   .sbdocs li a:hover:not(.docs-story *) {
     color: var(--dds-color-interactive-dark);
@@ -469,4 +480,4 @@
           
       
           
-            window['STORIES'] = [{"titlePrefix":"","directory":"./src","files":"**/*.stories.@(tsx|mdx)","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(tsx|mdx))$"}];</script><script src="runtime~main.75c75431.iframe.bundle.js"></script><script src="vendors~main.e5c3850a.iframe.bundle.js"></script><script src="main.ea22b658.iframe.bundle.js"></script></body></html>
+            window['STORIES'] = [{"titlePrefix":"","directory":"./src","files":"**/*.stories.@(tsx|mdx)","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.(tsx|mdx))$"}];</script><script src="runtime~main.75c75431.iframe.bundle.js"></script><script src="vendors~main.e5c3850a.iframe.bundle.js"></script><script src="main.c3d2b0b5.iframe.bundle.js"></script></body></html>
