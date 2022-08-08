@@ -6,7 +6,7 @@ describe('<Checkbox />', () => {
     const label = 'Select me';
     render(<Checkbox label={label} />);
     const labelElement = screen.getByText(label);
-    expect(labelElement).toBeDefined();
+    expect(labelElement).toBeInTheDocument();
   });
   it('should be selectable', () => {
     render(<Checkbox id="test" label="Test" />);
