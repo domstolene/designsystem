@@ -39,6 +39,6 @@ describe('<List />', () => {
       </List>
     );
     const listItemText = screen.getByText(text);
-    expect(listItemText).toBeDefined();
+    expect(listItemText).toBeInTheDocument();
   });
 });

@@ -37,7 +37,7 @@ describe('<Tooltip />', () => {
     );
     const textElement = screen.getByText(text);
     await waitFor(() => {
-      expect(textElement).toBeDefined();
+      expect(textElement).toBeInTheDocument();
     });
   });
   it('anchor element should have tooltip id as aria-describedby', async () => {

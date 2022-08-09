@@ -6,7 +6,7 @@ describe('<InternalHeader />', () => {
     const appName = 'appName';
     render(<InternalHeader applicationName={appName} />);
     const appNameElement = screen.getByText(appName);
-    expect(appNameElement).toBeDefined();
+    expect(appNameElement).toBeInTheDocument();
   });
 
   it('should run onclick event from context menu', () => {

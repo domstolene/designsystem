@@ -12,12 +12,12 @@ describe('<Search />', () => {
     render(<Search buttonProps={{ onClick: e => {}, label: label }} />);
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
-    expect(screen.queryByText(label)).toBeDefined;
+    expect(screen.queryByText(label)).toBeInTheDocument();
   });
   it('renders provided tip', () => {
     const tip = 'tip';
     render(<Search tip={tip} />);
-    expect(screen.queryByText(tip)).toBeDefined;
+    expect(screen.queryByText(tip)).toBeInTheDocument();
   });
   it('should have aria-dsecribedby when tip provided', () => {
     const tip = 'tip';
