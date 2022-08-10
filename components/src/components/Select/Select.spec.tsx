@@ -8,7 +8,7 @@ describe('<Select />', () => {
       <Select options={[{ label: 'label', value: 'item' }]} label={label} />
     );
     const labelElement = screen.getByText(label);
-    expect(labelElement).toBeDefined();
+    expect(labelElement).toBeInTheDocument();
   });
   it('should have aria-describedby when tip provided', () => {
     const id = 'id';

@@ -12,6 +12,6 @@ describe('<SkipToContent />', () => {
     const text = 'text';
     render(<SkipToContent href="#" text={text} />);
     const labelElement = screen.getByText(text);
-    expect(labelElement).toBeDefined();
+    expect(labelElement).toBeInTheDocument();
   });
 });

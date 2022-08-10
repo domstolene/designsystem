@@ -34,7 +34,7 @@ describe('<Popover />', () => {
       </PopoverGroup>
     );
     const titleElement = screen.getByText(title);
-    expect(titleElement).toBeDefined();
+    expect(titleElement).toBeInTheDocument();
   });
 
   it('should render content', () => {
@@ -46,7 +46,7 @@ describe('<Popover />', () => {
       </PopoverGroup>
     );
     const contentElement = screen.getByText(content);
-    expect(contentElement).toBeDefined();
+    expect(contentElement).toBeInTheDocument();
   });
 
   //må fikse disse testene

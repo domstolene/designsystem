@@ -10,7 +10,7 @@ describe('<DescriptionList />', () => {
         <DescriptionListDesc>desc</DescriptionListDesc>
       </DescriptionList>
     );
-    expect(screen.queryByText(termText)).toBeDefined();
+    expect(screen.queryByText(termText)).toBeInTheDocument();
   });
   it('should render description', () => {
     const descText = 'desc';
@@ -22,6 +22,6 @@ describe('<DescriptionList />', () => {
     );
     const desc = screen.getByRole('definition');
     expect(desc).toBeInTheDocument();
-    expect(screen.queryByText(descText)).toBeDefined();
+    expect(screen.queryByText(descText)).toBeInTheDocument();
   });
 });

@@ -34,8 +34,8 @@ describe('<Table />', () => {
     );
     const headerTextNode = screen.getByText(headerText);
     const bodyTextNode = screen.getByText(bodyText);
-    expect(headerTextNode).toBeDefined();
-    expect(bodyTextNode).toBeDefined();
+    expect(headerTextNode).toBeInTheDocument();
+    expect(bodyTextNode).toBeInTheDocument();
   });
   it('renders a header cell', () => {
     const headerText = 'header';
