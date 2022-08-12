@@ -34,3 +34,4 @@ export * from './components/Tag';
 export * from './components/Chip';
 export * from './components/VisuallyHidden';
 export * from './icons/tsx';
+export * from './components/Stepper';

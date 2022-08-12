@@ -1,0 +1,114 @@
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Canvas,
+  Story
+} from '@storybook/addon-docs';
+import { Stepper, Step } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+import { Typography } from '../Typography';
+
+<Meta title="Design system/Stepper BETA/API" component={Stepper} />
+
+# Stepper - Beta
+
+NB! Denne komponenten er ikke ferdig enda. Endringer kan skje utenfor standard SemVer-versjonering.
+
+{/*
+TODO: Legg inn denne når stepper er inne i Figma
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7003%3A143267"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Stepper"
+/> */}
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-stepper-beta--overview" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-stepper-beta'>Storybook</Typography>.
+
+## Oversikt
+
+Komponenten består av flere subkomponenter:
+
+- `<Stepper />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har to eller flere `<Step />` som barn.
+- `<Step />` - et steg.
+
+## Bruk i koden
+
+<Source
+  code={`import { Stepper, Step } from '@norges-domstoler/dds-components'
+
+export const StepperExample = () => {
+  const numSteps = 3;
+
+  const [activeStep, setActiveStep] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState(new Set());
+
+  const handleStepClick = (index: number) => {
+    console.log(index);
+    setActiveStep(index);
+  };
+
+  const allStepsFinished = completedSteps.size === numSteps;
+
+  return (
+    <StoryTemplate title="Stepper - overview" display="block">
+      <Stepper activeStep={activeStep}>
+        <Step completed={completedSteps.has(0)} onClick={handleStepClick}>
+          Partopplysninger
+        </Step>
+        <Step completed={completedSteps.has(1)} onClick={handleStepClick}>
+          Slutning
+        </Step>
+        <Step completed={completedSteps.has(2)} onClick={handleStepClick}>
+          Vedlegg
+        </Step>
+      </Stepper>
+
+      {allStepsFinished ? (
+        <div>Ferdig!</div>
+      ) : (
+        <>
+          {activeStep === 0 && <div>Steg 1</div>}
+          {activeStep === 1 && <div>Steg 2</div>}
+          {activeStep === 2 && <div>Steg 3</div>}
+        </>
+      )}
+
+      <Button
+        onClick={() => {
+          setCompletedSteps(s => new Set([...s, activeStep]));
+          if (activeStep < numSteps - 1) {
+            setActiveStep(s => s + 1);
+          }
+        }}
+        label={allStepsFinished ? 'Du er ferdig' : 'Sett som ferdig'}
+      />
+    </StoryTemplate>
+  );
+};
+`}
+/>
+
+## API
+
+### Stepper
+
+Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<Step />` som barn.
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+### Step
+
+Et steg.
+
+<ArgsTable of={Step} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`.
