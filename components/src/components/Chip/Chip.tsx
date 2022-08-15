@@ -2,8 +2,8 @@ import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { chipTokens as tokens } from './Chip.tokens';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { CloseIcon } from '../../icons/tsx';
 
 const Container = styled.div`
   ${tokens.container.base}
@@ -43,7 +43,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
       <TextWrapper>{text}</TextWrapper>
       <Button
         size="tiny"
-        Icon={CloseOutlinedIcon}
+        icon={CloseIcon}
         appearance="borderless"
         purpose="secondary"
         onClick={onClick}

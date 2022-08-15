@@ -1,11 +1,13 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
-import WarningOutlinedIcon from '@mui/icons-material/ReportOutlined';
-import DangerOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import EmojiObjectsOutlinedIcon from '@mui/icons-material/EmojiObjectsOutlined';
 import { CSSObject } from 'styled-components';
 import { Property } from 'csstype';
+import {
+  ErrorIcon,
+  TipIcon,
+  InfoIcon,
+  WarningIcon,
+  CheckCircledIcon
+} from '../../icons/tsx';
 
 const {
   colors: Colors,
@@ -120,27 +122,27 @@ export const localMessageTokens = {
   icon: {
     marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
     info: {
-      icon: InfoOutlinedIcon,
+      icon: InfoIcon,
       color: Colors.DdsColorInfoDarkest
     },
     danger: {
-      icon: DangerOutlinedIcon,
+      icon: ErrorIcon,
       color: Colors.DdsColorDangerDarkest
     },
     warning: {
-      icon: WarningOutlinedIcon,
+      icon: WarningIcon,
       color: Colors.DdsColorWarningDarkest
     },
     success: {
-      icon: CheckCircleOutlinedIcon,
+      icon: CheckCircledIcon,
       color: Colors.DdsColorSuccessDarkest
     },
     tips: {
-      icon: EmojiObjectsOutlinedIcon,
+      icon: TipIcon,
       color: Colors.DdsColorPrimaryDarkest
     },
     confidential: {
-      icon: DangerOutlinedIcon,
+      icon: ErrorIcon,
       color: Colors.DdsColorDangerDarkest
     }
   },

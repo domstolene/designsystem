@@ -1,5 +1,3 @@
-import { SvgIconTypeMap } from '@mui/material';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
 import {
   ButtonHTMLAttributes,
   Dispatch,
@@ -12,7 +10,7 @@ import {
   KeyboardEvent
 } from 'react';
 import styled, { css } from 'styled-components';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useCombinedRef, useOnKeyDown } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
@@ -23,6 +21,7 @@ import {
 } from '../../types';
 import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
+import { SvgIcon } from '../../icons/utils';
 
 type ButtonProps = {
   active: boolean;
@@ -61,7 +60,7 @@ export type TabProps = BaseComponentPropsWithChildren<
     /**Spesifiserer om fanen er aktiv. */
     active?: boolean;
     /** Ikon. */
-    Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+    icon?: SvgIcon;
     /** Custom bredde for enkel fane. */
     width?: Property.Width;
     /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
@@ -78,7 +77,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   const {
     active = false,
     width,
-    Icon,
+    icon,
     children,
     focus,
     setFocus,
@@ -140,7 +139,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   };
   return (
     <Button {...buttonProps}>
-      {Icon && <IconWrapper Icon={Icon} iconSize="inline" />}
+      {icon && <Icon icon={icon} iconSize="inherit" />}
       <span>{children}</span>
     </Button>
   );

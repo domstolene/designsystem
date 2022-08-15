@@ -1,4 +1,4 @@
-import React, {
+import {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   forwardRef,
@@ -8,15 +8,15 @@ import React, {
   Dispatch,
   SetStateAction,
   MouseEvent,
-  KeyboardEvent
+  KeyboardEvent,
+  ForwardedRef
 } from 'react';
 import styled from 'styled-components';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { SvgIconTypeMap } from '@mui/material/SvgIcon';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import { useCombinedRef } from '../../hooks';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { SvgIcon } from '../../icons/utils';
 
 export const Span = styled.span`
   ${tokens.link.base}
@@ -53,11 +53,9 @@ export const Link = styled.a`
   }
 `;
 
-export const StyledIconWrapper = styled(IconWrapper)``;
-
 type BaseOverflowMenuItemProps = {
   title: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: SvgIcon;
   focus?: boolean;
   setFocus?: Dispatch<SetStateAction<number>>;
   index?: number;
@@ -105,7 +103,7 @@ export const OverflowMenuItem = forwardRef<
 >((props, ref) => {
   const {
     title,
-    Icon,
+    icon,
     focus,
     setFocus,
     index,
@@ -161,12 +159,12 @@ export const OverflowMenuItem = forwardRef<
     role: 'menuitem',
     tabIndex: focus ? 0 : -1
   };
-  const icon = Icon && <StyledIconWrapper iconSize="inline" Icon={Icon} />;
+  const iconElement = icon && <Icon iconSize="inherit" icon={icon} />;
 
   if (!href && !onClick) {
     return (
       <Span {...{ ...getBaseHTMLProps(id, className, htmlProps, rest), ref }}>
-        {icon}
+        {iconElement}
         {title}
       </Span>
     );
@@ -178,9 +176,9 @@ export const OverflowMenuItem = forwardRef<
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
         {...linkProps}
         as="button"
-        ref={combinedRef as React.ForwardedRef<HTMLButtonElement>}
+        ref={combinedRef as ForwardedRef<HTMLButtonElement>}
       >
-        {icon}
+        {iconElement}
         {title}
       </Link>
     );
@@ -191,9 +189,9 @@ export const OverflowMenuItem = forwardRef<
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       {...linkProps}
       as="a"
-      ref={combinedRef as React.ForwardedRef<HTMLAnchorElement>}
+      ref={combinedRef as ForwardedRef<HTMLAnchorElement>}
     >
-      {icon}
+      {iconElement}
       {title}
     </Link>
   );

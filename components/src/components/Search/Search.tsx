@@ -6,7 +6,6 @@ import {
   useState
 } from 'react';
 import styled, { css } from 'styled-components';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import {
@@ -20,6 +19,8 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator
 } from '../../utils';
+import { Icon, IconSize } from '../Icon';
+import { SearchIcon } from '../../icons/tsx';
 
 type InputProps = { componentSize: SearchSize };
 
@@ -38,11 +39,17 @@ const Input = styled(BaseInput)<InputProps>`
     `}
 `;
 
-const IconWrapper = styled.span`
-  ${tokens.iconWrapper.base}
+type StyledIconProps = {
+  size: SearchSize;
+};
+
+const IconWrapper = styled(Icon)<StyledIconProps>`
   position: absolute;
-  top: ${tokens.icon.spaceTop};
+  ${tokens.iconWrapper.base}
   left: ${tokens.icon.spaceLeft};
+  ${({ size }) => css`
+    top: ${tokens.icon[size].spaceTop};
+  `}
 `;
 
 const Container = styled.div`
@@ -110,9 +117,11 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       <Container {...containerProps}>
         <OuterInputContainer width="100%">
           <InputContainer>
-            <IconWrapper>
-              <SearchOutlinedIcon />
-            </IconWrapper>
+            <IconWrapper
+              icon={SearchIcon}
+              size={componentSize}
+              iconSize={tokens.icon[componentSize].size as IconSize}
+            />
             <Input {...inputProps} />
           </InputContainer>
           {hasTip && (

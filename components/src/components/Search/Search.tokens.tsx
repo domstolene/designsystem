@@ -4,7 +4,7 @@ import {
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
-const { spacing, fontPackages } = ddsBaseTokens;
+const { spacing, fontPackages, iconSizes } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
 const inputBase: CSSObject = {
@@ -54,8 +54,20 @@ export const searchTokens = {
     }
   },
   icon: {
-    spaceTop: `calc(50% - ${spacing.SizesDdsSpacingLocalX15NumberPx / 2}px)`,
-    spaceLeft: spacing.SizesDdsSpacingLocalX075
+    spaceLeft: spacing.SizesDdsSpacingLocalX075,
+    small: {
+      size: 'small',
+      spaceTop: `calc(50% - ${iconSizes.DdsIconsizeSmallNumberPx / 2}px)`
+    },
+    medium: {
+      size: 'medium',
+      spaceTop: `calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`
+    },
+    large: {
+      size: 'medium',
+      spaceTop: `calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`
+    },
+    spaceTop: `calc(50% - ${spacing.SizesDdsSpacingLocalX15NumberPx / 2}px)`
   },
   iconWrapper: {
     base: iconWrapperBase

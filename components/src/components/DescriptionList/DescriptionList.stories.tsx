@@ -6,9 +6,9 @@ import {
   DescriptionListProps
 } from '.';
 import { StoryTemplate } from '../../storybook';
-import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import { Typography } from '../Typography';
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
+import { CallIcon } from '../../icons/tsx';
 
 export default {
   title: 'Design system/DescriptionList',
@@ -42,22 +42,22 @@ export const Overview = () => {
 
       <DescriptionList>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
       </DescriptionList>
 
       <DescriptionList appearance="small">
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
       </DescriptionList>
@@ -111,7 +111,7 @@ export const WithIcon = (args: DescriptionListProps) => {
     <StoryTemplate title="DescriptionList - with icon">
       <DescriptionList {...args}>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
       </DescriptionList>

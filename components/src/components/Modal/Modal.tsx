@@ -2,7 +2,6 @@ import { forwardRef, ReactNode, RefObject, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useFocusTrap } from '../../hooks';
 import { useCombinedRef, useOnClickOutside, useOnKeyDown } from '../../hooks';
 import { createPortal } from 'react-dom';
@@ -15,6 +14,7 @@ import {
 import { useMountTransition } from '../../hooks/useMountTransition';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { CloseIcon } from '../../icons/tsx';
 
 const Container = styled.div`
   display: flex;
@@ -142,7 +142,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                 size="small"
                 appearance="borderless"
                 purpose="secondary"
-                Icon={CloseOutlinedIcon}
+                icon={CloseIcon}
                 onClick={handleClose}
                 aria-label="Lukk dialog"
               />

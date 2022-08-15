@@ -1,8 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import WarningOutlinedIcon from '@mui/icons-material/ReportOutlined';
-import DangerOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { CSSObject } from 'styled-components';
+import { ErrorIcon, InfoIcon, WarningIcon } from '../../icons/tsx';
 
 const {
   colors: Colors,
@@ -21,7 +19,8 @@ const containerBase: CSSObject = {
 const contentContainerBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX15,
   paddingTop: Spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: Spacing.SizesDdsSpacingLocalX075
+  paddingBottom: Spacing.SizesDdsSpacingLocalX075,
+  gap: Spacing.SizesDdsSpacingLocalX075
 };
 
 const contentContainerWithClosableBase: CSSObject = {
@@ -65,15 +64,15 @@ export const globalMessageTokens = {
   icon: {
     marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
     info: {
-      icon: InfoOutlinedIcon,
+      icon: InfoIcon,
       color: Colors.DdsColorInfoDarkest
     },
     danger: {
-      icon: DangerOutlinedIcon,
+      icon: ErrorIcon,
       color: Colors.DdsColorDangerDarkest
     },
     warning: {
-      icon: WarningOutlinedIcon,
+      icon: WarningIcon,
       color: Colors.DdsColorWarningDarkest
     }
   },

@@ -1,8 +1,6 @@
 import { useRef, useState } from 'react';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
-import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { InternalHeaderProps } from './InternalHeader.types';
 import {
   Wrapper,
@@ -18,6 +16,7 @@ import {
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
 import { getBaseHTMLProps } from '../../types';
+import { MenuIcon, MoreVerticalIcon } from '../../icons/tsx';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {
@@ -103,7 +102,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
         <ContextMenuGroup>
           <Button
             ref={buttonRef}
-            Icon={hasNavInContextMenu ? MenuOutlinedIcon : MoreVertOutlinedIcon}
+            icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
             appearance="borderless"
             purpose="secondary"
             onClick={handleContextMenuClick}

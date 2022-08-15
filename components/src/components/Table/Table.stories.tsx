@@ -21,8 +21,8 @@ import {
   mapCellContents
 } from './tableData';
 import { StoryTemplate } from '../../storybook';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
+import { Icon } from '../Icon';
+import { PersonIcon, TrashIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/Table',
@@ -173,12 +173,12 @@ export const Hoverable = (args: TableProps) => {
 };
 
 export const WithButtonAndIcons = (args: TableProps) => {
-  const adminIcon = <SupervisorAccountOutlinedIcon />;
+  const adminIcon = <Icon icon={PersonIcon} />;
   const deleteButton = (
     <Button
       label="Fjern tilgang"
       appearance="borderless"
-      Icon={DeleteOutlinedIcon}
+      icon={TrashIcon}
       iconPosition="left"
     />
   );

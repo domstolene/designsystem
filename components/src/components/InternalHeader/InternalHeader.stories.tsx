@@ -1,6 +1,6 @@
 import { StoryTemplate } from '../../storybook';
 import { InternalHeader, InternalHeaderProps } from '.';
-import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import { EditIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/InternalHeader',
@@ -57,7 +57,7 @@ const userWithHref = {
 
 const menuElementWithIcon = {
   title: 'action',
-  Icon: CreateOutlinedIcon,
+  icon: EditIcon,
   onClick: () => {}
 };
 const menuElement = {

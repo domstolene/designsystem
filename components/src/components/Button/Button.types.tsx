@@ -1,6 +1,5 @@
-import { SvgIconTypeMap } from '@mui/material/SvgIcon';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { ButtonHTMLAttributes } from 'react';
+import { SvgIcon } from '../../icons/utils/propTypes';
 import { BaseComponentProps } from '../../types';
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
@@ -29,7 +28,7 @@ export type ButtonProps = BaseComponentProps<
     /**Indikerer en loading-knapp. */
     loading?: boolean;
     /**Ikonet som ligger i knappen.  */
-    Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+    icon?: SvgIcon;
     /**Knapp med full bredde. */
     fullWidth?: boolean;
     /**URL for knapper som skal brukes som lenke. Knappen blir til et `<a>`-element. */

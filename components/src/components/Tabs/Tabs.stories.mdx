@@ -6,7 +6,12 @@ import {
   Story
 } from '@storybook/addon-docs';
 import { Tabs, TabList, Tab, TabPanel, TabPanels } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/Tabs/API" component={Tabs} />
@@ -25,7 +30,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-tabs--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-tabs'>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-tabs`} />
 
 ## Oversikt
 

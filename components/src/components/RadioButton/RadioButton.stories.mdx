@@ -6,7 +6,12 @@ import {
   PRIMARY_STORY
 } from '@storybook/addon-docs';
 import { RadioButton, RadioButtonGroup } from '.';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/RadioButton/API" component={RadioButton} />
@@ -29,7 +34,9 @@ import { Typography } from '../Typography';
   <Story id="design-system-radiobutton-radiobuttongroup--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-radiobutton-radiobutton`}>Storybook</Typography>.
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}-radiobutton-radiobutton`}
+/>
 
 ## Bruk i koden
 

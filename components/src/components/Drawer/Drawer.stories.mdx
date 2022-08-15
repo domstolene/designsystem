@@ -6,7 +6,12 @@ import {
   PRIMARY_STORY
 } from '@storybook/addon-docs';
 import { Drawer, DrawerGroup } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/Drawer/API" component={Drawer} />
@@ -25,7 +30,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-drawer--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-drawer'>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-drawer`} />
 
 ## Oversikt
 
