@@ -21,7 +21,7 @@ const getSize = (iconSize: IconSize): string => {
 export type IconSize = 'small' | 'medium' | 'large' | 'inherit';
 
 export type IconProps = BaseComponentProps<
-  SVGElement,
+  SVGSVGElement,
   {
     /**Ikonet importert fra `@norges-domstoler/dds-components`. */
     icon: SvgIcon;
