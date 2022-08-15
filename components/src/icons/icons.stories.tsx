@@ -137,10 +137,15 @@ export const Overview = () => {
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       const value = values[i];
+      const trimmedName = trim(key);
       overview.push(
-        <IconContainer key={key} onClick={() => onIconClick(key, value)}>
+        <IconContainer
+          key={key}
+          onClick={() => onIconClick(key, value)}
+          title={trimmedName}
+        >
           <Icon iconSize="large" icon={value} />
-          <Name typographyType="supportingStyleTiny01">{trim(key)}</Name>
+          <Name typographyType="supportingStyleTiny01">{trimmedName}</Name>
         </IconContainer>
       );
     }
