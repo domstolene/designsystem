@@ -1,6 +1,6 @@
 import { StyledSvg } from '../utils/StyledSvg';
 import { SvgProps } from '../utils/propTypes';
-export function IconIcon(props: SvgProps) {
+export function ChevronLargeRightIcon(props: SvgProps) {
   const { title, ...rest } = props;
   return (
     <StyledSvg
