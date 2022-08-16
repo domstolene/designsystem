@@ -27,6 +27,9 @@ const IconContainer = styled.div`
   cursor: pointer;
   gap: ${spacing.SizesDdsSpacingLocalX075};
   width: 80px;
+  @media only screen and (min-width: 1400px) {
+    width: 100px;
+  }
   transition: background-color 0.2s;
   &:hover {
     background-color: ${colors.DdsColorInteractiveLightest};
@@ -48,6 +51,12 @@ const Container = styled.div`
   gap: ${spacing.SizesDdsSpacingLayoutX15};
   max-width: 800px;
   margin: auto;
+  @media only screen and (min-width: 1400px) {
+    max-width: 1150px;
+  }
+  @media only screen and (min-width: 1600px) {
+    max-width: 1350px;
+  }
 `;
 
 const Name = styled(Typography)`
@@ -130,10 +139,12 @@ export const Overview = () => {
     setCopiedImport(true);
   };
 
+  const iconKeys = Object.keys(icons);
+
   const iconOverview = () => {
     const overview = [];
     const values = Object.values(icons);
-    const keys = Object.keys(icons);
+    const keys = iconKeys;
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       const value = values[i];
@@ -165,6 +176,9 @@ export const Overview = () => {
       <Container>
         <Typography typographyType="bodySans03">
           Klikk på ikonet for mer info.
+        </Typography>
+        <Typography typographyType="supportingStyleHelperText01">
+          Antall ikoner: {iconKeys.length}
         </Typography>
         <OverviewContainer>{iconOverview()}</OverviewContainer>
         <Modal
