@@ -1,6 +1,6 @@
 import { StyledSvg } from '../utils/StyledSvg';
 import { SvgProps } from '../utils/propTypes';
-export function QestionAnswerIcon(props: SvgProps) {
+export function QuestionAnswerIcon(props: SvgProps) {
   const { title, ...rest } = props;
   return (
     <StyledSvg
