@@ -28,7 +28,7 @@ export type BaseComponentProps<
  */
 export type BaseComponentPropsWithChildren<
   T extends Element,
-  TProps extends Record<string, unknown>,
+  TProps extends Record<string, unknown> = Record<string, unknown>,
   THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>
 > = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
 
