@@ -41,7 +41,10 @@ const Thumb = styled.div<ThumbProps>`
 
 export type ScrollbarProps = BaseComponentProps<
   HTMLDivElement,
-  { contentRef?: RefObject<HTMLDivElement> }
+  {
+    /** Ref til container med innholdet som skal scrolles. */
+    contentRef?: RefObject<HTMLDivElement>;
+  }
 >;
 
 export const Scrollbar = (props: ScrollbarProps) => {
