@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { scrollbarTokens as tokens } from './Scrollbar.tokens';
 
+const { track, thumb } = tokens;
+
 const ScrollbarOuterWrapper = styled.div``;
 
 const ScrollbarElements = styled.div`
@@ -15,8 +17,9 @@ const Track = styled.div`
   bottom: 0;
   top: 0;
   position: absolute;
-
-  ${tokens.track.base}
+  background-color: ${track.backgroundColor};
+  border-radius: ${track.borderRadius};
+  width: ${track.width};
 `;
 
 type ThumbProps = {
@@ -29,7 +32,9 @@ const Thumb = styled.div<ThumbProps>`
 
   height: ${({ height }) => height}px;
   top: ${({ top }) => top}px;
-  ${tokens.thumb.base}
+  background-color: ${thumb.backgroundColor};
+  border-radius: ${thumb.borderRadius};
+  width: ${thumb.width};
 `;
 
 export type ScrollbarProps = BaseComponentProps<
