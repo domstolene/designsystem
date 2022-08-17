@@ -7,7 +7,7 @@ import { scrollbarTokens as tokens } from './Scrollbar.tokens';
 
 const { track, content } = tokens;
 
-const StyledScrollbarContainer = styled.div`
+const StyledScrollableContainer = styled.div`
   grid-template: auto / 1fr ${track.width};
   overflow: hidden;
   position: relative;
@@ -28,12 +28,12 @@ const Content = styled.div<ContentProps>`
   padding-right: ${content.paddingRight};
 `;
 
-export type ScrollbarContainer = BaseComponentPropsWithChildren<
+export type ScrollableContainerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   { contentHeight?: Property.Height }
 >;
 
-export const ScrollbarContainer = (props: ScrollbarContainer) => {
+export const ScrollableContainer = (props: ScrollableContainerProps) => {
   const {
     children,
     id,
@@ -44,13 +44,13 @@ export const ScrollbarContainer = (props: ScrollbarContainer) => {
   } = props;
   const ref = useRef<HTMLDivElement>(null);
   return (
-    <StyledScrollbarContainer
+    <StyledScrollableContainer
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
       <Content height={contentHeight} ref={ref}>
         {children}
       </Content>
       <Scrollbar contentRef={ref} />
-    </StyledScrollbarContainer>
+    </StyledScrollableContainer>
   );
 };

@@ -5,11 +5,11 @@ import {
   Story,
   Canvas
 } from '@storybook/addon-docs';
-import { Scrollbar, ScrollbarContainer } from '.';
+import { Scrollbar, ScrollableContainer } from '.';
 import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
 import { Typography } from '../Typography';
 
-<Meta title="Design system/Scrollbar/API" component={Scrollbar} />
+<Meta title="Design system/Scrollbar/API" component={ScrollableContainer} />
 
 # Scrollbar
 
@@ -31,19 +31,19 @@ Se stories med kontrollere i <Typography externalLink typographyType="a" href={`
 
 To subkomponenter er tilgjengelige:
 
-- `ScrollbarContainer` - en wrapper for innhold som skal scrolles. Håndterer scrollibg ut av boksen.
-- `Scrollbar` - brukt i `ScrollbarContainer`. Kan brukes alene og håndtere plassering av scrollbaren selv.
+- `ScrollableContainer` - en wrapper for innhold som skal scrolles. Håndterer scrolling ut av boksen og bruker scrollbar.
+- `Scrollbar` - brukt i `ScrollableContainer`. Kan brukes alene og håndtere plassering av scrollbaren selv.
 
 ## Bruk i koden
 
 ### Vanlig bruk
 
-<Source code={`import { ScrollbarContainer } from '@norges-domstoler/dds-components';
+<Source code={`import { ScrollableContainer } from '@norges-domstoler/dds-components';
 
-<ScrollbarContainer>
+<ScrollableContainer>
   <p>lang tekst</p>
   <p>lang tekst</p>
-</ScrollbarContainer>
+</ScrollableContainer>
 
 `} />
 
@@ -68,3 +68,13 @@ const contentRef = useRef();
   <Scrollbar />
 </div>
 `} />
+
+## API
+
+## ScrollableContainer
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## Scrollbar
+
+<ArgsTable of={Scrollbar} />

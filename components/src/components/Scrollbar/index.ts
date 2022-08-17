@@ -1,2 +1,2 @@
 export * from './Scrollbar';
-export * from './ScrollbarContainer';
+export * from './ScrollableContainer';

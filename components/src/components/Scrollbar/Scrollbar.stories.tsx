@@ -1,6 +1,7 @@
 import { SB_DESIGNSYSTEM_PREFIX, StoryTemplate } from '../../storybook';
-import { Scrollbar, ScrollbarContainer } from '.';
-import { useRef } from 'react';
+import { Scrollbar, ScrollableContainer } from '.';
+import { useRef, CSSProperties } from 'react';
+import styled from 'styled-components';
 
 export default {
   title: `${SB_DESIGNSYSTEM_PREFIX}/Scrollbar`,
@@ -10,7 +11,7 @@ export default {
 export const Default = () => {
   return (
     <StoryTemplate title="Scrollbar">
-      <ScrollbarContainer>
+      <ScrollableContainer>
         <p>
           Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
           begrense kostnadene veldig. Under hele meklingsprosessen betaler
@@ -123,23 +124,32 @@ export const Default = () => {
           ikke blir enige gjennom mekling, innkaller retten til et nytt
           rettsmøte (hovedforhandling).
         </p>
-      </ScrollbarContainer>
+      </ScrollableContainer>
     </StoryTemplate>
   );
 };
 
 export const JustScrollbar = () => {
   const contentRef = useRef<HTMLDivElement>(null);
-  const containerStyle = {
+  const containerStyle: CSSProperties = {
     display: 'grid',
-    gridTemplate: 'auto / 1fr 50px',
+    gridTemplate: 'auto / 1fr 20px',
     overflow: 'hidden'
   };
-  const contentStyle = { height: '500px', overflow: 'hidden' };
+
+  const ContentContainer = styled.div`
+    height: 500px;
+    overflow: auto;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  `;
+
   return (
     <StoryTemplate title="Scrollbar">
       <div style={containerStyle}>
-        <div style={contentStyle} ref={contentRef}>
+        <ContentContainer ref={contentRef}>
           <p>
             Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
             det begrense kostnadene veldig. Under hele meklingsprosessen betaler
@@ -252,7 +262,7 @@ export const JustScrollbar = () => {
             dere ikke blir enige gjennom mekling, innkaller retten til et nytt
             rettsmøte (hovedforhandling).
           </p>
-        </div>
+        </ContentContainer>
         <Scrollbar contentRef={contentRef} />
       </div>
     </StoryTemplate>
