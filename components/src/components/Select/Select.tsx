@@ -8,14 +8,18 @@ import {
   NoticeProps,
   OptionProps,
   Props as ReactSelectProps,
-  SelectInstance
+  SelectInstance,
+  SingleValueProps
 } from 'react-select';
-import { InputMessage } from '../InputMessage';
 import { RequiredMarker } from '../../helpers';
+import { CheckIcon } from '../../icons/tsx';
+import { WithRequiredIf } from '../../types/utils';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator
 } from '../../utils';
+import { Icon } from '../Icon';
+import { InputMessage } from '../InputMessage';
 import {
   Container,
   getCustomStyles,
@@ -24,11 +28,8 @@ import {
   Wrapper
 } from './Select.styles';
 import { selectTokens as tokens } from './Select.tokens';
-import { Icon } from '../Icon';
-import { CheckIcon } from '../../icons/tsx';
-import { WithRequiredIf } from '../../types/utils';
 
-const { Option: DdsOption, NoOptionsMessage, Input } = components;
+const { Option: DdsOption, NoOptionsMessage, Input, SingleValue } = components;
 
 export type SelectOption<TValue = unknown> = {
   label: string | number;
@@ -46,6 +47,26 @@ const IconOption = <TValue, IsMulti extends boolean>(
     {props.isSelected && <Icon icon={CheckIcon} iconSize="inherit" />}
     {props.children}
   </DdsOption>
+);
+
+const CustomOption = <TValue, IsMulti extends boolean>(
+  props: OptionProps<TValue, IsMulti>,
+  Element: (props: OptionProps<TValue, IsMulti>) => JSX.Element
+) => (
+  <DdsOption {...props}>
+    <Element {...props} />
+  </DdsOption>
+);
+
+const CustomSingleValue = <TOption, IsMulti extends boolean>(
+  props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
+  Element: (
+    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>
+  ) => JSX.Element
+) => (
+  <SingleValue {...props}>
+    <Element {...props} />
+  </SingleValue>
 );
 
 const NoOptionsMessageCustom = <TValue, IsMulti extends boolean>(
@@ -94,6 +115,12 @@ export type SelectProps<
   className?: string;
   /** Inline styling. */
   style?: React.CSSProperties;
+  customOptionElement?: (
+    props: OptionProps<TOption, IsMulti, GroupBase<TOption>>
+  ) => JSX.Element;
+  customSingleValueElement?: (
+    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>
+  ) => JSX.Element;
 } & WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
 
 let nextUniqueId = 0;
@@ -124,6 +151,8 @@ const SelectInner = <
     isDisabled,
     isClearable = true,
     placeholder = '-- Velg fra listen --',
+    customOptionElement,
+    customSingleValueElement,
     ...rest
   }: SelectProps<TOption, IsMulti>,
   ref: ForwardRefType<TOption, IsMulti>
@@ -186,9 +215,14 @@ const SelectInner = <
       return searchFilter(label, inputValue) || inputValue === '';
     },
     components: {
-      Option: IconOption,
+      Option: customOptionElement
+        ? props => CustomOption(props, customOptionElement)
+        : IconOption,
       NoOptionsMessage: NoOptionsMessageCustom,
-      Input: CustomInput
+      Input: CustomInput,
+      SingleValue: customSingleValueElement
+        ? props => CustomSingleValue(props, customSingleValueElement)
+        : SingleValue
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     ...rest
