@@ -3,9 +3,12 @@ import styled from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Scrollbar } from './Scrollbar';
 import { Property } from 'csstype';
+import { scrollbarTokens as tokens } from './Scrollbar.tokens';
+
+const { track } = tokens;
 
 const StyledScrollbarContainer = styled.div`
-  grid-template: auto / 1fr 50px;
+  grid-template: auto / 1fr ${track.width};
   overflow: hidden;
   position: relative;
   display: grid;
