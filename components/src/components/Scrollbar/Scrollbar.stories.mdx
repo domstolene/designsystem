@@ -1,0 +1,70 @@
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Story,
+  Canvas
+} from '@storybook/addon-docs';
+import { Scrollbar, ScrollbarContainer } from '.';
+import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import { Typography } from '../Typography';
+
+<Meta title="Design system/Scrollbar/API" component={Scrollbar} />
+
+# Scrollbar
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/32db9d-scrollbar"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=7963%3A148079"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Scrollbar "
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-scrollbar--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-scrollbar`}>Storybook</Typography>.
+
+## Oversikt
+
+To subkomponenter er tilgjengelige:
+
+- `ScrollbarContainer` - en wrapper for innhold som skal scrolles. Håndterer scrollibg ut av boksen.
+- `Scrollbar` - brukt i `ScrollbarContainer`. Kan brukes alene og håndtere plassering av scrollbaren selv.
+
+## Bruk i koden
+
+### Vanlig bruk
+
+<Source code={`import { ScrollbarContainer } from '@norges-domstoler/dds-components';
+
+<ScrollbarContainer>
+  <p>lang tekst</p>
+  <p>lang tekst</p>
+</ScrollbarContainer>
+
+`} />
+
+### Kun med `<Scrollbar>`
+
+<Source code={`import { Scrollbar } from '@norges-domstoler/dds-components';
+import { useRef } from 'React';
+
+const containerStyle = {
+display: 'grid',
+gridTemplate: 'auto / 1fr 50px',
+overflow: 'hidden'
+};
+const contentStyle = { height: '500px' };
+const contentRef = useRef();
+
+<div style={containerStyle}>
+  <div style={contentStyle}>
+    <p>lang tekst</p>
+    <p>lang tekst</p>
+  </div>
+  <Scrollbar />
+</div>
+`} />
