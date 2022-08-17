@@ -47,7 +47,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
   const [thumbHeight, setThumbHeight] = useState(20);
-  const [isScrollable, setIsScrollable] = useState(false);
+  const [isScrollable, setIsScrollable] = useState(true);
   const [thumbTop, setThumbTop] = useState<number>(0);
   const observer = useRef<ResizeObserver | null>(null);
   const [scrollStartPosition, setScrollStartPosition] = useState<number>(0);
@@ -99,8 +99,6 @@ export const Scrollbar = (props: ScrollbarProps) => {
     let newTop = (+contentTop / +contentHeight) * clientHeight;
     newTop = Math.min(newTop, clientHeight - thumbHeight);
     setThumbTop(newTop);
-    // const thumb = thumbRef.current;
-    // thumb.style.top = `${newTop}px`;
   }, []);
 
   useEffect(() => {
@@ -176,7 +174,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
     };
   }, [handleThumbMousemove, handleThumbMouseup]);
 
-  return (
+  return isScrollable ? (
     <ScrollbarOuterWrapper
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
@@ -190,15 +188,5 @@ export const Scrollbar = (props: ScrollbarProps) => {
         />
       </ScrollbarElements>
     </ScrollbarOuterWrapper>
-  );
-  //   return isScrollable ? (
-  //     <ScrollbarOuterWrapper
-  //       {...getBaseHTMLProps(id, className, htmlProps, rest)}
-  //     >
-  //       <ScrollbarElements>
-  //         <Track ref={trackRef}></Track>
-  //         <Thumb height={thumbHeight} top={thumbTop} ref={thumbRef}></Thumb>
-  //       </ScrollbarElements>
-  //     </ScrollbarOuterWrapper>
-  //   ) : null;
+  ) : null;
 };
