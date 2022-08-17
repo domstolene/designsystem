@@ -5,7 +5,7 @@ import { Scrollbar } from './Scrollbar';
 import { Property } from 'csstype';
 import { scrollbarTokens as tokens } from './Scrollbar.tokens';
 
-const { track } = tokens;
+const { track, content } = tokens;
 
 const StyledScrollbarContainer = styled.div`
   grid-template: auto / 1fr ${track.width};
@@ -25,6 +25,7 @@ const Content = styled.div<ContentProps>`
   ::-webkit-scrollbar {
     display: none;
   }
+  padding-right: ${content.paddingRight};
 `;
 
 export type ScrollbarContainer = BaseComponentPropsWithChildren<

@@ -11,6 +11,8 @@ const ScrollbarElements = styled.div`
   display: block;
   height: 100%;
   position: relative;
+  display: grid;
+  justify-items: center;
 `;
 
 const Track = styled.div`
@@ -89,7 +91,6 @@ export const Scrollbar = (props: ScrollbarProps) => {
   );
 
   const handleThumbPositioning = useCallback(() => {
-    console.log('thumb positioning');
     if (!contentRef?.current || !trackRef.current || !thumbRef.current) {
       return;
     }

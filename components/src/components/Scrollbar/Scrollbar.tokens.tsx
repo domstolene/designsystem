@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { colors } = ddsBaseTokens;
+const { colors, spacing } = ddsBaseTokens;
 
 const track = {
   backgroundColor: 'transparent',
@@ -14,7 +14,12 @@ const thumb = {
   width: '10px'
 };
 
+const content = {
+  paddingRight: spacing.SizesDdsSpacingLocalX05
+};
+
 export const scrollbarTokens = {
   track,
-  thumb
+  thumb,
+  content
 };
