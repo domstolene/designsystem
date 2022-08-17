@@ -19,7 +19,7 @@ function isBareModuleId(id) {
 }
 
 export default {
-  input: 'src/index.ts',
+  input: './src/index.ts',
   output: [
     {
       dir: 'dist/cjs',
