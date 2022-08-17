@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const Wrapper = styled.span`
+  position: absolute;
   width: 1px;
   height: 1px;
   margin: 0px;
@@ -9,7 +10,8 @@ const Wrapper = styled.span`
   top: 0px;
   inset-inline-start: 0px;
   overflow: hidden;
-  clip: rect(0px, 0px, 0px, 0px);
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   border: 0px;
 `;
 
