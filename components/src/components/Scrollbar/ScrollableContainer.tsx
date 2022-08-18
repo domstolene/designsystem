@@ -4,6 +4,10 @@ import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Scrollbar } from './Scrollbar';
 import { Property } from 'csstype';
 import { scrollbarTokens as tokens } from './Scrollbar.tokens';
+import {
+  focusVisible,
+  focusVisibleTransitionValue
+} from '../../helpers/styling';
 
 const { track, content } = tokens;
 
@@ -12,6 +16,14 @@ const StyledScrollableContainer = styled.div`
   overflow: hidden;
   position: relative;
   display: grid;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: ${focusVisibleTransitionValue};
+  }
+  :focus-visible,
+  .focus-visible {
+    outline: ${focusVisible.outline};
+    outline-offset: ${focusVisible.outlineOffset};
+  }
 `;
 
 type ContentProps = {
@@ -43,8 +55,12 @@ export const ScrollableContainer = (props: ScrollableContainerProps) => {
     ...rest
   } = props;
   const ref = useRef<HTMLDivElement>(null);
+  // const hasScrolling =
+  //   ref && ref.current && ref.current.clientHeight !== ref.current.scrollHeight;
   return (
     <StyledScrollableContainer
+      // tabIndex={hasScrolling ? 0 : undefined}
+      tabIndex={0}
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
       <Content height={contentHeight} ref={ref}>
