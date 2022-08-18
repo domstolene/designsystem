@@ -24,6 +24,9 @@ type StepperProps = BaseComponentPropsWithChildren<
   }
 >;
 
+/**
+ * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
+ */
 export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
   (props, ref) => {
     const {

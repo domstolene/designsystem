@@ -168,6 +168,9 @@ const StepText = styled.div<StepStyleProps>`
 const getVisuallyHiddenText = (active: boolean, completed: boolean) =>
   `${active ? '' : 'Trinn, '}${completed ? 'Ferdig, ' : 'Ikke ferdig, '}`;
 
+/**
+ * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
+ */
 export const Step = (props: StepProps) => {
   const { index = 0, completed = false, children } = props;
 
