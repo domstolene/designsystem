@@ -4,13 +4,13 @@ import { useRef, CSSProperties } from 'react';
 import styled from 'styled-components';
 
 export default {
-  title: `${SB_DESIGNSYSTEM_PREFIX}/Scrollbar`,
-  component: Scrollbar
+  title: `${SB_DESIGNSYSTEM_PREFIX}/ScrollableContainer`,
+  component: ScrollableContainer
 };
 
 export const Default = () => {
   return (
-    <StoryTemplate title="Scrollbar">
+    <StoryTemplate title="ScrollableContainer - default">
       <ScrollableContainer>
         <p>
           Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
@@ -147,7 +147,7 @@ export const JustScrollbar = () => {
   `;
 
   return (
-    <StoryTemplate title="Scrollbar">
+    <StoryTemplate title="Just Scrollbar">
       <div style={containerStyle}>
         <ContentContainer ref={contentRef}>
           <p>

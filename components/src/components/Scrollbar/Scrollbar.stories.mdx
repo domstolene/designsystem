@@ -9,9 +9,12 @@ import { Scrollbar, ScrollableContainer } from '.';
 import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
 import { Typography } from '../Typography';
 
-<Meta title="Design system/Scrollbar/API" component={ScrollableContainer} />
+<Meta
+  title="Design system/ScrollableContainer/API"
+  component={ScrollableContainer}
+/>
 
-# Scrollbar
+# ScrollableContainer
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/32db9d-scrollbar"
@@ -22,7 +25,7 @@ import { Typography } from '../Typography';
 ## Demo
 
 <Canvas>
-  <Story id="design-system-scrollbar--default" />
+  <Story id="design-system-scrollablecontainer--default" />
 </Canvas>
 
 Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-scrollbar`}>Storybook</Typography>.
@@ -31,8 +34,8 @@ Se stories med kontrollere i <Typography externalLink typographyType="a" href={`
 
 To subkomponenter er tilgjengelige:
 
-- `ScrollableContainer` - en wrapper for innhold som skal scrolles. Håndterer scrolling ut av boksen og bruker scrollbar.
-- `Scrollbar` - brukt i `ScrollableContainer`. Kan brukes alene og håndtere plassering av scrollbaren selv.
+- `ScrollableContainer` - hovedkomponenten; en wrapper for innhold som skal scrolles. Håndterer scrolling og fokus ut av boksen.
+- `Scrollbar` - selve scrollbaren som brukes i `ScrollableContainer`. Håndterer scrolling når knyttet til elementet som skal scrolles. Kan brukes alene og håndtere plassering av scrollbaren og styling av innholdselementet selv.
 
 ## Bruk i koden
 
@@ -49,22 +52,37 @@ To subkomponenter er tilgjengelige:
 
 ### Kun med `<Scrollbar>`
 
-<Source code={`import { Scrollbar } from '@norges-domstoler/dds-components';
+Ved bruk av kun `<Scrollbar/>` må man håndtere styling av containere, kobling til innholdet, plasseringen av `<Scrollbar/>` og fokus.
+
+<Source code={`import { Scrollbar, focusVisible } from '@norges-domstoler/dds-components';
 import { useRef } from 'React';
+import styled fromf 'styled-components';
 
 const containerStyle = {
 display: 'grid',
-gridTemplate: 'auto / 1fr 50px',
+gridTemplate: 'auto / 1fr 20px',
 overflow: 'hidden'
 };
-const contentStyle = { height: '500px' };
+
+const Content = styled.div\`
+height: 500px;
+overflow: auto;
+scrollbar-width: none;
+::-webkit-scrollbar {
+display: none;
+}
+:focus-visible {
+\${focusVisible}
+}
+\`;
+
 const contentRef = useRef();
 
 <div style={containerStyle}>
-  <div style={contentStyle}>
+  <Content tabIndex={0}>
     <p>lang tekst</p>
     <p>lang tekst</p>
-  </div>
+  </Content>
   <Scrollbar />
 </div>
 `} />
@@ -73,8 +91,12 @@ const contentRef = useRef();
 
 ## ScrollableContainer
 
+Hovedkomponenten for scrollbar innhold.
+
 <ArgsTable story={PRIMARY_STORY} />
 
 ## Scrollbar
+
+Alenestående scrollbar til mer custom bruk.
 
 <ArgsTable of={Scrollbar} />
