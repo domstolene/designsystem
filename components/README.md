@@ -70,6 +70,12 @@ Det brukes en egen workflow for release av ny versjon av `@norges-domstoler/dds-
 
 For versjonering brukes [_semantisk versjonering_](https://semver.org/) for å holde ting organisert og for å enkelt kommunisere utviklingsløpet til pakken.
 
+### Pre-release versjoner
+
+Hvis man ønsker å publisere en pre-release kan man følge samme flyt som vanlig release, men markere releasen som "pre-release" på Github. Da vil det publiseres en ny versjon til `next`-taggen på NPM istedenfor `latest` som i normal flyt. Pre-releases kan brukes for å publisere innhold som er ment til å være med i neste versjon, men som kan testes av konsumenter før neste release er klar.
+
+Versjonsnummerering for pre-releases skal følge `-beta.x`, eksempelvis `5.0.0-beta.1` osv.
+
 ## ⌨️ For bidragsytere
 
 Sjekk ut [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).

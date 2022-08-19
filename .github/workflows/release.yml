@@ -29,13 +29,21 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
-        working-directory: ${{ env.working-directory }}        
+        working-directory: ${{ env.working-directory }}
         run: npm run build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to npm
+        if: ${{ github.event.release.prerelease == false }}
         working-directory: ${{ env.working-directory }}
         run: npm publish --tag latest
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish next to npm
+        if: ${{ github.event.release.prerelease == true }}
+        working-directory: ${{ env.working-directory }}
+        run: npm publish --tag next
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
