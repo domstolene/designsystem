@@ -9,21 +9,14 @@ import {
   focusVisibleTransitionValue
 } from '../../helpers/styling';
 
-const { track, content } = tokens;
+const { track, content, outerContainer } = tokens;
 
 const StyledScrollableContainer = styled.div`
   grid-template: auto / 1fr ${track.width};
   overflow: hidden;
   position: relative;
   display: grid;
-  @media (prefers-reduced-motion: no-preference) {
-    transition: ${focusVisibleTransitionValue};
-  }
-  :focus-visible,
-  .focus-visible {
-    outline: ${focusVisible.outline};
-    outline-offset: ${focusVisible.outlineOffset};
-  }
+  padding: ${outerContainer.padding};
 `;
 
 type ContentProps = {
@@ -38,11 +31,22 @@ const Content = styled.div<ContentProps>`
     display: none;
   }
   padding-right: ${content.paddingRight};
+  @media (prefers-reduced-motion: no-preference) {
+    transition: ${focusVisibleTransitionValue};
+  }
+  :focus-visible,
+  .focus-visible {
+    outline: ${focusVisible.outline};
+    outline-offset: ${focusVisible.outlineOffset};
+  }
 `;
 
 export type ScrollableContainerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
-  { contentHeight?: Property.Height }
+  {
+    /**Høyde på innholdscontainer. */
+    contentHeight?: Property.Height;
+  }
 >;
 
 export const ScrollableContainer = (props: ScrollableContainerProps) => {
@@ -59,11 +63,9 @@ export const ScrollableContainer = (props: ScrollableContainerProps) => {
   //   ref && ref.current && ref.current.clientHeight !== ref.current.scrollHeight;
   return (
     <StyledScrollableContainer
-      // tabIndex={hasScrolling ? 0 : undefined}
-      tabIndex={0}
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
-      <Content height={contentHeight} ref={ref}>
+      <Content height={contentHeight} ref={ref} tabIndex={0}>
         {children}
       </Content>
       <Scrollbar contentRef={ref} />

@@ -24,16 +24,8 @@ const Track = styled.div`
   width: ${track.width};
 `;
 
-type ThumbProps = {
-  height: number;
-  top: number;
-};
-
-const Thumb = styled.div<ThumbProps>`
+const Thumb = styled.div`
   position: absolute;
-
-  height: ${({ height }) => height}px;
-  top: ${({ top }) => top}px;
   background-color: ${thumb.backgroundColor};
   border-radius: ${thumb.borderRadius};
   width: ${thumb.width};
@@ -94,6 +86,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
   );
 
   const handleThumbPositioning = useCallback(() => {
+    console.log('positioning');
     if (!contentRef?.current || !trackRef.current || !thumbRef.current) {
       return;
     }
@@ -185,8 +178,10 @@ export const Scrollbar = (props: ScrollbarProps) => {
       <ScrollbarElements>
         <Track ref={trackRef} onClick={handleTrackClick} />
         <Thumb
-          height={thumbHeight}
-          top={thumbTop}
+          style={{
+            height: thumbHeight,
+            top: thumbTop
+          }}
           ref={thumbRef}
           onMouseDown={handleThumbMousedown}
         />

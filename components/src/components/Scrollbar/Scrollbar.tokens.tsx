@@ -18,8 +18,13 @@ const content = {
   paddingRight: spacing.SizesDdsSpacingLocalX05
 };
 
+const outerContainer = {
+  padding: spacing.SizesDdsSpacingLocalX025
+};
+
 export const scrollbarTokens = {
   track,
   thumb,
-  content
+  content,
+  outerContainer
 };
