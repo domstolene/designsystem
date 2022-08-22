@@ -2,6 +2,7 @@ import { SB_DESIGNSYSTEM_PREFIX, StoryTemplate } from '../../storybook';
 import { Scrollbar, ScrollableContainer } from '.';
 import { useRef, CSSProperties } from 'react';
 import styled from 'styled-components';
+import { focusVisible } from '../../helpers/styling';
 
 export default {
   title: `${SB_DESIGNSYSTEM_PREFIX}/ScrollableContainer`,
@@ -134,7 +135,8 @@ export const JustScrollbar = () => {
   const containerStyle: CSSProperties = {
     display: 'grid',
     gridTemplate: 'auto / 1fr 20px',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    padding: '4px'
   };
 
   const ContentContainer = styled.div`
@@ -144,12 +146,15 @@ export const JustScrollbar = () => {
     ::-webkit-scrollbar {
       display: none;
     }
+    :focus-visible {
+      ${focusVisible};
+    }
   `;
 
   return (
     <StoryTemplate title="Just Scrollbar">
       <div style={containerStyle}>
-        <ContentContainer ref={contentRef}>
+        <ContentContainer ref={contentRef} tabIndex={0}>
           <p>
             Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
             det begrense kostnadene veldig. Under hele meklingsprosessen betaler
