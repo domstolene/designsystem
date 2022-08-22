@@ -27,7 +27,7 @@ const getWidth = (type: string): Property.Width<string> => {
 };
 
 const StyledInput = styled(StatefulInput)`
-  ::-webkit-calendar-picker-indicator {
+  &::-webkit-calendar-picker-indicator {
     // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
     // eslint-disable-next-line
     // prettier-ignore
@@ -40,15 +40,15 @@ const StyledInput = styled(StatefulInput)`
     box-sizing: border-box;
   }
 
-  ::-webkit-datetime-edit-fields-wrapper {
+  &::-webkit-datetime-edit-fields-wrapper {
     padding: 0;
   }
 
-  ::-webkit-calendar-picker-indicator:focus-visible {
+  &::-webkit-calendar-picker-indicator:focus-visible {
     ${tokens.calendarIndicator.focus.base}
   }
 
-  ::-webkit-inner-spin-button {
+  &::-webkit-inner-spin-button {
     display: none;
   }
 
@@ -62,11 +62,11 @@ const StyledInput = styled(StatefulInput)`
     }
   }
 
-  ::-webkit-datetime-edit-day-field:focus,
-  ::-webkit-datetime-edit-month-field:focus,
-  ::-webkit-datetime-edit-year-field:focus,
-  ::-webkit-datetime-edit-hour-field:focus,
-  ::-webkit-datetime-edit-minute-field:focus {
+  &::-webkit-datetime-edit-day-field:focus,
+  &::-webkit-datetime-edit-month-field:focus,
+  &::-webkit-datetime-edit-year-field:focus,
+  &::-webkit-datetime-edit-hour-field:focus,
+  &::-webkit-datetime-edit-minute-field:focus {
     ${typographyTokens.selection.base}
   }
 `;
