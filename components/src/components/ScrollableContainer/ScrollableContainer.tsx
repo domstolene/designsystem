@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Scrollbar } from './Scrollbar';
 import { Property } from 'csstype';
-import { scrollbarTokens as tokens } from './Scrollbar.tokens';
+import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
 import {
   focusVisible,
   focusVisibleTransitionValue

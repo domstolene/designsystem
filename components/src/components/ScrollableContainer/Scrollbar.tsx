@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useRef, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { scrollbarTokens as tokens } from './Scrollbar.tokens';
+import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
 
 const { track, thumb } = tokens;
 
