@@ -3,7 +3,7 @@ import {
   fireEvent,
   render,
   screen,
-  waitFor
+  waitFor,
 } from '@testing-library/react';
 import { Drawer, DrawerGroup } from '.';
 import { Button } from '../Button';

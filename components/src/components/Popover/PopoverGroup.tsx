@@ -6,7 +6,7 @@ import {
   cloneElement,
   isValidElement,
   useRef,
-  ReactNode
+  ReactNode,
 } from 'react';
 import { useOnKeyDown, useOnClickOutside } from '../../hooks';
 
@@ -30,7 +30,7 @@ export const PopoverGroup = ({
   onCloseButtonClick,
   onTriggerClick,
   children,
-  popoverId
+  popoverId,
 }: PopoverGroupProps) => {
   const [open, setOpen] = useState(isOpen);
 
@@ -83,7 +83,7 @@ export const PopoverGroup = ({
             'aria-controls': uniquePopoverId,
             'aria-expanded': open,
             onClick: handleOnTriggerClick,
-            ref: buttonRef
+            ref: buttonRef,
           })
         : cloneElement(child as ReactElement, {
             isOpen: open,
@@ -92,7 +92,7 @@ export const PopoverGroup = ({
             onCloseButtonClick: handleOnCloseButtonClick,
             onCloseButtonBlur: handleBlur,
             anchorElement: buttonRef.current,
-            ref: popoverRef
+            ref: popoverRef,
           }))
     );
   });

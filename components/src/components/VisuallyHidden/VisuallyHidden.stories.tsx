@@ -9,8 +9,8 @@ export default {
   title: `${SB_DESIGNSYSTEM_PREFIX}/VisuallyHidden`,
   component: VisuallyHidden,
   argTypes: {
-    as: { control: { type: 'text' } }
-  }
+    as: { control: { type: 'text' } },
+  },
 };
 
 export const Default = (args: VisuallyHiddenProps) => (

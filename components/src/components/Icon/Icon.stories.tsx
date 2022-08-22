@@ -7,13 +7,13 @@ export default {
   title: 'Design system/Icon',
   component: Icon,
   argTypes: {
-    color: { control: { type: 'text' } }
+    color: { control: { type: 'text' } },
   },
   parameters: {
     controls: {
-      exclude: ['className']
-    }
-  }
+      exclude: ['className'],
+    },
+  },
 };
 
 export const Overview = (args: IconProps) => {

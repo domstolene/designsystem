@@ -121,7 +121,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       ref: multiRef,
       isOpen,
       style: { ...htmlProps.style, ...styles.floating },
-      role: 'dialog'
+      role: 'dialog',
     };
 
     return (

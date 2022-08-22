@@ -7,13 +7,13 @@ export default {
   title: 'Design system/Tooltip',
   component: Tooltip,
   argTypes: {
-    text: { control: { type: 'text' } }
+    text: { control: { type: 'text' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className']
-    }
-  }
+      exclude: ['style', 'className'],
+    },
+  },
 };
 
 export const Overview = () => (
@@ -23,7 +23,7 @@ export const Overview = () => (
     containerStyle={{
       alignContent: 'center',
       justifyContent: 'center',
-      padding: '70px 40px 70px 40px'
+      padding: '70px 40px 70px 40px',
     }}
   >
     <Tooltip placement="top" text="top">
@@ -144,7 +144,7 @@ export const Centered = (args: TooltipProps) => (
     containerStyle={{
       alignContent: 'center',
       justifyContent: 'center',
-      padding: ' 100px 50%'
+      padding: ' 100px 50%',
     }}
   >
     <Tooltip {...args} text="dette er en tooltip">

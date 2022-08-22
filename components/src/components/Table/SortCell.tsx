@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 import {
   UnfoldMoreIcon,
   ChevronUpIcon,
-  ChevronDownIcon
+  ChevronDownIcon,
 } from '../../icons/tsx';
 import styled from 'styled-components';
 import { removeButtonStyling } from '../../helpers/styling';

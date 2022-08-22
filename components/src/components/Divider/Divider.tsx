@@ -27,7 +27,7 @@ export const Divider = forwardRef<HTMLHRElement, DividerProps>((props, ref) => {
 
   const lineProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
-    color
+    color,
   };
 
   return <DividerLine ref={ref} {...lineProps} />;

@@ -9,14 +9,14 @@ import {
   OptionProps,
   Props as ReactSelectProps,
   SelectInstance,
-  SingleValueProps
+  SingleValueProps,
 } from 'react-select';
 import { RequiredMarker } from '../../helpers';
 import { CheckIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 import {
   derivativeIdGenerator,
-  spaceSeparatedIdListGenerator
+  spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Icon } from '../Icon';
 import { InputMessage } from '../InputMessage';
@@ -25,7 +25,7 @@ import {
   getCustomStyles,
   Label,
   prefix,
-  Wrapper
+  Wrapper,
 } from './Select.styles';
 import { selectTokens as tokens } from './Select.tokens';
 
@@ -176,7 +176,7 @@ const SelectInner = <
   );
 
   const wrapperProps = {
-    width
+    width,
   };
 
   const containerProps = {
@@ -186,7 +186,7 @@ const SelectInner = <
     readOnly,
     hasLabel,
     className,
-    style
+    style,
   };
 
   const reactSelectProps: ReactSelectProps<
@@ -222,10 +222,10 @@ const SelectInner = <
       Input: CustomInput,
       SingleValue: customSingleValueElement
         ? props => CustomSingleValue(props, customSingleValueElement)
-        : SingleValue
+        : SingleValue,
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
-    ...rest
+    ...rest,
   };
 
   return (

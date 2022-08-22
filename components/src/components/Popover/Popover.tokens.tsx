@@ -6,7 +6,7 @@ const {
   borderRadius: BorderRadius,
   spacing: Spacing,
   outerShadow: OuterShadow,
-  border: Border
+  border: Border,
 } = ddsBaseTokens;
 
 const wrapperBase: CSSObject = {
@@ -14,30 +14,30 @@ const wrapperBase: CSSObject = {
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
   padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX1}`,
   boxShadow: OuterShadow.DdsShadow3Onlight,
-  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Border.BordersDdsBorderStyleLightStroke}`
+  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Border.BordersDdsBorderStyleLightStroke}`,
 };
 
 const buttonBase: CSSObject = {
   position: 'absolute',
   top: Spacing.SizesDdsSpacingLocalX025,
-  right: Spacing.SizesDdsSpacingLocalX025
+  right: Spacing.SizesDdsSpacingLocalX025,
 };
 
 const titleBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX2
+  marginRight: Spacing.SizesDdsSpacingLocalX2,
 };
 
 export const popoverTokens = {
   wrapper: {
-    base: wrapperBase
+    base: wrapperBase,
   },
   button: {
-    base: buttonBase
+    base: buttonBase,
   },
   title: {
-    base: titleBase
+    base: titleBase,
   },
   content: {
-    spaceTopNoTitle: Spacing.SizesDdsSpacingLocalX2
-  }
+    spaceTopNoTitle: Spacing.SizesDdsSpacingLocalX2,
+  },
 };

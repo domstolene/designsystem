@@ -9,7 +9,7 @@ import { Typography } from '../Typography';
 import {
   Backdrop,
   handleElementWithBackdropMount,
-  handleElementWithBackdropUnmount
+  handleElementWithBackdropUnmount,
 } from '../../helpers';
 import { useMountTransition } from '../../hooks/useMountTransition';
 import { typographyTokens } from '../Typography/Typography.tokens';
@@ -101,7 +101,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const hasTransitionedIn = useMountTransition(isOpen, 200);
 
   const backdropProps = {
-    isOpen: hasTransitionedIn && isOpen
+    isOpen: hasTransitionedIn && isOpen,
   };
 
   const containerProps = {
@@ -112,11 +112,11 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     'aria-hidden': !isOpen,
     tabIndex: -1,
     'aria-labelledby': headerId,
-    id: modalId
+    id: modalId,
   };
 
   const headerContainerProps = {
-    id: headerId
+    id: headerId,
   };
 
   return isOpen || hasTransitionedIn

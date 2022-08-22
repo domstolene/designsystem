@@ -75,7 +75,7 @@ export const Row = forwardRef<HTMLTableRowElement, TableRowProps>(
     const rowProps = {
       type,
       mode,
-      ...rest
+      ...rest,
     };
 
     return (

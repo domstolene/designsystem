@@ -11,7 +11,7 @@ import {
   LovisaWrapper,
   ApplicationNameWrapper,
   ContextMenuGroup,
-  StyledOverflowMenu
+  StyledOverflowMenu,
 } from './InternalHeader.styles';
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';

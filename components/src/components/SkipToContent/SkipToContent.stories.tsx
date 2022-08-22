@@ -10,13 +10,13 @@ export default {
   component: SkipToContent,
   argTypes: {
     text: { control: { type: 'text' } },
-    top: { control: { type: 'text' } }
+    top: { control: { type: 'text' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className', 'href']
-    }
-  }
+      exclude: ['style', 'className', 'href'],
+    },
+  },
 };
 
 export const Overview = () => (
@@ -52,7 +52,7 @@ export const Example = (args: SkipToContentProps) => (
       <div
         style={{
           height: '800px',
-          backgroundColor: Colors.DdsColorPrimaryLightest
+          backgroundColor: Colors.DdsColorPrimaryLightest,
         }}
       >
         Placeholder

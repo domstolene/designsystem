@@ -3,7 +3,7 @@ import {
   HTMLAttributes,
   Children,
   cloneElement,
-  isValidElement
+  isValidElement,
 } from 'react';
 import { useCombinedRef } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
@@ -23,7 +23,7 @@ export const TabPanels = forwardRef<HTMLDivElement, TabPanelsProps>(
           id: `${tabsId}-panel-${index}`,
           'aria-labelledby': `${tabsId}-tab-${index}`,
           active,
-          'aria-expanded': active
+          'aria-expanded': active,
         })
       );
     });

@@ -5,16 +5,16 @@ const {
   colors: Colors,
   borderRadius: BorderRadius,
   outerShadow: OuterShadow,
-  font: Font
+  font: Font,
 } = ddsBaseTokens;
 
 const base: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
   borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
   boxShadow: OuterShadow.DdsShadow4Onlight,
-  fontFamily: Font.DdsFontBodySans01FontFamily
+  fontFamily: Font.DdsFontBodySans01FontFamily,
 };
 
 export const paperTokens = {
-  base: base
+  base: base,
 };

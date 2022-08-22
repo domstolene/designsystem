@@ -3,7 +3,7 @@ import { RadioButtonProps } from './RadioButton.types';
 import { Typography } from '../Typography';
 import {
   RadioButtonGroup,
-  useRadioButtonGroup
+  useRadioButtonGroup,
 } from './RadioButtonGroupContext';
 import { CustomRadioButton, Input, Container } from './RadioButton.styles';
 import { getBaseHTMLProps, joinClassNames } from '../../types';
@@ -80,7 +80,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       value: value,
       'aria-describedby':
         describedByIds.length > 0 ? describedByIds.join(' ') : undefined,
-      'aria-invalid': error || radioButtonGroup?.error ? true : undefined
+      'aria-invalid': error || radioButtonGroup?.error ? true : undefined,
     };
 
     const containerProps = {
@@ -88,7 +88,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       disabled: disabled || radioButtonGroup?.disabled,
       readOnly: readOnly || radioButtonGroup?.readOnly,
       style,
-      className: joinClassNames(className, htmlPropsClassName)
+      className: joinClassNames(className, htmlPropsClassName),
     };
 
     return (

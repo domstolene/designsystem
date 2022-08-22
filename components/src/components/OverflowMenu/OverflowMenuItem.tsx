@@ -9,7 +9,7 @@ import {
   SetStateAction,
   MouseEvent,
   KeyboardEvent,
-  ForwardedRef
+  ForwardedRef,
 } from 'react';
 import styled from 'styled-components';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
@@ -157,7 +157,7 @@ export const OverflowMenuItem = forwardRef<
     onClick: handleOnClick,
     onKeyDown: handleOnKeyDown,
     role: 'menuitem',
-    tabIndex: focus ? 0 : -1
+    tabIndex: focus ? 0 : -1,
   };
   const iconElement = icon && <Icon iconSize="inherit" icon={icon} />;
 

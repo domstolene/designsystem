@@ -5,28 +5,28 @@ const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
 const base: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
-  maxWidth: '100%'
+  maxWidth: '100%',
 };
 
 const tipBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite
+  backgroundColor: Colors.DdsColorNeutralsWhite,
 };
 
 const errorBase: CSSObject = {
   color: Colors.DdsColorDangerBase,
-  backgroundColor: Colors.DdsColorDangerLightest
+  backgroundColor: Colors.DdsColorDangerLightest,
 };
 
 export const inputMessageTokens = {
   padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
   base: base,
   tip: {
-    base: tipBase
+    base: tipBase,
   },
   error: {
-    base: errorBase
+    base: errorBase,
   },
   icon: {
-    spaceRight: Spacing.SizesDdsSpacingLocalX05
-  }
+    spaceRight: Spacing.SizesDdsSpacingLocalX05,
+  },
 };

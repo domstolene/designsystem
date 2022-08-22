@@ -5,7 +5,7 @@ import { Typography } from '../Typography';
 
 export default {
   title: 'design system/Drawer',
-  component: Drawer
+  component: Drawer,
 };
 
 export const OverviewPlacement = (args: DrawerProps) => {

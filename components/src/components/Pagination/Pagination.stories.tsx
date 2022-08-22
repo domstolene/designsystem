@@ -10,18 +10,18 @@ export default {
     withSelect: { control: 'boolean' },
     smallScreen: { control: 'boolean' },
     defaultItemsPerPage: { control: 'number' },
-    defaultActivePage: { control: 'number' }
+    defaultActivePage: { control: 'number' },
   },
   parameters: {
     controls: {
-      exclude: ['onChange', 'selectOptions']
-    }
-  }
+      exclude: ['onChange', 'selectOptions'],
+    },
+  },
 };
 
 const customOptions = [17, 32, 100].map(o => ({
   label: o.toString(),
-  value: o
+  value: o,
 }));
 
 export const Overview = (args: PaginationProps) => (

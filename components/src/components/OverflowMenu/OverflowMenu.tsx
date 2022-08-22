@@ -7,7 +7,7 @@ import {
   useOnClickOutside,
   useOnKeyDown,
   useFloatPosition,
-  useRoveFocus
+  useRoveFocus,
 } from '../../hooks';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
@@ -15,7 +15,7 @@ import { Divider } from '../Divider';
 import {
   OverflowMenuContextItem,
   OverflowMenuNavItem,
-  OverflowMenuProps
+  OverflowMenuProps,
 } from '.';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { getBaseHTMLProps } from '../../types';
@@ -192,7 +192,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       isOpen,
       style: { ...style, ...styles.floating },
       'aria-hidden': !isOpen,
-      role: 'menu'
+      role: 'menu',
     };
 
     return (

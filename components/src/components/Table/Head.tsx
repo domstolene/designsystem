@@ -8,7 +8,7 @@ export type HeadProps = HTMLAttributes<HTMLTableSectionElement>;
 export const Head = forwardRef<HTMLTableSectionElement, HeadProps>(
   ({ children, ...rest }, ref) => {
     const headProps = {
-      ...rest
+      ...rest,
     };
 
     return (

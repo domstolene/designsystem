@@ -46,7 +46,7 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
     const wrapperProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
-      messageType
+      messageType,
     };
 
     const isError = messageType === 'error';

@@ -17,13 +17,13 @@ export default {
     color: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
     text: { control: { type: 'text' } },
-    as: { control: { type: 'text' } }
+    as: { control: { type: 'text' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'target']
-    }
-  }
+      exclude: ['style', 'target'],
+    },
+  },
 };
 
 export const Default = (args: StoryTProps) => {

@@ -27,7 +27,7 @@ export const DescriptionListDesc = forwardRef<
   const dListDescProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     children,
-    ref
+    ref,
   };
 
   return (

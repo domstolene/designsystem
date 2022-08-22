@@ -3,7 +3,7 @@ import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Chip/ChipGroup',
-  component: ChipGroup
+  component: ChipGroup,
 };
 
 export const Default = (args: ChipGroupProps) => (

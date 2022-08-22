@@ -111,7 +111,7 @@ export const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
       listType,
       typographyType,
       as,
-      ref
+      ref,
     };
 
     return <StyledList {...listProps}>{children}</StyledList>;

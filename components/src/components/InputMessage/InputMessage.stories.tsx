@@ -5,8 +5,8 @@ export default {
   title: 'design system/InputMessage',
   component: InputMessage,
   argTypes: {
-    message: { control: { type: 'text' } }
-  }
+    message: { control: { type: 'text' } },
+  },
 };
 
 export const Overview = () => (

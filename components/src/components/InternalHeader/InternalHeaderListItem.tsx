@@ -13,7 +13,7 @@ export const InternalHeaderListItem = forwardRef<
 >(({ children, ...rest }, ref) => {
   const props = {
     ref,
-    ...rest
+    ...rest,
   };
 
   return <Li {...props}>{children}</Li>;

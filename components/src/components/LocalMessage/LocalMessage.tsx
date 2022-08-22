@@ -124,12 +124,12 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       purpose,
       width,
       layout,
-      ref
+      ref,
     };
 
     const contentContainerProps = {
       layout,
-      closable
+      closable,
     };
 
     const messageIconWrapper = (

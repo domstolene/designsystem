@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
   Direction,
-  getBaseHTMLProps
+  getBaseHTMLProps,
 } from '../../types';
 import { TabsContext } from './Tabs.context';
 import { Property } from 'csstype';
@@ -60,7 +60,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
 
   const containerProps = {
     ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
-    ref
+    ref,
   };
 
   return (
@@ -74,7 +74,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
         hasTabFocus,
         setHasTabFocus,
         tabContentDirection,
-        tabWidth
+        tabWidth,
       }}
     >
       <Container {...containerProps}>{children}</Container>

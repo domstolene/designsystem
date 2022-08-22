@@ -4,7 +4,7 @@ import { Typography } from '../Typography';
 
 export default {
   title: 'design system/List',
-  component: List
+  component: List,
 };
 
 export const Overview = (args: ListProps) => {

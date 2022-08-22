@@ -3,7 +3,7 @@ import {
   OverflowMenuProps,
   OverflowMenuGroup,
   OverflowMenuContextItem,
-  OverflowMenuNavItem
+  OverflowMenuNavItem,
 } from '.';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
@@ -11,34 +11,34 @@ import { MenuIcon, PlusCircledIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/OverflowMenu',
-  component: OverflowMenu
+  component: OverflowMenu,
 };
 
 const items: OverflowMenuContextItem[] = [
   {
     title: 'Handling',
-    onClick: () => {}
+    onClick: () => {},
   },
   {
     title: 'Handling 2',
     onClick: () => {},
-    icon: PlusCircledIcon
+    icon: PlusCircledIcon,
   },
   {
     title: 'Lenke 1',
-    href: '#'
-  }
+    href: '#',
+  },
 ];
 
 const navItems: OverflowMenuNavItem[] = [
   {
     title: 'Navigasjon',
-    href: '#'
+    href: '#',
   },
   {
     title: 'Navigasjon 2',
-    href: '#'
-  }
+    href: '#',
+  },
 ];
 
 export const Default = (args: OverflowMenuProps) => {

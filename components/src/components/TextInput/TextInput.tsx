@@ -7,12 +7,12 @@ import { TextInputProps } from './TextInput.types';
 import {
   StatefulInput,
   InputContainer,
-  OuterInputContainer
+  OuterInputContainer,
 } from '../../helpers';
 import { Label, MessageContainer, TextArea } from './TextInput.styles';
 import {
   derivativeIdGenerator,
-  spaceSeparatedIdListGenerator
+  spaceSeparatedIdListGenerator,
 } from '../../utils';
 
 let nextUniqueId = 0;
@@ -111,27 +111,27 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         tipId,
         errorMessageId,
         characterCounterId,
-        ariaDescribedby
+        ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
-      ...rest
+      ...rest,
     };
 
     const labelProps = {
       multiline,
       disabled,
-      readOnly
+      readOnly,
     };
 
     const inputContainerProps = {
       multiline,
-      label
+      label,
     };
 
     const outerInputContainerProps = {
       className,
       style,
-      width
+      width,
     };
 
     return (

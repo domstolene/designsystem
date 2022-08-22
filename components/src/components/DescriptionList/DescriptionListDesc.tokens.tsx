@@ -1,6 +1,6 @@
 import {
   ddsBaseTokens,
-  ddsReferenceTokens
+  ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
@@ -12,16 +12,16 @@ const base: CSSObject = {
   display: 'flex',
   alignItems: 'center',
   gap: spacing.SizesDdsSpacingLocalX025,
-  color: textDefault.textColor
+  color: textDefault.textColor,
 };
 
 const iconBase: CSSObject = {
-  marginRight: spacing.SizesDdsSpacingLocalX025
+  marginRight: spacing.SizesDdsSpacingLocalX025,
 };
 
 export const descriptionListDescTokens = {
   base: base,
   icon: {
-    base: iconBase
-  }
+    base: iconBase,
+  },
 };

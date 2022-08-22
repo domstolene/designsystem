@@ -41,7 +41,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       htmlFor: uniqueId,
       label,
       className: joinClassNames(className, htmlPropsClassName),
-      style
+      style,
     };
     type AriaChecked = 'mixed' | boolean | undefined;
 
@@ -54,12 +54,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       'aria-describedby': spaceSeparatedIdListGenerator([
         checkboxGroup?.tipId,
         checkboxGroup?.errorMessageId,
-        ariaDescribedby
+        ariaDescribedby,
       ]),
       'aria-invalid': error || checkboxGroup?.error ? true : undefined,
       'aria-labelledby': checkboxGroup?.uniqueGroupId,
       'aria-checked': indeterminate ? ('mixed' as AriaChecked) : undefined,
-      'aria-readonly': readOnly
+      'aria-readonly': readOnly,
     };
 
     return (

@@ -51,13 +51,13 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
   );
 
   const groupProps = {
-    direction
+    direction,
   };
 
   const containerProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     role: 'group',
-    'aria-labelledby': label ? uniqueLabelId : undefined
+    'aria-labelledby': label ? uniqueLabelId : undefined,
   };
 
   return (

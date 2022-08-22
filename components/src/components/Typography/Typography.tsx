@@ -3,13 +3,13 @@ import {
   ElementType,
   PropsWithChildren,
   HTMLAttributes,
-  AnchorHTMLAttributes
+  AnchorHTMLAttributes,
 } from 'react';
 import styled, { css, CSSObject } from 'styled-components';
 import {
   typographyTokens as tokens,
   textColors,
-  textColorsArray
+  textColorsArray,
 } from './Typography.tokens';
 import { Icon } from '../Icon';
 import {
@@ -18,7 +18,7 @@ import {
   OtherTypographyType,
   AnchorTypographyType,
   LabelTypographyType,
-  InlineElement
+  InlineElement,
 } from './Typography.types';
 import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
@@ -122,7 +122,7 @@ export const inlineElements: ElementType[] = [
   'u',
   'var',
   'video',
-  'wbr'
+  'wbr',
 ];
 
 const isInlineElement = (as: ElementType): as is InlineElement =>
@@ -344,7 +344,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       as,
       style: { ...htmlPropsStyle, ...style },
       rel: relProp,
-      target: targetProp
+      target: targetProp,
     };
 
     return (

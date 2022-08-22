@@ -7,10 +7,10 @@ export default {
   argTypes: {
     smallScreen: {
       control: {
-        type: 'boolean'
-      }
-    }
-  }
+        type: 'boolean',
+      },
+    },
+  },
 };
 
 export const Overview = (args: BreadcrumbsProps) => {

@@ -4,32 +4,32 @@ import { CSSObject } from 'styled-components';
 const { spacing: Spacing } = ddsBaseTokens;
 
 const groupContainerRowBase: CSSObject = {
-  gap: Spacing.SizesDdsSpacingLocalX075
+  gap: Spacing.SizesDdsSpacingLocalX075,
 };
 
 const groupContainerColumnBase: CSSObject = {
-  gap: Spacing.SizesDdsSpacingLocalX05
+  gap: Spacing.SizesDdsSpacingLocalX05,
 };
 
 const containerBase: CSSObject = {
-  gap: Spacing.SizesDdsSpacingLocalX0125
+  gap: Spacing.SizesDdsSpacingLocalX0125,
 };
 
 export const checkboxGroupTokens = {
   label: {
-    spaceLeft: Spacing.SizesDdsSpacingLocalX025
+    spaceLeft: Spacing.SizesDdsSpacingLocalX025,
   },
   container: {
-    base: containerBase
+    base: containerBase,
   },
   groupContainer: {
     direction: {
       row: {
-        base: groupContainerRowBase
+        base: groupContainerRowBase,
       },
       column: {
-        base: groupContainerColumnBase
-      }
-    }
-  }
+        base: groupContainerColumnBase,
+      },
+    },
+  },
 };

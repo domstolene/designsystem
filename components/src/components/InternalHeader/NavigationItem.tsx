@@ -43,7 +43,7 @@ export const NavigationItem = forwardRef<
     ref,
     isCurrent,
 
-    ...rest
+    ...rest,
   };
 
   return (

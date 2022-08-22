@@ -14,7 +14,7 @@ import { SvgIcon } from './utils';
 const { colors, spacing, borderRadius } = ddsBaseTokens;
 
 export default {
-  title: 'Icons/Overview'
+  title: 'Icons/Overview',
 };
 
 const IconContainer = styled.div`

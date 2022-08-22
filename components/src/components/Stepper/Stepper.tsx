@@ -4,7 +4,7 @@ import {
   forwardRef,
   isValidElement,
   useEffect,
-  useState
+  useState,
 } from 'react';
 import styled from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
@@ -48,7 +48,7 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref
+      ref,
     };
 
     const steps = Children.map(children, (step, index) => {
@@ -58,14 +58,14 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
 
       return cloneElement(step, {
         ...step.props,
-        index
+        index,
       });
     })?.filter(Boolean);
 
     return (
       <StepperContext.Provider
         value={{
-          activeStep: thisActiveStep
+          activeStep: thisActiveStep,
         }}
       >
         <div role="group" aria-label="progress" {...containerProps}>

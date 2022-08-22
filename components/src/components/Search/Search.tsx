@@ -3,7 +3,7 @@ import {
   forwardRef,
   InputHTMLAttributes,
   MouseEvent,
-  useState
+  useState,
 } from 'react';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
@@ -12,12 +12,12 @@ import {
   Input as BaseInput,
   InputContainer,
   OuterInputContainer,
-  InputProps as BaseInputProps
+  InputProps as BaseInputProps,
 } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import {
   derivativeIdGenerator,
-  spaceSeparatedIdListGenerator
+  spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Icon, IconSize } from '../Icon';
 import { SearchIcon } from '../../icons/tsx';
@@ -95,7 +95,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
 
     const containerProps = {
       className,
-      style
+      style,
     };
 
     const inputProps = {
@@ -107,8 +107,8 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       id: uniqueId,
       'aria-describedby': spaceSeparatedIdListGenerator([
         tipId,
-        ariaDescribedby
-      ])
+        ariaDescribedby,
+      ]),
     };
 
     const { label, onClick, ...otherButtonProps } = buttonProps || {};

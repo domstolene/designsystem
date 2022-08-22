@@ -53,6 +53,6 @@ export function Icon(props: IconProps) {
     width: size,
     fill: color,
     viewBox: '0 0 24 24',
-    'aria-hidden': ariaHidden
+    'aria-hidden': ariaHidden,
   });
 }

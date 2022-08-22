@@ -4,7 +4,7 @@ import {
   useEffect,
   Dispatch,
   SetStateAction,
-  KeyboardEvent
+  KeyboardEvent,
 } from 'react';
 import { Direction } from '../types';
 

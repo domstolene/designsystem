@@ -9,13 +9,13 @@ export default {
     error: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    indeterminate: { control: { type: 'boolean' } }
+    indeterminate: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className']
-    }
-  }
+      exclude: ['style', 'className'],
+    },
+  },
 };
 
 export const Overview = (args: CheckboxProps) => {

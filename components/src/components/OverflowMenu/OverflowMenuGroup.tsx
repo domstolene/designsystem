@@ -5,7 +5,7 @@ import {
   ReactNode,
   isValidElement,
   cloneElement,
-  ReactElement
+  ReactElement,
 } from 'react';
 
 export type OverflowMenuGroupProps = {
@@ -28,7 +28,7 @@ export const OverflowMenuGroup = ({
   onClose,
   onToggle,
   onOpen,
-  overflowMenuId
+  overflowMenuId,
 }: OverflowMenuGroupProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -61,13 +61,13 @@ export const OverflowMenuGroup = ({
             'aria-controls': uniqueOverflowMenuId,
             'aria-expanded': isOpen,
             onClick: handleToggle,
-            ref: buttonRef
+            ref: buttonRef,
           })
         : cloneElement(child as ReactElement, {
             isOpen: isOpen,
             id: uniqueOverflowMenuId,
             onClose: handleClose,
-            anchorRef: buttonRef
+            anchorRef: buttonRef,
           }))
     );
   });

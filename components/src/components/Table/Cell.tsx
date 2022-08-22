@@ -2,7 +2,7 @@ import {
   ElementType,
   forwardRef,
   ThHTMLAttributes,
-  TdHTMLAttributes
+  TdHTMLAttributes,
 } from 'react';
 import styled, { css } from 'styled-components';
 import { cellTokens as tokens } from './Cell.tokens';
@@ -76,11 +76,11 @@ export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
     const cellProps = {
       as: as,
       type,
-      ...rest
+      ...rest,
     };
 
     const innerCellProps = {
-      layout
+      layout,
     };
 
     return (

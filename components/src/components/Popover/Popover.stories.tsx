@@ -6,7 +6,7 @@ import { Typography } from '../Typography';
 import styled from 'styled-components';
 import {
   ddsBaseTokens,
-  ddsReferenceTokens
+  ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { removeButtonStyling } from '../../helpers/styling';
 
@@ -17,13 +17,13 @@ export default {
     withCloseButton: { control: { type: 'boolean' } },
     placement: { control: { type: 'text' } },
     title: { control: { type: 'text' } },
-    offset: { control: { type: 'number' } }
+    offset: { control: { type: 'number' } },
   },
   parameters: {
     controls: {
-      exclude: ['onCloseButton', 'anchorElement']
-    }
-  }
+      exclude: ['onCloseButton', 'anchorElement'],
+    },
+  },
 };
 
 export const ContentOverview = (args: PopoverProps) => {
@@ -37,7 +37,7 @@ export const ContentOverview = (args: PopoverProps) => {
               style={{
                 display: 'flex',
                 flexDirection: 'column',
-                paddingTop: '16px'
+                paddingTop: '16px',
               }}
             >
               <Typography withMargins>
@@ -94,7 +94,7 @@ export const PlacementOverview = () => {
       containerStyle={{
         alignContent: 'center',
         justifyContent: 'center',
-        padding: '150px 40px 200px 40px'
+        padding: '150px 40px 200px 40px',
       }}
     >
       {popover('top-start')}
@@ -146,7 +146,7 @@ export const Overflow = (args: PopoverProps) => {
               style={{
                 textOverflow: 'ellipsis',
                 overflow: 'hidden',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
               }}
             >
               Dette er en popover med tekst og knapp

@@ -3,7 +3,7 @@ import { ToggleButton, ToggleButtonGroup, ToggleButtonGroupProps } from '.';
 
 export default {
   title: 'Design system/ToggleButton/ToggleButtonGroup',
-  component: ToggleButtonGroup
+  component: ToggleButtonGroup,
 };
 
 export const Default = (args: ToggleButtonGroupProps) => (

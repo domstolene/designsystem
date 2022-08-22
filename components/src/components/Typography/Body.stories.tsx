@@ -3,7 +3,7 @@ import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Typography/Overview',
-  component: Typography
+  component: Typography,
 };
 
 export const Body = () => {

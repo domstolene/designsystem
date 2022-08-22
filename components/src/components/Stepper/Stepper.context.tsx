@@ -5,7 +5,7 @@ type StepperContextType = {
 };
 
 export const StepperContext = createContext<StepperContextType>({
-  activeStep: 0
+  activeStep: 0,
 });
 
 export const useStepperContext = () => useContext(StepperContext);

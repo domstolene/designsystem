@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { modalTokens as tokens } from './Modal.tokens';
 import {
   focusVisibleTransitionValue,
-  scrollbarStyling
+  scrollbarStyling,
 } from '../../helpers/styling';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
@@ -40,7 +40,7 @@ export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
       tabIndex: scrollable ? 0 : undefined,
-      scrollable
+      scrollable,
     };
 
     return <Container {...containerProps}>{children}</Container>;

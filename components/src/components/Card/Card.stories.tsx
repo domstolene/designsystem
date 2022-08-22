@@ -4,14 +4,14 @@ import {
   CardAccordionBody,
   Card,
   CardProps,
-  ExpandableCardProps
+  ExpandableCardProps,
 } from '.';
 import { StoryTemplate } from '../../storybook';
 import { Divider } from '../Divider';
 import {
   DescriptionList,
   DescriptionListDesc,
-  DescriptionListTerm
+  DescriptionListTerm,
 } from '../DescriptionList';
 import { Typography } from '../Typography';
 import styled from 'styled-components';
@@ -19,7 +19,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 export default {
   title: 'Design system/Card',
-  component: Card
+  component: Card,
 };
 
 const body = (

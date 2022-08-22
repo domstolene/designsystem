@@ -8,7 +8,7 @@ import {
   NpmSvg,
   FigmaSvg,
   SlackSvg,
-  GithubSvg
+  GithubSvg,
 } from './assets/logos';
 
 const LinkBlockInner = styled.div<{ size: Size }>`
@@ -58,7 +58,7 @@ export const StorybookLink = ({
   text,
   href,
   linkType,
-  size = 'large'
+  size = 'large',
 }: StorybookLinkProps) => {
   const iconSize = size === 'small' ? '1rem' : '50';
   return (

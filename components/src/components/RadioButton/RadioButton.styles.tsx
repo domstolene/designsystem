@@ -18,7 +18,7 @@ export const CustomRadioButton = styled.span`
 `;
 
 export const Input = styled.input.attrs(({ type = 'radio' }) => ({
-  type
+  type,
 }))`
   ${hideInput as CSSObject}
 `;

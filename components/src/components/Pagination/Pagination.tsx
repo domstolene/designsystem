@@ -11,7 +11,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronFirstIcon,
-  ChevronLastIcon
+  ChevronLastIcon,
 } from '../../icons/tsx';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
@@ -114,7 +114,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         { label: '10', value: 10 },
         { label: '25', value: 25 },
         { label: '50', value: 50 },
-        { label: 'Alle', value: itemsAmount }
+        { label: 'Alle', value: itemsAmount },
       ],
       smallScreen,
       onChange,
@@ -206,12 +206,12 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
     const navProps = !withSelect &&
       !withCounter && {
-        ...getBaseHTMLProps(id, className, htmlProps, rest)
+        ...getBaseHTMLProps(id, className, htmlProps, rest),
       };
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
-      smallScreen
+      smallScreen,
     };
 
     const isOnFirstPage = activePage === 1;
@@ -299,7 +299,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               width="80px"
               defaultValue={{
                 label: itemsPerPage.toString(),
-                value: itemsPerPage
+                value: itemsPerPage,
               }}
               isClearable={false}
               onChange={handleSelectChange}

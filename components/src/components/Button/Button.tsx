@@ -51,7 +51,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       onClick,
       onFocus,
-      onBlur
+      onBlur,
     };
 
     const isIconButton = !hasLabel && hasIcon;

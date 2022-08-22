@@ -9,8 +9,8 @@ export default {
   component: Stepper,
   argTypes: {
     color: { control: { type: 'text' } },
-    size: { control: { type: 'text' } }
-  }
+    size: { control: { type: 'text' } },
+  },
 };
 
 export const Overview = () => {

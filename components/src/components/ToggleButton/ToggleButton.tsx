@@ -69,11 +69,11 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
     const inputProps = {
       ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
       ref,
-      type: 'checkbox'
+      type: 'checkbox',
     };
 
     const containerProps = {
-      htmlFor: uniqueId
+      htmlFor: uniqueId,
     };
 
     return (

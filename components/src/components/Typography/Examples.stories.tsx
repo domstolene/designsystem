@@ -5,7 +5,7 @@ import { StoryTemplate } from '../../storybook';
 
 export default {
   title: 'Design system/Typography/Examples',
-  component: Typography
+  component: Typography,
 };
 
 const ArticleContainer = styled.div`

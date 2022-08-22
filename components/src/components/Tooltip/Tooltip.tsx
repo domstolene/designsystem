@@ -5,13 +5,13 @@ import React, {
   HTMLAttributes,
   isValidElement,
   useEffect,
-  useState
+  useState,
 } from 'react';
 import {
   Placement,
   useCombinedRef,
   useOnKeyDown,
-  useFloatPosition
+  useFloatPosition,
 } from '../../hooks';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
@@ -19,7 +19,7 @@ import {
   ArrowWrapper,
   Container,
   SvgArrow,
-  TooltipWrapper
+  TooltipWrapper,
 } from './Tooltip.styles';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
 
@@ -110,7 +110,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           ref: reference,
           onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
           onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
-          'aria-describedby': uniqueTooltipId
+          'aria-describedby': uniqueTooltipId,
         })
     );
 
@@ -118,7 +118,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       style,
       onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
-      onMouseOver: combineHandlers(openTooltip, onMouseOver)
+      onMouseOver: combineHandlers(openTooltip, onMouseOver),
     };
 
     const wrapperProps = {
@@ -127,12 +127,12 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       role: 'tooltip',
       'aria-hidden': !open,
       open,
-      style: { ...styles.floating }
+      style: { ...styles.floating },
     };
 
     const arrowWrapperProps = {
       ref: setArrowElement,
-      style: styles.arrow
+      style: styles.arrow,
     };
 
     return (

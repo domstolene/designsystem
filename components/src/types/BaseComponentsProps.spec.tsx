@@ -16,7 +16,7 @@ describe('getBaseHTMLProps', () => {
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
     expect(baseHTMLProps).toStrictEqual({
-      id: 'foo'
+      id: 'foo',
     });
   });
   it('returns id from htmlProps if base id is not set', () => {
@@ -27,7 +27,7 @@ describe('getBaseHTMLProps', () => {
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
     expect(baseHTMLProps).toStrictEqual({
-      id: 'fewa'
+      id: 'fewa',
     });
   });
   it('returns className from base argument', () => {
@@ -38,7 +38,7 @@ describe('getBaseHTMLProps', () => {
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
     expect(baseHTMLProps).toStrictEqual({
-      className: 'foo'
+      className: 'foo',
     });
   });
   it('returns className from htmlProps if base className is not set', () => {
@@ -49,13 +49,13 @@ describe('getBaseHTMLProps', () => {
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
     expect(baseHTMLProps).toStrictEqual({
-      className: 'fewa'
+      className: 'fewa',
     });
   });
   it('returns className from both base and htmlProps if both are set', () => {
     const props: BCP = {
       className: 'foobar',
-      htmlProps: { className: 'fewa' }
+      htmlProps: { className: 'fewa' },
     };
 
     const { id, className, htmlProps, testProp, ...rest } = props;
@@ -63,7 +63,7 @@ describe('getBaseHTMLProps', () => {
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
     expect(baseHTMLProps).toStrictEqual({
-      className: 'foobar fewa'
+      className: 'foobar fewa',
     });
   });
   it('returns htmlProps from base argument without id and with joined className', () => {
@@ -74,8 +74,8 @@ describe('getBaseHTMLProps', () => {
         id: 'htmlPropsId',
         'aria-activedescendant': 'fewa',
         title: 'fewafewa',
-        className: 'htmlPropsClassName'
-      }
+        className: 'htmlPropsClassName',
+      },
     };
 
     const { id, className, htmlProps, testProp, ...rest } = props;
@@ -86,17 +86,17 @@ describe('getBaseHTMLProps', () => {
       id: 'fooid',
       'aria-activedescendant': 'fewa',
       title: 'fewafewa',
-      className: 'baseclassName htmlPropsClassName'
+      className: 'baseclassName htmlPropsClassName',
     });
   });
   it('returns unknownProps from base argument "rest"', () => {
     const props: BCP = {
       id: 'fooid',
       htmlProps: {
-        'aria-label': 'arialabel'
+        'aria-label': 'arialabel',
       },
       'data-unknownProp': 'lol',
-      'data-unknownProp2': 'lol2'
+      'data-unknownProp2': 'lol2',
     };
 
     const { id, className, htmlProps, testProp, ...rest } = props;
@@ -107,14 +107,14 @@ describe('getBaseHTMLProps', () => {
       id: 'fooid',
       'aria-label': 'arialabel',
       'data-unknownProp': 'lol',
-      'data-unknownProp2': 'lol2'
+      'data-unknownProp2': 'lol2',
     });
   });
   it('overwrites aria-attributes that are set on the root if they are set on htmlprops', () => {
     const props: BCP = {
       'aria-label': 'foobar',
       'aria-describedby': 'other',
-      htmlProps: { 'aria-label': 'arialabelfromhtmlprops' }
+      htmlProps: { 'aria-label': 'arialabelfromhtmlprops' },
     };
 
     const { id, className, htmlProps, testProp, ...rest } = props;
@@ -123,7 +123,7 @@ describe('getBaseHTMLProps', () => {
 
     expect(baseHTMLProps).toStrictEqual({
       'aria-label': 'arialabelfromhtmlprops',
-      'aria-describedby': 'other'
+      'aria-describedby': 'other',
     });
   });
   it('works without className argument', () => {
@@ -131,9 +131,9 @@ describe('getBaseHTMLProps', () => {
       id: 'foo',
       htmlProps: {
         className: 'fewa',
-        'aria-label': 'arialabl'
+        'aria-label': 'arialabl',
       },
-      'data-unknownProp': 'foo'
+      'data-unknownProp': 'foo',
     };
 
     const { id, className, htmlProps, testProp, ...rest } = props;
@@ -144,7 +144,7 @@ describe('getBaseHTMLProps', () => {
       id: 'foo',
       className: 'fewa',
       'aria-label': 'arialabl',
-      'data-unknownProp': 'foo'
+      'data-unknownProp': 'foo',
     });
   });
 });

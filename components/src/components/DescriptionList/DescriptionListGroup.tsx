@@ -33,7 +33,7 @@ export const DescriptionListGroup = forwardRef<
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     children,
     ref,
-    margin
+    margin,
   };
 
   return <DListGroup {...dListGroupProps}>{children}</DListGroup>;

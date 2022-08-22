@@ -110,7 +110,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
     required,
     readOnly,
     value: groupValue,
-    onChange: handleChange
+    onChange: handleChange,
   };
 
   return (

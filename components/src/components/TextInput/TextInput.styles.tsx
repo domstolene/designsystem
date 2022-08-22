@@ -5,7 +5,7 @@ import {
   Label as BaseLabel,
   StyledInputProps,
   inputTokens,
-  StatefulInput
+  StatefulInput,
 } from '../../helpers';
 import { scrollbarStyling } from '../../helpers/styling';
 

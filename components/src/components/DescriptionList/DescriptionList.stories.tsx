@@ -3,7 +3,7 @@ import {
   DescriptionListDesc,
   DescriptionListTerm,
   DescriptionListGroup,
-  DescriptionListProps
+  DescriptionListProps,
 } from '.';
 import { StoryTemplate } from '../../storybook';
 import { Typography } from '../Typography';
@@ -12,7 +12,7 @@ import { CallIcon } from '../../icons/tsx';
 
 export default {
   title: 'Design system/DescriptionList',
-  component: DescriptionList
+  component: DescriptionList,
 };
 
 export const Overview = () => {
@@ -131,8 +131,8 @@ export const ColumnExample = (args: DescriptionListProps) => {
               height: '275px',
               display: 'flex',
               flexDirection: 'column',
-              flexWrap: 'wrap'
-            }
+              flexWrap: 'wrap',
+            },
           }}
         >
           <DescriptionListGroup margin={margin}>

@@ -4,7 +4,7 @@ import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 export default {
   title: 'Playground/Text margins example',
-  component: DDSTypography
+  component: DDSTypography,
 };
 
 const ArticleContainer = styled.div`

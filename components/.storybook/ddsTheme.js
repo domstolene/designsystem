@@ -5,7 +5,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const {
   colors: Colors,
   fontPackages: FontPackages,
-  borderRadius: BorderRadius
+  borderRadius: BorderRadius,
 } = ddsBaseTokens;
 
 const isFontFamily =
@@ -33,5 +33,5 @@ export default create({
   fontCode: 'monospace',
 
   //UI
-  appBorderRadius: BorderRadius.RadiiDdsBorderRadius1RadiusNumberPx
+  appBorderRadius: BorderRadius.RadiiDdsBorderRadius1RadiusNumberPx,
 });

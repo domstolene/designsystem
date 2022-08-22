@@ -152,68 +152,68 @@ export const getCustomStyles = <TOption>(): Partial<
     position: 'relative',
     display: 'flex',
     flexWrap: 'wrap',
-    ...tokens.input.base
+    ...tokens.input.base,
   }),
   placeholder: provided => ({
     ...provided,
     ...tokens.placeholder.base,
-    margin: 0
+    margin: 0,
   }),
   input: provided => ({
     ...provided,
     margin: 0,
-    padding: 0
+    padding: 0,
   }),
   indicatorSeparator: () => ({}),
   dropdownIndicator: (provided, state) => ({
     display: 'inline-flex',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
     '@media (prefers-reduced-motion: no-preference)': {
-      transition: 'color 0.2s, transform 0.2s'
+      transition: 'color 0.2s, transform 0.2s',
     },
-    ...tokens.dropdownIndicator.base
+    ...tokens.dropdownIndicator.base,
   }),
 
   valueContainer: (provided, state) => ({
     ...provided,
     ...(state.selectProps.isMulti ? tokens.valueContainer.isMulti.base : {}),
-    padding: 0
+    padding: 0,
   }),
   singleValue: provided => ({
     ...provided,
-    margin: 0
+    margin: 0,
   }),
   multiValue: (provided, state) => ({
     ...provided,
     ...tokens.multiValue.base,
     ...(state.selectProps.isDisabled
       ? tokens.multiValue.disabled.base
-      : tokens.multiValue.enabled.base)
+      : tokens.multiValue.enabled.base),
   }),
   multiValueLabel: provided => ({
     ...provided,
-    ...tokens.multiValueLabel.base
+    ...tokens.multiValueLabel.base,
   }),
   multiValueRemove: (provided, state) =>
     state.selectProps.isDisabled
       ? {
-          display: 'none'
+          display: 'none',
         }
       : {
           ...provided,
           '@media (prefers-reduced-motion: no-preference)': {
-            transition: 'color 0.2s, background-color 0.2s'
+            transition: 'color 0.2s, background-color 0.2s',
           },
           ...tokens.multiValueRemove.base,
           svg: {
-            ...tokens.multiValueRemove.icon.base
+            ...tokens.multiValueRemove.icon.base,
           },
           '&:hover': {
-            ...tokens.multiValueRemove.hover.base
+            ...tokens.multiValueRemove.hover.base,
           },
           '&:focus': {
-            backgroundColor: 'blue'
-          }
+            backgroundColor: 'blue',
+          },
         },
   menu: provided => ({
     ...provided,
@@ -222,36 +222,36 @@ export const getCustomStyles = <TOption>(): Partial<
     width: 'calc(100% + 2px)',
     transform: 'translate(-1px)',
     boxShadow: `inset 0 0 0 1px ${tokens.menu.base.borderColor}`,
-    ...tokens.menu.base
+    ...tokens.menu.base,
   }),
   menuList: provided => ({
     ...provided,
     paddingLeft: '1px',
-    paddingRight: '1px'
+    paddingRight: '1px',
   }),
   option: (provided, state) => ({
     ...provided,
     '@media (prefers-reduced-motion: no-preference)': {
-      transition: 'color 0.2s, background-color 0.2s'
+      transition: 'color 0.2s, background-color 0.2s',
     },
     ...tokens.option.base,
     '&:hover': {
-      ...tokens.option.hover.base
+      ...tokens.option.hover.base,
     },
-    ...(state.isSelected || state.isFocused ? tokens.option.selected.base : {})
+    ...(state.isSelected || state.isFocused ? tokens.option.selected.base : {}),
   }),
   noOptionsMessage: () => ({
-    ...tokens.noOptionsMessage.base
+    ...tokens.noOptionsMessage.base,
   }),
   clearIndicator: () => ({
     display: 'inline-flex',
     ...tokens.clearIndicator.base,
     '&:hover': {
-      ...tokens.clearIndicator.hover.base
-    }
+      ...tokens.clearIndicator.hover.base,
+    },
   }),
   loadingIndicator: provided => ({
     ...provided,
-    ...tokens.loadingIndicator.base
-  })
+    ...tokens.loadingIndicator.base,
+  }),
 });

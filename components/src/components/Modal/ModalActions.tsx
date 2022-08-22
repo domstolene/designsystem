@@ -14,7 +14,7 @@ export const ModalActions = forwardRef<HTMLDivElement, ModalActionsProps>(
   ({ children, ...rest }, ref) => {
     const containerProps = {
       ref,
-      ...rest
+      ...rest,
     };
 
     return <Container {...containerProps}>{children}</Container>;

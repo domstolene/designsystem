@@ -3,7 +3,7 @@ import {
   fireEvent,
   render,
   waitFor,
-  act
+  act,
 } from '@testing-library/react';
 import { Tooltip } from '.';
 import { Button } from '../Button';
@@ -12,7 +12,7 @@ import { Button } from '../Button';
 window.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
-  disconnect: jest.fn()
+  disconnect: jest.fn(),
 }));
 
 describe('<Tooltip />', () => {
