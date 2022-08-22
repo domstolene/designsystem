@@ -39,9 +39,11 @@ const StyledInput = styled(StatefulInput)`
     transform: translate(0, -50%);
     box-sizing: border-box;
   }
+
   ::-webkit-datetime-edit-fields-wrapper {
     padding: 0;
   }
+
   ::-webkit-calendar-picker-indicator:focus-visible {
     ${tokens.calendarIndicator.focus.base}
   }
@@ -49,6 +51,7 @@ const StyledInput = styled(StatefulInput)`
   ::-webkit-inner-spin-button {
     display: none;
   }
+
   @media (prefers-reduced-motion: no-preference) {
     ::-webkit-datetime-edit-day-field,
     ::-webkit-datetime-edit-month-field,
