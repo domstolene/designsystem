@@ -27,14 +27,8 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Test
+      - name: Verify
         working-directory: ${{ env.working-directory }}
-        run: npm run test
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Lint
-        working-directory: ${{ env.working-directory }}
-        run: npm run lint
+        run: npm run verify
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

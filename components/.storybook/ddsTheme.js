@@ -1,5 +1,4 @@
 import { create } from '@storybook/theming';
-import elsaLogo from '../src/assets/png/Elsa-logo.png';
 import elsaLogoHigh from '../src/assets/png/Elsa-logo-hoy.png';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 

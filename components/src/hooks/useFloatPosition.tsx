@@ -38,7 +38,7 @@ export const useFloatPosition = (
     shift(),
 
     // Only add arrow(...) if arrowRef is set
-    ... arrowRef ? [arrow({ element: arrowRef })] : []
+    ...(arrowRef ? [arrow({ element: arrowRef })] : [])
   ];
 
   const {
@@ -89,7 +89,7 @@ function getArrowStyling(
   placement: Placement,
   arrow: Arrow
 ) {
-  const arrowPlacement = placementToArrowPlacement(placement)
+  const arrowPlacement = placementToArrowPlacement(placement);
 
   const arrowPlacementOffset = {
     top: '-15px',

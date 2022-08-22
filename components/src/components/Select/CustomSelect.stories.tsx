@@ -54,9 +54,7 @@ export const Overview = (args: SingleSelectProps) => {
           </OptionElement>
         )}
         customSingleValueElement={props => (
-          <SingleElement>
-            {props.children}
-          </SingleElement>
+          <SingleElement>{props.children}</SingleElement>
         )}
       />
     </StoryTemplate>
