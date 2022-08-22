@@ -7,7 +7,7 @@ const {
   borderRadius: BorderRadius,
   colors: Colors,
   spacing: Spacing,
-  fontPackages: FontPackages
+  fontPackages: FontPackages,
 } = ddsBaseTokens;
 
 const linkBase: CSSObject = {
@@ -16,52 +16,52 @@ const linkBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
   padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15}`,
   gap: Spacing.SizesDdsSpacingLocalX025,
-  ...FontPackages.body_sans_01.base
+  ...FontPackages.body_sans_01.base,
 };
 
 const linkHoverBase: CSSObject = {
   color: Colors.DdsColorInteractiveDark,
-  backgroundColor: Colors.DdsColorPrimaryLightest
+  backgroundColor: Colors.DdsColorPrimaryLightest,
 };
 
 const linkActiveBase: CSSObject = {
-  color: Colors.DdsColorInteractiveBase
+  color: Colors.DdsColorInteractiveBase,
 };
 
 const wrapperBase: CSSObject = {
   border: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${Border.BordersDdsBorderStyleLightStroke} solid `,
   backgroundColor: Colors.DdsColorNeutralsWhite,
 
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
+  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
 };
 
 const linkFocusBase: CSSObject = {
-  ...focusVisibleLink
+  ...focusVisibleLink,
 };
 
 const dividerBase: CSSObject = {
   marginRight: Spacing.SizesDdsSpacingLocalX15,
-  marginLeft: Spacing.SizesDdsSpacingLocalX15
+  marginLeft: Spacing.SizesDdsSpacingLocalX15,
 };
 
 export const overflowMenuTokens = {
   container: {
-    base: wrapperBase
+    base: wrapperBase,
   },
   link: {
     base: linkBase,
     active: {
-      base: linkActiveBase
+      base: linkActiveBase,
     },
     hover: {
-      base: linkHoverBase
+      base: linkHoverBase,
     },
     focus: {
-      base: linkFocusBase
-    }
+      base: linkFocusBase,
+    },
   },
   divider: {
-    base: dividerBase
+    base: dividerBase,
   },
-  offset: Spacing.SizesDdsSpacingLocalX0125NumberPx
+  offset: Spacing.SizesDdsSpacingLocalX0125NumberPx,
 };

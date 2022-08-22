@@ -90,12 +90,12 @@ export function Spinner(props: SpinnerProps) {
   const spinnerProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     outerAnimationDelay,
-    size
+    size,
   };
 
   const circleProps = {
     innerAnimationDelay,
-    color
+    color,
   };
 
   return (

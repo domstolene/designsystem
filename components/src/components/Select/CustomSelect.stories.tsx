@@ -17,13 +17,13 @@ export default {
     isClearable: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    isLoading: { control: { type: 'boolean' } }
+    isLoading: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className', 'items', 'value', 'defaultValue']
-    }
-  }
+      exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
+    },
+  },
 };
 
 const options = createSelectOptions(
@@ -80,7 +80,7 @@ const SingleIcon = styled.div`
 
 const OptionElement = ({
   isSelected,
-  children
+  children,
 }: {
   isSelected: boolean;
   children: React.ReactNode;

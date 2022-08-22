@@ -8,30 +8,30 @@ export enum ScreenSize {
   Small,
   Medium,
   Large,
-  XLarge
+  XLarge,
 }
 
 const screenSizesAndMediaQueries: [ScreenSize, string][] = [
   [
     ScreenSize.XSmall,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointXs})`
+    `only screen and (min-width: ${breakpoints.DdsBreakpointXs})`,
   ],
   [
     ScreenSize.Small,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointSm})`
+    `only screen and (min-width: ${breakpoints.DdsBreakpointSm})`,
   ],
   [
     ScreenSize.Medium,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointMd})`
+    `only screen and (min-width: ${breakpoints.DdsBreakpointMd})`,
   ],
   [
     ScreenSize.Large,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointLg})`
+    `only screen and (min-width: ${breakpoints.DdsBreakpointLg})`,
   ],
   [
     ScreenSize.XLarge,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointXl})`
-  ]
+    `only screen and (min-width: ${breakpoints.DdsBreakpointXl})`,
+  ],
 ];
 
 export const useScreenSize = function () {

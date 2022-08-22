@@ -15,13 +15,13 @@ export default {
     isClearable: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    isLoading: { control: { type: 'boolean' } }
+    isLoading: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className', 'items', 'value', 'defaultValue']
-    }
-  }
+      exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
+    },
+  },
 };
 
 type Option = {
@@ -34,7 +34,7 @@ const options: Option[] = [
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',
   'Alternativ 3',
-  'Alternativ 4'
+  'Alternativ 4',
 ].map(s => ({ label: s, value: s }));
 
 type MultiSelectProps = SelectProps<Option, true>;

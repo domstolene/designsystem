@@ -6,7 +6,7 @@ const {
   border: Border,
   colors: Colors,
   spacing: Spacing,
-  fontPackages: FontPackages
+  fontPackages: FontPackages,
 } = ddsBaseTokens;
 
 const borderColor = Border.BordersDdsBorderStyleLightStroke;
@@ -15,103 +15,103 @@ const linkBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray9,
   textDecoration: 'none',
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  ...FontPackages.body_sans_01.base
+  ...FontPackages.body_sans_01.base,
 };
 
 const linkHoverBase: CSSObject = {
   color: Colors.DdsColorInteractiveDark,
-  backgroundColor: Colors.DdsColorPrimaryLightest
+  backgroundColor: Colors.DdsColorPrimaryLightest,
 };
 
 const linkActiveBase: CSSObject = {
-  color: Colors.DdsColorInteractiveBase
+  color: Colors.DdsColorInteractiveBase,
 };
 
 const wrapperBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite
+  backgroundColor: Colors.DdsColorNeutralsWhite,
 };
 
 const applicationNameWrapperBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15}`
+  padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15}`,
 };
 
 const lovisaWrapperBase: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15}`,
-  borderRight: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `
+  borderRight: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
 };
 
 const bannerBase: CSSObject = {
   borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
-  paddingRight: Spacing.SizesDdsSpacingLocalX1
+  paddingRight: Spacing.SizesDdsSpacingLocalX1,
 };
 
 const bannerLeftBase: CSSObject = {};
 
 const navigationBase: CSSObject = {
-  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `
+  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
 };
 
 const navigationLinkBase: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15}`,
-  ...linkBase
+  ...linkBase,
 };
 const navigationLinkHoverBase: CSSObject = {
-  ...linkHoverBase
+  ...linkHoverBase,
 };
 const navigationLinkActiveBase: CSSObject = {
-  ...linkActiveBase
+  ...linkActiveBase,
 };
 
 const navigationLinkFocusBase: CSSObject = {
-  ...focusVisibleLink
+  ...focusVisibleLink,
 };
 
 const navigationLinkCurrentBase: CSSObject = {
   color: Colors.DdsColorInteractiveDarker,
-  backgroundColor: Colors.DdsColorPrimaryLightest
+  backgroundColor: Colors.DdsColorPrimaryLightest,
 };
 
 const contextGroupBase: CSSObject = {
   right: Spacing.SizesDdsSpacingLocalX075,
-  top: Spacing.SizesDdsSpacingLocalX025
+  top: Spacing.SizesDdsSpacingLocalX025,
 };
 
 export const internalHeaderTokens = {
   wrapper: {
-    base: wrapperBase
+    base: wrapperBase,
   },
   applicationNameWrapper: {
-    base: applicationNameWrapperBase
+    base: applicationNameWrapperBase,
   },
   lovisaWrapper: {
-    base: lovisaWrapperBase
+    base: lovisaWrapperBase,
   },
   banner: {
     base: bannerBase,
-    contextMenuSpacing: Spacing.SizesDdsSpacingLayoutX4
+    contextMenuSpacing: Spacing.SizesDdsSpacingLayoutX4,
   },
   bannerLeft: {
-    base: bannerLeftBase
+    base: bannerLeftBase,
   },
   navigation: {
-    base: navigationBase
+    base: navigationBase,
   },
   navigationLink: {
     base: navigationLinkBase,
     hover: {
-      base: navigationLinkHoverBase
+      base: navigationLinkHoverBase,
     },
     active: {
-      base: navigationLinkActiveBase
+      base: navigationLinkActiveBase,
     },
     focus: {
-      base: navigationLinkFocusBase
+      base: navigationLinkFocusBase,
     },
     current: {
-      base: navigationLinkCurrentBase
-    }
+      base: navigationLinkCurrentBase,
+    },
   },
   contextGroup: {
-    base: contextGroupBase
-  }
+    base: contextGroupBase,
+  },
 };

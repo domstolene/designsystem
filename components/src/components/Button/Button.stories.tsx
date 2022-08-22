@@ -9,13 +9,13 @@ export default {
     label: { control: { type: 'text' } },
     loading: { control: { type: 'boolean' } },
     fullWidth: { control: { type: 'boolean' } },
-    href: { control: { type: 'text' } }
+    href: { control: { type: 'text' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className', 'target', 'Icon']
-    }
-  }
+      exclude: ['style', 'className', 'target', 'Icon'],
+    },
+  },
 };
 
 export const OverviewWithText = (args: ButtonProps) => {

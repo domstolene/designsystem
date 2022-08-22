@@ -11,27 +11,27 @@ export const headerCells: HeaderCellToSort[] = [
   {
     name: 'Arbeidstakers navn',
     dataName: 'name',
-    sortOrder: 'none'
+    sortOrder: 'none',
   },
   {
     name: 'Fødselsnummer',
     dataName: 'fnumber',
-    sortOrder: 'none'
+    sortOrder: 'none',
   },
   {
     name: 'Arbeidsgivernavn',
     dataName: 'employer',
-    sortOrder: 'none'
+    sortOrder: 'none',
   },
   {
     name: 'Org.nr',
     dataName: 'orgnumber',
-    sortOrder: 'none'
+    sortOrder: 'none',
   },
   {
     name: 'Stilling',
-    dataName: 'percentage'
-  }
+    dataName: 'percentage',
+  },
 ];
 
 export type CellDataToSort = {
@@ -48,29 +48,29 @@ export const data: CellDataToSort[] = [
     fnumber: '01048000138',
     employer: 'Domstolsadministrasjonen',
     orgnumber: '974713659',
-    percentage: '100%'
+    percentage: '100%',
   },
   {
     name: 'Marie Bjerke',
     fnumber: '12046782540',
     employer: 'Bouvet ASA',
     orgnumber: '482905761',
-    percentage: '100%'
+    percentage: '100%',
   },
   {
     name: 'Andreas Olsen',
     fnumber: '23117723456',
     employer: 'Direktoratet for mineralforvaltning',
     orgnumber: '123456789',
-    percentage: '100%'
+    percentage: '100%',
   },
   {
     name: 'Liv Jensen',
     fnumber: '07127523456',
     employer: 'Bekk Consulting AS',
     orgnumber: '987654321',
-    percentage: '100%'
-  }
+    percentage: '100%',
+  },
 ];
 
 export const mapCellContents = (

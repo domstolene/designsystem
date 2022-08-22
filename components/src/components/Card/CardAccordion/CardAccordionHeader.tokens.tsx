@@ -5,41 +5,41 @@ const {
   spacing: Spacing,
   fontPackages: FontPackages,
   border: Border,
-  iconSizes: IconSizes
+  iconSizes: IconSizes,
 } = ddsBaseTokens;
 
 const base: CSSObject = {
   padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15}`,
-  ...FontPackages.heading_sans_03.base
+  ...FontPackages.heading_sans_03.base,
 };
 
 const focusBase: CSSObject = {
-  boxShadow: `0 0 0 ${Border.BordersDdsBorderFocusCardStrokeWeight} ${Border.BordersDdsBorderFocusCardStroke}`
+  boxShadow: `0 0 0 ${Border.BordersDdsBorderFocusCardStrokeWeight} ${Border.BordersDdsBorderFocusCardStroke}`,
 };
 
 const hoverBase: CSSObject = {
-  boxShadow: `0 0 0 ${Border.BordersDdsBorderFocusInputfieldStrokeWeight} ${Border.BordersDdsBorderFocusInputfieldStroke}`
+  boxShadow: `0 0 0 ${Border.BordersDdsBorderFocusInputfieldStrokeWeight} ${Border.BordersDdsBorderFocusInputfieldStroke}`,
 };
 
 const chevronWrapperBase: CSSObject = {
   width: IconSizes.DdsIconsizeMedium,
   height: IconSizes.DdsIconsizeMedium,
-  marginLeft: Spacing.SizesDdsSpacingLocalX05
+  marginLeft: Spacing.SizesDdsSpacingLocalX05,
 };
 
 export const cardAccordionHeaderTokens = {
   base: base,
   focus: {
-    base: focusBase
+    base: focusBase,
   },
   hover: {
-    base: hoverBase
+    base: hoverBase,
   },
   chevronWrapper: {
-    base: chevronWrapperBase
+    base: chevronWrapperBase,
   },
   chevron: {
     width: IconSizes.DdsIconsizeMedium,
-    height: Spacing.SizesDdsSpacingLocalX05
-  }
+    height: Spacing.SizesDdsSpacingLocalX05,
+  },
 };

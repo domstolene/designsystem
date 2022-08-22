@@ -80,7 +80,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
-      purpose
+      purpose,
     };
 
     return !isClosed ? (

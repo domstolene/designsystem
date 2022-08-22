@@ -5,7 +5,7 @@ import {
   cloneElement,
   ReactElement,
   useState,
-  useRef
+  useRef,
 } from 'react';
 
 type DrawerGroupProps = {
@@ -25,7 +25,7 @@ export const DrawerGroup = ({
   children,
   drawerId,
   onOpen,
-  onClose
+  onClose,
 }: DrawerGroupProps) => {
   const uniqueId = nextUniqueId++;
   const [uniqueDrawerId] = useState<string>(drawerId ?? `drawer-${uniqueId}`);
@@ -55,13 +55,13 @@ export const DrawerGroup = ({
             'aria-controls': uniqueDrawerId,
             'aria-expanded': !closed,
             ref: buttonRef,
-            onClick: handleOpen
+            onClick: handleOpen,
           })
         : cloneElement(child as ReactElement, {
             id: uniqueDrawerId,
             triggerRef: buttonRef,
             isOpen: !closed,
-            onClose: handleClose
+            onClose: handleClose,
           }))
     );
   });

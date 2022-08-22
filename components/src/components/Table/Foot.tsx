@@ -8,7 +8,7 @@ export type FootProps = HTMLAttributes<HTMLTableSectionElement>;
 export const Foot = forwardRef<HTMLTableSectionElement, FootProps>(
   ({ children, ...rest }, ref) => {
     const footProps = {
-      ...rest
+      ...rest,
     };
 
     return (

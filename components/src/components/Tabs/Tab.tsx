@@ -7,7 +7,7 @@ import {
   useEffect,
   MouseEvent,
   useRef,
-  KeyboardEvent
+  KeyboardEvent,
 } from 'react';
 import styled, { css } from 'styled-components';
 import { Icon } from '../Icon';
@@ -17,7 +17,7 @@ import { useTabsContext } from './Tabs.context';
 import {
   BaseComponentPropsWithChildren,
   Direction,
-  getBaseHTMLProps
+  getBaseHTMLProps,
 } from '../../types';
 import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
@@ -135,7 +135,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     direction: tabContentDirection,
     onClick: handleOnClick,
     onKeyDown: handleOnKeyDown,
-    tabIndex: focus ? 0 : -1
+    tabIndex: focus ? 0 : -1,
   };
   return (
     <Button {...buttonProps}>

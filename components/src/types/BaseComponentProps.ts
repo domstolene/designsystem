@@ -107,7 +107,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
       ...unknownPropsOrUndefined,
       ...restHTMLProps,
       ...(propClassName && { className: propClassName }),
-      ...(propId && { id: propId })
+      ...(propId && { id: propId }),
     };
   } else {
     const {
@@ -122,7 +122,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
       ...htmlPropsOrUnknownProps,
       ...restHTMLProps,
       ...(htmlPropsClassName && { className: htmlPropsClassName }),
-      ...(propId && { id: propId })
+      ...(propId && { id: propId }),
     };
   }
 };

@@ -1,6 +1,6 @@
 import {
   ddsBaseTokens,
-  ddsReferenceTokens
+  ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { focusVisibleInset } from '../../helpers/styling';
@@ -8,41 +8,41 @@ import { focusVisibleInset } from '../../helpers/styling';
 const {
   colors: Colors,
   fontPackages: FontPackages,
-  border: Border
+  border: Border,
 } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
 
 const bodyRowBase: CSSObject = {
   color: textDefault.textColor,
-  ...FontPackages.body_sans_02.base
+  ...FontPackages.body_sans_02.base,
 };
 
 const headRowBase: CSSObject = {
   color: textDefault.textColor,
   ...FontPackages.body_sans_02.base,
   fontWeight: 600,
-  textAlign: 'left'
+  textAlign: 'left',
 };
 
 const bodyOddBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite
+  backgroundColor: Colors.DdsColorNeutralsWhite,
 };
 
 const bodyEvenBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsGray1
+  backgroundColor: Colors.DdsColorNeutralsGray1,
 };
 
 const bodySelectedBase: CSSObject = {
-  backgroundColor: Colors.DdsColorSecondaryLightest
+  backgroundColor: Colors.DdsColorSecondaryLightest,
 };
 
 const bodyHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorSecondaryLightest
+  backgroundColor: Colors.DdsColorSecondaryLightest,
 };
 
 const bodyFocusBase: CSSObject = {
-  ...focusVisibleInset
+  ...focusVisibleInset,
 };
 
 const bodySumBase: CSSObject = {
@@ -50,37 +50,37 @@ const bodySumBase: CSSObject = {
   fontWeight: 600,
   borderTop: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
   borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Colors.DdsColorNeutralsGray4}`,
-  backgroundColor: Colors.DdsColorNeutralsWhite
+  backgroundColor: Colors.DdsColorNeutralsWhite,
 };
 
 export const rowTokens = {
   head: {
-    base: headRowBase
+    base: headRowBase,
   },
   body: {
     base: bodyRowBase,
     odd: {
-      base: bodyOddBase
+      base: bodyOddBase,
     },
     even: {
-      base: bodyEvenBase
+      base: bodyEvenBase,
     },
     selected: {
-      base: bodySelectedBase
+      base: bodySelectedBase,
     },
     hover: {
-      base: bodyHoverBase
+      base: bodyHoverBase,
     },
     focus: {
-      base: bodyFocusBase
+      base: bodyFocusBase,
     },
     mode: {
       sum: {
-        base: bodySumBase
+        base: bodySumBase,
       },
       normal: {
-        base: {}
-      }
-    }
-  }
+        base: {},
+      },
+    },
+  },
 };

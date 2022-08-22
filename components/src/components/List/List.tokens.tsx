@@ -1,6 +1,6 @@
 import {
   ddsBaseTokens,
-  ddsReferenceTokens
+  ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
@@ -8,44 +8,44 @@ const { spacing: Spacing, fontPackages: FontPackages } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
 const inheritBase: CSSObject = {
-  font: 'inherit'
+  font: 'inherit',
 };
 
 const bodySans01Base: CSSObject = {
-  ...FontPackages.body_sans_01.base
+  ...FontPackages.body_sans_01.base,
 };
 
 const bodySans02Base: CSSObject = {
-  ...FontPackages.body_sans_02.base
+  ...FontPackages.body_sans_02.base,
 };
 
 const bodySans03Base: CSSObject = {
-  ...FontPackages.body_sans_03.base
+  ...FontPackages.body_sans_03.base,
 };
 
 const bodySans04Base: CSSObject = {
-  ...FontPackages.body_sans_04.base
+  ...FontPackages.body_sans_04.base,
 };
 
 const bodySerif01Base: CSSObject = {
-  ...FontPackages.body_serif_01.base
+  ...FontPackages.body_serif_01.base,
 };
 
 const bodySerif02Base: CSSObject = {
-  ...FontPackages.body_serif_02.base
+  ...FontPackages.body_serif_02.base,
 };
 
 const bodySerif03Base: CSSObject = {
-  ...FontPackages.body_serif_03.base
+  ...FontPackages.body_serif_03.base,
 };
 
 const bodySerif04Base: CSSObject = {
-  ...FontPackages.body_serif_04.base
+  ...FontPackages.body_serif_04.base,
 };
 
 const base: CSSObject = {
   margin: `${Spacing.SizesDdsSpacingLocalX1} 0`,
-  color: textDefault.textColor
+  color: textDefault.textColor,
 };
 
 export const listTokens = {
@@ -60,6 +60,6 @@ export const listTokens = {
     bodySerif02: bodySerif02Base,
     bodySerif03: bodySerif03Base,
     bodySerif04: bodySerif04Base,
-    inherit: inheritBase
-  }
+    inherit: inheritBase,
+  },
 };

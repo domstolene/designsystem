@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import {
   focusVisible,
-  focusVisibleTransitionValue
+  focusVisibleTransitionValue,
 } from '../../helpers/styling';
 import { BaseComponentPropsWithChildren } from '../../types';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -179,7 +179,7 @@ export const Step = (props: StepProps) => {
 
   const styleProps = {
     state: toStepState(active, completed),
-    clickable: props.onClick !== undefined
+    clickable: props.onClick !== undefined,
   };
 
   return (

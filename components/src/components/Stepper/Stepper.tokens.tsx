@@ -3,25 +3,25 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { colors, spacing, font } = ddsBaseTokens;
 
 const connector = {
-  color: colors.DdsColorInteractiveBase
+  color: colors.DdsColorInteractiveBase,
 };
 
 const stepNumber = {
   active: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorNeutralsWhite,
-    backgroundColor: colors.DdsColorInteractiveBase
+    backgroundColor: colors.DdsColorInteractiveBase,
   },
   completed: {
     borderColor: colors.DdsColorSuccessLighter,
     color: colors.DdsColorNeutralsGray9,
-    backgroundColor: colors.DdsColorSuccessLighter
+    backgroundColor: colors.DdsColorSuccessLighter,
   },
   inactive: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorInteractiveBase,
-    backgroundColor: colors.DdsColorNeutralsWhite
-  }
+    backgroundColor: colors.DdsColorNeutralsWhite,
+  },
 };
 
 const stepButton = {
@@ -31,20 +31,20 @@ const stepButton = {
 
   active: {
     color: colors.DdsColorNeutralsGray9,
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
   completed: {
     color: colors.DdsColorInteractiveBase,
-    textDecoration: 'underline'
+    textDecoration: 'underline',
   },
   inactive: {
     color: colors.DdsColorInteractiveBase,
-    textDecoration: 'underline'
-  }
+    textDecoration: 'underline',
+  },
 };
 
 export const stepperTokens = {
   connector,
   stepNumber,
-  stepButton
+  stepButton,
 };

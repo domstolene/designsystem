@@ -11,16 +11,16 @@ export default {
     TabList: TabList,
     Tab: Tab,
     TabPanel: TabPanel,
-    TabPanels: TabPanels
+    TabPanels: TabPanels,
   },
   argTypes: {
     activeTab: {
-      control: 'number'
+      control: 'number',
     },
     tabWidth: {
-      control: 'text'
-    }
-  }
+      control: 'text',
+    },
+  },
 } as Meta;
 
 export const Overview: Story<TabsProps> = () => (

@@ -21,7 +21,7 @@ const ListItem = styled.li`
 const StyledIcon = styled(Icon).attrs(
   ({ iconSize = tokens.icon.size, color = tokens.icon.base.color }) => ({
     iconSize,
-    color
+    color,
   })
 )`
   ${tokens.icon.base}

@@ -8,7 +8,7 @@ import {
   useMountTransition,
   useOnClickOutside,
   useOnKeyDown,
-  useFocusTrap
+  useFocusTrap,
 } from '../../hooks';
 import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling';
@@ -154,11 +154,11 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     tabIndex: -1,
     role: 'dialog',
     'aria-labelledby': headerId,
-    size
+    size,
   };
 
   const headerContainerProps = {
-    id: headerId
+    id: headerId,
   };
 
   return isOpen || hasTransitionedIn

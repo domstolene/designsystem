@@ -7,58 +7,58 @@ const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 const cellBase: CSSObject = {};
 
 const compactCellBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX075}`
+  padding: `${Spacing.SizesDdsSpacingLocalX075}`,
 };
 
 const headBase: CSSObject = {
-  backgroundColor: Colors.DdsColorPrimaryLightest
+  backgroundColor: Colors.DdsColorPrimaryLightest,
 };
 
 const dataBase: CSSObject = {};
 
 const normalCellBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX075}`
+  padding: `${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX075}`,
 };
 
 const sortCellIconBase: CSSObject = {
-  marginInlineStart: Spacing.SizesDdsSpacingLocalX05
+  marginInlineStart: Spacing.SizesDdsSpacingLocalX05,
 };
 
 const sortCellFocusBase: CSSObject = {
-  ...focusVisible
+  ...focusVisible,
 };
 
 const textAndIconBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX075
+  marginRight: Spacing.SizesDdsSpacingLocalX075,
 };
 
 export const cellTokens = {
   base: cellBase,
   density: {
     normal: {
-      base: normalCellBase
+      base: normalCellBase,
     },
     compact: {
-      base: compactCellBase
-    }
+      base: compactCellBase,
+    },
   },
   head: {
     base: headBase,
     sortCell: {
       icon: {
-        base: sortCellIconBase
+        base: sortCellIconBase,
       },
       focus: {
-        base: sortCellFocusBase
-      }
-    }
+        base: sortCellFocusBase,
+      },
+    },
   },
   data: {
     base: dataBase,
     layout: {
       textAndIcon: {
-        base: textAndIconBase
-      }
-    }
-  }
+        base: textAndIconBase,
+      },
+    },
+  },
 };

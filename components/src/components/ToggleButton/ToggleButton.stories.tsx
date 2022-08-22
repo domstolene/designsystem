@@ -6,8 +6,8 @@ export default {
   title: 'Design system/ToggleButton/ToggleButton',
   component: ToggleButton,
   argTypes: {
-    label: { control: 'text' }
-  }
+    label: { control: 'text' },
+  },
 };
 
 export const Default = (args: ToggleButtonProps) => (

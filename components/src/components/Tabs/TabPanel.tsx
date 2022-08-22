@@ -38,7 +38,7 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
       ref,
       tabIndex: 0,
       role: 'tabpanel',
-      active
+      active,
     };
     return <Panel {...panelProps}>{children}</Panel>;
   }

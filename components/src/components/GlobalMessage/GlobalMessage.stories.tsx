@@ -6,8 +6,8 @@ export default {
   component: GlobalMessage,
   argTypes: {
     message: { control: { type: 'text' } },
-    closable: { control: { type: 'boolean' } }
-  }
+    closable: { control: { type: 'boolean' } },
+  },
 };
 
 export const Overview = (args: GlobalMessageProps) => {

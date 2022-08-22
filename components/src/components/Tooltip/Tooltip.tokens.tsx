@@ -7,7 +7,7 @@ const {
   fontPackages: FontPackages,
   spacing: Spacing,
   outerShadow: OuterShadow,
-  borderRadius: BorderRadius
+  borderRadius: BorderRadius,
 } = ddsBaseTokens;
 
 const wrapperBase: CSSObject = {
@@ -16,19 +16,19 @@ const wrapperBase: CSSObject = {
   ...FontPackages.body_sans_02.base,
   padding: `${Spacing.SizesDdsSpacingLocalX075}`,
   boxShadow: OuterShadow.DdsShadow1Onlight,
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius
+  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
 };
 
 export const tooltipTokens = {
   wrapper: {
-    base: wrapperBase
+    base: wrapperBase,
   },
   svgArrow: {
     border: {
-      fill: Colors.DdsColorPrimaryLighter
+      fill: Colors.DdsColorPrimaryLighter,
     },
     background: {
-      fill: Colors.DdsColorNeutralsWhite
-    }
-  }
+      fill: Colors.DdsColorNeutralsWhite,
+    },
+  },
 };

@@ -23,6 +23,6 @@ export const TabsContext = createContext<Tabs>({
   hasTabFocus: false,
   setHasTabFocus: () => null,
   tabContentDirection: 'row',
-  tabWidth: '150px'
+  tabWidth: '150px',
 });
 export const useTabsContext = () => useContext(TabsContext);

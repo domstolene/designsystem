@@ -9,8 +9,8 @@ export default {
   argTypes: {
     message: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
-    closable: { control: { type: 'boolean' } }
-  }
+    closable: { control: { type: 'boolean' } },
+  },
 };
 
 export const Overview = (args: LocalMessageProps) => {

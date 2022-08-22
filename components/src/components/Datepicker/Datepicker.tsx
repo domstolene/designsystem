@@ -6,13 +6,13 @@ import {
   Label,
   InputContainer,
   OuterInputContainer,
-  InputProps
+  InputProps,
 } from '../../helpers';
 import { Property } from 'csstype';
 import styled from 'styled-components';
 import {
   derivativeIdGenerator,
-  spaceSeparatedIdListGenerator
+  spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
@@ -120,22 +120,22 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       'aria-describedby': spaceSeparatedIdListGenerator([
         tipId,
         errorMessageId,
-        ariaDescribedby
+        ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
       max: max || '9999-12-31', // Limit the year-part to only four digits by default
-      ...rest
+      ...rest,
     };
 
     const outerInputContainerProps = {
       width: componentWidth,
       style,
-      className
+      className,
     };
 
     const labelProps = {
       htmlFor: uniqueId,
-      disabled
+      disabled,
     };
 
     return (

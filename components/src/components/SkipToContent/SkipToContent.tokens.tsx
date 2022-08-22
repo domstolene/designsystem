@@ -6,43 +6,43 @@ const {
   colors: Colors,
   spacing: Spacing,
   fontPackages: FontPackages,
-  border: Border
+  border: Border,
 } = ddsBaseTokens;
 
 const linkBase: CSSObject = {
   color: Colors.DdsColorNeutralsWhite,
   ...FontPackages.body_sans_02.base,
-  textDecoration: 'none'
+  textDecoration: 'none',
 };
 
 const linkHoverBase: CSSObject = {
-  color: Colors.DdsColorNeutralsWhite
+  color: Colors.DdsColorNeutralsWhite,
 };
 
 const linkFocusBase: CSSObject = {
-  ...focusVisibleOnDark
+  ...focusVisibleOnDark,
 };
 
 const wrapperBase: CSSObject = {
   backgroundColor: Colors.DdsColorPrimaryBase,
-  padding: Spacing.SizesDdsSpacingLocalX025
+  padding: Spacing.SizesDdsSpacingLocalX025,
 };
 
 export const skipToContentTokens = {
   link: {
     base: linkBase,
     hover: {
-      base: linkHoverBase
+      base: linkHoverBase,
     },
     focus: {
-      base: linkFocusBase
+      base: linkFocusBase,
     },
     focusOutline: {
       color: Colors.DdsColorWarningDark,
-      width: Border.BordersDdsBorderFocusBaseStrokeWeight
-    }
+      width: Border.BordersDdsBorderFocusBaseStrokeWeight,
+    },
   },
   wrapper: {
-    base: wrapperBase
-  }
+    base: wrapperBase,
+  },
 };

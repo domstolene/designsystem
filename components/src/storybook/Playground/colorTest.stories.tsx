@@ -11,7 +11,7 @@ import { LocalMessage } from '../../components/LocalMessage';
 import { StoryTemplate } from '..';
 
 export default {
-  title: 'Playground/color test'
+  title: 'Playground/color test',
 };
 
 const { colors: Colors } = ddsBaseTokens;
@@ -23,7 +23,7 @@ const colors = {
     lightest: '#E8F2F8',
     base: '#1878b9',
     dark: '#136094',
-    darker: '#0E486F'
+    darker: '#0E486F',
   },
   colors6: {
     light: '#6DA1C4',
@@ -31,7 +31,7 @@ const colors = {
     lightest: '#EAF2F7',
     base: '#2E78AA',
     dark: '#256088',
-    darker: '#1C4866'
+    darker: '#1C4866',
   },
   colors5: {
     light: '#78B1D7',
@@ -40,7 +40,7 @@ const colors = {
     base: '#006DB6',
     dark: '#005792',
     darker: '#00416D',
-    darkest: '#002C49'
+    darkest: '#002C49',
   },
   infoNew: {
     light: 'rgba(158, 206, 238, 1)',
@@ -49,8 +49,8 @@ const colors = {
     base: 'rgba(117, 185, 230, 1)',
     dark: 'rgba(94, 148, 184, 1)',
     darker: 'rgba(70, 111, 138, 1)',
-    darkest: 'rgba(47, 74, 92, 1)'
-  }
+    darkest: 'rgba(47, 74, 92, 1)',
+  },
 };
 
 const infoMessageStyle = css`

@@ -9,8 +9,8 @@ export default {
     error: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    className: { control: { type: 'text' } }
-  }
+    className: { control: { type: 'text' } },
+  },
 };
 
 export const Overview = (args: RadioButtonProps) => {

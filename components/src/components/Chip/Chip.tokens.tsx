@@ -12,29 +12,29 @@ const containerBase: CSSObject = {
   border: `1px solid ${colors.DdsColorNeutralsGray3}`,
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
   color: colors.DdsColorNeutralsGray9,
-  maxWidth: '100%'
+  maxWidth: '100%',
 };
 
 const textBase: CSSObject = {
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
-  ...fontPackages.body_sans_01.base
+  ...fontPackages.body_sans_01.base,
 };
 
 const groupBase: CSSObject = {
   display: 'flex',
-  gap: spacing.SizesDdsSpacingLocalX075
+  gap: spacing.SizesDdsSpacingLocalX075,
 };
 
 export const chipTokens = {
   container: {
-    base: containerBase
+    base: containerBase,
   },
   group: {
-    base: groupBase
+    base: groupBase,
   },
   text: {
-    base: textBase
-  }
+    base: textBase,
+  },
 };
