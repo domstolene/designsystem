@@ -7,9 +7,8 @@ export interface CheckboxGroup {
   tipId?: string;
 }
 
-export const CheckboxGroupContext = React.createContext<
-  Nullable<CheckboxGroup>
->(null);
+export const CheckboxGroupContext =
+  React.createContext<Nullable<CheckboxGroup>>(null);
 
 export const useCheckboxGroup = () => {
   return useContext(CheckboxGroupContext);
