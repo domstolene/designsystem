@@ -66,8 +66,6 @@ export const Scrollbar = (props: ScrollbarProps) => {
 
   const handleTrackClick = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      e.stopPropagation();
       if (contentRef && contentRef.current) {
         const { current: trackCurrent } = trackRef;
         const { current: contentCurrent } = contentRef;
@@ -122,29 +120,20 @@ export const Scrollbar = (props: ScrollbarProps) => {
   }, []);
 
   const handleThumbMousedown = useCallback((e: MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
     setScrollStartPosition(e.clientY);
     if (contentRef && contentRef.current)
       setInitialScrollTop(contentRef.current.scrollTop);
     setIsDragging(true);
   }, []);
 
-  const handleThumbMouseup = useCallback(
-    (e: globalThis.MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (isDragging) {
-        setIsDragging(false);
-      }
-    },
-    [isDragging]
-  );
+  const handleThumbMouseup = useCallback(() => {
+    if (isDragging) {
+      setIsDragging(false);
+    }
+  }, [isDragging]);
 
   const handleThumbMousemove = useCallback(
     (e: globalThis.MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
       if (contentRef && contentRef.current) {
         if (isDragging) {
           const {
