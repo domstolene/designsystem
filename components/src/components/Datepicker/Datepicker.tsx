@@ -28,10 +28,8 @@ const getWidth = (type: string): Property.Width<string> => {
 
 const StyledInput = styled(StatefulInput)`
   &::-webkit-calendar-picker-indicator {
-    // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-    // eslint-disable-next-line
-    // prettier-ignore
-    background-image: url("${CalendarIcon}");
+    // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+    background-image: ${`url("${CalendarIcon}")`};
     ${tokens.calendarIndicator.base}
     margin-left: 0px;
     padding: 0;

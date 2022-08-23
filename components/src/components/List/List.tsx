@@ -49,22 +49,16 @@ const StyledList = styled.ul<StyledListProps>`
               left: 0;
               background-size: contain;
               background-repeat: no-repeat;
-              // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-              // eslint-disable-next-line
-              // prettier-ignore
-              background-image: url("${bullet}");
+              // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+              background-image: ${`url("${bullet}")`};
             }
             ul > li:before {
-              // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-              // eslint-disable-next-line
-              // prettier-ignore
-              background-image: url("${bulletLvl2}");
+              // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+              background-image: ${`url("${bulletLvl2}")`};
             }
             ul > li > ul > li:before {
-              // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-              // eslint-disable-next-line
-              // prettier-ignore
-              background-image: url("${bulletLvl3}");
+              // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+              background-image: ${`url("${bulletLvl3}")`};
             }
           }
         `
