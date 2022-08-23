@@ -1,6 +1,6 @@
 import { StoryTemplate } from '../../storybook';
 import { InternalHeader, InternalHeaderProps } from '.';
-import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import { EditIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/InternalHeader',
@@ -8,7 +8,7 @@ export default {
   argTypes: {
     applicationName: { control: { type: 'text' } },
     currentPageHref: { control: { type: 'text' } },
-    smallScreen: { control: { type: 'boolean' } }
+    smallScreen: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {
@@ -16,53 +16,53 @@ export default {
         'style',
         'contextMenuElements',
         'navigationElements',
-        'userProps'
-      ]
-    }
-  }
+        'userProps',
+      ],
+    },
+  },
 };
 
 const navigationLink = {
   href: '#',
-  title: 'navigasjonspunkt'
+  title: 'navigasjonspunkt',
 };
 
 const uniqueNavigationLink = {
   href: '#/',
-  title: 'unik navigasjonspunkt'
+  title: 'unik navigasjonspunkt',
 };
 
 const longNavigationLink = {
   href: '#',
-  title: 'Veldig veldig veldig velidg lang tittel her'
+  title: 'Veldig veldig veldig velidg lang tittel her',
 };
 
 const navigationLinks = [
   navigationLink,
   navigationLink,
   navigationLink,
-  longNavigationLink
+  longNavigationLink,
 ];
 
 const shortNavigationLinks = [navigationLink, navigationLink, navigationLink];
 
 const user = {
-  name: 'Navn Navnesen'
+  name: 'Navn Navnesen',
 };
 
 const userWithHref = {
   ...user,
-  href: '#'
+  href: '#',
 };
 
 const menuElementWithIcon = {
   title: 'action',
-  Icon: CreateOutlinedIcon,
-  onClick: () => {}
+  icon: EditIcon,
+  onClick: () => {},
 };
 const menuElement = {
   title: 'kontekstmenypunkt',
-  href: '#'
+  href: '#',
 };
 
 const menuElements = [menuElement, menuElementWithIcon, menuElement];

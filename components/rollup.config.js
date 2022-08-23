@@ -19,24 +19,24 @@ function isBareModuleId(id) {
 }
 
 export default {
-  input: 'src/index.ts',
+  input: './src/index.ts',
   output: [
     {
       dir: 'dist/cjs',
       format: 'cjs',
-      exports: 'named'
+      exports: 'named',
     },
     {
       dir: 'dist',
       format: 'esm',
       exports: 'named',
       preserveModules: true,
-      preserveModulesRoot: 'src'
-    }
+      preserveModulesRoot: 'src',
+    },
   ],
   plugins: [
     resolve({
-      extensions: extensions
+      extensions: extensions,
     }),
     typescript({
       tsconfig: 'tsconfig.json',
@@ -45,16 +45,16 @@ export default {
           '**/*.spec.ts*',
           '**/setupTests.ts',
           '**/storybook',
-          '**/helpers'
-        ]
-      }
+          '**/helpers',
+        ],
+      },
     }),
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'bundled',
       presets: ['@babel/preset-env', '@babel/preset-react'],
       extensions,
-      plugins: ['babel-plugin-styled-components']
+      plugins: ['babel-plugin-styled-components'],
     }),
     commonjs(),
     image(),
@@ -62,9 +62,9 @@ export default {
     copy({
       targets: [
         { src: 'src/assets/fonts/*', dest: 'dist/assets/fonts' },
-        { src: 'src/styles/*', dest: 'dist/styles' }
-      ]
-    })
+        { src: 'src/styles/*', dest: 'dist/styles' },
+      ],
+    }),
   ],
-  external: isBareModuleId
+  external: isBareModuleId,
 };

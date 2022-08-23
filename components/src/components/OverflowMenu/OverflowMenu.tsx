@@ -7,19 +7,19 @@ import {
   useOnClickOutside,
   useOnKeyDown,
   useFloatPosition,
-  useRoveFocus
+  useRoveFocus,
 } from '../../hooks';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { Divider } from '../Divider';
 import {
   OverflowMenuContextItem,
   OverflowMenuNavItem,
-  OverflowMenuProps
+  OverflowMenuProps,
 } from '.';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { getBaseHTMLProps } from '../../types';
+import { PersonIcon } from '../../icons/tsx';
 
 type ContainerProps = { isOpen: boolean };
 
@@ -126,11 +126,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
               index={index}
               focus={focus === index && isOpen}
               setFocus={setFocus}
-              Icon={
-                hasInteractiveUser && index === 0
-                  ? PersonOutlineOutlinedIcon
-                  : undefined
-              }
+              icon={hasInteractiveUser && index === 0 ? PersonIcon : undefined}
               {...item}
               onClick={(
                 e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
@@ -196,13 +192,13 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       isOpen,
       style: { ...style, ...styles.floating },
       'aria-hidden': !isOpen,
-      role: 'menu'
+      role: 'menu',
     };
 
     return (
       <Container {...containerProps} aria-label="bruk piltaster for å navigere">
         {hasStaticUser && (
-          <OverflowMenuItem title={username} Icon={PersonOutlineOutlinedIcon} />
+          <OverflowMenuItem title={username} icon={PersonIcon} />
         )}
 
         {interactiveContent()}

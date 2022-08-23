@@ -7,8 +7,8 @@ export default {
   title: 'design system/Modal',
   component: Modal,
   argTypes: {
-    header: { control: { type: 'text' } }
-  }
+    header: { control: { type: 'text' } },
+  },
 };
 
 export const Overview = () => {
@@ -142,7 +142,7 @@ export const Scrollable = (args: ModalProps) => {
         isOpen={!closed}
         onClose={close}
         htmlProps={{
-          style: { width: '300px' }
+          style: { width: '300px' },
         }}
         header="Fritt valg av forsvarer"
       >

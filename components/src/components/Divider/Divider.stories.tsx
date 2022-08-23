@@ -5,7 +5,7 @@ import { Typography } from '../Typography';
 export default {
   title: 'design system/Divider',
   component: Divider,
-  argTypes: {}
+  argTypes: {},
 };
 
 export const Overview = (args: DividerProps) => {

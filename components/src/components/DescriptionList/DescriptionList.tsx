@@ -55,7 +55,7 @@ export const DescriptionList = forwardRef<
   const dListProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     appearance,
-    ref
+    ref,
   };
 
   return <DList {...dListProps}>{children}</DList>;

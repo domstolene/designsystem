@@ -6,7 +6,7 @@ import {
   offset as floatingOffset,
   shift,
   Strategy,
-  useFloating
+  useFloating,
 } from '@floating-ui/react-dom';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { useEffect } from 'react';
@@ -38,7 +38,7 @@ export const useFloatPosition = (
     shift(),
 
     // Only add arrow(...) if arrowRef is set
-    ... arrowRef ? [arrow({ element: arrowRef })] : []
+    ...(arrowRef ? [arrow({ element: arrowRef })] : []),
   ];
 
   const {
@@ -50,10 +50,10 @@ export const useFloatPosition = (
     middlewareData,
     placement: actualPlacement,
     update,
-    refs
+    refs,
   } = useFloating({
     placement,
-    middleware
+    middleware,
   });
 
   useEffect(() => {
@@ -73,12 +73,12 @@ export const useFloatPosition = (
       floating: {
         position: strategy,
         top: y ?? '',
-        left: x ?? ''
+        left: x ?? '',
       },
       arrow: middlewareData.arrow
         ? getArrowStyling(strategy, actualPlacement, middlewareData.arrow)
-        : undefined
-    }
+        : undefined,
+    },
   };
 };
 
@@ -89,20 +89,20 @@ function getArrowStyling(
   placement: Placement,
   arrow: Arrow
 ) {
-  const arrowPlacement = placementToArrowPlacement(placement)
+  const arrowPlacement = placementToArrowPlacement(placement);
 
   const arrowPlacementOffset = {
     top: '-15px',
     bottom: '-15px',
     right: '-21px',
-    left: '-21px'
+    left: '-21px',
   }[arrowPlacement];
 
   const rotateArrow = {
     top: 'rotate(180deg)',
     right: 'rotate(-90deg)',
     bottom: '',
-    left: 'rotate(90deg)'
+    left: 'rotate(90deg)',
   }[arrowPlacement];
 
   return {
@@ -110,7 +110,7 @@ function getArrowStyling(
     top: arrow?.y ?? '',
     left: arrow?.x ?? '',
     [arrowPlacement]: arrowPlacementOffset,
-    transform: rotateArrow
+    transform: rotateArrow,
   };
 }
 

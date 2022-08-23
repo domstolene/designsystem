@@ -8,15 +8,15 @@ import {
   useMountTransition,
   useOnClickOutside,
   useOnKeyDown,
-  useFocusTrap
+  useFocusTrap,
 } from '../../hooks';
 import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling';
 import { scrollbarStyling } from '../../helpers/styling';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { Paper } from '../../helpers';
 import { Property } from 'csstype';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { CloseIcon } from '../../icons/tsx';
 
 type ContainerProps = {
   placement: DrawerPlacement;
@@ -154,11 +154,11 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     tabIndex: -1,
     role: 'dialog',
     'aria-labelledby': headerId,
-    size
+    size,
   };
 
   const headerContainerProps = {
-    id: headerId
+    id: headerId,
   };
 
   return isOpen || hasTransitionedIn
@@ -185,7 +185,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
             appearance="borderless"
             onClick={onClose}
             aria-label="Lukk"
-            Icon={CloseOutlinedIcon}
+            icon={CloseIcon}
           />
         </Container>,
         parentElement

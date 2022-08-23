@@ -7,9 +7,10 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean) {
     function handleFocus(e: KeyboardEvent) {
       if (e.key !== 'Tab' || !active || !elementRef.current) return;
 
-      const focusableElements: NodeListOf<HTMLElement> = elementRef.current.querySelectorAll(
-        'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      );
+      const focusableElements: NodeListOf<HTMLElement> =
+        elementRef.current.querySelectorAll(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
 

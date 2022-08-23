@@ -5,7 +5,7 @@ const { border: Border, spacing: Spacing } = ddsBaseTokens;
 
 export const dividerColors = {
   primary: Border.BordersDdsBorderStyleDarkStroke,
-  primaryLighter: Border.BordersDdsBorderStyleLightStroke
+  primaryLighter: Border.BordersDdsBorderStyleLightStroke,
 };
 
 const base: CSSObject = {
@@ -13,9 +13,9 @@ const base: CSSObject = {
   backgroundColor: 'transparent',
   borderTop: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
   marginTop: Spacing.SizesDdsSpacingLocalX1,
-  marginBottom: Spacing.SizesDdsSpacingLocalX1
+  marginBottom: Spacing.SizesDdsSpacingLocalX1,
 };
 
 export const dividerTokens = {
-  base: base
+  base: base,
 };

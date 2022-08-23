@@ -16,7 +16,7 @@ export const CustomCheckbox = styled.span`
 `;
 
 export const Input = styled.input.attrs(({ type = 'checkbox' }) => ({
-  type
+  type,
 }))`
   ${hideInput as CSSObject}
 `;

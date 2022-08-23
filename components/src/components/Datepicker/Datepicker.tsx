@@ -6,13 +6,13 @@ import {
   Label,
   InputContainer,
   OuterInputContainer,
-  InputProps
+  InputProps,
 } from '../../helpers';
 import { Property } from 'csstype';
 import styled from 'styled-components';
 import {
   derivativeIdGenerator,
-  spaceSeparatedIdListGenerator
+  spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
@@ -27,7 +27,7 @@ const getWidth = (type: string): Property.Width<string> => {
 };
 
 const StyledInput = styled(StatefulInput)`
-  ::-webkit-calendar-picker-indicator {
+  &::-webkit-calendar-picker-indicator {
     // disable eslint to ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
     // eslint-disable-next-line
     // prettier-ignore
@@ -40,13 +40,18 @@ const StyledInput = styled(StatefulInput)`
     box-sizing: border-box;
   }
 
-  ::-webkit-calendar-picker-indicator:focus-visible {
+  &::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+
+  &::-webkit-calendar-picker-indicator:focus-visible {
     ${tokens.calendarIndicator.focus.base}
   }
 
-  ::-webkit-inner-spin-button {
+  &::-webkit-inner-spin-button {
     display: none;
   }
+
   @media (prefers-reduced-motion: no-preference) {
     ::-webkit-datetime-edit-day-field,
     ::-webkit-datetime-edit-month-field,
@@ -57,11 +62,11 @@ const StyledInput = styled(StatefulInput)`
     }
   }
 
-  ::-webkit-datetime-edit-day-field:focus,
-  ::-webkit-datetime-edit-month-field:focus,
-  ::-webkit-datetime-edit-year-field:focus,
-  ::-webkit-datetime-edit-hour-field:focus,
-  ::-webkit-datetime-edit-minute-field:focus {
+  &::-webkit-datetime-edit-day-field:focus,
+  &::-webkit-datetime-edit-month-field:focus,
+  &::-webkit-datetime-edit-year-field:focus,
+  &::-webkit-datetime-edit-hour-field:focus,
+  &::-webkit-datetime-edit-minute-field:focus {
     ${typographyTokens.selection.base}
   }
 `;
@@ -84,6 +89,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       tip,
       style,
       className,
+      max,
       'aria-describedby': ariaDescribedby,
       ...rest
     },
@@ -117,21 +123,22 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       'aria-describedby': spaceSeparatedIdListGenerator([
         tipId,
         errorMessageId,
-        ariaDescribedby
+        ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
-      ...rest
+      max: max || '9999-12-31', // Limit the year-part to only four digits by default
+      ...rest,
     };
 
     const outerInputContainerProps = {
       width: componentWidth,
       style,
-      className
+      className,
     };
 
     const labelProps = {
       htmlFor: uniqueId,
-      disabled
+      disabled,
     };
 
     return (

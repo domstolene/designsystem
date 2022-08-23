@@ -2,7 +2,7 @@ import {
   SvgChevronlRight,
   SvgChevronlLeft,
   SvgChevronlGroup,
-  SvgChevron
+  SvgChevron,
 } from './AnimatedChevronUpDown.styles';
 import { Property } from 'csstype';
 
@@ -20,7 +20,7 @@ type SvgChevronProps = {
 export const AnimatedChevronUpDown = ({
   isUp,
   height = '5px',
-  width = '8px'
+  width = '8px',
 }: SvgChevronProps) => {
   return (
     <SvgChevron

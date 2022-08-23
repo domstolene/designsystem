@@ -28,7 +28,7 @@ export type BaseComponentProps<
  */
 export type BaseComponentPropsWithChildren<
   T extends Element,
-  TProps extends Record<string, unknown>,
+  TProps extends Record<string, unknown> = Record<string, unknown>,
   THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>
 > = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
 
@@ -107,7 +107,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
       ...unknownPropsOrUndefined,
       ...restHTMLProps,
       ...(propClassName && { className: propClassName }),
-      ...(propId && { id: propId })
+      ...(propId && { id: propId }),
     };
   } else {
     const {
@@ -122,7 +122,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
       ...htmlPropsOrUnknownProps,
       ...restHTMLProps,
       ...(htmlPropsClassName && { className: htmlPropsClassName }),
-      ...(propId && { id: propId })
+      ...(propId && { id: propId }),
     };
   }
 };

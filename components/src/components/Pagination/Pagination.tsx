@@ -1,16 +1,18 @@
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
-import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import FirstPageOutlinedIcon from '@mui/icons-material/FirstPageOutlined';
-import LastPageOutlinedIcon from '@mui/icons-material/LastPageOutlined';
 import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { Select } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import { paginationTokens as tokens } from './Pagination.tokens';
+import {
+  MoreHorizontalIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronFirstIcon,
+  ChevronLastIcon,
+} from '../../icons/tsx';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 const Nav = styled.nav`
@@ -112,7 +114,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         { label: '10', value: 10 },
         { label: '25', value: 25 },
         { label: '50', value: 50 },
-        { label: 'Alle', value: itemsAmount }
+        { label: 'Alle', value: itemsAmount },
       ],
       smallScreen,
       onChange,
@@ -169,7 +171,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                     }
                   />
                 ) : (
-                  <IconWrapper Icon={MoreHorizOutlinedIcon} />
+                  <Icon icon={MoreHorizontalIcon} />
                 )}
               </ListItem>
             );
@@ -181,7 +183,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         purpose="secondary"
         appearance="ghost"
         size="small"
-        Icon={ChevronLeftOutlinedIcon}
+        icon={ChevronLeftIcon}
         onClick={event => {
           onPageChange(event, activePage - 1);
         }}
@@ -194,7 +196,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         purpose="secondary"
         appearance="ghost"
         size="small"
-        Icon={ChevronRightOutlinedIcon}
+        icon={ChevronRightIcon}
         onClick={event => {
           onPageChange(event, activePage + 1);
         }}
@@ -204,12 +206,12 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
     const navProps = !withSelect &&
       !withCounter && {
-        ...getBaseHTMLProps(id, className, htmlProps, rest)
+        ...getBaseHTMLProps(id, className, htmlProps, rest),
       };
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
-      smallScreen
+      smallScreen,
     };
 
     const isOnFirstPage = activePage === 1;
@@ -237,7 +239,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               purpose="secondary"
               appearance="ghost"
               size="small"
-              Icon={FirstPageOutlinedIcon}
+              icon={ChevronFirstIcon}
               onClick={event => {
                 onPageChange(event, 1);
               }}
@@ -264,7 +266,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               purpose="secondary"
               appearance="ghost"
               size="small"
-              Icon={LastPageOutlinedIcon}
+              icon={ChevronLastIcon}
               onClick={event => {
                 onPageChange(event, pagesLength);
               }}
@@ -297,7 +299,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               width="80px"
               defaultValue={{
                 label: itemsPerPage.toString(),
-                value: itemsPerPage
+                value: itemsPerPage,
               }}
               isClearable={false}
               onChange={handleSelectChange}

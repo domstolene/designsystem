@@ -6,7 +6,12 @@ import {
   PRIMARY_STORY
 } from '@storybook/addon-docs';
 import { Search } from '.';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/Search/API" component={Search} />
@@ -29,7 +34,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-search--with-button" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-search`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-search`} />
 
 ## Bruk i koden
 
@@ -48,7 +53,7 @@ ${' '}}
 ## API
 
 <ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 
 ### Types
 

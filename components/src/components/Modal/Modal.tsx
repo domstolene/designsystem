@@ -2,7 +2,6 @@ import { forwardRef, ReactNode, RefObject, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useFocusTrap } from '../../hooks';
 import { useCombinedRef, useOnClickOutside, useOnKeyDown } from '../../hooks';
 import { createPortal } from 'react-dom';
@@ -10,11 +9,12 @@ import { Typography } from '../Typography';
 import {
   Backdrop,
   handleElementWithBackdropMount,
-  handleElementWithBackdropUnmount
+  handleElementWithBackdropUnmount,
 } from '../../helpers';
 import { useMountTransition } from '../../hooks/useMountTransition';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { CloseIcon } from '../../icons/tsx';
 
 const Container = styled.div`
   display: flex;
@@ -101,7 +101,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const hasTransitionedIn = useMountTransition(isOpen, 200);
 
   const backdropProps = {
-    isOpen: hasTransitionedIn && isOpen
+    isOpen: hasTransitionedIn && isOpen,
   };
 
   const containerProps = {
@@ -112,11 +112,11 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     'aria-hidden': !isOpen,
     tabIndex: -1,
     'aria-labelledby': headerId,
-    id: modalId
+    id: modalId,
   };
 
   const headerContainerProps = {
-    id: headerId
+    id: headerId,
   };
 
   return isOpen || hasTransitionedIn
@@ -142,7 +142,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                 size="small"
                 appearance="borderless"
                 purpose="secondary"
-                Icon={CloseOutlinedIcon}
+                icon={CloseIcon}
                 onClick={handleClose}
                 aria-label="Lukk dialog"
               />

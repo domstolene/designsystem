@@ -5,12 +5,12 @@ import {
   ReactElement,
   Children as ReactChildren,
   cloneElement,
-  isValidElement
+  isValidElement,
 } from 'react';
 import styled from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
-  getBaseHTMLProps
+  getBaseHTMLProps,
 } from '../../../types';
 
 const Wrapper = styled.div``;
@@ -60,19 +60,19 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
               isExpanded: expanded,
               toggleExpanded,
               id: headerId,
-              bodyId
+              bodyId,
             })
           : cloneElement(child as ReactElement, {
               isExpanded: expanded,
               id: bodyId,
-              headerId
+              headerId,
             }))
       );
     });
 
     const wrapperProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref
+      ref,
     };
     return <Wrapper {...wrapperProps}>{Children}</Wrapper>;
   }

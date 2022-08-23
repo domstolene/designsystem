@@ -5,13 +5,13 @@ export default {
   title: 'Design system/Search',
   component: Search,
   argTypes: {
-    tip: { control: { type: 'text' } }
+    tip: { control: { type: 'text' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className', 'buttonProps']
-    }
-  }
+      exclude: ['style', 'className', 'buttonProps'],
+    },
+  },
 };
 
 export const Overview = (args: SearchProps) => {

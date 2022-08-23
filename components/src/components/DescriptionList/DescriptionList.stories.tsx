@@ -3,16 +3,16 @@ import {
   DescriptionListDesc,
   DescriptionListTerm,
   DescriptionListGroup,
-  DescriptionListProps
+  DescriptionListProps,
 } from '.';
 import { StoryTemplate } from '../../storybook';
-import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 import { Typography } from '../Typography';
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
+import { CallIcon } from '../../icons/tsx';
 
 export default {
   title: 'Design system/DescriptionList',
-  component: DescriptionList
+  component: DescriptionList,
 };
 
 export const Overview = () => {
@@ -42,22 +42,22 @@ export const Overview = () => {
 
       <DescriptionList>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
       </DescriptionList>
 
       <DescriptionList appearance="small">
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
       </DescriptionList>
@@ -111,7 +111,7 @@ export const WithIcon = (args: DescriptionListProps) => {
     <StoryTemplate title="DescriptionList - with icon">
       <DescriptionList {...args}>
         <DescriptionListTerm>Tittel</DescriptionListTerm>
-        <DescriptionListDesc Icon={PhoneOutlinedIcon}>
+        <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>
         </DescriptionListDesc>
       </DescriptionList>
@@ -131,8 +131,8 @@ export const ColumnExample = (args: DescriptionListProps) => {
               height: '275px',
               display: 'flex',
               flexDirection: 'column',
-              flexWrap: 'wrap'
-            }
+              flexWrap: 'wrap',
+            },
           }}
         >
           <DescriptionListGroup margin={margin}>

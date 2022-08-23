@@ -6,7 +6,7 @@ import {
   ButtonAppearance,
   ButtonPurpose,
   ButtonSize,
-  IconPosition
+  IconPosition,
 } from './Button.types';
 
 type ButtonWrapperProps = {

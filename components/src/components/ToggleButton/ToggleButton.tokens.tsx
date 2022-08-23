@@ -9,57 +9,57 @@ const base: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
   color: Colors.DdsColorNeutralsGray7,
   gap: Spacing.SizesDdsSpacingLocalX05,
-  boxShadow: 'none'
+  boxShadow: 'none',
 };
 
 const hoverBase: CSSObject = {
-  ...checkboxTokens.checkbox.hover.base
+  ...checkboxTokens.checkbox.hover.base,
 };
 
 const checkedBase: CSSObject = {
   ...checkboxTokens.checkbox.checked.base,
-  color: Colors.DdsColorNeutralsWhite
+  color: Colors.DdsColorNeutralsWhite,
 };
 
 const checkedHoverBase: CSSObject = {
   ...checkboxTokens.checkbox.checked.hover.base,
-  color: Colors.DdsColorNeutralsWhite
+  color: Colors.DdsColorNeutralsWhite,
 };
 
 const focusBase: CSSObject = {
-  ...focusVisible
+  ...focusVisible,
 };
 
 const groupBase: CSSObject = {
   display: 'flex',
   gap: Spacing.SizesDdsSpacingLocalX075,
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
 };
 
 const containerBase: CSSObject = {
   display: 'flex',
   flexDirection: 'column',
-  gap: Spacing.SizesDdsSpacingLocalX05
+  gap: Spacing.SizesDdsSpacingLocalX05,
 };
 
 export const toggleButtonTokens = {
   base: base,
   hover: {
-    base: hoverBase
+    base: hoverBase,
   },
   focus: {
-    base: focusBase
+    base: focusBase,
   },
   checked: {
     base: checkedBase,
     hover: {
-      base: checkedHoverBase
-    }
+      base: checkedHoverBase,
+    },
   },
   group: {
-    base: groupBase
+    base: groupBase,
   },
   container: {
-    base: containerBase
-  }
+    base: containerBase,
+  },
 };

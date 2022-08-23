@@ -1,9 +1,8 @@
 import { forwardRef, Children } from 'react';
 import styled from 'styled-components';
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
-import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
-import { IconSize, IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
+import { ChevronRightIcon, ArrowLeftIcon } from '../../icons/tsx';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const List = styled.ol`
@@ -19,10 +18,12 @@ const ListItem = styled.li`
   ${tokens.breadcrumb.base}
 `;
 
-const BreadcrumbIcon = styled(ChevronRightOutlinedIcon)`
-  ${tokens.icon.base}
-`;
-const BackIcon = styled(ArrowBackOutlinedIcon)`
+const StyledIcon = styled(Icon).attrs(
+  ({ iconSize = tokens.icon.size, color = tokens.icon.base.color }) => ({
+    iconSize,
+    color,
+  })
+)`
   ${tokens.icon.base}
 `;
 
@@ -38,31 +39,18 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
   (props, ref) => {
     const { smallScreen, children, id, className, htmlProps, ...rest } = props;
 
-    const breadcrumbIconSize = tokens.icon.size as IconSize;
-
     const childrenArray = Children.toArray(children);
+
     const breadcrumbChildren = smallScreen ? (
       <ListItem>
-        <IconWrapper
-          Icon={BackIcon}
-          iconSize={breadcrumbIconSize}
-          color={tokens.icon.base.color}
-        />
+        <StyledIcon icon={ArrowLeftIcon} />
         {childrenArray[childrenArray.length - 2]}
       </ListItem>
     ) : (
       childrenArray.map((item, index) => {
         return (
           <ListItem key={`breadcrumb-${index}`}>
-            {index !== 0 ? (
-              <IconWrapper
-                Icon={BreadcrumbIcon}
-                iconSize={breadcrumbIconSize}
-                color={tokens.icon.base.color}
-              />
-            ) : (
-              ''
-            )}
+            {index !== 0 && <StyledIcon icon={ChevronRightIcon} />}
             {item}
           </ListItem>
         );

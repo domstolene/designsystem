@@ -11,7 +11,7 @@ export const DescriptionListTerm = forwardRef<
 >(({ children, ...rest }, ref) => {
   const dListTermProps = {
     ref,
-    ...rest
+    ...rest,
   };
 
   return <DListTerm {...dListTermProps}>{children}</DListTerm>;

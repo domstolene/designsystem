@@ -5,7 +5,7 @@ import {
   isValidElement,
   cloneElement,
   useState,
-  FocusEvent
+  FocusEvent,
 } from 'react';
 import styled from 'styled-components';
 import { tabsTokens as tokens } from './Tabs.tokens';
@@ -13,7 +13,7 @@ import {
   useCombinedRef,
   useOnClickOutside,
   useOnKeyDown,
-  useRoveFocus
+  useRoveFocus,
 } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
 import { scrollbarStyling } from '../../helpers/styling';
@@ -44,7 +44,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       tabListRef,
       hasTabFocus,
       tabPanelsRef,
-      setHasTabFocus
+      setHasTabFocus,
     } = useTabsContext();
 
     const [uniqueId] = useState<string>(id ?? `${tabsId}-tablist`);
@@ -62,7 +62,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           index,
           focus: focus === index && hasTabFocus,
           setFocus,
-          onClick: () => handleTabChange(index)
+          onClick: () => handleTabChange(index),
         })
       );
     });
@@ -88,7 +88,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       'aria-label': 'Bruk venste og høyre piltast for å bla',
       id: uniqueId,
       tabIndex: 0,
-      onFocus: handleOnFocus
+      onFocus: handleOnFocus,
     };
 
     return <TabRow {...tabListProps}>{tabListChildren}</TabRow>;

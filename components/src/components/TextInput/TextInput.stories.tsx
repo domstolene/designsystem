@@ -12,13 +12,13 @@ export default {
     multiline: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } }
+    readOnly: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className']
-    }
-  }
+      exclude: ['style', 'className'],
+    },
+  },
 };
 
 export const TextInputOverview = (args: TextInputProps) => {

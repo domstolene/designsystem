@@ -10,18 +10,18 @@ const wrapperBase: CSSObject = {
   padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`,
   maxWidth: '100%',
   display: 'inline-flex',
-  alignItems: 'center'
+  alignItems: 'center',
 };
 
 const innerBase: CSSObject = {
   whiteSpace: 'nowrap',
   overflow: 'hidden',
-  textOverflow: 'ellipsis'
+  textOverflow: 'ellipsis',
 };
 
 const defaultBase: CSSObject = {
   backgroundColor: colors.DdsColorNeutralsGray1,
-  borderColor: colors.DdsColorNeutralsGray3
+  borderColor: colors.DdsColorNeutralsGray3,
 };
 
 const successBase: CSSObject = { ...localMessageTokens.container.success.base };
@@ -37,23 +37,23 @@ export const tagTokens = {
     base: wrapperBase,
     type: {
       success: {
-        base: successBase
+        base: successBase,
       },
       warning: {
-        base: warningBase
+        base: warningBase,
       },
       danger: {
-        base: dangerBase
+        base: dangerBase,
       },
       default: {
-        base: defaultBase
+        base: defaultBase,
       },
       info: {
-        base: infoBase
-      }
-    }
+        base: infoBase,
+      },
+    },
   },
   inner: {
-    base: innerBase
-  }
+    base: innerBase,
+  },
 };

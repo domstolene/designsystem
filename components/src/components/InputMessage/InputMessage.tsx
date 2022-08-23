@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import { Typography } from '../../components/Typography';
 import { forwardRef } from 'react';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { ErrorIcon } from '../../icons/tsx';
 
 type WrapperProps = {
   messageType: InputMessageType;
@@ -46,16 +46,14 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
     const wrapperProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
-      messageType
+      messageType,
     };
 
     const isError = messageType === 'error';
 
     return (
       <InputMessageWrapper {...wrapperProps}>
-        {isError && (
-          <IconWrapper Icon={ReportProblemOutlinedIcon} iconSize="inline" />
-        )}
+        {isError && <Icon icon={ErrorIcon} iconSize="inherit" />}
         <Typography
           typographyType={
             isError ? 'supportingStyleLabel01' : 'supportingStyleHelperText01'

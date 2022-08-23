@@ -75,7 +75,7 @@ export const CheckboxGroup = ({
     error: hasErrorMessage,
     errorMessageId,
     uniqueGroupId,
-    tipId
+    tipId,
   };
 
   return (

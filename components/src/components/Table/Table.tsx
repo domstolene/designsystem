@@ -47,7 +47,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
     const tableProps = {
       ref,
       density,
-      ...rest
+      ...rest,
     };
 
     return <StyledTable {...tableProps}>{children}</StyledTable>;

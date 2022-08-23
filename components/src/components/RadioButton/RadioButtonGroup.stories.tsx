@@ -11,13 +11,13 @@ export default {
     tip: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    required: { control: { type: 'boolean' } }
+    required: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {
-      exclude: ['style', 'className', 'onChange', 'name', 'value']
-    }
-  }
+      exclude: ['style', 'className', 'onChange', 'name', 'value'],
+    },
+  },
 };
 
 export const Overview = (args: RadioButtonGroupProps<string>) => {

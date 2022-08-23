@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { BaseComponentProps } from '../../types';
+import { BaseComponentPropsWithChildren } from '../../types';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
@@ -12,7 +12,7 @@ type PickedInputHTMLAttributes = Pick<
   | 'aria-describedby'
 >;
 
-export type RadioButtonProps = BaseComponentProps<
+export type RadioButtonProps = BaseComponentPropsWithChildren<
   HTMLInputElement,
   {
     /**Ledetekst for alternativet. */

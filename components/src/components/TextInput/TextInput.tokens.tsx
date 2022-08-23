@@ -1,6 +1,6 @@
 import {
   ddsBaseTokens,
-  ddsReferenceTokens
+  ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { Property } from 'csstype';
@@ -14,16 +14,16 @@ const inputMultilineBase: CSSObject = {
   height: 'auto',
   resize: 'vertical',
   paddingBottom: Spacing.SizesDdsSpacingLocalX05,
-  verticalAlign: 'bottom'
+  verticalAlign: 'bottom',
 };
 const inputMultilineWithLabelBase: CSSObject = {
   paddingTop: Spacing.SizesDdsSpacingLocalX2,
-  minHeight: '99px'
+  minHeight: '99px',
 };
 
 const inputMultilineNoLabelBase: CSSObject = {
   paddingTop: Spacing.SizesDdsSpacingLocalX075,
-  minHeight: '78px'
+  minHeight: '78px',
 };
 
 const inputLabelMultilineBase: CSSObject = {
@@ -35,7 +35,7 @@ const inputLabelMultilineBase: CSSObject = {
   backgroundColor: Colors.DdsColorNeutralsWhite,
   padding: `${Spacing.SizesDdsSpacingLocalX075NumberPx - 2}px ${
     Spacing.SizesDdsSpacingLocalX1
-  } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 2}px`
+  } 0px ${Spacing.SizesDdsSpacingLocalX1NumberPx - 2}px`,
 };
 
 const defaultWidth: Property.Width<string> = '320px';
@@ -45,18 +45,18 @@ export const textInputTokens = {
   multiline: {
     base: inputMultilineBase,
     hasLabel: {
-      base: inputMultilineWithLabelBase
+      base: inputMultilineWithLabelBase,
     },
     noLabel: {
-      base: inputMultilineNoLabelBase
-    }
+      base: inputMultilineNoLabelBase,
+    },
   },
   label: {
     multiline: {
-      base: inputLabelMultilineBase
-    }
+      base: inputLabelMultilineBase,
+    },
   },
   wrapper: {
-    defaultWidth: defaultWidth
-  }
+    defaultWidth: defaultWidth,
+  },
 };

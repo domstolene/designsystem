@@ -1,6 +1,6 @@
 import { ElementType, forwardRef } from 'react';
 import { buttonTokens as tokens } from './Button.tokens';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
 import { ButtonProps } from './Button.types';
 import { ButtonWrapper, StyledIconWrapperSpan, Label } from './Button.styles';
@@ -18,7 +18,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       target,
       loading = false,
       fullWidth = false,
-      Icon,
+      icon,
       onClick,
       onFocus,
       onBlur,
@@ -31,7 +31,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const as: ElementType = href ? 'a' : 'button';
 
     const hasLabel = !!label;
-    const hasIcon = !!Icon;
+    const hasIcon = !!icon;
 
     const wrapperProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
@@ -51,18 +51,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       onClick,
       onFocus,
-      onBlur
+      onBlur,
     };
 
     const isIconButton = !hasLabel && hasIcon;
 
-    const iconElement = Icon && (
+    const iconElement = icon && (
       <StyledIconWrapperSpan
         iconPosition={isIconButton ? undefined : iconPosition}
         size={size}
         isHidden={hasIcon && loading}
       >
-        <IconWrapper Icon={Icon} iconSize="inline" />
+        <Icon icon={icon} iconSize="inherit" />
       </StyledIconWrapperSpan>
     );
 

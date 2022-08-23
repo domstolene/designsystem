@@ -9,7 +9,7 @@ import {
   Body,
   Head,
   Foot,
-  TableWrapper
+  TableWrapper,
 } from '.';
 import { Button } from '../Button';
 import { Checkbox } from '../Checkbox';
@@ -18,11 +18,11 @@ import {
   CellDataToSort,
   data,
   headerCells,
-  mapCellContents
+  mapCellContents,
 } from './tableData';
 import { StoryTemplate } from '../../storybook';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
+import { Icon } from '../Icon';
+import { PersonIcon, TrashIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/Table',
@@ -30,10 +30,10 @@ export default {
   argTypes: {
     stickyHeader: {
       control: {
-        type: 'boolean'
-      }
-    }
-  }
+        type: 'boolean',
+      },
+    },
+  },
 };
 
 const mappedHeaderCells = headerCells.map(headerCell => {
@@ -173,12 +173,12 @@ export const Hoverable = (args: TableProps) => {
 };
 
 export const WithButtonAndIcons = (args: TableProps) => {
-  const adminIcon = <SupervisorAccountOutlinedIcon />;
+  const adminIcon = <Icon icon={PersonIcon} />;
   const deleteButton = (
     <Button
       label="Fjern tilgang"
       appearance="borderless"
-      Icon={DeleteOutlinedIcon}
+      icon={TrashIcon}
       iconPosition="left"
     />
   );
@@ -218,20 +218,20 @@ export const WithSum = (args: TableProps) => {
   const sumData = [
     {
       id: '20-1234531TVI',
-      amount: 472
+      amount: 472,
     },
     {
       id: '21-4317383TVI',
-      amount: 4
+      amount: 4,
     },
     {
       id: '89-9204832TVI',
-      amount: 56
+      amount: 56,
     },
     {
       id: '30-9204712TVI',
-      amount: 23
-    }
+      amount: 23,
+    },
   ];
   return (
     <StoryTemplate title="Table - sum">
@@ -275,20 +275,20 @@ export const WithCheckbox = (args: TableProps) => {
   const rows: chechboxRow[] = [
     {
       id: 'ch-1',
-      ...data[0]
+      ...data[0],
     },
     {
       id: 'ch-2',
-      ...data[1]
+      ...data[1],
     },
     {
       id: 'ch-3',
-      ...data[2]
+      ...data[2],
     },
     {
       id: 'ch-4',
-      ...data[3]
-    }
+      ...data[3],
+    },
   ];
 
   const [selectedRows, setselectedRows] = useState<chechboxRow[]>([]);
@@ -492,13 +492,13 @@ export const Sortable = (args: TableProps) => {
             sortOrder:
               sortHeaderCell.sortOrder === 'ascending'
                 ? 'descending'
-                : 'ascending'
+                : 'ascending',
           };
         }
         return {
           ...headerCell,
           isSorted: false,
-          sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined
+          sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined,
         };
       }
     );

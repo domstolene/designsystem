@@ -16,20 +16,20 @@ const containerBase: CSSObject = {
   }px ${
     Spacing.SizesDdsSpacingLocalX15NumberPx -
     Spacing.SizesDdsSpacingLocalX025NumberPx
-  }px`
+  }px`,
 };
 
 const contentContainerBase: CSSObject = {
   gap: Spacing.SizesDdsSpacingLocalX1,
-  padding: Spacing.SizesDdsSpacingLocalX025
+  padding: Spacing.SizesDdsSpacingLocalX025,
 };
 
 const containerLarge: CSSObject = {
-  maxWidth: '800px'
+  maxWidth: '800px',
 };
 
 const containerSmall: CSSObject = {
-  maxWidth: '400px'
+  maxWidth: '400px',
 };
 
 export const drawerTokens = {
@@ -37,14 +37,14 @@ export const drawerTokens = {
     base: containerBase,
     size: {
       large: {
-        base: containerLarge
+        base: containerLarge,
       },
       small: {
-        base: containerSmall
-      }
-    }
+        base: containerSmall,
+      },
+    },
   },
   contentContainer: {
-    base: contentContainerBase
-  }
+    base: contentContainerBase,
+  },
 };

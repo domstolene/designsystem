@@ -1,19 +1,19 @@
-import { SvgIconTypeMap } from '@mui/material';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { Placement } from '../../hooks/useFloatPosition';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, RefObject } from 'react';
 import { BaseComponentProps } from '../../types';
 
+import { SvgIcon } from '../../icons/utils';
+
 export type OverflowMenuContextItem = {
   title: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: SvgIcon;
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
 );
 export type OverflowMenuNavItem = {
   title: string;
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+  icon?: SvgIcon;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 type UserProps = {

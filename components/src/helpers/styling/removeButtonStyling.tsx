@@ -5,5 +5,5 @@ export const removeButtonStyling = {
   padding: 0,
   font: 'inherit',
   cursor: 'pointer',
-  outline: 'inherit'
+  outline: 'inherit',
 };

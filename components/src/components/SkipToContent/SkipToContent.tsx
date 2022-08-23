@@ -6,7 +6,7 @@ import { focusVisibleTransitionValue } from '../../helpers/styling';
 import {
   BaseComponentProps,
   getBaseHTMLProps,
-  joinClassNames
+  joinClassNames,
 } from '../../types';
 
 type WrapperProps = {
@@ -84,7 +84,7 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
     const wrapperProps = {
       top,
       className: joinClassNames(className, htmlPropsClassName),
-      style
+      style,
     };
 
     return (

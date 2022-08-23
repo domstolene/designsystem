@@ -11,8 +11,8 @@ export default {
     width: { control: { type: 'text' } },
     required: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } }
-  }
+    readOnly: { control: { type: 'boolean' } },
+  },
 };
 
 export const OverviewDate = () => (

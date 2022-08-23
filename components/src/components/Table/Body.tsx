@@ -8,7 +8,7 @@ export type BodyProps = HTMLAttributes<HTMLTableSectionElement>;
 export const Body = forwardRef<HTMLTableSectionElement, BodyProps>(
   ({ children, ...rest }, ref) => {
     const bodyProps = {
-      ...rest
+      ...rest,
     };
 
     return (

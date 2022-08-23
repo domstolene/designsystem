@@ -4,7 +4,7 @@ import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
 import { Property } from 'csstype';
 import {
   BaseComponentPropsWithChildren,
-  getBaseHTMLProps
+  getBaseHTMLProps,
 } from '../../../types';
 
 const expandingAnimation = css`
@@ -84,12 +84,12 @@ export const CardAccordionBody = forwardRef<
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     ref,
     isExpanded,
-    role: 'region'
+    role: 'region',
   };
   const bodyContainerProps = {
     ref: bodyRef,
     maxHeight: maxHeight,
-    isExpanded
+    isExpanded,
   };
 
   return (

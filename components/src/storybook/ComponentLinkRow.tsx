@@ -9,7 +9,7 @@ type props = {
 export const ComponentLinkRow = ({
   docsHref,
   figmaHref,
-  githubHref
+  githubHref,
 }: props) => (
   <StorybookLinkRow>
     <StorybookLink

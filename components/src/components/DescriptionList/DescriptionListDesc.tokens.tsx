@@ -1,24 +1,27 @@
 import {
   ddsBaseTokens,
-  ddsReferenceTokens
+  ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 
-const { spacing: Spacing, fontPackages: FontPackages } = ddsBaseTokens;
+const { spacing, fontPackages } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
 const base: CSSObject = {
-  ...FontPackages.body_sans_03.base,
-  color: textDefault.textColor
+  ...fontPackages.body_sans_03.base,
+  display: 'flex',
+  alignItems: 'center',
+  gap: spacing.SizesDdsSpacingLocalX025,
+  color: textDefault.textColor,
 };
 
 const iconBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX025
+  marginRight: spacing.SizesDdsSpacingLocalX025,
 };
 
 export const descriptionListDescTokens = {
   base: base,
   icon: {
-    base: iconBase
-  }
+    base: iconBase,
+  },
 };

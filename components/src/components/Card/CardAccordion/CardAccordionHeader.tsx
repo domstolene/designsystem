@@ -5,7 +5,7 @@ import { AnimatedChevronUpDown } from '../../../helpers';
 import { removeButtonStyling } from '../../../helpers/styling';
 import {
   BaseComponentPropsWithChildren,
-  getBaseHTMLProps
+  getBaseHTMLProps,
 } from '../../../types';
 
 const ContentWrapper = styled.div`
@@ -88,13 +88,13 @@ export const CardAccordionHeader = forwardRef<
     'aria-expanded': isExpanded,
     'aria-controls': bodyId,
     ref,
-    onClick: handleClick
+    onClick: handleClick,
   };
 
   const chevronProps = {
     isUp: isExpanded,
     width: tokens.chevron.width,
-    height: tokens.chevron.height
+    height: tokens.chevron.height,
   };
 
   return (

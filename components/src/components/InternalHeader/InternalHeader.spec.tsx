@@ -6,14 +6,14 @@ describe('<InternalHeader />', () => {
     const appName = 'appName';
     render(<InternalHeader applicationName={appName} />);
     const appNameElement = screen.getByText(appName);
-    expect(appNameElement).toBeDefined();
+    expect(appNameElement).toBeInTheDocument();
   });
 
   it('should run onclick event from context menu', () => {
     const event = jest.fn();
     const element = {
       title: 'action',
-      onClick: event
+      onClick: event,
     };
     const { container } = render(
       <InternalHeader contextMenuElements={[element]} />
@@ -29,7 +29,7 @@ describe('<InternalHeader />', () => {
     const href = '#';
     const element = {
       title: 'link',
-      href: href
+      href: href,
     };
     const { container } = render(
       <InternalHeader navigationElements={[element]} />
@@ -44,7 +44,7 @@ describe('<InternalHeader />', () => {
     const element = {
       title: 'link',
       href: href,
-      target: target
+      target: target,
     };
     const { container } = render(
       <InternalHeader navigationElements={[element]} />
@@ -58,7 +58,7 @@ describe('<InternalHeader />', () => {
     const title = 'title';
     const element = {
       title: title,
-      href: href
+      href: href,
     };
     const { container } = render(
       <InternalHeader contextMenuElements={[element]} />
@@ -72,7 +72,7 @@ describe('<InternalHeader />', () => {
     const title = 'title';
     const element = {
       title: title,
-      href: href
+      href: href,
     };
     const { container } = render(
       <InternalHeader contextMenuElements={[element]} />
@@ -86,7 +86,7 @@ describe('<InternalHeader />', () => {
     const title = 'title';
     const element = {
       title: title,
-      href: href
+      href: href,
     };
     const { container } = render(
       <InternalHeader navigationElements={[element]} smallScreen />
@@ -98,7 +98,7 @@ describe('<InternalHeader />', () => {
   it('should have a static username in context menu', () => {
     const name = 'name';
     const user = {
-      name: name
+      name: name,
     };
 
     render(<InternalHeader userProps={user} />);
@@ -111,7 +111,7 @@ describe('<InternalHeader />', () => {
     const href = '#';
     const user = {
       name: name,
-      href: href
+      href: href,
     };
 
     render(<InternalHeader userProps={user} />);

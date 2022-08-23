@@ -5,6 +5,6 @@ describe('<Typography />', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Typography>{text}</Typography>);
-    expect(screen.queryByText(text)).toBeDefined;
+    expect(screen.queryByText(text)).toBeInTheDocument();
   });
 });

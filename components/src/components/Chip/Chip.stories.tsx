@@ -5,8 +5,8 @@ export default {
   title: 'Design system/Chip/Chip',
   component: Chip,
   argTypes: {
-    text: { control: { type: 'text' } }
-  }
+    text: { control: { type: 'text' } },
+  },
 };
 
 export const Default = (args: ChipProps) => (

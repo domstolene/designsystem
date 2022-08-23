@@ -1,35 +1,35 @@
 module.exports = {
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   env: {
-    es6: true
+    es6: true,
   },
   extends: [
     'plugin:@typescript-eslint/recommended',
     'prettier',
-    'plugin:storybook/recommended'
+    'plugin:storybook/recommended',
   ],
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     project: 'tsconfig.json',
     tsconfigRootDir: __dirname,
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/no-empty-function': 'off'
-  }
+    '@typescript-eslint/no-empty-function': 'off',
+  },
 };

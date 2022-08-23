@@ -3,26 +3,26 @@ import {
   ElementType,
   PropsWithChildren,
   HTMLAttributes,
-  AnchorHTMLAttributes
+  AnchorHTMLAttributes,
 } from 'react';
 import styled, { css, CSSObject } from 'styled-components';
 import {
   typographyTokens as tokens,
   textColors,
-  textColorsArray
+  textColorsArray,
 } from './Typography.tokens';
-import { IconWrapper } from '../IconWrapper';
-import LaunchOutlinedIcon from '@mui/icons-material/LaunchOutlined';
+import { Icon } from '../Icon';
 import {
   TypographyType,
   TextColor,
   OtherTypographyType,
   AnchorTypographyType,
   LabelTypographyType,
-  InlineElement
+  InlineElement,
 } from './Typography.types';
 import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { OpenExternalIcon } from '../../icons/tsx';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -122,7 +122,7 @@ export const inlineElements: ElementType[] = [
   'u',
   'var',
   'video',
-  'wbr'
+  'wbr',
 ];
 
 const isInlineElement = (as: ElementType): as is InlineElement =>
@@ -157,7 +157,7 @@ type StyledTypographyProps = { as: ElementType } & Pick<
   | 'color'
 >;
 
-const LinkIconWrapper = styled(IconWrapper)`
+const LinkIcon = styled(Icon)`
   ${tokens.typographyType.a.icon}
 `;
 
@@ -268,6 +268,7 @@ type BaseTypographyProps = PropsWithChildren<{
 type AnchorTypographyProps = BaseComponentProps<
   HTMLAnchorElement,
   BaseTypographyProps & {
+    /**nativ `href`-prop ved `typographyType='a'`.  */
     href?: string | undefined;
 
     /** Spesifiserer om lenka er ekstern ved `typographyType='a'` eller `as='a'`.*/
@@ -328,11 +329,11 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     let relProp;
     let targetProp;
-    let renderWrapper = false;
+    let renderIcon = false;
     if (isAnchorProps(props)) {
       const { externalLink, target } = props;
 
-      renderWrapper = (as === 'a' && externalLink) ?? false;
+      renderIcon = (as === 'a' && externalLink) ?? false;
       relProp = as === 'a' ? 'noopener noreferer' : undefined;
       targetProp = as !== 'a' ? undefined : externalLink ? '_blank' : target;
     }
@@ -343,15 +344,13 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       as,
       style: { ...htmlPropsStyle, ...style },
       rel: relProp,
-      target: targetProp
+      target: targetProp,
     };
 
     return (
       <StyledTypography ref={ref} {...typographyProps}>
         {children}
-        {renderWrapper && (
-          <LinkIconWrapper Icon={LaunchOutlinedIcon} iconSize="inline" />
-        )}
+        {renderIcon && <LinkIcon icon={OpenExternalIcon} iconSize="inherit" />}
       </StyledTypography>
     );
   }

@@ -1,13 +1,11 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import WarningOutlinedIcon from '@mui/icons-material/ReportOutlined';
-import DangerOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { CSSObject } from 'styled-components';
+import { ErrorIcon, InfoIcon, WarningIcon } from '../../icons/tsx';
 
 const {
   colors: Colors,
   spacing: Spacing,
-  fontPackages: FontPackages
+  fontPackages: FontPackages,
 } = ddsBaseTokens;
 
 const containerBase: CSSObject = {
@@ -15,77 +13,78 @@ const containerBase: CSSObject = {
   padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
   width: '100%',
   ...FontPackages.body_sans_02.base,
-  color: Colors.DdsColorNeutralsGray8
+  color: Colors.DdsColorNeutralsGray8,
 };
 
 const contentContainerBase: CSSObject = {
   paddingRight: Spacing.SizesDdsSpacingLocalX15,
   paddingTop: Spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: Spacing.SizesDdsSpacingLocalX075
+  paddingBottom: Spacing.SizesDdsSpacingLocalX075,
+  gap: Spacing.SizesDdsSpacingLocalX075,
 };
 
 const contentContainerWithClosableBase: CSSObject = {
-  paddingRight: Spacing.SizesDdsSpacingLocalX075
+  paddingRight: Spacing.SizesDdsSpacingLocalX075,
 };
 
 const containerInfoBase: CSSObject = {
   borderColor: Colors.DdsColorInfoLighter,
-  backgroundColor: Colors.DdsColorInfoLightest
+  backgroundColor: Colors.DdsColorInfoLightest,
 };
 
 const containerDangerBase: CSSObject = {
   borderColor: Colors.DdsColorDangerLighter,
-  backgroundColor: Colors.DdsColorDangerLightest
+  backgroundColor: Colors.DdsColorDangerLightest,
 };
 
 const containerWarningBase: CSSObject = {
   borderColor: Colors.DdsColorWarningLighter,
-  backgroundColor: Colors.DdsColorWarningLightest
+  backgroundColor: Colors.DdsColorWarningLightest,
 };
 
 export const globalMessageTokens = {
   container: {
     base: containerBase,
     info: {
-      base: containerInfoBase
+      base: containerInfoBase,
     },
     danger: {
-      base: containerDangerBase
+      base: containerDangerBase,
     },
     warning: {
-      base: containerWarningBase
-    }
+      base: containerWarningBase,
+    },
   },
   contentContainer: {
     base: contentContainerBase,
     withClosable: {
-      base: contentContainerWithClosableBase
-    }
+      base: contentContainerWithClosableBase,
+    },
   },
   icon: {
     marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
     info: {
-      icon: InfoOutlinedIcon,
-      color: Colors.DdsColorInfoDarkest
+      icon: InfoIcon,
+      color: Colors.DdsColorInfoDarkest,
     },
     danger: {
-      icon: DangerOutlinedIcon,
-      color: Colors.DdsColorDangerDarkest
+      icon: ErrorIcon,
+      color: Colors.DdsColorDangerDarkest,
     },
     warning: {
-      icon: WarningOutlinedIcon,
-      color: Colors.DdsColorWarningDarkest
-    }
+      icon: WarningIcon,
+      color: Colors.DdsColorWarningDarkest,
+    },
   },
   button: {
     info: {
-      purpose: 'secondary'
+      purpose: 'secondary',
     },
     danger: {
-      purpose: 'danger'
+      purpose: 'danger',
     },
     warning: {
-      purpose: 'secondary'
-    }
-  }
+      purpose: 'secondary',
+    },
+  },
 };

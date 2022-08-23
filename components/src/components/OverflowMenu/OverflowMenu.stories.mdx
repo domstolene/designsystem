@@ -6,7 +6,12 @@ import {
   PRIMARY_STORY
 } from '@storybook/addon-docs';
 import { OverflowMenu, OverflowMenuGroup } from '.';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/OverflowMenu/API" component={OverflowMenu} />
@@ -36,7 +41,7 @@ import { Typography } from '../Typography';
   />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-overflowmenu`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-overflowmenu`} />
 
 ## Oversikt
 
@@ -104,7 +109,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 <Source code={`
 export type OverflowMenuContextItem = {
   title: string,
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>
+  icon?: SvgIcon,
 } & (
   | AnchorHTMLAttributes<HTMLAnchorElement>
   | ButtonHTMLAttributes<HTMLButtonElement>
@@ -115,7 +120,7 @@ export type OverflowMenuContextItem = {
 <Source code={`
 export type OverflowMenuNavItem = {
   title: string,
-  Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>
+  icon?: SvgIcon
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 `} />

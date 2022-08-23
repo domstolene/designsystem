@@ -46,7 +46,7 @@ export const TableWrapper = ({ children, ...rest }: TableWrapperProps) => {
   const wrapperProps = {
     ref: wrapperRef,
     overflowX,
-    ...rest
+    ...rest,
   };
 
   return <Wrapper {...wrapperProps}>{children}</Wrapper>;

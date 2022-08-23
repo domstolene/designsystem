@@ -3,9 +3,15 @@ import {
   useState,
   useEffect,
   Dispatch,
-  SetStateAction
+  SetStateAction,
+  KeyboardEvent,
 } from 'react';
 import { Direction } from '../types';
+
+export const isKeyboardEvent = (
+  e: Event | KeyboardEvent<Element>
+): e is KeyboardEvent<Element> =>
+  (e as KeyboardEvent<Element>).key !== undefined;
 
 export function useRoveFocus(
   size: number | undefined,
@@ -14,18 +20,18 @@ export function useRoveFocus(
 ): [number, Dispatch<SetStateAction<number>>] {
   const [currentFocus, setCurrentFocus] = useState(0);
 
-  const nextKey = direction === 'row' ? 39 : 40;
-  const previousKey = direction === 'row' ? 37 : 38;
+  const nextKey = direction === 'row' ? 'ArrowRight' : 'ArrowDown';
+  const previousKey = direction === 'row' ? 'ArrowLeft' : 'ArrowUp';
 
   const handleKeyDown = useCallback(
-    e => {
-      if (!size) return;
+    (e: Event) => {
+      if (!size || !isKeyboardEvent(e)) return;
       if (reset) setCurrentFocus(-1);
-      if (e.keyCode === nextKey) {
+      if (e.key === nextKey) {
         // Down arrow
         e.preventDefault();
         setCurrentFocus(currentFocus === size - 1 ? 0 : currentFocus + 1);
-      } else if (e.keyCode === previousKey) {
+      } else if (e.key === previousKey) {
         // Up arrow
         e.preventDefault();
         if (currentFocus !== -1) {

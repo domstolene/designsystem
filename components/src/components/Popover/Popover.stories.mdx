@@ -6,7 +6,12 @@ import {
   Canvas
 } from '@storybook/addon-docs';
 import { Popover, PopoverGroup } from '.';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory
+} from '../../storybook';
 import { Typography } from '../Typography';
 
 <Meta title="Design system/Popover/API" component={Popover} />
@@ -25,7 +30,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-popover--default" height="350px" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-popover`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-popover`} />
 
 ## Oversikt
 
@@ -90,7 +95,7 @@ Det kan være relevant å begrense størrelsen på Popover slik at ikke hele tek
   <Story height="350px" id="design-system-popover--overflow" />
 </Canvas>
 For å oppnå det kan du sette sizeProps til ønskede verdier og gi tekstelementet som
-er barnet i <Popover /> følgende CSS:
+er barnet i `<Popover />` følgende CSS:
 
 <Source
   language="css"

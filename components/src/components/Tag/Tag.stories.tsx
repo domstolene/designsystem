@@ -5,8 +5,8 @@ export default {
   title: 'design system/Tag',
   component: Tag,
   argTypes: {
-    text: { control: 'text' }
-  }
+    text: { control: 'text' },
+  },
 };
 
 export const Overview = () => (

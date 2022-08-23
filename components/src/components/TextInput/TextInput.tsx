@@ -7,12 +7,12 @@ import { TextInputProps } from './TextInput.types';
 import {
   StatefulInput,
   InputContainer,
-  OuterInputContainer
+  OuterInputContainer,
 } from '../../helpers';
 import { Label, MessageContainer, TextArea } from './TextInput.styles';
 import {
   derivativeIdGenerator,
-  spaceSeparatedIdListGenerator
+  spaceSeparatedIdListGenerator,
 } from '../../utils';
 
 let nextUniqueId = 0;
@@ -35,13 +35,17 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       withCharacterCounter = true,
       className,
       style,
+      value,
+      defaultValue,
       'aria-describedby': ariaDescribedby,
       ...rest
     },
     ref
   ) => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const [text, setText] = useState('');
+    const [text, setText] = useState<string>(
+      getDefaultText(value, defaultValue)
+    );
 
     useEffect(() => {
       if (textAreaRef && textAreaRef.current) {
@@ -101,31 +105,33 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       readOnly,
       tabIndex: readOnly ? -1 : 0,
       maxLength,
+      value,
+      defaultValue,
       'aria-describedby': spaceSeparatedIdListGenerator([
         tipId,
         errorMessageId,
         characterCounterId,
-        ariaDescribedby
+        ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
-      ...rest
+      ...rest,
     };
 
     const labelProps = {
       multiline,
       disabled,
-      readOnly
+      readOnly,
     };
 
     const inputContainerProps = {
       multiline,
-      label
+      label,
     };
 
     const outerInputContainerProps = {
       className,
       style,
-      width
+      width,
     };
 
     return (
@@ -185,3 +191,18 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
   }
 );
+
+function getDefaultText(
+  value?: string | number | readonly string[],
+  defaultValue?: string | number | readonly string[]
+): string {
+  if (typeof value === 'string') {
+    return value;
+  }
+
+  if (typeof defaultValue === 'string') {
+    return defaultValue;
+  }
+
+  return '';
+}

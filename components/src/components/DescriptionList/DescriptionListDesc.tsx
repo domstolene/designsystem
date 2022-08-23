@@ -1,27 +1,20 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { descriptionListDescTokens as tokens } from './DescriptionListDesc.tokens';
-import { OverridableComponent } from '@mui/material/OverridableComponent';
-import { SvgIconTypeMap } from '@mui/material';
-import { IconWrapper } from '../IconWrapper';
+import { Icon } from '../Icon';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { SvgIcon } from '../../icons/utils';
 
 const DListDesc = styled.dd`
   ${tokens.base}
-  display: flex;
-  align-items: center;
   margin-inline-start: 0;
-`;
-
-const StyledIconWrapper = styled(IconWrapper)`
-  ${tokens.icon.base}
 `;
 
 export type DescriptionListDescProps = BaseComponentPropsWithChildren<
   HTMLElement,
   {
     /**Ikon som vises ved siden av teksten. */
-    Icon?: OverridableComponent<SvgIconTypeMap<Record<string, unknown>, 'svg'>>;
+    icon?: SvgIcon;
   }
 >;
 
@@ -29,17 +22,17 @@ export const DescriptionListDesc = forwardRef<
   HTMLElement,
   DescriptionListDescProps
 >((props, ref) => {
-  const { children, Icon, id, className, htmlProps, ...rest } = props;
+  const { children, icon, id, className, htmlProps, ...rest } = props;
 
   const dListDescProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     children,
-    ref
+    ref,
   };
 
   return (
     <DListDesc {...dListDescProps}>
-      {Icon && <StyledIconWrapper Icon={Icon} />} {children}
+      {icon && <Icon icon={icon} />} {children}
     </DListDesc>
   );
 });
