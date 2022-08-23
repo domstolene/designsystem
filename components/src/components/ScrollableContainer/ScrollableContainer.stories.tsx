@@ -6,7 +6,7 @@ import { focusVisible } from '../../helpers/styling';
 
 export default {
   title: `${SB_DESIGNSYSTEM_PREFIX}/ScrollableContainer`,
-  component: ScrollableContainer
+  component: ScrollableContainer,
 };
 
 export const Default = () => {
@@ -136,7 +136,7 @@ export const JustScrollbar = () => {
     display: 'grid',
     gridTemplate: 'auto / 1fr 20px',
     overflow: 'hidden',
-    padding: '4px'
+    padding: '4px',
   };
 
   const ContentContainer = styled.div`

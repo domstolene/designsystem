@@ -6,7 +6,7 @@ import { Property } from 'csstype';
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
 import {
   focusVisible,
-  focusVisibleTransitionValue
+  focusVisibleTransitionValue,
 } from '../../helpers/styling';
 
 const { track, content, outerContainer } = tokens;
