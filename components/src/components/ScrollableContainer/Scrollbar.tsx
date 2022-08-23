@@ -1,4 +1,11 @@
-import { RefObject, useEffect, useRef, useState, useCallback } from 'react';
+import {
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  MouseEvent,
+} from 'react';
 import styled from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
@@ -58,7 +65,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
   }
 
   const handleTrackClick = useCallback(
-    e => {
+    (e: MouseEvent<HTMLDivElement>) => {
       e.preventDefault();
       e.stopPropagation();
       if (contentRef && contentRef.current) {
@@ -77,7 +84,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
           );
           contentCurrent.scrollTo({
             top: scrollAmount,
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
         }
       }
@@ -114,7 +121,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
     }
   }, []);
 
-  const handleThumbMousedown = useCallback(e => {
+  const handleThumbMousedown = useCallback((e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setScrollStartPosition(e.clientY);
@@ -124,7 +131,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
   }, []);
 
   const handleThumbMouseup = useCallback(
-    e => {
+    (e: globalThis.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
       if (isDragging) {
@@ -135,14 +142,14 @@ export const Scrollbar = (props: ScrollbarProps) => {
   );
 
   const handleThumbMousemove = useCallback(
-    e => {
+    (e: globalThis.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
       if (contentRef && contentRef.current) {
         if (isDragging) {
           const {
             scrollHeight: contentScrollHeight,
-            offsetHeight: contentOffsetHeight
+            offsetHeight: contentOffsetHeight,
           } = contentRef.current;
 
           const deltaY =
@@ -180,7 +187,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
         <Thumb
           style={{
             height: thumbHeight,
-            top: thumbTop
+            top: thumbTop,
           }}
           ref={thumbRef}
           onMouseDown={handleThumbMousedown}
