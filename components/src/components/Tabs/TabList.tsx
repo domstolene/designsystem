@@ -7,7 +7,7 @@ import {
   useState,
   FocusEvent,
 } from 'react';
-import styled from 'styled-components';
+import styled, { CSSObject } from 'styled-components';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import {
   useCombinedRef,
@@ -16,11 +16,12 @@ import {
   useRoveFocus,
 } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
-import { scrollbarStyling } from '../../helpers/styling';
+import { scrollbarStyling } from '../ScrollableContainer';
 
 const TabRow = styled.div`
   ${tokens.tabList.base}
-  ${scrollbarStyling}
+  ${scrollbarStyling.webkit}
+  ${scrollbarStyling.firefox as CSSObject}
   scroll-snap-type: x mandatory;
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;

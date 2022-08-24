@@ -123,7 +123,7 @@ export const TabWidth: Story<TabsProps> = args => (
 
 export const ManyTabs: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - many tabs">
-    <Tabs {...args}>
+    <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
       <TabList>
         <Tab>Tab1</Tab>
         <Tab>Restriksjoner</Tab>

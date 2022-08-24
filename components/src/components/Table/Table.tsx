@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes } from 'react';
-import styled, { css } from 'styled-components';
-import { scrollbarStyling } from '../../helpers/styling';
+import styled, { css, CSSObject } from 'styled-components';
+import { scrollbarStyling } from '../ScrollableContainer';
 import { cellTokens } from './Cell.tokens';
 import { typographyTokens } from '../Typography/Typography.tokens';
 
@@ -12,7 +12,8 @@ const StyledTable = styled.table<StyledTableProps>`
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${scrollbarStyling}
+  ${scrollbarStyling.webkit}
+  ${scrollbarStyling.firefox as CSSObject}
   ${({ density }) =>
     density &&
     css`

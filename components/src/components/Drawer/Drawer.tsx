@@ -12,11 +12,11 @@ import {
 } from '../../hooks';
 import { drawerTokens as tokens } from './Drawer.tokens';
 import { focusVisible } from '../../helpers/styling';
-import { scrollbarStyling } from '../../helpers/styling';
 import { Paper } from '../../helpers';
 import { Property } from 'csstype';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
+import { ScrollableContainer } from '../ScrollableContainer';
 
 type ContainerProps = {
   placement: DrawerPlacement;
@@ -66,8 +66,6 @@ const Container = styled(Paper)<ContainerProps>`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
-  ${scrollbarStyling}
   ${tokens.contentContainer.base}
 `;
 
@@ -164,20 +162,22 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   return isOpen || hasTransitionedIn
     ? createPortal(
         <Container {...containerProps}>
-          <ContentContainer>
-            {hasHeader && (
-              <HeaderContainer {...headerContainerProps}>
-                {typeof header === 'string' ? (
-                  <Typography typographyType="headingSans03">
-                    {header}
-                  </Typography>
-                ) : (
-                  header
-                )}
-              </HeaderContainer>
-            )}
-            {children}
-          </ContentContainer>
+          <ScrollableContainer>
+            <ContentContainer>
+              {hasHeader && (
+                <HeaderContainer {...headerContainerProps}>
+                  {typeof header === 'string' ? (
+                    <Typography typographyType="headingSans03">
+                      {header}
+                    </Typography>
+                  ) : (
+                    header
+                  )}
+                </HeaderContainer>
+              )}
+              {children}
+            </ContentContainer>
+          </ScrollableContainer>
           <StyledButton
             data-testid="drawer-close-btn"
             size="small"

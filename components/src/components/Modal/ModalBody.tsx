@@ -1,48 +1,39 @@
 import { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
-import { modalTokens as tokens } from './Modal.tokens';
-import {
-  focusVisibleTransitionValue,
-  scrollbarStyling,
-} from '../../helpers/styling';
+import styled from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { ScrollableContainer } from '../ScrollableContainer';
+import { Property } from 'csstype';
 
-type ContainerProps = {
-  scrollable?: boolean;
-};
-
-const Container = styled.div<ContainerProps>`
-  ${scrollbarStyling}
-  transition: ${focusVisibleTransitionValue};
-  ${({ scrollable }) =>
-    scrollable &&
-    css`
-      ${tokens.bodyScrollable.base}
-      &:focus-visible, &.focus-visible {
-        ${tokens.bodyScrollable.focus.base}
-      }
-    `}
-`;
+const Container = styled.div``;
 
 export type ModalBodyProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
     /**Gjør at innholdet kan scrolles. Det må eventuelt settes (max)bredde og (max)høyde styling på både denne subkomponenten og `<Modal />`.  */
     scrollable?: boolean;
+    /**Høyde på container. */
+    height?: Property.Height;
   }
 >;
 
 export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
   (props, ref) => {
-    const { children, scrollable, id, className, htmlProps, ...rest } = props;
+    const { children, scrollable, id, className, htmlProps, height, ...rest } =
+      props;
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref,
-      tabIndex: scrollable ? 0 : undefined,
-      scrollable,
     };
 
-    return <Container {...containerProps}>{children}</Container>;
+    return scrollable ? (
+      <Container {...containerProps}>
+        <ScrollableContainer contentHeight={height}>
+          {children}
+        </ScrollableContainer>
+      </Container>
+    ) : (
+      <Container {...containerProps}>{children}</Container>
+    );
   }
 );
