@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
 
-const { track, thumb } = tokens;
+const { track, thumb, minThumbHeightPx } = tokens;
 
 const ScrollbarOuterWrapper = styled.div``;
 
@@ -54,7 +54,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
   const { id, className, htmlProps, contentRef, ...rest } = props;
   const trackRef = useRef<HTMLDivElement>(null);
   const thumbRef = useRef<HTMLDivElement>(null);
-  const [thumbHeight, setThumbHeight] = useState(20);
+  const [thumbHeight, setThumbHeight] = useState(minThumbHeightPx);
   const [isScrollable, setIsScrollable] = useState(true);
   const [thumbTop, setThumbTop] = useState<number>(0);
   const observer = useRef<ResizeObserver | null>(null);
@@ -65,7 +65,9 @@ export const Scrollbar = (props: ScrollbarProps) => {
   function handleResize(ref: HTMLDivElement, trackSize: number) {
     const { clientHeight, scrollHeight } = ref;
     setIsScrollable(clientHeight !== scrollHeight);
-    setThumbHeight(Math.max((clientHeight / scrollHeight) * trackSize, 20));
+    setThumbHeight(
+      Math.max((clientHeight / scrollHeight) * trackSize, minThumbHeightPx)
+    );
   }
 
   const handleTrackClick = useCallback(

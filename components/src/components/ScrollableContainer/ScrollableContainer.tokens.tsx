@@ -30,6 +30,7 @@ const outerContainer = {
 };
 
 export const scrollbarTokens = {
+  minThumbHeightPx: 15,
   track,
   thumb,
   content,
