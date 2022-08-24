@@ -59,8 +59,7 @@ export const ScrollableContainer = (props: ScrollableContainerProps) => {
     ...rest
   } = props;
   const ref = useRef<HTMLDivElement>(null);
-  // const hasScrolling =
-  //   ref && ref.current && ref.current.clientHeight !== ref.current.scrollHeight;
+
   return (
     <StyledScrollableContainer
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
