@@ -33,9 +33,13 @@ const Track = styled.div`
 
 const Thumb = styled.div`
   position: absolute;
-  background-color: ${thumb.backgroundColor};
-  border-radius: ${thumb.borderRadius};
-  width: ${thumb.width};
+  background-color: ${thumb.base.backgroundColor};
+  border-radius: ${thumb.base.borderRadius};
+  width: ${thumb.base.width};
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: ${thumb.hover.backgroundColor};
+  }
 `;
 
 export type ScrollbarProps = BaseComponentProps<

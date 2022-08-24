@@ -9,9 +9,14 @@ const track = {
 };
 
 const thumb = {
-  backgroundColor: colors.DdsColorPrimaryDarkest.slice(0, -2) + '0.35)',
-  borderRadius: '100px',
-  width: '10px',
+  base: {
+    backgroundColor: colors.DdsColorPrimaryDarkest.slice(0, -2) + '0.35)',
+    borderRadius: '100px',
+    width: '10px',
+  },
+  hover: {
+    backgroundColor: colors.DdsColorPrimaryDarkest.slice(0, -2) + '0.5)',
+  },
 };
 
 const content = {

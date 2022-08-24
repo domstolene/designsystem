@@ -1,6 +1,7 @@
 import { forwardRef, useEffect } from 'react';
-import styled from 'styled-components';
-import { scrollbarStyling, visibilityTransition } from '../../helpers/styling';
+import styled, { CSSObject } from 'styled-components';
+import { visibilityTransition } from '../../helpers/styling';
+import { scrollbarStyling } from '../ScrollableContainer';
 import {
   useCombinedRef,
   useId,
@@ -31,7 +32,9 @@ export const Container = styled.div<ContainerProps>`
   max-width: 300px;
   ${({ isOpen }) => visibilityTransition(isOpen)}
   ${tokens.container.base}
-  ${scrollbarStyling}
+  ${scrollbarStyling.webkit}
+  ${scrollbarStyling.firefox as CSSObject}
+
   *::selection {
     ${typographyTokens.selection.base}
   }
