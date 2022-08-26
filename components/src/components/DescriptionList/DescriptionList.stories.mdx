@@ -3,19 +3,19 @@ import {
   Canvas,
   Meta,
   ArgsTable,
-  PRIMARY_STORY
+  PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import {
   DescriptionList,
   DescriptionListTerm,
   DescriptionListDesc,
-  DescriptionListGroup
+  DescriptionListGroup,
 } from '.';
 import {
   Source,
   ComponentLinkRow,
   SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory
+  LinkToInteractiveStory,
 } from '../../storybook';
 import { Typography } from '../Typography';
 
@@ -85,7 +85,15 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 En valgfri subkomponent som kan brukes til å gruppere terms
 og descriptions. Den kan være relevant for å få til riktig layout, eller wrappe gruppen
-til andre formål. F.eks hvis beskrivelseslisten skal legge seg over flere kolonner
+til andre formål.
+
+<ArgsTable of={DescriptionListGroup} />
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+#### Eksempler
+
+Hvis beskrivelseslisten skal legge seg over flere kolonner
 på en spesifikk måte kan custom styling brukes:
 
 <Source code={`
@@ -109,5 +117,3 @@ const columnStyle = {
   {/* ...flere grupper */}
 </DescriptionList>
 `} />
-
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
