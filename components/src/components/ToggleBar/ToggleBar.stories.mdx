@@ -43,9 +43,18 @@ ToggleBar er en rad med semantiske radioknapper. Den består av følgende subkom
 
 <Source code={`import { ToggleRadio, ToggleBar } from '@norges-domstoler/dds-components';
 
-<ToggleBar label="Gruppe">
-  <ToggleRadio label="Alternativ 1" />
-  <ToggleRadio label="Alternativ 2" />
+const [value, setValue] = useState<string | undefined>();
+
+<ToggleBar
+  label="Gruppe"
+  name="navn"
+  value={value}
+  onChange={(event, value) => {
+    setValue(value);
+  }}
+>
+  <ToggleRadio value="alt1" label="Alternativ 1" />
+  <ToggleRadio value="alt2" label="Alternativ 2" />
 </ToggleBar>
 `} />
 
@@ -63,7 +72,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `DivHTMLAttribu
 
 <ArgsTable of={ToggleRadio} />
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface på følgende måte:
-- `'name'`, `'readOnly'`, `'checked'`, `'value'`, `'required'`, `'onChange'`, `'aria-describedby'` på roten.
+- `'name'`, `'checked'`, `'value'`, `'onChange'`, `'aria-labelledby'`, `'aria-label'` på toppnivå.
 -  resterende i `htmlProps`.
 
 ## Retningslinjer
