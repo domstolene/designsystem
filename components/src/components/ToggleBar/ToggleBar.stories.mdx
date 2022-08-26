@@ -1,0 +1,71 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+import { ToggleBar, ToggleRadio } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
+import { Typography } from '../Typography';
+
+<Meta title="Design system/ToggleBar/API" component={ToggleBar} />
+
+# ToggleBar
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/75d63e-radiobutton/b/939219"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/ToggleBar"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-togglebar--default" />
+</Canvas>
+
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-togglebar`} />
+
+## Oversikt
+
+ToggleBar er en rad med semantiske radioknapper. Den består av følgende subkomponenter:
+
+- `<ToggleBar />` - wrapper for barna.
+- `<ToggleRadio />` - elementer å velge mellom.
+
+## Bruk i koden
+
+<Source code={`import { ToggleRadio, ToggleBar } from '@norges-domstoler/dds-components';
+
+<ToggleBar label="Gruppe">
+  <ToggleRadio label="Alternativ 1" />
+  <ToggleRadio label="Alternativ 2" />
+</ToggleBar>
+`} />
+
+## API
+
+### ToggleBar
+
+En rad med `<ToggleRadio />`.
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `DivHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
+
+### ToggleRadio
+
+<ArgsTable of={ToggleRadio} />
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface på følgende måte:
+- `'name'`, `'readOnly'`, `'checked'`, `'value'`, `'required'`, `'onChange'`, `'aria-describedby'` på roten.
+-  resterende i `htmlProps`.
+
+## Retningslinjer
+
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.
