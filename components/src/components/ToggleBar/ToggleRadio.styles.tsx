@@ -9,23 +9,6 @@ import {
 
 const { content, label } = tokens;
 
-const getSizeStyling = (size: ToggleBarSize, justIcon: boolean) => {
-  const tokens = justIcon
-    ? content.size[size].justIcon
-    : content.size[size].withText;
-  return css`
-    padding: ${tokens.padding};
-    ${justIcon
-      ? css`
-          fontsize: ${content.size[size].justIcon.fontSize};
-        `
-      : css`
-          gap: ${content.size[size].withText.gap};
-          ${content.size[size].withText.font}
-        `}
-  `;
-};
-
 type ContentProps = {
   size: ToggleBarSize;
   justIcon: boolean;
@@ -44,7 +27,19 @@ export const Content = styled.span<ContentProps>`
       color 0.2s, ${focusVisibleTransitionValue};
   }
   background-color: ${content.base.backgroundColor};
-  ${({ size, justIcon }) => getSizeStyling(size, justIcon)}
+
+  ${({ size, justIcon }) => css`
+    ${justIcon
+      ? css`
+          font-size: ${content.size[size].justIcon.fontSize};
+          padding: ${content.size[size].justIcon.padding};
+        `
+      : css`
+          gap: ${content.size[size].withText.gap};
+          padding: ${content.size[size].withText.padding};
+          ${content.size[size].withText.font}
+        `}
+  `}
 `;
 
 export const Input = styled.input.attrs(({ type = 'radio' }) => ({
