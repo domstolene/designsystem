@@ -94,18 +94,12 @@ export const RadioButtonGroup = <T extends string | number = string>({
     e => onChange && onChange(e, e.target.value as T)
   );
 
-  const hasErrorMessage = !!errorMessage;
-  const hasTip = !!tip;
-
-  const tipId = hasTip ? `${uniqueGroupId}-tip` : undefined;
-  const errorMessageId = hasErrorMessage
-    ? `${uniqueGroupId}-errorMessage`
-    : undefined;
-
+  const tipId = tip && `${uniqueGroupId}-tip`;
+  const errorMessageId = errorMessage && `${uniqueGroupId}-errorMessage`;
   const contextProps = {
     name,
     disabled,
-    error: hasErrorMessage,
+    error: !!errorMessage,
     errorMessageId: errorMessageId,
     required,
     readOnly,
@@ -122,7 +116,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
       >
         {label} {required && <RequiredMarker />}
       </Label>
-      {hasTip && <InputMessage message={tip} messageType="tip" id={tipId} />}
+      {tip && <InputMessage message={tip} messageType="tip" id={tipId} />}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
           role="radiogroup"
@@ -134,7 +128,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
           {children}
         </GroupContainer>
       </RadioButtonGroupContext.Provider>
-      {hasErrorMessage && (
+      {errorMessage && (
         <InputMessage
           message={errorMessage}
           messageType="error"
