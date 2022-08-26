@@ -1,19 +1,13 @@
-import { forwardRef, InputHTMLAttributes, useState } from 'react';
+import { forwardRef, InputHTMLAttributes, useState, ChangeEvent } from 'react';
 import { SvgIcon } from '../../icons/utils';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Icon } from '../Icon';
-import { useToggleBarContext } from './ToggleBar.context';
+import { ToggleBarContextType, useToggleBarContext } from './ToggleBar.context';
 import { Label, Input, Content } from './ToggleRadio.styles';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
-  | 'name'
-  | 'readOnly'
-  | 'checked'
-  | 'value'
-  | 'required'
-  | 'onChange'
-  | 'aria-describedby'
+  'name' | 'checked' | 'value' | 'onChange' | 'aria-label' | 'aria-labelledby'
 >;
 
 export type ToggleRadioProps = BaseComponentProps<
@@ -27,21 +21,58 @@ export type ToggleRadioProps = BaseComponentProps<
   Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedInputHTMLAttributes>
 >;
 
+const isValueEqualToGroupValueOrFalsy = (
+  value: unknown,
+  group: ToggleBarContextType
+): boolean => {
+  if (typeof value !== 'undefined' && value !== null && group) {
+    if (typeof value === 'number') {
+      return value === Number(group?.value);
+    }
+    return value === group?.value;
+  }
+  return !!value;
+};
+
 let nextUniqueId = 0;
 
 export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
   (props, ref) => {
-    const { icon, label, htmlProps, className, id, ...rest } = props;
+    const {
+      value,
+      name,
+      onChange,
+      checked,
+      icon,
+      label,
+      htmlProps,
+      className,
+      id,
+      ...rest
+    } = props;
     const [uniqueId] = useState<string>(id ?? `ToggleRadio-${nextUniqueId++}`);
-    const { size } = useToggleBarContext();
+    const group = useToggleBarContext();
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      onChange && onChange(event);
+      group && group.onChange && group.onChange(event);
+    };
 
     return (
-      <Label size={size}>
+      <Label size={group.size} htmlFor={uniqueId}>
         <Input
           ref={ref}
           {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
+          name={name ?? group.name}
+          onChange={handleChange}
+          value={value}
+          checked={
+            typeof checked !== 'undefined'
+              ? checked
+              : isValueEqualToGroupValueOrFalsy(value, group)
+          }
         />
-        <Content size={size} justIcon={!!icon && !!!label}>
+        <Content size={group.size} justIcon={!!icon && !!!label}>
           {icon && <Icon icon={icon} iconSize="inherit" />}
           {label}
         </Content>

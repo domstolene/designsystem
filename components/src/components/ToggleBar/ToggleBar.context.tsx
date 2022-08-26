@@ -1,8 +1,11 @@
-import { createContext, useContext } from 'react';
+import { ChangeEvent, createContext, useContext } from 'react';
 import { ToggleBarSize } from './ToggleBar';
 
-type ToggleBarContextType = {
+export type ToggleBarContextType = {
   size: ToggleBarSize;
+  name?: string;
+  value?: string | number | null;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const ToggleBarContext = createContext<ToggleBarContextType>({
