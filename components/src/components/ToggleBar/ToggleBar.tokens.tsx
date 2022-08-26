@@ -3,24 +3,24 @@ import { calculateHeightWithLineHeight } from '../../utils';
 
 const { colors, spacing, border, borderRadius, fontPackages } = ddsBaseTokens;
 
-const iconSizeTinyPx = calculateHeightWithLineHeight(
+const iconSizeTiny = `${calculateHeightWithLineHeight(
   fontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
   fontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
-);
+)}px`;
 
-const iconSizeSmallPx = calculateHeightWithLineHeight(
+const iconSizeSmall = `${calculateHeightWithLineHeight(
   fontPackages.body_sans_01.numbers.lineHeightNumber,
   fontPackages.body_sans_01.numbers.fontSizeNumber
-);
+)}px`;
 
-const iconSizeMediumPx = calculateHeightWithLineHeight(
+const iconSizeMedium = `${calculateHeightWithLineHeight(
   fontPackages.body_sans_02.numbers.lineHeightNumber,
   fontPackages.body_sans_02.numbers.fontSizeNumber
-);
-const iconSizeLargePx = calculateHeightWithLineHeight(
+)}px`;
+const iconSizeLarge = `${calculateHeightWithLineHeight(
   fontPackages.body_sans_04.numbers.lineHeightNumber,
   fontPackages.body_sans_04.numbers.fontSizeNumber
-);
+)}px`;
 
 const outerContainer = {
   gap: spacing.SizesDdsSpacingLocalX0125,
@@ -62,7 +62,7 @@ const content = {
       justIcon: {
         padding: spacing.SizesDdsSpacingLocalX025,
 
-        fontSize: iconSizeTinyPx,
+        fontSize: iconSizeTiny,
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX075}`,
@@ -73,7 +73,7 @@ const content = {
     small: {
       justIcon: {
         padding: spacing.SizesDdsSpacingLocalX05,
-        fontSize: iconSizeSmallPx,
+        fontSize: iconSizeSmall,
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1}`,
@@ -84,7 +84,7 @@ const content = {
     medium: {
       justIcon: {
         padding: spacing.SizesDdsSpacingLocalX075,
-        fontSize: iconSizeMediumPx,
+        fontSize: iconSizeMedium,
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
@@ -95,7 +95,7 @@ const content = {
     large: {
       justIcon: {
         padding: spacing.SizesDdsSpacingLocalX1,
-        fontSize: iconSizeLargePx,
+        fontSize: iconSizeLarge,
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX2}`,
