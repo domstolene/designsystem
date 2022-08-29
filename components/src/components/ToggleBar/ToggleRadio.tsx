@@ -74,7 +74,7 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
         />
         <Content size={group.size} justIcon={!!icon && !!!label}>
           {icon && <Icon icon={icon} iconSize="inherit" />}
-          {label}
+          {label && <span>{label}</span>}
         </Content>
       </Label>
     );
