@@ -32,12 +32,9 @@ export type ToggleBarProps<T extends string | number> =
       /**Ledetekst for hele gruppen. */
       label?: string;
       /**Funksjonen for `onChange`-event for barna. */
-      onChange?: (
-        event: ChangeEvent<HTMLInputElement>,
-        value: T | undefined
-      ) => void;
+      onChange?: (event: ChangeEvent<HTMLInputElement>, value?: T) => void;
       /**Den valgte verdien i gruppen. Hvis satt ved innlastning en `<ToggleRadio />` blir forhåndsvalgt. */
-      value?: T | undefined;
+      value?: T;
       /** Gir alle barna `name` prop.*/
       name?: string;
     }
