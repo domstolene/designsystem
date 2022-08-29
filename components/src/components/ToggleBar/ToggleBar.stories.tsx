@@ -1,6 +1,6 @@
 import { SB_DESIGNSYSTEM_PREFIX, StoryTemplate } from '../../storybook';
 import { ToggleBar, ToggleBarProps, ToggleRadio } from '.';
-import { GavelIcon } from '../../icons/tsx';
+import { PlusCircledIcon } from '../../icons/tsx';
 import { useState } from 'react';
 
 export default {
@@ -61,9 +61,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -87,9 +87,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -113,9 +113,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -139,9 +139,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={GavelIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
       </ToggleBar>
     </StoryTemplate>
   );
@@ -160,26 +160,26 @@ export const OverviewWithIcon = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={GavelIcon} value="alt1" />
-        <ToggleRadio icon={GavelIcon} value="alt2" />
-        <ToggleRadio icon={GavelIcon} value="alt3" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt1" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt2" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt3" />
       </ToggleBar>
 
       <ToggleBar {...args} name="test1" size="small">
-        <ToggleRadio icon={GavelIcon} value="alt1" />
-        <ToggleRadio icon={GavelIcon} value="alt2" />
-        <ToggleRadio icon={GavelIcon} value="alt3" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt1" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt2" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt3" />
       </ToggleBar>
 
       <ToggleBar {...args} name="test2" size="medium">
-        <ToggleRadio icon={GavelIcon} value="alt1" />
-        <ToggleRadio icon={GavelIcon} value="alt2" />
-        <ToggleRadio icon={GavelIcon} value="alt3" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt1" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt2" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt3" />
       </ToggleBar>
       <ToggleBar {...args} name="test3" size="large">
-        <ToggleRadio icon={GavelIcon} value="alt1" />
-        <ToggleRadio icon={GavelIcon} value="alt2" />
-        <ToggleRadio icon={GavelIcon} value="alt3" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt1" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt2" />
+        <ToggleRadio icon={PlusCircledIcon} value="alt3" />
       </ToggleBar>
     </StoryTemplate>
   );
