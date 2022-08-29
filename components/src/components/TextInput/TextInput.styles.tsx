@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, CSSObject } from 'styled-components';
 import { TextInputProps } from './TextInput.types';
 import { textInputTokens as tokens } from './TextInput.tokens';
 import {
@@ -7,10 +7,11 @@ import {
   inputTokens,
   StatefulInput,
 } from '../../helpers';
-import { scrollbarStyling } from '../../helpers/styling';
+import { scrollbarStyling } from '../ScrollableContainer';
 
 export const TextArea = styled(StatefulInput)<StyledInputProps>`
-  ${scrollbarStyling}
+  ${scrollbarStyling.webkit}
+  ${scrollbarStyling.firefox as CSSObject}
   ${tokens.multiline.base}
   ${({ hasLabel }) =>
     css`

@@ -21,61 +21,100 @@ export default {
 };
 
 export const Overview = (args: RadioButtonGroupProps<string>) => {
+  const [value, setValue] = useState<number | undefined>();
   return (
     <StoryTemplate
       title="Radio button group - overview"
       display="grid"
       columnsAmount={2}
     >
-      <RadioButtonGroup {...args} direction="row" label="Label">
-        <RadioButton label="Option 1" name="test" />
-        <RadioButton label="Option 2" name="test" />
-        <RadioButton label="Option 3" name="test" />
+      <RadioButtonGroup
+        {...args}
+        direction="row"
+        label="Label"
+        value={value}
+        name="test"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+      >
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
-      <RadioButtonGroup {...args} direction="column" label="Label">
-        <RadioButton label="Option 1" name="test1" />
-        <RadioButton label="Option 2" name="test1" />
-        <RadioButton label="Option 3" name="test1" />
+      <RadioButtonGroup
+        {...args}
+        direction="column"
+        label="Label"
+        value={value}
+        name="test1"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+      >
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
       <RadioButtonGroup
         {...args}
         tip="Dette er en hjelpetekst"
         direction="row"
         label="Label"
+        value={value}
+        name="test2"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
       >
-        <RadioButton label="Option 1" name="test2" />
-        <RadioButton label="Option 2" name="test2" />
-        <RadioButton label="Option 3" name="test2" />
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
       <RadioButtonGroup
         {...args}
         tip="Dette er en hjelpetekst"
         direction="column"
         label="Label"
+        value={value}
+        name="test3"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
       >
-        <RadioButton label="Option 1" name="test3" />
-        <RadioButton label="Option 2" name="test3" />
-        <RadioButton label="Option 3" name="test3" />
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
       <RadioButtonGroup
         {...args}
         errorMessage="Dette er en feilmelding"
         direction="row"
         label="Label"
+        value={value}
+        name="test4"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
       >
-        <RadioButton label="Option 1" name="test2" />
-        <RadioButton label="Option 2" name="test2" />
-        <RadioButton label="Option 3" name="test2" />
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
       <RadioButtonGroup
         {...args}
         errorMessage="Dette er en feilmelding"
         direction="column"
         label="Label"
+        value={value}
+        name="test5"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
       >
-        <RadioButton label="Option 1" name="test3" />
-        <RadioButton label="Option 2" name="test3" />
-        <RadioButton label="Option 3" name="test3" />
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
       <RadioButtonGroup
         {...args}
@@ -83,10 +122,15 @@ export const Overview = (args: RadioButtonGroupProps<string>) => {
         tip="Dette er en hjelpetekst"
         direction="row"
         label="Label"
+        value={value}
+        name="test6"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
       >
-        <RadioButton label="Option 1" name="test2" />
-        <RadioButton label="Option 2" name="test2" />
-        <RadioButton label="Option 3" name="test2" />
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
       <RadioButtonGroup
         {...args}
@@ -94,10 +138,15 @@ export const Overview = (args: RadioButtonGroupProps<string>) => {
         tip="Dette er en hjelpetekst"
         direction="column"
         label="Label"
+        value={value}
+        name="test7"
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
       >
-        <RadioButton label="Option 1" name="test3" />
-        <RadioButton label="Option 2" name="test3" />
-        <RadioButton label="Option 3" name="test3" />
+        <RadioButton label="Option 1" value={1} />
+        <RadioButton label="Option 2" value={2} />
+        <RadioButton label="Option 3" value={3} />
       </RadioButtonGroup>
     </StoryTemplate>
   );

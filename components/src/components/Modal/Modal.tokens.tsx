@@ -28,12 +28,6 @@ const focusBase: CSSObject = {
   ...focusVisible,
 };
 
-const bodyScrollableBase: CSSObject = {
-  overflowY: 'auto',
-};
-const bodyScrollableFocusBase: CSSObject = {
-  ...focusVisible,
-};
 export const modalTokens = {
   base: base,
   focus: { base: focusBase },
@@ -42,11 +36,5 @@ export const modalTokens = {
   },
   actionsContainer: {
     base: actionsContainerBase,
-  },
-  bodyScrollable: {
-    base: bodyScrollableBase,
-    focus: {
-      base: bodyScrollableFocusBase,
-    },
   },
 };

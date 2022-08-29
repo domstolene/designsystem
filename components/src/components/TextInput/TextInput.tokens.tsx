@@ -4,7 +4,7 @@ import {
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { Property } from 'csstype';
-import { scrollbarWidthNumberPx } from '../../helpers/styling';
+import { scrollbarWidthNumberPx } from '../ScrollableContainer/ScrollableContainer.tokens';
 
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 

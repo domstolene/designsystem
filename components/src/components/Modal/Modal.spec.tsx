@@ -3,6 +3,13 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { Button } from '../Button';
 
+// Mock the ResizeObserver
+window.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
+
 const TestComponent = () => {
   const [closed, setClosed] = useState(true);
   const show = () => setClosed(false);
