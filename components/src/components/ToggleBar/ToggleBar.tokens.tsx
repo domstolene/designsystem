@@ -39,7 +39,7 @@ const label = {
     borderColor: colors.DdsColorInteractiveDark,
   },
   active: {
-    color: colors.DdsColorInteractiveDarker,
+    color: colors.DdsColorInteractiveDarkest,
     borderColor: colors.DdsColorInteractiveDarker,
     backgroundColor: colors.DdsColorInteractiveLightest,
     boxShadow: `inset 0 0 0 1px ${colors.DdsColorInteractiveDarker}`,
