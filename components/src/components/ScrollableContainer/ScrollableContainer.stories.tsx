@@ -15,7 +15,7 @@ export default {
 export const Default = (args: ScrollableContainerProps) => {
   return (
     <StoryTemplate title="ScrollableContainer - default">
-      <ScrollableContainer {...args}>
+      <ScrollableContainer {...args} contentHeight="300px">
         <p>
           Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
           begrense kostnadene veldig. Under hele meklingsprosessen betaler
