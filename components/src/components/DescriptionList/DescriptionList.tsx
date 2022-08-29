@@ -2,7 +2,9 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { typographyTokens } from '../Typography/Typography.tokens';
-import { descriptionListTermTokens } from './DescriptionListTerm.tokens';
+import { descriptionListTokens as tokens } from './DescriptionList.tokens';
+
+const { term, desc, list } = tokens;
 
 type DListProps = Pick<DescriptionListProps, 'appearance'>;
 
@@ -15,17 +17,24 @@ const DList = styled.dl<DListProps>`
     appearance &&
     css`
       dt {
-        ${descriptionListTermTokens.appearance[appearance].base}
+        ${term.appearance[appearance].font}
+        color: ${term.appearance[appearance].color};
+        line-height: ${term.appearance[appearance].lineHeight};
+        font-size: ${term.appearance[appearance].fontSize};
+        letter-spacing: ${term.appearance[appearance].letterSpacing};
+        font-family: ${term.appearance[appearance].fontFamily};
+        font-weight: ${term.appearance[appearance].fontWeight};
+        font-style: ${term.appearance[appearance].fontStyle};
       }
     `}
   & > dt:first-of-type {
-    margin-top: ${descriptionListTermTokens.unwrappedTopAndBottomSpace};
+    margin-top: ${term.firstOfType.marginTop};
   }
   & > dd:last-child {
-    margin-bottom: ${descriptionListTermTokens.unwrappedTopAndBottomSpace};
+    margin-bottom: ${desc.lastChild.marginBottom};
   }
   dd + dt {
-    margin-top: ${descriptionListTermTokens.unwrappedBetweenSpace};
+    margin-top: ${list.beforeNextTerm.marginTop};
   }
 `;
 

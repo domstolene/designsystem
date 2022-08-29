@@ -1,6 +1,6 @@
 import { HTMLAttributes, useEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
-import { scrollbarStyling } from '../../helpers/styling';
+import styled, { css, CSSObject } from 'styled-components';
+import { scrollbarStyling } from '../ScrollableContainer';
 
 const Wrapper = styled.div<{ overflowX: boolean }>`
   ${({ overflowX }) =>
@@ -8,7 +8,8 @@ const Wrapper = styled.div<{ overflowX: boolean }>`
     css`
       overflow-x: auto;
     `}
-  ${scrollbarStyling}
+  ${scrollbarStyling.webkit}
+  ${scrollbarStyling.firefox as CSSObject}
 `;
 
 export type TableWrapperProps = HTMLAttributes<HTMLDivElement>;

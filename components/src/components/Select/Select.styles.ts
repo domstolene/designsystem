@@ -1,6 +1,6 @@
 import { GroupBase, StylesConfig } from 'react-select';
-import styled, { css } from 'styled-components';
-import { scrollbarStyling } from '../../helpers/styling';
+import styled, { css, CSSObject } from 'styled-components';
+import { scrollbarStyling } from '../ScrollableContainer';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
 import { selectTokens as tokens } from './Select.tokens';
@@ -26,7 +26,7 @@ export const Container = styled.div<StyledContainerProps>`
   }
   position: relative;
   ${tokens.container.base}
-  ${scrollbarStyling}
+
   *::selection {
     ${typographyTokens.selection.base}
   }
@@ -98,7 +98,8 @@ export const Container = styled.div<StyledContainerProps>`
     `}
 
   .${prefix}__menu-list {
-    ${scrollbarStyling}
+    ${scrollbarStyling.webkit}
+    ${scrollbarStyling.firefox as CSSObject}
   }
   &:hover
     .${prefix}__dropdown-indicator,

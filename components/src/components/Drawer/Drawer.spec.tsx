@@ -8,6 +8,13 @@ import {
 import { Drawer, DrawerGroup } from '.';
 import { Button } from '../Button';
 
+// Mock the ResizeObserver
+window.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
+
 const buttonLabel = 'label';
 const content = 'content';
 
