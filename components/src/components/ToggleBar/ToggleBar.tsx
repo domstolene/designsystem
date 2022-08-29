@@ -62,7 +62,7 @@ export const ToggleBar = <T extends string | number = string>(
   } = props;
 
   const [uniqueId] = useState<string | undefined>(
-    id ?? `ToggleBar-${nextUniqueId}`
+    id ?? `ToggleBar-${nextUniqueId++}`
   );
 
   const [groupValue, setGroupValue] = useState<
