@@ -48,9 +48,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio label="Alt" value="Alt1" />
-        <ToggleRadio label="Alt" value="Alt2" />
-        <ToggleRadio label="Alt" value="Alt3" />
+        <ToggleRadio label="Alt1" value="Alt1" />
+        <ToggleRadio label="Alt2" value="Alt2" />
+        <ToggleRadio label="Alt3" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -61,9 +61,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt1" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt2" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt3" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -74,9 +74,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio label="Alt" value="Alt1" />
-        <ToggleRadio label="Alt" value="Alt2" />
-        <ToggleRadio label="Alt" value="Alt3" />
+        <ToggleRadio label="Alt1" value="Alt1" />
+        <ToggleRadio label="Alt2" value="Alt2" />
+        <ToggleRadio label="Alt3" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -87,9 +87,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt1" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt2" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt3" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -100,9 +100,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio label="Alt" value="Alt1" />
-        <ToggleRadio label="Alt" value="Alt2" />
-        <ToggleRadio label="Alt" value="Alt3" />
+        <ToggleRadio label="Alt1" value="Alt1" />
+        <ToggleRadio label="Alt2" value="Alt2" />
+        <ToggleRadio label="Alt3" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -113,9 +113,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt1" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt2" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt3" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -126,9 +126,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio label="Alt" value="Alt1" />
-        <ToggleRadio label="Alt" value="Alt2" />
-        <ToggleRadio label="Alt" value="Alt3" />
+        <ToggleRadio label="Alt1" value="Alt1" />
+        <ToggleRadio label="Alt2" value="Alt2" />
+        <ToggleRadio label="Alt3" value="Alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -139,9 +139,9 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
           setValue(value);
         }}
       >
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt1" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt2" />
-        <ToggleRadio icon={PlusCircledIcon} label="Alt" value="Alt3" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt1" value="Alt1" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt2" value="Alt2" />
+        <ToggleRadio icon={PlusCircledIcon} label="Alt3" value="Alt3" />
       </ToggleBar>
     </StoryTemplate>
   );
@@ -201,10 +201,11 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
         onChange={(_event, value) => {
           setValue(value);
         }}
+        name="test"
       >
-        <ToggleRadio label="Alt" value="alt1" name="test" />
-        <ToggleRadio label="Alt" value="alt2" name="test" />
-        <ToggleRadio label="Alt" value="alt3" name="test" />
+        <ToggleRadio label="Alt1" value="alt1" />
+        <ToggleRadio label="Alt2" value="alt2" />
+        <ToggleRadio label="Alt3" value="alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -214,10 +215,11 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
         onChange={(_event, value) => {
           setValue(value);
         }}
+        name="test1"
       >
-        <ToggleRadio label="Alt" value="alt1" name="test2" />
-        <ToggleRadio label="Alt" value="alt2" name="test2" />
-        <ToggleRadio label="Alt" value="alt3" name="test2" />
+        <ToggleRadio label="Alt1" value="alt1" />
+        <ToggleRadio label="Alt2" value="alt2" />
+        <ToggleRadio label="Alt3" value="alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -227,10 +229,11 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
         onChange={(_event, value) => {
           setValue(value);
         }}
+        name="test2"
       >
-        <ToggleRadio label="Alt" value="alt1" name="test4" />
-        <ToggleRadio label="Alt" value="alt2" name="test4" />
-        <ToggleRadio label="Alt" value="alt3" name="test4" />
+        <ToggleRadio label="Alt1" value="alt1" />
+        <ToggleRadio label="Alt2" value="alt2" />
+        <ToggleRadio label="Alt3" value="alt3" />
       </ToggleBar>
       <ToggleBar
         {...args}
@@ -240,10 +243,11 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
         onChange={(_event, value) => {
           setValue(value);
         }}
+        name="test3"
       >
-        <ToggleRadio label="Alt" value="alt1" name="test6" />
-        <ToggleRadio label="Alt" value="alt2" name="test6" />
-        <ToggleRadio label="Alt" value="alt3" name="test6" />
+        <ToggleRadio label="Alt1" value="alt1" />
+        <ToggleRadio label="Alt2" value="alt2" />
+        <ToggleRadio label="Alt3" value="alt3" />
       </ToggleBar>
     </StoryTemplate>
   );
