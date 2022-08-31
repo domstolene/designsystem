@@ -12,9 +12,10 @@ import {
   Props as ReactSelectProps,
   SelectInstance,
   SingleValueProps,
+  MultiValueRemoveProps,
 } from 'react-select';
 import { RequiredMarker } from '../../helpers';
-import { CheckIcon, ChevronDownIcon, CloseAltIcon } from '../../icons/tsx';
+import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 import {
   derivativeIdGenerator,
@@ -38,6 +39,7 @@ const {
   SingleValue,
   ClearIndicator,
   DropdownIndicator,
+  MultiValueRemove,
 } = components;
 
 export type SelectOption<TValue = unknown> = {
@@ -53,7 +55,7 @@ const IconOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>
 ) => (
   <DdsOption {...props}>
-    {props.isSelected && <Icon icon={CheckIcon} iconSize="inherit" />}
+    {props.isSelected && <Icon icon={CheckIcon} iconSize="medium" />}
     {props.children}
   </DdsOption>
 );
@@ -86,8 +88,16 @@ const CustomClearIndicator = <TValue, IsMulti extends boolean>(
   props: ClearIndicatorProps<TValue, IsMulti>
 ) => (
   <ClearIndicator {...props}>
-    <Icon icon={CloseAltIcon} iconSize="medium" />
+    <Icon icon={CloseSmallIcon} iconSize="medium" />
   </ClearIndicator>
+);
+
+const CustomMultiValueRemove = <TValue, IsMulti extends boolean>(
+  props: MultiValueRemoveProps<TValue, IsMulti>
+) => (
+  <MultiValueRemove {...props}>
+    <Icon icon={CloseSmallIcon} iconSize="medium" />
+  </MultiValueRemove>
 );
 
 const CustomDropdownIndicator = <TValue, IsMulti extends boolean>(
@@ -250,6 +260,7 @@ const SelectInner = <
         : SingleValue,
       ClearIndicator: CustomClearIndicator,
       DropdownIndicator: CustomDropdownIndicator,
+      MultiValueRemove: CustomMultiValueRemove,
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     ...rest,

@@ -1,7 +1,7 @@
 import { StyledSvg } from '../utils/StyledSvg';
 import { SvgProps } from '../utils/propTypes';
 
-export function CloseAltIcon(props: SvgProps) {
+export function CloseSmallIcon(props: SvgProps) {
   const { title, ...rest } = props;
   return (
     <StyledSvg
