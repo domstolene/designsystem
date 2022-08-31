@@ -28,6 +28,7 @@ export * from './chevronLeft';
 export * from './chevronRight';
 export * from './chevronUp';
 export * from './close';
+export * from './closeAlt';
 export * from './closeCircled';
 export * from './cloud';
 export * from './collapse';
