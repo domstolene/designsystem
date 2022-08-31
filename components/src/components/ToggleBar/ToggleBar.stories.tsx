@@ -188,11 +188,7 @@ export const OverviewWithIcon = (args: ToggleBarProps<string>) => {
 export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
   const [value, setValue] = useState<string | undefined>();
   return (
-    <StoryTemplate
-      title="ToggleBar - overview with label"
-      display="grid"
-      columnsAmount={2}
-    >
+    <StoryTemplate title="ToggleBar - overview with label">
       <ToggleBar
         {...args}
         label={args.label || 'Label'}
