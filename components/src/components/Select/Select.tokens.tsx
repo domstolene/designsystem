@@ -19,7 +19,6 @@ const {
   fontPackages: FontPackages,
   borderRadius: BorderRadius,
   border: Border,
-  iconSizes: IconSizes,
 } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
@@ -156,7 +155,6 @@ const drodownIndicatorReadOnlyBase: CSSObject = {
 
 const clearIndicatorBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
-  padding: ` 0 ${Spacing.SizesDdsSpacingLocalX025} 0 0`,
 };
 const loadingIndicatorBase: CSSObject = {
   color: Colors.DdsColorNeutralsGray6,
@@ -223,18 +221,12 @@ const multiValueLabelBase: CSSObject = {
   fontWeight: 'bold',
 };
 const multiValueRemoveBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX025}`,
   color: Colors.DdsColorNeutralsGray9,
 };
 
 const multiValueRemoveHoverBase: CSSObject = {
   color: Colors.DdsColorNeutralsWhite,
   backgroundColor: Colors.DdsColorInteractiveBase,
-};
-
-const multiValueRemoveIconBase: CSSObject = {
-  height: IconSizes.DdsIconsizeSmall,
-  width: IconSizes.DdsIconsizeSmall,
 };
 
 const containerDisabledBase: CSSObject = {
@@ -347,9 +339,6 @@ export const selectTokens = {
     base: multiValueRemoveBase,
     hover: {
       base: multiValueRemoveHoverBase,
-    },
-    icon: {
-      base: multiValueRemoveIconBase,
     },
   },
   indicatorsContainer: {
