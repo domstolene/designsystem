@@ -186,13 +186,12 @@ const optionBase: CSSObject = {
 };
 
 const optionHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveLighter,
+  backgroundColor: Colors.DdsColorInteractiveLightest,
 };
 
 const optionSelectedBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveLightest,
+  backgroundColor: Colors.DdsColorNeutralsWhite,
   ...FontPackages.body_sans_02.base,
-  fontWeight: 600,
 };
 
 const noOptionsMessageBase: CSSObject = {

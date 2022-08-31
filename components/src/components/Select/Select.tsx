@@ -44,7 +44,7 @@ const IconOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>
 ) => (
   <DdsOption {...props}>
-    {props.isSelected && <Icon icon={CheckIcon} iconSize="inherit" />}
+    {props.isSelected && <Icon icon={CheckIcon} iconSize="medium" />}
     {props.children}
   </DdsOption>
 );
