@@ -69,10 +69,10 @@ export const Label = styled.label<LabelProps>`
   }
 
   ${Input}:checked + ${Content} {
-    color: ${label.active.color};
-    border-color: ${label.active.borderColor};
-    background-color: ${label.active.backgroundColor};
-    box-shadow: ${label.active.boxShadow};
+    color: ${content.active.color};
+    border-color: ${content.active.borderColor};
+    background-color: ${content.active.backgroundColor};
+    box-shadow: ${content.active.boxShadow};
     position: relative;
     z-index: 0;
   }

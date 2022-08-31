@@ -29,7 +29,6 @@ const outerContainer = {
 const label = {
   base: {
     borderColor: colors.DdsColorNeutralsGray5,
-    backgroundColor: colors.DdsColorNeutralsGray1,
     borderRight: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
     borderTop: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
     borderBottom: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
@@ -37,12 +36,6 @@ const label = {
   hover: {
     color: colors.DdsColorInteractiveDark,
     borderColor: colors.DdsColorInteractiveDark,
-  },
-  active: {
-    color: colors.DdsColorInteractiveDarkest,
-    borderColor: colors.DdsColorInteractiveDarker,
-    backgroundColor: colors.DdsColorInteractiveLightest,
-    boxShadow: `inset 0 0 0 1px ${colors.DdsColorInteractiveDarker}`,
   },
   firstChild: {
     borderLeft: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
@@ -57,6 +50,12 @@ const label = {
 
 const content = {
   base: { backgroundColor: colors.DdsColorNeutralsGray1 },
+  active: {
+    color: colors.DdsColorInteractiveDarkest,
+    borderColor: colors.DdsColorInteractiveDarker,
+    backgroundColor: colors.DdsColorInteractiveLightest,
+    boxShadow: `inset 0 0 0 1px ${colors.DdsColorInteractiveDarker}`,
+  },
   size: {
     tiny: {
       justIcon: {
