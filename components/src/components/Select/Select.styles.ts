@@ -206,9 +206,7 @@ export const getCustomStyles = <TOption>(): Partial<
             transition: 'color 0.2s, background-color 0.2s',
           },
           ...tokens.multiValueRemove.base,
-          svg: {
-            ...tokens.multiValueRemove.icon.base,
-          },
+          padding: 0,
           '&:hover': {
             ...tokens.multiValueRemove.hover.base,
           },
