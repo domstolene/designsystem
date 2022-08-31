@@ -247,6 +247,9 @@ export const getCustomStyles = <TOption>(): Partial<
   clearIndicator: () => ({
     display: 'inline-flex',
     ...tokens.clearIndicator.base,
+    '@media (prefers-reduced-motion: no-preference)': {
+      transition: 'color 0.2s',
+    },
     '&:hover': {
       ...tokens.clearIndicator.hover.base,
     },

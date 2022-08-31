@@ -1,7 +1,9 @@
 import { Property } from 'csstype';
 import React, { useState } from 'react';
 import {
+  ClearIndicatorProps,
   components,
+  DropdownIndicatorProps,
   default as ReactSelect,
   GroupBase,
   InputProps,
@@ -12,7 +14,7 @@ import {
   SingleValueProps,
 } from 'react-select';
 import { RequiredMarker } from '../../helpers';
-import { CheckIcon } from '../../icons/tsx';
+import { CheckIcon, ChevronDownIcon, CloseAltIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 import {
   derivativeIdGenerator,
@@ -29,7 +31,14 @@ import {
 } from './Select.styles';
 import { selectTokens as tokens } from './Select.tokens';
 
-const { Option: DdsOption, NoOptionsMessage, Input, SingleValue } = components;
+const {
+  Option: DdsOption,
+  NoOptionsMessage,
+  Input,
+  SingleValue,
+  ClearIndicator,
+  DropdownIndicator,
+} = components;
 
 export type SelectOption<TValue = unknown> = {
   label: string | number;
@@ -72,6 +81,22 @@ const CustomSingleValue = <TOption, IsMulti extends boolean>(
 const NoOptionsMessageCustom = <TValue, IsMulti extends boolean>(
   props: NoticeProps<TValue, IsMulti>
 ) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
+
+const CustomClearIndicator = <TValue, IsMulti extends boolean>(
+  props: ClearIndicatorProps<TValue, IsMulti>
+) => (
+  <ClearIndicator {...props}>
+    <Icon icon={CloseAltIcon} iconSize="medium" />
+  </ClearIndicator>
+);
+
+const CustomDropdownIndicator = <TValue, IsMulti extends boolean>(
+  props: DropdownIndicatorProps<TValue, IsMulti>
+) => (
+  <DropdownIndicator {...props}>
+    <Icon icon={ChevronDownIcon} iconSize="medium" />
+  </DropdownIndicator>
+);
 
 function escapeRegexCharacters(text: string) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -223,6 +248,8 @@ const SelectInner = <
       SingleValue: customSingleValueElement
         ? props => CustomSingleValue(props, customSingleValueElement)
         : SingleValue,
+      ClearIndicator: CustomClearIndicator,
+      DropdownIndicator: CustomDropdownIndicator,
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     ...rest,
