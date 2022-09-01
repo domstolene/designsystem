@@ -26,7 +26,6 @@ import { SvgIcon } from '../../icons/utils';
 type ButtonProps = {
   active: boolean;
   direction: Direction;
-  width: Property.Width;
 };
 
 const Button = styled.button<ButtonProps>`
@@ -35,7 +34,6 @@ const Button = styled.button<ButtonProps>`
       ${focusVisibleTransitionValue};
   }
   ${tokens.tab.base}
-  width: ${({ width }) => width};
 
   ${({ direction }) => tokens.tab.direction[direction].base};
 
@@ -92,7 +90,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
 
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
-  const { tabPanelsRef, setHasTabFocus, tabContentDirection, tabWidth } =
+  const { tabPanelsRef, setHasTabFocus, tabContentDirection } =
     useTabsContext();
 
   useEffect(() => {
@@ -131,7 +129,6 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     'aria-selected': active,
     role: 'tab',
     active,
-    width: width ?? tabWidth,
     direction: tabContentDirection,
     onClick: handleOnClick,
     onKeyDown: handleOnKeyDown,

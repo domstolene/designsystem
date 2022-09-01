@@ -1,5 +1,5 @@
 import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
   Direction,
@@ -8,7 +8,17 @@ import {
 import { TabsContext } from './Tabs.context';
 import { Property } from 'csstype';
 
-const Container = styled.div``;
+type ContainerProps = {
+  width?: Property.Width;
+};
+
+const Container = styled.div<ContainerProps>`
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `};
+`;
 
 export type TabsProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -19,8 +29,8 @@ export type TabsProps = BaseComponentPropsWithChildren<
     onChange?: (index: number) => void;
     /** Retningen ikon og tekst vises i `<Tab />`-elementer. */
     tabContentDirection?: Direction;
-    /**Custom bredde lik for alle `<Tab />`. */
-    tabWidth?: Property.Width;
+    /**Bredde for hele komponenten. */
+    width?: Property.Width;
   },
   Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
 >;
@@ -33,7 +43,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     activeTab = 0,
     onChange,
     tabContentDirection = 'row',
-    tabWidth = '150px',
+    width,
     children,
     className,
     htmlProps,
@@ -74,10 +84,11 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
         hasTabFocus,
         setHasTabFocus,
         tabContentDirection,
-        tabWidth,
       }}
     >
-      <Container {...containerProps}>{children}</Container>
+      <Container {...containerProps} width={width}>
+        {children}
+      </Container>
     </TabsContext.Provider>
   );
 });

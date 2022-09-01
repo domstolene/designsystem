@@ -11,7 +11,6 @@ type Tabs = {
   hasTabFocus: boolean;
   setHasTabFocus: (hasFocus: boolean) => void;
   tabContentDirection: Direction;
-  tabWidth: Property.Width;
 };
 
 export const TabsContext = createContext<Tabs>({
@@ -23,6 +22,5 @@ export const TabsContext = createContext<Tabs>({
   hasTabFocus: false,
   setHasTabFocus: () => null,
   tabContentDirection: 'row',
-  tabWidth: '150px',
 });
 export const useTabsContext = () => useContext(TabsContext);
