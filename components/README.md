@@ -2,9 +2,9 @@
 
 [![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components)
 
-React UI komponenter til bruk i Domstolenes tjenester.
+React UI komponenter til bruk i domstolenes tjenester.
 
-Sjekk ut [Domstolenes designsystem Elsa](https://design.domstol.no/) og [Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
+Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [ Elsa Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
 
 ## 📦 Installasjon
 
@@ -40,24 +40,35 @@ Tilgjengelige komponenter:
 - Button
 - Card (inkludert CardAccordion)
 - Checkbox
+- Chip
 - Datepicker
 - DescriptionList
 - Divider
+- Drawer
 - GlobalMessage
-- IconWrapper
+- Icon
+- InputMessage
 - InternaHeader
 - List
 - LocalMessage
+- Modal
+- OverflowMenu
 - Pagination
 - Popover
 - RadioButton
+- Scrollbar
 - Search
 - Select
 - SkipToContent
 - Spinner
 - Table
+- Tabs
+- Tag
 - TextInput
+- ToggleButton
+- Tooltip
 - Typography
+- VisuallyHidden
 
 ## ⏫ Release av ny versjon
 
