@@ -59,8 +59,6 @@ export type TabProps = BaseComponentPropsWithChildren<
     active?: boolean;
     /** Ikon. */
     icon?: SvgIcon;
-    /** Custom bredde for enkel fane. */
-    width?: Property.Width;
     /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
     focus?: boolean;
     /**  Callback som setter fokus. **OBS!** settes automatisk av forelder.*/
