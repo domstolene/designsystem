@@ -16,12 +16,12 @@ type ContentProps = {
 
 export const Content = styled.span<ContentProps>`
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 100%;
+  word-break: break-word;
   height: 100%;
   box-sizing: border-box;
   cursor: pointer;
-  width: fit-content;
   @media (prefers-reduced-motion: no-preference) {
     transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s,
       color 0.2s, ${focusVisibleTransitionValue};

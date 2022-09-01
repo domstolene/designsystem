@@ -14,7 +14,7 @@ export default {
 export const Default = (args: ToggleBarProps<string>) => {
   const [value, setValue] = useState<string | undefined>();
   return (
-    <StoryTemplate title="ToggleBar - default">
+    <StoryTemplate title="ToggleBar - default" display="block">
       <ToggleBar
         {...args}
         name="test"
@@ -244,6 +244,67 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
         <ToggleRadio label="Alt1" value="alt1" />
         <ToggleRadio label="Alt2" value="alt2" />
         <ToggleRadio label="Alt3" value="alt3" />
+      </ToggleBar>
+    </StoryTemplate>
+  );
+};
+
+export const WithDefaultValue = (args: ToggleBarProps<string>) => {
+  const [value, setValue] = useState<string | undefined>('alt1');
+  return (
+    <StoryTemplate title="ToggleBar - with default value" display="block">
+      <ToggleBar
+        {...args}
+        name="test"
+        value={value}
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+      >
+        <ToggleRadio value="alt1" label="Alt" />
+        <ToggleRadio value="alt2" label="Alt" />
+        <ToggleRadio value="alt3" label="Alt" />
+      </ToggleBar>
+    </StoryTemplate>
+  );
+};
+
+export const WithLongWords = (args: ToggleBarProps<string>) => {
+  const [value, setValue] = useState<string | undefined>();
+  return (
+    <StoryTemplate title="ToggleBar - with long words" display="block">
+      <ToggleBar
+        {...args}
+        name="test"
+        value={value}
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+      >
+        <ToggleRadio value="alt1" label="Partsopplysninger" />
+        <ToggleRadio value="alt2" label="Slutning" />
+        <ToggleRadio value="alt3" label="Vedlegg" />
+      </ToggleBar>
+    </StoryTemplate>
+  );
+};
+
+export const WithWidth = (args: ToggleBarProps<string>) => {
+  const [value, setValue] = useState<string | undefined>();
+  return (
+    <StoryTemplate title="ToggleBar - with width" display="block">
+      <ToggleBar
+        {...args}
+        name="test"
+        value={value}
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+        width="320px"
+      >
+        <ToggleRadio value="alt1" label="Alt" />
+        <ToggleRadio value="alt2" label="Alt" />
+        <ToggleRadio value="alt3" label="Alt" />
       </ToggleBar>
     </StoryTemplate>
   );

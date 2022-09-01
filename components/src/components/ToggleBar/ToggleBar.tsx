@@ -1,13 +1,18 @@
 import { ChangeEvent, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { selection } from '../../helpers/styling';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
 import { Typography } from '../Typography';
 import { ToggleBarContext } from './ToggleBar.context';
 import { toggleBarTokens as tokens } from './ToggleBar.tokens';
+import { Property } from 'csstype';
 
-const OuterContainer = styled.div`
+type OuterContainerProps = {
+  width?: Property.Width;
+};
+
+const OuterContainer = styled.div<OuterContainerProps>`
   display: flex;
   flex-direction: column;
   gap: ${tokens.outerContainer.gap};
@@ -15,10 +20,17 @@ const OuterContainer = styled.div`
   *::selection {
     ${selection}
   }
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `}
 `;
 
 const Bar = styled.div`
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
 `;
 
 export type ToggleBarSize = 'tiny' | 'small' | 'medium' | 'large';
@@ -33,10 +45,12 @@ export type ToggleBarProps<T extends string | number> =
       label?: string;
       /**Funksjonen for `onChange`-event for barna. */
       onChange?: (event: ChangeEvent<HTMLInputElement>, value?: T) => void;
-      /**Den valgte verdien i gruppen. Hvis satt ved innlastning en `<ToggleRadio />` blir forhåndsvalgt. */
+      /**Den valgte verdien i gruppen. Hvis satt ved innlastning blir en `<ToggleRadio />` forhåndsvalgt. */
       value?: T;
-      /** Gir alle barna `name` prop.*/
+      /** Gir alle barna samme `name` prop.*/
       name?: string;
+      /**Bredden til komponenten. Bredden fordeles likt mellom barna.  */
+      width?: Property.Width;
     }
   >;
 
@@ -52,6 +66,7 @@ export const ToggleBar = <T extends string | number = string>(
     onChange,
     value,
     name,
+    width,
     htmlProps,
     className,
     id,
@@ -86,6 +101,7 @@ export const ToggleBar = <T extends string | number = string>(
         role="radiogroup"
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
         aria-labelledby={labelId ?? htmlProps?.['aria-labelledby']}
+        width={width}
       >
         {label && (
           <Typography typographyType="supportingStyleLabel01" id={labelId}>
