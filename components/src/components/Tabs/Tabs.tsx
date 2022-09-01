@@ -1,4 +1,11 @@
-import { forwardRef, HTMLAttributes, useEffect, useRef, useState } from 'react';
+import {
+  forwardRef,
+  HTMLAttributes,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from 'react';
 import styled from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
@@ -25,8 +32,6 @@ export type TabsProps = BaseComponentPropsWithChildren<
   Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
 >;
 
-let nextUniqueId = 0;
-
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const {
     id,
@@ -40,7 +45,8 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     ...rest
   } = props;
 
-  const [uniqueId] = useState(id ?? `tabs-${nextUniqueId++}`);
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-tabs`;
 
   const [thisActiveTab, setActiveTab] = useState(activeTab);
   const [hasTabFocus, setHasTabFocus] = useState(false);

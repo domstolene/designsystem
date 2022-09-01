@@ -1,5 +1,5 @@
 import { Property } from 'csstype';
-import React, { useState } from 'react';
+import React, { useId } from 'react';
 import {
   ClearIndicatorProps,
   components,
@@ -158,8 +158,6 @@ export type SelectProps<
   ) => JSX.Element;
 } & WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
 
-let nextUniqueId = 0;
-
 type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
   SelectInstance<TOption, IsMulti, GroupBase<TOption>>
 >;
@@ -192,7 +190,8 @@ const SelectInner = <
   }: SelectProps<TOption, IsMulti>,
   ref: ForwardRefType<TOption, IsMulti>
 ) => {
-  const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
+  const generatedId = useId();
+  const [uniqueId] = id ?? `${generatedId}-select`;
 
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;

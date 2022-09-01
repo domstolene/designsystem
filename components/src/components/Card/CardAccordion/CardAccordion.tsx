@@ -6,6 +6,7 @@ import {
   Children as ReactChildren,
   cloneElement,
   isValidElement,
+  useId,
 } from 'react';
 import styled from 'styled-components';
 import {
@@ -23,8 +24,6 @@ export type CardAccordionProps = BaseComponentPropsWithChildren<
   }
 >;
 
-let nextUniqueId = 0;
-
 export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
   (props, ref) => {
     const {
@@ -38,8 +37,8 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
 
     const [expanded, setExpanded] = useState(isExpanded);
 
-    const uniqueId = nextUniqueId++;
-    const [accordionId] = useState<string>(id ?? `cardAccordion-${uniqueId}`);
+    const generatedId = useId();
+    const accordionId = id ?? `${generatedId}-cardAccordion`;
 
     useEffect(() => {
       setExpanded(isExpanded);

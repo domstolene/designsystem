@@ -7,6 +7,7 @@ import {
   isValidElement,
   useRef,
   ReactNode,
+  useId,
 } from 'react';
 import { useOnKeyDown, useOnClickOutside } from '../../hooks';
 
@@ -23,8 +24,6 @@ export type PopoverGroupProps = {
   children: ReactNode;
 };
 
-let nextUniqueId = 0;
-
 export const PopoverGroup = ({
   isOpen = false,
   onCloseButtonClick,
@@ -38,10 +37,8 @@ export const PopoverGroup = ({
     setOpen(isOpen);
   }, [isOpen]);
 
-  const uniqueId = nextUniqueId++;
-  const [uniquePopoverId] = useState<string>(
-    popoverId ?? `popover-${uniqueId}`
-  );
+  const generatedId = useId();
+  const uniquePopoverId = popoverId ?? `${generatedId}-popover`;
 
   const handleOnCloseButtonClick = () => {
     setOpen(false);
