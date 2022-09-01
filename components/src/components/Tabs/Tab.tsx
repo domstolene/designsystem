@@ -19,7 +19,6 @@ import {
   Direction,
   getBaseHTMLProps,
 } from '../../types';
-import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
 import { SvgIcon } from '../../icons/utils';
 
@@ -72,7 +71,6 @@ export type TabProps = BaseComponentPropsWithChildren<
 export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   const {
     active = false,
-    width,
     icon,
     children,
     focus,
