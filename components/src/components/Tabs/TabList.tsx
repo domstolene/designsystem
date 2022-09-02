@@ -48,7 +48,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       setHasTabFocus,
     } = useTabsContext();
 
-    const uniqueId = useState<string>(id ?? `${tabsId}-tablist`);
+    const uniqueId = id ?? `${tabsId}-tablist`;
     const childrenArray = Children.toArray(children).length;
     const [focus, setFocus] = useRoveFocus(childrenArray, !hasTabFocus, 'row');
     const combinedRef = useCombinedRef(ref, tabListRef);
