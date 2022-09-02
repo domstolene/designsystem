@@ -3,7 +3,7 @@ import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { InternalHeaderProps } from './InternalHeader.types';
 import {
-  Wrapper,
+  OuterContainer,
   Navigation,
   NavigationList,
   BannerWrapper,
@@ -82,7 +82,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
   return (
-    <Wrapper {...getBaseHTMLProps(id, className, htmlProps, rest)}>
+    <OuterContainer {...getBaseHTMLProps(id, className, htmlProps, rest)}>
       <BannerWrapper hasContextMenu={hasContextMenu}>
         <BannerLeftWrapper>
           <LovisaWrapper>
@@ -120,6 +120,6 @@ export const InternalHeader = (props: InternalHeaderProps) => {
           />
         </ContextMenuGroup>
       )}
-    </Wrapper>
+    </OuterContainer>
   );
 };
