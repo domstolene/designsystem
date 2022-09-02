@@ -11,45 +11,50 @@ import {
   KeyboardEvent,
   ForwardedRef,
 } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
 import { Icon } from '../Icon';
 import { useCombinedRef } from '../../hooks';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { SvgIcon } from '../../icons/utils';
+import { focusVisibleLink } from '../../helpers/styling';
 
-export const Span = styled.span`
-  ${tokens.link.base}
+const { element, link } = tokens;
+
+const elementBaseCSS = css`
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  color: ${element.base.color};
+  text-decoration: ${element.base.textDecoration};
+  background-color: ${element.base.backgroundColor};
+  padding: ${element.base.padding};
+  gap: ${element.base.gap};
+  ${element.base.font}
+`;
+
+export const Span = styled.span`
+  ${elementBaseCSS}
 `;
 
 export const Link = styled.a`
-  box-sizing: border-box;
-  background: none;
-  color: inherit;
   border: none;
-  padding: 0;
-  font: inherit;
   cursor: pointer;
   outline: inherit;
   width: 100%;
-  ${tokens.link.base}
-  display: flex;
-  align-items: center;
+  ${elementBaseCSS}
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color 0.2s;
   }
   &:hover {
-    ${tokens.link.hover.base}
+    color: ${link.hover.color};
   }
   &:active {
-    ${tokens.link.active.base}
+    color: ${link.active.color};
   }
   &:focus-visible,
   &.focus-visible {
-    ${tokens.link.focus.base}
+    ${focusVisibleLink}
   }
 `;
 
