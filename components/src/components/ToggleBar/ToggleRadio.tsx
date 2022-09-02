@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, useState, ChangeEvent } from 'react';
+import { forwardRef, InputHTMLAttributes, ChangeEvent, useId } from 'react';
 import { SvgIcon } from '../../icons/utils';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Icon } from '../Icon';
@@ -34,8 +34,6 @@ const isValueEqualToGroupValueOrFalsy = (
   return !!value;
 };
 
-let nextUniqueId = 0;
-
 export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
   (props, ref) => {
     const {
@@ -50,7 +48,9 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
       id,
       ...rest
     } = props;
-    const [uniqueId] = useState<string>(id ?? `ToggleRadio-${nextUniqueId++}`);
+
+    const generatedId = useId();
+    const uniqueId = id ?? `${generatedId}-ToggleRadio`;
     const group = useToggleBarContext();
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

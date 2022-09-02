@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, useId } from 'react';
 import styled, { css } from 'styled-components';
 import { selection } from '../../helpers/styling';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
@@ -54,8 +54,6 @@ export type ToggleBarProps<T extends string | number> =
     }
   >;
 
-let nextUniqueId = 0;
-
 export const ToggleBar = <T extends string | number = string>(
   props: ToggleBarProps<T>
 ) => {
@@ -73,9 +71,8 @@ export const ToggleBar = <T extends string | number = string>(
     ...rest
   } = props;
 
-  const [uniqueId] = useState<string | undefined>(
-    id ?? `ToggleBar-${nextUniqueId++}`
-  );
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-ToggleBar`;
 
   const [groupValue, setGroupValue] = useState<
     string | number | null | undefined
