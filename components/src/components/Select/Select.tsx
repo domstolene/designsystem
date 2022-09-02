@@ -191,7 +191,7 @@ const SelectInner = <
   ref: ForwardRefType<TOption, IsMulti>
 ) => {
   const generatedId = useId();
-  const [uniqueId] = id ?? `${generatedId}-select`;
+  const uniqueId = id ?? `${generatedId}-select`;
 
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;

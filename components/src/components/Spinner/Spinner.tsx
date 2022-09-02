@@ -84,7 +84,7 @@ export function Spinner(props: SpinnerProps) {
   const innerAnimationDelay = -(mountTime.current % 1500);
 
   const generatedId = useId();
-  const [uniqueId] = `${generatedId}-spinnerTitle`;
+  const uniqueId = `${generatedId}-spinnerTitle`;
 
   const spinnerProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
