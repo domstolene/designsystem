@@ -1,32 +1,43 @@
 import { AnchorHTMLAttributes, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+import { focusVisible } from '../../helpers/styling';
 import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
+
+const { navLink } = tokens;
 
 type LinkProps = { isCurrent?: boolean };
 
 export const Link = styled.a<LinkProps>`
   display: flex;
   align-items: center;
+  height: 100%;
+  box-sizing: border-box;
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color 0.2s;
   }
-  height: 100%;
-  box-sizing: border-box;
-  ${tokens.navigationLink.base}
+  color: ${navLink.base.color};
+  background-color: ${navLink.base.backgroundColor};
+  padding: ${navLink.base.padding};
+  text-decoration: ${navLink.base.textDecoration};
+  ${navLink.base.font};
   &:hover {
-    ${tokens.navigationLink.hover.base}
+    color: ${navLink.hover.color};
   }
   &:active {
-    ${tokens.navigationLink.active.base}
+    color: ${navLink.active.color};
   }
   &:focus-visible,
   &.focus-visible {
-    ${tokens.navigationLink.focus.base}
+    ${focusVisible};
   }
   ${({ isCurrent }) =>
     isCurrent &&
     css`
-      ${tokens.navigationLink.current.base}
+      color: ${navLink.current.color};
+      background-color: ${navLink.current.backgroundColor};
+      &:hover {
+        color: ${navLink.current.color};
+      }
     `}
 `;
 

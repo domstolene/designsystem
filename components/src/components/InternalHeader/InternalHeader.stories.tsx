@@ -116,13 +116,16 @@ export const Overview = () => (
 );
 
 export const Default = (args: InternalHeaderProps) => (
-  <StoryTemplate title="InternalHeader - default">
+  <StoryTemplate title="InternalHeader - default" display="block">
     <InternalHeader applicationName="Navn på applikasjon" {...args} />
   </StoryTemplate>
 );
 
 export const WithNavigationAndContextMenu = (args: InternalHeaderProps) => (
-  <StoryTemplate title="InternalHeader - with nav and context menu">
+  <StoryTemplate
+    title="InternalHeader - with nav and context menu"
+    display="block"
+  >
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
@@ -135,7 +138,7 @@ export const WithNavigationAndContextMenu = (args: InternalHeaderProps) => (
 
 export const WithCurrentPage = (args: InternalHeaderProps) => {
   return (
-    <StoryTemplate title="InternalHeader - with current page">
+    <StoryTemplate title="InternalHeader - with current page" display="block">
       <InternalHeader
         applicationName="Navn på applikasjon"
         navigationElements={[navigationLink, uniqueNavigationLink]}
@@ -149,7 +152,10 @@ export const WithCurrentPage = (args: InternalHeaderProps) => {
 };
 
 export const SmallScreenWithNavigation = () => (
-  <StoryTemplate title="InternalHeader - small screen with navigation">
+  <StoryTemplate
+    title="InternalHeader - small screen with navigation"
+    display="block"
+  >
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
@@ -160,7 +166,10 @@ export const SmallScreenWithNavigation = () => (
 
 export const SmallScreenWithContextMenu = (args: InternalHeaderProps) => {
   return (
-    <StoryTemplate title="InternalHeader - small screen with context menu">
+    <StoryTemplate
+      title="InternalHeader - small screen with context menu"
+      display="block"
+    >
       <InternalHeader
         applicationName="Navn på applikasjon"
         contextMenuElements={menuElements}
@@ -172,7 +181,10 @@ export const SmallScreenWithContextMenu = (args: InternalHeaderProps) => {
 };
 
 export const SmallScreenWithNavigationAndContextMenu = () => (
-  <StoryTemplate title="InternalHeader - small screen with navigation and context menu">
+  <StoryTemplate
+    title="InternalHeader - small screen with navigation and context menu"
+    display="block"
+  >
     <InternalHeader
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
