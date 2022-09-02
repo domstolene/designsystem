@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef, useId } from 'react';
 import { textInputTokens as tokens } from './TextInput.tokens';
 import { LabelPresence, RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
@@ -14,8 +14,6 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-
-let nextUniqueId = 0;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
@@ -75,7 +73,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       }
     };
 
-    const [uniqueId] = useState<string>(id ?? `textInput-${nextUniqueId++}`);
+    const generatedId = useId();
+    const uniqueId = id ?? `${generatedId}-textInput`;
 
     const hasErrorMessage = !!errorMessage;
     const hasTip = !!tip;

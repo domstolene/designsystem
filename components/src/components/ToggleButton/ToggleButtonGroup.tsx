@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId } from 'react';
 import styled, { css } from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Typography } from '../Typography';
@@ -32,8 +32,6 @@ export type ToggleButtonGroupProps = BaseComponentPropsWithChildren<
   }
 >;
 
-let nextUniqueId = 0;
-
 export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
   const {
     children,
@@ -46,10 +44,8 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
     ...rest
   } = props;
 
-  const [uniqueLabelId] = useState<string>(
-    labelId ?? `ToggleButtonGroupLabel-${nextUniqueId++}`
-  );
-
+  const generatedId = useId();
+  const uniqueLabelId = labelId ?? `${generatedId}-ToggleButtonGroupLabel`;
   const groupProps = {
     direction,
   };

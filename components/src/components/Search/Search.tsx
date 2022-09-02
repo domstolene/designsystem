@@ -3,7 +3,7 @@ import {
   forwardRef,
   InputHTMLAttributes,
   MouseEvent,
-  useState,
+  useId,
 } from 'react';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
@@ -58,8 +58,6 @@ const Container = styled.div`
 
 const ButtonWrapper = styled.div``;
 
-let nextUniqueId = 0;
-
 export type SearchSize = 'small' | 'medium' | 'large';
 type ButtonProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -89,7 +87,8 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     },
     ref
   ) => {
-    const [uniqueId] = useState<string>(id ?? `searchInput-${nextUniqueId++}`);
+    const generatedId = useId();
+    const uniqueId = id ?? `${generatedId}-searchInput`;
     const hasTip = !!tip;
     const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
 
