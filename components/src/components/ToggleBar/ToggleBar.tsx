@@ -1,12 +1,13 @@
 import { ChangeEvent, useState, useId } from 'react';
 import styled, { css } from 'styled-components';
 import { selection } from '../../helpers/styling';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
 import { Typography } from '../Typography';
 import { ToggleBarContext } from './ToggleBar.context';
 import { toggleBarTokens as tokens } from './ToggleBar.tokens';
 import { Property } from 'csstype';
+import { ToggleBarProps, ToggleBarValue } from './ToggleBar.types';
 
 type OuterContainerProps = {
   width?: Property.Width;
@@ -33,27 +34,6 @@ const Bar = styled.div`
   grid-auto-columns: 1fr;
 `;
 
-export type ToggleBarSize = 'tiny' | 'small' | 'medium' | 'large';
-
-export type ToggleBarProps<T extends string | number> =
-  BaseComponentPropsWithChildren<
-    HTMLDivElement,
-    {
-      /**Størrelse på komponenten. */
-      size?: ToggleBarSize;
-      /**Ledetekst for hele gruppen. */
-      label?: string;
-      /**Funksjonen for `onChange`-event for barna. */
-      onChange?: (event: ChangeEvent<HTMLInputElement>, value?: T) => void;
-      /**Den valgte verdien i gruppen. Hvis satt ved innlastning blir en `<ToggleRadio />` forhåndsvalgt. */
-      value?: T;
-      /** Gir alle barna samme `name` prop.*/
-      name?: string;
-      /**Bredden til komponenten. Bredden fordeles likt mellom barna.  */
-      width?: Property.Width;
-    }
-  >;
-
 export const ToggleBar = <T extends string | number = string>(
   props: ToggleBarProps<T>
 ) => {
@@ -74,9 +54,7 @@ export const ToggleBar = <T extends string | number = string>(
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-ToggleBar`;
 
-  const [groupValue, setGroupValue] = useState<
-    string | number | null | undefined
-  >(value);
+  const [groupValue, setGroupValue] = useState<ToggleBarValue>(value);
 
   const handleChange = combineHandlers(
     (e: ChangeEvent<HTMLInputElement>) => setGroupValue(e.target.value),
