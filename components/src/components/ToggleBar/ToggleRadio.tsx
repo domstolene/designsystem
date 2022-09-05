@@ -61,8 +61,8 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
     return (
       <Label size={group.size} htmlFor={uniqueId}>
         <Input
-          ref={ref}
           {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
+          ref={ref}
           name={name ?? group.name}
           onChange={handleChange}
           value={value}
