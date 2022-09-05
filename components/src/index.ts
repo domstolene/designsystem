@@ -35,4 +35,5 @@ export * from './components/Chip';
 export * from './components/VisuallyHidden';
 export * from './components/ScrollableContainer';
 export * from './icons/tsx';
+export * from './components/ToggleBar';
 export * from './components/Stepper';

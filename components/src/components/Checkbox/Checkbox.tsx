@@ -1,10 +1,11 @@
 import { forwardRef, useId } from 'react';
 import { Typography } from '../Typography';
-import { CustomCheckbox, Input, Container } from './Checkbox.styles';
+import { CustomCheckbox, Container } from './Checkbox.styles';
 import { CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
 import { spaceSeparatedIdListGenerator } from '../../utils';
 import { getBaseHTMLProps, joinClassNames } from '../../types';
+import { HiddenInput } from '../../helpers';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
@@ -63,7 +64,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     return (
       <Container {...containerProps}>
-        <Input {...inputProps} data-indeterminate={indeterminate} />
+        <HiddenInput
+          {...inputProps}
+          type="checkbox"
+          data-indeterminate={indeterminate}
+        />
         <CustomCheckbox />
         {label && <Typography as="span">{label}</Typography>}
       </Container>

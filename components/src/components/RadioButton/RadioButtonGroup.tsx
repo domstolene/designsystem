@@ -94,10 +94,8 @@ export const RadioButtonGroup = <T extends string | number = string>({
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
 
-  const tipId = hasTip ? `${uniqueGroupId}-tip` : undefined;
-  const errorMessageId = hasErrorMessage
-    ? `${uniqueGroupId}-errorMessage`
-    : undefined;
+  const tipId = tip && `${uniqueGroupId}-tip`;
+  const errorMessageId = errorMessage && `${uniqueGroupId}-errorMessage`;
 
   const contextProps = {
     name,

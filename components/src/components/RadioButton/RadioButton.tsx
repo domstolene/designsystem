@@ -5,8 +5,9 @@ import {
   RadioButtonGroup,
   useRadioButtonGroup,
 } from './RadioButtonGroupContext';
-import { CustomRadioButton, Input, Container } from './RadioButton.styles';
+import { CustomRadioButton, Container } from './RadioButton.styles';
 import { getBaseHTMLProps, joinClassNames } from '../../types';
+import { HiddenInput } from '../../helpers';
 
 const isValueEqualToGroupValueOrFalsy = (
   value: unknown,
@@ -64,6 +65,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 
     const inputProps = {
       ...getBaseHTMLProps(uniqueId, restHtmlProps, rest),
+      type: 'radio',
       name: name ?? radioButtonGroup?.name,
       disabled:
         disabled ||
@@ -92,7 +94,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 
     return (
       <Container {...containerProps} htmlFor={uniqueId}>
-        <Input ref={ref} {...inputProps} />
+        <HiddenInput {...inputProps} ref={ref} />
         <CustomRadioButton />
         <Typography as="span">{children ?? label}</Typography>
       </Container>

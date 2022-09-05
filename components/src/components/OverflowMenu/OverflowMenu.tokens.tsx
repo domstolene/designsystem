@@ -1,5 +1,4 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
 const { border, borderRadius, colors, spacing, fontPackages } = ddsBaseTokens;
 
