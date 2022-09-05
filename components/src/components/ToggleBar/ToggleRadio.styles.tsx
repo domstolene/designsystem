@@ -1,4 +1,4 @@
-import { ToggleBarSize } from './ToggleBar';
+import { ToggleBarSize } from './ToggleBar.types';
 import { toggleBarTokens as tokens } from './ToggleBar.tokens';
 import styled, { CSSObject, css } from 'styled-components';
 import { hideInput } from '../../helpers/styling/hideInput';
