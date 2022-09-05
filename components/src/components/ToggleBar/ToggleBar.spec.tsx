@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { ChangeEvent, useState } from 'react';
+import { act } from 'react-dom/test-utils';
 import { ToggleBar, ToggleRadio } from '.';
 
 const TestComponent = () => {
@@ -29,10 +30,12 @@ describe('<ToggleBar />', () => {
     expect(input?.checked).toBeTruthy();
   });
 
-  test('should update checked state when selecting a radio button', () => {
+  test('should update checked state when selecting a radio button', async () => {
     const { container } = render(<TestComponent />);
     const label = container.querySelectorAll('label')[2];
-    label?.click();
+    act(() => {
+      label?.click();
+    });
     const input = label.querySelector('input');
     expect(input?.checked).toBeTruthy();
   });
