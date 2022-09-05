@@ -1,6 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { ChangeEvent, useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import { ToggleBar, ToggleRadio } from '.';
 
 const TestComponent = () => {
