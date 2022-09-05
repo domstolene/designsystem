@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId } from 'react';
 import styled, { css } from 'styled-components';
 import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
@@ -45,8 +45,6 @@ export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   }
 >;
 
-let nextUniqueGroupId = 0;
-
 export const CheckboxGroup = ({
   label,
   direction = 'row',
@@ -60,9 +58,8 @@ export const CheckboxGroup = ({
   htmlProps,
   ...rest
 }: CheckboxGroupProps) => {
-  const [uniqueGroupId] = useState<string>(
-    groupId ?? `checkboxGroup-${nextUniqueGroupId++}`
-  );
+  const generatedId = useId();
+  const uniqueGroupId = groupId ?? `${generatedId}-checkboxGroup`;
   const hasErrorMessage = !!errorMessage;
   const errorMessageId = derivativeIdGenerator(
     uniqueGroupId,

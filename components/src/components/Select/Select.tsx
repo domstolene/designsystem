@@ -1,7 +1,9 @@
 import { Property } from 'csstype';
-import React, { useState } from 'react';
+import React, { useId } from 'react';
 import {
+  ClearIndicatorProps,
   components,
+  DropdownIndicatorProps,
   default as ReactSelect,
   GroupBase,
   InputProps,
@@ -10,9 +12,10 @@ import {
   Props as ReactSelectProps,
   SelectInstance,
   SingleValueProps,
+  MultiValueRemoveProps,
 } from 'react-select';
 import { RequiredMarker } from '../../helpers';
-import { CheckIcon } from '../../icons/tsx';
+import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 import {
   derivativeIdGenerator,
@@ -29,7 +32,15 @@ import {
 } from './Select.styles';
 import { selectTokens as tokens } from './Select.tokens';
 
-const { Option: DdsOption, NoOptionsMessage, Input, SingleValue } = components;
+const {
+  Option: DdsOption,
+  NoOptionsMessage,
+  Input,
+  SingleValue,
+  ClearIndicator,
+  DropdownIndicator,
+  MultiValueRemove,
+} = components;
 
 export type SelectOption<TValue = unknown> = {
   label: string | number;
@@ -44,7 +55,7 @@ const IconOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>
 ) => (
   <DdsOption {...props}>
-    {props.isSelected && <Icon icon={CheckIcon} iconSize="inherit" />}
+    {props.isSelected && <Icon icon={CheckIcon} iconSize="medium" />}
     {props.children}
   </DdsOption>
 );
@@ -72,6 +83,30 @@ const CustomSingleValue = <TOption, IsMulti extends boolean>(
 const NoOptionsMessageCustom = <TValue, IsMulti extends boolean>(
   props: NoticeProps<TValue, IsMulti>
 ) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
+
+const CustomClearIndicator = <TValue, IsMulti extends boolean>(
+  props: ClearIndicatorProps<TValue, IsMulti>
+) => (
+  <ClearIndicator {...props}>
+    <Icon icon={CloseSmallIcon} iconSize="medium" />
+  </ClearIndicator>
+);
+
+const CustomMultiValueRemove = <TValue, IsMulti extends boolean>(
+  props: MultiValueRemoveProps<TValue, IsMulti>
+) => (
+  <MultiValueRemove {...props}>
+    <Icon icon={CloseSmallIcon} iconSize="medium" />
+  </MultiValueRemove>
+);
+
+const CustomDropdownIndicator = <TValue, IsMulti extends boolean>(
+  props: DropdownIndicatorProps<TValue, IsMulti>
+) => (
+  <DropdownIndicator {...props}>
+    <Icon icon={ChevronDownIcon} iconSize="medium" />
+  </DropdownIndicator>
+);
 
 function escapeRegexCharacters(text: string) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
@@ -123,8 +158,6 @@ export type SelectProps<
   ) => JSX.Element;
 } & WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
 
-let nextUniqueId = 0;
-
 type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
   SelectInstance<TOption, IsMulti, GroupBase<TOption>>
 >;
@@ -157,7 +190,8 @@ const SelectInner = <
   }: SelectProps<TOption, IsMulti>,
   ref: ForwardRefType<TOption, IsMulti>
 ) => {
-  const [uniqueId] = useState<string>(id ?? `select-${nextUniqueId++}`);
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-select`;
 
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
@@ -223,6 +257,9 @@ const SelectInner = <
       SingleValue: customSingleValueElement
         ? props => CustomSingleValue(props, customSingleValueElement)
         : SingleValue,
+      ClearIndicator: CustomClearIndicator,
+      DropdownIndicator: CustomDropdownIndicator,
+      MultiValueRemove: CustomMultiValueRemove,
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     ...rest,

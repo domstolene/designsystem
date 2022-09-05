@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useId } from 'react';
 import { InputMessage } from '../InputMessage';
 import { LabelPresence, RequiredMarker } from '../../helpers';
 import {
@@ -71,8 +71,6 @@ const StyledInput = styled(StatefulInput)`
 
 export type DatepickerProps = InputProps;
 
-let nextUniqueId = 0;
-
 export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   (
     {
@@ -93,9 +91,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     },
     ref
   ) => {
-    const [uniqueId] = useState<string>(
-      id ?? `datepickerInput-${nextUniqueId++}`
-    );
+    const generatedId = useId();
+    const uniqueId = id ?? `${generatedId}-datepickerInput`;
 
     const componentWidth = width ? width : getWidth(type);
     const hasLabel = !!label;

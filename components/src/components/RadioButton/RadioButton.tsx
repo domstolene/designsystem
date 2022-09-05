@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef, useState } from 'react';
+import { ChangeEvent, forwardRef, useId } from 'react';
 import { RadioButtonProps } from './RadioButton.types';
 import { Typography } from '../Typography';
 import {
@@ -8,8 +8,6 @@ import {
 import { CustomRadioButton, Container } from './RadioButton.styles';
 import { getBaseHTMLProps, joinClassNames } from '../../types';
 import { HiddenInput } from '../../helpers';
-
-let nextUniqueId = 0;
 
 const isValueEqualToGroupValueOrFalsy = (
   value: unknown,
@@ -50,7 +48,8 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       ...restHtmlProps
     } = htmlProps;
 
-    const [uniqueId] = useState<string>(id ?? `radioButton-${nextUniqueId++}`);
+    const generatedId = useId();
+    const uniqueId = id ?? `${generatedId}-radioButton`;
 
     const radioButtonGroup = useRadioButtonGroup();
 

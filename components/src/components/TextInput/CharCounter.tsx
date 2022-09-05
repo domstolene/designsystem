@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId } from 'react';
 import styled from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Typography } from '../Typography';
@@ -17,14 +17,11 @@ type Props = BaseComponentProps<
   }
 >;
 
-let nextUniqueId = 0;
-
 function CharCounter(props: Props) {
   const { current, max, id, className, htmlProps, ...rest } = props;
 
-  const [uniqueId] = useState<string>(
-    id ?? `characterCounter-${nextUniqueId++}`
-  );
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-characterCounter`;
 
   return (
     <Wrapper

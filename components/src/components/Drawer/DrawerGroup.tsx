@@ -6,6 +6,7 @@ import {
   ReactElement,
   useState,
   useRef,
+  useId,
 } from 'react';
 
 type DrawerGroupProps = {
@@ -19,16 +20,14 @@ type DrawerGroupProps = {
   onClose?: () => void;
 };
 
-let nextUniqueId = 0;
-
 export const DrawerGroup = ({
   children,
   drawerId,
   onOpen,
   onClose,
 }: DrawerGroupProps) => {
-  const uniqueId = nextUniqueId++;
-  const [uniqueDrawerId] = useState<string>(drawerId ?? `drawer-${uniqueId}`);
+  const generatedId = useId();
+  const uniqueDrawerId = drawerId ?? `${generatedId}-drawer`;
 
   const buttonRef = useRef<HTMLElement>(null);
 

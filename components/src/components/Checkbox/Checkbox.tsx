@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { forwardRef, useId } from 'react';
 import { Typography } from '../Typography';
 import { CustomCheckbox, Container } from './Checkbox.styles';
 import { CheckboxProps } from './Checkbox.types';
@@ -6,8 +6,6 @@ import { useCheckboxGroup } from './CheckboxGroupContext';
 import { spaceSeparatedIdListGenerator } from '../../utils';
 import { getBaseHTMLProps, joinClassNames } from '../../types';
 import { HiddenInput } from '../../helpers';
-
-let nextUniqueId = 0;
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
@@ -25,7 +23,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       ...rest
     } = props;
 
-    const [uniqueId] = useState<string>(id ?? `checkbox-${nextUniqueId++}`);
+    const generatedId = useId();
+    const uniqueId = id ?? `${generatedId}-checkbox`;
     const checkboxGroup = useCheckboxGroup();
 
     const {

@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, RefObject, useEffect, useState } from 'react';
+import { forwardRef, ReactNode, RefObject, useEffect, useId } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
@@ -57,8 +57,6 @@ export type ModalProps = BaseComponentPropsWithChildren<
   }
 >;
 
-let nextUniqueId = 0;
-
 export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const {
     isOpen = false,
@@ -72,9 +70,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     htmlProps,
     ...rest
   } = props;
-
-  const uniqueId = nextUniqueId++;
-  const [modalId] = useState<string>(id ?? `modal-${uniqueId}`);
+  const generatedId = useId();
+  const modalId = id ?? `${generatedId}-modal`;
   const headerId = `${modalId}-header`;
 
   const modalRef = useFocusTrap<HTMLDivElement>(isOpen);

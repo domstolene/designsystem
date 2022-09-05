@@ -1,67 +1,43 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import { focusVisibleLink } from '../../helpers/styling';
 
-const {
-  border: Border,
-  borderRadius: BorderRadius,
-  colors: Colors,
-  spacing: Spacing,
-  fontPackages: FontPackages,
-} = ddsBaseTokens;
+const { border, borderRadius, colors, spacing, fontPackages } = ddsBaseTokens;
 
-const linkBase: CSSObject = {
-  color: Colors.DdsColorNeutralsGray9,
-  textDecoration: 'none',
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15}`,
-  gap: Spacing.SizesDdsSpacingLocalX025,
-  ...FontPackages.body_sans_01.base,
+const element = {
+  base: {
+    color: colors.DdsColorNeutralsGray9,
+    textDecoration: 'none',
+    backgroundColor: colors.DdsColorNeutralsWhite,
+    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
+    gap: spacing.SizesDdsSpacingLocalX025,
+    font: fontPackages.body_sans_01.base,
+  },
 };
 
-const linkHoverBase: CSSObject = {
-  color: Colors.DdsColorInteractiveDark,
-  backgroundColor: Colors.DdsColorPrimaryLightest,
+const link = {
+  hover: {
+    color: colors.DdsColorInteractiveDark,
+  },
+  active: {
+    color: colors.DdsColorInteractiveDark,
+  },
 };
 
-const linkActiveBase: CSSObject = {
-  color: Colors.DdsColorInteractiveBase,
+const container = {
+  border: `${border.BordersDdsBorderStyleLightStrokeWeight} ${border.BordersDdsBorderStyleLightStroke} solid `,
+  backgroundColor: colors.DdsColorNeutralsWhite,
+  borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
 };
 
-const wrapperBase: CSSObject = {
-  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${Border.BordersDdsBorderStyleLightStroke} solid `,
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-};
-
-const linkFocusBase: CSSObject = {
-  ...focusVisibleLink,
-};
-
-const dividerBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX15,
-  marginLeft: Spacing.SizesDdsSpacingLocalX15,
+const divider = {
+  marginRight: spacing.SizesDdsSpacingLocalX15,
+  marginLeft: spacing.SizesDdsSpacingLocalX15,
 };
 
 export const overflowMenuTokens = {
-  container: {
-    base: wrapperBase,
-  },
-  link: {
-    base: linkBase,
-    active: {
-      base: linkActiveBase,
-    },
-    hover: {
-      base: linkHoverBase,
-    },
-    focus: {
-      base: linkFocusBase,
-    },
-  },
-  divider: {
-    base: dividerBase,
-  },
-  offset: Spacing.SizesDdsSpacingLocalX0125NumberPx,
+  container,
+  element,
+  link,
+  divider,
+  offset: spacing.SizesDdsSpacingLocalX0125NumberPx,
 };

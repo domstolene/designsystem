@@ -1,4 +1,5 @@
-import { forwardRef, InputHTMLAttributes, useState } from 'react';
+
+import { forwardRef, InputHTMLAttributes, useId } from 'react';
 import styled from 'styled-components';
 import { Icon } from '../Icon';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
@@ -46,8 +47,6 @@ const Container = styled.label`
   }
 `;
 
-let nextUniqueId = 0;
-
 export type ToggleButtonProps = BaseComponentProps<
   HTMLInputElement,
   {
@@ -61,7 +60,8 @@ export type ToggleButtonProps = BaseComponentProps<
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
   ({ id, label, icon, className, htmlProps, ...rest }, ref) => {
-    const [uniqueId] = useState<string>(id ?? `toggleButton-${nextUniqueId++}`);
+    const generatedId = useId();
+    const uniqueId = id ?? `${generatedId}-toggleButton`;
 
     const inputProps = {
       ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),

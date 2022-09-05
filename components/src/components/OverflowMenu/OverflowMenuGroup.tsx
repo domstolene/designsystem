@@ -6,6 +6,7 @@ import {
   isValidElement,
   cloneElement,
   ReactElement,
+  useId,
 } from 'react';
 
 export type OverflowMenuGroupProps = {
@@ -21,8 +22,6 @@ export type OverflowMenuGroupProps = {
   overflowMenuId?: string;
 };
 
-let nextUniqueId = 0;
-
 export const OverflowMenuGroup = ({
   children,
   onClose,
@@ -35,10 +34,8 @@ export const OverflowMenuGroup = ({
   const close = () => setIsOpen(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const uniqueId = nextUniqueId++;
-  const [uniqueOverflowMenuId] = useState<string>(
-    overflowMenuId ?? `overflowMenu-${uniqueId}`
-  );
+  const generatedId = useId();
+  const uniqueOverflowMenuId = overflowMenuId ?? `${generatedId}-overflowMenu`;
 
   const handleClose = () => {
     onClose && onClose();

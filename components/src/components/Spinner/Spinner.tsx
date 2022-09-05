@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId } from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
 import { getTextColor, TextColor } from '../Typography';
@@ -69,8 +69,6 @@ export type SpinnerProps = BaseComponentProps<
   }
 >;
 
-let nextUniqueId = 0;
-
 export function Spinner(props: SpinnerProps) {
   const {
     size = ddsBaseTokens.iconSizes.DdsIconsizeMedium,
@@ -85,7 +83,8 @@ export function Spinner(props: SpinnerProps) {
   const outerAnimationDelay = -(mountTime.current % 2000);
   const innerAnimationDelay = -(mountTime.current % 1500);
 
-  const [uniqueId] = useState<string>(`spinnerTitle-${nextUniqueId++}`);
+  const generatedId = useId();
+  const uniqueId = `${generatedId}-spinnerTitle`;
 
   const spinnerProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
