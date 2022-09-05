@@ -1,5 +1,5 @@
-import styled, { css, CSSObject } from 'styled-components';
-import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
+import styled, { css } from 'styled-components';
+import { focusVisibleTransitionValue } from '../../helpers/styling';
 import { checkboxTokens as tokens } from './Checkbox.tokens';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -13,12 +13,6 @@ export const CustomCheckbox = styled.span`
     position: absolute;
     display: none;
   }
-`;
-
-export const Input = styled.input.attrs(({ type = 'checkbox' }) => ({
-  type,
-}))`
-  ${hideInput as CSSObject}
 `;
 
 type ContainerProps = Pick<

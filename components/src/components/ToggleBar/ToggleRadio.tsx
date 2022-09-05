@@ -1,9 +1,10 @@
 import { forwardRef, InputHTMLAttributes, ChangeEvent, useId } from 'react';
+import { HiddenInput } from '../../helpers';
 import { SvgIcon } from '../../icons/utils';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Icon } from '../Icon';
 import { ToggleBarContextType, useToggleBarContext } from './ToggleBar.context';
-import { Label, Input, Content } from './ToggleRadio.styles';
+import { Label, Content } from './ToggleRadio.styles';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
@@ -73,8 +74,9 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
 
     return (
       <Label size={group.size} htmlFor={uniqueId}>
-        <Input
+        <HiddenInput
           {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
+          type="radio"
           ref={ref}
           name={name ?? group.name}
           onChange={handleChange}

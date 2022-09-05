@@ -1,11 +1,11 @@
 import { ToggleBarSize } from './ToggleBar.types';
 import { toggleBarTokens as tokens } from './ToggleBar.tokens';
-import styled, { CSSObject, css } from 'styled-components';
-import { hideInput } from '../../helpers/styling/hideInput';
+import styled, { css } from 'styled-components';
 import {
   focusVisible,
   focusVisibleTransitionValue,
 } from '../../helpers/styling';
+import { HiddenInput } from '../../helpers';
 
 const { content, label } = tokens;
 
@@ -42,12 +42,6 @@ export const Content = styled.span<ContentProps>`
   `}
 `;
 
-export const Input = styled.input.attrs(({ type = 'radio' }) => ({
-  type,
-}))`
-  ${hideInput as CSSObject}
-`;
-
 type LabelProps = {
   size: ToggleBarSize;
 };
@@ -68,7 +62,7 @@ export const Label = styled.label<LabelProps>`
     border-bottom-right-radius: ${label.lastChild.borderBottomRightRadius};
   }
 
-  ${Input}:checked + ${Content} {
+  ${HiddenInput}:checked + ${Content} {
     color: ${content.active.color};
     border-color: ${content.active.borderColor};
     background-color: ${content.active.backgroundColor};
@@ -77,7 +71,7 @@ export const Label = styled.label<LabelProps>`
     z-index: 0;
   }
 
-  ${Input}:focus-visible + ${Content} {
+  ${HiddenInput}:focus-visible + ${Content} {
     ${focusVisible}
     position: relative;
     z-index: 0;
