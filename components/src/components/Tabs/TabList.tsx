@@ -5,6 +5,7 @@ import {
   isValidElement,
   cloneElement,
   FocusEvent,
+  ReactElement,
 } from 'react';
 import styled, { CSSObject } from 'styled-components';
 import { tabsTokens as tokens } from './Tabs.tokens';
@@ -55,7 +56,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     const tabListChildren = Children.map(children, (child, index) => {
       return (
         isValidElement(child) &&
-        cloneElement(child, {
+        cloneElement(child as ReactElement, {
           id: `${tabsId}-tab-${index}`,
           'aria-controls': `${tabsId}-panel-${index}`,
           active: activeTab === index,
