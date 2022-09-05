@@ -73,8 +73,8 @@ export const ToggleBar = <T extends string | number = string>(
       }}
     >
       <OuterContainer
-        role="radiogroup"
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        role="radiogroup"
         aria-labelledby={labelId ?? htmlProps?.['aria-labelledby']}
         width={width}
       >
