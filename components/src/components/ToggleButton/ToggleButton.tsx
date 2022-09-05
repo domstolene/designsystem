@@ -1,4 +1,3 @@
-
 import { forwardRef, InputHTMLAttributes, useId } from 'react';
 import styled from 'styled-components';
 import { Icon } from '../Icon';

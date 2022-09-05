@@ -4,7 +4,6 @@ import {
   Children,
   isValidElement,
   cloneElement,
-  useState,
   FocusEvent,
 } from 'react';
 import styled, { CSSObject } from 'styled-components';
