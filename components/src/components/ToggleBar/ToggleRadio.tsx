@@ -21,16 +21,29 @@ export type ToggleRadioProps = BaseComponentProps<
   Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedInputHTMLAttributes>
 >;
 
-const isValueEqualToGroupValueOrFalsy = (
+/**Beregner om en ToggleRadio skal være checked eller ikke.
+ *
+ * Returnerer checked hvis den er definert.
+ *
+ * Returnerer true hvis både verdien fra context og verdien i ToggleRadio er truthy og like.
+ * Returnerer true hvis verdien i ToggleRadio er truthy, men context ikke finnes.
+ *
+ * Returnerer false hvis verdiene er ulike eller hvis verdien i ToggleRadio er falsy.
+ */
+const calculateChecked = (
   value: unknown,
-  group: ToggleBarContextType
+  group: ToggleBarContextType,
+  checked?: boolean
 ): boolean => {
+  if (typeof checked !== 'undefined') return checked;
+
   if (typeof value !== 'undefined' && value !== null && group) {
     if (typeof value === 'number') {
       return value === Number(group?.value);
     }
     return value === group?.value;
   }
+
   return !!value;
 };
 
@@ -66,11 +79,7 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
           name={name ?? group.name}
           onChange={handleChange}
           value={value}
-          checked={
-            typeof checked !== 'undefined'
-              ? checked
-              : isValueEqualToGroupValueOrFalsy(value, group)
-          }
+          checked={calculateChecked(value, group, checked)}
         />
         <Content size={group.size} justIcon={!!icon && !!!label}>
           {icon && <Icon icon={icon} iconSize="inherit" />}
