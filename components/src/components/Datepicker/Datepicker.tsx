@@ -18,18 +18,6 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
 import { datepickerTokens as tokens } from './Datepicker.tokens';
 
-const getWidth = (type: string): Property.Width<string> => {
-  if (type === 'date') {
-    return '205px';
-  }
-
-  if (type === 'datetime-local') {
-    return '235px';
-  }
-
-  return '320px';
-};
-
 const StyledInput = styled(StatefulInput)`
   &::-webkit-calendar-picker-indicator {
     // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
@@ -168,3 +156,15 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     );
   }
 );
+
+const getWidth = (type: string): Property.Width<string> => {
+  if (type === 'date') {
+    return '205px';
+  }
+
+  if (type === 'datetime-local') {
+    return '235px';
+  }
+
+  return '320px';
+};
