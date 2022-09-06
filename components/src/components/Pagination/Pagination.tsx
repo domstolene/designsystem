@@ -45,7 +45,7 @@ const ListItem = styled.li<ListItemProps>`
 `;
 
 const Container = styled.div<{ smallScreen?: boolean }>`
-  display: inline-flex;
+  display: flex;
   gap: ${tokens.container.spaceBetweenItems};
   ${({ smallScreen }) =>
     smallScreen
@@ -296,7 +296,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             <Select
               options={selectOptions}
               isSearchable={false}
-              width="80px"
+              width="88px"
               defaultValue={{
                 label: itemsPerPage.toString(),
                 value: itemsPerPage,
