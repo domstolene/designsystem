@@ -13,24 +13,24 @@ export enum ScreenSize {
 
 const screenSizesAndMediaQueries: [ScreenSize, string][] = [
   [
-    ScreenSize.XSmall,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointXs})`,
-  ],
-  [
-    ScreenSize.Small,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointSm})`,
-  ],
-  [
-    ScreenSize.Medium,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointMd})`,
+    ScreenSize.XLarge,
+    `only screen and (min-width: ${breakpoints.DdsBreakpointXl})`,
   ],
   [
     ScreenSize.Large,
     `only screen and (min-width: ${breakpoints.DdsBreakpointLg})`,
   ],
   [
-    ScreenSize.XLarge,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointXl})`,
+    ScreenSize.Medium,
+    `only screen and (min-width: ${breakpoints.DdsBreakpointMd})`,
+  ],
+  [
+    ScreenSize.Small,
+    `only screen and (min-width: ${breakpoints.DdsBreakpointSm})`,
+  ],
+  [
+    ScreenSize.XSmall,
+    `only screen and (min-width: ${breakpoints.DdsBreakpointXs})`,
   ],
 ];
 
@@ -41,6 +41,7 @@ export const useScreenSize = function () {
     function listener() {
       for (const [screenSize, mediaQuery] of screenSizesAndMediaQueries) {
         if (window.matchMedia(mediaQuery).matches) {
+          console.log(mediaQuery);
           setScreenSize(screenSize);
           return;
         }
