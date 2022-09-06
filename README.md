@@ -16,4 +16,4 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 
 ## 🤝 Bidra
 
-Team Elsa setter pris på all bidrag. Les hvordan bidra i [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).
+Team Elsa setter pris på all bidrag. Les hvordan bidra i [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-hvordan-bidra/b/603442).

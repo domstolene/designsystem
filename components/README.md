@@ -16,7 +16,7 @@ npm install @norges-domstoler/dds-components
 
 ```js
 import * as React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Button, TextInput } from '@norges-domstoler/dds-components';
 
 const App = () => (
@@ -27,7 +27,9 @@ const App = () => (
   </>
 );
 
-render(<App />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+
+root.render(<App />);
 ```
 
 ## 📃 Komponenter
@@ -65,6 +67,7 @@ Tilgjengelige komponenter:
 - Tabs
 - Tag
 - TextInput
+- ToggleBar
 - ToggleButton
 - Tooltip
 - Typography
