@@ -113,7 +113,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
         ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
-      max: max || '9999-12-31', // Limit the year-part to only four digits by default
+      max: getMax(type, max),
       ...rest,
     };
 
@@ -167,4 +167,23 @@ const getWidth = (type: string): Property.Width<string> => {
   }
 
   return '320px';
+};
+
+const getMax = (
+  type: React.HTMLInputTypeAttribute,
+  max?: string | number
+): string | number | undefined => {
+  if (max !== undefined) {
+    return max;
+  }
+
+  // Limit the year-part to only four digits by default
+
+  if (type === 'datetime-local') {
+    return '9999-12-31T23:59';
+  }
+
+  if (type === 'date') {
+    return '9999-12-31';
+  }
 };
