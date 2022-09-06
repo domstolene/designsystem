@@ -61,7 +61,12 @@ const StyledInput = styled(StatefulInput)`
   }
 `;
 
-export type DatepickerProps = InputProps;
+type DatepickerType = 'date' | 'datetime-local';
+
+export type DatepickerProps = InputProps & {
+  /** Angi dato-input med eller uten klokkeslett. */
+  type?: DatepickerType;
+};
 
 export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   (
@@ -170,7 +175,7 @@ const getWidth = (type: string): Property.Width<string> => {
 };
 
 const getMax = (
-  type: React.HTMLInputTypeAttribute,
+  type: DatepickerType,
   max?: string | number
 ): string | number | undefined => {
   if (max !== undefined) {
