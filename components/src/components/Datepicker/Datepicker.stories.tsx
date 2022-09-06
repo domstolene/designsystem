@@ -59,10 +59,14 @@ export const OverviewDatetime = () => (
     <Datepicker
       type="datetime-local"
       label="Label"
-      min="2021-11-11"
-      max="2021-12-11"
+      min="2021-11-11T00:00"
+      max="2021-12-11T23:59"
     />
-    <Datepicker type="datetime-local" min="2021-11-11" max="2021-12-11" />
+    <Datepicker
+      type="datetime-local"
+      min="2021-11-11T00:00"
+      max="2021-12-11T23:59"
+    />
   </StoryTemplate>
 );
 
