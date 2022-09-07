@@ -1,8 +1,8 @@
 import { GroupBase, StylesConfig } from 'react-select';
 import styled, { css, CSSObject } from 'styled-components';
+import { selection } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
 import { Typography } from '../Typography';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { selectTokens as tokens } from './Select.tokens';
 
 export const prefix = 'dds-select';
@@ -28,7 +28,7 @@ export const Container = styled.div<StyledContainerProps>`
   ${tokens.container.base}
 
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
 
   ${({ hasLabel, isMulti }) =>

@@ -1,9 +1,8 @@
 import { forwardRef, InputHTMLAttributes, useId } from 'react';
 import styled from 'styled-components';
 import { Icon } from '../Icon';
-import { focusVisibleTransitionValue } from '../../helpers/styling';
+import { focusVisibleTransitionValue, selection } from '../../helpers/styling';
 import { buttonTokens } from '../Button/Button.tokens';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { SvgIcon } from '../../icons/utils';
@@ -26,7 +25,7 @@ const Content = styled.span`
   ${buttonTokens.sizes.small.text.base}
   ${tokens.base}
   &::selection, *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   &:hover {
     ${tokens.hover.base}
