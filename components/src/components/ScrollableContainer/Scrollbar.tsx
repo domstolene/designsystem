@@ -97,7 +97,6 @@ export const Scrollbar = (props: ScrollbarProps) => {
   );
 
   const handleThumbPositioning = useCallback(() => {
-    console.log('positioning');
     if (!contentRef?.current || !trackRef.current || !thumbRef.current) {
       return;
     }

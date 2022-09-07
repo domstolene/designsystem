@@ -41,7 +41,6 @@ export const useScreenSize = function () {
     function listener() {
       for (const [screenSize, mediaQuery] of screenSizesAndMediaQueries) {
         if (window.matchMedia(mediaQuery).matches) {
-          console.log(mediaQuery);
           setScreenSize(screenSize);
           return;
         }
