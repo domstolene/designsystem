@@ -1,28 +1,27 @@
 import {
   forwardRef,
   ElementType,
-  PropsWithChildren,
   HTMLAttributes,
   AnchorHTMLAttributes,
 } from 'react';
 import styled, { css, CSSObject } from 'styled-components';
-import {
-  typographyTokens as tokens,
-  textColors,
-  textColorsArray,
-} from './Typography.tokens';
+import { typographyTokens as tokens } from './Typography.tokens';
 import { Icon } from '../Icon';
 import {
-  TypographyType,
-  TextColor,
   OtherTypographyType,
   AnchorTypographyType,
   LabelTypographyType,
   InlineElement,
+  TypographyComponentProps,
 } from './Typography.types';
-import { focusVisibleLinkTransitionValue } from '../../helpers/styling';
+import {
+  focusVisibleLink,
+  focusVisibleLinkTransitionValue,
+  selection,
+} from '../../helpers/styling';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { OpenExternalIcon } from '../../icons/tsx';
+import { getTextColor, isHeading } from './Typography.utils';
 
 const getElementType = (element: string): ElementType => {
   switch (element) {
@@ -128,24 +127,6 @@ export const inlineElements: ElementType[] = [
 const isInlineElement = (as: ElementType): as is InlineElement =>
   inlineElements.indexOf(as) !== -1;
 
-export function isTextColor(color: string): color is TextColor {
-  return textColorsArray.indexOf(color) !== -1;
-}
-
-export const getTextColor = (color: TextColor | string): string => {
-  if (isTextColor(color)) return textColors[color];
-  return color;
-};
-
-const getElementStyling = (type: TypographyType) => {
-  return css`
-    ${tokens.typographyType[type].base}
-    &::selection, *::selection {
-      ${tokens.selection.base}
-    }
-  `;
-};
-
 type StyledTypographyProps = { as: ElementType } & Pick<
   TypographyProps,
   | 'typographyType'
@@ -157,36 +138,49 @@ type StyledTypographyProps = { as: ElementType } & Pick<
   | 'color'
 >;
 
-const LinkIcon = styled(Icon)`
-  ${tokens.typographyType.a.icon}
-`;
-
 const StyledTypography = styled.p<StyledTypographyProps>`
-  ${({ typographyType }) => typographyType && getElementStyling(typographyType)}
+  &::selection,
+  *::selection {
+    ${selection}
+  }
+
+  ${({ typographyType }) =>
+    typographyType &&
+    typographyType !== 'a' &&
+    css`
+      color: ${tokens.typographyType[typographyType].base.color};
+      ${tokens.typographyType[typographyType].base.font};
+    `}
+
   ${({ typographyType, interactionProps }) =>
     typographyType === 'a' &&
     css`
       display: inline-flex;
       align-items: center;
+      font: inherit;
+      text-decoration: underline;
+      width: fit-content;
+      color: ${tokens.typographyType[typographyType].base.color};
+      gap: ${tokens.typographyType[typographyType].base.gap};
       @media (prefers-reduced-motion: no-preference) {
         transition: ${focusVisibleLinkTransitionValue};
       }
 
       &:hover {
-        ${tokens.typographyType[typographyType].hover.base}
+        color: ${tokens.typographyType[typographyType].hover.color};
       }
       ${interactionProps &&
       interactionProps.active &&
       css`
         &:active {
-          ${interactionProps.active}
+          ${interactionProps.active as CSSObject}
         }
       `}
       &:focus-visible, &.focus-visible {
-        ${tokens.typographyType[typographyType].focus.base}
+        ${focusVisibleLink}
       }
       &:focus-visible::selection &.focus-visible::selection {
-        ${tokens.typographyType[typographyType].focus.base}
+        ${focusVisibleLink}
       }
     `}
     ${({ interactionProps }) =>
@@ -194,7 +188,7 @@ const StyledTypography = styled.p<StyledTypographyProps>`
     interactionProps.hover &&
     css`
       &:hover {
-        ${interactionProps.hover}
+        ${interactionProps.hover as CSSObject}
       }
     `}
       ${({ interactionProps }) =>
@@ -202,19 +196,34 @@ const StyledTypography = styled.p<StyledTypographyProps>`
     interactionProps.active &&
     css`
       &:active {
-        ${interactionProps.active}
+        ${interactionProps.active as CSSObject}
       }
     `}
 
   ${({ withMargins, typographyType, as }) =>
     withMargins && typographyType && isInlineElement(as)
       ? css`
-          ${tokens.typographyType[typographyType].margins.base}
+          margin-top: ${tokens.typographyType[typographyType].margins
+            .marginTop};
+          margin-bottom: ${tokens.typographyType[typographyType].margins
+            .marginBottom};
           display: block;
+        `
+      : withMargins && typographyType && isHeading(typographyType)
+      ? css`
+          margin-top: ${tokens.typographyType[typographyType].margins
+            .marginTop};
+          margin-bottom: ${tokens.typographyType[typographyType].margins
+            .marginBottom};
+          padding-top: ${tokens.typographyType[typographyType].margins
+            .paddingTop};
         `
       : withMargins && typographyType
       ? css`
-          ${tokens.typographyType[typographyType].margins.base}
+          margin-top: ${tokens.typographyType[typographyType].margins
+            .marginTop};
+          margin-bottom: ${tokens.typographyType[typographyType].margins
+            .marginBottom};
         `
       : css`
           margin: 0;
@@ -228,46 +237,23 @@ const StyledTypography = styled.p<StyledTypographyProps>`
   ${({ bold }) =>
     bold &&
     css`
-      ${tokens.style.bold.base}
+      font-weight: ${tokens.style.bold.fontWeight};
     `}
   ${({ italic }) =>
     italic &&
     css`
-      ${tokens.style.italic.base}
+      font-style: italic;
     `}
   ${({ underline }) =>
     underline &&
     css`
-      ${tokens.style.underline.base}
+      text-decoration: underline;
     `}
 `;
 
-export type TypographyInteractionProps = {
-  hover?: CSSObject;
-  active?: CSSObject;
-};
-
-type BaseTypographyProps = PropsWithChildren<{
-  /**HTML tag som skal brukes istedenfor default definert via `typographyType`.  */
-  as?: ElementType;
-  /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa. Brukes hovedsakelig i artikler og lignende. **OBS!** har forskjellig virkning på ulike typografityper. `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens `supportingStyles` får margin topp og bunn. */
-  withMargins?: boolean;
-  /**Tekstfarge fra utvalget eller custom. **OBS!** Bruk farger fra `@dds-design-tokens`. */
-  color?: TextColor | string;
-  /**Setter `bold` styling. */
-  bold?: boolean;
-  /**Setter `italic` styling. */
-  italic?: boolean;
-  /**Setter en linje under. */
-  underline?: boolean;
-  /**Støtte for å enkelt kunne endre på hover- og active-styling. Bruk `@dds-design-tokens` til farger osv. */
-  interactionProps?: TypographyInteractionProps;
-}> &
-  Pick<HTMLAttributes<HTMLElement>, 'style'>;
-
 type AnchorTypographyProps = BaseComponentProps<
   HTMLAnchorElement,
-  BaseTypographyProps & {
+  TypographyComponentProps & {
     /**nativ `href`-prop ved `typographyType='a'`.  */
     href?: string | undefined;
 
@@ -282,13 +268,13 @@ type AnchorTypographyProps = BaseComponentProps<
 
 type LabelTypographyProps = BaseComponentProps<
   HTMLLabelElement,
-  BaseTypographyProps,
+  TypographyComponentProps,
   HTMLAttributes<HTMLLabelElement>
 >;
 
 type OtherTypographyProps = BaseComponentProps<
   HTMLElement,
-  BaseTypographyProps,
+  TypographyComponentProps,
   HTMLAttributes<HTMLElement>
 >;
 
@@ -350,7 +336,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     return (
       <StyledTypography ref={ref} {...typographyProps}>
         {children}
-        {renderIcon && <LinkIcon icon={OpenExternalIcon} iconSize="inherit" />}
+        {renderIcon && <Icon icon={OpenExternalIcon} iconSize="inherit" />}
       </StyledTypography>
     );
   }
