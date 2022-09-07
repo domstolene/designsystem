@@ -18,14 +18,6 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
 import { datepickerTokens as tokens } from './Datepicker.tokens';
 
-const getWidth = (type: string): Property.Width<string> => {
-  return type === 'date'
-    ? '205px'
-    : type === 'datetime-local'
-    ? '235px'
-    : '320px';
-};
-
 const StyledInput = styled(StatefulInput)`
   &::-webkit-calendar-picker-indicator {
     // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
@@ -69,7 +61,15 @@ const StyledInput = styled(StatefulInput)`
   }
 `;
 
-export type DatepickerProps = InputProps;
+type DatepickerType = 'date' | 'datetime-local';
+
+export type DatepickerProps = Modify<
+  InputProps,
+  {
+    /** Angi dato-input med eller uten klokkeslett. */
+    type?: DatepickerType;
+  }
+>;
 
 export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   (
@@ -121,7 +121,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
         ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
-      max: max || '9999-12-31', // Limit the year-part to only four digits by default
+      max: getMax(type, max),
       ...rest,
     };
 
@@ -164,3 +164,34 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     );
   }
 );
+
+const getWidth = (type: string): Property.Width<string> => {
+  if (type === 'date') {
+    return '205px';
+  }
+
+  if (type === 'datetime-local') {
+    return '235px';
+  }
+
+  return '320px';
+};
+
+const getMax = (
+  type: DatepickerType,
+  max?: string | number
+): string | number | undefined => {
+  if (max !== undefined) {
+    return max;
+  }
+
+  // Limit the year-part to only four digits by default
+
+  if (type === 'datetime-local') {
+    return '9999-12-31T23:59';
+  }
+
+  if (type === 'date') {
+    return '9999-12-31';
+  }
+};
