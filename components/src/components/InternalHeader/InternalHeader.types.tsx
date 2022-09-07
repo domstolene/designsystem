@@ -25,7 +25,9 @@ type InternaHeaderUserProps = {
 export type InternalHeaderProps = BaseComponentProps<
   HTMLDivElement,
   {
-    /**Navn på applikasjonen. */
+    /**Logo i form av tekst. Brukes til navnet på applikasjonen fram til Lovisa Next kommer. */
+    logo?: string;
+    /**Navn på applikasjonen. Brukes til navnet til undersiden eller kort beskrivelse fram til Lovisa Next kommer. */
     applicationName?: string;
     /**Indikerer om versjonen for små skjermer skal vises. */
     smallScreen?: boolean;

@@ -20,6 +20,7 @@ import { MenuIcon, MoreVerticalIcon } from '../../icons/tsx';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {
+    logo,
     applicationName,
     smallScreen,
     navigationElements,
@@ -87,7 +88,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
         <BannerLeftWrapper>
           <LovisaWrapper>
             <Typography typographyType="bodySans02" bold as="span">
-              Lovisa Next
+              {logo}
             </Typography>
           </LovisaWrapper>
           <ApplicationNameWrapper>
