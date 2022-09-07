@@ -63,10 +63,13 @@ const StyledInput = styled(StatefulInput)`
 
 type DatepickerType = 'date' | 'datetime-local';
 
-export type DatepickerProps = InputProps & {
-  /** Angi dato-input med eller uten klokkeslett. */
-  type?: DatepickerType;
-};
+export type DatepickerProps = Modify<
+  InputProps,
+  {
+    /** Angi dato-input med eller uten klokkeslett. */
+    type?: DatepickerType;
+  }
+>;
 
 export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   (
