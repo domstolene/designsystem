@@ -47,11 +47,12 @@ import { Typography } from '../Typography';
 ## Oversikt
 
 `<InternalHeader />` er ment for å bli brukt som header i alle Lovisa
-webapplikasjoner. Ettersom Lovisa-plattformen blir utviklet
+webapplikasjoner.
+
+Ettersom Lovisa Next kommer på plass
 vil `<InternalHeader />` også bli videreutviklet til å bli et felles
 navigasjonspunkt mellom ulike tjenester og applikasjoner. Lenker ti andre
-applikasjoner vil være tilgjengelige ved å trykke på det som i dag er
-logo/navn på applikasjonen.
+applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn på applikasjonen.
 
 Komponenten støtter horisontal navigasjon med lenker og en kontekstmeny til høyre som kan inneholde et en lenke eller tekst som viser brukernavnet og en liste med lenker eller knapper. Se detaljer i API.
 
@@ -81,14 +82,6 @@ name: 'Name'
 <ArgsTable story={PRIMARY_STORY} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
-### Før Lovisa Next kommer
-
-Komponenten skal ha logoen til Lovisa Next i venstre hjørne når den er klar. Dette er nåværelnde plasseringen til `logo`-prop. Fram til da skal applikasjonsnavnet settes som `logo` og eventuelt navnet til en underside kan settes i `applicationName`.
-
-<Canvas>
-  <Story id="design-system-internalheader--before-lovisa-next" />
-</Canvas>
 
 ### Types
 

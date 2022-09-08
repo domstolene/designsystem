@@ -68,30 +68,25 @@ const menuElement = {
 
 const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
-export const BeforeLovisaNext = () => (
+export const Overview = () => (
   <StoryTemplate
-    title="InternalHeader - usage before Lovisa Next"
-    display="block"
+    title="InternalHeader - overview"
+    gap="40px"
+    containerStyle={{ alignItems: 'stretch' }}
   >
     <InternalHeader
-      applicationName="Navn på underside"
-      logo="Navn på applikasjon"
+      applicationDesc="Beskrivelse/tittel på underside"
+      applicationName="Navn på applikasjon"
     />
-  </StoryTemplate>
-);
-
-export const Overview = () => (
-  <StoryTemplate title="InternalHeader - overview" gap="40px">
-    <InternalHeader logo="Logo" applicationName="Navn på applikasjon" />
     <InternalHeader
-      logo="Logo"
+      applicationDesc="Beskrivelse/tittel på underside"
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
       contextMenuElements={menuElements}
       userProps={user}
     />
     <InternalHeader
-      logo="Logo"
+      applicationDesc="Beskrivelse/tittel på underside"
       applicationName="Navn på applikasjon"
       navigationElements={[navigationLink, uniqueNavigationLink]}
       contextMenuElements={menuElements}
@@ -99,26 +94,26 @@ export const Overview = () => (
       currentPageHref="#"
     />
     <InternalHeader
-      logo="Logo"
+      applicationDesc="Beskrivelse/tittel på underside"
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
       userProps={userWithHref}
     />
     <InternalHeader
-      logo="Logo"
+      applicationDesc="Beskrivelse/tittel på underside"
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
       contextMenuElements={menuElements}
       userProps={userWithHref}
     />
     <InternalHeader
-      logo="Logo"
+      applicationDesc="Beskrivelse/tittel på underside"
       applicationName="Navn på applikasjon"
       contextMenuElements={menuElements}
       userProps={user}
     />
     <InternalHeader
-      logo="Logo"
+      applicationDesc="Beskrivelse/tittel på underside"
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
       contextMenuElements={menuElements}
@@ -126,7 +121,7 @@ export const Overview = () => (
       smallScreen
     />
     <InternalHeader
-      logo="Logo"
+      applicationDesc="Beskrivelse/tittel på underside"
       applicationName="Navn på applikasjon"
       navigationElements={navigationLinks}
       userProps={user}
@@ -140,7 +135,9 @@ export const Default = (args: InternalHeaderProps) => (
     <InternalHeader
       applicationName="Navn på applikasjon"
       {...args}
-      logo={args.logo || 'Logo'}
+      applicationDesc={
+        args.applicationDesc || 'Beskrivelse/tittel på underside'
+      }
     />
   </StoryTemplate>
 );
@@ -153,7 +150,9 @@ export const WithNavigationAndContextMenu = (args: InternalHeaderProps) => (
     <InternalHeader
       applicationName="Navn på applikasjon"
       {...args}
-      logo={args.logo || 'Logo'}
+      applicationDesc={
+        args.applicationDesc || 'Beskrivelse/tittel på underside'
+      }
       navigationElements={navigationLinks}
       contextMenuElements={menuElements}
       userProps={user}
@@ -167,7 +166,9 @@ export const WithCurrentPage = (args: InternalHeaderProps) => {
       <InternalHeader
         applicationName="Navn på applikasjon"
         {...args}
-        logo={args.logo || 'Logo'}
+        applicationDesc={
+          args.applicationDesc || 'Beskrivelse/tittel på underside'
+        }
         navigationElements={[navigationLink, uniqueNavigationLink]}
         contextMenuElements={menuElements}
         userProps={user}
@@ -185,7 +186,9 @@ export const SmallScreenWithNavigation = (args: InternalHeaderProps) => (
     <InternalHeader
       applicationName="Navn på applikasjon"
       {...args}
-      logo={args.logo || 'Logo'}
+      applicationDesc={
+        args.applicationDesc || 'Beskrivelse/tittel på underside'
+      }
       navigationElements={navigationLinks}
       smallScreen
     />
@@ -201,7 +204,9 @@ export const SmallScreenWithContextMenu = (args: InternalHeaderProps) => {
       <InternalHeader
         applicationName="Navn på applikasjon"
         {...args}
-        logo={args.logo || 'Logo'}
+        applicationDesc={
+          args.applicationDesc || 'Beskrivelse/tittel på underside'
+        }
         contextMenuElements={menuElements}
         userProps={user}
       />
@@ -219,7 +224,9 @@ export const SmallScreenWithNavigationAndContextMenu = (
     <InternalHeader
       applicationName="Navn på applikasjon"
       {...args}
-      logo={args.logo || 'Logo'}
+      applicationDesc={
+        args.applicationDesc || 'Beskrivelse/tittel på underside'
+      }
       userProps={user}
       navigationElements={navigationLinks}
       contextMenuElements={menuElements}
@@ -232,7 +239,7 @@ export const NoStoryHeading = (args: InternalHeaderProps) => (
   <InternalHeader
     applicationName="Navn på applikasjon"
     {...args}
-    logo={args.logo || 'Logo'}
+    applicationDesc={args.applicationDesc || 'Beskrivelse/tittel på underside'}
     userProps={user}
     navigationElements={shortNavigationLinks}
     contextMenuElements={menuElements}
@@ -243,7 +250,7 @@ export const NoStoryHeadingSmallScreen = (args: InternalHeaderProps) => (
   <InternalHeader
     applicationName="Navn på applikasjon"
     {...args}
-    logo={args.logo || 'Logo'}
+    applicationDesc={args.applicationDesc || 'Beskrivelse/tittel på underside'}
     navigationElements={navigationLinks}
     contextMenuElements={menuElements}
     userProps={user}
@@ -255,7 +262,7 @@ export const NoStoryHeadingSmallScreenLong = (args: InternalHeaderProps) => (
   <InternalHeader
     applicationName="Navn på applikasjon"
     {...args}
-    logo={args.logo || 'Logo'}
+    applicationDesc={args.applicationDesc || 'Beskrivelse/tittel på underside'}
     navigationElements={[...navigationLinks, ...navigationLinks]}
     contextMenuElements={[...navigationLinks, ...navigationLinks]}
     userProps={user}
@@ -271,7 +278,9 @@ export const NonInteractiveUserOnly = (args: InternalHeaderProps) => (
     <InternalHeader
       applicationName="Navn på applikasjon"
       {...args}
-      logo={args.logo || 'Logo'}
+      applicationDesc={
+        args.applicationDesc || 'Beskrivelse/tittel på underside'
+      }
       userProps={user}
     />
   </StoryTemplate>
