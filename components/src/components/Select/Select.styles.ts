@@ -147,6 +147,14 @@ export const Wrapper = styled.div<{ width?: number | string }>`
   width: ${({ width }) => width};
 `;
 
+export const InnerSingleValue = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  max-width: 100%;
+`;
+
 export const getCustomStyles = <TOption>(): Partial<
   StylesConfig<TOption, boolean, GroupBase<TOption>>
 > => ({
@@ -181,9 +189,10 @@ export const getCustomStyles = <TOption>(): Partial<
     ...(state.selectProps.isMulti ? tokens.valueContainer.isMulti.base : {}),
     padding: 0,
   }),
-  singleValue: provided => ({
-    ...provided,
-    margin: 0,
+  singleValue: () => ({
+    gridArea: '1/1/2/3',
+    overflow: 'hidden',
+    boxSizing: 'border-box',
   }),
   multiValue: (provided, state) => ({
     ...provided,

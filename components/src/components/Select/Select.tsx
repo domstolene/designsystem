@@ -26,6 +26,7 @@ import { InputMessage } from '../InputMessage';
 import {
   Container,
   getCustomStyles,
+  InnerSingleValue,
   Label,
   prefix,
   Wrapper,
@@ -71,12 +72,15 @@ const CustomOption = <TValue, IsMulti extends boolean>(
 
 const CustomSingleValue = <TOption, IsMulti extends boolean>(
   props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
-  Element: (
+  id?: string,
+  Element?: (
     props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>
   ) => JSX.Element
 ) => (
   <SingleValue {...props}>
-    <Element {...props} />
+    <InnerSingleValue id={id}>
+      {Element ? <Element {...props} /> : props.children}
+    </InnerSingleValue>
   </SingleValue>
 );
 
@@ -106,6 +110,18 @@ const CustomDropdownIndicator = <TValue, IsMulti extends boolean>(
   <DropdownIndicator {...props}>
     <Icon icon={ChevronDownIcon} iconSize="medium" />
   </DropdownIndicator>
+);
+
+const CustomInput = <TOption, IsMulti extends boolean>(
+  props: InputProps<TOption, IsMulti>,
+  ariaInvalid: boolean,
+  ariaDescribedby?: string
+) => (
+  <Input
+    {...props}
+    aria-invalid={ariaInvalid}
+    aria-describedby={ariaDescribedby}
+  />
 );
 
 function escapeRegexCharacters(text: string) {
@@ -193,6 +209,7 @@ const SelectInner = <
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-select`;
 
+  const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
   const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
@@ -200,13 +217,6 @@ const SelectInner = <
     uniqueId,
     'errorMessage',
     errorMessage
-  );
-
-  const CustomInput = (props: InputProps<TOption, IsMulti>) => (
-    <Input
-      {...props}
-      aria-describedby={spaceSeparatedIdListGenerator([tipId, errorMessageId])}
-    />
   );
 
   const wrapperProps = {
@@ -253,10 +263,14 @@ const SelectInner = <
         ? props => CustomOption(props, customOptionElement)
         : IconOption,
       NoOptionsMessage: NoOptionsMessageCustom,
-      Input: CustomInput,
-      SingleValue: customSingleValueElement
-        ? props => CustomSingleValue(props, customSingleValueElement)
-        : SingleValue,
+      Input: props =>
+        CustomInput(
+          props,
+          hasErrorMessage,
+          spaceSeparatedIdListGenerator([singleValueId, tipId, errorMessageId])
+        ),
+      SingleValue: props =>
+        CustomSingleValue(props, singleValueId, customSingleValueElement),
       ClearIndicator: CustomClearIndicator,
       DropdownIndicator: CustomDropdownIndicator,
       MultiValueRemove: CustomMultiValueRemove,
