@@ -1,5 +1,6 @@
 import { GroupBase, StylesConfig } from 'react-select';
 import styled, { css, CSSObject } from 'styled-components';
+import { focusVisibleLink } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
 import { Typography } from '../Typography';
 import { typographyTokens } from '../Typography/Typography.tokens';
@@ -237,7 +238,8 @@ export const getCustomStyles = <TOption>(): Partial<
     '&:hover': {
       ...tokens.option.hover.base,
     },
-    ...(state.isSelected || state.isFocused ? tokens.option.selected.base : {}),
+    ...(state.isSelected ? tokens.option.selected.base : {}),
+    ...(state.isFocused ? focusVisibleLink : {}),
   }),
   noOptionsMessage: () => ({
     ...tokens.noOptionsMessage.base,
