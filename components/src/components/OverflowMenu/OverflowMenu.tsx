@@ -22,6 +22,8 @@ import { typographyTokens } from '../Typography/Typography.tokens';
 import { getBaseHTMLProps } from '../../types';
 import { PersonIcon } from '../../icons/tsx';
 
+const { container, divider } = tokens;
+
 type ContainerProps = { isOpen: boolean };
 
 export const Container = styled.div<ContainerProps>`
@@ -31,7 +33,10 @@ export const Container = styled.div<ContainerProps>`
   min-width: 180px;
   max-width: 300px;
   ${({ isOpen }) => visibilityTransition(isOpen)}
-  ${tokens.container.base}
+  border: ${container.border};
+  background-color: ${container.backgroundColor};
+  border-radius: ${container.borderRadius};
+
   ${scrollbarStyling.webkit}
   ${scrollbarStyling.firefox as CSSObject}
 
@@ -49,7 +54,8 @@ export const OverflowMenuList = styled.ul`
 `;
 
 const StyledDivider = styled(Divider)`
-  ${tokens.divider.base}
+  margin-left: ${divider.marginLeft};
+  margin-right: ${divider.marginRight};
 `;
 
 export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(

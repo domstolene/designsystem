@@ -19,13 +19,18 @@ export default {
   },
 };
 
-const customOptions = [17, 32, 100].map(o => ({
-  label: o.toString(),
+const customOptionsItemsAmount = 100;
+const customOptions = [17, 32, customOptionsItemsAmount].map(o => ({
+  label: o === customOptionsItemsAmount ? 'Alle' : o.toString(),
   value: o,
 }));
 
 export const Overview = (args: PaginationProps) => (
-  <StoryTemplate title="Pagination - overview" gap="50px">
+  <StoryTemplate
+    title="Pagination - overview"
+    gap="50px"
+    containerStyle={{ alignItems: 'stretch' }}
+  >
     <Pagination {...args} itemsAmount={70} />
     <Pagination {...args} itemsAmount={100} />
     <Pagination {...args} defaultActivePage={6} itemsAmount={100} />
@@ -57,7 +62,7 @@ export const Overview = (args: PaginationProps) => (
       withSelect
       defaultItemsPerPage={customOptions[0].value}
       selectOptions={customOptions}
-      itemsAmount={100}
+      itemsAmount={customOptionsItemsAmount}
     />
   </StoryTemplate>
 );
@@ -83,7 +88,7 @@ export const OverviewMobile = (args: PaginationProps) => (
 );
 
 export const Default = (args: PaginationProps) => (
-  <StoryTemplate title="Pagination - default">
+  <StoryTemplate title="Pagination - default" display="block">
     <Pagination {...args} itemsAmount={args.itemsAmount || 100} />
   </StoryTemplate>
 );

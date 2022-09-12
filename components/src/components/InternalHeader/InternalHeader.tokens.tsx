@@ -1,117 +1,65 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
-import { focusVisibleLink } from '../../helpers/styling';
 
-const {
-  border: Border,
-  colors: Colors,
-  spacing: Spacing,
-  fontPackages: FontPackages,
-} = ddsBaseTokens;
+const { border, colors, spacing, fontPackages } = ddsBaseTokens;
 
-const borderColor = Border.BordersDdsBorderStyleLightStroke;
+const borderStyle = `${border.BordersDdsBorderStyleLightStrokeWeight} ${border.BordersDdsBorderStyleLightStroke} solid `;
 
-const linkBase: CSSObject = {
-  color: Colors.DdsColorNeutralsGray9,
-  textDecoration: 'none',
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-  ...FontPackages.body_sans_01.base,
+const navLink = {
+  base: {
+    color: colors.DdsColorNeutralsGray9,
+    textDecoration: 'none',
+    backgroundColor: colors.DdsColorNeutralsWhite,
+    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
+    font: fontPackages.body_sans_01.base,
+  },
+  hover: {
+    color: colors.DdsColorInteractiveDark,
+  },
+  active: {
+    color: colors.DdsColorInteractiveDark,
+  },
+  current: {
+    color: colors.DdsColorInteractiveDarkest,
+    backgroundColor: colors.DdsColorPrimaryLightest,
+  },
 };
 
-const linkHoverBase: CSSObject = {
-  color: Colors.DdsColorInteractiveDark,
-  backgroundColor: Colors.DdsColorPrimaryLightest,
+const outerContainer = {
+  backgroundColor: colors.DdsColorNeutralsWhite,
 };
 
-const linkActiveBase: CSSObject = {
-  color: Colors.DdsColorInteractiveBase,
+const applicationNameWrapper = {
+  padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15}`,
 };
 
-const wrapperBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite,
+const lovisaWrapper = {
+  padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15}`,
+  borderRight: borderStyle,
 };
 
-const applicationNameWrapperBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15}`,
+const banner = {
+  borderBottom: borderStyle,
+  paddingRight: spacing.SizesDdsSpacingLocalX1,
+  hasContextMenu: {
+    paddingRight: spacing.SizesDdsSpacingLayoutX4,
+  },
 };
 
-const lovisaWrapperBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15}`,
-  borderRight: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
+const navigation = {
+  borderBottom: borderStyle,
 };
 
-const bannerBase: CSSObject = {
-  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
-  paddingRight: Spacing.SizesDdsSpacingLocalX1,
-};
-
-const bannerLeftBase: CSSObject = {};
-
-const navigationBase: CSSObject = {
-  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} ${borderColor} solid `,
-};
-
-const navigationLinkBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15}`,
-  ...linkBase,
-};
-const navigationLinkHoverBase: CSSObject = {
-  ...linkHoverBase,
-};
-const navigationLinkActiveBase: CSSObject = {
-  ...linkActiveBase,
-};
-
-const navigationLinkFocusBase: CSSObject = {
-  ...focusVisibleLink,
-};
-
-const navigationLinkCurrentBase: CSSObject = {
-  color: Colors.DdsColorInteractiveDarker,
-  backgroundColor: Colors.DdsColorPrimaryLightest,
-};
-
-const contextGroupBase: CSSObject = {
-  right: Spacing.SizesDdsSpacingLocalX075,
-  top: Spacing.SizesDdsSpacingLocalX025,
+const contextGroup = {
+  right: spacing.SizesDdsSpacingLocalX075,
+  top: spacing.SizesDdsSpacingLocalX025,
 };
 
 export const internalHeaderTokens = {
-  wrapper: {
-    base: wrapperBase,
-  },
-  applicationNameWrapper: {
-    base: applicationNameWrapperBase,
-  },
-  lovisaWrapper: {
-    base: lovisaWrapperBase,
-  },
-  banner: {
-    base: bannerBase,
-    contextMenuSpacing: Spacing.SizesDdsSpacingLayoutX4,
-  },
-  bannerLeft: {
-    base: bannerLeftBase,
-  },
-  navigation: {
-    base: navigationBase,
-  },
-  navigationLink: {
-    base: navigationLinkBase,
-    hover: {
-      base: navigationLinkHoverBase,
-    },
-    active: {
-      base: navigationLinkActiveBase,
-    },
-    focus: {
-      base: navigationLinkFocusBase,
-    },
-    current: {
-      base: navigationLinkCurrentBase,
-    },
-  },
-  contextGroup: {
-    base: contextGroupBase,
-  },
+  navLink,
+  outerContainer,
+  applicationNameWrapper,
+  lovisaWrapper,
+  banner,
+  navigation,
+  contextGroup,
 };

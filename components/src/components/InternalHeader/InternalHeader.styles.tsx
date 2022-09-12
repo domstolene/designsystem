@@ -4,12 +4,21 @@ import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
 import { InternalHeaderProps } from './InternalHeader.types';
 import { OverflowMenu } from '../OverflowMenu';
 
-export const Wrapper = styled.div`
+const {
+  outerContainer,
+  applicationNameWrapper,
+  lovisaWrapper,
+  banner,
+  navigation,
+  contextGroup,
+} = tokens;
+
+export const OuterContainer = styled.div`
   position: relative;
   *::selection {
     ${typographyTokens.selection.base}
   }
-  ${tokens.wrapper.base}
+  background-color: ${outerContainer.backgroundColor};
 `;
 
 type BannerProps = {
@@ -20,30 +29,32 @@ export const BannerWrapper = styled.div<BannerProps>`
   position: relative;
   display: flex;
   align-items: center;
-  ${tokens.banner.base}
+  border-bottom: ${banner.borderBottom};
+  padding-right: ${banner.paddingRight};
   ${({ hasContextMenu }) =>
     hasContextMenu &&
     css`
-      padding-right: ${tokens.banner.contextMenuSpacing};
+      padding-right: ${banner.hasContextMenu.paddingRight};
     `}
 `;
 
 export const BannerLeftWrapper = styled.div`
   display: flex;
-  ${tokens.bannerLeft.base}
 `;
 
 export const ApplicationNameWrapper = styled.div`
   display: flex;
   align-items: center;
-  ${tokens.applicationNameWrapper.base}
+  padding: ${applicationNameWrapper.padding};
 `;
+
 export const LovisaWrapper = styled.div`
-  ${tokens.lovisaWrapper.base}
+  padding: ${lovisaWrapper.padding};
+  border-right: ${lovisaWrapper.borderRight};
 `;
 
 export const Navigation = styled.nav`
-  ${tokens.navigation.base}
+  border-bottom: ${navigation.borderBottom};
 `;
 
 type NavListProps = Pick<InternalHeaderProps, 'smallScreen'>;
@@ -63,7 +74,8 @@ export const NavigationList = styled.ul<NavListProps>`
 
 export const ContextMenuGroup = styled.div`
   position: absolute;
-  ${tokens.contextGroup.base}
+  top: ${contextGroup.top};
+  right: ${contextGroup.right};
 `;
 
 export const StyledOverflowMenu = styled(OverflowMenu)`

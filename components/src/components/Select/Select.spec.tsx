@@ -10,15 +10,27 @@ describe('<Select />', () => {
     const labelElement = screen.getByText(label);
     expect(labelElement).toBeInTheDocument();
   });
-  it('should have aria-describedby when tip provided', () => {
+  it('should have aria-describedby for selected value', () => {
+    const id = 'id';
+    render(<Select options={[{ label: 'label', value: 'item' }]} id={id} />);
+    const inputElement = screen.getByRole('combobox');
+    expect(inputElement).toHaveAttribute(
+      'aria-describedby',
+      `${id}-singleValue`
+    );
+  });
+  it('should have aria-describedby for tip when tip provided', () => {
     const id = 'id';
     render(
       <Select options={[{ label: 'label', value: 'item' }]} tip="tip" id={id} />
     );
     const inputElement = screen.getByRole('combobox');
-    expect(inputElement).toHaveAttribute('aria-describedby', `${id}-tip`);
+    expect(inputElement).toHaveAttribute(
+      'aria-describedby',
+      `${id}-singleValue ${id}-tip`
+    );
   });
-  it('should have aria-describedby and aria-invalid when errorMessage provided', () => {
+  it('should have aria-describedby for error message and aria-invalid when errorMessage provided', () => {
     const id = 'id';
     render(
       <Select
@@ -30,7 +42,7 @@ describe('<Select />', () => {
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toHaveAttribute(
       'aria-describedby',
-      `${id}-errorMessage`
+      `${id}-singleValue ${id}-errorMessage`
     );
     expect(inputElement).toHaveAttribute('aria-invalid', 'true');
   });

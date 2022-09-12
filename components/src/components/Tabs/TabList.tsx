@@ -4,8 +4,8 @@ import {
   Children,
   isValidElement,
   cloneElement,
-  useState,
   FocusEvent,
+  ReactElement,
 } from 'react';
 import styled, { CSSObject } from 'styled-components';
 import { tabsTokens as tokens } from './Tabs.tokens';
@@ -59,7 +59,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       setHasTabFocus,
     } = useTabsContext();
 
-    const [uniqueId] = useState<string>(id ?? `${tabsId}-tablist`);
+    const uniqueId = id ?? `${tabsId}-tablist`;
     const childrenArray = Children.toArray(children).length;
     const [focus, setFocus] = useRoveFocus(childrenArray, !hasTabFocus, 'row');
     const combinedRef = useCombinedRef(ref, tabListRef);
@@ -67,7 +67,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     const tabListChildren = Children.map(children, (child, index) => {
       return (
         isValidElement(child) &&
-        cloneElement(child, {
+        cloneElement(child as ReactElement, {
           id: `${tabsId}-tab-${index}`,
           'aria-controls': `${tabsId}-panel-${index}`,
           active: activeTab === index,

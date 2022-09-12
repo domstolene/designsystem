@@ -1,7 +1,7 @@
 import { RadioButtonProps } from './RadioButton.types';
-import styled, { css, CSSObject } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { radioButtonTokens as tokens } from './RadioButton.tokens';
-import { focusVisibleTransitionValue, hideInput } from '../../helpers/styling';
+import { focusVisibleTransitionValue } from '../../helpers/styling';
 
 export const CustomRadioButton = styled.span`
   position: absolute;
@@ -15,12 +15,6 @@ export const CustomRadioButton = styled.span`
     position: absolute;
     display: none;
   }
-`;
-
-export const Input = styled.input.attrs(({ type = 'radio' }) => ({
-  type,
-}))`
-  ${hideInput as CSSObject}
 `;
 
 type ContainerProps = Pick<RadioButtonProps, 'error' | 'disabled' | 'readOnly'>;

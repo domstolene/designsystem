@@ -3,7 +3,7 @@ import { Typography } from '../Typography';
 import { Button } from '../Button';
 import { InternalHeaderProps } from './InternalHeader.types';
 import {
-  Wrapper,
+  OuterContainer,
   Navigation,
   NavigationList,
   BannerWrapper,
@@ -20,6 +20,7 @@ import { MenuIcon, MoreVerticalIcon } from '../../icons/tsx';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {
+    applicationDesc,
     applicationName,
     smallScreen,
     navigationElements,
@@ -82,17 +83,17 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
   return (
-    <Wrapper {...getBaseHTMLProps(id, className, htmlProps, rest)}>
+    <OuterContainer {...getBaseHTMLProps(id, className, htmlProps, rest)}>
       <BannerWrapper hasContextMenu={hasContextMenu}>
         <BannerLeftWrapper>
           <LovisaWrapper>
             <Typography typographyType="bodySans02" bold as="span">
-              Lovisa Next
+              {applicationName}
             </Typography>
           </LovisaWrapper>
           <ApplicationNameWrapper>
             <Typography typographyType="bodySans02" as="span">
-              {applicationName}
+              {applicationDesc}
             </Typography>
           </ApplicationNameWrapper>
         </BannerLeftWrapper>
@@ -120,6 +121,6 @@ export const InternalHeader = (props: InternalHeaderProps) => {
           />
         </ContextMenuGroup>
       )}
-    </Wrapper>
+    </OuterContainer>
   );
 };

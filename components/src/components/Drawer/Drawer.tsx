@@ -1,4 +1,4 @@
-import { forwardRef, ReactNode, RefObject, useState } from 'react';
+import { forwardRef, ReactNode, RefObject, useId } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
@@ -105,8 +105,6 @@ export type DrawerProps = BaseComponentPropsWithChildren<
   }
 >;
 
-let nextUniqueId = 0;
-
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   const {
     children,
@@ -123,7 +121,8 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     ...rest
   } = props;
 
-  const [uniqueId] = useState<string>(id ?? `drawer-${nextUniqueId++}`);
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-drawer`;
   const hasHeader = !!header;
   const headerId = hasHeader ? `${uniqueId}-header` : undefined;
 

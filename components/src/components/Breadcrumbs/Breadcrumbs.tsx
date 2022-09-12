@@ -4,27 +4,27 @@ import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, ArrowLeftIcon } from '../../icons/tsx';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { removeListStyling } from '../../helpers/styling/removeListStyling';
+
+const { icon, list, listItem } = tokens;
 
 const List = styled.ol`
-  list-style: none;
+  ${removeListStyling}
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: ${list.gap};
 `;
 
 const ListItem = styled.li`
   align-items: center;
   display: flex;
-  ${tokens.breadcrumb.base}
+  gap: ${listItem.gap};
+  ${listItem.font}
 `;
 
-const StyledIcon = styled(Icon).attrs(
-  ({ iconSize = tokens.icon.size, color = tokens.icon.base.color }) => ({
-    iconSize,
-    color,
-  })
-)`
-  ${tokens.icon.base}
+const StyledIcon = styled(Icon)`
+  color: ${icon.color};
 `;
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
@@ -43,7 +43,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
 
     const breadcrumbChildren = smallScreen ? (
       <ListItem>
-        <StyledIcon icon={ArrowLeftIcon} />
+        <StyledIcon icon={ArrowLeftIcon} iconSize="small" />
         {childrenArray[childrenArray.length - 2]}
       </ListItem>
     ) : (

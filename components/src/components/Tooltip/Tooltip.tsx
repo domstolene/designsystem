@@ -5,6 +5,7 @@ import React, {
   HTMLAttributes,
   isValidElement,
   useEffect,
+  useId,
   useState,
 } from 'react';
 import {
@@ -47,8 +48,6 @@ export type TooltipProps = BaseComponentProps<
   Omit<HTMLAttributes<HTMLDivElement>, 'children' | keyof PickedHTMLAttributes>
 >;
 
-let nextUniqueId = 0;
-
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   (props, ref) => {
     const {
@@ -66,11 +65,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       ...rest
     } = props;
 
-    const uniqueId = nextUniqueId++;
-    const [uniqueTooltipId] = useState<string>(
-      tooltipId ?? `tooltip-${uniqueId}`
-    );
-
+    const generatedId = useId();
+    const uniqueTooltipId = tooltipId ?? `${generatedId}-tooltip`;
     const [open, setOpen] = useState(false);
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
     const { reference, floating, styles } = useFloatPosition(

@@ -184,6 +184,7 @@ const optionBase: CSSObject = {
 };
 
 const optionHoverBase: CSSObject = {
+  color: textDefault.textColor,
   backgroundColor: Colors.DdsColorInteractiveLightest,
 };
 

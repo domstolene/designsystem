@@ -1,4 +1,4 @@
-import { ChangeEvent, HTMLAttributes, useState } from 'react';
+import { ChangeEvent, HTMLAttributes, useId, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
@@ -61,8 +61,6 @@ export type RadioButtonGroupProps<T extends string | number> =
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
   >;
 
-let nextUniqueGroupId = 0;
-
 export const RadioButtonGroup = <T extends string | number = string>({
   name,
   label,
@@ -85,9 +83,8 @@ export const RadioButtonGroup = <T extends string | number = string>({
     string | number | null | undefined
   >(value);
 
-  const [uniqueGroupId] = useState<string>(
-    groupId ?? `radioButtonGroup-${nextUniqueGroupId++}`
-  );
+  const generatedId = useId();
+  const uniqueGroupId = groupId ?? `${generatedId}-radioButtonGroup`;
 
   const handleChange = combineHandlers(
     (e: ChangeEvent<HTMLInputElement>) => setGroupValue(e.target.value),
@@ -97,10 +94,8 @@ export const RadioButtonGroup = <T extends string | number = string>({
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
 
-  const tipId = hasTip ? `${uniqueGroupId}-tip` : undefined;
-  const errorMessageId = hasErrorMessage
-    ? `${uniqueGroupId}-errorMessage`
-    : undefined;
+  const tipId = tip && `${uniqueGroupId}-tip`;
+  const errorMessageId = errorMessage && `${uniqueGroupId}-errorMessage`;
 
   const contextProps = {
     name,
