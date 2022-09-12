@@ -7,25 +7,6 @@ const { colors, fontPackages, spacing } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
 
-export const textColors = {
-  interactive: colors.DdsColorInteractiveBase,
-  primary: colors.DdsColorPrimaryBase,
-  danger: colors.DdsColorDangerBase,
-  success: colors.DdsColorSuccessBase,
-  warning: colors.DdsColorWarningBase,
-  onLight: textDefault.textColor,
-  onDark: colors.DdsColorNeutralsWhite,
-  gray1: colors.DdsColorNeutralsGray1,
-  gray2: colors.DdsColorNeutralsGray2,
-  gray3: colors.DdsColorNeutralsGray3,
-  gray4: colors.DdsColorNeutralsGray4,
-  gray5: colors.DdsColorNeutralsGray5,
-  gray6: colors.DdsColorNeutralsGray6,
-  gray7: colors.DdsColorNeutralsGray7,
-  gray8: colors.DdsColorNeutralsGray8,
-  gray9: colors.DdsColorNeutralsGray9,
-};
-
 const a = {
   base: {
     color: colors.DdsColorInteractiveBase,
@@ -430,5 +411,4 @@ export const typographyTokens = {
   style: {
     bold,
   },
-  textColors,
 };

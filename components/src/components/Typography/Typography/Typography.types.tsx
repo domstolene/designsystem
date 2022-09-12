@@ -4,6 +4,7 @@ import {
   HTMLAttributes,
   PropsWithChildren,
 } from 'react';
+import { TextColor } from '../../../utils';
 
 type TypographyBodySansType =
   | 'bodySans01'
@@ -62,24 +63,6 @@ export type TypographyType =
   | LabelTypographyType
   | OtherTypographyType;
 
-export type TextColor =
-  | 'interactive'
-  | 'primary'
-  | 'danger'
-  | 'warning'
-  | 'success'
-  | 'onLight'
-  | 'onDark'
-  | 'gray1'
-  | 'gray2'
-  | 'gray3'
-  | 'gray4'
-  | 'gray5'
-  | 'gray6'
-  | 'gray7'
-  | 'gray8'
-  | 'gray9';
-
 export type InlineElement =
   | 'a'
   | 'abbr'
@@ -135,16 +118,18 @@ export type InlineElement =
   | 'video'
   | 'wbr';
 
-export type TypographyInteractionProps = {
+export type TypographyInteractionStyling = {
   hover?: CSSProperties;
   active?: CSSProperties;
 };
 
 export type BaseTypographyProps = PropsWithChildren<{
+  /**Styling basert på det typografiske utvalget definert i Figma. */
+  typographyType?: TypographyType;
   /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa. Brukes hovedsakelig i artikler og lignende. **OBS!** har forskjellig virkning på ulike typografityper. `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens `supportingStyles` får margin topp og bunn. */
   withMargins?: boolean;
   /**Tekstfarge fra utvalget eller custom. **OBS!** Bruk farger fra `@dds-design-tokens`. */
-  color?: TextColor | string;
+  color?: TextColor;
   /**Setter `bold` styling. */
   bold?: boolean;
   /**Setter `italic` styling. */
@@ -154,9 +139,22 @@ export type BaseTypographyProps = PropsWithChildren<{
 }> &
   Pick<HTMLAttributes<HTMLElement>, 'style'>;
 
-export type TypographyComponentProps = BaseTypographyProps & {
+export type StaticTypographyType = LabelTypographyType | OtherTypographyType;
+
+export type StaticTypographyProps = Omit<
+  BaseTypographyProps,
+  'typographyType'
+> & {
+  /**Styling basert på det typografiske utvalget definert i Figma, ekskludert interaktive elementer (altså `'a'`). */
+  typographyType?: StaticTypographyType;
+};
+
+export type TypographyComponentProps = Omit<
+  BaseTypographyProps,
+  'typographyType'
+> & {
   /**HTML tag som skal brukes istedenfor default definert via `typographyType`.  */
   as?: ElementType;
   /**Støtte for å enkelt kunne endre på hover- og active-styling. Bruk `@dds-design-tokens` til farger osv. */
-  interactionProps?: TypographyInteractionProps;
+  interactionProps?: TypographyInteractionStyling;
 };

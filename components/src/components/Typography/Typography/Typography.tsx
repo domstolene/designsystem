@@ -5,138 +5,40 @@ import {
   AnchorHTMLAttributes,
 } from 'react';
 import styled, { css, CSSObject } from 'styled-components';
-import { typographyTokens as tokens } from './Typography.tokens';
-import { Icon } from '../Icon';
+import { typographyTokens as tokens } from '../Typography.tokens';
+import { Icon } from '../../Icon';
 import {
   OtherTypographyType,
   AnchorTypographyType,
   LabelTypographyType,
-  InlineElement,
   TypographyComponentProps,
+  TypographyType,
+  TypographyInteractionStyling,
 } from './Typography.types';
 import {
   focusVisibleLink,
   focusVisibleLinkTransitionValue,
   selection,
-} from '../../helpers/styling';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { OpenExternalIcon } from '../../icons/tsx';
-import { getTextColor, isHeading } from './Typography.utils';
+} from '../../../helpers/styling';
+import { BaseComponentProps, getBaseHTMLProps } from '../../../types';
+import { OpenExternalIcon } from '../../../icons/tsx';
+import {
+  getElementType,
+  getAdditionalFontStyle,
+  getMarginStyling,
+} from '../Typography.utils';
+import { getTextColor, TextColor } from '../../../utils';
 
-const getElementType = (element: string): ElementType => {
-  switch (element) {
-    case 'a':
-      return 'a';
-    case 'headingSans01':
-      return 'h6';
-    case 'headingSans02':
-      return 'h5';
-    case 'headingSans03':
-      return 'h4';
-    case 'headingSans04':
-      return 'h3';
-    case 'headingSans05':
-      return 'h2';
-    case 'headingSans06':
-    case 'headingSans07':
-    case 'headingSans08':
-      return 'h1';
-    case 'supportingStyleLabel01':
-      return 'label';
-    case 'bodySans01':
-    case 'bodySans02':
-    case 'bodySans03':
-    case 'bodySans04':
-    case 'bodySerif01':
-    case 'bodySerif02':
-    case 'bodySerif03':
-    case 'bodySerif04':
-    case 'leadSans01':
-    case 'leadSans02':
-    case 'leadSans03':
-    case 'leadSans04':
-    case 'leadSans05':
-    case 'supportingStyleInputText01':
-    case 'supportingStyleInputText02':
-    case 'supportingStyleInputText03':
-    case 'supportingStyleHelperText01':
-    case 'supportingStylePlaceholderText01':
-    case 'supportingStyleTiny01':
-    case 'supportingStyleTiny02':
-    default:
-      return 'p';
-  }
+type StyledTypographyProps = {
+  as: ElementType;
+  typographyType: TypographyType;
+  withMargins?: boolean;
+  color: TextColor;
+  bold?: boolean;
+  italic?: boolean;
+  underline?: boolean;
+  interactionProps?: TypographyInteractionStyling;
 };
-
-export const inlineElements: ElementType[] = [
-  'a',
-  'abbr',
-  'audio',
-  'b',
-  'bdi',
-  'bdo',
-  'big',
-  'br',
-  'button',
-  'canvas',
-  'cite',
-  'code',
-  'data',
-  'datalist',
-  'del',
-  'dfn',
-  'em',
-  'embed',
-  'i',
-  'iframe',
-  'img',
-  'input',
-  'ins',
-  'kbd',
-  'label',
-  'map',
-  'mark',
-  'meter',
-  'noscript',
-  'object',
-  'output',
-  'picture',
-  'progress',
-  'q',
-  'ruby',
-  's',
-  'samp',
-  'script',
-  'select',
-  'slot',
-  'small',
-  'span',
-  'strong',
-  'sub',
-  'sup',
-  'svg',
-  'template',
-  'textarea',
-  'time',
-  'u',
-  'var',
-  'video',
-  'wbr',
-];
-
-const isInlineElement = (as: ElementType): as is InlineElement =>
-  inlineElements.indexOf(as) !== -1;
-
-type StyledTypographyProps = { as: ElementType } & Pick<
-  TypographyProps,
-  | 'typographyType'
-  | 'bold'
-  | 'italic'
-  | 'underline'
-  | 'withMargins'
-  | 'interactionProps'
-  | 'color'
->;
 
 const StyledTypography = styled.p<StyledTypographyProps>`
   &::selection,
@@ -145,7 +47,6 @@ const StyledTypography = styled.p<StyledTypographyProps>`
   }
 
   ${({ typographyType }) =>
-    typographyType &&
     typographyType !== 'a' &&
     css`
       color: ${tokens.typographyType[typographyType].base.color};
@@ -200,55 +101,13 @@ const StyledTypography = styled.p<StyledTypographyProps>`
       }
     `}
 
-  ${({ withMargins, typographyType, as }) =>
-    withMargins && typographyType && isInlineElement(as)
-      ? css`
-          margin-top: ${tokens.typographyType[typographyType].margins
-            .marginTop};
-          margin-bottom: ${tokens.typographyType[typographyType].margins
-            .marginBottom};
-          display: block;
-        `
-      : withMargins && typographyType && isHeading(typographyType)
-      ? css`
-          margin-top: ${tokens.typographyType[typographyType].margins
-            .marginTop};
-          margin-bottom: ${tokens.typographyType[typographyType].margins
-            .marginBottom};
-          padding-top: ${tokens.typographyType[typographyType].margins
-            .paddingTop};
-        `
-      : withMargins && typographyType
-      ? css`
-          margin-top: ${tokens.typographyType[typographyType].margins
-            .marginTop};
-          margin-bottom: ${tokens.typographyType[typographyType].margins
-            .marginBottom};
-        `
-      : css`
-          margin: 0;
-        `}
+  color: ${({ color }) => getTextColor(color)};
 
-  ${({ color }) =>
-    color &&
-    css`
-      color: ${getTextColor(color)};
-    `}
-  ${({ bold }) =>
-    bold &&
-    css`
-      font-weight: ${tokens.style.bold.fontWeight};
-    `}
-  ${({ italic }) =>
-    italic &&
-    css`
-      font-style: italic;
-    `}
-  ${({ underline }) =>
-    underline &&
-    css`
-      text-decoration: underline;
-    `}
+  ${({ typographyType, as, withMargins }) =>
+    getMarginStyling(typographyType, as, withMargins)}
+
+  ${({ bold, italic, underline }) =>
+    getAdditionalFontStyle(bold, italic, underline)};
 `;
 
 type AnchorTypographyProps = BaseComponentProps<

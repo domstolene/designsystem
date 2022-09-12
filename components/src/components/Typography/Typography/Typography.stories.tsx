@@ -1,11 +1,39 @@
-import { Typography } from '.';
 import styled from 'styled-components';
-import { LocalMessage } from '../LocalMessage';
-import { StoryTemplate } from '../../storybook';
+import { Typography, TypographyProps } from '..';
+import { StoryTemplate } from '../../../storybook';
+
+type StoryTProps = {
+  text: string;
+} & TypographyProps;
 
 export default {
-  title: 'Design system/Typography/Examples',
+  title: 'Design system/Typography/Typography',
   component: Typography,
+  argTypes: {
+    typographyType: { control: { type: 'select' } },
+    bold: { control: { type: 'boolean' } },
+    italic: { control: { type: 'boolean' } },
+    withMargins: { control: { type: 'boolean' } },
+    externalLink: { control: { type: 'boolean' } },
+    color: { control: { type: 'text' } },
+    href: { control: { type: 'text' } },
+    text: { control: { type: 'text' } },
+    as: { control: { type: 'text' } },
+  },
+  parameters: {
+    controls: {
+      exclude: ['style', 'target'],
+    },
+  },
+};
+
+export const Default = (args: StoryTProps) => {
+  const { text, ...rest } = args;
+  return (
+    <StoryTemplate title="Typography - default">
+      <Typography {...rest}>{text || 'default'}</Typography>
+    </StoryTemplate>
+  );
 };
 
 const ArticleContainer = styled.div`
@@ -72,83 +100,6 @@ export const Article = () => {
           blitt fritatt for å møte.
         </Typography>
       </ArticleContainer>
-    </StoryTemplate>
-  );
-};
-
-export const Link = () => {
-  return (
-    <StoryTemplate title="Link - examples">
-      <Typography>
-        Rettsmekling går ut på at partene selv finner en løsning på konflikten
-        ved å bruke en mekler (vanligvis en dommer i domstolen som behandler
-        saken). Avtalen man kommer fram til, blir rettskraftig på lik linje med
-        en dom. Rettsmekling kan bare brukes i{' '}
-        <Typography
-          typographyType="a"
-          href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
-        >
-          sivile saker
-        </Typography>
-        , ikke i straffesaker. Hvis konflikten ikke løses ved mekling, avgjøres
-        saken ved hovedforhandling (rettssak). Rettsmekling er regulert i{' '}
-        <Typography
-          typographyType="a"
-          href="https://lovdata.no/dokument/NL/lov/2005-06-17-90/KAPITTEL_2-4-2#%C2%A78-3"
-          externalLink
-        >
-          tvisteloven §§ 8-3
-        </Typography>
-        . Litt mer tekst.
-      </Typography>
-      <LocalMessage>
-        <Typography>
-          Dette er tekst med{' '}
-          <Typography
-            typographyType="a"
-            href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
-          >
-            lenke
-          </Typography>
-          .
-        </Typography>
-      </LocalMessage>
-      <LocalMessage purpose="danger">
-        <Typography>
-          Dette er tekst med{' '}
-          <Typography
-            typographyType="a"
-            href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
-          >
-            lenke
-          </Typography>
-          .
-        </Typography>
-      </LocalMessage>
-      <LocalMessage purpose="success">
-        <Typography>
-          Dette er tekst med{' '}
-          <Typography
-            typographyType="a"
-            href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
-          >
-            lenke
-          </Typography>
-          .
-        </Typography>
-      </LocalMessage>
-      <LocalMessage purpose="tips">
-        <Typography>
-          Dette er tekst med{' '}
-          <Typography
-            typographyType="a"
-            href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
-          >
-            lenke
-          </Typography>
-          .
-        </Typography>
-      </LocalMessage>
     </StoryTemplate>
   );
 };

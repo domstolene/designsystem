@@ -1,8 +1,8 @@
-import { Typography } from '.';
-import { StoryTemplate } from '../../storybook';
+import { Typography } from '..';
+import { StoryTemplate } from '../../../storybook';
 
 export default {
-  title: 'Design system/Typography/Overview',
+  title: 'Design system/Typography/Overview/Typography types',
   component: Typography,
 };
 
@@ -13,73 +13,49 @@ export const Body = () => {
         bodySans01 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
       <Typography typographyType="bodySans02">
         bodySans02 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
       <Typography typographyType="bodySans03">
         bodySans03 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
       <Typography typographyType="bodySans04">
         bodySans04 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
       <Typography typographyType="bodySerif01">
         bodySerif01 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
       <Typography typographyType="bodySerif02">
         bodySerif02 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
       <Typography typographyType="bodySerif03">
         bodySerif03 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
       <Typography typographyType="bodySerif04">
         bodySerif04 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken. Også andre forhold, som felles økonomiske interesser,
-        må du fortelle om. Det kan være at du på grunn av din stilling,
-        slektskap eller lignende ikke skal avgi forklaring, eller at du har rett
-        til å la være. Dette vil retten i så fall gjøre deg oppmerksom på.
+        partene i saken.
       </Typography>
     </StoryTemplate>
   );
