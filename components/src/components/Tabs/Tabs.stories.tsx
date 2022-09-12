@@ -104,7 +104,7 @@ export const ActiveTab: Story<TabsProps> = args => {
   );
 };
 
-export const withWidth: Story<TabsProps> = args => (
+export const WithWidth: Story<TabsProps> = args => (
   <StoryTemplate title="Tabs - tab width" display="block">
     <Tabs {...args} width="500px">
       <TabList>
