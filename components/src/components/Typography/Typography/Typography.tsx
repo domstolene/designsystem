@@ -15,17 +15,14 @@ import {
   TypographyType,
   TypographyInteractionStyling,
 } from './Typography.types';
-import {
-  focusVisibleLink,
-  focusVisibleLinkTransitionValue,
-  selection,
-} from '../../../helpers/styling';
+import { selection } from '../../../helpers/styling';
 import { BaseComponentProps, getBaseHTMLProps } from '../../../types';
 import { OpenExternalIcon } from '../../../icons/tsx';
 import {
   getElementType,
   getAdditionalFontStyle,
   getMarginStyling,
+  getAnchorStyling,
 } from '../Typography.utils';
 import { getTextColor, TextColor } from '../../../utils';
 
@@ -38,6 +35,7 @@ type StyledTypographyProps = {
   italic?: boolean;
   underline?: boolean;
   interactionProps?: TypographyInteractionStyling;
+  externalLink?: boolean;
 };
 
 const StyledTypography = styled.p<StyledTypographyProps>`
@@ -46,45 +44,17 @@ const StyledTypography = styled.p<StyledTypographyProps>`
     ${selection}
   }
 
-  ${({ typographyType }) =>
-    typographyType !== 'a' &&
-    css`
-      color: ${tokens.typographyType[typographyType].base.color};
-      ${tokens.typographyType[typographyType].base.font};
-    `}
+  ${({ typographyType, externalLink, interactionProps }) =>
+    typographyType === 'a'
+      ? css`
+          ${getAnchorStyling(externalLink, interactionProps)}
+        `
+      : css`
+          color: ${tokens.typographyType[typographyType].base.color};
+          ${tokens.typographyType[typographyType].base.font};
+        `}
 
-  ${({ typographyType, interactionProps }) =>
-    typographyType === 'a' &&
-    css`
-      display: inline-flex;
-      align-items: center;
-      font: inherit;
-      text-decoration: underline;
-      width: fit-content;
-      color: ${tokens.typographyType[typographyType].base.color};
-      gap: ${tokens.typographyType[typographyType].base.gap};
-      @media (prefers-reduced-motion: no-preference) {
-        transition: ${focusVisibleLinkTransitionValue};
-      }
-
-      &:hover {
-        color: ${tokens.typographyType[typographyType].hover.color};
-      }
-      ${interactionProps &&
-      interactionProps.active &&
-      css`
-        &:active {
-          ${interactionProps.active as CSSObject}
-        }
-      `}
-      &:focus-visible, &.focus-visible {
-        ${focusVisibleLink}
-      }
-      &:focus-visible::selection &.focus-visible::selection {
-        ${focusVisibleLink}
-      }
-    `}
-    ${({ interactionProps }) =>
+  ${({ interactionProps }) =>
     interactionProps &&
     interactionProps.hover &&
     css`
@@ -174,6 +144,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     let relProp;
     let targetProp;
+    let externalLinkProp;
     let renderIcon = false;
     if (isAnchorProps(props)) {
       const { externalLink, target } = props;
@@ -181,6 +152,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       renderIcon = (as === 'a' && externalLink) ?? false;
       relProp = as === 'a' ? 'noopener noreferer' : undefined;
       targetProp = as !== 'a' ? undefined : externalLink ? '_blank' : target;
+      externalLinkProp = as === 'a' && externalLink ? externalLink : undefined;
     }
 
     const typographyProps = {
@@ -190,6 +162,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
       style: { ...htmlPropsStyle, ...style },
       rel: relProp,
       target: targetProp,
+      externalLink: externalLinkProp,
     };
 
     return (

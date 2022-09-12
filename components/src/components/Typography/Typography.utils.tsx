@@ -152,6 +152,7 @@ export const getMarginStyling = (
   withMargins
     ? css`
         ${isInlineElement(element) &&
+        element !== 'a' &&
         css`
           display: block;
         `}
