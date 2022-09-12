@@ -1,0 +1,51 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../../storybook';
+import { Heading } from '.';
+import { Link } from '..';
+
+<Meta title="Design system/Typography/Heading/API" component={Heading} />
+
+# Heading
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Heading"
+/>
+
+## Introduksjon
+
+`<Heading />` er en komponent som tilsvarer `<h1>`-`<h6>` HTML tag. Den bruker oversikten over typografistiler definert i <Link external href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Link> til å gi tekst riktig styling.
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-typography-heading--default" />
+</Canvas>
+
+Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}-typography`}>Storybook</Link>.
+
+## Bruk i koden
+
+<Source code={`import { Heading } from '@norges-domstoler/dds-components';
+
+<Heading level={1}>Heading</Heading>`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLHeadingElement>`-interface.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten.
