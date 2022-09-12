@@ -1,18 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import { Typography } from './Typography';
+import { Link } from './Link';
 
-describe('<Typography />', () => {
+describe('<Link />', () => {
   it('should have text', () => {
     const text = 'text';
-    render(<Typography>{text}</Typography>);
+    render(<Link>{text}</Link>);
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
   it('should have role="link"', () => {
-    render(
-      <Typography typographyType="a" href="/">
-        text
-      </Typography>
-    );
+    render(<Link href="/">text</Link>);
     expect(screen.queryByRole('link')).toBeInTheDocument();
   });
 });
