@@ -70,7 +70,14 @@ Tilgjengelige komponenter:
 - ToggleBar
 - ToggleButton
 - Tooltip
-- Typography
+- Typografikomponenter:
+  - Caption
+  - Heading
+  - Label
+  - Legend
+  - Link
+  - Paragraph
+  - Typography
 - VisuallyHidden
 
 ## ⏫ Release av ny versjon
