@@ -7,4 +7,13 @@ describe('<Heading />', () => {
     render(<Heading level={1}>{text}</Heading>);
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
+  it('should render a heading', () => {
+    render(<Heading level={1} />);
+    expect(screen.getByRole('heading')).toBeInTheDocument();
+  });
+  it('should render heading with level 2', () => {
+    const text = 'text';
+    render(<Heading level={2}>{text}</Heading>);
+    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+  });
 });

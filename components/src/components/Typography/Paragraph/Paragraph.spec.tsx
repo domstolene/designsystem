@@ -7,4 +7,9 @@ describe('<Paragraph />', () => {
     render(<Paragraph>{text}</Paragraph>);
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
+  it('should render <p>', () => {
+    const text = 'text';
+    render(<Paragraph>{text}</Paragraph>);
+    expect(screen.getByText(text).nodeName).toBe('P');
+  });
 });

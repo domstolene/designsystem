@@ -7,4 +7,9 @@ describe('<Label />', () => {
     render(<Label>{text}</Label>);
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
+  it('should render <label>', () => {
+    const text = 'text';
+    render(<Label>{text}</Label>);
+    expect(screen.getByText(text).nodeName).toBe('LABEL');
+  });
 });

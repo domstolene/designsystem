@@ -7,4 +7,9 @@ describe('<Legend />', () => {
     render(<Legend>{text}</Legend>);
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
+  it('should render <legend>', () => {
+    const text = 'text';
+    render(<Legend>{text}</Legend>);
+    expect(screen.getByText(text).nodeName).toBe('LEGEND');
+  });
 });

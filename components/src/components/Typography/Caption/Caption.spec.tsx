@@ -7,4 +7,9 @@ describe('<Caption />', () => {
     render(<Caption>{text}</Caption>);
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
+  it('should render a caption', () => {
+    const text = 'text';
+    render(<Caption>{text}</Caption>);
+    expect(screen.getByText(text).nodeName).toBe('CAPTION');
+  });
 });
