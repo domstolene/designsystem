@@ -29,12 +29,12 @@ export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
       ...rest
     } = props;
 
-    const pagagraphProps = {
+    const paragraphProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       typographyType,
       ref,
     };
 
-    return <Typography {...pagagraphProps}> {children} </Typography>;
+    return <Typography {...paragraphProps}>{children}</Typography>;
   }
 );

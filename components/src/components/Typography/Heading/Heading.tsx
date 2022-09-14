@@ -65,6 +65,6 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
       ref,
     };
 
-    return <Typography {...headingProps}> {children} </Typography>;
+    return <Typography {...headingProps}>{children}</Typography>;
   }
 );
