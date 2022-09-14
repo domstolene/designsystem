@@ -9,12 +9,7 @@ export default {
   title: 'Design system/Typography/Legend',
   component: Legend,
   argTypes: {
-    typographyType: { control: { type: 'select' } },
-    bold: { control: { type: 'boolean' } },
-    italic: { control: { type: 'boolean' } },
-    underline: { control: { type: 'boolean' } },
     withMargins: { control: { type: 'boolean' } },
-    color: { control: { type: 'text' } },
     text: { control: { type: 'text' } },
   },
 };
