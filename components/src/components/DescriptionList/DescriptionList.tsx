@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+import { selection } from '../../helpers/styling';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { descriptionListTokens as tokens } from './DescriptionList.tokens';
 
 const { term, desc, list } = tokens;
@@ -11,7 +11,7 @@ type DListProps = Pick<DescriptionListProps, 'appearance'>;
 const DList = styled.dl<DListProps>`
   margin: 0;
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   ${({ appearance }) =>
     appearance &&

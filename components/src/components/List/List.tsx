@@ -4,10 +4,10 @@ import bullet from '../../assets/svg/bullets/jordskifterett_bullet1.svg';
 import bulletLvl2 from '../../assets/svg/bullets/lagmannsrett_bullet2.svg';
 import bulletLvl3 from '../../assets/svg/bullets/tingrett_bullet3.svg';
 import { TypographyBodyType } from '../Typography';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { listItemTokens } from './ListItem.tokens';
 import { listTokens as tokens } from './List.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { selection } from '../../helpers/styling';
 
 const liTextPadding = `1em + ${listItemTokens.bulletSpacing}`;
 const ulPaddingLeft = `${tokens.spaceLeft} - (${liTextPadding})`;
@@ -20,7 +20,7 @@ const StyledList = styled.ul<StyledListProps>`
     margin: 0;
   }
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   ${({ typographyType }) =>
     typographyType &&

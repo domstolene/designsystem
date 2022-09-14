@@ -12,9 +12,9 @@ import {
   handleElementWithBackdropUnmount,
 } from '../../helpers';
 import { useMountTransition } from '../../hooks/useMountTransition';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
+import { selection } from '../../helpers/styling';
 
 const Container = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const Container = styled.div`
   min-width: 200px;
   &::selection,
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   ${tokens.base}
   :focus-visible, &.focus-visible {

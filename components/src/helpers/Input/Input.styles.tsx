@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import { inputTokens as tokens } from './Input.tokens';
 import { Typography } from '../../components/Typography';
-import { typographyTokens } from '../../components/Typography/Typography.tokens';
 import { StyledInputProps, StyledLabelProps } from '.';
 import { Property } from 'csstype';
+import { selection } from '../styling';
 
 export const Input = styled.input`
   ${tokens.baseInput.base}
@@ -29,7 +29,7 @@ export const Input = styled.input`
     -webkit-appearance: none;
   }
   &::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
 
   &:focus:enabled:read-write,

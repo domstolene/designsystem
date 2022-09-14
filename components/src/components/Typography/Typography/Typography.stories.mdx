@@ -3,17 +3,17 @@ import {
   Story,
   Meta,
   ArgsTable,
-  PRIMARY_STORY
+  PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import {
   Source,
   ComponentLinkRow,
   SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory
-} from '../../storybook';
+  LinkToInteractiveStory,
+} from '../../../storybook';
 import { Typography } from '.';
 
-<Meta title="Design system/Typography/API" component={Typography} />
+<Meta title="Design system/Typography/Typography/API" component={Typography} />
 # Typography
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
@@ -27,27 +27,27 @@ import { Typography } from '.';
 ## Demo
 
 <Canvas>
-  <Story id="design-system-typography-overview--body" />
+  <Story id="design-system-typography-overview-typography-types--body" />
 </Canvas>
 
 <Canvas>
-  <Story id="design-system-typography-overview--headings" />
+  <Story id="design-system-typography-overview-typography-types--headings" />
 </Canvas>
 
 <Canvas>
-  <Story id="design-system-typography-overview--leads" />
+  <Story id="design-system-typography-overview-typography-types--leads" />
 </Canvas>
 
 <Canvas>
-  <Story id="design-system-typography-overview--supporting" />
+  <Story id="design-system-typography-overview-typography-types--supporting" />
 </Canvas>
 
 <Canvas>
-  <Story id="design-system-typography-overview--link" />
+  <Story id="design-system-typography-overview-typography-types--link" />
 </Canvas>
 
 <Canvas>
-  <Story id="design-system-typography--default" />
+  <Story id="design-system-typography-typography--default" />
 </Canvas>
 
 Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-typography`}>Storybook</Typography>.
@@ -87,9 +87,9 @@ sammen av komponenten.
 ### Types
 
 <Source
-  code={`type TypographyInteractionProps = {
-  hover?: CSSObject;
-  active?: CSSObject;
+  code={`type TypographyInteractionStyling = {
+  hover?: CSSProperties;
+  active?: CSSProperties;
 };`}
 />
 

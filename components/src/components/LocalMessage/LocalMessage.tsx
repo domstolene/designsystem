@@ -5,9 +5,9 @@ import { localMessageTokens as tokens } from './LocalMessage.tokens';
 import { Icon } from '../Icon';
 import { Property } from 'csstype';
 import { Typography } from '../Typography';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
+import { selection } from '../../helpers/styling';
 
 type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
 
@@ -22,7 +22,7 @@ const Container = styled.div<ContainerProps>`
       justify-content: space-between;
     `};
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   ${({ purpose }) =>
     purpose &&

@@ -1,0 +1,51 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../../storybook';
+import { Legend } from '.';
+import { Typography } from '..';
+
+<Meta title="Design system/Typography/Legend/API" component={Legend} />
+
+# Legend
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Legend"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-typography-legend--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-typography`}>Storybook</Typography>.
+
+## Introduksjon
+
+`<Legend />` er en komponent som tilsvarer `<legend>` HTML tag - tittel for en gruppe i skjema.
+
+## Bruk i koden
+
+<Source code={`import { Legend } from '@norges-domstoler/dds-components';
+
+<Legend>Legend</Legend>`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLLegendElement>`-interface.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten.

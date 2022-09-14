@@ -1,3 +1,12 @@
+import {
+  ddsBaseTokens,
+  ddsReferenceTokens,
+} from '@norges-domstoler/dds-design-tokens';
+import { Property } from 'csstype';
+
+const { colors } = ddsBaseTokens;
+const { textDefault } = ddsReferenceTokens;
+
 export type ColorAlphaFormat = 'hex8' | 'decimal';
 
 export const convertAlpha = (
@@ -65,4 +74,71 @@ export const changeRGBAAlpha = (value: string, alpha: number): string => {
   }
 
   return value.replace(/[\d\.]+\)$/g, alpha.toString() + ')');
+};
+
+export const textColors = {
+  interactive: colors.DdsColorInteractiveBase,
+  primary: colors.DdsColorPrimaryBase,
+  danger: colors.DdsColorDangerBase,
+  success: colors.DdsColorSuccessBase,
+  warning: colors.DdsColorWarningBase,
+  onLight: textDefault.textColor,
+  onDark: colors.DdsColorNeutralsWhite,
+  gray1: colors.DdsColorNeutralsGray1,
+  gray2: colors.DdsColorNeutralsGray2,
+  gray3: colors.DdsColorNeutralsGray3,
+  gray4: colors.DdsColorNeutralsGray4,
+  gray5: colors.DdsColorNeutralsGray5,
+  gray6: colors.DdsColorNeutralsGray6,
+  gray7: colors.DdsColorNeutralsGray7,
+  gray8: colors.DdsColorNeutralsGray8,
+  gray9: colors.DdsColorNeutralsGray9,
+};
+
+export type DDSTextColor =
+  | 'interactive'
+  | 'primary'
+  | 'danger'
+  | 'warning'
+  | 'success'
+  | 'onLight'
+  | 'onDark'
+  | 'gray1'
+  | 'gray2'
+  | 'gray3'
+  | 'gray4'
+  | 'gray5'
+  | 'gray6'
+  | 'gray7'
+  | 'gray8'
+  | 'gray9';
+
+export const textColorsArray = [
+  'interactive',
+  'primary',
+  'danger',
+  'success',
+  'warning',
+  'onLight',
+  'onDark',
+  'gray1',
+  'gray2',
+  'gray3',
+  'gray4',
+  'gray5',
+  'gray6',
+  'gray7',
+  'gray8',
+  'gray9',
+];
+
+export type TextColor = DDSTextColor | Property.Color;
+
+export function isTextColor(color: string): color is DDSTextColor {
+  return textColorsArray.indexOf(color) !== -1;
+}
+
+export const getTextColor = (color: TextColor): string => {
+  if (isTextColor(color)) return textColors[color];
+  return color;
 };

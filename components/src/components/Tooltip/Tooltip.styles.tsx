@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { visibilityTransition } from '../../helpers/styling';
-import { typographyTokens } from '../Typography/Typography.tokens';
+import { selection, visibilityTransition } from '../../helpers/styling';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
 
 export const SvgArrow = styled.svg`
@@ -20,7 +19,7 @@ type WrapperProps = {
 
 export const TooltipWrapper = styled.div<WrapperProps>`
   &::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   ${({ open }) => visibilityTransition(open)}
   width: fit-content;

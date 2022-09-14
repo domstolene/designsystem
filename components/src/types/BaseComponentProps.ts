@@ -15,11 +15,11 @@ export type BaseComponentProps<
   TElement extends Element,
   TOtherProps extends Record<string, unknown> = Record<string, unknown>,
   THTMLAttributesProps extends HTMLAttributes<TElement> = HTMLAttributes<TElement>
-> = {
-  /**Ekstra HTML-attributter som vil settes på elementet som genereres. Untatt `id` og `className` som settes på toppnivå. */
-  htmlProps?: THTMLAttributesProps;
-} & Pick<THTMLAttributesProps, 'id' | 'className'> &
-  TOtherProps;
+> = Pick<THTMLAttributesProps, 'id' | 'className'> &
+  TOtherProps & {
+    /**Ekstra HTML-attributter som vil settes på elementet som genereres. Untatt `id` og `className` som settes på toppnivå. */
+    htmlProps?: THTMLAttributesProps;
+  };
 
 /**
  * Utvidelese av {@link BaseComponentProps} med prop for `children`.

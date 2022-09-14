@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 import styled, { CSSObject } from 'styled-components';
-import { visibilityTransition } from '../../helpers/styling';
+import { selection, visibilityTransition } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
 import {
   useCombinedRef,
@@ -18,7 +18,6 @@ import {
   OverflowMenuNavItem,
   OverflowMenuProps,
 } from '.';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { getBaseHTMLProps } from '../../types';
 import { PersonIcon } from '../../icons/tsx';
 
@@ -41,7 +40,7 @@ export const Container = styled.div<ContainerProps>`
   ${scrollbarStyling.firefox as CSSObject}
 
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
 `;
 

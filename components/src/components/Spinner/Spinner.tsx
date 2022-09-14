@@ -1,7 +1,7 @@
 import React, { useId } from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
-import { getTextColor, TextColor } from '../Typography';
+import { getTextColor, TextColor } from '../../utils';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { spinnerTokens as tokens } from './Spinner.tokens';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';

@@ -1,8 +1,8 @@
 import { AnchorHTMLAttributes, RefObject } from 'react';
 import styled, { css } from 'styled-components';
 import { cardTokens as tokens } from './Card.tokens';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { selection } from '../../helpers/styling';
 
 type ContainerProps = {
   color: CardColor;
@@ -12,7 +12,7 @@ type ContainerProps = {
 const Container = styled.div<ContainerProps>`
   ${tokens.base}
   &::selection, *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 0.2s, border-color 0.2s;

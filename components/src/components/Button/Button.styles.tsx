@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import { focusVisibleTransitionValue } from '../../helpers/styling';
-import { typographyTokens } from '../Typography/Typography.tokens';
+import { focusVisibleTransitionValue, selection } from '../../helpers/styling';
 import { buttonTokens as tokens } from './Button.tokens';
 import {
   ButtonAppearance,
@@ -91,7 +90,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   }
 
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
 `;
 

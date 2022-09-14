@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { typographyTokens } from '../../components/Typography/Typography.tokens';
+import { selection } from '../styling';
 import { paperTokens as tokens } from './Paper.tokens';
 
 export const Paper = styled.div`
@@ -7,7 +7,7 @@ export const Paper = styled.div`
   margin: 0;
   &::selection,
   *::selection {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
   ${tokens.base}
 `;

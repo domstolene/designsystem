@@ -7,4 +7,12 @@ describe('<Typography />', () => {
     render(<Typography>{text}</Typography>);
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
+  it('should have role="link"', () => {
+    render(
+      <Typography typographyType="a" href="/">
+        text
+      </Typography>
+    );
+    expect(screen.queryByRole('link')).toBeInTheDocument();
+  });
 });

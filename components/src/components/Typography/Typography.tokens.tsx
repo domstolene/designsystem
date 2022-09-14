@@ -2,621 +2,413 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
-import { focusVisibleLink } from '../../helpers/styling';
 
-const {
-  colors: Colors,
-  fontPackages: FontPackages,
-  spacing: Spacing,
-} = ddsBaseTokens;
+const { colors, fontPackages, spacing } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
 
-export const textColors = {
-  interactive: Colors.DdsColorInteractiveBase,
-  primary: Colors.DdsColorPrimaryBase,
-  danger: Colors.DdsColorDangerBase,
-  success: Colors.DdsColorSuccessBase,
-  warning: Colors.DdsColorWarningBase,
-  onLight: textDefault.textColor,
-  onDark: Colors.DdsColorNeutralsWhite,
-  gray1: Colors.DdsColorNeutralsGray1,
-  gray2: Colors.DdsColorNeutralsGray2,
-  gray3: Colors.DdsColorNeutralsGray3,
-  gray4: Colors.DdsColorNeutralsGray4,
-  gray5: Colors.DdsColorNeutralsGray5,
-  gray6: Colors.DdsColorNeutralsGray6,
-  gray7: Colors.DdsColorNeutralsGray7,
-  gray8: Colors.DdsColorNeutralsGray8,
-  gray9: Colors.DdsColorNeutralsGray9,
+const a = {
+  base: {
+    color: colors.DdsColorInteractiveBase,
+    gap: spacing.SizesDdsSpacingLocalX0125,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_sans_02.paragraph.paragraphSpacing,
+  },
+  hover: {
+    color: colors.DdsColorInteractiveDark,
+  },
 };
 
-export const textColorsArray = [
-  'interactive',
-  'primary',
-  'danger',
-  'success',
-  'warning',
-  'onLight',
-  'onDark',
-  'gray1',
-  'gray2',
-  'gray3',
-  'gray4',
-  'gray5',
-  'gray6',
-  'gray7',
-  'gray8',
-  'gray9',
-];
-
-const aBase: CSSObject = {
-  color: Colors.DdsColorInteractiveBase,
-  font: 'inherit',
-  textDecoration: 'underline',
-  width: 'fit-content',
-};
-
-const aMarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_sans_02.paragraph.paragraphSpacing,
-};
-
-const aHoverBase: CSSObject = {
-  color: Colors.DdsColorInteractiveDark,
-};
-
-const aFocusBase: CSSObject = {
-  ...focusVisibleLink,
-};
-
-const aBoldBase: CSSObject = {
-  ...FontPackages.body_sans_02,
+const bold = {
   fontWeight: 600,
 };
 
-const boldBase: CSSObject = {
-  fontWeight: 600,
+const headingSans01 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_01.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_01.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans01Top,
+  },
 };
 
-const underlineBase: CSSObject = {
-  textDecoration: 'underline',
+const headingSans02 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_02.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_02.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans02Top,
+  },
 };
 
-const italicBase: CSSObject = {
-  fontStyle: 'italic',
+const headingSans03 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_03.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_03.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans03Top,
+  },
 };
 
-const headingSans01Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_01.base,
+const headingSans04 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_04.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_04.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans04Top,
+  },
 };
 
-const headingSans01MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_01.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans01Top,
+const headingSans05 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_05.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_05.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans05Top,
+  },
 };
 
-const headingSans02Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_02.base,
+const headingSans06 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_06.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_06.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans06Top,
+  },
 };
 
-const headingSans02MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_02.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans02Top,
+const headingSans07 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_07.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_07.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans07Top,
+  },
 };
 
-const headingSans03Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_03.base,
+const headingSans08 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.heading_sans_08.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.heading_sans_08.paragraph.paragraphSpacing,
+    paddingTop: spacing.SpacingDdsSpacingPaddingTopHeadingSans08Top,
+  },
 };
 
-const headingSans03MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_03.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans03Top,
+const bodySans01 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_sans_01.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_sans_01.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans04Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_04.base,
+const bodySans02 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_sans_02.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_sans_02.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans04MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_04.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans04Top,
+const bodySans03 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_sans_03.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_sans_03.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans05Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_05.base,
+const bodySans04 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_sans_04.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_sans_04.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans05MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_05.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans05Top,
+const bodySerif01 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_serif_01.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_serif_01.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans06Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_06.base,
+const bodySerif02 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_serif_02.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_serif_02.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans06MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_06.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans06Top,
+const bodySerif03 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_serif_03.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_serif_03.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans07Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_07.base,
+const bodySerif04 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.body_serif_04.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.body_serif_04.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans07MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_07.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans07Top,
+const leadSans01 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.lead_sans_01.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.lead_sans_01.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans08Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.heading_sans_08.base,
+const leadSans02 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.lead_sans_02.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.lead_sans_02.paragraph.paragraphSpacing,
+  },
 };
 
-const headingSans08MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.heading_sans_08.paragraph.paragraphSpacing,
-  paddingTop: Spacing.SpacingDdsSpacingPaddingTopHeadingSans08Top,
+const leadSans03 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.lead_sans_03.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.lead_sans_03.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans01Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_sans_01.base,
+const leadSans04 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.lead_sans_04.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.lead_sans_04.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans01MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_sans_01.paragraph.paragraphSpacing,
+const leadSans05 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.lead_sans_05.base,
+  },
+  margins: {
+    marginTop: 0,
+    marginBottom: fontPackages.lead_sans_05.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans02Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_sans_02.base,
+const supportingStyleLabel01 = {
+  base: {
+    color: colors.DdsColorNeutralsGray7,
+    font: fontPackages.supportingStyle_label_01.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop: fontPackages.supportingStyle_label_01.paragraph.paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_label_01.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans02MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_sans_02.paragraph.paragraphSpacing,
+const supportingStyleHelperText01 = {
+  base: {
+    color: colors.DdsColorNeutralsGray6,
+    font: fontPackages.supportingStyle_helpertext_01.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop:
+      fontPackages.supportingStyle_helpertext_01.paragraph.paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_helpertext_01.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans03Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_sans_03.base,
+const supportingStyleInputText01 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.supportingStyle_inputtext_01.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop:
+      fontPackages.supportingStyle_inputtext_01.paragraph.paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_inputtext_01.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans03MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_sans_03.paragraph.paragraphSpacing,
+const supportingStyleInputText02 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.supportingStyle_inputtext_02.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop:
+      fontPackages.supportingStyle_inputtext_02.paragraph.paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_inputtext_02.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans04Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_sans_04.base,
+const supportingStyleInputText03 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.supportingStyle_inputtext_03.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop:
+      fontPackages.supportingStyle_inputtext_03.paragraph.paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_inputtext_03.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySans04MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_sans_04.paragraph.paragraphSpacing,
+const supportingStylePlaceholderText01 = {
+  base: {
+    color: colors.DdsColorNeutralsGray6,
+    font: fontPackages.supportingStyle_placeholdertext_01.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop:
+      fontPackages.supportingStyle_placeholdertext_01.paragraph
+        .paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_placeholdertext_01.paragraph
+        .paragraphSpacing,
+  },
 };
 
-const bodySerif01Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_serif_01.base,
+const supportingStyleTiny01 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.supportingStyle_tiny_01.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop: fontPackages.supportingStyle_tiny_01.paragraph.paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_tiny_01.paragraph.paragraphSpacing,
+  },
 };
 
-const bodySerif01MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_serif_01.paragraph.paragraphSpacing,
-};
-
-const bodySerif02Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_serif_02.base,
-};
-
-const bodySerif02MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_serif_02.paragraph.paragraphSpacing,
-};
-
-const bodySerif03Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_serif_03.base,
-};
-
-const bodySerif03MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_serif_03.paragraph.paragraphSpacing,
-};
-
-const bodySerif04Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.body_serif_04.base,
-};
-
-const bodySerif04MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.body_serif_04.paragraph.paragraphSpacing,
-};
-
-const leadSans01Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.lead_sans_01.base,
-};
-
-const leadSans01MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.lead_sans_01.paragraph.paragraphSpacing,
-};
-
-const leadSans02Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.lead_sans_02.base,
-};
-
-const leadSans02MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.lead_sans_02.paragraph.paragraphSpacing,
-};
-
-const leadSans03Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.lead_sans_03.base,
-};
-
-const leadSans03MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.lead_sans_03.paragraph.paragraphSpacing,
-};
-
-const leadSans04Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.lead_sans_04.base,
-};
-
-const leadSans04MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.lead_sans_04.paragraph.paragraphSpacing,
-};
-
-const leadSans05Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.lead_sans_05.base,
-};
-
-const leadSans05MarginsBase: CSSObject = {
-  marginTop: 0,
-  marginBottom: FontPackages.lead_sans_05.paragraph.paragraphSpacing,
-};
-
-const supportingStyleLabel01Base: CSSObject = {
-  color: Colors.DdsColorNeutralsGray7,
-  ...FontPackages.supportingStyle_label_01.base,
-  margin: 0,
-};
-
-const supportingStyleLabel01MarginsBase: CSSObject = {
-  marginTop: FontPackages.supportingStyle_label_01.paragraph.paragraphSpacing,
-  marginBottom:
-    FontPackages.supportingStyle_label_01.paragraph.paragraphSpacing,
-};
-
-const supportingStyleHelperText01Base: CSSObject = {
-  color: Colors.DdsColorNeutralsGray6,
-  ...FontPackages.supportingStyle_helpertext_01.base,
-  margin: 0,
-};
-
-const supportingStyleHelperText01MarginsBase: CSSObject = {
-  marginTop:
-    FontPackages.supportingStyle_helpertext_01.paragraph.paragraphSpacing,
-  marginBottom:
-    FontPackages.supportingStyle_helpertext_01.paragraph.paragraphSpacing,
-};
-
-const supportingStyleInputText01Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.supportingStyle_inputtext_01.base,
-  margin: 0,
-};
-
-const supportingStyleInputText01MarginsBase: CSSObject = {
-  marginTop:
-    FontPackages.supportingStyle_inputtext_01.paragraph.paragraphSpacing,
-  marginBottom:
-    FontPackages.supportingStyle_inputtext_01.paragraph.paragraphSpacing,
-};
-
-const supportingStyleInputText02Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.supportingStyle_inputtext_02.base,
-  margin: 0,
-};
-
-const supportingStyleInputText02MarginsBase: CSSObject = {
-  marginTop:
-    FontPackages.supportingStyle_inputtext_02.paragraph.paragraphSpacing,
-  marginBottom:
-    FontPackages.supportingStyle_inputtext_02.paragraph.paragraphSpacing,
-};
-
-const supportingStyleInputText03Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.supportingStyle_inputtext_03.base,
-  margin: 0,
-};
-
-const supportingStyleInputText03MarginsBase: CSSObject = {
-  marginTop:
-    FontPackages.supportingStyle_inputtext_03.paragraph.paragraphSpacing,
-  marginBottom:
-    FontPackages.supportingStyle_inputtext_03.paragraph.paragraphSpacing,
-};
-
-const supportingStylePlaceholderText01Base: CSSObject = {
-  color: Colors.DdsColorNeutralsGray6,
-  ...FontPackages.supportingStyle_placeholdertext_01.base,
-  margin: 0,
-};
-
-const supportingStylePlaceholderText01MarginsBase: CSSObject = {
-  marginTop:
-    FontPackages.supportingStyle_placeholdertext_01.paragraph.paragraphSpacing,
-  marginBottom:
-    FontPackages.supportingStyle_placeholdertext_01.paragraph.paragraphSpacing,
-};
-
-const supportingStyleTiny01Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.supportingStyle_tiny_01.base,
-  margin: 0,
-};
-
-const supportingStyleTiny01MarginsBase: CSSObject = {
-  marginTop: FontPackages.supportingStyle_tiny_01.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.supportingStyle_tiny_01.paragraph.paragraphSpacing,
-};
-
-const supportingStyleTiny02Base: CSSObject = {
-  color: textDefault.textColor,
-  ...FontPackages.supportingStyle_tiny_02.base,
-  margin: 0,
-};
-
-const supportingStyleTiny02MarginsBase: CSSObject = {
-  marginTop: FontPackages.supportingStyle_tiny_02.paragraph.paragraphSpacing,
-  marginBottom: FontPackages.supportingStyle_tiny_02.paragraph.paragraphSpacing,
-};
-
-const selectionBase: CSSObject = {
-  color: textDefault.textColor,
-  backgroundColor: Colors.DdsColorTertiaryLightest,
+const supportingStyleTiny02 = {
+  base: {
+    color: textDefault.textColor,
+    font: fontPackages.supportingStyle_tiny_02.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop: fontPackages.supportingStyle_tiny_02.paragraph.paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_tiny_02.paragraph.paragraphSpacing,
+  },
 };
 
 export const typographyTokens = {
-  selection: {
-    base: selectionBase,
-  },
   typographyType: {
-    a: {
-      base: aBase,
-      hover: {
-        base: aHoverBase,
-      },
-      margins: {
-        base: aMarginsBase,
-      },
-      focus: {
-        base: aFocusBase,
-      },
-      bold: {
-        base: aBoldBase,
-      },
-      icon: {
-        marginLeft: Spacing.SizesDdsSpacingLocalX0125,
-      },
-    },
-    headingSans01: {
-      base: headingSans01Base,
-      margins: {
-        base: headingSans01MarginsBase,
-      },
-    },
-    headingSans02: {
-      base: headingSans02Base,
-      margins: {
-        base: headingSans02MarginsBase,
-      },
-    },
-    headingSans03: {
-      base: headingSans03Base,
-      margins: {
-        base: headingSans03MarginsBase,
-      },
-    },
-    headingSans04: {
-      base: headingSans04Base,
-      margins: {
-        base: headingSans04MarginsBase,
-      },
-    },
-    headingSans05: {
-      base: headingSans05Base,
-      margins: {
-        base: headingSans05MarginsBase,
-      },
-    },
-    headingSans06: {
-      base: headingSans06Base,
-      margins: {
-        base: headingSans06MarginsBase,
-      },
-    },
-    headingSans07: {
-      base: headingSans07Base,
-      margins: {
-        base: headingSans07MarginsBase,
-      },
-    },
-    headingSans08: {
-      base: headingSans08Base,
-      margins: {
-        base: headingSans08MarginsBase,
-      },
-    },
-    bodySans01: {
-      base: bodySans01Base,
-      margins: {
-        base: bodySans01MarginsBase,
-      },
-    },
-    bodySans02: {
-      base: bodySans02Base,
-      margins: {
-        base: bodySans02MarginsBase,
-      },
-    },
-    bodySans03: {
-      base: bodySans03Base,
-      margins: {
-        base: bodySans03MarginsBase,
-      },
-    },
-    bodySans04: {
-      base: bodySans04Base,
-      margins: {
-        base: bodySans04MarginsBase,
-      },
-    },
-    bodySerif01: {
-      base: bodySerif01Base,
-      margins: {
-        base: bodySerif01MarginsBase,
-      },
-    },
-    bodySerif02: {
-      base: bodySerif02Base,
-      margins: {
-        base: bodySerif02MarginsBase,
-      },
-    },
-    bodySerif03: {
-      base: bodySerif03Base,
-      margins: {
-        base: bodySerif03MarginsBase,
-      },
-    },
-    bodySerif04: {
-      base: bodySerif04Base,
-      margins: {
-        base: bodySerif04MarginsBase,
-      },
-    },
-    leadSans01: {
-      base: leadSans01Base,
-      margins: {
-        base: leadSans01MarginsBase,
-      },
-    },
-    leadSans02: {
-      base: leadSans02Base,
-      margins: {
-        base: leadSans02MarginsBase,
-      },
-    },
-    leadSans03: {
-      base: leadSans03Base,
-      margins: {
-        base: leadSans03MarginsBase,
-      },
-    },
-    leadSans04: {
-      base: leadSans04Base,
-      margins: {
-        base: leadSans04MarginsBase,
-      },
-    },
-    leadSans05: {
-      base: leadSans05Base,
-      margins: {
-        base: leadSans05MarginsBase,
-      },
-    },
-    supportingStyleLabel01: {
-      base: supportingStyleLabel01Base,
-      margins: {
-        base: supportingStyleLabel01MarginsBase,
-      },
-    },
-    supportingStyleHelperText01: {
-      base: supportingStyleHelperText01Base,
-      margins: {
-        base: supportingStyleHelperText01MarginsBase,
-      },
-    },
-    supportingStyleInputText01: {
-      base: supportingStyleInputText01Base,
-      margins: {
-        base: supportingStyleInputText01MarginsBase,
-      },
-    },
-    supportingStyleInputText02: {
-      base: supportingStyleInputText02Base,
-      margins: {
-        base: supportingStyleInputText02MarginsBase,
-      },
-    },
-    supportingStyleInputText03: {
-      base: supportingStyleInputText03Base,
-      margins: {
-        base: supportingStyleInputText03MarginsBase,
-      },
-    },
-    supportingStylePlaceholderText01: {
-      base: supportingStylePlaceholderText01Base,
-      margins: {
-        base: supportingStylePlaceholderText01MarginsBase,
-      },
-    },
-    supportingStyleTiny01: {
-      base: supportingStyleTiny01Base,
-      margins: {
-        base: supportingStyleTiny01MarginsBase,
-      },
-    },
-    supportingStyleTiny02: {
-      base: supportingStyleTiny02Base,
-      margins: {
-        base: supportingStyleTiny02MarginsBase,
-      },
-    },
+    a,
+    headingSans01,
+    headingSans02,
+    headingSans03,
+    headingSans04,
+    headingSans05,
+    headingSans06,
+    headingSans07,
+    headingSans08,
+    bodySans01,
+    bodySans02,
+    bodySans03,
+    bodySans04,
+    bodySerif01,
+    bodySerif02,
+    bodySerif03,
+    bodySerif04,
+    leadSans01,
+    leadSans02,
+    leadSans03,
+    leadSans04,
+    leadSans05,
+    supportingStyleLabel01,
+    supportingStyleHelperText01,
+    supportingStyleInputText01,
+    supportingStyleInputText02,
+    supportingStyleInputText03,
+    supportingStylePlaceholderText01,
+    supportingStyleTiny01,
+    supportingStyleTiny02,
   },
   style: {
-    bold: {
-      base: boldBase,
-    },
-    italic: {
-      base: italicBase,
-    },
-    underline: {
-      base: underlineBase,
-    },
+    bold,
   },
 };

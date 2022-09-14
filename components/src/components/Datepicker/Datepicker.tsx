@@ -14,9 +14,9 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { typographyTokens } from '../Typography/Typography.tokens';
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
 import { datepickerTokens as tokens } from './Datepicker.tokens';
+import { selection } from '../../helpers/styling';
 
 const StyledInput = styled(StatefulInput)`
   &::-webkit-calendar-picker-indicator {
@@ -57,7 +57,7 @@ const StyledInput = styled(StatefulInput)`
   &::-webkit-datetime-edit-year-field:focus,
   &::-webkit-datetime-edit-hour-field:focus,
   &::-webkit-datetime-edit-minute-field:focus {
-    ${typographyTokens.selection.base}
+    ${selection}
   }
 `;
 
