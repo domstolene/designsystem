@@ -1,13 +1,19 @@
-import { forwardRef } from 'react';
+import { forwardRef, LabelHTMLAttributes } from 'react';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import { BaseTypographyProps, Typography } from '../Typography';
 
+type PickedHTMLAttributes = Pick<
+  LabelHTMLAttributes<HTMLLabelElement>,
+  'htmlFor'
+>;
+
 export type LabelProps = BaseComponentPropsWithChildren<
   HTMLLabelElement,
-  BaseTypographyProps
+  BaseTypographyProps & PickedHTMLAttributes,
+  Omit<LabelHTMLAttributes<HTMLLabelElement>, keyof PickedHTMLAttributes>
 >;
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
