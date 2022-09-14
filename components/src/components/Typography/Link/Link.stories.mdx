@@ -22,10 +22,6 @@ import { Link } from '.';
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Link"
 />
 
-## Introduksjon
-
-`<Link />` er en komponent som Tilsvarer `<a>` HTML tag. Den arver font-relatert styling. Når arvet styling skal overskrived brukes oversikten over typografistiler definert i <Link external href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Link> (se API).
-
 ## Demo
 
 <Canvas>
@@ -33,6 +29,10 @@ import { Link } from '.';
 </Canvas>
 
 Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}-typography`}>Storybook</Link>.
+
+## Introduksjon
+
+`<Link />` er en komponent som tilsvarer `<a>` HTML tag. Den arver font-relatert styling. Når arvet styling skal overskrived brukes oversikten over typografistiler definert i <Link external href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Link> (se API).
 
 ## Bruk i koden
 
@@ -47,13 +47,8 @@ Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}-typogr
 I tillegg støttes native HTML-attributter som er en del av
 `AnchorHTMLAttributes<HTMLAnchorElement>`-interface.
 `style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
-sammen av komponenten.
+sammen av komponenten. `onClick`, `href` og `target` støttes på toppnivå.
 
-### Types
+## Retningslinjer
 
-<Source
-  code={`type TypographyInteractionStyling = {
-  hover?: CSSProperties;
-  active?: CSSProperties;
-};`}
-/>
+- En lenke trenger ha `href` prop for assisterende teknologi skal tolke elementet riktig.

@@ -32,7 +32,7 @@ export type TypographyHeadingType =
   | 'headingSans07'
   | 'headingSans08';
 
-type TypographyLeadType =
+export type TypographyLeadType =
   | 'leadSans01'
   | 'leadSans02'
   | 'leadSans03'
@@ -62,6 +62,8 @@ export type TypographyType =
   | AnchorTypographyType
   | LabelTypographyType
   | OtherTypographyType;
+
+export type StaticTypographyType = OtherTypographyType | LabelTypographyType;
 
 export type InlineElement =
   | 'a'
@@ -124,10 +126,12 @@ export type TypographyInteractionStyling = {
 };
 
 export type BaseTypographyProps = PropsWithChildren<{
-  /**Styling basert på det typografiske utvalget definert i Figma. */
-  typographyType?: TypographyType;
   /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa. Brukes hovedsakelig i artikler og lignende. **OBS!** har forskjellig virkning på ulike typografityper. `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens `supportingStyles` får margin topp og bunn. */
   withMargins?: boolean;
+}> &
+  Pick<HTMLAttributes<HTMLElement>, 'style'>;
+
+export type TypographyComponentProps = BaseTypographyProps & {
   /**Tekstfarge fra utvalget eller custom. **OBS!** Bruk farger fra `@dds-design-tokens`. */
   color?: TextColor;
   /**Setter `bold` styling. */
@@ -136,23 +140,6 @@ export type BaseTypographyProps = PropsWithChildren<{
   italic?: boolean;
   /**Setter en linje under. */
   underline?: boolean;
-}> &
-  Pick<HTMLAttributes<HTMLElement>, 'style'>;
-
-export type StaticTypographyType = LabelTypographyType | OtherTypographyType;
-
-export type StaticTypographyProps = Omit<
-  BaseTypographyProps,
-  'typographyType'
-> & {
-  /**Styling basert på det typografiske utvalget definert i Figma, ekskludert interaktive elementer (altså `'a'`). */
-  typographyType?: StaticTypographyType;
-};
-
-export type TypographyComponentProps = Omit<
-  BaseTypographyProps,
-  'typographyType'
-> & {
   /**HTML tag som skal brukes istedenfor default definert via `typographyType`.  */
   as?: ElementType;
   /**Støtte for å enkelt kunne endre på hover- og active-styling. Bruk `@dds-design-tokens` til farger osv. */

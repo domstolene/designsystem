@@ -26,14 +26,14 @@ import { Link } from '..';
 ## Demo
 
 <Canvas>
-  <Story id="design-system-typography-caption--default" />
+  <Story id="design-system-typography-label--default" />
 </Canvas>
 
 Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}-typography`}>Storybook</Link>.
 
 ## Oversikt
 
-`<Label />` er en komponent som tilsvarer `<label>` HTML tag. Den bruker oversikten over typografistiler definert i <Link external href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Link> til å gi tekst riktig styling.
+`<Label />` er en komponent som tilsvarer `<label>` HTML tag.
 
 ## Bruk i koden
 
@@ -46,6 +46,6 @@ Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}-typogr
 <ArgsTable story={PRIMARY_STORY} />
 
 I tillegg støttes native HTML-attributter som er en del av
-`HTMLAttributes<HTMLTableLabelElement>`-interface.
+`HTMLAttributes<HTMLLabelElement>`-interface.
 `style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
 sammen av komponenten.

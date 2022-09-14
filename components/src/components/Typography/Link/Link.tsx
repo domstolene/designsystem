@@ -4,33 +4,23 @@ import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { getTextColor, TextColor } from '../../../utils';
 import {
-  StaticTypographyProps,
-  StaticTypographyType,
-  TypographyInteractionStyling,
+  BaseTypographyProps,
+  TypographyBodyType,
 } from '../Typography/Typography.types';
-import { getAdditionalFontStyle, getAnchorStyling } from '../Typography.utils';
+import { getAnchorStyling } from '../Typography.utils';
 import { Icon } from '../../Icon';
 import { OpenExternalIcon } from '../../../icons/tsx';
 
 type StyledLinkProps = {
-  typographyType?: StaticTypographyType;
-  color?: TextColor;
+  typographyType?: TypographyBodyType;
   withMargins?: boolean;
-  bold?: boolean;
-  italic?: boolean;
-  underline?: boolean;
   external?: boolean;
-  interactionStyling?: TypographyInteractionStyling;
 };
 
 const StyledLink = styled.a<StyledLinkProps>`
-  ${({ external, interactionStyling, typographyType, withMargins }) =>
-    getAnchorStyling(external, interactionStyling, typographyType, withMargins)}
-  color: ${({ color }) => color && getTextColor(color)};
-  ${({ bold, italic, underline }) =>
-    getAdditionalFontStyle(bold, italic, underline)};
+  ${({ external, typographyType, withMargins }) =>
+    getAnchorStyling(external, undefined, typographyType, withMargins)}
 `;
 
 type PickedHTMLAttributes = Pick<
@@ -40,12 +30,13 @@ type PickedHTMLAttributes = Pick<
 
 export type LinkProps = BaseComponentPropsWithChildren<
   HTMLAnchorElement,
-  StaticTypographyProps & {
+  {
     /**Spesifiserer om lenken fører til et eksternt nettsted eller åpnes i nytt vindu. Påvirker styling og setter `target` prop. */
     external?: boolean;
-    /**Støtte for å enkelt kunne endre på hover- og active-styling. Bruk `@dds-design-tokens` til farger osv. */
-    interactionStyling?: TypographyInteractionStyling;
-  } & PickedHTMLAttributes,
+    /**Spesifiserer typografistil basert på utvalget for brødtekst.  */
+    typographyType?: TypographyBodyType;
+  } & BaseTypographyProps &
+    PickedHTMLAttributes,
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof PickedHTMLAttributes>
 >;
 
@@ -56,7 +47,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     htmlProps,
     children,
     typographyType,
-    color,
     external,
     target,
     ...rest
@@ -65,7 +55,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const linkProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     typographyType,
-    color,
     ref,
     rel: 'noopener noreferer',
     target: external ? '_blank' : target ? target : undefined,

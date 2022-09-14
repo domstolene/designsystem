@@ -23,10 +23,6 @@ import { Typography } from '..';
   githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Legend"
 />
 
-## Introduksjon
-
-`<Legend />` er en komponent som tilsvarer `<legend>` HTML tag - tittel for en gruppe i skjema. Den bruker oversikten over typografistiler definert i <Typography typographyType='a' href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Typography> til å gi tekst riktig styling.
-
 ## Demo
 
 <Canvas>
@@ -34,6 +30,10 @@ import { Typography } from '..';
 </Canvas>
 
 Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-typography`}>Storybook</Typography>.
+
+## Introduksjon
+
+`<Legend />` er en komponent som tilsvarer `<legend>` HTML tag - tittel for en gruppe i skjema.
 
 ## Bruk i koden
 
@@ -46,6 +46,6 @@ Se stories med kontrollere i <Typography externalLink typographyType="a" href={`
 <ArgsTable story={PRIMARY_STORY} />
 
 I tillegg støttes native HTML-attributter som er en del av
-`HTMLAttributes<HeMLTableLEgendElement>`-interface.
+`HTMLAttributes<HTMLLegendElement>`-interface.
 `style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
 sammen av komponenten.
