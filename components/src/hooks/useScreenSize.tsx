@@ -34,6 +34,19 @@ const screenSizesAndMediaQueries: [ScreenSize, string][] = [
   ],
 ];
 
+/**
+ * Sjekker skjermstørrelsen basert på brekkpunkter definerte i designsystemet. Eksempel på bruk:
+ * ```
+ * const MyComponent = () => {
+ *  const screenSize = useScreenSize();
+ *  const isSmallScreen = screenSize === ScreenSize.Small;
+ *
+ *  return <div className={isSmallScreen && 'smallDiv'} >innhold</div>
+ * }
+ * ```
+ * @returns den aktuelle skjermstørrelsen basert på {@link ScreenSize}.
+ */
+
 export const useScreenSize = function () {
   const [screenSize, setScreenSize] = useState(ScreenSize.Large);
 
