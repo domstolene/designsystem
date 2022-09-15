@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Typography } from '../../components/Typography';
 import { TextInput } from '../../components/TextInput';
@@ -248,43 +248,26 @@ const MediaSecondHalf = styled.div`
       ${grid.DdsGridXl1920Count + 1};
   }
 `;
-const MediaZipCode = styled.div`
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointXs}) {
-    grid-column: 1 / ${grid.DdsGridXs0599Count + 1};
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointSm}) {
-    grid-column: 1 / 4;
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointMd}) {
-    grid-column: 1 / 3;
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointLg}) {
-    grid-column: 1 / 3;
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointXl}) {
-    grid-column: 1 / 3;
-  }
-`;
-const MediaCity = styled.div`
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointXs}) {
-    grid-column: 1 / ${grid.DdsGridXs0599Count + 1};
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointSm}) {
-    grid-column: 4 / ${grid.DdsGridSm600959Count + 1};
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointMd}) {
-    grid-column: 3 / ${grid.DdsGridMd9601279Count + 1};
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointLg}) {
-    grid-column: 3 / ${grid.DdsGridLg12801919Count + 1};
-  }
-  @media only screen and (min-width: ${breakpoints.DdsBreakpointXl}) {
-    grid-column: 3 / ${grid.DdsGridXl1920Count + 1};
-  }
-`;
+
 const ToRight = styled(MediaFullWidth)`
   justify-self: end;
 `;
+
+const MediaPostContainer = styled.div`
+  display: grid;
+
+  @media only screen and (min-width: ${breakpoints.DdsBreakpointXs}) {
+    grid-auto-flow: row;
+    row-gap: 16px;
+  }
+
+  @media only screen and (min-width: ${breakpoints.DdsBreakpointSm}) {
+    grid-auto-flow: column;
+    grid-template-columns: 115px auto;
+    column-gap: 16px;
+  }
+`;
+
 export const FormWithMedia = () => {
   return (
     <>
@@ -314,12 +297,12 @@ export const FormWithMedia = () => {
         <MediaFullWidth>
           <TextInput label="Adresse" value="Kriminellveien 3" width="100%" />
         </MediaFullWidth>
-        <MediaZipCode>
-          <TextInput label="Postnummer" width="115px" />
-        </MediaZipCode>
-        <MediaCity>
-          <TextInput label="Poststed" width="100%" />
-        </MediaCity>
+        <MediaFullWidth>
+          <MediaPostContainer>
+            <TextInput label="Postnummer" width="115px" />
+            <TextInput label="Poststed" width="100%" />
+          </MediaPostContainer>
+        </MediaFullWidth>
         <MediaFullWidth>
           <Typography typographyType="headingSans03" withMargins>
             Forsvarer
@@ -354,20 +337,14 @@ const gridTokens = {
       marginLeft: spacing.SizesDdsSpacingLayoutX1,
       marginRight: spacing.SizesDdsSpacingLayoutX1,
     },
-    fullWidth: {
-      gridColumn: `1 / ${grid.DdsGridXs0599Count + 1}`,
+    all: {
+      gridColumn: '1 / -1',
     },
     firstHalf: {
-      gridColumn: `1 / ${grid.DdsGridXs0599Count + 1}`,
+      gridColumn: '1 / -1',
     },
     secondHalf: {
-      gridColumn: `1 / ${grid.DdsGridXs0599Count + 1}`,
-    },
-    firstThird: {
-      gridColumn: `1 / ${grid.DdsGridXs0599Count + 1}`,
-    },
-    secondAndThird: {
-      gridColumn: `1 / ${grid.DdsGridXs0599Count + 1}`,
+      gridColumn: '1 / -1',
     },
   },
   [ScreenSize.Small]: {
@@ -377,7 +354,6 @@ const gridTokens = {
       marginLeft: spacing.SizesDdsSpacingLayoutX1,
       marginRight: spacing.SizesDdsSpacingLayoutX1,
     },
-    fullWidth: { gridColumn: `1 / ${grid.DdsGridSm600959Count + 1}` },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridSm600959Count / 2 + 1}`,
     },
@@ -385,13 +361,6 @@ const gridTokens = {
       gridColumn: `${grid.DdsGridSm600959Count / 2 + 1} / ${
         grid.DdsGridSm600959Count + 1
       }`,
-    },
-    firstThird: {
-      gridColumn: `1 / ${Math.ceil(grid.DdsGridSm600959Count / 3 + 1)}`,
-    },
-    secondAndThird: {
-      gridColumn: `${Math.round(grid.DdsGridSm600959Count / 3 + 1)} /
-      ${grid.DdsGridSm600959Count + 1};`,
     },
   },
   [ScreenSize.Medium]: {
@@ -401,7 +370,6 @@ const gridTokens = {
       marginLeft: spacing.SizesDdsSpacingLayoutX1,
       marginRight: spacing.SizesDdsSpacingLayoutX1,
     },
-    fullWidth: { gridColumn: `1 / ${grid.DdsGridMd9601279Count + 1}` },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridMd9601279Count / 2 + 1}`,
     },
@@ -409,13 +377,6 @@ const gridTokens = {
       gridColumn: `${grid.DdsGridMd9601279Count / 2 + 1} / ${
         grid.DdsGridMd9601279Count + 1
       }`,
-    },
-    firstThird: {
-      gridColumn: `1 / ${Math.ceil(grid.DdsGridMd9601279Count / 3 + 1)}`,
-    },
-    secondAndThird: {
-      gridColumn: `${Math.round(grid.DdsGridMd9601279Count / 3 + 1)} /
-      ${grid.DdsGridMd9601279Count + 1};`,
     },
   },
   [ScreenSize.Large]: {
@@ -425,7 +386,6 @@ const gridTokens = {
       marginLeft: spacing.SizesDdsSpacingLayoutX1,
       marginRight: spacing.SizesDdsSpacingLayoutX1,
     },
-    fullWidth: { gridColumn: `1 / ${grid.DdsGridLg12801919Count + 1}` },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridLg12801919Count / 2 + 1}`,
     },
@@ -433,13 +393,6 @@ const gridTokens = {
       gridColumn: `${grid.DdsGridLg12801919Count / 2 + 1} / ${
         grid.DdsGridLg12801919Count + 1
       }`,
-    },
-    firstThird: {
-      gridColumn: `1 / ${Math.ceil(grid.DdsGridLg12801919Count / 3 + 1)}`,
-    },
-    secondAndThird: {
-      gridColumn: `${Math.round(grid.DdsGridLg12801919Count / 3 + 1)} /
-      ${grid.DdsGridLg12801919Count + 1};`,
     },
   },
   [ScreenSize.XLarge]: {
@@ -449,7 +402,6 @@ const gridTokens = {
       marginLeft: spacing.SizesDdsSpacingLayoutX1,
       marginRight: spacing.SizesDdsSpacingLayoutX1,
     },
-    fullWidth: { gridColumn: `1 / ${grid.DdsGridXl1920Count + 1}` },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridXs0599Count / 2 + 1}`,
     },
@@ -457,13 +409,6 @@ const gridTokens = {
       gridColumn: `${grid.DdsGridXl1920Count / 2 + 1} / ${
         grid.DdsGridXl1920Count + 1
       }`,
-    },
-    firstThird: {
-      gridColumn: `1 / ${Math.ceil(grid.DdsGridXl1920Count / 3 + 1)}`,
-    },
-    secondAndThird: {
-      gridColumn: `${Math.round(grid.DdsGridXl1920Count / 3 + 1)} /
-      ${grid.DdsGridXl1920Count + 1};`,
     },
   },
 };
@@ -478,8 +423,15 @@ const getHooksGridStyling = (screenSize: ScreenSize) => {
   };
 };
 
+type ColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
+
 type GridProps = {
   screenSize: ScreenSize;
+};
+
+type GridChildProps = {
+  screenSize: ScreenSize;
+  columnsOccupied: ColumnsOccupied;
 };
 
 const HooksGrid = styled.div<GridProps>`
@@ -487,93 +439,88 @@ const HooksGrid = styled.div<GridProps>`
   ${({ screenSize }) => getHooksGridStyling(screenSize)}
 `;
 
-const HooksFullWidth = styled.div<GridProps>`
-  grid-column: ${({ screenSize }) =>
-    gridTokens[screenSize].fullWidth.gridColumn};
+const GridChild = styled.div<GridChildProps>`
+  grid-column: ${({ screenSize, columnsOccupied }) =>
+    columnsOccupied === 'all'
+      ? '1 / -1'
+      : gridTokens[screenSize][columnsOccupied].gridColumn};
 `;
-
-const HooksFirstHalf = styled.div<GridProps>`
-  grid-column: ${({ screenSize }) =>
-    gridTokens[screenSize].firstHalf.gridColumn};
-`;
-
-const HooksSecondHalf = styled.div<GridProps>`
-  grid-column: ${({ screenSize }) =>
-    gridTokens[screenSize].secondHalf.gridColumn};
-`;
-const HooksFirstThird = styled.div<GridProps>`
-  grid-column: ${({ screenSize }) =>
-    gridTokens[screenSize].firstThird.gridColumn};
-`;
-const HooksSecondAndThird = styled.div<GridProps>`
-  grid-column: ${({ screenSize }) =>
-    gridTokens[screenSize].secondAndThird.gridColumn};
-`;
-const HooksFullWidthToRight = styled.div<GridProps>`
+const HooksFullWidthToRight = styled(GridChild)`
   justify-self: end;
-  grid-column: ${({ screenSize }) =>
-    gridTokens[screenSize].fullWidth.gridColumn};
+`;
+
+const HooksPostContainer = styled.div<GridProps>`
+  display: grid;
+  ${({ screenSize }) =>
+    screenSize === ScreenSize.XSmall
+      ? css`
+          grid-auto-flow: row;
+          row-gap: 16px;
+        `
+      : css`
+          grid-auto-flow: column;
+          grid-template-columns: 115px auto;
+          column-gap: 16px;
+        `}
 `;
 
 export const FormWithHooks = () => {
   const screenSize = useScreenSize();
   return (
-    <>
-      <HooksGrid screenSize={screenSize}>
-        <HooksFullWidth screenSize={screenSize}>
-          <Typography typographyType="headingSans04" withMargins>
-            Partopplysninger
-          </Typography>
-        </HooksFullWidth>
-        <HooksFullWidth screenSize={screenSize}>
-          <LocalMessage
-            message="Hva som må gjøres i dette skjemaet."
-            width="100%"
-          />
-        </HooksFullWidth>
-        <HooksFullWidth screenSize={screenSize}>
-          <Typography typographyType="headingSans03" withMargins>
-            Siktede
-          </Typography>
-        </HooksFullWidth>
-        <HooksFirstHalf screenSize={screenSize}>
-          <TextInput label="Fornavn" width="100%" />
-        </HooksFirstHalf>
-        <HooksSecondHalf screenSize={screenSize}>
-          <TextInput label="Etternavn" width="100%" />
-        </HooksSecondHalf>
-        <HooksFullWidth screenSize={screenSize}>
-          <TextInput label="Adresse" value="Kriminellveien 3" width="100%" />
-        </HooksFullWidth>
-        <HooksFirstThird screenSize={screenSize}>
+    <HooksGrid screenSize={screenSize}>
+      <GridChild screenSize={screenSize} columnsOccupied="all">
+        <Typography typographyType="headingSans04" withMargins>
+          Partopplysninger
+        </Typography>
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="all">
+        <LocalMessage
+          message="Hva som må gjøres i dette skjemaet."
+          width="100%"
+        />
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="all">
+        <Typography typographyType="headingSans03" withMargins>
+          Siktede
+        </Typography>
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="firstHalf">
+        <TextInput label="Fornavn" width="100%" />
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="secondHalf">
+        <TextInput label="Etternavn" width="100%" />
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="all">
+        <TextInput label="Adresse" value="Kriminellveien 3" width="100%" />
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="all">
+        <HooksPostContainer screenSize={screenSize}>
           <TextInput label="Postnummer" width="115px" />
-        </HooksFirstThird>
-        <HooksSecondAndThird screenSize={screenSize}>
           <TextInput label="Poststed" width="100%" />
-        </HooksSecondAndThird>
-        <HooksFullWidth screenSize={screenSize}>
-          <Typography typographyType="headingSans03" withMargins>
-            Forsvarer
-          </Typography>
-        </HooksFullWidth>
-        <HooksFirstHalf screenSize={screenSize}>
-          <TextInput label="Fornavn" width="100%" />
-        </HooksFirstHalf>
-        <HooksSecondHalf screenSize={screenSize}>
-          <TextInput label="Etternavn" width="100%" />
-        </HooksSecondHalf>
-        <HooksFullWidthToRight screenSize={screenSize}>
-          <Button label="Legg til flere" purpose="secondary" icon={PlusIcon} />
-        </HooksFullWidthToRight>
-        <HooksFullWidth screenSize={screenSize}>
-          <BottomButtons>
-            <Button label="Gå til partsopplysninger" purpose="primary" />
-            <Button label="Send til godkjenning" purpose="secondary" />
-            <Button label="Avbryt" purpose="secondary" />
-          </BottomButtons>
-        </HooksFullWidth>
-      </HooksGrid>
-    </>
+        </HooksPostContainer>
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="all">
+        <Typography typographyType="headingSans03" withMargins>
+          Forsvarer
+        </Typography>
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="firstHalf">
+        <TextInput label="Fornavn" width="100%" />
+      </GridChild>
+      <GridChild screenSize={screenSize} columnsOccupied="secondHalf">
+        <TextInput label="Etternavn" width="100%" />
+      </GridChild>
+      <HooksFullWidthToRight screenSize={screenSize} columnsOccupied="all">
+        <Button label="Legg til flere" purpose="secondary" icon={PlusIcon} />
+      </HooksFullWidthToRight>
+      <GridChild screenSize={screenSize} columnsOccupied="all">
+        <BottomButtons>
+          <Button label="Gå til partsopplysninger" purpose="primary" />
+          <Button label="Send til godkjenning" purpose="secondary" />
+          <Button label="Avbryt" purpose="secondary" />
+        </BottomButtons>
+      </GridChild>
+    </HooksGrid>
   );
 };
 
