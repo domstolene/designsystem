@@ -1,5 +1,5 @@
 import { forwardRef, useEffect } from 'react';
-import styled, { CSSObject } from 'styled-components';
+import styled from 'styled-components';
 import { selection, visibilityTransition } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
 import {
@@ -37,7 +37,7 @@ export const Container = styled.div<ContainerProps>`
   border-radius: ${container.borderRadius};
 
   ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox as CSSObject}
+  ${scrollbarStyling.firefox}
 
   *::selection {
     ${selection}

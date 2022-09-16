@@ -1,4 +1,5 @@
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
+import { Property } from 'csstype';
 
 const { thumb, track } = tokens;
 
@@ -29,6 +30,6 @@ export const scrollbarStyling = {
   },
   firefox: {
     scrollbarColor: thumb.base.backgroundColor + ' ' + track.backgroundColor,
-    scrollbarWidth: 'thin',
+    scrollbarWidth: 'thin' as Property.ScrollbarWidth,
   },
 };
