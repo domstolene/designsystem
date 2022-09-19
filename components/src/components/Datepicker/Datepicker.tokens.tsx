@@ -1,29 +1,33 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
-const {
-  iconSizes: IconSizes,
-  spacing: Spacing,
-  border: Border,
-} = ddsBaseTokens;
+const { iconSizes, spacing, border } = ddsBaseTokens;
 
-const calendarIndicatorBase: CSSObject = {
-  height: IconSizes.DdsIconsizeMedium,
-  width: IconSizes.DdsIconsizeMedium,
-  position: 'absolute',
-  right: Spacing.SizesDdsSpacingLocalX075,
-};
-
-const calendarIndicatorFocusBase: CSSObject = {
-  outline: `${Border.BordersDdsBorderFocusInputfieldStroke} solid ${Border.BordersDdsBorderFocusInputfieldStrokeWeight}`,
-  outlineOffset: Spacing.SizesDdsSpacingLocalX0125,
+const calendarIndicator = {
+  base: {
+    sizes: {
+      medium: {
+        height: iconSizes.DdsIconsizeMedium,
+        width: iconSizes.DdsIconsizeMedium,
+        right: spacing.SizesDdsSpacingLocalX075,
+      },
+      small: {
+        height: iconSizes.DdsIconsizeSmall,
+        width: iconSizes.DdsIconsizeSmall,
+        right: spacing.SizesDdsSpacingLocalX075,
+      },
+      tiny: {
+        height: iconSizes.DdsIconsizeSmall,
+        width: iconSizes.DdsIconsizeSmall,
+        right: spacing.SizesDdsSpacingLocalX075,
+      },
+    },
+  },
+  focus: {
+    outline: `${border.BordersDdsBorderFocusInputfieldStroke} solid ${border.BordersDdsBorderFocusInputfieldStrokeWeight}`,
+    outlineOffset: spacing.SizesDdsSpacingLocalX0125,
+  },
 };
 
 export const datepickerTokens = {
-  calendarIndicator: {
-    base: calendarIndicatorBase,
-    focus: {
-      base: calendarIndicatorFocusBase,
-    },
-  },
+  calendarIndicator,
 };

@@ -1,15 +1,9 @@
 import { forwardRef, useId } from 'react';
 import { InputMessage } from '../InputMessage';
-import { LabelPresence, RequiredMarker } from '../../helpers';
-import {
-  StatefulInput,
-  Label,
-  InputContainer,
-  OuterInputContainer,
-  InputProps,
-} from '../../helpers';
+import { RequiredMarker } from '../../helpers';
+import { StatefulInput, OuterInputContainer, InputProps } from '../../helpers';
 import { Property } from 'csstype';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
@@ -17,12 +11,20 @@ import {
 import CalendarIcon from '../../assets/svg/calendar_today.svg';
 import { datepickerTokens as tokens } from './Datepicker.tokens';
 import { selection } from '../../helpers/styling';
+import { Label } from '../Typography';
 
 const StyledInput = styled(StatefulInput)`
   &::-webkit-calendar-picker-indicator {
     // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
     background-image: ${`url("${CalendarIcon}")`};
-    ${tokens.calendarIndicator.base}
+    position: absolute;
+    ${({ componentSize }) =>
+      componentSize &&
+      css`
+        right: ${tokens.calendarIndicator.base.sizes[componentSize].right};
+        height: ${tokens.calendarIndicator.base.sizes[componentSize].height};
+        width: ${tokens.calendarIndicator.base.sizes[componentSize].width};
+      `}
     margin-left: 0px;
     padding: 0;
     top: 50%;
@@ -35,7 +37,8 @@ const StyledInput = styled(StatefulInput)`
   }
 
   &::-webkit-calendar-picker-indicator:focus-visible {
-    ${tokens.calendarIndicator.focus.base}
+    outline: ${tokens.calendarIndicator.focus.outline};
+    outline-offset: ${tokens.calendarIndicator.focus.outlineOffset};
   }
 
   &::-webkit-inner-spin-button {
@@ -82,6 +85,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       tip,
       style,
       className,
+      componentSize = 'medium',
       max,
       'aria-describedby': ariaDescribedby,
       ...rest
@@ -93,7 +97,6 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
 
     const componentWidth = width ? width : getWidth(type);
     const hasLabel = !!label;
-    const labelPresence: LabelPresence = hasLabel ? 'hasLabel' : 'noLabel';
     const hasErrorMessage = !!errorMessage;
     const errorMessageId = derivativeIdGenerator(
       uniqueId,
@@ -104,13 +107,13 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
 
     const inputProps = {
       id: uniqueId,
-      hasLabel: labelPresence,
       hasErrorMessage,
       ref,
       readOnly,
       tabIndex: readOnly ? -1 : 0,
       required,
       disabled,
+      componentSize,
       type,
       'aria-describedby': spaceSeparatedIdListGenerator([
         tipId,
@@ -122,31 +125,20 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       ...rest,
     };
 
-    const outerInputContainerProps = {
+    const outerinputContainerProps = {
       width: componentWidth,
       style,
       className,
     };
 
-    const labelProps = {
-      htmlFor: uniqueId,
-      disabled,
-    };
-
     return (
-      <OuterInputContainer {...outerInputContainerProps}>
-        <InputContainer>
-          <StyledInput {...inputProps} />
-          {hasLabel && (
-            <Label
-              {...labelProps}
-              typographyType="supportingStyleLabel01"
-              forwardedAs="label"
-            >
-              {label} {required && <RequiredMarker />}
-            </Label>
-          )}
-        </InputContainer>
+      <OuterInputContainer {...outerinputContainerProps}>
+        {hasLabel && (
+          <Label htmlFor={uniqueId}>
+            {label} {required && <RequiredMarker />}
+          </Label>
+        )}
+        <StyledInput {...inputProps} />
         {hasErrorMessage && (
           <InputMessage
             message={errorMessage}
