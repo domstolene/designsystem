@@ -1,5 +1,6 @@
 import { StoryTemplate } from '../../storybook';
 import { TextInput, TextInputProps } from '.';
+import { MailIcon } from '../../icons/tsx';
 
 export default {
   title: 'Design system/TextInput',
@@ -82,9 +83,26 @@ export const TextInputOverview = (args: TextInputProps) => {
         tip={args.tip || 'Dette er en hjelpetekst med en tegnteller'}
         maxLength={20}
       />
+      <TextInput {...args} icon={MailIcon} label={args.label || 'Label'} />
+      <TextInput {...args} icon={MailIcon} />
     </StoryTemplate>
   );
 };
+
+export const TextInputOverviewSizes = () => (
+  <StoryTemplate
+    title="TextInput - overview sizes"
+    display="grid"
+    columnsAmount={2}
+  >
+    <TextInput label="Label" />
+    <TextInput label="Label" icon={MailIcon} />
+    <TextInput label="Label" componentSize="small" />
+    <TextInput label="Label" componentSize="small" icon={MailIcon} />
+    <TextInput label="Label" componentSize="tiny" />
+    <TextInput label="Label" componentSize="tiny" icon={MailIcon} />
+  </StoryTemplate>
+);
 
 export const TextareaOverview = (args: TextInputProps) => {
   return (

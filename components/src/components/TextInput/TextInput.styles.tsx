@@ -1,29 +1,20 @@
-import styled, { css, CSSObject } from 'styled-components';
-import { TextInputProps } from './TextInput.types';
+import styled, { css } from 'styled-components';
 import { textInputTokens as tokens } from './TextInput.tokens';
-import {
-  Label as BaseLabel,
-  StyledInputProps,
-  inputTokens,
-  StatefulInput,
-} from '../../helpers';
+import { StatefulInput, InputSize } from '../../helpers';
 import { scrollbarStyling } from '../ScrollableContainer';
+import { Icon } from '../Icon';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+
+const { iconSizes } = ddsBaseTokens;
+const { input, icon } = tokens;
 
 export const TextArea = styled(StatefulInput)<StyledInputProps>`
   ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox as CSSObject}
-  ${tokens.multiline.base}
-  ${({ hasLabel }) =>
-    css`
-      ${tokens.multiline[hasLabel].base}
-    `}
-
-  &:hover:enabled:read-write ~ label {
-    background-color: ${({ hasErrorMessage }) =>
-      hasErrorMessage
-        ? inputTokens.error.hover.base.backgroundColor
-        : inputTokens.general.input.hover.backgroundColor};
-  }
+  ${scrollbarStyling.firefox}
+  height: auto;
+  resize: vertical;
+  vertical-align: bottom;
+  padding-bottom: ${input.multiline.paddingBottom};
 `;
 
 export const MessageContainer = styled.div`
@@ -31,22 +22,35 @@ export const MessageContainer = styled.div`
   justify-content: space-between;
 `;
 
-type LabelProps = Pick<TextInputProps, 'multiline' | 'disabled' | 'readOnly'>;
+type StyledIconProps = {
+  size: InputSize;
+};
 
-export const Label = styled(BaseLabel)<LabelProps>`
-  ${({ multiline }) =>
-    multiline &&
+export const StyledIcon = styled(Icon)<StyledIconProps>`
+  position: absolute;
+  color: ${icon.color};
+  ${({ size, iconSize }) => css`
+    left: ${icon.sizes[size].left};
+    ${iconSize === 'small'
+      ? css`
+          top: ${`calc(50% - ${iconSizes.DdsIconsizeSmallNumberPx / 2}px)`};
+        `
+      : css`
+          top: ${`calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`}; ;
+        `}
+  `}
+  z-index: 1;
+`;
+
+type StyledInputProps = {
+  hasIcon?: boolean;
+};
+
+export const StyledInput = styled(StatefulInput)<StyledInputProps>`
+  ${({ componentSize, hasIcon }) =>
+    hasIcon &&
+    componentSize &&
     css`
-      ${tokens.label.multiline.base}
+      padding-left: ${input.withIcon[componentSize].paddingLeft};
     `}
-  ${({ multiline, disabled, readOnly }) =>
-    multiline && readOnly
-      ? css`
-          background-color: ${inputTokens.readOnly.base.backgroundColor};
-        `
-      : multiline && disabled
-      ? css`
-          background-color: ${inputTokens.readOnly.base.backgroundColor};
-        `
-      : ''}
 `;
