@@ -3,33 +3,42 @@ import {
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import {
-  dangerInputfield,
-  focusDangerInputfield,
-  focusInputfield,
-  hoverDangerInputfield,
-  hoverInputfield,
-} from '../styling';
 
 const { colors, spacing, fontPackages, border } = ddsBaseTokens;
 
 const { textInput: TextInput } = ddsReferenceTokens;
 
-const inputBase: CSSObject = {
-  color: TextInput.input.textColor,
-  borderRadius: TextInput.input.borderRadius,
-  border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
-  borderColor: TextInput.input.borderColor,
-  backgroundColor: colors.DdsColorNeutralsWhite,
-  ...TextInput.input.font,
-};
-
-const inputFocusBase: CSSObject = {
-  ...focusInputfield,
-};
-
-const inputHoverBase: CSSObject = {
-  ...hoverInputfield,
+const input = {
+  base: {
+    color: TextInput.input.textColor,
+    borderRadius: TextInput.input.borderRadius,
+    border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
+    borderColor: TextInput.input.borderColor,
+    backgroundColor: colors.DdsColorNeutralsWhite,
+    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
+    font: TextInput.input.font,
+  },
+  disabled: {
+    color: colors.DdsColorNeutralsGray7,
+    backgroundColor: colors.DdsColorNeutralsGray1,
+  },
+  readOnly: {
+    backgroundColor: 'transparent',
+  },
+  sizes: {
+    medium: {
+      padding: spacing.SizesDdsSpacingLocalX075,
+      font: fontPackages.body_sans_02.base,
+    },
+    small: {
+      padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075}`,
+      font: fontPackages.body_sans_01.base,
+    },
+    tiny: {
+      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX025}`,
+      font: fontPackages.supportingStyle_tiny_01.base,
+    },
+  },
 };
 
 const inputHasLabelBase: CSSObject = {
@@ -45,32 +54,6 @@ const inputHasLabelBase: CSSObject = {
 
 const inputNoLabelBase: CSSObject = {
   padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1}`,
-};
-
-const inputDisabledBase: CSSObject = {
-  cursor: 'not-allowed',
-  color: colors.DdsColorNeutralsGray7,
-  backgroundColor: colors.DdsColorNeutralsGray1,
-};
-
-const inputErrorBase: CSSObject = {
-  ...dangerInputfield,
-};
-
-const inputErrorHoverBase: CSSObject = {
-  ...hoverDangerInputfield,
-};
-
-const inputErrorFocusBase: CSSObject = {
-  ...focusDangerInputfield,
-};
-
-const inputReadOnlyBase: CSSObject = {
-  border: 'none',
-  outline: 'none',
-  cursor: 'default',
-  backgroundColor: 'transparent',
-  paddingLeft: spacing.SizesDdsSpacingLocalX1,
 };
 
 const inputLabelBase: CSSObject = {
@@ -89,37 +72,19 @@ const inputLabelDisabledBase: CSSObject = {
   color: colors.DdsColorNeutralsGray6,
 };
 
+const container = {
+  gap: spacing.SizesDdsSpacingLocalX0125,
+};
+
 export const inputTokens = {
-  baseInput: {
-    base: inputBase,
-    focus: {
-      base: inputFocusBase,
-    },
-    hover: {
-      base: inputHoverBase,
-    },
-  },
+  input,
+  container,
   general: TextInput,
   hasLabel: {
     base: inputHasLabelBase,
   },
   noLabel: {
     base: inputNoLabelBase,
-  },
-  readOnly: {
-    base: inputReadOnlyBase,
-  },
-  disabled: {
-    base: inputDisabledBase,
-  },
-  error: {
-    base: inputErrorBase,
-    hover: {
-      base: inputErrorHoverBase,
-    },
-    focus: {
-      base: inputErrorFocusBase,
-    },
   },
   label: {
     base: inputLabelBase,
