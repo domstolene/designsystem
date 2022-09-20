@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 27 Apr 2022 10:41:33 GMT
+ * Generated on Mon, 19 Sep 2022 13:37:43 GMT
  */
 
 export const SizesDdsSpacingLocalX3 = "48px";

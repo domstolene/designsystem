@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 27 Apr 2022 10:41:33 GMT
+ * Generated on Mon, 19 Sep 2022 13:37:43 GMT
  */
 
  export const ddsStyles = {
@@ -5822,11 +5822,11 @@
       },
       "helpertext-01": {
         "fontSize": {
-          "value": 14,
+          "value": 12,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 14,
+            "value": 12,
             "type": "number",
             "unit": "pixel"
           },
@@ -6040,11 +6040,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 14,
+          "value": 12,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 14,
+            "value": 12,
             "type": "number",
             "unit": "pixel"
           },
@@ -6878,11 +6878,11 @@
       },
       "placeholdertext-01": {
         "fontSize": {
-          "value": 18,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 18,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -7096,11 +7096,11 @@
           ]
         },
         "paragraphSpacing": {
-          "value": 18,
+          "value": 16,
           "type": "number",
           "unit": "pixel",
           "original": {
-            "value": 18,
+            "value": 16,
             "type": "number",
             "unit": "pixel"
           },
@@ -7664,6 +7664,534 @@
             "$dds-font",
             "supporting-style",
             "tiny-02",
+            "textCase"
+          ]
+        }
+      },
+      "placeholdertext-02": {
+        "fontSize": {
+          "value": 14,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 14,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02FontSize",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "fontSize"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "fontSize"
+          ]
+        },
+        "textDecoration": {
+          "value": "none",
+          "type": "string",
+          "original": {
+            "value": "none",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02TextDecoration",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "textDecoration"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "textDecoration"
+          ]
+        },
+        "fontFamily": {
+          "value": "IBM Plex Sans",
+          "type": "string",
+          "original": {
+            "value": "IBM Plex Sans",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02FontFamily",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "fontFamily"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "fontFamily"
+          ]
+        },
+        "fontWeight": {
+          "value": 400,
+          "type": "number",
+          "original": {
+            "value": 400,
+            "type": "number"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02FontWeight",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "fontWeight"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "fontWeight"
+          ]
+        },
+        "fontStyle": {
+          "value": "italic",
+          "type": "string",
+          "original": {
+            "value": "italic",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02FontStyle",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "fontStyle"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "fontStyle"
+          ]
+        },
+        "fontStretch": {
+          "value": "normal",
+          "type": "string",
+          "original": {
+            "value": "normal",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02FontStretch",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "fontStretch"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "fontStretch"
+          ]
+        },
+        "_fontStyleOld": {
+          "value": "Italic",
+          "type": "string",
+          "original": {
+            "value": "Italic",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02FontStyleOld",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "_fontStyleOld"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "_fontStyleOld"
+          ]
+        },
+        "letterSpacing": {
+          "value": "0.01em",
+          "type": "number",
+          "unit": "percent",
+          "original": {
+            "value": 1,
+            "type": "number",
+            "unit": "percent"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02LetterSpacing",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "letterSpacing"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "letterSpacing"
+          ]
+        },
+        "lineHeight": {
+          "value": "1.5em",
+          "type": "number",
+          "unit": "percent",
+          "original": {
+            "value": 150,
+            "type": "number",
+            "unit": "percent"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02LineHeight",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "lineHeight"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "lineHeight"
+          ]
+        },
+        "paragraphIndent": {
+          "value": 0,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 0,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02ParagraphIndent",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "paragraphIndent"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "paragraphIndent"
+          ]
+        },
+        "paragraphSpacing": {
+          "value": 14,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 14,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02ParagraphSpacing",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "paragraphSpacing"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "paragraphSpacing"
+          ]
+        },
+        "textCase": {
+          "value": "none",
+          "type": "string",
+          "original": {
+            "value": "none",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02TextCase",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "textCase"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "textCase"
+          ]
+        }
+      },
+      "placeholdertext-03": {
+        "fontSize": {
+          "value": 12,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 12,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03FontSize",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "fontSize"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "fontSize"
+          ]
+        },
+        "textDecoration": {
+          "value": "none",
+          "type": "string",
+          "original": {
+            "value": "none",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03TextDecoration",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "textDecoration"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "textDecoration"
+          ]
+        },
+        "fontFamily": {
+          "value": "IBM Plex Sans",
+          "type": "string",
+          "original": {
+            "value": "IBM Plex Sans",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03FontFamily",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "fontFamily"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "fontFamily"
+          ]
+        },
+        "fontWeight": {
+          "value": 400,
+          "type": "number",
+          "original": {
+            "value": 400,
+            "type": "number"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03FontWeight",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "fontWeight"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "fontWeight"
+          ]
+        },
+        "fontStyle": {
+          "value": "italic",
+          "type": "string",
+          "original": {
+            "value": "italic",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03FontStyle",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "fontStyle"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "fontStyle"
+          ]
+        },
+        "fontStretch": {
+          "value": "normal",
+          "type": "string",
+          "original": {
+            "value": "normal",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03FontStretch",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "fontStretch"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "fontStretch"
+          ]
+        },
+        "_fontStyleOld": {
+          "value": "Italic",
+          "type": "string",
+          "original": {
+            "value": "Italic",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03FontStyleOld",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "_fontStyleOld"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "_fontStyleOld"
+          ]
+        },
+        "letterSpacing": {
+          "value": "0.01em",
+          "type": "number",
+          "unit": "percent",
+          "original": {
+            "value": 1,
+            "type": "number",
+            "unit": "percent"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03LetterSpacing",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "letterSpacing"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "letterSpacing"
+          ]
+        },
+        "lineHeight": {
+          "value": "1.5em",
+          "type": "number",
+          "unit": "percent",
+          "original": {
+            "value": 150,
+            "type": "number",
+            "unit": "percent"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03LineHeight",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "lineHeight"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "lineHeight"
+          ]
+        },
+        "paragraphIndent": {
+          "value": 0,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 0,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03ParagraphIndent",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "paragraphIndent"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "paragraphIndent"
+          ]
+        },
+        "paragraphSpacing": {
+          "value": 12,
+          "type": "number",
+          "unit": "pixel",
+          "original": {
+            "value": 12,
+            "type": "number",
+            "unit": "pixel"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03ParagraphSpacing",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "paragraphSpacing"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "paragraphSpacing"
+          ]
+        },
+        "textCase": {
+          "value": "none",
+          "type": "string",
+          "original": {
+            "value": "none",
+            "type": "string"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03TextCase",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "textCase"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
             "textCase"
           ]
         }
