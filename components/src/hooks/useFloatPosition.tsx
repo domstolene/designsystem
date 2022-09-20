@@ -54,16 +54,10 @@ export const useFloatPosition = (
   } = useFloating({
     placement,
     middleware,
+    whileElementsMounted: (ref, floating, update) => autoUpdate(ref, floating, update, {
+      animationFrame: true
+    })
   });
-
-  useEffect(() => {
-    if (!refs.reference.current || !refs.floating.current) {
-      return;
-    }
-
-    // Only call this when the floating element is rendered
-    return autoUpdate(refs.reference.current, refs.floating.current, update);
-  }, [refs.reference, refs.floating, update]);
 
   return {
     reference,
