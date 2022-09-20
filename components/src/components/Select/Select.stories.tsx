@@ -1,6 +1,7 @@
 import { StoryTemplate } from '../../storybook';
 
 import { createSelectOptions, Select, SelectOption, SelectProps } from '.';
+import { CourtIcon } from '../../icons/tsx';
 
 export default {
   title: 'design system/Select/SingleValue',
@@ -65,11 +66,19 @@ export const Overview = (args: SingleSelectProps) => {
         label={args.label || 'Label'}
         isDisabled
         options={options}
+        value={options[3]}
       />
       <Select
         {...args}
         label={args.label || 'Label'}
         readOnly
+        options={options}
+        value={options[3]}
+      />
+      <Select
+        {...args}
+        label={args.label || 'Label'}
+        icon={CourtIcon}
         options={options}
       />
       <Select
@@ -103,6 +112,38 @@ export const Overview = (args: SingleSelectProps) => {
         options={options}
       />
       <Select {...args} options={options} />
+    </StoryTemplate>
+  );
+};
+
+export const OverviewSizes = (args: SingleSelectProps) => {
+  return (
+    <StoryTemplate
+      title="Select - overview sizes"
+      display="grid"
+      columnsAmount={2}
+    >
+      <Select {...args} componentSize="medium" options={options} />
+      <Select
+        {...args}
+        componentSize="medium"
+        icon={CourtIcon}
+        options={options}
+      />
+      <Select {...args} componentSize="small" options={options} />
+      <Select
+        {...args}
+        componentSize="small"
+        icon={CourtIcon}
+        options={options}
+      />
+      <Select {...args} componentSize="tiny" options={options} />
+      <Select
+        {...args}
+        componentSize="tiny"
+        icon={CourtIcon}
+        options={options}
+      />
     </StoryTemplate>
   );
 };
