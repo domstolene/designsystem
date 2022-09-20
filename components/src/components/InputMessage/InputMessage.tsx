@@ -4,6 +4,7 @@ import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import { Typography } from '../../components/Typography';
 import { forwardRef } from 'react';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+
 import { ErrorIcon } from '../../icons/tsx';
 
 type WrapperProps = {
@@ -12,18 +13,25 @@ type WrapperProps = {
 
 const InputMessageWrapper = styled.div<WrapperProps>`
   display: flex;
-  align-items: center;
   width: fit-content;
   word-break: break-word;
-  ${tokens.base}
+  max-width: 100%;
   ${({ messageType }) =>
-    messageType &&
-    css`
-      ${tokens[messageType].base}
-    `}
+    messageType === 'tip'
+      ? css`
+          background-color: ${tokens.message.tip.backgroundColor};
+          padding: ${tokens.message.tip.padding};
+        `
+      : messageType === 'error'
+      ? css`
+          color: ${tokens.message.error.color};
+          background-color: ${tokens.message.error.backgroundColor};
+          padding: ${tokens.message.error.padding};
+          gap: ${tokens.message.error.gap};
+        `
+      : ''}
   svg {
-    margin-right: ${tokens.icon.spaceRight};
-    position: relative;
+    margin-top: ${tokens.icon.marginTop};
   }
 `;
 
@@ -60,7 +68,7 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
           }
           as="span"
           bold={isError ? true : undefined}
-          color={isError ? tokens.error.base.color : undefined}
+          color={isError ? tokens.message.error.color : undefined}
         >
           {message}
         </Typography>
