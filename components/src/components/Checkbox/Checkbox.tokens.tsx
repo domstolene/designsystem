@@ -1,161 +1,84 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
-import {
-  dangerInputfield,
-  focusVisible,
-  hoverDangerInputfield,
-  hoverInputfield,
-} from '../../helpers/styling';
+import { dangerInputfield, hoverInputfield } from '../../helpers/styling';
 
-const {
-  colors: Colors,
-  spacing: Spacing,
-  fontPackages: FontPackages,
-  borderRadius: BorderRadius,
-} = ddsBaseTokens;
+const { colors, spacing, borderRadius } = ddsBaseTokens;
 
-const checkboxBase: CSSObject = {
-  border: '1px solid',
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-  borderColor: Colors.DdsColorNeutralsGray5,
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-  height: FontPackages.supportingStyle_inputtext_02.base.fontSize,
-  width: FontPackages.supportingStyle_inputtext_02.base.fontSize,
+const checkboxSizeNumberPx = 18;
+const checkboxSize = `${checkboxSizeNumberPx}px`;
+
+const checkmark = {
+  borderColor: colors.DdsColorNeutralsWhite,
 };
 
-const checkboxCheckedBase: CSSObject = {
-  borderColor: Colors.DdsColorInteractiveBase,
-  backgroundColor: Colors.DdsColorInteractiveBase,
+const checkbox = {
+  base: {
+    border: '1px solid',
+    borderColor: colors.DdsColorNeutralsGray5,
+    backgroundColor: colors.DdsColorNeutralsWhite,
+    borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
+    height: checkboxSize,
+    width: checkboxSize,
+  },
+  hover: {
+    backgroundColor: colors.DdsColorInfoLightest,
+    boxShadow: `inset 0 0 0 1px ${hoverInputfield.borderColor}`,
+    borderColor: hoverInputfield.borderColor,
+    danger: {
+      backgroundColor: colors.DdsColorDangerLightest,
+      boxShadow: `inset 0 0 0 1px ${dangerInputfield.borderColor}`,
+      borderColor: dangerInputfield.borderColor,
+    },
+  },
+  danger: {
+    boxShadow: `inset 0 0 0 1px ${dangerInputfield.borderColor}`,
+    borderColor: dangerInputfield.borderColor,
+  },
+  disabled: {
+    borderColor: colors.DdsColorNeutralsGray5,
+  },
+  readOnly: { backgroundColor: 'transparent' },
+  checked: {
+    base: {
+      borderColor: colors.DdsColorInteractiveBase,
+      backgroundColor: colors.DdsColorInteractiveBase,
+    },
+    hover: {
+      backgroundColor: colors.DdsColorInteractiveDark,
+      boxShadow: `inset 0 0 0 1px  ${colors.DdsColorInteractiveDark}`,
+      borderColor: colors.DdsColorInteractiveDark,
+    },
+    disabled: {
+      borderColor: colors.DdsColorNeutralsGray6,
+      backgroundColor: colors.DdsColorNeutralsGray6,
+    },
+    readOnly: {
+      borderColor: colors.DdsColorNeutralsGray6,
+      backgroundColor: colors.DdsColorNeutralsGray6,
+    },
+  },
+  indeterminate: {
+    borderColor: colors.DdsColorInteractiveBase,
+    backgroundColor: colors.DdsColorInteractiveBase,
+  },
 };
 
-const checkboxDisabledBase: CSSObject = {
-  borderColor: Colors.DdsColorNeutralsGray5,
-  color: Colors.DdsColorNeutralsGray6,
-};
-
-const checkboxCheckedDisabledBase: CSSObject = {
-  borderColor: Colors.DdsColorNeutralsGray6,
-  backgroundColor: Colors.DdsColorNeutralsGray6,
-};
-const checkboxReadOnlyBase: CSSObject = {
-  backgroundColor: 'transparent',
-};
-
-const checkboxCheckedReadOnlyBase: CSSObject = {
-  borderColor: Colors.DdsColorNeutralsGray6,
-  backgroundColor: Colors.DdsColorNeutralsGray6,
-};
-
-const checkboxHoverBase: CSSObject = {
-  ...hoverInputfield,
-};
-
-const checkboxCheckedHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveDark,
-  boxShadow: `inset 0 0 0 1px  ${Colors.DdsColorInteractiveDark}`,
-  borderColor: Colors.DdsColorInteractiveDark,
-};
-
-const checkboxDangerBase: CSSObject = {
-  ...dangerInputfield,
-};
-const checkboxDangerHoverBase: CSSObject = {
-  ...hoverDangerInputfield,
-};
-const focusBase: CSSObject = {
-  ...focusVisible,
-};
-
-const checkmarkBase: CSSObject = {
-  borderWidth: '0 1px 1px 0',
-  transform: 'rotate(45deg)',
-  left: '35%',
-  top: '10%',
-  width: '30%',
-  height: '65%',
-};
-
-const checkmarkIndeterminateBase: CSSObject = {
-  borderWidth: '1px 0 0 0',
-};
-
-const containerBase: CSSObject = {
-  ...FontPackages.body_sans_02.base,
-};
-
-const containerWithLabelBase: CSSObject = {
-  ...FontPackages.body_sans_02.base,
-  padding: `0 ${Spacing.SizesDdsSpacingLocalX025} 0 ${
-    FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber +
-    Spacing.SizesDdsSpacingLocalX075NumberPx
-  }px`,
-};
-
-const containerNoLabelBase: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX0125} ${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX15}`,
+const container = {
+  color: colors.DdsColorNeutralsGray9,
+  disabled: {
+    color: colors.DdsColorNeutralsGray6,
+  },
+  withLabel: {
+    paddingLeft: `${
+      checkboxSizeNumberPx + spacing.SizesDdsSpacingLocalX05NumberPx
+    }px`,
+  },
+  noLabel: {
+    padding: `${checkboxSizeNumberPx / 2}px`,
+  },
 };
 
 export const checkboxTokens = {
-  checkbox: {
-    base: checkboxBase,
-    spaceLeft: Spacing.SizesDdsSpacingLocalX025,
-    hover: {
-      base: checkboxHoverBase,
-    },
-    disabled: {
-      base: checkboxDisabledBase,
-    },
-    readOnly: {
-      base: checkboxReadOnlyBase,
-    },
-    checked: {
-      base: checkboxCheckedBase,
-      hover: {
-        base: checkboxCheckedHoverBase,
-      },
-      disabled: {
-        base: checkboxCheckedDisabledBase,
-      },
-      readOnly: {
-        base: checkboxCheckedReadOnlyBase,
-      },
-    },
-    indeterminate: {
-      base: checkboxCheckedBase,
-      hover: {
-        base: checkboxCheckedHoverBase,
-      },
-      disabled: {
-        base: checkboxCheckedDisabledBase,
-      },
-      readOnly: {
-        base: checkboxCheckedReadOnlyBase,
-      },
-    },
-    danger: {
-      base: checkboxDangerBase,
-      hover: {
-        base: checkboxDangerHoverBase,
-      },
-    },
-  },
-  checkmark: {
-    base: checkmarkBase,
-    color: Colors.DdsColorNeutralsWhite,
-    indeterminate: {
-      base: checkmarkIndeterminateBase,
-    },
-  },
-  container: {
-    base: containerBase,
-    focus: {
-      base: focusBase,
-    },
-    withLabel: {
-      base: containerWithLabelBase,
-    },
-    noLabel: {
-      base: containerNoLabelBase,
-    },
-  },
+  checkbox,
+  checkmark,
+  container,
 };

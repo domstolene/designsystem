@@ -1,13 +1,23 @@
 import styled, { css } from 'styled-components';
-import { focusVisibleTransitionValue } from '../../helpers/styling';
+import {
+  focusVisible,
+  focusVisibleTransitionValue,
+} from '../../helpers/styling';
 import { checkboxTokens as tokens } from './Checkbox.tokens';
 import { CheckboxProps } from './Checkbox.types';
 
+const { checkbox, checkmark, container } = tokens;
+
 export const CustomCheckbox = styled.span`
   position: absolute;
-  ${tokens.checkbox.base}
-  left: ${tokens.checkbox.spaceLeft};
+  left: 0;
   box-sizing: border-box;
+  border: ${checkbox.base.border};
+  border-color: ${checkbox.base.borderColor};
+  background-color: ${checkbox.base.backgroundColor};
+  border-radius: ${checkbox.base.borderRadius};
+  height: ${checkbox.base.height};
+  width: ${checkbox.base.width};
   &:after {
     content: '';
     position: absolute;
@@ -17,8 +27,8 @@ export const CustomCheckbox = styled.span`
 
 type ContainerProps = Pick<
   CheckboxProps,
-  'disabled' | 'readOnly' | 'error' | 'indeterminate' | 'label'
->;
+  'disabled' | 'readOnly' | 'error' | 'indeterminate'
+> & { hasLabel?: boolean };
 
 export const Container = styled.label<ContainerProps>`
   position: relative;
@@ -27,38 +37,55 @@ export const Container = styled.label<ContainerProps>`
   cursor: pointer;
   user-select: none;
   width: fit-content;
-  ${tokens.container.base}
-  ${({ label }) =>
-    label
+  color: ${container.color};
+  ${({ hasLabel }) =>
+    hasLabel
       ? css`
-          ${tokens.container.withLabel.base}
+          padding-left: ${container.withLabel.paddingLeft};
         `
       : css`
-          ${tokens.container.noLabel.base}
+          padding: ${container.noLabel.padding};
         `}
 
-    input ~ ${CustomCheckbox} {
+  input ~ ${CustomCheckbox} {
     @media (prefers-reduced-motion: no-preference) {
       transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
     }
   }
 
-  input:checked ~ ${CustomCheckbox}:after {
+  input:checked
+    ~ ${CustomCheckbox}:after,
+    input[data-indeterminate='true']
+    ~ ${CustomCheckbox}:after {
     display: block;
   }
 
-  input:checked ~ ${CustomCheckbox} {
-    ${tokens.checkbox.checked.base}
+  &:hover input:enabled ~ ${CustomCheckbox} {
+    background-color: ${checkbox.hover.backgroundColor};
+    box-shadow: ${checkbox.hover.boxShadow};
+    border-color: ${checkbox.hover.borderColor};
   }
 
-  &:hover input:enabled ~ ${CustomCheckbox} {
-    ${tokens.checkbox.hover.base}
+  input:checked
+    ~ ${CustomCheckbox},
+    input[data-indeterminate='true']
+    ~ ${CustomCheckbox} {
+    border-color: ${checkbox.checked.base.borderColor};
+    background-color: ${checkbox.checked.base.backgroundColor};
   }
-  &:hover input:checked:enabled ~ ${CustomCheckbox} {
-    ${tokens.checkbox.checked.hover.base}
+
+  &:hover
+    input:checked:enabled
+    ~ ${CustomCheckbox},
+    &:hover
+    input:enabled[data-indeterminate='true']
+    ~ ${CustomCheckbox} {
+    background-color: ${checkbox.checked.hover.backgroundColor};
+    box-shadow: ${checkbox.checked.hover.boxShadow};
+    border-color: ${checkbox.checked.hover.borderColor};
   }
   &:focus-within {
-    ${tokens.container.focus.base}
+    ${focusVisible}
     @media (prefers-reduced-motion: no-preference) {
       transition: ${focusVisibleTransitionValue};
     }
@@ -67,77 +94,57 @@ export const Container = styled.label<ContainerProps>`
   ${({ error }) =>
     error &&
     css`
-      input ~ ${CustomCheckbox} {
-        ${tokens.checkbox.danger.base}
-      }
       &:hover input:enabled ~ ${CustomCheckbox} {
-        ${tokens.checkbox.danger.hover.base}
+        background-color: ${checkbox.hover.danger.backgroundColor};
+        box-shadow: ${checkbox.hover.danger.boxShadow};
+        border-color: ${checkbox.hover.danger.borderColor};
+      }
+      input
+        ~ ${CustomCheckbox},
+        input:checked:enabled
+        ~ ${CustomCheckbox},
+        &:hover
+        input:checked:enabled
+        ~ ${CustomCheckbox} {
+        box-shadow: ${checkbox.danger.boxShadow};
+        border-color: ${checkbox.danger.borderColor};
       }
     `}
 
-  ${({ indeterminate }) =>
-    indeterminate &&
-    css`
-      input:enabled ~ ${CustomCheckbox} {
-        ${tokens.checkbox.indeterminate.base}
-      }
-      input ~ ${CustomCheckbox}:after {
-        display: block;
-      }
-      &:hover input:enabled ~ ${CustomCheckbox} {
-        ${tokens.checkbox.indeterminate.hover.base}
-      }
-    `}
-
-    ${({ disabled, indeterminate }) =>
+  ${({ disabled }) =>
     disabled &&
     css`
       cursor: not-allowed;
+      color: ${container.disabled.color};
       input ~ ${CustomCheckbox} {
-        ${tokens.checkbox.disabled.base}
+        ${checkbox.disabled}
       }
-      input:checked ~ ${CustomCheckbox} {
-        ${tokens.checkbox.checked.disabled.base}
+      input:checked
+        ~ ${CustomCheckbox},
+        input[data-indeterminate='true']
+        ~ ${CustomCheckbox} {
+        ${checkbox.checked.disabled}
       }
-      ${indeterminate &&
-      css`
-        input ~ ${CustomCheckbox} {
-          ${tokens.checkbox.indeterminate.disabled.base}
-        }
-      `}
-    `}
-
-    ${({ readOnly, indeterminate }) =>
-    readOnly &&
-    css`
-      cursor: default;
-      input ~ ${CustomCheckbox} {
-        ${tokens.checkbox.readOnly.base}
-      }
-      input:checked ~ ${CustomCheckbox} {
-        ${tokens.checkbox.checked.readOnly.base}
-      }
-      ${indeterminate &&
-      css`
-        input ~ ${CustomCheckbox} {
-          ${tokens.checkbox.indeterminate.readOnly.base}
-        }
-      `}
     `}
 
     ${CustomCheckbox}:after {
-    border: solid ${tokens.checkmark.color};
+    border: solid ${checkmark.borderColor};
     ${({ indeterminate }) =>
       indeterminate
         ? css`
+            border-width: 1px 0 0 0;
             left: 25%;
             top: 50%;
             width: 50%;
             height: 1px;
-            ${tokens.checkmark.indeterminate.base}
           `
         : css`
-            ${tokens.checkmark.base}
+            border-width: 0 1px 1px 0;
+            left: 35%;
+            top: 10%;
+            width: 30%;
+            height: 65%;
+            transform: rotate(45deg);
           `}
   }
 `;

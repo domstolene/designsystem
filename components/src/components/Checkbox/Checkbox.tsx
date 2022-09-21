@@ -27,6 +27,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const uniqueId = id ?? `${generatedId}-checkbox`;
     const checkboxGroup = useCheckboxGroup();
 
+    const hasLabel = !!label;
+
     const {
       style,
       className: htmlPropsClassName,
@@ -39,7 +41,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       indeterminate,
       readOnly,
       htmlFor: uniqueId,
-      label,
+      hasLabel,
       className: joinClassNames(className, htmlPropsClassName),
       style,
     };
@@ -50,7 +52,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       ref,
       name,
       indeterminate,
-      disabled: disabled || readOnly,
+      disabled,
       'aria-describedby': spaceSeparatedIdListGenerator([
         checkboxGroup?.tipId,
         checkboxGroup?.errorMessageId,
@@ -70,7 +72,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           data-indeterminate={indeterminate}
         />
         <CustomCheckbox />
-        {label && <Typography as="span">{label}</Typography>}
+        {hasLabel && (
+          <Typography color="inherit" as="span" typographyType="bodySans02">
+            {label}
+          </Typography>
+        )}
       </Container>
     );
   }

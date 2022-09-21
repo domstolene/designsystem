@@ -37,8 +37,8 @@ export const Overview = (args: CheckboxProps) => {
         disabled
         indeterminate
       />
-      <Checkbox {...args} label={args.label || 'Read only'} readOnly />
       <Checkbox {...args} label={args.label || 'Error'} error />
+      <Checkbox {...args} label={args.label || 'Error checked'} error checked />
       <Checkbox {...args} />
     </StoryTemplate>
   );
@@ -46,7 +46,14 @@ export const Overview = (args: CheckboxProps) => {
 
 export const Default = (args: CheckboxProps) => {
   return (
-    <StoryTemplate title="Checkbox - default">
+    <StoryTemplate title="Checkbox - default" display="block">
+      <Checkbox {...args} />
+    </StoryTemplate>
+  );
+};
+export const WithLabel = (args: CheckboxProps) => {
+  return (
+    <StoryTemplate title="Checkbox - with label" display="block">
       <Checkbox {...args} label={args.label || 'Label'} />
     </StoryTemplate>
   );
