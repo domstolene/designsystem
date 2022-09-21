@@ -1,6 +1,6 @@
 import { forwardRef, useId } from 'react';
 import { InputMessage } from '../InputMessage';
-import { RequiredMarker } from '../../helpers';
+import { InputSize, RequiredMarker } from '../../helpers';
 import { StatefulInput, OuterInputContainer, InputProps } from '../../helpers';
 import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
@@ -95,7 +95,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-datepickerInput`;
 
-    const componentWidth = width ? width : getWidth(type);
+    const componentWidth = width ? width : getWidth(type, componentSize);
     const hasLabel = !!label;
     const hasErrorMessage = !!errorMessage;
     const errorMessageId = derivativeIdGenerator(
@@ -154,13 +154,28 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   }
 );
 
-const getWidth = (type: string): Property.Width<string> => {
+const getWidth = (
+  type: DatepickerType,
+  size: InputSize
+): Property.Width<string> => {
   if (type === 'date') {
-    return '205px';
+    if (size === 'medium') {
+      return '150px';
+    } else if (size === 'small') {
+      return '135px';
+    }
+
+    return '125px';
   }
 
   if (type === 'datetime-local') {
-    return '235px';
+    if (size === 'medium') {
+      return '200px';
+    } else if (size === 'small') {
+      return '180px';
+    }
+
+    return '150px';
   }
 
   return '320px';
