@@ -1,5 +1,5 @@
 import { Property } from 'csstype';
-import React, { useId } from 'react';
+import React, { ReactNode, useId } from 'react';
 import {
   ClearIndicatorProps,
   components,
@@ -154,6 +154,16 @@ export function searchFilter(text: string, search: string): boolean {
 
 const defaultWidth: Property.Width<string> = '320px';
 
+const getPlaceholder = (
+  placeholder?: ReactNode,
+  isMulti?: boolean
+): ReactNode =>
+  placeholder
+    ? placeholder
+    : isMulti
+    ? '-- Velg en eller flere --'
+    : '-- Velg fra listen --';
+
 type WrappedReactSelectProps<
   TOption extends Record<string, unknown>,
   IsMulti extends boolean,
@@ -223,7 +233,7 @@ const SelectInner = <
     style,
     isDisabled,
     isClearable = true,
-    placeholder = '-- Velg fra listen --',
+    placeholder,
     customOptionElement,
     customSingleValueElement,
     ...rest
@@ -263,7 +273,7 @@ const SelectInner = <
     defaultValue,
     isDisabled: isDisabled || readOnly,
     isClearable,
-    placeholder,
+    placeholder: getPlaceholder(placeholder, isMulti),
     closeMenuOnSelect: closeMenuOnSelect
       ? closeMenuOnSelect
       : isMulti
