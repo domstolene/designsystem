@@ -36,14 +36,9 @@ const options = createSelectOptions(
 
 type SingleSelectProps = SelectProps<SelectOption, false>;
 
-export const Overview = (args: SingleSelectProps) => {
+export const Example = (args: SingleSelectProps) => {
   return (
-    <StoryTemplate
-      title="Select - overview"
-      gap="25px"
-      display="grid"
-      columnsAmount={2}
-    >
+    <StoryTemplate title="Select - custom element" display="block">
       <Select
         {...args}
         label={args.label || 'Egendefinert styling'}
