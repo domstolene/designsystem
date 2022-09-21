@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, forwardRef, useId } from 'react';
-import { RequiredMarker } from '../../helpers';
+import { InputSize, RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
@@ -20,10 +20,20 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Property } from 'csstype';
-import { IconSize } from '../Icon';
 import { getFormInputIconSize } from '../../helpers/Input/Input.utils';
 
 const defaultWidth: Property.Width<string> = '320px';
+
+const getWidth = (
+  size: InputSize,
+  width?: Property.Width<string>
+): Property.Width<string> => {
+  if (width) return width;
+  if (size === 'tiny') {
+    return '210px';
+  }
+  return defaultWidth;
+};
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
@@ -38,7 +48,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       multiline,
       onChange,
       id,
-      width = defaultWidth,
+      width,
       componentSize = 'medium',
       type = 'text',
       withCharacterCounter = true,
@@ -131,7 +141,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       multiline,
       className,
       style,
-      width,
+      width: getWidth(componentSize, width),
     };
 
     return (
