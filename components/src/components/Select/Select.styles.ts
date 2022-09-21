@@ -17,6 +17,7 @@ import { InputSize } from '../../helpers';
 const {
   control,
   menu,
+  groupHeading,
   option,
   dropdownIndicator,
   loadingIndicator,
@@ -121,7 +122,7 @@ export const StyledIcon = styled(Icon)`
 export const getCustomStyles = <TOption>(): Partial<
   StylesConfig<TOption, boolean, GroupBase<TOption>>
 > => ({
-  control: (provided, state) => ({
+  control: (_provided, state) => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
@@ -151,7 +152,7 @@ export const getCustomStyles = <TOption>(): Partial<
     padding: 0,
   }),
   indicatorSeparator: () => ({}),
-  dropdownIndicator: (provided, state) => ({
+  dropdownIndicator: (_provided, state) => ({
     display: 'inline-flex',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
     '@media (prefers-reduced-motion: no-preference)': {
@@ -185,7 +186,7 @@ export const getCustomStyles = <TOption>(): Partial<
     color: multiValueLabel.color,
     ...multiValueLabel.font,
   }),
-  multiValueRemove: (provided, state) =>
+  multiValueRemove: (_provided, state) =>
     state.selectProps.isDisabled
       ? {
           display: 'none',
@@ -220,18 +221,31 @@ export const getCustomStyles = <TOption>(): Partial<
     marginTop: menu.marginTop,
     marginBottom: menu.marginBottom,
   }),
-  menuList: provided => ({
-    ...provided,
+  group: () => ({
+    boxSizing: 'border-box',
+  }),
+  groupHeading: () => ({
+    color: groupHeading.color,
+    ...groupHeading.font,
+    padding: groupHeading.padding,
+  }),
+  menuList: () => ({
+    maxHeight: '300px',
+    overflowY: 'auto',
+    position: 'relative',
+    boxSizing: 'border-box',
     ...scrollbarStyling.webkit,
     ...scrollbarStyling.firefox,
   }),
   option: (provided, state) => ({
     ...provided,
+    cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     gap: option.base.gap,
     padding: option.base.padding,
     color: option.base.color,
+    backgroundColor: option.base.backgroundColor,
     ...option.base.font,
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',

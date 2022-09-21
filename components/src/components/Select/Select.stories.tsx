@@ -156,6 +156,30 @@ export const Default = (args: SingleSelectProps) => {
   );
 };
 
+export const WithGroups = (args: SingleSelectProps) => {
+  const groupedOptions = [
+    {
+      label: 'Gruppe 1',
+      options: [
+        { label: 'Alternativ 1', value: 'Alternativ 1' },
+        { label: 'Alternativ 2', value: 'Alternativ 2' },
+      ],
+    },
+    {
+      label: 'Gruppe 2',
+      options: [
+        { label: 'Alternativ 3', value: 'Alternativ 3' },
+        { label: 'Alternativ 4', value: 'Alternativ 4' },
+      ],
+    },
+  ];
+  return (
+    <StoryTemplate title="Select - with groups">
+      <Select {...args} options={groupedOptions} />
+    </StoryTemplate>
+  );
+};
+
 export const WithLabel = (args: SingleSelectProps) => {
   return (
     <StoryTemplate title="Select - with label">

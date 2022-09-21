@@ -105,12 +105,19 @@ const menu = {
   marginBottom: spacing.SizesDdsSpacingLocalX025,
 };
 
+const groupHeading = {
+  color: colors.DdsColorNeutralsGray7,
+  font: fontPackages.supportingStyle_helpertext_01.base,
+  padding: `${spacing.SizesDdsSpacingLocalX05}  ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX075}`,
+};
+
 const option = {
   base: {
     gap: spacing.SizesDdsSpacingLocalX05,
-    padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1}`,
+    padding: `${spacing.SizesDdsSpacingLocalX075}`,
     font: fontPackages.body_sans_02.base,
     color: textDefault.textColor,
+    backgroundColor: colors.DdsColorNeutralsWhite,
   },
   hover: {
     color: textDefault.textColor,
@@ -181,6 +188,7 @@ export const selectTokens = {
   dropdownIndicator,
   placeholder,
   menu,
+  groupHeading,
   option,
   valueContainer: {
     isMulti: {
