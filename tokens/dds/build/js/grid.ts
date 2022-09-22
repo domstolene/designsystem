@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 19 Sep 2022 13:37:43 GMT
+ * Generated on Thu, 22 Sep 2022 09:11:12 GMT
  */
 
 export const DdsGridXs0599Pattern = "columns";
