@@ -27,11 +27,24 @@ export type Placement =
   | 'left-start'
   | 'left-end';
 
+interface UseFloatPositionOptions {
+  /**
+   * Whether to update the position of the floating element on every animation frame if required.
+   * This is optimized for performance but can still be costly.
+   * @default true
+   */
+  animationFrame?: boolean;
+}
+
 export const useFloatPosition = (
   arrowRef: HTMLElement | null,
   placement = 'bottom' as Placement,
-  offset = defaultOffset
+  offset = defaultOffset,
+  options: UseFloatPositionOptions = {}
 ) => {
+  const {
+    animationFrame = true
+  } = options
   const middleware = [
     floatingOffset(offset),
     flip(),
@@ -54,16 +67,9 @@ export const useFloatPosition = (
   } = useFloating({
     placement,
     middleware,
+    whileElementsMounted: (reference, floating, update) =>
+      autoUpdate(reference, floating, update, { animationFrame }),
   });
-
-  useEffect(() => {
-    if (!refs.reference.current || !refs.floating.current) {
-      return;
-    }
-
-    // Only call this when the floating element is rendered
-    return autoUpdate(refs.reference.current, refs.floating.current, update);
-  }, [refs.reference, refs.floating, update]);
 
   return {
     reference,
