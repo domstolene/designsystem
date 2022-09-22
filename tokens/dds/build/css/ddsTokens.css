@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 19 Sep 2022 13:37:43 GMT
+ * Generated on Thu, 22 Sep 2022 09:11:12 GMT
  */
 
 :root {
@@ -207,50 +207,6 @@
   --dds-font-body-sans-04-paragraph-indent: 0px;
   --dds-font-body-sans-04-paragraph-spacing: 20px;
   --dds-font-body-sans-04-text-case: none;
-  --dds-font-body-serif-01-font-size: 14px;
-  --dds-font-body-serif-01-text-decoration: none;
-  --dds-font-body-serif-01-font-family: 'Georgia';
-  --dds-font-body-serif-01-font-weight: 400;
-  --dds-font-body-serif-01-font-style: normal;
-  --dds-font-body-serif-01-font-stretch: normal;
-  --dds-font-body-serif-01-letter-spacing: 0.01em;
-  --dds-font-body-serif-01-line-height: 1.5em;
-  --dds-font-body-serif-01-paragraph-indent: 0px;
-  --dds-font-body-serif-01-paragraph-spacing: 14px;
-  --dds-font-body-serif-01-text-case: none;
-  --dds-font-body-serif-02-font-size: 16px;
-  --dds-font-body-serif-02-text-decoration: none;
-  --dds-font-body-serif-02-font-family: 'Georgia';
-  --dds-font-body-serif-02-font-weight: 400;
-  --dds-font-body-serif-02-font-style: normal;
-  --dds-font-body-serif-02-font-stretch: normal;
-  --dds-font-body-serif-02-letter-spacing: 0em;
-  --dds-font-body-serif-02-line-height: 1.5em;
-  --dds-font-body-serif-02-paragraph-indent: 0px;
-  --dds-font-body-serif-02-paragraph-spacing: 16px;
-  --dds-font-body-serif-02-text-case: none;
-  --dds-font-body-serif-03-font-size: 18px;
-  --dds-font-body-serif-03-text-decoration: none;
-  --dds-font-body-serif-03-font-family: 'Georgia';
-  --dds-font-body-serif-03-font-weight: 400;
-  --dds-font-body-serif-03-font-style: normal;
-  --dds-font-body-serif-03-font-stretch: normal;
-  --dds-font-body-serif-03-letter-spacing: 0em;
-  --dds-font-body-serif-03-line-height: 1.5em;
-  --dds-font-body-serif-03-paragraph-indent: 0px;
-  --dds-font-body-serif-03-paragraph-spacing: 18px;
-  --dds-font-body-serif-03-text-case: none;
-  --dds-font-body-serif-04-font-size: 20px;
-  --dds-font-body-serif-04-text-decoration: none;
-  --dds-font-body-serif-04-font-family: 'Georgia';
-  --dds-font-body-serif-04-font-weight: 400;
-  --dds-font-body-serif-04-font-style: normal;
-  --dds-font-body-serif-04-font-stretch: normal;
-  --dds-font-body-serif-04-letter-spacing: 0em;
-  --dds-font-body-serif-04-line-height: 1.5em;
-  --dds-font-body-serif-04-paragraph-indent: 0px;
-  --dds-font-body-serif-04-paragraph-spacing: 20px;
-  --dds-font-body-serif-04-text-case: none;
   --dds-font-lead-sans-01-font-size: 18px;
   --dds-font-lead-sans-01-text-decoration: none;
   --dds-font-lead-sans-01-font-family: 'IBM Plex Sans';
@@ -328,39 +284,6 @@
   --dds-font-supporting-style-helpertext-01-paragraph-indent: 0px;
   --dds-font-supporting-style-helpertext-01-paragraph-spacing: 12px;
   --dds-font-supporting-style-helpertext-01-text-case: none;
-  --dds-font-supporting-style-inputtext-01-font-size: 14px;
-  --dds-font-supporting-style-inputtext-01-text-decoration: none;
-  --dds-font-supporting-style-inputtext-01-font-family: 'IBM Plex Sans';
-  --dds-font-supporting-style-inputtext-01-font-weight: 400;
-  --dds-font-supporting-style-inputtext-01-font-style: normal;
-  --dds-font-supporting-style-inputtext-01-font-stretch: normal;
-  --dds-font-supporting-style-inputtext-01-letter-spacing: 0.01em;
-  --dds-font-supporting-style-inputtext-01-line-height: 1.5em;
-  --dds-font-supporting-style-inputtext-01-paragraph-indent: 0px;
-  --dds-font-supporting-style-inputtext-01-paragraph-spacing: 14px;
-  --dds-font-supporting-style-inputtext-01-text-case: none;
-  --dds-font-supporting-style-inputtext-02-font-size: 18px;
-  --dds-font-supporting-style-inputtext-02-text-decoration: none;
-  --dds-font-supporting-style-inputtext-02-font-family: 'IBM Plex Sans';
-  --dds-font-supporting-style-inputtext-02-font-weight: 400;
-  --dds-font-supporting-style-inputtext-02-font-style: normal;
-  --dds-font-supporting-style-inputtext-02-font-stretch: normal;
-  --dds-font-supporting-style-inputtext-02-letter-spacing: 0em;
-  --dds-font-supporting-style-inputtext-02-line-height: 1.5em;
-  --dds-font-supporting-style-inputtext-02-paragraph-indent: 0px;
-  --dds-font-supporting-style-inputtext-02-paragraph-spacing: 18px;
-  --dds-font-supporting-style-inputtext-02-text-case: none;
-  --dds-font-supporting-style-inputtext-03-font-size: 20px;
-  --dds-font-supporting-style-inputtext-03-text-decoration: none;
-  --dds-font-supporting-style-inputtext-03-font-family: 'IBM Plex Sans';
-  --dds-font-supporting-style-inputtext-03-font-weight: 400;
-  --dds-font-supporting-style-inputtext-03-font-style: normal;
-  --dds-font-supporting-style-inputtext-03-font-stretch: normal;
-  --dds-font-supporting-style-inputtext-03-letter-spacing: 0em;
-  --dds-font-supporting-style-inputtext-03-line-height: 1.5em;
-  --dds-font-supporting-style-inputtext-03-paragraph-indent: 0px;
-  --dds-font-supporting-style-inputtext-03-paragraph-spacing: 20px;
-  --dds-font-supporting-style-inputtext-03-text-case: none;
   --dds-font-supporting-style-placeholdertext-01-font-size: 16px;
   --dds-font-supporting-style-placeholdertext-01-text-decoration: none;
   --dds-font-supporting-style-placeholdertext-01-font-family: 'IBM Plex Sans';
@@ -416,6 +339,17 @@
   --dds-font-supporting-style-placeholdertext-03-paragraph-indent: 0px;
   --dds-font-supporting-style-placeholdertext-03-paragraph-spacing: 12px;
   --dds-font-supporting-style-placeholdertext-03-text-case: none;
+  --dds-font-code-monospace-02-font-size: 16px;
+  --dds-font-code-monospace-02-text-decoration: none;
+  --dds-font-code-monospace-02-font-family: 'IBM Plex Mono';
+  --dds-font-code-monospace-02-font-weight: 400;
+  --dds-font-code-monospace-02-font-style: normal;
+  --dds-font-code-monospace-02-font-stretch: normal;
+  --dds-font-code-monospace-02-letter-spacing: 0em;
+  --dds-font-code-monospace-02-line-height: 1.5em;
+  --dds-font-code-monospace-02-paragraph-indent: 0px;
+  --dds-font-code-monospace-02-paragraph-spacing: 9px;
+  --dds-font-code-monospace-02-text-case: none;
   --borders-dds-border-focus-base-stroke-align: inside;
   --borders-dds-border-focus-base-stroke-miter-limit: 4;
   --borders-dds-border-focus-base-stroke-weight: 1px;
