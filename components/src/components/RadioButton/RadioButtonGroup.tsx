@@ -1,4 +1,12 @@
-import { ChangeEvent, HTMLAttributes, useId, useState } from 'react';
+import React, {
+  ChangeEvent,
+  forwardRef,
+  HTMLAttributes,
+  ReactElement,
+  Ref,
+  useId,
+  useState,
+} from 'react';
 import styled, { css } from 'styled-components';
 import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
@@ -61,24 +69,28 @@ export type RadioButtonGroupProps<T extends string | number> =
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
   >;
 
-export const RadioButtonGroup = <T extends string | number = string>({
-  name,
-  label,
-  groupId,
-  errorMessage,
-  tip,
-  disabled,
-  readOnly,
-  direction = 'row',
-  value,
-  children,
-  required,
-  onChange,
-  id,
-  className,
-  htmlProps,
-  ...rest
-}: RadioButtonGroupProps<T>) => {
+const RadioButtonGroupInner = <T extends string | number = string>(
+  props: RadioButtonGroupProps<T>
+) => {
+  const {
+    name,
+    label,
+    groupId,
+    errorMessage,
+    tip,
+    disabled,
+    readOnly,
+    direction = 'row',
+    value,
+    children,
+    required,
+    onChange,
+    id,
+    className,
+    htmlProps,
+    ...rest
+  } = props;
+
   const [groupValue, setGroupValue] = useState<
     string | number | null | undefined
   >(value);
@@ -139,3 +151,9 @@ export const RadioButtonGroup = <T extends string | number = string>({
     </Container>
   );
 };
+
+export const RadioButtonGroup = forwardRef(RadioButtonGroupInner) as <
+  T extends string | number = string
+>(
+  props: RadioButtonGroupProps<T> & { ref?: Ref<HTMLDivElement> }
+) => ReactElement;
