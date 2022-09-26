@@ -30,9 +30,11 @@ const selectionControl = {
     width: selectionControlSize,
   },
   hover: {
-    backgroundColor: colors.DdsColorInfoLightest,
-    boxShadow: `inset 0 0 0 1px ${hoverInputfield.borderColor}`,
-    borderColor: hoverInputfield.borderColor,
+    base: {
+      backgroundColor: colors.DdsColorInteractiveLightest,
+      boxShadow: `inset 0 0 0 1px ${hoverInputfield.borderColor}`,
+      borderColor: hoverInputfield.borderColor,
+    },
     danger: {
       backgroundColor: colors.DdsColorDangerLightest,
       boxShadow: `inset 0 0 0 1px ${dangerInputfield.borderColor}`,

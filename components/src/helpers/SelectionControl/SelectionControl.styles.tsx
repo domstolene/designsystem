@@ -32,28 +32,6 @@ export const CustomSelectionControl = styled.span<CustomSelectionControlProps>`
   }
 `;
 
-const indeterminateSelectors = {
-  checked: `
-        input[data-indeterminate='true']
-        ~ ${CustomSelectionControl}
-    `,
-  checkedAfter: `
-        input[data-indeterminate='true']
-        ~ ${CustomSelectionControl}:after
-    `,
-  disabled: `
-      input[data-indeterminate='true']:disabled ~ ${CustomSelectionControl};
-    `,
-  hoverChecked: `
-        &:hover
-        input:enabled[data-indeterminate='true']
-        ~ ${CustomSelectionControl}
-    `,
-};
-
-const selectorCombinator = (key: string, type: SelectionControlType) =>
-  type === 'checkbox' ? `, ${key}` : '';
-
 type ContainerProps = {
   hasLabel?: boolean;
   disabled?: boolean;
@@ -94,9 +72,27 @@ export const Container = styled.label<ContainerProps>`
   }
 
   &:hover input:enabled ~ ${CustomSelectionControl} {
-    background-color: ${selectionControl.hover.backgroundColor};
-    box-shadow: ${selectionControl.hover.boxShadow};
-    border-color: ${selectionControl.hover.borderColor};
+    background-color: ${selectionControl.hover.base.backgroundColor};
+    box-shadow: ${selectionControl.hover.base.boxShadow};
+    border-color: ${selectionControl.hover.base.borderColor};
+  }
+
+  input:checked:enabled
+    ~ ${CustomSelectionControl},
+    input[data-indeterminate='true']
+    ~ ${CustomSelectionControl} {
+    border-color: ${selectionControl.checked.base.borderColor};
+    background-color: ${selectionControl.checked.base.backgroundColor};
+  }
+  &:hover
+    input:checked:enabled
+    ~ ${CustomSelectionControl},
+    &:hover
+    input:enabled[data-indeterminate='true']
+    ~ ${CustomSelectionControl} {
+    background-color: ${selectionControl.checked.hover.backgroundColor};
+    box-shadow: ${selectionControl.checked.hover.boxShadow};
+    border-color: ${selectionControl.checked.hover.borderColor};
   }
 
   ${({ error }) =>
@@ -118,55 +114,31 @@ export const Container = styled.label<ContainerProps>`
         border-color: ${selectionControl.danger.borderColor};
       }
     `}
+  input:disabled ~ ${CustomSelectionControl} {
+    ${selectionControl.disabled}
+  }
+  input:checked:disabled
+    ~ ${CustomSelectionControl},
+    input:disabled[data-indeterminate='true']
+    ~ ${CustomSelectionControl} {
+    background-color: ${selectionControl.checked.disabled.backgroundColor};
+    border-color: ${selectionControl.checked.disabled.borderColor};
+  }
+  input:checked
+    ~ ${CustomSelectionControl}:after,
+    input[data-indeterminate='true']
+    ~ ${CustomSelectionControl}:after {
+    display: block;
+  }
 
   ${({ disabled }) =>
     disabled &&
     css`
       cursor: not-allowed;
       color: ${container.disabled.color};
-      input ~ ${CustomSelectionControl} {
-        ${selectionControl.disabled}
-      }
     `}
-
-  ${({ controlType }) => css`
-    input:checked
-      ~ ${CustomSelectionControl}:after${selectorCombinator(
-        indeterminateSelectors.checkedAfter,
-        controlType
-      )} {
-      display: block;
-    }
-
-    input:checked
-      ~ ${CustomSelectionControl}${selectorCombinator(
-        indeterminateSelectors.checked,
-        controlType
-      )} {
-      border-color: ${selectionControl.checked.base.borderColor};
-      background-color: ${selectionControl.checked.base.backgroundColor};
-    }
-
-    &:hover
-      input:checked:enabled
-      ~ ${CustomSelectionControl}${selectorCombinator(
-        indeterminateSelectors.hoverChecked,
-        controlType
-      )} {
-      background-color: ${selectionControl.checked.hover.backgroundColor};
-      box-shadow: ${selectionControl.checked.hover.boxShadow};
-      border-color: ${selectionControl.checked.hover.borderColor};
-    }
-
-    input:checked:disabled
-      ~ ${CustomSelectionControl}${selectorCombinator(
-        indeterminateSelectors.hoverChecked,
-        controlType
-      )} {
-      ${selectionControl.checked.disabled}
-    }
-
-    ${controlType === 'checkbox'
+  ${({ controlType }) =>
+    controlType === 'checkbox'
       ? css`
           ${CustomSelectionControl}:after {
             border: solid ${checkmark.checkbox.borderColor};
@@ -197,5 +169,4 @@ export const Container = styled.label<ContainerProps>`
             top: ${checkmark.radio.top};
           }
         `}
-  `}
 `;
