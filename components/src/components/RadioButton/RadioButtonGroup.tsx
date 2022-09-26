@@ -1,4 +1,4 @@
-import React, {
+import {
   ChangeEvent,
   forwardRef,
   HTMLAttributes,
@@ -119,7 +119,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
 
   return (
     <Container {...getBaseHTMLProps(id, className, htmlProps, rest)} ref={ref}>
-       <Typography
+      <Typography
         as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
