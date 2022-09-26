@@ -21,7 +21,6 @@ export const Input = styled.input`
   border-color: ${input.base.borderColor};
   background-color: ${input.base.backgroundColor};
   padding: ${input.base.padding};
-  ${input.base.font}
   width: 100%;
   margin: 0;
   box-sizing: border-box;

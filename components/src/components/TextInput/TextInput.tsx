@@ -20,7 +20,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Property } from 'csstype';
-import { getFormInputIconSize } from '../../helpers/Input/Input.utils';
+import { getFormInputIconSize } from '../../helpers/Input';
 
 const defaultWidth: Property.Width<string> = '320px';
 
