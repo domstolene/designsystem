@@ -1,24 +1,12 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
-import {
-  focusVisible,
-  focusVisibleTransitionValue,
-} from '../../helpers/styling';
+import { focusVisible } from '../../helpers/styling';
 import { removeButtonStyling } from '../../helpers/styling';
 
 const { border: Border, spacing: Spacing, colors: Colors } = ddsBaseTokens;
 
-const tabListBase: CSSObject = {
-  '@media (prefers-reduced-motion: no-preference)': {
-    transition: focusVisibleTransitionValue,
-  },
-  display: 'flex',
+const tabList: CSSObject = {
   borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Border.BordersDdsBorderStyleLightStroke}`,
-  overflowX: 'auto',
-};
-
-const tabListFocusBase: CSSObject = {
-  ...focusVisible,
 };
 
 const tabBase: CSSObject = {
@@ -76,12 +64,7 @@ const tabPanelFocusVisibleBase: CSSObject = {
 };
 
 export const tabsTokens = {
-  tabList: {
-    base: tabListBase,
-    focus: {
-      base: tabListFocusBase,
-    },
-  },
+  tabList,
   tab: {
     base: tabBase,
     direction: {

@@ -1,10 +1,9 @@
-import { forwardRef, useEffect } from 'react';
+import { forwardRef, useEffect, useId } from 'react';
 import styled from 'styled-components';
 import { selection, visibilityTransition } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
 import {
   useCombinedRef,
-  useId,
   useOnClickOutside,
   useOnKeyDown,
   useFloatPosition,
@@ -192,11 +191,12 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     };
 
     const { style = {}, ...restHTMLProps } = htmlProps;
+    const generatedId = useId();
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, restHTMLProps, rest),
       ref: combinedRef,
-      id: id ?? useId('overflowMenu'),
+      id: id ?? `${generatedId}-overflowMenu`,
       isOpen,
       style: { ...style, ...styles.floating },
       'aria-hidden': !isOpen,
