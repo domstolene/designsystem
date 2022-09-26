@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { CustomSelectionControl } from '../../helpers/SelectionControl/SelectionControl.styles';
 import {
   focusVisible,
   focusVisibleTransitionValue,
@@ -7,23 +8,6 @@ import { checkboxTokens as tokens } from './Checkbox.tokens';
 import { CheckboxProps } from './Checkbox.types';
 
 const { checkbox, checkmark, container } = tokens;
-
-export const CustomCheckbox = styled.span`
-  position: absolute;
-  left: 0;
-  box-sizing: border-box;
-  border: ${checkbox.base.border};
-  border-color: ${checkbox.base.borderColor};
-  background-color: ${checkbox.base.backgroundColor};
-  border-radius: ${checkbox.base.borderRadius};
-  height: ${checkbox.base.height};
-  width: ${checkbox.base.width};
-  &:after {
-    content: '';
-    position: absolute;
-    display: none;
-  }
-`;
 
 type ContainerProps = Pick<
   CheckboxProps,
@@ -38,48 +22,41 @@ export const Container = styled.label<ContainerProps>`
   user-select: none;
   width: fit-content;
   color: ${container.color};
-  ${({ hasLabel }) =>
-    hasLabel
-      ? css`
-          padding-left: ${container.withLabel.paddingLeft};
-        `
-      : css`
-          padding: ${container.noLabel.padding};
-        `}
+  ${({ hasLabel }) => (hasLabel ? css`` : css``)}
 
-  input ~ ${CustomCheckbox} {
+  input ~ ${CustomSelectionControl} {
     @media (prefers-reduced-motion: no-preference) {
       transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
     }
   }
 
   input:checked
-    ~ ${CustomCheckbox}:after,
+    ~ ${CustomSelectionControl}:after,
     input[data-indeterminate='true']
-    ~ ${CustomCheckbox}:after {
+    ~ ${CustomSelectionControl}:after {
     display: block;
   }
 
-  &:hover input:enabled ~ ${CustomCheckbox} {
+  &:hover input:enabled ~ ${CustomSelectionControl} {
     background-color: ${checkbox.hover.backgroundColor};
     box-shadow: ${checkbox.hover.boxShadow};
     border-color: ${checkbox.hover.borderColor};
   }
 
   input:checked
-    ~ ${CustomCheckbox},
+    ~ ${CustomSelectionControl},
     input[data-indeterminate='true']
-    ~ ${CustomCheckbox} {
+    ~ ${CustomSelectionControl} {
     border-color: ${checkbox.checked.base.borderColor};
     background-color: ${checkbox.checked.base.backgroundColor};
   }
 
   &:hover
     input:checked:enabled
-    ~ ${CustomCheckbox},
+    ~ ${CustomSelectionControl},
     &:hover
     input:enabled[data-indeterminate='true']
-    ~ ${CustomCheckbox} {
+    ~ ${CustomSelectionControl} {
     background-color: ${checkbox.checked.hover.backgroundColor};
     box-shadow: ${checkbox.checked.hover.boxShadow};
     border-color: ${checkbox.checked.hover.borderColor};
@@ -94,18 +71,18 @@ export const Container = styled.label<ContainerProps>`
   ${({ error }) =>
     error &&
     css`
-      &:hover input:enabled ~ ${CustomCheckbox} {
+      &:hover input:enabled ~ ${CustomSelectionControl} {
         background-color: ${checkbox.hover.danger.backgroundColor};
         box-shadow: ${checkbox.hover.danger.boxShadow};
         border-color: ${checkbox.hover.danger.borderColor};
       }
       input
-        ~ ${CustomCheckbox},
+        ~ ${CustomSelectionControl},
         input:checked:enabled
-        ~ ${CustomCheckbox},
+        ~ ${CustomSelectionControl},
         &:hover
         input:checked:enabled
-        ~ ${CustomCheckbox} {
+        ~ ${CustomSelectionControl} {
         box-shadow: ${checkbox.danger.boxShadow};
         border-color: ${checkbox.danger.borderColor};
       }
@@ -116,18 +93,18 @@ export const Container = styled.label<ContainerProps>`
     css`
       cursor: not-allowed;
       color: ${container.disabled.color};
-      input ~ ${CustomCheckbox} {
+      input ~ ${CustomSelectionControl} {
         ${checkbox.disabled}
       }
       input:checked
-        ~ ${CustomCheckbox},
+        ~ ${CustomSelectionControl},
         input[data-indeterminate='true']
-        ~ ${CustomCheckbox} {
+        ~ ${CustomSelectionControl} {
         ${checkbox.checked.disabled}
       }
     `}
 
-    ${CustomCheckbox}:after {
+    ${CustomSelectionControl}:after {
     border: solid ${checkmark.borderColor};
     ${({ indeterminate }) =>
       indeterminate

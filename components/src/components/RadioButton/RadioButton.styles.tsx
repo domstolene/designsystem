@@ -2,26 +2,13 @@ import { RadioButtonProps } from './RadioButton.types';
 import styled, { css } from 'styled-components';
 import { radioButtonTokens as tokens } from './RadioButton.tokens';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
-
-export const CustomRadioButton = styled.span`
-  position: absolute;
-  box-sizing: border-box;
-  border-radius: 50%;
-  vertical-align: middle;
-  ${tokens.radioButton.base}
-  left: ${tokens.radioButton.spaceLeft};
-  &:after {
-    content: '';
-    position: absolute;
-    display: none;
-  }
-`;
+import { selectionControlTokens } from '../../helpers/SelectionControl/SelectionControl.tokens';
+import { CustomSelectionControl } from '../../helpers/SelectionControl/SelectionControl.styles';
 
 type ContainerProps = Pick<RadioButtonProps, 'error' | 'disabled' | 'readOnly'>;
 
 export const Container = styled.label<ContainerProps>`
   position: relative;
-  display: block;
   cursor: pointer;
   user-select: none;
   width: fit-content;
@@ -29,22 +16,22 @@ export const Container = styled.label<ContainerProps>`
   align-items: center;
   ${tokens.container.base}
 
-  input:checked ~ ${CustomRadioButton}:after {
+  input:checked ~ ${CustomSelectionControl}:after {
     display: block;
   }
 
-  input ~ ${CustomRadioButton} {
+  input ~ ${CustomSelectionControl} {
     transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
   }
 
-  input:checked ~ ${CustomRadioButton} {
+  input:checked ~ ${CustomSelectionControl} {
     ${tokens.radioButton.checked.base}
   }
 
-  &:hover input:enabled ~ ${CustomRadioButton} {
+  &:hover input:enabled ~ ${CustomSelectionControl} {
     ${tokens.radioButton.hover.base}
   }
-  &:hover input:checked:enabled ~ ${CustomRadioButton} {
+  &:hover input:checked:enabled ~ ${CustomSelectionControl} {
     ${tokens.radioButton.checked.hover.base}
   }
 
@@ -56,10 +43,10 @@ export const Container = styled.label<ContainerProps>`
   ${({ error }) =>
     error &&
     css`
-      input ~ ${CustomRadioButton} {
+      input ~ ${CustomSelectionControl} {
         ${tokens.radioButton.danger.base}
       }
-      &:hover input:enabled ~ ${CustomRadioButton} {
+      &:hover input:enabled ~ ${CustomSelectionControl} {
         ${tokens.radioButton.danger.hover.base}
       }
     `}
@@ -68,10 +55,10 @@ export const Container = styled.label<ContainerProps>`
     disabled &&
     css`
       cursor: not-allowed;
-      input ~ ${CustomRadioButton} {
+      input ~ ${CustomSelectionControl} {
         ${tokens.radioButton.disabled.base}
       }
-      input:checked ~ ${CustomRadioButton} {
+      input:checked ~ ${CustomSelectionControl} {
         ${tokens.radioButton.checked.disabled.base}
       }
     `}
@@ -80,16 +67,20 @@ export const Container = styled.label<ContainerProps>`
     readOnly &&
     css`
       cursor: default;
-      input ~ ${CustomRadioButton} {
+      input ~ ${CustomSelectionControl} {
         ${tokens.radioButton.readOnly.base}
       }
-      input:checked ~ ${CustomRadioButton} {
+      input:checked ~ ${CustomSelectionControl} {
         ${tokens.radioButton.checked.readOnly.base}
       }
     `}
 
-    ${CustomRadioButton}:after {
+    ${CustomSelectionControl}:after {
     border-radius: 50%;
-    ${tokens.checkmark.base}
+    background-color: ${selectionControlTokens.checkmark.radio.backgroundColor};
+    width: ${selectionControlTokens.checkmark.radio.width};
+    height: ${selectionControlTokens.checkmark.radio.height};
+    left: ${selectionControlTokens.checkmark.radio.left};
+    top: ${selectionControlTokens.checkmark.radio.top};
   }
 `;

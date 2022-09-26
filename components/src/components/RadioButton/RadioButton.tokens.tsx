@@ -7,18 +7,21 @@ import {
   hoverInputfield,
 } from '../../helpers/styling';
 
-const {
-  colors: Colors,
-  spacing: Spacing,
-  fontPackages: FontPackages,
-} = ddsBaseTokens;
+const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
+
+const radioButton = {
+  base: {
+    border: '1px solid',
+    borderColor: Colors.DdsColorNeutralsGray5,
+    backgroundColor: Colors.DdsColorNeutralsWhite,
+  },
+  hover: {},
+};
 
 const radioButtonBase: CSSObject = {
   border: '1px solid',
   borderColor: Colors.DdsColorNeutralsGray5,
   backgroundColor: Colors.DdsColorNeutralsWhite,
-  height: FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber,
-  width: FontPackages.supportingStyle_inputtext_02.numbers.fontSizeNumber,
 };
 
 const radioButtonHoverBase: CSSObject = {

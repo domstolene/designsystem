@@ -3,9 +3,6 @@ import { dangerInputfield, hoverInputfield } from '../../helpers/styling';
 
 const { colors, spacing, borderRadius } = ddsBaseTokens;
 
-const checkboxSizeNumberPx = 18;
-const checkboxSize = `${checkboxSizeNumberPx}px`;
-
 const checkmark = {
   borderColor: colors.DdsColorNeutralsWhite,
 };
@@ -16,8 +13,6 @@ const checkbox = {
     borderColor: colors.DdsColorNeutralsGray5,
     backgroundColor: colors.DdsColorNeutralsWhite,
     borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-    height: checkboxSize,
-    width: checkboxSize,
   },
   hover: {
     backgroundColor: colors.DdsColorInfoLightest,
@@ -67,14 +62,8 @@ const container = {
   disabled: {
     color: colors.DdsColorNeutralsGray6,
   },
-  withLabel: {
-    paddingLeft: `${
-      checkboxSizeNumberPx + spacing.SizesDdsSpacingLocalX05NumberPx
-    }px`,
-  },
-  noLabel: {
-    padding: `${checkboxSizeNumberPx / 2}px`,
-  },
+  withLabel: {},
+  noLabel: {},
 };
 
 export const checkboxTokens = {
