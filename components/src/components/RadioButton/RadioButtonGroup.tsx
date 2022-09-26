@@ -70,7 +70,8 @@ export type RadioButtonGroupProps<T extends string | number> =
   >;
 
 const RadioButtonGroupInner = <T extends string | number = string>(
-  props: RadioButtonGroupProps<T>
+  props: RadioButtonGroupProps<T>,
+  ref: Ref<HTMLDivElement>
 ) => {
   const {
     name,
@@ -121,7 +122,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   };
 
   return (
-    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
+    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)} ref={ref}>
       <Label
         forwardedAs="span"
         typographyType="supportingStyleLabel01"
