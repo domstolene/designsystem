@@ -132,7 +132,7 @@ export const StyledIcon = styled(Icon)`
 export const getCustomStyles = <TOption>(): Partial<
   StylesConfig<TOption, boolean, GroupBase<TOption>>
 > => ({
-  control: provided => ({
+  control: () => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
