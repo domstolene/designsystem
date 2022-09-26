@@ -132,7 +132,7 @@ export const StyledIcon = styled(Icon)`
 export const getCustomStyles = <TOption>(): Partial<
   StylesConfig<TOption, boolean, GroupBase<TOption>>
 > => ({
-  control: _provided => ({
+  control: provided => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
@@ -164,7 +164,7 @@ export const getCustomStyles = <TOption>(): Partial<
     }),
   }),
   indicatorSeparator: () => ({}),
-  dropdownIndicator: (_provided, state) => ({
+  dropdownIndicator: (provided, state) => ({
     display: 'inline-flex',
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
     '@media (prefers-reduced-motion: no-preference)': {
@@ -187,7 +187,7 @@ export const getCustomStyles = <TOption>(): Partial<
     overflow: 'hidden',
     boxSizing: 'border-box',
   }),
-  multiValue: (_provided, state) => ({
+  multiValue: (provided, state) => ({
     boxSizing: 'border-box',
     minWidth: 0,
     display: 'flex',
@@ -202,7 +202,7 @@ export const getCustomStyles = <TOption>(): Partial<
     color: multiValueLabel.color,
     ...multiValueLabel.font,
   }),
-  multiValueRemove: (_provided, state) =>
+  multiValueRemove: (provided, state) =>
     state.selectProps.isDisabled
       ? {
           display: 'none',
