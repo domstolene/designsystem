@@ -13,8 +13,33 @@ export const isKeyboardEvent = (
 ): e is KeyboardEvent<Element> =>
   (e as KeyboardEvent<Element>).key !== undefined;
 
+/**
+ * Bytter fokus mellom elementer i en gruppe med piltaster og ikke Tab, og looper fokus i gruppen. Typisk bruk:
+ * ```
+ * import elements from './elements';
+ * import RoveItem from './RoveItem';
+ *
+ * const MyComponent = () => {
+ *  const [focus, setFocus] = useRoveFocus(elements.length);
+ *
+ *  return (
+ *  <ul>
+ *    {elements.map((element, index) => (
+ *    <li key={element}>
+ *      <RoveItem index={index} focus={focus === index} setFocus={setFocus}>{element.name}</RoveItem>
+ *    </li>
+ *    ))}
+ *  </ul>)
+ * }
+ * ```
+ * @param size antall elementer i gruppen.
+ * @param reset om fokus i gruppen skal nullstilles; når man tabber seg inn i gruppen skal focus være nullstilt.
+ * @param direction retning elementene blas i.
+ * @returns hook par: indeksen til fokuserte elemenentet og funksjonen som håndterer fokus.
+ */
+
 export function useRoveFocus(
-  size: number | undefined,
+  size?: number,
   reset?: boolean,
   direction: Direction = 'column'
 ): [number, Dispatch<SetStateAction<number>>] {
