@@ -45,7 +45,7 @@ export type TabsProps = BaseComponentPropsWithChildren<
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const {
     id,
-    activeTab = 0,
+    activeTab,
     onChange,
     tabContentDirection = 'row',
     width,
@@ -58,7 +58,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-tabs`;
 
-  const [thisActiveTab, setActiveTab] = useState(activeTab);
+  const [thisActiveTab, setActiveTab] = useState(activeTab || 0);
   const [hasTabFocus, setHasTabFocus] = useState(false);
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabPanelsRef = useRef<HTMLDivElement>(null);
@@ -69,7 +69,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   };
 
   useEffect(() => {
-    if (activeTab && activeTab != thisActiveTab) {
+    if (activeTab !== undefined && activeTab !== thisActiveTab) {
       setActiveTab(activeTab);
     }
   }, [activeTab, thisActiveTab]);
