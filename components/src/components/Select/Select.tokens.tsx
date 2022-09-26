@@ -2,44 +2,32 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 import { calculateHeightWithLineHeight } from '../../utils';
 
 const { colors, spacing, fontPackages, borderRadius, border } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
 
-export const multiValueContainerMinHeight = `${
+//custom spacing so that multiselect has same height as single value select
+const controlPaddingBottomMultiMedium = `${
+  spacing.SizesDdsSpacingLocalX075NumberPx - 1
+}px`;
+const controlPaddingBottomMultiSmall = `${
+  spacing.SizesDdsSpacingLocalX05NumberPx - 1
+}px`;
+const inputContainerMinHeightMulti = `${
   spacing.SizesDdsSpacingLocalX0125NumberPx * 2 +
-  spacing.SizesDdsSpacingLocalX025NumberPx * 2 +
   calculateHeightWithLineHeight(
-    fontPackages.supportingStyle_inputtext_01.numbers.lineHeightNumber,
-    fontPackages.supportingStyle_inputtext_01.numbers.fontSizeNumber
+    fontPackages.body_sans_01.numbers.lineHeightNumber,
+    fontPackages.body_sans_01.numbers.fontSizeNumber
   )
 }px`;
-
-//custom spacing so that multiselect has same height as single value select
-const valueContainerMarginBottomMultiWithLabel = `${
-  spacing.SizesDdsSpacingLocalX025NumberPx +
-  spacing.SizesDdsSpacingLocalX0125NumberPx
-}px`;
-
-//custom spacing so that multiselect has same height as single value select
-const inputMultiNoLabelPaddingTop = `${
-  spacing.SizesDdsSpacingLocalX05NumberPx +
-  spacing.SizesDdsSpacingLocalX0125NumberPx
-}px`;
-
-const valueContainerIsMultiBase: CSSObject = {
-  minHeight: multiValueContainerMinHeight,
-};
 
 const control = {
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
   border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid`,
   borderColor: colors.DdsColorNeutralsGray5,
   backgroundColor: colors.DdsColorNeutralsWhite,
-  padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
   color: colors.DdsColorNeutralsGray9,
   disabled: {
     backgroundColor: colors.DdsColorNeutralsGray1,
@@ -50,7 +38,14 @@ const control = {
     backgroundColor: 'transparent',
   },
   isMulti: {
-    padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05}`,
+    sizes: {
+      medium: {
+        padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${controlPaddingBottomMultiMedium} ${spacing.SizesDdsSpacingLocalX075}`,
+      },
+      small: {
+        padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${controlPaddingBottomMultiSmall} ${spacing.SizesDdsSpacingLocalX075}`,
+      },
+    },
   },
   sizes: {
     medium: {
@@ -70,7 +65,11 @@ const control = {
 
 const placeholder = {
   color: colors.DdsColorNeutralsGray6,
-  font: fontPackages.supportingStyle_placeholdertext_01.base,
+  sizes: {
+    medium: { font: fontPackages.supportingStyle_placeholdertext_01.base },
+    small: { font: fontPackages.supportingStyle_placeholdertext_02.base },
+    tiny: { font: fontPackages.supportingStyle_placeholdertext_03.base },
+  },
 };
 
 const dropdownIndicator = {
@@ -149,7 +148,6 @@ const noOptionsMessage = {
 const multiValue = {
   base: {
     borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-    margin: spacing.SizesDdsSpacingLocalX0125,
   },
   enabled: {
     backgroundColor: colors.DdsColorNeutralsGray2,
@@ -162,7 +160,7 @@ const multiValue = {
 const multiValueLabel = {
   padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`,
   color: colors.DdsColorNeutralsGray9,
-  font: fontPackages.supportingStyle_tiny_01.base,
+  font: fontPackages.body_sans_01.base,
 };
 
 const multiValueRemove = {
@@ -175,7 +173,19 @@ const multiValueRemove = {
   hover: {
     color: colors.DdsColorNeutralsWhite,
     backgroundColor: colors.DdsColorInteractiveBase,
-    boxShadow: `0 0 0 1px ${colors.DdsColorNeutralsGray9}`,
+    boxShadow: `inset 0 0 0 1px ${colors.DdsColorNeutralsGray9}`,
+  },
+};
+
+const valueContainer = {
+  isMulti: {
+    gap: spacing.SizesDdsSpacingLocalX025,
+  },
+};
+
+const inputContainer = {
+  isMulti: {
+    minHeight: inputContainerMinHeightMulti,
   },
 };
 
@@ -190,11 +200,8 @@ export const selectTokens = {
   menu,
   groupHeading,
   option,
-  valueContainer: {
-    isMulti: {
-      base: valueContainerIsMultiBase,
-    },
-  },
+  valueContainer,
+  inputContainer,
   multiValue,
   multiValueLabel,
   multiValueRemove,

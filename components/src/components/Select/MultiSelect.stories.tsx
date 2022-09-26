@@ -1,3 +1,4 @@
+import { CourtIcon } from '../../icons/tsx';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 import { Select as DDSSelect, SelectProps } from './Select';
@@ -130,9 +131,30 @@ export const Overview = (args: MultiSelectProps) => {
   );
 };
 
+export const OverviewSizes = (args: MultiSelectProps) => {
+  return (
+    <StoryTemplate
+      title="MultiSelect - overview sizes"
+      display="grid"
+      columnsAmount={2}
+    >
+      <DDSSelect {...args} options={options} isMulti />
+      <DDSSelect {...args} options={options} isMulti icon={CourtIcon} />
+      <DDSSelect {...args} options={options} isMulti componentSize="small" />
+      <DDSSelect
+        {...args}
+        options={options}
+        isMulti
+        componentSize="small"
+        icon={CourtIcon}
+      />
+    </StoryTemplate>
+  );
+};
+
 export const Default = (args: MultiSelectProps) => {
   return (
-    <StoryTemplate title="MultiSelect - default">
+    <StoryTemplate title="MultiSelect - default" display="block">
       <DDSSelect {...args} options={options} isMulti />
     </StoryTemplate>
   );

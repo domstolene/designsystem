@@ -92,10 +92,11 @@ const DDSNoOptionsMessage = <TValue, IsMulti extends boolean>(
 ) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
 
 const DDSClearIndicator = <TValue, IsMulti extends boolean>(
-  props: ClearIndicatorProps<TValue, IsMulti>
+  props: ClearIndicatorProps<TValue, IsMulti>,
+  size: InputSize
 ) => (
   <ClearIndicator {...props}>
-    <Icon icon={CloseSmallIcon} iconSize="medium" />
+    <Icon icon={CloseSmallIcon} iconSize={getFormInputIconSize(size)} />
   </ClearIndicator>
 );
 
@@ -108,10 +109,11 @@ const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
 );
 
 const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
-  props: DropdownIndicatorProps<TValue, IsMulti>
+  props: DropdownIndicatorProps<TValue, IsMulti>,
+  size: InputSize
 ) => (
   <DropdownIndicator {...props}>
-    <Icon icon={ChevronDownIcon} iconSize="medium" />
+    <Icon icon={ChevronDownIcon} iconSize={getFormInputIconSize(size)} />
   </DropdownIndicator>
 );
 
@@ -259,6 +261,7 @@ const SelectInner = <
     errorMessage,
     isDisabled,
     readOnly,
+    isMulti,
     className,
     style,
   };
@@ -301,8 +304,8 @@ const SelectInner = <
         ),
       SingleValue: props =>
         CustomSingleValue(props, singleValueId, customSingleValueElement),
-      ClearIndicator: DDSClearIndicator,
-      DropdownIndicator: DDSDropdownIndicator,
+      ClearIndicator: props => DDSClearIndicator(props, componentSize),
+      DropdownIndicator: props => DDSDropdownIndicator(props, componentSize),
       MultiValueRemove: DDSMultiValueRemove,
       Control: props => DDSControl(props, componentSize, icon),
     },

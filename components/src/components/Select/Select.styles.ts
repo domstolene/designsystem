@@ -28,6 +28,8 @@ const {
   noOptionsMessage,
   placeholder,
   icon,
+  valueContainer,
+  inputContainer,
 } = tokens;
 
 export const prefix = 'dds-select';
@@ -38,6 +40,7 @@ type StyledContainerProps = {
   readOnly?: boolean;
   width?: Property.Width;
   componentSize: InputSize;
+  isMulti?: boolean;
 };
 
 export const Container = styled.div<StyledContainerProps>`
@@ -49,13 +52,20 @@ export const Container = styled.div<StyledContainerProps>`
     ${selection}
   }
 
-  ${({ componentSize }) => css`
+  ${({ componentSize, isMulti }) => css`
     .${prefix}__control {
-      padding: ${control.sizes[componentSize].padding};
-      ${control.sizes[componentSize].font}
+      padding: ${isMulti && componentSize === 'tiny'
+        ? control.sizes.small.padding
+        : isMulti && componentSize !== 'tiny'
+        ? control.isMulti.sizes[componentSize].padding
+        : control.sizes[componentSize].padding};
+      ${control.sizes[componentSize].font};
     }
     .${prefix}__option {
       ${option.sizes[componentSize].font}
+    }
+    .${prefix}__placeholder {
+      ${placeholder.sizes[componentSize].font}
     }
   `}
 
@@ -122,7 +132,7 @@ export const StyledIcon = styled(Icon)`
 export const getCustomStyles = <TOption>(): Partial<
   StylesConfig<TOption, boolean, GroupBase<TOption>>
 > => ({
-  control: (_provided, state) => ({
+  control: _provided => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
@@ -131,8 +141,8 @@ export const getCustomStyles = <TOption>(): Partial<
     border: control.border,
     borderColor: control.borderColor,
     backgroundColor: control.backgroundColor,
-    padding: state.isMulti ? control.isMulti.padding : control.padding,
     transition: 'box-shadow 0.2s, border-color 0.2s',
+
     '&:hover': {
       ...hoverInputfield,
     },
@@ -143,13 +153,15 @@ export const getCustomStyles = <TOption>(): Partial<
   placeholder: provided => ({
     ...provided,
     color: placeholder.color,
-    ...placeholder.font,
     margin: 0,
   }),
-  input: provided => ({
+  input: (provided, state) => ({
     ...provided,
     margin: 0,
     padding: 0,
+    ...(state.isMulti && {
+      minHeight: inputContainer.isMulti.minHeight,
+    }),
   }),
   indicatorSeparator: () => ({}),
   dropdownIndicator: (_provided, state) => ({
@@ -164,17 +176,21 @@ export const getCustomStyles = <TOption>(): Partial<
 
   valueContainer: (provided, state) => ({
     ...provided,
-    ...(state.selectProps.isMulti ? tokens.valueContainer.isMulti.base : {}),
+    ...(state.selectProps.isMulti && {
+      gap: valueContainer.isMulti.gap,
+    }),
     padding: 0,
   }),
+
   singleValue: () => ({
     gridArea: '1/1/2/3',
     overflow: 'hidden',
     boxSizing: 'border-box',
   }),
-  multiValue: (provided, state) => ({
-    ...provided,
-    margin: multiValue.base.margin,
+  multiValue: (_provided, state) => ({
+    boxSizing: 'border-box',
+    minWidth: 0,
+    display: 'flex',
     borderRadius: multiValue.base.borderRadius,
     backgroundColor: state.selectProps.isDisabled
       ? tokens.multiValue.disabled.backgroundColor
