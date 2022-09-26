@@ -1,11 +1,14 @@
 import { forwardRef, useId } from 'react';
 import { Typography } from '../Typography';
-import { CustomCheckbox, Container } from './Checkbox.styles';
 import { CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
 import { spaceSeparatedIdListGenerator } from '../../utils';
 import { getBaseHTMLProps, joinClassNames } from '../../types';
 import { HiddenInput } from '../../helpers';
+import {
+  CustomSelectionControl,
+  Container,
+} from '../../helpers/SelectionControl';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
@@ -65,13 +68,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     };
 
     return (
-      <Container {...containerProps}>
+      <Container {...containerProps} controlType="checkbox">
         <HiddenInput
           {...inputProps}
           type="checkbox"
           data-indeterminate={indeterminate}
         />
-        <CustomCheckbox />
+        <CustomSelectionControl controlType="checkbox" />
         {hasLabel && (
           <Typography color="inherit" as="span" typographyType="bodySans02">
             {label}
