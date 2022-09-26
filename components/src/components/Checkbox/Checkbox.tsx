@@ -42,7 +42,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       error: error || checkboxGroup?.error,
       disabled,
       indeterminate,
-      readOnly,
       htmlFor: uniqueId,
       hasLabel,
       className: joinClassNames(className, htmlPropsClassName),
