@@ -16,7 +16,6 @@ const input = {
     borderColor: TextInput.input.borderColor,
     backgroundColor: colors.DdsColorNeutralsWhite,
     padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
-    font: TextInput.input.font,
   },
   disabled: {
     color: colors.DdsColorNeutralsGray7,

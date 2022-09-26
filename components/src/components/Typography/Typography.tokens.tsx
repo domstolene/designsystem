@@ -165,50 +165,6 @@ const bodySans04 = {
   },
 };
 
-const bodySerif01 = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.body_serif_01.base,
-  },
-  margins: {
-    marginTop: 0,
-    marginBottom: fontPackages.body_serif_01.paragraph.paragraphSpacing,
-  },
-};
-
-const bodySerif02 = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.body_serif_02.base,
-  },
-  margins: {
-    marginTop: 0,
-    marginBottom: fontPackages.body_serif_02.paragraph.paragraphSpacing,
-  },
-};
-
-const bodySerif03 = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.body_serif_03.base,
-  },
-  margins: {
-    marginTop: 0,
-    marginBottom: fontPackages.body_serif_03.paragraph.paragraphSpacing,
-  },
-};
-
-const bodySerif04 = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.body_serif_04.base,
-  },
-  margins: {
-    marginTop: 0,
-    marginBottom: fontPackages.body_serif_04.paragraph.paragraphSpacing,
-  },
-};
-
 const leadSans01 = {
   base: {
     color: textDefault.textColor,
@@ -291,48 +247,6 @@ const supportingStyleHelperText01 = {
   },
 };
 
-const supportingStyleInputText01 = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.supportingStyle_inputtext_01.base,
-    margin: 0,
-  },
-  margins: {
-    marginTop:
-      fontPackages.supportingStyle_inputtext_01.paragraph.paragraphSpacing,
-    marginBottom:
-      fontPackages.supportingStyle_inputtext_01.paragraph.paragraphSpacing,
-  },
-};
-
-const supportingStyleInputText02 = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.supportingStyle_inputtext_02.base,
-    margin: 0,
-  },
-  margins: {
-    marginTop:
-      fontPackages.supportingStyle_inputtext_02.paragraph.paragraphSpacing,
-    marginBottom:
-      fontPackages.supportingStyle_inputtext_02.paragraph.paragraphSpacing,
-  },
-};
-
-const supportingStyleInputText03 = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.supportingStyle_inputtext_03.base,
-    margin: 0,
-  },
-  margins: {
-    marginTop:
-      fontPackages.supportingStyle_inputtext_03.paragraph.paragraphSpacing,
-    marginBottom:
-      fontPackages.supportingStyle_inputtext_03.paragraph.paragraphSpacing,
-  },
-};
-
 const supportingStylePlaceholderText01 = {
   base: {
     color: colors.DdsColorNeutralsGray6,
@@ -345,6 +259,36 @@ const supportingStylePlaceholderText01 = {
         .paragraphSpacing,
     marginBottom:
       fontPackages.supportingStyle_placeholdertext_01.paragraph
+        .paragraphSpacing,
+  },
+};
+const supportingStylePlaceholderText02 = {
+  base: {
+    color: colors.DdsColorNeutralsGray6,
+    font: fontPackages.supportingStyle_placeholdertext_02.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop:
+      fontPackages.supportingStyle_placeholdertext_02.paragraph
+        .paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_placeholdertext_02.paragraph
+        .paragraphSpacing,
+  },
+};
+const supportingStylePlaceholderText03 = {
+  base: {
+    color: colors.DdsColorNeutralsGray6,
+    font: fontPackages.supportingStyle_placeholdertext_03.base,
+    margin: 0,
+  },
+  margins: {
+    marginTop:
+      fontPackages.supportingStyle_placeholdertext_03.paragraph
+        .paragraphSpacing,
+    marginBottom:
+      fontPackages.supportingStyle_placeholdertext_03.paragraph
         .paragraphSpacing,
   },
 };
@@ -390,10 +334,6 @@ export const typographyTokens = {
     bodySans02,
     bodySans03,
     bodySans04,
-    bodySerif01,
-    bodySerif02,
-    bodySerif03,
-    bodySerif04,
     leadSans01,
     leadSans02,
     leadSans03,
@@ -401,10 +341,9 @@ export const typographyTokens = {
     leadSans05,
     supportingStyleLabel01,
     supportingStyleHelperText01,
-    supportingStyleInputText01,
-    supportingStyleInputText02,
-    supportingStyleInputText03,
     supportingStylePlaceholderText01,
+    supportingStylePlaceholderText02,
+    supportingStylePlaceholderText03,
     supportingStyleTiny01,
     supportingStyleTiny02,
   },
