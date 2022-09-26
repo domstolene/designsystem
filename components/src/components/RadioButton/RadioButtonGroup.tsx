@@ -22,10 +22,6 @@ const GroupContainer = styled.div<{ direction: Direction }>`
   `}
 `;
 
-const Label = styled(Typography)`
-  padding-left: ${tokens.label.spaceLeft};
-`;
-
 type Direction = 'column' | 'row';
 
 export type RadioButtonGroupProps<T extends string | number> =
@@ -110,13 +106,13 @@ export const RadioButtonGroup = <T extends string | number = string>({
 
   return (
     <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
-      <Label
-        forwardedAs="span"
+      <Typography
+        as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
       >
         {label} {required && <RequiredMarker />}
-      </Label>
+      </Typography>
       {hasTip && <InputMessage message={tip} messageType="tip" id={tipId} />}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
