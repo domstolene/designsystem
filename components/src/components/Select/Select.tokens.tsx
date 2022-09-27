@@ -122,6 +122,10 @@ const option = {
     color: textDefault.textColor,
     backgroundColor: colors.DdsColorInteractiveLightest,
   },
+  focus: {
+    color: textDefault.textColor,
+    backgroundColor: colors.DdsColorInteractiveLightest,
+  },
   selected: {
     backgroundColor: colors.DdsColorNeutralsWhite,
     ...fontPackages.body_sans_02.base,

@@ -273,7 +273,10 @@ export const getCustomStyles = <TOption>(): Partial<
     ...(state.isSelected && {
       backgroundColor: option.selected.backgroundColor,
     }),
-    ...(state.isFocused && focusVisibleLink),
+    ...(state.isFocused && {
+      color: option.focus.color,
+      backgroundColor: option.focus.backgroundColor,
+    }),
   }),
   noOptionsMessage: () => ({
     padding: noOptionsMessage.padding,
