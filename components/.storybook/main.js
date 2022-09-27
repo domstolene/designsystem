@@ -7,6 +7,7 @@ module.exports = {
   ],
   features: {
     previewMdx2: true,
+    postcss: false,
   },
   typescript: {
     reactDocgen: 'react-docgen-typescript',
@@ -16,4 +17,5 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
+  staticDirs: ['./images'],
 };
