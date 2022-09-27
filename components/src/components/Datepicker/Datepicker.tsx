@@ -154,32 +154,32 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   }
 );
 
+type DefaultInputWidth = {
+  medium: Property.Width<string>;
+  small: Property.Width<string>;
+  tiny: Property.Width<string>;
+};
+
+const defaultWidths: {
+  date: DefaultInputWidth;
+  ['datetime-local']: DefaultInputWidth;
+} = {
+  date: {
+    medium: '160px',
+    small: '140px',
+    tiny: '125px',
+  },
+  ['datetime-local']: {
+    medium: '200px',
+    small: '180px',
+    tiny: '150px',
+  },
+};
+
 const getWidth = (
   type: DatepickerType,
   size: InputSize
-): Property.Width<string> => {
-  if (type === 'date') {
-    if (size === 'medium') {
-      return '150px';
-    } else if (size === 'small') {
-      return '135px';
-    }
-
-    return '125px';
-  }
-
-  if (type === 'datetime-local') {
-    if (size === 'medium') {
-      return '200px';
-    } else if (size === 'small') {
-      return '180px';
-    }
-
-    return '150px';
-  }
-
-  return '320px';
-};
+): Property.Width<string> => defaultWidths[type][size];
 
 const getMax = (
   type: DatepickerType,
