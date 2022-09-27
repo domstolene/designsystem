@@ -16,6 +16,7 @@ import {
 import { Typography } from '../Typography';
 import styled from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { useState } from 'react';
 
 export default {
   title: 'Design system/Card',
@@ -188,6 +189,24 @@ export const Accordion = (args: ExpandableCardProps) => {
       </Card>
       <Card {...args} cardType="expandable">
         <CardAccordion>
+          <CardAccordionHeader>Header</CardAccordionHeader>
+          <CardAccordionBody>Content</CardAccordionBody>
+        </CardAccordion>
+      </Card>
+    </StoryTemplate>
+  );
+};
+
+export const AccordionControlled = (args: ExpandableCardProps) => {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  return (
+    <StoryTemplate title="Card - accordion" gap="0">
+      <Card {...args} cardType="expandable">
+        <CardAccordion
+          isExpanded={isExpanded}
+          onChange={() => setIsExpanded(!isExpanded)}
+        >
           <CardAccordionHeader>Header</CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
         </CardAccordion>

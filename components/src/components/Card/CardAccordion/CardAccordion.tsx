@@ -7,6 +7,7 @@ import {
   cloneElement,
   isValidElement,
   useId,
+  useCallback,
 } from 'react';
 import styled from 'styled-components';
 import {
@@ -21,6 +22,8 @@ export type CardAccordionProps = BaseComponentPropsWithChildren<
   {
     /**Spesifiserer om body skal være utvidet ved innlastning. */
     isExpanded?: boolean;
+    /**For å lytte til endringer i expanded-state. */
+    onChange?: (expanded: boolean) => void;
   }
 >;
 
@@ -28,6 +31,7 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
   (props, ref) => {
     const {
       isExpanded = false,
+      onChange,
       id,
       children,
       className,
@@ -44,9 +48,15 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
       setExpanded(isExpanded);
     }, [isExpanded]);
 
-    const toggleExpanded = () => {
-      setExpanded(!expanded);
-    };
+    const toggleExpanded = useCallback(() => {
+      const newExpanded = !expanded;
+
+      setExpanded(newExpanded);
+
+      if (onChange) {
+        onChange(newExpanded);
+      }
+    }, [expanded, onChange]);
 
     const Children = ReactChildren.map(children, (child, childIndex) => {
       const headerId = `${accordionId}-header`;
