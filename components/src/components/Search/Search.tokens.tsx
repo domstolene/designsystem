@@ -6,6 +6,23 @@ import {
 const { spacing, fontPackages, iconSizes } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
+const paddingLeftSmall = `${
+  spacing.SizesDdsSpacingLocalX075NumberPx +
+  iconSizes.DdsIconsizeSmallNumberPx +
+  spacing.SizesDdsSpacingLocalX05NumberPx
+}px`;
+const paddingLeftMedium = `${
+  spacing.SizesDdsSpacingLocalX075NumberPx +
+  iconSizes.DdsIconsizeMediumNumberPx +
+  spacing.SizesDdsSpacingLocalX05NumberPx
+}px`;
+
+const paddingLeftLarge = `${
+  spacing.SizesDdsSpacingLocalX075NumberPx +
+  iconSizes.DdsIconsizeMediumNumberPx +
+  spacing.SizesDdsSpacingLocalX05NumberPx
+}px`;
+
 const input = {
   base: {
     paddingRight: spacing.SizesDdsSpacingLocalX05,
@@ -16,16 +33,19 @@ const input = {
       font: fontPackages.body_sans_01.base,
       paddingTop: spacing.SizesDdsSpacingLocalX05,
       paddingBottom: spacing.SizesDdsSpacingLocalX05,
+      paddingLeft: paddingLeftSmall,
     },
     medium: {
       font: fontPackages.body_sans_02.base,
       paddingTop: spacing.SizesDdsSpacingLocalX075,
       paddingBottom: spacing.SizesDdsSpacingLocalX075,
+      paddingLeft: paddingLeftMedium,
     },
     large: {
       font: fontPackages.body_sans_04.base,
       paddingTop: spacing.SizesDdsSpacingLocalX1,
       paddingBottom: spacing.SizesDdsSpacingLocalX1,
+      paddingLeft: paddingLeftLarge,
     },
   },
 };
