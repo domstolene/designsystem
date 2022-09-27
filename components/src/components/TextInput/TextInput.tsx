@@ -23,6 +23,7 @@ import { Property } from 'csstype';
 import { getFormInputIconSize } from '../../helpers/Input';
 
 const defaultWidth: Property.Width<string> = '320px';
+const defaultTinyWidth: Property.Width<string> = '210px';
 
 const getWidth = (
   size: InputSize,
@@ -30,7 +31,7 @@ const getWidth = (
 ): Property.Width<string> => {
   if (width) return width;
   if (size === 'tiny') {
-    return '210px';
+    return defaultTinyWidth;
   }
   return defaultWidth;
 };
