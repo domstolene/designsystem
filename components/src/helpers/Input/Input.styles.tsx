@@ -78,6 +78,7 @@ export const StatefulInput = styled(Input)<StyledInputProps>`
     outline: none;
     cursor: default;
     background-color: ${input.readOnly.backgroundColor};
+    padding-left: 0;
   }
   &:disabled {
     cursor: not-allowed;
