@@ -54,7 +54,7 @@ export const Default = (args: CheckboxProps) => {
 export const WithLabel = (args: CheckboxProps) => {
   return (
     <StoryTemplate title="Checkbox - with label" display="block">
-      <Checkbox {...args} label={args.label || 'Label'} />
+      <Checkbox {...args} label={args.label ?? 'Label'} />
     </StoryTemplate>
   );
 };

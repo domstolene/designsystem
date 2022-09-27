@@ -99,7 +99,7 @@ export const Default = (args: DatepickerProps) => (
 
 export const WithLabel = (args: DatepickerProps) => (
   <StoryTemplate title="Datepicker - with label">
-    <Datepicker {...args} label={args.label || 'Label'} />
+    <Datepicker {...args} label={args.label ?? 'Label'} />
   </StoryTemplate>
 );
 
@@ -111,6 +111,6 @@ export const Datetime = (args: DatepickerProps) => (
 
 export const DatetimeWithLabel = (args: DatepickerProps) => (
   <StoryTemplate title="Datepicker - datetime with label">
-    <Datepicker {...args} type="datetime-local" label={args.label || 'Label'} />
+    <Datepicker {...args} type="datetime-local" label={args.label ?? 'Label'} />
   </StoryTemplate>
 );

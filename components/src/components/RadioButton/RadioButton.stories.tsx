@@ -37,8 +37,8 @@ export const Overview = (args: RadioButtonProps) => {
 export const Default = (args: RadioButtonProps) => {
   return (
     <StoryTemplate title="Radio button - default">
-      <RadioButton {...args} label={args.label || 'Label'} name="test" />
-      <RadioButton {...args} label={args.label || 'Label'} name="test" />
+      <RadioButton {...args} label={args.label ?? 'Label'} name="test" />
+      <RadioButton {...args} label={args.label ?? 'Label'} name="test" />
     </StoryTemplate>
   );
 };

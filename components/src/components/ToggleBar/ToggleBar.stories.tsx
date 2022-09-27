@@ -192,7 +192,7 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
     <StoryTemplate title="ToggleBar - overview with label">
       <ToggleBar
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         size="tiny"
         value={value}
         onChange={(_event, value) => {
@@ -206,7 +206,7 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
       </ToggleBar>
       <ToggleBar
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         size="small"
         value={value}
         onChange={(_event, value) => {
@@ -220,7 +220,7 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
       </ToggleBar>
       <ToggleBar
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         size="medium"
         value={value}
         onChange={(_event, value) => {
@@ -234,7 +234,7 @@ export const OverviewWithLabel = (args: ToggleBarProps<string>) => {
       </ToggleBar>
       <ToggleBar
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         size="large"
         value={value}
         onChange={(_event, value) => {
