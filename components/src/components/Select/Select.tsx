@@ -137,7 +137,7 @@ const DDSControl = <TValue, IsMulti extends boolean>(
   <Control {...props}>
     {icon && (
       <StyledIcon icon={icon} iconSize={getFormInputIconSize(componentSize)} />
-    )}{' '}
+    )}
     {props.children}
   </Control>
 );
