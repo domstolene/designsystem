@@ -25,14 +25,14 @@ export const Article = () => {
         <Heading level={2} typographyType="headingSans05" withMargins>
           Hvorfor vitne?
         </Heading>
-        <Paragraph typographyType="bodySerif02" withMargins>
+        <Paragraph typographyType="bodySans02" withMargins>
           Vitner er svært viktige for rettssikkerheten i samfunnet. Du har fått
           en innkalling (kalles stevning) til saken fordi partene eller retten
           mener du kjenner til noe som kan være viktig for retten å vite. Du har
           plikt til å møte opp i tråd med innkallingen og forklare deg for
           retten.
         </Paragraph>
-        <Paragraph typographyType="bodySerif02" withMargins>
+        <Paragraph typographyType="bodySans02" withMargins>
           En rettssak avgjøres med bakgrunn i det som er kommet fram i
           rettssalen. Derfor må vitner forklare seg for retten slik at dommerne
           hører vitneforklaringen. Det gjelder selv om man tidligere ha forklart
@@ -45,7 +45,7 @@ export const Article = () => {
         <Heading level={3} typographyType="headingSans04" withMargins>
           Lang reisevei
         </Heading>
-        <Paragraph typographyType="bodySerif02" withMargins>
+        <Paragraph typographyType="bodySans02" withMargins>
           Det viktig at du møter opp i tråd med det som står i innkallingen du
           har fått. Du har i utgangspunktet plikt til å møte som vitne uansett
           hvor langt du må reise. Retten kan imidlertid gi fritak hvis
@@ -59,7 +59,7 @@ export const Article = () => {
         <Heading level={3} typographyType="headingSans04" withMargins>
           Sykdom
         </Heading>
-        <Paragraph typographyType="bodySerif02" withMargins>
+        <Paragraph typographyType="bodySans02" withMargins>
           Blir du syk eller det av andre grunner er umulig for deg å møte, må du
           gi beskjed til domstolene så snart du kan. Dersom du mener du har
           lovlig forfall på grunn av sykdom, må du få en legeerklæring og sende

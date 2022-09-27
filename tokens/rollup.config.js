@@ -1,31 +1,33 @@
-import path from 'path';
+import path from "path";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import typescript from "rollup-plugin-typescript2";
 import copy from "rollup-plugin-copy";
 
 function isBareModuleId(id) {
-  return !id.startsWith('.') &&
-    !id.includes(path.join(process.cwd(), 'src')) &&
-    !id.includes(path.join(process.cwd(), 'dds'));
+  return (
+    !id.startsWith(".") &&
+    !id.includes(path.join(process.cwd(), "src")) &&
+    !id.includes(path.join(process.cwd(), "dds"))
+  );
 }
 
 const extensions = [".jsx", ".js", ".tsx", ".ts"];
 
 export default {
-  input: "./src/index.ts",
+  input: "./index.ts",
   output: [
     {
-      dir: 'dist/cjs',
+      dir: "dist/cjs",
       format: "cjs",
       exports: "named",
     },
     {
-      dir: 'dist',
+      dir: "dist",
       format: "esm",
       exports: "named",
       preserveModules: true,
-      preserveModulesRoot: 'src'
+      preserveModulesRoot: "src",
     },
   ],
   plugins: [

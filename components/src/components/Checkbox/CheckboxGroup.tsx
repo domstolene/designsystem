@@ -8,22 +8,20 @@ import { Typography } from '../Typography';
 import { derivativeIdGenerator } from '../../utils';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
+const { outerContainer, groupContainer } = tokens;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  ${tokens.container.base}
+  gap: ${outerContainer.gap};
 `;
 
 const GroupContainer = styled.div<{ direction: Direction }>`
   display: flex;
   ${({ direction }) => css`
     flex-direction: ${direction};
-    ${tokens.groupContainer.direction[direction].base}
+    gap: ${groupContainer[direction].gap};
   `}
-`;
-
-const Label = styled(Typography)`
-  padding-left: ${tokens.label.spaceLeft};
 `;
 
 type Direction = 'column' | 'row';
@@ -77,13 +75,13 @@ export const CheckboxGroup = ({
 
   return (
     <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
-      <Label
-        forwardedAs="span"
+      <Typography
+        as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
       >
         {label} {required && <RequiredMarker />}
-      </Label>
+      </Typography>
       {tip && <InputMessage messageType="tip" message={tip} id={tipId} />}
       <CheckboxGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer

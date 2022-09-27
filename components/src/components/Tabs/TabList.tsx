@@ -7,7 +7,7 @@ import {
   FocusEvent,
   ReactElement,
 } from 'react';
-import styled, { CSSObject } from 'styled-components';
+import styled from 'styled-components';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import {
   useCombinedRef,
@@ -31,7 +31,7 @@ const TabRow = styled.div`
   grid-auto-columns: 1fr;
   overflow-x: auto;
   ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox as CSSObject}
+  ${scrollbarStyling.firefox}
   scroll-snap-type: x mandatory;
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;

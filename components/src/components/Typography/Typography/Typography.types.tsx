@@ -12,15 +12,7 @@ type TypographyBodySansType =
   | 'bodySans03'
   | 'bodySans04';
 
-type TypographyBodySerifType =
-  | 'bodySerif01'
-  | 'bodySerif02'
-  | 'bodySerif03'
-  | 'bodySerif04';
-
-export type TypographyBodyType =
-  | TypographyBodySansType
-  | TypographyBodySerifType;
+export type TypographyBodyType = TypographyBodySansType;
 
 export type TypographyHeadingType =
   | 'headingSans01'
@@ -40,11 +32,10 @@ export type TypographyLeadType =
   | 'leadSans05';
 
 type TypographySupportingType =
-  | 'supportingStyleInputText01'
-  | 'supportingStyleInputText02'
-  | 'supportingStyleInputText03'
   | 'supportingStyleHelperText01'
   | 'supportingStylePlaceholderText01'
+  | 'supportingStylePlaceholderText02'
+  | 'supportingStylePlaceholderText03'
   | 'supportingStyleTiny01'
   | 'supportingStyleTiny02';
 

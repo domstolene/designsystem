@@ -158,7 +158,7 @@ export const Default = (args: RadioButtonGroupProps<number>) => {
     <StoryTemplate title="Radio button group - default">
       <RadioButtonGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         value={value}
         onChange={(_event, value) => {
           setValue(value);

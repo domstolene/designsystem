@@ -1,5 +1,5 @@
 import { Property } from 'csstype';
-import React, { useId } from 'react';
+import React, { ReactNode, useId } from 'react';
 import {
   ClearIndicatorProps,
   components,
@@ -13,8 +13,9 @@ import {
   SelectInstance,
   SingleValueProps,
   MultiValueRemoveProps,
+  ControlProps,
 } from 'react-select';
-import { RequiredMarker } from '../../helpers';
+import { InputSize, RequiredMarker } from '../../helpers';
 import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 import {
@@ -27,20 +28,22 @@ import {
   Container,
   getCustomStyles,
   InnerSingleValue,
-  Label,
   prefix,
-  Wrapper,
+  StyledIcon,
 } from './Select.styles';
-import { selectTokens as tokens } from './Select.tokens';
+import { Label } from '../Typography';
+import { SvgIcon } from '../../icons/utils';
+import { getFormInputIconSize } from '../../helpers/Input/Input.utils';
 
 const {
-  Option: DdsOption,
+  Option,
   NoOptionsMessage,
   Input,
   SingleValue,
   ClearIndicator,
   DropdownIndicator,
   MultiValueRemove,
+  Control,
 } = components;
 
 export type SelectOption<TValue = unknown> = {
@@ -52,22 +55,22 @@ export const createSelectOptions = <TValue extends string | number>(
   ...args: TValue[]
 ): SelectOption<TValue>[] => args.map(v => ({ label: v, value: v }));
 
-const IconOption = <TValue, IsMulti extends boolean>(
+const DDSOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>
 ) => (
-  <DdsOption {...props}>
+  <Option {...props}>
     {props.isSelected && <Icon icon={CheckIcon} iconSize="medium" />}
     {props.children}
-  </DdsOption>
+  </Option>
 );
 
 const CustomOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>,
   Element: (props: OptionProps<TValue, IsMulti>) => JSX.Element
 ) => (
-  <DdsOption {...props}>
+  <Option {...props}>
     <Element {...props} />
-  </DdsOption>
+  </Option>
 );
 
 const CustomSingleValue = <TOption, IsMulti extends boolean>(
@@ -84,35 +87,37 @@ const CustomSingleValue = <TOption, IsMulti extends boolean>(
   </SingleValue>
 );
 
-const NoOptionsMessageCustom = <TValue, IsMulti extends boolean>(
+const DDSNoOptionsMessage = <TValue, IsMulti extends boolean>(
   props: NoticeProps<TValue, IsMulti>
 ) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
 
-const CustomClearIndicator = <TValue, IsMulti extends boolean>(
-  props: ClearIndicatorProps<TValue, IsMulti>
+const DDSClearIndicator = <TValue, IsMulti extends boolean>(
+  props: ClearIndicatorProps<TValue, IsMulti>,
+  size: InputSize
 ) => (
   <ClearIndicator {...props}>
-    <Icon icon={CloseSmallIcon} iconSize="medium" />
+    <Icon icon={CloseSmallIcon} iconSize={getFormInputIconSize(size)} />
   </ClearIndicator>
 );
 
-const CustomMultiValueRemove = <TValue, IsMulti extends boolean>(
+const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
   props: MultiValueRemoveProps<TValue, IsMulti>
 ) => (
   <MultiValueRemove {...props}>
-    <Icon icon={CloseSmallIcon} iconSize="medium" />
+    <Icon icon={CloseSmallIcon} iconSize="small" />
   </MultiValueRemove>
 );
 
-const CustomDropdownIndicator = <TValue, IsMulti extends boolean>(
-  props: DropdownIndicatorProps<TValue, IsMulti>
+const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
+  props: DropdownIndicatorProps<TValue, IsMulti>,
+  size: InputSize
 ) => (
   <DropdownIndicator {...props}>
-    <Icon icon={ChevronDownIcon} iconSize="medium" />
+    <Icon icon={ChevronDownIcon} iconSize={getFormInputIconSize(size)} />
   </DropdownIndicator>
 );
 
-const CustomInput = <TOption, IsMulti extends boolean>(
+const DDSInput = <TOption, IsMulti extends boolean>(
   props: InputProps<TOption, IsMulti>,
   ariaInvalid: boolean,
   ariaDescribedby?: string
@@ -122,6 +127,19 @@ const CustomInput = <TOption, IsMulti extends boolean>(
     aria-invalid={ariaInvalid}
     aria-describedby={ariaDescribedby}
   />
+);
+
+const DDSControl = <TValue, IsMulti extends boolean>(
+  props: ControlProps<TValue, IsMulti>,
+  componentSize: InputSize,
+  icon?: SvgIcon
+) => (
+  <Control {...props}>
+    {icon && (
+      <StyledIcon icon={icon} iconSize={getFormInputIconSize(componentSize)} />
+    )}
+    {props.children}
+  </Control>
 );
 
 function escapeRegexCharacters(text: string) {
@@ -135,6 +153,18 @@ export function searchFilter(text: string, search: string): boolean {
   );
   return searchFilterRegex.test(text.toLowerCase());
 }
+
+const defaultWidth: Property.Width<string> = '320px';
+
+const getPlaceholder = (
+  placeholder?: ReactNode,
+  isMulti?: boolean
+): ReactNode =>
+  placeholder
+    ? placeholder
+    : isMulti
+    ? '-- Velg en eller flere --'
+    : '-- Velg fra listen --';
 
 type WrappedReactSelectProps<
   TOption extends Record<string, unknown>,
@@ -154,6 +184,10 @@ export type SelectProps<
   label?: string;
   /**Gir required styling. **OBS!** støtter ikke DOM `required` attributt.   */
   required?: boolean;
+  /**Størrelsen på komponenten. */
+  componentSize?: InputSize;
+  /**Ikonet som vises i komponenten. */
+  icon?: SvgIcon;
   /**Nedtrekkslisten blir disabled og får readOnly styling. */
   readOnly?: boolean;
   /**Meldingen som vises ved valideringsfeil. */
@@ -185,6 +219,7 @@ const SelectInner = <
   {
     id,
     label,
+    componentSize = 'medium',
     errorMessage,
     tip,
     required,
@@ -192,14 +227,15 @@ const SelectInner = <
     options,
     isMulti,
     value,
+    icon,
     defaultValue,
-    width = tokens.container.defaultWidth,
+    width = defaultWidth,
     closeMenuOnSelect,
     className,
     style,
     isDisabled,
     isClearable = true,
-    placeholder = '-- Velg fra listen --',
+    placeholder,
     customOptionElement,
     customSingleValueElement,
     ...rest
@@ -219,16 +255,13 @@ const SelectInner = <
     errorMessage
   );
 
-  const wrapperProps = {
-    width,
-  };
-
   const containerProps = {
+    width,
+    componentSize,
     errorMessage,
     isDisabled,
-    isMulti,
     readOnly,
-    hasLabel,
+    isMulti,
     className,
     style,
   };
@@ -243,7 +276,7 @@ const SelectInner = <
     defaultValue,
     isDisabled: isDisabled || readOnly,
     isClearable,
-    placeholder,
+    placeholder: getPlaceholder(placeholder, isMulti),
     closeMenuOnSelect: closeMenuOnSelect
       ? closeMenuOnSelect
       : isMulti
@@ -261,38 +294,33 @@ const SelectInner = <
     components: {
       Option: customOptionElement
         ? props => CustomOption(props, customOptionElement)
-        : IconOption,
-      NoOptionsMessage: NoOptionsMessageCustom,
+        : DDSOption,
+      NoOptionsMessage: DDSNoOptionsMessage,
       Input: props =>
-        CustomInput(
+        DDSInput(
           props,
           hasErrorMessage,
           spaceSeparatedIdListGenerator([singleValueId, tipId, errorMessageId])
         ),
       SingleValue: props =>
         CustomSingleValue(props, singleValueId, customSingleValueElement),
-      ClearIndicator: CustomClearIndicator,
-      DropdownIndicator: CustomDropdownIndicator,
-      MultiValueRemove: CustomMultiValueRemove,
+      ClearIndicator: props => DDSClearIndicator(props, componentSize),
+      DropdownIndicator: props => DDSDropdownIndicator(props, componentSize),
+      MultiValueRemove: DDSMultiValueRemove,
+      Control: props => DDSControl(props, componentSize, icon),
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     ...rest,
   };
 
   return (
-    <Wrapper {...wrapperProps}>
-      <Container {...containerProps}>
-        {label && (
-          <Label
-            htmlFor={uniqueId}
-            forwardedAs="label"
-            typographyType="supportingStyleLabel01"
-          >
-            {label} {required && <RequiredMarker />}
-          </Label>
-        )}
-        <ReactSelect {...reactSelectProps} ref={ref} />
-      </Container>
+    <Container {...containerProps}>
+      {hasLabel && (
+        <Label htmlFor={uniqueId}>
+          {label} {required && <RequiredMarker />}
+        </Label>
+      )}
+      <ReactSelect {...reactSelectProps} ref={ref} />
 
       {errorMessage && (
         <InputMessage
@@ -305,7 +333,7 @@ const SelectInner = <
       {tip && !errorMessage && (
         <InputMessage messageType="tip" id={tipId} message={tip} />
       )}
-    </Wrapper>
+    </Container>
   );
 };
 

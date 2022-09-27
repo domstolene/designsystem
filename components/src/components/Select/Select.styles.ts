@@ -1,150 +1,120 @@
 import { GroupBase, StylesConfig } from 'react-select';
-import styled, { css, CSSObject } from 'styled-components';
-import { selection } from '../../helpers/styling';
+import styled, { css } from 'styled-components';
+import {
+  dangerInputfield,
+  focusInputfield,
+  hoverDangerInputfield,
+  hoverInputfield,
+  selection,
+} from '../../helpers/styling';
 import { focusVisibleLink } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { Typography } from '../Typography';
 import { selectTokens as tokens } from './Select.tokens';
+import { Property } from 'csstype';
+import { Icon } from '../Icon';
+import { InputSize } from '../../helpers';
+
+const {
+  control,
+  menu,
+  groupHeading,
+  option,
+  dropdownIndicator,
+  loadingIndicator,
+  clearIndicator,
+  multiValue,
+  multiValueLabel,
+  multiValueRemove,
+  noOptionsMessage,
+  placeholder,
+  icon,
+  valueContainer,
+  inputContainer,
+} = tokens;
 
 export const prefix = 'dds-select';
-
-export const Label = styled(Typography)`
-  display: block;
-  ${tokens.label.base}
-`;
 
 type StyledContainerProps = {
   errorMessage?: string;
   isDisabled?: boolean;
   readOnly?: boolean;
-  hasLabel: boolean;
+  width?: Property.Width;
+  componentSize: InputSize;
   isMulti?: boolean;
 };
 
 export const Container = styled.div<StyledContainerProps>`
-  @media (prefers-reduced-motion: no-preference) {
-    transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
-  }
+  margin: 0;
+  width: ${({ width }) => width};
   position: relative;
-  ${tokens.container.base}
 
   *::selection {
     ${selection}
   }
 
-  ${({ hasLabel, isMulti }) =>
-    isMulti && hasLabel
-      ? css`
-          .${prefix}__value-container {
-            ${tokens.valueContainer.isMulti.withLabel.base}
-          }
-          .${prefix}__indicators {
-            ${tokens.indicatorsContainer.isMulti.withLabel.base}
-          }
-        `
-      : isMulti && !hasLabel
-      ? css`
-          .${prefix}__control {
-            ${tokens.input.isMulti.noLabel.base}
-          }
-          .${prefix}__value-container {
-            ${tokens.valueContainer.isMulti.noLabel.base}
-          }
-          .${prefix}__indicators {
-            ${tokens.indicatorsContainer.isMulti.noLabel.base}
-          }
-        `
-      : hasLabel
-      ? css`
-          .${prefix}__value-container {
-            ${tokens.valueContainer.withLabel.base}
-          }
-          .${prefix}__indicators {
-            ${tokens.indicatorsContainer.withLabel.base}
-          }
-        `
-      : css`
-          .${prefix}__control {
-            ${tokens.input.noLabel.base}
-          }
-          .${prefix}__value-container {
-            ${tokens.valueContainer.noLabel.base}
-          }
-          .${prefix}__indicators {
-            ${tokens.indicatorsContainer.noLabel.base}
-          }
-        `}
-  &:hover {
-    ${tokens.container.hover.base}
-    ${Label} {
-      ${tokens.label.hover.base}
+  ${({ componentSize, isMulti }) => css`
+    .${prefix}__control {
+      padding: ${isMulti && componentSize === 'tiny'
+        ? control.sizes.small.padding
+        : isMulti && componentSize !== 'tiny'
+        ? control.isMulti.sizes[componentSize].padding
+        : control.sizes[componentSize].padding};
+      ${control.sizes[componentSize].font};
     }
-  }
-  &:focus-within {
-    ${tokens.container.focus.base}
-    ${Label} {
-      ${tokens.label.focus.base}
+    .${prefix}__option {
+      ${option.sizes[componentSize].font}
     }
-  }
+    .${prefix}__placeholder {
+      ${placeholder.sizes[componentSize].font}
+    }
+  `}
+
   ${({ errorMessage }) =>
     errorMessage &&
     css`
-      ${tokens.container.danger.base}
-      &:hover {
-        ${tokens.container.danger.hover.base}
+      .${prefix}__control {
+        ${dangerInputfield}
       }
-      &:focus-within {
-        ${tokens.container.danger.focus.base}
+      .${prefix}__control:hover {
+        ${hoverDangerInputfield}
+      }
+      .${prefix}__control:focus-within {
+        ${focusInputfield}
       }
     `}
 
-  .${prefix}__menu-list {
-    ${scrollbarStyling.webkit}
-    ${scrollbarStyling.firefox as CSSObject}
-  }
   &:hover
     .${prefix}__dropdown-indicator,
     &:focus-within
     .${prefix}__dropdown-indicator {
-    ${tokens.dropdownIndicator.hover.base}
+    color: ${dropdownIndicator.hover.color};
   }
 
-  ${({ isDisabled }) =>
-    isDisabled &&
-    css`
-      cursor: not-allowed;
-      ${tokens.container.disabled.base}
-      &:hover {
-        box-shadow: none;
-        ${tokens.container.disabled.base}
-        ${Label} {
-          ${tokens.label.base}
-        }
-        &:hover .${prefix}__dropdown-indicator {
-          ${tokens.dropdownIndicator.base}
-        }
-      }
-    `}
-  ${({ readOnly }) =>
-    readOnly &&
-    css`
-      ${tokens.container.readOnly.base}
-      &:hover {
-        box-shadow: none;
-        ${tokens.container.readOnly.base}
-        ${Label} {
-          ${tokens.label.base}
-        }
-      }
-      .${prefix}__dropdown-indicator, &:hover .${prefix}__dropdown-indicator {
-        ${tokens.dropdownIndicator.readOnly.base}
-      }
-    `}
-`;
-
-export const Wrapper = styled.div<{ width?: number | string }>`
-  margin: 0;
-  width: ${({ width }) => width};
+  ${({ isDisabled, readOnly }) =>
+    readOnly
+      ? css`
+          .${prefix}__control {
+            border-color: ${control.readOnly.borderColor};
+            background-color: ${control.readOnly.backgroundColor};
+          }
+          .${prefix}__dropdown-indicator,
+            &:hover
+            .${prefix}__dropdown-indicator {
+            color: ${dropdownIndicator.readOnly.color};
+          }
+        `
+      : isDisabled
+      ? css`
+          cursor: not-allowed;
+          .${prefix}__control {
+            border-color: ${control.disabled.borderColor};
+            background-color: ${control.disabled.backgroundColor};
+          }
+          &:hover .${prefix}__dropdown-indicator {
+            color: ${dropdownIndicator.base.color};
+          }
+        `
+      : ''}
 `;
 
 export const InnerSingleValue = styled.div`
@@ -155,24 +125,43 @@ export const InnerSingleValue = styled.div`
   max-width: 100%;
 `;
 
+export const StyledIcon = styled(Icon)`
+  margin-right: ${icon.marginRight};
+`;
+
 export const getCustomStyles = <TOption>(): Partial<
   StylesConfig<TOption, boolean, GroupBase<TOption>>
 > => ({
   control: () => ({
     position: 'relative',
     display: 'flex',
+    alignItems: 'center',
     flexWrap: 'wrap',
-    ...tokens.input.base,
+    borderRadius: control.borderRadius,
+    border: control.border,
+    borderColor: control.borderColor,
+    backgroundColor: control.backgroundColor,
+    transition: 'box-shadow 0.2s, border-color 0.2s',
+
+    '&:hover': {
+      ...hoverInputfield,
+    },
+    '&:focus-within': {
+      ...focusInputfield,
+    },
   }),
   placeholder: provided => ({
     ...provided,
-    ...tokens.placeholder.base,
+    color: placeholder.color,
     margin: 0,
   }),
-  input: provided => ({
+  input: (provided, state) => ({
     ...provided,
     margin: 0,
     padding: 0,
+    ...(state.isMulti && {
+      minHeight: inputContainer.isMulti.minHeight,
+    }),
   }),
   indicatorSeparator: () => ({}),
   dropdownIndicator: (provided, state) => ({
@@ -181,29 +170,37 @@ export const getCustomStyles = <TOption>(): Partial<
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, transform 0.2s',
     },
-    ...tokens.dropdownIndicator.base,
+    padding: 0,
+    color: dropdownIndicator.base.color,
   }),
 
   valueContainer: (provided, state) => ({
     ...provided,
-    ...(state.selectProps.isMulti ? tokens.valueContainer.isMulti.base : {}),
+    ...(state.selectProps.isMulti && {
+      gap: valueContainer.isMulti.gap,
+    }),
     padding: 0,
   }),
+
   singleValue: () => ({
     gridArea: '1/1/2/3',
     overflow: 'hidden',
     boxSizing: 'border-box',
   }),
   multiValue: (provided, state) => ({
-    ...provided,
-    ...tokens.multiValue.base,
-    ...(state.selectProps.isDisabled
-      ? tokens.multiValue.disabled.base
-      : tokens.multiValue.enabled.base),
+    boxSizing: 'border-box',
+    minWidth: 0,
+    display: 'flex',
+    borderRadius: multiValue.base.borderRadius,
+    backgroundColor: state.selectProps.isDisabled
+      ? tokens.multiValue.disabled.backgroundColor
+      : tokens.multiValue.enabled.backgroundColor,
   }),
   multiValueLabel: provided => ({
     ...provided,
-    ...tokens.multiValueLabel.base,
+    padding: multiValueLabel.padding,
+    color: multiValueLabel.color,
+    ...multiValueLabel.font,
   }),
   multiValueRemove: (provided, state) =>
     state.selectProps.isDisabled
@@ -211,17 +208,19 @@ export const getCustomStyles = <TOption>(): Partial<
           display: 'none',
         }
       : {
-          ...provided,
+          boxSizing: 'border-box',
+          display: 'flex',
+          alignItems: 'center',
           '@media (prefers-reduced-motion: no-preference)': {
-            transition: 'color 0.2s, background-color 0.2s',
+            transition: 'color 0.2s, background-color 0.2s, box-shadow 0.2s',
           },
-          ...tokens.multiValueRemove.base,
-          padding: 0,
+          color: multiValueRemove.base.color,
+          padding: multiValueRemove.base.padding,
+          borderTopRightRadius: multiValueRemove.base.borderTopRightRadius,
+          borderBottomRightRadius:
+            multiValueRemove.base.borderBottomRightRadius,
           '&:hover': {
-            ...tokens.multiValueRemove.hover.base,
-          },
-          '&:focus': {
-            backgroundColor: 'blue',
+            boxShadow: multiValueRemove.hover.boxShadow,
           },
         },
   menu: provided => ({
@@ -230,41 +229,70 @@ export const getCustomStyles = <TOption>(): Partial<
     transition: '0.2s',
     width: 'calc(100% + 2px)',
     transform: 'translate(-1px)',
-    boxShadow: `inset 0 0 0 1px ${tokens.menu.base.borderColor}`,
-    ...tokens.menu.base,
+    boxShadow: ` 0 0 0 1px ${menu.borderColor}`,
+    border: menu.border,
+    borderColor: menu.borderColor,
+    backgroundColor: menu.backgroundColor,
+    borderRadius: menu.borderRadius,
+    marginTop: menu.marginTop,
+    marginBottom: menu.marginBottom,
   }),
-  menuList: provided => ({
-    ...provided,
-    paddingLeft: '1px',
-    paddingRight: '1px',
+  group: () => ({
+    boxSizing: 'border-box',
+  }),
+  groupHeading: () => ({
+    color: groupHeading.color,
+    ...groupHeading.font,
+    padding: groupHeading.padding,
+  }),
+  menuList: () => ({
+    maxHeight: '300px',
+    overflowY: 'auto',
+    position: 'relative',
+    boxSizing: 'border-box',
+    ...scrollbarStyling.webkit,
+    ...scrollbarStyling.firefox,
   }),
   option: (provided, state) => ({
     ...provided,
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    gap: option.base.gap,
+    padding: option.base.padding,
+    color: option.base.color,
+    backgroundColor: option.base.backgroundColor,
+    ...option.base.font,
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',
     },
-    ...tokens.option.base,
     '&:hover': {
-      ...tokens.option.hover.base,
+      color: option.hover.color,
+      backgroundColor: option.hover.backgroundColor,
     },
-    ...(state.isSelected ? tokens.option.selected.base : {}),
-    ...(state.isFocused ? focusVisibleLink : {}),
+    ...(state.isSelected && {
+      backgroundColor: option.selected.backgroundColor,
+    }),
+    ...(state.isFocused && focusVisibleLink),
   }),
   noOptionsMessage: () => ({
-    ...tokens.noOptionsMessage.base,
+    padding: noOptionsMessage.padding,
+    color: noOptionsMessage.color,
+    ...noOptionsMessage.font,
   }),
   clearIndicator: () => ({
     display: 'inline-flex',
-    ...tokens.clearIndicator.base,
+    color: clearIndicator.base.color,
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s',
     },
     '&:hover': {
-      ...tokens.clearIndicator.hover.base,
+      color: clearIndicator.hover.color,
     },
   }),
   loadingIndicator: provided => ({
     ...provided,
-    ...tokens.loadingIndicator.base,
+    padding: 0,
+    color: loadingIndicator.color,
   }),
 });

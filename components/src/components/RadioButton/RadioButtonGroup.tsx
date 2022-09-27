@@ -1,4 +1,4 @@
-import React, {
+import {
   ChangeEvent,
   forwardRef,
   HTMLAttributes,
@@ -28,10 +28,6 @@ const GroupContainer = styled.div<{ direction: Direction }>`
     flex-direction: ${direction};
     ${tokens.groupContainer.direction[direction].base}
   `}
-`;
-
-const Label = styled(Typography)`
-  padding-left: ${tokens.label.spaceLeft};
 `;
 
 type Direction = 'column' | 'row';
@@ -123,13 +119,13 @@ const RadioButtonGroupInner = <T extends string | number = string>(
 
   return (
     <Container {...getBaseHTMLProps(id, className, htmlProps, rest)} ref={ref}>
-      <Label
-        forwardedAs="span"
+      <Typography
+        as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
       >
         {label} {required && <RequiredMarker />}
-      </Label>
+      </Typography>
       {hasTip && <InputMessage message={tip} messageType="tip" id={tipId} />}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer

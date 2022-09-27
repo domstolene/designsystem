@@ -33,30 +33,6 @@ export const Body = () => {
         Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
         partene i saken.
       </Typography>
-      <Typography typographyType="bodySerif01">
-        bodySerif01 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
-      </Typography>
-      <Typography typographyType="bodySerif02">
-        bodySerif02 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
-      </Typography>
-      <Typography typographyType="bodySerif03">
-        bodySerif03 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
-      </Typography>
-      <Typography typographyType="bodySerif04">
-        bodySerif04 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
-        vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
-        Deretter om du på noen måte er i slekt med tiltalte, fornærmede eller
-        partene i saken.
-      </Typography>
     </StoryTemplate>
   );
 };
@@ -97,17 +73,14 @@ export const Supporting = () => {
       <Typography typographyType="supportingStyleHelperText01">
         supportingStyleHelperText01
       </Typography>
-      <Typography typographyType="supportingStyleInputText01">
-        supportingStyleInputText01
-      </Typography>
-      <Typography typographyType="supportingStyleInputText02">
-        supportingStyleInputText02
-      </Typography>
-      <Typography typographyType="supportingStyleInputText03">
-        supportingStyleInputText03
-      </Typography>
       <Typography typographyType="supportingStylePlaceholderText01">
         supportingStylePlaceholderText01
+      </Typography>
+      <Typography typographyType="supportingStylePlaceholderText02">
+        supportingStylePlaceholderText02
+      </Typography>
+      <Typography typographyType="supportingStylePlaceholderText03">
+        supportingStylePlaceholderText03
       </Typography>
       <Typography typographyType="supportingStyleTiny01">
         supportingStyleTiny01

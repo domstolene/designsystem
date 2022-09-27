@@ -1,3 +1,4 @@
+import { CourtIcon } from '../../icons/tsx';
 import { StoryTemplate } from '../../storybook/StoryTemplate';
 
 import { Select as DDSSelect, SelectProps } from './Select';
@@ -49,27 +50,27 @@ export const Overview = (args: MultiSelectProps) => {
     >
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         required
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         isDisabled
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         isDisabled
         value={options[0]}
         options={options}
@@ -77,14 +78,14 @@ export const Overview = (args: MultiSelectProps) => {
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         readOnly
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         readOnly
         value={options[0]}
         options={options}
@@ -92,35 +93,35 @@ export const Overview = (args: MultiSelectProps) => {
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         errorMessage="Dette er en feilmelding"
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         tip="Dette er en hjelpetekst"
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         placeholder="Annerledes placeholder"
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         defaultValue={options[0]}
         options={options}
         isMulti
       />
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         value={options[3]}
         options={options}
         isMulti
@@ -130,9 +131,30 @@ export const Overview = (args: MultiSelectProps) => {
   );
 };
 
+export const OverviewSizes = (args: MultiSelectProps) => {
+  return (
+    <StoryTemplate
+      title="MultiSelect - overview sizes"
+      display="grid"
+      columnsAmount={2}
+    >
+      <DDSSelect {...args} options={options} isMulti />
+      <DDSSelect {...args} options={options} isMulti icon={CourtIcon} />
+      <DDSSelect {...args} options={options} isMulti componentSize="small" />
+      <DDSSelect
+        {...args}
+        options={options}
+        isMulti
+        componentSize="small"
+        icon={CourtIcon}
+      />
+    </StoryTemplate>
+  );
+};
+
 export const Default = (args: MultiSelectProps) => {
   return (
-    <StoryTemplate title="MultiSelect - default">
+    <StoryTemplate title="MultiSelect - default" display="block">
       <DDSSelect {...args} options={options} isMulti />
     </StoryTemplate>
   );
@@ -143,7 +165,7 @@ export const WithLabel = (args: MultiSelectProps) => {
     <StoryTemplate title="MultiSelect - with label">
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         options={options}
         isMulti
       />
@@ -156,7 +178,7 @@ export const WithDefaultValue = (args: MultiSelectProps) => {
     <StoryTemplate title="Select - multiselect with value">
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         options={options}
         isMulti
         defaultValue={options[0]}
@@ -170,7 +192,7 @@ export const WithFitContent = (args: MultiSelectProps) => {
     <StoryTemplate title="Select - multiselect with fit content">
       <DDSSelect
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         options={options}
         isMulti
         width="fit-content"

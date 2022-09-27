@@ -1,32 +1,25 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
-const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
+const { colors, spacing } = ddsBaseTokens;
 
-const base: CSSObject = {
-  padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
-  maxWidth: '100%',
+const message = {
+  tip: {
+    backgroundColor: colors.DdsColorNeutralsWhite,
+    padding: `${spacing.SizesDdsSpacingLocalX025} 0`,
+  },
+  error: {
+    padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+    color: colors.DdsColorDangerBase,
+    backgroundColor: colors.DdsColorDangerLightest,
+    gap: spacing.SizesDdsSpacingLocalX05,
+  },
 };
 
-const tipBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-};
-
-const errorBase: CSSObject = {
-  color: Colors.DdsColorDangerBase,
-  backgroundColor: Colors.DdsColorDangerLightest,
+const icon = {
+  marginTop: spacing.SizesDdsSpacingLocalX0125,
 };
 
 export const inputMessageTokens = {
-  padding: `${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
-  base: base,
-  tip: {
-    base: tipBase,
-  },
-  error: {
-    base: errorBase,
-  },
-  icon: {
-    spaceRight: Spacing.SizesDdsSpacingLocalX05,
-  },
+  message,
+  icon,
 };
