@@ -5,7 +5,6 @@ const { colors, spacing } = ddsBaseTokens;
 const message = {
   tip: {
     backgroundColor: colors.DdsColorNeutralsWhite,
-    padding: `${spacing.SizesDdsSpacingLocalX025} 0`,
   },
   error: {
     padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,

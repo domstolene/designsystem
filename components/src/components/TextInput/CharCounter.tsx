@@ -2,11 +2,9 @@ import { useId } from 'react';
 import styled from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Typography } from '../Typography';
-import { charCounterTokens as tokens } from './CharCounter.tokens';
 
 const Wrapper = styled(Typography)`
   margin-left: auto;
-  ${tokens.base}
 `;
 
 type Props = BaseComponentProps<

@@ -6,6 +6,7 @@ export default {
   component: CheckboxGroup,
   argTypes: {
     label: { control: { type: 'text' } },
+    tip: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
     required: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
