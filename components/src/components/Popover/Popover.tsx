@@ -104,11 +104,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       ...rest
     } = props;
 
-    const { reference, floating, styles } = useFloatPosition(
-      null,
+    const { reference, floating, styles } = useFloatPosition(null, {
       placement,
-      offset
-    );
+      offset,
+    });
     const multiRef = useCombinedRef(ref, floating);
 
     useEffect(() => {

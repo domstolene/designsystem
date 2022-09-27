@@ -73,11 +73,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       ...rest
     } = props;
 
-    const { reference, floating, refs, styles } = useFloatPosition(
-      null,
+    const { reference, floating, refs, styles } = useFloatPosition(null, {
       placement,
-      offset
-    );
+      offset,
+    });
 
     const combinedRef = useCombinedRef(ref, floating);
 
