@@ -44,12 +44,12 @@ const Input = styled(BaseInput)<InputProps>`
     -webkit-appearance: none;
   }
   padding-right: ${input.base.paddingRight};
-  padding-left: ${input.base.paddingLeft};
 
   ${({ componentSize }) =>
     css`
       padding-top: ${input.sizes[componentSize].paddingTop};
       padding-bottom: ${input.sizes[componentSize].paddingBottom};
+      padding-left: ${input.sizes[componentSize].paddingLeft};
       ${input.sizes[componentSize].font}
     `}
 `;

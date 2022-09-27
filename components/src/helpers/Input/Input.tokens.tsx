@@ -34,7 +34,7 @@ const input = {
       font: fontPackages.body_sans_01.base,
     },
     tiny: {
-      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX025}`,
+      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
       font: fontPackages.supportingStyle_tiny_01.base,
     },
   },
