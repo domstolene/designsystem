@@ -35,9 +35,16 @@ export const TextInputOverview = (args: TextInputProps) => {
         {...args}
         label={args.label ?? 'Label'}
         required
+        aria-required
         value="Påkrevd inputfelt"
       />
       <TextInput {...args} required value="Påkrevd inputfelt" />
+      <TextInput
+        {...args}
+        aria-required
+        label={args.label ?? 'Label'}
+        value="Påkrevd inputfelt med aria-required"
+      />
       <TextInput
         {...args}
         label={args.label ?? 'Label'}

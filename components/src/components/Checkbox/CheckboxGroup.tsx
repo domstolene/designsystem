@@ -43,22 +43,28 @@ export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const CheckboxGroup = ({
-  label,
-  direction = 'row',
-  errorMessage,
-  tip,
-  required,
-  groupId,
-  children,
-  id,
-  className,
-  htmlProps,
-  ...rest
-}: CheckboxGroupProps) => {
+export const CheckboxGroup = (props: CheckboxGroupProps) => {
+  const {
+    label,
+    direction = 'row',
+    errorMessage,
+    tip,
+    required,
+    groupId,
+    children,
+    id,
+    className,
+    htmlProps = {},
+    ...rest
+  } = props;
+
+  const { 'aria-required': ariaRequired } = htmlProps;
+
   const generatedId = useId();
   const uniqueGroupId = groupId ?? `${generatedId}-checkboxGroup`;
   const hasErrorMessage = !!errorMessage;
+  const showRequiredMarker = required || ariaRequired;
+
   const errorMessageId = derivativeIdGenerator(
     uniqueGroupId,
     'errorMessage',
@@ -74,13 +80,20 @@ export const CheckboxGroup = ({
   };
 
   return (
-    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
+    <Container
+      {...getBaseHTMLProps(
+        id,
+        className,
+        { ...htmlProps, 'aria-required': ariaRequired },
+        rest
+      )}
+    >
       <Typography
         as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
       >
-        {label} {required && <RequiredMarker />}
+        {label} {showRequiredMarker && <RequiredMarker />}
       </Typography>
       {tip && <InputMessage messageType="tip" message={tip} id={tipId} />}
       <CheckboxGroupContext.Provider value={{ ...contextProps }}>

@@ -87,6 +87,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       className,
       componentSize = 'medium',
       max,
+      'aria-required': ariaRequired,
       'aria-describedby': ariaDescribedby,
       ...rest
     },
@@ -98,6 +99,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     const componentWidth = width ? width : getWidth(type, componentSize);
     const hasLabel = !!label;
     const hasErrorMessage = !!errorMessage;
+    const showRequiredMarker = required || ariaRequired;
+
     const errorMessageId = derivativeIdGenerator(
       uniqueId,
       'errorMessage',
@@ -120,6 +123,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
         errorMessageId,
         ariaDescribedby,
       ]),
+      'aria-required': ariaRequired,
       'aria-invalid': hasErrorMessage ? true : undefined,
       max: getMax(type, max),
       ...rest,
@@ -135,7 +139,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       <OuterInputContainer {...outerinputContainerProps}>
         {hasLabel && (
           <Label htmlFor={uniqueId}>
-            {label} {required && <RequiredMarker />}
+            {label} {showRequiredMarker && <RequiredMarker />}
           </Label>
         )}
         <StyledInput {...inputProps} />

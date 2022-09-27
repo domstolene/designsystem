@@ -57,6 +57,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       style,
       value,
       defaultValue,
+      'aria-required': ariaRequired,
       'aria-describedby': ariaDescribedby,
       icon,
       ...rest
@@ -128,6 +129,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       maxLength,
       value,
       defaultValue,
+      'aria-required': ariaRequired,
       'aria-describedby': spaceSeparatedIdListGenerator([
         tipId,
         errorMessageId,
@@ -145,12 +147,14 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       width: getWidth(componentSize, width),
     };
 
+    const showRequiredMarker = required || ariaRequired;
+
     return (
       <OuterInputContainer {...outerInputContainerProps}>
         {hasLabel && (
           <Label htmlFor={uniqueId}>
             {label}
-            {required && <RequiredMarker />}
+            {showRequiredMarker && <RequiredMarker />}
           </Label>
         )}
         {multiline ? (

@@ -1,5 +1,5 @@
 import { Property } from 'csstype';
-import React, { ReactNode, useId } from 'react';
+import React, { HTMLAttributes, ReactNode, useId } from 'react';
 import {
   ClearIndicatorProps,
   components,
@@ -206,7 +206,8 @@ export type SelectProps<
   customSingleValueElement?: (
     props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>
   ) => JSX.Element;
-} & WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
+} & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
+  WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
 
 type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
   SelectInstance<TOption, IsMulti, GroupBase<TOption>>
@@ -216,13 +217,17 @@ const SelectInner = <
   TOption extends Record<string, unknown>,
   IsMulti extends boolean = false
 >(
-  {
+  props: SelectProps<TOption, IsMulti>,
+  ref: ForwardRefType<TOption, IsMulti>
+) => {
+  const {
     id,
     label,
     componentSize = 'medium',
     errorMessage,
     tip,
     required,
+    'aria-required': ariaRequired,
     readOnly,
     options,
     isMulti,
@@ -239,15 +244,16 @@ const SelectInner = <
     customOptionElement,
     customSingleValueElement,
     ...rest
-  }: SelectProps<TOption, IsMulti>,
-  ref: ForwardRefType<TOption, IsMulti>
-) => {
+  } = props;
+
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-select`;
 
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
+  const showRequiredMarker = required || ariaRequired;
+
   const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
   const errorMessageId = derivativeIdGenerator(
     uniqueId,
@@ -298,7 +304,7 @@ const SelectInner = <
       NoOptionsMessage: DDSNoOptionsMessage,
       Input: props =>
         DDSInput(
-          props,
+          { ...props, required, 'aria-required': ariaRequired },
           hasErrorMessage,
           spaceSeparatedIdListGenerator([singleValueId, tipId, errorMessageId])
         ),
@@ -317,7 +323,7 @@ const SelectInner = <
     <Container {...containerProps}>
       {hasLabel && (
         <Label htmlFor={uniqueId}>
-          {label} {required && <RequiredMarker />}
+          {label} {showRequiredMarker && <RequiredMarker />}
         </Label>
       )}
       <ReactSelect {...reactSelectProps} ref={ref} />
