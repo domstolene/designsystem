@@ -84,9 +84,11 @@ const RadioButtonGroupInner = <T extends string | number = string>(
     onChange,
     id,
     className,
-    htmlProps,
+    htmlProps = {},
     ...rest
   } = props;
+
+  const { 'aria-required': ariaRequired } = htmlProps;
 
   const [groupValue, setGroupValue] = useState<
     string | number | null | undefined
@@ -102,6 +104,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
 
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
+  const showRequiredMarker = required || ariaRequired;
 
   const tipId = tip && `${uniqueGroupId}-tip`;
   const errorMessageId = errorMessage && `${uniqueGroupId}-errorMessage`;
@@ -118,13 +121,21 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   };
 
   return (
-    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)} ref={ref}>
+    <Container
+      {...getBaseHTMLProps(
+        id,
+        className,
+        { ...htmlProps, 'aria-required': ariaRequired },
+        rest
+      )}
+      ref={ref}
+    >
       <Typography
         as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
       >
-        {label} {required && <RequiredMarker />}
+        {label} {showRequiredMarker && <RequiredMarker />}
       </Typography>
       {hasTip && <InputMessage message={tip} messageType="tip" id={tipId} />}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
