@@ -1,4 +1,10 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import styled, { css } from 'styled-components';
 import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
 import { Property } from 'csstype';
@@ -6,6 +12,7 @@ import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import useIsMounted from '../../../hooks/useIsMounted';
 
 const expandingAnimation = css`
   @media (prefers-reduced-motion: no-preference) {
@@ -17,11 +24,12 @@ const expandingAnimation = css`
 type BodyProps = {
   isExpanded?: boolean;
   paddingTop?: Property.PaddingTop<string>;
+  animate: boolean;
 };
 
 const Body = styled.div<BodyProps>`
   @media (prefers-reduced-motion: no-preference) {
-    ${expandingAnimation}
+    ${({ animate }) => animate && expandingAnimation}
   }
   ${tokens.base}
   ${({ paddingTop }) =>
@@ -40,10 +48,11 @@ const Body = styled.div<BodyProps>`
 type BodyContainerProps = {
   isExpanded?: boolean;
   maxHeight?: number;
+  animate: boolean;
 };
 
 const BodyContainer = styled.div<BodyContainerProps>`
-  ${expandingAnimation}
+  ${({ animate }) => animate && expandingAnimation}
   overflow: hidden;
   visibility: ${({ isExpanded }) => (isExpanded ? 'visible' : 'hidden')};
   max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : 0)}px;
@@ -70,7 +79,21 @@ export const CardAccordionBody = forwardRef<
 
   const bodyRef = useRef<HTMLDivElement>(null);
 
+  const isMounted = useIsMounted();
+  const [animate, setAnimate] = useState(false);
   const [maxHeight, setMaxHeight] = useState(0);
+
+  useLayoutEffect(() => {
+    if (bodyRef.current && isExpanded) {
+      setMaxHeight(bodyRef.current.scrollHeight);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isMounted()) {
+      setAnimate(true);
+    }
+  }, [isMounted]);
 
   useEffect(() => {
     if (!isExpanded) {
@@ -93,8 +116,15 @@ export const CardAccordionBody = forwardRef<
   };
 
   return (
-    <Body {...bodyProps} aria-labelledby={headerId} aria-hidden={!isExpanded}>
-      <BodyContainer {...bodyContainerProps}> {children} </BodyContainer>
+    <Body
+      {...bodyProps}
+      animate={animate}
+      aria-labelledby={headerId}
+      aria-hidden={!isExpanded}
+    >
+      <BodyContainer {...bodyContainerProps} animate={animate}>
+        {children}
+      </BodyContainer>
     </Body>
   );
 });

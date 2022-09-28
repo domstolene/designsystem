@@ -69,10 +69,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const uniqueTooltipId = tooltipId ?? `${generatedId}-tooltip`;
     const [open, setOpen] = useState(false);
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-    const { reference, floating, styles } = useFloatPosition(
-      arrowElement,
-      placement
-    );
+    const { reference, floating, styles } = useFloatPosition(arrowElement, {
+      placement,
+    });
     const combinedRef = useCombinedRef(ref, floating);
 
     let timer: ReturnType<typeof setTimeout>;

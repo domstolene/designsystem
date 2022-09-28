@@ -19,14 +19,12 @@ import {
   Direction,
   getBaseHTMLProps,
 } from '../../types';
-import { Property } from 'csstype';
 import { focusVisibleTransitionValue } from '../../helpers/styling';
 import { SvgIcon } from '../../icons/utils';
 
 type ButtonProps = {
   active: boolean;
   direction: Direction;
-  width: Property.Width;
 };
 
 const Button = styled.button<ButtonProps>`
@@ -35,7 +33,6 @@ const Button = styled.button<ButtonProps>`
       ${focusVisibleTransitionValue};
   }
   ${tokens.tab.base}
-  width: ${({ width }) => width};
 
   ${({ direction }) => tokens.tab.direction[direction].base};
 
@@ -61,8 +58,6 @@ export type TabProps = BaseComponentPropsWithChildren<
     active?: boolean;
     /** Ikon. */
     icon?: SvgIcon;
-    /** Custom bredde for enkel fane. */
-    width?: Property.Width;
     /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
     focus?: boolean;
     /**  Callback som setter fokus. **OBS!** settes automatisk av forelder.*/
@@ -76,7 +71,6 @@ export type TabProps = BaseComponentPropsWithChildren<
 export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   const {
     active = false,
-    width,
     icon,
     children,
     focus,
@@ -92,7 +86,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
 
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
-  const { tabPanelsRef, setHasTabFocus, tabContentDirection, tabWidth } =
+  const { tabPanelsRef, setHasTabFocus, tabContentDirection } =
     useTabsContext();
 
   useEffect(() => {
@@ -131,7 +125,6 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     'aria-selected': active,
     role: 'tab',
     active,
-    width: width ?? tabWidth,
     direction: tabContentDirection,
     onClick: handleOnClick,
     onKeyDown: handleOnKeyDown,

@@ -1,10 +1,9 @@
-import { forwardRef, useEffect } from 'react';
-import styled, { CSSObject } from 'styled-components';
+import { forwardRef, useEffect, useId } from 'react';
+import styled from 'styled-components';
 import { selection, visibilityTransition } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
 import {
   useCombinedRef,
-  useId,
   useOnClickOutside,
   useOnKeyDown,
   useFloatPosition,
@@ -37,7 +36,7 @@ export const Container = styled.div<ContainerProps>`
   border-radius: ${container.borderRadius};
 
   ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox as CSSObject}
+  ${scrollbarStyling.firefox}
 
   *::selection {
     ${selection}
@@ -74,11 +73,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       ...rest
     } = props;
 
-    const { reference, floating, refs, styles } = useFloatPosition(
-      null,
+    const { reference, floating, refs, styles } = useFloatPosition(null, {
       placement,
-      offset
-    );
+      offset,
+    });
 
     const combinedRef = useCombinedRef(ref, floating);
 
@@ -192,11 +190,12 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     };
 
     const { style = {}, ...restHTMLProps } = htmlProps;
+    const generatedId = useId();
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, restHTMLProps, rest),
       ref: combinedRef,
-      id: id ?? useId('overflowMenu'),
+      id: id ?? `${generatedId}-overflowMenu`,
       isOpen,
       style: { ...style, ...styles.floating },
       'aria-hidden': !isOpen,

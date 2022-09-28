@@ -1,4 +1,12 @@
-import { ChangeEvent, HTMLAttributes, useId, useState } from 'react';
+import {
+  ChangeEvent,
+  forwardRef,
+  HTMLAttributes,
+  ReactElement,
+  Ref,
+  useId,
+  useState,
+} from 'react';
 import styled, { css } from 'styled-components';
 import { RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
@@ -20,10 +28,6 @@ const GroupContainer = styled.div<{ direction: Direction }>`
     flex-direction: ${direction};
     ${tokens.groupContainer.direction[direction].base}
   `}
-`;
-
-const Label = styled(Typography)`
-  padding-left: ${tokens.label.spaceLeft};
 `;
 
 type Direction = 'column' | 'row';
@@ -61,24 +65,31 @@ export type RadioButtonGroupProps<T extends string | number> =
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
   >;
 
-export const RadioButtonGroup = <T extends string | number = string>({
-  name,
-  label,
-  groupId,
-  errorMessage,
-  tip,
-  disabled,
-  readOnly,
-  direction = 'row',
-  value,
-  children,
-  required,
-  onChange,
-  id,
-  className,
-  htmlProps,
-  ...rest
-}: RadioButtonGroupProps<T>) => {
+const RadioButtonGroupInner = <T extends string | number = string>(
+  props: RadioButtonGroupProps<T>,
+  ref: Ref<HTMLDivElement>
+) => {
+  const {
+    name,
+    label,
+    groupId,
+    errorMessage,
+    tip,
+    disabled,
+    readOnly,
+    direction = 'row',
+    value,
+    children,
+    required,
+    onChange,
+    id,
+    className,
+    htmlProps = {},
+    ...rest
+  } = props;
+
+  const { 'aria-required': ariaRequired } = htmlProps;
+
   const [groupValue, setGroupValue] = useState<
     string | number | null | undefined
   >(value);
@@ -93,6 +104,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
 
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
+  const showRequiredMarker = required || ariaRequired;
 
   const tipId = tip && `${uniqueGroupId}-tip`;
   const errorMessageId = errorMessage && `${uniqueGroupId}-errorMessage`;
@@ -109,14 +121,22 @@ export const RadioButtonGroup = <T extends string | number = string>({
   };
 
   return (
-    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
-      <Label
-        forwardedAs="span"
+    <Container
+      {...getBaseHTMLProps(
+        id,
+        className,
+        { ...htmlProps, 'aria-required': ariaRequired },
+        rest
+      )}
+      ref={ref}
+    >
+      <Typography
+        as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
       >
-        {label} {required && <RequiredMarker />}
-      </Label>
+        {label} {showRequiredMarker && <RequiredMarker />}
+      </Typography>
       {hasTip && <InputMessage message={tip} messageType="tip" id={tipId} />}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
@@ -139,3 +159,9 @@ export const RadioButtonGroup = <T extends string | number = string>({
     </Container>
   );
 };
+
+export const RadioButtonGroup = forwardRef(RadioButtonGroupInner) as <
+  T extends string | number = string
+>(
+  props: RadioButtonGroupProps<T> & { ref?: Ref<HTMLDivElement> }
+) => ReactElement;

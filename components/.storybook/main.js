@@ -1,12 +1,9 @@
 module.exports = {
   stories: ['../src/**/*.stories.@(tsx|mdx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-actions',
-    '@storybook/addon-essentials',
-  ],
+  addons: ['@storybook/addon-essentials'],
   features: {
     previewMdx2: true,
+    postcss: false,
   },
   typescript: {
     reactDocgen: 'react-docgen-typescript',
@@ -16,4 +13,5 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
+  staticDirs: ['./images'],
 };

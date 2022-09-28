@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, forwardRef, useId } from 'react';
-import { textInputTokens as tokens } from './TextInput.tokens';
-import { LabelPresence, RequiredMarker } from '../../helpers';
+import { InputSize, RequiredMarker } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
@@ -9,11 +8,33 @@ import {
   InputContainer,
   OuterInputContainer,
 } from '../../helpers';
-import { Label, MessageContainer, TextArea } from './TextInput.styles';
+import {
+  MessageContainer,
+  TextArea,
+  StyledIcon,
+  StyledInput,
+} from './TextInput.styles';
+import { Label } from '../Typography';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { Property } from 'csstype';
+import { getFormInputIconSize } from '../../helpers/Input';
+
+const defaultWidth: Property.Width<string> = '320px';
+const defaultTinyWidth: Property.Width<string> = '210px';
+
+const getWidth = (
+  size: InputSize,
+  width?: Property.Width<string>
+): Property.Width<string> => {
+  if (width) return width;
+  if (size === 'tiny') {
+    return defaultTinyWidth;
+  }
+  return defaultWidth;
+};
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
@@ -28,14 +49,17 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       multiline,
       onChange,
       id,
-      width = tokens.wrapper.defaultWidth,
+      width,
+      componentSize = 'medium',
       type = 'text',
       withCharacterCounter = true,
       className,
       style,
       value,
       defaultValue,
+      'aria-required': ariaRequired,
       'aria-describedby': ariaDescribedby,
+      icon,
       ...rest
     },
     ref
@@ -79,8 +103,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasErrorMessage = !!errorMessage;
     const hasTip = !!tip;
     const hasLabel = !!label;
-    const labelPresence: LabelPresence = hasLabel ? 'hasLabel' : 'noLabel';
     const hasMessage = hasErrorMessage || hasTip || !!maxLength;
+    const hasIcon = !!icon;
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -96,7 +120,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const generalInputProps = {
       id: uniqueId,
-      hasLabel: labelPresence,
       errorMessage,
       hasErrorMessage,
       required,
@@ -106,6 +129,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       maxLength,
       value,
       defaultValue,
+      'aria-required': ariaRequired,
       'aria-describedby': spaceSeparatedIdListGenerator([
         tipId,
         errorMessageId,
@@ -116,52 +140,57 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       ...rest,
     };
 
-    const labelProps = {
-      multiline,
-      disabled,
-      readOnly,
-    };
-
-    const inputContainerProps = {
-      multiline,
-      label,
-    };
-
     const outerInputContainerProps = {
+      multiline,
       className,
       style,
-      width,
+      width: getWidth(componentSize, width),
     };
+
+    const showRequiredMarker = required || ariaRequired;
 
     return (
       <OuterInputContainer {...outerInputContainerProps}>
-        <InputContainer {...inputContainerProps}>
-          {multiline ? (
-            <TextArea
-              ref={textAreaRef}
-              as="textarea"
-              onChange={onChangeHandlerMultiline}
-              {...generalInputProps}
-            />
-          ) : (
-            <StatefulInput
+        {hasLabel && (
+          <Label htmlFor={uniqueId}>
+            {label}
+            {showRequiredMarker && <RequiredMarker />}
+          </Label>
+        )}
+        {multiline ? (
+          <TextArea
+            ref={textAreaRef}
+            as="textarea"
+            onChange={onChangeHandlerMultiline}
+            {...generalInputProps}
+          />
+        ) : hasIcon ? (
+          <InputContainer>
+            {
+              <StyledIcon
+                icon={icon}
+                iconSize={getFormInputIconSize(componentSize)}
+                size={componentSize}
+              />
+            }
+            <StyledInput
               ref={ref}
               onChange={onChangeHandler}
               type={type}
+              componentSize={componentSize}
+              hasIcon={hasIcon}
               {...generalInputProps}
             />
-          )}
-          {hasLabel && (
-            <Label
-              {...labelProps}
-              typographyType="supportingStyleLabel01"
-              forwardedAs="label"
-              htmlFor={uniqueId}
-            >
-              {label} {required && <RequiredMarker />}
-            </Label>
-          )}
-        </InputContainer>
+          </InputContainer>
+        ) : (
+          <StatefulInput
+            ref={ref}
+            onChange={onChangeHandler}
+            type={type}
+            componentSize={componentSize}
+            {...generalInputProps}
+          />
+        )}
         {hasMessage && (
           <MessageContainer>
             {hasErrorMessage && (

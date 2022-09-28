@@ -29,13 +29,6 @@ export const Overview = (args: RadioButtonProps) => {
         disabled
         checked
       />
-      <RadioButton {...args} label={args.label || 'Read only'} readOnly />
-      <RadioButton
-        {...args}
-        label={args.label || 'Read only checked'}
-        readOnly
-        checked
-      />
       <RadioButton {...args} label={args.label || 'Error'} error />
     </StoryTemplate>
   );
@@ -44,8 +37,8 @@ export const Overview = (args: RadioButtonProps) => {
 export const Default = (args: RadioButtonProps) => {
   return (
     <StoryTemplate title="Radio button - default">
-      <RadioButton {...args} label={args.label || 'Label'} name="test" />
-      <RadioButton {...args} label={args.label || 'Label'} name="test" />
+      <RadioButton {...args} label={args.label ?? 'Label'} name="test" />
+      <RadioButton {...args} label={args.label ?? 'Label'} name="test" />
     </StoryTemplate>
   );
 };

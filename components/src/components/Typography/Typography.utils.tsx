@@ -37,20 +37,15 @@ export const getElementType = (element: string): ElementType => {
     case 'bodySans02':
     case 'bodySans03':
     case 'bodySans04':
-    case 'bodySerif01':
-    case 'bodySerif02':
-    case 'bodySerif03':
-    case 'bodySerif04':
     case 'leadSans01':
     case 'leadSans02':
     case 'leadSans03':
     case 'leadSans04':
     case 'leadSans05':
-    case 'supportingStyleInputText01':
-    case 'supportingStyleInputText02':
-    case 'supportingStyleInputText03':
     case 'supportingStyleHelperText01':
     case 'supportingStylePlaceholderText01':
+    case 'supportingStylePlaceholderText02':
+    case 'supportingStylePlaceholderText03':
     case 'supportingStyleTiny01':
     case 'supportingStyleTiny02':
     default:

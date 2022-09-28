@@ -1,5 +1,19 @@
 import { useEffect } from 'react';
 
+/**
+ * Kjører logikk når en spesifisert tast blir trykt ned.
+ * Typisk bruk:
+ * ```
+ * const [isOpen, setOpen] = useState(true);
+ * const ref = useRef<HTMLElement>(null);
+ * useOnKeyDown(['Escape', 'Esc'], () => setOpen(false));
+ *
+ * return isOpen ? <div>innhold</div> : null;
+ * ```
+ * @param key tasten som trykkes.
+ * @param handler funksjonen som skal kjøres.
+ */
+
 export const useOnKeyDown = (
   key: string | string[],
   handler: (event: KeyboardEvent) => void

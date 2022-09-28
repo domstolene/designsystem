@@ -26,24 +26,24 @@ export const Overview = (args: CheckboxGroupProps) => {
       display="grid"
       columnsAmount={2}
     >
-      <CheckboxGroup {...args} label={args.label || 'Label'}>
+      <CheckboxGroup {...args} label={args.label ?? 'Label'}>
         <Checkbox label="Option 1" />
         <Checkbox label="Option 2" />
         <Checkbox label="Option 3" />
       </CheckboxGroup>
-      <CheckboxGroup {...args} label={args.label || 'Label'} direction="column">
+      <CheckboxGroup {...args} label={args.label ?? 'Label'} direction="column">
         <Checkbox label="Option 1" />
         <Checkbox label="Option 2" />
         <Checkbox label="Option 3" />
       </CheckboxGroup>
-      <CheckboxGroup {...args} label={args.label || 'Label'} required>
+      <CheckboxGroup {...args} label={args.label ?? 'Label'} required>
         <Checkbox label="Option 1" />
         <Checkbox label="Option 2" />
         <Checkbox label="Option 3" />
       </CheckboxGroup>
       <CheckboxGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         direction="column"
         required
       >
@@ -53,7 +53,7 @@ export const Overview = (args: CheckboxGroupProps) => {
       </CheckboxGroup>
       <CheckboxGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         tip="Dette er en hjelpetekst"
       >
         <Checkbox label="Option 1" />
@@ -62,7 +62,7 @@ export const Overview = (args: CheckboxGroupProps) => {
       </CheckboxGroup>
       <CheckboxGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         direction="column"
         tip="Dette er en hjelpetekst"
       >
@@ -72,7 +72,7 @@ export const Overview = (args: CheckboxGroupProps) => {
       </CheckboxGroup>
       <CheckboxGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         errorMessage="Dette er en feilmelding"
       >
         <Checkbox error label="Option 1" />
@@ -81,7 +81,7 @@ export const Overview = (args: CheckboxGroupProps) => {
       </CheckboxGroup>
       <CheckboxGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         direction="column"
         errorMessage="Dette er en feilmelding"
       >
@@ -91,7 +91,7 @@ export const Overview = (args: CheckboxGroupProps) => {
       </CheckboxGroup>
       <CheckboxGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         tip="Dette er en hjelpetekst"
         errorMessage="Dette er en feilmelding"
       >
@@ -101,7 +101,7 @@ export const Overview = (args: CheckboxGroupProps) => {
       </CheckboxGroup>
       <CheckboxGroup
         {...args}
-        label={args.label || 'Label'}
+        label={args.label ?? 'Label'}
         direction="column"
         tip="Dette er en hjelpetekst"
         errorMessage="Dette er en feilmelding"
@@ -117,7 +117,7 @@ export const Overview = (args: CheckboxGroupProps) => {
 export const Default = (args: CheckboxGroupProps) => {
   return (
     <StoryTemplate title="CheckboxGroup - default">
-      <CheckboxGroup {...args} label={args.label || 'Label'}>
+      <CheckboxGroup {...args} label={args.label ?? 'Label'}>
         <Checkbox label="Option 1" />
         <Checkbox label="Option 2" />
         <Checkbox label="Option 3" />

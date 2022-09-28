@@ -10,7 +10,6 @@ import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import {
   Input as BaseInput,
-  InputContainer,
   OuterInputContainer,
   InputProps as BaseInputProps,
 } from '../../helpers';
@@ -22,6 +21,19 @@ import {
 import { Icon, IconSize } from '../Icon';
 import { SearchIcon } from '../../icons/tsx';
 
+const { input, container, icon } = tokens;
+
+const getIconSize = (size: SearchSize): IconSize => {
+  switch (size) {
+    case 'large':
+      return 'medium';
+    case 'medium':
+      return 'medium';
+    case 'small':
+      return 'small';
+  }
+};
+
 type InputProps = { componentSize: SearchSize };
 
 const Input = styled(BaseInput)<InputProps>`
@@ -31,11 +43,14 @@ const Input = styled(BaseInput)<InputProps>`
   &[type='search']::-webkit-search-results-decoration {
     -webkit-appearance: none;
   }
-  ${tokens.input.base}
+  padding-right: ${input.base.paddingRight};
 
   ${({ componentSize }) =>
     css`
-      ${tokens.input[componentSize].base}
+      padding-top: ${input.sizes[componentSize].paddingTop};
+      padding-bottom: ${input.sizes[componentSize].paddingBottom};
+      padding-left: ${input.sizes[componentSize].paddingLeft};
+      ${input.sizes[componentSize].font}
     `}
 `;
 
@@ -43,17 +58,24 @@ type StyledIconProps = {
   size: SearchSize;
 };
 
-const IconWrapper = styled(Icon)<StyledIconProps>`
+const StyledIcon = styled(Icon)<StyledIconProps>`
   position: absolute;
-  ${tokens.iconWrapper.base}
-  left: ${tokens.icon.spaceLeft};
+  left: ${icon.base.left};
+  color: ${icon.base.color};
   ${({ size }) => css`
-    top: ${tokens.icon[size].spaceTop};
+    top: ${tokens.icon[size].top};
   `}
+  z-index: 1;
 `;
 
 const Container = styled.div`
-  ${tokens.container.base}
+  display: flex;
+  flex-direction: row;
+  gap: ${container.gap};
+`;
+
+const InputContainer = styled.div`
+  position: relative;
 `;
 
 const ButtonWrapper = styled.div``;
@@ -116,10 +138,10 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       <Container {...containerProps}>
         <OuterInputContainer width="100%">
           <InputContainer>
-            <IconWrapper
+            <StyledIcon
               icon={SearchIcon}
               size={componentSize}
-              iconSize={tokens.icon[componentSize].size as IconSize}
+              iconSize={getIconSize(componentSize)}
             />
             <Input {...inputProps} />
           </InputContainer>

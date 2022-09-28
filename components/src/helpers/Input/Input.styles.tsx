@@ -1,17 +1,28 @@
 import styled, { css } from 'styled-components';
 import { inputTokens as tokens } from './Input.tokens';
-import { Typography } from '../../components/Typography';
-import { StyledInputProps, StyledLabelProps } from '.';
+import { StyledInputProps } from '.';
 import { Property } from 'csstype';
-import { selection } from '../styling';
+import {
+  dangerInputfield,
+  focusDangerInputfield,
+  focusInputfield,
+  hoverDangerInputfield,
+  hoverInputfield,
+  selection,
+} from '../styling';
+
+const { input, container } = tokens;
 
 export const Input = styled.input`
-  ${tokens.baseInput.base}
+  position: relative;
+  color: ${input.base.color};
+  border-radius: ${input.base.borderRadius};
+  border: ${input.base.border};
+  border-color: ${input.base.borderColor};
+  background-color: ${input.base.backgroundColor};
+  padding: ${input.base.padding};
   width: 100%;
-  top: 0;
-  left: 0;
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   box-shadow: none;
   @media (prefers-reduced-motion: no-preference) {
@@ -32,76 +43,60 @@ export const Input = styled.input`
     ${selection}
   }
 
+  &:hover:enabled:read-write {
+    ${hoverInputfield}
+  }
   &:focus:enabled:read-write,
   &:active:enabled:read-write {
-    ${tokens.baseInput.focus.base}
-  }
-
-  &:hover:enabled:read-write {
-    ${tokens.baseInput.hover.base}
+    ${focusInputfield}
   }
 `;
 
 export const StatefulInput = styled(Input)<StyledInputProps>`
   -webkit-appearance: textfield;
-  ${({ hasLabel }) =>
+  ${({ componentSize }) =>
+    componentSize &&
     css`
-      ${tokens[hasLabel].base}
-    `};
+      padding: ${input.sizes[componentSize].padding};
+      ${input.sizes[componentSize].font}
+    `}
 
-  &:hover:enabled:read-write ~ label {
-    ${tokens.label.hover.base}
-  }
-  &:focus:enabled:read-write ~ label {
-    ${tokens.label.focus.base}
-  }
   ${({ hasErrorMessage }) =>
     hasErrorMessage &&
     css`
-      ${tokens.error.base}
+      ${dangerInputfield}
       &:hover:enabled:read-write {
-        ${tokens.error.hover.base}
+        ${hoverDangerInputfield}
       }
       &:focus:enabled:read-write,
       &:active:enabled:read-write {
-        ${tokens.error.focus.base}
+        ${focusDangerInputfield}
       }
     `}
   &:enabled:read-only {
-    ${tokens.readOnly.base}
+    border: none;
+    outline: none;
+    cursor: default;
+    background-color: ${input.readOnly.backgroundColor};
+    padding-left: 0;
   }
   &:disabled {
-    ${tokens.disabled.base}
+    cursor: not-allowed;
+    color: ${input.disabled.color};
+    background-color: ${input.disabled.backgroundColor};
   }
-`;
-
-export const Label = styled(Typography)<StyledLabelProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  @media (prefers-reduced-motion: no-preference) {
-    transition: color 0.2s, background-color 0.2s;
-  }
-  ${tokens.label.base}
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      ${tokens.label.disabled.base}
-    `}
-`;
-
-export const InputContainer = styled.div`
-  position: relative;
 `;
 
 type OuterInputContainerProps = { width?: Property.Width<string> };
 
 export const OuterInputContainer = styled.div<OuterInputContainerProps>`
-  display: flex;
-  flex-direction: column;
-  ${({ width }) =>
-    width &&
-    css`
-      width: ${width};
-    `};
+  position: relative;
+  gap: ${container.gap};
+  width: ${({ width }) => width};
+`;
+
+/**Brukes som container til input og ikon for posisjonering. */
+
+export const InputContainer = styled.div`
+  position: relative;
 `;

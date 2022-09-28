@@ -70,6 +70,27 @@ export const OverviewDatetime = () => (
   </StoryTemplate>
 );
 
+export const OverviewSizes = () => (
+  <StoryTemplate
+    display="grid"
+    columnsAmount={2}
+    title="Datepicker - sizes overview"
+  >
+    <Datepicker label="Label" componentSize="medium" />
+    <Datepicker componentSize="medium" />
+    <Datepicker label="Label" componentSize="small" />
+    <Datepicker componentSize="small" />
+    <Datepicker label="Label" componentSize="tiny" />
+    <Datepicker componentSize="tiny" />
+    <Datepicker type="datetime-local" label="Label" componentSize="medium" />
+    <Datepicker type="datetime-local" componentSize="medium" />
+    <Datepicker type="datetime-local" label="Label" componentSize="small" />
+    <Datepicker type="datetime-local" componentSize="small" />
+    <Datepicker type="datetime-local" label="Label" componentSize="tiny" />
+    <Datepicker type="datetime-local" componentSize="tiny" />
+  </StoryTemplate>
+);
+
 export const Default = (args: DatepickerProps) => (
   <StoryTemplate title="Datepicker - default">
     <Datepicker {...args} />
@@ -78,7 +99,7 @@ export const Default = (args: DatepickerProps) => (
 
 export const WithLabel = (args: DatepickerProps) => (
   <StoryTemplate title="Datepicker - with label">
-    <Datepicker {...args} label={args.label || 'Label'} />
+    <Datepicker {...args} label={args.label ?? 'Label'} />
   </StoryTemplate>
 );
 
@@ -90,6 +111,6 @@ export const Datetime = (args: DatepickerProps) => (
 
 export const DatetimeWithLabel = (args: DatepickerProps) => (
   <StoryTemplate title="Datepicker - datetime with label">
-    <Datepicker {...args} type="datetime-local" label={args.label || 'Label'} />
+    <Datepicker {...args} type="datetime-local" label={args.label ?? 'Label'} />
   </StoryTemplate>
 );

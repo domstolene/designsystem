@@ -263,7 +263,7 @@ const MediaPostContainer = styled.div`
 
   @media only screen and (min-width: ${breakpoints.DdsBreakpointSm}) {
     grid-auto-flow: column;
-    grid-template-columns: 115px auto;
+    grid-template-columns: min-content auto;
     column-gap: 16px;
   }
 `;
@@ -299,7 +299,7 @@ export const FormWithMedia = () => {
         </MediaFullWidth>
         <MediaFullWidth>
           <MediaPostContainer>
-            <TextInput label="Postnummer" width="115px" />
+            <TextInput label="Postnr" width="89px" />
             <TextInput label="Poststed" width="100%" />
           </MediaPostContainer>
         </MediaFullWidth>
@@ -459,7 +459,7 @@ const HooksPostContainer = styled.div<GridProps>`
         `
       : css`
           grid-auto-flow: column;
-          grid-template-columns: 115px auto;
+          grid-template-columns: min-content auto;
           column-gap: 16px;
         `}
 `;
@@ -495,7 +495,7 @@ export const FormWithHooks = () => {
       </GridChild>
       <GridChild screenSize={screenSize} columnsOccupied="all">
         <HooksPostContainer screenSize={screenSize}>
-          <TextInput label="Postnummer" width="115px" />
+          <TextInput label="Postnr" width="89px" />
           <TextInput label="Poststed" width="100%" />
         </HooksPostContainer>
       </GridChild>

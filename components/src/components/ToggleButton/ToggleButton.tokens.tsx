@@ -1,7 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSObject } from 'styled-components';
 import { focusVisible } from '../../helpers/styling';
-import { checkboxTokens } from '../Checkbox/Checkbox.tokens';
+import { selectionControlTokens } from '../../helpers/SelectionControl';
 
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
@@ -13,16 +13,16 @@ const base: CSSObject = {
 };
 
 const hoverBase: CSSObject = {
-  ...checkboxTokens.checkbox.hover.base,
+  ...selectionControlTokens.selectionControl.hover.base,
 };
 
 const checkedBase: CSSObject = {
-  ...checkboxTokens.checkbox.checked.base,
+  ...selectionControlTokens.selectionControl.checked.base,
   color: Colors.DdsColorNeutralsWhite,
 };
 
 const checkedHoverBase: CSSObject = {
-  ...checkboxTokens.checkbox.checked.hover.base,
+  ...selectionControlTokens.selectionControl.checked.hover,
   color: Colors.DdsColorNeutralsWhite,
 };
 

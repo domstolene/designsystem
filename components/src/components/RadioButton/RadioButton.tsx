@@ -5,9 +5,12 @@ import {
   RadioButtonGroup,
   useRadioButtonGroup,
 } from './RadioButtonGroupContext';
-import { CustomRadioButton, Container } from './RadioButton.styles';
 import { getBaseHTMLProps, joinClassNames } from '../../types';
 import { HiddenInput } from '../../helpers';
+import {
+  CustomSelectionControl,
+  Container,
+} from '../../helpers/SelectionControl';
 
 const isValueEqualToGroupValueOrFalsy = (
   value: unknown,
@@ -50,6 +53,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-radioButton`;
+    const hasLabel = !!label;
 
     const radioButtonGroup = useRadioButtonGroup();
 
@@ -90,12 +94,15 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       readOnly: readOnly || radioButtonGroup?.readOnly,
       style,
       className: joinClassNames(className, htmlPropsClassName),
+      htmlFor: uniqueId,
+      controlType: 'radio',
+      hasLabel,
     };
 
     return (
-      <Container {...containerProps} htmlFor={uniqueId}>
+      <Container {...containerProps} htmlFor={uniqueId} controlType="radio">
         <HiddenInput {...inputProps} ref={ref} />
-        <CustomRadioButton />
+        <CustomSelectionControl controlType="radio" />
         <Typography as="span">{children ?? label}</Typography>
       </Container>
     );

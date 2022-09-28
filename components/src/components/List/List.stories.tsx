@@ -46,42 +46,6 @@ export const Overview = (args: ListProps) => {
         </ListItem>
       </List>
 
-      <List {...args} typographyType="bodySerif01">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List typographyType="bodySerif01">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} listType="ordered" typographyType="bodySerif01">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered" typographyType="bodySerif01">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
       <List {...args}>
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
@@ -101,42 +65,6 @@ export const Overview = (args: ListProps) => {
       </List>
 
       <List {...args} listType="ordered">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} typographyType="bodySerif02">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List>
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} listType="ordered" typographyType="bodySerif02">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>
@@ -190,42 +118,6 @@ export const Overview = (args: ListProps) => {
         </ListItem>
       </List>
 
-      <List {...args} typographyType="bodySerif03">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List>
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} listType="ordered" typographyType="bodySerif03">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
       <List {...args} typographyType="bodySans04">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
@@ -245,42 +137,6 @@ export const Overview = (args: ListProps) => {
       </List>
 
       <List {...args} listType="ordered" typographyType="bodySans04">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} typographyType="bodySerif04">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List>
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} listType="ordered" typographyType="bodySerif04">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>

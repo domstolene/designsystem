@@ -50,7 +50,7 @@ export const Overview: Story<TabsProps> = () => (
 );
 
 export const Default: Story<TabsProps> = args => (
-  <StoryTemplate title="Tabs - default">
+  <StoryTemplate title="Tabs - default" display="block">
     <Tabs {...args}>
       <TabList>
         <Tab>Tab 1</Tab>
@@ -87,7 +87,7 @@ export const ActiveTab: Story<TabsProps> = args => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <StoryTemplate title="Tabs - active tab">
+    <StoryTemplate title="Tabs - active tab" display="block">
       <Tabs {...args} activeTab={activeTab} onChange={tab => setActiveTab(tab)}>
         <TabList>
           <Tab>Tab 1</Tab>
@@ -104,9 +104,9 @@ export const ActiveTab: Story<TabsProps> = args => {
   );
 };
 
-export const TabWidth: Story<TabsProps> = args => (
-  <StoryTemplate title="Tabs - tab width">
-    <Tabs {...args} tabWidth="300px">
+export const WithWidth: Story<TabsProps> = args => (
+  <StoryTemplate title="Tabs - tab width" display="block">
+    <Tabs {...args} width="500px">
       <TabList>
         <Tab>Tab 1</Tab>
         <Tab>Tab 2</Tab>
@@ -121,8 +121,25 @@ export const TabWidth: Story<TabsProps> = args => (
   </StoryTemplate>
 );
 
+export const TabLongNames: Story<TabsProps> = args => (
+  <StoryTemplate title="Tabs - tab width" display="block">
+    <Tabs {...args}>
+      <TabList>
+        <Tab>Partsopplysninger</Tab>
+        <Tab>Restriksjoner</Tab>
+        <Tab>Vedlegg</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>Innhold 1</TabPanel>
+        <TabPanel>Innhold 2</TabPanel>
+        <TabPanel>Innhold 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  </StoryTemplate>
+);
+
 export const ManyTabs: Story<TabsProps> = args => (
-  <StoryTemplate title="Tabs - many tabs">
+  <StoryTemplate title="Tabs - many tabs" display="block">
     <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
       <TabList>
         <Tab>Tab1</Tab>

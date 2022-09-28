@@ -1,6 +1,8 @@
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
+import { Property } from 'csstype';
 
 const { thumb, track } = tokens;
+const scrollbarWidth: Property.ScrollbarWidth = 'thin';
 
 /**
  * CSS-in-JS scrollbar styling til bruk der det ikke passer å bruke dedikerte komponenter. Inkluderer styling for webkit pseudo-elementer og for Firefox.
@@ -29,6 +31,6 @@ export const scrollbarStyling = {
   },
   firefox: {
     scrollbarColor: thumb.base.backgroundColor + ' ' + track.backgroundColor,
-    scrollbarWidth: 'thin',
+    scrollbarWidth: scrollbarWidth,
   },
 };

@@ -8,22 +8,20 @@ import { Typography } from '../Typography';
 import { derivativeIdGenerator } from '../../utils';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
+const { outerContainer, groupContainer } = tokens;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  ${tokens.container.base}
+  gap: ${outerContainer.gap};
 `;
 
 const GroupContainer = styled.div<{ direction: Direction }>`
   display: flex;
   ${({ direction }) => css`
     flex-direction: ${direction};
-    ${tokens.groupContainer.direction[direction].base}
+    gap: ${groupContainer[direction].gap};
   `}
-`;
-
-const Label = styled(Typography)`
-  padding-left: ${tokens.label.spaceLeft};
 `;
 
 type Direction = 'column' | 'row';
@@ -45,22 +43,28 @@ export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const CheckboxGroup = ({
-  label,
-  direction = 'row',
-  errorMessage,
-  tip,
-  required,
-  groupId,
-  children,
-  id,
-  className,
-  htmlProps,
-  ...rest
-}: CheckboxGroupProps) => {
+export const CheckboxGroup = (props: CheckboxGroupProps) => {
+  const {
+    label,
+    direction = 'row',
+    errorMessage,
+    tip,
+    required,
+    groupId,
+    children,
+    id,
+    className,
+    htmlProps = {},
+    ...rest
+  } = props;
+
+  const { 'aria-required': ariaRequired } = htmlProps;
+
   const generatedId = useId();
   const uniqueGroupId = groupId ?? `${generatedId}-checkboxGroup`;
   const hasErrorMessage = !!errorMessage;
+  const showRequiredMarker = required || ariaRequired;
+
   const errorMessageId = derivativeIdGenerator(
     uniqueGroupId,
     'errorMessage',
@@ -76,14 +80,21 @@ export const CheckboxGroup = ({
   };
 
   return (
-    <Container {...getBaseHTMLProps(id, className, htmlProps, rest)}>
-      <Label
-        forwardedAs="span"
+    <Container
+      {...getBaseHTMLProps(
+        id,
+        className,
+        { ...htmlProps, 'aria-required': ariaRequired },
+        rest
+      )}
+    >
+      <Typography
+        as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
       >
-        {label} {required && <RequiredMarker />}
-      </Label>
+        {label} {showRequiredMarker && <RequiredMarker />}
+      </Typography>
       {tip && <InputMessage messageType="tip" message={tip} id={tipId} />}
       <CheckboxGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer

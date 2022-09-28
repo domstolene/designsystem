@@ -2,77 +2,76 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
 const { spacing, fontPackages, iconSizes } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
-const inputBase: CSSObject = {
-  paddingRight: spacing.SizesDdsSpacingLocalX05,
-  paddingLeft: spacing.SizesDdsSpacingLocalX3,
+const paddingLeftSmall = `${
+  spacing.SizesDdsSpacingLocalX075NumberPx +
+  iconSizes.DdsIconsizeSmallNumberPx +
+  spacing.SizesDdsSpacingLocalX05NumberPx
+}px`;
+const paddingLeftMedium = `${
+  spacing.SizesDdsSpacingLocalX075NumberPx +
+  iconSizes.DdsIconsizeMediumNumberPx +
+  spacing.SizesDdsSpacingLocalX05NumberPx
+}px`;
+
+const paddingLeftLarge = `${
+  spacing.SizesDdsSpacingLocalX075NumberPx +
+  iconSizes.DdsIconsizeMediumNumberPx +
+  spacing.SizesDdsSpacingLocalX05NumberPx
+}px`;
+
+const input = {
+  base: {
+    paddingRight: spacing.SizesDdsSpacingLocalX05,
+    paddingLeft: spacing.SizesDdsSpacingLocalX3,
+  },
+  sizes: {
+    small: {
+      font: fontPackages.body_sans_01.base,
+      paddingTop: spacing.SizesDdsSpacingLocalX05,
+      paddingBottom: spacing.SizesDdsSpacingLocalX05,
+      paddingLeft: paddingLeftSmall,
+    },
+    medium: {
+      font: fontPackages.body_sans_02.base,
+      paddingTop: spacing.SizesDdsSpacingLocalX075,
+      paddingBottom: spacing.SizesDdsSpacingLocalX075,
+      paddingLeft: paddingLeftMedium,
+    },
+    large: {
+      font: fontPackages.body_sans_04.base,
+      paddingTop: spacing.SizesDdsSpacingLocalX1,
+      paddingBottom: spacing.SizesDdsSpacingLocalX1,
+      paddingLeft: paddingLeftLarge,
+    },
+  },
 };
 
-const smallBase: CSSObject = {
-  ...fontPackages.supportingStyle_inputtext_01.base,
-  paddingTop: spacing.SizesDdsSpacingLocalX05,
-  paddingBottom: spacing.SizesDdsSpacingLocalX05,
-};
-
-const mediumBase: CSSObject = {
-  ...fontPackages.supportingStyle_inputtext_02.base,
-  paddingTop: spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: spacing.SizesDdsSpacingLocalX075,
-};
-
-const largeBase: CSSObject = {
-  ...fontPackages.supportingStyle_inputtext_03.base,
-  paddingTop: spacing.SizesDdsSpacingLocalX1,
-  paddingBottom: spacing.SizesDdsSpacingLocalX1,
-};
-
-const iconWrapperBase: CSSObject = {
-  color: textDefault.textColor,
-};
-
-const containerBase: CSSObject = {
-  display: 'flex',
-  flexDirection: 'row',
+const container = {
   gap: spacing.SizesDdsSpacingLocalX05,
 };
 
+const icon = {
+  base: {
+    left: spacing.SizesDdsSpacingLocalX075,
+    color: textDefault.textColor,
+  },
+  small: {
+    top: `calc(50% - ${iconSizes.DdsIconsizeSmallNumberPx / 2}px)`,
+  },
+  medium: {
+    top: `calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`,
+  },
+  large: {
+    top: `calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`,
+  },
+};
+
 export const searchTokens = {
-  input: {
-    base: inputBase,
-    small: {
-      base: smallBase,
-    },
-    medium: {
-      base: mediumBase,
-    },
-    large: {
-      base: largeBase,
-    },
-  },
-  icon: {
-    spaceLeft: spacing.SizesDdsSpacingLocalX075,
-    small: {
-      size: 'small',
-      spaceTop: `calc(50% - ${iconSizes.DdsIconsizeSmallNumberPx / 2}px)`,
-    },
-    medium: {
-      size: 'medium',
-      spaceTop: `calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`,
-    },
-    large: {
-      size: 'medium',
-      spaceTop: `calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`,
-    },
-    spaceTop: `calc(50% - ${spacing.SizesDdsSpacingLocalX15NumberPx / 2}px)`,
-  },
-  iconWrapper: {
-    base: iconWrapperBase,
-  },
-  container: {
-    base: containerBase,
-  },
+  input,
+  icon,
+  container,
 };

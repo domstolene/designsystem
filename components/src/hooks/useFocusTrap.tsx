@@ -1,6 +1,23 @@
-import { useEffect, useRef } from 'react';
+import { RefObject, useEffect, useRef } from 'react';
 
-export function useFocusTrap<T extends HTMLElement>(active: boolean) {
+/**
+ * Fanger fokus i en loop inni et element. Typisk bruk:
+ * ```
+ * const MyComponent = (props) => {
+ *
+ *  const componentRef = useFocusTrap<HTMLDivElement>(props.isOpen);
+ *
+ *  return props.isOpen ? <div><button>click</button></div> : null;
+ *
+ * }
+ * ```
+ * @param active om focus skal fanges, f.eks. når en modal åpnes.
+ * @returns ref til elementet som fanger fokus.
+ */
+
+export function useFocusTrap<T extends HTMLElement>(
+  active: boolean
+): RefObject<T> {
   const elementRef = useRef<T>(null);
 
   useEffect(() => {

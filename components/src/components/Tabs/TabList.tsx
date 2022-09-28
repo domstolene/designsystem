@@ -7,7 +7,7 @@ import {
   FocusEvent,
   ReactElement,
 } from 'react';
-import styled, { CSSObject } from 'styled-components';
+import styled from 'styled-components';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import {
   useCombinedRef,
@@ -17,17 +17,28 @@ import {
 } from '../../hooks';
 import { useTabsContext } from './Tabs.context';
 import { scrollbarStyling } from '../ScrollableContainer';
+import {
+  focusVisible,
+  focusVisibleTransitionValue,
+} from '../../helpers/styling';
+
+const { tabList } = tokens;
 
 const TabRow = styled.div`
-  ${tokens.tabList.base}
+  border-bottom: ${tabList.borderBottom};
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  overflow-x: auto;
   ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox as CSSObject}
+  ${scrollbarStyling.firefox}
   scroll-snap-type: x mandatory;
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
+    transition: ${focusVisibleTransitionValue};
   }
   &:focus-visible {
-    ${tokens.tabList.focus.base}
+    ${focusVisible}
   }
   &:focus-visible button {
     outline: none;

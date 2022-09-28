@@ -29,7 +29,6 @@ export const ddsReferenceTokens = {
       borderWidth: Border.BordersDdsBorderStyleLightStrokeWeight,
       borderColor: Colors.DdsColorNeutralsGray5,
       textColor: textDefault.textColor,
-      font: FontPackages.supportingStyle_inputtext_02.base,
       hover: {
         backgroundColor: Colors.DdsColorInteractiveLightest,
         borderColor: focus.color__TextInput,

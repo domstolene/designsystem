@@ -16,10 +16,6 @@ export const fontPackages = {
   body_sans_02: fontPackageFormatter(prefix["body"]["sans-02"]),
   body_sans_03: fontPackageFormatter(prefix["body"]["sans-03"]),
   body_sans_04: fontPackageFormatter(prefix["body"]["sans-04"]),
-  body_serif_01: fontPackageFormatter(prefix["body"]["serif-01"]),
-  body_serif_02: fontPackageFormatter(prefix["body"]["serif-02"]),
-  body_serif_03: fontPackageFormatter(prefix["body"]["serif-03"]),
-  body_serif_04: fontPackageFormatter(prefix["body"]["serif-04"]),
   lead_sans_01: fontPackageFormatter(prefix["lead"]["sans-01"]),
   lead_sans_02: fontPackageFormatter(prefix["lead"]["sans-02"]),
   lead_sans_03: fontPackageFormatter(prefix["lead"]["sans-03"]),
@@ -31,17 +27,14 @@ export const fontPackages = {
   supportingStyle_helpertext_01: fontPackageFormatter(
     prefix["supporting-style"]["helpertext-01"]
   ),
-  supportingStyle_inputtext_01: fontPackageFormatter(
-    prefix["supporting-style"]["inputtext-01"]
-  ),
-  supportingStyle_inputtext_02: fontPackageFormatter(
-    prefix["supporting-style"]["inputtext-02"]
-  ),
-  supportingStyle_inputtext_03: fontPackageFormatter(
-    prefix["supporting-style"]["inputtext-03"]
-  ),
   supportingStyle_placeholdertext_01: fontPackageFormatter(
     prefix["supporting-style"]["placeholdertext-01"]
+  ),
+  supportingStyle_placeholdertext_02: fontPackageFormatter(
+    prefix["supporting-style"]["placeholdertext-02"]
+  ),
+  supportingStyle_placeholdertext_03: fontPackageFormatter(
+    prefix["supporting-style"]["placeholdertext-03"]
   ),
   supportingStyle_tiny_01: fontPackageFormatter(
     prefix["supporting-style"]["tiny-01"]
@@ -49,4 +42,5 @@ export const fontPackages = {
   supportingStyle_tiny_02: fontPackageFormatter(
     prefix["supporting-style"]["tiny-02"]
   ),
+  code_monospace_02: fontPackageFormatter(prefix["code"]["monospace-02"]),
 };
