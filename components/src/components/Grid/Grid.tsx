@@ -1,22 +1,28 @@
 import styled, { css } from 'styled-components';
 import { ScreenSize, useScreenSize } from '../../hooks';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { gridTokens } from '../../storybook/examples/Grid.tokens';
+import { gridTokens } from './Grid.tokens';
 import { GridContext } from './Grid.context';
 import { Property } from 'csstype';
+import { getLiteralScreenSize } from './Grid.utils';
+import { HTMLAttributes } from 'react';
 
 type StyledGridProps = {
   screenSize: ScreenSize;
-  maxWidth?: Property.MaxWidth;
+  maxWidth?: MaxWidthGrid;
 };
 
-const getHooksGridStyling = (screenSize: ScreenSize) => {
+const getHooksGridStyling = (
+  screenSize: ScreenSize,
+  maxWidth?: MaxWidthGrid
+) => {
   const tokens = gridTokens[screenSize].grid;
   return {
     gridTemplateColumns: `repeat(${tokens.columns}, minmax(0, 1fr))`,
     gap: tokens.gap,
     marginLeft: tokens.marginLeft,
     marginRight: tokens.marginRight,
+    maxWidth: maxWidth && maxWidth[getLiteralScreenSize(screenSize)],
   };
 };
 
@@ -26,19 +32,32 @@ const StyledGrid = styled.div<StyledGridProps>`
     css`
       max-width: ${maxWidth};
     `}
-  ${({ screenSize }) => getHooksGridStyling(screenSize)}
+  ${({ screenSize, maxWidth }) => getHooksGridStyling(screenSize, maxWidth)}
 `;
+
+type MaxWidthGrid = {
+  xs?: Property.MaxWidth;
+  sm?: Property.MaxWidth;
+  md?: Property.MaxWidth;
+  lg?: Property.MaxWidth;
+  xl?: Property.MaxWidth;
+};
+
+type BaseGridProps = {
+  /**Maksimal bredde. Gjøres per brekkepunkt.  */
+  maxWidth?: MaxWidthGrid;
+} & Pick<HTMLAttributes<HTMLElement>, 'style'>;
 
 type GridDivProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
     /**HTML tag som returneres. */
     as: 'div';
-  }
+  } & BaseGridProps
 >;
 type GridFormProps = BaseComponentPropsWithChildren<
   HTMLFormElement,
-  { as: 'form' }
+  { as: 'form' } & BaseGridProps
 >;
 
 export type GridProps = GridDivProps | GridFormProps;
