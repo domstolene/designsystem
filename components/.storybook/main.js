@@ -1,10 +1,6 @@
 module.exports = {
   stories: ['../src/**/*.stories.@(tsx|mdx)'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-actions',
-    '@storybook/addon-essentials',
-  ],
+  addons: ['@storybook/addon-essentials'],
   features: {
     previewMdx2: true,
     postcss: false,
