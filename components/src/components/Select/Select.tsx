@@ -15,7 +15,7 @@ import {
   MultiValueRemoveProps,
   ControlProps,
 } from 'react-select';
-import { InputSize, RequiredMarker } from '../../helpers';
+import { InputSize } from '../../helpers';
 import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 import {
@@ -252,7 +252,7 @@ const SelectInner = <
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
-  const showRequiredMarker = required || ariaRequired;
+  const showRequiredStyling = required || ariaRequired;
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
   const errorMessageId = derivativeIdGenerator(
@@ -322,8 +322,8 @@ const SelectInner = <
   return (
     <Container {...containerProps}>
       {hasLabel && (
-        <Label htmlFor={uniqueId}>
-          {label} {showRequiredMarker && <RequiredMarker />}
+        <Label htmlFor={uniqueId} required={showRequiredStyling as boolean}>
+          {label}
         </Label>
       )}
       <ReactSelect {...reactSelectProps} ref={ref} />

@@ -1,4 +1,5 @@
 import { forwardRef, LabelHTMLAttributes } from 'react';
+import { RequiredMarker } from '../../../helpers';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -10,14 +11,19 @@ type PickedHTMLAttributes = Pick<
   'htmlFor'
 >;
 
+type BaseLabelProps = {
+  /** Spesifiserer om input etiketten er knyttet til er påkrevd; påvirker styling. */
+  required?: boolean;
+};
+
 export type LabelProps = BaseComponentPropsWithChildren<
   HTMLLabelElement,
-  BaseTypographyProps & PickedHTMLAttributes,
+  BaseLabelProps & BaseTypographyProps & PickedHTMLAttributes,
   Omit<LabelHTMLAttributes<HTMLLabelElement>, keyof PickedHTMLAttributes>
 >;
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
-  const { id, className, htmlProps, children, ...rest } = props;
+  const { required, id, className, htmlProps, children, ...rest } = props;
 
   return (
     <Typography
@@ -25,7 +31,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
       ref={ref}
       typographyType="supportingStyleLabel01"
     >
-      {children}
+      {children} {required && <RequiredMarker />}
     </Typography>
   );
 });

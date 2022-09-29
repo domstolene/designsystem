@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, forwardRef, useId } from 'react';
-import { InputSize, RequiredMarker } from '../../helpers';
+import { InputSize } from '../../helpers';
 import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
@@ -147,14 +147,13 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       width: getWidth(componentSize, width),
     };
 
-    const showRequiredMarker = required || ariaRequired;
+    const showRequiredStyling = required || ariaRequired;
 
     return (
       <OuterInputContainer {...outerInputContainerProps}>
         {hasLabel && (
-          <Label htmlFor={uniqueId}>
+          <Label htmlFor={uniqueId} required={showRequiredStyling as boolean}>
             {label}
-            {showRequiredMarker && <RequiredMarker />}
           </Label>
         )}
         {multiline ? (
