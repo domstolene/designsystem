@@ -37,4 +37,5 @@ export * from './components/ScrollableContainer';
 export * from './icons/tsx';
 export * from './components/ToggleBar';
 export * from './components/Stepper';
+export * from './components/Grid';
 export * from './hooks';
