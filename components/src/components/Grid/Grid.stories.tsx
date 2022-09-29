@@ -49,7 +49,7 @@ export const PageExample = (args: GridProps) => {
             sm: '7/9',
             md: '11/13',
             lg: '11/13',
-            xl: '8/13',
+            xl: '9/13',
           }}
         >
           <Button
