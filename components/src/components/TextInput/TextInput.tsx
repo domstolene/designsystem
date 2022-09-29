@@ -147,15 +147,12 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       width: getWidth(componentSize, width),
     };
 
-    const showRequiredStyling = required || ariaRequired;
+    const showRequiredStyling = !!(required || ariaRequired);
 
     return (
       <OuterInputContainer {...outerInputContainerProps}>
         {hasLabel && (
-          <Label
-            htmlFor={uniqueId}
-            showRequiredStyling={showRequiredStyling as boolean}
-          >
+          <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
             {label}
           </Label>
         )}

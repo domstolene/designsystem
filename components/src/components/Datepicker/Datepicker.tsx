@@ -99,7 +99,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     const componentWidth = width ? width : getWidth(type, componentSize);
     const hasLabel = !!label;
     const hasErrorMessage = !!errorMessage;
-    const showRequiredStyling = required || ariaRequired;
+    const showRequiredStyling = !!(required || ariaRequired);
 
     const errorMessageId = derivativeIdGenerator(
       uniqueId,
@@ -138,10 +138,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     return (
       <OuterInputContainer {...outerinputContainerProps}>
         {hasLabel && (
-          <Label
-            htmlFor={uniqueId}
-            showRequiredStyling={showRequiredStyling as boolean}
-          >
+          <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
             {label}
           </Label>
         )}

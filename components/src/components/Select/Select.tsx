@@ -252,7 +252,7 @@ const SelectInner = <
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
-  const showRequiredStyling = required || ariaRequired;
+  const showRequiredStyling = !!(required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
   const errorMessageId = derivativeIdGenerator(
@@ -322,10 +322,7 @@ const SelectInner = <
   return (
     <Container {...containerProps}>
       {hasLabel && (
-        <Label
-          htmlFor={uniqueId}
-          showRequiredStyling={showRequiredStyling as boolean}
-        >
+        <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
           {label}
         </Label>
       )}
