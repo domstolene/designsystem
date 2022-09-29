@@ -47,7 +47,7 @@ type StepProps =
       onClick?: undefined;
     } & BaseComponentPropsWithChildren<HTMLDivElement, BaseStepProps>);
 
-const stepSize = '40px';
+const stepSize = '30px';
 
 const StepWrapper = styled.li`
   flex: 1;
@@ -105,19 +105,39 @@ const StepNumber = styled.div<StepStyleProps>`
           border-color: ${stepNumber.active.borderColor};
           color: ${stepNumber.active.color};
           background-color: ${stepNumber.active.backgroundColor};
+          :hover {
+            border-color: ${stepNumber.active.hover.borderColor};
+            color: ${stepNumber.active.hover.color};
+            background-color: ${stepNumber.active.hover.backgroundColor};
+          }
         `;
       case 'activeCompleted':
+        return css`
+          border-color: ${stepNumber.completed.borderColor};
+          color: ${stepNumber.completed.color};
+          background-color: ${stepNumber.completed.backgroundColor};
+        `;
       case 'inactiveCompleted':
         return css`
           border-color: ${stepNumber.completed.borderColor};
           color: ${stepNumber.completed.color};
           background-color: ${stepNumber.completed.backgroundColor};
+          :hover {
+            border-color: ${stepNumber.completed.hover.borderColor};
+            color: ${stepNumber.completed.hover.color};
+            background-color: ${stepNumber.completed.hover.backgroundColor};
+          }
         `;
       case 'inactiveIncomplete':
         return css`
           border-color: ${stepNumber.inactive.borderColor};
           color: ${stepNumber.inactive.color};
           background-color: ${stepNumber.inactive.backgroundColor};
+          :hover {
+            border-color: ${stepNumber.inactive.hover.borderColor};
+            color: ${stepNumber.inactive.hover.color};
+            background-color: ${stepNumber.inactive.hover.backgroundColor};
+          }
         `;
     }
   }}

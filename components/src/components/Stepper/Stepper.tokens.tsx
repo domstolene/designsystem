@@ -11,16 +11,31 @@ const stepNumber = {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorNeutralsWhite,
     backgroundColor: colors.DdsColorInteractiveBase,
+    hover: {
+      borderColor: colors.DdsColorInteractiveBase,
+      color: colors.DdsColorNeutralsWhite,
+      backgroundColor: colors.DdsColorInteractiveBase,
+    },
   },
   completed: {
-    borderColor: colors.DdsColorSuccessLighter,
-    color: colors.DdsColorNeutralsGray9,
-    backgroundColor: colors.DdsColorSuccessLighter,
+    borderColor: colors.DdsColorInteractiveBase,
+    color: colors.DdsColorNeutralsWhite,
+    backgroundColor: colors.DdsColorInteractiveBase,
+    hover: {
+      borderColor: colors.DdsColorInteractiveDark,
+      color: colors.DdsColorNeutralsWhite,
+      backgroundColor: colors.DdsColorInteractiveDark,
+    },
   },
   inactive: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorInteractiveBase,
     backgroundColor: colors.DdsColorNeutralsWhite,
+    hover: {
+      borderColor: colors.DdsColorInteractiveBase,
+      color: colors.DdsColorInteractiveBase,
+      backgroundColor: colors.DdsColorInteractiveLightest,
+    },
   },
 };
 
