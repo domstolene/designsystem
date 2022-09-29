@@ -17,7 +17,7 @@ type StyledGridChildProps = {
 export const isRelativeGridColumn = (
   type: ColumnsOccupied | undefined
 ): type is RelativeColumnsOccupied => {
-  return true;
+  return type === 'all' || type === 'firstHalf' || type === 'secondHalf';
 };
 
 export const isGridColumn = (
