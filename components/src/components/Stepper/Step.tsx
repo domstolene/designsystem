@@ -23,9 +23,12 @@ const toStepState = (active: boolean, completed: boolean): StepState =>
     ? 'inactiveCompleted'
     : 'inactiveIncomplete';
 
-const { stepNumber, connector, stepButton } = stepperTokens;
+const { stepNumber, stepText, stepContentWrapper } = stepperTokens;
 
-type StepStyleProps = { state: StepState; clickable: boolean };
+type StepStyleProps = {
+  state: StepState;
+  clickable: boolean;
+};
 
 type BaseStepProps = {
   /** Om steget er valgt eller ikke. Settes av konsument. */
@@ -47,23 +50,11 @@ type StepProps =
       onClick?: undefined;
     } & BaseComponentPropsWithChildren<HTMLDivElement, BaseStepProps>);
 
-const stepSize = '30px';
-
 const StepWrapper = styled.li`
   flex: 1;
   position: relative;
   display: flex;
   justify-content: center;
-
-  :not(:last-child):after {
-    content: '';
-    display: block;
-    border-top: 1px solid ${connector.color};
-    position: absolute;
-    width: 100%;
-    left: 50%;
-    top: calc(${stepSize} / 2);
-  }
 `;
 
 const StepContentWrapper = styled.div<StepStyleProps>`
@@ -72,8 +63,9 @@ const StepContentWrapper = styled.div<StepStyleProps>`
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  gap: ${stepContentWrapper.gap};
   transition: ${focusVisibleTransitionValue};
 
   :focus-visible {
@@ -89,27 +81,23 @@ const StepContentWrapper = styled.div<StepStyleProps>`
 
 const StepNumber = styled.div<StepStyleProps>`
   border-radius: 50%;
-  border: 1px solid;
-  padding: 5px;
-  width: ${stepSize};
-  height: ${stepSize};
+  border: ${stepNumber.borderWidth} solid;
+  width: ${stepNumber.size};
+  height: ${stepNumber.size};
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
+  font-size: ${stepNumber.fontSize};
+  font-weight: 600;
 
-  ${({ state }) => {
+  ${({ state, clickable }) => {
     switch (state) {
       case 'activeIncomplete':
         return css`
           border-color: ${stepNumber.active.borderColor};
           color: ${stepNumber.active.color};
           background-color: ${stepNumber.active.backgroundColor};
-          :hover {
-            border-color: ${stepNumber.active.hover.borderColor};
-            color: ${stepNumber.active.hover.color};
-            background-color: ${stepNumber.active.hover.backgroundColor};
-          }
         `;
       case 'activeCompleted':
         return css`
@@ -122,22 +110,30 @@ const StepNumber = styled.div<StepStyleProps>`
           border-color: ${stepNumber.completed.borderColor};
           color: ${stepNumber.completed.color};
           background-color: ${stepNumber.completed.backgroundColor};
-          :hover {
-            border-color: ${stepNumber.completed.hover.borderColor};
-            color: ${stepNumber.completed.hover.color};
-            background-color: ${stepNumber.completed.hover.backgroundColor};
-          }
+
+          ${clickable &&
+          css`
+            :hover {
+              border-color: ${stepNumber.completed.hover.borderColor};
+              color: ${stepNumber.completed.hover.color};
+              background-color: ${stepNumber.completed.hover.backgroundColor};
+            }
+          `}
         `;
       case 'inactiveIncomplete':
         return css`
           border-color: ${stepNumber.inactive.borderColor};
           color: ${stepNumber.inactive.color};
           background-color: ${stepNumber.inactive.backgroundColor};
-          :hover {
-            border-color: ${stepNumber.inactive.hover.borderColor};
-            color: ${stepNumber.inactive.hover.color};
-            background-color: ${stepNumber.inactive.hover.backgroundColor};
-          }
+
+          ${clickable &&
+          css`
+            :hover {
+              border-color: ${stepNumber.inactive.hover.borderColor};
+              color: ${stepNumber.inactive.hover.color};
+              background-color: ${stepNumber.inactive.hover.backgroundColor};
+            }
+          `}
         `;
     }
   }}
@@ -153,33 +149,30 @@ const StepCompletedCheck = styled.div`
 `;
 
 const StepText = styled.div<StepStyleProps>`
-  font-family: ${stepButton.fontFamily};
-  font-size: ${stepButton.fontSize};
-  margin-top: ${stepButton.marginTop};
+  font-family: ${stepText.fontFamily};
+  font-size: ${stepText.fontSize};
 
   ${({ state, clickable }) => {
     switch (state) {
       case 'activeCompleted':
       case 'activeIncomplete':
         return css`
-          color: ${stepButton.active.color};
-          text-decoration ${
-            clickable ? stepButton.active.textDecoration : 'none'
-          };
+          color: ${stepText.active.color};
+          text-decoration ${stepText.active.textDecoration};
         `;
       case 'inactiveCompleted':
-        return css`
-          color: ${stepButton.completed.color};
-          text-decoration ${
-            clickable ? stepButton.completed.textDecoration : 'none'
-          };
-        `;
       case 'inactiveIncomplete':
         return css`
-          color: ${stepButton.inactive.color};
-          text-decoration ${
-            clickable ? stepButton.inactive.textDecoration : 'none'
-          };
+          color: ${stepText.inactive.color};
+          text-decoration ${stepText.inactive.textDecoration};
+          ${
+            clickable &&
+            css`
+          :hover {
+            text-decoration ${stepText.inactive.hover.textDecoration};
+          }
+          `
+          }
         `;
     }
   }}

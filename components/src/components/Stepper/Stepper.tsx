@@ -2,6 +2,7 @@ import {
   Children,
   cloneElement,
   forwardRef,
+  Fragment,
   isValidElement,
   useEffect,
   useState,
@@ -9,11 +10,25 @@ import {
 import styled from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { StepperContext } from './Stepper.context';
+import { stepperTokens } from './Stepper.tokens';
 
 const StepsWrapper = styled.ol`
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: ${stepperTokens.stepsWrapper.gap};
   margin: 0;
   padding: 0;
+`;
+
+const StepsConnector = styled.div`
+  margin-left: calc(
+    (${stepperTokens.stepNumber.size} / 2) -
+      (${stepperTokens.connector.width} / 2)
+  );
+  height: ${stepperTokens.connector.height};
+  border-right: ${stepperTokens.connector.width} solid
+    ${stepperTokens.connector.color};
 `;
 
 type StepperProps = BaseComponentPropsWithChildren<
@@ -60,7 +75,19 @@ export const Stepper = forwardRef<HTMLDivElement, StepperProps>(
         ...step.props,
         index,
       });
-    })?.filter(Boolean);
+    })
+      ?.filter(Boolean)
+      .map((child, index) => {
+        if (index === 0) {
+          return child;
+        }
+        return (
+          <Fragment key={index}>
+            <StepsConnector aria-hidden />
+            {child}
+          </Fragment>
+        );
+      });
 
     return (
       <StepperContext.Provider

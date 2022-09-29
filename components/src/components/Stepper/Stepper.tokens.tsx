@@ -2,20 +2,28 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 const { colors, spacing, font } = ddsBaseTokens;
 
+const stepsWrapper = {
+  gap: spacing.SizesDdsSpacingLocalX0125,
+};
+
+const stepContentWrapper = {
+  gap: spacing.SizesDdsSpacingLocalX05,
+};
+
 const connector = {
-  color: colors.DdsColorInteractiveBase,
+  color: colors.DdsColorNeutralsGray5,
+  height: spacing.SizesDdsSpacingLocalX05,
+  width: '1px',
 };
 
 const stepNumber = {
+  size: '30px',
+  borderWidth: '2px',
+  fontSize: font.DdsFontBodySans02FontSize,
   active: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorNeutralsWhite,
     backgroundColor: colors.DdsColorInteractiveBase,
-    hover: {
-      borderColor: colors.DdsColorInteractiveBase,
-      color: colors.DdsColorNeutralsWhite,
-      backgroundColor: colors.DdsColorInteractiveBase,
-    },
   },
   completed: {
     borderColor: colors.DdsColorInteractiveBase,
@@ -39,27 +47,27 @@ const stepNumber = {
   },
 };
 
-const stepButton = {
-  marginTop: spacing.SizesDdsSpacingLayoutX1,
+const stepText = {
   fontFamily: font.DdsFontSupportingStyleLabel01FontFamily,
   fontSize: font.DdsFontSupportingStyleLabel01FontSize,
 
   active: {
     color: colors.DdsColorNeutralsGray9,
-    textDecoration: 'none',
-  },
-  completed: {
-    color: colors.DdsColorInteractiveBase,
     textDecoration: 'underline',
   },
   inactive: {
-    color: colors.DdsColorInteractiveBase,
-    textDecoration: 'underline',
+    color: colors.DdsColorNeutralsGray7,
+    textDecoration: 'none',
+    hover: {
+      textDecoration: 'underline',
+    },
   },
 };
 
 export const stepperTokens = {
+  stepsWrapper,
+  stepContentWrapper,
   connector,
   stepNumber,
-  stepButton,
+  stepText,
 };
