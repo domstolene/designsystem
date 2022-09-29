@@ -138,7 +138,10 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     return (
       <OuterInputContainer {...outerinputContainerProps}>
         {hasLabel && (
-          <Label htmlFor={uniqueId} required={showRequiredStyling as boolean}>
+          <Label
+            htmlFor={uniqueId}
+            showRequiredStyling={showRequiredStyling as boolean}
+          >
             {label}
           </Label>
         )}

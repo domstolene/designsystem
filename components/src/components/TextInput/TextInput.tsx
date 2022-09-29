@@ -152,7 +152,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     return (
       <OuterInputContainer {...outerInputContainerProps}>
         {hasLabel && (
-          <Label htmlFor={uniqueId} required={showRequiredStyling as boolean}>
+          <Label
+            htmlFor={uniqueId}
+            showRequiredStyling={showRequiredStyling as boolean}
+          >
             {label}
           </Label>
         )}

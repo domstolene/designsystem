@@ -322,7 +322,10 @@ const SelectInner = <
   return (
     <Container {...containerProps}>
       {hasLabel && (
-        <Label htmlFor={uniqueId} required={showRequiredStyling as boolean}>
+        <Label
+          htmlFor={uniqueId}
+          showRequiredStyling={showRequiredStyling as boolean}
+        >
           {label}
         </Label>
       )}

@@ -13,7 +13,7 @@ type PickedHTMLAttributes = Pick<
 
 type BaseLabelProps = {
   /** Spesifiserer om input etiketten er knyttet til er påkrevd; påvirker styling. */
-  required?: boolean;
+  showRequiredStyling?: boolean;
 };
 
 export type LabelProps = BaseComponentPropsWithChildren<
@@ -23,7 +23,8 @@ export type LabelProps = BaseComponentPropsWithChildren<
 >;
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
-  const { required, id, className, htmlProps, children, ...rest } = props;
+  const { showRequiredStyling, id, className, htmlProps, children, ...rest } =
+    props;
 
   return (
     <Typography
@@ -31,7 +32,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
       ref={ref}
       typographyType="supportingStyleLabel01"
     >
-      {children} {required && <RequiredMarker />}
+      {children} {showRequiredStyling && <RequiredMarker />}
     </Typography>
   );
 });
