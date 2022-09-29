@@ -20,7 +20,6 @@ const InputMessageWrapper = styled.div<WrapperProps>`
     messageType === 'tip'
       ? css`
           background-color: ${tokens.message.tip.backgroundColor};
-          padding: ${tokens.message.tip.padding};
         `
       : messageType === 'error'
       ? css`
