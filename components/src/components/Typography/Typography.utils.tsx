@@ -173,26 +173,24 @@ export const getAnchorStyling = (
   ${typographyType
     ? css`
         ${tokens.typographyType[typographyType].base.font};
-        color: ${tokens.typographyType[typographyType].base.color};
         ${getMarginStyling(typographyType, 'a', withMargins)}
       `
     : css`
         font: inherit;
-        color: ${tokens.typographyType.a.base.color};
         ${getMarginStyling('a', 'a', withMargins)}
       `}
+  color: ${tokens.typographyType.a.base.color};
   width: fit-content;
   text-decoration: underline;
   @media (prefers-reduced-motion: no-preference) {
     transition: ${focusVisibleLinkTransitionValue};
   }
-  ${external
-    ? css`
-        display: inline-flex;
-        align-items: center;
-        gap: ${tokens.typographyType.a.base.gap};
-      `
-    : ''}
+  ${external &&
+  css`
+    display: inline-flex;
+    align-items: center;
+    gap: ${tokens.typographyType.a.base.gap};
+  `}
   &:hover {
     color: ${tokens.typographyType.a.hover.color};
     ${interactionStyling &&
