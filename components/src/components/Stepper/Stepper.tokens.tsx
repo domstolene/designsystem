@@ -45,6 +45,11 @@ const stepNumber = {
       backgroundColor: colors.DdsColorInteractiveLightest,
     },
   },
+  disabled: {
+    borderColor: colors.DdsColorNeutralsGray5,
+    color: colors.DdsColorNeutralsGray5,
+    backgroundColor: colors.DdsColorNeutralsWhite,
+  },
 };
 
 const stepText = {
@@ -61,6 +66,10 @@ const stepText = {
     hover: {
       textDecoration: 'underline',
     },
+  },
+  disabled: {
+    color: colors.DdsColorNeutralsGray6,
+    textDecoration: 'none',
   },
 };
 

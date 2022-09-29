@@ -12,16 +12,24 @@ type StepState =
   | 'activeCompleted'
   | 'activeIncomplete'
   | 'inactiveCompleted'
-  | 'inactiveIncomplete';
+  | 'inactiveIncomplete'
+  | 'disabled';
 
-const toStepState = (active: boolean, completed: boolean): StepState =>
-  active
-    ? completed
-      ? 'activeCompleted'
-      : 'activeIncomplete'
-    : completed
-    ? 'inactiveCompleted'
-    : 'inactiveIncomplete';
+const toStepState = (
+  active: boolean,
+  completed: boolean,
+  disabled: boolean
+): StepState => {
+  if (disabled) {
+    return 'disabled';
+  }
+
+  if (active) {
+    return completed ? 'activeCompleted' : 'activeIncomplete';
+  } else {
+    return completed ? 'inactiveCompleted' : 'inactiveIncomplete';
+  }
+};
 
 const { stepNumber, stepText, stepContentWrapper } = stepperTokens;
 
@@ -36,6 +44,11 @@ type BaseStepProps = {
 
   /** Om steget er ferdig eller ikke. Settes av konsument */
   completed?: boolean;
+
+  /** Om steget skal være disabled. Settes av konsument.
+   * @default false
+   */
+  disabled?: boolean;
 
   /** Indeksen til steget. NB! Denne settes automatisk av <Stepper /> og skal ikke settes manuelt. */
   index?: number;
@@ -72,8 +85,9 @@ const StepContentWrapper = styled.div<StepStyleProps>`
     ${focusVisible}
   }
 
-  ${({ clickable }) =>
+  ${({ clickable, state }) =>
     clickable &&
+    state !== 'disabled' &&
     css`
       cursor: pointer;
     `}
@@ -135,6 +149,12 @@ const StepNumber = styled.div<StepStyleProps>`
             }
           `}
         `;
+      case 'disabled':
+        return css`
+          border-color: ${stepNumber.disabled.borderColor};
+          color: ${stepNumber.disabled.color};
+          background-color: ${stepNumber.disabled.backgroundColor};
+        `;
     }
   }}
 `;
@@ -174,6 +194,11 @@ const StepText = styled.div<StepStyleProps>`
           `
           }
         `;
+      case 'disabled':
+        return css`
+          color: ${stepText.disabled.color};
+          text-decoration: ${stepText.disabled.textDecoration};
+        `;
     }
   }}
 `;
@@ -185,13 +210,13 @@ const getVisuallyHiddenText = (active: boolean, completed: boolean) =>
  * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
  */
 export const Step = (props: StepProps) => {
-  const { index = 0, completed = false, children } = props;
+  const { index = 0, completed = false, disabled = false, children } = props;
 
   const { activeStep } = useStepperContext();
   const active = activeStep === index;
 
   const styleProps = {
-    state: toStepState(active, completed),
+    state: toStepState(active, completed, disabled),
     clickable: props.onClick !== undefined,
   };
 
@@ -200,7 +225,10 @@ export const Step = (props: StepProps) => {
       <StepContentWrapper
         {...styleProps}
         as={props.onClick ? 'button' : 'div'}
-        onClick={props.onClick ? () => props.onClick(index) : undefined}
+        onClick={
+          !disabled && props.onClick ? () => props.onClick(index) : undefined
+        }
+        disabled={disabled}
       >
         <StepNumber {...styleProps}>
           {completed ? <StepCompletedCheck /> : index + 1}

@@ -23,8 +23,6 @@ export const Overview = () => {
     setActiveStep(index);
   };
 
-  const allStepsFinished = completedSteps.size === numSteps;
-
   return (
     <StoryTemplate title="Stepper - overview" display="block">
       <Stepper
@@ -40,18 +38,20 @@ export const Overview = () => {
         <Step completed={completedSteps.has(2)} onClick={handleStepClick}>
           Vedlegg
         </Step>
+        <Step
+          completed={completedSteps.has(3)}
+          onClick={handleStepClick}
+          disabled
+        >
+          Innsending
+        </Step>
       </Stepper>
 
       <div style={{ margin: '10px' }}>
-        {allStepsFinished ? (
-          <div>Ferdig!</div>
-        ) : (
-          <>
-            {activeStep === 0 && <div>Steg 1</div>}
-            {activeStep === 1 && <div>Steg 2</div>}
-            {activeStep === 2 && <div>Steg 3</div>}
-          </>
-        )}
+        {activeStep === 0 && <div>Steg 1</div>}
+        {activeStep === 1 && <div>Steg 2</div>}
+        {activeStep === 2 && <div>Steg 3</div>}
+        {activeStep === 3 && <div>Steg 4</div>}
       </div>
 
       <Button
@@ -61,7 +61,7 @@ export const Overview = () => {
             setActiveStep(s => s + 1);
           }
         }}
-        label={allStepsFinished ? 'Du er ferdig' : 'Sett som ferdig'}
+        label="Sett som ferdig"
       />
     </StoryTemplate>
   );
