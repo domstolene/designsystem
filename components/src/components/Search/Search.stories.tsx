@@ -16,6 +16,42 @@ export default {
 
 export const Overview = (args: SearchProps) => {
   return (
+    <StoryTemplate title="Search - overview">
+      <Search {...args} componentSize="medium" />
+      <Search
+        {...args}
+        componentSize="medium"
+        buttonProps={{ onClick: () => {}, label: 'Søk' }}
+      />
+      <Search
+        {...args}
+        componentSize="medium"
+        buttonProps={{ onClick: () => {}, label: 'Custom label' }}
+      />
+      <Search {...args} componentSize="medium" tip="Dette er en hjelpetekst" />
+      <Search
+        {...args}
+        componentSize="medium"
+        tip="Dette er en hjelpetekst"
+        buttonProps={{ onClick: () => {} }}
+      />
+      <Search {...args} label={args.label ?? 'Label'} />
+      <Search
+        {...args}
+        label={args.label ?? 'Label'}
+        buttonProps={{ onClick: () => {} }}
+      />
+      <Search
+        {...args}
+        componentSize="medium"
+        buttonProps={{ onClick: () => {}, loading: true }}
+      />
+    </StoryTemplate>
+  );
+};
+
+export const OverviewSizes = (args: SearchProps) => {
+  return (
     <StoryTemplate title="Search - overview" display="grid" columnsAmount={2}>
       <Search {...args} componentSize="small" />
       <Search
@@ -34,42 +70,6 @@ export const Overview = (args: SearchProps) => {
         {...args}
         componentSize="large"
         buttonProps={{ onClick: () => {}, label: 'Søk' }}
-      />
-      <Search {...args} componentSize="small" tip="Dette er en hjelpetekst" />
-      <Search
-        {...args}
-        componentSize="small"
-        tip="Dette er en hjelpetekst"
-        buttonProps={{ onClick: () => {}, label: 'Søk' }}
-      />
-      <Search {...args} componentSize="medium" tip="Dette er en hjelpetekst" />
-      <Search
-        {...args}
-        componentSize="medium"
-        tip="Dette er en hjelpetekst"
-        buttonProps={{ onClick: () => {}, label: 'Søk' }}
-      />
-      <Search {...args} componentSize="large" tip="Dette er en hjelpetekst" />
-      <Search
-        {...args}
-        componentSize="large"
-        tip="Dette er en hjelpetekst"
-        buttonProps={{ onClick: () => {}, label: 'Søk' }}
-      />
-      <Search
-        {...args}
-        componentSize="small"
-        buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
-      />
-      <Search
-        {...args}
-        componentSize="medium"
-        buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
-      />
-      <Search
-        {...args}
-        componentSize="large"
-        buttonProps={{ onClick: () => {}, label: 'Søk', loading: true }}
       />
     </StoryTemplate>
   );
