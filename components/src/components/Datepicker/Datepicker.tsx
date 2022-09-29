@@ -1,6 +1,6 @@
 import { forwardRef, useId } from 'react';
 import { InputMessage } from '../InputMessage';
-import { InputSize, RequiredMarker } from '../../helpers';
+import { InputSize } from '../../helpers';
 import { StatefulInput, OuterInputContainer, InputProps } from '../../helpers';
 import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
@@ -99,7 +99,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     const componentWidth = width ? width : getWidth(type, componentSize);
     const hasLabel = !!label;
     const hasErrorMessage = !!errorMessage;
-    const showRequiredMarker = required || ariaRequired;
+    const showRequiredStyling = !!(required || ariaRequired);
 
     const errorMessageId = derivativeIdGenerator(
       uniqueId,
@@ -138,8 +138,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     return (
       <OuterInputContainer {...outerinputContainerProps}>
         {hasLabel && (
-          <Label htmlFor={uniqueId}>
-            {label} {showRequiredMarker && <RequiredMarker />}
+          <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
+            {label}
           </Label>
         )}
         <StyledInput {...inputProps} />

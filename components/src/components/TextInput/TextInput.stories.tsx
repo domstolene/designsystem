@@ -28,6 +28,7 @@ export const TextInputOverview = (args: TextInputProps) => {
       title="TextInput - overview"
       display="grid"
       columnsAmount={2}
+      style={{ alignItems: 'end' }}
     >
       <TextInput {...args} label={args.label ?? 'Label'} />
       <TextInput {...args} />
@@ -35,7 +36,6 @@ export const TextInputOverview = (args: TextInputProps) => {
         {...args}
         label={args.label ?? 'Label'}
         required
-        aria-required
         value="Påkrevd inputfelt"
       />
       <TextInput {...args} required value="Påkrevd inputfelt" />
@@ -43,6 +43,11 @@ export const TextInputOverview = (args: TextInputProps) => {
         {...args}
         aria-required
         label={args.label ?? 'Label'}
+        value="Påkrevd inputfelt med aria-required"
+      />
+      <TextInput
+        {...args}
+        aria-required
         value="Påkrevd inputfelt med aria-required"
       />
       <TextInput
