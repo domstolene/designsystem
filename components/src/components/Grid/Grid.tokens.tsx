@@ -3,6 +3,14 @@ import { ScreenSize } from '../../hooks';
 
 const { grid, spacing } = ddsBaseTokens;
 
+const allColumns = '1 / -1';
+const halfWayColumn = {
+  [ScreenSize.Small]: grid.DdsGridSm600959Count / 2 + 1,
+  [ScreenSize.Medium]: grid.DdsGridMd9601279Count / 2 + 1,
+  [ScreenSize.Large]: grid.DdsGridLg12801919Count / 2 + 1,
+  [ScreenSize.XLarge]: grid.DdsGridXs0599Count / 2 + 1,
+};
+
 export const gridTokens = {
   [ScreenSize.XSmall]: {
     grid: {
@@ -14,10 +22,10 @@ export const gridTokens = {
 
     columns: {
       firstHalf: {
-        gridColumn: '1 / -1',
+        gridColumn: allColumns,
       },
       secondHalf: {
-        gridColumn: '1 / -1',
+        gridColumn: allColumns,
       },
     },
   },
@@ -30,12 +38,10 @@ export const gridTokens = {
     },
     columns: {
       firstHalf: {
-        gridColumn: `1 / ${grid.DdsGridSm600959Count / 2 + 1}`,
+        gridColumn: `1 / ${halfWayColumn[ScreenSize.Small]}`,
       },
       secondHalf: {
-        gridColumn: `${grid.DdsGridSm600959Count / 2 + 1} / ${
-          grid.DdsGridSm600959Count + 1
-        }`,
+        gridColumn: `${halfWayColumn[ScreenSize.Small]} / -1`,
       },
     },
   },
@@ -48,12 +54,10 @@ export const gridTokens = {
     },
     columns: {
       firstHalf: {
-        gridColumn: `1 / ${grid.DdsGridMd9601279Count / 2 + 1}`,
+        gridColumn: `1 / ${halfWayColumn[ScreenSize.Medium]}`,
       },
       secondHalf: {
-        gridColumn: `${grid.DdsGridMd9601279Count / 2 + 1} / ${
-          grid.DdsGridMd9601279Count + 1
-        }`,
+        gridColumn: `${halfWayColumn[ScreenSize.Medium]} / -1`,
       },
     },
   },
@@ -66,12 +70,10 @@ export const gridTokens = {
     },
     columns: {
       firstHalf: {
-        gridColumn: `1 / ${grid.DdsGridLg12801919Count / 2 + 1}`,
+        gridColumn: `1 / ${halfWayColumn[ScreenSize.Large]}`,
       },
       secondHalf: {
-        gridColumn: `${grid.DdsGridLg12801919Count / 2 + 1} / ${
-          grid.DdsGridLg12801919Count + 1
-        }`,
+        gridColumn: `${halfWayColumn[ScreenSize.Large]} / -1`,
       },
     },
   },
@@ -84,12 +86,10 @@ export const gridTokens = {
     },
     columns: {
       firstHalf: {
-        gridColumn: `1 / ${grid.DdsGridXs0599Count / 2 + 1}`,
+        gridColumn: `1 / ${halfWayColumn[ScreenSize.XLarge]}`,
       },
       secondHalf: {
-        gridColumn: `${grid.DdsGridXl1920Count / 2 + 1} / ${
-          grid.DdsGridXl1920Count + 1
-        }`,
+        gridColumn: `${halfWayColumn[ScreenSize.XLarge]} / -1`,
       },
     },
   },
