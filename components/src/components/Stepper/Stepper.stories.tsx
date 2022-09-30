@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PersonIcon } from '../../icons/tsx';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
 import { Step } from './Step';
@@ -29,7 +30,11 @@ export const Overview = () => {
         activeStep={activeStep}
         htmlProps={{ style: { maxWidth: '800px' } }}
       >
-        <Step completed={completedSteps.has(0)} onClick={handleStepClick}>
+        <Step
+          icon={PersonIcon}
+          completed={completedSteps.has(0)}
+          onClick={handleStepClick}
+        >
           Partopplysninger
         </Step>
         <Step completed={completedSteps.has(1)} onClick={handleStepClick}>

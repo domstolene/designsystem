@@ -3,7 +3,9 @@ import {
   focusVisible,
   focusVisibleTransitionValue,
 } from '../../helpers/styling';
+import { SvgIcon } from '../../icons/utils';
 import { BaseComponentPropsWithChildren } from '../../types';
+import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useStepperContext } from './Stepper.context';
 import { stepperTokens } from './Stepper.tokens';
@@ -42,13 +44,16 @@ type BaseStepProps = {
   /** Om steget er valgt eller ikke. Settes av konsument. */
   active?: boolean;
 
-  /** Om steget er ferdig eller ikke. Settes av konsument */
+  /** Om steget er ferdig eller ikke. Settes av konsument. */
   completed?: boolean;
 
   /** Om steget skal være disabled. Settes av konsument.
    * @default false
    */
   disabled?: boolean;
+
+  /** Ikon som skal vises istedenfor stegnummeret. Settes av konument. */
+  icon?: SvgIcon;
 
   /** Indeksen til steget. NB! Denne settes automatisk av `<Stepper />` og skal ikke settes manuelt. */
   index?: number;
@@ -210,7 +215,13 @@ const getVisuallyHiddenText = (active: boolean, completed: boolean) =>
  * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
  */
 export const Step = (props: StepProps) => {
-  const { index = 0, completed = false, disabled = false, children } = props;
+  const {
+    index = 0,
+    completed = false,
+    disabled = false,
+    icon,
+    children,
+  } = props;
 
   const { activeStep } = useStepperContext();
   const active = activeStep === index;
@@ -219,6 +230,8 @@ export const Step = (props: StepProps) => {
     state: toStepState(active, completed, disabled),
     clickable: props.onClick !== undefined,
   };
+
+  const stepNumberContent = icon ? <Icon icon={icon} /> : index + 1;
 
   return (
     <StepWrapper aria-current={active ? 'step' : undefined}>
@@ -231,7 +244,7 @@ export const Step = (props: StepProps) => {
         disabled={disabled}
       >
         <StepNumber {...styleProps}>
-          {completed ? <StepCompletedCheck /> : index + 1}
+          {completed ? <StepCompletedCheck /> : stepNumberContent}
         </StepNumber>
         <StepText {...styleProps}>
           <VisuallyHidden as="span">
