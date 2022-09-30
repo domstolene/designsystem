@@ -1,57 +1,68 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { rowTokens as tokens } from './Row.tokens';
+import { focusVisibleInset } from '../../helpers/styling';
+import { tableTokens } from './Table.tokens';
+
+const { row } = tableTokens;
 
 const bodyStyles = (mode?: RowMode, selected?: boolean) => {
   return css`
-    ${mode &&
+    ${mode === 'sum' &&
     css`
-      ${tokens.body.mode[mode].base}
+      font-weight: 600;
+      border-top: ${row.body.mode.sum.borderTop};
+      border-bottom: ${row.body.mode.sum.borderBottom};
+      background-color: ${row.body.mode.sum.backgroundColor};
     `}
     ${selected &&
     css`
-      ${tokens.body.selected.base}
+      background-color: ${row.body.selected.backgroundColor};
     `}
   `;
 };
 
-type StyledProps = Pick<
-  TableRowProps,
-  'type' | 'mode' | 'hoverable' | 'selected'
->;
+type StyledProps = {
+  type: TableRowType;
+  mode?: RowMode;
+  selected?: boolean;
+  hoverable?: boolean;
+};
 
 const StyledRow = styled.tr<StyledProps>`
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
+  ${row.base.font}
+  color: ${row.base.color};
 
   ${({ type }) =>
-    type &&
+    type === 'head' &&
     css`
-      ${tokens[type].base}
+      font-weight: 600;
+      text-align: left;
     `}
 
   ${({ type, mode, selected, hoverable }) =>
     type === 'body' &&
     css`
       &:nth-of-type(even) {
-        ${tokens.body.even.base}
+        background-color: ${row.body.even.backgroundColor};
         ${bodyStyles(mode, selected)}
       }
 
       &:nth-of-type(odd) {
-        ${tokens.body.odd.base}
+        background-color: ${row.body.odd.backgroundColor};
         ${bodyStyles(mode, selected)}
       }
 
       ${hoverable &&
       css`
         &:hover {
-          ${tokens.body.hover.base}
+          background-color: ${row.body.hover.backgroundColor};
         }
       `}
       &:focus-visible, &.focus-visible {
-        ${tokens.body.focus.base}
+        ${focusVisibleInset}
       }
     `}
 `;

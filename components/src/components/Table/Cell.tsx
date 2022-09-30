@@ -5,7 +5,9 @@ import {
   TdHTMLAttributes,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { cellTokens as tokens } from './Cell.tokens';
+import { tableTokens } from './Table.tokens';
+
+const { cell } = tableTokens;
 
 const layoutStyle = (layout: TableCellLayout) => {
   switch (layout) {
@@ -19,9 +21,7 @@ const layoutStyle = (layout: TableCellLayout) => {
       `;
     case 'text and icon':
       return css`
-        & > *:first-of-type {
-          ${tokens.data.layout.textAndIcon.base}
-        }
+        gap: ${cell.layout.textAndIcon.gap};
       `;
     default:
     case 'left':
@@ -32,11 +32,10 @@ const layoutStyle = (layout: TableCellLayout) => {
 type StyledCellProps = Pick<TableCellProps, 'type'>;
 
 const StyledCell = styled.td<StyledCellProps>`
-  ${tokens.base}
   ${({ type }) =>
-    type &&
+    type === 'head' &&
     css`
-      ${tokens[type].base}
+      background-color: ${cell.head.backgroundColor};
     `}
 `;
 
@@ -52,7 +51,7 @@ export type TableCellLayout = 'left' | 'right' | 'center' | 'text and icon';
 export type TableCellProps = {
   /**Type celle. Returnerer enten `<td>` eller `<th>`. */
   type?: TableCellType;
-  /**Layout av innholdet i cellen. 'tekst and icon' legger margin mellom første barnet og andre barnet i cellen, og skal hovedsakelig brukes når innholdet er tekst og ikon; tekst må bli wrappet i `<span>` hvis det er det første barnet.  */
+  /**Layout av innholdet i cellen. 'tekst and icon' legger `gap` mellom barna og andre barnet i cellen.  */
   layout?: TableCellLayout;
 } & (
   | TdHTMLAttributes<HTMLTableCellElement>

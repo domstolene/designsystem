@@ -1,6 +1,6 @@
 import { forwardRef, MouseEvent } from 'react';
 import { Cell, TableCellProps } from './Cell';
-import { cellTokens as tokens } from './Cell.tokens';
+import { tableTokens } from './Table.tokens';
 import { Icon } from '../Icon';
 import {
   UnfoldMoreIcon,
@@ -8,18 +8,17 @@ import {
   ChevronDownIcon,
 } from '../../icons/tsx';
 import styled from 'styled-components';
-import { removeButtonStyling } from '../../helpers/styling';
+import { focusVisible, removeButtonStyling } from '../../helpers/styling';
 
-const SortIcon = styled(Icon)`
-  ${tokens.head.sortCell.icon.base}
-`;
+const { cell } = tableTokens;
 
 const StyledButton = styled.button`
   ${removeButtonStyling}
   display: flex;
   align-items: center;
+  gap: ${cell.sort.gap};
   &:focus-visible {
-    ${tokens.head.sortCell.focus.base}
+    ${focusVisible}
   }
 `;
 
@@ -36,13 +35,13 @@ export type SortCellProps = {
 
 const makeSortIcon = (isSorted?: boolean, sortOrder?: SortOrder) => {
   if (!isSorted || !sortOrder) {
-    return <SortIcon icon={UnfoldMoreIcon} iconSize="inherit" />;
+    return <Icon icon={UnfoldMoreIcon} iconSize="inherit" />;
   }
 
   return sortOrder === 'ascending' ? (
-    <SortIcon icon={ChevronDownIcon} iconSize="inherit" />
+    <Icon icon={ChevronDownIcon} iconSize="inherit" />
   ) : (
-    <SortIcon icon={ChevronUpIcon} iconSize="inherit" />
+    <Icon icon={ChevronUpIcon} iconSize="inherit" />
   );
 };
 
