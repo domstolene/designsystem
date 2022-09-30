@@ -10,7 +10,6 @@ import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import {
   Input as BaseInput,
-  OuterInputContainer,
   InputProps as BaseInputProps,
 } from '../../helpers';
 import { InputMessage } from '../InputMessage';
@@ -76,16 +75,14 @@ const OuterContainer = styled.div`
 `;
 
 const HorisontalContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: ${horisontalContainer.gap};
 `;
 
 const InputContainer = styled.div`
   position: relative;
 `;
-
-const ButtonWrapper = styled.div``;
 
 export type SearchSize = 'small' | 'medium' | 'large';
 type ButtonProps = {
@@ -150,8 +147,8 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     return (
       <OuterContainer>
         {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
-        <HorisontalContainer {...containerProps}>
-          <OuterInputContainer>
+        <div>
+          <HorisontalContainer {...containerProps}>
             <InputContainer>
               <StyledIcon
                 icon={SearchIcon}
@@ -160,21 +157,19 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
               />
               <Input {...inputProps} />
             </InputContainer>
-            {hasTip && (
-              <InputMessage id={tipId} messageType="tip" message={tip} />
-            )}
-          </OuterInputContainer>
-          {buttonProps && onClick && (
-            <ButtonWrapper>
+            {buttonProps && onClick && (
               <Button
                 size={componentSize}
                 label={buttonLabel || 'Søk'}
                 onClick={onClick}
                 {...otherButtonProps}
               />
-            </ButtonWrapper>
+            )}
+          </HorisontalContainer>
+          {hasTip && (
+            <InputMessage id={tipId} messageType="tip" message={tip} />
           )}
-        </HorisontalContainer>
+        </div>
       </OuterContainer>
     );
   }
