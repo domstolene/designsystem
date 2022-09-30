@@ -50,7 +50,7 @@ type BaseStepProps = {
    */
   disabled?: boolean;
 
-  /** Indeksen til steget. NB! Denne settes automatisk av <Stepper /> og skal ikke settes manuelt. */
+  /** Indeksen til steget. NB! Denne settes automatisk av `<Stepper />` og skal ikke settes manuelt. */
   index?: number;
 };
 
