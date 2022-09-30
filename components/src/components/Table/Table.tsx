@@ -2,9 +2,15 @@ import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { selection } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { cellTokens } from './Cell.tokens';
+import { tableTokens } from './Table.tokens';
 
-type StyledTableProps = Pick<TableProps, 'density' | 'stickyHeader'>;
+const { cell, row } = tableTokens;
+
+type StyledTableProps = {
+  density: TableDensity;
+  stickyHeader?: boolean;
+  withDividers?: boolean;
+};
 
 const StyledTable = styled.table<StyledTableProps>`
   border-spacing: 0;
@@ -15,11 +21,10 @@ const StyledTable = styled.table<StyledTableProps>`
   ${scrollbarStyling.webkit}
   ${scrollbarStyling.firefox}
   ${({ density }) =>
-    density &&
     css`
       td,
       th {
-        ${cellTokens.density[density].base}
+        padding: ${cell.density[density].padding};
       }
     `}
     ${({ stickyHeader }) =>
@@ -32,6 +37,13 @@ const StyledTable = styled.table<StyledTableProps>`
         }
       }
     `}
+        ${({ withDividers }) =>
+    withDividers &&
+    css`
+      tr[type='body'] {
+        border-bottom: ${row.body.withDividers.borderBottom};
+      }
+    `}
 `;
 
 export type TableDensity = 'normal' | 'compact';
@@ -41,6 +53,8 @@ export type TableProps = {
   density?: TableDensity;
   /**Spesifiserer om cellene i `<Head>` skal bli sticky ved scrolling. */
   stickyHeader?: boolean;
+  /**Legger skillelinjer mellom radene. */
+  withDividers?: boolean;
 } & HTMLAttributes<HTMLTableElement>;
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(

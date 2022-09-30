@@ -33,6 +33,11 @@ export default {
         type: 'boolean',
       },
     },
+    withDividers: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 };
 
@@ -49,6 +54,29 @@ export const Default = (args: TableProps) => {
     <StoryTemplate title="Table - default">
       <TableWrapper>
         <Table {...args}>
+          <Head>
+            <Row type="head">{mappedHeaderCells}</Row>
+          </Head>
+          <Body>
+            {mapCellContents(data, headerCells).map(row => (
+              <Row key={row.toString()}>
+                {row.map(cellContent => (
+                  <Cell key={`body-${cellContent}`}>{cellContent}</Cell>
+                ))}
+              </Row>
+            ))}
+          </Body>
+        </Table>
+      </TableWrapper>
+    </StoryTemplate>
+  );
+};
+
+export const withDividers = (args: TableProps) => {
+  return (
+    <StoryTemplate title="Table - with dividers">
+      <TableWrapper>
+        <Table {...args} withDividers>
           <Head>
             <Row type="head">{mappedHeaderCells}</Row>
           </Head>
@@ -201,7 +229,7 @@ export const WithButtonAndIcons = (args: TableProps) => {
                   {adminIcon} {item.name}
                 </Cell>
                 <Cell layout="text and icon">
-                  <span>{item.name}</span> {adminIcon}
+                  {item.name} {adminIcon}
                 </Cell>
                 <Cell>Admin</Cell>
                 <Cell layout="center">{deleteButton}</Cell>
