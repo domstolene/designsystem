@@ -75,29 +75,6 @@ const StepWrapper = styled.li`
   justify-content: center;
 `;
 
-const StepContentWrapper = styled.div<StepStyleProps>`
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: ${stepContentWrapper.gap};
-  transition: ${focusVisibleTransitionValue};
-
-  :focus-visible {
-    ${focusVisible}
-  }
-
-  ${({ clickable, state }) =>
-    clickable &&
-    state !== 'disabled' &&
-    css`
-      cursor: pointer;
-    `}
-`;
-
 const StepNumber = styled.div<StepStyleProps>`
   border-radius: 50%;
   border: ${stepNumber.borderWidth} solid;
@@ -110,7 +87,7 @@ const StepNumber = styled.div<StepStyleProps>`
   font-size: ${stepNumber.fontSize};
   font-weight: 600;
 
-  ${({ state, clickable }) => {
+  ${({ state }) => {
     switch (state) {
       case 'activeIncomplete':
         return css`
@@ -129,30 +106,12 @@ const StepNumber = styled.div<StepStyleProps>`
           border-color: ${stepNumber.completed.borderColor};
           color: ${stepNumber.completed.color};
           background-color: ${stepNumber.completed.backgroundColor};
-
-          ${clickable &&
-          css`
-            :hover {
-              border-color: ${stepNumber.completed.hover.borderColor};
-              color: ${stepNumber.completed.hover.color};
-              background-color: ${stepNumber.completed.hover.backgroundColor};
-            }
-          `}
         `;
       case 'inactiveIncomplete':
         return css`
           border-color: ${stepNumber.inactive.borderColor};
           color: ${stepNumber.inactive.color};
           background-color: ${stepNumber.inactive.backgroundColor};
-
-          ${clickable &&
-          css`
-            :hover {
-              border-color: ${stepNumber.inactive.hover.borderColor};
-              color: ${stepNumber.inactive.hover.color};
-              background-color: ${stepNumber.inactive.hover.backgroundColor};
-            }
-          `}
         `;
       case 'disabled':
         return css`
@@ -177,7 +136,7 @@ const StepText = styled.div<StepStyleProps>`
   font-family: ${stepText.fontFamily};
   font-size: ${stepText.fontSize};
 
-  ${({ state, clickable }) => {
+  ${({ state }) => {
     switch (state) {
       case 'activeCompleted':
       case 'activeIncomplete':
@@ -190,14 +149,6 @@ const StepText = styled.div<StepStyleProps>`
         return css`
           color: ${stepText.inactive.color};
           text-decoration ${stepText.inactive.textDecoration};
-          ${
-            clickable &&
-            css`
-          :hover {
-            text-decoration ${stepText.inactive.hover.textDecoration};
-          }
-          `
-          }
         `;
       case 'disabled':
         return css`
@@ -206,6 +157,61 @@ const StepText = styled.div<StepStyleProps>`
         `;
     }
   }}
+`;
+
+const StepContentWrapper = styled.div<StepStyleProps>`
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: ${stepContentWrapper.gap};
+  transition: ${focusVisibleTransitionValue};
+
+  :focus-visible {
+    ${focusVisible}
+  }
+
+  ${({ clickable, state }) => {
+    if (clickable) {
+      return css`
+        :hover {
+          ${StepNumber} {
+            ${() => {
+              if (state === 'inactiveCompleted') {
+                return css`
+                  border-color: ${stepNumber.completed.hover.borderColor};
+                  color: ${stepNumber.completed.hover.color};
+                  background-color: ${stepNumber.completed.hover
+                    .backgroundColor};
+                `;
+              } else if (state === 'inactiveIncomplete') {
+                return css`
+                  border-color: ${stepNumber.inactive.hover.borderColor};
+                  color: ${stepNumber.inactive.hover.color};
+                  background-color: ${stepNumber.inactive.hover
+                    .backgroundColor};
+                `;
+              }
+            }}
+          }
+
+          ${StepText} {
+            text-decoration ${stepText.inactive.hover.textDecoration};
+          }
+        }
+      `;
+    }
+  }}
+
+  ${({ clickable, state }) =>
+    clickable &&
+    state !== 'disabled' &&
+    css`
+      cursor: pointer;
+    `}
 `;
 
 const getVisuallyHiddenText = (active: boolean, completed: boolean) =>
