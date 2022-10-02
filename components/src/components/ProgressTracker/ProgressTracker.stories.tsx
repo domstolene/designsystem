@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PersonIcon } from '../../icons/tsx';
+import { AttachmentIcon } from '../../icons/tsx';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
 import { ProgressTracker } from '.';
@@ -30,7 +30,6 @@ export const Overview = () => {
         htmlProps={{ style: { maxWidth: '800px' } }}
       >
         <ProgressTracker.Item
-          icon={PersonIcon}
           completed={completedSteps.has(0)}
           onClick={handleStepClick}
         >
@@ -43,6 +42,7 @@ export const Overview = () => {
           Slutning
         </ProgressTracker.Item>
         <ProgressTracker.Item
+          icon={AttachmentIcon}
           completed={completedSteps.has(2)}
           onClick={handleStepClick}
         >

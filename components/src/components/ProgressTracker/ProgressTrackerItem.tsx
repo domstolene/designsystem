@@ -167,6 +167,7 @@ const ItemContentWrapper = styled.div<ItemStyleProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: inherit;
   gap: ${itemContentWrapper.gap};
   transition: ${focusVisibleTransitionValue};
 
@@ -199,7 +200,13 @@ const ItemContentWrapper = styled.div<ItemStyleProps>`
           }
 
           ${ItemText} {
-            text-decoration ${itemText.inactive.hover.textDecoration};
+            ${() => {
+              if (state !== 'disabled') {
+                return css`
+                  text-decoration ${itemText.inactive.hover.textDecoration};
+              `;
+              }
+            }}
           }
         }
       `;
