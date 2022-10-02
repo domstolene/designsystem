@@ -2,11 +2,11 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 const { colors, spacing, font } = ddsBaseTokens;
 
-const stepsWrapper = {
+const itemsWrapper = {
   gap: spacing.SizesDdsSpacingLocalX0125,
 };
 
-const stepContentWrapper = {
+const itemContentWrapper = {
   gap: spacing.SizesDdsSpacingLocalX05,
 };
 
@@ -16,7 +16,7 @@ const connector = {
   width: '1px',
 };
 
-const stepNumber = {
+const itemNumber = {
   size: '30px',
   borderWidth: '2px',
   fontSize: font.DdsFontBodySans02FontSize,
@@ -52,7 +52,7 @@ const stepNumber = {
   },
 };
 
-const stepText = {
+const itemText = {
   fontFamily: font.DdsFontSupportingStyleLabel01FontFamily,
   fontSize: font.DdsFontSupportingStyleLabel01FontSize,
 
@@ -73,10 +73,10 @@ const stepText = {
   },
 };
 
-export const stepperTokens = {
-  stepsWrapper,
-  stepContentWrapper,
+export const progressTrackerTokens = {
+  itemsWrapper,
+  itemContentWrapper,
   connector,
-  stepNumber,
-  stepText,
+  itemNumber,
+  itemText,
 };

@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { PersonIcon } from '../../icons/tsx';
 import { StoryTemplate } from '../../storybook';
 import { Button } from '../Button';
-import { Step } from './Step';
-import { Stepper } from './Stepper';
+import { ProgressTracker } from '.';
 
 export default {
-  title: 'Design system/Stepper BETA',
-  component: Stepper,
+  title: 'Design system/ProgressTracker BETA',
+  component: ProgressTracker,
   argTypes: {
     color: { control: { type: 'text' } },
     size: { control: { type: 'text' } },
@@ -25,32 +24,38 @@ export const Overview = () => {
   };
 
   return (
-    <StoryTemplate title="Stepper - overview" display="block">
-      <Stepper
+    <StoryTemplate title="ProgressTracker - overview" display="block">
+      <ProgressTracker
         activeStep={activeStep}
         htmlProps={{ style: { maxWidth: '800px' } }}
       >
-        <Step
+        <ProgressTracker.Item
           icon={PersonIcon}
           completed={completedSteps.has(0)}
           onClick={handleStepClick}
         >
           Partopplysninger
-        </Step>
-        <Step completed={completedSteps.has(1)} onClick={handleStepClick}>
+        </ProgressTracker.Item>
+        <ProgressTracker.Item
+          completed={completedSteps.has(1)}
+          onClick={handleStepClick}
+        >
           Slutning
-        </Step>
-        <Step completed={completedSteps.has(2)} onClick={handleStepClick}>
+        </ProgressTracker.Item>
+        <ProgressTracker.Item
+          completed={completedSteps.has(2)}
+          onClick={handleStepClick}
+        >
           Vedlegg
-        </Step>
-        <Step
+        </ProgressTracker.Item>
+        <ProgressTracker.Item
           completed={completedSteps.has(3)}
           onClick={handleStepClick}
           disabled
         >
           Innsending
-        </Step>
-      </Stepper>
+        </ProgressTracker.Item>
+      </ProgressTracker>
 
       <div style={{ margin: '10px' }}>
         {activeStep === 0 && <div>Steg 1</div>}
@@ -86,15 +91,21 @@ export const NonClickable = () => {
   };
 
   return (
-    <StoryTemplate title="Stepper - non-clickable" display="block">
-      <Stepper
+    <StoryTemplate title="ProgressTracker - non-clickable" display="block">
+      <ProgressTracker
         activeStep={activeStep}
         htmlProps={{ style: { maxWidth: '800px' } }}
       >
-        <Step completed={completedSteps.has(0)}>Partopplysninger</Step>
-        <Step completed={completedSteps.has(1)}>Slutning</Step>
-        <Step completed={completedSteps.has(2)}>Vedlegg</Step>
-      </Stepper>
+        <ProgressTracker.Item completed={completedSteps.has(0)}>
+          Partopplysninger
+        </ProgressTracker.Item>
+        <ProgressTracker.Item completed={completedSteps.has(1)}>
+          Slutning
+        </ProgressTracker.Item>
+        <ProgressTracker.Item completed={completedSteps.has(2)}>
+          Vedlegg
+        </ProgressTracker.Item>
+      </ProgressTracker>
       <div style={{ margin: '10px' }}>
         {activeStep === 0 && <div>Steg 1</div>}
         {activeStep === 1 && <div>Steg 2</div>}

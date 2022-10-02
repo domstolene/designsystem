@@ -1,0 +1,117 @@
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Canvas,
+  Story,
+} from '@storybook/addon-docs';
+import { ProgressTracker } from '.';
+import { Source, ComponentLinkRow } from '../../storybook';
+import { Typography } from '../Typography';
+
+<Meta
+  title="Design system/ProgressTracker BETA/API"
+  component={ProgressTracker}
+/>
+
+# ProgressTracker - Beta
+
+NB! Denne komponenten er ikke ferdig enda. Endringer kan skje utenfor standard SemVer-versjonering.
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=10018%3A211463"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/ProgressTracker"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-progresstracker-beta--overview" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-progresstracker-beta'>Storybook</Typography>.
+
+## Oversikt
+
+Komponenten består av:
+
+- `<ProgressTracker />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har to eller flere `<ProgressTracker.Item />` som barn.
+- `<ProgressTracker.Item />` - et steg.
+
+## Bruk i koden
+
+<Source
+  code={`import { ProgressTracker } from '@norges-domstoler/dds-components'
+
+export const ProgressTrackerExample = () => {
+  const numSteps = 3;
+
+const [activeStep, setActiveStep] = useState(0);
+const [completedSteps, setCompletedSteps] = useState(new Set());
+
+const handleStepClick = (index: number) => {
+console.log(index);
+setActiveStep(index);
+};
+
+const allStepsFinished = completedSteps.size === numSteps;
+
+return (
+
+<StoryTemplate title="ProgressTracker - overview" display="block">
+<ProgressTracker activeStep={activeStep}>
+<ProgressTracker.Item completed={completedSteps.has(0)} onClick={handleStepClick}>
+Partopplysninger
+</ProgressTracker.Item>
+<ProgressTracker.Item completed={completedSteps.has(1)} onClick={handleStepClick}>
+Slutning
+</ProgressTracker.Item>
+<ProgressTracker.Item completed={completedSteps.has(2)} onClick={handleStepClick}>
+Vedlegg
+</ProgressTracker.Item>
+</ProgressTracker>
+
+      {allStepsFinished ? (
+        <div>Ferdig!</div>
+      ) : (
+        <>
+          {activeStep === 0 && <div>Steg 1</div>}
+          {activeStep === 1 && <div>Steg 2</div>}
+          {activeStep === 2 && <div>Steg 3</div>}
+        </>
+      )}
+
+      <Button
+        onClick={() => {
+          setCompletedSteps(s => new Set([...s, activeStep]));
+          if (activeStep < numSteps - 1) {
+            setActiveStep(s => s + 1);
+          }
+        }}
+        label={allStepsFinished ? 'Du er ferdig' : 'Sett som ferdig'}
+      />
+    </StoryTemplate>
+
+);
+};
+`}
+/>}
+
+## API
+
+### ProgressTracker
+
+Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item />` som barn.
+
+<ArgsTable story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+### ProgressTracker.Item
+
+Et steg.
+
+<ArgsTable of={ProgressTracker.Item} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`.

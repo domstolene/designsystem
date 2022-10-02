@@ -7,21 +7,21 @@ import { SvgIcon } from '../../icons/utils';
 import { BaseComponentPropsWithChildren } from '../../types';
 import { Icon } from '../Icon';
 import { VisuallyHidden } from '../VisuallyHidden';
-import { useStepperContext } from './Stepper.context';
-import { stepperTokens } from './Stepper.tokens';
+import { useProgressTrackerContext } from './ProgressTracker.context';
+import { progressTrackerTokens } from './ProgressTracker.tokens';
 
-type StepState =
+type ItemState =
   | 'activeCompleted'
   | 'activeIncomplete'
   | 'inactiveCompleted'
   | 'inactiveIncomplete'
   | 'disabled';
 
-const toStepState = (
+const toItemState = (
   active: boolean,
   completed: boolean,
   disabled: boolean
-): StepState => {
+): ItemState => {
   if (disabled) {
     return 'disabled';
   }
@@ -33,14 +33,14 @@ const toStepState = (
   }
 };
 
-const { stepNumber, stepText, stepContentWrapper } = stepperTokens;
+const { itemNumber, itemText, itemContentWrapper } = progressTrackerTokens;
 
-type StepStyleProps = {
-  state: StepState;
+type ItemStyleProps = {
+  state: ItemState;
   clickable: boolean;
 };
 
-type BaseStepProps = {
+type BaseItemProps = {
   /** Om steget er valgt eller ikke. Settes av konsument. */
   active?: boolean;
 
@@ -55,76 +55,76 @@ type BaseStepProps = {
   /** Ikon som skal vises istedenfor stegnummeret. Settes av konument. */
   icon?: SvgIcon;
 
-  /** Indeksen til steget. NB! Denne settes automatisk av `<Stepper />` og skal ikke settes manuelt. */
+  /** Indeksen til steget. NB! Denne settes automatisk av `<ProgressTracker />` og skal ikke settes manuelt. */
   index?: number;
 };
 
-type StepProps =
+type ProgressTrackerItemProps =
   | ({
       /** Click-handler som gjør det mulig for bruker å klikke på steget for å navigere. Valgfri. */
-      onClick: (stepIndex: number) => void;
-    } & BaseComponentPropsWithChildren<HTMLButtonElement, BaseStepProps>)
+      onClick: (index: number) => void;
+    } & BaseComponentPropsWithChildren<HTMLButtonElement, BaseItemProps>)
   | ({
       onClick?: undefined;
-    } & BaseComponentPropsWithChildren<HTMLDivElement, BaseStepProps>);
+    } & BaseComponentPropsWithChildren<HTMLDivElement, BaseItemProps>);
 
-const StepWrapper = styled.li`
+const ItemWrapper = styled.li`
   flex: 1;
   position: relative;
   display: flex;
   justify-content: center;
 `;
 
-const StepNumber = styled.div<StepStyleProps>`
+const ItemNumber = styled.div<ItemStyleProps>`
   border-radius: 50%;
-  border: ${stepNumber.borderWidth} solid;
-  width: ${stepNumber.size};
-  height: ${stepNumber.size};
+  border: ${itemNumber.borderWidth} solid;
+  width: ${itemNumber.size};
+  height: ${itemNumber.size};
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  font-size: ${stepNumber.fontSize};
+  font-size: ${itemNumber.fontSize};
   font-weight: 600;
 
   ${({ state }) => {
     switch (state) {
       case 'activeIncomplete':
         return css`
-          border-color: ${stepNumber.active.borderColor};
-          color: ${stepNumber.active.color};
-          background-color: ${stepNumber.active.backgroundColor};
+          border-color: ${itemNumber.active.borderColor};
+          color: ${itemNumber.active.color};
+          background-color: ${itemNumber.active.backgroundColor};
         `;
       case 'activeCompleted':
         return css`
-          border-color: ${stepNumber.completed.borderColor};
-          color: ${stepNumber.completed.color};
-          background-color: ${stepNumber.completed.backgroundColor};
+          border-color: ${itemNumber.completed.borderColor};
+          color: ${itemNumber.completed.color};
+          background-color: ${itemNumber.completed.backgroundColor};
         `;
       case 'inactiveCompleted':
         return css`
-          border-color: ${stepNumber.completed.borderColor};
-          color: ${stepNumber.completed.color};
-          background-color: ${stepNumber.completed.backgroundColor};
+          border-color: ${itemNumber.completed.borderColor};
+          color: ${itemNumber.completed.color};
+          background-color: ${itemNumber.completed.backgroundColor};
         `;
       case 'inactiveIncomplete':
         return css`
-          border-color: ${stepNumber.inactive.borderColor};
-          color: ${stepNumber.inactive.color};
-          background-color: ${stepNumber.inactive.backgroundColor};
+          border-color: ${itemNumber.inactive.borderColor};
+          color: ${itemNumber.inactive.color};
+          background-color: ${itemNumber.inactive.backgroundColor};
         `;
       case 'disabled':
         return css`
-          border-color: ${stepNumber.disabled.borderColor};
-          color: ${stepNumber.disabled.color};
-          background-color: ${stepNumber.disabled.backgroundColor};
+          border-color: ${itemNumber.disabled.borderColor};
+          color: ${itemNumber.disabled.color};
+          background-color: ${itemNumber.disabled.backgroundColor};
         `;
     }
   }}
 `;
 
-const StepCompletedCheck = styled.div`
-  border: solid ${stepNumber.completed.color};
+const ItemCompletedCheck = styled.div`
+  border: solid ${itemNumber.completed.color};
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
   width: 27.5%;
@@ -132,34 +132,34 @@ const StepCompletedCheck = styled.div`
   margin-top: -2px;
 `;
 
-const StepText = styled.div<StepStyleProps>`
-  font-family: ${stepText.fontFamily};
-  font-size: ${stepText.fontSize};
+const ItemText = styled.div<ItemStyleProps>`
+  font-family: ${itemText.fontFamily};
+  font-size: ${itemText.fontSize};
 
   ${({ state }) => {
     switch (state) {
       case 'activeCompleted':
       case 'activeIncomplete':
         return css`
-          color: ${stepText.active.color};
-          text-decoration ${stepText.active.textDecoration};
+          color: ${itemText.active.color};
+          text-decoration ${itemText.active.textDecoration};
         `;
       case 'inactiveCompleted':
       case 'inactiveIncomplete':
         return css`
-          color: ${stepText.inactive.color};
-          text-decoration ${stepText.inactive.textDecoration};
+          color: ${itemText.inactive.color};
+          text-decoration ${itemText.inactive.textDecoration};
         `;
       case 'disabled':
         return css`
-          color: ${stepText.disabled.color};
-          text-decoration: ${stepText.disabled.textDecoration};
+          color: ${itemText.disabled.color};
+          text-decoration: ${itemText.disabled.textDecoration};
         `;
     }
   }}
 `;
 
-const StepContentWrapper = styled.div<StepStyleProps>`
+const ItemContentWrapper = styled.div<ItemStyleProps>`
   background: none;
   border: none;
   margin: 0;
@@ -167,7 +167,7 @@ const StepContentWrapper = styled.div<StepStyleProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: ${stepContentWrapper.gap};
+  gap: ${itemContentWrapper.gap};
   transition: ${focusVisibleTransitionValue};
 
   :focus-visible {
@@ -178,28 +178,28 @@ const StepContentWrapper = styled.div<StepStyleProps>`
     if (clickable) {
       return css`
         :hover {
-          ${StepNumber} {
+          ${ItemNumber} {
             ${() => {
               if (state === 'inactiveCompleted') {
                 return css`
-                  border-color: ${stepNumber.completed.hover.borderColor};
-                  color: ${stepNumber.completed.hover.color};
-                  background-color: ${stepNumber.completed.hover
+                  border-color: ${itemNumber.completed.hover.borderColor};
+                  color: ${itemNumber.completed.hover.color};
+                  background-color: ${itemNumber.completed.hover
                     .backgroundColor};
                 `;
               } else if (state === 'inactiveIncomplete') {
                 return css`
-                  border-color: ${stepNumber.inactive.hover.borderColor};
-                  color: ${stepNumber.inactive.hover.color};
-                  background-color: ${stepNumber.inactive.hover
+                  border-color: ${itemNumber.inactive.hover.borderColor};
+                  color: ${itemNumber.inactive.hover.color};
+                  background-color: ${itemNumber.inactive.hover
                     .backgroundColor};
                 `;
               }
             }}
           }
 
-          ${StepText} {
-            text-decoration ${stepText.inactive.hover.textDecoration};
+          ${ItemText} {
+            text-decoration ${itemText.inactive.hover.textDecoration};
           }
         }
       `;
@@ -220,7 +220,7 @@ const getVisuallyHiddenText = (active: boolean, completed: boolean) =>
 /**
  * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
  */
-export const Step = (props: StepProps) => {
+export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const {
     index = 0,
     completed = false,
@@ -229,19 +229,19 @@ export const Step = (props: StepProps) => {
     children,
   } = props;
 
-  const { activeStep } = useStepperContext();
+  const { activeStep } = useProgressTrackerContext();
   const active = activeStep === index;
 
   const styleProps = {
-    state: toStepState(active, completed, disabled),
+    state: toItemState(active, completed, disabled),
     clickable: props.onClick !== undefined,
   };
 
   const stepNumberContent = icon ? <Icon icon={icon} /> : index + 1;
 
   return (
-    <StepWrapper aria-current={active ? 'step' : undefined}>
-      <StepContentWrapper
+    <ItemWrapper aria-current={active ? 'step' : undefined}>
+      <ItemContentWrapper
         {...styleProps}
         as={props.onClick ? 'button' : 'div'}
         onClick={
@@ -249,16 +249,16 @@ export const Step = (props: StepProps) => {
         }
         disabled={disabled}
       >
-        <StepNumber {...styleProps}>
-          {completed ? <StepCompletedCheck /> : stepNumberContent}
-        </StepNumber>
-        <StepText {...styleProps}>
+        <ItemNumber {...styleProps}>
+          {completed ? <ItemCompletedCheck /> : stepNumberContent}
+        </ItemNumber>
+        <ItemText {...styleProps}>
           <VisuallyHidden as="span">
             {getVisuallyHiddenText(active, completed)}
           </VisuallyHidden>
           {children}
-        </StepText>
-      </StepContentWrapper>
-    </StepWrapper>
+        </ItemText>
+      </ItemContentWrapper>
+    </ItemWrapper>
   );
 };
