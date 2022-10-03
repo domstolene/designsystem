@@ -1,8 +1,11 @@
+import { DdsFontSupportingStyleTiny01ParagraphIndentNumberPx } from '@norges-domstoler/dds-design-tokens/dist/cjs/dds/build/js/font';
+import { useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import {
   focusVisible,
   focusVisibleTransitionValue,
 } from '../../helpers/styling';
+import { CheckIcon } from '../../icons/tsx';
 import { SvgIcon } from '../../icons/utils';
 import { BaseComponentPropsWithChildren } from '../../types';
 import { Icon } from '../Icon';
@@ -123,15 +126,6 @@ const ItemNumber = styled.div<ItemStyleProps>`
   }}
 `;
 
-const ItemCompletedCheck = styled.div`
-  border: solid ${itemNumber.completed.color};
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  width: 27.5%;
-  height: 55%;
-  margin-top: -2px;
-`;
-
 const ItemText = styled.div<ItemStyleProps>`
   font-family: ${itemText.fontFamily};
   font-size: ${itemText.fontSize};
@@ -244,7 +238,17 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     clickable: props.onClick !== undefined,
   };
 
-  const stepNumberContent = icon ? <Icon icon={icon} /> : index + 1;
+  const stepNumberContent = useMemo(() => {
+    if (completed) {
+      return <Icon icon={CheckIcon} iconSize={itemNumber.iconSize} />;
+    }
+
+    if (icon !== undefined) {
+      return <Icon icon={icon} iconSize={itemNumber.iconSize} />;
+    }
+
+    return index + 1;
+  }, [completed, icon, index]);
 
   return (
     <ItemWrapper aria-current={active ? 'step' : undefined}>
@@ -256,9 +260,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         }
         disabled={disabled}
       >
-        <ItemNumber {...styleProps}>
-          {completed ? <ItemCompletedCheck /> : stepNumberContent}
-        </ItemNumber>
+        <ItemNumber {...styleProps}>{stepNumberContent}</ItemNumber>
         <ItemText {...styleProps}>
           <VisuallyHidden as="span">
             {getVisuallyHiddenText(active, completed)}

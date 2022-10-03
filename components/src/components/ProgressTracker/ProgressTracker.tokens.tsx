@@ -1,4 +1,5 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { IconSize } from '../Icon';
 
 const { colors, spacing, font } = ddsBaseTokens;
 
@@ -12,14 +13,15 @@ const itemContentWrapper = {
 
 const connector = {
   color: colors.DdsColorNeutralsGray5,
-  height: spacing.SizesDdsSpacingLocalX05,
+  height: '18px',
   width: '1px',
 };
 
 const itemNumber = {
-  size: '30px',
+  size: '28px',
   borderWidth: '2px',
-  fontSize: font.DdsFontBodySans02FontSize,
+  iconSize: 'small' as IconSize,
+  fontSize: font.DdsFontBodySans01FontSize,
   active: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorNeutralsWhite,
