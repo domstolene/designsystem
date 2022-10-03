@@ -129,6 +129,7 @@ const ItemNumber = styled.div<ItemStyleProps>`
 const ItemText = styled.div<ItemStyleProps>`
   font-family: ${itemText.fontFamily};
   font-size: ${itemText.fontSize};
+  text-align: start;
 
   ${({ state }) => {
     switch (state) {
@@ -158,8 +159,9 @@ const ItemContentWrapper = styled.div<ItemStyleProps>`
   border: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: ${itemNumber.size} 1fr;
+  justify-content: flex-start;
   align-items: center;
   font-family: inherit;
   gap: ${itemContentWrapper.gap};
