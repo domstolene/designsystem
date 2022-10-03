@@ -48,6 +48,7 @@ Tilgjengelige komponenter:
 - Divider
 - Drawer
 - GlobalMessage
+- Grid
 - Icon
 - InputMessage
 - InternaHeader
