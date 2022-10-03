@@ -50,8 +50,12 @@ const input = {
   },
 };
 
-const container = {
+const horisontalContainer = {
   gap: spacing.SizesDdsSpacingLocalX05,
+};
+
+const outerContainer = {
+  gap: spacing.SizesDdsSpacingLocalX0125,
 };
 
 const icon = {
@@ -73,5 +77,6 @@ const icon = {
 export const searchTokens = {
   input,
   icon,
-  container,
+  horisontalContainer,
+  outerContainer,
 };

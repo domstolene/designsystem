@@ -10,7 +10,6 @@ import { Button } from '../Button';
 import { searchTokens as tokens } from './Search.tokens';
 import {
   Input as BaseInput,
-  OuterInputContainer,
   InputProps as BaseInputProps,
 } from '../../helpers';
 import { InputMessage } from '../InputMessage';
@@ -20,8 +19,9 @@ import {
 } from '../../utils';
 import { Icon, IconSize } from '../Icon';
 import { SearchIcon } from '../../icons/tsx';
+import { Label } from '../Typography';
 
-const { input, container, icon } = tokens;
+const { input, outerContainer, horisontalContainer, icon } = tokens;
 
 const getIconSize = (size: SearchSize): IconSize => {
   switch (size) {
@@ -68,17 +68,21 @@ const StyledIcon = styled(Icon)<StyledIconProps>`
   z-index: 1;
 `;
 
-const Container = styled.div`
+const OuterContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: ${container.gap};
+  flex-direction: column;
+  gap: ${outerContainer.gap};
+`;
+
+const HorisontalContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: ${horisontalContainer.gap};
 `;
 
 const InputContainer = styled.div`
   position: relative;
 `;
-
-const ButtonWrapper = styled.div``;
 
 export type SearchSize = 'small' | 'medium' | 'large';
 type ButtonProps = {
@@ -87,7 +91,7 @@ type ButtonProps = {
   loading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export type SearchProps = Pick<BaseInputProps, 'tip'> & {
+export type SearchProps = Pick<BaseInputProps, 'tip' | 'label'> & {
   /**Størrelsen på komponenten. */
   componentSize?: SearchSize;
   /**Props for søkeknappen. */
@@ -100,6 +104,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       componentSize = 'medium',
       buttonProps,
       name,
+      label,
       tip,
       id,
       className,
@@ -111,6 +116,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
   ) => {
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-searchInput`;
+    const hasLabel = !!label;
     const hasTip = !!tip;
     const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
 
@@ -132,34 +138,39 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       ]),
     };
 
-    const { label, onClick, ...otherButtonProps } = buttonProps || {};
+    const {
+      label: buttonLabel,
+      onClick,
+      ...otherButtonProps
+    } = buttonProps || {};
 
     return (
-      <Container {...containerProps}>
-        <OuterInputContainer width="100%">
-          <InputContainer>
-            <StyledIcon
-              icon={SearchIcon}
-              size={componentSize}
-              iconSize={getIconSize(componentSize)}
-            />
-            <Input {...inputProps} />
-          </InputContainer>
+      <OuterContainer>
+        {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
+        <div>
+          <HorisontalContainer {...containerProps}>
+            <InputContainer>
+              <StyledIcon
+                icon={SearchIcon}
+                size={componentSize}
+                iconSize={getIconSize(componentSize)}
+              />
+              <Input {...inputProps} />
+            </InputContainer>
+            {buttonProps && onClick && (
+              <Button
+                size={componentSize}
+                label={buttonLabel || 'Søk'}
+                onClick={onClick}
+                {...otherButtonProps}
+              />
+            )}
+          </HorisontalContainer>
           {hasTip && (
             <InputMessage id={tipId} messageType="tip" message={tip} />
           )}
-        </OuterInputContainer>
-        {buttonProps && onClick && (
-          <ButtonWrapper>
-            <Button
-              size={componentSize}
-              label={label || 'Søk'}
-              onClick={onClick}
-              {...otherButtonProps}
-            />
-          </ButtonWrapper>
-        )}
-      </Container>
+        </div>
+      </OuterContainer>
     );
   }
 );
