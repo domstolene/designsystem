@@ -9,6 +9,7 @@ import {
   ReactNode,
   useEffect,
   useState,
+  useMemo,
 } from 'react';
 import styled from 'styled-components';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
@@ -75,7 +76,14 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
       ref,
     };
 
-    const steps = massageChildren(children);
+    const steps = useMemo(() => {
+      const validChildren = removeInvalidChildren(children);
+      const itemsWithIndex = passIndexPropToProgressTrackerItem(validChildren);
+      const itemsWithConnectorsBetween =
+        intersperseItemsWithConnector(itemsWithIndex);
+      return itemsWithConnectorsBetween;
+    }, [children]);
+
     return (
       <ProgressTrackerContext.Provider
         value={{
@@ -92,15 +100,6 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
   (Res as ProgressTrackerComponent).Item = ProgressTrackerItem;
   return Res as ProgressTrackerComponent;
 })();
-
-const massageChildren = (children: ReactNode) => {
-  const validChildren = removeInvalidChildren(children);
-  const itemsWithIndex = passIndexPropToProgressTrackerItem(validChildren);
-  const itemsWithConnectorsBetween =
-    intersperseItemsWithConnector(itemsWithIndex);
-
-  return itemsWithConnectorsBetween;
-};
 
 const removeInvalidChildren = (children: ReactNode) =>
   Children.toArray(children).filter(isValidElement);
