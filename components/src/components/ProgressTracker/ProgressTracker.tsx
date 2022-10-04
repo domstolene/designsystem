@@ -49,9 +49,6 @@ type ProgressTrackerComponent =
     Item: typeof ProgressTrackerItem;
   };
 
-/**
- * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
- */
 export const ProgressTracker: ProgressTrackerComponent = (() => {
   const Res = forwardRef<HTMLDivElement, ProgressTrackerProps>((props, ref) => {
     const {

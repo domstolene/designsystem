@@ -226,9 +226,6 @@ const getVisuallyHiddenText = (
     completed ? 'Ferdig, ' : 'Ikke ferdig, '
   }`;
 
-/**
- * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
- */
 export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const {
     index = 0,

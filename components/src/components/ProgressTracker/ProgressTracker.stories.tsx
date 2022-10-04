@@ -10,7 +10,7 @@ import { Button } from '../Button';
 import { ProgressTracker } from '.';
 
 export default {
-  title: 'Design system/ProgressTracker BETA',
+  title: 'Design system/ProgressTracker',
   component: ProgressTracker,
 };
 

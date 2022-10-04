@@ -10,14 +10,9 @@ import { ProgressTracker } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
 import { Typography } from '../Typography';
 
-<Meta
-  title="Design system/ProgressTracker BETA/API"
-  component={ProgressTracker}
-/>
+<Meta title="Design system/ProgressTracker/API" component={ProgressTracker} />
 
-# ProgressTracker - Beta
-
-NB! Denne komponenten er ikke ferdig enda. Endringer kan skje utenfor standard SemVer-versjonering.
+# ProgressTracker
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
@@ -28,10 +23,10 @@ NB! Denne komponenten er ikke ferdig enda. Endringer kan skje utenfor standard S
 ## Demo
 
 <Canvas>
-  <Story id="design-system-progresstracker-beta--overview" />
+  <Story id="design-system-progresstracker--overview" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-progresstracker-beta'>Storybook</Typography>.
+Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-progresstracker'>Storybook</Typography>.
 
 ## Oversikt
 
@@ -46,7 +41,7 @@ Komponenten består av:
   code={`import { ProgressTracker } from '.';
 
 function handleProgressTrackerItemClick(index: number) {
-  console.log(index)
+console.log(index)
 }
 
 <ProgressTracker activeStep={activeStep}>
@@ -60,8 +55,7 @@ function handleProgressTrackerItemClick(index: number) {
     Vedlegg
   </ProgressTracker.Item>
 </ProgressTracker>
-`}
-/>
+`} />
 
 ## API
 
