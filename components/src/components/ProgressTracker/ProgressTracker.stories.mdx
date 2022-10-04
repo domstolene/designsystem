@@ -5,6 +5,7 @@ import {
   Canvas,
   Story,
 } from '@storybook/addon-docs';
+
 import { ProgressTracker } from '.';
 import { Source, ComponentLinkRow } from '../../storybook';
 import { Typography } from '../Typography';
@@ -42,61 +43,25 @@ Komponenten består av:
 ## Bruk i koden
 
 <Source
-  code={`import { ProgressTracker } from '@norges-domstoler/dds-components'
+  code={`import { ProgressTracker } from '.';
 
-export const ProgressTrackerExample = () => {
-  const numSteps = 3;
+function handleProgressTrackerItemClick(index: number) {
+  console.log(index)
+}
 
-const [activeStep, setActiveStep] = useState(0);
-const [completedSteps, setCompletedSteps] = useState(new Set());
-
-const handleStepClick = (index: number) => {
-console.log(index);
-setActiveStep(index);
-};
-
-const allStepsFinished = completedSteps.size === numSteps;
-
-return (
-
-<StoryTemplate title="ProgressTracker - overview" display="block">
 <ProgressTracker activeStep={activeStep}>
-<ProgressTracker.Item completed={completedSteps.has(0)} onClick={handleStepClick}>
-Partopplysninger
-</ProgressTracker.Item>
-<ProgressTracker.Item completed={completedSteps.has(1)} onClick={handleStepClick}>
-Slutning
-</ProgressTracker.Item>
-<ProgressTracker.Item completed={completedSteps.has(2)} onClick={handleStepClick}>
-Vedlegg
-</ProgressTracker.Item>
+  <ProgressTracker.Item completed onClick={handleProgressTrackerItemClick}>
+    Partopplysninger
+  </ProgressTracker.Item>
+  <ProgressTracker.Item active onClick={handleProgressTrackerItemClick}>
+    Slutning
+  </ProgressTracker.Item>
+  <ProgressTracker.Item onClick={handleProgressTrackerItemClick}>
+    Vedlegg
+  </ProgressTracker.Item>
 </ProgressTracker>
-
-      {allStepsFinished ? (
-        <div>Ferdig!</div>
-      ) : (
-        <>
-          {activeStep === 0 && <div>Steg 1</div>}
-          {activeStep === 1 && <div>Steg 2</div>}
-          {activeStep === 2 && <div>Steg 3</div>}
-        </>
-      )}
-
-      <Button
-        onClick={() => {
-          setCompletedSteps(s => new Set([...s, activeStep]));
-          if (activeStep < numSteps - 1) {
-            setActiveStep(s => s + 1);
-          }
-        }}
-        label={allStepsFinished ? 'Du er ferdig' : 'Sett som ferdig'}
-      />
-    </StoryTemplate>
-
-);
-};
 `}
-/>}
+/>
 
 ## API
 
