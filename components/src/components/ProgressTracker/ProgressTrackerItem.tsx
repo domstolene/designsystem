@@ -217,8 +217,14 @@ const ItemContentWrapper = styled.div<ItemStyleProps>`
     `}
 `;
 
-const getVisuallyHiddenText = (active: boolean, completed: boolean) =>
-  `${active ? '' : 'Trinn, '}${completed ? 'Ferdig, ' : 'Ikke ferdig, '}`;
+const getVisuallyHiddenText = (
+  active: boolean,
+  completed: boolean,
+  index: number
+) =>
+  `${index + 1}, ${active ? '' : 'Trinn, '}${
+    completed ? 'Ferdig, ' : 'Ikke ferdig, '
+  }`;
 
 /**
  * @beta Denne komponenten er ikke ferdig og endringer kan gjøres utenfor semver.
@@ -262,10 +268,12 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         }
         disabled={disabled}
       >
-        <ItemNumber {...styleProps}>{stepNumberContent}</ItemNumber>
+        <ItemNumber {...styleProps} aria-hidden>
+          {stepNumberContent}
+        </ItemNumber>
         <ItemText {...styleProps}>
           <VisuallyHidden as="span">
-            {getVisuallyHiddenText(active, completed)}
+            {getVisuallyHiddenText(active, completed, index)}
           </VisuallyHidden>
           {children}
         </ItemText>
