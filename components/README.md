@@ -58,6 +58,7 @@ Tilgjengelige komponenter:
 - OverflowMenu
 - Pagination
 - Popover
+- ProgressTracker
 - RadioButton
 - Scrollbar
 - Search
