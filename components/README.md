@@ -48,6 +48,7 @@ Tilgjengelige komponenter:
 - Divider
 - Drawer
 - FileUploader
+- FormGenerator
 - GlobalMessage
 - Grid
 - Icon
