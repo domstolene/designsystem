@@ -160,7 +160,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
 
   return isOpen || hasTransitionedIn
     ? createPortal(
-        <Container {...containerProps}>
+        <Container {...containerProps} elevation={4}>
           <ScrollableContainer>
             <ContentContainer>
               {hasHeader && (

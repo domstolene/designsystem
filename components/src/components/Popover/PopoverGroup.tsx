@@ -9,7 +9,7 @@ import {
   ReactNode,
   useId,
 } from 'react';
-import { useOnKeyDown, useOnClickOutside } from '../../hooks';
+import { useOnKeyDown } from '../../hooks';
 
 export type PopoverGroupProps = {
   /**Callback når det trykkes på lukkeknappen. */
@@ -32,10 +32,6 @@ export const PopoverGroup = ({
   popoverId,
 }: PopoverGroupProps) => {
   const [open, setOpen] = useState(isOpen);
-
-  useEffect(() => {
-    setOpen(isOpen);
-  }, [isOpen]);
 
   const generatedId = useId();
   const uniquePopoverId = popoverId ?? `${generatedId}-popover`;
@@ -67,9 +63,7 @@ export const PopoverGroup = ({
     }
   });
 
-  useOnClickOutside([popoverRef.current, buttonRef.current], () => {
-    if (open) setOpen(false);
-  });
+  const handleClose = () => setOpen(false);
 
   const Children = ReactChildren.map(children, (child, childIndex) => {
     return (
@@ -90,6 +84,7 @@ export const PopoverGroup = ({
             onCloseButtonBlur: handleBlur,
             anchorElement: buttonRef.current,
             ref: popoverRef,
+            onClose: handleClose,
           }))
     );
   });
