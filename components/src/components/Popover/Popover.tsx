@@ -90,7 +90,7 @@ export type PopoverProps = BaseComponentPropsWithChildren<
     /**Om lukkeknapp skal vises. */
     withCloseButton?: boolean;
     /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Anchor-elementet. */
-    anchorElement: HTMLElement;
+    anchorElement?: HTMLElement;
     /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet. */
     placement?: Placement;
     /**Avstand fra anchor-elementet i px. */
@@ -102,7 +102,7 @@ export type PopoverProps = BaseComponentPropsWithChildren<
     /**Custom størrelse. */
     sizeProps?: PopoverSizeProps;
     /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Funksjon kjørt ved lukking. */
-    onClose: () => void;
+    onClose?: () => void;
     /**Spesifiserer hvilken DOM node `<Popover />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
     parentElement?: HTMLElement;
   }
@@ -128,8 +128,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       ...rest
     } = props;
 
-    const popoverRef = useReturnFocusOnBlur(isOpen, anchorElement, () =>
-      onClose()
+    const popoverRef = useReturnFocusOnBlur(
+      isOpen,
+      () => onClose && onClose(),
+      anchorElement && anchorElement
     );
 
     const { reference, floating, styles } = useFloatPosition(null, {
@@ -142,8 +144,13 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement ? reference(anchorElement) : reference(null);
     }, [anchorElement]);
 
-    useOnClickOutside([popoverRef.current, anchorElement], () => {
-      if (isOpen) onClose();
+    const elements: (HTMLElement | null)[] = [
+      popoverRef.current as HTMLElement,
+    ];
+    if (anchorElement) elements.push(anchorElement);
+
+    useOnClickOutside(elements, () => {
+      if (isOpen) onClose && onClose();
     });
 
     const hasTransitionedIn = useMountTransition(isOpen, 400);
