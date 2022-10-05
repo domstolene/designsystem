@@ -1,5 +1,4 @@
 import {
-  useEffect,
   useState,
   ReactElement,
   Children as ReactChildren,
@@ -9,7 +8,7 @@ import {
   ReactNode,
   useId,
 } from 'react';
-import { useOnKeyDown, useOnClickOutside } from '../../hooks';
+import { useOnKeyDown } from '../../hooks';
 
 export type PopoverGroupProps = {
   /**Callback når det trykkes på lukkeknappen. */
@@ -33,10 +32,6 @@ export const PopoverGroup = ({
 }: PopoverGroupProps) => {
   const [open, setOpen] = useState(isOpen);
 
-  useEffect(() => {
-    setOpen(isOpen);
-  }, [isOpen]);
-
   const generatedId = useId();
   const uniquePopoverId = popoverId ?? `${generatedId}-popover`;
 
@@ -53,13 +48,6 @@ export const PopoverGroup = ({
   const buttonRef = useRef<HTMLElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const handleBlur = () => {
-    setTimeout(function () {
-      buttonRef.current?.focus();
-    }, 5);
-    setOpen(false);
-  };
-
   useOnKeyDown(['Esc', 'Escape'], () => {
     if (open) {
       setOpen(false);
@@ -67,9 +55,7 @@ export const PopoverGroup = ({
     }
   });
 
-  useOnClickOutside([popoverRef.current, buttonRef.current], () => {
-    if (open) setOpen(false);
-  });
+  const handleClose = () => setOpen(false);
 
   const Children = ReactChildren.map(children, (child, childIndex) => {
     return (
@@ -87,9 +73,9 @@ export const PopoverGroup = ({
             'aria-hidden': !open,
             id: uniquePopoverId,
             onCloseButtonClick: handleOnCloseButtonClick,
-            onCloseButtonBlur: handleBlur,
             anchorElement: buttonRef.current,
             ref: popoverRef,
+            onClose: handleClose,
           }))
     );
   });

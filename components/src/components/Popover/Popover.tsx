@@ -2,28 +2,44 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
 import { forwardRef, ReactNode, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { visibilityTransition } from '../../helpers/styling';
-import { Placement, useCombinedRef, useFloatPosition } from '../../hooks';
+import { focusVisible, visibilityTransition } from '../../helpers/styling';
+import {
+  Placement,
+  useCombinedRef,
+  useFloatPosition,
+  useReturnFocusOnBlur,
+  useMountTransition,
+  useOnClickOutside,
+} from '../../hooks';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Button } from '../Button';
 import { Typography } from '../Typography';
 import { popoverTokens as tokens } from './Popover.tokens';
 import { CloseIcon } from '../../icons/tsx';
+import { createPortal } from 'react-dom';
+import { Paper } from '../../helpers';
 
 const { spacing: Spacing } = ddsBaseTokens;
+const { wrapper, content, closeButton, title } = tokens;
 
 type WrapperProps = {
-  isOpen: boolean;
   sizeProps?: PopoverSizeProps;
+  hasTransitionedIn?: boolean;
+  isOpen: boolean;
 };
 
-const Wrapper = styled.div<WrapperProps>`
-  ${({ isOpen }) => visibilityTransition(isOpen)}
-  box-sizing: border-box;
+const Wrapper = styled(Paper)<WrapperProps>`
+  opacity: 0;
+  ${({ hasTransitionedIn, isOpen }) =>
+    hasTransitionedIn && visibilityTransition(hasTransitionedIn && isOpen)}
   position: absolute;
   width: fit-content;
   z-index: 20;
-  ${tokens.wrapper.base}
+  padding: ${wrapper.padding};
+
+  &:focus-visible {
+    ${focusVisible}
+  }
   ${({ sizeProps }) =>
     sizeProps &&
     css`
@@ -32,7 +48,7 @@ const Wrapper = styled.div<WrapperProps>`
 `;
 
 const TitleContainer = styled.div`
-  ${tokens.title.base}
+  margin-right: ${title.marginRight};
 `;
 
 type ContentContainerProps = {
@@ -45,12 +61,14 @@ const ContentContainer = styled.div<ContentContainerProps>`
     withCloseButton &&
     !hasTitle &&
     css`
-      margin-top: ${tokens.content.spaceTopNoTitle};
+      margin-top: ${content.noTitle.marginTop};
     `}
 `;
 
 const StyledButton = styled(Button)`
-  ${tokens.button.base}
+  position: absolute;
+  top: ${closeButton.top};
+  right: ${closeButton.right};
 `;
 
 export type PopoverSizeProps = {
@@ -79,10 +97,14 @@ export type PopoverProps = BaseComponentPropsWithChildren<
     offset?: number;
     /** Ekstra logikk kjørt når lukkeknappen trykkes. */
     onCloseButtonClick?: () => void;
-    /** Ekstra logikk kjørt når lukkeknappen mister fokus. */
-    onCloseButtonBlur?: () => void;
+    /** Ekstra logikk kjørt når popover mister fokus. */
+    onBlur?: () => void;
     /**Custom størrelse. */
     sizeProps?: PopoverSizeProps;
+    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Funksjon kjørt ved lukking. */
+    onClose?: () => void;
+    /**Spesifiserer hvilken DOM node `<Popover />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
+    parentElement?: HTMLElement;
   }
 >;
 
@@ -92,11 +114,13 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       title,
       isOpen = false,
       withCloseButton = true,
+      onBlur,
       onCloseButtonClick,
-      onCloseButtonBlur,
+      onClose,
       anchorElement,
       children,
       placement = 'bottom',
+      parentElement = document.body,
       offset = Spacing.SizesDdsSpacingLocalX05NumberPx,
       id,
       className,
@@ -104,51 +128,79 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       ...rest
     } = props;
 
+    const popoverRef = useReturnFocusOnBlur(
+      isOpen,
+      () => {
+        onClose && onClose();
+        onBlur && onBlur();
+      },
+      anchorElement && anchorElement
+    );
+
     const { reference, floating, styles } = useFloatPosition(null, {
       placement,
       offset,
     });
-    const multiRef = useCombinedRef(ref, floating);
+    const multiRef = useCombinedRef(ref, popoverRef, floating);
 
     useEffect(() => {
-      isOpen && anchorElement ? reference(anchorElement) : reference(null);
-      return () => reference(null);
-    }, [anchorElement, isOpen]);
+      anchorElement ? reference(anchorElement) : reference(null);
+    }, [anchorElement]);
+
+    const elements: (HTMLElement | null)[] = [
+      popoverRef.current as HTMLElement,
+    ];
+    if (anchorElement) elements.push(anchorElement);
+
+    useOnClickOutside(elements, () => {
+      if (isOpen) onClose && onClose();
+    });
+
+    const hasTransitionedIn = useMountTransition(isOpen, 400);
 
     const wrapperProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       ref: multiRef,
       isOpen,
+      hasTransitionedIn,
+      tabIndex: -1,
       style: { ...htmlProps.style, ...styles.floating },
       role: 'dialog',
     };
 
-    return (
-      <Wrapper {...wrapperProps}>
-        {title && (
-          <TitleContainer>
-            {typeof title === 'string' ? (
-              <Typography typographyType="headingSans02">{title}</Typography>
-            ) : (
-              title
+    return isOpen || hasTransitionedIn
+      ? createPortal(
+          <Wrapper {...wrapperProps} elevation={3} border="light">
+            {title && (
+              <TitleContainer>
+                {typeof title === 'string' ? (
+                  <Typography typographyType="headingSans02">
+                    {title}
+                  </Typography>
+                ) : (
+                  title
+                )}
+              </TitleContainer>
             )}
-          </TitleContainer>
-        )}
-        <ContentContainer hasTitle={!!title} withCloseButton={withCloseButton}>
-          {children}
-        </ContentContainer>
-        {withCloseButton && (
-          <StyledButton
-            icon={CloseIcon}
-            appearance="borderless"
-            purpose="secondary"
-            size="small"
-            onClick={onCloseButtonClick}
-            aria-label="Lukk"
-            onBlur={onCloseButtonBlur}
-          />
-        )}
-      </Wrapper>
-    );
+            <ContentContainer
+              hasTitle={!!title}
+              withCloseButton={withCloseButton}
+            >
+              {children}
+            </ContentContainer>
+            {withCloseButton && (
+              <StyledButton
+                icon={CloseIcon}
+                appearance="borderless"
+                purpose="secondary"
+                size="small"
+                onClick={onCloseButtonClick}
+                aria-label="Lukk"
+              />
+            )}
+          </Wrapper>,
+          parentElement
+        )
+      : null;
   }
 );

@@ -1,122 +1,161 @@
-import { screen, render } from '@testing-library/react';
+import {
+  screen,
+  render,
+  act,
+  fireEvent,
+  waitFor,
+} from '@testing-library/react';
 import { Popover, PopoverGroup } from '.';
 import { Button } from '../Button';
 
+const buttonLabel = 'label';
+const content = 'content';
+
+const TestComponent = () => {
+  return (
+    <PopoverGroup>
+      <Button label={buttonLabel} />
+      <Popover>{content}</Popover>
+    </PopoverGroup>
+  );
+};
+
 describe('<Popover />', () => {
   it('should have aria-controls attribute on trigger element', () => {
-    const { container } = render(
-      <PopoverGroup>
-        <Button />
-        <Popover />
-      </PopoverGroup>
-    );
-    const triggerElement = container.querySelector('button');
+    render(<TestComponent />);
+    const triggerElement = screen.getByRole('button');
     expect(triggerElement).toHaveAttribute('aria-controls');
   });
 
   it('should have aria-haspopup attribute on trigger element', () => {
-    const { container } = render(
-      <PopoverGroup>
-        <Button />
-        <Popover />
-      </PopoverGroup>
-    );
-    const triggerElement = container.querySelector('button');
+    render(<TestComponent />);
+    const triggerElement = screen.getByRole('button');
     expect(triggerElement).toHaveAttribute('aria-haspopup', 'dialog');
   });
 
-  it('should render title', () => {
+  it('should not be in DOM by default', () => {
+    render(<TestComponent />);
+    const element = screen.queryByText(content);
+    expect(element).not.toBeInTheDocument();
+    const popover = screen.queryByRole('dialog');
+    expect(popover).not.toBeInTheDocument();
+  });
+
+  it('should open on click', () => {
+    render(<TestComponent />);
+    const button = screen.getByText(buttonLabel);
+
+    act(() => {
+      fireEvent.click(button);
+    });
+
+    const popover = screen.getByRole('dialog');
+    expect(popover).toBeInTheDocument();
+  });
+
+  it('should render title when opened', () => {
     const title = 'title';
     render(
       <PopoverGroup>
-        <Button />
+        <Button label={buttonLabel} />
         <Popover title={title} />
       </PopoverGroup>
     );
+    const button = screen.getByText(buttonLabel);
+
+    act(() => {
+      fireEvent.click(button);
+    });
+
     const titleElement = screen.getByText(title);
     expect(titleElement).toBeInTheDocument();
   });
 
-  it('should render content', () => {
-    const content = 'content';
-    render(
-      <PopoverGroup>
-        <Button />
-        <Popover>{content}</Popover>
-      </PopoverGroup>
-    );
+  it('should render content when opened', () => {
+    render(<TestComponent />);
+
+    const button = screen.getByText(buttonLabel);
+
+    act(() => {
+      fireEvent.click(button);
+    });
+
     const contentElement = screen.getByText(content);
     expect(contentElement).toBeInTheDocument();
   });
 
-  //må fikse disse testene
+  it('should hide after close button click', async () => {
+    render(<TestComponent />);
+    const button = screen.getByText(buttonLabel);
 
-  // it('trigger element should control aria-hidden attribute in <Popover /> on click', () => {
-  //   const idButton = 'test';
-  //   const idPopover = 'test2';
-  //   render(
-  //     <PopoverGroup popoverId={idPopover}>
-  //       <Button id={idButton} />
-  //       <Popover />
-  //     </PopoverGroup>
-  //   );
-  //   const popover = document.getElementById(idPopover);
-  //   expect(popover).toHaveAttribute('aria-hidden', 'true');
-  //   const triggerElement = document.getElementById(idButton);
-  //   triggerElement?.click();
-  //   expect(popover).toHaveAttribute('aria-hidden', 'false');
-  //   triggerElement?.click();
-  //   expect(popover).toHaveAttribute('aria-hidden', 'true');
-  // });
+    act(() => {
+      button.click();
+    });
 
-  // it('Esc press should set aria-hidden=true attribute in <Popover />', async () => {
-  //   const buttonId = 'test';
-  //   const popoverId = 'test2';
-  //   const { container } = render(
-  //     <PopoverGroup popoverId={popoverId}>
-  //       <Button id={buttonId} />
-  //       <Popover />
-  //     </PopoverGroup>
-  //   );
-  //   const popover = container.querySelector(`#${popoverId}`);
-  //   expect(popover).toHaveAttribute('aria-hidden', 'true');
-  //   const triggerElement = document.getElementById(buttonId);
-  //   triggerElement?.click();
-  //   expect(popover).toHaveAttribute('aria-hidden', 'false');
-  //   fireEvent.keyDown(container, {
-  //     key: 'Escape',
-  //     code: 'Escape',
-  //     keyCode: 27,
-  //     charCode: 27
-  //   });
-  //   expect(popover).toHaveAttribute('aria-hidden', 'true');
-  //   await waitFor(() => {
-  //     expect(document.activeElement === triggerElement).toBeTruthy();
-  //   });
-  // });
+    const el = await screen.findByRole('dialog');
+    expect(el).toBeInTheDocument();
+    const closeButton = screen.getByLabelText('Lukk');
 
-  // it('should run onclick event for closing button', () => {
-  //   const event = jest.fn();
-  //   const { container } = render(
-  //     <PopoverGroup onCloseButtonClick={event}>
-  //       <Button />
-  //       <Popover />
-  //     </PopoverGroup>
-  //   );
-  //   const closeButton = container.querySelector('div')?.querySelector('button');
-  //   fireEvent.click(closeButton!);
-  //   expect(event).toHaveBeenCalled();
-  // });
-  // it('should run onclick event for trigger element', () => {
-  //   const event = jest.fn();
-  //   const { container } = render(
-  //     <PopoverGroup onTriggerClick={event}>
-  //       <Button />
-  //       <Popover />
-  //     </PopoverGroup>
-  //   );
-  //   const triggerButton = container.querySelector('button');
-  //   fireEvent.click(triggerButton!);
-  //   expect(event).toHaveBeenCalled();
-  // });
+    act(() => {
+      fireEvent.click(closeButton!);
+    });
+
+    const elQuery = screen.queryByRole('dialog');
+    await waitFor(() => {
+      expect(elQuery).not.toBeInTheDocument();
+    });
+  });
+
+  it('should run onclick event for closing button', () => {
+    const event = jest.fn();
+    render(
+      <PopoverGroup isOpen onCloseButtonClick={event}>
+        <Button />
+        <Popover withCloseButton />
+      </PopoverGroup>
+    );
+
+    const closeButton = screen.getAllByRole('button')[1];
+
+    act(() => {
+      fireEvent.click(closeButton);
+    });
+
+    expect(event).toHaveBeenCalled();
+  });
+
+  it('should run onclick event for trigger element', () => {
+    const event = jest.fn();
+    render(
+      <PopoverGroup onTriggerClick={event}>
+        <Button />
+        <Popover />
+      </PopoverGroup>
+    );
+    const triggerButton = screen.getByRole('button');
+    act(() => {
+      fireEvent.click(triggerButton);
+    });
+    expect(event).toHaveBeenCalled();
+  });
+
+  it('Esc press should close popover', async () => {
+    render(<TestComponent />);
+    const button = screen.getByText(buttonLabel);
+
+    act(() => {
+      button.click();
+    });
+    const popover = await screen.findByRole('dialog');
+    expect(popover).toBeInTheDocument();
+
+    act(() => {
+      fireEvent.keyDown(popover, { key: 'Escape', code: 'Escape' });
+    });
+
+    const elQuery = screen.queryByRole('dialog');
+    await waitFor(() => {
+      expect(elQuery).not.toBeInTheDocument();
+    });
+  });
 });

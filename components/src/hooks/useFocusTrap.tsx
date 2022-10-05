@@ -1,4 +1,5 @@
 import { RefObject, useEffect, useRef } from 'react';
+import { getFocusableElements } from '../utils';
 
 /**
  * Fanger fokus i en loop inni et element. Typisk bruk:
@@ -7,7 +8,7 @@ import { RefObject, useEffect, useRef } from 'react';
  *
  *  const componentRef = useFocusTrap<HTMLDivElement>(props.isOpen);
  *
- *  return props.isOpen ? <div><button>click</button></div> : null;
+ *  return props.isOpen ? <div ref={componentRef}><button>click</button></div> : null;
  *
  * }
  * ```
@@ -24,10 +25,7 @@ export function useFocusTrap<T extends HTMLElement>(
     function handleFocus(e: KeyboardEvent) {
       if (e.key !== 'Tab' || !active || !elementRef.current) return;
 
-      const focusableElements: NodeListOf<HTMLElement> =
-        elementRef.current.querySelectorAll(
-          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
-        );
+      const focusableElements = getFocusableElements(elementRef);
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
 

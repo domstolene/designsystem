@@ -1,43 +1,29 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
-const {
-  colors: Colors,
-  borderRadius: BorderRadius,
-  spacing: Spacing,
-  outerShadow: OuterShadow,
-  border: Border,
-} = ddsBaseTokens;
+const { spacing } = ddsBaseTokens;
 
-const wrapperBase: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-  padding: `${Spacing.SizesDdsSpacingLocalX075} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX1}`,
-  boxShadow: OuterShadow.DdsShadow3Onlight,
-  border: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Border.BordersDdsBorderStyleLightStroke}`,
+const wrapper = {
+  padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15} ${spacing.SizesDdsSpacingLocalX1}`,
 };
-
-const buttonBase: CSSObject = {
+const closeButton = {
   position: 'absolute',
-  top: Spacing.SizesDdsSpacingLocalX025,
-  right: Spacing.SizesDdsSpacingLocalX025,
+  top: spacing.SizesDdsSpacingLocalX025,
+  right: spacing.SizesDdsSpacingLocalX025,
 };
 
-const titleBase: CSSObject = {
-  marginRight: Spacing.SizesDdsSpacingLocalX2,
+const title = {
+  marginRight: spacing.SizesDdsSpacingLocalX2,
+};
+
+const content = {
+  noTitle: {
+    marginTop: spacing.SizesDdsSpacingLocalX2,
+  },
 };
 
 export const popoverTokens = {
-  wrapper: {
-    base: wrapperBase,
-  },
-  button: {
-    base: buttonBase,
-  },
-  title: {
-    base: titleBase,
-  },
-  content: {
-    spaceTopNoTitle: Spacing.SizesDdsSpacingLocalX2,
-  },
+  content,
+  wrapper,
+  closeButton,
+  title,
 };
