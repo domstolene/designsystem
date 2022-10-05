@@ -39,6 +39,7 @@ type StyledTypographyProps = {
 };
 
 const StyledTypography = styled.p<StyledTypographyProps>`
+  user-select: text;
   &::selection,
   *::selection {
     ${selection}

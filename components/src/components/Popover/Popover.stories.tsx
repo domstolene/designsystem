@@ -162,6 +162,7 @@ export const Overflow = (args: PopoverProps) => {
 export const InlineExample = (args: PopoverProps) => {
   const Trigger = styled.button`
     ${removeButtonStyling}
+    user-select: text;
     text-decoration: underline;
     color: ${ddsBaseTokens.colors.DdsColorInteractiveBase};
     &:hover {

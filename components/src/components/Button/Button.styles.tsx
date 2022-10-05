@@ -21,6 +21,7 @@ type ButtonWrapperProps = {
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${tokens.base}
+  user-select: text;
   display: inline-flex;
   align-items: center;
   justify-content: center;
