@@ -1,5 +1,4 @@
 import {
-  useEffect,
   useState,
   ReactElement,
   Children as ReactChildren,

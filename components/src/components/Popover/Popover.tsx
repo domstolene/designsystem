@@ -115,7 +115,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       isOpen = false,
       withCloseButton = true,
       onCloseButtonClick,
-      onCloseButtonBlur,
       onClose,
       anchorElement,
       children,
