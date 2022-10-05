@@ -48,13 +48,6 @@ export const PopoverGroup = ({
   const buttonRef = useRef<HTMLElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const handleBlur = () => {
-    setTimeout(function () {
-      buttonRef.current?.focus();
-    }, 5);
-    setOpen(false);
-  };
-
   useOnKeyDown(['Esc', 'Escape'], () => {
     if (open) {
       setOpen(false);
@@ -80,7 +73,6 @@ export const PopoverGroup = ({
             'aria-hidden': !open,
             id: uniquePopoverId,
             onCloseButtonClick: handleOnCloseButtonClick,
-            onCloseButtonBlur: handleBlur,
             anchorElement: buttonRef.current,
             ref: popoverRef,
             onClose: handleClose,

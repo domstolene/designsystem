@@ -97,8 +97,8 @@ export type PopoverProps = BaseComponentPropsWithChildren<
     offset?: number;
     /** Ekstra logikk kjørt når lukkeknappen trykkes. */
     onCloseButtonClick?: () => void;
-    /** Ekstra logikk kjørt når lukkeknappen mister fokus. */
-    onCloseButtonBlur?: () => void;
+    /** Ekstra logikk kjørt når popover mister fokus. */
+    onBlur?: () => void;
     /**Custom størrelse. */
     sizeProps?: PopoverSizeProps;
     /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Funksjon kjørt ved lukking. */
@@ -114,6 +114,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       title,
       isOpen = false,
       withCloseButton = true,
+      onBlur,
       onCloseButtonClick,
       onClose,
       anchorElement,
@@ -129,7 +130,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
     const popoverRef = useReturnFocusOnBlur(
       isOpen,
-      () => onClose && onClose(),
+      () => {
+        onClose && onClose();
+        onBlur && onBlur();
+      },
       anchorElement && anchorElement
     );
 
