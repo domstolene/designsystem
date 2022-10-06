@@ -13,6 +13,7 @@ import { focusVisible, removeButtonStyling } from '../../helpers/styling';
 const { cell } = tableTokens;
 
 const StyledButton = styled.button`
+  user-select: text;
   ${removeButtonStyling}
   display: flex;
   align-items: center;

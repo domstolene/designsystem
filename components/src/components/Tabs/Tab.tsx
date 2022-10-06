@@ -28,6 +28,7 @@ type ButtonProps = {
 };
 
 const Button = styled.button<ButtonProps>`
+  user-select: text;
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 0.2s, border-bottom 0.2s, color 0.2s,
       ${focusVisibleTransitionValue};

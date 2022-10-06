@@ -38,6 +38,7 @@ export const Span = styled.span`
 `;
 
 export const Link = styled.a`
+  user-select: text;
   border: none;
   cursor: pointer;
   outline: inherit;

@@ -23,6 +23,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderWrapper = styled.button`
+  user-select: text;
   position: relative;
   cursor: pointer;
   @media (prefers-reduced-motion: no-preference) {
