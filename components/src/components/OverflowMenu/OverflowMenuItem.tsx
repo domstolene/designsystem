@@ -48,10 +48,10 @@ export const Link = styled.a`
     transition: background-color 0.2s;
   }
   &:hover {
-    color: ${link.hover.color};
+    background-color: ${link.hover.backgroundColor};
   }
   &:active {
-    color: ${link.active.color};
+    background-color: ${link.active.backgroundColor};
   }
   &:focus-visible,
   &.focus-visible {

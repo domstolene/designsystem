@@ -7,7 +7,7 @@ const element = {
     color: colors.DdsColorNeutralsGray9,
     textDecoration: 'none',
     backgroundColor: colors.DdsColorNeutralsWhite,
-    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
+    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1}`,
     gap: spacing.SizesDdsSpacingLocalX025,
     font: fontPackages.body_sans_01.base,
   },
@@ -15,10 +15,10 @@ const element = {
 
 const link = {
   hover: {
-    color: colors.DdsColorInteractiveDark,
+    backgroundColor: colors.DdsColorInteractiveLightest,
   },
   active: {
-    color: colors.DdsColorInteractiveDark,
+    backgroundColor: colors.DdsColorInteractiveLightest,
   },
 };
 
