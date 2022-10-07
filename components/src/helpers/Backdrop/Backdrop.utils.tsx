@@ -1,14 +1,17 @@
+import { getScrollbarSize } from '../../utils';
+
 const isVerticalScrollbarDisplayed = (container: HTMLElement) =>
   container.clientHeight > window.innerHeight;
 
 export function handleElementWithBackdropMount(container: HTMLElement) {
   if (isVerticalScrollbarDisplayed(container)) {
-    container.style.position = 'fixed';
-    container.style.overflowY = 'scroll';
+    const size = getScrollbarSize(document);
+    container.style.paddingRight = `${size}px`;
+    container.style.overflow = 'hidden';
   }
 }
 
 export function handleElementWithBackdropUnmount(container: HTMLElement) {
-  container.style.removeProperty('position');
-  container.style.removeProperty('overflow-y');
+  container.style.removeProperty('padding-right');
+  container.style.removeProperty('overflow');
 }
