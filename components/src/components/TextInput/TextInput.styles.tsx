@@ -8,16 +8,6 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { iconSizes } = ddsBaseTokens;
 const { input, icon } = tokens;
 
-export const TextArea = styled(StatefulInput)<StyledInputProps>`
-  ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox}
-  height: auto;
-  resize: vertical;
-  vertical-align: bottom;
-  padding-bottom: ${input.multiline.paddingBottom};
-  ${inputTokens.input.sizes.medium.font}
-`;
-
 export const MessageContainer = styled.div`
   display: flex;
   justify-content: space-between;
