@@ -39,3 +39,4 @@ export * from './components/ToggleBar';
 export * from './components/Grid';
 export * from './components/ProgressTracker';
 export * from './hooks';
+export * from './components/InlineEdit';

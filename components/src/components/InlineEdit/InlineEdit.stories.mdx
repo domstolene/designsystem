@@ -1,0 +1,78 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+import { InlineEdit } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
+
+<Meta title="Design system/InlineEdit/API" component={InlineEdit} />
+
+# InlineEdit
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/767867-inlineedit"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/InlineEdit"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=9005%3A150044"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-inlineedit--default" />
+</Canvas>
+
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-inlineedit`} />
+
+## Oversikt
+
+`<InlineEdit />` er en wrapper som håndterer inline redigering, f.eks i tabeller. Den skal ha ett barn, en av følgende:
+
+- `<InlineEdit.Input />` - returnerer `<input>`.
+- `<InlineEdit.TextArea />` - returnerer `<textarea>`.
+
+Konsumenten knytter `<InlineEdit />` til barnet ved hjelp av `useRef()`.
+
+## Bruk i koden
+
+<Source code={`import { InlineEdit } fra '@norges-domstoler/dds-components';
+
+const [value, setValue] = useState('');
+const ref = useRef<HTMLInputElement>(null);
+
+<InlineEdit {...args} inputRef={ref} value={value} onSetValue={setValue}>
+  <InlineEdit.Input ref={ref} />
+</InlineEdit>
+`} />
+
+## API
+
+### InlineEdit
+
+Wrapper for inputfeltet. Håndterer oppførselen til inputfeltet og lagring av verdien.
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes `value` fra `InputHTMLAttributes<HTMLInputElement>`-interface.
+
+### InlineEdit.Input
+
+Inputfeltet. Returnerer `<input>`.
+
+<ArgsTable of={InlineEdit.Input} />
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
+**OBS!** `value`, `onFocus`, `onChange`, `onBlur` settes av forelder.
+
+### InlineEdit.TextArea
+
+Inputfeltet. Returnerer `<textarea>`.
+
+<ArgsTable of={InlineEdit.TextArea} />
+I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
+**OBS!** `value`, `onFocus`, `onChange`, `onBlur` settes av forelder.
