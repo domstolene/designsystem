@@ -11,8 +11,8 @@ import { searchTokens as tokens } from './Search.tokens';
 import {
   Input as BaseInput,
   InputProps as BaseInputProps,
+  renderInputMessage,
 } from '../../helpers';
-import { InputMessage } from '../InputMessage';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
@@ -166,9 +166,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
               />
             )}
           </HorisontalContainer>
-          {hasTip && (
-            <InputMessage id={tipId} messageType="tip" message={tip} />
-          )}
+          {renderInputMessage(tip, tipId)}
         </div>
       </OuterContainer>
     );

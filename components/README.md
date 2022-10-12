@@ -69,6 +69,7 @@ Tilgjengelige komponenter:
 - Tabs
 - Tag
 - TextInput
+- TextArea
 - ToggleBar
 - ToggleButton
 - Tooltip

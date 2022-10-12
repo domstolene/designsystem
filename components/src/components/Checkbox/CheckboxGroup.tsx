@@ -1,7 +1,6 @@
 import { useId } from 'react';
 import styled, { css } from 'styled-components';
-import { RequiredMarker } from '../../helpers';
-import { InputMessage } from '../InputMessage';
+import { renderInputMessage, RequiredMarker } from '../../helpers';
 import { checkboxGroupTokens as tokens } from './CheckboxGroup.tokens';
 import { CheckboxGroupContext } from './CheckboxGroupContext';
 import { Typography } from '../Typography';
@@ -95,7 +94,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
       >
         {label} {showRequiredMarker && <RequiredMarker />}
       </Typography>
-      {tip && <InputMessage messageType="tip" message={tip} id={tipId} />}
+      {renderInputMessage(tip, tipId)}
       <CheckboxGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
           role="group"
@@ -106,13 +105,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
           {children}
         </GroupContainer>
       </CheckboxGroupContext.Provider>
-      {errorMessage && (
-        <InputMessage
-          messageType="error"
-          message={errorMessage}
-          id={errorMessageId}
-        />
-      )}
+      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
     </Container>
   );
 };

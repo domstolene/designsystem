@@ -3,14 +3,14 @@ import {
   ArgsTable,
   PRIMARY_STORY,
   Story,
-  Canvas
+  Canvas,
 } from '@storybook/addon-docs';
 import { TextInput } from '.';
 import {
   Source,
   ComponentLinkRow,
   SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory
+  LinkToInteractiveStory,
 } from '../../storybook';
 import { Typography } from '../Typography';
 
@@ -33,13 +33,6 @@ import { Typography } from '../Typography';
   <Story id="design-system-textinput--with-label" />
 </Canvas>
 
-<Canvas>
-  <Story id="design-system-textinput--textarea" />
-</Canvas>
-<Canvas>
-  <Story id="design-system-textinput--textarea-with-label" />
-</Canvas>
-
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-textinput`} />
 
 ## Bruk i koden
@@ -47,13 +40,12 @@ import { Typography } from '../Typography';
 <Source code={`import { TextInput } from '@norges-domstoler/dds-components';
 
 <TextInput label="Ledetekst" />
-<TextInput label="Ledetekst" multiline />
 `} />
 
 ## API
 
 <ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>` eller `InputHTMLAttributes<HTMLTextAreaElement>`-interface.
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 
 ### maxLength
 
@@ -63,7 +55,7 @@ Når native attributtet `maxLength` brukes dukker det opp en tegnteller til høy
   <Story id="design-system-textinput--with-character-count" />
 </Canvas>
 
-For å ikke vise tegntelleren sett ``withCharacterCounter=false`.
+For å ikke vise tegntelleren sett `withCharacterCounter=false`.
 
 ## Retningslinjer
 

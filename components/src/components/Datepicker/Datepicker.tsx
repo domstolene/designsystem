@@ -1,6 +1,5 @@
 import { forwardRef, useId } from 'react';
-import { InputMessage } from '../InputMessage';
-import { InputSize } from '../../helpers';
+import { InputSize, renderInputMessage } from '../../helpers';
 import { StatefulInput, OuterInputContainer, InputProps } from '../../helpers';
 import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
@@ -143,16 +142,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
           </Label>
         )}
         <StyledInput {...inputProps} />
-        {hasErrorMessage && (
-          <InputMessage
-            message={errorMessage}
-            id={errorMessageId}
-            messageType="error"
-          />
-        )}
-        {tip && !hasErrorMessage && (
-          <InputMessage message={tip} id={tipId} messageType="tip" />
-        )}
+        {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
       </OuterInputContainer>
     );
   }

@@ -1,0 +1,54 @@
+import {
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+  Story,
+  Canvas,
+} from '@storybook/addon-docs';
+import { TextArea } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
+
+<Meta title="Design system/TextArea/API" component={TextArea} />
+
+# TextArea
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/39f89e-textarea"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/TextArea"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-textarea--default" />
+</Canvas>
+<Canvas>
+  <Story id="design-system-textarea--with-label" />
+</Canvas>
+
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-textarea`} />
+
+## Bruk i koden
+
+<Source code={`import { TextArea } from '@norges-domstoler/dds-components';
+
+<TextArea label="Ledetekst" />
+`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
+
+## Retningslinjer
+
+- Bruk gjerne `autofocus` for å indikere hvor brukeren skal starte.
+- Unngå å bruke `placeholder` - inputfeltet kan se ferdig fylt ut.
+- Bruk `onChange` slik at brukeren kan få umiddelbar tilbakemelding på deres input baser på validering.
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.
