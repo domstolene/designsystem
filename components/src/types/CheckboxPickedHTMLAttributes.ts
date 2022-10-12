@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 
-export type PickedHTMLAttributes = Pick<
+export type CheckboxPickedHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
   | 'aria-describedby'
   | 'name'

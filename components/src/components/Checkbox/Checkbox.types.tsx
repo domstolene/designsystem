@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import { BaseComponentProps } from '../../types';
-import { PickedHTMLAttributes } from '../../types/PickedHTMLAttributes';
+import { CheckboxPickedHTMLAttributes } from '../../types/CheckboxPickedHTMLAttributes';
 
 export type CheckboxProps = BaseComponentProps<
   HTMLInputElement,
@@ -15,6 +15,9 @@ export type CheckboxProps = BaseComponentProps<
     readOnly?: boolean;
     /**Brukes ved nøstet struktur der alle Checkbox som hører til en gruppe kan bli valgt ved å trykke på en forelder Checkbox. Hvis enkelte <Checkbox /> blir valgt men ikke alle skal forelder <Checkbox /> få tilstanden indeterminate - verken checked eller ikke. */
     indeterminate?: boolean;
-  } & PickedHTMLAttributes,
-  Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedHTMLAttributes>
+  } & CheckboxPickedHTMLAttributes,
+  Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    keyof CheckboxPickedHTMLAttributes
+  >
 >;

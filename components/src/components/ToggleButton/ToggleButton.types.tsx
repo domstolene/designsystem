@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react';
 import { SvgIcon } from '../../icons/utils';
 import { BaseComponentProps } from '../../types';
-import { PickedHTMLAttributes } from '../../types/PickedHTMLAttributes';
+import { CheckboxPickedHTMLAttributes } from '../../types/CheckboxPickedHTMLAttributes';
 
 export type ToggleButtonProps = BaseComponentProps<
   HTMLInputElement,
@@ -10,6 +10,9 @@ export type ToggleButtonProps = BaseComponentProps<
     label?: string;
     /** Ikon. */
     icon?: SvgIcon;
-  } & PickedHTMLAttributes,
-  Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedHTMLAttributes>
+  } & CheckboxPickedHTMLAttributes,
+  Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    keyof CheckboxPickedHTMLAttributes
+  >
 >;
