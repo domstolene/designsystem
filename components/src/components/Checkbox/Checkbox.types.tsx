@@ -1,17 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import { BaseComponentProps } from '../../types';
-
-type PickedHTMLAttributes = Pick<
-  InputHTMLAttributes<HTMLInputElement>,
-  | 'aria-describedby'
-  | 'name'
-  | 'checked'
-  | 'defaultChecked'
-  | 'value'
-  | 'defaultValue'
-  | 'onChange'
-  | 'onBlur'
->;
+import { PickedHTMLAttributes } from '../../types/PickedHTMLAttributes';
 
 export type CheckboxProps = BaseComponentProps<
   HTMLInputElement,
