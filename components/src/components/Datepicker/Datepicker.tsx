@@ -100,12 +100,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     const hasErrorMessage = !!errorMessage;
     const showRequiredStyling = !!(required || ariaRequired);
 
-    const errorMessageId = derivativeIdGenerator(
-      uniqueId,
-      'errorMessage',
-      errorMessage
-    );
-    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
+    const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+    const tipId = derivativeIdGenerator(uniqueId, 'tip');
 
     const inputProps = {
       id: uniqueId,
@@ -118,8 +114,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       componentSize,
       type,
       'aria-describedby': spaceSeparatedIdListGenerator([
-        tipId,
-        errorMessageId,
+        tip ? tipId : undefined,
+        errorMessage ? errorMessageId : undefined,
         ariaDescribedby,
       ]),
       'aria-required': ariaRequired,

@@ -2,7 +2,10 @@ import { useId } from 'react';
 import styled, { css } from 'styled-components';
 import { renderInputMessage, RequiredMarker } from '../../helpers';
 import { checkboxGroupTokens as tokens } from './CheckboxGroup.tokens';
-import { CheckboxGroupContext } from './CheckboxGroupContext';
+import {
+  CheckboxGroupContext,
+  CheckboxGroupContextProps,
+} from './CheckboxGroupContext';
 import { Typography } from '../Typography';
 import { derivativeIdGenerator } from '../../utils';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
@@ -64,18 +67,14 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
   const hasErrorMessage = !!errorMessage;
   const showRequiredMarker = required || ariaRequired;
 
-  const errorMessageId = derivativeIdGenerator(
-    uniqueGroupId,
-    'errorMessage',
-    errorMessage
-  );
-  const tipId = derivativeIdGenerator(uniqueGroupId, 'tip', tip);
+  const errorMessageId = derivativeIdGenerator(uniqueGroupId, 'errorMessage');
+  const tipId = derivativeIdGenerator(uniqueGroupId, 'tip');
 
-  const contextProps = {
+  const contextProps: CheckboxGroupContextProps = {
     error: hasErrorMessage,
-    errorMessageId,
+    errorMessageId: errorMessage ? errorMessageId : undefined,
     uniqueGroupId,
-    tipId,
+    tipId: tip ? tipId : undefined,
   };
 
   return (
@@ -99,7 +98,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         <GroupContainer
           role="group"
           aria-labelledby={uniqueGroupId}
-          aria-describedby={tipId}
+          aria-describedby={tip ? tipId : undefined}
           direction={direction}
         >
           {children}
