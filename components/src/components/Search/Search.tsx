@@ -118,7 +118,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     const uniqueId = id ?? `${generatedId}-searchInput`;
     const hasLabel = !!label;
     const hasTip = !!tip;
-    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
+    const tipId = derivativeIdGenerator(uniqueId, 'tip');
 
     const containerProps = {
       className,
@@ -133,7 +133,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       type: 'search',
       id: uniqueId,
       'aria-describedby': spaceSeparatedIdListGenerator([
-        tipId,
+        tip ? tipId : undefined,
         ariaDescribedby,
       ]),
     };

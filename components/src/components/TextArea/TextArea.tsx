@@ -91,12 +91,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     const hasErrorMessage = !!errorMessage;
     const hasLabel = !!label;
-    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
-    const errorMessageId = derivativeIdGenerator(
-      uniqueId,
-      'errorMessage',
-      errorMessage
-    );
+    const tipId = derivativeIdGenerator(uniqueId, 'tip');
+    const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
     const showRequiredStyling = required || !!ariaRequired;
 
@@ -117,8 +113,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       required,
       'aria-required': ariaRequired,
       'aria-describedby': spaceSeparatedIdListGenerator([
-        tipId,
-        errorMessageId,
+        tip ? tipId : undefined,
+        errorMessage ? errorMessageId : undefined,
         ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,

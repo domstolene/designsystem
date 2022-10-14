@@ -86,15 +86,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
-      'characterCounter',
-      maxLength && withCharacterCounter
+      'characterCounter'
     );
-    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
-    const errorMessageId = derivativeIdGenerator(
-      uniqueId,
-      'errorMessage',
-      errorMessage
-    );
+    const tipId = derivativeIdGenerator(uniqueId, 'tip');
+    const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
     const generalInputProps = {
       id: uniqueId,
@@ -109,9 +104,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       defaultValue,
       'aria-required': ariaRequired,
       'aria-describedby': spaceSeparatedIdListGenerator([
-        tipId,
-        errorMessageId,
-        characterCounterId,
+        hasTip ? tipId : undefined,
+        hasErrorMessage ? errorMessageId : undefined,
+        maxLength && withCharacterCounter ? characterCounterId : undefined,
         ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,

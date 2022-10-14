@@ -256,12 +256,8 @@ const SelectInner = <
   const hasErrorMessage = !!errorMessage;
   const showRequiredStyling = !!(required || ariaRequired);
 
-  const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
-  const errorMessageId = derivativeIdGenerator(
-    uniqueId,
-    'errorMessage',
-    errorMessage
-  );
+  const tipId = derivativeIdGenerator(uniqueId, 'tip');
+  const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
   const containerProps = {
     width,
@@ -308,7 +304,11 @@ const SelectInner = <
         DDSInput(
           { ...props, required, 'aria-required': ariaRequired },
           hasErrorMessage,
-          spaceSeparatedIdListGenerator([singleValueId, tipId, errorMessageId])
+          spaceSeparatedIdListGenerator([
+            singleValueId,
+            tip ? tipId : undefined,
+            errorMessage ? errorMessageId : undefined,
+          ])
         ),
       SingleValue: props =>
         CustomSingleValue(props, singleValueId, customSingleValueElement),
