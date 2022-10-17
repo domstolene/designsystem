@@ -7,8 +7,12 @@ import {
 } from '@storybook/addon-docs';
 
 import { ProgressTracker } from '.';
-import { Source, ComponentLinkRow } from '../../storybook';
-import { Typography } from '../Typography';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
 
 <Meta title="Design system/ProgressTracker/API" component={ProgressTracker} />
 
@@ -26,7 +30,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-progresstracker--overview" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType='a' href='https://domstolene.github.io/designsystem/?path=/story/design-system-progresstracker'>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-progresstracker`} />
 
 ## Oversikt
 
