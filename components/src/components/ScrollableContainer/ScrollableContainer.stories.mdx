@@ -6,8 +6,12 @@ import {
   Canvas,
 } from '@storybook/addon-docs';
 import { Scrollbar, ScrollableContainer } from '.';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
-import { Typography } from '../Typography';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
 
 <Meta
   title="Design system/ScrollableContainer/API"
@@ -28,7 +32,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-scrollablecontainer--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-scrollbar`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-scrollablecontainer`} />
 
 ## Oversikt
 
