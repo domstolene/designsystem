@@ -91,8 +91,21 @@ const container = {
   },
 };
 
+const groupContainer = {
+  row: {
+    gap: spacing.SizesDdsSpacingLocalX075,
+  },
+  column: { gap: spacing.SizesDdsSpacingLocalX05 },
+};
+
+const outerGroupContainer = {
+  gap: spacing.SizesDdsSpacingLocalX0125,
+};
+
 export const selectionControlTokens = {
   selectionControl,
   checkmark,
   container,
+  groupContainer,
+  outerGroupContainer,
 };

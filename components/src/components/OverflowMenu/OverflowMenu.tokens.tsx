@@ -1,6 +1,9 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { StaticTypographyType } from '../Typography';
 
 const { border, borderRadius, colors, spacing, fontPackages } = ddsBaseTokens;
+
+export const typographyType: StaticTypographyType = 'bodySans01';
 
 const element = {
   base: {
@@ -9,7 +12,6 @@ const element = {
     backgroundColor: colors.DdsColorNeutralsWhite,
     padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1}`,
     gap: spacing.SizesDdsSpacingLocalX025,
-    font: fontPackages.body_sans_01.base,
   },
 };
 

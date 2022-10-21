@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { inputTokens as tokens } from './Input.tokens';
+import { inputTokens as tokens, inputTypographyTypes } from './Input.tokens';
 import { StyledInputProps } from '.';
 import { Property } from 'csstype';
 import {
@@ -10,6 +10,7 @@ import {
   hoverInputfield,
   selection,
 } from '../styling';
+import { getFontStyling } from '../../components/Typography/Typography.utils';
 
 const { input, container } = tokens;
 
@@ -58,7 +59,7 @@ export const StatefulInput = styled(Input)<StyledInputProps>`
     componentSize &&
     css`
       padding: ${input.sizes[componentSize].padding};
-      ${input.sizes[componentSize].font}
+      ${getFontStyling(inputTypographyTypes[componentSize])}
     `}
 
   ${({ hasErrorMessage }) =>

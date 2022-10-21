@@ -5,7 +5,8 @@ import { chipTokens as tokens } from './Chip.tokens';
 
 const Group = styled.ul`
   ${removeListStyling}
-  ${tokens.group.base}
+  display: flex;
+  gap: ${tokens.group.gap};
 `;
 
 export type ChipGroupProps = HTMLAttributes<HTMLUListElement>;

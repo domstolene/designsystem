@@ -58,10 +58,13 @@ export const createSelectOptions = <TValue extends string | number>(
 ): SelectOption<TValue>[] => args.map(v => ({ label: v, value: v }));
 
 const DDSOption = <TValue, IsMulti extends boolean>(
-  props: OptionProps<TValue, IsMulti>
+  props: OptionProps<TValue, IsMulti>,
+  componentSize: InputSize
 ) => (
   <Option {...props}>
-    {props.isSelected && <Icon icon={CheckIcon} iconSize="medium" />}
+    {props.isSelected && (
+      <Icon icon={CheckIcon} iconSize={getFormInputIconSize(componentSize)} />
+    )}
     {props.children}
   </Option>
 );
@@ -298,7 +301,7 @@ const SelectInner = <
     components: {
       Option: customOptionElement
         ? props => CustomOption(props, customOptionElement)
-        : DDSOption,
+        : props => DDSOption(props, componentSize),
       NoOptionsMessage: DDSNoOptionsMessage,
       Input: props =>
         DDSInput(

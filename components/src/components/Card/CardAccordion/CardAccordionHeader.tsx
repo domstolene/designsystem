@@ -1,12 +1,18 @@
 import { forwardRef, ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { cardAccordionHeaderTokens as tokens } from './CardAccordionHeader.tokens';
+import {
+  cardAccordionTokens as tokens,
+  typographyTypes,
+} from './CardAccordion.tokens';
 import { AnimatedChevronUpDown } from '../../../helpers';
 import { removeButtonStyling } from '../../../helpers/styling';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import { getFontStyling } from '../../Typography/Typography.utils';
+
+const { header, chevronWrapper } = tokens;
 
 const ContentWrapper = styled.div`
   text-align: left;
@@ -19,7 +25,8 @@ const HeaderContainer = styled.div`
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 0.2s;
   }
-  ${tokens.base}
+  padding: ${header.padding};
+  ${getFontStyling(typographyTypes.header)}
 `;
 
 const HeaderWrapper = styled.button`
@@ -33,13 +40,13 @@ const HeaderWrapper = styled.button`
   display: block;
   width: 100%;
   &:hover {
-    ${tokens.hover.base}
+    box-shadow: ${header.hover.boxShadow};
   }
 
   &:focus-visible,
   &.focus-visible {
     outline: none;
-    ${tokens.focus.base}
+    box-shadow: ${header.focus.boxShadow};
   }
 `;
 
@@ -47,7 +54,9 @@ const ChevronWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${tokens.chevronWrapper.base}
+  width: ${chevronWrapper.width};
+  height: ${chevronWrapper.height};
+  margin-left: ${chevronWrapper.marginLeft};
 `;
 
 export type CardAccordionHeaderProps = BaseComponentPropsWithChildren<

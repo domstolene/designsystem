@@ -1,27 +1,24 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { StaticTypographyType } from '../Typography';
+import { DescriptionListAppearance } from './DescriptionList';
 
-const { spacing, fontPackages, colors } = ddsBaseTokens;
+const { spacing, colors } = ddsBaseTokens;
+
+export const termTypographyTypes: {
+  [k in DescriptionListAppearance]: StaticTypographyType;
+} = {
+  bold: 'bodySans03',
+  small: 'bodySans01',
+};
+
+export const descTypographyType: StaticTypographyType = 'bodySans03';
 
 const term = {
   appearance: {
     small: {
-      font: fontPackages.body_sans_01.base,
       color: colors.DdsColorNeutralsGray7,
-      lineHeight: fontPackages.body_sans_01.base.lineHeight,
-      fontSize: fontPackages.body_sans_01.base.fontSize,
-      letterSpacing: fontPackages.body_sans_01.base.letterSpacing,
-      fontFamily: fontPackages.body_sans_01.base.fontFamily,
-      fontWeight: fontPackages.body_sans_01.base.fontWeight,
-      fontStyle: fontPackages.body_sans_01.base.fontStyle,
     },
     bold: {
-      font: fontPackages.body_sans_03.base,
-      lineHeight: fontPackages.body_sans_03.base.lineHeight,
-      fontSize: fontPackages.body_sans_03.base.fontSize,
-      letterSpacing: fontPackages.body_sans_03.base.letterSpacing,
-      fontFamily: fontPackages.body_sans_03.base.fontFamily,
-      fontWeight: 600,
-      fontStyle: fontPackages.body_sans_03.base.fontStyle,
       color: colors.DdsColorNeutralsGray9,
     },
   },
@@ -32,7 +29,6 @@ const term = {
 
 const desc = {
   base: {
-    font: fontPackages.body_sans_03.base,
     gap: spacing.SizesDdsSpacingLocalX025,
     color: colors.DdsColorNeutralsGray9,
   },

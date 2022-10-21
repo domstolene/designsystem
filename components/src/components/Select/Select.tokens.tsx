@@ -2,11 +2,39 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
+import {
+  InputSize,
+  inputTypographyTypes,
+  InputTypographyTypes,
+} from '../../helpers';
 import { calculateHeightWithLineHeight } from '../../utils';
+import { StaticTypographyType } from '../Typography';
 
 const { colors, spacing, fontPackages, borderRadius, border } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
+
+const placeholderTypographyTypes: { [k in InputSize]: StaticTypographyType } = {
+  medium: 'supportingStylePlaceholderText01',
+  small: 'supportingStylePlaceholderText02',
+  tiny: 'supportingStylePlaceholderText03',
+};
+
+export const typographyTypes: {
+  control: InputTypographyTypes;
+  option: InputTypographyTypes;
+  placeholder: { [k in InputSize]: StaticTypographyType };
+  noOptionsMessage: { [k in InputSize]: StaticTypographyType };
+  groupHeading: StaticTypographyType;
+  multiValueLabel: StaticTypographyType;
+} = {
+  control: inputTypographyTypes,
+  option: inputTypographyTypes,
+  placeholder: placeholderTypographyTypes,
+  noOptionsMessage: placeholderTypographyTypes,
+  groupHeading: 'supportingStyleHelperText01',
+  multiValueLabel: 'bodySans01',
+};
 
 //custom spacing so that multiselect has same height as single value select
 const controlPaddingBottomMultiMedium = `${
@@ -49,15 +77,12 @@ const control = {
   },
   sizes: {
     medium: {
-      font: fontPackages.body_sans_02.base,
       padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
     },
     small: {
-      font: fontPackages.body_sans_01.base,
       padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075}`,
     },
     tiny: {
-      font: fontPackages.supportingStyle_tiny_01.base,
       padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
     },
   },
@@ -65,11 +90,6 @@ const control = {
 
 const placeholder = {
   color: colors.DdsColorNeutralsGray6,
-  sizes: {
-    medium: { font: fontPackages.supportingStyle_placeholdertext_01.base },
-    small: { font: fontPackages.supportingStyle_placeholdertext_02.base },
-    tiny: { font: fontPackages.supportingStyle_placeholdertext_03.base },
-  },
 };
 
 const dropdownIndicator = {
@@ -106,7 +126,6 @@ const menu = {
 
 const groupHeading = {
   color: colors.DdsColorNeutralsGray7,
-  font: fontPackages.supportingStyle_helpertext_01.base,
   padding: `${spacing.SizesDdsSpacingLocalX05}  ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX075}`,
 };
 
@@ -114,8 +133,6 @@ const option = {
   base: {
     gap: spacing.SizesDdsSpacingLocalX05,
     padding: `${spacing.SizesDdsSpacingLocalX075}`,
-    font: fontPackages.body_sans_02.base,
-    color: textDefault.textColor,
     backgroundColor: colors.DdsColorNeutralsWhite,
   },
   hover: {
@@ -128,25 +145,12 @@ const option = {
   },
   selected: {
     backgroundColor: colors.DdsColorNeutralsWhite,
-    ...fontPackages.body_sans_02.base,
-  },
-  sizes: {
-    medium: {
-      font: fontPackages.body_sans_02.base,
-    },
-    small: {
-      font: fontPackages.body_sans_01.base,
-    },
-    tiny: {
-      font: fontPackages.supportingStyle_tiny_01.base,
-    },
   },
 };
 
 const noOptionsMessage = {
   padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1}`,
   color: colors.DdsColorNeutralsGray6,
-  font: fontPackages.supportingStyle_placeholdertext_01.base,
 };
 
 const multiValue = {
@@ -164,7 +168,6 @@ const multiValue = {
 const multiValueLabel = {
   padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`,
   color: colors.DdsColorNeutralsGray9,
-  font: fontPackages.body_sans_01.base,
 };
 
 const multiValueRemove = {

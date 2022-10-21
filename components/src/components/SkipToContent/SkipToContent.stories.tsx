@@ -20,7 +20,7 @@ export default {
 };
 
 export const Overview = () => (
-  <StoryTemplate title="Skip to content - overview">
+  <StoryTemplate title="Skip to content - overview" display="block">
     <div style={{ position: 'relative' }}>
       <SkipToContent href="#innhold" />
       <SkipToContent href="#innhold" top={'30px'} text="Alternativ tekst" />
@@ -31,7 +31,7 @@ export const Overview = () => (
 );
 
 export const Default = (args: SkipToContentProps) => (
-  <StoryTemplate title="Skip to content - default">
+  <StoryTemplate title="Skip to content - default" display="block">
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} href="#innhold" />
       'Tab' når du er i frame for å se komponenten
@@ -41,7 +41,7 @@ export const Default = (args: SkipToContentProps) => (
 );
 
 export const Example = (args: SkipToContentProps) => (
-  <StoryTemplate title="Skip to content - example">
+  <StoryTemplate title="Skip to content - example" display="block">
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} href="#innhold" />
       'Tab' når du er i frame for å se komponenten; 'Enter' for å åpne i ny side

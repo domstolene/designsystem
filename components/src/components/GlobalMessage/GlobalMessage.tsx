@@ -1,11 +1,18 @@
 import styled, { css } from 'styled-components';
-import { Button, ButtonPurpose } from '../Button';
+import { Button } from '../Button';
 import { forwardRef, useState } from 'react';
-import { globalMessageTokens as tokens } from './GlobalMessage.tokens';
+import {
+  globalMessageTokens as tokens,
+  purposeVariants,
+  typographyType,
+} from './GlobalMessage.tokens';
 import { Icon } from '../Icon';
 import { Typography } from '../Typography';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
+import { getFontStyling } from '../Typography/Typography.utils';
+
+const { container, contentContainer, icon } = tokens;
 
 type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
 
@@ -14,16 +21,20 @@ const Container = styled.div<ContainerProps>`
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  width: 100%;
+  padding: ${container.padding};
+  border-bottom: ${container.borderBottom};
+  ${getFontStyling(typographyType, true)}
   ${({ purpose }) =>
     purpose &&
     css`
-      ${tokens.container.base}
-      ${tokens.container[purpose].base}
+      border-color: ${container[purpose].borderColor};
+      background-color: ${container[purpose].backgroundColor};
     `}
 `;
 
 const MessageIconWrapper = styled(Icon)`
-  margin-right: ${tokens.icon.marginRight};
+  margin-right: ${icon.marginRight};
 `;
 
 const ControlsContainer = styled.div`
@@ -36,12 +47,12 @@ type ContentContainerProps = Pick<GlobalMessageProps, 'closable'>;
 const ContentContainer = styled.div<ContentContainerProps>`
   display: flex;
   align-items: center;
-  ${tokens.contentContainer.base}
-  ${({ closable }) =>
-    closable &&
-    css`
-      ${tokens.contentContainer.withClosable.base}
-    `}
+  padding-top: ${contentContainer.paddingTop};
+  padding-bottom: ${contentContainer.paddingBottom};
+  padding-right: ${({ closable }) =>
+    closable
+      ? contentContainer.withClosable.paddingRight
+      : contentContainer.paddingRight};
 `;
 
 export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
@@ -75,7 +86,6 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     } = props;
 
     const [isClosed, setClosed] = useState(false);
-    const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
@@ -87,8 +97,8 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
       <Container {...containerProps}>
         <ContentContainer closable={closable}>
           <MessageIconWrapper
-            icon={tokens.icon[purpose].icon}
-            color={tokens.icon[purpose].color}
+            icon={purposeVariants[purpose].icon}
+            color={icon[purpose].color}
           />
           {children ?? <Typography as="span">{message}</Typography>}
         </ContentContainer>
@@ -96,7 +106,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
           {closable && (
             <Button
               icon={CloseIcon}
-              purpose={buttonPurpose}
+              purpose={purposeVariants[purpose].closeButtonPurpose}
               appearance="borderless"
               onClick={() => {
                 setClosed(true);

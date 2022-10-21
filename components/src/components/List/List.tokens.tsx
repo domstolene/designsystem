@@ -2,44 +2,40 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
-const { spacing: Spacing, fontPackages: FontPackages } = ddsBaseTokens;
+const { spacing } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
-const inheritBase: CSSObject = {
-  font: 'inherit',
+const ulLiPaddingLeft = `1em + ${spacing.SizesDdsSpacingLocalX025}`;
+const ulPaddingLeft = `${spacing.SizesDdsSpacingLocalX2} - (${ulLiPaddingLeft})`;
+
+const list = {
+  base: {
+    margin: `${spacing.SizesDdsSpacingLocalX1} 0`,
+    color: textDefault.textColor,
+  },
+  ol: {
+    paddingLeft: spacing.SizesDdsSpacingLocalX2,
+  },
+  ul: {
+    paddingLeft: `calc(${ulPaddingLeft})`,
+  },
 };
 
-const bodySans01Base: CSSObject = {
-  ...FontPackages.body_sans_01.base,
+const listItem = {
+  lineHeight: '2.5em',
+  ul: {
+    paddingLeft: `calc(${ulLiPaddingLeft})`,
+  },
 };
 
-const bodySans02Base: CSSObject = {
-  ...FontPackages.body_sans_02.base,
-};
-
-const bodySans03Base: CSSObject = {
-  ...FontPackages.body_sans_03.base,
-};
-
-const bodySans04Base: CSSObject = {
-  ...FontPackages.body_sans_04.base,
-};
-
-const base: CSSObject = {
-  margin: `${Spacing.SizesDdsSpacingLocalX1} 0`,
-  color: textDefault.textColor,
+const bullet = {
+  top: `calc((${listItem.lineHeight} / 2) - 0.5em )`,
 };
 
 export const listTokens = {
-  base: base,
-  spaceLeft: Spacing.SizesDdsSpacingLocalX2,
-  sizes: {
-    bodySans01: bodySans01Base,
-    bodySans02: bodySans02Base,
-    bodySans03: bodySans03Base,
-    bodySans04: bodySans04Base,
-    inherit: inheritBase,
-  },
+  list,
+  listItem,
+  bullet,
+  spaceLeft: spacing.SizesDdsSpacingLocalX2,
 };

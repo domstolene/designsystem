@@ -1,22 +1,30 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { tagTokens as tokens } from './Tag.tokens';
-import { Typography } from '../Typography';
+import { tagTokens as tokens, typographyType } from './Tag.tokens';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  TextOverflowEllipsisInner,
+  TextOverflowEllipsisWrapper,
+} from '../../helpers/TextOverflowEllipsis';
+import { getFontStyling } from '../Typography/Typography.utils';
+
+const { wrapper } = tokens;
 
 type WrapperProps = {
   purpose: TagPurpose;
 };
 
-const Wrapper = styled(Typography)<WrapperProps>`
-  ${tokens.wrapper.base}
+const Wrapper = styled(TextOverflowEllipsisWrapper)<WrapperProps>`
+  display: inline-flex;
+  align-items: center;
+  border: ${wrapper.border};
+  border-radius: ${wrapper.borderRadius};
+  padding: ${wrapper.padding};
+  ${getFontStyling(typographyType)}
   ${({ purpose }) => css`
-    ${tokens.wrapper.type[purpose].base}
+    background-color: ${wrapper.purpose[purpose].backgroundColor};
+    border-color: ${wrapper.purpose[purpose].borderColor};
   `}
-`;
-
-const Inner = styled.span`
-  ${tokens.inner.base}
 `;
 
 export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
@@ -44,12 +52,10 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
   return (
     <Wrapper
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      forwardedAs="span"
-      typographyType="bodySans01"
       ref={ref}
       purpose={purpose}
     >
-      <Inner>{text}</Inner>
+      <TextOverflowEllipsisInner>{text}</TextOverflowEllipsisInner>
     </Wrapper>
   );
 });

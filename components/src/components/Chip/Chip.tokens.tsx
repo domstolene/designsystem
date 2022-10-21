@@ -1,40 +1,23 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
+import { StaticTypographyType } from '../Typography';
 
-const { colors, spacing, borderRadius, fontPackages } = ddsBaseTokens;
+const { colors, spacing, borderRadius } = ddsBaseTokens;
 
-const containerBase: CSSObject = {
-  display: 'flex',
-  alignItems: 'center',
+export const typographyType: StaticTypographyType = 'bodySans01';
+
+const container = {
   gap: spacing.SizesDdsSpacingLocalX025,
   padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`,
   backgroundColor: colors.DdsColorNeutralsGray1,
   border: `1px solid ${colors.DdsColorNeutralsGray3}`,
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  color: colors.DdsColorNeutralsGray9,
-  maxWidth: '100%',
 };
 
-const textBase: CSSObject = {
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  ...fontPackages.body_sans_01.base,
-};
-
-const groupBase: CSSObject = {
-  display: 'flex',
+const group = {
   gap: spacing.SizesDdsSpacingLocalX075,
 };
 
 export const chipTokens = {
-  container: {
-    base: containerBase,
-  },
-  group: {
-    base: groupBase,
-  },
-  text: {
-    base: textBase,
-  },
+  container,
+  group,
 };

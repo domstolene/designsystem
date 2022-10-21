@@ -1,25 +1,31 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { focusVisibleTransitionValue } from '../../helpers/styling';
+import {
+  focusVisible,
+  focusVisibleTransitionValue,
+} from '../../helpers/styling';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { tabsTokens as tokens } from './Tabs.tokens';
+
+const { panel } = tokens;
 
 type PanelProps = {
   active: boolean;
 };
 
 const Panel = styled.div<PanelProps>`
+  padding: ${panel.padding};
   @media (prefers-reduced-motion: no-preference) {
     transition: ${focusVisibleTransitionValue};
   }
-  ${tokens.panel.base}
+
   ${({ active }) =>
     !active &&
     css`
       display: none;
     `}
-    &:focus-visible {
-    ${tokens.panel.focusVisible.base}
+  &:focus-visible {
+    ${focusVisible}
   }
 `;
 

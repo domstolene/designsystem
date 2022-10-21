@@ -1,16 +1,20 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { dividerTokens as tokens, dividerColors } from './Divider.tokens';
+import { dividerTokens as tokens } from './Divider.tokens';
 
 export type DividerColor = 'primary' | 'primaryLighter';
 
-const DividerLine = styled.hr<DividerProps>`
-  ${tokens.base}
+const StyledDivider = styled.hr<DividerProps>`
+  border: 0;
+  background-color: transparent;
+  border-top: ${tokens.borderTop};
+  margin-top: ${tokens.marginTop};
+  margin-bottom: ${tokens.marginBottom};
   ${({ color }) =>
     color &&
     css`
-      border-color: ${dividerColors[color]};
+      border-color: ${tokens.color[color].borderColor};
     `}
 `;
 
@@ -30,5 +34,5 @@ export const Divider = forwardRef<HTMLHRElement, DividerProps>((props, ref) => {
     color,
   };
 
-  return <DividerLine ref={ref} {...lineProps} />;
+  return <StyledDivider ref={ref} {...lineProps} />;
 });

@@ -1,7 +1,16 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { calculateHeightWithLineHeight } from '../../utils';
+import { StaticTypographyType } from '../Typography';
+import { ToggleBarSize } from './ToggleBar.types';
 
 const { colors, spacing, border, borderRadius, fontPackages } = ddsBaseTokens;
+
+export const typographyTypes: { [k in ToggleBarSize]: StaticTypographyType } = {
+  large: 'bodySans04',
+  medium: 'bodySans02',
+  small: 'bodySans01',
+  tiny: 'supportingStyleTiny01',
+};
 
 const iconSizeTiny = `${calculateHeightWithLineHeight(
   fontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
@@ -65,7 +74,6 @@ const content = {
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX075}`,
-        font: fontPackages.supportingStyle_tiny_01.base,
         gap: spacing.SizesDdsSpacingLocalX05,
       },
     },
@@ -76,7 +84,6 @@ const content = {
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1}`,
-        font: fontPackages.body_sans_01.base,
         gap: spacing.SizesDdsSpacingLocalX05,
       },
     },
@@ -87,7 +94,6 @@ const content = {
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
-        font: fontPackages.body_sans_02.base,
         gap: spacing.SizesDdsSpacingLocalX05,
       },
     },
@@ -98,7 +104,6 @@ const content = {
       },
       withText: {
         padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX2}`,
-        font: fontPackages.body_sans_04.base,
         gap: spacing.SizesDdsSpacingLocalX1,
       },
     },

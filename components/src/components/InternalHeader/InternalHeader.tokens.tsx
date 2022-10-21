@@ -1,16 +1,19 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { StaticTypographyType } from '../Typography';
 
-const { border, colors, spacing, fontPackages } = ddsBaseTokens;
+const { border, colors, spacing } = ddsBaseTokens;
 
 const borderStyle = `${border.BordersDdsBorderStyleLightStrokeWeight} ${border.BordersDdsBorderStyleLightStroke} solid `;
+
+export const typographyTypes: { [k: string]: StaticTypographyType } = {
+  navLink: 'bodySans01',
+};
 
 const navLink = {
   base: {
     color: colors.DdsColorNeutralsGray9,
-    textDecoration: 'none',
     backgroundColor: colors.DdsColorNeutralsWhite,
     padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
-    font: fontPackages.body_sans_01.base,
   },
   hover: {
     color: colors.DdsColorInteractiveDark,

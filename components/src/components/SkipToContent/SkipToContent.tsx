@@ -2,15 +2,24 @@ import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 import { Property } from 'csstype';
-import { focusVisibleTransitionValue } from '../../helpers/styling';
+import {
+  focusVisibleOnDark,
+  focusVisibleTransitionValue,
+} from '../../helpers/styling';
 import {
   BaseComponentProps,
   getBaseHTMLProps,
   joinClassNames,
 } from '../../types';
+import {
+  getFontStyling,
+  defaultTypographyType,
+} from '../Typography/Typography.utils';
+
+const { wrapper, link } = tokens;
 
 type WrapperProps = {
-  top: Property.Top<string | number>;
+  top: Property.Top;
 };
 
 const Wrapper = styled.div<WrapperProps>`
@@ -18,16 +27,18 @@ const Wrapper = styled.div<WrapperProps>`
   position: absolute;
   top: ${({ top }) => top};
   text-align: center;
-  opacity: 0;
-  @media (prefers-reduced-motion: no-preference) {
-    transition: opacity 0.2s;
-  }
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   width: 1px;
   white-space: nowrap;
-  ${tokens.wrapper.base}
+  background-color: ${wrapper.backgroundColor};
+  padding: ${wrapper.padding};
+  opacity: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s;
+  }
 
   &:focus-within {
     clip: auto;
@@ -40,15 +51,18 @@ const Wrapper = styled.div<WrapperProps>`
 `;
 
 const Link = styled.a`
-  ${tokens.link.base}
+  text-decoration: none;
+  color: ${link.base.color};
+  ${getFontStyling(defaultTypographyType)}
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: ${focusVisibleTransitionValue};
+  }
   &:focus {
-    ${tokens.link.focus.base}
-    @media (prefers-reduced-motion: no-preference) {
-      transition: ${focusVisibleTransitionValue};
-    }
+    ${focusVisibleOnDark}
   }
   &:hover {
-    ${tokens.link.hover.base}
+    color: ${link.base.color};
   }
 `;
 
@@ -60,7 +74,7 @@ export type SkipToContentProps = BaseComponentProps<
     /**Spesifiserer hvor det skal hoppes til via `id`-attributtet til innholdet. */
     href: string;
     /**Avstand fra top i nærmeste posisjonert container. */
-    top?: Property.Top<string | number>;
+    top?: Property.Top;
   }
 >;
 

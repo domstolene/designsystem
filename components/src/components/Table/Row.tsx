@@ -1,6 +1,10 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { focusVisibleInset } from '../../helpers/styling';
+import {
+  getFontStyling,
+  defaultTypographyType,
+} from '../Typography/Typography.utils';
 import { tableTokens } from './Table.tokens';
 
 const { row } = tableTokens;
@@ -32,8 +36,7 @@ const StyledRow = styled.tr<StyledProps>`
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
   }
-  ${row.base.font}
-  color: ${row.base.color};
+  ${getFontStyling(defaultTypographyType, true)}
 
   ${({ type }) =>
     type === 'head' &&

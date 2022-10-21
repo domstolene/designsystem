@@ -10,30 +10,33 @@ import {
   Backdrop,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
+  Paper,
 } from '../../helpers';
 import { useMountTransition } from '../../hooks/useMountTransition';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
-import { selection } from '../../helpers/styling';
+import { focusVisible, selection } from '../../helpers/styling';
 
-const Container = styled.div`
+const { container, contentContainer } = tokens;
+
+const Container = styled(Paper)`
   display: flex;
   flex-direction: column-reverse;
-  box-sizing: border-box;
-  margin: 0;
   min-width: 200px;
+  padding: ${container.padding};
   &::selection,
   *::selection {
     ${selection}
   }
-  ${tokens.base}
-  :focus-visible, &.focus-visible {
-    ${tokens.focus.base}
+  :focus-visible,
+  &.focus-visible {
+    ${focusVisible}
   }
 `;
 const ContentContainer = styled.div`
   display: grid;
-  ${tokens.contentContainer.base}
+  padding-right: ${contentContainer.paddingRight};
+  gap: ${contentContainer.gap};
 `;
 const HeaderContainer = styled.div``;
 
@@ -119,7 +122,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   return isOpen || hasTransitionedIn
     ? createPortal(
         <Backdrop {...backdropProps}>
-          <Container {...containerProps}>
+          <Container {...containerProps} elevation={4}>
             <ContentContainer>
               {header && (
                 <HeaderContainer {...headerContainerProps}>

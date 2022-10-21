@@ -1,97 +1,42 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
-import { focusVisible } from '../../helpers/styling';
-import { removeButtonStyling } from '../../helpers/styling';
 
-const { border: Border, spacing: Spacing, colors: Colors } = ddsBaseTokens;
+const { border, spacing, colors } = ddsBaseTokens;
 
-const tabList: CSSObject = {
-  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid ${Border.BordersDdsBorderStyleLightStroke}`,
+const tabList = {
+  borderBottom: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${border.BordersDdsBorderStyleLightStroke}`,
+};
+const tab = {
+  base: {
+    borderBottom: `${border.BordersDdsBorderStyleLightStrokeWeight} solid transparent`,
+    color: colors.DdsColorNeutralsGray7,
+  },
+  row: {
+    padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+    gap: spacing.SizesDdsSpacingLocalX05,
+  },
+  column: {
+    padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX025}`,
+    gap: spacing.SizesDdsSpacingLocalX025,
+  },
+  active: {
+    backgroundColor: colors.DdsColorInteractiveLightest,
+    color: colors.DdsColorInteractiveDarkest,
+    boxShadow: `inset 0 -2px 0 0 ${colors.DdsColorInteractiveDarker}`,
+    borderColor: colors.DdsColorInteractiveDarker,
+  },
+  hover: {
+    color: colors.DdsColorInteractiveDarkest,
+    boxShadow: `inset 0 -2px 0 0 ${colors.DdsColorInteractiveDarker}`,
+    borderColor: colors.DdsColorInteractiveDarker,
+  },
 };
 
-const tabBase: CSSObject = {
-  ...removeButtonStyling,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  borderBottom: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid transparent`,
-  color: Colors.DdsColorNeutralsGray7,
-};
-
-const tabRowBase: CSSObject = {
-  flexDirection: 'row',
-  padding: `${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX05}`,
-  gap: Spacing.SizesDdsSpacingLocalX05,
-};
-
-const tabColumnBase: CSSObject = {
-  flexDirection: 'column',
-  padding: `${Spacing.SizesDdsSpacingLocalX05} ${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX025} ${Spacing.SizesDdsSpacingLocalX025}`,
-  gap: Spacing.SizesDdsSpacingLocalX025,
-};
-
-const tabActiveBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveLightest,
-  color: Colors.DdsColorInteractiveDarkest,
-  boxShadow: `inset 0 -2px 0 0 ${Colors.DdsColorInteractiveDarker}`,
-  borderBottom: `1px solid ${Colors.DdsColorInteractiveDarker}`,
-};
-
-const tabHoverBase: CSSObject = {
-  color: Colors.DdsColorInteractiveDarkest,
-  boxShadow: `inset 0 -2px 0 0 ${Colors.DdsColorInteractiveDarker}`,
-  borderBottom: `1px solid ${Colors.DdsColorInteractiveDarker}`,
-};
-
-const tabActiveHoverBase: CSSObject = {
-  backgroundColor: Colors.DdsColorInteractiveLightest,
-  color: Colors.DdsColorInteractiveDarkest,
-  boxShadow: `inset 0 -2px 0 0 ${Colors.DdsColorInteractiveDarker}`,
-  borderBottom: `1px solid ${Colors.DdsColorInteractiveDarker}`,
-};
-
-const tabFocusBase: CSSObject = {
-  ...focusVisible,
-  outlineOffset: '-1px',
-};
-
-const tabPanelBase: CSSObject = {
-  padding: Spacing.SizesDdsSpacingLocalX025,
-};
-
-const tabPanelFocusVisibleBase: CSSObject = {
-  ...focusVisible,
+const panel = {
+  padding: spacing.SizesDdsSpacingLocalX025,
 };
 
 export const tabsTokens = {
   tabList,
-  tab: {
-    base: tabBase,
-    direction: {
-      row: {
-        base: tabRowBase,
-      },
-      column: {
-        base: tabColumnBase,
-      },
-    },
-    active: {
-      base: tabActiveBase,
-    },
-    hover: {
-      base: tabHoverBase,
-      active: {
-        base: tabActiveHoverBase,
-      },
-    },
-    focus: {
-      base: tabFocusBase,
-    },
-  },
-  panel: {
-    base: tabPanelBase,
-    focusVisible: {
-      base: tabPanelFocusVisibleBase,
-    },
-  },
+  tab,
+  panel,
 };

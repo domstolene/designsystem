@@ -7,29 +7,19 @@ import {
   useId,
   useState,
 } from 'react';
-import styled, { css } from 'styled-components';
 import { renderInputMessage, RequiredMarker } from '../../helpers';
-import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 import { Typography } from '../Typography';
 import { combineHandlers } from '../../utils';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  ${tokens.container.base}
-`;
-
-const GroupContainer = styled.div<{ direction: Direction }>`
-  display: flex;
-  ${({ direction }) => css`
-    flex-direction: ${direction};
-    ${tokens.groupContainer.direction[direction].base}
-  `}
-`;
-
-type Direction = 'column' | 'row';
+import {
+  BaseComponentPropsWithChildren,
+  Direction,
+  getBaseHTMLProps,
+} from '../../types';
+import {
+  OuterGroupContainer,
+  GroupContainer,
+} from '../../helpers/SelectionControl';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<
@@ -102,7 +92,6 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   );
 
   const hasErrorMessage = !!errorMessage;
-  const hasTip = !!tip;
   const showRequiredMarker = required || ariaRequired;
 
   const tipId = tip && `${uniqueGroupId}-tip`;
@@ -120,7 +109,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   };
 
   return (
-    <Container
+    <OuterGroupContainer
       {...getBaseHTMLProps(
         id,
         className,
@@ -149,7 +138,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
         </GroupContainer>
       </RadioButtonGroupContext.Provider>
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
-    </Container>
+    </OuterGroupContainer>
   );
 };
 

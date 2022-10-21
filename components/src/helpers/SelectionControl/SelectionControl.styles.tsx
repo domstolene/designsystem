@@ -1,8 +1,15 @@
 import styled, { css } from 'styled-components';
+import { Direction } from '../../types';
 import { focusVisible, focusVisibleTransitionValue } from '../styling';
 import { selectionControlTokens } from './SelectionControl.tokens';
 
-const { selectionControl, container, checkmark } = selectionControlTokens;
+const {
+  selectionControl,
+  container,
+  checkmark,
+  groupContainer,
+  outerGroupContainer,
+} = selectionControlTokens;
 
 type SelectionControlType = 'radio' | 'checkbox';
 
@@ -169,4 +176,18 @@ export const Container = styled.label<ContainerProps>`
             top: ${checkmark.radio.top};
           }
         `}
+`;
+
+export const OuterGroupContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${outerGroupContainer.gap};
+`;
+
+export const GroupContainer = styled.div<{ direction: Direction }>`
+  display: flex;
+  ${({ direction }) => css`
+    flex-direction: ${direction};
+    gap: ${groupContainer[direction].gap};
+  `}
 `;

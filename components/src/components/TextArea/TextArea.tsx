@@ -10,11 +10,11 @@ import styled from 'styled-components';
 import {
   getDefaultText,
   OuterInputContainer,
-  inputTokens,
   StatefulInput,
   StyledInputProps,
   CommonInputProps,
   renderInputMessage,
+  inputTypographyTypes,
 } from '../../helpers/Input';
 import { useCombinedRef } from '../../hooks';
 import {
@@ -25,6 +25,7 @@ import { scrollbarStyling } from '../ScrollableContainer';
 import { Label } from '../Typography';
 import { textAreaTokens } from './TextArea.tokens';
 import { Property } from 'csstype';
+import { getFontStyling } from '../Typography/Typography.utils';
 
 const defaultWidth: Property.Width<string> = '320px';
 const { textarea } = textAreaTokens;
@@ -36,7 +37,7 @@ export const StyledTextArea = styled(StatefulInput)<StyledInputProps>`
   resize: vertical;
   vertical-align: bottom;
   padding-bottom: ${textarea.paddingBottom};
-  ${inputTokens.input.sizes.medium.font}
+  ${getFontStyling(inputTypographyTypes.medium)}
 `;
 
 export type TextAreaProps = CommonInputProps &

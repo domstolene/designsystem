@@ -12,12 +12,16 @@ import {
   ForwardedRef,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
+import {
+  overflowMenuTokens as tokens,
+  typographyType,
+} from './OverflowMenu.tokens';
 import { Icon } from '../Icon';
 import { useCombinedRef } from '../../hooks';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { SvgIcon } from '../../icons/utils';
 import { focusVisibleLink } from '../../helpers/styling';
+import { getFontStyling } from '../Typography/Typography.utils';
 
 const { element, link } = tokens;
 
@@ -30,7 +34,7 @@ const elementBaseCSS = css`
   background-color: ${element.base.backgroundColor};
   padding: ${element.base.padding};
   gap: ${element.base.gap};
-  ${element.base.font}
+  ${getFontStyling(typographyType)}
 `;
 
 export const Span = styled.span`

@@ -1,90 +1,74 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 import { ErrorIcon, InfoIcon, WarningIcon } from '../../icons/tsx';
+import { SvgIcon } from '../../icons/utils';
+import { ButtonPurpose } from '../Button';
+import { StaticTypographyType } from '../Typography';
+import { GlobalMessagePurpose } from './GlobalMessage';
 
-const {
-  colors: Colors,
-  spacing: Spacing,
-  fontPackages: FontPackages,
-} = ddsBaseTokens;
+const { colors, spacing } = ddsBaseTokens;
 
-const containerBase: CSSObject = {
+export const typographyType: StaticTypographyType = 'bodySans02';
+
+const container = {
   borderBottom: '2px solid',
-  padding: `0 ${Spacing.SizesDdsSpacingLocalX1}`,
-  width: '100%',
-  ...FontPackages.body_sans_02.base,
-  color: Colors.DdsColorNeutralsGray8,
+  padding: `0 ${spacing.SizesDdsSpacingLocalX1}`,
+  info: {
+    borderColor: colors.DdsColorInfoLighter,
+    backgroundColor: colors.DdsColorInfoLightest,
+  },
+  danger: {
+    borderColor: colors.DdsColorDangerLighter,
+    backgroundColor: colors.DdsColorDangerLightest,
+  },
+  warning: {
+    borderColor: colors.DdsColorWarningLighter,
+    backgroundColor: colors.DdsColorWarningLightest,
+  },
 };
 
-const contentContainerBase: CSSObject = {
-  paddingRight: Spacing.SizesDdsSpacingLocalX15,
-  paddingTop: Spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: Spacing.SizesDdsSpacingLocalX075,
-  gap: Spacing.SizesDdsSpacingLocalX075,
+const contentContainer = {
+  paddingRight: spacing.SizesDdsSpacingLocalX15,
+  paddingTop: spacing.SizesDdsSpacingLocalX075,
+  paddingBottom: spacing.SizesDdsSpacingLocalX075,
+  gap: spacing.SizesDdsSpacingLocalX075,
+  withClosable: {
+    paddingRight: spacing.SizesDdsSpacingLocalX075,
+  },
 };
 
-const contentContainerWithClosableBase: CSSObject = {
-  paddingRight: Spacing.SizesDdsSpacingLocalX075,
-};
-
-const containerInfoBase: CSSObject = {
-  borderColor: Colors.DdsColorInfoLighter,
-  backgroundColor: Colors.DdsColorInfoLightest,
-};
-
-const containerDangerBase: CSSObject = {
-  borderColor: Colors.DdsColorDangerLighter,
-  backgroundColor: Colors.DdsColorDangerLightest,
-};
-
-const containerWarningBase: CSSObject = {
-  borderColor: Colors.DdsColorWarningLighter,
-  backgroundColor: Colors.DdsColorWarningLightest,
+export const purposeVariants: {
+  [k in GlobalMessagePurpose]: {
+    icon: SvgIcon;
+    closeButtonPurpose: ButtonPurpose;
+  };
+} = {
+  info: {
+    icon: InfoIcon,
+    closeButtonPurpose: 'secondary',
+  },
+  danger: {
+    icon: ErrorIcon,
+    closeButtonPurpose: 'danger',
+  },
+  warning: {
+    icon: WarningIcon,
+    closeButtonPurpose: 'secondary',
+  },
 };
 
 export const globalMessageTokens = {
-  container: {
-    base: containerBase,
-    info: {
-      base: containerInfoBase,
-    },
-    danger: {
-      base: containerDangerBase,
-    },
-    warning: {
-      base: containerWarningBase,
-    },
-  },
-  contentContainer: {
-    base: contentContainerBase,
-    withClosable: {
-      base: contentContainerWithClosableBase,
-    },
-  },
+  container,
+  contentContainer,
   icon: {
-    marginRight: `${Spacing.SizesDdsSpacingLocalX075}`,
+    marginRight: `${spacing.SizesDdsSpacingLocalX075}`,
     info: {
-      icon: InfoIcon,
-      color: Colors.DdsColorInfoDarkest,
+      color: colors.DdsColorInfoDarkest,
     },
     danger: {
-      icon: ErrorIcon,
-      color: Colors.DdsColorDangerDarkest,
+      color: colors.DdsColorDangerDarkest,
     },
     warning: {
-      icon: WarningIcon,
-      color: Colors.DdsColorWarningDarkest,
-    },
-  },
-  button: {
-    info: {
-      purpose: 'secondary',
-    },
-    danger: {
-      purpose: 'danger',
-    },
-    warning: {
-      purpose: 'secondary',
+      color: colors.DdsColorWarningDarkest,
     },
   },
 };

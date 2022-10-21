@@ -7,12 +7,12 @@ import {
   hoverInputfield,
   selection,
 } from '../../helpers/styling';
-import { focusVisibleLink } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { selectTokens as tokens } from './Select.tokens';
+import { selectTokens as tokens, typographyTypes } from './Select.tokens';
 import { Property } from 'csstype';
 import { Icon } from '../Icon';
 import { InputSize } from '../../helpers';
+import { getFontStyling } from '../Typography/Typography.utils';
 
 const {
   control,
@@ -59,13 +59,16 @@ export const Container = styled.div<StyledContainerProps>`
         : isMulti && componentSize !== 'tiny'
         ? control.isMulti.sizes[componentSize].padding
         : control.sizes[componentSize].padding};
-      ${control.sizes[componentSize].font};
+      ${getFontStyling(typographyTypes.control[componentSize], true)}
     }
     .${prefix}__option {
-      ${option.sizes[componentSize].font}
+      ${getFontStyling(typographyTypes.option[componentSize], true)}
     }
     .${prefix}__placeholder {
-      ${placeholder.sizes[componentSize].font}
+      ${getFontStyling(typographyTypes.placeholder[componentSize])}
+    }
+    .${prefix}__menu-notice--no-options {
+      ${getFontStyling(typographyTypes.noOptionsMessage[componentSize])}
     }
   `}
 
@@ -199,8 +202,8 @@ export const getCustomStyles = <TOption>(): Partial<
   multiValueLabel: provided => ({
     ...provided,
     padding: multiValueLabel.padding,
+    ...getFontStyling(typographyTypes.multiValueLabel),
     color: multiValueLabel.color,
-    ...multiValueLabel.font,
   }),
   multiValueRemove: (provided, state) =>
     state.selectProps.isDisabled
@@ -241,8 +244,8 @@ export const getCustomStyles = <TOption>(): Partial<
     boxSizing: 'border-box',
   }),
   groupHeading: () => ({
+    ...getFontStyling(typographyTypes.groupHeading),
     color: groupHeading.color,
-    ...groupHeading.font,
     padding: groupHeading.padding,
   }),
   menuList: () => ({
@@ -260,9 +263,7 @@ export const getCustomStyles = <TOption>(): Partial<
     alignItems: 'center',
     gap: option.base.gap,
     padding: option.base.padding,
-    color: option.base.color,
     backgroundColor: option.base.backgroundColor,
-    ...option.base.font,
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',
     },
@@ -281,7 +282,6 @@ export const getCustomStyles = <TOption>(): Partial<
   noOptionsMessage: () => ({
     padding: noOptionsMessage.padding,
     color: noOptionsMessage.color,
-    ...noOptionsMessage.font,
   }),
   clearIndicator: () => ({
     display: 'inline-flex',

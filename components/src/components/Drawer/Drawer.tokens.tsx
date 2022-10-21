@@ -1,50 +1,29 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
-const { spacing: Spacing } = ddsBaseTokens;
+const { spacing } = ddsBaseTokens;
 
-const containerBase: CSSObject = {
+const contentContainerPaddingNumberPx =
+  spacing.SizesDdsSpacingLocalX025NumberPx;
+const contentContainerPadding = `${contentContainerPaddingNumberPx}px`;
+
+const container = {
   padding: `${
-    Spacing.SizesDdsSpacingLocalX1NumberPx -
-    Spacing.SizesDdsSpacingLocalX025NumberPx
+    spacing.SizesDdsSpacingLocalX1NumberPx - contentContainerPaddingNumberPx
   }px ${
-    Spacing.SizesDdsSpacingLocalX1NumberPx -
-    Spacing.SizesDdsSpacingLocalX025NumberPx
+    spacing.SizesDdsSpacingLocalX1NumberPx - contentContainerPaddingNumberPx
   }px ${
-    Spacing.SizesDdsSpacingLocalX1NumberPx -
-    Spacing.SizesDdsSpacingLocalX025NumberPx
+    spacing.SizesDdsSpacingLocalX1NumberPx - contentContainerPaddingNumberPx
   }px ${
-    Spacing.SizesDdsSpacingLocalX15NumberPx -
-    Spacing.SizesDdsSpacingLocalX025NumberPx
+    spacing.SizesDdsSpacingLocalX15NumberPx - contentContainerPaddingNumberPx
   }px`,
 };
 
-const contentContainerBase: CSSObject = {
-  gap: Spacing.SizesDdsSpacingLocalX1,
-  padding: Spacing.SizesDdsSpacingLocalX025,
-};
-
-const containerLarge: CSSObject = {
-  maxWidth: '800px',
-};
-
-const containerSmall: CSSObject = {
-  maxWidth: '400px',
+const contentContainer = {
+  gap: spacing.SizesDdsSpacingLocalX1,
+  padding: contentContainerPadding,
 };
 
 export const drawerTokens = {
-  container: {
-    base: containerBase,
-    size: {
-      large: {
-        base: containerLarge,
-      },
-      small: {
-        base: containerSmall,
-      },
-    },
-  },
-  contentContainer: {
-    base: contentContainerBase,
-  },
+  container,
+  contentContainer,
 };

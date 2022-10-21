@@ -1,5 +1,6 @@
 import { InputHTMLAttributes } from 'react';
 import { Property } from 'csstype';
+import { StaticTypographyType } from '../../components/Typography';
 
 export type CommonInputProps = {
   /**Ledetekst for input. */
@@ -28,3 +29,5 @@ export type StyledCommonInputProps = Pick<
 
 export type StyledInputProps = StyledCommonInputProps &
   Pick<InputProps, 'componentSize'>;
+
+export type InputTypographyTypes = { [k in InputSize]: StaticTypographyType };

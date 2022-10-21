@@ -1,12 +1,83 @@
 import styled, { css } from 'styled-components';
-import { focusVisibleTransitionValue, selection } from '../../helpers/styling';
-import { buttonTokens as tokens } from './Button.tokens';
+import {
+  focusVisible,
+  focusVisibleTransitionValue,
+  selection,
+} from '../../helpers/styling';
+import { getFontStyling } from '../Typography/Typography.utils';
+import { buttonTokens as tokens, typographyTypes } from './Button.tokens';
 import {
   ButtonAppearance,
   ButtonPurpose,
   ButtonSize,
   IconPosition,
 } from './Button.types';
+
+const {
+  button: { base, sizes, appearances },
+} = tokens;
+
+const getAppearanceAndPurposeStyling = (
+  appearance: ButtonAppearance,
+  purpose: ButtonPurpose
+) => {
+  switch (appearance) {
+    case 'filled':
+    case 'rounded':
+      return css`
+        background-color: ${appearances[appearance].purpose[purpose].base
+          .backgroundColor};
+        border-color: ${appearances[appearance].purpose[purpose].base
+          .borderColor};
+        &:hover {
+          background-color: ${appearances[appearance].purpose[purpose].hover
+            .backgroundColor};
+          border-color: ${appearances[appearance].purpose[purpose].hover
+            .borderColor};
+        }
+        &:active {
+          background-color: ${appearances[appearance].purpose[purpose].active
+            .backgroundColor};
+          border-color: ${appearances[appearance].purpose[purpose].active
+            .borderColor};
+        }
+      `;
+    case 'ghost':
+      return css`
+        background-color: ${appearances.ghost.base.backgroundColor};
+        border-color: ${appearances.ghost.purpose[purpose].base.borderColor};
+        &:hover {
+          color: ${appearances.ghost.purpose[purpose].hover.color};
+          border-color: ${appearances.ghost.purpose[purpose].hover.borderColor};
+          box-shadow: ${appearances.ghost.purpose[purpose].hover.boxShadow};
+        }
+        &:active {
+          color: ${appearances.ghost.purpose[purpose].active.color};
+          border-color: ${appearances.ghost.purpose[purpose].active
+            .borderColor};
+          box-shadow: ${appearances.ghost.purpose[purpose].active.boxShadow};
+        }
+      `;
+    case 'borderless':
+      return css`
+        background-color: ${appearances.borderless.base.backgroundColor};
+        border-color: ${appearances.borderless.base.borderColor};
+        text-decoration: ${appearances.borderless.base.textDecoration};
+        text-decoration-color: ${appearances.borderless.base
+          .textDecorationColor};
+        &:hover {
+          color: ${appearances.borderless.purpose[purpose].hover.color};
+          text-decoration-color: ${appearances.borderless.purpose[purpose].hover
+            .textDecorationColor};
+        }
+        &:active {
+          color: ${appearances.borderless.purpose[purpose].active.color};
+          text-decoration-color: ${appearances.borderless.purpose[purpose]
+            .active.textDecorationColor};
+        }
+      `;
+  }
+};
 
 type ButtonWrapperProps = {
   appearance: ButtonAppearance;
@@ -20,7 +91,7 @@ type ButtonWrapperProps = {
 };
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
-  ${tokens.base}
+  border: ${base.border};
   user-select: text;
   display: inline-flex;
   align-items: center;
@@ -30,6 +101,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   cursor: pointer;
   box-shadow: none;
   text-decoration: none;
+
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color 0.2s, text-decoration-color 0.2s,
       box-shadow 0.2s, border-color 0.2s, color 0.2s,
@@ -38,16 +110,10 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
 
   ${({ appearance, purpose }) =>
     css`
-      ${tokens.appearance[appearance].base}
-      ${tokens.appearance[appearance][purpose].base}
-
-      &:hover {
-        ${tokens.appearance[appearance][purpose].hover.base}
-      }
-
-      &:active {
-        ${tokens.appearance[appearance][purpose].active.base}
-      }
+      border-radius: ${appearances[appearance].base.borderRadius};
+      box-shadow: ${appearances[appearance].base.boxShadow};
+      color: ${appearances[appearance].purpose[purpose].base.color};
+      ${getAppearanceAndPurposeStyling(appearance, purpose)}
     `}
 
   ${({ hasIcon, hasLabel, appearance, purpose }) =>
@@ -56,20 +122,30 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     appearance === 'borderless' &&
     css`
       &:hover {
-        ${tokens.appearance[appearance][purpose].justIcon.hover.base}
+        border-color: ${appearances[appearance].purpose[purpose].icon.hover.borderColor};
+        box-shadow: ${appearances[appearance].purpose[purpose].icon.hover.boxShadow};
       }
       &:active {
-        ${tokens.appearance[appearance][purpose].justIcon.active.base}
+        border-color:: ${appearances[appearance].purpose[purpose].icon.active.borderColor};
+        box-shadow: ${appearances[appearance].purpose[purpose].icon.active.boxShadow};
       }
+    `}
+    ${({ hasIcon, hasLabel, size }) =>
+    hasIcon &&
+    hasLabel &&
+    css`
+      gap: ${sizes[size].textAndIcon.gap};
     `}
 
   ${({ size, hasLabel }) =>
     hasLabel
       ? css`
-          ${tokens.sizes[size].text.base}
+          ${getFontStyling(typographyTypes[size])}
+          padding: ${sizes[size].text.padding};
         `
       : css`
-          ${tokens.sizes[size].justIcon.base}
+          font-size: ${sizes[size].justIcon.icon.fontSize};
+          padding: ${sizes[size].justIcon.icon.padding};
         `}
 
   ${({ fullWidth, hasIcon, hasLabel, isLoading, iconPosition }) =>
@@ -87,7 +163,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
         `)}
 
   &:focus-visible, &.focus-visible {
-    ${tokens.focus.base}
+    ${focusVisible}
   }
 
   *::selection {
@@ -100,6 +176,7 @@ type StyledIconWrapperSpanProps = {
   size: ButtonSize;
   absolutePosition?: boolean;
   isHidden?: boolean;
+  justIcon?: boolean;
 };
 
 export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
@@ -116,18 +193,12 @@ export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
     css`
       visibility: hidden;
     `}
-  ${({ size, iconPosition }) =>
-    iconPosition === 'left'
-      ? css`
-          margin-inline-end: ${tokens.sizes[size].iconWithTextMargin};
-        `
-      : iconPosition === 'right'
-      ? css`
-          margin-inline-start: ${tokens.sizes[size].iconWithTextMargin};
-        `
-      : css`
-          ${tokens.sizes[size].justIconWrapper.base}
-        `}
+  ${({ justIcon, size }) =>
+    justIcon &&
+    css`
+      height: ${sizes[size].justIcon.wrapper.height};
+      width: ${sizes[size].justIcon.wrapper.width};
+    `}
 `;
 
 type LabelProps = {

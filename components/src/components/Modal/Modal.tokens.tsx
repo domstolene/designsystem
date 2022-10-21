@@ -1,40 +1,21 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
-import { focusVisible } from '../../helpers/styling';
 
-const {
-  borderRadius: BorderRadius,
-  colors: Colors,
-  outerShadow: OuterShadow,
-  spacing: Spacing,
-} = ddsBaseTokens;
+const { spacing } = ddsBaseTokens;
 
-const base: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-  boxShadow: OuterShadow.DdsShadow4Onlight,
-  borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-  padding: `${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX1} ${Spacing.SizesDdsSpacingLocalX15} ${Spacing.SizesDdsSpacingLocalX15}`,
+const container = {
+  padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15} ${spacing.SizesDdsSpacingLocalX15}`,
 };
 
-const contentContainerBase: CSSObject = {
-  paddingRight: Spacing.SizesDdsSpacingLocalX1,
-  gap: Spacing.SizesDdsSpacingLocalX1,
+const contentContainer = {
+  paddingRight: spacing.SizesDdsSpacingLocalX1,
+  gap: spacing.SizesDdsSpacingLocalX1,
 };
-const actionsContainerBase: CSSObject = {
-  gap: Spacing.SizesDdsSpacingLocalX1,
-};
-
-const focusBase: CSSObject = {
-  ...focusVisible,
+const actionsContainer = {
+  gap: spacing.SizesDdsSpacingLocalX1,
 };
 
 export const modalTokens = {
-  base: base,
-  focus: { base: focusBase },
-  contentContainer: {
-    base: contentContainerBase,
-  },
-  actionsContainer: {
-    base: actionsContainerBase,
-  },
+  container,
+  contentContainer,
+  actionsContainer,
 };

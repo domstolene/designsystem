@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Property } from 'csstype';
 import { getTextColor, TextColor } from '../../utils';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { spinnerTokens as tokens } from './Spinner.tokens';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 type StyledSpinnerProps = Pick<SpinnerProps, 'size'> & {
@@ -34,7 +33,6 @@ type CircleProps = Pick<SpinnerProps, 'color'> & {
 };
 
 const Circle = styled.circle<CircleProps>`
-  ${tokens.circle.base}
   stroke: ${({ color }) => color && getTextColor(color)};
   stroke-linecap: round;
 

@@ -2,9 +2,17 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
+import { StaticTypographyType } from '../Typography';
+import { SearchSize } from './Search';
 
-const { spacing, fontPackages, iconSizes } = ddsBaseTokens;
+const { spacing, iconSizes } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
+
+export const typographyTypes: { [k in SearchSize]: StaticTypographyType } = {
+  small: 'bodySans01',
+  medium: 'bodySans02',
+  large: 'bodySans04',
+};
 
 const paddingLeftSmall = `${
   spacing.SizesDdsSpacingLocalX075NumberPx +
@@ -30,19 +38,16 @@ const input = {
   },
   sizes: {
     small: {
-      font: fontPackages.body_sans_01.base,
       paddingTop: spacing.SizesDdsSpacingLocalX05,
       paddingBottom: spacing.SizesDdsSpacingLocalX05,
       paddingLeft: paddingLeftSmall,
     },
     medium: {
-      font: fontPackages.body_sans_02.base,
       paddingTop: spacing.SizesDdsSpacingLocalX075,
       paddingBottom: spacing.SizesDdsSpacingLocalX075,
       paddingLeft: paddingLeftMedium,
     },
     large: {
-      font: fontPackages.body_sans_04.base,
       paddingTop: spacing.SizesDdsSpacingLocalX1,
       paddingBottom: spacing.SizesDdsSpacingLocalX1,
       paddingLeft: paddingLeftLarge,

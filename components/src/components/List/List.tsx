@@ -1,56 +1,61 @@
 import { ElementType, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import bullet from '../../assets/svg/bullets/jordskifterett_bullet1.svg';
+import bulletLvl1 from '../../assets/svg/bullets/jordskifterett_bullet1.svg';
 import bulletLvl2 from '../../assets/svg/bullets/lagmannsrett_bullet2.svg';
 import bulletLvl3 from '../../assets/svg/bullets/tingrett_bullet3.svg';
 import { TypographyBodyType } from '../Typography';
-import { listItemTokens } from './ListItem.tokens';
 import { listTokens as tokens } from './List.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { selection } from '../../helpers/styling';
+import { getFontStyling } from '../Typography/Typography.utils';
 
-const liTextPadding = `1em + ${listItemTokens.bulletSpacing}`;
-const ulPaddingLeft = `${tokens.spaceLeft} - (${liTextPadding})`;
+const { list, listItem, bullet } = tokens;
 
-type StyledListProps = Pick<ListProps, 'listType' | 'typographyType'>;
+type StyledListProps = {
+  listType: ListType;
+  typographyType: ListTypographyType;
+};
 
 const StyledList = styled.ul<StyledListProps>`
-  ${tokens.base}
-  ul, ol {
+  margin: ${list.base.margin};
+  color: ${list.base.color};
+  ul,
+  ol {
     margin: 0;
   }
   *::selection {
     ${selection}
   }
+
   ${({ typographyType }) =>
-    typographyType &&
-    css`
-      ${tokens.sizes[typographyType]}
-      ul,
-      ol {
-        ${tokens.sizes[typographyType]}
-      }
-    `}
+    typographyType === 'inherit'
+      ? css`
+          font: inherit;
+        `
+      : css`
+          ${getFontStyling(typographyType)}
+        `}
+
   ${({ listType }) =>
     listType === 'unordered'
       ? css`
-          padding-left: ${`calc(${ulPaddingLeft})`};
+          padding-left: ${list.ul.paddingLeft};
           list-style: none;
           li {
             position: relative;
-            padding-left: ${`calc(${liTextPadding})`};
+            padding-left: ${listItem.ul.paddingLeft};
             &:before {
               content: '';
               display: inline-block;
               height: 1em;
               width: 1em;
               position: absolute;
-              top: ${`calc((${listItemTokens.base.lineHeight} / 2) - 0.5em )`};
+              top: ${bullet.top};
               left: 0;
               background-size: contain;
               background-repeat: no-repeat;
               // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-              background-image: ${`url("${bullet}")`};
+              background-image: ${`url("${bulletLvl1}")`};
             }
             ul > li:before {
               // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
@@ -63,7 +68,7 @@ const StyledList = styled.ul<StyledListProps>`
           }
         `
       : css`
-          padding-left: ${tokens.spaceLeft};
+          padding-left: ${list.ol.paddingLeft};
           & > li > ol {
             list-style-type: lower-alpha;
           }

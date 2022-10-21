@@ -1,16 +1,27 @@
 import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
-import { chipTokens as tokens } from './Chip.tokens';
+import { chipTokens as tokens, typographyType } from './Chip.tokens';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
+import {
+  TextOverflowEllipsisInner,
+  TextOverflowEllipsisWrapper,
+} from '../../helpers/TextOverflowEllipsis';
+import { getFontStyling } from '../Typography/Typography.utils';
 
-const Container = styled.div`
-  ${tokens.container.base}
-`;
+const { container } = tokens;
 
-const TextWrapper = styled.span`
-  ${tokens.text.base}
+const Container = styled(TextOverflowEllipsisWrapper)`
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  gap: ${container.gap};
+  padding: ${container.padding};
+  border: ${container.border};
+  border-radius: ${container.borderRadius};
+  background-color: ${container.backgroundColor};
+  ${getFontStyling(typographyType, true)};
 `;
 
 export type ChipProps = BaseComponentProps<
@@ -39,8 +50,9 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
     <Container
       {...getBaseHTMLProps(id, className, restHTMLprops, rest)}
       ref={ref}
+      as="div"
     >
-      <TextWrapper>{text}</TextWrapper>
+      <TextOverflowEllipsisInner>{text}</TextOverflowEllipsisInner>
       <Button
         size="tiny"
         icon={CloseIcon}

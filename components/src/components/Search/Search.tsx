@@ -7,7 +7,7 @@ import {
 } from 'react';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
-import { searchTokens as tokens } from './Search.tokens';
+import { searchTokens as tokens, typographyTypes } from './Search.tokens';
 import {
   Input as BaseInput,
   InputProps as BaseInputProps,
@@ -20,6 +20,7 @@ import {
 import { Icon, IconSize } from '../Icon';
 import { SearchIcon } from '../../icons/tsx';
 import { Label } from '../Typography';
+import { getFontStyling } from '../Typography/Typography.utils';
 
 const { input, outerContainer, horisontalContainer, icon } = tokens;
 
@@ -50,7 +51,7 @@ const Input = styled(BaseInput)<InputProps>`
       padding-top: ${input.sizes[componentSize].paddingTop};
       padding-bottom: ${input.sizes[componentSize].paddingBottom};
       padding-left: ${input.sizes[componentSize].paddingLeft};
-      ${input.sizes[componentSize].font}
+      ${getFontStyling(typographyTypes[componentSize])}
     `}
 `;
 
