@@ -2,10 +2,10 @@ import { forwardRef, InputHTMLAttributes, useId } from 'react';
 import styled from 'styled-components';
 import { EditIcon } from '../../icons/tsx';
 import { Icon } from '../Icon';
-import { InputMessage } from '../InputMessage';
 import {
   InputContainer,
   OuterInputContainer,
+  renderInputMessage,
   StatefulInput,
 } from '../../helpers';
 import {
@@ -49,12 +49,8 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
     const hasErrorMessage = !!errorMessage;
     const hasError = !!error;
     const hasErrorState = hasError || hasErrorMessage;
-    const errorMessageId = derivativeIdGenerator(
-      uniqueId,
-      'errorMessage',
-      errorMessage
-    );
-    const descId = derivativeIdGenerator(uniqueId, 'desc', true);
+    const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+    const descId = derivativeIdGenerator(uniqueId, 'desc');
 
     return (
       <OuterInputContainer width={width}>
@@ -71,21 +67,15 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
             hasErrorMessage={hasErrorState}
             isEditing={isEditing}
             aria-describedby={spaceSeparatedIdListGenerator([
-              errorMessageId,
+              hasErrorMessage ? errorMessageId : undefined,
               descId,
               ariaDescribedby,
             ])}
             aria-invalid={hasErrorState}
           />
         </InputContainer>
-        {descId && inlineEditVisuallyHidden(descId, emptiable)}
-        {hasErrorMessage && (
-          <InputMessage
-            messageType="error"
-            message={errorMessage}
-            id={errorMessageId}
-          />
-        )}
+        {inlineEditVisuallyHidden(descId, emptiable)}
+        {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
       </OuterInputContainer>
     );
   }
