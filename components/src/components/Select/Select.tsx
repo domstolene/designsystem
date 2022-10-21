@@ -23,7 +23,6 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Icon } from '../Icon';
-import { InputMessage } from '../InputMessage';
 import {
   Container,
   getCustomStyles,
@@ -33,7 +32,10 @@ import {
 } from './Select.styles';
 import { Label } from '../Typography';
 import { SvgIcon } from '../../icons/utils';
-import { getFormInputIconSize } from '../../helpers/Input/Input.utils';
+import {
+  getFormInputIconSize,
+  renderInputMessage,
+} from '../../helpers/Input/Input.utils';
 
 const {
   Option,
@@ -254,12 +256,8 @@ const SelectInner = <
   const hasErrorMessage = !!errorMessage;
   const showRequiredStyling = !!(required || ariaRequired);
 
-  const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
-  const errorMessageId = derivativeIdGenerator(
-    uniqueId,
-    'errorMessage',
-    errorMessage
-  );
+  const tipId = derivativeIdGenerator(uniqueId, 'tip');
+  const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
   const containerProps = {
     width,
@@ -306,7 +304,11 @@ const SelectInner = <
         DDSInput(
           { ...props, required, 'aria-required': ariaRequired },
           hasErrorMessage,
-          spaceSeparatedIdListGenerator([singleValueId, tipId, errorMessageId])
+          spaceSeparatedIdListGenerator([
+            singleValueId,
+            tip ? tipId : undefined,
+            errorMessage ? errorMessageId : undefined,
+          ])
         ),
       SingleValue: props =>
         CustomSingleValue(props, singleValueId, customSingleValueElement),
@@ -327,18 +329,7 @@ const SelectInner = <
         </Label>
       )}
       <ReactSelect {...reactSelectProps} ref={ref} />
-
-      {errorMessage && (
-        <InputMessage
-          messageType="error"
-          id={errorMessageId}
-          message={errorMessage}
-        />
-      )}
-
-      {tip && !errorMessage && (
-        <InputMessage messageType="tip" id={tipId} message={tip} />
-      )}
+      {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
     </Container>
   );
 };

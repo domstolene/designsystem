@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, forwardRef, useId } from 'react';
 import { InputSize } from '../../helpers';
-import { InputMessage } from '../InputMessage';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';
 import {
@@ -8,19 +7,18 @@ import {
   InputContainer,
   OuterInputContainer,
 } from '../../helpers';
-import {
-  MessageContainer,
-  TextArea,
-  StyledIcon,
-  StyledInput,
-} from './TextInput.styles';
+import { MessageContainer, StyledIcon, StyledInput } from './TextInput.styles';
 import { Label } from '../Typography';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Property } from 'csstype';
-import { getFormInputIconSize } from '../../helpers/Input';
+import {
+  getDefaultText,
+  getFormInputIconSize,
+  renderInputMessage,
+} from '../../helpers/Input';
 
 const defaultWidth: Property.Width<string> = '320px';
 const defaultTinyWidth: Property.Width<string> = '210px';
@@ -46,7 +44,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       tip,
       required,
       maxLength,
-      multiline,
       onChange,
       id,
       width,
@@ -64,32 +61,13 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     },
     ref
   ) => {
-    const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const [text, setText] = useState<string>(
       getDefaultText(value, defaultValue)
     );
 
-    useEffect(() => {
-      if (textAreaRef && textAreaRef.current) {
-        textAreaRef.current.style.height = `${
-          textAreaRef.current.scrollHeight + 2
-        }px`;
-      }
-    }, [text]);
-
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
       event: React.ChangeEvent<HTMLInputElement>
     ) => {
-      setText(event.target.value);
-
-      if (onChange) {
-        onChange(event);
-      }
-    };
-
-    const onChangeHandlerMultiline: React.ChangeEventHandler<
-      HTMLTextAreaElement
-    > = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       setText(event.target.value);
 
       if (onChange) {
@@ -108,15 +86,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
-      'characterCounter',
-      maxLength && withCharacterCounter
+      'characterCounter'
     );
-    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
-    const errorMessageId = derivativeIdGenerator(
-      uniqueId,
-      'errorMessage',
-      errorMessage
-    );
+    const tipId = derivativeIdGenerator(uniqueId, 'tip');
+    const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
     const generalInputProps = {
       id: uniqueId,
@@ -131,9 +104,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       defaultValue,
       'aria-required': ariaRequired,
       'aria-describedby': spaceSeparatedIdListGenerator([
-        tipId,
-        errorMessageId,
-        characterCounterId,
+        hasTip ? tipId : undefined,
+        hasErrorMessage ? errorMessageId : undefined,
+        maxLength && withCharacterCounter ? characterCounterId : undefined,
         ariaDescribedby,
       ]),
       'aria-invalid': hasErrorMessage ? true : undefined,
@@ -141,7 +114,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     };
 
     const outerInputContainerProps = {
-      multiline,
       className,
       style,
       width: getWidth(componentSize, width),
@@ -156,14 +128,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             {label}
           </Label>
         )}
-        {multiline ? (
-          <TextArea
-            ref={textAreaRef}
-            as="textarea"
-            onChange={onChangeHandlerMultiline}
-            {...generalInputProps}
-          />
-        ) : hasIcon ? (
+        {hasIcon ? (
           <InputContainer>
             {
               <StyledIcon
@@ -192,16 +157,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         )}
         {hasMessage && (
           <MessageContainer>
-            {hasErrorMessage && (
-              <InputMessage
-                message={errorMessage}
-                messageType="error"
-                id={errorMessageId}
-              />
-            )}
-            {hasTip && !errorMessage && (
-              <InputMessage message={tip} messageType="tip" id={tipId} />
-            )}
+            {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
             {maxLength &&
               Number.isInteger(maxLength) &&
               maxLength > 0 &&
@@ -218,18 +174,3 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
   }
 );
-
-function getDefaultText(
-  value?: string | number | readonly string[],
-  defaultValue?: string | number | readonly string[]
-): string {
-  if (typeof value === 'string') {
-    return value;
-  }
-
-  if (typeof defaultValue === 'string') {
-    return defaultValue;
-  }
-
-  return '';
-}

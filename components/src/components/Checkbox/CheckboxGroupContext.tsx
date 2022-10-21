@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-export interface CheckboxGroup {
+export interface CheckboxGroupContextProps {
   error?: boolean;
   errorMessageId?: string;
   uniqueGroupId?: string;
@@ -8,7 +8,7 @@ export interface CheckboxGroup {
 }
 
 export const CheckboxGroupContext =
-  React.createContext<Nullable<CheckboxGroup>>(null);
+  React.createContext<Nullable<CheckboxGroupContextProps>>(null);
 
 export const useCheckboxGroup = () => {
   return useContext(CheckboxGroupContext);

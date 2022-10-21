@@ -27,6 +27,11 @@
     line-height: var(--dds-font-body-sans-02-line-height);
   }
 
+  code {
+    font-family: var(--dds-font-code-monospace-02-font-family);
+    color: var(--dds-color-neutrals-gray-9);
+  }
+
   .icon-code code {
     font-size: var(--dds-font-body-sans-01-font-size);
   }
@@ -34,11 +39,11 @@
   .docblock-argstable td div code,
   code span,
   pre span.token {
-    font-family: monospace !important ;
+    font-family: var(--dds-font-code-monospace-02-font-family) !important ;
   }
   .docblock-argstable td div:nth-of-type(2) span,
   .docblock-argstable tbody td:nth-of-type(3) > div:first-of-type span {
-    font-family: monospace !important ;
+    font-family: var(--dds-font-code-monospace-02-font-family) !important ;
     color: var(--dds-color-neutrals-gray-9);
   }
 

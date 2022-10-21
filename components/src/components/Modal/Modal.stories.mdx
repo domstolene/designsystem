@@ -3,16 +3,15 @@ import {
   ArgsTable,
   PRIMARY_STORY,
   Canvas,
-  Story
+  Story,
 } from '@storybook/addon-docs';
 import { Modal, ModalBody, ModalActions } from '.';
 import {
   Source,
   ComponentLinkRow,
   SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory
+  LinkToInteractiveStory,
 } from '../../storybook';
-import { Typography } from '../Typography';
 
 <Meta title="Design system/Modal/API" component={Modal} />
 
@@ -62,6 +61,11 @@ const close = () => setOpen(false);
   </ModalActions>
 </Modal>
 `} />
+
+Det støttes ikke å ha marginer på `parentElement`.
+De vil forsvinner når modalen åpnes pga. `position: fixed`.
+Hvis man ikke sender inn `parentElement`, så brukes `document.body`.
+Da må man sette `width: 100%` på `<body>`, og unngå marginer, slik at sideinnholdet ikke flytter på seg når modalen er åpen.
 
 ### Returnering av fokus
 

@@ -3,16 +3,15 @@ import {
   Story,
   Meta,
   ArgsTable,
-  PRIMARY_STORY
+  PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import { Breadcrumb, Breadcrumbs } from '.';
 import {
   Source,
   ComponentLinkRow,
   LinkToInteractiveStory,
-  SB_DESIGNSYSTEM_URL
+  SB_DESIGNSYSTEM_URL,
 } from '../../storybook';
-import { Typography } from '../Typography';
 
 <Meta title="Design system/Breadcrumbs/API" component={Breadcrumbs} />
 
@@ -65,11 +64,10 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 ### Breadcrumb
 
-Brødsmule. Er en lenke eller et tekstelement. **OBS!** Alle Breadcrumb-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
+Brødsmule. Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke.
+**OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
 
-<ArgsTable of={Breadcrumb} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>`-interface.
+Det støttes alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
 
 ## Retningslinjer
 

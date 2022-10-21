@@ -3,11 +3,15 @@ import {
   Story,
   Meta,
   ArgsTable,
-  PRIMARY_STORY
+  PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { Source, ComponentLinkRow, SB_DESIGNSYSTEM_URL } from '../../storybook';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
 import { VisuallyHidden } from '.';
-import { Typography } from '../Typography';
 
 <Meta title="Design system/VisuallyHidden/API" component={VisuallyHidden} />
 # VisuallyHidden
@@ -26,7 +30,7 @@ import { Typography } from '../Typography';
   <Story id="design-system-visuallyhidden--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-visuallyhidden`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-visuallyhidden`} />
 
 ## Bruk i koden
 

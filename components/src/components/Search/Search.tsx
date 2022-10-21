@@ -11,8 +11,8 @@ import { searchTokens as tokens } from './Search.tokens';
 import {
   Input as BaseInput,
   InputProps as BaseInputProps,
+  renderInputMessage,
 } from '../../helpers';
-import { InputMessage } from '../InputMessage';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
@@ -118,7 +118,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     const uniqueId = id ?? `${generatedId}-searchInput`;
     const hasLabel = !!label;
     const hasTip = !!tip;
-    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
+    const tipId = derivativeIdGenerator(uniqueId, 'tip');
 
     const containerProps = {
       className,
@@ -133,7 +133,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       type: 'search',
       id: uniqueId,
       'aria-describedby': spaceSeparatedIdListGenerator([
-        tipId,
+        tip ? tipId : undefined,
         ariaDescribedby,
       ]),
     };
@@ -166,9 +166,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
               />
             )}
           </HorisontalContainer>
-          {hasTip && (
-            <InputMessage id={tipId} messageType="tip" message={tip} />
-          )}
+          {renderInputMessage(tip, tipId)}
         </div>
       </OuterContainer>
     );

@@ -3,16 +3,16 @@ import {
   Canvas,
   Meta,
   ArgsTable,
-  PRIMARY_STORY
+  PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import { Select } from '.';
 import {
   Source,
   ComponentLinkRow,
   SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory
+  LinkToInteractiveStory,
 } from '../../storybook';
-import { Typography } from '../Typography';
+import { Link } from '../Typography';
 import { TableWrapper, Table, Body, Cell, Head, Row } from '../Table';
 
 <Meta title="Design system/Select/API" component={Select} />
@@ -59,7 +59,7 @@ Brukeren kan filtrere alternativer ved å gi tekstlig input. Det brukes en custo
 
 ## API
 
-Komponenten bruker <Typography href='https://react-select.com/home' typographyType='a'>React-select</Typography>. Det støttes props definert i designsystemet (Elsa props) og native React-select props.
+Komponenten bruker <Link href='https://react-select.com/home' external>React-select</Link>. Det støttes props definert i designsystemet (Elsa props) og native React-select props.
 
 ### Elsa props
 
@@ -221,7 +221,7 @@ Ofte brukt native props:
   </Table>
 </TableWrapper>
 <br />
-Full liste over props er tilgjengelig i <Typography href='https://react-select.com/props' typographyType='a' >react-select API</Typography>.
+Full liste over props er tilgjengelig i <Link href='https://react-select.com/props' external >react-select API</Link>.
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 

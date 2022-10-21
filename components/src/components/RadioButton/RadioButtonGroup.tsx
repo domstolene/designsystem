@@ -8,8 +8,7 @@ import {
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { RequiredMarker } from '../../helpers';
-import { InputMessage } from '../InputMessage';
+import { renderInputMessage, RequiredMarker } from '../../helpers';
 import { radioButtonGroupTokens as tokens } from './RadioButtonGroup.tokens';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 import { Typography } from '../Typography';
@@ -137,7 +136,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
       >
         {label} {showRequiredMarker && <RequiredMarker />}
       </Typography>
-      {hasTip && <InputMessage message={tip} messageType="tip" id={tipId} />}
+      {renderInputMessage(tip, tipId)}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
           role="radiogroup"
@@ -149,13 +148,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
           {children}
         </GroupContainer>
       </RadioButtonGroupContext.Provider>
-      {hasErrorMessage && (
-        <InputMessage
-          message={errorMessage}
-          messageType="error"
-          id={errorMessageId}
-        />
-      )}
+      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
     </Container>
   );
 };

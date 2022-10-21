@@ -1,6 +1,5 @@
 import { forwardRef, useId } from 'react';
-import { InputMessage } from '../InputMessage';
-import { InputSize } from '../../helpers';
+import { InputSize, renderInputMessage } from '../../helpers';
 import { StatefulInput, OuterInputContainer, InputProps } from '../../helpers';
 import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
@@ -101,12 +100,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     const hasErrorMessage = !!errorMessage;
     const showRequiredStyling = !!(required || ariaRequired);
 
-    const errorMessageId = derivativeIdGenerator(
-      uniqueId,
-      'errorMessage',
-      errorMessage
-    );
-    const tipId = derivativeIdGenerator(uniqueId, 'tip', tip);
+    const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+    const tipId = derivativeIdGenerator(uniqueId, 'tip');
 
     const inputProps = {
       id: uniqueId,
@@ -119,8 +114,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       componentSize,
       type,
       'aria-describedby': spaceSeparatedIdListGenerator([
-        tipId,
-        errorMessageId,
+        tip ? tipId : undefined,
+        errorMessage ? errorMessageId : undefined,
         ariaDescribedby,
       ]),
       'aria-required': ariaRequired,
@@ -143,16 +138,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
           </Label>
         )}
         <StyledInput {...inputProps} />
-        {hasErrorMessage && (
-          <InputMessage
-            message={errorMessage}
-            id={errorMessageId}
-            messageType="error"
-          />
-        )}
-        {tip && !hasErrorMessage && (
-          <InputMessage message={tip} id={tipId} messageType="tip" />
-        )}
+        {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
       </OuterInputContainer>
     );
   }

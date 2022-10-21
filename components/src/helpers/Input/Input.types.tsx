@@ -1,24 +1,30 @@
 import { InputHTMLAttributes } from 'react';
 import { Property } from 'csstype';
 
-export type InputSize = 'medium' | 'small' | 'tiny';
-
-export type InputProps = {
+export type CommonInputProps = {
   /**Ledetekst for input. */
   label?: string;
-  /**Størrelse på inputfeltet. */
-  componentSize?: InputSize;
   /**Bredde for inputfeltet. */
   width?: Property.Width<string>;
   /**Hjelpetekst. */
   tip?: string;
   /**Feilmelding. Setter også error state. */
   errorMessage?: string;
+};
+
+export type InputSize = 'medium' | 'small' | 'tiny';
+
+export type InputProps = CommonInputProps & {
+  /**Størrelse på inputfeltet. */
+  componentSize?: InputSize;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export type StyledInputProps = Pick<
+export type StyledCommonInputProps = Pick<
   InputProps,
-  'readOnly' | 'disabled' | 'componentSize'
+  'readOnly' | 'disabled'
 > & {
   hasErrorMessage: boolean;
 };
+
+export type StyledInputProps = StyledCommonInputProps &
+  Pick<InputProps, 'componentSize'>;
