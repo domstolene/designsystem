@@ -80,10 +80,12 @@ const GroupHeader = styled.div`
 
 const CodeBlock = styled.div`
   background-color: ${colors.DdsColorNeutralsGray8};
-  color: white;
   padding: ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1};
   margin: ${spacing.SizesDdsSpacingLayoutX1} 0;
   border-radius: ${borderRadius.RadiiDdsBorderRadius1Radius};
+  code {
+    color: white;
+  }
 `;
 
 const IconRow = styled.div`
