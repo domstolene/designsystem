@@ -4,17 +4,22 @@ import { BaseComponentProps } from '../../types';
 
 import { SvgIcon } from '../../icons/utils';
 
-export type OverflowMenuContextItem = {
+type OverflowMenuItemBase = {
   title: string;
   icon?: SvgIcon;
-} & (
-  | AnchorHTMLAttributes<HTMLAnchorElement>
-  | ButtonHTMLAttributes<HTMLButtonElement>
-);
-export type OverflowMenuNavItem = {
-  title: string;
-  icon?: SvgIcon;
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+};
+
+export type OverflowMenuButtonItem = OverflowMenuItemBase &
+  ButtonHTMLAttributes<HTMLButtonElement>;
+
+export type OverflowMenuLinkItem = OverflowMenuItemBase &
+  AnchorHTMLAttributes<HTMLAnchorElement>;
+
+export type OverflowMenuContextItem =
+  | OverflowMenuButtonItem
+  | OverflowMenuLinkItem;
+
+export type OverflowMenuNavItem = OverflowMenuLinkItem;
 
 type UserProps = {
   name: string;
@@ -37,6 +42,8 @@ export type OverflowMenuProps = BaseComponentProps<
     isOpen?: boolean;
     /**Callback for å lukke menyen. **OBS!** nødvendig kun hvis `<OverflowMenuGroup />` ikke brukes.  */
     onClose?: () => void;
+    /**Callback for å toggle menyen. **OBS!** nødvendig kun hvis `<OverflowMenuGroup />` ikke brukes.  */
+    onToggle?: () => void;
     /**Ref til elementet som styrer menyen. **OBS!** nødvendig kun hvis ``<OverflowMenuGroup />` ikke brukes.  */
     anchorRef?: RefObject<HTMLButtonElement>;
     /**Plassering av menyen i forhold til anchor-elementet. */

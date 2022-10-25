@@ -1,0 +1,59 @@
+import {
+  Story,
+  Canvas,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+import { SplitButton } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
+
+<Meta title="Design system/SplitButton/API" component={SplitButton} />
+
+# SplitButton
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/1868a2-splitbutton"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/SplitButton"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=155%3A37"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-splitbutton--default" height="380px" />
+</Canvas>
+
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-splitbutton`} />
+
+## Oversikt
+
+`<SplitButton />` er en todelt knapp som skal brukes ved flere relaterte handlinger, der den ene er mest vanlig.
+Komponenten består av to knapper: én for den primære handlingen, og én for å åpne en meny med sekundære handlinger.
+Når menyen åpnes og en handling velges blir den umiddelbart gjennomført.
+`<SplitButton />` er dermed en fusjon med en knapp og meny.
+
+## Bruk i koden
+
+<Source code={`import { SplitButton } from '@norges-domstoler/dds-components';
+
+const items = [{
+title: 'Sekundær handling',
+onClick: () => {},
+}];
+
+<SplitButton
+  primaryAction={{ label: 'Label', onClick: () => {} }}
+  secondaryActions={items}
+/>
+`} />
+
+## API
+
+<ArgsTable story={PRIMARY_STORY} />
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
