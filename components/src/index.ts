@@ -40,3 +40,4 @@ export * from './components/Grid';
 export * from './components/ProgressTracker';
 export * from './hooks';
 export * from './components/TextArea';
+export * from './components/SplitButton';
