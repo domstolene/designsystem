@@ -302,7 +302,7 @@ const SelectInner = <
       NoOptionsMessage: DDSNoOptionsMessage,
       Input: props =>
         DDSInput(
-          { ...props, required, 'aria-required': ariaRequired },
+          { ...props, 'aria-required': ariaRequired },
           hasErrorMessage,
           spaceSeparatedIdListGenerator([
             singleValueId,
