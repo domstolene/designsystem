@@ -45,6 +45,7 @@ const Button = styled.button<ButtonProps>`
   justify-content: center;
   border-bottom: ${tab.base.borderBottom};
   color: ${tab.base.color};
+  padding: ${tab.base.padding};
   ${getFontStyling(defaultTypographyType)}
 
   @media (prefers-reduced-motion: no-preference) {
@@ -54,7 +55,6 @@ const Button = styled.button<ButtonProps>`
 
   ${({ direction }) => css`
     flex-direction: ${direction};
-    padding: ${tab[direction].padding};
     gap: ${tab[direction].gap};
   `};
 
