@@ -1,23 +1,25 @@
-import { CSSObject } from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { spacing: Spacing, colors: Colors } = ddsBaseTokens;
+const { spacing, colors } = ddsBaseTokens;
 
-const listBase: CSSObject = {
-  color: Colors.DdsColorNeutralsGray7,
+const list = {
+  gap: spacing.SizesDdsSpacingLocalX075,
+};
+
+const truncationIcon = {
+  color: colors.DdsColorNeutralsGray7,
+};
+
+const outerContainer = {
+  gap: spacing.SizesDdsSpacingLocalX075,
+};
+const indicatorsContainer = {
+  gap: spacing.SizesDdsSpacingLocalX075,
 };
 
 export const paginationTokens = {
-  container: {
-    spaceBetweenItems: Spacing.SizesDdsSpacingLocalX075,
-  },
-  indicatorsContainer: {
-    spacing: Spacing.SizesDdsSpacingLocalX075,
-  },
-  list: {
-    base: listBase,
-  },
-  paginationItem: {
-    spacing: Spacing.SizesDdsSpacingLocalX075,
-  },
+  outerContainer,
+  indicatorsContainer,
+  truncationIcon,
+  list,
 };

@@ -1,9 +1,9 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { listItemTokens as tokens } from './ListItem.tokens';
+import { listTokens as tokens } from './List.tokens';
 
 const StyledListItem = styled.li`
-  ${tokens.base}
+  line-height: ${tokens.listItem.lineHeight};
 `;
 
 export type ListItemProps = HTMLAttributes<HTMLLIElement>;

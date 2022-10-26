@@ -1,7 +1,11 @@
 import { AnchorHTMLAttributes, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { focusVisible } from '../../helpers/styling';
-import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
+import { getFontStyling } from '../Typography/Typography.utils';
+import {
+  internalHeaderTokens as tokens,
+  typographyTypes,
+} from './InternalHeader.tokens';
 
 const { navLink } = tokens;
 
@@ -12,14 +16,14 @@ export const Link = styled.a<LinkProps>`
   align-items: center;
   height: 100%;
   box-sizing: border-box;
+  text-decoration: none;
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color 0.2s;
   }
   color: ${navLink.base.color};
   background-color: ${navLink.base.backgroundColor};
   padding: ${navLink.base.padding};
-  text-decoration: ${navLink.base.textDecoration};
-  ${navLink.base.font};
+  ${getFontStyling(typographyTypes.navLink)}
   &:hover {
     color: ${navLink.hover.color};
   }

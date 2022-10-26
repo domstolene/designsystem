@@ -144,15 +144,8 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
   }
 );
 
-type DefaultInputWidth = {
-  medium: Property.Width<string>;
-  small: Property.Width<string>;
-  tiny: Property.Width<string>;
-};
-
 const defaultWidths: {
-  date: DefaultInputWidth;
-  ['datetime-local']: DefaultInputWidth;
+  [k in DatepickerType]: { [k in InputSize]: Property.Width<string> };
 } = {
   date: {
     medium: '160px',

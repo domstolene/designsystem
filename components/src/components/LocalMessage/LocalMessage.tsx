@@ -1,20 +1,36 @@
 import styled, { css } from 'styled-components';
-import { Button, ButtonPurpose } from '../Button';
+import { Button } from '../Button';
 import { forwardRef, useState } from 'react';
-import { localMessageTokens as tokens } from './LocalMessage.tokens';
+import {
+  purposeVariants,
+  localMessageTokens as tokens,
+} from './LocalMessage.tokens';
 import { Icon } from '../Icon';
 import { Property } from 'csstype';
 import { Typography } from '../Typography';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
 import { selection } from '../../helpers/styling';
+import {
+  defaultTypographyType,
+  getFontStyling,
+} from '../Typography/Typography.utils';
+
+const defaultWidth: Property.Width<string> = '400px';
+const { container, contentContainer, topContainer } = tokens;
 
 type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
 
 const Container = styled.div<ContainerProps>`
+  box-sizing: border-box;
   display: flex;
   flex-direction: ${({ layout }) => (layout === 'vertical' ? 'column' : 'row')};
-  box-sizing: border-box;
+  box-shadow: ${container.base.boxShadow};
+  border: ${container.base.border};
+  padding: ${container.base.padding};
+  border-radius: ${container.base.borderRadius};
+  ${getFontStyling(defaultTypographyType, true)}
+
   ${({ layout }) =>
     layout === 'horisontal' &&
     css`
@@ -27,8 +43,8 @@ const Container = styled.div<ContainerProps>`
   ${({ purpose }) =>
     purpose &&
     css`
-      ${tokens.container.base}
-      ${tokens.container[purpose].base}
+      border-color: ${container.purpose[purpose].borderColor};
+      background-color: ${container.purpose[purpose].backgroundColor};
     `}
   width: ${({ width }) => width};
 `;
@@ -40,21 +56,22 @@ const MessageIconWrapper = styled(Icon)`
 type ContentContainerProps = Pick<LocalMessageProps, 'closable' | 'layout'>;
 
 const ContentContainer = styled.div<ContentContainerProps>`
-  ${tokens.contentContainer.base}
+  padding-top: ${contentContainer.paddingTop};
+  padding-right: ${({ closable }) =>
+    closable
+      ? contentContainer.withClosable.paddingRight
+      : contentContainer.paddingRight};
+
   ${({ layout }) =>
     layout === 'vertical'
       ? css`
-          ${tokens.contentContainer.vertical.base}
+          padding-bottom: ${contentContainer.vertical.paddingBottom};
         `
       : css`
           display: flex;
           align-items: center;
-        `}
-  ${({ closable }) =>
-    closable &&
-    css`
-      ${tokens.contentContainer.withClosable.base}
-    `}
+          padding-bottom: ${contentContainer.paddingBottom};
+        `};
 `;
 
 type TopContainerProps = Pick<LocalMessageProps, 'closable'>;
@@ -64,12 +81,8 @@ const TopContainer = styled.div<TopContainerProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  ${tokens.topContainer.base}
-  ${({ closable }) =>
-    closable &&
-    css`
-      ${tokens.topContainer.withClosable.base}
-    `}
+  padding-top: ${({ closable }) =>
+    closable ? topContainer.withClosable.paddingTop : topContainer.paddingTop};
 `;
 
 export type LocalMessagePurpose =
@@ -107,7 +120,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       purpose = 'info',
       closable,
       onClose,
-      width = tokens.container.defaultWidth,
+      width = defaultWidth,
       layout = 'horisontal',
       children,
       id,
@@ -117,7 +130,6 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     } = props;
 
     const [isClosed, setClosed] = useState(false);
-    const buttonPurpose = tokens.button[purpose].purpose as ButtonPurpose;
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
@@ -134,7 +146,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 
     const messageIconWrapper = (
       <MessageIconWrapper
-        icon={tokens.icon[purpose].icon}
+        icon={purposeVariants[purpose].icon}
         color={tokens.icon[purpose].color}
       />
     );
@@ -144,7 +156,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     const closeButton = closable && (
       <Button
         icon={CloseIcon}
-        purpose={buttonPurpose}
+        purpose={purposeVariants[purpose].closeButtonPurpose}
         appearance="borderless"
         onClick={() => {
           setClosed(true);

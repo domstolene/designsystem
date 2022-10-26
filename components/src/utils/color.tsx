@@ -138,7 +138,7 @@ export function isTextColor(color: string): color is DDSTextColor {
   return textColorsArray.indexOf(color) !== -1;
 }
 
-export const getTextColor = (color: TextColor): string => {
+export const getTextColor = (color: TextColor): TextColor => {
   if (isTextColor(color)) return textColors[color];
   return color;
 };

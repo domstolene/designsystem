@@ -1,7 +1,16 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { IconSize } from '../Icon';
+import { StaticTypographyType } from '../Typography';
 
 const { colors, spacing, font } = ddsBaseTokens;
+
+export const typographyTypes: {
+  number: StaticTypographyType;
+  label: StaticTypographyType;
+} = {
+  number: 'bodySans01',
+  label: 'bodySans03',
+};
 
 const itemsWrapper = {
   gap: spacing.SizesDdsSpacingLocalX0125,
@@ -21,7 +30,6 @@ const itemNumber = {
   size: '28px',
   borderWidth: '2px',
   iconSize: 'small' as IconSize,
-  fontSize: font.DdsFontBodySans01FontSize,
   active: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorNeutralsWhite,
@@ -55,18 +63,17 @@ const itemNumber = {
 };
 
 const itemText = {
-  fontFamily: font.DdsFontSupportingStyleLabel01FontFamily,
-  fontSize: font.DdsFontSupportingStyleLabel01FontSize,
+  textDecoration: 'underline',
 
   active: {
     color: colors.DdsColorNeutralsGray9,
-    textDecoration: 'underline',
+    textDecorationColor: colors.DdsColorNeutralsGray9,
   },
   inactive: {
     color: colors.DdsColorNeutralsGray7,
-    textDecoration: 'none',
+    textDecorationColor: 'transparent',
     hover: {
-      textDecoration: 'underline',
+      textDecorationColor: colors.DdsColorNeutralsGray7,
     },
   },
   disabled: {

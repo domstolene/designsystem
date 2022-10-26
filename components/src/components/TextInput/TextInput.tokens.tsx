@@ -3,9 +3,6 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { colors, spacing, iconSizes } = ddsBaseTokens;
 
 const input = {
-  multiline: {
-    paddingBottom: spacing.SizesDdsSpacingLocalX05,
-  },
   withIcon: {
     medium: {
       paddingLeft: `${

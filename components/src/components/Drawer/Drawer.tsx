@@ -18,6 +18,13 @@ import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { CloseIcon } from '../../icons/tsx';
 import { ScrollableContainer } from '../ScrollableContainer';
 
+const { container, contentContainer } = tokens;
+
+const getMaxWidth = (size: DrawerSize): Property.MaxWidth => {
+  if (size === 'large') return '800px';
+  else return '400px';
+};
+
 type ContainerProps = {
   placement: DrawerPlacement;
   isOpen: boolean;
@@ -33,15 +40,19 @@ const Container = styled(Paper)<ContainerProps>`
   flex-direction: column-reverse;
   justify-content: flex-end;
   min-width: 300px;
+  z-index: 50;
+  padding: ${container.padding};
+
   ${({ size }) => css`
-    ${tokens.container.size[size].base}
+    max-width: ${getMaxWidth(size)};
   `}
+
   ${({ widthProps }) =>
     widthProps &&
     css`
       ${widthProps}
     `}
-  z-index: 50;
+
   ${({ placement, isOpen }) =>
     placement === 'left'
       ? css`
@@ -54,11 +65,13 @@ const Container = styled(Paper)<ContainerProps>`
           transform: ${isOpen ? 'translate(0px)' : 'translateX(100%)'};
         `
       : ''}
+
   @media (prefers-reduced-motion: no-preference) {
     transition: transform 0.5s;
   }
-  ${tokens.container.base}
-  &:focus-visible, &.focus-visible {
+
+  &:focus-visible,
+  &.focus-visible {
     ${focusVisible}
   }
 `;
@@ -66,7 +79,8 @@ const Container = styled(Paper)<ContainerProps>`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  ${tokens.contentContainer.base}
+  gap: ${contentContainer.gap};
+  padding: ${contentContainer.padding};
 `;
 
 const HeaderContainer = styled.div``;

@@ -1,21 +1,21 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
 
-const { border: Border, spacing: Spacing } = ddsBaseTokens;
+const { border, spacing } = ddsBaseTokens;
 
-export const dividerColors = {
-  primary: Border.BordersDdsBorderStyleDarkStroke,
-  primaryLighter: Border.BordersDdsBorderStyleLightStroke,
-};
-
-const base: CSSObject = {
-  border: 0,
-  backgroundColor: 'transparent',
-  borderTop: `${Border.BordersDdsBorderStyleLightStrokeWeight} solid`,
-  marginTop: Spacing.SizesDdsSpacingLocalX1,
-  marginBottom: Spacing.SizesDdsSpacingLocalX1,
+const divider = {
+  borderTop: `${border.BordersDdsBorderStyleLightStrokeWeight} solid`,
+  marginTop: spacing.SizesDdsSpacingLocalX1,
+  marginBottom: spacing.SizesDdsSpacingLocalX1,
+  color: {
+    primary: {
+      borderColor: border.BordersDdsBorderStyleDarkStroke,
+    },
+    primaryLighter: {
+      borderColor: border.BordersDdsBorderStyleLightStroke,
+    },
+  },
 };
 
 export const dividerTokens = {
-  base: base,
+  ...divider,
 };

@@ -1,12 +1,13 @@
 import { forwardRef, Children } from 'react';
 import styled from 'styled-components';
-import { breadcrumbTokens as tokens } from './Breadcrumb.tokens';
+import { breadcrumbTokens, typographyType } from './Breadcrumb.tokens';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, ArrowLeftIcon } from '../../icons/tsx';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { removeListStyling } from '../../helpers/styling/removeListStyling';
+import { getFontStyling } from '../Typography/Typography.utils';
 
-const { icon, list, listItem } = tokens;
+const { icon, list, listItem } = breadcrumbTokens;
 
 const List = styled.ol`
   ${removeListStyling}
@@ -20,7 +21,7 @@ const ListItem = styled.li`
   align-items: center;
   display: flex;
   gap: ${listItem.gap};
-  ${listItem.font}
+  ${getFontStyling(typographyType)}
 `;
 
 const StyledIcon = styled(Icon)`

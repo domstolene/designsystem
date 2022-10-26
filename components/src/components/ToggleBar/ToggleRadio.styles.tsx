@@ -1,11 +1,12 @@
 import { ToggleBarSize } from './ToggleBar.types';
-import { toggleBarTokens as tokens } from './ToggleBar.tokens';
+import { toggleBarTokens as tokens, typographyTypes } from './ToggleBar.tokens';
 import styled, { css } from 'styled-components';
 import {
   focusVisible,
   focusVisibleTransitionValue,
 } from '../../helpers/styling';
 import { HiddenInput } from '../../helpers';
+import { getFontStyling } from '../Typography/Typography.utils';
 
 const { content, label } = tokens;
 
@@ -37,7 +38,7 @@ export const Content = styled.span<ContentProps>`
       : css`
           gap: ${content.size[size].withText.gap};
           padding: ${content.size[size].withText.padding};
-          ${content.size[size].withText.font}
+          ${getFontStyling(typographyTypes[size])}
         `}
   `}
 `;

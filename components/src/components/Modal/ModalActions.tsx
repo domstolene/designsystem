@@ -5,7 +5,7 @@ import { modalTokens as tokens } from './Modal.tokens';
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  ${tokens.actionsContainer.base}
+  gap: ${tokens.actionsContainer.gap};
 `;
 
 export type ModalActionsProps = HTMLAttributes<HTMLDivElement>;

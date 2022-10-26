@@ -1,32 +1,20 @@
 import { useId } from 'react';
-import styled, { css } from 'styled-components';
 import { renderInputMessage, RequiredMarker } from '../../helpers';
-import { checkboxGroupTokens as tokens } from './CheckboxGroup.tokens';
 import {
   CheckboxGroupContext,
   CheckboxGroupContextProps,
 } from './CheckboxGroupContext';
 import { Typography } from '../Typography';
 import { derivativeIdGenerator } from '../../utils';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-
-const { outerContainer, groupContainer } = tokens;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${outerContainer.gap};
-`;
-
-const GroupContainer = styled.div<{ direction: Direction }>`
-  display: flex;
-  ${({ direction }) => css`
-    flex-direction: ${direction};
-    gap: ${groupContainer[direction].gap};
-  `}
-`;
-
-type Direction = 'column' | 'row';
+import {
+  BaseComponentPropsWithChildren,
+  Direction,
+  getBaseHTMLProps,
+} from '../../types';
+import {
+  OuterGroupContainer,
+  GroupContainer,
+} from '../../helpers/SelectionControl';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -78,7 +66,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
   };
 
   return (
-    <Container
+    <OuterGroupContainer
       {...getBaseHTMLProps(
         id,
         className,
@@ -105,6 +93,6 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         </GroupContainer>
       </CheckboxGroupContext.Provider>
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
-    </Container>
+    </OuterGroupContainer>
   );
 };

@@ -1,4 +1,3 @@
-import { DdsFontSupportingStyleTiny01ParagraphIndentNumberPx } from '@norges-domstoler/dds-design-tokens/dist/cjs/dds/build/js/font';
 import { useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import {
@@ -9,9 +8,13 @@ import { CheckIcon } from '../../icons/tsx';
 import { SvgIcon } from '../../icons/utils';
 import { BaseComponentPropsWithChildren } from '../../types';
 import { Icon } from '../Icon';
+import { getFontStyling } from '../Typography/Typography.utils';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useProgressTrackerContext } from './ProgressTracker.context';
-import { progressTrackerTokens } from './ProgressTracker.tokens';
+import {
+  progressTrackerTokens,
+  typographyTypes,
+} from './ProgressTracker.tokens';
 
 type ItemState =
   | 'activeCompleted'
@@ -79,6 +82,7 @@ const ItemWrapper = styled.li`
 `;
 
 const ItemNumber = styled.div<ItemStyleProps>`
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
   border-radius: 50%;
   border: ${itemNumber.borderWidth} solid;
   width: ${itemNumber.size};
@@ -87,7 +91,7 @@ const ItemNumber = styled.div<ItemStyleProps>`
   align-items: center;
   justify-content: center;
   z-index: 2;
-  font-size: ${itemNumber.fontSize};
+  ${getFontStyling(typographyTypes.number)}
   font-weight: 600;
 
   ${({ state }) => {
@@ -127,9 +131,10 @@ const ItemNumber = styled.div<ItemStyleProps>`
 `;
 
 const ItemText = styled.div<ItemStyleProps>`
-  font-family: ${itemText.fontFamily};
-  font-size: ${itemText.fontSize};
+  ${getFontStyling(typographyTypes.label)}
   text-align: start;
+  text-decoration: ${itemText.textDecoration};
+  transition: text-decoration-color 0.2s;
 
   ${({ state }) => {
     switch (state) {
@@ -137,13 +142,13 @@ const ItemText = styled.div<ItemStyleProps>`
       case 'activeIncomplete':
         return css`
           color: ${itemText.active.color};
-          text-decoration ${itemText.active.textDecoration};
+          text-decoration-color: ${itemText.active.textDecorationColor};
         `;
       case 'inactiveCompleted':
       case 'inactiveIncomplete':
         return css`
           color: ${itemText.inactive.color};
-          text-decoration ${itemText.inactive.textDecoration};
+          text-decoration-color: ${itemText.inactive.textDecorationColor};
         `;
       case 'disabled':
         return css`
@@ -151,7 +156,7 @@ const ItemText = styled.div<ItemStyleProps>`
           text-decoration: ${itemText.disabled.textDecoration};
         `;
     }
-  }}
+  }};
 `;
 
 const ItemContentWrapper = styled.div<ItemStyleProps>`
@@ -199,8 +204,9 @@ const ItemContentWrapper = styled.div<ItemStyleProps>`
             ${() => {
               if (state !== 'disabled') {
                 return css`
-                  text-decoration ${itemText.inactive.hover.textDecoration};
-              `;
+                  text-decoration-color: ${itemText.inactive.hover
+                    .textDecorationColor};
+                `;
               }
             }}
           }

@@ -6,12 +6,25 @@ import {
   InlineElement,
   TypographyInteractionStyling,
   StaticTypographyType,
+  TypographyBodyType,
 } from './Typography/Typography.types';
 import { typographyTokens as tokens } from './Typography.tokens';
 import {
   focusVisibleLink,
   focusVisibleLinkTransitionValue,
 } from '../../helpers/styling';
+
+export const defaultTypographyType: TypographyBodyType = 'bodySans02';
+
+export const getFontStyling = (
+  type: StaticTypographyType,
+  withColor?: boolean
+) => {
+  return {
+    color: withColor ? tokens.typographyType[type].base.color : undefined,
+    ...tokens.typographyType[type].base.font,
+  };
+};
 
 export const getElementType = (element: string): ElementType => {
   switch (element) {

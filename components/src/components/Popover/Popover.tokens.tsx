@@ -6,7 +6,6 @@ const wrapper = {
   padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15} ${spacing.SizesDdsSpacingLocalX1}`,
 };
 const closeButton = {
-  position: 'absolute',
   top: spacing.SizesDdsSpacingLocalX025,
   right: spacing.SizesDdsSpacingLocalX025,
 };

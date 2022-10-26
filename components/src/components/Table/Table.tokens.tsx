@@ -1,17 +1,8 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens,
-} from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { colors, fontPackages, border, spacing } = ddsBaseTokens;
-
-const { textDefault } = ddsReferenceTokens;
+const { colors, border, spacing } = ddsBaseTokens;
 
 const row = {
-  base: {
-    color: textDefault.textColor,
-    font: fontPackages.body_sans_02.base,
-  },
   body: {
     odd: {
       backgroundColor: colors.DdsColorNeutralsWhite,
@@ -25,7 +16,6 @@ const row = {
     },
     mode: {
       sum: {
-        font: fontPackages.body_sans_02.base,
         borderTop: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray4}`,
         borderBottom: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray4}`,
         backgroundColor: colors.DdsColorNeutralsWhite,

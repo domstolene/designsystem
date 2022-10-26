@@ -6,6 +6,10 @@ import { ButtonProps } from './Button.types';
 import { ButtonWrapper, StyledIconWrapperSpan, Label } from './Button.styles';
 import { getBaseHTMLProps } from '../../types';
 
+const {
+  button: { sizes, appearances },
+} = tokens;
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
@@ -58,9 +62,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const iconElement = icon && (
       <StyledIconWrapperSpan
-        iconPosition={isIconButton ? undefined : iconPosition}
         size={size}
         isHidden={hasIcon && loading}
+        justIcon={isIconButton}
       >
         <Icon icon={icon} iconSize="inherit" />
       </StyledIconWrapperSpan>
@@ -84,8 +88,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             absolutePosition={hasIcon || hasLabel}
           >
             <Spinner
-              color={tokens.appearance[appearance][purpose].base.color}
-              size={tokens.sizes[size].justIcon.base.fontSize as string}
+              color={appearances[appearance].purpose[purpose].base.color}
+              size={sizes[size].justIcon.icon.fontSize}
             />
           </StyledIconWrapperSpan>
         )}

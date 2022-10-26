@@ -1,13 +1,15 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { StaticTypographyType } from '../Typography';
 
-const { colors, spacing, fontPackages } = ddsBaseTokens;
+const { colors, spacing } = ddsBaseTokens;
+
+export const typographyType: StaticTypographyType = 'bodySans02';
 
 const icon = {
   color: colors.DdsColorInteractiveBase,
 };
 
 const listItem = {
-  font: fontPackages.body_sans_02.base,
   gap: spacing.SizesDdsSpacingLocalX05,
 };
 

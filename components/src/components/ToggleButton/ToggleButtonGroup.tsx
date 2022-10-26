@@ -7,7 +7,9 @@ import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
 type GroupProps = { direction?: Direction };
 
 const Group = styled.div<GroupProps>`
-  ${tokens.group.base}
+  gap: ${tokens.group.gap};
+  display: flex;
+  flex-wrap: wrap;
   ${({ direction }) =>
     css`
       flex-direction: ${direction};
@@ -15,7 +17,9 @@ const Group = styled.div<GroupProps>`
 `;
 
 const Container = styled.div`
-  ${tokens.container.base}
+  display: flex;
+  flex-direction: column;
+  gap: ${tokens.container.gap};
 `;
 
 type Direction = 'row' | 'column';

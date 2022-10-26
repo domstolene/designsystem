@@ -2,7 +2,11 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { selection } from '../../helpers/styling';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { descriptionListTokens as tokens } from './DescriptionList.tokens';
+import { getFontStyling } from '../Typography/Typography.utils';
+import {
+  descriptionListTokens as tokens,
+  termTypographyTypes,
+} from './DescriptionList.tokens';
 
 const { term, desc, list } = tokens;
 
@@ -17,15 +21,14 @@ const DList = styled.dl<DListProps>`
     appearance &&
     css`
       dt {
-        ${term.appearance[appearance].font}
         color: ${term.appearance[appearance].color};
-        line-height: ${term.appearance[appearance].lineHeight};
-        font-size: ${term.appearance[appearance].fontSize};
-        letter-spacing: ${term.appearance[appearance].letterSpacing};
-        font-family: ${term.appearance[appearance].fontFamily};
-        font-weight: ${term.appearance[appearance].fontWeight};
-        font-style: ${term.appearance[appearance].fontStyle};
-      }
+        ${getFontStyling(termTypographyTypes[appearance])}
+         ${
+           appearance === 'bold' &&
+           css`
+             font-weight: 600;
+           `
+         }
     `}
   & > dt:first-of-type {
     margin-top: ${term.firstOfType.marginTop};

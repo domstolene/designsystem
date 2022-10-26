@@ -2,7 +2,15 @@ import { AnchorHTMLAttributes, RefObject } from 'react';
 import styled, { css } from 'styled-components';
 import { cardTokens as tokens } from './Card.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { selection } from '../../helpers/styling';
+import {
+  focusVisibleWithBorder,
+  hoverWithBorder,
+  selection,
+} from '../../helpers/styling';
+import {
+  getFontStyling,
+  defaultTypographyType,
+} from '../Typography/Typography.utils';
 
 type ContainerProps = {
   color: CardColor;
@@ -10,8 +18,10 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
-  ${tokens.base}
-  &::selection, *::selection {
+  border: ${tokens.base.border};
+  ${getFontStyling(defaultTypographyType)};
+  &::selection,
+  *::selection {
     ${selection}
   }
   @media (prefers-reduced-motion: no-preference) {
@@ -20,18 +30,19 @@ const Container = styled.div<ContainerProps>`
   ${({ color }) =>
     color &&
     css`
-      ${tokens.colors[color].base}
+      color: ${tokens.colors[color].color};
+      background-color: ${tokens.colors[color].backgroundColor};
+      border-color: ${tokens.colors[color].borderColor};
     `}
   ${({ cardType }) =>
     cardType === 'navigation'
       ? css`
           text-decoration: none;
           &:hover {
-            ${tokens.navigation.hover.base}
+            ${hoverWithBorder}
           }
           &:focus {
-            outline: none;
-            ${tokens.navigation.focus.base}
+            ${focusVisibleWithBorder}
           }
         `
       : cardType === 'expandable'

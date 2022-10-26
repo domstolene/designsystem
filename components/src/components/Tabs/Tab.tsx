@@ -19,8 +19,18 @@ import {
   Direction,
   getBaseHTMLProps,
 } from '../../types';
-import { focusVisibleTransitionValue } from '../../helpers/styling';
+import {
+  focusVisible,
+  focusVisibleTransitionValue,
+  removeButtonStyling,
+} from '../../helpers/styling';
 import { SvgIcon } from '../../icons/utils';
+import {
+  getFontStyling,
+  defaultTypographyType,
+} from '../Typography/Typography.utils';
+
+const { tab } = tokens;
 
 type ButtonProps = {
   active: boolean;
@@ -28,27 +38,44 @@ type ButtonProps = {
 };
 
 const Button = styled.button<ButtonProps>`
+  ${removeButtonStyling}
   user-select: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: ${tab.base.borderBottom};
+  color: ${tab.base.color};
+  ${getFontStyling(defaultTypographyType)}
+
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 0.2s, border-bottom 0.2s, color 0.2s,
       ${focusVisibleTransitionValue};
   }
-  ${tokens.tab.base}
 
-  ${({ direction }) => tokens.tab.direction[direction].base};
+  ${({ direction }) => css`
+    flex-direction: ${direction};
+    padding: ${tab[direction].padding};
+    gap: ${tab[direction].gap};
+  `};
 
   ${({ active }) =>
     active &&
     css`
-      ${tokens.tab.active.base}
+      background-color: ${tab.active.backgroundColor};
+      border-color: ${tab.active.borderColor};
+      color: ${tab.active.color};
+      box-shadow: ${tab.active.boxShadow};
     `}
 
   &:focus-visible {
-    ${tokens.tab.focus.base}
+    ${focusVisible}
+    outline-offset: -1px;
   }
 
   &:hover {
-    ${tokens.tab.hover.base}
+    border-color: ${tab.hover.borderColor};
+    color: ${tab.hover.color};
+    box-shadow: ${tab.hover.boxShadow};
   }
 `;
 

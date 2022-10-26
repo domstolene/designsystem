@@ -1,65 +1,38 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSObject } from 'styled-components';
-import { focusVisible } from '../../helpers/styling';
 import { selectionControlTokens } from '../../helpers/SelectionControl';
+import { buttonTokens, typographyTypes } from '../Button/Button.tokens';
 
-const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
+const { colors, spacing } = ddsBaseTokens;
+const { button } = buttonTokens;
+const { selectionControl } = selectionControlTokens;
 
-const base: CSSObject = {
-  backgroundColor: Colors.DdsColorNeutralsWhite,
-  color: Colors.DdsColorNeutralsGray7,
-  gap: Spacing.SizesDdsSpacingLocalX05,
-  boxShadow: 'none',
+export const typographyType = typographyTypes.small;
+
+const toggleButton = {
+  border: button.base.border,
+  backgroundColor: colors.DdsColorNeutralsWhite,
+  color: colors.DdsColorNeutralsGray7,
+  gap: spacing.SizesDdsSpacingLocalX05,
+  borderRadius: button.appearances.rounded.base.borderRadius,
+  padding: button.sizes.small.text.padding,
+  hover: selectionControl.hover.base,
+  checked: {
+    ...selectionControl.checked.base,
+    color: colors.DdsColorNeutralsWhite,
+    hover: selectionControl.checked.hover,
+  },
 };
 
-const hoverBase: CSSObject = {
-  ...selectionControlTokens.selectionControl.hover.base,
+const group = {
+  gap: spacing.SizesDdsSpacingLocalX075,
 };
 
-const checkedBase: CSSObject = {
-  ...selectionControlTokens.selectionControl.checked.base,
-  color: Colors.DdsColorNeutralsWhite,
-};
-
-const checkedHoverBase: CSSObject = {
-  ...selectionControlTokens.selectionControl.checked.hover,
-  color: Colors.DdsColorNeutralsWhite,
-};
-
-const focusBase: CSSObject = {
-  ...focusVisible,
-};
-
-const groupBase: CSSObject = {
-  display: 'flex',
-  gap: Spacing.SizesDdsSpacingLocalX075,
-  flexWrap: 'wrap',
-};
-
-const containerBase: CSSObject = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: Spacing.SizesDdsSpacingLocalX05,
+const container = {
+  gap: spacing.SizesDdsSpacingLocalX05,
 };
 
 export const toggleButtonTokens = {
-  base: base,
-  hover: {
-    base: hoverBase,
-  },
-  focus: {
-    base: focusBase,
-  },
-  checked: {
-    base: checkedBase,
-    hover: {
-      base: checkedHoverBase,
-    },
-  },
-  group: {
-    base: groupBase,
-  },
-  container: {
-    base: containerBase,
-  },
+  toggleButton,
+  group,
+  container,
 };

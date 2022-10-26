@@ -15,6 +15,8 @@ import {
 } from '../../icons/tsx';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 
+const { outerContainer, indicatorsContainer, truncationIcon, list } = tokens;
+
 const Nav = styled.nav`
   display: flex;
   align-items: center;
@@ -23,8 +25,7 @@ const Nav = styled.nav`
 const List = styled.ol`
   display: grid;
   grid-auto-flow: column;
-  gap: ${tokens.paginationItem.spacing};
-  ${tokens.list.base}
+  gap: ${list.gap};
   margin: 0;
   padding: 0;
 `;
@@ -34,7 +35,6 @@ type ListItemProps = {
 };
 
 const ListItem = styled.li<ListItemProps>`
-  list-style: none;
   display: inline-grid;
   align-content: center;
   ${({ isHidden }) =>
@@ -44,9 +44,9 @@ const ListItem = styled.li<ListItemProps>`
     `}
 `;
 
-const Container = styled.div<{ smallScreen?: boolean }>`
+const OuterContainer = styled.div<{ smallScreen?: boolean }>`
   display: flex;
-  gap: ${tokens.container.spaceBetweenItems};
+  gap: ${outerContainer.gap};
   ${({ smallScreen }) =>
     smallScreen
       ? css`
@@ -63,7 +63,7 @@ const IndicatorsContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
   align-items: center;
-  gap: ${tokens.indicatorsContainer.spacing};
+  gap: ${indicatorsContainer.gap};
 `;
 
 export type PaginationOption = {
@@ -171,7 +171,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                     }
                   />
                 ) : (
-                  <Icon icon={MoreHorizontalIcon} />
+                  <Icon
+                    icon={MoreHorizontalIcon}
+                    color={truncationIcon.color}
+                  />
                 )}
               </ListItem>
             );
@@ -290,7 +293,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     return !withCounter && !withSelect ? (
       navigationToBeRendered
     ) : (
-      <Container {...containerProps}>
+      <OuterContainer {...containerProps}>
         <IndicatorsContainer>
           {withSelect && (
             <Select
@@ -313,7 +316,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
           )}
         </IndicatorsContainer>
         {navigationToBeRendered}
-      </Container>
+      </OuterContainer>
     );
   }
 );

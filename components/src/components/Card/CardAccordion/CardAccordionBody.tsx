@@ -6,13 +6,17 @@ import {
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { cardAccordionBodyTokens as tokens } from './CardAccordionBody.tokens';
+import {
+  cardAccordionTokens as tokens,
+  typographyTypes,
+} from './CardAccordion.tokens';
 import { Property } from 'csstype';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import useIsMounted from '../../../hooks/useIsMounted';
+import { getFontStyling } from '../../Typography/Typography.utils';
 
 const expandingAnimation = css`
   @media (prefers-reduced-motion: no-preference) {
@@ -31,7 +35,8 @@ const Body = styled.div<BodyProps>`
   @media (prefers-reduced-motion: no-preference) {
     ${({ animate }) => animate && expandingAnimation}
   }
-  ${tokens.base}
+  padding: ${tokens.body.padding};
+  ${getFontStyling(typographyTypes.body)}
   ${({ paddingTop }) =>
     paddingTop &&
     css`
