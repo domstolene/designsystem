@@ -1,6 +1,6 @@
 # @norges-domstoler/dds-components
 
-[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components)
+![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components) [![License](https://img.shields.io/npm/l/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components) ![Checks](https://github.com/domstolene/designsystem/actions/workflows/design-system.yml/badge.svg)
 
 React UI komponenter til bruk i domstolenes tjenester.
 
@@ -47,6 +47,7 @@ Tilgjengelige komponenter:
 - DescriptionList
 - Divider
 - Drawer
+- FileUploader
 - GlobalMessage
 - Grid
 - Icon
