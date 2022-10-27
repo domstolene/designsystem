@@ -9,13 +9,12 @@ const tab = {
   base: {
     borderBottom: `${border.BordersDdsBorderStyleLightStrokeWeight} solid transparent`,
     color: colors.DdsColorNeutralsGray7,
+    padding: spacing.SizesDdsSpacingLocalX05,
   },
   row: {
-    padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
     gap: spacing.SizesDdsSpacingLocalX05,
   },
   column: {
-    padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX025}`,
     gap: spacing.SizesDdsSpacingLocalX025,
   },
   active: {
