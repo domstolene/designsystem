@@ -20,6 +20,7 @@ import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../../icons/tsx';
 import { WithRequiredIf } from '../../types/utils';
 import {
   derivativeIdGenerator,
+  searchFilter,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Icon } from '../Icon';
@@ -146,18 +147,6 @@ const DDSControl = <TValue, IsMulti extends boolean>(
     {props.children}
   </Control>
 );
-
-function escapeRegexCharacters(text: string) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-}
-
-export function searchFilter(text: string, search: string): boolean {
-  // Søkeordet er enten først i teksten, eller så har det mellomrom, bindestrek eller start-parentes før seg.
-  const searchFilterRegex = new RegExp(
-    `(?:^|[\\s-(])${escapeRegexCharacters(search.toLowerCase())}`
-  );
-  return searchFilterRegex.test(text.toLowerCase());
-}
 
 const defaultWidth: Property.Width<string> = '320px';
 

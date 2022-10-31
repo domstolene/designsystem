@@ -1,5 +1,6 @@
 import {
   ButtonHTMLAttributes,
+  ChangeEvent,
   forwardRef,
   InputHTMLAttributes,
   MouseEvent,
@@ -21,6 +22,10 @@ import { Icon, IconSize } from '../Icon';
 import { SearchIcon } from '../../icons/tsx';
 import { Label } from '../Typography';
 import { getFontStyling } from '../Typography/Typography.utils';
+import { useCombinedRef } from '../../hooks';
+import { SearchSuggestions } from './SearchSuggestions';
+import { useAutocompleteSearch } from './AutocompleteSearch.context';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const { input, outerContainer, horisontalContainer, icon } = tokens;
 
@@ -108,6 +113,8 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       label,
       tip,
       id,
+      value,
+      onChange,
       className,
       style,
       'aria-describedby': ariaDescribedby,
@@ -118,8 +125,23 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-searchInput`;
     const hasLabel = !!label;
-    const hasTip = !!tip;
     const tipId = derivativeIdGenerator(uniqueId, 'tip');
+    const suggestionsId = derivativeIdGenerator(uniqueId, 'suggestions');
+    const suggestionsDescriptionId = derivativeIdGenerator(
+      uniqueId,
+      'suggestions-description'
+    );
+
+    const context = useAutocompleteSearch();
+
+    const combinedRef = context.inputRef
+      ? useCombinedRef(context.inputRef, ref)
+      : ref;
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      context.onValueChange && context.onValueChange(e);
+      onChange && onChange(e);
+    };
 
     const containerProps = {
       className,
@@ -127,16 +149,25 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     };
 
     const inputProps = {
-      ref,
       ...rest,
+      ref: combinedRef,
       componentSize,
       name,
       type: 'search',
       id: uniqueId,
       'aria-describedby': spaceSeparatedIdListGenerator([
         tip ? tipId : undefined,
+        context.suggestions ? suggestionsDescriptionId : undefined,
         ariaDescribedby,
       ]),
+      value:
+        context.inputValue !== undefined
+          ? context.inputValue
+          : value
+          ? value
+          : undefined,
+      onChange: handleChange,
+      autoComplete: 'off',
     };
 
     const {
@@ -144,6 +175,8 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       onClick,
       ...otherButtonProps
     } = buttonProps || {};
+
+    const hasSuggestions = !!context.suggestions;
 
     return (
       <OuterContainer>
@@ -156,7 +189,29 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 size={componentSize}
                 iconSize={getIconSize(componentSize)}
               />
-              <Input {...inputProps} />
+              <Input
+                {...inputProps}
+                aria-autocomplete={hasSuggestions ? 'list' : undefined}
+                aria-controls={hasSuggestions ? suggestionsId : undefined}
+                aria-expanded={context.showSuggestions}
+                role={hasSuggestions ? 'combobox' : undefined}
+              />
+              {hasSuggestions && (
+                <>
+                  <SearchSuggestions
+                    id={suggestionsId}
+                    ref={context.suggestionsRef}
+                    searchId={uniqueId}
+                    onSuggestionClick={context.onSugggestionClick}
+                    suggestions={context.suggestions}
+                    showSuggestions={context.showSuggestions}
+                    componentSize={componentSize}
+                  />
+                  <VisuallyHidden id={suggestionsDescriptionId} as="span">
+                    Bla i søkeforslag med piltaster når listen er utvidet.
+                  </VisuallyHidden>
+                </>
+              )}
             </InputContainer>
             {buttonProps && onClick && (
               <Button

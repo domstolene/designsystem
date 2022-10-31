@@ -43,7 +43,7 @@ export function useRoveFocus(
   reset?: boolean,
   direction: Direction = 'column'
 ): [number, Dispatch<SetStateAction<number>>] {
-  const [currentFocus, setCurrentFocus] = useState(0);
+  const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
 
   const nextKey = direction === 'row' ? 'ArrowRight' : 'ArrowDown';
   const previousKey = direction === 'row' ? 'ArrowLeft' : 'ArrowUp';
@@ -51,20 +51,24 @@ export function useRoveFocus(
   const handleKeyDown = useCallback(
     (e: Event) => {
       if (!size || !isKeyboardEvent(e)) return;
-      if (reset) setCurrentFocus(-1);
+      if (reset) setCurrentFocusIndex(-1);
       if (e.key === nextKey) {
         // Down arrow
         e.preventDefault();
-        setCurrentFocus(currentFocus === size - 1 ? 0 : currentFocus + 1);
+        setCurrentFocusIndex(
+          currentFocusIndex === size - 1 ? 0 : currentFocusIndex + 1
+        );
       } else if (e.key === previousKey) {
         // Up arrow
         e.preventDefault();
-        if (currentFocus !== -1) {
-          setCurrentFocus(currentFocus === 0 ? size - 1 : currentFocus - 1);
-        } else setCurrentFocus(size - 1);
+        if (currentFocusIndex !== -1) {
+          setCurrentFocusIndex(
+            currentFocusIndex === 0 ? size - 1 : currentFocusIndex - 1
+          );
+        } else setCurrentFocusIndex(size - 1);
       }
     },
-    [size, currentFocus, setCurrentFocus, reset]
+    [size, currentFocusIndex, setCurrentFocusIndex, reset]
   );
 
   useEffect(() => {
@@ -74,5 +78,5 @@ export function useRoveFocus(
     };
   }, [handleKeyDown]);
 
-  return [currentFocus, setCurrentFocus];
+  return [currentFocusIndex, setCurrentFocusIndex];
 }
