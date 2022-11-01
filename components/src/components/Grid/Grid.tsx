@@ -3,26 +3,35 @@ import { ScreenSize, useScreenSize } from '../../hooks';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { gridTokens } from './Grid.tokens';
 import { GridContext } from './Grid.context';
-import { Property } from 'csstype';
-import { getLiteralScreenSize } from './Grid.utils';
+import { StandardProperties } from 'csstype';
+import { getLiteralScreenSize, ScreenSizeLiteral } from './Grid.utils';
 import { HTMLAttributes } from 'react';
 
 type StyledGridProps = {
   screenSize: ScreenSize;
   maxWidth?: MaxWidthGrid;
+  rowGap?: RowGapGrid;
 };
 
 const getHooksGridStyling = (
   screenSize: ScreenSize,
-  maxWidth?: MaxWidthGrid
+  maxWidth?: MaxWidthGrid,
+  rowGap?: RowGapGrid
 ) => {
   const tokens = gridTokens[screenSize].grid;
   return {
     gridTemplateColumns: `repeat(${tokens.columns}, minmax(0, 1fr))`,
-    gap: tokens.gap,
+    columnGap: tokens.columnGap,
     marginLeft: tokens.marginLeft,
     marginRight: tokens.marginRight,
-    maxWidth: maxWidth && maxWidth[getLiteralScreenSize(screenSize)],
+    rowGap:
+      rowGap && rowGap[getLiteralScreenSize(screenSize)]
+        ? rowGap[getLiteralScreenSize(screenSize)]
+        : tokens.columnGap,
+    maxWidth:
+      maxWidth &&
+      maxWidth[getLiteralScreenSize(screenSize)] &&
+      maxWidth[getLiteralScreenSize(screenSize)],
   };
 };
 
@@ -32,20 +41,21 @@ const StyledGrid = styled.div<StyledGridProps>`
     css`
       max-width: ${maxWidth};
     `}
-  ${({ screenSize, maxWidth }) => getHooksGridStyling(screenSize, maxWidth)}
+  ${({ screenSize, maxWidth, rowGap }) =>
+    getHooksGridStyling(screenSize, maxWidth, rowGap)}
 `;
 
-type MaxWidthGrid = {
-  xs?: Property.MaxWidth;
-  sm?: Property.MaxWidth;
-  md?: Property.MaxWidth;
-  lg?: Property.MaxWidth;
-  xl?: Property.MaxWidth;
+type BreakpointBasedProps<T extends keyof StandardProperties> = {
+  [k in ScreenSizeLiteral]?: StandardProperties[T];
 };
+
+type RowGapGrid = BreakpointBasedProps<'rowGap'>;
+type MaxWidthGrid = BreakpointBasedProps<'maxWidth'>;
 
 type BaseGridProps = {
   /**Maksimal bredde. Gjøres per brekkepunkt.  */
   maxWidth?: MaxWidthGrid;
+  rowGap?: RowGapGrid;
 } & Pick<HTMLAttributes<HTMLElement>, 'style'>;
 
 type GridDivProps = BaseComponentPropsWithChildren<
