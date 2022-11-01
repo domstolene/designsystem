@@ -64,6 +64,7 @@ export const OverflowMenuGroup = ({
             isOpen: isOpen,
             id: uniqueOverflowMenuId,
             onClose: handleClose,
+            onToggle: handleToggle,
             anchorRef: buttonRef,
           }))
     );

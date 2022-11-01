@@ -61,6 +61,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     const {
       anchorRef,
       onClose,
+      onToggle,
       isOpen = false,
       placement = 'bottom-end',
       items,
@@ -87,19 +88,26 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     useOnClickOutside(
       [refs?.floating?.current, refs?.reference?.current as HTMLElement | null],
       () => {
-        if (isOpen) onClose && onClose();
+        if (isOpen) {
+          onClose && onClose();
+          onToggle && onToggle();
+        }
       }
     );
 
     useOnKeyDown(['Esc', 'Escape'], () => {
       if (isOpen) {
         onClose && onClose();
+        onToggle && onToggle();
         anchorRef && anchorRef.current?.focus();
       }
     });
 
     useOnKeyDown(['Tab'], () => {
-      if (isOpen) onClose && onClose();
+      if (isOpen) {
+        onClose && onClose();
+        onToggle && onToggle();
+      }
     });
 
     const interactiveItems: (OverflowMenuContextItem | OverflowMenuNavItem)[] =
@@ -139,6 +147,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
                   React.MouseEvent<HTMLButtonElement, MouseEvent>
               ) => {
                 item.onClick && item.onClick(e);
+                onToggle && onToggle();
                 onClose && onClose();
               }}
             />
