@@ -55,6 +55,7 @@ type MaxWidthGrid = BreakpointBasedProps<'maxWidth'>;
 type BaseGridProps = {
   /**Maksimal bredde. Gjøres per brekkepunkt.  */
   maxWidth?: MaxWidthGrid;
+  /** CSS `row-gap`. Gjøres per brekkepunkt. */
   rowGap?: RowGapGrid;
 } & Pick<HTMLAttributes<HTMLElement>, 'style'>;
 
