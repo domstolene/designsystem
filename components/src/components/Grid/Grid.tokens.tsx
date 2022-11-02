@@ -15,7 +15,7 @@ export const gridTokens = {
   [ScreenSize.XSmall]: {
     grid: {
       columns: grid.DdsGridXs0599Count,
-      gap: grid.DdsGridXs0599GutterSize,
+      columnGap: grid.DdsGridXs0599GutterSize,
       marginLeft: spacing.SizesDdsSpacingLayoutX1,
       marginRight: spacing.SizesDdsSpacingLayoutX1,
     },
@@ -32,7 +32,7 @@ export const gridTokens = {
   [ScreenSize.Small]: {
     grid: {
       columns: grid.DdsGridSm600959Count,
-      gap: grid.DdsGridSm600959GutterSize,
+      columnGap: grid.DdsGridSm600959GutterSize,
       marginLeft: spacing.SizesDdsSpacingLayoutX2,
       marginRight: spacing.SizesDdsSpacingLayoutX2,
     },
@@ -48,7 +48,7 @@ export const gridTokens = {
   [ScreenSize.Medium]: {
     grid: {
       columns: grid.DdsGridMd9601279Count,
-      gap: grid.DdsGridMd9601279GutterSize,
+      columnGap: grid.DdsGridMd9601279GutterSize,
       marginLeft: spacing.SizesDdsSpacingLayoutX4,
       marginRight: spacing.SizesDdsSpacingLayoutX4,
     },
@@ -64,7 +64,7 @@ export const gridTokens = {
   [ScreenSize.Large]: {
     grid: {
       columns: grid.DdsGridLg12801919Count,
-      gap: grid.DdsGridLg12801919GutterSize,
+      columnGap: grid.DdsGridLg12801919GutterSize,
       marginLeft: spacing.SizesDdsSpacingLayoutX6,
       marginRight: spacing.SizesDdsSpacingLayoutX6,
     },
@@ -80,7 +80,7 @@ export const gridTokens = {
   [ScreenSize.XLarge]: {
     grid: {
       columns: grid.DdsGridXl1920Count,
-      gap: grid.DdsGridXl1920GutterSize,
+      columnGap: grid.DdsGridXl1920GutterSize,
       marginLeft: spacing.SizesDdsSpacingLayoutX10,
       marginRight: spacing.SizesDdsSpacingLayoutX10,
     },
