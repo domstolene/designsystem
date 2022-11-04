@@ -5,7 +5,7 @@ import {
   ArgsTable,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { InlineEdit } from '.';
+import { InlineEditInput, InlineEditTextArea } from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -13,7 +13,7 @@ import {
   LinkToInteractiveStory,
 } from '../../storybook';
 
-<Meta title="Design system/InlineEdit/API" component={InlineEdit} />
+<Meta title="Design system/InlineEdit/API" component={InlineEditInput} />
 
 # InlineEdit
 
@@ -26,53 +26,45 @@ import {
 ## Demo
 
 <Canvas>
-  <Story id="design-system-inlineedit--default" />
+  <Story id="design-system-inlineedit-inlineeditinput--default" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-inlineedit-inlineedittextarea--default" />
 </Canvas>
 
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-inlineedit`} />
 
 ## Oversikt
 
-`<InlineEdit />` er en wrapper som håndterer inline redigering, f.eks i tabeller. Den skal ha ett barn, en av følgende:
+`<InlineEdit>`-komponentene håndterer inline redigering, f.eks i tabeller. Vi har følgende komponenter:
 
-- `<InlineEdit.Input />` - returnerer `<input>`.
-- `<InlineEdit.TextArea />` - returnerer `<textarea>`.
-
-Konsumenten knytter `<InlineEdit />` til barnet ved hjelp av `useRef()`.
+- `<InlineEditInput />` - returnerer `<input>`.
+- `<InlineEditTextArea />` - returnerer `<textarea>`.
 
 ## Bruk i koden
 
-<Source code={`import { InlineEdit } fra '@norges-domstoler/dds-components';
+<Source code={`import { InlineEditInput, InlineEditTextArea } fra '@norges-domstoler/dds-components';
 
 const [value, setValue] = useState('');
-const ref = useRef<HTMLInputElement>(null);
 
-<InlineEdit {...args} inputRef={ref} value={value} onSetValue={setValue}>
-  <InlineEdit.Input ref={ref} />
-</InlineEdit>
+<InlineEditInput value={value} onSetValue={setValue} />
+<InlineEditTextArea value={value} onSetValue={setValue} />
+
 `} />
 
 ## API
 
-### InlineEdit
-
-Wrapper for inputfeltet. Håndterer oppførselen til inputfeltet og lagring av verdien.
-
-<ArgsTable story={PRIMARY_STORY} />
-I tillegg støttes `value` fra `InputHTMLAttributes<HTMLInputElement>`-interface.
-
-### InlineEdit.Input
-
-Inputfeltet. Returnerer `<input>`.
-
-<ArgsTable of={InlineEdit.Input} />
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
-**OBS!** `value`, `onFocus`, `onChange`, `onBlur` settes av forelder.
-
-### InlineEdit.TextArea
+### InlineEditTextArea
 
 Inputfeltet. Returnerer `<textarea>`.
 
-<ArgsTable of={InlineEdit.TextArea} />
+<ArgsTable of={InlineEditTextArea} />
 I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
-**OBS!** `value`, `onFocus`, `onChange`, `onBlur` settes av forelder.
+
+### InlineEditInput
+
+Inputfeltet. Returnerer `<input>`.
+
+<ArgsTable of={InlineEditInput} />
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.

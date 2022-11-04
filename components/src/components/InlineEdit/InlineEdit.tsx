@@ -1,6 +1,5 @@
 import {
   ChangeEvent,
-  InputHTMLAttributes,
   useState,
   FocusEventHandler,
   FocusEvent,
@@ -8,27 +7,9 @@ import {
   cloneElement,
   isValidElement,
   ReactElement,
-  RefObject,
-  ReactNode,
 } from 'react';
+import { InlineEditProps } from './InlineEdit.types';
 import { useOnClickOutside, useOnKeyDown } from '../../hooks';
-
-export type InlineEditProps = {
-  /**Callback for når verdien blir lagret. */
-  onSetValue?: (value: string) => void;
-  /** Ref til barnet. */
-  inputRef: RefObject<HTMLElement>;
-  /** Barn (inputelementet). */
-  children: ReactNode;
-  /**Spesifiserer om brukeren kan tømme inputfeltet. */
-  emptiable?: boolean;
-  /**Ekstra callback ved `onChange`-event. */
-  onChange?: () => void;
-  /**Ekstra callback ved `onFocus`-event. */
-  onFocus?: () => void;
-  /**Ekstra callback ved `onBlur`-event. */
-  onBlur?: () => void;
-} & Pick<InputHTMLAttributes<HTMLInputElement>, 'value'>;
 
 type EditElement = HTMLInputElement | HTMLTextAreaElement;
 
