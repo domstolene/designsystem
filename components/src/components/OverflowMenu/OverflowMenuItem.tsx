@@ -27,7 +27,6 @@ const { element, link } = tokens;
 
 const elementBaseCSS = css`
   display: flex;
-  align-items: center;
   box-sizing: border-box;
   color: ${element.base.color};
   text-decoration: ${element.base.textDecoration};
@@ -42,6 +41,7 @@ export const Span = styled.span`
 `;
 
 export const Link = styled.a`
+  text-align: left;
   user-select: text;
   border: none;
   cursor: pointer;
@@ -61,6 +61,12 @@ export const Link = styled.a`
   &.focus-visible {
     ${focusVisibleLink}
   }
+`;
+
+const IconWrapper = styled.span`
+  display: flex;
+  align-items: center;
+  height: ${link.iconWrapper.height};
 `;
 
 type BaseOverflowMenuItemProps = {
@@ -174,7 +180,7 @@ export const OverflowMenuItem = forwardRef<
   if (!href && !onClick) {
     return (
       <Span {...{ ...getBaseHTMLProps(id, className, htmlProps, rest), ref }}>
-        {iconElement}
+        <IconWrapper>{iconElement}</IconWrapper>
         {title}
       </Span>
     );
@@ -188,7 +194,7 @@ export const OverflowMenuItem = forwardRef<
         as="button"
         ref={combinedRef as ForwardedRef<HTMLButtonElement>}
       >
-        {iconElement}
+        <IconWrapper>{iconElement}</IconWrapper>
         {title}
       </Link>
     );
@@ -201,7 +207,7 @@ export const OverflowMenuItem = forwardRef<
       as="a"
       ref={combinedRef as ForwardedRef<HTMLAnchorElement>}
     >
-      {iconElement}
+      <IconWrapper>{iconElement}</IconWrapper>
       {title}
     </Link>
   );
