@@ -10,3 +10,12 @@ export type WithRequiredIf<
   T,
   K extends keyof T
 > = Omit<T, K> & Pick<true extends Condition ? Required<T> : T, K>;
+
+/**
+ * Gir tilbake typer fra `T` som matcher `U`
+ *
+ * @template T en union type
+ * @template U delmengde av `T`
+ */
+
+export type ExtractStrict<T, U extends T> = U;
