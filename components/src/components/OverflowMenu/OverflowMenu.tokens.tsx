@@ -1,4 +1,5 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { calculateHeightWithLineHeight } from '../../utils';
 import { StaticTypographyType } from '../Typography';
 
 const { border, borderRadius, colors, spacing, fontPackages } = ddsBaseTokens;
@@ -15,7 +16,15 @@ const element = {
   },
 };
 
+const iconHeight = calculateHeightWithLineHeight(
+  fontPackages.body_sans_01.numbers.lineHeightNumber,
+  fontPackages.body_sans_01.numbers.fontSizeNumber
+);
+
 const link = {
+  iconWrapper: {
+    height: `${iconHeight}px`,
+  },
   hover: {
     backgroundColor: colors.DdsColorInteractiveLightest,
   },
