@@ -1,17 +1,8 @@
-import { StyledSvg } from '../utils/StyledSvg';
+import { SvgWrapper } from '../utils/SvgWrapper';
 import { SvgProps } from '../utils/propTypes';
 export function BuildCircledIcon(props: SvgProps) {
-  const { title, ...rest } = props;
   return (
-    <StyledSvg
-      width={24}
-      height={24}
-      fill="currentColor"
-      {...rest}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      {title && <title>{title}</title>}
+    <SvgWrapper {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -22,6 +13,6 @@ export function BuildCircledIcon(props: SvgProps) {
         clipRule="evenodd"
         d="M13.49 11.38c.43-1.22.17-2.64-.81-3.62a3.468 3.468 0 00-4.1-.59l2.35 2.35-1.41 1.41-2.35-2.35c-.71 1.32-.52 2.99.59 4.1.98.98 2.4 1.24 3.62.81l3.41 3.41c.2.2.51.2.71 0l1.4-1.4c.2-.2.2-.51 0-.71l-3.41-3.41z"
       />
-    </StyledSvg>
+    </SvgWrapper>
   );
 }

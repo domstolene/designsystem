@@ -1,17 +1,8 @@
-import { StyledSvg } from '../utils/StyledSvg';
+import { SvgWrapper } from '../utils/SvgWrapper';
 import { SvgProps } from '../utils/propTypes';
 export function GavelIcon(props: SvgProps) {
-  const { title, ...rest } = props;
   return (
-    <StyledSvg
-      width={24}
-      height={24}
-      fill="currentColor"
-      {...rest}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      {title && <title>{title}</title>}
+    <SvgWrapper {...props}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -22,6 +13,6 @@ export function GavelIcon(props: SvgProps) {
         clipRule="evenodd"
         d="M3 20.183h10.98v1.997H3v-1.997z"
       />
-    </StyledSvg>
+    </SvgWrapper>
   );
 }
