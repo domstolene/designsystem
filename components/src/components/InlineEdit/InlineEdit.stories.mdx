@@ -1,0 +1,70 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgsTable,
+  PRIMARY_STORY,
+} from '@storybook/addon-docs';
+import { InlineEditInput, InlineEditTextArea } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '../../storybook';
+
+<Meta title="Design system/InlineEdit/API" component={InlineEditInput} />
+
+# InlineEdit
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/767867-inlineedit"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/InlineEdit"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=9005%3A150044"
+/>
+
+## Demo
+
+<Canvas>
+  <Story id="design-system-inlineedit-inlineeditinput--default" />
+</Canvas>
+
+<Canvas>
+  <Story id="design-system-inlineedit-inlineedittextarea--default" />
+</Canvas>
+
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-inlineedit`} />
+
+## Oversikt
+
+`<InlineEdit>`-komponentene håndterer inline redigering, f.eks i tabeller. Vi har følgende komponenter:
+
+- `<InlineEditInput />` - returnerer `<input>`.
+- `<InlineEditTextArea />` - returnerer `<textarea>`.
+
+## Bruk i koden
+
+<Source code={`import { InlineEditInput, InlineEditTextArea } fra '@norges-domstoler/dds-components';
+
+const [value, setValue] = useState('');
+
+<InlineEditInput value={value} onSetValue={setValue} />
+<InlineEditTextArea value={value} onSetValue={setValue} />
+
+`} />
+
+## API
+
+### InlineEditTextArea
+
+Inputfeltet. Returnerer `<textarea>`.
+
+<ArgsTable of={InlineEditTextArea} />
+I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
+
+### InlineEditInput
+
+Inputfeltet. Returnerer `<input>`.
+
+<ArgsTable of={InlineEditInput} />
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
