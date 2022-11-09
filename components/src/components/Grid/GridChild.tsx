@@ -4,7 +4,7 @@ import { gridTokens as tokens } from './Grid.tokens';
 import { Property } from 'csstype';
 import { useGridContext } from './Grid.context';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { getLiteralScreenSize } from './Grid.utils';
+import { BreakpointBasedProps, getLiteralScreenSize } from './Grid.utils';
 import { HTMLAttributes } from 'react';
 
 type StyledGridChildProps = {
@@ -47,13 +47,7 @@ const StyledGridChild = styled.div<StyledGridChildProps>`
 `;
 
 type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
-type GridColumnPerScreenSize = {
-  xs: Property.GridColumn;
-  sm: Property.GridColumn;
-  md: Property.GridColumn;
-  lg: Property.GridColumn;
-  xl: Property.GridColumn;
-};
+type GridColumnPerScreenSize = BreakpointBasedProps<'gridColumn'>;
 
 export type ColumnsOccupied = RelativeColumnsOccupied | GridColumnPerScreenSize;
 export type GridChildProps = BaseComponentPropsWithChildren<

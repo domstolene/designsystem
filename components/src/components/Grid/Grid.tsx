@@ -3,8 +3,7 @@ import { ScreenSize, useScreenSize } from '../../hooks';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { gridTokens } from './Grid.tokens';
 import { GridContext } from './Grid.context';
-import { StandardProperties } from 'csstype';
-import { getLiteralScreenSize, ScreenSizeLiteral } from './Grid.utils';
+import { BreakpointBasedProps, getLiteralScreenSize } from './Grid.utils';
 import { HTMLAttributes } from 'react';
 
 type StyledGridProps = {
@@ -44,10 +43,6 @@ const StyledGrid = styled.div<StyledGridProps>`
   ${({ screenSize, maxWidth, rowGap }) =>
     getHooksGridStyling(screenSize, maxWidth, rowGap)}
 `;
-
-type BreakpointBasedProps<T extends keyof StandardProperties> = {
-  [k in ScreenSizeLiteral]?: StandardProperties[T];
-};
 
 type RowGapGrid = BreakpointBasedProps<'rowGap'>;
 type MaxWidthGrid = BreakpointBasedProps<'maxWidth'>;
