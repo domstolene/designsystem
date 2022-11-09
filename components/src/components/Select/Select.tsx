@@ -187,8 +187,6 @@ export type SelectProps<
 > = {
   /**Ledetekst for nedtrekkslisten. */
   label?: string;
-  /**Gir required styling. **OBS!** støtter ikke DOM `required` attributt.   */
-  required?: boolean;
   /**Størrelsen på komponenten. */
   componentSize?: InputSize;
   /**Ikonet som vises i komponenten. */
@@ -321,6 +319,7 @@ const SelectInner = <
       Control: props => DDSControl(props, componentSize, icon),
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
+    required,
     ...rest,
   };
 
