@@ -2,9 +2,12 @@ import { CSSProperties, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { Divider } from '../components/Divider';
 import { Typography } from '../components/Typography';
-import { StoryContainer } from './StoryContainer';
 import 'focus-visible';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+
+const StoryContainer = styled.div`
+  padding: 1.5rem;
+`;
 
 type ContainerProps = {
   gap?: string;

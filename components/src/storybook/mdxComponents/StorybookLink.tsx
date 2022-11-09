@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { Card } from '../components/Card';
+import { Card } from '../../components/Card';
 import { ReactNode } from 'react';
-import { Typography } from '../components/Typography';
+import { Typography } from '../../components/Typography';
 import {
   ZeroheightSvg,
   NpmSvg,
   FigmaSvg,
   SlackSvg,
   GithubSvg,
-} from './assets/logos';
+} from '../assets/logos';
 
 const LinkBlockInner = styled.div<{ size: Size }>`
   display: flex;
