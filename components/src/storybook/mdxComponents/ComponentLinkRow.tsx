@@ -1,4 +1,4 @@
-import { StorybookLink, StorybookLinkRow } from '.';
+import { StorybookLink, StorybookLinkRow } from '..';
 
 type props = {
   docsHref: string;
