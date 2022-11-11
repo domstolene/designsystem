@@ -62,7 +62,51 @@ export const Examples = () => {
         >
           tvisteloven §§ 8-3
         </Link>
-        . Litt mer tekst.
+        . Litt mer tekst.{' '}
+        <Link
+          href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
+          external
+        >
+          sivile saker sivile sakersivile saker sivile saker sivile saker sivile
+          saker sivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile sakersivile saker sivile saker sivile saker sivile saker sivile
+          sakersivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile saker
+        </Link>
+        .
+      </Paragraph>
+      <Paragraph typographyType="bodySans04">
+        Rettsmekling går ut på at partene selv finner en løsning på konflikten
+        ved å bruke en mekler (vanligvis en dommer i domstolen som behandler
+        saken). Avtalen man kommer fram til, blir rettskraftig på lik linje med
+        en dom. Rettsmekling kan bare brukes i{' '}
+        <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+          sivile saker
+        </Link>
+        , ikke i straffesaker. Hvis konflikten ikke løses ved mekling, avgjøres
+        saken ved hovedforhandling (rettssak). Rettsmekling er regulert i{' '}
+        <Link
+          href="https://lovdata.no/dokument/NL/lov/2005-06-17-90/KAPITTEL_2-4-2#%C2%A78-3"
+          external
+        >
+          tvisteloven §§ 8-3
+        </Link>
+        . Litt mer tekst.{' '}
+        <Link
+          href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
+          external
+        >
+          sivile saker sivile sakersivile saker sivile saker sivile saker sivile
+          saker sivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile sakersivile saker sivile saker sivile saker sivile saker sivile
+          sakersivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile saker sivile saker sivile saker sivile saker sivile saker
+          sivile saker
+        </Link>
+        .
       </Paragraph>
       <LocalMessage>
         <Paragraph>

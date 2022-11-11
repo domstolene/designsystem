@@ -10,7 +10,6 @@ const { textDefault } = ddsReferenceTokens;
 const a = {
   base: {
     color: colors.DdsColorInteractiveBase,
-    gap: spacing.SizesDdsSpacingLocalX0125,
   },
   margins: {
     marginTop: 0,
@@ -18,6 +17,10 @@ const a = {
   },
   hover: {
     color: colors.DdsColorInteractiveDark,
+  },
+  icon: {
+    marginTop: spacing.SizesDdsSpacingLocalX025,
+    marginLeft: spacing.SizesDdsSpacingLocalX025,
   },
 };
 
