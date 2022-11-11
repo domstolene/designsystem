@@ -60,7 +60,7 @@ const BodyContainer = styled.div<BodyContainerProps>`
   ${({ animate }) => animate && expandingAnimation}
   overflow: hidden;
   visibility: ${({ isExpanded }) => (isExpanded ? 'visible' : 'hidden')};
-  max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : 0)}px;
+  height: ${({ isExpanded }) => (isExpanded ? 'auto' : 0)}px;
 `;
 
 export type CardAccordionBodyProps = BaseComponentPropsWithChildren<
