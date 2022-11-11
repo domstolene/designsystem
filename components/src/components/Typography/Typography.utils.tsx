@@ -13,6 +13,7 @@ import {
   focusVisibleLink,
   focusVisibleLinkTransitionValue,
 } from '../../helpers/styling';
+import OpenExternalIcon from '../../assets/svg/openExternal.svg';
 
 export const defaultTypographyType: TypographyBodyType = 'bodySans02';
 
@@ -200,9 +201,19 @@ export const getAnchorStyling = (
   }
   ${external &&
   css`
-    display: inline-flex;
-    align-items: center;
-    gap: ${tokens.typographyType.a.base.gap};
+    padding-right: calc(1em + ${tokens.typographyType.a.icon.marginLeft});
+    ::after {
+      // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
+      mask: ${`url("${OpenExternalIcon}")`} no-repeat center/contain;
+      background: 0 0;
+      background-color: currentColor;
+      width: 1em;
+      height: 1em;
+      content: '';
+      position: absolute;
+      margin-top: ${tokens.typographyType.a.icon.marginTop};
+      margin-left: ${tokens.typographyType.a.icon.marginLeft};
+    }
   `}
   &:hover {
     color: ${tokens.typographyType.a.hover.color};

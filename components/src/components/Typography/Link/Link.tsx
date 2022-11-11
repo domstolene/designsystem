@@ -9,8 +9,6 @@ import {
   TypographyBodyType,
 } from '../Typography/Typography.types';
 import { getAnchorStyling } from '../Typography.utils';
-import { Icon } from '../../Icon';
-import { OpenExternalIcon } from '../../../icons/tsx';
 
 type StyledLinkProps = {
   typographyType?: TypographyBodyType;
@@ -62,10 +60,5 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     ...rest,
   };
 
-  return (
-    <StyledLink {...linkProps}>
-      {children}
-      {external && <Icon icon={OpenExternalIcon} iconSize="inherit" />}
-    </StyledLink>
-  );
+  return <StyledLink {...linkProps}>{children}</StyledLink>;
 });
