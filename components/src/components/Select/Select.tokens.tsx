@@ -154,15 +154,8 @@ const noOptionsMessage = {
 };
 
 const multiValue = {
-  base: {
-    borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  },
-  enabled: {
-    backgroundColor: colors.DdsColorNeutralsGray2,
-  },
-  disabled: {
-    backgroundColor: colors.DdsColorNeutralsGray3,
-  },
+  borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
+  backgroundColor: colors.DdsColorNeutralsGray2,
 };
 
 const multiValueLabel = {
