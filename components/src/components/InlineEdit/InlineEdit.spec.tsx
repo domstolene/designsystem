@@ -13,14 +13,14 @@ const newValue = 'text';
 
 const TestComponentTextArea = (props: InlineEditTextAreaProps) => {
   const { value: propValue, ...rest } = props;
-  const [value, setValue] = useState(propValue);
+  const [value, setValue] = useState(propValue || '');
 
   return <InlineEditTextArea value={value} onSetValue={setValue} {...rest} />;
 };
 
 const TestComponentInput = (props: InlineEditInputProps) => {
   const { value: propValue, ...rest } = props;
-  const [value, setValue] = useState(propValue);
+  const [value, setValue] = useState(propValue || '');
 
   return <InlineEditInput value={value} onSetValue={setValue} {...rest} />;
 };

@@ -35,6 +35,7 @@ export const Overview = (args: InlineEditInputProps) => {
   const [value3, setValue3] = useState('');
   const [value4, setValue4] = useState('');
   const [value5, setValue5] = useState('tømbar');
+  const [value6, setValue6] = useState('uten ikon');
   return (
     <StoryTemplate title="InlineEditInput - overview">
       <InlineEditInput {...args} value={value} onSetValue={setValue} />
@@ -51,6 +52,12 @@ export const Overview = (args: InlineEditInputProps) => {
         onSetValue={setValue5}
         value={value5}
         emptiable
+      />
+      <InlineEditInput
+        {...args}
+        onSetValue={setValue6}
+        value={value6}
+        hideIcon
       />
     </StoryTemplate>
   );

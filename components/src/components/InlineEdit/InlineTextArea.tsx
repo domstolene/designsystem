@@ -1,37 +1,23 @@
 import { forwardRef, TextareaHTMLAttributes, useId, useRef } from 'react';
-import styled from 'styled-components';
 import { EditIcon } from '../../icons/tsx';
 import { Icon } from '../Icon';
 import {
   InputContainer,
   OuterInputContainer,
   renderInputMessage,
-  StatefulInput,
 } from '../../helpers';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { scrollbarStyling } from '../ScrollableContainer';
 import {
-  getInlineEditInputStyling,
   IconWrapper,
   defaultWidth,
+  StyledInlineTextArea,
 } from './InlineEdit.styles';
 import { BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
 import { useCombinedRef } from '../../hooks';
-
-type StyledInlineTextAreaProps = {
-  isEditing?: boolean;
-};
-
-const StyledInlineTextArea = styled(StatefulInput)<StyledInlineTextAreaProps>`
-  ${({ isEditing }) => getInlineEditInputStyling(isEditing)}
-  resize: vertical;
-  ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox}
-`;
 
 export type InlineTextAreaProps = BaseInlineInputProps &
   TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -48,6 +34,7 @@ export const InlineTextArea = forwardRef<
     width = defaultWidth,
     'aria-describedby': ariaDescribedby,
     emptiable,
+    hideIcon,
     ...rest
   } = props;
 
@@ -63,7 +50,7 @@ export const InlineTextArea = forwardRef<
   return (
     <OuterInputContainer width={width}>
       <InputContainer>
-        {!isEditing && (
+        {!isEditing && !hideIcon && (
           <IconWrapper
             onClick={() => {
               inputRef.current?.focus();
@@ -79,6 +66,7 @@ export const InlineTextArea = forwardRef<
           ref={combinedRef}
           hasErrorMessage={!!error || hasErrorMessage}
           isEditing={isEditing}
+          hideIcon={hideIcon}
           aria-describedby={spaceSeparatedIdListGenerator([
             hasErrorMessage ? errorMessageId : undefined,
             descId,
