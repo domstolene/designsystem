@@ -1,31 +1,45 @@
 import styled, { css } from 'styled-components';
 import { inlineEditTokens } from './InlineEdit.tokens';
-const { inlineEdit, iconWrapper } = inlineEditTokens;
 import { Property } from 'csstype';
+import { StatefulInput } from '../../helpers';
+import { scrollbarStyling } from '../ScrollableContainer';
+
+const { inlineEdit, iconWrapper } = inlineEditTokens;
 
 export const defaultWidth: Property.Width = '140px';
 
-export const getInlineEditInputStyling = (isEditing?: boolean) => {
-  return css`
-    border-color: transparent;
-    background-color: ${inlineEdit.backgroundColor};
-    padding: ${inlineEdit.padding};
-    ${inlineEdit.font};
-    ${!isEditing &&
+type StyledInlineInputProps = {
+  isEditing?: boolean;
+  hideIcon?: boolean;
+};
+
+export const StyledInlineInput = styled(StatefulInput)<StyledInlineInputProps>`
+  border-color: transparent;
+  background-color: ${inlineEdit.backgroundColor};
+  padding: ${inlineEdit.padding};
+  ${inlineEdit.font};
+  ${({ isEditing, hideIcon }) =>
+    !isEditing &&
+    !hideIcon &&
     css`
-      padding-left: ${inlineEdit.paddingLeft};
+      padding-left: ${inlineEdit.withIcon.paddingLeft};
     `}
 
-    &:hover:enabled:read-write:not(:focus) {
-      background-color: ${inlineEdit.hover.backgroundColor};
-      border-color: transparent;
-      box-shadow: none;
-    }
-    &:focus {
-      background-color: ${inlineEdit.focus.backgroundColor};
-    }
-  `;
-};
+  &:hover:enabled:read-write:not(:focus) {
+    background-color: ${inlineEdit.hover.backgroundColor};
+    border-color: transparent;
+    box-shadow: none;
+  }
+  &:focus {
+    background-color: ${inlineEdit.focus.backgroundColor};
+  }
+`;
+
+export const StyledInlineTextArea = styled(StyledInlineInput)`
+  resize: vertical;
+  ${scrollbarStyling.webkit}
+  ${scrollbarStyling.firefox}
+`;
 
 export const IconWrapper = styled.span`
   position: absolute;
