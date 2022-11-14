@@ -190,14 +190,12 @@ export const getCustomStyles = <TOption>(): Partial<
     overflow: 'hidden',
     boxSizing: 'border-box',
   }),
-  multiValue: (provided, state) => ({
+  multiValue: () => ({
     boxSizing: 'border-box',
     minWidth: 0,
     display: 'flex',
-    borderRadius: multiValue.base.borderRadius,
-    backgroundColor: state.selectProps.isDisabled
-      ? tokens.multiValue.disabled.backgroundColor
-      : tokens.multiValue.enabled.backgroundColor,
+    borderRadius: multiValue.borderRadius,
+    backgroundColor: tokens.multiValue.backgroundColor,
   }),
   multiValueLabel: provided => ({
     ...provided,
