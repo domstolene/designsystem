@@ -4,9 +4,11 @@ const { colors, spacing, fontPackages } = ddsBaseTokens;
 
 const inlineEdit = {
   padding: spacing.SizesDdsSpacingLocalX025,
-  paddingLeft: spacing.SizesDdsSpacingLocalX2,
   font: fontPackages.body_sans_02.base,
   backgroundColor: 'transparent',
+  withIcon: {
+    paddingLeft: spacing.SizesDdsSpacingLocalX2,
+  },
   hover: {
     backgroundColor: colors.DdsColorInteractiveLightest,
   },

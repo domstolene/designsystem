@@ -36,6 +36,7 @@ export const Overview = (args: InlineEditTextAreaProps) => {
   const [value3, setValue3] = useState('');
   const [value4, setValue4] = useState('');
   const [value5, setValue5] = useState('tømbar');
+  const [value6, setValue6] = useState('uten ikon');
   return (
     <StoryTemplate title="InlineEditTextArea - overview">
       <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
@@ -57,6 +58,12 @@ export const Overview = (args: InlineEditTextAreaProps) => {
         onSetValue={setValue5}
         value={value5}
         emptiable
+      />
+      <InlineEditTextArea
+        {...args}
+        onSetValue={setValue6}
+        value={value6}
+        hideIcon
       />
     </StoryTemplate>
   );

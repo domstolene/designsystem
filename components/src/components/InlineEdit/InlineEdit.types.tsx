@@ -13,6 +13,8 @@ export type BaseInlineInputProps = {
   errorMessage?: string;
   /** Bredde på komponenten. */
   width?: Property.Width;
+  /**Om redigeringsikonet skal vises. */
+  hideIcon?: boolean;
   /** **OBS!** settes automatisk av forelder. Spesifiserer om brukeren kan tømme inputfeltet. */
   emptiable?: boolean;
   /** **OBS!** settes automatisk av forelder. Spesifiserer om komponenten er i redigeringsmodus. */
@@ -40,7 +42,7 @@ export type CommonInlineEditWrapperProps = Pick<
   InlineEditProps,
   'onSetValue' | 'emptiable' | 'onBlur' | 'onFocus' | 'onChange'
 > &
-  Pick<BaseInlineInputProps, 'error' | 'errorMessage' | 'width'>;
+  Pick<BaseInlineInputProps, 'error' | 'errorMessage' | 'width' | 'hideIcon'>;
 
 export type InlineEditTextAreaProps = Omit<
   TextareaHTMLAttributes<HTMLTextAreaElement>,

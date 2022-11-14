@@ -1,32 +1,22 @@
 import { forwardRef, InputHTMLAttributes, useId } from 'react';
-import styled from 'styled-components';
 import { EditIcon } from '../../icons/tsx';
 import { Icon } from '../Icon';
 import {
   InputContainer,
   OuterInputContainer,
   renderInputMessage,
-  StatefulInput,
 } from '../../helpers';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import {
-  getInlineEditInputStyling,
   IconWrapper,
   defaultWidth,
+  StyledInlineInput,
 } from './InlineEdit.styles';
 import { BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
-
-type StyledInlineInputProps = {
-  isEditing?: boolean;
-};
-
-const StyledInlineInput = styled(StatefulInput)<StyledInlineInputProps>`
-  ${({ isEditing }) => getInlineEditInputStyling(isEditing)}
-`;
 
 export type InlineInputProps = BaseInlineInputProps &
   InputHTMLAttributes<HTMLInputElement>;
@@ -41,6 +31,7 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
       width = defaultWidth,
       'aria-describedby': ariaDescribedby,
       emptiable,
+      hideIcon,
       ...rest
     } = props;
 
@@ -55,7 +46,7 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
     return (
       <OuterInputContainer width={width}>
         <InputContainer>
-          {!isEditing && (
+          {!isEditing && !hideIcon && (
             <IconWrapper>
               <Icon icon={EditIcon} iconSize="small" />
             </IconWrapper>
@@ -66,6 +57,7 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
             ref={ref}
             hasErrorMessage={hasErrorState}
             isEditing={isEditing}
+            hideIcon={hideIcon}
             aria-describedby={spaceSeparatedIdListGenerator([
               hasErrorMessage ? errorMessageId : undefined,
               descId,
