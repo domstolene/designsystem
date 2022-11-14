@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, useId } from 'react';
+import { forwardRef, InputHTMLAttributes, useId, useRef } from 'react';
 import styled from 'styled-components';
 import { EditIcon } from '../../icons/tsx';
 import { Icon } from '../Icon';
@@ -19,6 +19,7 @@ import {
 } from './InlineEdit.styles';
 import { BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
+import { useCombinedRef } from '../../hooks';
 
 type StyledInlineInputProps = {
   isEditing?: boolean;
@@ -52,18 +53,25 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
     const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
     const descId = derivativeIdGenerator(uniqueId, 'desc');
 
+    const inputRef = useRef<HTMLInputElement>(null);
+    const combinedRef = useCombinedRef(ref, inputRef);
+
     return (
       <OuterInputContainer width={width}>
         <InputContainer>
           {!isEditing && (
-            <IconWrapper>
+            <IconWrapper
+              onClick={() => {
+                inputRef.current?.focus();
+              }}
+            >
               <Icon icon={EditIcon} iconSize="small" />
             </IconWrapper>
           )}
           <StyledInlineInput
             {...rest}
             id={uniqueId}
-            ref={ref}
+            ref={combinedRef}
             hasErrorMessage={hasErrorState}
             isEditing={isEditing}
             aria-describedby={spaceSeparatedIdListGenerator([
