@@ -1,5 +1,5 @@
 import { StoryTemplate } from '../../storybook';
-import { Search, SearchProps } from './Search';
+import { Search, SearchProps } from '.';
 
 export default {
   title: 'Design system/Search',
@@ -14,6 +14,23 @@ export default {
     },
   },
 };
+
+const array = [
+  'lala',
+  'ghostbusters',
+  'ghostbusters A',
+  'buardi',
+  'ghost3',
+  'ghost',
+  'ost',
+  'too',
+  'ghostbusters B',
+  'ghos',
+  'to ord',
+  'ghost2',
+  'Jan-Ole Olsen',
+  'Øst-Agder',
+];
 
 export const Overview = (args: SearchProps) => {
   return (
@@ -80,6 +97,22 @@ export const OverviewSizes = (args: SearchProps) => {
   );
 };
 
+export const OverviewWithSuggestions = (args: SearchProps) => {
+  return (
+    <StoryTemplate title="Search - overview with suggestions">
+      <Search.AutocompleteWrapper data={{ array }}>
+        <Search {...args} componentSize="large" />
+      </Search.AutocompleteWrapper>
+      <Search.AutocompleteWrapper data={{ array }}>
+        <Search {...args} componentSize="medium" />
+      </Search.AutocompleteWrapper>
+      <Search.AutocompleteWrapper data={{ array }}>
+        <Search {...args} componentSize="small" />
+      </Search.AutocompleteWrapper>
+    </StoryTemplate>
+  );
+};
+
 export const Default = (args: SearchProps) => {
   return (
     <StoryTemplate title="Search - default" display="block">
@@ -92,6 +125,16 @@ export const WithButton = (args: SearchProps) => {
   return (
     <StoryTemplate title="Search - with button" display="block">
       <Search {...args} buttonProps={{ onClick: () => {}, label: 'Søk' }} />
+    </StoryTemplate>
+  );
+};
+
+export const WithSuggestions = (args: SearchProps) => {
+  return (
+    <StoryTemplate title="Search - with suggestions" display="block">
+      <Search.AutocompleteWrapper data={{ array }}>
+        <Search {...args} />
+      </Search.AutocompleteWrapper>
     </StoryTemplate>
   );
 };

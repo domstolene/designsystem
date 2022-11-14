@@ -5,7 +5,7 @@ import {
 import { StaticTypographyType } from '../Typography';
 import { SearchSize } from './Search';
 
-const { spacing, iconSizes } = ddsBaseTokens;
+const { spacing, iconSizes, colors } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
 export const typographyTypes: { [k in SearchSize]: StaticTypographyType } = {
@@ -79,9 +79,21 @@ const icon = {
   },
 };
 
+const suggestionsContainer = {
+  marginTop: spacing.SizesDdsSpacingLocalX025,
+  border: `1px solid ${colors.DdsColorInteractiveBase}`,
+  boxShadow: `0 0 0 1px ${colors.DdsColorInteractiveBase}`,
+};
+
+const suggestionsHeader = {
+  paddingLeft: spacing.SizesDdsSpacingLocalX1,
+};
+
 export const searchTokens = {
   input,
   icon,
   horisontalContainer,
   outerContainer,
+  suggestionsContainer,
+  suggestionsHeader,
 };
