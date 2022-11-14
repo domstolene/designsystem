@@ -1,10 +1,10 @@
-import { StyledSvg } from '../utils/StyledSvg';
+import { SvgWrapper } from '../utils/SvgWrapper';
 import { SvgProps } from '../utils/propTypes';
 
 export function JordskifterettIcon(props: SvgProps) {
   const { title, ...rest } = props;
   return (
-    <StyledSvg
+    <SvgWrapper
       width="24"
       height="24"
       {...rest}
@@ -13,6 +13,6 @@ export function JordskifterettIcon(props: SvgProps) {
     >
       {title && <title>{title}</title>}
       <circle cx="12" cy="12" r="6" />
-    </StyledSvg>
+    </SvgWrapper>
   );
 }

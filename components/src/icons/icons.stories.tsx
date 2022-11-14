@@ -9,7 +9,7 @@ import * as icons from './tsx';
 import { Button } from '../components/Button';
 import { CopyIcon } from './tsx';
 import { LocalMessage } from '../components/LocalMessage';
-import { SvgIcon } from './utils';
+import { SvgIcon, SvgProps } from './utils';
 
 const { colors, spacing, borderRadius } = ddsBaseTokens;
 
@@ -141,15 +141,16 @@ export const Overview = () => {
     setCopiedImport(true);
   };
 
-  const iconKeys = Object.keys(icons);
+  const iconKeys = Object.keys(icons).sort();
+  const iconsObject = icons as {
+    [key: string]: (props: SvgProps) => JSX.Element;
+  };
 
   const iconOverview = () => {
     const overview = [];
-    const values = Object.values(icons);
-    const keys = iconKeys;
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const value = values[i];
+    for (let i = 0; i < iconKeys.length; i++) {
+      const key = iconKeys[i];
+      const value = iconsObject[key];
       const trimmedName = trim(key);
       overview.push(
         <IconContainer

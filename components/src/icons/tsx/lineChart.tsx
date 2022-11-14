@@ -1,9 +1,10 @@
 import { SvgWrapper } from '../utils/SvgWrapper';
 import { SvgProps } from '../utils/propTypes';
-export function MenuIcon(props: SvgProps) {
+
+export function LineChartIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>
-      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+      <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99l1.5 1.5z" />
     </SvgWrapper>
   );
 }

@@ -52,7 +52,6 @@ export function Icon(props: IconProps) {
     height: size,
     width: size,
     fill: color,
-    viewBox: '0 0 24 24',
     'aria-hidden': ariaHidden,
   });
 }
