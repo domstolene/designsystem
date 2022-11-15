@@ -46,4 +46,7 @@ export const IconWrapper = styled.span`
   left: ${iconWrapper.left};
   top: ${iconWrapper.top};
   z-index: 1;
+  &:hover {
+    cursor: text;
+  }
 `;

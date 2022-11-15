@@ -1,4 +1,4 @@
-import { forwardRef, TextareaHTMLAttributes, useId } from 'react';
+import { forwardRef, TextareaHTMLAttributes, useId, useRef } from 'react';
 import { EditIcon } from '../../icons/tsx';
 import { Icon } from '../Icon';
 import {
@@ -17,6 +17,7 @@ import {
 } from './InlineEdit.styles';
 import { BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
+import { useCombinedRef } from '../../hooks';
 
 export type InlineTextAreaProps = BaseInlineInputProps &
   TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -43,11 +44,18 @@ export const InlineTextArea = forwardRef<
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
   const descId = derivativeIdGenerator(uniqueId, 'desc');
 
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const combinedRef = useCombinedRef(ref, inputRef);
+
   return (
     <OuterInputContainer width={width}>
       <InputContainer>
         {!isEditing && !hideIcon && (
-          <IconWrapper>
+          <IconWrapper
+            onClick={() => {
+              inputRef.current?.focus();
+            }}
+          >
             <Icon icon={EditIcon} iconSize="small" />
           </IconWrapper>
         )}
@@ -55,7 +63,7 @@ export const InlineTextArea = forwardRef<
           {...rest}
           as="textarea"
           id={uniqueId}
-          ref={ref}
+          ref={combinedRef}
           hasErrorMessage={!!error || hasErrorMessage}
           isEditing={isEditing}
           hideIcon={hideIcon}
