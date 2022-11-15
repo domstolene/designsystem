@@ -70,15 +70,15 @@ export const PageExample = (args: GridProps) => {
             </Head>
             <Body>
               <Row type="body">
-                <Cell>Ole Joakim Devold</Cell>
-                <Cell>Advokat Ole J Devold</Cell>
+                <Cell> Marie Bjerke </Cell>
+                <Cell>Advokat Firma </Cell>
                 <Cell>
                   <Tag text="Møterett" purpose="success" />
                 </Cell>
               </Row>
               <Row type="body">
-                <Cell>Lars Ivar Kallekleiv Lislegard-Bækken</Cell>
-                <Cell>Gard AS</Cell>
+                <Cell>Sandra-Katrine Ingvaldsen Lovsetter</Cell>
+                <Cell>Advokatene AS</Cell>
                 <Cell>
                   <Tag text="Ikke møterett" purpose="danger" />
                 </Cell>
