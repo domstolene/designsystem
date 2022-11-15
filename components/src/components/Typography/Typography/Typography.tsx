@@ -146,11 +146,8 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     let relProp;
     let targetProp;
     let externalLinkProp;
-    let renderIcon = false;
     if (isAnchorProps(props)) {
       const { externalLink, target } = props;
-
-      renderIcon = (as === 'a' && externalLink) ?? false;
       relProp = as === 'a' ? 'noopener noreferer' : undefined;
       targetProp = as !== 'a' ? undefined : externalLink ? '_blank' : target;
       externalLinkProp = as === 'a' && externalLink ? externalLink : undefined;
@@ -169,7 +166,6 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     return (
       <StyledTypography ref={ref} {...typographyProps}>
         {children}
-        {renderIcon && <Icon icon={OpenExternalIcon} iconSize="inherit" />}
       </StyledTypography>
     );
   }
