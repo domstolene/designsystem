@@ -6,3 +6,4 @@ export * from './focus';
 export * from './danger';
 export * from './hideInput';
 export * from './selection';
+export * from './normalize';

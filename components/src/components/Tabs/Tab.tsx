@@ -22,6 +22,7 @@ import {
 import {
   focusVisible,
   focusVisibleTransitionValue,
+  normalizeButton,
   removeButtonStyling,
 } from '../../helpers/styling';
 import { SvgIcon } from '../../icons/utils';
@@ -38,6 +39,7 @@ type ButtonProps = {
 };
 
 const Button = styled.button<ButtonProps>`
+  ${normalizeButton}
   ${removeButtonStyling}
   user-select: text;
   display: flex;
