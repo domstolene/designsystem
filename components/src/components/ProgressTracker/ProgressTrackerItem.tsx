@@ -241,12 +241,12 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     children,
   } = props;
 
-  const { activeStep } = useProgressTrackerContext();
+  const { activeStep, handleStepChange } = useProgressTrackerContext();
   const active = activeStep === index;
 
   const styleProps = {
     state: toItemState(active, completed, disabled),
-    clickable: props.onClick !== undefined,
+    clickable: handleStepChange !== undefined,
   };
 
   const stepNumberContent = useMemo(() => {
@@ -265,9 +265,11 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     <ItemWrapper aria-current={active ? 'step' : undefined}>
       <ItemContentWrapper
         {...styleProps}
-        as={props.onClick ? 'button' : 'div'}
+        as={handleStepChange ? 'button' : 'div'}
         onClick={
-          !disabled && props.onClick ? () => props.onClick(index) : undefined
+          !disabled && handleStepChange
+            ? () => handleStepChange(index)
+            : undefined
         }
         disabled={disabled}
       >

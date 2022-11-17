@@ -20,39 +20,24 @@ export const Overview = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState(new Set());
 
-  const handleStepClick = (index: number) => {
-    setActiveStep(index);
-  };
-
   return (
     <StoryTemplate title="ProgressTracker - overview" display="block">
       <ProgressTracker
         activeStep={activeStep}
+        onStepChange={step => setActiveStep(step)}
+        clickable
         htmlProps={{ style: { maxWidth: '800px' } }}
       >
-        <ProgressTracker.Item
-          completed={completedSteps.has(0)}
-          onClick={handleStepClick}
-        >
+        <ProgressTracker.Item completed={completedSteps.has(0)}>
           Partopplysninger
         </ProgressTracker.Item>
-        <ProgressTracker.Item
-          completed={completedSteps.has(1)}
-          onClick={handleStepClick}
-        >
+        <ProgressTracker.Item completed={completedSteps.has(1)}>
           Slutning
         </ProgressTracker.Item>
-        <ProgressTracker.Item
-          completed={completedSteps.has(2)}
-          onClick={handleStepClick}
-        >
+        <ProgressTracker.Item completed={completedSteps.has(2)}>
           Vedlegg
         </ProgressTracker.Item>
-        <ProgressTracker.Item
-          completed={completedSteps.has(3)}
-          onClick={handleStepClick}
-          disabled
-        >
+        <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
           Sammendrag
         </ProgressTracker.Item>
       </ProgressTracker>
@@ -83,41 +68,35 @@ export const WithIcons = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState(new Set());
 
-  const handleStepClick = (index: number) => {
-    setActiveStep(index);
-  };
-
   return (
     <StoryTemplate title="ProgressTracker - with icons" display="block">
       <ProgressTracker
         activeStep={activeStep}
         htmlProps={{ style: { maxWidth: '800px' } }}
+        clickable
+        onStepChange={step => setActiveStep(step)}
       >
         <ProgressTracker.Item
           icon={PersonIcon}
           completed={completedSteps.has(0)}
-          onClick={handleStepClick}
         >
           Partopplysninger
         </ProgressTracker.Item>
         <ProgressTracker.Item
           icon={AttachmentIcon}
           completed={completedSteps.has(1)}
-          onClick={handleStepClick}
         >
           Vedlegg
         </ProgressTracker.Item>
         <ProgressTracker.Item
           icon={GavelIcon}
           completed={completedSteps.has(2)}
-          onClick={handleStepClick}
         >
           Slutning
         </ProgressTracker.Item>
         <ProgressTracker.Item
           icon={ChecklistIcon}
           completed={completedSteps.has(3)}
-          onClick={handleStepClick}
           disabled
         >
           Sammendrag
