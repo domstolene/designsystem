@@ -1,5 +1,5 @@
 import { StoryTemplate } from '../../storybook';
-import { Body, Cell, Head, Row, Table, TableWrapper } from '../Table';
+import { Table } from '../Table';
 import { useState } from 'react';
 import { InlineEditInput } from './InlineEditInput';
 import { InlineEditInputProps } from './InlineEdit.types';
@@ -77,33 +77,33 @@ export const InTable = () => {
   const [value2, setValue2] = useState();
   return (
     <StoryTemplate title="InlineEditInput - in table" display="block">
-      <TableWrapper>
+      <Table.Wrapper>
         <Table>
-          <Head>
-            <Row type="head">
-              <Cell type="head">Header</Cell>
-              <Cell type="head">Header</Cell>
-              <Cell type="head">Header</Cell>
-            </Row>
-          </Head>
-          <Body>
-            <Row>
-              <Cell>
+          <Table.Head>
+            <Table.Row type="head">
+              <Table.Cell type="head">Header</Table.Cell>
+              <Table.Cell type="head">Header</Table.Cell>
+              <Table.Cell type="head">Header</Table.Cell>
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>
                 <InlineEditInput onSetValue={() => setValue(value)} />
-              </Cell>
-              <Cell>innhold</Cell>
-              <Cell>innhold</Cell>
-            </Row>
-            <Row>
-              <Cell>
+              </Table.Cell>
+              <Table.Cell>innhold</Table.Cell>
+              <Table.Cell>innhold</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>
                 <InlineEditInput onSetValue={() => setValue2(value2)} />
-              </Cell>
-              <Cell>innhold</Cell>
-              <Cell>innhold</Cell>
-            </Row>
-          </Body>
+              </Table.Cell>
+              <Table.Cell>innhold</Table.Cell>
+              <Table.Cell>innhold</Table.Cell>
+            </Table.Row>
+          </Table.Body>
         </Table>
-      </TableWrapper>
+      </Table.Wrapper>
     </StoryTemplate>
   );
 };
