@@ -41,6 +41,10 @@ type ProgressTrackerProps = BaseComponentPropsWithChildren<
   {
     /** Indeksen til det aktive steget. */
     activeStep?: number;
+    /** Ekstra logikk ved klikking på et steg. */
+    onStepChange?: (step: number) => void;
+    /** Om brukeren kan hoppe mellom stegene via museklikk på et steg. */
+    clickable?: boolean;
   }
 >;
 
@@ -54,6 +58,8 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     const {
       id,
       activeStep = 0,
+      onStepChange,
+      clickable = false,
       children,
       className,
       htmlProps,
@@ -61,6 +67,11 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     } = props;
 
     const [thisActiveStep, setActiveStep] = useState(activeStep);
+
+    const handleChange = (step: number) => {
+      setActiveStep(step);
+      onStepChange && onStepChange(step);
+    };
 
     useEffect(() => {
       if (activeStep !== undefined && activeStep != thisActiveStep) {
@@ -85,6 +96,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
       <ProgressTrackerContext.Provider
         value={{
           activeStep: thisActiveStep,
+          handleStepChange: clickable ? handleChange : undefined,
         }}
       >
         <div role="group" aria-label="progress" {...containerProps}>
