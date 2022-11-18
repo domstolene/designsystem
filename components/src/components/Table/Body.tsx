@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const StyledBody = styled.tbody``;
 
-export type BodyProps = HTMLAttributes<HTMLTableSectionElement>;
+export type TableBodyProps = HTMLAttributes<HTMLTableSectionElement>;
 
-export const Body = forwardRef<HTMLTableSectionElement, BodyProps>(
+export const Body = forwardRef<HTMLTableSectionElement, TableBodyProps>(
   ({ children, ...rest }, ref) => {
     const bodyProps = {
       ...rest,

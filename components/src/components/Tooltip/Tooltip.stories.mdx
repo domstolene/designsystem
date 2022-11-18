@@ -12,7 +12,7 @@ import {
   SB_DESIGNSYSTEM_URL,
   LinkToInteractiveStory,
 } from '../../storybook';
-import { TableWrapper, Table, Body, Cell, Head, Row } from '../Table';
+import { Table } from '../Table';
 
 <Meta title="Design system/Tooltip/API" component={Tooltip} />
 
@@ -59,39 +59,39 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 Det brukes ulike events til å lukke eller åpne tooltip. For å bruke callback på event som styrer tooltip må den sendes som prop til riktig element. Se oversikt over hvilket element bruker hvilken event:
 
-<TableWrapper>
+<Table.Wrapper>
   <Table density="compact" style={{ width: '100%' }}>
-    <Head>
-      <Row type="head">
-        <Cell type="head">Event</Cell>
-        <Cell type="head">`Tooltip`</Cell>
-        <Cell type="head">Anchor-element</Cell>
-      </Row>
-    </Head>
-    <Body>
-      <Row>
-        <Cell> `onMouseOver` </Cell>
-        <Cell> ✅ </Cell>
-        <Cell> </Cell>
-      </Row>
-      <Row>
-        <Cell> `onMouseLeave`</Cell>
-        <Cell> ✅ </Cell>
-        <Cell> </Cell>
-      </Row>
-      <Row>
-        <Cell> `onFocus` </Cell>
-        <Cell> </Cell>
-        <Cell> ✅ </Cell>
-      </Row>
-      <Row>
-        <Cell> `onBlur` </Cell>
-        <Cell> </Cell>
-        <Cell> ✅ </Cell>
-      </Row>
-    </Body>
+    <Table.Head>
+      <Table.Row type="head">
+        <Table.Cell type="head">Event</Table.Cell>
+        <Table.Cell type="head">`Tooltip`</Table.Cell>
+        <Table.Cell type="head">Anchor-element</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell> `onMouseOver` </Table.Cell>
+        <Table.Cell> ✅ </Table.Cell>
+        <Table.Cell> </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `onMouseLeave`</Table.Cell>
+        <Table.Cell> ✅ </Table.Cell>
+        <Table.Cell> </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `onFocus` </Table.Cell>
+        <Table.Cell> </Table.Cell>
+        <Table.Cell> ✅ </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `onBlur` </Table.Cell>
+        <Table.Cell> </Table.Cell>
+        <Table.Cell> ✅ </Table.Cell>
+      </Table.Row>
+    </Table.Body>
   </Table>
-</TableWrapper>
+</Table.Wrapper>
 
 #### Eksempel
 

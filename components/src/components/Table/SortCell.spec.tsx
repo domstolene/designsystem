@@ -1,16 +1,16 @@
 import { fireEvent, render } from '@testing-library/react';
-import { Table, Row, Head, SortCell } from '.';
+import { Table } from '.';
 
 describe('<SortCell />', () => {
   it('should run onclick event', () => {
     const event = jest.fn();
     const { container } = render(
       <Table>
-        <Head>
-          <Row>
-            <SortCell onClick={event}></SortCell>
-          </Row>
-        </Head>
+        <Table.Head>
+          <Table.Row>
+            <Table.SortCell onClick={event}></Table.SortCell>
+          </Table.Row>
+        </Table.Head>
       </Table>
     );
     const sortButton = container.querySelector('th')?.querySelector('button');
@@ -21,15 +21,15 @@ describe('<SortCell />', () => {
   it('should have aria-sort', () => {
     const { container } = render(
       <Table>
-        <Head>
-          <Row>
-            <SortCell
+        <Table.Head>
+          <Table.Row>
+            <Table.SortCell
               isSorted={true}
               sortOrder="ascending"
               onClick={() => {}}
-            ></SortCell>
-          </Row>
-        </Head>
+            ></Table.SortCell>
+          </Table.Row>
+        </Table.Head>
       </Table>
     );
     const sortCell = container.querySelector('th');

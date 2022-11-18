@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { InternalHeader } from '../InternalHeader';
 import { Pagination } from '../Pagination';
 import { Search } from '../Search';
-import { Body, Cell, Head, Row, Table } from '../Table';
+import { Table } from '../Table';
 import { Tag } from '../Tag';
 import { TextInput } from '../TextInput';
 import { Heading } from '../Typography';
@@ -60,31 +60,33 @@ export const PageExample = (args: GridProps) => {
           />
         </GridChild>
         <GridChild columnsOccupied="all">
-          <Table style={{ width: '100%' }}>
-            <Head>
-              <Row type="head">
-                <Cell type="head">Navn</Cell>
-                <Cell type="head">Firma</Cell>
-                <Cell type="head">Status</Cell>
-              </Row>
-            </Head>
-            <Body>
-              <Row type="body">
-                <Cell> Marie Bjerke </Cell>
-                <Cell>Advokat Firma </Cell>
-                <Cell>
-                  <Tag text="Møterett" purpose="success" />
-                </Cell>
-              </Row>
-              <Row type="body">
-                <Cell>Sandra-Katrine Ingvaldsen Lovsetter</Cell>
-                <Cell>Advokatene AS</Cell>
-                <Cell>
-                  <Tag text="Ikke møterett" purpose="danger" />
-                </Cell>
-              </Row>
-            </Body>
-          </Table>
+          <Table.Wrapper>
+            <Table style={{ width: '100%' }}>
+              <Table.Head>
+                <Table.Row type="head">
+                  <Table.Cell type="head">Navn</Table.Cell>
+                  <Table.Cell type="head">Firma</Table.Cell>
+                  <Table.Cell type="head">Status</Table.Cell>
+                </Table.Row>
+              </Table.Head>
+              <Table.Body>
+                <Table.Row type="body">
+                  <Table.Cell> Marie Bjerke </Table.Cell>
+                  <Table.Cell>Advokat Firma </Table.Cell>
+                  <Table.Cell>
+                    <Tag text="Møterett" purpose="success" />
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row type="body">
+                  <Table.Cell>Sandra-Katrine Ingvaldsen Lovsetter</Table.Cell>
+                  <Table.Cell>Advokatene AS</Table.Cell>
+                  <Table.Cell>
+                    <Tag text="Ikke møterett" purpose="danger" />
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+          </Table.Wrapper>
         </GridChild>
         <GridChild columnsOccupied="all">
           <Pagination

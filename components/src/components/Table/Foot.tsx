@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const StyledFoot = styled.tfoot``;
 
-export type FootProps = HTMLAttributes<HTMLTableSectionElement>;
+export type TableFootProps = HTMLAttributes<HTMLTableSectionElement>;
 
-export const Foot = forwardRef<HTMLTableSectionElement, FootProps>(
+export const Foot = forwardRef<HTMLTableSectionElement, TableFootProps>(
   ({ children, ...rest }, ref) => {
     const footProps = {
       ...rest,

@@ -13,7 +13,7 @@ import {
   LinkToInteractiveStory,
 } from '../../storybook';
 import { Link } from '../Typography';
-import { TableWrapper, Table, Body, Cell, Head, Row } from '../Table';
+import { Table } from '../Table';
 
 <Meta title="Design system/Select/API" component={Select} />
 
@@ -63,170 +63,171 @@ Komponenten bruker <Link href='https://react-select.com/home' external>React-sel
 
 ### Elsa props
 
-<TableWrapper>
+<Table.Wrapper>
   <Table density="compact" style={{ width: '100%' }}>
-    <Head>
-      <Row type="head">
-        <Cell type="head">Property</Cell>
-        <Cell type="head">Datatype</Cell>
-        <Cell type="head">Påkrevd</Cell>
-        <Cell type="head">Default</Cell>
-        <Cell type="head">Beskrivelse</Cell>
-      </Row>
-    </Head>
-    <Body>
-      <Row>
-        <Cell> `label` </Cell>
-        <Cell> `string` </Cell>
-        <Cell> nei </Cell>
-        <Cell> - </Cell>
-        <Cell> Label for nedtrekkslisten. </Cell>
-      </Row>
-      <Row>
-        <Cell> `width` </Cell>
-        <Cell> `string` </Cell>
-        <Cell> nei </Cell>
-        <Cell> `'320px'` </Cell>
-        <Cell> Custom bredde ved behov.</Cell>
-      </Row>
-      <Row>
-        <Cell> `tip` </Cell>
-        <Cell> `string` </Cell>
-        <Cell> nei</Cell>
-        <Cell>-</Cell>
-        <Cell>Hjelpetekst.</Cell>
-      </Row>
-      <Row>
-        <Cell> `errorMessage` </Cell>
-        <Cell> `string` </Cell>
-        <Cell> nei </Cell>
-        <Cell>-</Cell>
-        <Cell> Meldingen som vises ved valideringsfeil.</Cell>
-      </Row>
-      <Row>
-        <Cell> `required` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>
+    <Table.Head>
+      <Table.Row type="head">
+        <Table.Cell type="head">Property</Table.Cell>
+        <Table.Cell type="head">Datatype</Table.Cell>
+        <Table.Cell type="head">Påkrevd</Table.Cell>
+        <Table.Cell type="head">Default</Table.Cell>
+        <Table.Cell type="head">Beskrivelse</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell> `label` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei </Table.Cell>
+        <Table.Cell> - </Table.Cell>
+        <Table.Cell> Label for nedtrekkslisten. </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `width` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei </Table.Cell>
+        <Table.Cell> `'320px'` </Table.Cell>
+        <Table.Cell> Custom bredde ved behov.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `tip` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei</Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Hjelpetekst.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `errorMessage` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell> Meldingen som vises ved valideringsfeil.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `required` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>
           Gir `required` styling. OBS! støtter ikke DOM required attributt.{' '}
-        </Cell>
-      </Row>
-      <Row>
-        <Cell> `readOnly` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>Nedtrekkslisten blir disabled og får `readOnly` styling. </Cell>
-      </Row>
-    </Body>
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `readOnly` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>
+          Nedtrekkslisten blir disabled og får `readOnly` styling.
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
   </Table>
-</TableWrapper>
+</Table.Wrapper>
 <br />
 ### Native React-select props
 
 Ofte brukt native props:
 
-<TableWrapper>
+<Table.Wrapper>
   <Table density="compact" style={{ width: '100%' }}>
-    <Head>
-      <Row type="head">
-                <Cell type="head">Property</Cell>
-        <Cell type="head">Datatype</Cell>
-        <Cell type="head">Påkrevd</Cell>
-        <Cell type="head">Default</Cell>
-        <Cell type="head">Beskrivelse</Cell>
-      </Row>
-    </Head>
-    <Body>
-      <Row>
-        <Cell> `options` </Cell>
-        <Cell> `{ label: string, value: string }[]` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>Alternativer som havner i nedtrekkslisten. </Cell>
-      </Row>
-       <Row>
-        <Cell> `onChange` </Cell>
-        <Cell> `(newValue: { label: string, value: string } | null, ActionMeta: ActionMeta<TOption>) => void` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell> onChange funksjon.</Cell>
-      </Row>
-       <Row>
-        <Cell> `isDisabled` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>Gjør nedtrekkslisten disabled og gir den relevant styling. </Cell>
-      </Row>
-      <Row>
-        <Cell> `value` </Cell>
-        <Cell> `{ label: string; value: string; } | null` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell> Forhåndsvalgt alternativ som brukeren ikke kan endre. OBS! Brukes kun i oppsummering av brukerens valg og lignende tilfeller.</Cell>
-      </Row>
-      <Row>
-        <Cell> `defaultValue` </Cell>
-        <Cell> `{ label: string; value: string; } | null` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>Forhåndsvalgt alternativ som brukeren kan endre. OBS! Brukes ikke i standard skjema da brukeren skal ta et bevisst valg. </Cell>
-      </Row>
-      <Row>
-        <Cell> `isMulti` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>Gjør komponenten om til multiselect.</Cell>
-      </Row>
-            <Row>
-        <Cell> `closeMenuOnSelect` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>false ved isMulti, true ellers</Cell>
-        <Cell>Spesifiserer om listen med alternativer skal lukkes når brukeren har valgt en alternativ.</Cell>
-      </Row>
-            <Row>
-        <Cell> `isClearable` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>`true`</Cell>
-        <Cell>Spesifiserer om valgt alternativ kan tømmes. OBS! settes til false i spesialtilfeller, bruker skal ha mulighet til å tømme valget i standard skjema.</Cell>
-      </Row>
-            <Row>
-        <Cell> `placeholder` </Cell>
-        <Cell> `string` </Cell>
-        <Cell>nei </Cell>
-        <Cell>`'-- Velg fra listen --'`</Cell>
-        <Cell>Tekst som vises når ingen alternativ er valgt.</Cell>
-      </Row>
-      <Row>
-        <Cell> `isLoading` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>Kan brukes mens komponenten lastes inn, rendrer en innlastningsindikator i inputfeltet.</Cell>
-      </Row>
-      <Row>
-        <Cell> `isSearchable` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>`true`</Cell>
-        <Cell>Spesifiserer om brukeren kan søke på alternativene.</Cell>
-      </Row>
-            <Row>
-        <Cell> `required` </Cell>
-        <Cell> `boolean` </Cell>
-        <Cell>nei </Cell>
-        <Cell>-</Cell>
-        <Cell>Markerer input som påkrevd til skjemavalidering. Gir `required` styling.</Cell>
-      </Row>
-    </Body>
-
+    <Table.Head>
+      <Table.Row type="head">
+        <Table.Cell type="head">Property</Table.Cell>
+        <Table.Cell type="head">Datatype</Table.Cell>
+        <Table.Cell type="head">Påkrevd</Table.Cell>
+        <Table.Cell type="head">Default</Table.Cell>
+        <Table.Cell type="head">Beskrivelse</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell> `options` </Table.Cell>
+        <Table.Cell> `{ label: string, value: string }[]` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Alternativer som havner i nedtrekkslisten. </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `onChange` </Table.Cell>
+        <Table.Cell> `(newValue: { label: string, value: string } | null, ActionMeta: ActionMeta<TOption>) => void` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell> onChange funksjon.</Table.Cell>
+      </Table.Row>
+       <Table.Row>
+        <Table.Cell> `isDisabled` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Gjør nedtrekkslisten disabled og gir den relevant styling. </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `value` </Table.Cell>
+        <Table.Cell> `{ label: string; value: string; } | null` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell> Forhåndsvalgt alternativ som brukeren ikke kan endre. OBS! Brukes kun i oppsummering av brukerens valg og lignende tilfeller.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `defaultValue` </Table.Cell>
+        <Table.Cell> `{ label: string; value: string; } | null` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Forhåndsvalgt alternativ som brukeren kan endre. OBS! Brukes ikke i standard skjema da brukeren skal ta et bevisst valg. </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `isMulti` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Gjør komponenten om til multiselect.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `closeMenuOnSelect` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>false ved isMulti, true ellers</Table.Cell>
+        <Table.Cell>Spesifiserer om listen med alternativer skal lukkes når brukeren har valgt en alternativ.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `isClearable` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`true`</Table.Cell>
+        <Table.Cell>Spesifiserer om valgt alternativ kan tømmes. OBS! settes til false i spesialtilfeller, bruker skal ha mulighet til å tømme valget i standard skjema.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `placeholder` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`'-- Velg fra listen --'`</Table.Cell>
+        <Table.Cell>Tekst som vises når ingen alternativ er valgt.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `isLoading` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Kan brukes mens komponenten lastes inn, rendrer en innlastningsindikator i inputfeltet.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `isSearchable` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`true`</Table.Cell>
+        <Table.Cell>Spesifiserer om brukeren kan søke på alternativene.</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `required` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Markerer input som påkrevd til skjemavalidering. Gir `required` styling.</Table.Cell>
+      </Table.Row>
+    </Table.Body>
   </Table>
-</TableWrapper>
+</Table.Wrapper>
 <br />
 Full liste over props er tilgjengelig i <Link href='https://react-select.com/props' external >react-select API</Link>.
 

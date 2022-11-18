@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { Table, Cell, Row, Body, Head } from '.';
+import { Table } from '.';
 
 describe('<Table />', () => {
   it('renders a table', () => {
     render(
       <Table>
-        <Body>
-          <Row>
-            <Cell>Body</Cell>
-          </Row>
-        </Body>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Body</Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     );
     const table = screen.getByRole('table');
@@ -20,16 +20,16 @@ describe('<Table />', () => {
     const bodyText = 'body';
     render(
       <Table>
-        <Head>
-          <Row type="head">
-            <Cell type="head">{headerText}</Cell>
-          </Row>
-        </Head>
-        <Body>
-          <Row>
-            <Cell>{bodyText}</Cell>
-          </Row>
-        </Body>
+        <Table.Head>
+          <Table.Row type="head">
+            <Table.Cell type="head">{headerText}</Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>{bodyText}</Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     );
     const headerTextNode = screen.getByText(headerText);
@@ -41,11 +41,11 @@ describe('<Table />', () => {
     const headerText = 'header';
     render(
       <Table>
-        <Head>
-          <Row type="head">
-            <Cell type="head">{headerText}</Cell>
-          </Row>
-        </Head>
+        <Table.Head>
+          <Table.Row type="head">
+            <Table.Cell type="head">{headerText}</Table.Cell>
+          </Table.Row>
+        </Table.Head>
       </Table>
     );
     const headerTextNode = screen.getByRole('columnheader');
@@ -55,11 +55,11 @@ describe('<Table />', () => {
     const bodyText = 'body';
     render(
       <Table>
-        <Body>
-          <Row>
-            <Cell>{bodyText}</Cell>
-          </Row>
-        </Body>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>{bodyText}</Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     );
     const bodyTextNode = screen.getByRole('cell');

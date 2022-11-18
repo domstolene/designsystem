@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const StyledHead = styled.thead``;
 
-export type HeadProps = HTMLAttributes<HTMLTableSectionElement>;
+export type TableHeadProps = HTMLAttributes<HTMLTableSectionElement>;
 
-export const Head = forwardRef<HTMLTableSectionElement, HeadProps>(
+export const Head = forwardRef<HTMLTableSectionElement, TableHeadProps>(
   ({ children, ...rest }, ref) => {
     const headProps = {
       ...rest,
