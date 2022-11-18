@@ -80,10 +80,18 @@ const OuterContainer = styled.div`
   gap: ${outerContainer.gap};
 `;
 
-const HorisontalContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: ${horisontalContainer.gap};
+type HorisontalContainerProps = {
+  hasSearchButton: boolean;
+};
+
+const HorisontalContainer = styled.div<HorisontalContainerProps>`
+  ${props =>
+    props.hasSearchButton &&
+    css`
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: ${horisontalContainer.gap};
+    `}
 `;
 
 const InputContainer = styled.div`
@@ -177,12 +185,16 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     } = buttonProps || {};
 
     const hasSuggestions = !!context.suggestions;
+    const showSearchButton = !!buttonProps && !!onClick;
 
     return (
       <OuterContainer>
         {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
         <div>
-          <HorisontalContainer {...containerProps}>
+          <HorisontalContainer
+            hasSearchButton={showSearchButton}
+            {...containerProps}
+          >
             <InputContainer>
               <StyledIcon
                 icon={SearchIcon}
@@ -213,7 +225,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 </>
               )}
             </InputContainer>
-            {buttonProps && onClick && (
+            {showSearchButton && (
               <Button
                 size={componentSize}
                 label={buttonLabel || 'Søk'}
