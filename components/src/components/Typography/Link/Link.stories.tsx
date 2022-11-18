@@ -2,6 +2,7 @@ import { Link, LinkProps } from '.';
 import { Paragraph } from '../Paragraph';
 import { StoryTemplate } from '../../../storybook';
 import { LocalMessage } from '../../LocalMessage';
+import { Table } from '../../Table';
 
 type StoryTProps = {
   text: string;
@@ -43,10 +44,43 @@ export const Default = (args: StoryTProps) => {
   );
 };
 
+const header = 'tekst';
+
+const link = (
+  <Link
+    href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
+    external
+  >
+    sivile saker sivile sakersivile saker sivile saker sivile saker sivile saker
+    sivile saker sivile saker sivile saker sivile saker sivile saker sivile
+    saker sivile saker sivile saker sivile saker
+  </Link>
+);
+
+function headers() {
+  const list = [];
+  for (let index = 0; index < 5; index++) {
+    list.push(
+      <Table.Cell type="head" style={{ minWidth: '150px' }}>
+        {header}
+      </Table.Cell>
+    );
+  }
+  return list;
+}
+
+function cells() {
+  const list = [];
+  for (let index = 0; index < 5; index++) {
+    list.push(<Table.Cell> {link}</Table.Cell>);
+  }
+  return list;
+}
+
 export const Examples = () => {
   return (
-    <StoryTemplate title="Link - examples">
-      <Paragraph>
+    <StoryTemplate title="Link - examples" display="block">
+      <Paragraph withMargins>
         Rettsmekling går ut på at partene selv finner en løsning på konflikten
         ved å bruke en mekler (vanligvis en dommer i domstolen som behandler
         saken). Avtalen man kommer fram til, blir rettskraftig på lik linje med
@@ -77,7 +111,7 @@ export const Examples = () => {
         </Link>
         .
       </Paragraph>
-      <Paragraph typographyType="bodySans04">
+      <Paragraph typographyType="bodySans04" withMargins>
         Rettsmekling går ut på at partene selv finner en løsning på konflikten
         ved å bruke en mekler (vanligvis en dommer i domstolen som behandler
         saken). Avtalen man kommer fram til, blir rettskraftig på lik linje med
@@ -153,6 +187,16 @@ export const Examples = () => {
           .
         </Paragraph>
       </LocalMessage>
+      <Table.Wrapper>
+        <Table>
+          <Table.Head>
+            <Table.Row type="head">{headers()}</Table.Row>
+          </Table.Head>
+          <Table.Body>
+            <Table.Row> {cells()} </Table.Row>
+          </Table.Body>
+        </Table>
+      </Table.Wrapper>
     </StoryTemplate>
   );
 };

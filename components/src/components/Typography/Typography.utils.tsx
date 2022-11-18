@@ -202,6 +202,7 @@ export const getAnchorStyling = (
   ${external &&
   css`
     padding-right: calc(1em + ${tokens.typographyType.a.icon.marginLeft});
+    position: relative;
     ::after {
       // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
       mask: ${`url("${OpenExternalIcon}")`} no-repeat center/contain;
