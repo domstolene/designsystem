@@ -8,11 +8,16 @@ import {
   ChevronDownIcon,
 } from '../../icons/tsx';
 import styled from 'styled-components';
-import { focusVisible, removeButtonStyling } from '../../helpers/styling';
+import {
+  focusVisible,
+  normalizeButton,
+  removeButtonStyling,
+} from '../../helpers/styling';
 
 const { cell } = tableTokens;
 
 const StyledButton = styled.button`
+  ${normalizeButton}
   user-select: text;
   ${removeButtonStyling}
   display: flex;

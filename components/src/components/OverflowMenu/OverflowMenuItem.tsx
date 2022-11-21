@@ -20,7 +20,7 @@ import { Icon } from '../Icon';
 import { useCombinedRef } from '../../hooks';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { SvgIcon } from '../../icons/utils';
-import { focusVisibleLink } from '../../helpers/styling';
+import { focusVisibleLink, normalizeButton } from '../../helpers/styling';
 import { getFontStyling } from '../Typography/Typography.utils';
 
 const { element, link } = tokens;
@@ -41,6 +41,7 @@ export const Span = styled.span`
 `;
 
 export const Link = styled.a`
+  ${normalizeButton}
   text-align: left;
   user-select: text;
   border: none;

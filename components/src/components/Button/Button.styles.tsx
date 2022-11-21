@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import {
   focusVisible,
   focusVisibleTransitionValue,
+  normalizeButton,
   selection,
 } from '../../helpers/styling';
 import { getFontStyling } from '../Typography/Typography.utils';
@@ -91,6 +92,7 @@ type ButtonWrapperProps = {
 };
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
+  ${normalizeButton}
   border: ${base.border};
   user-select: text;
   display: inline-flex;

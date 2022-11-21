@@ -5,7 +5,7 @@ import {
   typographyTypes,
 } from './CardAccordion.tokens';
 import { AnimatedChevronUpDown } from '../../../helpers';
-import { removeButtonStyling } from '../../../helpers/styling';
+import { normalizeButton, removeButtonStyling } from '../../../helpers/styling';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -30,6 +30,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderWrapper = styled.button`
+  ${normalizeButton}
   user-select: text;
   position: relative;
   cursor: pointer;
