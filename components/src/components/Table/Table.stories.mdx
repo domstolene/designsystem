@@ -5,7 +5,8 @@ import {
   ArgsTable,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import { Table } from '.';
+import { Table, CollapsibleTable } from '.';
+import { Tag } from '../Tag';
 import {
   Source,
   ComponentLinkRow,
@@ -26,7 +27,13 @@ import {
 ## Demo
 
 <Canvas>
-  <Story id="design-system-table--default" />
+  <Story id="design-system-table-table--default" />
+</Canvas>
+<Canvas>
+  <Story id="design-system-table-collapsibletable-beta--single-defining-column" />
+</Canvas>
+<Canvas>
+  <Story id="design-system-table-collapsibletable-beta--multiple-defining-columns" />
 </Canvas>
 
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-table`} />
@@ -38,6 +45,7 @@ Tabeller bygges ved å bruke styled versjoner av native HTML elementer. Disse ko
 - `<Table.Wrapper />` - wrapper for tabell.
 - `<Table />` - selve tabellen.
 - Subkomponenter: `<Table.Head />`, `<Table.Body />`, `<Table.Foot />`, `<Table.Row />`, `<Table.Cell />`, `<Table.SortCell />`.
+- BETA - variant av tabell som kan kollapses, med tilhørende rad-komponent: `<CollapsibleTable />` og `<CollapsibleTable.Row>`.
 
 Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel, mens andre har kun native props, som forklart i API.
 
@@ -66,6 +74,38 @@ Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel,
     </Table.Body>
   </Table>
 </Table.Wrapper>
+
+//Collapsible - beta
+
+const headerValues = [
+{
+key: 'navn',
+content: 'Navn',
+},
+{
+key: 'rolle',
+content: 'Rolle',
+}
+]
+
+<CollapsibleTable>
+  <Table.Head>
+    <CollapsibleTable.Row type="head" headerValues={headerValues}>
+      <Table.Cell type="head">{headerValues[0].content}</Table.Cell>
+      <Table.Cell type="head">{headerValues[1].content}</Table.Cell>
+    </CollapsibleTable.Row>
+  </Table.Head>
+  <Table.Body>
+    <CollapsibleTable.Row>
+      <Table.Cell>Sandra Lovsetter</Table.Cell>
+      <Table.Cell>Admin</Table.Cell>
+    </CollapsibleTable.Row>
+    <CollapsibleTable.Row>
+      <Table.Cell>Marie Bjerke</Table.Cell>
+      <Table.Cell>Admin</Table.Cell>
+    </CollapsibleTable.Row>
+  </Table.Body>
+</CollapsibleTable>
 `} />
 
 ## API
@@ -124,6 +164,26 @@ Et styled `<Cell type='head'>`-element som brukes som `<th>` i sorteringskolonne
 <ArgsTable of={Table.SortCell} />
 
 I tillegg støttes `<Cell>`-props, bortsett fra `type` da den er satt til `'head'`.
+
+### CollapsibleTable <Tag text="BETA" purpose="warning" />
+
+En variant av `<Table>` som kan kollapse deler av hver rad.
+Konsumenten må bestemme en eller flere såkalte definerende kolonner - kolonner som vises til enhver tid som i vanlig tabell, mens reseterende kolonner kan kollapse.
+Det legges en kolonne til høyre som inneholder en knapp til utviding av raden.
+Resterende innhold blir kollapset og vises ved hjelp av `<DescriptionList>`.
+
+Det må brukes `<CollapsibleTable.Row>` istedenfor `<Table.Row>` for riktig oppførsel.
+Kollapset tilstand brukes som mobilversjon.
+
+Rekkefølgen på definerende kolonner følger rekkefølgen i `definingColumnIndex`.
+
+<ArgsTable of={CollapsibleTable} />
+
+### CollapsibleTable.Row <Tag text="BETA" purpose="warning" />
+
+En variant av `<Table.Row>` som brukes med `<CollapsibleTable>`. Den håndterer kollapsing.
+
+<ArgsTable of={CollapsibleTable.Row} />
 
 ## Retningslinjer
 

@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { colors, border, spacing } = ddsBaseTokens;
+const { colors, border, spacing, iconSizes, borderRadius } = ddsBaseTokens;
 
 const row = {
   body: {
@@ -53,7 +53,14 @@ const cell = {
   },
 };
 
+const collapseButton = {
+  height: iconSizes.DdsIconsizeMedium,
+  width: iconSizes.DdsIconsizeMedium,
+  borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
+};
+
 export const tableTokens = {
   row,
   cell,
+  collapseButton,
 };

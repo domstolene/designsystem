@@ -14,7 +14,7 @@ import { Icon } from '../Icon';
 import { PersonIcon, TrashIcon } from '../../icons/tsx';
 
 export default {
-  title: 'design system/Table',
+  title: 'design system/Table/Table',
   component: Table,
   argTypes: {
     stickyHeader: {
