@@ -3,6 +3,10 @@ import { ScreenSize } from '../../hooks/useScreenSize';
 import { getLiteralScreenSize } from '../Grid/Grid.utils';
 import { formGeneratorTokens as tokens } from './FormGenerator.tokens';
 
+export const buttonRowStyle = {
+  marginTop: tokens.buttonRow.marginTop,
+};
+
 export const FormGeneratorFlexContainer = styled.div<{
   screenSize: ScreenSize;
 }>`
