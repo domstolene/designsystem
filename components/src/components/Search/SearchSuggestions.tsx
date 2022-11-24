@@ -28,7 +28,7 @@ const SuggestionsContainer = styled(Paper)<SuggestionsContainerProps>`
   margin-top: ${suggestionsContainer.marginTop};
   border: ${suggestionsContainer.border};
   box-shadow: ${suggestionsContainer.boxShadow};
-  z-index: 3;
+  z-index: 100;
   overflow-y: scroll;
   ${scrollbarStyling.firefox}
   ${scrollbarStyling.webkit}

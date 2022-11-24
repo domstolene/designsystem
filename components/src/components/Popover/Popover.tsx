@@ -33,7 +33,7 @@ const Wrapper = styled(Paper)<WrapperProps>`
     hasTransitionedIn && visibilityTransition(hasTransitionedIn && isOpen)}
   position: absolute;
   width: fit-content;
-  z-index: 20;
+  z-index: 100;
   padding: ${wrapper.padding};
 
   &:focus-visible {

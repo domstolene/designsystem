@@ -40,7 +40,7 @@ const Container = styled(Paper)<ContainerProps>`
   flex-direction: column-reverse;
   justify-content: flex-end;
   min-width: 300px;
-  z-index: 50;
+  z-index: 100;
   padding: ${container.padding};
 
   ${({ size }) => css`

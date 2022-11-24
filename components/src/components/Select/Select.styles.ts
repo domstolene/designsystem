@@ -226,7 +226,7 @@ export const getCustomStyles = <TOption>(): Partial<
         },
   menu: provided => ({
     ...provided,
-    zIndex: 3,
+    zIndex: 100,
     transition: '0.2s',
     width: 'calc(100% + 2px)',
     transform: 'translate(-1px)',

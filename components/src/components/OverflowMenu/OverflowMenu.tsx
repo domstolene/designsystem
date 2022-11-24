@@ -26,7 +26,7 @@ type ContainerProps = { isOpen: boolean };
 
 export const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 100;
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;
