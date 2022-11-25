@@ -28,7 +28,7 @@ export const TooltipWrapper = styled(Paper)<WrapperProps>`
   ${({ open }) => visibilityTransition(open)}
   width: fit-content;
   position: absolute;
-  z-index: 20;
+  z-index: 100;
   text-align: center;
   padding: ${wrapper.padding};
   ${getFontStyling(defaultTypographyType)};
