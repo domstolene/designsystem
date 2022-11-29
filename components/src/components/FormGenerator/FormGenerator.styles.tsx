@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ScreenSize } from '../../hooks/useScreenSize';
+import { GridChild } from '../Grid';
 import { getLiteralScreenSize } from '../Grid/Grid.utils';
 import { formGeneratorTokens as tokens } from './FormGenerator.tokens';
 
@@ -53,4 +54,8 @@ export const SubContainer = styled.div<{
             flex-direction: column;
           `
       : ``}
+`;
+
+export const ButtonRow = styled(GridChild)`
+  margin-top: ${tokens.buttonRow.marginTop};
 `;

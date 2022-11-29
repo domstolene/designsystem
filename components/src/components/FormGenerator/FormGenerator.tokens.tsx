@@ -13,10 +13,12 @@ export const formGeneratorTokens = {
   },
   rowGaps: {
     xs: Spacing.SizesDdsSpacingLocalX1,
-
     sm: Spacing.SizesDdsSpacingLocalX1,
     md: Spacing.SizesDdsSpacingLocalX1,
     lg: Spacing.SizesDdsSpacingLocalX1,
     xl: Spacing.SizesDdsSpacingLocalX15,
+  },
+  buttonRow: {
+    marginTop: Spacing.SizesDdsSpacingLocalX1,
   },
 };
