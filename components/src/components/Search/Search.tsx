@@ -173,7 +173,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           ? context.inputValue
           : value
           ? value
-          : undefined,
+          : '',
       onChange: handleChange,
       autoComplete: 'off',
     };
