@@ -24,7 +24,7 @@ import {
 import { MultiValue, SingleValue } from 'react-select';
 import { ScreenSize, useScreenSize } from '../../hooks/useScreenSize';
 import {
-  buttonRowStyle,
+  ButtonRow,
   FormGeneratorFlexContainer,
   SubContainer,
 } from './FormGenerator.styles';
@@ -228,13 +228,13 @@ export const FormGenerator = (props: FormGeneratorProps) => {
         if (isFormGeneratorRow(obj)) {
           if (obj.rowType === 'button') {
             return (
-              <GridChild columnsOccupied="all" style={buttonRowStyle}>
+              <ButtonRow columnsOccupied="all">
                 <FormGeneratorFlexContainer screenSize={screenSize}>
                   {obj.fields.map((field, groupedIndex) => {
                     return !field.hide && GetComponent(field, groupedIndex);
                   })}
                 </FormGeneratorFlexContainer>
-              </GridChild>
+              </ButtonRow>
             );
           } else {
             return (
