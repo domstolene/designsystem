@@ -12,6 +12,7 @@ import {
   LinkToInteractiveStory,
 } from '../../../storybook';
 import { Typography } from '.';
+import { Link } from '../Link';
 
 <Meta title="Design system/Typography/Typography/API" component={Typography} />
 # Typography
@@ -22,7 +23,12 @@ import { Typography } from '.';
 
 ## Introduksjon
 
-`<Typography />` er en code-only komponent som ikke har en tilsvarende Figma komponent. Den bruker oversikten over typografistiler definert i <Typography typographyType='a' href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Typography> til å gi tekst riktig styling. Hver stil har et default HTML element det blir rendered som. Den kan eventuelt overskrives med en annen HTML tag hvis default ikke passer.
+`<Typography />` er en code-only komponent som ikke har en tilsvarende Figma komponent.
+Den bruker oversikten over typografistiler definert i <Link href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f'>Typografi | Stiler og bruk</Link> til å gi tekst riktig styling.
+Hver stil har et default HTML element det blir rendered som. Den kan eventuelt overskrives med en annen HTML tag hvis default ikke passer.
+
+**OBS!** I de fleste tilfeller bør du bruke en av våre deterministiske typografikomponenter, som returnerer en spesifikk HTML tag: <Link href='https://design.domstol.no/987b33f71/p/473d57-caption/b/52a7b4'>Caption</Link>, <Link href='https://design.domstol.no/987b33f71/p/76b220-heading/b/30ecca'>Heading</Link>, <Link href='https://design.domstol.no/987b33f71/p/49dc3f-label/b/102e70'>Label</Link>, <Link href='https://design.domstol.no/987b33f71/p/829771-legend/b/15b037'>Legend</Link>, <Link href='https://design.domstol.no/987b33f71/p/411e45-link/b/674f25'>Link</Link>, <Link href='https://design.domstol.no/987b33f71/p/883067-paragraph/b/70f5e1'>Paragraph</Link>.
+`<Typography />` bør brukes kun når disse komponentene ikke er tilstrekkelige.
 
 ## Demo
 
@@ -50,7 +56,7 @@ import { Typography } from '.';
   <Story id="design-system-typography-typography--default" />
 </Canvas>
 
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}-typography`}>Storybook</Typography>.
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-typography-typography`} />
 
 ## Bruk i koden
 
@@ -114,4 +120,7 @@ return (
 
 ### Bruk av typografi-tokens
 
-Det er også mulig å bruke typografi-tokens direkte. **OBS!** dette bør gjøres kun hvis det er umulig å bruke `<Typography />`-komponenten. Se [Bruk av font tokens i tekster med typografisk hierarki](https://zeroheight.com/987b33f71/p/18bd6f-design-tokens).
+Det er også mulig å bruke typografi-tokens direkte.
+**OBS!** dette bør gjøres kun hvis det er umulig å bruke `<Typography />`-komponenten eller andre typografikomponenter.
+Se <Link href='https://design.domstol.no/987b33f71/p/63b944-typografi/b/34fc66'>Typografi tokens i kode</Link> for bruk.
+Husk å sette deg inn i retningslinjer for spacing under <Link href='https://design.domstol.no/987b33f71/p/63b944-typografi/t/1459ef'>Bruk av tokens i tekster med typografisk hierarki</Link>.
