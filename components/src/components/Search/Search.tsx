@@ -168,12 +168,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
         context.suggestions ? suggestionsDescriptionId : undefined,
         ariaDescribedby,
       ]),
-      value:
-        context.inputValue !== undefined
-          ? context.inputValue
-          : value
-          ? value
-          : '',
+      value: context.inputValue !== undefined ? context.inputValue : value,
       onChange: handleChange,
       autoComplete: 'off',
     };
