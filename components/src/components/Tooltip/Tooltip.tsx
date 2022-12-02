@@ -6,6 +6,7 @@ import React, {
   isValidElement,
   useEffect,
   useId,
+  useRef,
   useState,
 } from 'react';
 import {
@@ -70,11 +71,46 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const generatedId = useId();
     const uniqueTooltipId = tooltipId ?? `${generatedId}-tooltip`;
     const [open, setOpen] = useState(false);
+    const [inView, setInView] = useState(false);
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
     const { reference, floating, styles } = useFloatPosition(arrowElement, {
       placement,
     });
-    const combinedRef = useCombinedRef(ref, floating);
+    const tooltipRef = useRef<HTMLDivElement>(null);
+    const combinedRef = useCombinedRef(ref, floating, tooltipRef);
+
+    const closeWhenNotInView: IntersectionObserverCallback = entries => {
+      const [entry] = entries;
+      entry.isIntersecting ? setInView(true) : setInView(false);
+    };
+
+    useEffect(() => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+      };
+      const ref = tooltipRef.current;
+      const observer = new IntersectionObserver(closeWhenNotInView, options);
+
+      if (ref) observer.observe(ref);
+
+      return () => {
+        if (ref) observer.unobserve(ref);
+      };
+    }, [tooltipRef]);
+
+    useEffect(() => {
+      if (tooltipRef.current) {
+        window.addEventListener('scroll', () => {
+          closeTooltip();
+        });
+      }
+      return () => {
+        if (tooltipRef.current) {
+          window.removeEventListener('scroll', () => {});
+        }
+      };
+    }, []);
 
     let timer: ReturnType<typeof setTimeout>;
 
@@ -123,7 +159,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       ref: combinedRef,
       role: 'tooltip',
       'aria-hidden': !open,
-      open,
+      open: open && inView,
       style: { ...styles.floating },
     };
 
