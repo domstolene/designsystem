@@ -83,7 +83,7 @@ export const SearchAutocompleteWrapper = (
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
-    setInputValue(query);
+    handleSetInputValue(query);
     let finalSuggestions: string[] = [];
 
     if (query.length >= queryLength) {
@@ -122,9 +122,13 @@ export const SearchAutocompleteWrapper = (
 
   const handleSuggestionClick = (e: MouseEvent<HTMLButtonElement>) => {
     setSuggestions([]);
-    setInputValue((e.target as HTMLButtonElement).innerText);
+    handleSetInputValue((e.target as HTMLButtonElement).innerText);
     onSuggestionSelection && onSuggestionSelection();
     closeSuggestions();
+  };
+
+  const handleSetInputValue = (value: string | undefined) => {
+    setInputValue(value || '');
   };
 
   const inputRef = useRef<HTMLInputElement>(null);
