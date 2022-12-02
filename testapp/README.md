@@ -16,7 +16,7 @@ npm install
 Start opp utviklingsmiljøet
 
 ```bash
-npm run dev
+npm start
 ```
 
 ## 🧪 Mer avansert bruk
