@@ -28,11 +28,11 @@ import { Table } from '../Table';
 ## Demo
 
 <Canvas>
-  <Story id="design-system-select-singlevalue--default" />
+  <Story id="design-system-select-singlevalue--default" height="450px" />
 </Canvas>
 
 <Canvas>
-  <Story id="design-system-select-multiselect--default" />
+  <Story id="design-system-select-multiselect--default" height="450px" />
 </Canvas>
 
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}-select-singlevalue`} />
@@ -49,7 +49,9 @@ const items = [
 //Single value
 
 <Select label="Label" items={items} />
+
 //Multiselect
+
 <Select label="Label" items={items} isMulti />
 `} />
 
@@ -83,6 +85,20 @@ Komponenten bruker <Link href='https://react-select.com/home' external>React-sel
         <Table.Cell> Label for nedtrekkslisten. </Table.Cell>
       </Table.Row>
       <Table.Row>
+        <Table.Cell> `componentSize` </Table.Cell>
+        <Table.Cell> `'medium'` | `'small'` | `'tiny'` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`'medium'`</Table.Cell>
+        <Table.Cell>Størrelse på komponenten. </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `icon` </Table.Cell>
+        <Table.Cell> `(props: SvgProps) => JSX.Element` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Ikonet som vises i komponenten. </Table.Cell>
+      </Table.Row>
+      <Table.Row>
         <Table.Cell> `width` </Table.Cell>
         <Table.Cell> `string` </Table.Cell>
         <Table.Cell> nei </Table.Cell>
@@ -104,21 +120,30 @@ Komponenten bruker <Link href='https://react-select.com/home' external>React-sel
         <Table.Cell> Meldingen som vises ved valideringsfeil.</Table.Cell>
       </Table.Row>
       <Table.Row>
-        <Table.Cell> `required` </Table.Cell>
-        <Table.Cell> `boolean` </Table.Cell>
-        <Table.Cell>nei </Table.Cell>
-        <Table.Cell>-</Table.Cell>
-        <Table.Cell>
-          Gir `required` styling. OBS! støtter ikke DOM required attributt.{' '}
-        </Table.Cell>
-      </Table.Row>
-      <Table.Row>
         <Table.Cell> `readOnly` </Table.Cell>
         <Table.Cell> `boolean` </Table.Cell>
         <Table.Cell>nei </Table.Cell>
         <Table.Cell>-</Table.Cell>
         <Table.Cell>
           Nedtrekkslisten blir disabled og får `readOnly` styling.
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `customSingleValueElement` </Table.Cell>
+        <Table.Cell> `(props: OptionProps<TOption, IsMulti, GroupBase<TOption>>) => JSX.Element` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>
+          Custom element som vises for det valgte elementet.
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell> `customOptionElement` </Table.Cell>
+        <Table.Cell> `(props: OptionProps<TOption, IsMulti, GroupBase<TOption>>) => JSX.Element` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>
+          Custom element som vises i listen over alternativer.
         </Table.Cell>
       </Table.Row>
     </Table.Body>
@@ -155,7 +180,7 @@ Ofte brukt native props:
         <Table.Cell>-</Table.Cell>
         <Table.Cell> onChange funksjon.</Table.Cell>
       </Table.Row>
-       <Table.Row>
+      <Table.Row>
         <Table.Cell> `isDisabled` </Table.Cell>
         <Table.Cell> `boolean` </Table.Cell>
         <Table.Cell>nei </Table.Cell>
@@ -167,14 +192,18 @@ Ofte brukt native props:
         <Table.Cell> `{ label: string; value: string; } | null` </Table.Cell>
         <Table.Cell>nei </Table.Cell>
         <Table.Cell>-</Table.Cell>
-        <Table.Cell> Forhåndsvalgt alternativ som brukeren ikke kan endre. OBS! Brukes kun i oppsummering av brukerens valg og lignende tilfeller.</Table.Cell>
+        <Table.Cell>
+          Forhåndsvalgt alternativ som brukeren ikke kan endre.
+        </Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell> `defaultValue` </Table.Cell>
         <Table.Cell> `{ label: string; value: string; } | null` </Table.Cell>
         <Table.Cell>nei </Table.Cell>
         <Table.Cell>-</Table.Cell>
-        <Table.Cell>Forhåndsvalgt alternativ som brukeren kan endre. OBS! Brukes ikke i standard skjema da brukeren skal ta et bevisst valg. </Table.Cell>
+        <Table.Cell>
+          Forhåndsvalgt alternativ som brukeren kan endre. **OBS!** Brukes ikke i standard skjema da brukeren skal ta et bevisst valg.
+        </Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell> `isMulti` </Table.Cell>
@@ -223,7 +252,9 @@ Ofte brukt native props:
         <Table.Cell> `boolean` </Table.Cell>
         <Table.Cell>nei </Table.Cell>
         <Table.Cell>-</Table.Cell>
-        <Table.Cell>Markerer input som påkrevd til skjemavalidering. Gir `required` styling.</Table.Cell>
+        <Table.Cell>
+          Markerer input som påkrevd til skjemavalidering. Gir `required` styling.
+        </Table.Cell>
       </Table.Row>
     </Table.Body>
   </Table>
