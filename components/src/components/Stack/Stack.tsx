@@ -7,7 +7,7 @@ import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 type Align = 'stretch' | 'center' | 'flex-start' | 'flex-end';
 type Justify = 'flex-start' | 'flex-end' | 'space-between' | 'space-around';
 
-interface StackStyleProps {
+export interface StackStyleProps {
   /**
    * Hvilken retning elementene skal plasseres i.
    */
