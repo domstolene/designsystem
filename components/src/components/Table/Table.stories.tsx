@@ -63,7 +63,7 @@ export const Default = (args: TableProps) => {
   );
 };
 
-export const withDividers = (args: TableProps) => {
+export const WithDividers = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - with dividers">
       <Table.Wrapper>

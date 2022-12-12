@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef, useId } from 'react';
+import React, { useState, forwardRef, useId } from 'react';
 import { InputSize } from '../../helpers';
 import CharCounter from './CharCounter';
 import { TextInputProps } from './TextInput.types';

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { textInputTokens as tokens } from './TextInput.tokens';
-import { StatefulInput, InputSize, inputTokens } from '../../helpers';
-import { scrollbarStyling } from '../ScrollableContainer';
+import { StatefulInput, InputSize } from '../../helpers';
 import { Icon } from '../Icon';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
