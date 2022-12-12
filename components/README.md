@@ -67,6 +67,9 @@ Tilgjengelige komponenter:
 - Select
 - SkipToContent
 - Spinner
+- Stack
+  - VStack
+  - HStack
 - Table
 - Tabs
 - Tag
