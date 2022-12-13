@@ -6,7 +6,6 @@ import {
 } from 'react';
 import styled, { css, CSSObject } from 'styled-components';
 import { typographyTokens as tokens } from '../Typography.tokens';
-import { Icon } from '../../Icon';
 import {
   OtherTypographyType,
   AnchorTypographyType,
@@ -17,7 +16,6 @@ import {
 } from './Typography.types';
 import { selection } from '../../../helpers/styling';
 import { BaseComponentProps, getBaseHTMLProps } from '../../../types';
-import { OpenExternalIcon } from '../../../icons/tsx';
 import {
   getElementType,
   getAdditionalFontStyle,

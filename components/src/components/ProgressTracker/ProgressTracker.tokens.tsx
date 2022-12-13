@@ -2,7 +2,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { IconSize } from '../Icon';
 import { StaticTypographyType } from '../Typography';
 
-const { colors, spacing, font } = ddsBaseTokens;
+const { colors, spacing } = ddsBaseTokens;
 
 export const typographyTypes: {
   number: StaticTypographyType;
