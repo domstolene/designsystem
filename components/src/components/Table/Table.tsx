@@ -1,8 +1,9 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { selection } from '../../helpers/styling';
 import { scrollbarStyling } from '../ScrollableContainer';
 import { tableTokens } from './Table.tokens';
+import { TableDensity, TableProps } from './Table.types';
 
 const { cell, row } = tableTokens;
 
@@ -27,17 +28,18 @@ const StyledTable = styled.table<StyledTableProps>`
         padding: ${cell.density[density].padding};
       }
     `}
-    ${({ stickyHeader }) =>
+  ${({ stickyHeader }) =>
     stickyHeader &&
     css`
       tr[type='head'] {
         th[type='head'] {
           position: sticky;
           top: 0;
+          z-index: 50;
         }
       }
     `}
-        ${({ withDividers }) =>
+  ${({ withDividers }) =>
     withDividers &&
     css`
       tr[type='body'] {
@@ -45,17 +47,6 @@ const StyledTable = styled.table<StyledTableProps>`
       }
     `}
 `;
-
-export type TableDensity = 'normal' | 'compact';
-
-export type TableProps = {
-  /**Spesifiserer hvor romslige cellene i tabellen skal være. */
-  density?: TableDensity;
-  /**Spesifiserer om cellene i `<Head>` skal bli sticky ved scrolling. */
-  stickyHeader?: boolean;
-  /**Legger skillelinjer mellom radene. */
-  withDividers?: boolean;
-} & HTMLAttributes<HTMLTableElement>;
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ density = 'normal', children, ...rest }, ref) => {
