@@ -19,7 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Font License
-
-The IBM Plex Sans and IBM Plex Mono font files in components/src/assets/fonts are a subset of IBM Plex, licensed under the SIL Open Font License, and copyright IBM Corp., with Reserved Font Name 'Plex'.
