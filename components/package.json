@@ -90,7 +90,7 @@
     "typescript": "^4.8.3"
   },
   "peerDependencies": {
-    "@norges-domstoler/dds-design-tokens": "^3.0.0",
+    "@norges-domstoler/dds-design-tokens": "^3.0.1",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5"
