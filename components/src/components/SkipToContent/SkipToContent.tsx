@@ -45,7 +45,7 @@ const Wrapper = styled.div<WrapperProps>`
     height: auto;
     overflow: auto;
     width: 100%;
-    z-index: 200;
+    z-index: 250;
     opacity: 1;
   }
 `;
