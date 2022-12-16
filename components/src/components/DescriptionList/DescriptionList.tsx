@@ -23,12 +23,11 @@ const DList = styled.dl<DListProps>`
       dt {
         color: ${term.appearance[appearance].color};
         ${getFontStyling(termTypographyTypes[appearance])}
-         ${
-           appearance === 'bold' &&
-           css`
-             font-weight: 600;
-           `
-         }
+        ${appearance === 'bold' &&
+        css`
+          font-weight: 600;
+        `}
+      }
     `}
   & > dt:first-of-type {
     margin-top: ${term.firstOfType.marginTop};
