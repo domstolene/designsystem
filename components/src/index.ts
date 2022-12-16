@@ -43,3 +43,5 @@ export * from './components/InlineEdit';
 export * from './components/TextArea';
 export * from './components/SplitButton';
 export * from './components/Stack';
+export * from './components/FormGenerator';
+export * from './components/FileUploader';
