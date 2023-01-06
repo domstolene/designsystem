@@ -59,6 +59,7 @@ export const useScreenSize = function () {
         }
       }
     }
+    listener();
 
     window.addEventListener('resize', listener);
     return () => window.removeEventListener('resize', listener);
