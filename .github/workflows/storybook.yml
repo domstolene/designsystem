@@ -7,7 +7,6 @@ on:
 jobs:
   deploy:
     env:
-      working-directory: ./components
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -18,12 +17,12 @@ jobs:
         working-directory: ${{ env.working-directory }}
         run: |
           npm ci
-          npm run build-storybook
+          npm run -w @norges-domstoler/dds-components build-storybook
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
-          folder: components/docs # The folder that the build-storybook script generates files.
+          folder: packages/components/docs # The folder that the build-storybook script generates files.
           clean: true # Automatically remove deleted files from the deploy branch

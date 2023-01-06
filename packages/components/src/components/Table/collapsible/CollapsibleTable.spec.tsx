@@ -1,6 +1,6 @@
 import { screen, render, act, fireEvent } from '@testing-library/react';
 import { useState } from 'react';
-import { CollapsibleTable, Table } from '../';
+import { CollapsibleTable, Table } from '..';
 import { Button } from '../../Button';
 
 const header2Content = 'header2';

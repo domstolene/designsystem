@@ -1,0 +1,21 @@
+{
+  "name": "@norges-domstoler/designsystem",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo for pakker og applikasjoner tilknyttet designsystemet til Norges domstoler",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domstolene/designsystem.git"
+  },
+  "author": "Elsa team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/domstolene/designsystem/issues"
+  },
+  "homepage": "https://github.com/domstolene/designsystem#readme"
+}

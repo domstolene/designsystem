@@ -3,7 +3,7 @@ import {
   selectionControlSize,
   selectionControlSizeNumberPx,
 } from './SelectionControl.utils';
-import { dangerInputfield, hoverInputfield } from '../../helpers/styling';
+import { dangerInputfield, hoverInputfield } from '../styling';
 
 const { colors, spacing, borderRadius } = ddsBaseTokens;
 

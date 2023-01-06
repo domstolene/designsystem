@@ -5,8 +5,6 @@ on:
   pull_request:
 jobs:
   build-and-test:
-    env:
-      working-directory: ./components
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,12 +21,12 @@ jobs:
 
       - name: Build
         working-directory: ${{ env.working-directory }}
-        run: npm run build
+        run: npm run -w @norges-domstoler/dds-components build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Verify
         working-directory: ${{ env.working-directory }}
-        run: npm run verify
+        run: npm run -w @norges-domstoler/dds-components verify
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

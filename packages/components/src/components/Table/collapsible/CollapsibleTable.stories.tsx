@@ -11,7 +11,7 @@ import {
   StarIcon,
   TrashIcon,
 } from '../../../icons/tsx';
-import { CollapsibleTable } from '../';
+import { CollapsibleTable } from '..';
 import { ScreenSize, useScreenSize } from '../../../hooks';
 import { Link } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';

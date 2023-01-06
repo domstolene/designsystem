@@ -1,6 +1,6 @@
 import { Typography as DDSTypography } from '../../components/Typography';
 import styled from 'styled-components';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '../StoryTemplate';
 
 export default {
   title: 'Playground/Text margins example',
