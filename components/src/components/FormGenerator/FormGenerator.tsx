@@ -225,7 +225,11 @@ export const FormGenerator = (props: FormGeneratorProps) => {
   const screenSize = useScreenSize();
 
   return (
-    <Grid {...getBaseHTMLProps(id, className, htmlProps, rest)} as="form" rowGap={formGeneratorTokens.rowGaps}>
+    <Grid
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      as="form"
+      rowGap={formGeneratorTokens.rowGaps}
+    >
       {fields.map((obj, index) => {
         if (isFormGeneratorRow(obj)) {
           if (obj.rowType === 'button') {
