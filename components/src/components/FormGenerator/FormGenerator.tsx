@@ -35,10 +35,6 @@ export const FormGenerator = (props: FormGeneratorProps) => {
   const { fields = [], stateOnChange } = props;
   const { id, className, htmlProps, ...rest } = props;
 
-  const baseHTMLProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-  };
-
   const [myState, setState] = useState({});
 
   const fieldOnChange = <T extends HTMLInputElement>(event: ChangeEvent<T>) => {
@@ -229,7 +225,7 @@ export const FormGenerator = (props: FormGeneratorProps) => {
   const screenSize = useScreenSize();
 
   return (
-    <Grid {...baseHTMLProps} as="form" rowGap={formGeneratorTokens.rowGaps}>
+    <Grid {...getBaseHTMLProps(id, className, htmlProps, rest)} as="form" rowGap={formGeneratorTokens.rowGaps}>
       {fields.map((obj, index) => {
         if (isFormGeneratorRow(obj)) {
           if (obj.rowType === 'button') {
