@@ -33,12 +33,9 @@ import { getBaseHTMLProps } from '../../types';
 
 export const FormGenerator = (props: FormGeneratorProps) => {
   const { fields = [], stateOnChange } = props;
-  const { id,
-    className,
-    htmlProps,
-    ...rest } = props;
+  const { id, className, htmlProps, ...rest } = props;
 
-    const baseHTMLProps = {
+  const baseHTMLProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
   };
 
