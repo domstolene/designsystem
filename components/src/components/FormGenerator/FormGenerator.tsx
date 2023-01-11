@@ -3,6 +3,12 @@ import { Button } from '../Button';
 import { Card } from '../Card';
 import { Checkbox, CheckboxGroup } from '../Checkbox';
 import { Datepicker } from '../Datepicker';
+import {
+  DescriptionList,
+  DescriptionListDesc,
+  DescriptionListGroup,
+  DescriptionListTerm,
+} from '../DescriptionList';
 import { Divider } from '../Divider';
 import { GlobalMessage } from '../GlobalMessage';
 import { InputMessage } from '../InputMessage';
@@ -102,6 +108,34 @@ export const FormGenerator = (props: FormGeneratorProps) => {
       case 'Datepicker':
         return (
           <Datepicker {...field.props} key={index} onChange={fieldOnChange} />
+        );
+      case 'DescriptionList':
+        return (
+          <DescriptionList {...field.props} key={index}>
+            {field.children.map((child, childIndex) => {
+              return !child.hide && GetComponent(child, childIndex);
+            })}
+          </DescriptionList>
+        );
+      case 'DescriptionListGroup':
+        return (
+          <DescriptionListGroup {...field.props} key={index}>
+            {field.children.map((child, childIndex) => {
+              return !child.hide && GetComponent(child, childIndex);
+            })}
+          </DescriptionListGroup>
+        );
+      case 'DescriptionListDesc':
+        return (
+          <DescriptionListDesc {...field.props} key={index}>
+            {field.innerHTML}
+          </DescriptionListDesc>
+        );
+      case 'DescriptionListTerm':
+        return (
+          <DescriptionListTerm {...field.props} key={index}>
+            {field.innerHTML}
+          </DescriptionListTerm>
         );
       case 'Divider':
         return <Divider {...field.props} key={index} />;

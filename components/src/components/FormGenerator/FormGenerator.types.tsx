@@ -4,6 +4,12 @@ import { ButtonProps } from '../Button';
 import { CardProps } from '../Card';
 import { CheckboxGroupProps, CheckboxProps } from '../Checkbox';
 import { DatepickerProps } from '../Datepicker';
+import {
+  DescriptionListProps,
+  DescriptionListDescProps,
+  DescriptionListGroupProps,
+  DescriptionListTermProps,
+} from '../DescriptionList';
 import { DividerProps } from '../Divider';
 import { GlobalMessageProps } from '../GlobalMessage';
 import { InputMessageProps } from '../InputMessage';
@@ -43,6 +49,8 @@ export type FormGeneratorField = FieldWithChildren | FieldWithoutChildren;
 
 type FieldWithChildren =
   | CheckboxGroupField
+  | DescriptionListField
+  | DescriptionListGroupField
   | ListField
   | RadioButtonGroupField
   | ToggleButtonGroupField;
@@ -52,6 +60,8 @@ type FieldWithoutChildren =
   | CardField
   | CheckboxField
   | DatepickerField
+  | DescriptionListTermField
+  | DescriptionListDescField
   | DividerField
   | GlobalMessageField
   | HeadingField
@@ -99,6 +109,34 @@ type DatepickerField = {
   component: 'Datepicker';
   props: DatepickerProps;
   hide?: boolean;
+};
+
+type DescriptionListField = {
+  component: 'DescriptionList';
+  props: DescriptionListProps;
+  hide?: boolean;
+  children: DescriptionListGroupField[];
+};
+
+type DescriptionListGroupField = {
+  component: 'DescriptionListGroup';
+  props: DescriptionListGroupProps;
+  hide?: boolean;
+  children: (DescriptionListTermField | DescriptionListDescField)[];
+};
+
+type DescriptionListTermField = {
+  component: 'DescriptionListTerm';
+  props: DescriptionListTermProps;
+  hide?: boolean;
+  innerHTML: JSX.Element | string;
+};
+
+type DescriptionListDescField = {
+  component: 'DescriptionListDesc';
+  props: DescriptionListDescProps;
+  hide?: boolean;
+  innerHTML: JSX.Element | string;
 };
 
 type DividerField = {
