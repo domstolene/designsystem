@@ -4,11 +4,12 @@ import { ScreenSize } from '../../hooks';
 const { grid, spacing } = ddsBaseTokens;
 
 const allColumns = '1 / -1';
-const halfWayColumn = {
+const halfWayColumn: Record<ScreenSize, number> = {
+  [ScreenSize.XSmall]: grid.DdsGridXs0599Count / 2 + 1,
   [ScreenSize.Small]: grid.DdsGridSm600959Count / 2 + 1,
   [ScreenSize.Medium]: grid.DdsGridMd9601279Count / 2 + 1,
   [ScreenSize.Large]: grid.DdsGridLg12801919Count / 2 + 1,
-  [ScreenSize.XLarge]: grid.DdsGridXs0599Count / 2 + 1,
+  [ScreenSize.XLarge]: grid.DdsGridXl1920Count / 2 + 1,
 };
 
 export const gridTokens = {
