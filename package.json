@@ -7,7 +7,10 @@
     "packages/*",
     "apps/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/domstolene/designsystem.git"
@@ -17,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/domstolene/designsystem/issues"
   },
-  "homepage": "https://github.com/domstolene/designsystem#readme"
+  "homepage": "https://github.com/domstolene/designsystem#readme",
+  "devDependencies": {
+    "turbo": "^1.7.0"
+  },
+  "overrides": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
 }

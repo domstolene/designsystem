@@ -30,8 +30,8 @@
   ],
   "scripts": {
     "clean": "rm -r dist || :",
+    "dev": "rollup -c -w",
     "build": "rollup -c",
-    "build:watch": "rollup -c -w",
     "build:clean": "npm run clean && npm run build"
   },
   "devDependencies": {
