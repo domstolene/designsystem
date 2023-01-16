@@ -15,7 +15,7 @@ function isBareModuleId(id) {
 const extensions = [".jsx", ".js", ".tsx", ".ts"];
 
 export default {
-  input: "./index.ts",
+  input: "./src/index.ts",
   output: [
     {
       dir: "dist/cjs",
