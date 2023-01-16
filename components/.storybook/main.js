@@ -13,5 +13,8 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
+  core: {
+    builder: 'webpack5',
+  },
   staticDirs: ['./images'],
 };
