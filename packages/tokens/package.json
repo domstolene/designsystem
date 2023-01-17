@@ -14,6 +14,7 @@
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -29,10 +30,11 @@
     "elsa"
   ],
   "scripts": {
-    "clean": "rm -r dist || :",
+    "clean": "rm -r dist dds/build || :",
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "build:clean": "npm run clean && npm run build"
+    "build:clean": "npm run clean && npm run build",
+    "build:tokens": "node ./dds/build.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.0",
