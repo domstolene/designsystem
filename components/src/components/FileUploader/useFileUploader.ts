@@ -23,25 +23,32 @@ import {
 } from './utils';
 
 export type FileUploaderHookProps = {
-  id?: string;
+  id: string | undefined;
   /**Dersom komponenten styres utenfra. En liste over filer som skal være med ved første render. */
-  initialFiles?: FileList;
+  initialFiles: FileList | undefined;
   /**Hvilke filendelser eller mime-typer som filopplasteren skal akseptere. */
-  accept?: Accept[];
+  accept: Accept[] | undefined;
   /**Om filopplasteren er avslått eller ikke */
-  disabled?: boolean;
+  disabled: boolean | undefined;
   /**Maks antall filer som tillates. */
-  maxFiles?: number;
+  maxFiles: number | undefined;
+  /**Feilmelding. Setter også error state. */
+  errorMessage: string | undefined;
 };
 
 const calcRootErrors = (
   files: FileUploaderFile[],
-  maxFiles: number | undefined
+  maxFiles: number | undefined,
+  errorMessage: string | undefined
 ): RootErrorList => {
   const errors: RootErrorList = [];
 
   if (maxFiles && maxFiles >= 1 && files.length > maxFiles) {
     errors.push(getTooManyFilesErrorMessage(maxFiles));
+  }
+
+  if (errorMessage) {
+    errors.push(errorMessage);
   }
 
   return errors;
@@ -50,18 +57,27 @@ const calcRootErrors = (
 export const useFileUploader = <TRootElement extends HTMLElement>(
   props: FileUploaderHookProps
 ) => {
-  const { initialFiles = [], accept, maxFiles, disabled } = props;
+  const { initialFiles = [], accept, maxFiles, disabled, errorMessage } = props;
 
   const rootRef = useRef<TRootElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
+  const initialFileUploaderFiles = initialFiles.map<FileUploaderFile>(f => ({
+    file: f,
+    errors: [],
+  }));
+
   const [state, dispatch] = useReducer(fileUploaderReducer, {
-    files: initialFiles.map(f => ({ file: f, errors: [] })),
+    files: initialFileUploaderFiles,
     isFocused: false,
     isFileDialogActive: false,
     isDragActive: false,
-    rootErrors: [],
+    rootErrors: calcRootErrors(
+      initialFileUploaderFiles,
+      maxFiles,
+      errorMessage
+    ),
   });
 
   const { files: stateFiles } = state;
@@ -134,14 +150,14 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
           })
           .concat(stateFiles);
 
-        const rootErrors = calcRootErrors(newFiles, maxFiles);
+        const rootErrors = calcRootErrors(newFiles, maxFiles, errorMessage);
         dispatch({
           type: 'onSetFiles',
           payload: { rootErrors, files: newFiles },
         });
       }
     },
-    [stateFiles, maxFiles, accept, dispatch]
+    [stateFiles, maxFiles, accept, errorMessage, dispatch]
   );
 
   const openFileDialog = useCallback(() => {
@@ -156,14 +172,14 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       const newFiles = [...stateFiles];
       newFiles.splice(stateFiles.indexOf(file), 1);
 
-      const rootErrors = calcRootErrors(newFiles, maxFiles);
+      const rootErrors = calcRootErrors(newFiles, maxFiles, errorMessage);
 
       dispatch({
         type: 'onRemoveFile',
         payload: { rootErrors, files: newFiles },
       });
     },
-    [stateFiles, maxFiles]
+    [stateFiles, maxFiles, errorMessage]
   );
 
   const getRootProps = useCallback(
