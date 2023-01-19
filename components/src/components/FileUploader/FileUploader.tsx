@@ -71,10 +71,7 @@ type FileUploaderProps = {
   onChange: (newFiles: FileList) => void;
   /**Bredde for filopplasteren. */
   width?: Property.Width<string>;
-} & Pick<
-  FileUploaderHookProps,
-  'initialFiles' | 'accept' | 'maxFiles' | 'disabled'
->;
+} & Partial<FileUploaderHookProps>;
 
 export const FileUploader = (props: FileUploaderProps) => {
   const {
@@ -88,6 +85,7 @@ export const FileUploader = (props: FileUploaderProps) => {
     disabled,
     onChange,
     width,
+    errorMessage,
   } = props;
 
   const generatedId = useId();
@@ -101,10 +99,11 @@ export const FileUploader = (props: FileUploaderProps) => {
     removeFile,
   } = useFileUploader<HTMLDivElement>({
     id,
-    initialFiles: initialFiles,
-    accept: accept,
-    disabled: disabled,
-    maxFiles: maxFiles,
+    initialFiles,
+    accept,
+    disabled,
+    maxFiles,
+    errorMessage,
   });
 
   useEffect(() => {
@@ -145,7 +144,7 @@ export const FileUploader = (props: FileUploaderProps) => {
       <Root
         {...getRootProps()}
         isDragActive={isDragActive}
-        hasRootErrors={rootErrors.length > 0}
+        hasRootErrors={hasRootErrors}
       >
         <FileUploaderInput {...getInputProps()} />
         Dra og slipp filer her eller{' '}

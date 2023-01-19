@@ -46,11 +46,30 @@ const PdfUploader = () => {
   );
 };
 
+const WithErrorMessage = () => {
+  const [files, setFiles] = useState<File[]>([]);
+
+  return (
+    <FileUploader
+      label="Last opp"
+      tip="Maks 2"
+      required
+      initialFiles={files}
+      onChange={files => {
+        setFiles(files);
+      }}
+      errorMessage="Feilmelding."
+      maxFiles={2}
+    />
+  );
+};
+
 export const Overview = () => {
   return (
     <StoryTemplate title="FileUploader - overview">
       <SingleFileUploader />
       <PdfUploader />
+      <WithErrorMessage />
     </StoryTemplate>
   );
 };
