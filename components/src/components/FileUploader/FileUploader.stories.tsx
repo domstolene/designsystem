@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StoryTemplate } from '../../storybook';
 import { FileUploader } from './FileUploader';
 
@@ -48,6 +48,13 @@ const PdfUploader = () => {
 
 const WithErrorMessage = () => {
   const [files, setFiles] = useState<File[]>([]);
+  const [deferredErrorMessage, setDeferredErrorMessage] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDeferredErrorMessage('Feilmelding som kommer etter 3 sek.');
+    }, 3000);
+  }, []);
 
   return (
     <FileUploader
@@ -58,7 +65,7 @@ const WithErrorMessage = () => {
       onChange={files => {
         setFiles(files);
       }}
-      errorMessage="Feilmelding."
+      errorMessage={deferredErrorMessage}
       maxFiles={2}
     />
   );

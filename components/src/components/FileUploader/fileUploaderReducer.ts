@@ -25,6 +25,10 @@ export type FileUploaderAction =
   | {
       type: 'onRemoveFile';
       payload: FileChangePayload;
+    }
+  | {
+      type: 'setRootErrors';
+      payload: RootErrorList;
     };
 
 export type FileUploaderState = {
@@ -63,6 +67,11 @@ export const fileUploaderReducer: Reducer<
         ...state,
         rootErrors: action.payload.rootErrors,
         files: action.payload.files,
+      };
+    case 'setRootErrors':
+      return {
+        ...state,
+        rootErrors: action.payload,
       };
     default:
       return state;

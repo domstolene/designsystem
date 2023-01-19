@@ -4,6 +4,8 @@ import React, {
   InputHTMLAttributes,
   Ref,
   useCallback,
+  useEffect,
+  useMemo,
   useReducer,
   useRef,
 } from 'react';
@@ -63,10 +65,14 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   const inputRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const initialFileUploaderFiles = initialFiles.map<FileUploaderFile>(f => ({
-    file: f,
-    errors: [],
-  }));
+  const initialFileUploaderFiles = useMemo(
+    () =>
+      initialFiles.map<FileUploaderFile>(f => ({
+        file: f,
+        errors: [],
+      })),
+    [initialFiles]
+  );
 
   const [state, dispatch] = useReducer(fileUploaderReducer, {
     files: initialFileUploaderFiles,
@@ -79,6 +85,13 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       errorMessage
     ),
   });
+
+  useEffect(() => {
+    dispatch({
+      type: 'setRootErrors',
+      payload: calcRootErrors(initialFileUploaderFiles, maxFiles, errorMessage),
+    });
+  }, [dispatch, initialFileUploaderFiles, maxFiles, errorMessage]);
 
   const { files: stateFiles } = state;
 
