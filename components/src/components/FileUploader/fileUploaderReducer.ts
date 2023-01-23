@@ -6,11 +6,6 @@ export type FileUploaderFile = {
   errors: string[];
 };
 
-type FileChangePayload = {
-  rootErrors: RootErrorList;
-  files: FileUploaderFile[];
-};
-
 export type RootErrorList = string[];
 
 export type FileUploaderAction =
@@ -20,11 +15,11 @@ export type FileUploaderAction =
   | { type: 'dragLeave' }
   | {
       type: 'onSetFiles';
-      payload: FileChangePayload;
+      payload: FileUploaderFile[];
     }
   | {
       type: 'onRemoveFile';
-      payload: FileChangePayload;
+      payload: FileUploaderFile[];
     }
   | {
       type: 'setRootErrors';
@@ -59,14 +54,12 @@ export const fileUploaderReducer: Reducer<
       return {
         ...state,
         isDragActive: false,
-        rootErrors: action.payload.rootErrors,
-        files: action.payload.files,
+        files: action.payload,
       };
     case 'onRemoveFile':
       return {
         ...state,
-        rootErrors: action.payload.rootErrors,
-        files: action.payload.files,
+        files: action.payload,
       };
     case 'setRootErrors':
       return {
