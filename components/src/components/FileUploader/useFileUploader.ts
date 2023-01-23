@@ -59,7 +59,7 @@ const calcRootErrors = (
 export const useFileUploader = <TRootElement extends HTMLElement>(
   props: FileUploaderHookProps
 ) => {
-  const { initialFiles = [], accept, maxFiles, disabled, errorMessage } = props;
+  const { initialFiles, accept, maxFiles, disabled, errorMessage } = props;
 
   const rootRef = useRef<TRootElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -67,7 +67,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
   const initialFileUploaderFiles = useMemo(
     () =>
-      initialFiles.map<FileUploaderFile>(f => ({
+      (initialFiles ?? []).map<FileUploaderFile>(f => ({
         file: f,
         errors: [],
       })),
@@ -86,14 +86,14 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     ),
   });
 
+  const { files: stateFiles } = state;
+
   useEffect(() => {
     dispatch({
       type: 'setRootErrors',
-      payload: calcRootErrors(initialFileUploaderFiles, maxFiles, errorMessage),
+      payload: calcRootErrors(stateFiles, maxFiles, errorMessage),
     });
-  }, [dispatch, initialFileUploaderFiles, maxFiles, errorMessage]);
-
-  const { files: stateFiles } = state;
+  }, [dispatch, stateFiles, maxFiles, errorMessage]);
 
   const onRootFocus = useCallback(
     () => dispatch({ type: 'focus' }),
@@ -163,10 +163,9 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
           })
           .concat(stateFiles);
 
-        const rootErrors = calcRootErrors(newFiles, maxFiles, errorMessage);
         dispatch({
           type: 'onSetFiles',
-          payload: { rootErrors, files: newFiles },
+          payload: newFiles,
         });
       }
     },
@@ -185,11 +184,9 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       const newFiles = [...stateFiles];
       newFiles.splice(stateFiles.indexOf(file), 1);
 
-      const rootErrors = calcRootErrors(newFiles, maxFiles, errorMessage);
-
       dispatch({
         type: 'onRemoveFile',
-        payload: { rootErrors, files: newFiles },
+        payload: newFiles,
       });
     },
     [stateFiles, maxFiles, errorMessage]
