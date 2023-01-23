@@ -25,6 +25,7 @@ export default {
       dir: 'dist/cjs',
       format: 'cjs',
       exports: 'named',
+      interop: 'compat',
     },
     {
       dir: 'dist',
