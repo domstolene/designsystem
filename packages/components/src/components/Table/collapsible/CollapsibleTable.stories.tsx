@@ -153,7 +153,7 @@ export const PrioritizedDefiningColumns = (args: CollapsibleTableProps) => {
   );
 };
 
-export const withDividers = (args: CollapsibleTableProps) => {
+export const WithDividers = (args: CollapsibleTableProps) => {
   return (
     <StoryTemplate title="CollapsibleTable - with dividers" display="block">
       <CollapsibleTable
