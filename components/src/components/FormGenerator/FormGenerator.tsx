@@ -268,7 +268,7 @@ export const FormGenerator = (props: FormGeneratorProps) => {
         if (isFormGeneratorRow(obj)) {
           if (obj.rowType === 'button') {
             return (
-              <ButtonRow columnsOccupied="all">
+              <ButtonRow columnsOccupied="all" key={index}>
                 <FormGeneratorFlexContainer screenSize={screenSize}>
                   {obj.fields.map((field, groupedIndex) => {
                     return !field.hide && GetComponent(field, groupedIndex);
@@ -278,7 +278,7 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             );
           } else {
             return (
-              <GridChild columnsOccupied="all">
+              <GridChild columnsOccupied="all" key={index}>
                 <SubContainer
                   screenSize={screenSize}
                   length={obj.fields.length}
@@ -294,7 +294,7 @@ export const FormGenerator = (props: FormGeneratorProps) => {
         } else {
           return (
             !obj.hide && (
-              <GridChild columnsOccupied="all">
+              <GridChild columnsOccupied="all" key={index}>
                 {GetComponent(obj, index)}
               </GridChild>
             )
