@@ -14,9 +14,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Install and Build 🔧
-        working-directory: ${{ env.working-directory }}
         run: |
           npm ci
+          npm run build
           npm run -w @norges-domstoler/dds-components build-storybook
 
       - name: Deploy 🚀
