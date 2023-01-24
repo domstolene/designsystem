@@ -9,7 +9,7 @@ import {
   useEffect,
 } from 'react';
 import styled from 'styled-components';
-import { Table } from '../';
+import { Table } from '..';
 import {
   focusVisible,
   focusVisibleTransitionValue,

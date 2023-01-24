@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Icon } from '../Icon';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
-import { Typography } from '../../components/Typography';
+import { Typography } from '../Typography';
 import { forwardRef } from 'react';
 import { BaseComponentProps, getBaseHTMLProps } from '../../types';
 

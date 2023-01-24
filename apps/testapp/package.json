@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -r build || :",
-    "prepare": "relative-deps",
-    "prestart": "relative-deps",
-    "start": "webpack-dev-server --mode=development",
+    "dev": "webpack-dev-server --mode=development",
     "build": "webpack",
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -34,13 +32,9 @@
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
     "path": "^0.12.7",
-    "relative-deps": "^1.0.7",
     "webpack": "^5.73.0",
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.10.0"
-  },
-  "relativeDependencies": {
-    "@norges-domstoler/dds-components": "../components"
   }
 }

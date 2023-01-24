@@ -11,7 +11,7 @@ import {
   StarIcon,
   TrashIcon,
 } from '../../../icons/tsx';
-import { CollapsibleTable } from '../';
+import { CollapsibleTable } from '..';
 import { ScreenSize, useScreenSize } from '../../../hooks';
 import { Link } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
@@ -153,7 +153,7 @@ export const PrioritizedDefiningColumns = (args: CollapsibleTableProps) => {
   );
 };
 
-export const withDividers = (args: CollapsibleTableProps) => {
+export const WithDividers = (args: CollapsibleTableProps) => {
   return (
     <StoryTemplate title="CollapsibleTable - with dividers" display="block">
       <CollapsibleTable

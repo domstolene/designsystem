@@ -6,11 +6,11 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 
 ## 📚 Innhold i monorepo
 
-🪑 [Komponenter](components/README.md)
+🪑 [Komponenter](packages/components/README.md)
 
-🎨 [Design tokens](tokens/README.md)
+🎨 [Design tokens](packages/tokens/README.md)
 
-🧪 [Testapplikasjon](testapp/README.md)
+🧪 [Testapplikasjon](apps/testapp/README.md)
 
 ## 📖 Dokumentasjon
 
@@ -19,3 +19,17 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 ## 🤝 Bidra
 
 Team Elsa setter pris på all bidrag. Les hvordan bidra i [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-hvordan-bidra/b/603442).
+
+### 🧑‍💻 Utvikling
+
+Installer avhengigheter
+
+```bash
+npm install
+```
+
+Start opp utviklingsmiljøet
+
+```bash
+npm run dev
+```

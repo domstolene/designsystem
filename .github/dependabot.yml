@@ -6,11 +6,16 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "npm"
-    directory: "/components"
+    directory: "/"
     schedule:
       interval: "weekly"
 
   - package-ecosystem: "npm"
-    directory: "/tokens"
+    directory: "/packages/components"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "npm"
+    directory: "/packages/tokens"
     schedule:
       interval: "weekly"

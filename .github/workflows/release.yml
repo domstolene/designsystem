@@ -6,7 +6,6 @@ on:
 jobs:
   publish:
     env:
-      working-directory: ./components
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +23,7 @@ jobs:
 
       - name: Verify
         working-directory: ${{ env.working-directory }}
-        run: npm run verify
+        run: npm run -w @norges-domstoler/dds-components verify
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -37,13 +36,13 @@ jobs:
       - name: Publish to npm
         if: ${{ github.event.release.prerelease == false }}
         working-directory: ${{ env.working-directory }}
-        run: npm publish --tag latest
+        run: npm publish -w @norges-domstoler/dds-components --tag latest
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish next to npm
         if: ${{ github.event.release.prerelease == true }}
         working-directory: ${{ env.working-directory }}
-        run: npm publish --tag next
+        run: npm publish -w @norges-domstoler/dds-components --tag next
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
