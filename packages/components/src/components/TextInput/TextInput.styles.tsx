@@ -26,7 +26,7 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
           top: ${`calc(50% - ${iconSizes.DdsIconsizeSmallNumberPx / 2}px)`};
         `
       : css`
-          top: ${`calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`}; ;
+          top: ${`calc(50% - ${iconSizes.DdsIconsizeMediumNumberPx / 2}px)`};
         `}
   `}
   z-index: 1;

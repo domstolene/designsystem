@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2016",
     "types": ["jest"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -20,7 +20,7 @@
   },
   "include": [
     "src",
-    "rollup.config.js",
+    "rollup.config.mjs",
     ".eslintrc.js",
     "typings/globals.d.ts",
     "modules/custom.d.ts"
