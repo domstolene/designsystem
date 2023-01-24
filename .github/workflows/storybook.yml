@@ -6,7 +6,6 @@ on:
     branches: [ master ]
 jobs:
   deploy:
-    env:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -14,7 +13,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Install and Build 🔧
-        working-directory: ${{ env.working-directory }}
         run: |
           npm ci
           npm run -w @norges-domstoler/dds-components build-storybook
