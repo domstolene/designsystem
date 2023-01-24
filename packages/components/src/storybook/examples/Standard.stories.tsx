@@ -16,7 +16,7 @@ import {
   FormGenerator,
   FormGeneratorField,
   FormGeneratorRow,
-  FormGeneratorSupportedFields
+  FormGeneratorSupportedFields,
 } from '../../components/FormGenerator';
 import { ScreenSize } from '../../hooks/useScreenSize';
 

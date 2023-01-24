@@ -1,6 +1,10 @@
 import { ScreenSize } from '../../hooks/useScreenSize';
 import { createSelectOptions } from '../Select';
-import { FormGeneratorField, FormGeneratorRow, FormGeneratorSupportedFields } from './FormGenerator.types';
+import {
+  FormGeneratorField,
+  FormGeneratorRow,
+  FormGeneratorSupportedFields,
+} from './FormGenerator.types';
 
 export const exampleDefault: (FormGeneratorField | FormGeneratorRow)[] = [
   {

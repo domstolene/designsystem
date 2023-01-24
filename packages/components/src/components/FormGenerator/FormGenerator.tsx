@@ -26,7 +26,7 @@ import {
   FormGeneratorField,
   FormGeneratorProps,
   FormGeneratorRow,
-  FormGeneratorSupportedFields as SupportedFields
+  FormGeneratorSupportedFields as SupportedFields,
 } from './FormGenerator.types';
 import { MultiValue, SingleValue } from 'react-select';
 import { ScreenSize, useScreenSize } from '../../hooks/useScreenSize';

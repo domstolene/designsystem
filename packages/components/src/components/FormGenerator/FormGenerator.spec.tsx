@@ -1,10 +1,14 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { FormGenerator, FormGeneratorField, FormGeneratorSupportedFields } from '.';
+import {
+  FormGenerator,
+  FormGeneratorField,
+  FormGeneratorSupportedFields,
+} from '.';
 
 describe('<FormGenerator />', () => {
   it('renders a FormGenerator', () => {
     let lastnameField = 'lastName';
-    
+
     const fields: FormGeneratorField[] = [
       {
         component: FormGeneratorSupportedFields.TextInput,
@@ -12,13 +16,11 @@ describe('<FormGenerator />', () => {
           label: lastnameField,
           type: 'text',
           name: lastnameField,
-          value: 'value'
+          value: 'value',
         },
       },
     ];
-    render(
-      <FormGenerator fields={fields} stateOnChange={() => {}} />
-    );
+    render(<FormGenerator fields={fields} stateOnChange={() => {}} />);
     const textInput = screen.getAllByLabelText(lastnameField);
     expect(textInput).toBeInTheDocument;
   });
@@ -39,18 +41,15 @@ describe('<FormGenerator />', () => {
           label: lastnameField,
           type: 'text',
           name: lastnameField,
-          value: ''
+          value: '',
         },
       },
     ];
-    render(
-      <FormGenerator fields={fields} stateOnChange={handleChanges} />
-    );
-    
+    render(<FormGenerator fields={fields} stateOnChange={handleChanges} />);
+
     const textInput = screen.getByLabelText(lastnameField);
     fireEvent.change(textInput, { target: { value: expectedValue } });
 
     expect(updatedValue).toBe(expectedValue);
   });
-  
 });
