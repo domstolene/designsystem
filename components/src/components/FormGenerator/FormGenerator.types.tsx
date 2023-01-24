@@ -45,6 +45,37 @@ export type FormGeneratorRow = {
   fields: FormGeneratorField[];
 };
 
+export enum FormGeneratorSupportedFields {
+  Button =  'Button',
+  Card =  'Card',
+  Checkbox =  'Checkbox',
+  CheckboxGroup =  'CheckboxGroup',
+  Datepicker =  'Datepicker',
+  DescriptionList =  'DescriptionList',
+  DescriptionListGroup =  'DescriptionListGroup',
+  DescriptionListDesc =  'DescriptionListDesc',
+  DescriptionListTerm =  'DescriptionListTerm',
+  Divider =  'Divider',
+  GlobalMessage =  'GlobalMessage',
+  Heading =  'Heading',
+  InputMessage =  'InputMessage',
+  Label =  'Label',
+  Link =  'Link',
+  List =  'List',
+  ListItem =  'ListItem',
+  LocalMessage =  'LocalMessage',
+  Paragraph =  'Paragraph',
+  RadioButton =  'RadioButton',
+  RadioButtonGroup =  'RadioButtonGroup',
+  Select =  'Select',
+  Spinner =  'Spinner',
+  TextInput =  'TextInput',
+  ToggleButton =  'ToggleButton',
+  ToggleButtonGroup =  'ToggleButtonGroup',
+  Typography =  'Typography',
+  VisuallyHidden =  'VisuallyHidden',
+}
+
 export type FormGeneratorField = FieldWithChildren | FieldWithoutChildren;
 
 type FieldWithChildren =
@@ -80,187 +111,187 @@ type FieldWithoutChildren =
   | VisuallyHiddenField;
 
 type ButtonField = {
-  component: 'Button';
+  component: FormGeneratorSupportedFields.Button;
   props: ButtonProps;
   hide?: boolean;
 };
 
 type CardField = {
-  component: 'Card';
+  component: FormGeneratorSupportedFields.Card;
   props: CardProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
 };
 
 type CheckboxField = {
-  component: 'Checkbox';
+  component: FormGeneratorSupportedFields.Checkbox;
   props: CheckboxProps;
   hide?: boolean;
 };
 
 type CheckboxGroupField = {
-  component: 'CheckboxGroup';
+  component: FormGeneratorSupportedFields.CheckboxGroup;
   props: CheckboxGroupProps;
   hide?: boolean;
   children: CheckboxField[];
 };
 
 type DatepickerField = {
-  component: 'Datepicker';
+  component: FormGeneratorSupportedFields.Datepicker;
   props: DatepickerProps;
   hide?: boolean;
 };
 
 type DescriptionListField = {
-  component: 'DescriptionList';
+  component: FormGeneratorSupportedFields.DescriptionList;
   props: DescriptionListProps;
   hide?: boolean;
   children: DescriptionListGroupField[];
 };
 
 type DescriptionListGroupField = {
-  component: 'DescriptionListGroup';
+  component: FormGeneratorSupportedFields.DescriptionListGroup;
   props: DescriptionListGroupProps;
   hide?: boolean;
   children: (DescriptionListTermField | DescriptionListDescField)[];
 };
 
 type DescriptionListTermField = {
-  component: 'DescriptionListTerm';
+  component: FormGeneratorSupportedFields.DescriptionListTerm;
   props: DescriptionListTermProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
 };
 
 type DescriptionListDescField = {
-  component: 'DescriptionListDesc';
+  component: FormGeneratorSupportedFields.DescriptionListDesc;
   props: DescriptionListDescProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
 };
 
 type DividerField = {
-  component: 'Divider';
+  component: FormGeneratorSupportedFields.Divider;
   props: DividerProps;
   hide?: boolean;
 };
 
 type GlobalMessageField = {
-  component: 'GlobalMessage';
+  component: FormGeneratorSupportedFields.GlobalMessage;
   props: GlobalMessageProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
 };
 
 type HeadingField = {
-  component: 'Heading';
+  component: FormGeneratorSupportedFields.Heading;
   props: HeadingProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
 };
 
 type InputMessageField = {
-  component: 'InputMessage';
+  component: FormGeneratorSupportedFields.InputMessage;
   props: InputMessageProps;
   hide?: boolean;
 };
 
 type LabelField = {
-  component: 'Label';
+  component: FormGeneratorSupportedFields.Label;
   props: LabelProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
 };
 
 type LinkField = {
-  component: 'Link';
+  component: FormGeneratorSupportedFields.Link;
   props: LinkProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
 };
 
 type ListItemField = {
-  component: 'ListItem';
+  component: FormGeneratorSupportedFields.ListItem;
   props?: ListItemProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
 };
 
 type ListField = {
-  component: 'List';
+  component: FormGeneratorSupportedFields.List;
   props?: ListProps;
   hide?: boolean;
   children: ListItemField[];
 };
 
 type LocalMessageField = {
-  component: 'LocalMessage';
+  component: FormGeneratorSupportedFields.LocalMessage;
   props: LocalMessageProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
 };
 
 type ParagraphField = {
-  component: 'Paragraph';
+  component: FormGeneratorSupportedFields.Paragraph;
   props: ParagraphProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
 };
 
 type RadioButtonField = {
-  component: 'RadioButton';
+  component: FormGeneratorSupportedFields.RadioButton;
   props: RadioButtonProps;
   hide?: boolean;
 };
 
 type RadioButtonGroupField = {
-  component: 'RadioButtonGroup';
+  component: FormGeneratorSupportedFields.RadioButtonGroup;
   props: RadioButtonGroupProps<string | number>;
   hide?: boolean;
   children: RadioButtonField[];
 };
 
 type SelectField = {
-  component: 'Select';
+  component: FormGeneratorSupportedFields.Select;
   props: SelectProps<SelectOption<unknown>, boolean>;
   name: string;
   hide?: boolean;
 };
 
 type SpinnerField = {
-  component: 'Spinner';
+  component: FormGeneratorSupportedFields.Spinner;
   props: SpinnerProps;
   hide?: boolean;
 };
 
 type TextInputField = {
-  component: 'TextInput';
+  component: FormGeneratorSupportedFields.TextInput;
   props: TextInputProps;
   hide?: boolean;
 };
 
 type ToggleButtonField = {
-  component: 'ToggleButton';
+  component: FormGeneratorSupportedFields.ToggleButton;
   props: ToggleButtonProps;
   hide?: boolean;
 };
 
 type ToggleButtonGroupField = {
-  component: 'ToggleButtonGroup';
+  component: FormGeneratorSupportedFields.ToggleButtonGroup;
   props: ToggleButtonGroupProps;
   hide?: boolean;
   children: ToggleButtonField[];
 };
 
 type TypographyField = {
-  component: 'Typography';
+  component: FormGeneratorSupportedFields.Typography;
   props: TypographyProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
 };
 
 type VisuallyHiddenField = {
-  component: 'VisuallyHidden';
+  component: FormGeneratorSupportedFields.VisuallyHidden;
   props: VisuallyHiddenProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;

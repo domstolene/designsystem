@@ -16,6 +16,7 @@ import {
   FormGenerator,
   FormGeneratorField,
   FormGeneratorRow,
+  FormGeneratorSupportedFields
 } from '../../components/FormGenerator';
 import { ScreenSize } from '../../hooks/useScreenSize';
 
@@ -25,14 +26,14 @@ export default {
 
 const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
   {
-    component: 'Heading',
+    component: FormGeneratorSupportedFields.Heading,
     props: {
       level: 2,
     },
     innerHTML: 'Administrere part',
   },
   {
-    component: 'Heading',
+    component: FormGeneratorSupportedFields.Heading,
     props: {
       level: 5,
     },
@@ -43,7 +44,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     breakpoint: ScreenSize.Small,
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Fornavn',
           type: 'text',
@@ -51,7 +52,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Etternavn',
           type: 'text',
@@ -61,7 +62,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Fødselsnummer (11 siffer)',
       type: 'text',
@@ -69,7 +70,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'Datepicker',
+    component: FormGeneratorSupportedFields.Datepicker,
     props: {
       label: 'Fødselsdato',
       name: 'dateofbirth',
@@ -77,7 +78,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Statsborgerskap',
       type: 'text',
@@ -85,7 +86,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'Heading',
+    component: FormGeneratorSupportedFields.Heading,
     props: {
       level: 5,
     },
@@ -96,7 +97,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     breakpoint: ScreenSize.Small,
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Telefon',
           type: 'text',
@@ -104,7 +105,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'E-post',
           type: 'text',
@@ -114,14 +115,14 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'Heading',
+    component: FormGeneratorSupportedFields.Heading,
     props: {
       level: 5,
     },
     innerHTML: 'Adresse',
   },
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Adresse',
       type: 'text',
@@ -132,7 +133,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     rowType: 'standard',
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Postnummer',
           type: 'number',
@@ -140,7 +141,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Poststed',
           type: 'text',
@@ -149,7 +150,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Land',
       type: 'text',
@@ -157,14 +158,14 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'Heading',
+    component: FormGeneratorSupportedFields.Heading,
     props: {
       level: 5,
     },
     innerHTML: 'Annet',
   },
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Rolle/Relasjon',
       type: 'text',
@@ -172,7 +173,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'Select',
+    component: FormGeneratorSupportedFields.Select,
     name: 'test',
     props: {
       label: 'Formuesfullmakt',
@@ -190,7 +191,7 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Signering',
       name: 'signature',
@@ -200,14 +201,14 @@ const partsAdministrering: (FormGeneratorField | FormGeneratorRow)[] = [
     rowType: 'button',
     fields: [
       {
-        component: 'Button',
+        component: FormGeneratorSupportedFields.Button,
         props: {
           label: 'Lagre',
           type: 'submit',
         },
       },
       {
-        component: 'Button',
+        component: FormGeneratorSupportedFields.Button,
         props: {
           label: 'Avbryt',
           purpose: 'secondary',

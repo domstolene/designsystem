@@ -26,6 +26,7 @@ import {
   FormGeneratorField,
   FormGeneratorProps,
   FormGeneratorRow,
+  FormGeneratorSupportedFields as SupportedFields
 } from './FormGenerator.types';
 import { MultiValue, SingleValue } from 'react-select';
 import { ScreenSize, useScreenSize } from '../../hooks/useScreenSize';
@@ -87,19 +88,19 @@ export const FormGenerator = (props: FormGeneratorProps) => {
 
   const GetComponent = (field: FormGeneratorField, index: number) => {
     switch (field.component) {
-      case 'Button':
+      case SupportedFields.Button:
         return <Button {...field.props} key={index} />;
-      case 'Card':
+      case SupportedFields.Card:
         return (
           <Card {...field.props} key={index}>
             {field.innerHTML}
           </Card>
         );
-      case 'Checkbox':
+      case SupportedFields.Checkbox:
         return (
           <Checkbox {...field.props} key={index} onChange={fieldOnChange} />
         );
-      case 'CheckboxGroup':
+      case SupportedFields.CheckboxGroup:
         return (
           <CheckboxGroup {...field.props} key={index}>
             {field.children.map((child, childIndex) => {
@@ -107,11 +108,11 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             })}
           </CheckboxGroup>
         );
-      case 'Datepicker':
+      case SupportedFields.Datepicker:
         return (
           <Datepicker {...field.props} key={index} onChange={fieldOnChange} />
         );
-      case 'DescriptionList':
+      case SupportedFields.DescriptionList:
         return (
           <DescriptionList {...field.props} key={index}>
             {field.children.map((child, childIndex) => {
@@ -119,7 +120,7 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             })}
           </DescriptionList>
         );
-      case 'DescriptionListGroup':
+      case SupportedFields.DescriptionListGroup:
         return (
           <DescriptionListGroup {...field.props} key={index}>
             {field.children.map((child, childIndex) => {
@@ -127,47 +128,47 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             })}
           </DescriptionListGroup>
         );
-      case 'DescriptionListDesc':
+      case SupportedFields.DescriptionListDesc:
         return (
           <DescriptionListDesc {...field.props} key={index}>
             {field.innerHTML}
           </DescriptionListDesc>
         );
-      case 'DescriptionListTerm':
+      case SupportedFields.DescriptionListTerm:
         return (
           <DescriptionListTerm {...field.props} key={index}>
             {field.innerHTML}
           </DescriptionListTerm>
         );
-      case 'Divider':
+      case SupportedFields.Divider:
         return <Divider {...field.props} key={index} />;
-      case 'GlobalMessage':
+      case SupportedFields.GlobalMessage:
         return (
           <GlobalMessage {...field.props} key={index}>
             {field.innerHTML}
           </GlobalMessage>
         );
-      case 'Heading':
+      case SupportedFields.Heading:
         return (
           <Heading {...field.props} key={index}>
             {field.innerHTML}
           </Heading>
         );
-      case 'InputMessage':
+      case SupportedFields.InputMessage:
         return <InputMessage {...field.props} key={index} />;
-      case 'Label':
+      case SupportedFields.Label:
         return (
           <Label {...field.props} key={index}>
             {field.innerHTML}
           </Label>
         );
-      case 'Link':
+      case SupportedFields.Link:
         return (
           <Link {...field.props} key={index}>
             {field.innerHTML}
           </Link>
         );
-      case 'List':
+      case SupportedFields.List:
         return (
           <List {...field.props} key={index}>
             {field.children.map((child, childIndex) => {
@@ -175,29 +176,29 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             })}
           </List>
         );
-      case 'ListItem':
+      case SupportedFields.ListItem:
         return (
           <ListItem {...field.props} key={index}>
             {field.innerHTML}
           </ListItem>
         );
-      case 'LocalMessage':
+      case SupportedFields.LocalMessage:
         return (
           <LocalMessage {...field.props} key={index}>
             {field.innerHTML}
           </LocalMessage>
         );
-      case 'Paragraph':
+      case SupportedFields.Paragraph:
         return (
           <Paragraph {...field.props} key={index}>
             {field.innerHTML}
           </Paragraph>
         );
-      case 'RadioButton':
+      case SupportedFields.RadioButton:
         return (
           <RadioButton {...field.props} key={index} onChange={fieldOnChange} />
         );
-      case 'RadioButtonGroup':
+      case SupportedFields.RadioButtonGroup:
         field.props.direction =
           screenSize > ScreenSize.XSmall ? 'row' : 'column';
         return (
@@ -207,7 +208,7 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             })}
           </RadioButtonGroup>
         );
-      case 'Select':
+      case SupportedFields.Select:
         return (
           <Select
             {...field.props}
@@ -215,17 +216,17 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             onChange={option => selectOnChange(option, field.name)}
           />
         );
-      case 'Spinner':
+      case SupportedFields.Spinner:
         return <Spinner {...field.props} key={index} />;
-      case 'TextInput':
+      case SupportedFields.TextInput:
         return (
           <TextInput {...field.props} key={index} onChange={fieldOnChange} />
         );
-      case 'ToggleButton':
+      case SupportedFields.ToggleButton:
         return (
           <ToggleButton {...field.props} key={index} onChange={fieldOnChange} />
         );
-      case 'ToggleButtonGroup':
+      case SupportedFields.ToggleButtonGroup:
         return (
           <ToggleButtonGroup {...field.props} key={index}>
             {field.children.map((child, childIndex) => {
@@ -233,13 +234,13 @@ export const FormGenerator = (props: FormGeneratorProps) => {
             })}
           </ToggleButtonGroup>
         );
-      case 'Typography':
+      case SupportedFields.Typography:
         return (
           <Typography {...field.props} key={index}>
             {field.innerHTML}
           </Typography>
         );
-      case 'VisuallyHidden':
+      case SupportedFields.VisuallyHidden:
         return (
           <VisuallyHidden {...field.props} key={index}>
             {field.innerHTML}

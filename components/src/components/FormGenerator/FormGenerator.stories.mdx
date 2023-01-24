@@ -36,14 +36,14 @@ Man definerer ett felt eller en rad med flere felter, avhengig av hvordan skjema
 
 <Source code={`
 
-import { FormGenerator } from '@norges-domstoler/dds-components';
+import { FormGenerator, FormGeneratorSupportedFields } from '@norges-domstoler/dds-components';
 
 const fields = [{
     rowType: 'standard',
     breakpoint: ScreenSize.Small,
     fields: [
     {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
             label: 'Fornavn',
             type: 'text',
@@ -51,7 +51,7 @@ const fields = [{
         },
     },
     {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
             label: 'Etternavn',
             type: 'text',
@@ -60,27 +60,27 @@ const fields = [{
     }],
 },
 {
-    component: 'RadioButtonGroup',
+    component: FormGeneratorSupportedFields.RadioButtonGroup,
     props: {
         label: 'Kjønn',
         name: 'kjønn',
     },
     children: [{
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
             label: 'Kvinne',
             value: 'female',
         },
     },
     {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
             label: 'Mann',
             value: 'male',
         },
     },
     {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
             label: 'Annet',
             value: 'other',
@@ -125,7 +125,7 @@ type FieldWithChildren =
   | ToggleButtonGroupField;
 
 type CheckboxGroupField = {
-  component: 'CheckboxGroup';
+  component: FormGeneratorSupportedFields.CheckboxGroup;
   props: CheckboxGroupProps;
   hide?: boolean;
   children: CheckboxField[];
@@ -159,13 +159,13 @@ type FieldWithoutChildren =
   | VisuallyHiddenField;
 
 type ButtonField = {
-  component: 'Button';
+  component: FormGeneratorSupportedFields.Button;
   props: ButtonProps;
   hide?: boolean;
 };
 
 type CardField = {
-  component: 'Card';
+  component: FormGeneratorSupportedFields.Card;
   props: CardProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
