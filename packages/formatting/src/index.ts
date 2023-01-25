@@ -1,1 +1,1 @@
-export * from './formatFoedselsnummer';
+export * from './foedselsnummer';
