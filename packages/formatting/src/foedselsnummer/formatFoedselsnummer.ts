@@ -1,3 +1,6 @@
+import { replaceAll } from '../replaceAll';
+import { containsOnlyNumbers } from '../containsOnlyNumbers';
+
 /**
  * Formaterer fødselsnummer i henhold til retningslinjene for fødselsnummer i Elsa.
  * Funksjonen prøver å formatere fødselsnummeret best-effort og prøver derfor også å formatere ufullstendige fødselsnummer.
@@ -7,10 +10,9 @@
  * @param foedselsnr - foedselsnummeret som skal formateres.
  */
 export const formatFoedselsnummer = (foedselsnr: string) => {
-  const noWhitespace = foedselsnr.split(' ').join('');
-  const containsOnlyNumbers = /^\d+$/.test(noWhitespace);
+  const noWhitespace = replaceAll(foedselsnr, ' ', '');
 
-  if (containsOnlyNumbers && noWhitespace.length < 12) {
+  if (containsOnlyNumbers(noWhitespace) && noWhitespace.length < 12) {
     if (noWhitespace.length <= 6) {
       return noWhitespace;
     }
