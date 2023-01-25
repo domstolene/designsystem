@@ -27,6 +27,6 @@ jobs:
 
       - name: Verify
         working-directory: ${{ env.working-directory }}
-        run: npm run -w @norges-domstoler/dds-components verify
+        run: npm run verify
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
