@@ -21,7 +21,7 @@ describe('<FormGenerator />', () => {
       },
     ];
     render(<FormGenerator fields={fields} stateOnChange={() => {}} />);
-    const textInput = screen.getAllByLabelText(lastnameField);
+    const textInput = screen.getByLabelText(lastnameField);
     expect(textInput).toBeInTheDocument();
   });
 
