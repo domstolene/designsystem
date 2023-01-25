@@ -2,14 +2,14 @@ import { describe, it, expect } from 'vitest';
 
 import { formatFoedselsnummer } from './formatFoedselsnummer';
 
-describe('formatPersonnummer()', () => {
-  it('should format a valid personnummer', () => {
+describe('formatFoedselsnummer()', () => {
+  it('should format a valid foedselsnummer', () => {
     expect(formatFoedselsnummer('12345678901')).toBe('123456 78901');
   });
-  it('should format a valid personnummer with whitespace', () => {
+  it('should format a valid foedselsnummer with whitespace', () => {
     expect(formatFoedselsnummer(' 123456 78901 ')).toBe('123456 78901');
   });
-  it('should format a partial personnummer', () => {
+  it('should format a partial foedselsnummer', () => {
     expect(formatFoedselsnummer('123456')).toBe('123456');
     expect(formatFoedselsnummer('12345678')).toBe('123456 78');
   });
