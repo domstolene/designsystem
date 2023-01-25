@@ -1,10 +1,14 @@
 import { ScreenSize } from '../../hooks/useScreenSize';
 import { createSelectOptions } from '../Select';
-import { FormGeneratorField, FormGeneratorRow } from './FormGenerator.types';
+import {
+  FormGeneratorField,
+  FormGeneratorRow,
+  FormGeneratorSupportedFields,
+} from './FormGenerator.types';
 
 export const exampleDefault: (FormGeneratorField | FormGeneratorRow)[] = [
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Fornavn',
       type: 'text',
@@ -12,7 +16,7 @@ export const exampleDefault: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'TextInput',
+    component: FormGeneratorSupportedFields.TextInput,
     props: {
       label: 'Etternavn',
       type: 'text',
@@ -20,7 +24,7 @@ export const exampleDefault: (FormGeneratorField | FormGeneratorRow)[] = [
     },
   },
   {
-    component: 'Button',
+    component: FormGeneratorSupportedFields.Button,
     props: {
       label: 'Trykk meg',
       onClick: event => {
@@ -36,7 +40,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
     breakpoint: ScreenSize.Small,
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Fornavn',
           type: 'text',
@@ -44,7 +48,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Etternavn',
           type: 'text',
@@ -57,7 +61,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
     rowType: 'standard',
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Postnummer',
           type: 'number',
@@ -65,7 +69,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Poststed',
           type: 'text',
@@ -78,7 +82,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
     breakpoint: ScreenSize.Medium,
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Antall biler',
           type: 'number',
@@ -86,14 +90,14 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Bilmerker',
           type: 'text',
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Bilmodeller',
           type: 'text',
@@ -105,7 +109,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
     rowType: 'button',
     fields: [
       {
-        component: 'Button',
+        component: FormGeneratorSupportedFields.Button,
         props: {
           label: 'Gå til partsopplysninger',
           onClick: event => {
@@ -114,7 +118,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'Button',
+        component: FormGeneratorSupportedFields.Button,
         props: {
           label: 'Send til godkjenning',
           purpose: 'secondary',
@@ -124,7 +128,7 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'Button',
+        component: FormGeneratorSupportedFields.Button,
         props: {
           label: 'Avbryt',
           purpose: 'secondary',
@@ -139,28 +143,28 @@ export const exampleRowTypes: (FormGeneratorField | FormGeneratorRow)[] = [
 
 export const exampleChildren: (FormGeneratorField | FormGeneratorRow)[] = [
   {
-    component: 'RadioButtonGroup',
+    component: FormGeneratorSupportedFields.RadioButtonGroup,
     props: {
       label: 'Kjønn',
       name: 'kjønn',
     },
     children: [
       {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
           label: 'Kvinne',
           value: 'female',
         },
       },
       {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
           label: 'Mann',
           value: 'male',
         },
       },
       {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
           label: 'Annet',
           value: 'other',
@@ -169,27 +173,27 @@ export const exampleChildren: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'CheckboxGroup',
+    component: FormGeneratorSupportedFields.CheckboxGroup,
     props: {
       label: 'Favorittfarger',
     },
     children: [
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Rød',
           value: 'red',
         },
       },
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Blå',
           value: 'blue',
         },
       },
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Grønn',
           value: 'green',
@@ -198,19 +202,19 @@ export const exampleChildren: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'ToggleButtonGroup',
+    component: FormGeneratorSupportedFields.ToggleButtonGroup,
     props: {
       label: 'Innstillinger',
     },
     children: [
       {
-        component: 'ToggleButton',
+        component: FormGeneratorSupportedFields.ToggleButton,
         props: {
           label: 'Strømsparing',
         },
       },
       {
-        component: 'ToggleButton',
+        component: FormGeneratorSupportedFields.ToggleButton,
         props: {
           label: 'Skjermlås',
         },
@@ -218,7 +222,7 @@ export const exampleChildren: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'Button',
+    component: FormGeneratorSupportedFields.Button,
     props: {
       label: 'Trykk meg',
       onClick: event => {
@@ -236,7 +240,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
     breakpoint: ScreenSize.Small,
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Fornavn',
           type: 'text',
@@ -244,7 +248,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Etternavn',
           type: 'text',
@@ -254,7 +258,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'Select',
+    component: FormGeneratorSupportedFields.Select,
     props: {
       options: options,
       label: 'Velg favorittfarge',
@@ -262,7 +266,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
     name: 'color',
   },
   {
-    component: 'Datepicker',
+    component: FormGeneratorSupportedFields.Datepicker,
     props: {
       label: 'Fødselsdato',
     },
@@ -271,7 +275,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
     rowType: 'standard',
     fields: [
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Postnummer',
           type: 'number',
@@ -279,7 +283,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'TextInput',
+        component: FormGeneratorSupportedFields.TextInput,
         props: {
           label: 'Poststed',
           type: 'text',
@@ -288,28 +292,28 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'RadioButtonGroup',
+    component: FormGeneratorSupportedFields.RadioButtonGroup,
     props: {
       label: 'Kjønn',
       name: 'kjønn',
     },
     children: [
       {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
           label: 'Kvinne',
           value: 'female',
         },
       },
       {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
           label: 'Mann',
           value: 'male',
         },
       },
       {
-        component: 'RadioButton',
+        component: FormGeneratorSupportedFields.RadioButton,
         props: {
           label: 'Annet',
           value: 'other',
@@ -318,20 +322,20 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'Divider',
+    component: FormGeneratorSupportedFields.Divider,
     props: {
       color: 'primary',
     },
   },
   {
-    component: 'CheckboxGroup',
+    component: FormGeneratorSupportedFields.CheckboxGroup,
     props: {
       label: 'Kvalifikasjoner',
       direction: 'column',
     },
     children: [
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Holde pusten i 30 sekunder',
           name: 'hold-breath',
@@ -339,7 +343,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Hoppe på én fot i 1 minutt',
           name: 'jump-one-foot',
@@ -347,7 +351,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Den lille gangetabellen',
           name: 'little-multiply',
@@ -355,7 +359,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Knyte sko i blinde',
           name: 'tying-shoe',
@@ -363,7 +367,7 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
         },
       },
       {
-        component: 'Checkbox',
+        component: FormGeneratorSupportedFields.Checkbox,
         props: {
           label: 'Sykle kjempefort',
           name: 'bicycle-fast',
@@ -373,38 +377,38 @@ export const exampleFull: (FormGeneratorField | FormGeneratorRow)[] = [
     ],
   },
   {
-    component: 'Divider',
+    component: FormGeneratorSupportedFields.Divider,
     props: {
       color: 'primary',
     },
   },
   {
-    component: 'Typography',
+    component: FormGeneratorSupportedFields.Typography,
     props: {
       typographyType: 'headingSans02',
     },
     innerHTML: 'Godtgjørelser',
   },
   {
-    component: 'List',
+    component: FormGeneratorSupportedFields.List,
     children: [
       {
-        component: 'ListItem',
+        component: FormGeneratorSupportedFields.ListItem,
         innerHTML:
           'Sjokolademelk i kantina hver fredag (kun mellom kl.11 og kl.12)',
       },
       {
-        component: 'ListItem',
+        component: FormGeneratorSupportedFields.ListItem,
         innerHTML: '3 kaffepauser á 5 minutter hver dag',
       },
       {
-        component: 'ListItem',
+        component: FormGeneratorSupportedFields.ListItem,
         innerHTML: 'Gratis frukt på deling i etasjen (leveres én gang i uken)',
       },
     ],
   },
   {
-    component: 'Button',
+    component: FormGeneratorSupportedFields.Button,
     props: {
       label: 'Gjør ting',
       onClick: event => {
