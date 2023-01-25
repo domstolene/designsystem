@@ -22,7 +22,7 @@ describe('<FormGenerator />', () => {
     ];
     render(<FormGenerator fields={fields} stateOnChange={() => {}} />);
     const textInput = screen.getAllByLabelText(lastnameField);
-    expect(textInput).toBeInTheDocument;
+    expect(textInput).toBeInTheDocument();
   });
 
   it('should handle state changes', () => {
