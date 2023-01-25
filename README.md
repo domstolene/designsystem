@@ -10,6 +10,8 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 
 🎨 [Design tokens](packages/tokens/README.md)
 
+📕 [Formatering](packages/formatting/README.md)
+
 🧪 [Testapplikasjon](apps/testapp/README.md)
 
 ## 📖 Dokumentasjon
