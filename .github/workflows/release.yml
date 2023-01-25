@@ -20,14 +20,14 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Verify
-        run: npm run -w @norges-domstoler/dds-components verify
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Build
         working-directory: ${{ env.working-directory }}
         run: npm run build
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify
+        run: npm run -w @norges-domstoler/dds-components verify
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
