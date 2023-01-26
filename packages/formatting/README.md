@@ -18,7 +18,9 @@ npm install @norges-domstoler/dds-formatting
 import { formatFoedselsnummer } from '@norges-domstoler/dds-formatting';
 
 const mittUformaterteFoedselsnummer = '12345678901';
-const riktigFormatertFoedselsnummer = formatFoedselsnummer(mittUformaterteFoedselsnummer);
+const riktigFormatertFoedselsnummer = formatFoedselsnummer(
+  mittUformaterteFoedselsnummer
+);
 ```
 
 ## ⌨️ For bidragsytere

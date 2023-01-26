@@ -1,1 +1,2 @@
-export * from './formatFoedselsnummer';
+export * from './foedselsnummer';
+export * from './phone';
