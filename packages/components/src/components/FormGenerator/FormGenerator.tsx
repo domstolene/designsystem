@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { Button } from '../Button';
 import { Card } from '../Card';
 import { Checkbox, CheckboxGroup } from '../Checkbox';
@@ -15,7 +15,7 @@ import { InputMessage } from '../InputMessage';
 import { List, ListItem } from '../List';
 import { LocalMessage } from '../LocalMessage';
 import { RadioButton, RadioButtonGroup } from '../RadioButton';
-import { Select } from '../Select';
+import { Select, SelectOption } from '../Select';
 import { Spinner } from '../Spinner';
 import { TextInput } from '../TextInput';
 import { ToggleButton, ToggleButtonGroup } from '../ToggleButton';
@@ -28,7 +28,7 @@ import {
   FormGeneratorRow,
   FormGeneratorSupportedFields as SupportedFields,
 } from './FormGenerator.types';
-import { MultiValue, SingleValue } from 'react-select';
+import { MultiValue, PropsValue, SingleValue } from 'react-select';
 import { ScreenSize, useScreenSize } from '../../hooks/useScreenSize';
 import {
   ButtonRow,
@@ -38,11 +38,84 @@ import {
 import { formGeneratorTokens } from './FormGenerator.tokens';
 import { getBaseHTMLProps } from '../../types';
 
+type StateOptionTypes =
+  | string
+  | number
+  | boolean
+  | readonly string[]
+  | undefined
+  | PropsValue<SelectOption<unknown>>;
+
+interface State<StateOptionTypes> {
+  [name: string]: StateOptionTypes;
+}
+
 export const FormGenerator = (props: FormGeneratorProps) => {
   const { fields = [], stateOnChange } = props;
   const { id, className, htmlProps, ...rest } = props;
 
   const [myState, setState] = useState({});
+
+  const addFieldToState = (
+    field: FormGeneratorField,
+    state: State<StateOptionTypes>
+  ) => {
+    let key = '';
+    switch (field.component) {
+      case SupportedFields.Checkbox:
+      case SupportedFields.ToggleButton:
+        key = field.props.name || field.props.id || 'FIELD_MISSING_NAME_OR_ID';
+        state = {
+          ...state,
+          [key]: field.props.defaultChecked,
+        };
+        return state;
+      case SupportedFields.CheckboxGroup:
+      case SupportedFields.ToggleButtonGroup:
+        field.children.forEach(child => {
+          state = addFieldToState(child, state);
+        });
+        return state;
+      case SupportedFields.RadioButton:
+      case SupportedFields.RadioButtonGroup:
+        key = field.props.name || field.props.id || 'FIELD_MISSING_NAME_OR_ID';
+        state = {
+          ...state,
+          [key]: field.props.value,
+        };
+        return state;
+      case SupportedFields.Select:
+        key = field.name || field.props.id || 'FIELD_MISSING_NAME_OR_ID';
+        state = {
+          ...state,
+          [key]: field.props.defaultValue,
+        };
+        return state;
+      case SupportedFields.Datepicker:
+      case SupportedFields.TextInput:
+        key = field.props.name || field.props.id || 'FIELD_MISSING_NAME_OR_ID';
+        state = {
+          ...state,
+          [key]: field.props.defaultValue,
+        };
+        return state;
+    }
+    return state;
+  };
+
+  useEffect(() => {
+    let state: State<StateOptionTypes> = {};
+    fields.forEach((field: FormGeneratorField | FormGeneratorRow) => {
+      if (isFormGeneratorRow(field)) {
+        field.fields.forEach((field: FormGeneratorField) => {
+          state = addFieldToState(field, state);
+        });
+      } else {
+        state = addFieldToState(field, state);
+      }
+    });
+    setState(state);
+  }, []);
 
   const fieldOnChange = <T extends HTMLInputElement>(event: ChangeEvent<T>) => {
     const { id, name, value, checked } = event.target;
