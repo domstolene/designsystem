@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "verify": "turbo run verify"
+    "verify": "turbo run verify",
+    "changeset": "changeset"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
     "turbo": "^1.7.0"
   },
   "overrides": {
