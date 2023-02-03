@@ -1,7 +1,5 @@
-name: Design system ci
+name: Build and test verification
 on:
-  push:
-    branches: [ master ]
   pull_request:
 jobs:
   build-and-test:
@@ -13,20 +11,17 @@ jobs:
         with:
           node-version: 16
 
-      - name: Clean install
-        working-directory: ${{ env.working-directory }}
+      - name: Install
         run: npm ci
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build
-        working-directory: ${{ env.working-directory }}
         run: npm run build
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Verify
-        working-directory: ${{ env.working-directory }}
         run: npm run verify
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
