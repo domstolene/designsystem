@@ -37,6 +37,8 @@ export * from './copy';
 export * from './court';
 export * from './dateRange';
 export * from './deaths';
+export * from './doubleChevronLeft';
+export * from './doubleChevronRight';
 export * from './download';
 export * from './downloadDone';
 export * from './dragHandle';
