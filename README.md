@@ -24,6 +24,9 @@ Team Elsa setter pris på all bidrag. Les hvordan bidra i [guiden for bidragsyte
 
 ### 🧑‍💻 Utvikling
 
+> Vi anbefaler å installere [Volta](https://volta.sh/) for versjonshåndtering av Node.js og npm.
+> Volta vil automatisk installere riktig versjon av Node.js og npm når du jobber med designsystemet.
+
 Installer avhengigheter
 
 ```bash
