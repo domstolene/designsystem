@@ -1,3 +1,4 @@
+import { Property } from 'csstype';
 import {
   forwardRef,
   useEffect,
@@ -6,17 +7,16 @@ import {
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  cardAccordionTokens as tokens,
-  typographyTypes,
-} from './CardAccordion.tokens';
-import { Property } from 'csstype';
+import useIsMounted from '../../../hooks/useIsMounted';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import useIsMounted from '../../../hooks/useIsMounted';
 import { getFontStyling } from '../../Typography/Typography.utils';
+import {
+  cardAccordionTokens as tokens,
+  typographyTypes,
+} from './CardAccordion.tokens';
 
 const expandingAnimation = css`
   @media (prefers-reduced-motion: no-preference) {
@@ -25,9 +25,16 @@ const expandingAnimation = css`
   }
 `;
 
+function getPadding(props: BodyProps): string {
+  const { padding } = props;
+
+  return padding || tokens.body.padding;
+}
+
 type BodyProps = {
   isExpanded?: boolean;
   paddingTop?: Property.PaddingTop<string>;
+  padding?: Property.Padding<string>;
   animate: boolean;
 };
 
@@ -35,7 +42,7 @@ const Body = styled.div<BodyProps>`
   @media (prefers-reduced-motion: no-preference) {
     ${({ animate }) => animate && expandingAnimation}
   }
-  padding: ${tokens.body.padding};
+  padding: ${getPadding};
   ${getFontStyling(typographyTypes.body)}
   ${({ paddingTop }) =>
     paddingTop &&
@@ -72,6 +79,8 @@ export type CardAccordionBodyProps = BaseComponentPropsWithChildren<
     headerId?: string;
     /**Overskriver default padding på toppen. Brukes når barn har spacing på toppen, f.eks. en overskrift. */
     paddingTop?: Property.PaddingTop<string>;
+    /**Overskriver default padding. */
+    padding?: Property.Padding<string>;
   }
 >;
 

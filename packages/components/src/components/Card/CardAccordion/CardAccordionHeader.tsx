@@ -1,5 +1,5 @@
 import { forwardRef, ButtonHTMLAttributes } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   cardAccordionTokens as tokens,
   typographyTypes,
@@ -11,12 +11,32 @@ import {
   getBaseHTMLProps,
 } from '../../../types';
 import { getFontStyling } from '../../Typography/Typography.utils';
+import { Property } from 'csstype';
+import { StaticTypographyType } from '../../Typography';
 
 const { header, chevronWrapper } = tokens;
 
 const ContentWrapper = styled.div`
   text-align: left;
 `;
+
+function getPadding(props: HeaderProps): string {
+  const { padding } = props;
+
+  return padding || header.padding;
+}
+
+function getTypographyType(props: HeaderProps): StaticTypographyType {
+  const { typographyType } = props;
+
+  return typographyType || typographyTypes.header;
+}
+
+type HeaderProps = {
+  padding?: Property.Padding<string>;
+  typographyType?: StaticTypographyType;
+  bold?: boolean;
+};
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -25,8 +45,13 @@ const HeaderContainer = styled.div`
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 0.2s;
   }
-  padding: ${header.padding};
-  ${getFontStyling(typographyTypes.header)}
+  padding: ${getPadding};
+  ${props => getFontStyling(getTypographyType(props))}
+  ${props =>
+    props.bold &&
+    css`
+      font-weight: 600;
+    `}
 `;
 
 const HeaderWrapper = styled.button`
@@ -69,6 +94,12 @@ export type CardAccordionHeaderProps = BaseComponentPropsWithChildren<
     toggleExpanded?: () => void;
     /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionBody />`.  */
     bodyId?: string;
+    /**Overskriver default padding. */
+    padding?: Property.Padding<string>;
+    /**Overskriver default teksttype. */
+    typographyType?: StaticTypographyType;
+    /**Angir om teksten skal være i "bold"-format. */
+    bold?: boolean;
   },
   ButtonHTMLAttributes<HTMLButtonElement>
 >;
@@ -85,6 +116,9 @@ export const CardAccordionHeader = forwardRef<
     id,
     className,
     htmlProps,
+    padding,
+    typographyType,
+    bold,
     ...rest
   } = props;
 
@@ -110,8 +144,12 @@ export const CardAccordionHeader = forwardRef<
 
   return (
     <HeaderWrapper {...headerWrapperProps}>
-      <HeaderContainer>
-        <ContentWrapper> {children} </ContentWrapper>
+      <HeaderContainer
+        typographyType={typographyType}
+        padding={padding}
+        bold={bold}
+      >
+        <ContentWrapper>{children}</ContentWrapper>
         <ChevronWrapper>
           <AnimatedChevronUpDown {...chevronProps} />
         </ChevronWrapper>

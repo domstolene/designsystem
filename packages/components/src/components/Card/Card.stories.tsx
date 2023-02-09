@@ -1,22 +1,22 @@
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { useState } from 'react';
+import styled from 'styled-components';
 import {
-  CardAccordion,
-  CardAccordionHeader,
-  CardAccordionBody,
   Card,
+  CardAccordion,
+  CardAccordionBody,
+  CardAccordionHeader,
   CardProps,
   ExpandableCardProps,
 } from '.';
 import { StoryTemplate } from '../../storybook';
-import { Divider } from '../Divider';
 import {
   DescriptionList,
   DescriptionListDesc,
   DescriptionListTerm,
 } from '../DescriptionList';
+import { Divider } from '../Divider';
 import { Typography } from '../Typography';
-import styled from 'styled-components';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { useState } from 'react';
 
 export default {
   title: 'Design system/Card',
@@ -209,6 +209,45 @@ export const AccordionControlled = (args: ExpandableCardProps) => {
         >
           <CardAccordionHeader>Header</CardAccordionHeader>
           <CardAccordionBody>Content</CardAccordionBody>
+        </CardAccordion>
+      </Card>
+    </StoryTemplate>
+  );
+};
+
+export const AccordionCustom = (args: ExpandableCardProps) => {
+  return (
+    <StoryTemplate title="Card - accordion" gap="0">
+      <Card {...args} cardType="expandable" color="strokeLight">
+        <CardAccordion>
+          <CardAccordionHeader
+            typographyType="bodySans01"
+            padding="4px 12px"
+            bold
+          >
+            Dekning av reiseutgifter
+          </CardAccordionHeader>
+          <CardAccordionBody padding="16px 12px">
+            <Typography typographyType="bodySans01">
+              I sivile saker avtales dekning av utgifter med den part som
+              innkalte deg. I straffesaker har du krav på reise- og
+              kostgodtgjørelse (
+              <Typography typographyType="a" href="#">
+                særavtale om dekning av utgifter til reise og kost
+              </Typography>
+              ). Reisen skal foretas på raskeste og rimeligste måte for staten.
+              Offentlig transport må benyttes der det er tilgjengelig.
+              Godtgjørelse for bruk av egen bil godtas bare i den utstrekning
+              det er rimeligst for det offentlige, med mindre særlige grunner
+              tilsier at du må bruke bil.Reiseutgiftene må dokumenteres med
+              kvitteringer, unntatt for rimeligste offentlig transport, for
+              eksempel buss, tog og så videre. For reiser over 15 km og som
+              varer utover 6 timer, dekkes utgifter til måltider etter satsene i
+              særavtalen om dekning av utgifter til reise og kost. Dersom
+              enkeltmåltider er dekket av andre enn deg selv, må du registrere
+              måltidsfradrag.
+            </Typography>
+          </CardAccordionBody>
         </CardAccordion>
       </Card>
     </StoryTemplate>
