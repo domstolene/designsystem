@@ -20,6 +20,7 @@ yarn-error.log*
 .vscode
 .idea
 dist
+.swc
 
 #turbo
 .turbo
