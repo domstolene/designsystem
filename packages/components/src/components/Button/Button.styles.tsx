@@ -100,7 +100,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   justify-content: center;
   height: fit-content;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
-  cursor: pointer;
+  cursor: ${({ isLoading }) => (isLoading ? 'not-allowed' : 'pointer')};
   box-shadow: none;
   text-decoration: none;
 
