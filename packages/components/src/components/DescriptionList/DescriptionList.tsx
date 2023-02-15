@@ -36,7 +36,8 @@ const DList = styled.dl<DListProps>`
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      gap: ${list.rowDirection.gap};
+      column-gap: ${list.rowDirection.columnGap};
+      row-gap: 0;
     `}
   & > dt:first-of-type {
     margin-top: ${term.firstOfType.marginTop};

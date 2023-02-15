@@ -42,7 +42,7 @@ const list = {
     marginTop: spacing.SizesDdsSpacingLocalX2,
   },
   rowDirection: {
-    gap: spacing.SizesDdsSpacingLocalX2,
+    columnGap: spacing.SizesDdsSpacingLocalX2,
   },
 };
 
