@@ -4,10 +4,11 @@ import { descriptionListTokens as tokens } from './DescriptionList.tokens';
 import { Property } from 'csstype';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
-type StyledGroupProps = Pick<DescriptionListGroupProps, 'margin'>;
+type StyledGroupProps = Pick<DescriptionListGroupProps, 'margin' | 'minWidth'>;
 
 const DListGroup = styled.div<StyledGroupProps>`
   margin: ${({ margin }) => (margin ? margin : tokens.group.base.margin)};
+  ${({ minWidth }) => minWidth && `min-width: ${minWidth}`}
 `;
 
 export type DescriptionListGroupProps = BaseComponentPropsWithChildren<
@@ -15,6 +16,8 @@ export type DescriptionListGroupProps = BaseComponentPropsWithChildren<
   {
     /**Custom margin. */
     margin?: Property.Margin<string>;
+    /**Custom min-width. */
+    minWidth?: Property.MinWidth<string>;
   }
 >;
 
@@ -22,13 +25,15 @@ export const DescriptionListGroup = forwardRef<
   HTMLDivElement,
   DescriptionListGroupProps
 >((props, ref) => {
-  const { children, margin, id, className, htmlProps, ...rest } = props;
+  const { children, margin, minWidth, id, className, htmlProps, ...rest } =
+    props;
 
   const dListGroupProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     children,
     ref,
     margin,
+    minWidth,
   };
 
   return <DListGroup {...dListGroupProps}>{children}</DListGroup>;
