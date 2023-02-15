@@ -1,4 +1,4 @@
-import { ElementType, forwardRef } from 'react';
+import { ElementType, forwardRef, MouseEvent } from 'react';
 import { buttonTokens as tokens } from './Button.tokens';
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
@@ -53,7 +53,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       hasIcon: hasIcon,
       isLoading: loading,
       size,
-      onClick,
+      onClick: (
+        event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+      ) => {
+        if (!loading && onClick) {
+          onClick(event);
+        }
+      },
       onFocus,
       onBlur,
     };
@@ -71,7 +77,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
 
     return (
-      <ButtonWrapper {...wrapperProps}>
+      <ButtonWrapper {...wrapperProps} aria-disabled={loading}>
         {!isIconButton && (
           <>
             {iconPosition === 'left' && iconElement}
