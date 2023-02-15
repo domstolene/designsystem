@@ -41,6 +41,9 @@ const list = {
   beforeNextTerm: {
     marginTop: spacing.SizesDdsSpacingLocalX2,
   },
+  rowDirection: {
+    gap: spacing.SizesDdsSpacingLocalX2,
+  },
 };
 
 const group = {

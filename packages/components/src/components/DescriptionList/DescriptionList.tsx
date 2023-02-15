@@ -10,7 +10,7 @@ import {
 
 const { term, desc, list } = tokens;
 
-type DListProps = Pick<DescriptionListProps, 'appearance'>;
+type DListProps = Pick<DescriptionListProps, 'appearance' | 'direction'>;
 
 const DList = styled.dl<DListProps>`
   margin: 0;
@@ -28,6 +28,15 @@ const DList = styled.dl<DListProps>`
           font-weight: 600;
         `}
       }
+    `}
+  ${({ direction }) =>
+    direction &&
+    direction === 'row' &&
+    css`
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: ${list.rowDirection.gap};
     `}
   & > dt:first-of-type {
     margin-top: ${term.firstOfType.marginTop};
@@ -47,6 +56,8 @@ export type DescriptionListProps = BaseComponentPropsWithChildren<
   {
     /**Påvirker tekst styling. */
     appearance?: DescriptionListAppearance;
+    /**Setter flex-direction. Default er column. */
+    direction?: 'row' | 'column';
   }
 >;
 
@@ -56,6 +67,7 @@ export const DescriptionList = forwardRef<
 >((props, ref) => {
   const {
     appearance = 'bold',
+    direction = 'column',
     children,
     id,
     className,
@@ -66,6 +78,7 @@ export const DescriptionList = forwardRef<
   const dListProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     appearance,
+    direction,
     ref,
   };
 
