@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 11.1.0
+
+### Minor Changes
+
+- d968c80c: Legg til optional properties "direction" i DescriptionList, "minWidth" og "maxWidth" i DescriptionListGroup
+
+### Patch Changes
+
+- f704ed25: Fjerner bakgrunnsfarge for InputMessage av typen 'tip'
+
 ## 11.0.0
 
 ### Major Changes
