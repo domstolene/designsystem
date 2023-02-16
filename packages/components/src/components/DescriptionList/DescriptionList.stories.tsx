@@ -119,25 +119,14 @@ export const WithIcon = (args: DescriptionListProps) => {
   );
 };
 
-export const ColumnExample = (args: DescriptionListProps) => {
+export const RowDirectionExample = (args: DescriptionListProps) => {
   const margin = tokens.spacing.SizesDdsSpacingLocalX1;
   return (
-    <StoryTemplate title="DescriptionList - column example">
+    <StoryTemplate title="DescriptionList - Flere kolonner">
       <div>
-        <DescriptionList
-          {...args}
-          htmlProps={{
-            style: {
-              height: '275px',
-              display: 'flex',
-              flexDirection: 'column',
-              flexWrap: 'wrap',
-            },
-          }}
-        >
+        <DescriptionList {...args} direction="row">
           <DescriptionListGroup margin={margin}>
             <DescriptionListTerm>Tittel 1</DescriptionListTerm>
-            <DescriptionListDesc>Beskrivelse 1</DescriptionListDesc>
             <DescriptionListDesc>Beskrivelse 1</DescriptionListDesc>
           </DescriptionListGroup>
           <DescriptionListGroup margin={margin}>
