@@ -1,11 +1,5 @@
 import { Property } from 'csstype';
-import {
-  forwardRef,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useIsMounted from '../../../hooks/useIsMounted';
 import {
@@ -17,15 +11,15 @@ import {
   cardAccordionTokens as tokens,
   typographyTypes,
 } from './CardAccordion.tokens';
+import { useElementHeight } from './useElementHeight';
 
 const expandingAnimation = css`
   @media (prefers-reduced-motion: no-preference) {
-    transition: padding 0.2s, visibility 0.3s,
-      max-height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
 
-function getPadding(props: BodyProps): string {
+function getPadding(props: BodyContainerProps): string {
   const { padding } = props;
 
   return padding || tokens.body.padding;
@@ -33,41 +27,35 @@ function getPadding(props: BodyProps): string {
 
 type BodyProps = {
   isExpanded?: boolean;
-  paddingTop?: Property.PaddingTop<string>;
-  padding?: Property.Padding<string>;
   animate: boolean;
+  height: number;
 };
 
 const Body = styled.div<BodyProps>`
   @media (prefers-reduced-motion: no-preference) {
     ${({ animate }) => animate && expandingAnimation}
   }
-  padding: ${getPadding};
   ${getFontStyling(typographyTypes.body)}
-  ${({ paddingTop }) =>
-    paddingTop &&
-    css`
-      padding-top: ${paddingTop};
-    `}
-  ${({ isExpanded }) =>
-    !isExpanded &&
-    css`
-      padding-top: 0;
-      padding-bottom: 0;
-    `}
+  height: ${({ height, isExpanded }) => (isExpanded ? height : 0)}px;
+  overflow: hidden;
 `;
 
 type BodyContainerProps = {
   isExpanded?: boolean;
   maxHeight?: number;
   animate: boolean;
+  paddingTop?: Property.PaddingTop<string>;
+  padding?: Property.Padding<string>;
 };
 
 const BodyContainer = styled.div<BodyContainerProps>`
-  ${({ animate }) => animate && expandingAnimation}
-  overflow: hidden;
-  visibility: ${({ isExpanded }) => (isExpanded ? 'visible' : 'hidden')};
-  max-height: ${({ maxHeight }) => (maxHeight ? maxHeight : 0)}px;
+  padding: ${getPadding};
+
+  ${({ paddingTop }) =>
+    paddingTop &&
+    css`
+      padding-top: ${paddingTop};
+    `}
 `;
 
 export type CardAccordionBodyProps = BaseComponentPropsWithChildren<
@@ -93,15 +81,10 @@ export const CardAccordionBody = forwardRef<
 
   const bodyRef = useRef<HTMLDivElement>(null);
 
-  const isMounted = useIsMounted();
   const [animate, setAnimate] = useState(false);
-  const [maxHeight, setMaxHeight] = useState(0);
 
-  useLayoutEffect(() => {
-    if (bodyRef.current && isExpanded) {
-      setMaxHeight(bodyRef.current.scrollHeight);
-    }
-  }, []);
+  const isMounted = useIsMounted();
+  const height = useElementHeight(bodyRef.current);
 
   useEffect(() => {
     if (isMounted()) {
@@ -109,23 +92,15 @@ export const CardAccordionBody = forwardRef<
     }
   }, [isMounted]);
 
-  useEffect(() => {
-    if (!isExpanded) {
-      setMaxHeight(0);
-    } else if (bodyRef && bodyRef.current) {
-      setMaxHeight(bodyRef.current.scrollHeight);
-    }
-  }, [isExpanded]);
-
   const bodyProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     ref,
     isExpanded,
     role: 'region',
+    height,
   };
   const bodyContainerProps = {
     ref: bodyRef,
-    maxHeight: maxHeight,
     isExpanded,
   };
 
