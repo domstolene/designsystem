@@ -30,7 +30,10 @@ const DList = styled.dl<DListProps>`
       }
     `}
   display: flex;
-  flex-direction: ${({ direction = 'column' }) => direction};
+  flex-direction: column;
+  &:not(:has(> dt):has(> dd)) {
+    flex-direction: ${({ direction = 'column' }) => direction};
+  }
   flex-wrap: wrap;
   column-gap: ${list.rowDirection.columnGap};
   row-gap: 0;
@@ -52,7 +55,7 @@ export type DescriptionListProps = BaseComponentPropsWithChildren<
   {
     /**Påvirker tekst styling. */
     appearance?: DescriptionListAppearance;
-    /**Setter flex-direction.
+    /**Setter flex-direction. NB! Fungerer kun ved bruk av `DescriptionListGroup` som barn av `DescriptionList`.
      *  @default "column"
      */
     direction?: 'row' | 'column';
