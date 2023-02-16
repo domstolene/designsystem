@@ -29,16 +29,11 @@ const DList = styled.dl<DListProps>`
         `}
       }
     `}
-  ${({ direction }) =>
-    direction &&
-    direction === 'row' &&
-    css`
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      column-gap: ${list.rowDirection.columnGap};
-      row-gap: 0;
-    `}
+  display: flex;
+  flex-direction: ${({ direction = 'column' }) => direction};
+  flex-wrap: wrap;
+  column-gap: ${list.rowDirection.columnGap};
+  row-gap: 0;
   & > dt:first-of-type {
     margin-top: ${term.firstOfType.marginTop};
   }
@@ -57,7 +52,9 @@ export type DescriptionListProps = BaseComponentPropsWithChildren<
   {
     /**Påvirker tekst styling. */
     appearance?: DescriptionListAppearance;
-    /**Setter flex-direction. Default er column. */
+    /**Setter flex-direction.
+     *  @default "column"
+     */
     direction?: 'row' | 'column';
   }
 >;
