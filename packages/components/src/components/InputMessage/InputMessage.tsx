@@ -17,11 +17,7 @@ const InputMessageWrapper = styled.div<WrapperProps>`
   word-break: break-word;
   max-width: 100%;
   ${({ messageType }) =>
-    messageType === 'tip'
-      ? css`
-          background-color: ${tokens.message.tip.backgroundColor};
-        `
-      : messageType === 'error'
+    messageType === 'error'
       ? css`
           color: ${tokens.message.error.color};
           background-color: ${tokens.message.error.backgroundColor};
