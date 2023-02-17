@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 11.1.1
+
+### Patch Changes
+
+- 7f9dc603: Muliggjør innhold med dynamisk størrelse i CardAccordion
+
 ## 11.1.0
 
 ### Minor Changes
