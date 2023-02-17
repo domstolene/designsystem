@@ -1,5 +1,11 @@
 import { Property } from 'csstype';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import {
+  forwardRef,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import styled, { css } from 'styled-components';
 import useIsMounted from '../../../hooks/useIsMounted';
 import {
@@ -86,6 +92,16 @@ export const CardAccordionBody = forwardRef<
   const isMounted = useIsMounted();
   const height = useElementHeight(bodyRef.current);
 
+  const [initialExpandedHeight, setIntialExpandedHeight] =
+    useState<Nullable<number>>(null);
+
+  useLayoutEffect(() => {
+    // For å unngå initiell animasjon dersom Accordion er satt til å være åpen som default.
+    if (bodyRef.current && isExpanded) {
+      setIntialExpandedHeight(bodyRef.current.scrollHeight);
+    }
+  }, []);
+
   useEffect(() => {
     if (isMounted()) {
       setAnimate(true);
@@ -97,7 +113,7 @@ export const CardAccordionBody = forwardRef<
     ref,
     isExpanded,
     role: 'region',
-    height,
+    height: height || initialExpandedHeight || 0,
   };
   const bodyContainerProps = {
     ref: bodyRef,
