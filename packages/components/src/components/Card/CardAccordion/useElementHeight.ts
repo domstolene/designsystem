@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 
-export function useElementHeight(element: HTMLDivElement | null): number {
-  const [height, setHeight] = useState(0);
+export function useElementHeight(
+  element: HTMLDivElement | null
+): number | null {
+  const [height, setHeight] = useState<Nullable<number>>(null);
 
   useEffect(() => {
     if (!element) return;
 
     const resizeObserver = new ResizeObserver(() => {
-      setHeight(element.offsetHeight || 0);
+      setHeight(element.offsetHeight);
     });
 
     resizeObserver.observe(element);
