@@ -10,10 +10,10 @@ const isValidDate = (date: Date) => {
   return isNaN(date.valueOf()) === false;
 };
 
-export const formatTime = (
-  date: string | Date | number,
+export const formatTime = <T extends string | Date | number>(
+  date: T,
   options: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' }
-): string | Date | number => {
+): string | T => {
   const myDate = new Date(date);
   if (isValidDate(myDate)) {
     return new Intl.DateTimeFormat('no-NO', options).format(myDate);
@@ -21,9 +21,9 @@ export const formatTime = (
   return date;
 };
 
-export const formatDate = (
-  date: string | Date | number
-): string | Date | number => {
+export const formatDate = <T extends string | Date | number>(
+  date: T
+): string | T => {
   const myDate = new Date(date);
   if (isValidDate(myDate)) {
     return new Intl.DateTimeFormat('no-NO', {
@@ -35,10 +35,10 @@ export const formatDate = (
   return date;
 };
 
-export const formatDateTime = (
-  date: string | Date | number,
+export const formatDateTime = <T extends string | Date | number>(
+  date: T,
   options: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' }
-): string | Date | number => {
+): string | T => {
   const myDate = new Date(date);
   if (isValidDate(myDate)) {
     return formatDate(myDate) + ' ' + formatTime(myDate, options);
