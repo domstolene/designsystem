@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import { getLiteralScreenSize } from '../../helpers';
 import { ScreenSize } from '../../hooks/useScreenSize';
 import { GridChild } from '../Grid';
-import { getLiteralScreenSize } from '../Grid/Grid.utils';
 import { formGeneratorTokens as tokens } from './FormGenerator.tokens';
 
 export const FormGeneratorFlexContainer = styled.div<{
