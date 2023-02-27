@@ -9,7 +9,7 @@ import {
 import { FormGeneratorProps } from './FormGenerator.types';
 
 export default {
-  title: 'Design system/FormGenerator BETA',
+  title: 'Design system/FormGenerator DEPRECATED',
   component: FormGenerator,
 };
 
