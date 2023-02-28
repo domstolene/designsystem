@@ -3,8 +3,18 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import type { UserConfig as VitestUserConfigInterface } from 'vitest/config';
+
+const vitestConfig: VitestUserConfigInterface = {
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: [path.resolve(__dirname, 'src/setupTests.ts')],
+  },
+};
 
 export default defineConfig({
+  test: vitestConfig.test,
   plugins: [
     dts({
       insertTypesEntry: true,

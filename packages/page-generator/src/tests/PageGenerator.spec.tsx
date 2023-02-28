@@ -1,5 +1,5 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import React from 'react';
+import { describe, test, expect } from 'vitest';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { PageGenerator } from '../components';
 import { PageGeneratorField, PageGeneratorSupportedFields } from '../types';
 
@@ -7,7 +7,7 @@ describe('<PageGenerator />', () => {
   /**
    * @vitest-environment jsdom
    */
-  it('renders a PageGenerator', () => {
+  test('renders a PageGenerator', () => {
     const lastnameField = 'lastName';
 
     const fields: PageGeneratorField[] = [
@@ -28,7 +28,7 @@ describe('<PageGenerator />', () => {
     expect(textInput).toBeDefined();
   });
 
-  it('should handle state changes', async () => {
+  test('should handle state changes', async () => {
     const expectedValue = {
       lastName: 'new value',
     };
