@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 11.2.0
+
+### Minor Changes
+
+- f4adb526: Eksporter getBaseHTMLProps og ScreenSize utils fra `@norges-domstoler/dds-components`
+
+### Patch Changes
+
+- 03f759b2: Bump @floating-ui/react-dom from 1.2.1 to 1.3.0
+- 1aa3cf44: Bump @babel/core fra 7.20.12 til 7.21.0
+
 ## 11.1.1
 
 ### Patch Changes
