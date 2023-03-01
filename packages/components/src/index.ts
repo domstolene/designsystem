@@ -45,3 +45,5 @@ export * from './components/SplitButton';
 export * from './components/Stack';
 export * from './components/FormGenerator';
 export * from './components/FileUploader';
+export * from './types/BaseComponentProps';
+export * from './helpers/ScreenSize';

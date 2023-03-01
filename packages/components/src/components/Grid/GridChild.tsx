@@ -4,8 +4,8 @@ import { gridTokens as tokens } from './Grid.tokens';
 import { Property } from 'csstype';
 import { useGridContext } from './Grid.context';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { BreakpointBasedProps, getLiteralScreenSize } from './Grid.utils';
 import { HTMLAttributes } from 'react';
+import { BreakpointBasedProps, getLiteralScreenSize } from '../../helpers';
 
 type StyledGridChildProps = {
   screenSize: ScreenSize;

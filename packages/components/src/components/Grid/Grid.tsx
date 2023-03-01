@@ -3,8 +3,8 @@ import { ScreenSize, useScreenSize } from '../../hooks';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { gridTokens } from './Grid.tokens';
 import { GridContext } from './Grid.context';
-import { BreakpointBasedProps, getLiteralScreenSize } from './Grid.utils';
 import { HTMLAttributes } from 'react';
+import { BreakpointBasedProps, getLiteralScreenSize } from '../../helpers';
 
 type StyledGridProps = {
   screenSize: ScreenSize;

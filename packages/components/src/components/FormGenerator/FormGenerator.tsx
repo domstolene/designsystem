@@ -50,6 +50,9 @@ interface State<StateOptionTypes> {
   [name: string]: StateOptionTypes;
 }
 
+/**
+ * @deprecated FormGenerator er flyttet til egen pakke og renamet til PageGenerator. Se @norges-domstoler/dds-page-generator.
+ */
 export const FormGenerator = (props: FormGeneratorProps) => {
   const { fields = [], stateOnChange } = props;
   const { id, className, htmlProps, ...rest } = props;

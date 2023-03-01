@@ -1,18 +1,9 @@
+import {
+  ScreenSize,
+  getLiteralScreenSize,
+} from '@norges-domstoler/dds-components';
 import styled, { css } from 'styled-components';
-import { getLiteralScreenSize } from '../../helpers';
-import { ScreenSize } from '../../hooks/useScreenSize';
-import { GridChild } from '../Grid';
-import { formGeneratorTokens as tokens } from './FormGenerator.tokens';
-
-export const FormGeneratorFlexContainer = styled.div<{
-  screenSize: ScreenSize;
-}>`
-  ${({ screenSize }) => css`
-    display: flex;
-    flex-wrap: wrap;
-    gap: ${tokens.columnGaps[screenSize]};
-  `}
-`;
+import { PageGeneratorTokens } from '../tokens';
 
 export const SubContainer = styled.div<{
   screenSize: ScreenSize;
@@ -27,7 +18,7 @@ export const SubContainer = styled.div<{
       : css`
           display: flex;
           flex-wrap: wrap;
-          gap: ${tokens.columnGaps[screenSize]};
+          gap: ${PageGeneratorTokens.columnGaps[screenSize]};
         `}
 
   ${({ screenSize, length, breakpoint = ScreenSize.XSmall }) =>
@@ -36,11 +27,13 @@ export const SubContainer = styled.div<{
         ? css`
             grid-auto-flow: column;
             grid-template-columns: min-content auto;
-            column-gap: ${tokens.columnGaps[screenSize]};
+            column-gap: ${PageGeneratorTokens.columnGaps[screenSize]};
           `
         : css`
             grid-auto-flow: row;
-            row-gap: ${tokens.rowGaps[getLiteralScreenSize(screenSize)]};
+            row-gap: ${PageGeneratorTokens.rowGaps[
+              getLiteralScreenSize(screenSize)
+            ]};
           `
       : ``}
 
@@ -54,8 +47,4 @@ export const SubContainer = styled.div<{
             flex-direction: column;
           `
       : ``}
-`;
-
-export const ButtonRow = styled(GridChild)`
-  margin-top: ${tokens.buttonRow.marginTop};
 `;
