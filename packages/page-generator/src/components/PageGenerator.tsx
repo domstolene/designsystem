@@ -90,7 +90,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
   return (
     <Grid
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      as={as === 'fragment' ? 'div' : as}
+      as={as}
       rowGap={PageGeneratorTokens.rowGaps}
     >
       {fields.map((obj, index) => {

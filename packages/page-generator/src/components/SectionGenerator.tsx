@@ -6,10 +6,10 @@ import {
 } from '@norges-domstoler/dds-components';
 import {
   PageGeneratorField,
-  PageGeneratorProps,
   PageGeneratorRow,
   PageGeneratorState,
   PageGeneratorStateOptionTypes,
+  SectionGeneratorProps,
 } from '../types';
 import React from 'react';
 import {
@@ -24,7 +24,7 @@ import {
  * Generer komponenter fra @norges-domstoler/dds-components, basert på `fields` propertien. SectionGenerator legger på en wrapper, basert på `as` propertien.
  * @param props - `fields` inneholder felter eller rader med felter. `stateOnChange` er callback for statehåndtering. `as` setter HTML-element rundt hele SectionGenerator.
  */
-export const SectionGenerator = (props: PageGeneratorProps) => {
+export const SectionGenerator = (props: SectionGeneratorProps) => {
   const { fields = [], stateOnChange, as } = props;
   const { id, className, htmlProps, ...rest } = props;
 
