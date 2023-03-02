@@ -97,6 +97,8 @@ export const SectionGenerator = (props: PageGeneratorProps) => {
           {props.children}
         </form>
       );
+    } else if (as === 'fragment') {
+      return <React.Fragment>{props.children}</React.Fragment>;
     } else {
       return <></>;
     }

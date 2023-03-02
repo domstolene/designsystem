@@ -9,7 +9,7 @@ export type PageGeneratorProps = BaseComponentPropsWithChildren<
     fields: (PageGeneratorField | PageGeneratorRow)[];
     /** For å hente ut state etter endringer */
     stateOnChange?: (newState: object) => void;
-    /** Setter form eller div på Grid-komponenten */
-    as: 'div' | 'form';
+    /** Setter form, div eller fragment som wrapper-element */
+    as: 'div' | 'form' | 'fragment';
   }
 >;
