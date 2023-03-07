@@ -118,7 +118,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
             );
           } else {
             return (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 {obj.fields.map((field, groupedIndex) => {
                   return (
                     !field.hide &&
@@ -137,7 +137,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
         } else {
           return (
             !obj.hide && (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 {getComponent(
                   obj,
                   index,
