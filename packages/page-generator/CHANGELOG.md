@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-page-generator
 
+## 1.1.0
+
+### Minor Changes
+
+- 6c1f5af5: Legg til støtte for React.Fragment som wrapper-element for SectionGenerator
+
+### Patch Changes
+
+- 0525dc53: Gjør react, react-dom og styled-components til eksterne dependencies sånn at disse ikke blir inkludert i bygget. Dette vil fikse "invalid hook call"-feilen
+
 ## 1.0.0
 
 ### Patch Changes
