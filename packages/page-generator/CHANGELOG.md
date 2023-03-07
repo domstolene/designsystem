@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-page-generator
 
+## 1.1.1
+
+### Patch Changes
+
+- 81b0a1f1: SectionGenerator: Legg til manglende key på React.Fragment
+
 ## 1.1.0
 
 ### Minor Changes
