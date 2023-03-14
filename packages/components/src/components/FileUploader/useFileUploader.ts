@@ -28,7 +28,7 @@ export type FileUploaderHookProps = {
   id: string | undefined;
   /**En liste over filer som skal være med ved første render. */
   initialFiles: FileList | undefined;
-  /**Dersom komponenten styres utenfra. En liste over filer som er med i hver render. */
+  /**Dersom komponenten styres utenfra. Filene som har blitt lastet opp. */
   value: FileList | undefined;
   /**Callback for når fil-listen endres. */
   onChange: (newFiles: FileList) => void;
