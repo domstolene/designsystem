@@ -48,7 +48,7 @@
     "elsa"
   ],
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.0",
     "concurrently": "^7.4.0",
     "esbuild": "^0.16.3",
