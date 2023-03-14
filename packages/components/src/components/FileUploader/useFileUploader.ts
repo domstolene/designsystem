@@ -26,7 +26,7 @@ import {
 
 export type FileUploaderHookProps = {
   id: string | undefined;
-  /**En liste over filer som skal være med ved første render. */
+  /**Dersom komponenten skal styres internt. Utgangspunktet for filene som har blitt lastet opp. */
   initialFiles: FileList | undefined;
   /**Dersom komponenten styres utenfra. Filene som har blitt lastet opp. */
   value: FileList | undefined;
