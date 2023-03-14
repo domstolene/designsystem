@@ -117,7 +117,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         payload: files,
       });
     }
-  }, [value]);
+  }, [value, isControlled]);
 
   useEffect(() => {
     dispatch({
