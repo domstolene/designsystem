@@ -26,8 +26,12 @@ import {
 
 export type FileUploaderHookProps = {
   id: string | undefined;
-  /**Dersom komponenten styres utenfra. En liste over filer som skal være med ved første render. */
+  /**En liste over filer som skal være med ved første render. */
   initialFiles: FileList | undefined;
+  /**Dersom komponenten styres utenfra. En liste over filer som er med i hver render. */
+  value: FileList | undefined;
+  /**Callback for når fil-listen endres. */
+  onChange: (newFiles: FileList) => void;
   /**Hvilke filendelser eller mime-typer som filopplasteren skal akseptere. */
   accept: Accept[] | undefined;
   /**Om filopplasteren er avslått eller ikke */
@@ -59,7 +63,7 @@ const calcRootErrors = (
 export const useFileUploader = <TRootElement extends HTMLElement>(
   props: FileUploaderHookProps
 ) => {
-  const { initialFiles, accept, maxFiles, disabled, errorMessage } = props;
+  const { initialFiles, value, onChange, accept, maxFiles, disabled, errorMessage } = props;
 
   const rootRef = useRef<TRootElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -87,6 +91,16 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   });
 
   const { files: stateFiles } = state;
+
+  useEffect(()=>{
+    dispatch({
+      type: 'onSetFiles',
+      payload: (value ?? []).map<FileUploaderFile>( f=> ({
+        file: f,
+        errors:[],
+      })),
+    });
+  },[value])
 
   useEffect(() => {
     dispatch({
@@ -162,11 +176,14 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
             };
           })
           .concat(stateFiles);
-
-        dispatch({
-          type: 'onSetFiles',
-          payload: newFiles,
-        });
+        if(value) {
+          onChange(newFiles.map(f => f.file))
+        } else {
+          dispatch({
+            type: 'onSetFiles',
+            payload: newFiles,
+          });
+        }
       }
     },
     [stateFiles, maxFiles, accept, errorMessage, dispatch]
@@ -184,10 +201,15 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       const newFiles = [...stateFiles];
       newFiles.splice(stateFiles.indexOf(file), 1);
 
-      dispatch({
-        type: 'onRemoveFile',
-        payload: newFiles,
-      });
+      if(value) {
+        onChange(newFiles.map(f => f.file))
+      }else {
+        dispatch({
+          type: 'onRemoveFile',
+          payload: newFiles,
+        });
+      }
+      
     },
     [stateFiles, maxFiles, errorMessage]
   );
