@@ -92,14 +92,23 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
   const { files: stateFiles } = state;
 
-  useEffect(()=>{
-    dispatch({
-      type: 'onSetFiles',
-      payload: (value ?? []).map<FileUploaderFile>( f=> ({
-        file: f,
-        errors:[],
-      })),
-    });
+  useEffect(() => {
+    if(value){
+      const files = value
+        .map<FileUploaderFile>(file => {
+          const accepted = isFileAccepted(file, accept);
+
+          return {
+            file,
+            errors: accepted ? [] : [getInvalidFileTypeErrorMessage()],
+          };
+        })
+        
+      dispatch({
+        type: 'onSetFiles',
+        payload: files,
+      });
+    }
   },[value])
 
   useEffect(() => {
@@ -176,14 +185,15 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
             };
           })
           .concat(stateFiles);
-        if(value) {
-          onChange(newFiles.map(f => f.file))
-        } else {
+        
+        onChange(newFiles.map(f => f.file))
+        
+        if(!value) {
           dispatch({
             type: 'onSetFiles',
             payload: newFiles,
           });
-        }
+        } 
       }
     },
     [stateFiles, maxFiles, accept, errorMessage, dispatch]
@@ -201,15 +211,14 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       const newFiles = [...stateFiles];
       newFiles.splice(stateFiles.indexOf(file), 1);
 
-      if(value) {
-        onChange(newFiles.map(f => f.file))
-      }else {
+      onChange(newFiles.map(f => f.file));
+
+      if(!value) {
         dispatch({
           type: 'onRemoveFile',
           payload: newFiles,
         });
       }
-      
     },
     [stateFiles, maxFiles, errorMessage]
   );

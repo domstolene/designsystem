@@ -108,13 +108,6 @@ export const FileUploader = (props: FileUploaderProps) => {
     maxFiles,
     errorMessage,
   });
-
-  useEffect(() => {
-    if (!value) {
-      onChange(stateFiles.map(f => f.file));
-    }
-  }, [stateFiles]);
-
   const hasLabel = label !== undefined;
   const hasTip = tip !== undefined;
   const hasRootErrors = rootErrors.length > 0;
