@@ -63,7 +63,15 @@ const calcRootErrors = (
 export const useFileUploader = <TRootElement extends HTMLElement>(
   props: FileUploaderHookProps
 ) => {
-  const { initialFiles, value, onChange, accept, maxFiles, disabled, errorMessage } = props;
+  const {
+    initialFiles,
+    value,
+    onChange,
+    accept,
+    maxFiles,
+    disabled,
+    errorMessage,
+  } = props;
 
   const rootRef = useRef<TRootElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -93,23 +101,22 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   const { files: stateFiles } = state;
 
   useEffect(() => {
-    if(value){
-      const files = value
-        .map<FileUploaderFile>(file => {
-          const accepted = isFileAccepted(file, accept);
+    if (value) {
+      const files = value.map<FileUploaderFile>(file => {
+        const accepted = isFileAccepted(file, accept);
 
-          return {
-            file,
-            errors: accepted ? [] : [getInvalidFileTypeErrorMessage()],
-          };
-        })
-        
+        return {
+          file,
+          errors: accepted ? [] : [getInvalidFileTypeErrorMessage()],
+        };
+      });
+
       dispatch({
         type: 'onSetFiles',
         payload: files,
       });
     }
-  },[value])
+  }, [value]);
 
   useEffect(() => {
     dispatch({
@@ -185,15 +192,15 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
             };
           })
           .concat(stateFiles);
-        
-        onChange(newFiles.map(f => f.file))
-        
-        if(!value) {
+
+        onChange(newFiles.map(f => f.file));
+
+        if (!value) {
           dispatch({
             type: 'onSetFiles',
             payload: newFiles,
           });
-        } 
+        }
       }
     },
     [stateFiles, maxFiles, accept, errorMessage, dispatch]
@@ -213,7 +220,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
       onChange(newFiles.map(f => f.file));
 
-      if(!value) {
+      if (!value) {
         dispatch({
           type: 'onRemoveFile',
           payload: newFiles,
