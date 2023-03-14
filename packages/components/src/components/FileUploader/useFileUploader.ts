@@ -117,7 +117,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         payload: files,
       });
     }
-  }, [value, isControlled]);
+  }, [value, isControlled, accept, dispatch]);
 
   useEffect(() => {
     dispatch({
@@ -204,7 +204,15 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         }
       }
     },
-    [stateFiles, maxFiles, accept, errorMessage, dispatch]
+    [
+      stateFiles,
+      isControlled,
+      accept,
+      errorMessage,
+      maxFiles,
+      onChange,
+      dispatch,
+    ]
   );
 
   const openFileDialog = useCallback(() => {
@@ -228,7 +236,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         });
       }
     },
-    [stateFiles, maxFiles, errorMessage]
+    [stateFiles, isControlled, maxFiles, errorMessage, onChange, dispatch]
   );
 
   const getRootProps = useCallback(
