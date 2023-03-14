@@ -76,6 +76,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   const rootRef = useRef<TRootElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const isControlled = !!value;
 
   const initialFileUploaderFiles = useMemo(
     () =>
@@ -101,7 +102,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   const { files: stateFiles } = state;
 
   useEffect(() => {
-    if (value) {
+    if (isControlled) {
       const files = value.map<FileUploaderFile>(file => {
         const accepted = isFileAccepted(file, accept);
 
@@ -195,7 +196,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
         onChange(newFiles.map(f => f.file));
 
-        if (!value) {
+        if (!isControlled) {
           dispatch({
             type: 'onSetFiles',
             payload: newFiles,
@@ -220,7 +221,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
       onChange(newFiles.map(f => f.file));
 
-      if (!value) {
+      if (!isControlled) {
         dispatch({
           type: 'onRemoveFile',
           payload: newFiles,
