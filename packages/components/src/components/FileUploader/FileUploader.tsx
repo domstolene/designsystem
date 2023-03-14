@@ -80,6 +80,7 @@ export const FileUploader = (props: FileUploaderProps) => {
     tip,
     required = false,
     initialFiles,
+    value,
     accept,
     maxFiles,
     disabled,
@@ -100,16 +101,13 @@ export const FileUploader = (props: FileUploaderProps) => {
   } = useFileUploader<HTMLDivElement>({
     id,
     initialFiles,
+    value,
+    onChange,
     accept,
     disabled,
     maxFiles,
     errorMessage,
   });
-
-  useEffect(() => {
-    onChange(stateFiles.map(f => f.file));
-  }, [stateFiles]);
-
   const hasLabel = label !== undefined;
   const hasTip = tip !== undefined;
   const hasRootErrors = rootErrors.length > 0;

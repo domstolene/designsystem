@@ -26,8 +26,12 @@ import {
 
 export type FileUploaderHookProps = {
   id: string | undefined;
-  /**Dersom komponenten styres utenfra. En liste over filer som skal være med ved første render. */
+  /**Dersom komponenten skal styres internt. Utgangspunktet for filene som har blitt lastet opp. */
   initialFiles: FileList | undefined;
+  /**Dersom komponenten styres utenfra. Filene som har blitt lastet opp. */
+  value: FileList | undefined;
+  /**Callback for når fil-listen endres. */
+  onChange: (newFiles: FileList) => void;
   /**Hvilke filendelser eller mime-typer som filopplasteren skal akseptere. */
   accept: Accept[] | undefined;
   /**Om filopplasteren er avslått eller ikke */
@@ -59,11 +63,20 @@ const calcRootErrors = (
 export const useFileUploader = <TRootElement extends HTMLElement>(
   props: FileUploaderHookProps
 ) => {
-  const { initialFiles, accept, maxFiles, disabled, errorMessage } = props;
+  const {
+    initialFiles,
+    value,
+    onChange,
+    accept,
+    maxFiles,
+    disabled,
+    errorMessage,
+  } = props;
 
   const rootRef = useRef<TRootElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const isControlled = !!value;
 
   const initialFileUploaderFiles = useMemo(
     () =>
@@ -87,6 +100,24 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   });
 
   const { files: stateFiles } = state;
+
+  useEffect(() => {
+    if (isControlled) {
+      const files = value.map<FileUploaderFile>(file => {
+        const accepted = isFileAccepted(file, accept);
+
+        return {
+          file,
+          errors: accepted ? [] : [getInvalidFileTypeErrorMessage()],
+        };
+      });
+
+      dispatch({
+        type: 'onSetFiles',
+        payload: files,
+      });
+    }
+  }, [value, isControlled, accept, dispatch]);
 
   useEffect(() => {
     dispatch({
@@ -163,13 +194,25 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
           })
           .concat(stateFiles);
 
-        dispatch({
-          type: 'onSetFiles',
-          payload: newFiles,
-        });
+        onChange(newFiles.map(f => f.file));
+
+        if (!isControlled) {
+          dispatch({
+            type: 'onSetFiles',
+            payload: newFiles,
+          });
+        }
       }
     },
-    [stateFiles, maxFiles, accept, errorMessage, dispatch]
+    [
+      stateFiles,
+      isControlled,
+      accept,
+      errorMessage,
+      maxFiles,
+      onChange,
+      dispatch,
+    ]
   );
 
   const openFileDialog = useCallback(() => {
@@ -184,12 +227,16 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       const newFiles = [...stateFiles];
       newFiles.splice(stateFiles.indexOf(file), 1);
 
-      dispatch({
-        type: 'onRemoveFile',
-        payload: newFiles,
-      });
+      onChange(newFiles.map(f => f.file));
+
+      if (!isControlled) {
+        dispatch({
+          type: 'onRemoveFile',
+          payload: newFiles,
+        });
+      }
     },
-    [stateFiles, maxFiles, errorMessage]
+    [stateFiles, isControlled, maxFiles, errorMessage, onChange, dispatch]
   );
 
   const getRootProps = useCallback(
