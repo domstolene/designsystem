@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.0.0
+
+### Minor Changes
+
+- 887bfa76: Legg til støtte for å skjule PageGeneratorRow
+
+### Patch Changes
+
+- Updated dependencies [f8a9776a]
+  - @norges-domstoler/dds-components@11.3.0
+
 ## 1.1.1
 
 ### Patch Changes
