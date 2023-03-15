@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 11.3.0
+
+### Minor Changes
+
+- f8a9776a: Legger til value-prop på FileUploader, slik at man kan bruke den som en kontrollert komponent
+
 ## 11.2.0
 
 ### Minor Changes
