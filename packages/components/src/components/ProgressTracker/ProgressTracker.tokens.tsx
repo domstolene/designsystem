@@ -82,15 +82,10 @@ const itemText = {
   },
 };
 
-const smallScreenTokens = {
-  marginLeft: spacing.SizesDdsSpacingLocalX075,
-};
-
 export const progressTrackerTokens = {
   itemsWrapper,
   itemContentWrapper,
   connector,
   itemNumber,
   itemText,
-  smallScreenTokens,
 };

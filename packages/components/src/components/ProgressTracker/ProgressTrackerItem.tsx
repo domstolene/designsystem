@@ -135,7 +135,6 @@ const ItemText = styled.div<ItemStyleProps>`
   text-align: start;
   text-decoration: ${itemText.textDecoration};
   transition: text-decoration-color 0.2s;
-  overflow-wrap: break-word;
 
   ${({ state }) => {
     switch (state) {
