@@ -96,35 +96,40 @@ export const PageGenerator = (props: PageGeneratorProps) => {
       {fields.map((obj, index) => {
         if (isPageGeneratorRow(obj)) {
           if (obj.rowType === 'button') {
-            return getButtonRow(
-              index,
-              obj,
-              fieldOnChange,
-              selectOnChange,
-              screenSize
+            return (
+              !obj.hide &&
+              getButtonRow(
+                index,
+                obj,
+                fieldOnChange,
+                selectOnChange,
+                screenSize
+              )
             );
           } else {
             return (
-              <GridChild columnsOccupied="all" key={index}>
-                <SubContainer
-                  screenSize={screenSize}
-                  length={obj.fields.length}
-                  breakpoint={obj.breakpoint}
-                >
-                  {obj.fields.map((field, groupedIndex) => {
-                    return (
-                      !field.hide &&
-                      getComponent(
-                        field,
-                        groupedIndex,
-                        fieldOnChange,
-                        selectOnChange,
-                        screenSize
-                      )
-                    );
-                  })}
-                </SubContainer>
-              </GridChild>
+              !obj.hide && (
+                <GridChild columnsOccupied="all" key={index}>
+                  <SubContainer
+                    screenSize={screenSize}
+                    length={obj.fields.length}
+                    breakpoint={obj.breakpoint}
+                  >
+                    {obj.fields.map((field, groupedIndex) => {
+                      return (
+                        !field.hide &&
+                        getComponent(
+                          field,
+                          groupedIndex,
+                          fieldOnChange,
+                          selectOnChange,
+                          screenSize
+                        )
+                      );
+                    })}
+                  </SubContainer>
+                </GridChild>
+              )
             );
           }
         } else {

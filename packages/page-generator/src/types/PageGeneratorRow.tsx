@@ -5,4 +5,5 @@ export type PageGeneratorRow = {
   rowType: 'button' | 'standard';
   breakpoint?: ScreenSize;
   fields: PageGeneratorField[];
+  hide?: boolean;
 };

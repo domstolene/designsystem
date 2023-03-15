@@ -109,29 +109,34 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
       {fields.map((obj, index) => {
         if (isPageGeneratorRow(obj)) {
           if (obj.rowType === 'button') {
-            return getButtonRow(
-              index,
-              obj,
-              fieldOnChange,
-              selectOnChange,
-              screenSize
+            return (
+              !obj.hide &&
+              getButtonRow(
+                index,
+                obj,
+                fieldOnChange,
+                selectOnChange,
+                screenSize
+              )
             );
           } else {
             return (
-              <React.Fragment key={index}>
-                {obj.fields.map((field, groupedIndex) => {
-                  return (
-                    !field.hide &&
-                    getComponent(
-                      field,
-                      groupedIndex,
-                      fieldOnChange,
-                      selectOnChange,
-                      screenSize
-                    )
-                  );
-                })}
-              </React.Fragment>
+              !obj.hide && (
+                <React.Fragment key={index}>
+                  {obj.fields.map((field, groupedIndex) => {
+                    return (
+                      !field.hide &&
+                      getComponent(
+                        field,
+                        groupedIndex,
+                        fieldOnChange,
+                        selectOnChange,
+                        screenSize
+                      )
+                    );
+                  })}
+                </React.Fragment>
+              )
             );
           }
         } else {
