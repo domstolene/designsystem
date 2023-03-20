@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 11.4.0
+
+### Minor Changes
+
+- ed9adc5c: ProgressTracker støtter nå prop smallScreen
+
+### Patch Changes
+
+- b03c8284: Endre alle `peerDependencies` til å være mer føyelig i hvilke versjoner vi tillater.
+
 ## 11.3.0
 
 ### Minor Changes
