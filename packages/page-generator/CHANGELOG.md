@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-page-generator
 
+## 3.0.0
+
+### Patch Changes
+
+- b03c8284: Endre alle `peerDependencies` til å være mer føyelig i hvilke versjoner vi tillater.
+- Updated dependencies [b03c8284]
+- Updated dependencies [ed9adc5c]
+  - @norges-domstoler/dds-components@11.4.0
+
 ## 2.0.0
 
 ### Minor Changes
