@@ -47,3 +47,4 @@ export * from './components/FormGenerator';
 export * from './components/FileUploader';
 export * from './types/BaseComponentProps';
 export * from './helpers/ScreenSize';
+export * from './components/EmptyContent';
