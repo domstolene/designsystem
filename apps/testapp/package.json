@@ -11,7 +11,7 @@
   "dependencies": {
     "@norges-domstoler/dds-components": "*",
     "@norges-domstoler/dds-design-tokens": "*",
-    "@remix-run/node": "^1.12.0",
+    "@remix-run/node": "^1.14.3",
     "@remix-run/react": "^1.12.0",
     "@remix-run/serve": "^1.12.0",
     "isbot": "^3.6.7",
