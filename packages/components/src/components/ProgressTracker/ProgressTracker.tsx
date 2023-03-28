@@ -36,6 +36,7 @@ const ItemsWrapper = styled.ol`
 const SmallScreenWrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const ProgressTrackerConnector = styled.div`
