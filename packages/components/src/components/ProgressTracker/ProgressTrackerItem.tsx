@@ -78,7 +78,7 @@ const ItemWrapper = styled.li`
   flex: 1;
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 const ItemNumber = styled.div<ItemStyleProps>`
@@ -135,7 +135,6 @@ const ItemText = styled.div<ItemStyleProps>`
   text-align: start;
   text-decoration: ${itemText.textDecoration};
   transition: text-decoration-color 0.2s;
-  overflow-wrap: break-word;
 
   ${({ state }) => {
     switch (state) {
