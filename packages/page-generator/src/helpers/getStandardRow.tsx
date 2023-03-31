@@ -21,10 +21,8 @@ const Row = (
         {props.children}
       </div>
     );
-  } else if (props.as === 'fragment') {
-    return <React.Fragment>{props.children}</React.Fragment>;
   } else {
-    return <></>;
+    return <React.Fragment>{props.children}</React.Fragment>;
   }
 };
 
