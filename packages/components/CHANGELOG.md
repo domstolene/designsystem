@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 11.3.1
+
+### Patch Changes
+
+- f0e24282: Eksporterer EmptyContent fra designsystemet
+- b03c8284: Endre alle `peerDependencies` til å være mer føyelig i hvilke versjoner vi tillater.
+
 ## 11.3.0
 
 ### Minor Changes
