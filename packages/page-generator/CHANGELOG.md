@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.1.0
+
+### Minor Changes
+
+- 1a11adc4: Legg til ny type SectionGeneratorRow
+
+### Patch Changes
+
+- fa29cd1e: Fjern nødvendighet for peerDependencies på andre designsystempakker
+- b03c8284: Endre alle `peerDependencies` til å være mer føyelig i hvilke versjoner vi tillater.
+- Updated dependencies [f0e24282]
+- Updated dependencies [b03c8284]
+  - @norges-domstoler/dds-components@11.3.1
+
 ## 2.0.0
 
 ### Minor Changes
