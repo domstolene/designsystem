@@ -6,10 +6,10 @@ import {
 } from '@norges-domstoler/dds-components';
 import {
   PageGeneratorField,
-  PageGeneratorRow,
   PageGeneratorState,
   PageGeneratorStateOptionTypes,
   SectionGeneratorProps,
+  SectionGeneratorRow,
 } from '../types';
 import React from 'react';
 import {
@@ -17,8 +17,9 @@ import {
   getButtonRow,
   getComponent,
   isMultiValue,
-  isPageGeneratorRow,
+  isSectionGeneratorRow,
 } from '../helpers';
+import { getStandardRow } from '../helpers/getStandardRow';
 
 /**
  * Generer komponenter fra @norges-domstoler/dds-components, basert på `fields` propertien. SectionGenerator legger på en wrapper, basert på `as` propertien.
@@ -32,8 +33,8 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
 
   useEffect(() => {
     let state: PageGeneratorState<PageGeneratorStateOptionTypes> = {};
-    fields.forEach((field: PageGeneratorField | PageGeneratorRow) => {
-      if (isPageGeneratorRow(field)) {
+    fields.forEach((field: PageGeneratorField | SectionGeneratorRow) => {
+      if (isSectionGeneratorRow(field)) {
         field.fields.forEach((field: PageGeneratorField) => {
           state = addFieldToState(field, state);
         });
@@ -107,7 +108,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
   return (
     <Parent>
       {fields.map((obj, index) => {
-        if (isPageGeneratorRow(obj)) {
+        if (isSectionGeneratorRow(obj)) {
           if (obj.rowType === 'button') {
             return (
               !obj.hide &&
@@ -121,21 +122,13 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
             );
           } else {
             return (
-              !obj.hide && (
-                <React.Fragment key={index}>
-                  {obj.fields.map((field, groupedIndex) => {
-                    return (
-                      !field.hide &&
-                      getComponent(
-                        field,
-                        groupedIndex,
-                        fieldOnChange,
-                        selectOnChange,
-                        screenSize
-                      )
-                    );
-                  })}
-                </React.Fragment>
+              !obj.hide &&
+              getStandardRow(
+                index,
+                obj,
+                fieldOnChange,
+                selectOnChange,
+                screenSize
               )
             );
           }
