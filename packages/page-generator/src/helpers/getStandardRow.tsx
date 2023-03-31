@@ -1,8 +1,4 @@
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-  ScreenSize,
-} from '@norges-domstoler/dds-components';
+import { getBaseHTMLProps, ScreenSize } from '@norges-domstoler/dds-components';
 import { SectionGeneratorRow } from '../types';
 import { MultiValue, SingleValue } from 'react-select';
 import { ChangeEvent } from 'react';
@@ -11,9 +7,7 @@ import React from 'react';
 
 type T = HTMLInputElement & Record<string, never>;
 
-const Row = (
-  props: BaseComponentPropsWithChildren<HTMLElement, SectionGeneratorRow>
-) => {
+const Row = (props: SectionGeneratorRow) => {
   const { id, className, htmlProps, ...rest } = props;
   if (props.as === 'div') {
     return (
