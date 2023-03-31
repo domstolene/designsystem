@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.1.1
+
+### Patch Changes
+
+- 21fb7cf8: Fix: Legg til type HTMLElement inn i typen for SectionGeneratorRow
+
 ## 2.1.0
 
 ### Minor Changes
