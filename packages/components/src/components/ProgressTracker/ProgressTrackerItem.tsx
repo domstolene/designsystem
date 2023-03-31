@@ -78,7 +78,7 @@ const ItemWrapper = styled.li`
   flex: 1;
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 const ItemNumber = styled.div<ItemStyleProps>`
