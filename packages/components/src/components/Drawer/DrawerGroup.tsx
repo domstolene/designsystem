@@ -9,7 +9,7 @@ import {
   useId,
 } from 'react';
 
-type DrawerGroupProps = {
+export type DrawerGroupProps = {
   /**Barna til komponenten. */
   children: ReactNode;
   /**`id` til `<Drawer />`. */
