@@ -1,8 +1,8 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Feedback, FeedbackProps } from '.';
 
 export default {
-  title: 'Design system/Feedback',
+  title: 'dds-components/Feedback',
   component: Feedback,
   argTypes: {
     layout: {

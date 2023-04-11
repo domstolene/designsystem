@@ -1,0 +1,77 @@
+import {
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+  Story,
+  Canvas,
+} from '@storybook/blocks';
+import { ToggleButton, ToggleButtonGroup } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as ToggleButtonStories from './ToggleButton.stories';
+
+<Meta of={ToggleButtonStories} />
+
+# ToggleButton
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/93162b-togglebutton/b/5004f4"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=6990%3A142094"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/ToggleButton"
+/>
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-togglebutton-togglebutton--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-togglebutton-togglebutton--default" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-togglebutton-togglebuttongroup--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-togglebutton-togglebuttongroup--default" />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-togglebutton-togglebutton`}
+/>
+
+## Oversikt
+
+`<ToggleButton />` er funksjonelt sett `<input type="checkbox" />` og brukes dermed som en avkryssingsboks. Hvis flere `<ToggleButton />` grupperes sammen legges de som barn i subkomponenten `<ToggleButtonGroup />`.
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { ToggleButton, ToggleButtonGroup } from '@norges-domstoler/dds-components';
+
+<ToggleButton text="Tekst" />
+
+<ToggleButtonGroup>
+  <ToggleButton text="Tekst" />
+  <ToggleButton text="Tekst" />
+</ToggleButtonGroup>
+`} />
+
+## API
+
+### ToggleButton
+
+<ArgTypes story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
+
+### ToggleButtonGroup
+
+Gruppen for `<ToggleButton />`.
+
+<ArgTypes of={ToggleButtonGroup} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

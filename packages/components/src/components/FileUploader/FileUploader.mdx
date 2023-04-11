@@ -1,0 +1,42 @@
+import { Story, Canvas, Meta, ArgTypes } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  LinkToInteractiveStory,
+  SB_DESIGNSYSTEM_URL,
+} from '@norges-domstoler/storybook-components';
+import * as FileUploaderStories from './FileUploader.stories';
+
+<Meta of={FileUploaderStories} />
+
+# File Uploader
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A37"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/FileUploader"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={FileUploaderStories.Overview} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-fileuploader-beta`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`
+import { FileUploader } from '@norges-domstoler/dds-components';
+
+<FileUploader onChange={(newFiles) => ...} />
+`}
+/>
+
+## API
+
+<ArgTypes of={FileUploaderStories} />

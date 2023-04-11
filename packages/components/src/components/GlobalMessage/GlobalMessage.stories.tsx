@@ -1,8 +1,8 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { GlobalMessage, GlobalMessageProps } from './GlobalMessage';
 
 export default {
-  title: 'design system/GlobalMessage',
+  title: 'dds-components/GlobalMessage',
   component: GlobalMessage,
   argTypes: {
     message: { control: { type: 'text' } },

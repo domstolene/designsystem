@@ -1,0 +1,80 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import { Breadcrumb, Breadcrumbs } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  LinkToInteractiveStory,
+  SB_DESIGNSYSTEM_URL,
+} from '@norges-domstoler/storybook-components';
+import * as BreadcrumbsStories from './Breadcrumbs.stories';
+
+<Meta of={BreadcrumbsStories} />
+
+# Breadcrumbs
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/376bad-breadcrumbs/b/719cb3"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=1676%3A0"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Breadcrumbs"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={BreadcrumbsStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-breadcrumbs`}
+/>
+
+## Oversikt
+
+Komponenten består av to subkomponenter:
+
+- `<Breadcrumbs />` som er selve brødsmulestien
+- `<Breadcrumb />` som er barna i brødsmulestien
+
+Siste `<Breadcrumb />` skal være den siden brukeren er på, uten oppgitt URL.
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { Breadcrumb, Breadcrumbs } from '@norges-domstoler/dds-components';
+
+<Breadcrumbs>
+  <Breadcrumb href="#">Side 1</Breadcrumb>
+  <Breadcrumb href="#">Side 2</Breadcrumb>
+  <Breadcrumb>Side 3</Breadcrumb>
+</Breadcrumbs>
+`} />
+
+## API
+
+### Breadcrumbs
+
+Selve brødsmulestien. Skal ha `<Breadcrumb />` som barn.
+
+<ArgTypes of={BreadcrumbsStories.Default} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
+
+### Breadcrumb
+
+Brødsmule. Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke.
+**OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
+
+Det støttes alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
+
+## Retningslinjer
+
+- Helst unngå at brødsmulene legger seg over flere linjer. Test på mindre skjermer.
+- Ikke bruk sesjonshistorikken i brødsmulene.
+- Den siste brødsmulen skal tilsvare nåværende siden og bør dermed ikke være en lenke. Det er valgfritt å bruke `aria-current="page"` på den.

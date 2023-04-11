@@ -1,8 +1,8 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Datepicker, DatepickerProps } from '.';
 
 export default {
-  title: 'Design system/Datepicker',
+  title: 'dds-components/Datepicker',
   component: Datepicker,
   argTypes: {
     label: { control: { type: 'text' } },

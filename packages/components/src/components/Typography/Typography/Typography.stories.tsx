@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { Typography, TypographyProps } from '..';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 type StoryTProps = {
   text: string;
 } & TypographyProps;
 
 export default {
-  title: 'Design system/Typography/Typography',
+  title: 'dds-components/Typography/Typography',
   component: Typography,
   argTypes: {
     typographyType: { control: { type: 'select' } },

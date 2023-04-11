@@ -1,8 +1,8 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { TextArea, TextAreaProps } from '.';
 
 export default {
-  title: 'Design system/TextArea',
+  title: 'dds-components/TextArea',
   component: TextArea,
   argTypes: {
     label: { control: { type: 'text' } },

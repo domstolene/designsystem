@@ -1,0 +1,132 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import { InternalHeader } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as InternalHeaderStories from './InternalHeader.stories';
+
+<Meta of={InternalHeaderStories} />
+
+# InternalHeader
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/65cb45-internalheader/b/298c47"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3431%3A94756"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/InternalHeader"
+/>
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-internalheader--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-internalheader--default" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-internalheader--with-navigation-and-context-menu" height="350px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-internalheader--with-navigation-and-context-menu" height="350px" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-internalheader--small-screen-with-navigation-and-context-menu" height="650px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-internalheader--small-screen-with-navigation-and-context-menu" height="650px" />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-internalheader`}
+/>
+
+## Oversikt
+
+`<InternalHeader />` er ment for å bli brukt som header i alle Lovisa
+webapplikasjoner.
+
+Ettersom Lovisa Next kommer på plass
+vil `<InternalHeader />` også bli videreutviklet til å bli et felles
+navigasjonspunkt mellom ulike tjenester og applikasjoner. Lenker ti andre
+applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn på applikasjonen.
+
+Komponenten støtter horisontal navigasjon med lenker og en kontekstmeny til høyre som kan inneholde et en lenke eller tekst som viser brukernavnet og en liste med lenker eller knapper. Se detaljer i API.
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { InternalHeader } from '@norges-domstoler/dds-components';
+
+const navLinks = [
+{ title: 'Title', href: '#' },
+{ title: 'Title', href: '#' },
+]
+
+const user = {
+name: 'Name'
+}
+
+<InternalHeader
+  applicationName="App"
+  navigationElements={navLinks}
+  userProps={user}
+/>
+`} />
+
+## API
+
+<ArgTypes story={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+### Types
+
+<Source
+  code={`
+  type NavigationLinkProps = {
+  href: string;
+  title: string;
+  } & AnchorHTMLAttributes<HTMLAnchorElement>;
+  `}
+/>
+
+<Source
+  code={`
+  type ContextMenuElementProps = {
+  title: string;
+  href?: string;
+  icon?: SvgIcon;
+  onClick?: () => void;
+  } & (
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+  | ButtonHTMLAttributes<HTMLButtonElement>
+  );
+
+`}
+/>
+
+<Source
+  code={`
+  type InternaHeaderUserProps = {
+  name: string;
+  href?: string;
+  };
+
+`}
+/>
+
+## Retningslinjer
+
+- Bruk `<SkipToContent />`-komponenten over `<InternalHeader />` slik at brukeren kan hoppe rett til innholdet.
+- Ikke bruk `smallScreen`-prop på store skjermer og så lenge alle navigasjonselementer vises på én linje - navigasjonen skal ikke skjules hvis det er nok plass til å vise den.
+- Sørg for at hvert klikkbart element har størrelse på minst 1cmx1cm.
+- Bruk `currentPageHref` prop til å markere i navigasjonen hvilken side brukeren er på for å ha en visuell indikator.

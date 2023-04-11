@@ -1,7 +1,7 @@
 import { Table, CollapsibleTableProps } from '..';
 import { Button } from '../../Button';
 import { data, headerCells, mapCellContents } from '../tableData';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Icon } from '../../Icon';
 import {
   AttachmentIcon,
@@ -17,7 +17,7 @@ import { Link } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 
 export default {
-  title: 'design system/Table/CollapsibleTable BETA',
+  title: 'dds-components/Table/CollapsibleTable BETA',
   component: CollapsibleTable,
   argTypes: {
     isCollapsed: {

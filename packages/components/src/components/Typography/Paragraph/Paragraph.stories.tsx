@@ -1,12 +1,12 @@
 import { Paragraph, ParagraphProps } from '.';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 type StoryTProps = {
   text: string;
 } & ParagraphProps;
 
 export default {
-  title: 'Design system/Typography/Paragraph',
+  title: 'dds-components/Typography/Paragraph',
   component: Paragraph,
   argTypes: {
     typographyType: { control: { type: 'select' } },

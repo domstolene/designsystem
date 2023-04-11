@@ -1,0 +1,67 @@
+import { Canvas, Story, Meta, ArgTypes } from '@storybook/blocks';
+import { RadioButtonGroup } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as RadioButtonStories from './RadioButton.stories';
+import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
+
+<Meta title="dds-components/RadioButton/Docs" />
+
+# RadioButton
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/75d63e-radiobutton/b/939219"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/RadioButton"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={RadioButtonStories.Default} />
+</Canvas>
+
+<Canvas>
+  <Story of={RadioButtonGroupStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-radiobutton-radiobutton`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`import { RadioButton, RadioButtonGroup } from '@norges-domstoler/dds-components';
+
+<RadioButtonGroup label="Gruppe">
+  <RadioButton label="Alternativ 1" />
+  <RadioButton label="Alternativ 2" />
+</RadioButtonGroup>
+`} />
+
+## API
+
+### RadioButton
+
+En radioknapp.
+
+<ArgTypes of={RadioButtonStories} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
+
+### RadioButtonGroup
+
+Wrapper for en `<RadioButton />` gruppe. Brukes ved flere barn.
+
+<ArgTypes of={RadioButtonGroupStories} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+## Retningslinjer
+
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.

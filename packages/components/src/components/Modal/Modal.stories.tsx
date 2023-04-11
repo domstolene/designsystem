@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Modal, ModalBody, ModalActions, ModalProps } from '.';
 import { Button } from '../Button';
 import { useRef, useState } from 'react';
 
 export default {
-  title: 'design system/Modal',
+  title: 'dds-components/Modal',
   component: Modal,
   argTypes: {
     header: { control: { type: 'text' } },

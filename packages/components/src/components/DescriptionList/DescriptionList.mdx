@@ -1,0 +1,113 @@
+import {
+  Story,
+  Canvas,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import { DescriptionListDesc, DescriptionListGroup } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as DescriptionListStories from './DescriptionList.stories';
+
+<Meta of={DescriptionListStories} />
+
+# DescriptionList
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/46584e-descriptionlist/b/304a53"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94241"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/DescriptionList"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={DescriptionListStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-descriptionlist`}
+/>
+
+## Oversikt
+
+Beskrivelseslister bygges med styled versjoner av native HTML elementer og et wrapper-subkomponent ved behov. Disse styled komponentene er `<DescriptionList />` og dens subkomponenter: `<DescriptionListTerm />`, `<DescriptionListDesc />` og `<DescriptionListGroup />`.
+
+## Bruk i koden
+
+<Source
+  code={`
+  import {
+  DescriptionList,
+  DescriptionListDesc,
+  DescriptionListTerm
+  } from '@norges-domstoler/dds-components';
+
+<DescriptionList>
+  <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+  <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+  <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+  <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+</DescriptionList>
+`} />
+
+## API
+
+### DescriptionList
+
+Tilsvarer `<dl>`.
+
+<ArgTypes of={DescriptionListStories} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDListElement>`-interface i `htmlProps`.
+
+### DescriptionListTerm
+
+Tilsvarer `<dt>`.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
+
+### DescriptionListDesc
+
+Tilsvarer `<dd>`.
+
+<ArgTypes of={DescriptionListDesc} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
+
+### DescriptionListGroup
+
+En valgfri subkomponent som kan brukes til å gruppere terms
+og descriptions. Den kan være relevant for å få til riktig layout, eller wrappe gruppen
+til andre formål.
+
+<ArgTypes of={DescriptionListGroup} />
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+#### Eksempler
+
+Hvis beskrivelseslisten skal legge seg over flere kolonner
+på en spesifikk måte kan man sette `direction="row"` på DescriptionList-elementet.
+
+<Source
+  code={`
+  <DescriptionList direction="row">
+  <DescriptionListGroup>
+   <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+   <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+   <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+  </DescriptionListGroup>
+  <DescriptionListGroup>
+   <DescriptionListTerm>Uttrykk</DescriptionListTerm>
+   <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+  </DescriptionListGroup>
+  {/* ...flere grupper */}
+  </DescriptionList>
+  `}
+/>

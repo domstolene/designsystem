@@ -1,0 +1,55 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import { Legend } from '.';
+import { Typography } from '..';
+import * as LegendStories from './Legend.stories';
+
+<Meta of={LegendStories} />
+
+# Legend
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Legend"
+/>
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-typography-legend--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-legend--default" />
+</Canvas>
+
+Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Typography>.
+
+## Introduksjon
+
+`<Legend />` er en komponent som tilsvarer `<legend>` HTML tag - tittel for en gruppe i skjema.
+
+## Bruk i koden
+
+<Source
+  code={`import { Legend } from '@norges-domstoler/dds-components';
+
+<Legend>Legend</Legend>`} />
+
+## API
+
+<ArgTypes story={PRIMARY_STORY} />
+
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLLegendElement>`-interface.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten.

@@ -1,8 +1,8 @@
 import { InputMessage, InputMessageProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'design system/InputMessage',
+  title: 'dds-components/InputMessage',
   component: InputMessage,
   argTypes: {
     message: { control: { type: 'text' } },

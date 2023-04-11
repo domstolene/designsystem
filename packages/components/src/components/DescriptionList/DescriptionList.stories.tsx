@@ -5,13 +5,13 @@ import {
   DescriptionListGroup,
   DescriptionListProps,
 } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Typography } from '../Typography';
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 import { CallIcon } from '../../icons/tsx';
 
 export default {
-  title: 'Design system/DescriptionList',
+  title: 'dds-components/DescriptionList',
   component: DescriptionList,
 };
 

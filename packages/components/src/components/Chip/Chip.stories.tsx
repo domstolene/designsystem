@@ -1,8 +1,8 @@
 import { Chip, ChipProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/Chip/Chip',
+  title: 'dds-components/Chip/Chip',
   component: Chip,
   argTypes: {
     text: { control: { type: 'text' } },

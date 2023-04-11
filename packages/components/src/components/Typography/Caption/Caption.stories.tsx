@@ -1,12 +1,12 @@
 import { Caption, CaptionProps } from '.';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 type StoryTProps = {
   text: string;
 } & CaptionProps;
 
 export default {
-  title: 'Design system/Typography/Caption',
+  title: 'dds-components/Typography/Caption',
   component: Caption,
   argTypes: {
     withMargins: { control: { type: 'boolean' } },

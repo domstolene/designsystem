@@ -1,10 +1,9 @@
 import { Breadcrumbs, BreadcrumbsProps, Breadcrumb } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/Breadcrumbs',
+  title: 'dds-components/Breadcrumbs',
   component: Breadcrumbs,
-  argTypes: {},
 };
 
 export const Default = (args: BreadcrumbsProps) => {

@@ -1,9 +1,9 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { ToggleButton, ToggleButtonProps } from '.';
 import { NotificationsIcon } from '../../icons/tsx';
 
 export default {
-  title: 'Design system/ToggleButton/ToggleButton',
+  title: 'dds-components/ToggleButton/ToggleButton',
   component: ToggleButton,
   argTypes: {
     label: { control: 'text' },

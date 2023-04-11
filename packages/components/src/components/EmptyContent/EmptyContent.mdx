@@ -1,0 +1,43 @@
+import { Canvas, Story, Meta, ArgTypes } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as EmptyContentStories from './EmptyContent.stories';
+
+<Meta of={EmptyContentStories} />
+
+# EmptyContent
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/92d5ef-emptycontentview/b/007750"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=12387%3A221195&t=ygT73thALrQ1LGjN-1"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/EmptyContent"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={EmptyContentStories.Overview} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-emptycontent`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { EmptyContent } from '@norges-domstoler/dds-components';
+
+<EmptyContent message="Du har ikke gjort noen valg" />
+`} />
+
+## API
+
+<ArgTypes of={EmptyContentStories} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

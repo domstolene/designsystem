@@ -1,9 +1,9 @@
 import { Label, Paragraph, Heading, Link, Legend, Caption } from '..';
 import { Typography } from '..';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/Typography/Overview',
+  title: 'dds-components/Typography/Overview',
   argTypes: {
     typographyType: { control: { type: 'select' } },
     bold: { control: { type: 'boolean' } },

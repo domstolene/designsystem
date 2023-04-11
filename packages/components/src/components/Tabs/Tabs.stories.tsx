@@ -1,11 +1,10 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
-import { Story, Meta } from '@storybook/react';
 import { useState } from 'react';
 import { NotificationsIcon } from '../../icons/tsx';
 
 export default {
-  title: 'Design system/Tabs',
+  title: 'dds-components/Tabs',
   component: Tabs,
   subcomponents: {
     TabList: TabList,
@@ -21,9 +20,9 @@ export default {
       control: 'text',
     },
   },
-} as Meta;
+};
 
-export const Overview: Story<TabsProps> = () => (
+export const Overview = () => (
   <StoryTemplate title="Tabs - overview">
     <Tabs>
       <TabList>
@@ -49,7 +48,7 @@ export const Overview: Story<TabsProps> = () => (
   </StoryTemplate>
 );
 
-export const Default: Story<TabsProps> = args => (
+export const Default = (args: TabsProps) => (
   <StoryTemplate title="Tabs - default" display="block">
     <Tabs {...args}>
       <TabList>
@@ -66,7 +65,7 @@ export const Default: Story<TabsProps> = args => (
   </StoryTemplate>
 );
 
-export const WithIcon: Story<TabsProps> = args => (
+export const WithIcon = (args: TabsProps) => (
   <StoryTemplate title="Tabs - with icon">
     <Tabs {...args}>
       <TabList>
@@ -83,7 +82,7 @@ export const WithIcon: Story<TabsProps> = args => (
   </StoryTemplate>
 );
 
-export const ActiveTab: Story<TabsProps> = args => {
+export const ActiveTab = (args: TabsProps) => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
@@ -104,7 +103,7 @@ export const ActiveTab: Story<TabsProps> = args => {
   );
 };
 
-export const WithWidth: Story<TabsProps> = args => (
+export const WithWidth = (args: TabsProps) => (
   <StoryTemplate title="Tabs - tab width" display="block">
     <Tabs {...args} width="500px">
       <TabList>
@@ -121,7 +120,7 @@ export const WithWidth: Story<TabsProps> = args => (
   </StoryTemplate>
 );
 
-export const TabLongNames: Story<TabsProps> = args => (
+export const TabLongNames = (args: TabsProps) => (
   <StoryTemplate title="Tabs - tab width" display="block">
     <Tabs {...args}>
       <TabList>
@@ -138,7 +137,7 @@ export const TabLongNames: Story<TabsProps> = args => (
   </StoryTemplate>
 );
 
-export const ManyTabs: Story<TabsProps> = args => (
+export const ManyTabs = (args: TabsProps) => (
   <StoryTemplate title="Tabs - many tabs" display="block">
     <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
       <TabList>

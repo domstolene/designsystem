@@ -1,12 +1,12 @@
 import { Label, LabelProps } from '.';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 type StoryTProps = {
   text: string;
 } & LabelProps;
 
 export default {
-  title: 'Design system/Typography/Label',
+  title: 'dds-components/Typography/Label',
   component: Label,
   argTypes: {
     withMargins: { control: { type: 'boolean' } },

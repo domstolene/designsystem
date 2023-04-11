@@ -1,7 +1,7 @@
 import { Grid, GridChild, GridProps } from '.';
 import { ScreenSize, useScreenSize } from '../../hooks';
 import { FilterIcon, PlusIcon } from '../../icons/tsx';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
 import { InternalHeader } from '../InternalHeader';
 import { Pagination } from '../Pagination';
@@ -12,7 +12,7 @@ import { TextInput } from '../TextInput';
 import { Heading } from '../Typography';
 
 export default {
-  title: 'Design system/Grid',
+  title: 'dds-components/Grid',
   component: Grid,
 };
 

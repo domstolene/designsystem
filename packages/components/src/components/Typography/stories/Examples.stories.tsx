@@ -1,9 +1,9 @@
 import { Heading, Paragraph } from '..';
 import styled from 'styled-components';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/Typography/Examples',
+  title: 'dds-components/Typography/Examples',
 };
 
 const ArticleContainer = styled.div`

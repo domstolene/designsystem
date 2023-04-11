@@ -1,9 +1,9 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { InternalHeader, InternalHeaderProps } from '.';
 import { EditIcon } from '../../icons/tsx';
 
 export default {
-  title: 'design system/InternalHeader',
+  title: 'dds-components/InternalHeader',
   component: InternalHeader,
   argTypes: {
     applicationName: { control: { type: 'text' } },

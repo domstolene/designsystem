@@ -1,0 +1,78 @@
+import {
+  Story,
+  Canvas,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as CheckboxStories from './Checkbox.stories';
+import * as CheckboxGroupStories from './CheckboxGroup.stories';
+
+<Meta title="dds-components/Checkbox/Docs" />
+
+# Checkbox
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/90d68f-checkbox/b/939219"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Checkbox"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={CheckboxStories.Default} />
+</Canvas>
+
+<Canvas>
+  <Story of={CheckboxGroupStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-checkbox-checkbox`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { Checkbox, CheckboxGroup } from '@norges-domstoler/dds-components';
+
+<Checkbox label="Option" />
+
+<CheckboxGroup label="Label">
+  <Checkbox label="Option" />
+  <Checkbox label="Option" />
+</CheckboxGroup>
+`} />
+
+## API
+
+### Checkbox
+
+En avkrysningboks.
+
+<ArgTypes of={CheckboxStories} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
+`name`, `checked`, `defaultChecked`, `value`, `defaultValue`, `onChange`, `onBlur` er tilgjengelige på rotnivå.
+
+### CheckboxGroup
+
+Wrapper for en `<Checkbox />` gruppe. Brukes ved flere barn.
+
+<ArgTypes of={CheckboxGroupStories} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+## Retningslinjer
+
+- Bruk `onChange` slik at brukeren kan få umiddelbar tilbakemelding på deres
+  input baser på validering.
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.

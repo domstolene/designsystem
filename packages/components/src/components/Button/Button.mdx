@@ -1,0 +1,45 @@
+import { Story, Canvas, Meta, ArgTypes } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  LinkToInteractiveStory,
+  SB_DESIGNSYSTEM_URL,
+} from '@norges-domstoler/storybook-components';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A37"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Button"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={ButtonStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-button`} />
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { Button } from '@norges-domstoler/dds-components';
+
+<Button label="Knapp" />
+`} />
+
+## API
+
+<ArgTypes of={ButtonStories.Default} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`. `type`, `onClick`, `onFocus` og `onBlur` er tilgjengelige på rotnivå.
+
+## Retningslinjer
+
+- Unngå å bruke `disabled`-attributtet da det fører til [dårlig brukeropplevelse](https://axesslab.com/disabled-buttons-suck/). Helst skjul knappen når det er mulig.

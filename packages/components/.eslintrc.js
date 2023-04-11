@@ -7,11 +7,7 @@ module.exports = {
   env: {
     es6: true,
   },
-  extends: [
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'plugin:storybook/recommended',
-  ],
+  extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',

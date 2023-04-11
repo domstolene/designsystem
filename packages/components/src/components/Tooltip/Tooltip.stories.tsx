@@ -1,10 +1,10 @@
 import { Tooltip, TooltipProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
 import { HelpIcon } from '../../icons/tsx';
 
 export default {
-  title: 'Design system/Tooltip',
+  title: 'dds-components/Tooltip',
   component: Tooltip,
   argTypes: {
     text: { control: { type: 'text' } },

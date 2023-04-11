@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "build:docs": "turbo run build --filter @norges-domstoler/docs",
     "verify": "turbo run verify",
     "changeset": "changeset",
     "prerelease": "npm run build",
@@ -27,14 +28,15 @@
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
-    "turbo": "^1.7.0"
+    "@storybook/react-vite": "^7.0.20",
+    "turbo": "^1.10.3"
   },
   "overrides": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "volta": {
-    "node": "18.14.0",
-    "npm": "9.4.2"
+    "node": "18.16.0",
+    "npm": "9.6.7"
   }
 }

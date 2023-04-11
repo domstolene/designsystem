@@ -1,9 +1,9 @@
 import { RadioButton, RadioButtonGroup, RadioButtonGroupProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { useState } from 'react';
 
 export default {
-  title: 'Design system/RadioButton/RadioButtonGroup',
+  title: 'dds-components/RadioButton/RadioButtonGroup',
   component: RadioButtonGroup,
   argTypes: {
     label: { control: { type: 'text' } },

@@ -30,9 +30,7 @@ export default defineConfig({
       insertTypesEntry: true,
       tsConfigFilePath: path.resolve(__dirname, 'tsconfig.json'),
     }),
-    react({
-      plugins: [['@swc/plugin-styled-components', { ssr: true }]],
-    }),
+    react(),
   ],
   build: {
     lib: {

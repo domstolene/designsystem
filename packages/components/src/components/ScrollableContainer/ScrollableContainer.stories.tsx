@@ -1,11 +1,11 @@
-import { SB_DESIGNSYSTEM_PREFIX, StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Scrollbar, ScrollableContainer, ScrollableContainerProps } from '.';
 import { useRef, CSSProperties } from 'react';
 import styled from 'styled-components';
 import { focusVisible } from '../../helpers/styling';
 
 export default {
-  title: `${SB_DESIGNSYSTEM_PREFIX}/ScrollableContainer`,
+  title: 'dds-components/ScrollableContainer',
   component: ScrollableContainer,
   argTypes: {
     contentHeight: { control: { type: 'text' } },

@@ -1,8 +1,8 @@
 import { BackLink, BackLinkProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/BackLink',
+  title: 'dds-components/BackLink',
   component: BackLink,
   argTypes: {
     label: {

@@ -1,9 +1,9 @@
 import { Button, ButtonProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { PlusCircledIcon, CloseIcon } from '../../icons/tsx';
 
 export default {
-  title: 'Design system/Button',
+  title: 'dds-components/Button',
   component: Button,
   argTypes: {
     label: { control: { type: 'text' } },

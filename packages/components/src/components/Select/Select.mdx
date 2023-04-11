@@ -1,0 +1,311 @@
+import { Story, Canvas, Meta } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import { Link } from '../Typography';
+import { Table } from '../Table';
+
+import * as SelectStories from './Select.stories';
+import * as MultiSelectStories from './MultiSelect.stories';
+
+<Meta title="dds-components/Select/Docs" />
+
+# Select
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/19970c-select/b/98ef83"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Select"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={SelectStories.Default} height="450px" />
+</Canvas>
+
+<Canvas>
+  <Story of={MultiSelectStories.Default} height="450px" />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-select-singlevalue`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`import { Select } from '@norges-domstoler/dds-components';
+
+const items = [
+{value: 'alternativ 1', label: 'alternativ 1'},
+{value: 'alternativ 2', label: 'alternativ 2'}
+];
+
+//Single value
+
+<Select label="Label" items={items} />
+
+//Multiselect
+
+<Select label="Label" items={items} isMulti />
+`} />
+
+## Filtrering
+
+Brukeren kan filtrere alternativer ved å gi tekstlig input. Det brukes en custom filtreringsfunksjon der søkeordet er enten først i teksten, eller så har det mellomrom, bindestrek eller start-parentes før seg.
+
+## API
+
+Komponenten bruker <Link href="https://react-select.com/home" external>React-select</Link>. Det støttes props definert i designsystemet (Elsa props) og native React-select props.
+
+### Elsa props
+
+<Table.Wrapper>
+  <Table density="compact" style={{ width: '100%' }}>
+    <Table.Head>
+      <Table.Row type="head">
+        <Table.Cell type="head">Property</Table.Cell>
+        <Table.Cell type="head">Datatype</Table.Cell>
+        <Table.Cell type="head">Påkrevd</Table.Cell>
+        <Table.Cell type="head">Default</Table.Cell>
+        <Table.Cell type="head">Beskrivelse</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell> `label` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei </Table.Cell>
+        <Table.Cell> - </Table.Cell>
+        <Table.Cell> Label for nedtrekkslisten. </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `componentSize` </Table.Cell>
+        <Table.Cell> `'medium'` | `'small'` | `'tiny'` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`'medium'`</Table.Cell>
+        <Table.Cell>Størrelse på komponenten. </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `icon` </Table.Cell>
+        <Table.Cell> `(props: SvgProps) => JSX.Element` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Ikonet som vises i komponenten. </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `width` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei </Table.Cell>
+        <Table.Cell> `'320px'` </Table.Cell>
+        <Table.Cell> Custom bredde ved behov.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `tip` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei</Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Hjelpetekst.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `errorMessage` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell> nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell> Meldingen som vises ved valideringsfeil.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `readOnly` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+
+        <Table.Cell>
+          Nedtrekkslisten blir disabled og får `readOnly` styling.
+        </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `customSingleValueElement` </Table.Cell>
+        <Table.Cell> `(props: OptionProps<TOption, IsMulti, GroupBase<TOption>>) => JSX.Element` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+
+        <Table.Cell>
+          Custom element som vises for det valgte elementet.
+        </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `customOptionElement` </Table.Cell>
+        <Table.Cell> `(props: OptionProps<TOption, IsMulti, GroupBase<TOption>>) => JSX.Element` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+
+        <Table.Cell>
+          Custom element som vises i listen over alternativer.
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table>
+</Table.Wrapper>
+
+<br />
+
+### Native React-select props
+
+Ofte brukt native props:
+
+<Table.Wrapper>
+  <Table density="compact" style={{ width: '100%' }}>
+    <Table.Head>
+      <Table.Row type="head">
+        <Table.Cell type="head">Property</Table.Cell>
+        <Table.Cell type="head">Datatype</Table.Cell>
+        <Table.Cell type="head">Påkrevd</Table.Cell>
+        <Table.Cell type="head">Default</Table.Cell>
+        <Table.Cell type="head">Beskrivelse</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell> `options` </Table.Cell>
+        <Table.Cell> `{ label: string, value: string }[]` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Alternativer som havner i nedtrekkslisten. </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `onChange` </Table.Cell>
+        <Table.Cell> `(newValue: { label: string, value: string } | null, ActionMeta: ActionMeta<TOption>) => void` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell> onChange funksjon.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `isDisabled` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Gjør nedtrekkslisten disabled og gir den relevant styling. </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `value` </Table.Cell>
+        <Table.Cell> `{ label: string; value: string; } | null` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+
+        <Table.Cell>
+          Forhåndsvalgt alternativ som brukeren ikke kan endre.
+        </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `defaultValue` </Table.Cell>
+        <Table.Cell> `{ label: string; value: string; } | null` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+
+        <Table.Cell>
+          Forhåndsvalgt alternativ som brukeren kan endre. **OBS!** Brukes ikke i standard skjema da brukeren skal ta et bevisst valg.
+        </Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `isMulti` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Gjør komponenten om til multiselect.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `closeMenuOnSelect` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>false ved isMulti, true ellers</Table.Cell>
+        <Table.Cell>Spesifiserer om listen med alternativer skal lukkes når brukeren har valgt en alternativ.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `isClearable` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`true`</Table.Cell>
+        <Table.Cell>Spesifiserer om valgt alternativ kan tømmes. OBS! settes til false i spesialtilfeller, bruker skal ha mulighet til å tømme valget i standard skjema.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `placeholder` </Table.Cell>
+        <Table.Cell> `string` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`'-- Velg fra listen --'`</Table.Cell>
+        <Table.Cell>Tekst som vises når ingen alternativ er valgt.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `isLoading` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Kan brukes mens komponenten lastes inn, rendrer en innlastningsindikator i inputfeltet.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `isSearchable` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`true`</Table.Cell>
+        <Table.Cell>Spesifiserer om brukeren kan søke på alternativene.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `required` </Table.Cell>
+        <Table.Cell> `boolean` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+
+        <Table.Cell>
+          Markerer input som påkrevd til skjemavalidering. Gir `required` styling.
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
+
+  </Table>
+</Table.Wrapper>
+
+<br />
+
+Full liste over props er tilgjengelig i <Link href="https://react-select.com/props" external>react-select API</Link>.
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
+### Bredde ved isMulti
+
+Komponenten har default bredde. Dette gjør at valgte alternativer ved `isMulti` vil prøve å fylle opp bredden og videre legge seg nedover. Hvis det er ønsket at komponenten skal utvide seg i bredden når flere alternativer blir valgt bør det settes f.eks. `width='fit-content'` og `min-width` i styling:
+
+<Canvas>
+  {/* <Story id="dds-components-select-multiselect--with-fit-content" height="500px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-select-multiselect--with-fit-content" height="500px" />
+</Canvas>
+
+## Retningslinjer
+
+- Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.

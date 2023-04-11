@@ -1,0 +1,146 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import { Typography } from '.';
+import { Link } from '../Link';
+import * as TypographyStories from './Typography.stories';
+
+<Meta of={TypographyStories} />
+
+# Typography
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography"
+/>
+
+## Introduksjon
+
+`<Typography />` er en code-only komponent som ikke har en tilsvarende Figma komponent.
+Den bruker oversikten over typografistiler definert i <Link href="https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f">Typografi | Stiler og bruk</Link> til å gi tekst riktig styling.
+Hver stil har et default HTML element det blir rendered som. Den kan eventuelt overskrives med en annen HTML tag hvis default ikke passer.
+
+**OBS!** I de fleste tilfeller bør du bruke en av våre deterministiske typografikomponenter, som returnerer en spesifikk HTML tag: <Link href="https://design.domstol.no/987b33f71/p/473d57-caption/b/52a7b4">Caption</Link>, <Link href="https://design.domstol.no/987b33f71/p/76b220-heading/b/30ecca">Heading</Link>, <Link href="https://design.domstol.no/987b33f71/p/49dc3f-label/b/102e70">Label</Link>, <Link href="https://design.domstol.no/987b33f71/p/829771-legend/b/15b037">Legend</Link>, <Link href="https://design.domstol.no/987b33f71/p/411e45-link/b/674f25">Link</Link>, <Link href="https://design.domstol.no/987b33f71/p/883067-paragraph/b/70f5e1">Paragraph</Link>.
+`<Typography />` bør brukes kun når disse komponentene ikke er tilstrekkelige.
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-typography-overview-typography-types--body" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-overview-typography-types--body" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-typography-overview-typography-types--headings" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-overview-typography-types--headings" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-typography-overview-typography-types--leads" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-overview-typography-types--leads" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-typography-overview-typography-types--supporting" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-overview-typography-types--supporting" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-typography-overview-typography-types--link" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-overview-typography-types--link" />
+</Canvas>
+
+<Canvas>
+  {/* <Story id="dds-components-typography-typography--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-typography--default" />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-typography-typography`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`import { Typography } from '@norges-domstoler/dds-components';
+
+<Typography typographyType="headingSans06" withMargins>
+  Vitne
+</Typography>
+<Typography typographyType="leadSans03" withMargins>
+  Et vitne har sett, hørt eller erfart noe av betydning for en rettssak. Denne
+  siden er for deg som skal vitne i en straffesak eller en sivil sak.
+</Typography>
+<Typography typographyType="headingSans05" as="h2" withMargins>
+  Hvorfor vitne?
+</Typography>
+<Typography typographyType="bodySerif02" withMargins>
+  Vitner er svært viktige for rettssikkerheten i samfunnet. Du har fått en
+  innkalling (kalles stevning) til saken fordi partene eller retten mener du
+  kjenner til noe som kan være viktig for retten å vite. Du har plikt til å møte
+  opp i tråd med innkallingen og forklare deg for retten.
+</Typography>
+`} />
+
+## API
+
+<ArgTypes story={PRIMARY_STORY} />
+
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLElement>`-interface,
+`AnchorHTMLAttributes<HTMLAnchorElement>`-interface eller
+`LabelHTMLAttributes<HTMLLabelElement>`-interface i `htmlProps`.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten.
+
+### Types
+
+<Source
+  code={`type TypographyInteractionStyling = {
+  hover?: CSSProperties;
+  active?: CSSProperties;
+  };`}
+/>
+
+### Med styled-components
+
+Hvis du bruker styled components til å style `<Typography />` videre og skal bruke `as` prop, bruk `forwardedAs` prop istedenfor:
+
+<Source
+  code={`
+  import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+  import { Typography } from '@norges-domstoler/dds-components';
+
+const Label = styled(Typography)\` padding-left: \${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};\`;
+
+export const StyledLabel = ({ label }) => {
+
+return (
+
+<Label forwardedAs="span" typographyType="supportingStyleLabel01">
+  {label}
+</Label>
+); }; `} />
+
+### Bruk av typografi-tokens
+
+Det er også mulig å bruke typografi-tokens direkte.
+**OBS!** dette bør gjøres kun hvis det er umulig å bruke `<Typography />`-komponenten eller andre typografikomponenter.
+Se <Link href="https://design.domstol.no/987b33f71/p/63b944-typografi/b/34fc66">Typografi tokens i kode</Link> for bruk.
+Husk å sette deg inn i retningslinjer for spacing under <Link href="https://design.domstol.no/987b33f71/p/63b944-typografi/t/1459ef">Bruk av tokens i tekster med typografisk hierarki</Link>.

@@ -1,12 +1,12 @@
 import { Heading, HeadingProps } from '.';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 type StoryTProps = {
   text: string;
 } & HeadingProps;
 
 export default {
-  title: 'Design system/Typography/Heading',
+  title: 'dds-components/Typography/Heading',
   component: Heading,
   argTypes: {
     typographyType: { control: { type: 'select' } },
