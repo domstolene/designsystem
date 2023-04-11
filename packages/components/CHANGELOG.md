@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 11.3.2
+
+### Patch Changes
+
+- 82339ae4: Eksporter type DrawerGroupProps
+
 ## 11.3.1
 
 ### Patch Changes

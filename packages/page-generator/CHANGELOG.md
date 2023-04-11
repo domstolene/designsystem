@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.2.0
+
+### Minor Changes
+
+- 99fe4ac2: Legg til støtte for å bruke Drawer og DrawerGroup i dds-page-generator
+
+### Patch Changes
+
+- Updated dependencies [82339ae4]
+  - @norges-domstoler/dds-components@11.3.2
+
 ## 2.1.1
 
 ### Patch Changes
