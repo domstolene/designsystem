@@ -9,6 +9,7 @@ import {
   DescriptionListTermProps,
   DescriptionListDescProps,
   DividerProps,
+  DrawerProps,
   GlobalMessageProps,
   HeadingProps,
   InputMessageProps,
@@ -28,6 +29,7 @@ import {
   ToggleButtonGroupProps,
   TypographyProps,
   VisuallyHiddenProps,
+  DrawerGroupProps,
 } from '@norges-domstoler/dds-components';
 import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
 
@@ -37,6 +39,7 @@ type FieldWithChildren =
   | CheckboxGroupField
   | DescriptionListField
   | DescriptionListGroupField
+  | DrawerGroupField
   | ListField
   | RadioButtonGroupField
   | ToggleButtonGroupField;
@@ -49,6 +52,7 @@ type FieldWithoutChildren =
   | DescriptionListTermField
   | DescriptionListDescField
   | DividerField
+  | DrawerField
   | GlobalMessageField
   | HeadingField
   | InputMessageField
@@ -129,6 +133,20 @@ type DividerField = {
   component: PageGeneratorSupportedFields.Divider;
   props: DividerProps;
   hide?: boolean;
+};
+
+type DrawerField = {
+  component: PageGeneratorSupportedFields.Drawer;
+  props: DrawerProps;
+  hide?: boolean;
+  innerHTML?: JSX.Element | string;
+};
+
+type DrawerGroupField = {
+  component: PageGeneratorSupportedFields.DrawerGroup;
+  props: DrawerGroupProps;
+  hide?: boolean;
+  children: (ButtonField | DrawerField)[];
 };
 
 type GlobalMessageField = {

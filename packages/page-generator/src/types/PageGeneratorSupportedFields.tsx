@@ -9,6 +9,8 @@ export enum PageGeneratorSupportedFields {
   DescriptionListDesc = 'DescriptionListDesc',
   DescriptionListTerm = 'DescriptionListTerm',
   Divider = 'Divider',
+  Drawer = 'Drawer',
+  DrawerGroup = 'DrawerGroup',
   GlobalMessage = 'GlobalMessage',
   Heading = 'Heading',
   InputMessage = 'InputMessage',

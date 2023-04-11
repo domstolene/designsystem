@@ -9,6 +9,8 @@ import {
   DescriptionListDesc,
   DescriptionListTerm,
   Divider,
+  Drawer,
+  DrawerGroup,
   GlobalMessage,
   Heading,
   InputMessage,
@@ -127,6 +129,29 @@ export const getComponent = (
       );
     case PageGeneratorSupportedFields.Divider:
       return <Divider {...field.props} key={index} />;
+    case PageGeneratorSupportedFields.Drawer:
+      return (
+        <Drawer {...field.props} key={index}>
+          {field.innerHTML}
+        </Drawer>
+      );
+    case PageGeneratorSupportedFields.DrawerGroup:
+      return (
+        <DrawerGroup {...field.props} key={index}>
+          {field.children.map((child, childIndex) => {
+            return (
+              !child.hide &&
+              getComponent(
+                child,
+                childIndex,
+                fieldOnChange,
+                selectOnChange,
+                screenSize
+              )
+            );
+          })}
+        </DrawerGroup>
+      );
     case PageGeneratorSupportedFields.GlobalMessage:
       return (
         <GlobalMessage {...field.props} key={index}>
