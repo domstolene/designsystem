@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { LocalMessage } from './LocalMessage';
 import { fireEvent, render, screen } from '@testing-library/react';
 
@@ -10,7 +11,7 @@ describe('<LocalMessage />', () => {
   });
 
   it('should call onClose event', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const { container } = render(<LocalMessage closable onClose={event} />);
     const closeButton = container.querySelector('button');
     fireEvent.click(closeButton!);

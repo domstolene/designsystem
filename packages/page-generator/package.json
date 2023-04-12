@@ -54,6 +54,7 @@
     "@mdx-js/react": "^2.2.1",
     "@norges-domstoler/dds-components": "*",
     "@norges-domstoler/dds-design-tokens": "*",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.11",

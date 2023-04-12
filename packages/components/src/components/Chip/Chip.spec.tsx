@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import { Chip, ChipGroup } from '.';
 
 describe('<Chip />', () => {
@@ -26,7 +27,7 @@ describe('<Chip />', () => {
     expect(button).toHaveAttribute('aria-label', 'Fjern chip');
   });
   it('Should call onClose event', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(<Chip onClose={event} />);
     const button = screen.getByRole('button');
     fireEvent.click(button!);

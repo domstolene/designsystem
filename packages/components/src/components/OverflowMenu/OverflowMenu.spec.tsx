@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '../Button';
 import { OverflowMenu, OverflowMenuGroup } from '.';
@@ -71,7 +72,7 @@ describe('<OverflowMenu />', () => {
   });
 
   it('should call onToggle event on button click', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <OverflowMenuGroup onToggle={event}>
         <Button />
@@ -88,7 +89,7 @@ describe('<OverflowMenu />', () => {
   });
 
   it('should call onOpen event button click', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <OverflowMenuGroup onOpen={event}>
         <Button />
@@ -105,7 +106,7 @@ describe('<OverflowMenu />', () => {
   });
 
   it('should run onclick event from context menu', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const item = { title: text, onClick: event };
     const { container } = render(<TestComponent item={item} />);
 

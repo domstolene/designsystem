@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { InternalHeader } from '.';
 
@@ -10,7 +11,7 @@ describe('<InternalHeader />', () => {
   });
 
   it('should run onclick event from context menu', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const element = {
       title: 'action',
       onClick: event,

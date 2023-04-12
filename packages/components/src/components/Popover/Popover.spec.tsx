@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import {
   screen,
   render,
@@ -107,7 +108,7 @@ describe('<Popover />', () => {
   });
 
   it('should run onclick event for closing button', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <PopoverGroup isOpen onCloseButtonClick={event}>
         <Button />
@@ -125,7 +126,7 @@ describe('<Popover />', () => {
   });
 
   it('should run onclick event for trigger element', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <PopoverGroup onTriggerClick={event}>
         <Button />
