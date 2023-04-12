@@ -1,5 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '.';
+import { vi } from 'vitest';
 
 describe('<Button />', () => {
   it('should have a label', () => {
@@ -15,7 +16,7 @@ describe('<Button />', () => {
     expect(button).toBeInTheDocument();
   });
   it('calls onClick when button is clicked', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     render(<Button onClick={onClick} />);
     const button = screen.getByRole('button');
     act(() => {
@@ -25,7 +26,7 @@ describe('<Button />', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
   it('disables the button if it is in a loading state', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     render(<Button loading onClick={onClick} />);
     const button = screen.getByRole('button');
     act(() => {

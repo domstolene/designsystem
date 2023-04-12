@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import {
   act,
   fireEvent,
@@ -7,13 +8,6 @@ import {
 } from '@testing-library/react';
 import { Drawer, DrawerGroup } from '.';
 import { Button } from '../Button';
-
-// Mock the ResizeObserver
-window.ResizeObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
-}));
 
 const buttonLabel = 'label';
 const content = 'content';
@@ -101,7 +95,7 @@ describe('<Drawer />', () => {
   });
 
   it('should call additional onClose event on click', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <DrawerGroup onClose={event}>
         <Button label={buttonLabel} />
@@ -123,7 +117,7 @@ describe('<Drawer />', () => {
     expect(event).toHaveBeenCalled();
   });
   it('should call additional onClose event on Esc keydown', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <DrawerGroup onClose={event}>
         <Button label={buttonLabel} />
@@ -146,7 +140,7 @@ describe('<Drawer />', () => {
     expect(event).toHaveBeenCalled();
   });
   it('should call additional onOpen event on click', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <DrawerGroup onOpen={event}>
         <Button label={buttonLabel} />

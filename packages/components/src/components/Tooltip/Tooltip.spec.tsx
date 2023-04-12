@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import {
   screen,
   fireEvent,
@@ -8,18 +9,11 @@ import {
 import { Tooltip } from '.';
 import { Button } from '../Button';
 
-// Mock the ResizeObserver
-window.ResizeObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
-}));
-
 // Mock the IntersectionObserver
-window.IntersectionObserver = jest.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
+window.IntersectionObserver = vi.fn().mockImplementation(() => ({
+  observe: vi.fn(),
+  unobserve: vi.fn(),
+  disconnect: vi.fn(),
 }));
 
 describe('<Tooltip />', () => {
@@ -95,7 +89,7 @@ describe('<Tooltip />', () => {
     });
   });
   it('should call button onFocus event', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const text = 'text';
     render(
       <Tooltip text={text}>
@@ -109,7 +103,7 @@ describe('<Tooltip />', () => {
     });
   });
   it('should call container onMouseLeave event', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const text = 'text';
     const testId = 'test1';
     render(

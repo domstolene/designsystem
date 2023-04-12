@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { SplitButton } from '.';
 
@@ -36,7 +37,7 @@ describe('<OverflowMenu />', () => {
   });
 
   it('should run onclick event from primary action button', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <TestComponent
         secondaryActions={item}
@@ -53,7 +54,7 @@ describe('<OverflowMenu />', () => {
   });
 
   it('should run onclick event from context menu', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(
       <TestComponent
         secondaryActions={{ title: itemText, onClick: event }}

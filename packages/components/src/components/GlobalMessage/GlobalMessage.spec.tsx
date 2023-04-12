@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { GlobalMessage } from './GlobalMessage';
 import { fireEvent, render, screen } from '@testing-library/react';
 
@@ -10,7 +11,7 @@ describe('<GlobalMessage />', () => {
   });
 
   it('should call onClose event', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const { container } = render(<GlobalMessage closable onClose={event} />);
     const closeButton = container.querySelector('button');
     fireEvent.click(closeButton!);

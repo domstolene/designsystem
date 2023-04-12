@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
@@ -80,7 +81,7 @@ describe('<InlineEdit />', () => {
   });
 
   it('should run onFocus event', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(<TestComponentInput onFocus={event} />);
     const input = screen.getByRole('textbox');
 
@@ -90,7 +91,7 @@ describe('<InlineEdit />', () => {
   });
 
   it('should run onChange event', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(<TestComponentInput onChange={event} />);
     const input = screen.getByRole('textbox');
 
@@ -100,7 +101,7 @@ describe('<InlineEdit />', () => {
   });
 
   it('should run onBlur event', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(<TestComponentInput onBlur={event} />);
     const input = screen.getByRole('textbox');
 
@@ -157,7 +158,7 @@ describe('<InlineEdit />', () => {
   });
 
   it('should run onFocus event on textarea', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(<TestComponentTextArea onFocus={event} />);
     const input = screen.getByRole('textbox');
 
@@ -167,7 +168,7 @@ describe('<InlineEdit />', () => {
   });
 
   it('should run onChange event on textarea', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(<TestComponentTextArea onChange={event} />);
     const input = screen.getByRole('textbox');
 
@@ -177,7 +178,7 @@ describe('<InlineEdit />', () => {
   });
 
   it('should run onBlur event on textarea', async () => {
-    const event = jest.fn();
+    const event = vi.fn();
     render(<TestComponentTextArea onBlur={event} />);
     const input = screen.getByRole('textbox');
 

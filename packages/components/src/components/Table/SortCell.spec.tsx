@@ -1,9 +1,10 @@
+import { vi } from 'vitest';
 import { fireEvent, render } from '@testing-library/react';
 import { Table } from '.';
 
 describe('<SortCell />', () => {
   it('should run onclick event', () => {
-    const event = jest.fn();
+    const event = vi.fn();
     const { container } = render(
       <Table>
         <Table.Head>
