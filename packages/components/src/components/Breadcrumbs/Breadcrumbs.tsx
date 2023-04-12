@@ -2,7 +2,7 @@ import { forwardRef, Children } from 'react';
 import styled from 'styled-components';
 import { breadcrumbTokens, typographyType } from './Breadcrumb.tokens';
 import { Icon } from '../Icon';
-import { ChevronRightIcon, ArrowLeftIcon } from '../../icons/tsx';
+import { ChevronRightIcon } from '../../icons/tsx';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { removeListStyling } from '../../helpers/styling/removeListStyling';
 import { getFontStyling } from '../Typography/Typography.utils';
@@ -28,35 +28,22 @@ const StyledIcon = styled(Icon)`
   color: ${icon.color};
 `;
 
-export type BreadcrumbsProps = BaseComponentPropsWithChildren<
-  HTMLElement,
-  {
-    /** Spesifiserer om versjonen for små skjermer skal vises; den viser `<Breadcrumb />` kun til den forrige siden.  */
-    smallScreen?: boolean;
-  }
->;
+export type BreadcrumbsProps = BaseComponentPropsWithChildren<HTMLElement>;
 
 export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
   (props, ref) => {
-    const { smallScreen, children, id, className, htmlProps, ...rest } = props;
+    const { children, id, className, htmlProps, ...rest } = props;
 
     const childrenArray = Children.toArray(children);
 
-    const breadcrumbChildren = smallScreen ? (
-      <ListItem>
-        <StyledIcon icon={ArrowLeftIcon} iconSize="small" />
-        {childrenArray[childrenArray.length - 2]}
-      </ListItem>
-    ) : (
-      childrenArray.map((item, index) => {
-        return (
-          <ListItem key={`breadcrumb-${index}`}>
-            {index !== 0 && <StyledIcon icon={ChevronRightIcon} />}
-            {item}
-          </ListItem>
-        );
-      })
-    );
+    const breadcrumbChildren = childrenArray.map((item, index) => {
+      return (
+        <ListItem key={`breadcrumb-${index}`}>
+          {index !== 0 && <StyledIcon icon={ChevronRightIcon} />}
+          {item}
+        </ListItem>
+      );
+    });
 
     return (
       <nav
