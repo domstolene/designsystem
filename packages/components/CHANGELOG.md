@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 12.0.0
+
+### Major Changes
+
+- e451bf8b: Fjerne deprecated `FormGenerator`-kopmonent fra @norges-domstoler/dds-components. `PageGenerator`-komponenten i @norges-domstoler/dds-page-generator skal brukes i stedet.
+- 8d91d37c: Skiller ut smallScreen-varianten av Breadcrumbs i en egen variant kalt BackLink
+
 ## 11.3.2
 
 ### Patch Changes
