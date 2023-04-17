@@ -59,7 +59,7 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addons": "^6.5.15",
-    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/builder-webpack5": "^7.0.5",
     "@storybook/manager-webpack5": "^6.5.15",
     "@storybook/mdx2-csf": "^0.0.4",
     "@storybook/react": "^6.5.16",
