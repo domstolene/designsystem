@@ -54,7 +54,7 @@ const Banner = styled.div<{
   text-align: center;
   font-weight: bolder;
   letter-spacing: 0.15em;
-  z-index: 1000;
+  z-index: 9999;
 
   position: ${({ position }) => position};
   top: 0;
