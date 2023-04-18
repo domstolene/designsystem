@@ -7,8 +7,9 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import fontStyles from '@norges-domstoler/dds-components/dist/styles/fontStyles.css';
+import fontStyles from "@norges-domstoler/dds-components/dist/styles/fontStyles.css";
 
+import globalStyles from "./index.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -16,7 +17,10 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
 });
 
-export const links : LinksFunction = () => [{rel: 'stylesheet', href: fontStyles}]
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: fontStyles },
+  { rel: "stylesheet", href: globalStyles },
+];
 
 export default function App() {
   return (
