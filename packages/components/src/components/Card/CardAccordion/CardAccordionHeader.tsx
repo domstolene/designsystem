@@ -54,7 +54,7 @@ const HeaderContainer = styled.div`
     `}
 `;
 
-const HeaderWrapper = styled.button`
+const HeaderWrapperButton = styled.button`
   ${normalizeButton}
   user-select: text;
   position: relative;
@@ -143,7 +143,7 @@ export const CardAccordionHeader = forwardRef<
   };
 
   return (
-    <HeaderWrapper {...headerWrapperProps}>
+    <HeaderWrapperButton {...headerWrapperProps} type="button">
       <HeaderContainer
         typographyType={typographyType}
         padding={padding}
@@ -154,6 +154,6 @@ export const CardAccordionHeader = forwardRef<
           <AnimatedChevronUpDown {...chevronProps} />
         </ChevronWrapper>
       </HeaderContainer>
-    </HeaderWrapper>
+    </HeaderWrapperButton>
   );
 });
