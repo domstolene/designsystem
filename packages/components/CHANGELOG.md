@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 12.1.0
+
+### Minor Changes
+
+- b0cc61c4: Legger til padding prop for Stack-komponentene
+
+### Patch Changes
+
+- 9d4f3ed0: Setter type='button' for CardAccordionHeader slik at den ikke påvirker forms.
+
 ## 12.0.0
 
 ### Major Changes
