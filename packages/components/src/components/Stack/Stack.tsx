@@ -26,7 +26,12 @@ export interface StackStyleProps {
    * Hvilken spacing token som skal brukes som CSS `gap`.
    * @default 0
    */
-  gap?: keyof typeof stackTokens.gap | 0;
+  gap?: keyof typeof stackTokens.spacing | 0;
+  /**
+   * Hvilken spacing token som skal brukes som CSS `padding`.
+   * @default 0
+   */
+  padding?: keyof typeof stackTokens.spacing | 0;
 }
 
 const Stack = styled.div<StackStyleProps>`
@@ -38,7 +43,11 @@ const Stack = styled.div<StackStyleProps>`
   gap: ${props =>
     props.gap === undefined || props.gap === 0
       ? '0'
-      : stackTokens.gap[props.gap]};
+      : stackTokens.spacing[props.gap]};
+  padding: ${props =>
+    props.padding === undefined || props.padding === 0
+      ? '0'
+      : stackTokens.spacing[props.padding]};
 `;
 Stack.defaultProps = {
   align: 'center',

@@ -1,7 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { spacing } = ddsBaseTokens;
 
-const gapTokens = {
+const spacingTokens = {
   'local-x0.125': spacing.SizesDdsSpacingLocalX0125,
   'local-x0.25': spacing.SizesDdsSpacingLocalX025,
   'local-x0.5': spacing.SizesDdsSpacingLocalX05,
@@ -21,5 +21,5 @@ const gapTokens = {
 };
 
 export const stackTokens = {
-  gap: gapTokens,
+  spacing: spacingTokens,
 };
