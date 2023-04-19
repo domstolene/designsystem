@@ -14,7 +14,7 @@ npm install @norges-domstoler/development-utils
 
 ## Komponenter
 
-- [EnvironmentBannerProvider](./src/EnvironmentBannerProvider.md)
+- [EnvironmentBannerProvider](./src/EnvironmentBannerProvider/EnvironmentBannerProvider.md)
 
 ## ⌨️ For bidragsytere
 
