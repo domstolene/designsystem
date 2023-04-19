@@ -1,0 +1,74 @@
+# EnvironmentBannerProvider
+
+Denne komponenten kan brukes for å hjelpe utviklere/testere med å se hvilket miljø de jobber i. Den viser en banner (med unik farge per miljø) øverst på siden med miljønavnet.
+
+![Miljøbanner i testmiljøet](./banner.png)
+
+## 🔨 Bruk
+
+Denne komponenten må wrappes rundt hele applikasjonen.
+
+```tsx
+// index.tsx - eller tilsvarende rotkomponent i applikasjonen
+import {
+  EnvironmentBannerProvider,
+  Environment,
+} from '@norges-domstoler/development-utils';
+
+const environment: Environment = 'LOKAL'; // Miljøet applikasjonen kjører i
+
+const root = createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+  <EnvironmentBannerProvider environment={environment}>
+    <App />
+  </EnvironmentBannerProvider>,
+  document.getElementById('root') as HTMLElement
+);
+```
+
+### Hvordan finne miljøet applikasjonen kjører i?
+
+Dette er opp til hver enkelt konsument, men her kommer noen tips på hvordan dette kan løses. Hvordan dette gjøres vil variere litt på hvorvidt applikasjonen din er server-side rendered (SSR) eller client-side rendered (CSR).
+
+#### SSR
+
+Hvis applikasjonen din har SSR anbefaler vi å bruke miljøvariabler.
+Eksempelet under viser hvordan dette kan gjøres i Remix.
+
+```tsx
+export const loader = () => {
+  return {
+    // Dette må da settes i k8s-applications for applikasjonen
+    environment: process.env.ENVIRONMENT as Environment,
+  };
+};
+export default function App() {
+  const { environment } = useLoaderData<typeof loader>();
+  return (
+    <body>
+      <EnvironmentBannerProvider environment={environment}>
+        <Outlet />
+      </EnvironmentBannerProvider>
+    </body>
+  );
+}
+```
+
+#### CSR
+
+Ved CSR er det ikke mulig å bruke miljøvariabler for å skille mellom miljøet appen kjører i, da du kun har tilgang til miljøvariabler ved bygg av applikasjonen.
+Et godt alternativ da er å bruke URL-en til applikasjonen på å skille mellom miljøene.
+Eksempelet under viser hvordan det er gjort for [Saksbehandling Straff](https://github.com/domstolene/saksbehandling-straff/) gjennom `window.location.host`.
+
+```ts
+export const getEnvironment = (): Environment => {
+  const hostToEnv: Record<string, Environment> = {
+    '0.0.0.0:9000': 'LOKAL',
+    'saksbehandling-straff.apps.cp.test.domstol.no': 'TEST',
+    'saksbehandling-straff.apps.cp.at.domstol.no': 'AT',
+    'saksbehandling-straff.apps.cp.ads.domstol.no': 'PROD',
+  };
+
+  return hostToEnv[window.location.host] || 'PROD';
+};
+```

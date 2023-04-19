@@ -12,13 +12,9 @@ Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [Elsa 
 npm install @norges-domstoler/development-utils
 ```
 
-## 🔨 Bruk
+## Komponenter
 
-```js
-import { EnvironmentBanner } from '@norges-domstoler/development-utils';
-
-<EnvironmentBanner environment="LOKAL">
-```
+- [EnvironmentBannerProvider](./src/EnvironmentBannerProvider.md)
 
 ## ⌨️ For bidragsytere
 
