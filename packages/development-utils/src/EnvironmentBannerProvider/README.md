@@ -1,6 +1,7 @@
 # EnvironmentBannerProvider
 
 Denne komponenten kan brukes for å hjelpe utviklere/testere med å se hvilket miljø de jobber i. Den viser en banner (med unik farge per miljø) øverst på siden med miljønavnet.
+I produksjon (ved `environment="PROD"`) eller ved et ukjent miljø er den skjult, så du trenger ikke å håndtere skjuling av banneren.
 
 ![Miljøbanner i testmiljøet](./banner.png)
 
