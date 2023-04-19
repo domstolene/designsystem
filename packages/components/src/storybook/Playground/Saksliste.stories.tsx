@@ -14,7 +14,7 @@ import {
 } from '../..';
 
 export default {
-  title: 'Examples/Standardisering',
+  title: 'Playground',
 };
 
 const dødsfallItems = [
