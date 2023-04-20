@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.2.3
+
+### Patch Changes
+
+- 02e499c2: Bruk siste versjon av npm til publishing av pakker
+- Updated dependencies [02e499c2]
+  - @norges-domstoler/dds-components@12.1.2
+
 ## 2.2.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.0.3
+
+### Patch Changes
+
+- 02e499c2: Bruk siste versjon av npm til publishing av pakker
+
 ## 1.0.2
 
 ### Patch Changes

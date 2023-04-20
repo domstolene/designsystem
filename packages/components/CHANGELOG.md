@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 12.1.2
+
+### Patch Changes
+
+- 02e499c2: Bruk siste versjon av npm til publishing av pakker
+
 ## 12.1.1
 
 ### Patch Changes
