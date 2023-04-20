@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.3.3
+
+### Patch Changes
+
+- 02e499c2: Bruk siste versjon av npm til publishing av pakker
+
 ## 1.3.2
 
 ### Patch Changes
