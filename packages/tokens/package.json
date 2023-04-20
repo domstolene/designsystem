@@ -48,5 +48,8 @@
     "rollup-plugin-typescript2": "^0.34.1",
     "style-dictionary": "^3.7.2",
     "typescript": "^5.0.2"
+  },
+  "publishConfig": {
+    "provenance": true
   }
 }
