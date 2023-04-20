@@ -41,7 +41,7 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/node": "^18.11.18",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
-    "rollup": "^3.10.0",
+    "rollup": "^3.20.6",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-sass": "^1.12.19",
