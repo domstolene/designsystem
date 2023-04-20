@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 12.1.1
+
+### Patch Changes
+
+- 1aeaa4b0: Ta i bruk [npm package provenance](https://github.blog/2023-04-19-introducing-npm-package-provenance/).
+  Dette gjør at konsumenter verifiserbart kan sjekke hvor pakkens innhold kommer fra.
+
 ## 12.1.0
 
 ### Minor Changes
