@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { stackTokens } from './Stack.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
@@ -24,12 +24,10 @@ export interface StackStyleProps {
   justify?: Justify;
   /**
    * Hvilken spacing token som skal brukes som CSS `gap`.
-   * @default 0
    */
   gap?: keyof typeof stackTokens.spacing | 0;
   /**
    * Hvilken spacing token som skal brukes som CSS `padding`.
-   * @default 0
    */
   padding?: keyof typeof stackTokens.spacing | 0;
 }
@@ -40,14 +38,18 @@ const Stack = styled.div<StackStyleProps>`
     direction === 'horizontal' ? 'row' : 'column'};
   align-items: ${props => props.align};
   justify-content: ${props => props.justify};
-  gap: ${props =>
-    props.gap === undefined || props.gap === 0
-      ? '0'
-      : stackTokens.spacing[props.gap]};
-  padding: ${props =>
-    props.padding === undefined || props.padding === 0
-      ? '0'
-      : stackTokens.spacing[props.padding]};
+
+  ${({ gap }) =>
+    gap !== undefined &&
+    css`
+      gap: ${gap === 0 ? '0' : stackTokens.spacing[gap]};
+    `}
+
+  ${({ padding }) =>
+    padding !== undefined &&
+    css`
+      padding: ${padding === 0 ? '0' : stackTokens.spacing[padding]};
+    `}
 `;
 Stack.defaultProps = {
   align: 'center',
