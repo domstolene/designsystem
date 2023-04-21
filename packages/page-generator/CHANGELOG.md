@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.2.4
+
+### Patch Changes
+
+- a39e72b0: Fix: Returner hele option-elementet når selectOnChange trigges i PageGenerator og SectionGenerator
+- Updated dependencies [f7be56dd]
+  - @norges-domstoler/dds-components@12.1.3
+
 ## 2.2.3
 
 ### Patch Changes
