@@ -68,13 +68,9 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
   ) => {
     let value = null;
     if (isMultiValue(chosen)) {
-      value = Array.isArray(chosen)
-        ? chosen?.map(test => {
-            return test.value;
-          })
-        : null;
+      value = Array.isArray(chosen) ? chosen : null;
     } else {
-      value = chosen?.value || null;
+      value = chosen || null;
     }
     const newState = {
       ...myState,
