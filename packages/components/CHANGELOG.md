@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 12.1.3
+
+### Patch Changes
+
+- f7be56dd: Fjern default verdier for padding og gap i Stack-komponentene
+
 ## 12.1.2
 
 ### Patch Changes
