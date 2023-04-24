@@ -33,7 +33,7 @@ const paddingLeftLarge = `${
 
 const input = {
   base: {
-    paddingRight: spacing.SizesDdsSpacingLocalX05,
+    paddingRight: spacing.SizesDdsSpacingLocalX25,
     paddingLeft: spacing.SizesDdsSpacingLocalX3,
   },
   sizes: {
@@ -63,7 +63,7 @@ const outerContainer = {
   gap: spacing.SizesDdsSpacingLocalX0125,
 };
 
-const icon = {
+const searchIcon = {
   base: {
     left: spacing.SizesDdsSpacingLocalX075,
     color: textDefault.textColor,
@@ -79,6 +79,12 @@ const icon = {
   },
 };
 
+const clearButton = {
+  right: spacing.SizesDdsSpacingLocalX075,
+  top: `calc(50% - 14px)`, // Knappen er 28px høy. Trekker fra 14px for å få den midtstilt.
+  color: textDefault.textColor,
+};
+
 const suggestionsContainer = {
   marginTop: spacing.SizesDdsSpacingLocalX025,
   border: `1px solid ${colors.DdsColorInteractiveBase}`,
@@ -91,7 +97,8 @@ const suggestionsHeader = {
 
 export const searchTokens = {
   input,
-  icon,
+  searchIcon,
+  clearButton,
   horisontalContainer,
   outerContainer,
   suggestionsContainer,
