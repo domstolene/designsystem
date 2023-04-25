@@ -19,7 +19,7 @@ export const Overview = () => (
     gap="30px"
   >
     <Spinner />
-    <Spinner size="60px" />
+    <Spinner size="60px" tooltip="Egendefinert melding" />
     <Spinner color="gray4" />
     <Spinner color="gray4" size="60px" />
     <Spinner color="success" />

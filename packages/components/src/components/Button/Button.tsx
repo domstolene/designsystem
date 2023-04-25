@@ -21,6 +21,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       href,
       target,
       loading = false,
+      loadingTooltip = 'Lagring pågår',
       fullWidth = false,
       icon,
       onClick,
@@ -96,6 +97,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <Spinner
               color={appearances[appearance].purpose[purpose].base.color}
               size={sizes[size].justIcon.icon.fontSize}
+              tooltip={loadingTooltip}
             />
           </StyledIconWrapperSpan>
         )}

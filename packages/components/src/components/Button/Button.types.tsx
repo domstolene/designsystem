@@ -27,6 +27,8 @@ export type ButtonProps = BaseComponentProps<
     appearance?: ButtonAppearance;
     /**Indikerer en loading-knapp. */
     loading?: boolean;
+    /**Tooltip som vises ved loading. */
+    loadingTooltip?: string;
     /**Ikonet som ligger i knappen.  */
     icon?: SvgIcon;
     /**Knapp med full bredde. */

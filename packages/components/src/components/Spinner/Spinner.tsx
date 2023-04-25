@@ -64,6 +64,8 @@ export type SpinnerProps = BaseComponentProps<
     color?: TextColor | string;
     /**Størrelse; Setter høyde og bredde på spinneren. */
     size?: Property.Width<string>;
+    /**Tekst som vises ved hover. */
+    tooltip?: string;
   }
 >;
 
@@ -71,6 +73,7 @@ export function Spinner(props: SpinnerProps) {
   const {
     size = ddsBaseTokens.iconSizes.DdsIconsizeMedium,
     color = 'interactive',
+    tooltip = 'Innlasting pågår',
     id,
     className,
     htmlProps,
@@ -102,7 +105,7 @@ export function Spinner(props: SpinnerProps) {
       aria-labelledby={uniqueId}
       {...spinnerProps}
     >
-      <title id={uniqueId}>innlastning pågår</title>
+      {tooltip && <title id={uniqueId}>{tooltip}</title>}
       <Circle
         {...circleProps}
         cx="25"
