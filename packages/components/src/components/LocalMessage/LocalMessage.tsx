@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
 import { forwardRef, useState } from 'react';
-import {
-  purposeVariants,
-  localMessageTokens as tokens,
-} from './LocalMessage.tokens';
+import { localMessageTokens as tokens } from './LocalMessage.tokens';
 import { Icon } from '../Icon';
 import { Property } from 'csstype';
 import { Typography } from '../Typography';
@@ -17,26 +14,28 @@ import {
 } from '../Typography/Typography.utils';
 
 const defaultWidth: Property.Width<string> = '400px';
-const { container, contentContainer, topContainer } = tokens;
+const { container, icon, purposeVariants } = tokens;
 
-type ContainerProps = Pick<LocalMessageProps, 'purpose' | 'width' | 'layout'>;
+type ContainerProps = Pick<
+  LocalMessageProps,
+  'purpose' | 'width' | 'layout' | 'closable'
+>;
 
 const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
-  display: flex;
-  flex-direction: ${({ layout }) => (layout === 'vertical' ? 'column' : 'row')};
+  display: grid;
+  grid-template-areas: ${({ layout, closable }) =>
+    getGridTemplateAreas(layout, closable)};
+  grid-template-columns: ${({ layout, closable }) =>
+    getGridTemplateColumns(layout, closable)};
   box-shadow: ${container.base.boxShadow};
   border: ${container.base.border};
-  padding: ${container.base.padding};
   border-radius: ${container.base.borderRadius};
+  padding: ${container.base.padding};
+  gap: ${container.base.gap};
+  align-items: center;
   ${getFontStyling(defaultTypographyType, true)}
 
-  ${({ layout }) =>
-    layout === 'horisontal' &&
-    css`
-      align-items: center;
-      justify-content: space-between;
-    `};
   *::selection {
     ${selection}
   }
@@ -49,40 +48,46 @@ const Container = styled.div<ContainerProps>`
   width: ${({ width }) => width};
 `;
 
+function getGridTemplateAreas(
+  layout: LocalMessageProps['layout'],
+  closeable: LocalMessageProps['closable']
+) {
+  if (closeable) {
+    if (layout === 'horisontal') {
+      return '"icon text closeButton"';
+    }
+    return '"icon closeButton" "text text"';
+  } else {
+    if (layout === 'horisontal') {
+      return '"icon text"';
+    }
+    return '"icon icon" "text text"';
+  }
+}
+
+function getGridTemplateColumns(
+  layout: LocalMessageProps['layout'],
+  closable: LocalMessageProps['closable']
+) {
+  if (closable) {
+    return layout === 'horisontal'
+      ? 'min-content 1fr min-content'
+      : '1fr min-content';
+  }
+  return layout === 'horisontal' ? 'min-content 1fr' : '1fr';
+}
+
 const MessageIconWrapper = styled(Icon)`
-  margin-right: ${tokens.icon.marginRight};
+  grid-area: icon;
 `;
 
-type ContentContainerProps = Pick<LocalMessageProps, 'closable' | 'layout'>;
-
-const ContentContainer = styled.div<ContentContainerProps>`
-  padding-top: ${contentContainer.paddingTop};
-  padding-right: ${({ closable }) =>
-    closable
-      ? contentContainer.withClosable.paddingRight
-      : contentContainer.paddingRight};
-
-  ${({ layout }) =>
-    layout === 'vertical'
-      ? css`
-          padding-bottom: ${contentContainer.vertical.paddingBottom};
-        `
-      : css`
-          display: flex;
-          align-items: center;
-          padding-bottom: ${contentContainer.paddingBottom};
-        `};
+const TextContainer = styled.div`
+  grid-area: text;
 `;
 
-type TopContainerProps = Pick<LocalMessageProps, 'closable'>;
-
-const TopContainer = styled.div<TopContainerProps>`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: ${({ closable }) =>
-    closable ? topContainer.withClosable.paddingTop : topContainer.paddingTop};
+const CloseButton = styled(Button)<Pick<LocalMessageProps, 'layout'>>`
+  grid-area: closeButton;
+  margin: -${container.base.padding} 0;
 `;
 
 export type LocalMessagePurpose =
@@ -136,57 +141,37 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       purpose,
       width,
       layout,
+      closable,
       ref,
     };
 
-    const contentContainerProps = {
-      layout,
-      closable,
-    };
+    if (isClosed) {
+      return <></>;
+    }
 
-    const messageIconWrapper = (
-      <MessageIconWrapper
-        icon={purposeVariants[purpose].icon}
-        color={tokens.icon[purpose].color}
-      />
-    );
-
-    const content = children ?? <Typography as="span">{message}</Typography>;
-
-    const closeButton = closable && (
-      <Button
-        icon={CloseIcon}
-        purpose={purposeVariants[purpose].closeButtonPurpose}
-        appearance="borderless"
-        onClick={() => {
-          setClosed(true);
-          onClose && onClose();
-        }}
-        size="small"
-        aria-label="Lukk melding"
-      />
-    );
-
-    return !isClosed ? (
+    return (
       <Container {...containerProps}>
-        {layout === 'horisontal' ? (
-          <>
-            <ContentContainer {...contentContainerProps}>
-              {messageIconWrapper} {content}
-            </ContentContainer>
-            {closeButton}
-          </>
-        ) : (
-          <>
-            <TopContainer closable={closable}>
-              {messageIconWrapper} {closeButton}
-            </TopContainer>
-            <ContentContainer {...contentContainerProps}>
-              {content}
-            </ContentContainer>
-          </>
+        <MessageIconWrapper
+          icon={purposeVariants[purpose].icon}
+          color={icon[purpose].color}
+        />
+        <TextContainer>
+          {children ?? <Typography as="span">{message}</Typography>}
+        </TextContainer>
+        {closable && (
+          <CloseButton
+            icon={CloseIcon}
+            purpose={purposeVariants[purpose].closeButtonPurpose}
+            appearance="borderless"
+            onClick={() => {
+              setClosed(true);
+              onClose && onClose();
+            }}
+            size="small"
+            aria-label="Lukk melding"
+          />
         )}
       </Container>
-    ) : null;
+    );
   }
 );
