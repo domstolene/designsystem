@@ -67,7 +67,7 @@ type BaseItemProps = {
 
 type ProgressTrackerItemProps =
   | ({
-      /** Click-handler som gjør det mulig for bruker å klikke på steget for å navigere. Valgfri. */
+      /** Click-handler som gjør det mulig for bruker å klikke på steget for å navigere. Valgfri. Hvis stepperen er 'clickable' vil denne prop'en overstyre eksisterende klikkoppførsel. */
       onClick: (index: number) => void;
     } & BaseComponentPropsWithChildren<HTMLButtonElement, BaseItemProps>)
   | ({
@@ -133,8 +133,14 @@ const ItemNumber = styled.div<ItemStyleProps>`
 const ItemText = styled.div<ItemStyleProps>`
   ${getFontStyling(typographyTypes.label)}
   text-align: start;
-  text-decoration: ${itemText.textDecoration};
   transition: text-decoration-color 0.2s;
+
+  ${({ clickable, state }) =>
+    clickable &&
+    state !== 'disabled' &&
+    css`
+      text-decoration: underline;
+    `}
 
   ${({ state }) => {
     switch (state) {
@@ -239,6 +245,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     disabled = false,
     icon,
     children,
+    onClick,
   } = props;
 
   const { activeStep, handleStepChange } = useProgressTrackerContext();
@@ -246,7 +253,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 
   const styleProps = {
     state: toItemState(active, completed, disabled),
-    clickable: handleStepChange !== undefined,
+    clickable: handleStepChange !== undefined || onClick !== undefined,
   };
 
   const stepNumberContent = useMemo(() => {
@@ -267,7 +274,9 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         {...styleProps}
         as={handleStepChange ? 'button' : 'div'}
         onClick={
-          !disabled && handleStepChange
+          !disabled && onClick
+            ? () => onClick(index)
+            : handleStepChange
             ? () => handleStepChange(index)
             : undefined
         }
