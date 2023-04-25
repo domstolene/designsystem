@@ -5,29 +5,32 @@ import {
   InputHTMLAttributes,
   MouseEvent,
   useId,
+  useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from '../Button';
-import { searchTokens as tokens, typographyTypes } from './Search.tokens';
 import {
   Input as BaseInput,
   InputProps as BaseInputProps,
   renderInputMessage,
 } from '../../helpers';
+import { useCombinedRef } from '../../hooks';
+import { CloseSmallIcon, SearchIcon } from '../../icons/tsx';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { Button } from '../Button';
 import { Icon, IconSize } from '../Icon';
-import { SearchIcon } from '../../icons/tsx';
 import { Label } from '../Typography';
 import { getFontStyling } from '../Typography/Typography.utils';
-import { useCombinedRef } from '../../hooks';
-import { SearchSuggestions } from './SearchSuggestions';
-import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import { VisuallyHidden } from '../VisuallyHidden';
+import { useAutocompleteSearch } from './AutocompleteSearch.context';
+import { searchTokens as tokens, typographyTypes } from './Search.tokens';
+import { SearchSuggestions } from './SearchSuggestions';
+import { createEmptyChangeEvent } from './Search.utils';
 
-const { input, outerContainer, horisontalContainer, icon } = tokens;
+const { input, outerContainer, horisontalContainer, searchIcon, clearButton } =
+  tokens;
 
 const getIconSize = (size: SearchSize): IconSize => {
   switch (size) {
@@ -60,18 +63,25 @@ const Input = styled(BaseInput)<InputProps>`
     `}
 `;
 
-type StyledIconProps = {
+type StyledSearchIconProps = {
   size: SearchSize;
 };
 
-const StyledIcon = styled(Icon)<StyledIconProps>`
+const StyledSearchIcon = styled(Icon)<StyledSearchIconProps>`
   position: absolute;
-  left: ${icon.base.left};
-  color: ${icon.base.color};
+  left: ${searchIcon.base.left};
+  color: ${searchIcon.base.color};
   ${({ size }) => css`
-    top: ${tokens.icon[size].top};
+    top: ${tokens.searchIcon[size].top};
   `}
   z-index: 1;
+`;
+
+const StyledClearButton = styled(Button)`
+  position: absolute;
+  right: ${clearButton.right};
+  color: ${clearButton.color};
+  top: ${clearButton.top};
 `;
 
 const OuterContainer = styled.div`
@@ -96,6 +106,7 @@ const HorisontalContainer = styled.div<HorisontalContainerProps>`
 
 const InputContainer = styled.div`
   position: relative;
+  display: flex;
 `;
 
 export type SearchSize = 'small' | 'medium' | 'large';
@@ -140,6 +151,8 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       'suggestions-description'
     );
 
+    const [hasValue, setHasValue] = useState(!!value);
+
     const context = useAutocompleteSearch();
 
     const combinedRef = context.inputRef
@@ -147,8 +160,15 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       : ref;
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setHasValue(e.target.value !== '');
+
       context.onValueChange && context.onValueChange(e);
       onChange && onChange(e);
+    };
+
+    const clearInput = () => {
+      const emptyChangeEvent = createEmptyChangeEvent(uniqueId);
+      handleChange(emptyChangeEvent);
     };
 
     const containerProps = {
@@ -191,7 +211,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
             {...containerProps}
           >
             <InputContainer>
-              <StyledIcon
+              <StyledSearchIcon
                 icon={SearchIcon}
                 size={componentSize}
                 iconSize={getIconSize(componentSize)}
@@ -218,6 +238,15 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                     Bla i søkeforslag med piltaster når listen er utvidet.
                   </VisuallyHidden>
                 </>
+              )}
+              {hasValue && (
+                <StyledClearButton
+                  icon={CloseSmallIcon}
+                  size="tiny"
+                  purpose="secondary"
+                  appearance="borderless"
+                  onClick={clearInput}
+                />
               )}
             </InputContainer>
             {showSearchButton && (
