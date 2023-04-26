@@ -20,7 +20,8 @@ const container = {
     boxShadow: outerShadow.DdsShadow1Onlight,
     borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
     border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid`,
-    padding: `0 ${spacing.SizesDdsSpacingLocalX1}`,
+    padding: spacing.SizesDdsSpacingLocalX075,
+    gap: spacing.SizesDdsSpacingLocalX05,
   },
   purpose: {
     info: {
@@ -50,7 +51,7 @@ const container = {
   },
 };
 
-export const purposeVariants: {
+const purposeVariants: {
   [k in LocalMessagePurpose]: {
     icon: SvgIcon;
     closeButtonPurpose: ButtonPurpose;
@@ -104,28 +105,8 @@ const icon = {
   },
 };
 
-const contentContainer = {
-  paddingRight: spacing.SizesDdsSpacingLocalX15,
-  paddingTop: spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: spacing.SizesDdsSpacingLocalX075,
-  withClosable: {
-    paddingRight: spacing.SizesDdsSpacingLocalX075,
-  },
-  vertical: {
-    paddingBottom: spacing.SizesDdsSpacingLocalX15,
-  },
-};
-
-const topContainer = {
-  paddingTop: spacing.SizesDdsSpacingLocalX15,
-  withClosable: {
-    paddingTop: spacing.SizesDdsSpacingLocalX1,
-  },
-};
-
 export const localMessageTokens = {
   container,
-  contentContainer,
-  topContainer,
+  purposeVariants,
   icon,
 };
