@@ -7,7 +7,10 @@ export default {
   title: 'design system/LocalMessage',
   component: LocalMessage,
   argTypes: {
-    message: { control: { type: 'text' } },
+    message: {
+      control: { type: 'text' },
+      defaultValue: 'En tilfeldig melding',
+    },
     width: { control: { type: 'text' } },
     closable: { control: { type: 'boolean' } },
   },
@@ -16,71 +19,20 @@ export default {
 export const Overview = (args: LocalMessageProps) => {
   return (
     <StoryTemplate title="LocalMessage - overview">
-      <LocalMessage {...args} purpose="info" message="En tilfeldig melding" />
-      <LocalMessage
-        {...args}
-        purpose="warning"
-        message="En tilfeldig melding"
-      />
-      <LocalMessage {...args} purpose="danger" message="En tilfeldig melding" />
-      <LocalMessage
-        {...args}
-        purpose="confidential"
-        message="En tilfeldig melding"
-      />
-      <LocalMessage
-        {...args}
-        purpose="success"
-        message="En tilfeldig melding"
-      />
-      <LocalMessage {...args} purpose="tips" message="En tilfeldig melding" />
-      <LocalMessage
-        {...args}
-        message="En tilfeldig melding"
-        layout="vertical"
-      />
-      <LocalMessage
-        {...args}
-        purpose="info"
-        message="En tilfeldig melding"
-        closable
-      />
-      <LocalMessage
-        {...args}
-        purpose="warning"
-        message="En tilfeldig melding"
-        closable
-      />
-      <LocalMessage
-        {...args}
-        purpose="danger"
-        message="En tilfeldig melding"
-        closable
-      />
-      <LocalMessage
-        {...args}
-        purpose="confidential"
-        message="En tilfeldig melding"
-        closable
-      />
-      <LocalMessage
-        {...args}
-        purpose="success"
-        message="En tilfeldig melding"
-        closable
-      />
-      <LocalMessage
-        {...args}
-        purpose="tips"
-        message="En tilfeldig melding"
-        closable
-      />
-      <LocalMessage
-        {...args}
-        message="En tilfeldig melding"
-        layout="vertical"
-        closable
-      />
+      <LocalMessage {...args} purpose="info" />
+      <LocalMessage {...args} purpose="warning" />
+      <LocalMessage {...args} purpose="danger" />
+      <LocalMessage {...args} purpose="confidential" />
+      <LocalMessage {...args} purpose="success" />
+      <LocalMessage {...args} purpose="tips" />
+      <LocalMessage {...args} layout="vertical" />
+      <LocalMessage {...args} purpose="info" closable />
+      <LocalMessage {...args} purpose="warning" closable />
+      <LocalMessage {...args} purpose="danger" closable />
+      <LocalMessage {...args} purpose="confidential" closable />
+      <LocalMessage {...args} purpose="success" closable />
+      <LocalMessage {...args} purpose="tips" closable />
+      <LocalMessage {...args} layout="vertical" closable />
     </StoryTemplate>
   );
 };
@@ -88,10 +40,7 @@ export const Overview = (args: LocalMessageProps) => {
 export const Default = (args: LocalMessageProps) => {
   return (
     <StoryTemplate title="LocalMessage - default">
-      <LocalMessage
-        {...args}
-        message={args.message || 'En tilfeldig melding'}
-      />
+      <LocalMessage {...args} message={args.message} />
     </StoryTemplate>
   );
 };
@@ -102,7 +51,7 @@ export const Closable = (args: LocalMessageProps) => {
       <LocalMessage
         {...args}
         purpose={args.purpose}
-        message={args.message || 'En tilfeldig melding'}
+        message={args.message}
         closable
       />
     </StoryTemplate>
