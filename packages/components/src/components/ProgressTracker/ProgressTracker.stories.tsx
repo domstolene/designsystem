@@ -185,7 +185,10 @@ export const PartiallyClickable = () => {
   };
 
   return (
-    <StoryTemplate title="ProgressTracker - non-clickable" display="block">
+    <StoryTemplate
+      title="ProgressTracker - partially clickable"
+      display="block"
+    >
       <ProgressTracker
         activeStep={activeStep}
         htmlProps={{ style: { maxWidth: '800px' } }}
