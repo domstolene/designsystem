@@ -8,24 +8,25 @@ export default {
   argTypes: {
     color: { control: { type: 'text' } },
     size: { control: { type: 'text' } },
+    tooltip: { control: { type: 'text' }, defaultValue: 'Innlasting pågår' },
   },
 };
 
-export const Overview = () => (
+export const Overview = (args: SpinnerProps) => (
   <StoryTemplate
     title="Spinner - overview"
     display="grid"
     columnsAmount={4}
     gap="30px"
   >
-    <Spinner />
-    <Spinner size="60px" tooltip="Egendefinert melding" />
-    <Spinner color="gray4" />
-    <Spinner color="gray4" size="60px" />
-    <Spinner color="success" />
-    <Spinner color="success" size="60px" />
-    <Spinner color="gray7" />
-    <Spinner color="gray7" size="60px" />
+    <Spinner {...args} />
+    <Spinner {...args} size="60px" tooltip="Egendefinert melding" />
+    <Spinner {...args} color="gray4" />
+    <Spinner {...args} color="gray4" size="60px" />
+    <Spinner {...args} color="success" />
+    <Spinner {...args} color="success" size="60px" />
+    <Spinner {...args} color="gray7" />
+    <Spinner {...args} color="gray7" size="60px" />
   </StoryTemplate>
 );
 
