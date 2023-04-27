@@ -63,6 +63,8 @@ const itemNumber = {
 };
 
 const itemText = {
+  textDecoration: 'underline',
+
   active: {
     color: colors.DdsColorNeutralsGray9,
     textDecorationColor: colors.DdsColorNeutralsGray9,
