@@ -245,6 +245,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                   size="tiny"
                   purpose="secondary"
                   appearance="borderless"
+                  aria-label="Tøm"
                   onClick={clearInput}
                 />
               )}
