@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies [0f517fa3]
+- Updated dependencies [735adcbc]
+- Updated dependencies [6b1e53c5]
+- Updated dependencies [5916d4df]
+- Updated dependencies [45d2024e]
+  - @norges-domstoler/dds-components@13.0.0
+
 ## 2.2.4
 
 ### Patch Changes
