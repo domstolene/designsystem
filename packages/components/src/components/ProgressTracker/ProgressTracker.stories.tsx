@@ -25,7 +25,6 @@ export const Overview = () => {
       <ProgressTracker
         activeStep={activeStep}
         onStepChange={step => setActiveStep(step)}
-        clickable
         htmlProps={{ style: { maxWidth: '800px' } }}
       >
         <ProgressTracker.Item completed={completedSteps.has(0)}>
@@ -73,7 +72,6 @@ export const WithIcons = () => {
       <ProgressTracker
         activeStep={activeStep}
         htmlProps={{ style: { maxWidth: '800px' } }}
-        clickable
         onStepChange={step => setActiveStep(step)}
       >
         <ProgressTracker.Item
@@ -123,54 +121,6 @@ export const WithIcons = () => {
   );
 };
 
-export const NonClickable = () => {
-  const numSteps = 3;
-
-  const [activeStep, setActiveStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set());
-
-  const handleSetFinishedButtonClick = () => {
-    setCompletedSteps(s => new Set([...s, activeStep]));
-    if (activeStep < numSteps - 1) {
-      setActiveStep(s => s + 1);
-    }
-  };
-
-  return (
-    <StoryTemplate title="ProgressTracker - non-clickable" display="block">
-      <ProgressTracker
-        activeStep={activeStep}
-        htmlProps={{ style: { maxWidth: '800px' } }}
-      >
-        <ProgressTracker.Item completed={completedSteps.has(0)}>
-          Partopplysninger
-        </ProgressTracker.Item>
-        <ProgressTracker.Item completed={completedSteps.has(1)}>
-          Slutning
-        </ProgressTracker.Item>
-        <ProgressTracker.Item completed={completedSteps.has(2)}>
-          Vedlegg
-        </ProgressTracker.Item>
-      </ProgressTracker>
-      <div style={{ margin: '10px' }}>
-        {activeStep === 0 && <div>Steg 1</div>}
-        {activeStep === 1 && <div>Steg 2</div>}
-        {activeStep === 2 && <div>Steg 3</div>}
-      </div>
-
-      <Button
-        onClick={() => activeStep > 0 && setActiveStep(s => s - 1)}
-        label="Forrige steg"
-      />
-      <Button onClick={handleSetFinishedButtonClick} label="Sett som ferdig" />
-      <Button
-        onClick={() => activeStep < numSteps - 1 && setActiveStep(s => s + 1)}
-        label="Neste steg"
-      />
-    </StoryTemplate>
-  );
-};
-
 export const FutureStepsDisabled = () => {
   const numSteps = 3;
 
@@ -192,7 +142,6 @@ export const FutureStepsDisabled = () => {
       <ProgressTracker
         activeStep={activeStep}
         htmlProps={{ style: { maxWidth: '800px' } }}
-        clickable
         onStepChange={step => setActiveStep(step)}
       >
         <ProgressTracker.Item

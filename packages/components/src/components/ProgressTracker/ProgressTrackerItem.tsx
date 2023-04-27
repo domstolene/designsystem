@@ -43,7 +43,6 @@ const { itemNumber, itemText, itemContentWrapper } = progressTrackerTokens;
 
 type ItemStyleProps = {
   state: ItemState;
-  clickable: boolean;
 };
 
 type BaseItemProps = {
@@ -176,47 +175,7 @@ const ItemContentWrapper = styled.div<ItemStyleProps>`
     ${focusVisible}
   }
 
-  ${({ clickable, state }) => {
-    if (clickable) {
-      return css`
-        :hover {
-          ${ItemNumber} {
-            ${() => {
-              if (state === 'inactiveCompleted') {
-                return css`
-                  border-color: ${itemNumber.completed.hover.borderColor};
-                  color: ${itemNumber.completed.hover.color};
-                  background-color: ${itemNumber.completed.hover
-                    .backgroundColor};
-                `;
-              } else if (state === 'inactiveIncomplete') {
-                return css`
-                  border-color: ${itemNumber.inactive.hover.borderColor};
-                  color: ${itemNumber.inactive.hover.color};
-                  background-color: ${itemNumber.inactive.hover
-                    .backgroundColor};
-                `;
-              }
-            }}
-          }
-
-          ${ItemText} {
-            ${() => {
-              if (state !== 'disabled') {
-                return css`
-                  text-decoration-color: ${itemText.inactive.hover
-                    .textDecorationColor};
-                `;
-              }
-            }}
-          }
-        }
-      `;
-    }
-  }}
-
-  ${({ clickable, state }) =>
-    clickable &&
+  ${({ state }) =>
     state !== 'disabled' &&
     css`
       cursor: pointer;
@@ -246,7 +205,6 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 
   const styleProps = {
     state: toItemState(active, completed, disabled),
-    clickable: handleStepChange !== undefined,
   };
 
   const stepNumberContent = useMemo(() => {
