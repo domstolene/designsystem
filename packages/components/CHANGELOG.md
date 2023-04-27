@@ -1,5 +1,25 @@
 # @norges-domstoler/dds-components
 
+## 13.0.0
+
+### Major Changes
+
+- 735adcbc: Fjern non-clickable versjon av ProgressTracker.
+  Dette gjøres for at ProgressTracker skal ha mer konsistent oppførsel påtvers av applikasjoner.
+  Trenger du at et steg ikke skal væreinteragerbart anbefaler vi å heller bruke `disabled`-prop.
+
+  De aller fleste vil bare trenge å fjerne `clickable`-proppen fra ProgressTracker-komponenten for at den skal fungere som før.
+
+### Minor Changes
+
+- 5916d4df: Legger til nullstilling av søkefelt
+- 45d2024e: Legger til tooltip på Spinner-komponenten. Beholder samme default tooltip-tekst: "Innlasting pågår".
+
+### Patch Changes
+
+- 0f517fa3: Bump react-select fra 5.7.0 til 5.7.2
+- 6b1e53c5: Gjør padding i LocalMessage mer konsistent på tvers av layouts
+
 ## 12.1.3
 
 ### Patch Changes
