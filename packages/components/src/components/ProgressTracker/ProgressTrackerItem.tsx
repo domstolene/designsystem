@@ -158,7 +158,7 @@ const ItemText = styled.div<ItemStyleProps>`
   }};
 `;
 
-const ItemContentWrapper = styled.div<ItemStyleProps>`
+const ItemContentWrapper = styled.button<ItemStyleProps>`
   background: none;
   border: none;
   margin: 0;
