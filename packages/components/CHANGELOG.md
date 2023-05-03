@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.0.1
+
+### Patch Changes
+
+- 232e62fa: Bruk csstype for align og justify i Stack for å få med alle muligheter.
+
 ## 13.0.0
 
 ### Major Changes
