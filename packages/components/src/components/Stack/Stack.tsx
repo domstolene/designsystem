@@ -3,9 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { stackTokens } from './Stack.tokens';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-
-type Align = 'stretch' | 'center' | 'flex-start' | 'flex-end';
-type Justify = 'flex-start' | 'flex-end' | 'space-between' | 'space-around';
+import { StandardProperties } from 'csstype';
 
 export interface StackStyleProps {
   /**
@@ -16,12 +14,12 @@ export interface StackStyleProps {
    * CSS `align-items`.
    * @default 'center'
    */
-  align?: Align;
+  align?: StandardProperties['alignItems'];
   /**
    * CSS `justify-content`.
    * @default 'flex-start'
    */
-  justify?: Justify;
+  justify?: StandardProperties['justifyContent'];
   /**
    * Hvilken spacing token som skal brukes som CSS `gap`.
    */
