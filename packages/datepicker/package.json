@@ -1,0 +1,69 @@
+{
+  "name": "@norges-domstoler/dds-datepicker",
+  "version": "1.0.3",
+  "description": "Datepicker-components used in Elsa - domstolenes designsystem",
+  "author": "Elsa team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domstolene/designsystem"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "src/index.ts",
+  "homepage": "https://design.domstol.no",
+  "scripts": {
+    "build": "tsup --dts",
+    "build:fast": "tsup",
+    "dev": "npm run build:fast -- --watch",
+    "lint": "eslint --ext=jsx,ts,tsx src",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "verify:types": "tsc --noEmit",
+    "verify:lint": "npm run lint",
+    "verify:prettier": "npm run prettier:check",
+    "verify": "concurrently 'npm:verify:*'",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "keywords": [
+    "dds",
+    "design",
+    "dds-datepicker",
+    "design system",
+    "domstolene",
+    "norges domstoler",
+    "elsa"
+  ],
+  "devDependencies": {
+    "@norges-domstoler/dds-design-tokens": "*",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.62.0",
+    "clean-package": "2.2.0",
+    "concurrently": "^8.2.1",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.33.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.11",
+    "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "@norges-domstoler/dds-design-tokens": "^3",
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18",
+    "styled-components": "^5"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "clean-package": "../../clean-package.config.json"
+}
