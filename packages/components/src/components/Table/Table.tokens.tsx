@@ -35,6 +35,9 @@ const cell = {
     compact: {
       padding: `${spacing.SizesDdsSpacingLocalX075}`,
     },
+    alternative: {
+      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+    },
   },
   head: {
     backgroundColor: colors.DdsColorPrimaryLightest,
