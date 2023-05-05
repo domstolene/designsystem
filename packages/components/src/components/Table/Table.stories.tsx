@@ -144,6 +144,33 @@ export const Compact = (args: TableProps) => {
   );
 };
 
+export const Alternative = (args: TableProps) => {
+  return (
+    <StoryTemplate title="Table - alternative">
+      <Table.Wrapper>
+        <Table {...args} density="alternative">
+          <Table.Head>
+            <Table.Row type="head" useWhiteBackground>
+              {mappedHeaderCells}
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {mapCellContents(data, headerCells).map(row => (
+              <Table.Row key={row.toString()} invertEvenOdd>
+                {row.map(cellContent => (
+                  <Table.Cell key={`body-${cellContent}`}>
+                    {cellContent}
+                  </Table.Cell>
+                ))}
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Table.Wrapper>
+    </StoryTemplate>
+  );
+};
+
 export const StickyHeader = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - sticky header">
