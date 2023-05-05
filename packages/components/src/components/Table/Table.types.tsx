@@ -37,4 +37,8 @@ export type TableRowProps = {
   selected?: boolean;
   /**Spesifiserer om raden skal ha hover styling. Brukes hovedsakelig på klikkbare rader. */
   hoverable?: boolean;
+  /**Spesifiserer om raden med type="head" skal ha hvit bakgrunnsfarge. */
+  useWhiteBackground?: boolean;
+  /**Spesifiserer om radene skal ha motsatt even-odd bakgrunnsfarge sammenlignet med default. */
+  invertEvenOdd?: boolean;
 } & HTMLAttributes<HTMLTableRowElement>;

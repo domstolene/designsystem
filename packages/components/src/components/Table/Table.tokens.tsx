@@ -25,6 +25,9 @@ const row = {
       borderBottom: `1px solid ${colors.DdsColorNeutralsGray4}`,
     },
   },
+  head: {
+    whiteBackgroundColor: colors.DdsColorNeutralsWhite,
+  },
 };
 
 const cell = {
