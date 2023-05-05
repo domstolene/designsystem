@@ -1,7 +1,7 @@
-import React, { useState, forwardRef, useId } from 'react';
+import React, { useState, forwardRef, useId, useRef, useLayoutEffect } from 'react';
 import { InputSize } from '../../helpers';
 import CharCounter from './CharCounter';
-import { TextInputProps } from './TextInput.types';
+import { TextAffixProps, TextInputProps } from './TextInput.types';
 import {
   StatefulInput,
   InputContainer,
@@ -15,10 +15,14 @@ import {
 } from '../../utils';
 import { Property } from 'csstype';
 import {
+  InputAffixContainer,
   getDefaultText,
   getFormInputIconSize,
   renderInputMessage,
 } from '../../helpers/Input';
+import styled from 'styled-components';
+import { textInputTokens } from './TextInput.tokens';
+
 
 const defaultWidth: Property.Width<string> = '320px';
 const defaultTinyWidth: Property.Width<string> = '210px';
@@ -33,6 +37,38 @@ const getWidth = (
   }
   return defaultWidth;
 };
+
+const Prefix = styled.span<TextAffixProps>`
+  position: absolute;
+  height: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  margin-left: 8px;
+  padding-right: 8px;
+  border-right: ${({ readOnly }) => !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
+  aria-hidden: true;
+`
+
+const Suffix = styled.span<TextAffixProps>`
+  position: absolute;
+  height: 100%;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 1;
+  margin-right: 8px;
+  padding-left: 8px;
+  border-left: ${({ readOnly }) => !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
+  
+  aria-hidden: true;
+`
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
@@ -57,6 +93,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       'aria-required': ariaRequired,
       'aria-describedby': ariaDescribedby,
       icon,
+      prefix,
+      suffix,
       ...rest
     },
     ref
@@ -64,6 +102,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const [text, setText] = useState<string>(
       getDefaultText(value, defaultValue)
     );
+    const prefixRef = useRef<HTMLSpanElement>(null);
+    const suffixRef = useRef<HTMLSpanElement>(null);
+    const [prefixLength, setPrefixLength] = useState<number>(0);
+    const [suffixLength, setSuffixLength] = useState<number>(0);
 
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
       event: React.ChangeEvent<HTMLInputElement>
@@ -83,6 +125,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasLabel = !!label;
     const hasMessage = hasErrorMessage || hasTip || !!maxLength;
     const hasIcon = !!icon;
+    const hasAffix = !!(prefix || suffix)
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -121,6 +164,56 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const showRequiredStyling = !!(required || ariaRequired);
 
+    useLayoutEffect(() => {
+      if (prefixRef.current) {
+        setPrefixLength(prefixRef.current.offsetWidth);
+      }
+      if (suffixRef.current) {
+        setSuffixLength(suffixRef.current.offsetWidth);
+      }
+    }, [])
+
+    let extendedInput = null
+
+    if(hasIcon) {
+      extendedInput = (
+        <InputContainer>
+          {
+            <StyledIcon
+              icon={icon}
+              iconSize={getFormInputIconSize(componentSize)}
+              size={componentSize}
+            />
+          }
+          <StyledInput
+            ref={ref}
+            onChange={onChangeHandler}
+            type={type}
+            componentSize={componentSize}
+            hasIcon={hasIcon}
+            {...generalInputProps}
+          />
+        </InputContainer>
+      )
+    } else if(hasAffix) {
+      extendedInput = (
+        <InputAffixContainer>
+          {prefix && <Prefix readOnly={readOnly} ref={prefixRef}>{prefix}</Prefix>}
+          <StatefulInput
+            ref={ref}
+            onChange={onChangeHandler}
+            type={type}
+            componentSize={componentSize}
+            prefixLength={prefixLength}
+            suffixLength={suffixLength}
+            {...generalInputProps}
+          />
+          {suffix && <Suffix readOnly={readOnly} ref={suffixRef}>{suffix}</Suffix>}
+        </InputAffixContainer>
+
+      )
+    }
+
     return (
       <OuterInputContainer {...outerInputContainerProps}>
         {hasLabel && (
@@ -128,24 +221,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             {label}
           </Label>
         )}
-        {hasIcon ? (
-          <InputContainer>
-            {
-              <StyledIcon
-                icon={icon}
-                iconSize={getFormInputIconSize(componentSize)}
-                size={componentSize}
-              />
-            }
-            <StyledInput
-              ref={ref}
-              onChange={onChangeHandler}
-              type={type}
-              componentSize={componentSize}
-              hasIcon={hasIcon}
-              {...generalInputProps}
-            />
-          </InputContainer>
+        {extendedInput ? (
+          extendedInput
         ) : (
           <StatefulInput
             ref={ref}
