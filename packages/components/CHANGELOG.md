@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.0.2
+
+### Patch Changes
+
+- fe27f514: Gjør padding konsistent mellom select og multi-select
+
 ## 13.0.1
 
 ### Patch Changes
