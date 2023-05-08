@@ -29,10 +29,18 @@ const {
   placeholder,
   icon,
   valueContainer,
-  inputContainer,
 } = tokens;
 
 export const prefix = 'dds-select';
+
+function getContainerControlPadding(
+  componentSize: InputSize,
+  isMulti: boolean | undefined
+) {
+  return isMulti
+    ? control.isMulti.sizes[componentSize].padding
+    : control.sizes[componentSize].padding;
+}
 
 type StyledContainerProps = {
   errorMessage?: string;
@@ -54,11 +62,7 @@ export const Container = styled.div<StyledContainerProps>`
 
   ${({ componentSize, isMulti }) => css`
     .${prefix}__control {
-      padding: ${isMulti && componentSize === 'tiny'
-        ? control.sizes.small.padding
-        : isMulti && componentSize !== 'tiny'
-        ? control.isMulti.sizes[componentSize].padding
-        : control.sizes[componentSize].padding};
+      padding: ${getContainerControlPadding(componentSize, isMulti)};
       ${getFontStyling(typographyTypes.control[componentSize], true)}
     }
     .${prefix}__option {
@@ -158,13 +162,10 @@ export const getCustomStyles = <TOption>(): Partial<
     color: placeholder.color,
     margin: 0,
   }),
-  input: (provided, state) => ({
+  input: provided => ({
     ...provided,
     margin: 0,
     padding: 0,
-    ...(state.isMulti && {
-      minHeight: inputContainer.isMulti.minHeight,
-    }),
   }),
   indicatorSeparator: () => ({}),
   dropdownIndicator: (provided, state) => ({

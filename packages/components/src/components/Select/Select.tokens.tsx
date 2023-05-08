@@ -7,10 +7,9 @@ import {
   inputTypographyTypes,
   InputTypographyTypes,
 } from '../../helpers';
-import { calculateHeightWithLineHeight } from '../../utils';
 import { StaticTypographyType } from '../Typography';
 
-const { colors, spacing, fontPackages, borderRadius, border } = ddsBaseTokens;
+const { colors, spacing, borderRadius, border } = ddsBaseTokens;
 
 const { textDefault } = ddsReferenceTokens;
 
@@ -36,21 +35,6 @@ export const typographyTypes: {
   multiValueLabel: 'bodySans01',
 };
 
-//custom spacing so that multiselect has same height as single value select
-const controlPaddingBottomMultiMedium = `${
-  spacing.SizesDdsSpacingLocalX075NumberPx - 1
-}px`;
-const controlPaddingBottomMultiSmall = `${
-  spacing.SizesDdsSpacingLocalX05NumberPx - 1
-}px`;
-const inputContainerMinHeightMulti = `${
-  spacing.SizesDdsSpacingLocalX0125NumberPx * 2 +
-  calculateHeightWithLineHeight(
-    fontPackages.body_sans_01.numbers.lineHeightNumber,
-    fontPackages.body_sans_01.numbers.fontSizeNumber
-  )
-}px`;
-
 const control = {
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
   border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid`,
@@ -68,10 +52,13 @@ const control = {
   isMulti: {
     sizes: {
       medium: {
-        padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${controlPaddingBottomMultiMedium} ${spacing.SizesDdsSpacingLocalX075}`,
+        padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
       },
       small: {
-        padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${controlPaddingBottomMultiSmall} ${spacing.SizesDdsSpacingLocalX075}`,
+        padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075}`,
+      },
+      tiny: {
+        padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
       },
     },
   },
@@ -159,14 +146,14 @@ const multiValue = {
 };
 
 const multiValueLabel = {
-  padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`,
+  padding: `0 ${spacing.SizesDdsSpacingLocalX025}`,
   color: colors.DdsColorNeutralsGray9,
 };
 
 const multiValueRemove = {
   base: {
     color: colors.DdsColorNeutralsGray9,
-    padding: spacing.SizesDdsSpacingLocalX025,
+    padding: `0 ${spacing.SizesDdsSpacingLocalX025}`,
     borderTopRightRadius: borderRadius.RadiiDdsBorderRadius1Radius,
     borderBottomRightRadius: borderRadius.RadiiDdsBorderRadius1Radius,
   },
@@ -183,12 +170,6 @@ const valueContainer = {
   },
 };
 
-const inputContainer = {
-  isMulti: {
-    minHeight: inputContainerMinHeightMulti,
-  },
-};
-
 const icon = {
   marginRight: spacing.SizesDdsSpacingLocalX05,
 };
@@ -201,7 +182,6 @@ export const selectTokens = {
   groupHeading,
   option,
   valueContainer,
-  inputContainer,
   multiValue,
   multiValueLabel,
   multiValueRemove,
