@@ -1,20 +1,15 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import {
-  descriptionListTokens as tokens,
-  descTypographyType,
-} from './DescriptionList.tokens';
+import { descriptionListTokens as tokens } from './DescriptionList.tokens';
 import { Icon } from '../Icon';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { SvgIcon } from '../../icons/utils';
-import { getFontStyling } from '../Typography/Typography.utils';
 
 const DListDesc = styled.dd`
   margin-inline-start: 0;
   align-items: center;
   display: flex;
   color: ${tokens.desc.base.color};
-  ${getFontStyling(descTypographyType)}
   gap: ${tokens.desc.base.gap};
 `;
 

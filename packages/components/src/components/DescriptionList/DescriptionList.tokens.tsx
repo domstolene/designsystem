@@ -1,17 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { StaticTypographyType } from '../Typography';
-import { DescriptionListAppearance } from './DescriptionList';
 
 const { spacing, colors } = ddsBaseTokens;
-
-export const termTypographyTypes: {
-  [k in DescriptionListAppearance]: StaticTypographyType;
-} = {
-  bold: 'bodySans03',
-  small: 'bodySans01',
-};
-
-export const descTypographyType: StaticTypographyType = 'bodySans03';
 
 const term = {
   appearance: {
