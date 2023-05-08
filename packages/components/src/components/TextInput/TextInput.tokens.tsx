@@ -30,9 +30,9 @@ const input = {
 
 const affix = {
   border: {
-    color: colors.DdsColorNeutralsGray5
-  }
-}
+    color: colors.DdsColorNeutralsGray5,
+  },
+};
 
 const icon = {
   color: colors.DdsColorNeutralsGray9,

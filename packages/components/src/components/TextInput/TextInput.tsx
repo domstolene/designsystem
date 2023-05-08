@@ -1,4 +1,10 @@
-import React, { useState, forwardRef, useId, useRef, useLayoutEffect } from 'react';
+import React, {
+  useState,
+  forwardRef,
+  useId,
+  useRef,
+  useLayoutEffect,
+} from 'react';
 import { InputSize } from '../../helpers';
 import CharCounter from './CharCounter';
 import { TextAffixProps, TextInputProps } from './TextInput.types';
@@ -22,7 +28,6 @@ import {
 } from '../../helpers/Input';
 import styled from 'styled-components';
 import { textInputTokens } from './TextInput.tokens';
-
 
 const defaultWidth: Property.Width<string> = '320px';
 const defaultTinyWidth: Property.Width<string> = '210px';
@@ -49,9 +54,10 @@ const Prefix = styled.span<TextAffixProps>`
   z-index: 1;
   margin-left: 8px;
   padding-right: 8px;
-  border-right: ${({ readOnly }) => !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
+  border-right: ${({ readOnly }) =>
+    !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
   aria-hidden: true;
-`
+`;
 
 const Suffix = styled.span<TextAffixProps>`
   position: absolute;
@@ -65,10 +71,11 @@ const Suffix = styled.span<TextAffixProps>`
   z-index: 1;
   margin-right: 8px;
   padding-left: 8px;
-  border-left: ${({ readOnly }) => !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
-  
+  border-left: ${({ readOnly }) =>
+    !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
+
   aria-hidden: true;
-`
+`;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
@@ -125,7 +132,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasLabel = !!label;
     const hasMessage = hasErrorMessage || hasTip || !!maxLength;
     const hasIcon = !!icon;
-    const hasAffix = !!(prefix || suffix)
+    const hasAffix = !!(prefix || suffix);
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -171,11 +178,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       if (suffixRef.current) {
         setSuffixLength(suffixRef.current.offsetWidth);
       }
-    }, [])
+    }, []);
 
-    let extendedInput = null
+    let extendedInput = null;
 
-    if(hasIcon) {
+    if (hasIcon) {
       extendedInput = (
         <InputContainer>
           {
@@ -194,11 +201,15 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             {...generalInputProps}
           />
         </InputContainer>
-      )
-    } else if(hasAffix) {
+      );
+    } else if (hasAffix) {
       extendedInput = (
         <InputAffixContainer>
-          {prefix && <Prefix readOnly={readOnly} ref={prefixRef}>{prefix}</Prefix>}
+          {prefix && (
+            <Prefix readOnly={readOnly} ref={prefixRef}>
+              {prefix}
+            </Prefix>
+          )}
           <StatefulInput
             ref={ref}
             onChange={onChangeHandler}
@@ -208,10 +219,13 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             suffixLength={suffixLength}
             {...generalInputProps}
           />
-          {suffix && <Suffix readOnly={readOnly} ref={suffixRef}>{suffix}</Suffix>}
+          {suffix && (
+            <Suffix readOnly={readOnly} ref={suffixRef}>
+              {suffix}
+            </Suffix>
+          )}
         </InputAffixContainer>
-
-      )
+      );
     }
 
     return (

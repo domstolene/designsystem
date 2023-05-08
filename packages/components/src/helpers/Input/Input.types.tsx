@@ -11,7 +11,6 @@ export type CommonInputProps = {
   tip?: string;
   /**Feilmelding. Setter også error state. */
   errorMessage?: string;
-
 };
 
 export type InputSize = 'medium' | 'small' | 'tiny';
@@ -28,11 +27,9 @@ export type StyledCommonInputProps = Pick<
   hasErrorMessage: boolean;
 };
 
-export type StyledInputProps = StyledCommonInputProps &
-  {
-    prefixLength?: number;
-    suffixLength?: number;
-  } &
-  Pick<InputProps, 'componentSize'>;
+export type StyledInputProps = StyledCommonInputProps & {
+  prefixLength?: number;
+  suffixLength?: number;
+} & Pick<InputProps, 'componentSize'>;
 
 export type InputTypographyTypes = { [k in InputSize]: StaticTypographyType };

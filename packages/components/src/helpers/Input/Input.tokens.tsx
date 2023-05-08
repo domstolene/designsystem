@@ -43,7 +43,7 @@ const input = {
   },
   affix: {
     gap: spacing.SizesDdsSpacingLocalX1NumberPx,
-  }
+  },
 };
 
 const container = {

@@ -14,4 +14,4 @@ export type TextInputProps = InputProps & {
 
 export type TextAffixProps = {
   readOnly?: boolean;
-}
+};

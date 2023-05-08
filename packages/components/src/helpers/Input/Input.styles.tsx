@@ -56,8 +56,12 @@ export const Input = styled.input`
 export const StatefulInput = styled(Input)<StyledInputProps>`
   -webkit-appearance: textfield;
 
-  padding-left: ${({ prefixLength }) => prefixLength && `calc(${input.affix.gap}px + ${prefixLength}px) !important` };
-  padding-right: ${({ suffixLength }) => suffixLength && `calc(${input.affix.gap}px + ${suffixLength}px) !important` };
+  padding-left: ${({ prefixLength }) =>
+    prefixLength &&
+    `calc(${input.affix.gap}px + ${prefixLength}px) !important`};
+  padding-right: ${({ suffixLength }) =>
+    suffixLength &&
+    `calc(${input.affix.gap}px + ${suffixLength}px) !important`};
   ${({ componentSize }) =>
     componentSize &&
     css`
