@@ -2,11 +2,7 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import { selection } from '../../helpers/styling';
 import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { getFontStyling } from '../Typography/Typography.utils';
-import {
-  descriptionListTokens as tokens,
-  termTypographyTypes,
-} from './DescriptionList.tokens';
+import { descriptionListTokens as tokens } from './DescriptionList.tokens';
 
 const { term, desc, list } = tokens;
 
@@ -22,7 +18,6 @@ const DList = styled.dl<DListProps>`
     css`
       dt {
         color: ${term.appearance[appearance].color};
-        ${getFontStyling(termTypographyTypes[appearance])}
         ${appearance === 'bold' &&
         css`
           font-weight: 600;
