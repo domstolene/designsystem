@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.0.3
+
+### Patch Changes
+
+- 2042b74f: Fjerner overstyring av fontstørrelse for DescriptionList
+
 ## 13.0.2
 
 ### Patch Changes
