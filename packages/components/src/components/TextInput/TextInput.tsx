@@ -56,7 +56,6 @@ const Prefix = styled.span<TextAffixProps>`
   padding-right: 8px;
   border-right: ${({ readOnly }) =>
     !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
-  aria-hidden: true;
 `;
 
 const Suffix = styled.span<TextAffixProps>`
@@ -73,8 +72,6 @@ const Suffix = styled.span<TextAffixProps>`
   padding-left: 8px;
   border-left: ${({ readOnly }) =>
     !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
-
-  aria-hidden: true;
 `;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
@@ -206,7 +203,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       extendedInput = (
         <InputAffixContainer>
           {prefix && (
-            <Prefix readOnly={readOnly} ref={prefixRef}>
+            <Prefix readOnly={readOnly} ref={prefixRef} aria-hidden>
               {prefix}
             </Prefix>
           )}
@@ -220,7 +217,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             {...generalInputProps}
           />
           {suffix && (
-            <Suffix readOnly={readOnly} ref={suffixRef}>
+            <Suffix readOnly={readOnly} ref={suffixRef} aria-hidden>
               {suffix}
             </Suffix>
           )}
