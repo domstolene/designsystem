@@ -138,3 +138,44 @@ export const WithCharacterCount = (args: TextInputProps) => {
     </StoryTemplate>
   );
 };
+
+export const TextInputAffixes = (args: TextInputProps) => (
+  <StoryTemplate
+    title="TextInput - With affixes"
+    display="grid"
+    columnsAmount={2}
+  >
+    <TextInput {...args} prefix="Prefix" label="Med prefix" />
+    <TextInput {...args} prefix="NOK" label="Med prefix" width="120px" />
+    <TextInput {...args} suffix="dager" label="Med suffix" />
+    <TextInput
+      {...args}
+      width="80px"
+      value={20}
+      disabled
+      suffix="%"
+      label="Med suffix"
+    />
+    <TextInput
+      {...args}
+      prefix="Prefix"
+      suffix="suffix"
+      label="Med prefix og suffix"
+    />
+    <TextInput
+      {...args}
+      prefix="Prefix"
+      suffix="suffix"
+      label="Med prefix og suffix"
+      errorMessage="Dette er en feilmelding"
+    />
+    <TextInput
+      {...args}
+      prefix="Prefix"
+      suffix="suffix"
+      label="Med prefix og suffix"
+      componentSize="small"
+    />
+    <TextInput {...args} prefix="$" label="Med suffix" componentSize="tiny" />
+  </StoryTemplate>
+);

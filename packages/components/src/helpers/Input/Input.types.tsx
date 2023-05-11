@@ -27,7 +27,9 @@ export type StyledCommonInputProps = Pick<
   hasErrorMessage: boolean;
 };
 
-export type StyledInputProps = StyledCommonInputProps &
-  Pick<InputProps, 'componentSize'>;
+export type StyledInputProps = StyledCommonInputProps & {
+  prefixLength?: number;
+  suffixLength?: number;
+} & Pick<InputProps, 'componentSize'>;
 
 export type InputTypographyTypes = { [k in InputSize]: StaticTypographyType };

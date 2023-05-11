@@ -41,6 +41,9 @@ const input = {
       padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
     },
   },
+  affix: {
+    gap: spacing.SizesDdsSpacingLocalX1NumberPx,
+  },
 };
 
 const container = {
