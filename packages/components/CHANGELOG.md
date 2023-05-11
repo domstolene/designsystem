@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.1.0
+
+### Minor Changes
+
+- 744f8055: Legger til støtte for prefix og suffix i TextInput
+
 ## 13.0.3
 
 ### Patch Changes
