@@ -6,9 +6,15 @@ export type TextInputProps = InputProps & {
   withCharacterCounter?: boolean;
   /** Ikonet som vises i komponenten. */
   icon?: SvgIcon;
-  /** Prefiks som vises før inputfeltet. */
+  /**
+   * Prefiks som vises før inputfeltet.
+   * OBS! Prefiks leses ikke av skjermleser og skal derfor ikke brukes som en erstatter
+   * for en beskrivende label. */
   prefix?: string;
-  /** Suffiks som vises etter inputfeltet. */
+  /**
+   * Suffiks som vises etter inputfeltet.
+   * OBS! Suffiks leses ikke av skjermleser og skal derfor ikke brukes som en erstatter
+   * for en beskrivende label. */
   suffix?: string;
 };
 

@@ -111,6 +111,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const [prefixLength, setPrefixLength] = useState<number>(0);
     const [suffixLength, setSuffixLength] = useState<number>(0);
 
+    useLayoutEffect(() => {
+      setPrefixLength(prefixRef.current?.offsetWidth ?? 0);
+      setSuffixLength(suffixRef.current?.offsetWidth ?? 0);
+    }, [prefix, suffix]);
+
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
       event: React.ChangeEvent<HTMLInputElement>
     ) => {
@@ -167,15 +172,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     };
 
     const showRequiredStyling = !!(required || ariaRequired);
-
-    useLayoutEffect(() => {
-      if (prefixRef.current) {
-        setPrefixLength(prefixRef.current.offsetWidth);
-      }
-      if (suffixRef.current) {
-        setSuffixLength(suffixRef.current.offsetWidth);
-      }
-    }, []);
 
     let extendedInput = null;
 

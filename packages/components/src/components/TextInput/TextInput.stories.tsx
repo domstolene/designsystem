@@ -13,6 +13,8 @@ export default {
     required: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
+    prefix: { control: { type: 'text' } },
+    suffix: { control: { type: 'text' } },
   },
   parameters: {
     controls: {
@@ -96,6 +98,8 @@ export const TextInputOverview = (args: TextInputProps) => {
       />
       <TextInput {...args} icon={MailIcon} label={args.label ?? 'Label'} />
       <TextInput {...args} icon={MailIcon} />
+      <TextInput {...args} prefix="Prefix" />
+      <TextInput {...args} suffix="Suffix" />
     </StoryTemplate>
   );
 };
