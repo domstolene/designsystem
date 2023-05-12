@@ -26,7 +26,7 @@ import {
   getFormInputIconSize,
   renderInputMessage,
 } from '../../helpers/Input';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { textInputTokens } from './TextInput.tokens';
 
 const defaultWidth: Property.Width<string> = '320px';
@@ -43,7 +43,7 @@ const getWidth = (
   return defaultWidth;
 };
 
-const Prefix = styled.span<TextAffixProps>`
+const Affix = styled.span<TextAffixProps>`
   position: absolute;
   height: 100%;
   top: 50%;
@@ -52,26 +52,36 @@ const Prefix = styled.span<TextAffixProps>`
   align-items: center;
   pointer-events: none;
   z-index: 1;
-  margin-left: 8px;
-  padding-right: 8px;
-  border-right: ${({ readOnly }) =>
-    !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
 `;
 
-const Suffix = styled.span<TextAffixProps>`
-  position: absolute;
-  height: 100%;
-  top: 50%;
+const Prefix = styled(Affix)`
+  left: 0;
+  margin-left: 8px;
+  padding-right: 8px;
+  border-right: 1px solid ${textInputTokens.affix.border.color};
+
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      margin-left: 0;
+      padding-right: 1ch;
+      border-right: none;
+    `};
+`;
+
+const Suffix = styled(Affix)`
   right: 0;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  z-index: 1;
   margin-right: 8px;
   padding-left: 8px;
-  border-left: ${({ readOnly }) =>
-    !readOnly && `1px solid ${textInputTokens.affix.border.color}`};
+  border-left: 1px solid ${textInputTokens.affix.border.color};
+
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      margin-right: 0;
+      padding-left: 1ch;
+      border-left: none;
+    `};
 `;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
@@ -108,13 +118,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
     const prefixRef = useRef<HTMLSpanElement>(null);
     const suffixRef = useRef<HTMLSpanElement>(null);
-    const [prefixLength, setPrefixLength] = useState<number>(0);
-    const [suffixLength, setSuffixLength] = useState<number>(0);
-
-    useLayoutEffect(() => {
-      setPrefixLength(prefixRef.current?.offsetWidth ?? 0);
-      setSuffixLength(suffixRef.current?.offsetWidth ?? 0);
-    }, [prefix, suffix]);
 
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
       event: React.ChangeEvent<HTMLInputElement>
@@ -208,8 +211,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             onChange={onChangeHandler}
             type={type}
             componentSize={componentSize}
-            prefixLength={prefixLength}
-            suffixLength={suffixLength}
+            prefixLength={prefixRef.current?.offsetWidth ?? 0}
+            suffixLength={suffixRef.current?.offsetWidth ?? 0}
             {...generalInputProps}
           />
           {suffix && (
