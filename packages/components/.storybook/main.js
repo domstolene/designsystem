@@ -9,8 +9,17 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: prop =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+      propFilter: prop => {
+        if (
+          prop.declarations === undefined ||
+          prop.declarations === null ||
+          prop.declarations.every(dec => /node_modules/.test(dec.fileName))
+        ) {
+          return false;
+        }
+
+        return true;
+      },
     },
   },
   core: {
