@@ -1,4 +1,4 @@
-import { useEffect, useId } from 'react';
+import { useId } from 'react';
 import styled from 'styled-components';
 import { UploadIcon } from '../../icons/tsx';
 import {

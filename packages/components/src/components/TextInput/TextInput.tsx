@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  forwardRef,
-  useId,
-  useRef,
-  useLayoutEffect,
-} from 'react';
+import React, { useState, forwardRef, useId, useRef } from 'react';
 import { InputSize } from '../../helpers';
 import CharCounter from './CharCounter';
 import { TextAffixProps, TextInputProps } from './TextInput.types';
