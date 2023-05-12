@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.1.1
+
+### Patch Changes
+
+- 603b38be: Fikse feil i TextInput hvor endring i prefix/suffix ikke endret bredden til prefix/suffix
+
 ## 13.1.0
 
 ### Minor Changes
