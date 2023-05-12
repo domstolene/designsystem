@@ -1,4 +1,10 @@
-import React, { useState, forwardRef, useId, useRef } from 'react';
+import React, {
+  useState,
+  forwardRef,
+  useId,
+  useRef,
+  useLayoutEffect,
+} from 'react';
 import { InputSize } from '../../helpers';
 import CharCounter from './CharCounter';
 import { TextAffixProps, TextInputProps } from './TextInput.types';
@@ -58,7 +64,7 @@ const Prefix = styled(Affix)`
     readOnly &&
     css`
       margin-left: 0;
-      padding-right: 1ch;
+      padding-right: 0.5ch;
       border-right: none;
     `};
 `;
@@ -73,7 +79,7 @@ const Suffix = styled(Affix)`
     readOnly &&
     css`
       margin-right: 0;
-      padding-left: 1ch;
+      padding-left: 0.5ch;
       border-left: none;
     `};
 `;
@@ -112,6 +118,17 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
     const prefixRef = useRef<HTMLSpanElement>(null);
     const suffixRef = useRef<HTMLSpanElement>(null);
+    const [prefixLength, setPrefixLength] = useState(0);
+    const [suffixLength, setSuffixLength] = useState(0);
+
+    useLayoutEffect(() => {
+      if (prefixRef.current) {
+        setPrefixLength(prefixRef.current.offsetWidth);
+      }
+      if (suffixRef.current) {
+        setSuffixLength(suffixRef.current.offsetWidth);
+      }
+    }, [prefix, suffix, readOnly]);
 
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
       event: React.ChangeEvent<HTMLInputElement>
@@ -205,8 +222,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             onChange={onChangeHandler}
             type={type}
             componentSize={componentSize}
-            prefixLength={prefixRef.current?.offsetWidth ?? 0}
-            suffixLength={suffixRef.current?.offsetWidth ?? 0}
+            prefixLength={prefixLength}
+            suffixLength={suffixLength}
             {...generalInputProps}
           />
           {suffix && (
