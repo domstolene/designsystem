@@ -1,5 +1,22 @@
 # @norges-domstoler/dds-components
 
+## 13.2.0
+
+### Minor Changes
+
+- e3cdac52: Lagt inn nye ikoner
+
+  - StarHalfFilled
+  - Thumbup
+  - ThumbupFilled
+  - Thumbdown
+  - ThumbdownFilled
+  - HourglassTop
+  - HourglassBottom
+  - HourglassFull
+  - HourglassEmpty
+  - HourglassDisabled
+
 ## 13.1.1
 
 ### Patch Changes
