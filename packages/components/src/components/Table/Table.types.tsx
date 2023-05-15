@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
-export type TableDensity = 'normal' | 'compact';
+export type TableDensity = 'normal' | 'compact' | 'extraCompact';
 
 export type TableProps = {
   /**Spesifiserer hvor romslige cellene i tabellen skal være. */

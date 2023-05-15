@@ -144,6 +144,31 @@ export const Compact = (args: TableProps) => {
   );
 };
 
+export const ExtraCompact = (args: TableProps) => {
+  return (
+    <StoryTemplate title="Table - extraCompact">
+      <Table.Wrapper>
+        <Table {...args} density="extraCompact">
+          <Table.Head>
+            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {mapCellContents(data, headerCells).map(row => (
+              <Table.Row key={row.toString()}>
+                {row.map(cellContent => (
+                  <Table.Cell key={`body-${cellContent}`}>
+                    {cellContent}
+                  </Table.Cell>
+                ))}
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Table.Wrapper>
+    </StoryTemplate>
+  );
+};
+
 export const StickyHeader = (args: TableProps) => {
   return (
     <StoryTemplate title="Table - sticky header">

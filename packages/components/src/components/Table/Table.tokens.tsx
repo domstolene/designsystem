@@ -25,6 +25,9 @@ const row = {
       borderBottom: `1px solid ${colors.DdsColorNeutralsGray4}`,
     },
   },
+  head: {
+    whiteBackgroundColor: colors.DdsColorNeutralsWhite,
+  },
 };
 
 const cell = {
@@ -34,6 +37,9 @@ const cell = {
     },
     compact: {
       padding: `${spacing.SizesDdsSpacingLocalX075}`,
+    },
+    extraCompact: {
+      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
     },
   },
   head: {

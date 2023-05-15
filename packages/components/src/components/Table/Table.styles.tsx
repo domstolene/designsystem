@@ -45,7 +45,6 @@ export const StyledRow = styled.tr<StyledProps>`
       font-weight: 600;
       text-align: left;
     `}
-
   ${({ type, mode, selected, hoverable }) =>
     type === 'body' &&
     css`
