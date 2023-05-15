@@ -4,13 +4,13 @@
 
 Lagt inn nye ikoner
 
-- starHalfFilled
-- thumbup
-- thumbupFilled
-- thumbdown
-- thumbdownFilled
-- hourglassTop
-- hourglassBottom
-- hourglassFull
-- hourglassEmpty
-- hourglassDisabled
+- StarHalfFilled
+- Thumbup
+- ThumbupFilled
+- Thumbdown
+- ThumbdownFilled
+- HourglassTop
+- HourglassBottom
+- HourglassFull
+- HourglassEmpty
+- HourglassDisabled
