@@ -1,6 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { colors, border, spacing, iconSizes, borderRadius } = ddsBaseTokens;
+const { font, colors, border, spacing, iconSizes, borderRadius } =
+  ddsBaseTokens;
 
 const row = {
   body: {
@@ -26,7 +27,10 @@ const row = {
     },
   },
   head: {
-    whiteBackgroundColor: colors.DdsColorNeutralsWhite,
+    extraCompact: {
+      backgroundColor: colors.DdsColorNeutralsWhite,
+      fontSize: font.DdsFontBodySans01FontSize,
+    },
   },
 };
 

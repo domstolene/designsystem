@@ -31,10 +31,9 @@ const StyledTable = styled.table<StyledTableProps>`
   ${({ density }) =>
     density === 'extraCompact' &&
     css`
-      tr[type='head'] {
-        th[type='head'] {
-          background-color: ${row.head.whiteBackgroundColor};
-        }
+      th {
+        background-color: ${row.head.extraCompact.backgroundColor};
+        font-size: ${row.head.extraCompact.fontSize};
       }
       tr[type='body'] {
         &:nth-of-type(even) {
