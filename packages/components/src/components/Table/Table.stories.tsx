@@ -144,19 +144,17 @@ export const Compact = (args: TableProps) => {
   );
 };
 
-export const Alternative = (args: TableProps) => {
+export const ExtraCompact = (args: TableProps) => {
   return (
-    <StoryTemplate title="Table - alternative">
+    <StoryTemplate title="Table - extraCompact">
       <Table.Wrapper>
-        <Table {...args} density="alternative">
+        <Table {...args} density="extraCompact">
           <Table.Head>
-            <Table.Row type="head" useWhiteBackground>
-              {mappedHeaderCells}
-            </Table.Row>
+            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()} invertEvenOdd>
+              <Table.Row key={row.toString()}>
                 {row.map(cellContent => (
                   <Table.Cell key={`body-${cellContent}`}>
                     {cellContent}

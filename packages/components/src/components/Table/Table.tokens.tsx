@@ -38,7 +38,7 @@ const cell = {
     compact: {
       padding: `${spacing.SizesDdsSpacingLocalX075}`,
     },
-    alternative: {
+    extraCompact: {
       padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
     },
   },

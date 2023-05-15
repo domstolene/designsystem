@@ -30,8 +30,6 @@ type StyledProps = {
   mode?: RowMode;
   selected?: boolean;
   hoverable?: boolean;
-  useWhiteBackground?: boolean;
-  invertEvenOdd?: boolean;
 };
 
 export const StyledRow = styled.tr<StyledProps>`
@@ -47,30 +45,16 @@ export const StyledRow = styled.tr<StyledProps>`
       font-weight: 600;
       text-align: left;
     `}
-  
-  ${({ type, useWhiteBackground }) =>
-    type === 'head' &&
-    useWhiteBackground &&
-    css`
-      th {
-        background-color: ${row.head.whiteBackgroundColor};
-      }
-    `}
-
-  ${({ type, mode, selected, hoverable, invertEvenOdd }) =>
+  ${({ type, mode, selected, hoverable }) =>
     type === 'body' &&
     css`
       &:nth-of-type(even) {
-        background-color: ${invertEvenOdd
-          ? row.body.odd.backgroundColor
-          : row.body.even.backgroundColor};
+        background-color: ${row.body.even.backgroundColor};
         ${bodyRowStyles(mode, selected)}
       }
 
       &:nth-of-type(odd) {
-        background-color: ${invertEvenOdd
-          ? row.body.even.backgroundColor
-          : row.body.odd.backgroundColor};
+        background-color: ${row.body.odd.backgroundColor};
         ${bodyRowStyles(mode, selected)}
       }
 

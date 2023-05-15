@@ -28,6 +28,23 @@ const StyledTable = styled.table<StyledTableProps>`
         padding: ${cell.density[density].padding};
       }
     `}
+  ${({ density }) =>
+    density === 'extraCompact' &&
+    css`
+      tr[type='head'] {
+        th[type='head'] {
+          background-color: ${row.head.whiteBackgroundColor};
+        }
+      }
+      tr[type='body'] {
+        &:nth-of-type(even) {
+          background-color: ${row.body.odd.backgroundColor};
+        }
+        &:nth-of-type(odd) {
+          background-color: ${row.body.even.backgroundColor};
+        }
+      }
+    `}
   ${({ stickyHeader }) =>
     stickyHeader &&
     css`
