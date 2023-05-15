@@ -113,6 +113,7 @@ export * from './settings';
 export * from './sms';
 export * from './star';
 export * from './starFilled';
+export * from './starHalfFilled';
 export * from './sync';
 export * from './time';
 export * from './tingrett';
