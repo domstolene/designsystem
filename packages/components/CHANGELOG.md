@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.3.0
+
+### Minor Changes
+
+- 53587ff3: Legg til ny type density extraCompact i Table
+
 ## 13.2.0
 
 ### Minor Changes
