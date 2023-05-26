@@ -3,7 +3,7 @@ import { PageGeneratorField } from './PageGeneratorField';
 import { SectionGeneratorRow } from './SectionGeneratorRow';
 
 export type SectionGeneratorProps = BaseComponentPropsWithChildren<
-  HTMLElement,
+  HTMLElement & HTMLFormElement,
   {
     /** Definere liste med felt/komponenter og/eller rader med felt/komponenter */
     fields: (PageGeneratorField | SectionGeneratorRow)[];
