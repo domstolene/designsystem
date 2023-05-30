@@ -30,6 +30,8 @@ import {
   ToggleButtonGroup,
   Typography,
   VisuallyHidden,
+  HStack,
+  VStack,
 } from '@norges-domstoler/dds-components';
 import { PageGeneratorField, PageGeneratorSupportedFields } from '../types';
 import { MultiValue, SingleValue } from 'react-select';
@@ -164,6 +166,23 @@ export const getComponent = (
           {field.innerHTML}
         </Heading>
       );
+    case PageGeneratorSupportedFields.HStack:
+      return (
+        <HStack {...field.props} key={index}>
+          {field.children.map((child, childIndex) => {
+            return (
+              !child.hide &&
+              getComponent(
+                child,
+                childIndex,
+                fieldOnChange,
+                selectOnChange,
+                screenSize
+              )
+            );
+          })}
+        </HStack>
+      );
     case PageGeneratorSupportedFields.InputMessage:
       return <InputMessage {...field.props} key={index} />;
     case PageGeneratorSupportedFields.Label:
@@ -281,6 +300,23 @@ export const getComponent = (
         <VisuallyHidden {...field.props} key={index}>
           {field.innerHTML}
         </VisuallyHidden>
+      );
+    case PageGeneratorSupportedFields.VStack:
+      return (
+        <VStack {...field.props} key={index}>
+          {field.children.map((child, childIndex) => {
+            return (
+              !child.hide &&
+              getComponent(
+                child,
+                childIndex,
+                fieldOnChange,
+                selectOnChange,
+                screenSize
+              )
+            );
+          })}
+        </VStack>
       );
     default:
       return <></>;

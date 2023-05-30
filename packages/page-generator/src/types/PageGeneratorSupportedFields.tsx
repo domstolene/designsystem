@@ -13,6 +13,7 @@ export enum PageGeneratorSupportedFields {
   DrawerGroup = 'DrawerGroup',
   GlobalMessage = 'GlobalMessage',
   Heading = 'Heading',
+  HStack = 'HStack',
   InputMessage = 'InputMessage',
   Label = 'Label',
   Link = 'Link',
@@ -29,4 +30,5 @@ export enum PageGeneratorSupportedFields {
   ToggleButtonGroup = 'ToggleButtonGroup',
   Typography = 'Typography',
   VisuallyHidden = 'VisuallyHidden',
+  VStack = 'VStack',
 }
