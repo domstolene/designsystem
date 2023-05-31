@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from '../Button';
 import { FeedbackProps, Layout, Rating } from './Feedback.types';
-import {
-  TextArea,
-  Thumbdown,
-  Thumbup,
-  ThumbupFilled,
-  ThumbdownFilled,
-  Spinner,
-} from '@norges-domstoler/dds-components';
-import { Label } from '@norges-domstoler/dds-components';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Tooltip } from '../Tooltip';
 import { Icon } from '../Icon';
-import { Paragraph } from '../Typography';
+import { Label, Paragraph } from '../Typography';
 import styled, { css } from 'styled-components';
+import { Spinner } from '../Spinner';
+import {
+  Thumbdown,
+  ThumbdownFilled,
+  Thumbup,
+  ThumbupFilled,
+} from '../../icons/tsx';
+import { TextArea } from '../TextArea';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 type RatingContainerProps = {
   layout: Layout;
@@ -152,7 +151,9 @@ export const Feedback = ({
           </IconLabelSpan>
           <TextArea
             value={feedbackText}
-            onChange={e => handleFeedbackTextChange(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+              handleFeedbackTextChange(e.target.value)
+            }
             label={
               rating === 'positive'
                 ? positiveFeedbackLabel
