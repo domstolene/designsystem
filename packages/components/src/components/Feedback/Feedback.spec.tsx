@@ -1,10 +1,5 @@
 import { vi } from 'vitest';
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-} from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Feedback } from './Feedback';
 
 describe('<Feedback />', () => {
