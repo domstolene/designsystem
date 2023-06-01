@@ -59,7 +59,7 @@ export const Feedback = ({
   thumbDownTooltip = 'Dårlig',
   feedbackTextAreaExcluded = false,
   loading = false,
-  isSubmitted = false,
+  isSubmitted,
   onRating,
   onFeedbackTextChange,
   onSubmit,
@@ -74,7 +74,7 @@ export const Feedback = ({
   }, [ratingValue, setRating]);
 
   useEffect(() => {
-    setFeedbackText(feedbackTextValue);
+    feedbackTextValue !== undefined && setFeedbackText(feedbackTextValue);
   }, [feedbackTextValue, setFeedbackText]);
 
   useEffect(() => {
@@ -95,7 +95,7 @@ export const Feedback = ({
 
   const handleSubmit = () => {
     onSubmit && onSubmit(rating!, feedbackText ?? '');
-    onSubmit === undefined && setIsFeedbackSubmitted(true);
+    isSubmitted === undefined && setIsFeedbackSubmitted(true);
   };
 
   return (
