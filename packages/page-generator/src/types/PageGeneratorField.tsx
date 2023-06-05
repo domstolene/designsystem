@@ -30,6 +30,7 @@ import {
   TypographyProps,
   VisuallyHiddenProps,
   DrawerGroupProps,
+  StackProps,
 } from '@norges-domstoler/dds-components';
 import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
 
@@ -40,9 +41,11 @@ type FieldWithChildren =
   | DescriptionListField
   | DescriptionListGroupField
   | DrawerGroupField
+  | HStackField
   | ListField
   | RadioButtonGroupField
-  | ToggleButtonGroupField;
+  | ToggleButtonGroupField
+  | VStackField;
 
 type FieldWithoutChildren =
   | ButtonField
@@ -163,6 +166,13 @@ type HeadingField = {
   innerHTML?: JSX.Element | string;
 };
 
+type HStackField = {
+  component: PageGeneratorSupportedFields.HStack;
+  props: StackProps;
+  hide?: boolean;
+  children: PageGeneratorField[];
+};
+
 type InputMessageField = {
   component: PageGeneratorSupportedFields.InputMessage;
   props: InputMessageProps;
@@ -268,4 +278,11 @@ type VisuallyHiddenField = {
   props: VisuallyHiddenProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
+};
+
+type VStackField = {
+  component: PageGeneratorSupportedFields.VStack;
+  props: StackProps;
+  hide?: boolean;
+  children: PageGeneratorField[];
 };
