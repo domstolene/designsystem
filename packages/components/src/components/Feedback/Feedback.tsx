@@ -1,60 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '../Button';
-import { FeedbackProps, Layout, Rating } from './Feedback.types';
-import { Tooltip } from '../Tooltip';
-import { Icon } from '../Icon';
-import { Label, Paragraph } from '../Typography';
-import styled, { css } from 'styled-components';
-import { Spinner } from '../Spinner';
-import {
-  Thumbdown,
-  ThumbdownFilled,
-  Thumbup,
-  ThumbupFilled,
-} from '../../icons/tsx';
-import { TextArea } from '../TextArea';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-
-type RatingContainerProps = {
-  layout: Layout;
-};
-
-type FlexContainerProps = {
-  flexDirection: string;
-};
-
-const RatingContainer = styled.div<RatingContainerProps>`
-  display: flex;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
-  ${({ layout }) => css`
-    flex-direction: ${layout === 'horizontal' ? 'row' : 'column'};
-    align-items: ${layout === 'horizontal' ? 'center' : 'start'};
-  `}
-`;
-
-const FlexContainer = styled.div<FlexContainerProps>`
-  display: flex;
-  ${({ flexDirection }) => css`
-    flex-direction: ${flexDirection};
-    gap: ${flexDirection === 'row'
-      ? ddsBaseTokens.spacing.SizesDdsSpacingLocalX05
-      : ddsBaseTokens.spacing.SizesDdsSpacingLocalX1};
-  `};
-`;
-
-const IconLabelSpan = styled.span`
-  display: inline-flex;
-  align-items: center;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
-`;
+import { FeedbackProps, Rating } from './Feedback.types';
+import { Paragraph } from '../Typography';
+import { RatingComponent } from './RatingComponent';
+import { CommentComponent } from './CommentComponent';
 
 export const Feedback = ({
   layout = 'vertical',
   ratingLabel,
   positiveFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
   negativeFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
-  ratingValue,
-  feedbackTextValue,
+  ratingValue: ratingProp,
+  feedbackTextValue: feedbackTextProp,
   thumbUpTooltip = 'Bra',
   thumbDownTooltip = 'Dårlig',
   feedbackTextAreaExcluded = false,
@@ -70,30 +26,31 @@ export const Feedback = ({
     useState<boolean>(false);
 
   useEffect(() => {
-    ratingValue !== undefined && setRating(ratingValue);
-  }, [ratingValue, setRating]);
+    ratingProp !== undefined && setRating(ratingProp);
+  }, [ratingProp]);
 
   useEffect(() => {
-    feedbackTextValue !== undefined && setFeedbackText(feedbackTextValue);
-  }, [feedbackTextValue, setFeedbackText]);
+    feedbackTextProp !== undefined && setFeedbackText(feedbackTextProp);
+  }, [feedbackTextProp]);
 
   useEffect(() => {
     isSubmitted !== undefined && setIsFeedbackSubmitted(isSubmitted);
-  }, [isSubmitted, setFeedbackText]);
+  }, [isSubmitted]);
 
   const handleRatingChange = (newRating: Rating) => {
     onRating && onRating(newRating);
     onSubmit && feedbackTextAreaExcluded && onSubmit(newRating, '');
 
-    ratingValue === undefined && setRating(newRating);
+    ratingProp === undefined && setRating(newRating);
   };
 
   const handleFeedbackTextChange = (newFeedbackText: string) => {
     onFeedbackTextChange && onFeedbackTextChange(newFeedbackText);
-    feedbackTextValue === undefined && setFeedbackText(newFeedbackText);
+    feedbackTextProp === undefined && setFeedbackText(newFeedbackText);
   };
 
   const handleSubmit = () => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Ved submit er rating alltid satt
     onSubmit && onSubmit(rating!, feedbackText ?? '');
     isSubmitted === undefined && setIsFeedbackSubmitted(true);
   };
@@ -101,75 +58,24 @@ export const Feedback = ({
   return (
     <>
       {rating === null && !isFeedbackSubmitted ? (
-        <RatingContainer layout={layout}>
-          <Label>{ratingLabel}</Label>
-          {loading ? (
-            <Spinner tooltip="Laster opp tilbakemelding ..." />
-          ) : (
-            <FlexContainer flexDirection="row">
-              <Tooltip text={thumbUpTooltip}>
-                <Button
-                  htmlProps={{
-                    style: {
-                      padding: '0px',
-                      color: ddsBaseTokens.colors.DdsColorNeutralsGray7,
-                    },
-                    'aria-label': thumbUpTooltip,
-                  }}
-                  icon={Thumbup}
-                  appearance="borderless"
-                  onClick={() => handleRatingChange('positive')}
-                />
-              </Tooltip>
-              <Tooltip text={thumbDownTooltip}>
-                <div>
-                  <Button
-                    htmlProps={{
-                      style: {
-                        padding: '0px',
-                        color: ddsBaseTokens.colors.DdsColorNeutralsGray7,
-                      },
-                      'aria-label': thumbDownTooltip,
-                    }}
-                    icon={Thumbdown}
-                    appearance="borderless"
-                    onClick={() => handleRatingChange('negative')}
-                  />
-                </div>
-              </Tooltip>
-            </FlexContainer>
-          )}
-        </RatingContainer>
+        <RatingComponent
+          layout={layout}
+          ratingLabel={ratingLabel}
+          loading={loading}
+          thumbUpTooltip={thumbUpTooltip}
+          thumbDownTooltip={thumbDownTooltip}
+          handleRatingChange={handleRatingChange}
+        />
       ) : !feedbackTextAreaExcluded && !isFeedbackSubmitted ? (
-        <FlexContainer flexDirection="column">
-          <IconLabelSpan>
-            <Icon
-              icon={rating === 'positive' ? ThumbupFilled : ThumbdownFilled}
-              color={ddsBaseTokens.colors.DdsColorInteractiveBase}
-            />
-            <Paragraph>Takk for tilbakemeldingen!</Paragraph>
-          </IconLabelSpan>
-          <TextArea
-            value={feedbackText}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-              handleFeedbackTextChange(e.target.value)
-            }
-            label={
-              rating === 'positive'
-                ? positiveFeedbackLabel
-                : negativeFeedbackLabel
-            }
-            tip="Ikke send inn sensitive eller personlige opplysninger"
-          />
-
-          <Button
-            label="Send inn"
-            purpose="secondary"
-            size="small"
-            onClick={handleSubmit}
-            loading={loading}
-          />
-        </FlexContainer>
+        <CommentComponent
+          rating={rating}
+          feedbackText={feedbackText}
+          positiveFeedbackLabel={positiveFeedbackLabel}
+          negativeFeedbackLabel={negativeFeedbackLabel}
+          loading={loading}
+          handleSubmit={handleSubmit}
+          handleFeedbackTextChange={handleFeedbackTextChange}
+        />
       ) : (
         <div>
           <Paragraph>Takk for tilbakemeldingen!</Paragraph>
