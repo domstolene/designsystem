@@ -55,6 +55,28 @@ export const OverviewSizes = (args: DrawerProps) => {
         </Drawer>
       </DrawerGroup>
       <DrawerGroup>
+        <Button label="Åpne medium" />
+        <Drawer {...args} header="Rettsmekling" size="medium">
+          <Typography>
+            En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
+            hovedforhandling og dom. Det går ut på at partene kommer fram til en
+            avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
+            raskere, mer effektiv og billigere måte å løse konflikten på.
+          </Typography>
+          <Typography typographyType="headingSans02">
+            Hva er rettsmekling?
+          </Typography>
+          <Typography>
+            Rettsmekling går ut på at partene selv finner en løsning på
+            konflikten ved å bruke en mekler (vanligvis en dommer i domstolen
+            som behandler saken). Avtalen man kommer fram til, blir rettskraftig
+            på lik linje med en dom. Rettsmekling kan bare brukes i sivile
+            saker, ikke i straffesaker.
+          </Typography>
+          <Button label="Gjør noe" />
+        </Drawer>
+      </DrawerGroup>
+      <DrawerGroup>
         <Button label="Åpne stor" />
         <Drawer {...args} header="Rettsmekling" size="large">
           <Typography>

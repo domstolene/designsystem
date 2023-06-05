@@ -22,6 +22,7 @@ const { container, contentContainer } = tokens;
 
 const getMaxWidth = (size: DrawerSize): Property.MaxWidth => {
   if (size === 'large') return '800px';
+  else if (size === 'medium') return '600px';
   else return '400px';
 };
 
@@ -89,7 +90,7 @@ const StyledButton = styled(Button)`
   align-self: flex-end;
 `;
 
-export type DrawerSize = 'small' | 'large';
+export type DrawerSize = 'small' | 'medium' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export type WidthProps = {
   minWidth?: Property.MinWidth<string>;
