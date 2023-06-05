@@ -14,15 +14,25 @@ const IconLabelSpan = styled.span`
   gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
 `;
 
-export const CommentComponent = (
-  rating: Rating | null,
-  feedbackText: string,
-  positiveFeedbackLabel: string,
-  negativeFeedbackLabel: string,
-  loading: boolean,
-  handleSubmit: () => void,
-  handleFeedbackTextChange: (newText: string) => void
-) => {
+type CommentComponentType = {
+  rating: Rating | null;
+  feedbackText: string | undefined;
+  positiveFeedbackLabel: string;
+  negativeFeedbackLabel: string;
+  loading: boolean;
+  handleSubmit: () => void;
+  handleFeedbackTextChange: (newText: string) => void;
+};
+
+export const CommentComponent = ({
+  rating,
+  feedbackText,
+  positiveFeedbackLabel,
+  negativeFeedbackLabel,
+  loading,
+  handleSubmit,
+  handleFeedbackTextChange,
+}: CommentComponentType) => {
   return (
     <FlexContainer flexDirection="column">
       <IconLabelSpan>

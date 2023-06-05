@@ -25,14 +25,23 @@ export const RatingButton = styled(Button)`
   color: ${ddsBaseTokens.colors.DdsColorNeutralsGray7};
 `;
 
-export const RatingComponent = (
-  layout: Layout,
-  ratingLabel: string,
-  loading: boolean,
-  thumbUpTooltip: string,
-  thumbDownTooltip: string,
-  handleRatingChange: (rating: Rating) => void
-) => {
+type RatingComponentType = {
+  layout: Layout;
+  ratingLabel: string;
+  loading: boolean;
+  thumbUpTooltip: string;
+  thumbDownTooltip: string;
+  handleRatingChange: (rating: Rating) => void;
+};
+
+export const RatingComponent = ({
+  layout,
+  ratingLabel,
+  loading,
+  thumbUpTooltip,
+  thumbDownTooltip,
+  handleRatingChange,
+}: RatingComponentType) => {
   return (
     <RatingContainer layout={layout}>
       <Label>{ratingLabel}</Label>
