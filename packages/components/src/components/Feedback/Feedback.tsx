@@ -15,7 +15,7 @@ export const Feedback = ({
   thumbDownTooltip = 'Dårlig',
   feedbackTextAreaExcluded = false,
   loading = false,
-  isSubmitted,
+  isSubmitted: isSubmittedProp,
   onRating,
   onFeedbackTextChange,
   onSubmit,
@@ -34,8 +34,8 @@ export const Feedback = ({
   }, [feedbackTextProp]);
 
   useEffect(() => {
-    isSubmitted !== undefined && setIsFeedbackSubmitted(isSubmitted);
-  }, [isSubmitted]);
+    isSubmittedProp !== undefined && setIsFeedbackSubmitted(isSubmittedProp);
+  }, [isSubmittedProp]);
 
   const handleRatingChange = (newRating: Rating) => {
     onRating && onRating(newRating);
@@ -52,35 +52,35 @@ export const Feedback = ({
   const handleSubmit = () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Ved submit er rating alltid satt
     onSubmit && onSubmit(rating!, feedbackText ?? '');
-    isSubmitted === undefined && setIsFeedbackSubmitted(true);
+    isSubmittedProp === undefined && setIsFeedbackSubmitted(true);
   };
 
-  return (
-    <>
-      {rating === null && !isFeedbackSubmitted ? (
-        <RatingComponent
-          layout={layout}
-          ratingLabel={ratingLabel}
-          loading={loading}
-          thumbUpTooltip={thumbUpTooltip}
-          thumbDownTooltip={thumbDownTooltip}
-          handleRatingChange={handleRatingChange}
-        />
-      ) : !feedbackTextAreaExcluded && !isFeedbackSubmitted ? (
-        <CommentComponent
-          rating={rating}
-          feedbackText={feedbackText}
-          positiveFeedbackLabel={positiveFeedbackLabel}
-          negativeFeedbackLabel={negativeFeedbackLabel}
-          loading={loading}
-          handleSubmit={handleSubmit}
-          handleFeedbackTextChange={handleFeedbackTextChange}
-        />
-      ) : (
-        <div>
-          <Paragraph>Takk for tilbakemeldingen!</Paragraph>
-        </div>
-      )}
-    </>
-  );
+  if (rating === null && !isFeedbackSubmitted) {
+    return (
+      <RatingComponent
+        layout={layout}
+        ratingLabel={ratingLabel}
+        loading={loading}
+        thumbUpTooltip={thumbUpTooltip}
+        thumbDownTooltip={thumbDownTooltip}
+        handleRatingChange={handleRatingChange}
+      />
+    );
+  }
+
+  if (!feedbackTextAreaExcluded && !isFeedbackSubmitted) {
+    return (
+      <CommentComponent
+        rating={rating}
+        feedbackText={feedbackText}
+        positiveFeedbackLabel={positiveFeedbackLabel}
+        negativeFeedbackLabel={negativeFeedbackLabel}
+        loading={loading}
+        handleSubmit={handleSubmit}
+        handleFeedbackTextChange={handleFeedbackTextChange}
+      />
+    );
+  }
+
+  return <Paragraph>Takk for tilbakemeldingen!</Paragraph>;
 };
