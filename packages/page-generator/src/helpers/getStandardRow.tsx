@@ -9,9 +9,12 @@ type T = HTMLInputElement & Record<string, never>;
 
 const Row = (props: SectionGeneratorRow) => {
   const { id, className, htmlProps, ...rest } = props;
+  const restPartial = { ...rest } as Partial<SectionGeneratorRow>;
+  delete restPartial.rowType;
+
   if (props.as === 'div') {
     return (
-      <div {...getBaseHTMLProps(id, className, htmlProps, rest)}>
+      <div {...getBaseHTMLProps(id, className, htmlProps, restPartial)}>
         {props.children}
       </div>
     );
