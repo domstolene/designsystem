@@ -4,25 +4,22 @@ import { Feedback } from './Feedback';
 
 describe('<Feedback />', () => {
   it('should show thumb buttons on first render', () => {
-    render(<Feedback ratingLabel="Hvordan opplevdes innsendingen?" />);
+    render(<Feedback ratingLabel="Hva syns du om tjenesten?" />);
 
-    assertInDocument(['Hvordan opplevdes innsendingen?', 'Bra', 'Dårlig']);
+    assertInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
 
     assertNotInDocument([
       'Hva var dårlig?',
       'Send inn',
-      'Takk for tilbakemeldingen!',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
   });
 
   it('should trigger onRating when thumb up button is clicked', () => {
     const onRating = vi.fn();
     render(
-      <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
-        onRating={onRating}
-      />
+      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />
     );
     const button = screen.getByLabelText('Bra');
 
@@ -36,10 +33,7 @@ describe('<Feedback />', () => {
   it('should trigger onRating when thumb down button is clicked', () => {
     const onRating = vi.fn();
     render(
-      <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
-        onRating={onRating}
-      />
+      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />
     );
     const button = screen.getByLabelText('Dårlig');
 
@@ -53,7 +47,7 @@ describe('<Feedback />', () => {
   it('should show text area when rating is positive', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
       />
     );
@@ -61,17 +55,17 @@ describe('<Feedback />', () => {
     assertInDocument([
       'Hva kan vi forbedre? (valgfritt)',
       'Send inn',
-      'Takk for tilbakemeldingen!',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
 
-    assertNotInDocument(['Hvordan opplevdes innsendingen?', 'Bra', 'Dårlig']);
+    assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
   it('should show text area when rating is negative', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'negative'}
       />
     );
@@ -79,76 +73,80 @@ describe('<Feedback />', () => {
     assertInDocument([
       'Hva kan vi forbedre? (valgfritt)',
       'Send inn',
-      'Takk for tilbakemeldingen!',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
 
-    assertNotInDocument(['Hvordan opplevdes innsendingen?', 'Bra', 'Dårlig']);
+    assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
   it('should not show text area when rating is positive and text area is excluded', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
         feedbackTextAreaExcluded
       />
     );
 
-    assertInDocument(['Takk for tilbakemeldingen!']);
+    assertInDocument([
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+    ]);
 
     assertNotInDocument([
-      'Hvordan opplevdes innsendingen?',
+      'Hva syns du om tjenesten?',
       'Bra',
       'Dårlig',
       'Send inn',
       'Hva kan vi forbedre? (valgfritt)',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
   });
 
   it('should show confirmation text when isSubmitted is true', () => {
-    render(
-      <Feedback ratingLabel="Hvordan opplevdes innsendingen?" isSubmitted />
-    );
+    render(<Feedback ratingLabel="Hva syns du om tjenesten?" isSubmitted />);
 
-    assertInDocument(['Takk for tilbakemeldingen!']);
+    assertInDocument([
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+    ]);
 
     assertNotInDocument([
-      'Hvordan opplevdes innsendingen?',
+      'Hva syns du om tjenesten?',
       'Bra',
       'Dårlig',
       'Send inn',
       'Hva kan vi forbedre? (valgfritt)',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
   });
 
   it('should not show text area when rating is negative and text area is excluded', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'negative'}
         feedbackTextAreaExcluded
       />
     );
 
-    assertInDocument(['Takk for tilbakemeldingen!']);
+    assertInDocument([
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+    ]);
 
     assertNotInDocument([
-      'Hvordan opplevdes innsendingen?',
+      'Hva syns du om tjenesten?',
       'Bra',
       'Dårlig',
       'Send inn',
       'Hva kan vi forbedre? (valgfritt)',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
   });
 
   it('should show text value when text value is given', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
         feedbackTextValue={'Veldig bra tilbakemelding'}
       />
@@ -157,19 +155,19 @@ describe('<Feedback />', () => {
     assertInDocument([
       'Veldig bra tilbakemelding',
       'Send inn',
-      'Takk for tilbakemeldingen!',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
       'Hva kan vi forbedre? (valgfritt)',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
 
-    assertNotInDocument(['Hvordan opplevdes innsendingen?', 'Bra', 'Dårlig']);
+    assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
   it('should trigger onSubmit when submit button is clicked', () => {
     const onSubmit = vi.fn();
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
         onSubmit={onSubmit}
       />
@@ -187,7 +185,7 @@ describe('<Feedback />', () => {
     const onSubmit = vi.fn();
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         onSubmit={onSubmit}
         feedbackTextAreaExcluded
       />
@@ -204,7 +202,7 @@ describe('<Feedback />', () => {
   it('should have correct labels when using custom tooltips', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         thumbUpTooltip="Veldig bra"
         thumbDownTooltip="Veldig dårlig"
       />
@@ -213,30 +211,30 @@ describe('<Feedback />', () => {
     assertInDocument([
       'Veldig bra',
       'Veldig dårlig',
-      'Hvordan opplevdes innsendingen?',
+      'Hva syns du om tjenesten?',
     ]);
 
     assertNotInDocument([
       'Hva kan vi forbedre? (valgfritt)',
       'Send inn',
-      'Takk for tilbakemeldingen!',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
   });
 
   it('should render spinner and not thumb up/down buttons when loading', () => {
-    render(<Feedback ratingLabel="Hvordan opplevdes innsendingen?" loading />);
+    render(<Feedback ratingLabel="Hva syns du om tjenesten?" loading />);
 
     assertInDocument([
-      'Hvordan opplevdes innsendingen?',
+      'Hva syns du om tjenesten?',
       'Laster opp tilbakemelding ...',
     ]);
 
     assertNotInDocument([
       'Hva var dårlig?',
       'Send inn',
-      'Takk for tilbakemeldingen!',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
       'Bra',
       'Dårlig',
     ]);
@@ -245,7 +243,7 @@ describe('<Feedback />', () => {
   it('should render positive feedback label', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         positiveFeedbackLabel="Hva var bra?"
         ratingValue="positive"
       />
@@ -254,17 +252,17 @@ describe('<Feedback />', () => {
     assertInDocument([
       'Hva var bra?',
       'Send inn',
-      'Takk for tilbakemeldingen!',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
 
-    assertNotInDocument(['Hvordan opplevdes innsendingen?', 'Bra', 'Dårlig']);
+    assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
   it('should render negative feedback label', () => {
     render(
       <Feedback
-        ratingLabel="Hvordan opplevdes innsendingen?"
+        ratingLabel="Hva syns du om tjenesten?"
         negativeFeedbackLabel="Hva var dårlig?"
         ratingValue="negative"
       />
@@ -273,11 +271,11 @@ describe('<Feedback />', () => {
     assertInDocument([
       'Hva var dårlig?',
       'Send inn',
-      'Takk for tilbakemeldingen!',
-      'Ikke send inn sensitive eller personlige opplysninger',
+      'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+      'Ikke send inn personopplysninger eller annen sensitiv informasjon',
     ]);
 
-    assertNotInDocument(['Hvordan opplevdes innsendingen?', 'Bra', 'Dårlig']);
+    assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 });
 

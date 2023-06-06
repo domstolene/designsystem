@@ -40,7 +40,9 @@ export const CommentComponent = ({
           icon={rating === 'positive' ? ThumbupFilled : ThumbdownFilled}
           color={ddsBaseTokens.colors.DdsColorInteractiveBase}
         />
-        <Paragraph>Takk for tilbakemeldingen!</Paragraph>
+        <Paragraph>
+          Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen
+        </Paragraph>
       </IconLabelSpan>
       <TextArea
         value={feedbackText}
@@ -50,7 +52,7 @@ export const CommentComponent = ({
         label={
           rating === 'positive' ? positiveFeedbackLabel : negativeFeedbackLabel
         }
-        tip="Ikke send inn sensitive eller personlige opplysninger"
+        tip="Ikke send inn personopplysninger eller annen sensitiv informasjon"
       />
 
       <Button
