@@ -10,8 +10,6 @@ export const FlexContainer = styled.div<FlexContainerProps>`
   display: flex;
   ${({ flexDirection }) => css`
     flex-direction: ${flexDirection};
-    gap: ${flexDirection === 'row'
-      ? ddsBaseTokens.spacing.SizesDdsSpacingLocalX05
-      : ddsBaseTokens.spacing.SizesDdsSpacingLocalX1};
+    gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX1};
   `};
 `;

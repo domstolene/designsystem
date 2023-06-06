@@ -50,7 +50,7 @@ export const CommentComponent = ({
         label={
           rating === 'positive' ? positiveFeedbackLabel : negativeFeedbackLabel
         }
-        tip="Ikke send inn sensitive eller personlige opplysninger"
+        tip="Ikke send inn personopplysninger eller annen sensitiv informasjon"
       />
 
       <Button
