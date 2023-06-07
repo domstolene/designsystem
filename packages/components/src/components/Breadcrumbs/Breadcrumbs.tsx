@@ -16,6 +16,7 @@ const List = styled.ol`
   align-items: center;
   gap: ${list.gap};
 `;
+List.displayName = 'List';
 
 const ListItem = styled.li`
   align-items: center;
@@ -23,6 +24,7 @@ const ListItem = styled.li`
   gap: ${listItem.gap};
   ${getFontStyling(typographyType)}
 `;
+ListItem.displayName = 'ListItem';
 
 const StyledIcon = styled(Icon)`
   color: ${icon.color};
@@ -56,3 +58,5 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     );
   }
 );
+
+Breadcrumbs.displayName = 'Breadcrumbs';

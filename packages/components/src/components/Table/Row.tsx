@@ -17,3 +17,5 @@ export const Row = forwardRef<HTMLTableRowElement, TableRowProps>(
     );
   }
 );
+
+Row.displayName = 'Table.Row';

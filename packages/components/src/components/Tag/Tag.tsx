@@ -59,3 +59,5 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
     </Wrapper>
   );
 });
+
+Tag.displayName = 'Tag';

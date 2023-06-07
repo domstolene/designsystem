@@ -144,3 +144,5 @@ export const CardAccordionBody = forwardRef<
     </Body>
   );
 });
+
+CardAccordionBody.displayName = 'CardAccordionBody';

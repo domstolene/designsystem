@@ -139,3 +139,5 @@ export const SearchSuggestions = forwardRef<
     </SuggestionsContainer>
   );
 });
+
+SearchSuggestions.displayName = 'SearchSuggestions';

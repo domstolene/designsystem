@@ -26,3 +26,5 @@ export const Legend = forwardRef<HTMLLegendElement, LegendProps>(
     );
   }
 );
+
+Legend.displayName = 'Legend';

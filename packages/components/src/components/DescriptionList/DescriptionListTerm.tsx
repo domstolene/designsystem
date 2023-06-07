@@ -16,3 +16,5 @@ export const DescriptionListTerm = forwardRef<
 
   return <DListTerm {...dListTermProps}>{children}</DListTerm>;
 });
+
+DescriptionListTerm.displayName = 'DescriptionListTerm';

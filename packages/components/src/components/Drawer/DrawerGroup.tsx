@@ -66,3 +66,5 @@ export const DrawerGroup = ({
   });
   return <> {Children} </>;
 };
+
+DrawerGroup.displayName = 'DrawerGroup';

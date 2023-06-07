@@ -37,3 +37,5 @@ export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
     );
   }
 );
+
+ModalBody.displayName = 'ModalBody';

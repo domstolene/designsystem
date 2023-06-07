@@ -110,3 +110,5 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
     );
   }
 );
+
+SkipToContent.displayName = 'SkipToContent';

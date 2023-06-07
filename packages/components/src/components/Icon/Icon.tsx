@@ -55,3 +55,5 @@ export function Icon(props: IconProps) {
     'aria-hidden': ariaHidden,
   });
 }
+
+Icon.displayName = 'Icon';

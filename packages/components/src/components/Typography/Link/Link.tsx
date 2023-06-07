@@ -62,3 +62,5 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
 
   return <StyledLink {...linkProps}>{children}</StyledLink>;
 });
+
+Link.displayName = 'Link';

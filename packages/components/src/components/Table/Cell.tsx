@@ -102,3 +102,5 @@ export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
     );
   }
 );
+
+Cell.displayName = 'Table.Cell';

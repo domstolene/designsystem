@@ -52,3 +52,5 @@ export const TableWrapper = ({ children, ...rest }: TableWrapperProps) => {
 
   return <Wrapper {...wrapperProps}>{children}</Wrapper>;
 };
+
+TableWrapper.displayName = 'Table.Wrapper';

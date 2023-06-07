@@ -18,3 +18,5 @@ export const Head = forwardRef<HTMLTableSectionElement, TableHeadProps>(
     );
   }
 );
+
+Head.displayName = 'Table.Head';

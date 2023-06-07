@@ -92,3 +92,5 @@ export const Grid = (props: GridProps) => {
     </GridContext.Provider>
   );
 };
+
+Grid.displayName = 'Grid';

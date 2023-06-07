@@ -104,6 +104,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
   });
 
   (Res as ProgressTrackerComponent).Item = ProgressTrackerItem;
+  (Res as ProgressTrackerComponent).displayName = 'ProgressTracker';
   return Res as ProgressTrackerComponent;
 })();
 

@@ -36,3 +36,5 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
     </Typography>
   );
 });
+
+Label.displayName = 'Label';

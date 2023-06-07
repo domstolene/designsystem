@@ -96,3 +96,5 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     </OuterGroupContainer>
   );
 };
+
+CheckboxGroup.displayName = 'CheckboxGroup';

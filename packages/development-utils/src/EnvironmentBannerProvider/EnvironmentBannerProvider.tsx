@@ -88,3 +88,5 @@ export const EnvironmentBannerProvider = ({
     </AppWrapper>
   );
 };
+
+EnvironmentBannerProvider.displayName = 'EnvironmentBannerProvider';

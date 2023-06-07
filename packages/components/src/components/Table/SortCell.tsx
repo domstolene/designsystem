@@ -68,3 +68,5 @@ export const SortCell = forwardRef<HTMLTableCellElement, TableSortCellProps>(
     </Cell>
   )
 );
+
+SortCell.displayName = 'Table.SortCell';

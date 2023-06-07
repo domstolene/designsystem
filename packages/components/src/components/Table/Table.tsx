@@ -75,3 +75,5 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
     return <StyledTable {...tableProps}>{children}</StyledTable>;
   }
 );
+
+Table.displayName = 'Table';

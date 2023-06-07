@@ -155,3 +155,5 @@ export const SearchAutocompleteWrapper = (
     </AutocompleteSearchContext.Provider>
   );
 };
+
+SearchAutocompleteWrapper.displayName = 'SearchAutocompleteWrapper';

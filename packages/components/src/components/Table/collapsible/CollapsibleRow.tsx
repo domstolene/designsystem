@@ -183,3 +183,5 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
     );
   }
 );
+
+CollapsibleRow.displayName = 'CollapsibleTable.Row';

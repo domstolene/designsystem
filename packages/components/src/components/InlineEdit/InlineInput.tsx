@@ -80,3 +80,5 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
     );
   }
 );
+
+InlineInput.displayName = 'InlineInput';

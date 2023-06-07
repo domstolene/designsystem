@@ -326,3 +326,6 @@ const SelectInner = <
 };
 
 export const Select = React.forwardRef(SelectInner) as typeof SelectInner;
+
+// @ts-expect-error TODO fix Select type
+Select.displayName = 'Select';

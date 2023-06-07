@@ -41,3 +41,5 @@ export function EmptyContent({ title, message, ...rest }: EmptyContentProps) {
     </StyledEmptyContent>
   );
 }
+
+EmptyContent.displayName = 'EmptyContent';

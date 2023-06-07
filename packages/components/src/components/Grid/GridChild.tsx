@@ -76,3 +76,5 @@ export const GridChild = (props: GridChildProps) => {
     </StyledGridChild>
   );
 };
+
+GridChild.displayName = 'GridChild';

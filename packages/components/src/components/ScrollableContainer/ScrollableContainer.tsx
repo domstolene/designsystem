@@ -71,3 +71,5 @@ export const ScrollableContainer = (props: ScrollableContainerProps) => {
     </StyledScrollableContainer>
   );
 };
+
+ScrollableContainer.displayName = 'ScrollableContainer';

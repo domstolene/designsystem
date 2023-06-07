@@ -91,3 +91,5 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
     );
   }
 );
+
+ToggleRadio.displayName = 'ToggleRadio';

@@ -121,3 +121,5 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     ) : null;
   }
 );
+
+GlobalMessage.displayName = 'GlobalMessage';

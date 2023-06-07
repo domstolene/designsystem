@@ -53,3 +53,5 @@ export const DescriptionListGroup = forwardRef<
 
   return <DListGroup {...dListGroupProps}>{children}</DListGroup>;
 });
+
+DescriptionListGroup.displayName = 'DescriptionListGroup';

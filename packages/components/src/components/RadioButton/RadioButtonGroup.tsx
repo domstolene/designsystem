@@ -147,3 +147,6 @@ export const RadioButtonGroup = forwardRef(RadioButtonGroupInner) as <
 >(
   props: RadioButtonGroupProps<T> & { ref?: Ref<HTMLDivElement> }
 ) => ReactElement;
+
+// @ts-expect-error TODO fix RadioButtonGroup type
+RadioButtonGroup.displayName = 'RadioButtonGroup';

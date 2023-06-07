@@ -64,3 +64,5 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
     </Container>
   ) : null;
 });
+
+Chip.displayName = 'Chip';

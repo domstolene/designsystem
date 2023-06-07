@@ -75,3 +75,5 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
     </Container>
   );
 };
+
+ToggleButtonGroup.displayName = 'ToggleButtonGroup';

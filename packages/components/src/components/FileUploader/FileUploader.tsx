@@ -171,3 +171,5 @@ export const FileUploader = (props: FileUploaderProps) => {
     </Wrapper>
   );
 };
+
+FileUploader.displayName = 'FileUploader';

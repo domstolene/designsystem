@@ -117,3 +117,5 @@ export function Spinner(props: SpinnerProps) {
     </StyledSpinner>
   );
 }
+
+Spinner.displayName = 'Spinner';

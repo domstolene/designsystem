@@ -72,3 +72,5 @@ export const OverflowMenuGroup = ({
 
   return <>{Children}</>;
 };
+
+OverflowMenuGroup.displayName = 'OverflowMenuGroup';
