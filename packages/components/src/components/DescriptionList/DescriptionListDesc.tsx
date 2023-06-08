@@ -39,3 +39,5 @@ export const DescriptionListDesc = forwardRef<
     </DListDesc>
   );
 });
+
+DescriptionListDesc.displayName = 'DescriptionListDesc';

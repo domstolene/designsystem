@@ -147,3 +147,5 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
     </Parent>
   );
 };
+
+SectionGenerator.displayName = 'SectionGenerator';

@@ -36,3 +36,5 @@ export const Divider = forwardRef<HTMLHRElement, DividerProps>((props, ref) => {
 
   return <StyledDivider ref={ref} {...lineProps} />;
 });
+
+Divider.displayName = 'Divider';

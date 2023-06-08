@@ -48,3 +48,5 @@ export const VisuallyHidden = (props: VisuallyHiddenProps) => {
     </Wrapper>
   );
 };
+
+VisuallyHidden.displayName = 'VisuallyHidden';

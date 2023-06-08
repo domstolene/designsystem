@@ -222,3 +222,5 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     );
   }
 );
+
+OverflowMenu.displayName = 'OverflowMenu';

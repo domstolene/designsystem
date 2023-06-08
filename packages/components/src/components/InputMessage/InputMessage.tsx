@@ -71,3 +71,5 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
     );
   }
 );
+
+InputMessage.displayName = 'InputMessage';

@@ -213,3 +213,5 @@ export const OverflowMenuItem = forwardRef<
     </Link>
   );
 });
+
+OverflowMenuItem.displayName = 'OverflowMenuItem';

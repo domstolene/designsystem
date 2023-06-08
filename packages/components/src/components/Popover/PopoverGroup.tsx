@@ -82,3 +82,5 @@ export const PopoverGroup = ({
 
   return <>{Children}</>;
 };
+
+PopoverGroup.displayName = 'PopoverGroup';

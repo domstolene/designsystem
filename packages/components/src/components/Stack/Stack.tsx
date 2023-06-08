@@ -69,6 +69,8 @@ export const HStack = forwardRef<HTMLDivElement, StackProps>(
   )
 );
 
+HStack.displayName = 'HStack';
+
 export const VStack = forwardRef<HTMLDivElement, StackProps>(
   ({ id, className, htmlProps, ...rest }, ref) => (
     <Stack
@@ -78,3 +80,5 @@ export const VStack = forwardRef<HTMLDivElement, StackProps>(
     />
   )
 );
+
+VStack.displayName = 'VStack';

@@ -88,3 +88,5 @@ export const ToggleBar = <T extends string | number = string>(
     </ToggleBarContext.Provider>
   );
 };
+
+ToggleBar.displayName = 'ToggleBar';

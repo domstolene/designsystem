@@ -99,3 +99,5 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
     );
   }
 );
+
+ToggleButton.displayName = 'ToggleButton';

@@ -18,3 +18,5 @@ export const Foot = forwardRef<HTMLTableSectionElement, TableFootProps>(
     );
   }
 );
+
+Foot.displayName = 'Table.Foot';

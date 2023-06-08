@@ -175,3 +175,5 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
     );
   }
 );
+
+LocalMessage.displayName = 'LocalMessage';

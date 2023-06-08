@@ -134,3 +134,5 @@ export const Card = (props: CardProps) => {
     </Container>
   );
 };
+
+Card.displayName = 'Card';

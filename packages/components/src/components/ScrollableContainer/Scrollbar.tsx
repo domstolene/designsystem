@@ -190,3 +190,5 @@ export const Scrollbar = (props: ScrollbarProps) => {
     </ScrollbarOuterWrapper>
   ) : null;
 };
+
+Scrollbar.displayName = 'Scrollbar';

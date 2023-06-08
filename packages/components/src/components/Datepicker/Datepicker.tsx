@@ -143,6 +143,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
     );
   }
 );
+Datepicker.displayName = 'Datepicker';
 
 const defaultWidths: {
   [k in DatepickerType]: { [k in InputSize]: Property.Width<string> };

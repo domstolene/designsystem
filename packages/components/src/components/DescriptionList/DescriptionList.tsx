@@ -80,3 +80,5 @@ export const DescriptionList = forwardRef<
 
   return <DList {...dListProps}>{children}</DList>;
 });
+
+DescriptionList.displayName = 'DescriptionList';

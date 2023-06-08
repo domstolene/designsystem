@@ -51,3 +51,5 @@ export const CollapsibleTable = forwardRef<
     </CollapsibleTableContext.Provider>
   );
 });
+
+CollapsibleTable.displayName = 'CollapsibleTable';

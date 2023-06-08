@@ -20,3 +20,5 @@ export const ModalActions = forwardRef<HTMLDivElement, ModalActionsProps>(
     return <Container {...containerProps}>{children}</Container>;
   }
 );
+
+ModalActions.displayName = 'ModalActions';

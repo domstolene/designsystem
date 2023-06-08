@@ -147,3 +147,5 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     </Grid>
   );
 };
+
+PageGenerator.displayName = 'PageGenerator';

@@ -244,3 +244,5 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     </ItemWrapper>
   );
 };
+
+ProgressTrackerItem.displayName = 'ProgressTracker.Item';

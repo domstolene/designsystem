@@ -77,3 +77,5 @@ export const InlineEdit = (props: InlineEditProps) => {
 
   return <>{inputChild}</>;
 };
+
+InlineEdit.displayName = 'InlineEdit';

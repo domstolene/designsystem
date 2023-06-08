@@ -153,3 +153,5 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
       )
     : null;
 });
+
+Modal.displayName = 'Modal';

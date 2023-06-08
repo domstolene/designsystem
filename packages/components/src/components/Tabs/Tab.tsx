@@ -167,3 +167,5 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     </Button>
   );
 });
+
+Tab.displayName = 'Tab';

@@ -157,3 +157,5 @@ export const CardAccordionHeader = forwardRef<
     </HeaderWrapperButton>
   );
 });
+
+CardAccordionHeader.displayName = 'CardAccordionHeader';

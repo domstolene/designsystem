@@ -30,3 +30,5 @@ export const BackLink = forwardRef<HTMLElement, BackLinkProps>((props, ref) => {
     </Nav>
   );
 });
+
+BackLink.displayName = 'BackLink';

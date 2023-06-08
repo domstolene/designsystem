@@ -168,3 +168,5 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     );
   }
 );
+
+Typography.displayName = 'Typography';

@@ -106,3 +106,5 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     return <TabRow {...tabListProps}>{tabListChildren}</TabRow>;
   }
 );
+
+TabList.displayName = 'TabList';

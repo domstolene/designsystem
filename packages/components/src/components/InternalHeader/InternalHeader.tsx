@@ -124,3 +124,5 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     </OuterContainer>
   );
 };
+
+InternalHeader.displayName = 'InternalHeader';
