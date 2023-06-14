@@ -1,0 +1,2 @@
+import{r as u}from"./index-c6dae603.js";const d=e=>e.key!==void 0;function w(e,s,c="column"){const[r,t]=u.useState(-1),f=c==="row"?"ArrowRight":"ArrowDown",a=c==="row"?"ArrowLeft":"ArrowUp",n=u.useCallback(o=>{!e||!d(o)||(s&&t(-1),o.key===f?(o.preventDefault(),t(r===e-1?0:r+1)):o.key===a&&(o.preventDefault(),t(r!==-1?r===0?e-1:r-1:e-1)))},[e,r,t,s]);return u.useEffect(()=>(document.addEventListener("keydown",n,!1),()=>{document.removeEventListener("keydown",n,!1)}),[n]),[r,t]}export{w as u};
+//# sourceMappingURL=useRoveFocus-01d68aa4.js.map

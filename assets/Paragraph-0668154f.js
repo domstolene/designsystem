@@ -1,0 +1,2 @@
+import{j as h}from"./focus-visible-17f12d09.js";import{r as i}from"./index-c6dae603.js";import{g as y}from"./BaseComponentProps-bb0d5515.js";import{T as c}from"./Typography-ddbe86f6.js";const f=i.forwardRef((r,a)=>{const{id:o,className:p,htmlProps:s,children:t,typographyType:e="bodySans02",...m}=r,g={...y(o,p,s,m),typographyType:e,ref:a};return h(c,{...g,children:t})});f.displayName="Paragraph";export{f as P};
+//# sourceMappingURL=Paragraph-0668154f.js.map
