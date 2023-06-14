@@ -1,0 +1,67 @@
+import { Meta } from "@storybook/addon-docs";
+import {
+  StorybookLink,
+  StorybookLinkRow,
+  Quote,
+} from "@norges-domstoler/storybook-components";
+
+<Meta title="Introduction" />
+
+<style>{`
+  .sbdocs-content {
+    max-width: 600px;
+    text-align: center;
+  }
+`}</style>
+
+# Elsa Storybook
+
+Velkommen til Elsa Storybook! Her kan du se oversikten over og interagere med demoer av alle UI komponentene som ligger i domstolenes designsystem - Elsa.
+
+Elsa Storybook kan brukes til å finne informasjon om komponentene samt testing og utvikling i isolasjon.
+Elsa Storybook er også integrert med designsystemets [**dokumentasjon**](https://design.domstol.no/) - sjekk den ut for mer info om både komponentene og Elsa.
+
+<Quote>* - begrenset tilgang</Quote>
+
+<StorybookLinkRow withSpacing>
+  <StorybookLink
+    text="dds-components"
+    href="https://www.npmjs.com/package/@norges-domstoler/dds-components"
+    linkType="npm"
+  />
+  <StorybookLink
+    text="dds-design-tokens"
+    href="https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens"
+    linkType="npm"
+  />
+  <StorybookLink
+    text="dds-formatting"
+    href="https://www.npmjs.com/package/@norges-domstoler/dds-formatting"
+    linkType="npm"
+  />
+  <StorybookLink
+    text="dds-page-generator"
+    href="https://www.npmjs.com/package/@norges-domstoler/dds-page-generator"
+    linkType="npm"
+  />
+  <StorybookLink
+    text="Dokumentasjon"
+    href="https://design.domstol.no/"
+    linkType="zeroheight"
+  />
+  <StorybookLink
+    text="Github"
+    href="https://github.com/domstolene/designsystem"
+    linkType="github"
+  />
+  <StorybookLink
+    text="Figma *"
+    href="https://www.figma.com/files/project/17499991/Designsystem?fuid=902545492424722130"
+    linkType="figma"
+  />
+  <StorybookLink
+    text="Slack *"
+    href="https://app.slack.com/client/T0L26CARG/C01HNLSPTT9"
+    linkType="slack"
+  />
+</StorybookLinkRow>

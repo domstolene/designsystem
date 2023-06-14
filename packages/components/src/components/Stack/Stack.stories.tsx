@@ -1,11 +1,10 @@
-import { ComponentMeta } from '@storybook/react';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { HStack, StackProps, VStack } from './Stack';
 
 export default {
-  title: 'Design system/Stack',
+  title: 'dds-components/Stack',
   component: VStack,
-} as ComponentMeta<typeof VStack>;
+};
 
 const ExampleElement = () => (
   <div

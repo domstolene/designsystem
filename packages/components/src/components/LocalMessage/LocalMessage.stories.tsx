@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { List, ListItem } from '../List';
 import { Typography } from '../Typography';
 import { LocalMessage, LocalMessageProps } from './LocalMessage';
 
 export default {
-  title: 'design system/LocalMessage',
+  title: 'dds-components/LocalMessage',
   component: LocalMessage,
   argTypes: {
     message: {

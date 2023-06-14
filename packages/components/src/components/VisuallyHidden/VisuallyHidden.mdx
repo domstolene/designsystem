@@ -1,0 +1,79 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as VisuallyHiddenStories from './VisuallyHidden.stories';
+
+<Meta of={VisuallyHiddenStories} />
+
+# VisuallyHidden
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/v/0/p/53c59b-visuallyhidden"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/VisuallyHidden"
+/>
+
+## Introduksjon
+
+`<VisuallyHidden />` er en code-only komponent som ikke har en tilsvarende Figma komponent. Den brukes til å gi kontekst og ekstra informasjon til brukere som benytter seg av assisterende verktøy, primært skjermlesere.
+
+## Demo
+
+<Canvas>
+  <Story of={VisuallyHiddenStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-visuallyhidden`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`import { VisuallyHidden } from '@norges-domstoler/dds-components';
+
+<VisuallyHidden as="span"> Denne teksten er usynlig. </VisuallyHidden>
+`} />
+
+## API
+
+<ArgTypes story={PRIMARY_STORY} />
+
+## Retningslinjer
+
+- Bruk komponenten til å vise supplerende informasjon når relasjoner og konteksten formidles visuelt.
+- Pass på at informasjonen lest opp ikke er unødvendig repetert.
+- Ikke bruk komponenten til å skjule interaktive elementer.
+- Ikke bruk komponenten til å midlertidig skjule innhold som kan bli synlig for seende brukere.
+- Test med en skjermleser om informasjonen og konteksten formidles til brukeren.
+
+## Eksempler
+
+### Kodete tekst i tabellheader
+
+Hvis en kolonne i en tabell inneholder kun interaktivt og visuelt selvforklarende innhold (knapper o.l.) er det ofte ikke relevant å ha en synlig tekst i headeren. Da er det relevant å inkludere en visuelt skjult tekst istedet.
+
+<Canvas>
+  {/* <Story id="dds-components-visuallyhidden--table-buttons" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-visuallyhidden--table-buttons" />
+</Canvas>
+
+### Lenketekst
+
+Lenketekst kan være selvforklarende i en visuell kontekst som for eksempel en tekstmengde. Den kan likevel være mangelfull for assisterende teknologi. Supplerende usynling lenketekst kan hjelpe med å forstå konteksten.
+
+<Canvas>
+  {/* <Story id="dds-components-visuallyhidden--link" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-visuallyhidden--link" />
+</Canvas>

@@ -5,12 +5,12 @@ import {
   GavelIcon,
   PersonIcon,
 } from '../../icons/tsx';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
 import { ProgressTracker } from '.';
 
 export default {
-  title: 'Design system/ProgressTracker',
+  title: 'dds-components/ProgressTracker',
   component: ProgressTracker,
 };
 

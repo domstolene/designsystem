@@ -1,0 +1,55 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import { Paragraph } from '.';
+import { Link } from '..';
+import * as ParagraphStories from './Paragraph.stories';
+
+<Meta of={ParagraphStories} />
+
+# Paragraph
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Paragraph"
+/>
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-typography-paragraph--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-paragraph--default" />
+</Canvas>
+
+Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Link>.
+
+## Oversikt
+
+`<Paragraph />` er en komponent som tilsvarer `<p>` HTML tag. Den brukes til avsnitt, ingress o.l. Den bruker oversikten over typografistiler definert i <Link external href="https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f">Typografi | Stiler og bruk</Link> til å gi tekst riktig styling.
+
+## Bruk i koden
+
+<Source
+  code={`import { Paragraph } from '@norges-domstoler/dds-components';
+
+<Paragraph>Paragraph</Paragraph>`} />
+
+## API
+
+<ArgTypes story={PRIMARY_STORY} />
+
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLParagraphElement>`-interface.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten.

@@ -1,8 +1,8 @@
 import { Checkbox, CheckboxGroup, CheckboxGroupProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/Checkbox/CheckboxGroup',
+  title: 'dds-components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     label: { control: { type: 'text' } },

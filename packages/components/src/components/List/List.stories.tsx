@@ -1,9 +1,9 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { List, ListItem, ListProps } from '.';
 import { Typography } from '../Typography';
 
 export default {
-  title: 'design system/List',
+  title: 'dds-components/List',
   component: List,
 };
 

@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
 import { Drawer, DrawerProps, DrawerGroup } from '.';
 import { Typography } from '../Typography';
 
 export default {
-  title: 'design system/Drawer',
+  title: 'dds-components/Drawer',
   component: Drawer,
 };
 

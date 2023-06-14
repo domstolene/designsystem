@@ -1,8 +1,8 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Search, SearchProps } from '.';
 
 export default {
-  title: 'Design system/Search',
+  title: 'dds-components/Search',
   component: Search,
   argTypes: {
     tip: { control: { type: 'text' } },

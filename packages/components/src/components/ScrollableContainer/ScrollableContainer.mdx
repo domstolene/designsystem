@@ -1,0 +1,111 @@
+import {
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+  Story,
+  Canvas,
+} from '@storybook/blocks';
+import { Scrollbar, ScrollableContainer } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as ScrollableContainerStories from './ScrollableContainer.stories';
+
+<Meta of={ScrollableContainerStories} />
+
+# ScrollableContainer
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/32db9d-scrollbar"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=7963%3A148079"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/ScrollableContainer"
+/>
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-scrollablecontainer--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-scrollablecontainer--default" />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-scrollablecontainer`}
+/>
+
+## Oversikt
+
+To subkomponenter er tilgjengelige:
+
+- `ScrollableContainer` - hovedkomponenten; en wrapper for innhold som skal scrolles. Håndterer scrolling og fokus ut av boksen.
+- `Scrollbar` - selve scrollbaren som brukes i `ScrollableContainer`. Håndterer scrolling når knyttet til elementet som skal scrolles. Kan brukes alene og håndtere plassering av scrollbaren og styling av innholdselementet selv.
+
+## Bruk i koden
+
+### Vanlig bruk
+
+<Source
+  code={`import { ScrollableContainer } from '@norges-domstoler/dds-components';
+
+<ScrollableContainer>
+  <p>lang tekst</p>
+  <p>lang tekst</p>
+</ScrollableContainer>
+
+`}
+/>
+
+### Kun med `<Scrollbar>`
+
+Ved bruk av kun `<Scrollbar/>` må man håndtere styling av containere, kobling til innholdet, plasseringen av `<Scrollbar/>` og fokus.
+
+<Source
+  code={`import { Scrollbar, focusVisible } from '@norges-domstoler/dds-components';
+  import { useRef } from 'React';
+  import styled fromf 'styled-components';
+
+const containerStyle = {
+display: 'grid',
+gridTemplate: 'auto / 1fr 20px',
+overflow: 'hidden'
+};
+
+const Content = styled.div\`
+height: 500px;
+overflow: auto;
+scrollbar-width: none;
+::-webkit-scrollbar {
+display: none;
+}
+:focus-visible {
+\${focusVisible}
+}
+\`;
+
+const contentRef = useRef();
+
+<div style={containerStyle}>
+  <Content tabIndex={0}>
+    <p>lang tekst</p>
+    <p>lang tekst</p>
+  </Content>
+  <Scrollbar />
+</div>
+`} />
+
+## API
+
+## ScrollableContainer
+
+Hovedkomponenten for scrollbar innhold.
+
+<ArgTypes story={PRIMARY_STORY} />
+
+## Scrollbar
+
+Alenestående scrollbar til mer custom bruk.
+
+<ArgTypes of={Scrollbar} />

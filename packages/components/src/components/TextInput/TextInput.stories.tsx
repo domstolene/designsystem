@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { TextInput, TextInputProps } from '.';
 import { MailIcon } from '../../icons/tsx';
 import { LocalMessage } from '../LocalMessage';
 
 export default {
-  title: 'Design system/TextInput',
+  title: 'dds-components/TextInput',
   component: TextInput,
   argTypes: {
     label: { control: { type: 'text' } },

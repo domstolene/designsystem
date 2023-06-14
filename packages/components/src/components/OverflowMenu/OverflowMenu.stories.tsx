@@ -5,12 +5,12 @@ import {
   OverflowMenuContextItem,
   OverflowMenuNavItem,
 } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
 import { MenuIcon, PlusCircledIcon } from '../../icons/tsx';
 
 export default {
-  title: 'design system/OverflowMenu',
+  title: 'dds-components/OverflowMenu',
   component: OverflowMenu,
 };
 

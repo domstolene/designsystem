@@ -1,6 +1,6 @@
 import { Link, LinkProps } from '.';
 import { Paragraph } from '../Paragraph';
-import { StoryTemplate } from '../../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { LocalMessage } from '../../LocalMessage';
 import { Table } from '../../Table';
 
@@ -9,7 +9,7 @@ type StoryTProps = {
 } & LinkProps;
 
 export default {
-  title: 'Design system/Typography/Link',
+  title: 'dds-components/Typography/Link',
   component: Link,
   argTypes: {
     typographyType: { control: { type: 'select' } },
@@ -48,7 +48,7 @@ const header = 'tekst';
 
 const link = (
   <Link
-    href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
+    href="http://localhost:6006/?path=/story/dds-components-typography-link--overview"
     external
   >
     sivile saker sivile sakersivile saker sivile saker sivile saker sivile saker
@@ -85,7 +85,7 @@ export const Examples = () => {
         ved å bruke en mekler (vanligvis en dommer i domstolen som behandler
         saken). Avtalen man kommer fram til, blir rettskraftig på lik linje med
         en dom. Rettsmekling kan bare brukes i{' '}
-        <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+        <Link href="http://localhost:6006/?path=/story/dds-components-typography-link--overview">
           sivile saker
         </Link>
         , ikke i straffesaker. Hvis konflikten ikke løses ved mekling, avgjøres
@@ -98,7 +98,7 @@ export const Examples = () => {
         </Link>
         . Litt mer tekst.{' '}
         <Link
-          href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
+          href="http://localhost:6006/?path=/story/dds-components-typography-link--overview"
           external
         >
           sivile saker sivile sakersivile saker sivile saker sivile saker sivile
@@ -116,7 +116,7 @@ export const Examples = () => {
         ved å bruke en mekler (vanligvis en dommer i domstolen som behandler
         saken). Avtalen man kommer fram til, blir rettskraftig på lik linje med
         en dom. Rettsmekling kan bare brukes i{' '}
-        <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+        <Link href="http://localhost:6006/?path=/story/dds-components-typography-link--overview">
           sivile saker
         </Link>
         , ikke i straffesaker. Hvis konflikten ikke løses ved mekling, avgjøres
@@ -129,7 +129,7 @@ export const Examples = () => {
         </Link>
         . Litt mer tekst.{' '}
         <Link
-          href="http://localhost:6006/?path=/story/design-system-typography-link--overview"
+          href="http://localhost:6006/?path=/story/dds-components-typography-link--overview"
           external
         >
           sivile saker sivile sakersivile saker sivile saker sivile saker sivile
@@ -145,7 +145,7 @@ export const Examples = () => {
       <LocalMessage>
         <Paragraph>
           Dette er tekst med{' '}
-          <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+          <Link href="http://localhost:6006/?path=/story/dds-components-typography-link--overview">
             lenke
           </Link>
           .
@@ -154,7 +154,7 @@ export const Examples = () => {
       <LocalMessage purpose="danger">
         <Paragraph>
           Dette er tekst med{' '}
-          <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+          <Link href="http://localhost:6006/?path=/story/dds-components-typography-link--overview">
             lenke
           </Link>
           .
@@ -163,7 +163,7 @@ export const Examples = () => {
       <LocalMessage purpose="success">
         <Paragraph>
           Dette er tekst med{' '}
-          <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+          <Link href="http://localhost:6006/?path=/story/dds-components-typography-link--overview">
             lenke
           </Link>
           .
@@ -172,7 +172,7 @@ export const Examples = () => {
       <LocalMessage purpose="tips">
         <Paragraph>
           Dette er tekst med{' '}
-          <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+          <Link href="http://localhost:6006/?path=/story/dds-components-typography-link--overview">
             lenke
           </Link>
           .
@@ -181,7 +181,7 @@ export const Examples = () => {
       <LocalMessage purpose="warning">
         <Paragraph>
           Dette er tekst med{' '}
-          <Link href="http://localhost:6006/?path=/story/design-system-typography-link--overview">
+          <Link href="http://localhost:6006/?path=/story/dds-components-typography-link--overview">
             lenke
           </Link>
           .

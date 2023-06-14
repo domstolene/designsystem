@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Icon, IconProps } from '.';
 import { Typography } from '../Typography';
 import { OpenExternalIcon as OpenExternal } from '../../icons/tsx';
 
 export default {
-  title: 'Design system/Icon',
+  title: 'dds-components/Icon',
   component: Icon,
   argTypes: {
     color: { control: { type: 'text' } },

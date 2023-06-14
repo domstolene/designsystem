@@ -1,8 +1,8 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { ToggleButton, ToggleButtonGroup, ToggleButtonGroupProps } from '.';
 
 export default {
-  title: 'Design system/ToggleButton/ToggleButtonGroup',
+  title: 'dds-components/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup,
 };
 

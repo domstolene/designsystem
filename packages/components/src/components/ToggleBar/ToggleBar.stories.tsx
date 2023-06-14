@@ -1,11 +1,11 @@
-import { SB_DESIGNSYSTEM_PREFIX, StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { ToggleBar, ToggleRadio } from '.';
 import { ToggleBarProps } from './ToggleBar.types';
 import { PlusCircledIcon } from '../../icons/tsx';
 import { useState } from 'react';
 
 export default {
-  title: `${SB_DESIGNSYSTEM_PREFIX}/ToggleBar`,
+  title: 'dds-components/ToggleBar',
   component: ToggleBar,
   argTypes: {
     label: { control: { type: 'text' } },

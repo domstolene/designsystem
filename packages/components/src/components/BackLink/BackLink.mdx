@@ -1,0 +1,41 @@
+import { Canvas, Story, Meta, ArgTypes } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as BackLinkStories from './BackLink.stories';
+
+<Meta of={BackLinkStories} />
+
+# BackLink
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/72c4bc-backlink"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=12825-221439&t=H2ZVa4PDdz4UMfma-0"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/packages/components/src/components/Breadcrumbs/BackLink"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={BackLinkStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-backbutton`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { BackLink } from '@norges-domstoler/dds-components'
+
+<BackLink label="Forrige nivå" href="https://domstol.no/" />
+`} />
+
+## API
+
+<ArgTypes of={BackLinkStories.Default} />

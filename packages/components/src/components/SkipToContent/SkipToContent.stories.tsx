@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { SkipToContent, SkipToContentProps } from '.';
 import { Typography } from '../Typography';
@@ -6,7 +6,7 @@ import { Typography } from '../Typography';
 const { colors: Colors } = ddsBaseTokens;
 
 export default {
-  title: 'Design system/SkipToContent',
+  title: 'dds-components/SkipToContent',
   component: SkipToContent,
   argTypes: {
     text: { control: { type: 'text' } },

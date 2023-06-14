@@ -23,7 +23,6 @@
   },
   "homepage": "https://design.domstol.no",
   "scripts": {
-    "clean": "rm -r dist || :",
     "build": "vite build",
     "dev": "vite build --watch",
     "lint": "eslint --ext=jsx,ts,tsx src",
@@ -31,7 +30,6 @@
     "test:watch": "vitest watch",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "build:clean": "npm run clean && npm run build",
     "verify:types": "tsc --noEmit",
     "verify:lint": "npm run lint",
     "verify:prettier": "npm run prettier:check",

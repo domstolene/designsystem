@@ -1,0 +1,55 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import { Label } from '.';
+import { Link } from '..';
+import * as LabelStories from './Label.stories';
+
+<Meta of={LabelStories} />
+
+# Label
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Label"
+/>
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-typography-label--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-typography-label--default" />
+</Canvas>
+
+Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Link>.
+
+## Oversikt
+
+`<Label />` er en komponent som tilsvarer `<label>` HTML tag.
+
+## Bruk i koden
+
+<Source
+  code={`import { Label } from '@norges-domstoler/dds-components';
+
+<Label>Label</Label>`} />
+
+## API
+
+<ArgTypes story={PRIMARY_STORY} />
+
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLLabelElement>`-interface.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten. `htmlFor` støttes på toppnivå.

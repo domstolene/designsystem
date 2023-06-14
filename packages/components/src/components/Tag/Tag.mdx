@@ -1,0 +1,50 @@
+import {
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+  Canvas,
+  Story,
+} from '@storybook/blocks';
+import { Tag } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as TagStories from './Tag.stories';
+
+<Meta of={TagStories} />
+
+# Tag
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/19eec4-tag"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7766%3A151028"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Tag"
+/>
+
+## Demo
+
+<Canvas>
+  {/* <Story id="dds-components-tag--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+
+  <Story id="dds-components-tag--default" />
+</Canvas>
+
+<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-tag`} />
+
+## Bruk i koden
+
+<Source
+  code={`
+  import { Tag } from '@norges-domstoler/dds-components';
+
+<Tag text="status" />
+`} />
+
+## API
+
+<ArgTypes of={PRIMARY_STORY} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSpanElement>`-interface i `htmlProps`.

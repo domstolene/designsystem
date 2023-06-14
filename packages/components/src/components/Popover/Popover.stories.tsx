@@ -1,6 +1,6 @@
 import { Popover, PopoverProps, PopoverGroup } from '.';
 import { Button } from '../Button';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Placement } from '../../hooks';
 import { Typography } from '../Typography';
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ import {
 import { removeButtonStyling } from '../../helpers/styling';
 
 export default {
-  title: 'design system/Popover',
+  title: 'dds-components/Popover',
   component: Popover,
   argTypes: {
     withCloseButton: { control: { type: 'boolean' } },

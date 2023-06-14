@@ -9,7 +9,7 @@ import {
   CardProps,
   ExpandableCardProps,
 } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -19,7 +19,7 @@ import { Divider } from '../Divider';
 import { Typography } from '../Typography';
 
 export default {
-  title: 'Design system/Card',
+  title: 'dds-components/Card',
   component: Card,
 };
 

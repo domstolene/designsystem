@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Icon } from '../components/Icon';
 import { Typography } from '../components/Typography';
-import { StoryTemplate } from '../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { useEffect, useState } from 'react';
 import { Modal, ModalBody } from '../components/Modal';

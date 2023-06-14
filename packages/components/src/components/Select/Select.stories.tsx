@@ -1,10 +1,10 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import { createSelectOptions, Select, SelectOption, SelectProps } from '.';
 import { CourtIcon } from '../../icons/tsx';
 
 export default {
-  title: 'design system/Select/SingleValue',
+  title: 'dds-components/Select/SingleValue',
   component: Select,
   argTypes: {
     label: { control: { type: 'text' } },

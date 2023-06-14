@@ -1,0 +1,51 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+} from '@norges-domstoler/storybook-components';
+import { Link } from '..';
+import * as CaptionStories from './Caption.stories';
+
+<Meta of={CaptionStories} />
+
+# Caption
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Typography/Caption"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={CaptionStories.Default} />
+</Canvas>
+
+Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Link>.
+
+## Oversikt
+
+`<Caption />` er en komponent som tilsvarer `<caption>` HTML tag - tittel for en tabell.
+
+## Bruk i koden
+
+<Source
+  code={`import { Caption } from '@norges-domstoler/dds-components';
+
+<Caption>Caption</Caption>`} />
+
+## API
+
+<ArgTypes story={PRIMARY_STORY} />
+
+I tillegg støttes native HTML-attributter som er en del av
+`HTMLAttributes<HTMLTableCaptionElement>`-interface.
+`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
+sammen av komponenten.

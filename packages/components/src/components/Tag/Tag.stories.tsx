@@ -1,8 +1,8 @@
 import { Tag, TagProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'design system/Tag',
+  title: 'dds-components/Tag',
   component: Tag,
   argTypes: {
     text: { control: 'text' },

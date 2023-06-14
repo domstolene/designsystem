@@ -1,0 +1,63 @@
+import { Story, Canvas, Meta, ArgTypes } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as DatepickerStories from './Datepicker.stories';
+
+<Meta of={DatepickerStories} />
+
+# Datepicker
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/73c4d3-datepicker/b/369590"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
+  githubHref="https://github.com/domstolene/designsystem/tree/master/components/src/components/Datepicker"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={DatepickerStories.Default} />
+</Canvas>
+
+<Canvas>
+  <Story of={DatepickerStories.WithLabel} />
+</Canvas>
+
+<Canvas>
+  <Story of={DatepickerStories.Datetime} />
+</Canvas>
+
+<Canvas>
+  <Story of={DatepickerStories.DatetimeWithLabel} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-datepicker`}
+/>
+
+## Oversikt
+
+Datepicker er i utgangspunktet en styled `<input type='date' />` eller `<input type='datetime-local' />`. Placeholder, kalender popup og ikon følger nettleser default. Disse skal bli custom i en senere versjon.
+
+## Bruk i koden
+
+<Source
+  code={`
+  import {Datepicker} from '@norges-domstoler/dds-components';
+
+<Datepicker label="Dato" />
+`} />
+
+## API
+
+<ArgTypes of={DatepickerStories} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
+
+## Retningslinjer
+
+- Det er flere forskjeller mellom nettlesere for `<input type='date' />` og `<input type='datetime-local' />`, der Firefox skiller seg ut mest. I tillegg mangler det støtte for `type='month'` og `type='week'` i både Firefox og Safari. Test dermed i alle nettlesere at alt funker slik det skal.

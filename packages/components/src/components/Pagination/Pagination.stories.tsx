@@ -1,8 +1,8 @@
 import { Pagination, PaginationProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/Pagination',
+  title: 'dds-components/Pagination',
   component: Pagination,
   argTypes: {
     withCounter: { control: 'boolean' },

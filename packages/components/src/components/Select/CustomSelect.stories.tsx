@@ -1,11 +1,11 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import React from 'react';
 import styled from 'styled-components';
 import { createSelectOptions, Select, SelectOption, SelectProps } from '.';
 
 export default {
-  title: 'design system/Select/CustomSelect',
+  title: 'dds-components/Select/CustomSelect',
   component: Select,
   argTypes: {
     label: { control: { type: 'text' } },

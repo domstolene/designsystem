@@ -1,12 +1,11 @@
 import { VisuallyHidden, VisuallyHiddenProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Typography } from '../Typography';
-import { SB_DESIGNSYSTEM_PREFIX } from '../../storybook';
 import { Table } from '../Table';
 import { Button } from '../Button';
 
 export default {
-  title: `${SB_DESIGNSYSTEM_PREFIX}/VisuallyHidden`,
+  title: 'dds-components/VisuallyHidden',
   component: VisuallyHidden,
   argTypes: {
     as: { control: { type: 'text' } },

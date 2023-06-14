@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { FileUploader } from './FileUploader';
 
 export default {
-  title: 'Design system/FileUploader BETA',
+  title: 'dds-components/FileUploader BETA',
   component: FileUploader,
   argTypes: {
     color: { control: { type: 'text' } },

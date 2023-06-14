@@ -1,10 +1,10 @@
 import { CourtIcon } from '../../icons/tsx';
-import { StoryTemplate } from '../../storybook/StoryTemplate';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import { Select as DDSSelect, SelectProps } from './Select';
 
 export default {
-  title: 'design system/Select/MultiSelect',
+  title: 'dds-components/Select/MultiSelect',
   component: DDSSelect,
   argTypes: {
     label: { control: { type: 'text' } },

@@ -1,4 +1,4 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Table } from '../Table';
 import { useState } from 'react';
 import { InlineEditTextArea } from './InlineEditTextArea';
@@ -6,7 +6,7 @@ import { InlineEditTextArea } from './InlineEditTextArea';
 import { InlineEditTextAreaProps } from './InlineEdit.types';
 
 export default {
-  title: 'Design system/InlineEdit/InlineEditTextArea',
+  title: 'dds-components/InlineEdit/InlineEditTextArea',
   component: InlineEditTextArea,
   argTypes: {
     emptiable: { control: { type: 'boolean' } },

@@ -1,9 +1,9 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Divider, DividerProps } from '.';
 import { Typography } from '../Typography';
 
 export default {
-  title: 'design system/Divider',
+  title: 'dds-components/Divider',
   component: Divider,
   argTypes: {},
 };

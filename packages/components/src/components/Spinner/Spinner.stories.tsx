@@ -1,9 +1,9 @@
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Spinner, SpinnerProps } from '.';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 export default {
-  title: 'Design system/Spinner',
+  title: 'dds-components/Spinner',
   component: Spinner,
   argTypes: {
     color: { control: { type: 'text' } },

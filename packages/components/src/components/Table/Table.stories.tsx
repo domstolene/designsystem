@@ -9,12 +9,12 @@ import {
   headerCells,
   mapCellContents,
 } from './tableData';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Icon } from '../Icon';
 import { PersonIcon, TrashIcon } from '../../icons/tsx';
 
 export default {
-  title: 'design system/Table/Table',
+  title: 'dds-components/Table/Table',
   component: Table,
   argTypes: {
     stickyHeader: {

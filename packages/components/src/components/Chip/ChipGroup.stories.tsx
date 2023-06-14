@@ -1,8 +1,8 @@
 import { Chip, ChipGroup, ChipGroupProps } from '.';
-import { StoryTemplate } from '../../storybook';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'Design system/Chip/ChipGroup',
+  title: 'dds-components/Chip/ChipGroup',
   component: ChipGroup,
 };
 
