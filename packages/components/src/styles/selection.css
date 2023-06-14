@@ -1,4 +1,4 @@
-@import '~@norges-domstoler/dds-design-tokens/dist/css/colors.css';
+@import '@norges-domstoler/dds-design-tokens/dist/css/colors.css';
 
 *::selection {
   background-color: var(--dds-color-tertiary-lightest);
