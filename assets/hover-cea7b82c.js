@@ -1,2 +1,0 @@
-import{d as e}from"./focus-visible-17f12d09.js";const{border:o,colors:r}=e,s={borderColor:o.BordersDdsBorderFocusInputfieldStroke,boxShadow:`inset 0 0 0 1px ${o.BordersDdsBorderFocusInputfieldStroke}`},t={borderColor:o.BordersDdsBorderFocusInputfieldStroke,boxShadow:`0 0 0 1px ${o.BordersDdsBorderFocusInputfieldStroke}`},n={borderColor:r.DdsColorDangerBase,boxShadow:`0 0 0 1px ${r.DdsColorDangerBase}`};export{t as a,n as b,s as h};
-//# sourceMappingURL=hover-cea7b82c.js.map

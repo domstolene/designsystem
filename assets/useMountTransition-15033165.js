@@ -1,0 +1,2 @@
+import{r as n}from"./index-ebeaab24.js";function i(t){return t&&t.current?t.current.querySelectorAll('a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'):[]}const u=(t,r)=>{const[e,s]=n.useState(!1);return n.useEffect(()=>{let a;return t&&!e?s(!0):!t&&e&&(a=setTimeout(()=>s(!1),r)),()=>{clearTimeout(a)}},[r,t,e]),e};export{i as g,u};
+//# sourceMappingURL=useMountTransition-15033165.js.map
