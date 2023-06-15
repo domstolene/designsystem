@@ -1,4 +1,0 @@
-import{j as r}from"./focus-visible-17f12d09.js";import{R as i}from"./storybook-components-54c9cf1b.js";import{C as a}from"./Chip-2d8c48c2.js";const l={title:"dds-components/Chip/Chip",component:a,argTypes:{text:{control:{type:"text"}}}},t=e=>r(i,{title:"Chip - default",children:r(a,{...e,text:e.text||"Chip"})});var o,p,s;t.parameters={...t.parameters,docs:{...(o=t.parameters)==null?void 0:o.docs,source:{originalSource:`(args: ChipProps) => <StoryTemplate title="Chip - default">
-    <Chip {...args} text={args.text || 'Chip'} />
-  </StoryTemplate>`,...(s=(p=t.parameters)==null?void 0:p.docs)==null?void 0:s.source}}};const c=["Default"],C=Object.freeze(Object.defineProperty({__proto__:null,Default:t,__namedExportsOrder:c,default:l},Symbol.toStringTag,{value:"Module"}));export{C,t as D};
-//# sourceMappingURL=Chip.stories-3dfaa8fd.js.map
