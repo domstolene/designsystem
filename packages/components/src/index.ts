@@ -48,4 +48,3 @@ export * from './types/BaseComponentProps';
 export * from './helpers/ScreenSize';
 export * from './components/EmptyContent';
 export * from './components/BackLink';
-export * from './components/Feedback';
