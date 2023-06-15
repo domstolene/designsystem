@@ -6,7 +6,7 @@ import { CommentComponent } from './CommentComponent';
 
 export const Feedback = ({
   layout = 'vertical',
-  ratingLabel = 'Hva syns du om tjenesten?',
+  ratingLabel,
   positiveFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
   negativeFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
   ratingValue: ratingProp,
@@ -82,9 +82,5 @@ export const Feedback = ({
     );
   }
 
-  return (
-    <Paragraph>
-      Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen
-    </Paragraph>
-  );
+  return <Paragraph>Takk for tilbakemeldingen!</Paragraph>;
 };

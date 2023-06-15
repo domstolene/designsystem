@@ -14,14 +14,13 @@ type RatingContainerProps = {
 
 const RatingContainer = styled.div<RatingContainerProps>`
   display: flex;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX1};
+  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
   ${({ layout }) => css`
     flex-direction: ${layout === 'horizontal' ? 'row' : 'column'};
-    align-items: center;
+    align-items: ${layout === 'horizontal' ? 'center' : 'start'};
   `}
 `;
-
-const RatingButton = styled(Button)`
+export const RatingButton = styled(Button)`
   padding: 0px;
   color: ${ddsBaseTokens.colors.DdsColorNeutralsGray7};
 `;
@@ -56,7 +55,6 @@ export const RatingComponent = ({
               icon={Thumbup}
               appearance="borderless"
               onClick={() => handleRatingChange('positive')}
-              size="large"
             />
           </Tooltip>
           <Tooltip text={thumbDownTooltip}>
@@ -66,7 +64,6 @@ export const RatingComponent = ({
                 icon={Thumbdown}
                 appearance="borderless"
                 onClick={() => handleRatingChange('negative')}
-                size="large"
               />
             </div>
           </Tooltip>

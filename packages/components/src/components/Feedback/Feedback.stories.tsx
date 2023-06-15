@@ -64,7 +64,7 @@ export const Default = (args: FeedbackProps) => {
     <StoryTemplate title="Feedback - Default">
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -78,7 +78,7 @@ export const HorizontalLayout = (args: FeedbackProps) => {
     <StoryTemplate title="Feedback - Horizontal Layout">
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -93,7 +93,7 @@ export const WithoutTextArea = (args: FeedbackProps) => {
     <StoryTemplate title="Feedback - Without Text Area">
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -142,7 +142,7 @@ export const CustomButtonTooltips = (args: FeedbackProps) => {
     <StoryTemplate title="Feedback - Custom Button Tooltips">
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -158,7 +158,7 @@ export const LoadingState = (args: FeedbackProps) => {
     <StoryTemplate title="Feedback - Loading">
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -167,7 +167,7 @@ export const LoadingState = (args: FeedbackProps) => {
       <hr style={{ width: '100%' }} />
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -187,7 +187,7 @@ export const ControlledComponent = (args: FeedbackProps) => {
       Kontrollert rating:
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -195,7 +195,7 @@ export const ControlledComponent = (args: FeedbackProps) => {
       />
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -203,7 +203,7 @@ export const ControlledComponent = (args: FeedbackProps) => {
       />
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -213,7 +213,7 @@ export const ControlledComponent = (args: FeedbackProps) => {
       Kontrollert tekstfelt:
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
@@ -224,7 +224,7 @@ export const ControlledComponent = (args: FeedbackProps) => {
       Kontrollert at tilbakemelding er sendt inn:
       <Feedback
         {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
+        ratingLabel={args.ratingLabel ?? 'Hvordan opplevdes innsendingen?'}
         onSubmit={undefined}
         onRating={undefined}
         onFeedbackTextChange={undefined}
