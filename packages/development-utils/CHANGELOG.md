@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.0.4
+
+### Patch Changes
+
+- e9de7b1e: Legger til `displayName` på alle komponenter. Dette skal gjøre feilmeldinger knyttet til Elsa-komponenter lettere å lese.
+
 ## 1.0.3
 
 ### Patch Changes
