@@ -77,8 +77,8 @@
     "vitest": "^0.32.0"
   },
   "dependencies": {
-    "@norges-domstoler/dds-components": "^13.4.0",
-    "@norges-domstoler/dds-design-tokens": "^3.0.1"
+    "@norges-domstoler/dds-components": "*",
+    "@norges-domstoler/dds-design-tokens": "*"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",
