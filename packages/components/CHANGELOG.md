@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 13.5.0
+
+### Minor Changes
+
+- 96b76033: Legger til nye ikoner
+
+  - AgreementIcon
+  - CaringIcon
+  - PayoutIcon
+
+### Patch Changes
+
+- 9fd004bd: Oppdater dependencies
+
 ## 13.4.0
 
 ### Minor Changes
