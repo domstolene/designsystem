@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-page-generator",
-  "version": "2.2.5",
+  "version": "2.3.0",
   "description": "Page Generator used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
@@ -77,7 +77,7 @@
     "vitest": "^0.29.1"
   },
   "dependencies": {
-    "@norges-domstoler/dds-components": "^13.0.0",
+    "@norges-domstoler/dds-components": "^13.4.0",
     "@norges-domstoler/dds-design-tokens": "^3.0.1"
   },
   "peerDependencies": {

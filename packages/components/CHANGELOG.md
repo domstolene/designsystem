@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 13.4.0
+
+### Minor Changes
+
+- 48090b12: Legger til ny størrelse, `medium`, til Drawer
+
+### Patch Changes
+
+- e9de7b1e: Legger til `displayName` på alle komponenter. Dette skal gjøre feilmeldinger knyttet til Elsa-komponenter lettere å lese.
+- c12ec87d: Fjern deprecated tilde-prefix i css-import i selection.css
+
 ## 13.3.0
 
 ### Minor Changes

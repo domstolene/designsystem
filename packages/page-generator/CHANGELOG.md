@@ -1,5 +1,20 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.3.0
+
+### Minor Changes
+
+- f0383c23: Legg til støtte for HStack og VStack i PageGenerator
+
+### Patch Changes
+
+- e9de7b1e: Legger til `displayName` på alle komponenter. Dette skal gjøre feilmeldinger knyttet til Elsa-komponenter lettere å lese.
+- 57652c2e: Fix(section-generator): Fjern rowType fra rest for å unngå feilmelding i konsoll-loggen
+- Updated dependencies [48090b12]
+- Updated dependencies [e9de7b1e]
+- Updated dependencies [c12ec87d]
+  - @norges-domstoler/dds-components@13.4.0
+
 ## 2.2.5
 
 ### Patch Changes
