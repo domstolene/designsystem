@@ -1,7 +1,0 @@
-import{b as u,j as t}from"./focus-visible-17f12d09.js";import{R as i}from"./storybook-components-b7b7a39c.js";import{I as r}from"./InputMessage-ec06a7ed.js";const c={title:"dds-components/InputMessage",component:r,argTypes:{message:{control:{type:"text"}}}},e=()=>u(i,{title:"InputMessage - overview",children:[t(r,{messageType:"error",message:"feilmelding"}),t(r,{messageType:"tip",message:"hjelpetekst"})]}),s=a=>t(i,{title:"InputMessage - default",children:t(r,{...a,messageType:a.messageType||"error",message:a.message||"feilmelding"})});var o,p,m;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`() => <StoryTemplate title="InputMessage - overview">
-    <InputMessage messageType="error" message="feilmelding" />
-    <InputMessage messageType="tip" message="hjelpetekst" />
-  </StoryTemplate>`,...(m=(p=e.parameters)==null?void 0:p.docs)==null?void 0:m.source}}};var g,n,l;s.parameters={...s.parameters,docs:{...(g=s.parameters)==null?void 0:g.docs,source:{originalSource:`(args: InputMessageProps) => <StoryTemplate title="InputMessage - default">
-    <InputMessage {...args} messageType={args.messageType || 'error'} message={args.message || 'feilmelding'} />
-  </StoryTemplate>`,...(l=(n=s.parameters)==null?void 0:n.docs)==null?void 0:l.source}}};const d=["Overview","Default"],T=Object.freeze(Object.defineProperty({__proto__:null,Default:s,Overview:e,__namedExportsOrder:d,default:c},Symbol.toStringTag,{value:"Module"}));export{T as I};
-//# sourceMappingURL=InputMessage.stories-4df11835.js.map
