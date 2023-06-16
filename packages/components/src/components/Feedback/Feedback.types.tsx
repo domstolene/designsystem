@@ -7,6 +7,10 @@ export type FeedbackProps = {
   positiveFeedbackLabel?: string;
   /**Label til fritekstfeltet når bruker har gitt tommel ned */
   negativeFeedbackLabel?: string;
+  /**Tittel som vises når bruker har gitt tommel opp/ned, og enda ikke sendt inn kommentar */
+  ratingSubmittedTitle?: string;
+  /**Tittel som vises når bruker har gitt feedback (inkl. eventuell kommentar) */
+  submittedTitle?: string;
   /**Om tommel opp eller ned er valgt. Brukes når komponenten skal være styrt utenfra. */
   ratingValue?: Rating | null;
   /**Verdien til fritekstfeltet. Brukes når komponenten skal være styrt utenfra. */

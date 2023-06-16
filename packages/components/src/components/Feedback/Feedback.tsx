@@ -9,6 +9,8 @@ export const Feedback = ({
   ratingLabel = 'Hva syns du om tjenesten?',
   positiveFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
   negativeFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
+  ratingSubmittedTitle = 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+  submittedTitle = 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
   ratingValue: ratingProp,
   feedbackTextValue: feedbackTextProp,
   thumbUpTooltip = 'Bra',
@@ -75,6 +77,7 @@ export const Feedback = ({
         feedbackText={feedbackText}
         positiveFeedbackLabel={positiveFeedbackLabel}
         negativeFeedbackLabel={negativeFeedbackLabel}
+        ratingSubmittedTitle={ratingSubmittedTitle}
         loading={loading}
         handleSubmit={handleSubmit}
         handleFeedbackTextChange={handleFeedbackTextChange}
@@ -82,9 +85,5 @@ export const Feedback = ({
     );
   }
 
-  return (
-    <Paragraph>
-      Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen
-    </Paragraph>
-  );
+  return <Paragraph>{submittedTitle}</Paragraph>;
 };
