@@ -17,7 +17,7 @@ const RatingContainer = styled.div<RatingContainerProps>`
   gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX1};
   ${({ layout }) => css`
     flex-direction: ${layout === 'horizontal' ? 'row' : 'column'};
-    align-items: center;
+    align-items: ${layout === 'horizontal' ? 'center' : 'start'};
   `}
 `;
 

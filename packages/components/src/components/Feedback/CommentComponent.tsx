@@ -19,6 +19,7 @@ type CommentComponentType = {
   feedbackText: string | undefined;
   positiveFeedbackLabel: string;
   negativeFeedbackLabel: string;
+  ratingSubmittedTitle: string;
   loading: boolean;
   handleSubmit: () => void;
   handleFeedbackTextChange: (newText: string) => void;
@@ -29,6 +30,7 @@ export const CommentComponent = ({
   feedbackText,
   positiveFeedbackLabel,
   negativeFeedbackLabel,
+  ratingSubmittedTitle,
   loading,
   handleSubmit,
   handleFeedbackTextChange,
@@ -40,9 +42,7 @@ export const CommentComponent = ({
           icon={rating === 'positive' ? ThumbupFilled : ThumbdownFilled}
           color={ddsBaseTokens.colors.DdsColorInteractiveBase}
         />
-        <Paragraph>
-          Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen
-        </Paragraph>
+        <Paragraph>{ratingSubmittedTitle} </Paragraph>
       </IconLabelSpan>
       <TextArea
         value={feedbackText}
