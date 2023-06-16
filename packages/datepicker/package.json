@@ -40,6 +40,7 @@
     "@norges-domstoler/dds-design-tokens": "*",
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13",
+    "@internationalized/date": "^3.2.0",
     "@norges-domstoler/storybook-components": "*",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.62.0",
@@ -58,10 +59,16 @@
     "vitest": "^0.34.6"
   },
   "peerDependencies": {
+    "@internationalized/date": "^3.2.0",
     "@norges-domstoler/dds-design-tokens": "^3",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5"
+  },
+  "dependencies": {
+    "@norges-domstoler/dds-components": "*",
+    "@react-aria/datepicker": "^3.4.1",
+    "@react-stately/datepicker": "^3.4.1"
   },
   "publishConfig": {
     "provenance": true
