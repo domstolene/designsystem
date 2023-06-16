@@ -8,7 +8,7 @@ const config: StorybookConfig = {
     "../../../packages/*/src/**/*.mdx",
   ],
   staticDirs: ["./images", "../../../packages/components/dist/assets/fonts"],
-  addons: ["@storybook/addon-docs"],
+  addons: ["@storybook/addon-essentials"],
   framework: {
     name: "@storybook/react-vite",
     options: {},
