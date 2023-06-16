@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.6.0
+
+### Minor Changes
+
+- 7f0ed07e: Oppretter komponent for å gi tilbakemeldinger
+
 ## 13.5.0
 
 ### Minor Changes
