@@ -48,6 +48,7 @@
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
+    "@internationalized/date": "^3.2.0",
     "@norges-domstoler/storybook-components": "*",
     "@swc/plugin-styled-components": "^1.5.49",
     "@types/react": "^18.0.21",
@@ -70,9 +71,15 @@
     "vitest": "^0.29.1"
   },
   "peerDependencies": {
+    "@internationalized/date": "^3.2.0",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5"
+  },
+  "dependencies": {
+    "@norges-domstoler/dds-components": "*",
+    "@react-aria/datepicker": "^3.4.1",
+    "@react-stately/datepicker": "^3.4.1"
   },
   "publishConfig": {
     "provenance": true
