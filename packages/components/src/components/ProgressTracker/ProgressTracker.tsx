@@ -8,8 +8,8 @@ import {
   ReactElement,
   ReactNode,
   useEffect,
-  useState,
   useMemo,
+  useState,
 } from 'react';
 import styled from 'styled-components';
 import {
@@ -19,6 +19,13 @@ import {
 import { ProgressTrackerContext } from './ProgressTracker.context';
 import { progressTrackerTokens } from './ProgressTracker.tokens';
 import { ProgressTrackerItem } from './ProgressTrackerItem';
+import { Typography } from '@norges-domstoler/dds-typography';
+import {
+  Card,
+  CardAccordion,
+  CardAccordionHeader,
+  CardAccordionBody,
+} from '../Card';
 
 const ItemsWrapper = styled.ol`
   display: flex;
@@ -27,6 +34,12 @@ const ItemsWrapper = styled.ol`
   gap: ${progressTrackerTokens.itemsWrapper.gap};
   margin: 0;
   padding: 0;
+`;
+
+const SmallScreenWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 const ProgressTrackerConnector = styled.div`
@@ -46,6 +59,10 @@ type ProgressTrackerProps = BaseComponentPropsWithChildren<
     activeStep?: number;
     /** Ekstra logikk ved klikking på et steg. */
     onStepChange?: (step: number) => void;
+    /** Om brukeren kan hoppe mellom stegene via museklikk på et steg. */
+    clickable?: boolean;
+    /** Spesifiserer om versjonen for små skjermer skal vises. */
+    smallScreen?: boolean;
   }
 >;
 
@@ -63,6 +80,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
       children,
       className,
       htmlProps,
+      smallScreen = false,
       ...rest
     } = props;
 
@@ -92,6 +110,12 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
       return itemsWithConnectorsBetween;
     }, [children]);
 
+    const currentStepWithoutConnectors = useMemo(() => {
+      const validChildren = removeInvalidChildren(children);
+      const itemsWithIndex = passIndexPropToProgressTrackerItem(validChildren);
+      return itemsWithIndex;
+    }, [children]);
+
     return (
       <ProgressTrackerContext.Provider
         value={{
@@ -100,7 +124,38 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
         }}
       >
         <div role="group" aria-label="progress" {...containerProps}>
-          <ItemsWrapper>{steps}</ItemsWrapper>
+          {smallScreen ? (
+            <Card cardType="expandable" color="strokeDark">
+              <CardAccordion
+                htmlProps={{
+                  style: {},
+                }}
+              >
+                <CardAccordionHeader>
+                  <SmallScreenWrapper>
+                    {currentStepWithoutConnectors[activeStep]}
+                    <Typography
+                      typographyType="supportingStyleHelperText01"
+                      style={{
+                        marginLeft:
+                          progressTrackerTokens.smallScreenTokens.marginLeft,
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {`Steg ${activeStep + 1} av ${
+                        currentStepWithoutConnectors.length
+                      }`}
+                    </Typography>
+                  </SmallScreenWrapper>
+                </CardAccordionHeader>
+                <CardAccordionBody>
+                  <ItemsWrapper>{steps}</ItemsWrapper>
+                </CardAccordionBody>
+              </CardAccordion>
+            </Card>
+          ) : (
+            <ItemsWrapper>{steps}</ItemsWrapper>
+          )}
         </div>
       </ProgressTrackerContext.Provider>
     );
