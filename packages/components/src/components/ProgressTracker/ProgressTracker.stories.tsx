@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ProgressTracker } from '.';
 import {
   AttachmentIcon,
   ChecklistIcon,
@@ -7,7 +8,6 @@ import {
 } from '../../icons/tsx';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
-import { ProgressTracker } from '.';
 
 export default {
   title: 'dds-components/ProgressTracker',
@@ -17,7 +17,7 @@ export default {
 export const Overview = () => {
   const numSteps = 3;
 
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(2);
   const [completedSteps, setCompletedSteps] = useState(new Set());
 
   return (
@@ -174,6 +174,55 @@ export const FutureStepsDisabled = () => {
         label="Forrige steg"
       />
       <Button onClick={handleSetFinishedButtonClick} label="Neste steg" />
+    </StoryTemplate>
+  );
+};
+
+export const Mobile = () => {
+  const numSteps = 3;
+
+  const [activeStep, setActiveStep] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState(new Set());
+
+  return (
+    <StoryTemplate title="ProgressTracker - mobile" display="block">
+      <ProgressTracker
+        activeStep={activeStep}
+        onStepChange={step => setActiveStep(step)}
+        clickable
+        smallScreen
+        htmlProps={{ style: { maxWidth: '800px' } }}
+      >
+        <ProgressTracker.Item completed={completedSteps.has(0)}>
+          Partopplysninger med lang tekst
+        </ProgressTracker.Item>
+        <ProgressTracker.Item completed={completedSteps.has(1)}>
+          Slutning
+        </ProgressTracker.Item>
+        <ProgressTracker.Item completed={completedSteps.has(2)}>
+          Vedlegg
+        </ProgressTracker.Item>
+        <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
+          Sammendrag
+        </ProgressTracker.Item>
+      </ProgressTracker>
+
+      <div style={{ margin: '10px' }}>
+        {activeStep === 0 && <div>Steg 1</div>}
+        {activeStep === 1 && <div>Steg 2</div>}
+        {activeStep === 2 && <div>Steg 3</div>}
+        {activeStep === 3 && <div>Steg 4</div>}
+      </div>
+
+      <Button
+        onClick={() => {
+          setCompletedSteps(s => new Set([...s, activeStep]));
+          if (activeStep < numSteps - 1) {
+            setActiveStep(s => s + 1);
+          }
+        }}
+        label="Sett som ferdig"
+      />
     </StoryTemplate>
   );
 };
