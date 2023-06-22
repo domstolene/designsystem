@@ -36,6 +36,7 @@ import {
 import { PageGeneratorField, PageGeneratorSupportedFields } from '../types';
 import { MultiValue, SingleValue } from 'react-select';
 import { ChangeEvent } from 'react';
+import { SectionGenerator } from '../components';
 
 type T = HTMLInputElement & Record<string, never>;
 
@@ -55,11 +56,18 @@ export const getComponent = (
     case PageGeneratorSupportedFields.Button:
       return <Button {...field.props} key={index} />;
     case PageGeneratorSupportedFields.Card:
-      return (
+      if (field.innerHTML) {
+        return (
+          <Card {...field.props} key={index}>
+            {field.innerHTML}
+          </Card>
+        );
+      } else if (field.children) {
         <Card {...field.props} key={index}>
-          {field.innerHTML}
-        </Card>
-      );
+          <SectionGenerator as="fragment" fields={field.children} />
+        </Card>;
+      }
+      return <></>;
     case PageGeneratorSupportedFields.Checkbox:
       return <Checkbox {...field.props} key={index} onChange={fieldOnChange} />;
     case PageGeneratorSupportedFields.CheckboxGroup:

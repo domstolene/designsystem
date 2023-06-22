@@ -1,5 +1,4 @@
 import {
-  ButtonProps,
   CardProps,
   CheckboxProps,
   CheckboxGroupProps,
@@ -35,6 +34,7 @@ import {
 } from '@norges-domstoler/dds-components';
 import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
 import { ComponentProps } from 'react';
+import { SectionGeneratorRow } from './SectionGeneratorRow';
 
 export type PageGeneratorField = FieldWithChildren | FieldWithoutChildren;
 
@@ -84,7 +84,8 @@ type CardField = {
   component: PageGeneratorSupportedFields.Card;
   props: CardProps;
   hide?: boolean;
-  innerHTML: JSX.Element | string;
+  innerHTML?: JSX.Element | string;
+  children?: (PageGeneratorField | SectionGeneratorRow)[];
 };
 
 type CheckboxField = {
