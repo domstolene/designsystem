@@ -31,8 +31,10 @@ import {
   VisuallyHiddenProps,
   DrawerGroupProps,
   StackProps,
+  Button,
 } from '@norges-domstoler/dds-components';
 import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
+import { ComponentProps } from 'react';
 
 export type PageGeneratorField = FieldWithChildren | FieldWithoutChildren;
 
@@ -74,7 +76,7 @@ type FieldWithoutChildren =
 
 type ButtonField = {
   component: PageGeneratorSupportedFields.Button;
-  props: ButtonProps;
+  props: ComponentProps<typeof Button>;
   hide?: boolean;
 };
 
