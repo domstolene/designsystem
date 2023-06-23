@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.4.0
+
+### Minor Changes
+
+- 68f1c88c: Legg til støtte for children for CardField i PageGenerator
+- b225f163: Legg til støtte for ComponentProps for ButtonField i PageGenerator
+
 ## 2.3.0
 
 ### Minor Changes
