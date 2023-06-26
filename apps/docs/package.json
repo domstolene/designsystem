@@ -10,7 +10,7 @@
     "@norges-domstoler/dds-design-tokens": "*",
     "@norges-domstoler/storybook-components": "*",
     "@storybook/addon-docs": "^7.0.20",
-    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/addon-essentials": "^7.0.23",
     "@storybook/blocks": "^7.0.20",
     "@storybook/core-common": "^7.0.20",
     "@storybook/react-vite": "^7.0.20",
