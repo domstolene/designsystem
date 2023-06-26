@@ -11,7 +11,7 @@
     "@norges-domstoler/storybook-components": "*",
     "@storybook/addon-docs": "^7.0.20",
     "@storybook/addon-essentials": "^7.0.20",
-    "@storybook/blocks": "^7.0.20",
+    "@storybook/blocks": "^7.0.23",
     "@storybook/core-common": "^7.0.20",
     "@storybook/react-vite": "^7.0.20",
     "@storybook/testing-library": "^0.1.0",
