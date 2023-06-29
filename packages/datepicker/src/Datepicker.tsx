@@ -1,5 +1,9 @@
-export type DatepickerProps = {};
+import { DateField } from './DateField';
 
-export const Datepicker = () => {
-  return <input type="date" />;
+export type DatepickerProps = {
+  label?: string;
+};
+
+export const Datepicker = ({ label }: DatepickerProps) => {
+  return <DateField label={label} />;
 };

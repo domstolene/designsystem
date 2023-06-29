@@ -37,8 +37,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'DevelopmentUtils',
-      fileName: 'development-utils',
+      name: 'DdsDatepicker',
+      fileName: 'dds-datepicker',
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
