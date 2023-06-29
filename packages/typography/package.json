@@ -1,6 +1,5 @@
 {
   "name": "@norges-domstoler/dds-typography",
-  "private": true,
   "version": "0.0.1",
   "description": "Typography components and styles used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
