@@ -9,12 +9,15 @@ import type { Preview } from "@storybook/react";
 const preview: Preview = {
   parameters: {
     options: {
-      storySort: (a, b) => {
-        if (a.id.includes("introduction")) return -1;
-        if (b.id.includes("introduction")) return 1;
-        return a.title === b.title
-          ? 0
-          : a.id.localeCompare(b.id, undefined, { numeric: true });
+      storySort: {
+        order: [
+          "Introduction",
+          "dds-components",
+          "dds-page-generator",
+          "*",
+          "ALPHA",
+          ["dds-datepicker", ["Introduction"]],
+        ],
       },
     },
     actions: { argTypesRegex: "^on[A-Z].*" },

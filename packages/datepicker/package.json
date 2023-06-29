@@ -67,6 +67,9 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-components": "*",
+    "@norges-domstoler/dds-core": "*",
+    "@norges-domstoler/dds-form": "*",
+    "@norges-domstoler/dds-typography": "*",
     "@react-aria/datepicker": "^3.4.1",
     "@react-stately/datepicker": "^3.4.1"
   },
