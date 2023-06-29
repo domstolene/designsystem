@@ -1,5 +1,5 @@
+import React, { useEffect, useRef } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { useEffect, useRef } from 'react';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
 const activeText = 'active tab';

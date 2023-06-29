@@ -1,5 +1,5 @@
-import { InputProps } from '../../helpers';
-import { SvgIcon } from '../../icons/utils';
+import { InputProps } from '@norges-domstoler/dds-form';
+import { SvgIcon } from '@norges-domstoler/dds-icons';
 
 export type TextInputProps = InputProps & {
   /** Spesifiserer om tegntelleren skal vises ved bruk av `maxLength` attributt. */

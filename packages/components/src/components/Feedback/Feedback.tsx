@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FeedbackProps, Rating } from './Feedback.types';
-import { Paragraph } from '../Typography';
+import { Paragraph } from '@norges-domstoler/dds-typography';
 import { RatingComponent } from './RatingComponent';
 import { CommentComponent } from './CommentComponent';
 

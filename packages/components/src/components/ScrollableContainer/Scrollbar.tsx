@@ -7,7 +7,10 @@ import {
   MouseEvent,
 } from 'react';
 import styled from 'styled-components';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
 
 const { track, thumb, minThumbHeightPx } = tokens;

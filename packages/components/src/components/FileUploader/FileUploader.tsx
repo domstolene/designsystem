@@ -1,13 +1,13 @@
 import { useId } from 'react';
 import styled from 'styled-components';
-import { UploadIcon } from '../../icons/tsx';
+import { UploadIcon } from '@norges-domstoler/dds-icons';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
+} from '@norges-domstoler/dds-core';
+import { Label } from '@norges-domstoler/dds-typography';
 import { Button } from '../Button';
 import { InputMessage } from '../InputMessage';
-import { Label } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { ErrorList } from './ErrorList';
 import { File } from './File';

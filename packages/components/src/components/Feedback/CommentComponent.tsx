@@ -1,12 +1,16 @@
 import styled from 'styled-components';
-import { FlexContainer } from './FlexContainer';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { Icon } from '../Icon';
-import { Rating } from './Feedback.types';
-import { ThumbupFilled, ThumbdownFilled } from '../../icons/tsx';
+import {
+  ThumbupFilled,
+  ThumbdownFilled,
+  Icon,
+} from '@norges-domstoler/dds-icons';
+import { Paragraph } from '@norges-domstoler/dds-typography';
+
+import { FlexContainer } from './FlexContainer';
 import { Button } from '../Button';
+import { Rating } from './Feedback.types';
 import { TextArea } from '../TextArea';
-import { Paragraph } from '../Typography';
 
 const IconLabelSpan = styled.span`
   display: inline-flex;

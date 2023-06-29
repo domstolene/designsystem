@@ -1,9 +1,12 @@
 import React, { useId } from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
-import { getTextColor, TextColor } from '../../utils';
+import { getTextColor, TextColor } from '@norges-domstoler/dds-core';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 
 type StyledSpinnerProps = Pick<SpinnerProps, 'size'> & {
   outerAnimationDelay: number;

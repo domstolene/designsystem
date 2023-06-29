@@ -2,7 +2,7 @@ import { Table, CollapsibleTableProps } from '..';
 import { Button } from '../../Button';
 import { data, headerCells, mapCellContents } from '../tableData';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Icon } from '../../Icon';
+import { Icon } from '@norges-domstoler/dds-icons';
 import {
   AttachmentIcon,
   FileIcon,
@@ -10,10 +10,10 @@ import {
   PersonIcon,
   StarIcon,
   TrashIcon,
-} from '../../../icons/tsx';
+} from '@norges-domstoler/dds-icons';
 import { CollapsibleTable } from '..';
-import { ScreenSize, useScreenSize } from '../../../hooks';
-import { Link } from '../../Typography';
+import { ScreenSize, useScreenSize } from '@norges-domstoler/dds-core';
+import { Link } from '@norges-domstoler/dds-typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 
 export default {

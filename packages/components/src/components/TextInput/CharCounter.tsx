@@ -1,7 +1,10 @@
 import { useId } from 'react';
 import styled from 'styled-components';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { Typography } from '../Typography';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+import { Typography } from '@norges-domstoler/dds-typography';
 
 const Wrapper = styled(Typography)`
   margin-left: auto;

@@ -6,8 +6,8 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useOnClickOutside, useOnKeyDown } from '../../hooks';
-import { searchFilter } from '../../utils';
+import { useOnClickOutside, useOnKeyDown } from '@norges-domstoler/dds-core';
+import { searchFilter } from '@norges-domstoler/dds-core';
 import {
   AutocompleteSearchContext,
   AutocompleteSearchContextType,

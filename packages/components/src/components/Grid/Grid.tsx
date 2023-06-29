@@ -1,10 +1,16 @@
 import styled, { css } from 'styled-components';
-import { ScreenSize, useScreenSize } from '../../hooks';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { ScreenSize, useScreenSize } from '@norges-domstoler/dds-core';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 import { gridTokens } from './Grid.tokens';
 import { GridContext } from './Grid.context';
 import { HTMLAttributes } from 'react';
-import { BreakpointBasedProps, getLiteralScreenSize } from '../../helpers';
+import {
+  BreakpointBasedProps,
+  getLiteralScreenSize,
+} from '@norges-domstoler/dds-core';
 
 type StyledGridProps = {
   screenSize: ScreenSize;

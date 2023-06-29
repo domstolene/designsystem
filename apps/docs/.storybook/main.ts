@@ -7,7 +7,11 @@ const config: StorybookConfig = {
     "../../../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)",
     "../../../packages/*/src/**/*.mdx",
   ],
-  staticDirs: ["./images", "../../../packages/components/dist/assets/fonts"],
+  staticDirs: [
+    "./images",
+    "../../../packages/components/dist/assets/fonts",
+    "../../../packages/icons/dist/assets",
+  ],
   addons: ["@storybook/addon-essentials"],
   framework: {
     name: "@storybook/react-vite",

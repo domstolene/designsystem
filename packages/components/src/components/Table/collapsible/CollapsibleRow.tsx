@@ -9,22 +9,23 @@ import {
   useEffect,
 } from 'react';
 import styled from 'styled-components';
-import { Table } from '..';
 import {
-  focusVisible,
   focusVisibleTransitionValue,
-  removeButtonStyling,
-} from '../../../helpers/styling';
+  focusVisible,
+} from '@norges-domstoler/dds-form';
 import {
+  removeButtonStyling,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../../utils';
+  AnimatedChevronUpDown,
+} from '@norges-domstoler/dds-core';
+
+import { Table } from '..';
 import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Cell } from '../Cell';
 import { useCollapsibleTableContext } from './Table.context';
 import { TableRowProps } from '../Table.types';
-import { AnimatedChevronUpDown } from '../../../helpers';
 import { StyledRow } from '../Table.styles';
 import { tableTokens } from '../Table.tokens';
 

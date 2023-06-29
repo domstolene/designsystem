@@ -11,7 +11,7 @@ import {
   BaseComponentPropsWithChildren,
   Direction,
   getBaseHTMLProps,
-} from '../../types';
+} from '@norges-domstoler/dds-core';
 import { TabsContext } from './Tabs.context';
 import { Property } from 'csstype';
 

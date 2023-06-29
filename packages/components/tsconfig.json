@@ -20,8 +20,7 @@
   "include": [
     "src",
     "rollup.config.mjs",
-    ".eslintrc.js",
-    "typings/globals.d.ts",
+    ".eslintrc.cjs",
     "modules/custom.d.ts"
   ],
   "exclude": ["node_modules", "dist"]

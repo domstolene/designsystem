@@ -1,6 +1,6 @@
 import { forwardRef, useRef } from 'react';
 import { InlineEdit } from './InlineEdit';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '@norges-domstoler/dds-core';
 import { InlineEditTextAreaProps } from './InlineEdit.types';
 import { InlineTextArea } from './InlineTextArea';
 

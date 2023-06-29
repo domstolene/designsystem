@@ -1,5 +1,5 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { ScreenSize } from '../../hooks';
+import { ScreenSize } from '@norges-domstoler/dds-core';
 
 const { grid, spacing } = ddsBaseTokens;
 

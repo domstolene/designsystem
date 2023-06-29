@@ -1,6 +1,10 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+
 import { dividerTokens as tokens } from './Divider.tokens';
 
 export type DividerColor = 'primary' | 'primaryLighter';

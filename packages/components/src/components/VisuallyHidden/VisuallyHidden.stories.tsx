@@ -1,6 +1,6 @@
 import { VisuallyHidden, VisuallyHiddenProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 import { Table } from '../Table';
 import { Button } from '../Button';
 

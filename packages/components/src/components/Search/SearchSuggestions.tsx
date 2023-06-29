@@ -1,17 +1,20 @@
 import styled from 'styled-components';
-import { removeListStyling } from '../../helpers/styling/removeListStyling';
+import { removeListStyling } from '@norges-domstoler/dds-core';
 import { OverflowMenuItem } from '../OverflowMenu/OverflowMenuItem';
 import { searchTokens as tokens, typographyTypes } from './Search.tokens';
-import { Paper } from '../../helpers';
+import { Paper } from '@norges-domstoler/dds-core';
 import { SearchProps, SearchSize } from './Search';
-import { Typography } from '../Typography';
-import { getFontStyling } from '../Typography/Typography.utils';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { Typography } from '@norges-domstoler/dds-typography';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 import { forwardRef, MouseEvent } from 'react';
-import { useRoveFocus } from '../../hooks';
+import { useRoveFocus } from '@norges-domstoler/dds-core';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { visibilityTransition } from '../../helpers/styling';
-import { derivativeIdGenerator } from '../../utils';
+import { visibilityTransition } from '@norges-domstoler/dds-core';
+import { derivativeIdGenerator } from '@norges-domstoler/dds-core';
 
 const { suggestionsContainer, suggestionsHeader } = tokens;
 

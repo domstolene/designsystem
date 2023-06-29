@@ -2,21 +2,23 @@ import { forwardRef, ReactNode, RefObject, useId } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { css } from 'styled-components';
 import { Button } from '../Button';
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 import {
   useCombinedRef,
   useMountTransition,
   useOnClickOutside,
   useOnKeyDown,
   useFocusTrap,
-} from '../../hooks';
-import { drawerTokens as tokens } from './Drawer.tokens';
-import { focusVisible } from '../../helpers/styling';
-import { Paper } from '../../helpers';
+  Paper,
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 import { Property } from 'csstype';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { CloseIcon } from '../../icons/tsx';
+import { CloseIcon } from '@norges-domstoler/dds-icons';
+
+import { drawerTokens as tokens } from './Drawer.tokens';
 import { ScrollableContainer } from '../ScrollableContainer';
+import { focusVisible } from '@norges-domstoler/dds-form';
 
 const { container, contentContainer } = tokens;
 

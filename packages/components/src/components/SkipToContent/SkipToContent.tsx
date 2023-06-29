@@ -1,20 +1,21 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 import { Property } from 'csstype';
-import {
-  focusVisibleOnDark,
-  focusVisibleTransitionValue,
-} from '../../helpers/styling';
 import {
   BaseComponentProps,
   getBaseHTMLProps,
   joinClassNames,
-} from '../../types';
+} from '@norges-domstoler/dds-core';
 import {
   getFontStyling,
   defaultTypographyType,
-} from '../Typography/Typography.utils';
+} from '@norges-domstoler/dds-typography';
+import {
+  focusVisibleTransitionValue,
+  focusVisibleOnDark,
+} from '@norges-domstoler/dds-form';
+
+import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 
 const { wrapper, link } = tokens;
 

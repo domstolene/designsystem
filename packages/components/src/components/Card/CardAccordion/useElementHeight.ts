@@ -1,3 +1,4 @@
+import { Nullable } from '@norges-domstoler/dds-core';
 import { useEffect, useState } from 'react';
 
 export function useElementHeight(

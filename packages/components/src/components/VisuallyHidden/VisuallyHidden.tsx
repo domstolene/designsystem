@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 
 const Wrapper = styled.span`
   position: absolute;

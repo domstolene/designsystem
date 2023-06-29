@@ -1,6 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { TextInput, TextInputProps } from '.';
-import { MailIcon } from '../../icons/tsx';
+import { MailIcon } from '@norges-domstoler/dds-icons';
 import { LocalMessage } from '../LocalMessage';
 
 export default {

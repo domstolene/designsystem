@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { PlusCircledIcon, CloseIcon } from '../../icons/tsx';
+import { icons } from '@norges-domstoler/dds-icons';
 
 export default {
   title: 'dds-components/Button',
@@ -74,7 +74,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -82,7 +82,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -90,7 +90,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="filled"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -98,7 +98,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -106,7 +106,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -114,7 +114,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="ghost"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -122,7 +122,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -130,7 +130,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -138,7 +138,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="borderless"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -146,7 +146,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="primary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -154,7 +154,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="secondary"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -162,7 +162,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         purpose="danger"
         appearance="rounded"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
     </StoryTemplate>
   );
@@ -175,58 +175,73 @@ export const OverviewJustIcon = (args: ButtonProps) => {
         {...args}
         purpose="primary"
         appearance="filled"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="secondary"
         appearance="filled"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
-      <Button {...args} purpose="danger" appearance="filled" icon={CloseIcon} />
-      <Button {...args} purpose="primary" appearance="ghost" icon={CloseIcon} />
+      <Button
+        {...args}
+        purpose="danger"
+        appearance="filled"
+        icon={icons.CloseIcon}
+      />
+      <Button
+        {...args}
+        purpose="primary"
+        appearance="ghost"
+        icon={icons.CloseIcon}
+      />
       <Button
         {...args}
         purpose="secondary"
         appearance="ghost"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
-      <Button {...args} purpose="danger" appearance="ghost" icon={CloseIcon} />
+      <Button
+        {...args}
+        purpose="danger"
+        appearance="ghost"
+        icon={icons.CloseIcon}
+      />
       <Button
         {...args}
         purpose="primary"
         appearance="borderless"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="secondary"
         appearance="borderless"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="danger"
         appearance="borderless"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="rounded"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="secondary"
         appearance="rounded"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="danger"
         appearance="rounded"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
     </StoryTemplate>
   );
@@ -274,7 +289,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="tiny"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -283,7 +298,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="small"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -292,7 +307,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
@@ -301,35 +316,35 @@ export const OverviewSizes = (args: ButtonProps) => {
         appearance="filled"
         size="large"
         iconPosition={args.iconPosition || 'left'}
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="tiny"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="small"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="medium"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
       <Button
         {...args}
         purpose="primary"
         appearance="filled"
         size="large"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
       />
     </StoryTemplate>
   );
@@ -532,7 +547,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="left"
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
         fullWidth
       />
       <Button
@@ -542,7 +557,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         appearance="filled"
         size="medium"
         iconPosition="right"
-        icon={PlusCircledIcon}
+        icon={icons.PlusCircledIcon}
         fullWidth
       />
       <Button
@@ -550,7 +565,7 @@ export const OverviewFullWidth = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="medium"
-        icon={CloseIcon}
+        icon={icons.CloseIcon}
         fullWidth
       />
       <Button
@@ -577,7 +592,7 @@ export const Default = (args: ButtonProps) => {
 export const TextWithIcon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - default">
-      <Button label="Tekst" {...args} icon={PlusCircledIcon} />
+      <Button label="Tekst" {...args} icon={icons.PlusCircledIcon} />
     </StoryTemplate>
   );
 };
@@ -585,7 +600,7 @@ export const TextWithIcon = (args: ButtonProps) => {
 export const Icon = (args: ButtonProps) => {
   return (
     <StoryTemplate title="Button - just icon">
-      <Button {...args} icon={CloseIcon} />
+      <Button {...args} icon={icons.CloseIcon} />
     </StoryTemplate>
   );
 };

@@ -1,7 +1,7 @@
 import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
-import { ChevronDownIcon, ChevronUpIcon } from '../../icons/tsx';
-import { ExtractStrict } from '../../types';
+import { ChevronDownIcon, ChevronUpIcon } from '@norges-domstoler/dds-icons';
+import { ExtractStrict } from '@norges-domstoler/dds-core';
 import { Button, ButtonProps, ButtonPurpose, ButtonSize } from '../Button';
 import {
   OverflowMenu,

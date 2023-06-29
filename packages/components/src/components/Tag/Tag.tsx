@@ -1,12 +1,16 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { tagTokens as tokens, typographyType } from './Tag.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 import {
   TextOverflowEllipsisInner,
   TextOverflowEllipsisWrapper,
-} from '../../helpers/TextOverflowEllipsis';
-import { getFontStyling } from '../Typography/Typography.utils';
+  getFontStyling,
+} from '@norges-domstoler/dds-typography';
+
+import { tagTokens as tokens, typographyType } from './Tag.tokens';
 
 const { wrapper } = tokens;
 

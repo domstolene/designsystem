@@ -1,6 +1,6 @@
 import { forwardRef, HTMLAttributes, Children } from 'react';
 import styled from 'styled-components';
-import { removeListStyling } from '../../helpers/styling/removeListStyling';
+import { removeListStyling } from '@norges-domstoler/dds-core';
 import { chipTokens as tokens } from './Chip.tokens';
 
 const Group = styled.ul`

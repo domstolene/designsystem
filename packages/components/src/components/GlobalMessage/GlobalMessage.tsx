@@ -6,11 +6,14 @@ import {
   purposeVariants,
   typographyType,
 } from './GlobalMessage.tokens';
-import { Icon } from '../Icon';
-import { Typography } from '../Typography';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { CloseIcon } from '../../icons/tsx';
-import { getFontStyling } from '../Typography/Typography.utils';
+import { Icon } from '@norges-domstoler/dds-icons';
+import { Typography } from '@norges-domstoler/dds-typography';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+import { CloseIcon } from '@norges-domstoler/dds-icons';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
 
 const { container, contentContainer, icon } = tokens;
 

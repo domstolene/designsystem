@@ -1,8 +1,7 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import { Icon } from '../Icon';
-import { ArrowLeftIcon } from '../../icons/tsx';
-import { Typography } from '../Typography';
+import { Icon, icons } from '@norges-domstoler/dds-icons';
+import { Typography } from '@norges-domstoler/dds-typography';
 import { backLinkTokens } from './BackLink.tokens';
 
 const Nav = styled('nav')`
@@ -23,7 +22,7 @@ export type BackLinkProps = {
 export const BackLink = forwardRef<HTMLElement, BackLinkProps>((props, ref) => {
   return (
     <Nav ref={ref}>
-      <StyledIcon icon={ArrowLeftIcon} iconSize="small" />
+      <StyledIcon icon={icons.ArrowLeftIcon} iconSize="small" />
       <Typography typographyType="a" href={props.href}>
         {props.label}
       </Typography>

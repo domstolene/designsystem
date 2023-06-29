@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { IconSize } from '../Icon';
-import { StaticTypographyType } from '../Typography';
+import { IconSize } from '@norges-domstoler/dds-icons';
+import { StaticTypographyType } from '@norges-domstoler/dds-typography';
 
 const { colors, spacing } = ddsBaseTokens;
 

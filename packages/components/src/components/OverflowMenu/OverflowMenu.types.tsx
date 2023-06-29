@@ -1,8 +1,8 @@
-import { Placement } from '../../hooks/useFloatPosition';
+import { Placement } from '@norges-domstoler/dds-core';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, RefObject } from 'react';
-import { BaseComponentProps } from '../../types';
+import { BaseComponentProps } from '@norges-domstoler/dds-core';
 
-import { SvgIcon } from '../../icons/utils';
+import { SvgIcon } from '@norges-domstoler/dds-icons';
 
 type OverflowMenuItemBase = {
   title: string;

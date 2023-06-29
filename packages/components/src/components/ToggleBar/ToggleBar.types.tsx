@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import { BaseComponentPropsWithChildren } from '../../types';
+import { BaseComponentPropsWithChildren } from '@norges-domstoler/dds-core';
 import { Property } from 'csstype';
 
 export type ToggleBarValue = string | number | null | undefined;

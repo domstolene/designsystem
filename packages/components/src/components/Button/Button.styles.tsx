@@ -1,11 +1,6 @@
 import styled, { css } from 'styled-components';
-import {
-  focusVisible,
-  focusVisibleTransitionValue,
-  normalizeButton,
-  selection,
-} from '../../helpers/styling';
-import { getFontStyling } from '../Typography/Typography.utils';
+import { normalizeButton, selection } from '@norges-domstoler/dds-core';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
 import { buttonTokens as tokens, typographyTypes } from './Button.tokens';
 import {
   ButtonAppearance,
@@ -13,6 +8,10 @@ import {
   ButtonSize,
   IconPosition,
 } from './Button.types';
+import {
+  focusVisibleTransitionValue,
+  focusVisible,
+} from '@norges-domstoler/dds-form';
 
 const {
   button: { base, sizes, appearances },

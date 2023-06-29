@@ -1,19 +1,19 @@
 import { forwardRef, useId } from 'react';
 import styled, { css } from 'styled-components';
-import { Icon } from '../Icon';
+import { Icon } from '@norges-domstoler/dds-icons';
+import { selection, getBaseHTMLProps } from '@norges-domstoler/dds-core';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
 import {
-  focusVisible,
   focusVisibleTransitionValue,
-  selection,
-} from '../../helpers/styling';
+  HiddenInput,
+  focusVisible,
+} from '@norges-domstoler/dds-form';
+
 import {
   toggleButtonTokens as tokens,
   typographyType,
 } from './ToggleButton.tokens';
-import { getBaseHTMLProps } from '../../types';
-import { HiddenInput } from '../../helpers';
 import { ToggleButtonProps } from './ToggleButton.types';
-import { getFontStyling } from '../Typography/Typography.utils';
 
 const { toggleButton } = tokens;
 

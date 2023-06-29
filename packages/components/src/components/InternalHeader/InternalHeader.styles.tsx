@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
 import { InternalHeaderProps } from './InternalHeader.types';
 import { OverflowMenu } from '../OverflowMenu';
-import { selection } from '../../helpers/styling';
+import { selection } from '@norges-domstoler/dds-core';
 
 const {
   outerContainer,

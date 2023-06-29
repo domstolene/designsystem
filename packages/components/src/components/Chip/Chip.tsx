@@ -1,14 +1,18 @@
 import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
-import { Button } from '../Button';
-import { chipTokens as tokens, typographyType } from './Chip.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { CloseIcon } from '../../icons/tsx';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+import { CloseIcon } from '@norges-domstoler/dds-icons';
 import {
   TextOverflowEllipsisInner,
   TextOverflowEllipsisWrapper,
-} from '../../helpers/TextOverflowEllipsis';
-import { getFontStyling } from '../Typography/Typography.utils';
+  getFontStyling,
+} from '@norges-domstoler/dds-typography';
+
+import { Button } from '../Button';
+import { chipTokens as tokens, typographyType } from './Chip.tokens';
 
 const { container } = tokens;
 

@@ -16,7 +16,7 @@ import {
   DescriptionListTerm,
 } from '../DescriptionList';
 import { Divider } from '../Divider';
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 
 export default {
   title: 'dds-components/Card',
