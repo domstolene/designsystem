@@ -1,2 +1,0 @@
-import{a as m,F as i,j as r}from"./focus-visible-c2e9b88d.js";import{I as a}from"./InputMessage-bb06ca10.js";const c=s=>{switch(s){case"medium":return"medium";case"small":return"small";case"tiny":return"small"}};function g(s,e){return typeof s=="string"?s:typeof e=="string"?e:""}const p=(s,e,t,n)=>m(i,{children:[t&&n&&r(a,{message:t,messageType:"error",id:n}),s&&e&&!t&&r(a,{message:s,messageType:"tip",id:e})]});export{c as a,g,p as r};
-//# sourceMappingURL=Input.utils-f888acf1.js.map

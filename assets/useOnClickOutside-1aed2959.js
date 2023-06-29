@@ -1,2 +1,0 @@
-import{r as u}from"./index-ebeaab24.js";function c(t,n){u.useEffect(()=>{const e=o=>{const s=Array.isArray(t)?t:[t];let r=o.target;for(;r;){if(s.indexOf(r)!=-1)return;r=r.parentNode}n(o)};return document.addEventListener("mousedown",e),document.addEventListener("touchstart",e),()=>{document.removeEventListener("mousedown",e),document.removeEventListener("touchstart",e)}},[t,n])}export{c as u};
-//# sourceMappingURL=useOnClickOutside-1aed2959.js.map

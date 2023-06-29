@@ -1,1 +1,0 @@
-{"version":3,"file":"removeListStyling-80ec5e55.js","sources":["../../../../packages/components/src/helpers/styling/removeListStyling.tsx"],"sourcesContent":["export const removeListStyling = {\n  listStyle: 'none',\n  padding: 0,\n  margin: 0,\n};\n"],"names":["removeListStyling"],"mappings":"AAAO,MAAMA,EAAoB,CAC/B,UAAW,OACX,QAAS,EACT,OAAQ,CACV"}

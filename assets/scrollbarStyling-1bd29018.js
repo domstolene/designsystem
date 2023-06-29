@@ -1,0 +1,2 @@
+import{s as b}from"./ScrollableContainer.tokens-66d4a31f.js";const{thumb:o,track:r}=b,a="thin",s={webkit:{"&::-webkit-scrollbar":{width:r.width,height:r.width},"&::-webkit-scrollbar-track":{background:r.backgroundColor,borderRadius:r.borderRadius},"&::-webkit-scrollbar-thumb":{background:o.base.backgroundColor,borderRadius:o.base.borderRadius}},"&::-webkit-scrollbar-thumb:hover":{background:o.hover.backgroundColor},firefox:{scrollbarColor:o.base.backgroundColor+" "+r.backgroundColor,scrollbarWidth:a}};export{s};
+//# sourceMappingURL=scrollbarStyling-1bd29018.js.map

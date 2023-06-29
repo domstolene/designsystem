@@ -1,1 +1,0 @@
-{"version":3,"file":"normalize-f756ee4b.js","sources":["../../../../packages/components/src/helpers/styling/normalize.tsx"],"sourcesContent":["import { Property } from 'csstype';\n\nexport const normalizeButton = {\n  margin: 0,\n  textTransform: 'none' as Property.TextTransform,\n};\n"],"names":["normalizeButton"],"mappings":"AAEO,MAAMA,EAAkB,CAC7B,OAAQ,EACR,cAAe,MACjB"}
