@@ -4,9 +4,6 @@ import { PageGenerator } from '../components';
 import { PageGeneratorField, PageGeneratorSupportedFields } from '../types';
 
 describe('<PageGenerator />', () => {
-  /**
-   * @vitest-environment jsdom
-   */
   test('renders a PageGenerator', () => {
     const lastnameField = 'lastName';
 

@@ -20,8 +20,7 @@
     ".": {
       "import": "./dist/dds-icons.js",
       "require": "./dist/dds-icons.cjs"
-    },
-    "./assets/svg/*.svg": "./dist/assets/svg/*.svg"
+    }
   },
   "homepage": "https://design.domstol.no",
   "scripts": {
@@ -62,7 +61,7 @@
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.6",
     "typescript": "^5.0.2",
-    "vite": "^4.1.4",
+    "vite": "^4.3.9",
     "vite-plugin-dts": "^2.1.0",
     "vitest": "^0.29.1"
   },

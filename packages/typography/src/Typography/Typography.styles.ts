@@ -1,6 +1,6 @@
 import { ElementType } from 'react';
 import { css, CSSObject } from 'styled-components';
-import OpenExternalIcon from '@norges-domstoler/dds-icons/assets/svg/openExternal.svg';
+import OpenExternalIcon from './openExternal.svg';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { border, colors } = ddsBaseTokens;
 

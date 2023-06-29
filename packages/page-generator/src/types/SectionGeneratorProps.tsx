@@ -1,4 +1,4 @@
-import { BaseComponentPropsWithChildren } from '@norges-domstoler/dds-components/dist/cjs/types';
+import { BaseComponentPropsWithChildren } from '@norges-domstoler/dds-components';
 import { PageGeneratorField } from './PageGeneratorField';
 import { SectionGeneratorRow } from './SectionGeneratorRow';
 
