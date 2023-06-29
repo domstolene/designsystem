@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-core
 
+## 0.0.2
+
+### Patch Changes
+
+- 12f50368: Publiser internpakker. Ikke meningen å ta disse i bruk av eksterne enda.
+
 ## 0.0.1
 
 ### Patch Changes
