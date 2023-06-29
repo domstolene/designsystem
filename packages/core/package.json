@@ -44,7 +44,6 @@
     "elsa"
   ],
   "devDependencies": {
-    "@norges-domstoler/dds-design-tokens": "*",
     "@swc/plugin-styled-components": "^1.5.49",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.11",

@@ -3,12 +3,14 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import react from '@vitejs/plugin-react-swc';
 
-function isBareModuleId(id: string) {
+function isInternal(id: string) {
   return (
-    !id.startsWith('.') &&
-    !id.includes(path.join(process.cwd(), 'src')) &&
-    !id.includes(path.join(process.cwd(), 'modules')) &&
-    !id.includes(path.join(process.cwd(), 'typings'))
+    id.startsWith('.') &&
+    id.includes(path.join(process.cwd(), 'src')) &&
+    id.includes(path.join(process.cwd(), 'modules')) &&
+    id.includes(path.join(process.cwd(), 'typings')) &&
+    id.includes('@norges-domstoler/') &&
+    !id.includes('@norge-domstoler/dds-design-tokens') // dds-tokens skal være ekstern dependency
   );
 }
 
@@ -28,7 +30,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: isBareModuleId,
+      external: id => !isInternal(id),
       output: {
         interop: 'compat',
         globals: {

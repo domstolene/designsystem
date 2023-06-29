@@ -6,12 +6,6 @@
     "build": "storybook build"
   },
   "dependencies": {
-    "@norges-domstoler/dds-components": "*",
-    "@norges-domstoler/dds-core": "*",
-    "@norges-domstoler/dds-design-tokens": "*",
-    "@norges-domstoler/dds-icons": "*",
-    "@norges-domstoler/dds-typography": "*",
-    "@norges-domstoler/storybook-components": "*",
     "@storybook/addon-docs": "^7.0.20",
     "@storybook/addon-essentials": "^7.0.20",
     "@storybook/blocks": "^7.0.20",

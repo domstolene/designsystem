@@ -50,8 +50,6 @@
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@mdx-js/react": "^2.3.0",
-    "@norges-domstoler/dds-components": "*",
-    "@norges-domstoler/dds-design-tokens": "*",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.12",
@@ -75,10 +73,6 @@
     "vite": "^4.3.9",
     "vite-plugin-dts": "^2.3.0",
     "vitest": "^0.32.0"
-  },
-  "dependencies": {
-    "@norges-domstoler/dds-components": "*",
-    "@norges-domstoler/dds-design-tokens": "*"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",

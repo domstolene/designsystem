@@ -9,12 +9,14 @@ import copy from 'rollup-plugin-copy';
 
 const extensions = ['.jsx', '.js', '.tsx', '.ts'];
 
-function isBareModuleId(id) {
+function isInternal(id) {
   return (
-    !id.startsWith('.') &&
-    !id.includes(path.join(process.cwd(), 'src')) &&
-    !id.includes(path.join(process.cwd(), 'modules')) &&
-    !id.includes(path.join(process.cwd(), 'typings'))
+    id.startsWith('.') &&
+    id.includes(path.join(process.cwd(), 'src')) &&
+    id.includes(path.join(process.cwd(), 'modules')) &&
+    id.includes(path.join(process.cwd(), 'typings')) &&
+    id.includes('@norges-domstoler/') &&
+    !id.includes('@norge-domstoler/dds-design-tokens') // dds-tokens skal være ekstern dependency
   );
 }
 
@@ -67,5 +69,5 @@ export default {
       ],
     }),
   ],
-  external: isBareModuleId,
+  external: id => !isInternal(id),
 };

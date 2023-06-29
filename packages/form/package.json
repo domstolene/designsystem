@@ -44,7 +44,6 @@
     "elsa"
   ],
   "devDependencies": {
-    "@norges-domstoler/dds-design-tokens": "*",
     "@swc/plugin-styled-components": "^1.5.49",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.11",
@@ -71,10 +70,7 @@
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5"
   },
-  "dependencies": {
-    "@norges-domstoler/dds-core": "*",
-    "@norges-domstoler/dds-typography": "*"
-  },
+  "dependencies": {},
   "publishConfig": {
     "provenance": true
   }

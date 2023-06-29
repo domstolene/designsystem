@@ -9,9 +9,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@norges-domstoler/dds-components": "*",
-    "@norges-domstoler/dds-design-tokens": "*",
-    "@norges-domstoler/development-utils": "*",
     "@remix-run/node": "^1.17.0",
     "@remix-run/react": "^1.17.0",
     "@remix-run/serve": "^1.17.0",
