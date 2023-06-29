@@ -1,7 +1,7 @@
 {
   "name": "@norges-domstoler/dds-form",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Base components/styles and other helpers used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
