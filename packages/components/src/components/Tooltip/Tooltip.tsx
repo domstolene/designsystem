@@ -14,9 +14,12 @@ import {
   useCombinedRef,
   useOnKeyDown,
   useFloatPosition,
-} from '../../hooks';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { combineHandlers } from '../../utils';
+} from '@norges-domstoler/dds-core';
+import {
+  BaseComponentProps,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+import { combineHandlers } from '@norges-domstoler/dds-core';
 import {
   ArrowWrapper,
   Container,

@@ -1,6 +1,6 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { SvgIcon } from '../../icons/utils';
-import { BaseComponentProps } from '../../types';
+import { SvgIcon } from '@norges-domstoler/dds-icons';
+import { BaseComponentProps } from '@norges-domstoler/dds-core';
 
 type NavigationLinkProps = {
   href: string;

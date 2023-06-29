@@ -4,15 +4,18 @@ import {
   cardAccordionTokens as tokens,
   typographyTypes,
 } from './CardAccordion.tokens';
-import { AnimatedChevronUpDown } from '../../../helpers';
-import { normalizeButton, removeButtonStyling } from '../../../helpers/styling';
 import {
+  normalizeButton,
+  removeButtonStyling,
+  AnimatedChevronUpDown,
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
-} from '../../../types';
-import { getFontStyling } from '../../Typography/Typography.utils';
+} from '@norges-domstoler/dds-core';
+import {
+  getFontStyling,
+  StaticTypographyType,
+} from '@norges-domstoler/dds-typography';
 import { Property } from 'csstype';
-import { StaticTypographyType } from '../../Typography';
 
 const { header, chevronWrapper } = tokens;
 

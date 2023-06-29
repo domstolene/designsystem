@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import { CloseIcon } from '../../icons/tsx';
+import { CloseIcon } from '@norges-domstoler/dds-icons';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
+} from '@norges-domstoler/dds-core';
+
 import { Button } from '../Button';
 import { ErrorList } from './ErrorList';
 import { fileTokens } from './FileUploader.tokens';

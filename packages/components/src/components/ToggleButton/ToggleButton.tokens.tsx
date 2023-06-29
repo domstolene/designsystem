@@ -1,6 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { selectionControlTokens } from '../../helpers/SelectionControl';
+
 import { buttonTokens, typographyTypes } from '../Button/Button.tokens';
+import { selectionControlTokens } from '../SelectionControl/SelectionControl.tokens';
 
 const { colors, spacing } = ddsBaseTokens;
 const { button } = buttonTokens;

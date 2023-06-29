@@ -7,12 +7,14 @@ import {
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import useIsMounted from '../../../hooks/useIsMounted';
 import {
+  useIsMounted,
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
-} from '../../../types';
-import { getFontStyling } from '../../Typography/Typography.utils';
+  Nullable,
+} from '@norges-domstoler/dds-core';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
+
 import {
   cardAccordionTokens as tokens,
   typographyTypes,

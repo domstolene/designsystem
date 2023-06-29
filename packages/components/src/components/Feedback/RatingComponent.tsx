@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { Thumbup, Thumbdown } from '@norges-domstoler/dds-icons';
+import { Label } from '@norges-domstoler/dds-typography';
+
 import { Layout, Rating } from './Feedback.types';
-import { Thumbup, Thumbdown } from '../../icons/tsx';
 import { Spinner } from '../Spinner';
 import { Tooltip } from '../Tooltip';
-import { Label } from '../Typography';
 import { Button } from '../Button';
 import { FlexContainer } from './FlexContainer';
 

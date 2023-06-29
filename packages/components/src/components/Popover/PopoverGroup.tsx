@@ -8,7 +8,7 @@ import {
   ReactNode,
   useId,
 } from 'react';
-import { useOnKeyDown } from '../../hooks';
+import { useOnKeyDown } from '@norges-domstoler/dds-core';
 
 export type PopoverGroupProps = {
   /**Callback når det trykkes på lukkeknappen. */

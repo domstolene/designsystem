@@ -1,7 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 
 const { colors, spacing } = ddsBaseTokens;
 

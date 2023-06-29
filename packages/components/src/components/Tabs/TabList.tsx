@@ -8,19 +8,20 @@ import {
   ReactElement,
 } from 'react';
 import styled from 'styled-components';
-import { tabsTokens as tokens } from './Tabs.tokens';
 import {
   useCombinedRef,
   useOnClickOutside,
   useOnKeyDown,
   useRoveFocus,
-} from '../../hooks';
+} from '@norges-domstoler/dds-core';
+import {
+  focusVisibleTransitionValue,
+  focusVisible,
+} from '@norges-domstoler/dds-form';
+
+import { tabsTokens as tokens } from './Tabs.tokens';
 import { useTabsContext } from './Tabs.context';
 import { scrollbarStyling } from '../ScrollableContainer';
-import {
-  focusVisible,
-  focusVisibleTransitionValue,
-} from '../../helpers/styling';
 
 const { tabList } = tokens;
 

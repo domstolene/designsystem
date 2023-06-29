@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Paper } from '../../helpers';
-import { visibilityTransition } from '../../helpers/styling';
+import { Paper } from '@norges-domstoler/dds-core';
+import { visibilityTransition } from '@norges-domstoler/dds-core';
 import {
   defaultTypographyType,
   getFontStyling,
-} from '../Typography/Typography.utils';
+} from '@norges-domstoler/dds-typography';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
 
 const { wrapper } = tokens;

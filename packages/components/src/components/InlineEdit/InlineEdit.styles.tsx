@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { inlineEditTokens } from './InlineEdit.tokens';
 import { Property } from 'csstype';
-import { StatefulInput } from '../../helpers';
 import { scrollbarStyling } from '../ScrollableContainer';
+import { StatefulInput } from '@norges-domstoler/dds-form';
 
 const { inlineEdit, iconWrapper } = inlineEditTokens;
 

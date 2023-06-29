@@ -2,7 +2,7 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { StaticTypographyType } from '../Typography';
+import { StaticTypographyType } from '@norges-domstoler/dds-typography';
 import { SearchSize } from './Search';
 
 const { spacing, iconSizes, colors } = ddsBaseTokens;

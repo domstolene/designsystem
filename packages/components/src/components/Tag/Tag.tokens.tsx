@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { localMessageTokens } from '../LocalMessage/LocalMessage.tokens';
-import { StaticTypographyType } from '../Typography';
+import { StaticTypographyType } from '@norges-domstoler/dds-typography';
 
 const { colors, borderRadius, spacing } = ddsBaseTokens;
 

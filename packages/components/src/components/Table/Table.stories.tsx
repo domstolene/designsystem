@@ -1,7 +1,7 @@
 import { useEffect, useState, ChangeEvent } from 'react';
 import { Table, TableProps, SortOrder } from '.';
 import { Button } from '../Button';
-import { Checkbox } from '../Checkbox';
+import { Checkbox } from '../SelectionControl/Checkbox';
 import {
   HeaderCellToSort,
   CellDataToSort,
@@ -10,8 +10,8 @@ import {
   mapCellContents,
 } from './tableData';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Icon } from '../Icon';
-import { PersonIcon, TrashIcon } from '../../icons/tsx';
+import { Icon } from '@norges-domstoler/dds-icons';
+import { PersonIcon, TrashIcon } from '@norges-domstoler/dds-icons';
 
 export default {
   title: 'dds-components/Table/Table',

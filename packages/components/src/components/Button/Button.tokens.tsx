@@ -1,7 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { calculateHeightWithLineHeight } from '@norges-domstoler/dds-core';
+import { StaticTypographyType } from '@norges-domstoler/dds-typography';
+
 import { ButtonSize } from '.';
-import { calculateHeightWithLineHeight } from '../../utils';
-import { StaticTypographyType } from '../Typography';
 
 const { colors, border, spacing, fontPackages, borderRadius, outerShadow } =
   ddsBaseTokens;

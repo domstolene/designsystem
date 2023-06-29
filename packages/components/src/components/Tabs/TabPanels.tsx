@@ -6,7 +6,7 @@ import {
   isValidElement,
   ReactElement,
 } from 'react';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '@norges-domstoler/dds-core';
 import { useTabsContext } from './Tabs.context';
 
 export type TabPanelsProps = HTMLAttributes<HTMLDivElement>;

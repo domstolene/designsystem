@@ -12,7 +12,10 @@ import {
   useMemo,
 } from 'react';
 import styled from 'styled-components';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 import { ProgressTrackerContext } from './ProgressTracker.context';
 import { progressTrackerTokens } from './ProgressTracker.tokens';
 import { ProgressTrackerItem } from './ProgressTrackerItem';

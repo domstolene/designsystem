@@ -1,6 +1,6 @@
 import { AnchorHTMLAttributes, forwardRef, HTMLAttributes } from 'react';
 
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 
 export type BreadcrumbProps =
   | HTMLAttributes<HTMLSpanElement>

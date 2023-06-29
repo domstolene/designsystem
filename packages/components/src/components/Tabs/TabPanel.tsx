@@ -1,10 +1,14 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 import {
-  focusVisible,
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+import {
   focusVisibleTransitionValue,
-} from '../../helpers/styling';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+  focusVisible,
+} from '@norges-domstoler/dds-form';
+
 import { tabsTokens as tokens } from './Tabs.tokens';
 
 const { panel } = tokens;

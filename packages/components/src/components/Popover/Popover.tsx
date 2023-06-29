@@ -2,7 +2,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
 import { forwardRef, ReactNode, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { focusVisible, visibilityTransition } from '../../helpers/styling';
+import { visibilityTransition } from '@norges-domstoler/dds-core';
 import {
   Placement,
   useCombinedRef,
@@ -10,13 +10,17 @@ import {
   useReturnFocusOnBlur,
   useMountTransition,
   useOnClickOutside,
-} from '../../hooks';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+} from '@norges-domstoler/dds-core';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
 import { Button } from '../Button';
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 import { popoverTokens as tokens } from './Popover.tokens';
-import { CloseIcon } from '../../icons/tsx';
-import { Paper } from '../../helpers';
+import { CloseIcon } from '@norges-domstoler/dds-icons';
+import { Paper } from '@norges-domstoler/dds-core';
+import { focusVisible } from '@norges-domstoler/dds-form';
 
 const { spacing: Spacing } = ddsBaseTokens;
 const { wrapper, content, closeButton, title } = tokens;

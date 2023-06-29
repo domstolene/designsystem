@@ -1,12 +1,13 @@
+import styled, { css } from 'styled-components';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
+import {
+  focusVisibleTransitionValue,
+  HiddenInput,
+  focusVisible,
+} from '@norges-domstoler/dds-form';
+
 import { ToggleBarSize } from './ToggleBar.types';
 import { toggleBarTokens as tokens, typographyTypes } from './ToggleBar.tokens';
-import styled, { css } from 'styled-components';
-import {
-  focusVisible,
-  focusVisibleTransitionValue,
-} from '../../helpers/styling';
-import { HiddenInput } from '../../helpers';
-import { getFontStyling } from '../Typography/Typography.utils';
 
 const { content, label } = tokens;
 

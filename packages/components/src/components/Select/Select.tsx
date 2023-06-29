@@ -15,15 +15,18 @@ import {
   MultiValueRemoveProps,
   ControlProps,
 } from 'react-select';
-import { InputSize } from '../../helpers';
-import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../../icons/tsx';
-import { WithRequiredIf } from '../../types/utils';
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  CloseSmallIcon,
+} from '@norges-domstoler/dds-icons';
+import { WithRequiredIf } from '@norges-domstoler/dds-core';
 import {
   derivativeIdGenerator,
   searchFilter,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
-import { Icon } from '../Icon';
+} from '@norges-domstoler/dds-core';
+import { Icon } from '@norges-domstoler/dds-icons';
 import {
   Container,
   getCustomStyles,
@@ -31,12 +34,11 @@ import {
   prefix,
   StyledIcon,
 } from './Select.styles';
-import { Label } from '../Typography';
-import { SvgIcon } from '../../icons/utils';
-import {
-  getFormInputIconSize,
-  renderInputMessage,
-} from '../../helpers/Input/Input.utils';
+import { Label } from '@norges-domstoler/dds-typography';
+import { SvgIcon } from '@norges-domstoler/dds-icons';
+import { getFormInputIconSize } from '../../utils/icon';
+import { renderInputMessage } from '../../utils/renderInputMessage';
+import { InputSize } from '@norges-domstoler/dds-form';
 
 const {
   Option,

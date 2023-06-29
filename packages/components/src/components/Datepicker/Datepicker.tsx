@@ -1,16 +1,22 @@
 import { forwardRef, useId } from 'react';
-import { InputSize, renderInputMessage } from '../../helpers';
-import { StatefulInput, OuterInputContainer, InputProps } from '../../helpers';
-import { Property } from 'csstype';
-import styled, { css } from 'styled-components';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
-import CalendarIcon from '../../assets/svg/calendar_today.svg';
+  selection,
+} from '@norges-domstoler/dds-core';
+import { Label } from '@norges-domstoler/dds-typography';
+import { Property } from 'csstype';
+import styled, { css } from 'styled-components';
+import CalendarIcon from './calendar_today.svg';
+import {
+  StatefulInput,
+  OuterInputContainer,
+  InputSize,
+  InputProps,
+} from '@norges-domstoler/dds-form';
+
 import { datepickerTokens as tokens } from './Datepicker.tokens';
-import { selection } from '../../helpers/styling';
-import { Label } from '../Typography';
+import { renderInputMessage } from '../../utils/renderInputMessage';
 
 const StyledInput = styled(StatefulInput)`
   &::-webkit-calendar-picker-indicator {

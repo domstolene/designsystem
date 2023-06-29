@@ -4,10 +4,10 @@ import {
 } from '@norges-domstoler/dds-design-tokens';
 import {
   InputSize,
-  inputTypographyTypes,
   InputTypographyTypes,
-} from '../../helpers';
-import { StaticTypographyType } from '../Typography';
+  inputTypographyTypes,
+} from '@norges-domstoler/dds-form';
+import { StaticTypographyType } from '@norges-domstoler/dds-typography';
 
 const { colors, spacing, borderRadius, border } = ddsBaseTokens;
 

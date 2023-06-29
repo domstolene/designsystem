@@ -1,8 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { ErrorIcon, InfoIcon, WarningIcon } from '../../icons/tsx';
-import { SvgIcon } from '../../icons/utils';
+import { ErrorIcon, InfoIcon, WarningIcon } from '@norges-domstoler/dds-icons';
+import { SvgIcon } from '@norges-domstoler/dds-icons';
 import { ButtonPurpose } from '../Button';
-import { StaticTypographyType } from '../Typography';
+import { StaticTypographyType } from '@norges-domstoler/dds-typography';
 import { GlobalMessagePurpose } from './GlobalMessage';
 
 const { colors, spacing } = ddsBaseTokens;

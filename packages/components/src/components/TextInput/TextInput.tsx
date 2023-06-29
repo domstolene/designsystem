@@ -5,29 +5,28 @@ import React, {
   useRef,
   useLayoutEffect,
 } from 'react';
-import { InputSize } from '../../helpers';
-import CharCounter from './CharCounter';
-import { TextAffixProps, TextInputProps } from './TextInput.types';
-import {
-  StatefulInput,
-  InputContainer,
-  OuterInputContainer,
-} from '../../helpers';
-import { MessageContainer, StyledIcon, StyledInput } from './TextInput.styles';
-import { Label } from '../Typography';
+import { Label } from '@norges-domstoler/dds-typography';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
-import { Property } from 'csstype';
+} from '@norges-domstoler/dds-core';
 import {
-  InputAffixContainer,
+  InputSize,
   getDefaultText,
-  getFormInputIconSize,
-  renderInputMessage,
-} from '../../helpers/Input';
+  InputContainer,
+  InputAffixContainer,
+  StatefulInput,
+  OuterInputContainer,
+} from '@norges-domstoler/dds-form';
+import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
+
 import { textInputTokens } from './TextInput.tokens';
+import { renderInputMessage } from '../../utils/renderInputMessage';
+import { getFormInputIconSize } from '../../utils/icon';
+import CharCounter from './CharCounter';
+import { TextAffixProps, TextInputProps } from './TextInput.types';
+import { MessageContainer, StyledIcon, StyledInput } from './TextInput.styles';
 
 const defaultWidth: Property.Width<string> = '320px';
 const defaultTinyWidth: Property.Width<string> = '210px';

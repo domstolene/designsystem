@@ -1,7 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import { createSelectOptions, Select, SelectOption, SelectProps } from '.';
-import { CourtIcon } from '../../icons/tsx';
+import { CourtIcon } from '@norges-domstoler/dds-icons';
 
 export default {
   title: 'dds-components/Select/SingleValue',

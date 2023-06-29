@@ -2,16 +2,19 @@ import styled, { css } from 'styled-components';
 import { Button } from '../Button';
 import { forwardRef, useState } from 'react';
 import { localMessageTokens as tokens } from './LocalMessage.tokens';
-import { Icon } from '../Icon';
+import { Icon } from '@norges-domstoler/dds-icons';
 import { Property } from 'csstype';
-import { Typography } from '../Typography';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { CloseIcon } from '../../icons/tsx';
-import { selection } from '../../helpers/styling';
 import {
+  Typography,
   defaultTypographyType,
   getFontStyling,
-} from '../Typography/Typography.utils';
+} from '@norges-domstoler/dds-typography';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+  selection,
+} from '@norges-domstoler/dds-core';
+import { CloseIcon } from '@norges-domstoler/dds-icons';
 
 const defaultWidth: Property.Width<string> = '400px';
 const { container, icon, purposeVariants } = tokens;

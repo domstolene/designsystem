@@ -1,16 +1,19 @@
 import { AnchorHTMLAttributes, RefObject } from 'react';
 import styled, { css } from 'styled-components';
 import { cardTokens as tokens } from './Card.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import {
-  focusVisibleWithBorder,
-  hoverWithBorder,
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
   selection,
-} from '../../helpers/styling';
+} from '@norges-domstoler/dds-core';
 import {
   getFontStyling,
   defaultTypographyType,
-} from '../Typography/Typography.utils';
+} from '@norges-domstoler/dds-typography';
+import {
+  hoverWithBorder,
+  focusVisibleWithBorder,
+} from '@norges-domstoler/dds-form';
 
 type ContainerProps = {
   color: CardColor;

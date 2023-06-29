@@ -1,9 +1,9 @@
 import { ChangeEvent, useState, useId } from 'react';
 import styled, { css } from 'styled-components';
-import { selection } from '../../helpers/styling';
-import { getBaseHTMLProps } from '../../types';
-import { combineHandlers } from '../../utils';
-import { Typography } from '../Typography';
+import { selection } from '@norges-domstoler/dds-core';
+import { getBaseHTMLProps } from '@norges-domstoler/dds-core';
+import { combineHandlers } from '@norges-domstoler/dds-core';
+import { Typography } from '@norges-domstoler/dds-typography';
 import { ToggleBarContext } from './ToggleBar.context';
 import { toggleBarTokens as tokens } from './ToggleBar.tokens';
 import { Property } from 'csstype';

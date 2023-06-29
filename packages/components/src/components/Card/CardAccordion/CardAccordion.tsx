@@ -13,7 +13,7 @@ import styled from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
-} from '../../../types';
+} from '@norges-domstoler/dds-core';
 
 const Wrapper = styled.div``;
 

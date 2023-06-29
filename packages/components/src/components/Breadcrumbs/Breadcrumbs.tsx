@@ -1,11 +1,13 @@
 import { forwardRef, Children } from 'react';
 import styled from 'styled-components';
 import { breadcrumbTokens, typographyType } from './Breadcrumb.tokens';
-import { Icon } from '../Icon';
-import { ChevronRightIcon } from '../../icons/tsx';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { removeListStyling } from '../../helpers/styling/removeListStyling';
-import { getFontStyling } from '../Typography/Typography.utils';
+import { Icon, icons } from '@norges-domstoler/dds-icons';
+import {
+  removeListStyling,
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
 
 const { icon, list, listItem } = breadcrumbTokens;
 
@@ -41,7 +43,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     const breadcrumbChildren = childrenArray.map((item, index) => {
       return (
         <ListItem key={`breadcrumb-${index}`}>
-          {index !== 0 && <StyledIcon icon={ChevronRightIcon} />}
+          {index !== 0 && <StyledIcon icon={icons.ChevronRightIcon} />}
           {item}
         </ListItem>
       );

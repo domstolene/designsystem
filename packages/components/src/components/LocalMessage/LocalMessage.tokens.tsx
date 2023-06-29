@@ -5,10 +5,10 @@ import {
   InfoIcon,
   WarningIcon,
   CheckCircledIcon,
-} from '../../icons/tsx';
-import { SvgIcon } from '../../icons/utils';
+} from '@norges-domstoler/dds-icons';
+import { SvgIcon } from '@norges-domstoler/dds-icons';
 import { ButtonPurpose } from '../Button';
-import { StaticTypographyType } from '../Typography';
+import { StaticTypographyType } from '@norges-domstoler/dds-typography';
 import { LocalMessagePurpose } from './LocalMessage';
 
 const { colors, spacing, borderRadius, border, outerShadow } = ddsBaseTokens;

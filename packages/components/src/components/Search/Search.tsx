@@ -11,23 +11,23 @@ import styled, { css } from 'styled-components';
 import {
   Input as BaseInput,
   InputProps as BaseInputProps,
-  renderInputMessage,
-} from '../../helpers';
-import { useCombinedRef } from '../../hooks';
-import { CloseSmallIcon, SearchIcon } from '../../icons/tsx';
+} from '@norges-domstoler/dds-form';
+import { useCombinedRef } from '@norges-domstoler/dds-core';
+import { CloseSmallIcon, SearchIcon } from '@norges-domstoler/dds-icons';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
+} from '@norges-domstoler/dds-core';
 import { Button } from '../Button';
-import { Icon, IconSize } from '../Icon';
-import { Label } from '../Typography';
-import { getFontStyling } from '../Typography/Typography.utils';
+import { Icon, IconSize } from '@norges-domstoler/dds-icons';
+import { Label } from '@norges-domstoler/dds-typography';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import { searchTokens as tokens, typographyTypes } from './Search.tokens';
 import { SearchSuggestions } from './SearchSuggestions';
 import { createEmptyChangeEvent } from './Search.utils';
+import { renderInputMessage } from '../../utils/renderInputMessage';
 
 const { input, outerContainer, horisontalContainer, searchIcon, clearButton } =
   tokens;

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { selection } from '../../helpers/styling';
+import { selection } from '@norges-domstoler/dds-core';
 import { scrollbarStyling } from '../ScrollableContainer';
 import { tableTokens } from './Table.tokens';
 import { TableDensity, TableProps } from './Table.types';

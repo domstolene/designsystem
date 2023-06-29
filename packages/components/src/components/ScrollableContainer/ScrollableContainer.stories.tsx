@@ -2,7 +2,7 @@ import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Scrollbar, ScrollableContainer, ScrollableContainerProps } from '.';
 import { useRef, CSSProperties } from 'react';
 import styled from 'styled-components';
-import { focusVisible } from '../../helpers/styling';
+import { focusVisible } from '@norges-domstoler/dds-form';
 
 export default {
   title: 'dds-components/ScrollableContainer',

@@ -2,20 +2,28 @@ import { forwardRef, ReactNode, RefObject, useEffect, useId } from 'react';
 import styled from 'styled-components';
 import { Button } from '../Button';
 import { modalTokens as tokens } from './Modal.tokens';
-import { useFocusTrap } from '../../hooks';
-import { useCombinedRef, useOnClickOutside, useOnKeyDown } from '../../hooks';
 import { createPortal } from 'react-dom';
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 import {
-  Backdrop,
+  useCombinedRef,
+  useOnClickOutside,
+  useOnKeyDown,
+  Paper,
+  selection,
+  useMountTransition,
+  useFocusTrap,
+} from '@norges-domstoler/dds-core';
+import {
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '@norges-domstoler/dds-core';
+import { CloseIcon } from '@norges-domstoler/dds-icons';
+import {
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
-  Paper,
-} from '../../helpers';
-import { useMountTransition } from '../../hooks/useMountTransition';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { CloseIcon } from '../../icons/tsx';
-import { focusVisible, selection } from '../../helpers/styling';
+  Backdrop,
+} from './Backdrop';
+import { focusVisible } from '@norges-domstoler/dds-form';
 
 const { container, contentContainer } = tokens;
 

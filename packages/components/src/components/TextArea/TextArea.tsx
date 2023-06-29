@@ -8,24 +8,25 @@ import {
 } from 'react';
 import styled from 'styled-components';
 import {
-  getDefaultText,
-  OuterInputContainer,
-  StatefulInput,
-  StyledInputProps,
-  CommonInputProps,
-  renderInputMessage,
-  inputTypographyTypes,
-} from '../../helpers/Input';
-import { useCombinedRef } from '../../hooks';
-import {
+  useCombinedRef,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
-import { scrollbarStyling } from '../ScrollableContainer';
-import { Label } from '../Typography';
-import { textAreaTokens } from './TextArea.tokens';
+} from '@norges-domstoler/dds-core';
+import { Label } from '@norges-domstoler/dds-typography';
 import { Property } from 'csstype';
-import { getFontStyling } from '../Typography/Typography.utils';
+import { getFontStyling } from '@norges-domstoler/dds-typography';
+import {
+  StatefulInput,
+  StyledInputProps,
+  inputTypographyTypes,
+  CommonInputProps,
+  getDefaultText,
+  OuterInputContainer,
+} from '@norges-domstoler/dds-form';
+
+import { scrollbarStyling } from '../ScrollableContainer';
+import { textAreaTokens } from './TextArea.tokens';
+import { renderInputMessage } from '../../utils/renderInputMessage';
 
 const defaultWidth: Property.Width<string> = '320px';
 const { textarea } = textAreaTokens;

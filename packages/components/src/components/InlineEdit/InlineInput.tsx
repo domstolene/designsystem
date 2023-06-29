@@ -1,15 +1,10 @@
 import { forwardRef, InputHTMLAttributes, useId, useRef } from 'react';
-import { EditIcon } from '../../icons/tsx';
-import { Icon } from '../Icon';
-import {
-  InputContainer,
-  OuterInputContainer,
-  renderInputMessage,
-} from '../../helpers';
+import { EditIcon } from '@norges-domstoler/dds-icons';
+import { Icon } from '@norges-domstoler/dds-icons';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
+} from '@norges-domstoler/dds-core';
 import {
   IconWrapper,
   defaultWidth,
@@ -17,7 +12,12 @@ import {
 } from './InlineEdit.styles';
 import { BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '@norges-domstoler/dds-core';
+import { renderInputMessage } from '../../utils/renderInputMessage';
+import {
+  OuterInputContainer,
+  InputContainer,
+} from '@norges-domstoler/dds-form';
 
 export type InlineInputProps = BaseInlineInputProps &
   InputHTMLAttributes<HTMLInputElement>;

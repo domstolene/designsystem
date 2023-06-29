@@ -1,18 +1,19 @@
 import { forwardRef, MouseEvent } from 'react';
-import { Cell, TableCellProps } from './Cell';
-import { tableTokens } from './Table.tokens';
-import { Icon } from '../Icon';
+import { Icon } from '@norges-domstoler/dds-icons';
 import {
   UnfoldMoreIcon,
   ChevronUpIcon,
   ChevronDownIcon,
-} from '../../icons/tsx';
+} from '@norges-domstoler/dds-icons';
 import styled from 'styled-components';
 import {
-  focusVisible,
   normalizeButton,
   removeButtonStyling,
-} from '../../helpers/styling';
+} from '@norges-domstoler/dds-core';
+import { focusVisible } from '@norges-domstoler/dds-form';
+
+import { Cell, TableCellProps } from './Cell';
+import { tableTokens } from './Table.tokens';
 
 const { cell } = tableTokens;
 

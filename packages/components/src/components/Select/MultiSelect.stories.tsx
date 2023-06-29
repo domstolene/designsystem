@@ -1,4 +1,4 @@
-import { CourtIcon } from '../../icons/tsx';
+import { CourtIcon } from '@norges-domstoler/dds-icons';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import { Select as DDSSelect, SelectProps } from './Select';

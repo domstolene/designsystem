@@ -4,7 +4,7 @@ import {
   ChecklistIcon,
   GavelIcon,
   PersonIcon,
-} from '../../icons/tsx';
+} from '@norges-domstoler/dds-icons';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
 import { ProgressTracker } from '.';

@@ -1,6 +1,6 @@
 import { forwardRef, useRef } from 'react';
 import { InlineEdit } from './InlineEdit';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '@norges-domstoler/dds-core';
 import { InlineEditInputProps } from './InlineEdit.types';
 import { InlineInput } from './InlineInput';
 

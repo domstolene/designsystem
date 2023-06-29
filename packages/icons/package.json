@@ -1,0 +1,80 @@
+{
+  "name": "@norges-domstoler/dds-icons",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Icons used in Elsa - domstolenes designsystem",
+  "author": "Elsa team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domstolene/designsystem"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/dds-icons.cjs",
+  "module": "./dist/dds-icons.js",
+  "exports": {
+    ".": {
+      "import": "./dist/dds-icons.js",
+      "require": "./dist/dds-icons.cjs"
+    }
+  },
+  "homepage": "https://design.domstol.no",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "lint": "eslint --ext=jsx,ts,tsx src",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "verify:types": "tsc --noEmit",
+    "verify:lint": "npm run lint",
+    "verify:prettier": "npm run prettier:check",
+    "verify": "concurrently 'npm:verify:*'"
+  },
+  "keywords": [
+    "dds",
+    "design",
+    "dds-icons",
+    "design system",
+    "domstolene",
+    "norges domstoler",
+    "elsa"
+  ],
+  "devDependencies": {
+    "@norges-domstoler/dds-design-tokens": "*",
+    "@swc/plugin-styled-components": "^1.5.49",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.0",
+    "@vitejs/plugin-react-swc": "^3.2.0",
+    "concurrently": "^8.0.1",
+    "esbuild": "^0.16.3",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.6",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.1.0",
+    "vitest": "^0.29.1"
+  },
+  "peerDependencies": {
+    "@norges-domstoler/dds-design-tokens": "^3",
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18",
+    "styled-components": "^5"
+  },
+  "dependencies": {
+    "@norges-domstoler/dds-core": "*"
+  },
+  "publishConfig": {
+    "provenance": true
+  }
+}

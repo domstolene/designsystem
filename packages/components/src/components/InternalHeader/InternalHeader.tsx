@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Typography } from '../Typography';
+import { Typography } from '@norges-domstoler/dds-typography';
 import { Button } from '../Button';
 import { InternalHeaderProps } from './InternalHeader.types';
 import {
@@ -15,8 +15,8 @@ import {
 } from './InternalHeader.styles';
 import { NavigationItem } from './NavigationItem';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
-import { getBaseHTMLProps } from '../../types';
-import { MenuIcon, MoreVerticalIcon } from '../../icons/tsx';
+import { getBaseHTMLProps } from '@norges-domstoler/dds-core';
+import { MenuIcon, MoreVerticalIcon } from '@norges-domstoler/dds-icons';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {
