@@ -114,7 +114,7 @@ type DescriptionListField = {
   children: DescriptionListGroupField[];
 };
 
-type DescriptionListGroupField = {
+export type DescriptionListGroupField = {
   component: PageGeneratorSupportedFields.DescriptionListGroup;
   props: DescriptionListGroupProps;
   hide?: boolean;
