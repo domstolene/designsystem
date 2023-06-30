@@ -1,5 +1,6 @@
 import { useEffect, useState, ChangeEvent } from 'react';
 import { Table, TableProps, SortOrder } from '.';
+import { Paragraph } from '@norges-domstoler/dds-typography';
 import { Button } from '../Button';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import {
@@ -12,6 +13,7 @@ import {
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Icon } from '@norges-domstoler/dds-icons';
 import { PersonIcon, TrashIcon } from '@norges-domstoler/dds-icons';
+import { ScrollableContainer } from '../ScrollableContainer';
 
 export default {
   title: 'dds-components/Table/Table',
@@ -655,6 +657,50 @@ export const ColumnAndRowHeaders = (args: TableProps) => {
           </Table.Body>
         </Table>
       </Table.Wrapper>
+    </StoryTemplate>
+  );
+};
+
+export const WithScroll = (args: TableProps) => {
+  return (
+    <StoryTemplate title="Table - with scroll">
+      <Paragraph>
+        Her brukes komponenten ScrollableContainer for å gjøre det mulig å
+        scrolle i tabellen når den blir bredere enn vinduets bredde. Du kan
+        teste ut dette ved å gjøre nettleservinduet ditt mindre.
+      </Paragraph>
+      <ScrollableContainer>
+        <Table.Wrapper>
+          <Table {...args}>
+            <Table.Body>
+              <Table.Row>
+                <Table.Cell></Table.Cell>
+                {headerCells.map(headerCell => (
+                  <Table.Cell
+                    key={`head-${headerCell.dataName}`}
+                    type="head"
+                    scope="col"
+                  >
+                    {headerCell.name}
+                  </Table.Cell>
+                ))}
+              </Table.Row>
+              {data.map(item => (
+                <Table.Row key={item.name}>
+                  <Table.Cell type="head" scope="row">
+                    Header
+                  </Table.Cell>
+                  <Table.Cell> {item.name} </Table.Cell>
+                  <Table.Cell> {item.fnumber} </Table.Cell>
+                  <Table.Cell> {item.employer} </Table.Cell>
+                  <Table.Cell> {item.orgnumber} </Table.Cell>
+                  <Table.Cell> {item.percentage} </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </Table.Wrapper>
+      </ScrollableContainer>
     </StoryTemplate>
   );
 };
