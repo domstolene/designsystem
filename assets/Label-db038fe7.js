@@ -1,2 +1,0 @@
-import{a as m,j as l}from"./focus-visible-35158c22.js";import{r as y}from"./index-d47b1f5a.js";import{a as n,k as c}from"./dds-core-29d22035.js";import{T as d}from"./Typography-b2d6daf2.js";const f=y.forwardRef((r,a)=>{const{showRequiredStyling:s,id:e,className:o,htmlProps:t,children:p,...i}=r;return m(d,{...n(e,o,t,i),ref:a,typographyType:"supportingStyleLabel01",children:[p," ",s&&l(c,{})]})});f.displayName="Label";export{f as L};
-//# sourceMappingURL=Label-db038fe7.js.map
