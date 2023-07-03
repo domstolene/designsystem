@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.6.2
+
+### Patch Changes
+
+- 62c2e09d: Fikser bug hvor unmounting av Modal ikke fjernet scroll-lock
+
 ## 13.6.1
 
 ### Patch Changes
