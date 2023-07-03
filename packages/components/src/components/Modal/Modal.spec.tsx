@@ -91,4 +91,38 @@ describe('<Modal />', () => {
     const elQuery = screen.queryByRole('dialog');
     expect(elQuery).not.toBeInTheDocument();
   });
+
+  it('should prevent scroll when open', async () => {
+    // so that scroll is triggered
+    window.innerHeight = -1;
+
+    render(<Modal isOpen />);
+
+    expect(document.body.style.position).toBe('fixed');
+  });
+
+  it('should restore scroll after unmount', async () => {
+    const ModalTest = () => {
+      const [showModal, setShowModal] = useState(true);
+      return (
+        <>
+          <button onClick={() => setShowModal(false)}>Close modal</button>
+          {showModal && <Modal isOpen></Modal>}
+        </>
+      );
+    };
+
+    // so that scroll is triggered
+    window.innerHeight = -1;
+
+    render(<ModalTest />);
+    const button = screen.getByRole('button');
+
+    expect(document.body.style.position).toBe('fixed');
+
+    act(() => {
+      button.click();
+    });
+    expect(document.body.style.position).toBe('');
+  });
 });

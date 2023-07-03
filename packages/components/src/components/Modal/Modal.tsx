@@ -12,18 +12,17 @@ import {
   selection,
   useMountTransition,
   useFocusTrap,
-} from '@norges-domstoler/dds-core';
-import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '@norges-domstoler/dds-core';
 import { CloseIcon } from '@norges-domstoler/dds-icons';
+import { focusVisible } from '@norges-domstoler/dds-form';
+
 import {
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
   Backdrop,
 } from './Backdrop';
-import { focusVisible } from '@norges-domstoler/dds-form';
 
 const { container, contentContainer } = tokens;
 
@@ -100,6 +99,8 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     } else {
       handleElementWithBackdropUnmount(document.body);
     }
+
+    return () => handleElementWithBackdropUnmount(document.body);
   }, [isOpen]);
 
   useOnClickOutside(modalRef.current, () => handleClose());
