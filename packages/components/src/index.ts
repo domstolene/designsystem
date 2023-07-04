@@ -7,6 +7,7 @@ export * from './dds-form';
 export * from './dds-icons';
 export * from './dds-typography';
 
+export * from './components/AppShell';
 export * from './components/SelectionControl/RadioButton';
 export * from './components/SelectionControl/Checkbox';
 export * from './components/Button';
