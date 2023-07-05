@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 13.6.3
+
+### Patch Changes
+
+- 71ddaa08: Legger til experimental component AppShell. Bør ikke tas i bruk enda, breaking changes kan skje uten forvarsel utenfor major-versjon
+- Updated dependencies [71ddaa08]
+  - @norges-domstoler/dds-core@0.0.3
+
 ## 13.6.2
 
 ### Patch Changes
