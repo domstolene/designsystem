@@ -46,6 +46,15 @@ export const Overview = (args: SearchProps) => {
       <Search
         {...args}
         componentSize="medium"
+        buttonProps={{
+          onClick: () => {},
+          label: 'Secondary',
+          purpose: 'secondary',
+        }}
+      />
+      <Search
+        {...args}
+        componentSize="medium"
         buttonProps={{ onClick: () => {}, label: 'Custom label' }}
       />
       <Search

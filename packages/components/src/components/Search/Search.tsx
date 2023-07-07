@@ -1,4 +1,20 @@
 import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator,
+  useCombinedRef,
+} from '@norges-domstoler/dds-core';
+import {
+  Input as BaseInput,
+  InputProps as BaseInputProps,
+} from '@norges-domstoler/dds-form';
+import {
+  CloseSmallIcon,
+  Icon,
+  IconSize,
+  SearchIcon,
+} from '@norges-domstoler/dds-icons';
+import { getFontStyling, Label } from '@norges-domstoler/dds-typography';
+import {
   ButtonHTMLAttributes,
   ChangeEvent,
   forwardRef,
@@ -8,26 +24,13 @@ import {
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  Input as BaseInput,
-  InputProps as BaseInputProps,
-} from '@norges-domstoler/dds-form';
-import { useCombinedRef } from '@norges-domstoler/dds-core';
-import { CloseSmallIcon, SearchIcon } from '@norges-domstoler/dds-icons';
-import {
-  derivativeIdGenerator,
-  spaceSeparatedIdListGenerator,
-} from '@norges-domstoler/dds-core';
+import { renderInputMessage } from '../../utils/renderInputMessage';
 import { Button } from '../Button';
-import { Icon, IconSize } from '@norges-domstoler/dds-icons';
-import { Label } from '@norges-domstoler/dds-typography';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import { searchTokens as tokens, typographyTypes } from './Search.tokens';
-import { SearchSuggestions } from './SearchSuggestions';
 import { createEmptyChangeEvent } from './Search.utils';
-import { renderInputMessage } from '../../utils/renderInputMessage';
+import { SearchSuggestions } from './SearchSuggestions';
 
 const { input, outerContainer, horisontalContainer, searchIcon, clearButton } =
   tokens;
@@ -114,6 +117,7 @@ type ButtonProps = {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   label?: string;
   loading?: boolean;
+  purpose?: 'primary' | 'secondary';
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type SearchProps = Pick<BaseInputProps, 'tip' | 'label'> & {
