@@ -1,6 +1,7 @@
 import { PropsWithChildren, ReactElement } from 'react';
 import styled from 'styled-components';
 
+import { appShellTokens } from './AppShell.tokens';
 import { Navigation } from './Navigation/Navigation';
 
 export type AppShellProps = PropsWithChildren<{
@@ -21,6 +22,11 @@ const AppShellContainer = styled.div`
   flex-direction: row;
 `;
 
+const MainContent = styled.main`
+  min-width: calc(100vw - ${appShellTokens.navigation.width});
+  max-width: calc(100vw - ${appShellTokens.navigation.width});
+`;
+
 export const AppShell = ({
   children,
   version = '',
@@ -29,7 +35,7 @@ export const AppShell = ({
   return (
     <AppShellContainer>
       <Navigation version={version} internal={internal} external={external} />
-      {children}
+      <MainContent>{children}</MainContent>
     </AppShellContainer>
   );
 };
