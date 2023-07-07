@@ -15,6 +15,7 @@ const Sidebar = styled.div`
   padding: ${navTokens.padding};
   color: ${navTokens.color};
   background-color: ${navTokens.backgroundColor};
+  box-sizing: border-box;
 
   position: sticky;
   top: 0;
@@ -94,7 +95,7 @@ export const Navigation = ({
           </DividerWrapper>
         )}
 
-        {Children.map(external, (item, i) => {
+        {Children.map(external, item => {
           if (item.type !== NavigationItem) {
             console.warn(
               'Du bruker en React-komponent som ikke er tillat i AppShell-external. Du kan kun bruke AppShell.NavItem i AppShell-external.'

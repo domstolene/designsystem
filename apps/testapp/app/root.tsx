@@ -16,6 +16,7 @@ import {
   MinusIcon,
   UnfoldMoreIcon,
   LockIcon,
+  CalendarViewMonthIcon,
 } from "@norges-domstoler/dds-icons";
 
 import globalStyles from "./index.css";
@@ -38,6 +39,7 @@ export default function App() {
     { href: "/banner/TEST", label: "Banner", icon: MinusIcon },
     { href: "/card/accordion", label: "Accordion", icon: UnfoldMoreIcon },
     { href: "/card/id-porten", label: "ID-porten", icon: LockIcon },
+    { href: "/table", label: "Table", icon: CalendarViewMonthIcon },
   ];
 
   return (
