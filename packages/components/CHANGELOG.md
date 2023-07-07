@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.6.4
+
+### Patch Changes
+
+- 12a0ea97: Fikser feil med AppShell navigasjon hvor den krympet når hovedinnholdet ble for bredt
+
 ## 13.6.3
 
 ### Patch Changes
