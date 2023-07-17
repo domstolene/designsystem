@@ -61,7 +61,7 @@
     "styled-components": "^5.3.6",
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
-    "vite-plugin-dts": "^2.1.0",
+    "vite-plugin-dts": "^3.3.1",
     "vitest": "^0.29.1"
   },
   "peerDependencies": {
