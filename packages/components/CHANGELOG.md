@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.7.0
+
+### Minor Changes
+
+- a13990db: Legger til secondary-type på buttonProps for Search-komponent
+
 ## 13.6.4
 
 ### Patch Changes
