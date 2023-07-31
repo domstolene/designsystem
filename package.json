@@ -28,7 +28,7 @@
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
-    "@storybook/react-vite": "^7.0.20",
+    "@storybook/react-vite": "^7.1.1",
     "turbo": "^1.10.6"
   },
   "overrides": {
