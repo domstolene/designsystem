@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-const { colors, spacing, fontPackages, borderRadius } = ddsBaseTokens;
+const { colors, spacing, fontPackages, borderRadius, breakpoints } =
+  ddsBaseTokens;
 
 const navigationItems = {
   gap: spacing.SizesDdsSpacingLocalX05,
@@ -28,15 +29,27 @@ const logoAndVersion = {
   logo: {
     ...fontPackages.heading_sans_05.base,
     fontWeight: 700,
+    small: {
+      ...fontPackages.heading_sans_03.base,
+      fontWeight: 600,
+    },
   },
   version: {
     ...fontPackages.supportingStyle_tiny_01.base,
   },
 };
 
+const topBar = {
+  padding: spacing.SizesDdsSpacingLocalX025,
+  height: `calc(${spacing.SizesDdsSpacingLayoutX3} + 2 * ${spacing.SizesDdsSpacingLocalX025})`,
+  buttonTextColor: colors.DdsColorNeutralsGray3,
+  gap: spacing.SizesDdsSpacingLocalX025,
+};
+
 const navigation = {
   navigationItems,
   logoAndVersion,
+  topBar,
 
   color: colors.DdsColorNeutralsGray1,
   backgroundColor: colors.DdsColorPrimaryBase,
@@ -46,6 +59,7 @@ const navigation = {
   width: '264px',
 
   mobile: {
+    breakpoint: breakpoints.DdsBreakpointSm,
     iconColors: colors.DdsColorNeutralsGray3,
   },
 };
