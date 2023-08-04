@@ -11,28 +11,7 @@ import {
   OverflowMenuProps,
 } from '../../OverflowMenu';
 
-const { navigation: navTokens } = appShellTokens;
-
-const Bar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${navTokens.topBar.gap};
-  width: 100vw;
-  height: ${navTokens.topBar.height};
-  color: ${navTokens.color};
-  background-color: ${navTokens.backgroundColor};
-  box-sizing: border-box;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  @media (min-width: ${navTokens.mobile.breakpoint}) {
-    display: none;
-  }
-`;
+const { navigation: navTokens, floatingActionButtons } = appShellTokens;
 
 const LogoBurgerGroup = styled.div`
   display: flex;
@@ -51,6 +30,71 @@ const IconButton = styled(Button).attrs({
   purpose: 'secondary',
 })`
   color: ${navTokens.topBar.buttonTextColor};
+  > :first-child {
+    font-size: 1.65rem;
+  }
+  @media (max-width: ${navTokens.mobile.breakpoint}) {
+    border: 0;
+    box-shadow: none;
+    padding: 12px;
+    &:hover,
+    &:active {
+      color: ${navTokens.topBar.buttonTextColor};
+      text-decoration-color: ${navTokens.topBar.buttonTextColor};
+      box-shadow: none;
+    }
+    gap: 0;
+  }
+`;
+
+const IconButtonText = styled.span`
+  display: none; // Ikke vis tekst på mobil
+  width: 0;
+`;
+
+const Bar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${navTokens.topBar.gap};
+  width: 100vw;
+  height: ${navTokens.topBar.height};
+  color: ${navTokens.color};
+  background-color: ${navTokens.backgroundColor};
+  box-sizing: border-box;
+  z-index: 101;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  @media (min-width: ${navTokens.mobile.breakpoint}) {
+    justify-content: flex-end;
+    background-color: transparent;
+    margin-left: ${navTokens.width};
+    width: calc(100vw - ${navTokens.width});
+
+    ${LogoBurgerGroup} {
+      display: none;
+    }
+
+    ${ActionButtonGroup} {
+      padding-right: calc(2 * ${navTokens.topBar.gap});
+      gap: ${floatingActionButtons.gap};
+    }
+
+    ${IconButton} {
+      background-color: ${floatingActionButtons.backgroundColor};
+      color: ${floatingActionButtons.textColor};
+      box-shadow: 8px 16px 32px 0px rgba(0, 0, 0, 0.1);
+      border-radius: ${floatingActionButtons.borderRadius};
+
+      ${IconButtonText} {
+        display: unset;
+      }
+    }
+  }
 `;
 
 type TopBarProps = {
@@ -95,7 +139,10 @@ export const TopBar = ({
       </LogoBurgerGroup>
       <ActionButtonGroup>
         <OverflowMenuGroup>
-          <IconButton icon={Icon} />
+          <IconButton
+            icon={Icon}
+            label={<IconButtonText>{user.name}</IconButtonText>}
+          />
           <OverflowMenu items={userMenuItems} />
         </OverflowMenuGroup>
       </ActionButtonGroup>

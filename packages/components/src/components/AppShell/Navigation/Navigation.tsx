@@ -25,6 +25,7 @@ const Sidebar = styled.div<{ isOpen: boolean }>`
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 100;
 
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});

@@ -67,7 +67,8 @@ const navigation = {
 const floatingActionButtons = {
   gap: spacing.SizesDdsSpacingLocalX1,
   textColor: colors.DdsColorNeutralsGray7,
-  backgroundColor: colors.DdsColorPrimaryDarker,
+  backgroundColor: colors.DdsColorNeutralsWhite,
+  borderRadius: borderRadius.RadiiDdsBorderRadius3Radius,
 };
 
 export const appShellTokens = { navigation, floatingActionButtons };

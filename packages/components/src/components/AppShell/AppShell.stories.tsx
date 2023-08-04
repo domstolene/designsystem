@@ -17,7 +17,7 @@ export const Default = (args: Partial<ComponentProps<typeof AppShell>>) => (
   <AppShell
     version="1.0.0"
     user={{
-      embete: { name: 'Borgarting Lagmannsrett', type: 'lagmannsrett' },
+      embete: { name: 'Borgarting Lagmannsrett', type: 'høyesterett' },
       name: 'Kari Nordmann',
     }}
     userMenuItems={[{ title: 'Bytt embete' }, { title: 'Logg ut' }]}
