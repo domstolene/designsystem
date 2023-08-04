@@ -1,2 +1,0 @@
-import{a as i}from"./focus-visible-8467fd8b.js";import{r as m}from"./index-d47b1f5a.js";import{a as n}from"./dds-core-b89b291f.js";import{T as c}from"./Typography-aacb8cd1.js";const f=m.forwardRef((a,r)=>{const{id:o,className:p,htmlProps:s,children:t,...e}=a;return i(c,{...n(o,p,s,e),ref:r,typographyType:"headingSans03",as:"caption",children:t})});f.displayName="Caption";export{f as C};
-//# sourceMappingURL=Caption-89a9e04d.js.map

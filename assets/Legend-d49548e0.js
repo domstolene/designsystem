@@ -1,2 +1,0 @@
-import{a as m}from"./focus-visible-8467fd8b.js";import{r as n}from"./index-d47b1f5a.js";import{a as d}from"./dds-core-b89b291f.js";import{T as i}from"./Typography-aacb8cd1.js";const f=n.forwardRef((r,a)=>{const{id:e,className:o,htmlProps:s,children:p,...t}=r;return m(i,{...d(e,o,s,t),ref:a,as:"legend",typographyType:"headingSans03",children:p})});f.displayName="Legend";export{f as L};
-//# sourceMappingURL=Legend-d49548e0.js.map

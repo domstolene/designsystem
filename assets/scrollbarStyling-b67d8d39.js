@@ -1,2 +1,0 @@
-import{s as b}from"./ScrollableContainer.tokens-a52bc549.js";const{thumb:o,track:r}=b,a="thin",s={webkit:{"&::-webkit-scrollbar":{width:r.width,height:r.width},"&::-webkit-scrollbar-track":{background:r.backgroundColor,borderRadius:r.borderRadius},"&::-webkit-scrollbar-thumb":{background:o.base.backgroundColor,borderRadius:o.base.borderRadius}},"&::-webkit-scrollbar-thumb:hover":{background:o.hover.backgroundColor},firefox:{scrollbarColor:o.base.backgroundColor+" "+r.backgroundColor,scrollbarWidth:a}};export{s};
-//# sourceMappingURL=scrollbarStyling-b67d8d39.js.map
