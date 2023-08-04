@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.1.0
+
+### Minor Changes
+
+- 0cd5100d: Eksponerer EnvironmentBanner-komponenten
+
 ## 1.0.4
 
 ### Patch Changes
