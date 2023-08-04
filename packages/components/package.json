@@ -93,6 +93,7 @@
     "@norges-domstoler/dds-form": "*",
     "@norges-domstoler/dds-icons": "*",
     "@norges-domstoler/dds-typography": "*",
+    "@norges-domstoler/development-utils": "*",
     "attr-accept": "^2.2.2",
     "file-selector": "^0.6.0",
     "focus-visible": "^5.2.0",

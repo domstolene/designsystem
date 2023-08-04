@@ -51,6 +51,14 @@ export default function App() {
       <body>
         <AppShell
           version="1.0.0"
+          user={{
+            name: "Elsa Laula Renberg",
+            embete: {
+              name: "Sis- ja Nuorta-Finnmárkku diggegoddi",
+              type: "tingrett",
+            },
+          }}
+          environment="TEST"
           navigation={{
             internal: internalLinks.map(({ href, label, icon }) => (
               <AppShell.NavItem

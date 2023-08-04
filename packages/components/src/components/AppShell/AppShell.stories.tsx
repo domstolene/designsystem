@@ -1,5 +1,4 @@
 import { ComponentProps } from 'react';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { AppShell } from '.';
 import {
   BarChartIcon,
@@ -20,6 +19,7 @@ export const Default = (args: Partial<ComponentProps<typeof AppShell>>) => (
       embete: { name: 'Borgarting Lagmannsrett', type: 'høyesterett' },
       name: 'Kari Nordmann',
     }}
+    environment="TEST"
     userMenuItems={[{ title: 'Bytt embete' }, { title: 'Logg ut' }]}
     navigation={{
       internal: [

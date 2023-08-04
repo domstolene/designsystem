@@ -1,4 +1,4 @@
-import { Children, ReactElement, useEffect, useState } from 'react';
+import { Children, ReactElement, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { appShellTokens } from '../AppShell.tokens';
@@ -7,10 +7,15 @@ import { NavigationItem } from './NavigationItem';
 import { TopBar, User } from './TopBar';
 import { NavigationLogo } from './NavigationLogo';
 import { OverflowMenuProps } from '../../OverflowMenu';
+import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
+import { useAppShellContext } from '../AppShellContext';
 
 const { navigation: navTokens } = appShellTokens;
 
-const Sidebar = styled.div<{ isOpen: boolean }>`
+const Sidebar = styled.div<{
+  isOpen: boolean;
+  environmentBannerActive: boolean;
+}>`
   display: flex;
   flex-direction: column;
   height: calc(100vh - ${navTokens.topBar.height});
@@ -21,7 +26,10 @@ const Sidebar = styled.div<{ isOpen: boolean }>`
   box-sizing: border-box;
 
   position: fixed;
-  top: ${navTokens.topBar.height};
+  top: ${({ environmentBannerActive }) =>
+    environmentBannerActive
+      ? `calc(${ENVIRONMENT_BANNER_HEIGHT} + ${navTokens.topBar.height})`
+      : navTokens.topBar.height};
   left: 0;
   right: 0;
   bottom: 0;
@@ -32,10 +40,14 @@ const Sidebar = styled.div<{ isOpen: boolean }>`
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
 
   @media (min-width: ${navTokens.mobile.breakpoint}) {
-    height: 100vh;
-    top: 0;
+    height: ${({ environmentBannerActive }) =>
+      environmentBannerActive
+        ? `calc(100vh - ${ENVIRONMENT_BANNER_HEIGHT})`
+        : '100vh'};
+    top: ${({ environmentBannerActive }) =>
+      environmentBannerActive ? ENVIRONMENT_BANNER_HEIGHT : 0};
     width: ${navTokens.width};
-    position: sticky;
+    position: fixed;
 
     transform: translateX(0);
     opacity: 1;
@@ -82,6 +94,7 @@ export type NavigationProps = {
   external: ReactElement[];
   user: User;
   userMenuItems?: OverflowMenuProps['items'];
+  environmentBannerActive: boolean;
 };
 
 export const Navigation = ({
@@ -90,8 +103,9 @@ export const Navigation = ({
   userMenuItems,
   internal,
   external,
+  environmentBannerActive,
 }: NavigationProps) => {
-  const [isOpen, setOpen] = useState(false);
+  const { isOpen, setOpen } = useAppShellContext();
 
   useEffect(() => {
     const listener = (event: KeyboardEvent) => {
@@ -111,8 +125,12 @@ export const Navigation = ({
         userMenuItems={userMenuItems}
         isNavigationOpen={isOpen}
         onNavigationOpenChange={newOpen => setOpen(newOpen)}
+        environmentBannerActive={environmentBannerActive}
       />
-      <Sidebar isOpen={isOpen}>
+      <Sidebar
+        isOpen={isOpen}
+        environmentBannerActive={environmentBannerActive}
+      >
         <LogoAndVersionContainer>
           <NavigationLogo>Lovisa</NavigationLogo>
           {version !== '' && <Version>v {version}</Version>}

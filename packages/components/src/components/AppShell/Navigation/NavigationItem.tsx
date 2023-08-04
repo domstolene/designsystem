@@ -6,8 +6,10 @@ import {
   ChevronRightIcon,
   OpenExternalIcon,
 } from '@norges-domstoler/dds-icons';
+import { type MouseEventHandler } from 'react';
 
 import { appShellTokens } from '../AppShell.tokens';
+import { useAppShellContext } from '../AppShellContext';
 
 const { navigation: navTokens } = appShellTokens;
 
@@ -78,13 +80,14 @@ const ExternalNavItem = styled(BaseLink)`
   letter-spacing: ${navItemTokens.external.letterSpacing};
 `;
 
-type BaseNavigationItemProps =
+type BaseNavigationItemProps = (
   | {
       icon: SvgIcon;
       active?: boolean;
       external?: undefined | false;
     }
-  | { external: true; active?: undefined | false; icon?: undefined };
+  | { external: true; active?: undefined | false; icon?: undefined }
+) & { onClick?: MouseEventHandler };
 
 type NavigationItemProps<T extends As = 'a'> = PropsOf<T> &
   BaseNavigationItemProps;
@@ -95,12 +98,19 @@ export const NavigationItem = <T extends As = 'a'>({
   icon,
   external,
   children,
+  onClick: propOnClick,
   ...rest
 }: NavigationItemProps<T>) => {
+  const { setOpen } = useAppShellContext();
   const Comp = _as ?? 'a';
+
+  const onClick: MouseEventHandler = e => {
+    propOnClick?.(e);
+    setOpen(false);
+  };
   if (external) {
     return (
-      <ExternalNavItem as={Comp} {...rest}>
+      <ExternalNavItem as={Comp} {...rest} onClick={onClick}>
         {children}
         <Icon icon={OpenExternalIcon} iconSize="inherit" />
       </ExternalNavItem>
@@ -108,7 +118,12 @@ export const NavigationItem = <T extends As = 'a'>({
   }
 
   return (
-    <InternalNavItem as={Comp} {...rest} className={active ? 'active' : ''}>
+    <InternalNavItem
+      as={Comp}
+      {...rest}
+      onClick={onClick}
+      className={[active ? 'active' : '', rest.className].join(' ')}
+    >
       <IconContainer>{icon && <Icon icon={icon} />}</IconContainer>
       <TextContainer>{children}</TextContainer>
       <ChevronContainer>
