@@ -60,10 +60,8 @@ const InternalNavItem = styled(BaseLink)`
   grid-template-areas: 'icon text chevron';
   grid-template-columns: min-content 1fr min-content;
 
-  :hover {
-    ${ChevronContainer} {
-      opacity: 1;
-    }
+  &.active ${ChevronContainer} {
+    opacity: 1;
   }
 `;
 
