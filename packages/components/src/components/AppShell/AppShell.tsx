@@ -8,7 +8,9 @@ import { OverflowMenuProps } from '../OverflowMenu';
 import {
   Environment,
   EnvironmentBanner,
+  ENVIRONMENT_BANNER_HEIGHT,
 } from '@norges-domstoler/development-utils';
+import { AppShellContextProvider } from './AppShellContext';
 
 export type AppShellProps = PropsWithChildren<{
   /**
@@ -51,12 +53,17 @@ const AppShellContainer = styled.div`
   }
 `;
 
-const MainContent = styled.main`
+const MainContent = styled.main<{ environmentBannerActive: boolean }>`
   min-height: calc(100vh - ${appShellTokens.navigation.topBar.height});
-  margin-top: ${appShellTokens.navigation.topBar.height};
+  margin-top: ${({ environmentBannerActive }) =>
+    environmentBannerActive
+      ? `calc(${ENVIRONMENT_BANNER_HEIGHT} + ${appShellTokens.navigation.topBar.height})`
+      : appShellTokens.navigation.topBar.height};
   @media (min-width: ${appShellTokens.navigation.mobile.breakpoint}) {
     min-height: unset;
-    margin-top: 0;
+    margin-top: ${({ environmentBannerActive }) =>
+      environmentBannerActive ? ENVIRONMENT_BANNER_HEIGHT : 0};
+    margin-left: ${appShellTokens.navigation.width};
     min-width: calc(100vw - ${appShellTokens.navigation.width});
     max-width: calc(100vw - ${appShellTokens.navigation.width});
   }
@@ -70,18 +77,24 @@ export const AppShell = ({
   userMenuItems,
   environment = 'PROD',
 }: AppShellProps) => {
+  const environmentBannerActive = environment !== 'PROD';
   return (
-    <AppShellContainer>
-      <EnvironmentBanner environment={environment} />
-      <Navigation
-        user={user}
-        userMenuItems={userMenuItems}
-        version={version}
-        internal={internal}
-        external={external}
-      />
-      <MainContent>{children}</MainContent>
-    </AppShellContainer>
+    <AppShellContextProvider>
+      <AppShellContainer>
+        <EnvironmentBanner environment={environment} />
+        <Navigation
+          user={user}
+          userMenuItems={userMenuItems}
+          version={version}
+          internal={internal}
+          external={external}
+          environmentBannerActive={environmentBannerActive}
+        />
+        <MainContent environmentBannerActive={environmentBannerActive}>
+          {children}
+        </MainContent>
+      </AppShellContainer>
+    </AppShellContextProvider>
   );
 };
 

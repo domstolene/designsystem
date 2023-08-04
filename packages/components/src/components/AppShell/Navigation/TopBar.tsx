@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { MenuIcon, CloseIcon, SvgProps } from '@norges-domstoler/dds-icons';
+import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
 
 import { EmbeteIcon, EmbeteType } from './EmbeteIcon';
 import { appShellTokens } from '../AppShell.tokens';
@@ -52,7 +53,7 @@ const IconButtonText = styled.span`
   width: 0;
 `;
 
-const Bar = styled.div`
+const Bar = styled.div<{ environmentBannerActive: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,7 +66,8 @@ const Bar = styled.div`
   z-index: 101;
 
   position: fixed;
-  top: 0;
+  top: ${({ environmentBannerActive }) =>
+    environmentBannerActive ? ENVIRONMENT_BANNER_HEIGHT : '0'};
   left: 0;
   right: 0;
 
@@ -74,6 +76,11 @@ const Bar = styled.div`
     background-color: transparent;
     margin-left: ${navTokens.width};
     width: calc(100vw - ${navTokens.width});
+
+    pointer-events: none;
+    & > * {
+      pointer-events: initial;
+    }
 
     ${LogoBurgerGroup} {
       display: none;
@@ -102,6 +109,7 @@ type TopBarProps = {
   userMenuItems?: OverflowMenuProps['items'];
   isNavigationOpen: boolean;
   onNavigationOpenChange: (isOpen: boolean) => void;
+  environmentBannerActive: boolean;
 };
 
 export type User = {
@@ -123,13 +131,14 @@ export const TopBar = ({
   userMenuItems,
   isNavigationOpen,
   onNavigationOpenChange,
+  environmentBannerActive,
 }: TopBarProps) => {
   const Icon = (props: SvgProps) => (
     <EmbeteIcon {...props} type={user.embete.type} />
   );
 
   return (
-    <Bar>
+    <Bar environmentBannerActive={environmentBannerActive}>
       <LogoBurgerGroup>
         <IconButton
           icon={isNavigationOpen ? CloseIcon : MenuIcon}
