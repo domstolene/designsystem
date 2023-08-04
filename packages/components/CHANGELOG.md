@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.8.0
+
+### Minor Changes
+
+- 6a92e3c5: Legger til AppShell-komponent. Denne vil bli brukt som en wrapper rundt nye applikasjoner for å få felles meny, o.l.
+
 ## 13.7.0
 
 ### Minor Changes
