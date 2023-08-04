@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 13.8.1
+
+### Patch Changes
+
+- 5b272f1e: Fikser UX bug hvor miljøbanner kræsjet med meny i AppShell
+- Updated dependencies [0cd5100d]
+  - @norges-domstoler/development-utils@1.1.0
+
 ## 13.8.0
 
 ### Minor Changes
