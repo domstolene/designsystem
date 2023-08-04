@@ -5,6 +5,10 @@ import { appShellTokens } from './AppShell.tokens';
 import { Navigation } from './Navigation/Navigation';
 import { User } from './Navigation/TopBar';
 import { OverflowMenuProps } from '../OverflowMenu';
+import {
+  Environment,
+  EnvironmentBanner,
+} from '@norges-domstoler/development-utils';
 
 export type AppShellProps = PropsWithChildren<{
   /**
@@ -20,6 +24,11 @@ export type AppShellProps = PropsWithChildren<{
    * Menyvalg som skal vises i OverflowMenu knyttet til "bruker"-knappen.
    */
   userMenuItems?: OverflowMenuProps['items'];
+  /**
+   * `environment` brukes for å  vise en banner øverst i appen som viser hvilket miljø du er i.
+   * Når environment er undefined eller `"PROD"` så vises ikke banneret.
+   */
+  environment?: Environment;
 }>;
 
 export type AppShellNavigationProps = {
@@ -59,9 +68,11 @@ export const AppShell = ({
   navigation: { internal = [], external = [] },
   user,
   userMenuItems,
+  environment = 'PROD',
 }: AppShellProps) => {
   return (
     <AppShellContainer>
+      <EnvironmentBanner environment={environment} />
       <Navigation
         user={user}
         userMenuItems={userMenuItems}
@@ -73,3 +84,5 @@ export const AppShell = ({
     </AppShellContainer>
   );
 };
+
+AppShell.displayName = 'AppShell';
