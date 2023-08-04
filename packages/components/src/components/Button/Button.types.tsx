@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactElement } from 'react';
 import { BaseComponentProps } from '@norges-domstoler/dds-core';
 import { SvgIcon } from '@norges-domstoler/dds-icons';
 
@@ -18,7 +18,7 @@ export type ButtonProps = BaseComponentProps<
     /**Størrelsen på knappen. */
     size?: ButtonSize;
     /**Tekst i knappen. */
-    label?: string;
+    label?: string | ReactElement;
     /**Bestemmer farger basert på formål. */
     purpose?: ButtonPurpose;
     /**	Posisjonen til ikonet i forhold til teksten.*/
