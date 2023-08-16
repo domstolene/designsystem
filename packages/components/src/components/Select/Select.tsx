@@ -282,7 +282,7 @@ const SelectInner = <
     inputId: uniqueId,
     name: uniqueId,
     classNamePrefix: prefix,
-    styles: getCustomStyles<TOption>(),
+    styles: getCustomStyles<TOption>(componentSize),
     filterOption: (option, inputValue) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';
