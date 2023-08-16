@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 13.8.2
+
+### Patch Changes
+
+- b21f8abe: Fikser størrelse på <Select isMulti componentSize="tiny" /> labels
+
+  Størrelse på value label gjorde at høyde på input container ble større enn andre input komponenter med samme component size
+
 ## 13.8.1
 
 ### Patch Changes
