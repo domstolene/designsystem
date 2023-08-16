@@ -136,9 +136,9 @@ export const StyledIcon = styled(Icon)`
   margin-right: ${icon.marginRight};
 `;
 
-export const getCustomStyles = <TOption>(): Partial<
-  StylesConfig<TOption, boolean, GroupBase<TOption>>
-> => ({
+export const getCustomStyles = <TOption>(
+  size: InputSize
+): Partial<StylesConfig<TOption, boolean, GroupBase<TOption>>> => ({
   control: () => ({
     position: 'relative',
     display: 'flex',
@@ -201,7 +201,7 @@ export const getCustomStyles = <TOption>(): Partial<
   multiValueLabel: provided => ({
     ...provided,
     padding: multiValueLabel.padding,
-    ...getFontStyling(typographyTypes.multiValueLabel),
+    ...getFontStyling(typographyTypes.multiValueLabel[size]),
     color: multiValueLabel.color,
   }),
   multiValueRemove: (provided, state) =>

@@ -19,20 +19,28 @@ const placeholderTypographyTypes: { [k in InputSize]: StaticTypographyType } = {
   tiny: 'supportingStylePlaceholderText03',
 };
 
+const multiValueLabelTypographyTypes: {
+  [k in InputSize]: StaticTypographyType;
+} = {
+  medium: 'bodySans01',
+  small: 'bodySans01',
+  tiny: 'supportingStyleTiny01',
+};
+
 export const typographyTypes: {
   control: InputTypographyTypes;
   option: InputTypographyTypes;
   placeholder: { [k in InputSize]: StaticTypographyType };
   noOptionsMessage: { [k in InputSize]: StaticTypographyType };
   groupHeading: StaticTypographyType;
-  multiValueLabel: StaticTypographyType;
+  multiValueLabel: { [k in InputSize]: StaticTypographyType };
 } = {
   control: inputTypographyTypes,
   option: inputTypographyTypes,
   placeholder: placeholderTypographyTypes,
   noOptionsMessage: placeholderTypographyTypes,
   groupHeading: 'supportingStyleHelperText01',
-  multiValueLabel: 'bodySans01',
+  multiValueLabel: multiValueLabelTypographyTypes,
 };
 
 const control = {
