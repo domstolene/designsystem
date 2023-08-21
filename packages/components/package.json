@@ -50,7 +50,7 @@
     "@norges-domstoler/dds-design-tokens": "*",
     "@norges-domstoler/storybook-components": "*",
     "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-commonjs": "^25.0.1",
+    "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-image": "^3.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@storybook/blocks": "^7.0.20",
