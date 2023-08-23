@@ -1,5 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { TextArea, TextAreaProps } from '.';
+import { TextAreaProps } from './TextArea.types';
+import { TextArea } from './TextArea';
 
 export default {
   title: 'dds-components/TextArea',
