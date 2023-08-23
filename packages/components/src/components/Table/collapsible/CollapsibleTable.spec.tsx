@@ -41,7 +41,6 @@ const ControlledTable = () => {
   const [collapse, setCollapse] = useState(false);
   return (
     <>
-      {console.log(collapse)}
       <Button
         label={controlButtonText}
         onClick={() => setCollapse(!collapse)}
