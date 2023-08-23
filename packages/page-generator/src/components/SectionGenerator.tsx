@@ -60,6 +60,15 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
     setState(newState);
   };
 
+  const textAreaOnChange = <T extends HTMLTextAreaElement>(event: ChangeEvent<T>) => {
+    const { id, name, value } = event.target;
+    const newState = {
+      ...myState,
+      [name || id]: value,
+    };
+    setState(newState);
+  };
+
   const selectOnChange = (
     chosen:
       | SingleValue<Record<string, unknown>>
@@ -113,6 +122,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -124,6 +134,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -137,6 +148,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                   index,
                   fieldOnChange,
                   selectOnChange,
+                  textAreaOnChange,
                   screenSize
                 )}
               </React.Fragment>
