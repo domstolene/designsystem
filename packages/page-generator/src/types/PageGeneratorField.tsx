@@ -19,6 +19,7 @@ import {
   SelectProps,
   SelectOption,
   SpinnerProps,
+  TextAreaProps,
   TextInputProps,
   ToggleButtonProps,
   ToggleButtonGroupProps,
@@ -79,6 +80,7 @@ type FieldWithoutChildren =
   | RadioButtonField
   | SelectField
   | SpinnerField
+  | TextAreaField
   | ToggleButtonField
   | TypographyField
   | VisuallyHiddenField;
@@ -258,6 +260,12 @@ type SelectField = {
 type SpinnerField = {
   component: PageGeneratorSupportedFields.Spinner;
   props: SpinnerProps;
+  hide?: boolean;
+};
+
+type TextAreaField = {
+  component: PageGeneratorSupportedFields.TextArea;
+  props: TextAreaProps;
   hide?: boolean;
 };
 
