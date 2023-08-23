@@ -125,6 +125,15 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     setState(newState);
   };
 
+  const textAreaOnChange = <T extends HTMLTextAreaElement>(event: ChangeEvent<T>) => {
+    const { id, name, value } = event.target;
+    const newState = {
+      ...myState,
+      [name || id]: value,
+    };
+    setState(newState);
+  };
+
   const selectOnChange = (
     chosen:
       | SingleValue<Record<string, unknown>>
@@ -162,6 +171,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -182,6 +192,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                           groupedIndex,
                           fieldOnChange,
                           selectOnChange,
+                          textAreaOnChange,
                           screenSize
                         )
                       );
@@ -200,6 +211,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                   index,
                   fieldOnChange,
                   selectOnChange,
+                  textAreaOnChange,
                   screenSize,
                   onBlur
                 )}

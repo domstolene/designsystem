@@ -41,18 +41,20 @@ import { MultiValue, SingleValue } from 'react-select';
 import { FocusEvent, ChangeEvent } from 'react';
 import { SectionGenerator } from '../components';
 
-type T = HTMLInputElement & Record<string, never>;
+type THTMLInputElement = HTMLInputElement & Record<string, never>;
+type THTMLTextAreaElement = HTMLTextAreaElement & Record<string, never>;
 
 export const getComponent = (
   field: PageGeneratorField,
   index: number,
-  fieldOnChange: (event: ChangeEvent<T>) => void,
+  fieldOnChange: (event: ChangeEvent<THTMLInputElement>) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
     name: string
   ) => void,
+  textAreaOnChange: (event: ChangeEvent<THTMLTextAreaElement>) => void,
   screenSize: ScreenSize,
   onBlur?: <T extends HTMLInputElement>(event: FocusEvent<T>) => void
 ) => {
@@ -85,6 +87,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -106,6 +109,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -123,6 +127,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -160,6 +165,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -189,6 +195,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -220,6 +227,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -260,6 +268,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -278,7 +287,7 @@ export const getComponent = (
       return <Spinner {...field.props} key={index} />;
     case PageGeneratorSupportedFields.TextArea:
       return (
-        <TextArea {...field.props} key={index} onChange={fieldOnChange} />
+        <TextArea {...field.props} key={index} onChange={textAreaOnChange} />
       );
     case PageGeneratorSupportedFields.TextInput:
       return (
@@ -304,6 +313,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );
@@ -333,6 +343,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
+                textAreaOnChange,
                 screenSize
               )
             );

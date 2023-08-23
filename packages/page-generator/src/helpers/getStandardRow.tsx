@@ -5,7 +5,8 @@ import { ChangeEvent } from 'react';
 import { getComponent } from '.';
 import React from 'react';
 
-type T = HTMLInputElement & Record<string, never>;
+type THTMLInputElement = HTMLInputElement & Record<string, never>;
+type THTMLTextAreaElement = HTMLTextAreaElement & Record<string, never>;
 
 const Row = (props: SectionGeneratorRow) => {
   const { id, className, htmlProps, ...rest } = props;
@@ -26,13 +27,14 @@ const Row = (props: SectionGeneratorRow) => {
 export const getStandardRow = (
   index: number,
   obj: SectionGeneratorRow,
-  fieldOnChange: (event: ChangeEvent<T>) => void,
+  fieldOnChange: (event: ChangeEvent<THTMLInputElement>) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
     name: string
   ) => void,
+  textAreaOnChange: (event: ChangeEvent<THTMLTextAreaElement>) => void,
   screenSize: ScreenSize
 ) => {
   return (
@@ -45,6 +47,7 @@ export const getStandardRow = (
             groupedIndex,
             fieldOnChange,
             selectOnChange,
+            textAreaOnChange,
             screenSize
           )
         );
