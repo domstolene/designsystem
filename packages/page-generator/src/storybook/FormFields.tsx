@@ -86,6 +86,18 @@ export const FormFields: (PageGeneratorField | PageGeneratorRow)[] = [
     ],
   },
   {
+    rowType: 'standard',
+    fields: [
+      {
+        component: PageGeneratorSupportedFields.TextArea,
+        props: {
+          label: 'Adresse',
+          name: 'adresse',
+        },
+      },
+    ],
+  },
+  {
     component: PageGeneratorSupportedFields.Heading,
     props: {
       level: 4,
@@ -154,7 +166,7 @@ export const FormFields: (PageGeneratorField | PageGeneratorRow)[] = [
         props: {
           label: 'Superlagre',
           purpose: 'secondary',
-          onClick: event => {
+          onClick: (event: any) => {
             event.preventDefault();
             console.log('Du superlagret!');
           },

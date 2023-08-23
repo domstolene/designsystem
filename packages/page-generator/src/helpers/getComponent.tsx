@@ -25,6 +25,7 @@ import {
   RadioButtonGroup,
   Select,
   Spinner,
+  TextArea,
   TextInput,
   ToggleButton,
   ToggleButtonGroup,
@@ -272,6 +273,10 @@ export const getComponent = (
       );
     case PageGeneratorSupportedFields.Spinner:
       return <Spinner {...field.props} key={index} />;
+    case PageGeneratorSupportedFields.TextArea:
+      return (
+        <TextArea {...field.props} key={index} onChange={fieldOnChange} />
+      );
     case PageGeneratorSupportedFields.TextInput:
       return (
         <TextInput {...field.props} key={index} onChange={fieldOnChange} />

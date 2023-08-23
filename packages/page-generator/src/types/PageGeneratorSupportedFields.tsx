@@ -25,6 +25,7 @@ export enum PageGeneratorSupportedFields {
   RadioButtonGroup = 'RadioButtonGroup',
   Select = 'Select',
   Spinner = 'Spinner',
+  TextArea = 'TextArea',
   TextInput = 'TextInput',
   ToggleButton = 'ToggleButton',
   ToggleButtonGroup = 'ToggleButtonGroup',
