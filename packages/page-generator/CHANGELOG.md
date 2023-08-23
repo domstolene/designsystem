@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.5.0
+
+### Minor Changes
+
+- 410a73d: Legg til støtte for TextArea i PageGenerator
+
 ## 2.4.0
 
 ### Minor Changes
