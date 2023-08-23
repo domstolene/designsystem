@@ -2,6 +2,7 @@ import { Modal, ModalBody } from '.';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';
 import { Button } from '../Button';
+import { vi } from 'vitest';
 
 const TestComponent = () => {
   const [closed, setClosed] = useState(true);
@@ -15,6 +16,9 @@ const TestComponent = () => {
     </>
   );
 };
+
+const spyScrollTo = vi.fn();
+Object.defineProperty(global.window, 'scrollTo', { value: spyScrollTo });
 
 describe('<Modal />', () => {
   it('should have header with title', () => {
