@@ -1,10 +1,4 @@
-import {
-  forwardRef,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import styled from 'styled-components';
 import {
   useCombinedRef,
