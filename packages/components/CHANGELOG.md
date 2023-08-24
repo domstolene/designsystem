@@ -1,6 +1,5 @@
 # @norges-domstoler/dds-components
 
-
 ## 13.9.0
 
 ### Minor Changes
