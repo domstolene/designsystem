@@ -3,5 +3,5 @@
   "semi": true,
   "tabWidth": 2,
   "arrowParens": "avoid",
-  "endOfLine": "crlf"
+  "endOfLine": "lf"
 }
