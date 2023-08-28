@@ -166,7 +166,7 @@ export const FormFields: (PageGeneratorField | PageGeneratorRow)[] = [
         props: {
           label: 'Superlagre',
           purpose: 'secondary',
-          onClick: (event: any) => {
+          onClick: event => {
             event.preventDefault();
             console.log('Du superlagret!');
           },
