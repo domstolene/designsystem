@@ -19,7 +19,7 @@ export const Default = (args: Partial<ComponentProps<typeof AppShell>>) => (
       embete: { name: 'Borgarting Lagmannsrett', type: 'høyesterett' },
       name: 'Kari Nordmann',
     }}
-    environment="TEST"
+    environment="PROD"
     userMenuItems={[{ title: 'Bytt embete' }, { title: 'Logg ut' }]}
     navigation={{
       internal: [
