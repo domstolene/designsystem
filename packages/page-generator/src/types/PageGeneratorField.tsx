@@ -36,6 +36,11 @@ import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
 import { ComponentProps } from 'react';
 import { SectionGeneratorRow } from './SectionGeneratorRow';
 
+export type PageGeneratorValidation = {
+  message: string;
+  rule: (value: string) => boolean;
+};
+
 export type PageGeneratorField = FieldWithChildren | FieldWithoutChildren;
 
 type FieldWithChildren =
@@ -253,6 +258,7 @@ type SpinnerField = {
 type TextInputField = {
   component: PageGeneratorSupportedFields.TextInput;
   props: TextInputProps;
+  validations?: PageGeneratorValidation[];
   hide?: boolean;
 };
 

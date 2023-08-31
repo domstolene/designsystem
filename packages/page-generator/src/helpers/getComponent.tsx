@@ -50,7 +50,8 @@ export const getComponent = (
       | MultiValue<Record<string, unknown>>,
     name: string
   ) => void,
-  screenSize: ScreenSize
+  screenSize: ScreenSize,
+  onBlur?: (event: any) => void
 ) => {
   switch (field.component) {
     case PageGeneratorSupportedFields.Button:
@@ -274,7 +275,7 @@ export const getComponent = (
       return <Spinner {...field.props} key={index} />;
     case PageGeneratorSupportedFields.TextInput:
       return (
-        <TextInput {...field.props} key={index} onChange={fieldOnChange} />
+        <TextInput {...field.props} key={index} onChange={fieldOnChange} onBlur={onBlur} />
       );
     case PageGeneratorSupportedFields.ToggleButton:
       return (

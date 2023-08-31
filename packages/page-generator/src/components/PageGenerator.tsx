@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FocusEvent, useEffect, useState } from 'react';
 import { MultiValue, SingleValue } from 'react-select';
 import {
   getBaseHTMLProps,
@@ -12,6 +12,7 @@ import {
   PageGeneratorRow,
   PageGeneratorState,
   PageGeneratorStateOptionTypes,
+  PageGeneratorValidation,
 } from '../types';
 import { SubContainer } from '../styles';
 import { PageGeneratorTokens } from '../tokens';
@@ -31,7 +32,9 @@ export const PageGenerator = (props: PageGeneratorProps) => {
   const { fields = [], stateOnChange, as } = props;
   const { id, className, htmlProps, ...rest } = props;
 
-  const [myState, setState] = useState({});
+  const [state, setState] = useState({});
+
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     let state: PageGeneratorState<PageGeneratorStateOptionTypes> = {};
@@ -49,14 +52,62 @@ export const PageGenerator = (props: PageGeneratorProps) => {
 
   useEffect(() => {
     if (stateOnChange) {
-      stateOnChange(myState);
+      stateOnChange(state, errors);
     }
-  }, [myState]);
+  }, [state, errors]);
+
+  const setErrorMessage = (index: number, errorMessage: string) => {
+    fields[index] = {
+      ...fields[index],
+      props: {
+        ...fields[index].props,
+        errorMessage,
+      },
+    };
+  };
+
+  const getFieldIndex = (name: string) => {
+    return fields.findIndex((f: PageGeneratorField) => {
+      return f.props && f.props.name === name;
+    });
+  };
+
+  const updateErrors = (fieldErrors: any, name: string, value: string) => {
+    const newErrors = {
+      ...errors,
+      [name]: {
+        value,
+        errors: fieldErrors,
+      },
+    };
+    setErrors(newErrors);
+  };
+
+  const validateFields = (name: string, value: string) => {
+    const index = getFieldIndex(name);
+    const fieldErrors =
+      (fields[index].validations &&
+        fields[index].validations.filter(
+          (v: PageGeneratorValidation) => !v.rule(value)
+        )) ||
+      [];
+    updateErrors(fieldErrors, name, value);
+    setErrorMessage(
+      index,
+      fieldErrors.length > 0 ? fieldErrors[0].message : ''
+    );
+  };
+
+  const onBlur = <T extends HTMLInputElement>(event: FocusEvent<T>) => {
+    const { name, value } = event.target;
+    validateFields(name, value);
+  };
 
   const fieldOnChange = <T extends HTMLInputElement>(event: ChangeEvent<T>) => {
     const { id, name, value, checked } = event.target;
+    setErrorMessage(getFieldIndex(name), ''); //clear errormessage when user types
     const newState = {
-      ...myState,
+      ...state,
       [name || id]: event.target.type === 'checkbox' ? checked : value,
     };
     setState(newState);
@@ -75,7 +126,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
       value = chosen || null;
     }
     const newState = {
-      ...myState,
+      ...state,
       [name]: value,
     };
     setState(newState);
@@ -137,7 +188,8 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                   index,
                   fieldOnChange,
                   selectOnChange,
-                  screenSize
+                  screenSize,
+                  onBlur
                 )}
               </GridChild>
             )
