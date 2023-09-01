@@ -20,6 +20,7 @@ import {
   addFieldToState,
   getButtonRow,
   getComponent,
+  isFieldWithValidations,
   isMultiValue,
   isPageGeneratorRow,
 } from '../helpers';
@@ -57,22 +58,30 @@ export const PageGenerator = (props: PageGeneratorProps) => {
   }, [state, errors]);
 
   const setErrorMessage = (index: number, errorMessage: string) => {
-    fields[index] = {
-      ...fields[index],
-      props: {
-        ...fields[index].props,
-        errorMessage,
-      },
-    };
+    const field = fields[index];
+    if (isFieldWithValidations(field)) {
+      fields[index] = {
+        ...field,
+        props: {
+          ...field.props,
+          errorMessage,
+        },
+      };
+    }
   };
 
   const getFieldIndex = (name: string) => {
-    return fields.findIndex((f: PageGeneratorField) => {
-      return f.props && f.props.name === name;
-    });
+    return fields.findIndex(
+      (f: PageGeneratorField | PageGeneratorRow) =>
+        isFieldWithValidations(f) && f.props && f.props.name === name
+    );
   };
 
-  const updateErrors = (fieldErrors: any, name: string, value: string) => {
+  const updateErrors = (
+    fieldErrors: PageGeneratorValidation[],
+    name: string,
+    value: string
+  ) => {
     const newErrors = {
       ...errors,
       [name]: {
@@ -85,17 +94,20 @@ export const PageGenerator = (props: PageGeneratorProps) => {
 
   const validateFields = (name: string, value: string) => {
     const index = getFieldIndex(name);
-    const fieldErrors =
-      (fields[index].validations &&
-        fields[index].validations.filter(
-          (v: PageGeneratorValidation) => !v.rule(value)
-        )) ||
-      [];
-    updateErrors(fieldErrors, name, value);
-    setErrorMessage(
-      index,
-      fieldErrors.length > 0 ? fieldErrors[0].message : ''
-    );
+    const field = fields[index];
+    if (isFieldWithValidations(field)) {
+      const fieldErrors =
+        (field.validations &&
+          field.validations.filter(
+            (v: PageGeneratorValidation) => !v.rule(value)
+          )) ||
+        [];
+      updateErrors(fieldErrors, name, value);
+      setErrorMessage(
+        index,
+        fieldErrors.length > 0 ? fieldErrors[0].message : ''
+      );
+    }
   };
 
   const onBlur = <T extends HTMLInputElement>(event: FocusEvent<T>) => {

@@ -14,7 +14,7 @@ export const Form = () => {
       <PageGenerator
         as="form"
         fields={FormFields}
-        stateOnChange={(newState: any, errors: any) => {
+        stateOnChange={(newState?: object, errors?: object) => {
           console.log(newState, errors);
         }}
       />
@@ -28,7 +28,7 @@ export const Other = () => {
       <PageGenerator
         as="form"
         fields={OtherFields()}
-        stateOnChange={(newState: any) => {
+        stateOnChange={(newState?: object) => {
           console.log(newState);
         }}
       />

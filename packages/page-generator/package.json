@@ -52,6 +52,7 @@
     "@mdx-js/react": "^2.3.0",
     "@norges-domstoler/dds-components": "*",
     "@norges-domstoler/dds-design-tokens": "*",
+    "@norges-domstoler/dds-typography": "*",
     "@norges-domstoler/storybook-components": "*",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -79,7 +80,8 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-components": "*",
-    "@norges-domstoler/dds-design-tokens": "*"
+    "@norges-domstoler/dds-design-tokens": "*",
+    "@norges-domstoler/dds-typography": "*"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",

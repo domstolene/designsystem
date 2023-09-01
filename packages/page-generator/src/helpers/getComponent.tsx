@@ -12,14 +12,10 @@ import {
   Drawer,
   DrawerGroup,
   GlobalMessage,
-  Heading,
   InputMessage,
-  Label,
-  Link,
   List,
   ListItem,
   LocalMessage,
-  Paragraph,
   RadioButton,
   ScreenSize,
   RadioButtonGroup,
@@ -28,14 +24,20 @@ import {
   TextInput,
   ToggleButton,
   ToggleButtonGroup,
-  Typography,
   VisuallyHidden,
   HStack,
   VStack,
 } from '@norges-domstoler/dds-components';
+import {
+  Heading,
+  Label,
+  Link,
+  Paragraph,
+  Typography,
+} from '@norges-domstoler/dds-typography';
 import { PageGeneratorField, PageGeneratorSupportedFields } from '../types';
 import { MultiValue, SingleValue } from 'react-select';
-import { ChangeEvent } from 'react';
+import { FocusEvent, ChangeEvent } from 'react';
 import { SectionGenerator } from '../components';
 
 type T = HTMLInputElement & Record<string, never>;
@@ -51,7 +53,7 @@ export const getComponent = (
     name: string
   ) => void,
   screenSize: ScreenSize,
-  onBlur?: (event: any) => void
+  onBlur?: <T extends HTMLInputElement>(event: FocusEvent<T>) => void
 ) => {
   switch (field.component) {
     case PageGeneratorSupportedFields.Button:
@@ -275,7 +277,12 @@ export const getComponent = (
       return <Spinner {...field.props} key={index} />;
     case PageGeneratorSupportedFields.TextInput:
       return (
-        <TextInput {...field.props} key={index} onChange={fieldOnChange} onBlur={onBlur} />
+        <TextInput
+          {...field.props}
+          key={index}
+          onChange={fieldOnChange}
+          onBlur={onBlur}
+        />
       );
     case PageGeneratorSupportedFields.ToggleButton:
       return (
