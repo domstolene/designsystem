@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.5.0
+
+### Minor Changes
+
+- 18ff827d: Legg til validering for TextInput i PageGenerator
+
 ## 2.4.0
 
 ### Minor Changes
