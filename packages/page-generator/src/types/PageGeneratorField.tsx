@@ -10,14 +10,10 @@ import {
   DividerProps,
   DrawerProps,
   GlobalMessageProps,
-  HeadingProps,
   InputMessageProps,
-  LabelProps,
-  LinkProps,
   ListItemProps,
   ListProps,
   LocalMessageProps,
-  ParagraphProps,
   RadioButtonProps,
   RadioButtonGroupProps,
   SelectProps,
@@ -26,17 +22,31 @@ import {
   TextInputProps,
   ToggleButtonProps,
   ToggleButtonGroupProps,
-  TypographyProps,
   VisuallyHiddenProps,
   DrawerGroupProps,
   StackProps,
   Button,
 } from '@norges-domstoler/dds-components';
+import {
+  HeadingProps,
+  LabelProps,
+  LinkProps,
+  ParagraphProps,
+  TypographyProps,
+} from '@norges-domstoler/dds-typography';
 import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
 import { ComponentProps } from 'react';
 import { SectionGeneratorRow } from './SectionGeneratorRow';
 
-export type PageGeneratorField = FieldWithChildren | FieldWithoutChildren;
+export type PageGeneratorValidation = {
+  message: string;
+  rule: (value: string) => boolean;
+};
+
+export type PageGeneratorField =
+  | FieldWithChildren
+  | FieldWithoutChildren
+  | FieldWithValidations;
 
 type FieldWithChildren =
   | CheckboxGroupField
@@ -69,10 +79,11 @@ type FieldWithoutChildren =
   | RadioButtonField
   | SelectField
   | SpinnerField
-  | TextInputField
   | ToggleButtonField
   | TypographyField
   | VisuallyHiddenField;
+
+export type FieldWithValidations = TextInputField;
 
 type ButtonField = {
   component: PageGeneratorSupportedFields.Button;
@@ -253,6 +264,7 @@ type SpinnerField = {
 type TextInputField = {
   component: PageGeneratorSupportedFields.TextInput;
   props: TextInputProps;
+  validations?: PageGeneratorValidation[];
   hide?: boolean;
 };
 

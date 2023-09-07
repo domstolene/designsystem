@@ -16,6 +16,7 @@ describe('<PageGenerator />', () => {
           name: lastnameField,
           value: 'value',
         },
+        validations: [],
       },
     ];
     render(
@@ -45,6 +46,7 @@ describe('<PageGenerator />', () => {
           name: lastnameField,
           value: '',
         },
+        validations: [],
       },
     ];
     render(
