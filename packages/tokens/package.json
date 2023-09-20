@@ -38,16 +38,16 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "@types/node": "^18.11.18",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
     "rollup": "^3.10.0",
-    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-sass": "^1.12.19",
-    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-sass": "^1.12.20",
+    "rollup-plugin-typescript2": "^0.35.0",
     "style-dictionary": "^3.7.2",
-    "typescript": "^5.0.2"
+    "typescript": "^5.2.2"
   },
   "publishConfig": {
     "provenance": true
