@@ -94,7 +94,7 @@ Det brukes en egen workflow for release av ny versjon av `@norges-domstoler/dds-
 1. Versjonsnummeret i `package.json` må oppdateres manuelt med en egen commit i forkant av publisering av ny github release.
 
 2. Lag en ny release på github med _release tag = versjonsnummer_ for best mulig oversikt, og legg ved en passende beskrivelse av hva som er nytt i denne versjonen. Publiser så releasen når alt er klart.
-   Man kan også lage en Draft-release i forkant, og publisere denne releasen når alt som skal være med er merget inn i master.
+   Man kan også lage en Draft-release i forkant, og publisere denne releasen når alt som skal være med er merget inn i main.
 
 For versjonering brukes [_semantisk versjonering_](https://semver.org/) for å holde ting organisert og for å enkelt kommunisere utviklingsløpet til pakken.
 
