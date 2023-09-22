@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.5.1
+
+### Patch Changes
+
+- 74c80136: Legg til manglende nullsjekk for obj når det sjekkes for validations
+
 ## 2.5.0
 
 ### Minor Changes
