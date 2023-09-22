@@ -7,5 +7,5 @@ import {
 export const isFieldWithValidations = (
   obj: PageGeneratorField | PageGeneratorRow
 ): obj is FieldWithValidations => {
-  return (obj as FieldWithValidations).validations !== undefined;
+  return obj && (obj as FieldWithValidations).validations !== undefined;
 };
