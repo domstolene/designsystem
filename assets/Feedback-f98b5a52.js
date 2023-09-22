@@ -1,0 +1,16 @@
+import{a as e,j as n,F as s}from"./ddsReferenceTokens-f1d35829.js";import{M as a,C as m,e as l,A as d,P as p}from"./chunk-PCJTTTQV-c281e3f8.js";import{p as c,S as f,M as h,F as k}from"./storybook-components-97b79dd9.js";import{F as g,D as b}from"./Feedback.stories-a5c90445.js";import{u as i}from"./index-6fa374d0.js";import"./index-d47b1f5a.js";import"./iframe-7f3cecf9.js";import"../sb-preview/runtime.js";import"./index-db9ff070.js";import"./index-d475d2ea.js";import"./index-356e4a49.js";import"./focus-visible-bfce03b6.js";import"./dds-typography-cc6cb429.js";import"./dds-core-c67132cd.js";import"./dds-icons-265d9665.js";import"./Tooltip-8f8a02ef.js";import"./Button-aa30c63f.js";import"./Button.tokens-d278b944.js";import"./dds-form-9b45fc8d.js";import"./Spinner-dd54de98.js";import"./TextArea-1fb3fda1.js";import"./renderInputMessage-d83d5631.js";import"./InputMessage-e040ee1d.js";import"./scrollbarStyling-5cc839fb.js";import"./ScrollableContainer.tokens-c202eeaf.js";function t(r){const o=Object.assign({h1:"h1",h2:"h2",p:"p",a:"a"},i(),r.components);return n(s,{children:[e(a,{of:g}),`
+`,e(o.h1,{id:"feedback",children:"Feedback"}),`
+`,e(c,{docsHref:"https://design.domstol.no/987b33f71/p/73f13e-feedback",figmaHref:"https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38",githubHref:"https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Feedback"}),`
+`,e(o.h2,{id:"teknisk-implementasjon",children:"Teknisk implementasjon"}),`
+`,n(o.p,{children:["Denne feedback-komponenten kan brukes sammen med den ",e(o.a,{href:"https://github.com/domstolene/tilbakemelding-loggplattform",target:"_blank",rel:"nofollow noopener noreferrer",children:"fellese tilbakemeldingsklienten"})," som er ",e(o.a,{href:"https://domstol.atlassian.net/wiki/spaces/SIVIL1/pages/4267606065/Lagring+av+tilbakemeldinger+fra+brukere+i+loggplattform+Opensearch",target:"_blank",rel:"nofollow noopener noreferrer",children:"dokumentert her"}),". Da vil tilbakemeldingene lagres som logger, og det kan lages dashboards for å presentere tilbakemeldingene på metrics.domstol.no (eksempel ",e(o.a,{href:"https://metrics.domstol.no/d/p510Pyqnk/aktorportalen-selvprosederende-metrics?orgId=1&viewPanel=35",target:"_blank",rel:"nofollow noopener noreferrer",children:"her"}),", og ",e(o.a,{href:"https://metrics.domstol.no/d/p510Pyqnk/aktorportalen-selvprosederende-metrics?orgId=1&viewPanel=34",target:"_blank",rel:"nofollow noopener noreferrer",children:"her"}),") Dette har blitt gjort i for eksempel ",e(o.a,{href:"https://github.com/domstolene/aktorportalen-selvprosederende",target:"_blank",rel:"nofollow noopener noreferrer",children:"Aktørportalen for Selvprosederende"}),"."]}),`
+`,e(o.h2,{id:"demo",children:"Demo"}),`
+`,e(m,{children:e(l,{of:b})}),`
+`,e(f,{href:`${h}dds-components-feedback`}),`
+`,e(o.h2,{id:"bruk-i-koden",children:"Bruk i koden"}),`
+`,e(k,{code:`import { Feedback } from '@norges-domstoler/dds-components';
+
+<Feedback ratingLabel="Hvordan opplevdes innsendingen?" />
+`}),`
+`,e(o.h2,{id:"api",children:"API"}),`
+`,e(d,{story:p})]})}function Q(r={}){const{wrapper:o}=Object.assign({},i(),r.components);return o?e(o,Object.assign({},r,{children:e(t,r)})):t(r)}export{Q as default};
+//# sourceMappingURL=Feedback-f98b5a52.js.map
