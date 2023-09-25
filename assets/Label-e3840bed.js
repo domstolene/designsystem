@@ -1,2 +1,0 @@
-import{j as m,a as l}from"./ddsReferenceTokens-f1d35829.js";import{r as y}from"./index-d47b1f5a.js";import{a as n,k as c}from"./dds-core-c67132cd.js";import{T as d}from"./Typography-bbaad6ba.js";const f=y.forwardRef((r,a)=>{const{showRequiredStyling:s,id:e,className:o,htmlProps:t,children:p,...i}=r;return m(d,{...n(e,o,t,i),ref:a,typographyType:"supportingStyleLabel01",children:[p," ",s&&l(c,{})]})});f.displayName="Label";export{f as L};
-//# sourceMappingURL=Label-e3840bed.js.map

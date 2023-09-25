@@ -1,2 +1,0 @@
-import{d as a}from"./ddsReferenceTokens-f1d35829.js";var t=10,o="".concat(t,"px"),r=a.colors,s=a.spacing,i={backgroundColor:"transparent",borderRadius:"100px",width:o},e={base:{backgroundColor:r.DdsColorPrimaryDarkest.slice(0,-2)+"0.35)",borderRadius:"100px",width:o},hover:{backgroundColor:r.DdsColorPrimaryDarkest.slice(0,-2)+"0.5)"}},n={paddingRight:s.SizesDdsSpacingLocalX05},c={padding:s.SizesDdsSpacingLocalX025},l={minThumbHeightPx:15,track:i,thumb:e,content:n,outerContainer:c};export{l as s};
-//# sourceMappingURL=ScrollableContainer.tokens-85e346c5.js.map

@@ -1,2 +1,0 @@
-import{a as i}from"./ddsReferenceTokens-f1d35829.js";import{r as y}from"./index-d47b1f5a.js";import{a as c}from"./dds-core-c67132cd.js";import{T as f}from"./Typography-bbaad6ba.js";const n=y.forwardRef((r,a)=>{const{id:o,className:p,htmlProps:s,children:t,typographyType:m="bodySans02",...e}=r,h={...c(o,p,s,e),typographyType:m,ref:a};return i(f,{...h,children:t})});n.displayName="Paragraph";export{n as P};
-//# sourceMappingURL=Paragraph-b0b97b26.js.map

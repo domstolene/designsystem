@@ -1,2 +1,0 @@
-import{a as m}from"./ddsReferenceTokens-f1d35829.js";import{r as n}from"./index-d47b1f5a.js";import{a as d}from"./dds-core-c67132cd.js";import{T as i}from"./Typography-bbaad6ba.js";const f=n.forwardRef((r,a)=>{const{id:e,className:o,htmlProps:s,children:p,...t}=r;return m(i,{...d(e,o,s,t),ref:a,as:"legend",typographyType:"headingSans03",children:p})});f.displayName="Legend";export{f as L};
-//# sourceMappingURL=Legend-24641deb.js.map
