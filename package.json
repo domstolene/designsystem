@@ -14,7 +14,9 @@
     "verify": "turbo run verify",
     "changeset": "changeset",
     "prerelease": "npm run build",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "version:dev": "changeset version --snapshot dev",
+    "release:dev": "changeset publish --tag dev"
   },
   "repository": {
     "type": "git",
