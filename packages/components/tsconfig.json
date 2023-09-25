@@ -1,27 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "es2016",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "declaration": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true
-  },
+  "extends": "../../tsconfig.json",
   "include": [
     "src",
-    "rollup.config.mjs",
     ".eslintrc.cjs",
+    "vitest.config.ts",
+    "tsup.config.ts",
     "modules/custom.d.ts"
-  ],
-  "exclude": ["node_modules", "dist"]
+  ]
 }

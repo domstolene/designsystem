@@ -1,7 +1,3 @@
-import 'focus-visible';
-import './styles/fontStyles.css';
-import './styles/selection.css';
-
 export * from './dds-core';
 export * from './dds-form';
 export * from './dds-icons';
