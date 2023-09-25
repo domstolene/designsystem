@@ -1,23 +1,4 @@
 {
-  "compilerOptions": {
-    "target": "es2017",
-    "types": ["jest"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "declaration": true,
-    "sourceMap": true,
-    "skipLibCheck": true,
-    "jsx": "react-jsx",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true
-  },
-  "include": ["src", "vite.config.ts", ".eslintrc.cjs"],
-  "exclude": ["node_modules", "dist"]
+  "extends": "../../tsconfig.json",
+  "include": ["src", "vitetest.config.ts", ".eslintrc.cjs", "tsup.config.ts"]
 }

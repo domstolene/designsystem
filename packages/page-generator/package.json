@@ -8,25 +8,17 @@
     "type": "git",
     "url": "https://github.com/domstolene/designsystem"
   },
-  "type": "module",
   "files": [
     "dist"
   ],
-  "types": "./dist/index.d.ts",
-  "main": "./dist/dds-page-generator.cjs",
-  "module": "./dist/dds-page-generator.js",
-  "exports": {
-    ".": {
-      "import": "./dist/dds-page-generator.js",
-      "require": "./dist/dds-page-generator.cjs"
-    }
-  },
+  "main": "src/index.ts",
   "homepage": "https://design.domstol.no",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "build": "vite build",
-    "dev": "vite build --watch",
+    "build": "tsup --dts",
+    "build:fast": "tsup",
+    "dev": "npm run build:fast -- --watch",
     "lint": "eslint --ext=jsx,ts,tsx src",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
@@ -34,7 +26,9 @@
     "verify:lint": "npm run lint",
     "verify:prettier": "npm run prettier:check",
     "verify:test": "npm run test",
-    "verify": "concurrently 'npm:verify:*'"
+    "verify": "concurrently 'npm:verify:*'",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "keywords": [
     "dds",
@@ -61,11 +55,8 @@
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.59.11",
-    "@vitejs/plugin-react": "^4.0.0",
-    "babel-loader": "^9.1.2",
-    "babel-plugin-styled-components": "^2.1.3",
+    "clean-package": "2.2.0",
     "concurrently": "^8.2.0",
-    "esbuild": "^0.18.2",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -73,9 +64,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.11",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.3",
-    "vite": "^4.3.9",
-    "vite-plugin-dts": "^2.3.0",
+    "vite": "^4.4.9",
     "vitest": "^0.32.0"
   },
   "dependencies": {
@@ -90,5 +81,6 @@
   },
   "publishConfig": {
     "provenance": true
-  }
+  },
+  "clean-package": "../../clean-package.config.json"
 }

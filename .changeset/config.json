@@ -7,6 +7,6 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["testapp"],
+  "ignore": [],
   "onlyUpdatePeerDependentsWhenOutOfRange": true
 }

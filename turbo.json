@@ -5,16 +5,21 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "storybook-static/**"]
     },
-    "test": {
-      "dependsOn": ["build"]
+    "build:fast": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build:fast"]
     },
     "dev": {
-      "dependsOn": ["^build"],
-      "cache": false,
-      "persistent": true
+      "cache": false
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "cache": false
     },
     "verify": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "cache": false
     }
-  }
+  },
+  "globalDependencies": ["tsconfig.json"]
 }
