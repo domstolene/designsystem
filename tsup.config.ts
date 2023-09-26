@@ -4,5 +4,5 @@ export default defineConfig({
   entry: ["src/index.ts"],
   format: ["cjs", "esm"],
   target: "es2019",
-  clean: true,
+  sourcemap: true,
 });

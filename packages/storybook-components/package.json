@@ -9,7 +9,6 @@
     "type": "git",
     "url": "https://github.com/domstolene/designsystem"
   },
-  "type": "module",
   "files": [
     "dist"
   ],
