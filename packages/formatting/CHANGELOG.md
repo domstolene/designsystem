@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.3.4
+
+### Patch Changes
+
+- 209f3962: Forenkler byggeprosessen. Burde ikke oppleve noen endringer.
+
 ## 1.3.3
 
 ### Patch Changes

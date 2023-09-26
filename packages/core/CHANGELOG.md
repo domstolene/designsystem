@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-core
 
+## 0.0.4
+
+### Patch Changes
+
+- 209f3962: Forenkler byggeprosessen. Burde ikke oppleve noen endringer.
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 13.8.3
+
+### Patch Changes
+
+- 209f3962: Forenkler byggeprosessen. Burde ikke oppleve noen endringer.
+- Updated dependencies [209f3962]
+  - @norges-domstoler/development-utils@1.1.1
+  - @norges-domstoler/dds-typography@0.0.3
+  - @norges-domstoler/dds-icons@0.0.3
+  - @norges-domstoler/dds-core@0.0.4
+  - @norges-domstoler/dds-form@0.0.3
+
 ## 13.8.2
 
 ### Patch Changes
