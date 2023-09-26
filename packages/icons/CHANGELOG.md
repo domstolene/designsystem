@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-icons
 
+## 0.0.3
+
+### Patch Changes
+
+- 209f3962: Forenkler byggeprosessen. Burde ikke oppleve noen endringer.
+- Updated dependencies [209f3962]
+  - @norges-domstoler/dds-core@0.0.4
+
 ## 0.0.2
 
 ### Patch Changes

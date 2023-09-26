@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.5.2
+
+### Patch Changes
+
+- 209f3962: Forenkler byggeprosessen. Burde ikke oppleve noen endringer.
+- Updated dependencies [209f3962]
+  - @norges-domstoler/dds-components@13.8.3
+  - @norges-domstoler/dds-typography@0.0.3
+
 ## 2.5.1
 
 ### Patch Changes
