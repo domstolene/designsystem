@@ -66,7 +66,7 @@
     "@norges-domstoler/dds-design-tokens": "^3",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
-    "styled-components": "^5"
+    "styled-components": "^5 || ^6"
   },
   "dependencies": {
     "@norges-domstoler/dds-components": "*",

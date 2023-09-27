@@ -15,6 +15,7 @@ import styled from 'styled-components';
 
 import { CalendarGrid } from './CalendarGrid';
 import { locale } from '../constants';
+import { FC, PropsWithChildren } from 'react';
 
 const CalendarHeader = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ const CalendarContainer = styled.div`
   gap: 1rem;
 `;
 
-const Month = styled(Heading).attrs({
+const Month: FC<PropsWithChildren> = styled(Heading).attrs({
   level: 2,
   typographyType: 'headingSans02',
 })`

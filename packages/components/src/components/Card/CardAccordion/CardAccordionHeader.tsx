@@ -23,12 +23,6 @@ const ContentWrapper = styled.div`
   text-align: left;
 `;
 
-function getPadding(props: HeaderProps): string {
-  const { padding } = props;
-
-  return padding || header.padding;
-}
-
 function getTypographyType(props: HeaderProps): StaticTypographyType {
   const { typographyType } = props;
 
@@ -41,14 +35,14 @@ type HeaderProps = {
   bold?: boolean;
 };
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.div<HeaderProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 0.2s;
   }
-  padding: ${getPadding};
+  padding: ${({ padding }) => padding ?? header.padding};
   ${props => getFontStyling(getTypographyType(props))}
   ${props =>
     props.bold &&

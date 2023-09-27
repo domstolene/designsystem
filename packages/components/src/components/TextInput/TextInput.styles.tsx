@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 import { Icon } from '@norges-domstoler/dds-icons';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { InputSize, StatefulInput } from '@norges-domstoler/dds-form';
+import {
+  InputProps,
+  InputSize,
+  StatefulInput,
+} from '@norges-domstoler/dds-form';
 
 import { textInputTokens as tokens } from './TextInput.tokens';
 
@@ -35,7 +39,7 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
 
 type StyledInputProps = {
   hasIcon?: boolean;
-};
+} & Pick<InputProps, 'componentSize'>;
 
 export const StyledInput = styled(StatefulInput)<StyledInputProps>`
   ${({ componentSize, hasIcon }) =>
