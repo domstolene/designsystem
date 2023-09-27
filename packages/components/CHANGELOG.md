@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 13.8.4
+
+### Patch Changes
+
+- 6492f01e: Fikse bug hvor typer for @norges-domstoler/dds-icons ikke ble bygd
+- Updated dependencies [6492f01e]
+  - @norges-domstoler/dds-icons@0.0.4
+
 ## 13.8.3
 
 ### Patch Changes

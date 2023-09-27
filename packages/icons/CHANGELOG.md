@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-icons
 
+## 0.0.4
+
+### Patch Changes
+
+- 6492f01e: Fikse bug hvor typer for @norges-domstoler/dds-icons ikke ble bygd
+
 ## 0.0.3
 
 ### Patch Changes
