@@ -14,7 +14,7 @@
   "main": "src/index.ts",
   "homepage": "https://design.domstol.no",
   "scripts": {
-    "build": "tsup",
+    "build": "tsup --dts",
     "build:fast": "tsup",
     "dev": "npm run build:fast -- --watch",
     "lint": "eslint --ext=jsx,ts,tsx src",
