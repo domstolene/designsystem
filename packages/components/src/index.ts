@@ -1,14 +1,7 @@
 export * from '@norges-domstoler/dds-core';
-export type * from '@norges-domstoler/dds-core';
-
 export * from '@norges-domstoler/dds-form';
-export type * from '@norges-domstoler/dds-form';
-
 export * from '@norges-domstoler/dds-icons';
-export type * from '@norges-domstoler/dds-icons';
-
 export * from '@norges-domstoler/dds-typography';
-export type * from '@norges-domstoler/dds-typography';
 
 export * from './components/AppShell';
 export * from './components/SelectionControl/RadioButton';
