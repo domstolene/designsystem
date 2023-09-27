@@ -1,4 +1,5 @@
 ---
+"@norges-domstoler/dds-components": patch
 "@norges-domstoler/dds-icons": patch
 ---
 
