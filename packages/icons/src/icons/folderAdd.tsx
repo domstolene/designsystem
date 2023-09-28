@@ -1,5 +1,6 @@
 import { SvgWrapper } from '../utils/SvgWrapper';
 import { SvgProps } from '../utils/propTypes';
+
 export function FolderAddIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>
