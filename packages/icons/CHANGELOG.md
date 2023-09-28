@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-icons
 
+## 0.1.0
+
+### Minor Changes
+
+- d6b639b5: Lagt til ikonene AddressShieldedIcon, FileShieldedIcon, FolderShieldedIcon og PersonShieldedIcon
+
 ## 0.0.4
 
 ### Patch Changes
