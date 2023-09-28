@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.1.2
+
+### Patch Changes
+
+- 8eb214ef: Bump dependencies
+
 ## 1.1.1
 
 ### Patch Changes

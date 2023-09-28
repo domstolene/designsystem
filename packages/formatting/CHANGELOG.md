@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.3.5
+
+### Patch Changes
+
+- 8eb214ef: Bump dependencies
+
 ## 1.3.4
 
 ### Patch Changes
