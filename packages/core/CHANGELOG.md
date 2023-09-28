@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-core
 
+## 0.0.5
+
+### Patch Changes
+
+- 8eb214ef: Bump dependencies
+- Updated dependencies [8eb214ef]
+  - @norges-domstoler/dds-design-tokens@3.0.2
+
 ## 0.0.4
 
 ### Patch Changes
