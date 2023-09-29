@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 13.8.6
+
+### Patch Changes
+
+- 955c4183: Fikse feilaktig bump av dds-design-tokens
+- Updated dependencies [955c4183]
+  - @norges-domstoler/dds-typography@0.0.5
+  - @norges-domstoler/dds-icons@0.1.2
+  - @norges-domstoler/dds-core@0.0.6
+  - @norges-domstoler/dds-form@0.0.5
+
 ## 13.8.5
 
 ### Patch Changes
