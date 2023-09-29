@@ -20,8 +20,7 @@ import { renderInputMessage } from '../../utils/renderInputMessage';
 
 const StyledInput = styled(StatefulInput)`
   &::-webkit-calendar-picker-indicator {
-    // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-    background-image: ${`url("${CalendarIcon}")`};
+    background-image: ${`url('${CalendarIcon}')`};
     position: absolute;
     ${({ componentSize }) =>
       componentSize &&
