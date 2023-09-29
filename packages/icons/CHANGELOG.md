@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-icons
 
+## 0.1.3
+
+### Patch Changes
+
+- b2ae4205: Fikser bug hvor inline SVG-er ikke ble vist frem
+- Updated dependencies [b2ae4205]
+  - @norges-domstoler/dds-core@0.0.7
+
 ## 0.1.2
 
 ### Patch Changes

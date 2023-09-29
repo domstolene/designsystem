@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-core
 
+## 0.0.7
+
+### Patch Changes
+
+- b2ae4205: Fikser bug hvor inline SVG-er ikke ble vist frem
+
 ## 0.0.6
 
 ### Patch Changes

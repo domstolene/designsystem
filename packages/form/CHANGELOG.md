@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-form
 
+## 0.0.6
+
+### Patch Changes
+
+- b2ae4205: Fikser bug hvor inline SVG-er ikke ble vist frem
+- Updated dependencies [b2ae4205]
+  - @norges-domstoler/dds-typography@0.0.6
+  - @norges-domstoler/dds-core@0.0.7
+
 ## 0.0.5
 
 ### Patch Changes
