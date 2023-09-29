@@ -60,16 +60,13 @@ const StyledList = styled.ul<StyledListProps>`
               left: 0;
               background-size: contain;
               background-repeat: no-repeat;
-              // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-              background-image: ${`url("${bulletLvl1}")`};
+              background-image: ${`url('${bulletLvl1}')`};
             }
             ul > li:before {
-              // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-              background-image: ${`url("${bulletLvl2}")`};
+              background-image: ${`url('${bulletLvl2}')`};
             }
             ul > li > ul > li:before {
-              // Ensure double quotes in url due to svg data URI in image bundle that requires them, as the attributes use single quotes
-              background-image: ${`url("${bulletLvl3}")`};
+              background-image: ${`url('${bulletLvl3}')`};
             }
           }
         `
