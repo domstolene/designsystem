@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-icons
 
+## 0.1.2
+
+### Patch Changes
+
+- 955c4183: Fikse feilaktig bump av dds-design-tokens
+- Updated dependencies [955c4183]
+  - @norges-domstoler/dds-core@0.0.6
+
 ## 0.1.1
 
 ### Patch Changes

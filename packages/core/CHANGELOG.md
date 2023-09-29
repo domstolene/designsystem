@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-core
 
+## 0.0.6
+
+### Patch Changes
+
+- 955c4183: Fikse feilaktig bump av dds-design-tokens
+
 ## 0.0.5
 
 ### Patch Changes
