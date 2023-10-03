@@ -75,7 +75,11 @@ export const PageGenerator = (props: PageGeneratorProps) => {
       }
       // If it's a row, search through it's fields recursively
       const fieldWithRow = f as PageGeneratorRow;
-      if (fieldWithRow && fieldWithRow.fields && Array.isArray(fieldWithRow.fields)) {
+      if (
+        fieldWithRow &&
+        fieldWithRow.fields &&
+        Array.isArray(fieldWithRow.fields)
+      ) {
         const result = findFieldByNameInternal(name, fieldWithRow.fields);
         if (result) {
           return result;
@@ -128,7 +132,9 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     validateFields(name, value);
   };
 
-  const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(event: ChangeEvent<T>) => {
+  const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(
+    event: ChangeEvent<T>
+  ) => {
     const { id, name, value } = event.target;
     const checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
     setErrorMessage(name, ''); //clear errormessage when user types

@@ -24,7 +24,11 @@ const Row = (props: SectionGeneratorRow) => {
 export const getStandardRow = (
   index: number,
   obj: SectionGeneratorRow,
-  fieldOnChange: (event: ChangeEvent<(HTMLInputElement | HTMLTextAreaElement) & Record<string, never>>) => void,
+  fieldOnChange: (
+    event: ChangeEvent<
+      (HTMLInputElement | HTMLTextAreaElement) & Record<string, never>
+    >
+  ) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>

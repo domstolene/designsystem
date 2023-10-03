@@ -8,7 +8,11 @@ import { getComponent } from '.';
 export const getButtonRow = (
   index: number,
   obj: PageGeneratorRow,
-  fieldOnChange: (event: ChangeEvent<(HTMLInputElement | HTMLTextAreaElement) & Record<string, never>>) => void,
+  fieldOnChange: (
+    event: ChangeEvent<
+      (HTMLInputElement | HTMLTextAreaElement) & Record<string, never>
+    >
+  ) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>
