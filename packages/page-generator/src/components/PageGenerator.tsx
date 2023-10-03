@@ -133,23 +133,13 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     validateFields(name, value);
   };
 
-  const fieldOnChange = <T extends HTMLInputElement>(event: ChangeEvent<T>) => {
-    const { id, name, value, checked } = event.target;
+  const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(event: ChangeEvent<T>) => {
+    const { id, name, value } = event.target;
+    let checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
     setErrorMessage(name, ''); //clear errormessage when user types
     const newState = {
       ...state,
       [name || id]: event.target.type === 'checkbox' ? checked : value,
-    };
-    setState(newState);
-  };
-
-  const textAreaOnChange = <T extends HTMLTextAreaElement>(
-    event: ChangeEvent<T>
-  ) => {
-    const { id, name, value } = event.target;
-    const newState = {
-      ...state,
-      [name || id]: value,
     };
     setState(newState);
   };
@@ -191,7 +181,6 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
-                textAreaOnChange,
                 screenSize
               )
             );
@@ -212,7 +201,6 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                           groupedIndex,
                           fieldOnChange,
                           selectOnChange,
-                          textAreaOnChange,
                           screenSize,
                           onBlur
                         )
@@ -232,7 +220,6 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                   index,
                   fieldOnChange,
                   selectOnChange,
-                  textAreaOnChange,
                   screenSize,
                   onBlur
                 )}

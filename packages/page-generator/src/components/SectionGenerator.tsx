@@ -51,22 +51,12 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
     }
   }, [state]);
 
-  const fieldOnChange = <T extends HTMLInputElement>(event: ChangeEvent<T>) => {
-    const { id, name, value, checked } = event.target;
+  const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(event: ChangeEvent<T>) => {
+    const { id, name, value } = event.target;
+    let checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
     const newState = {
       ...state,
       [name || id]: event.target.type === 'checkbox' ? checked : value,
-    };
-    setState(newState);
-  };
-
-  const textAreaOnChange = <T extends HTMLTextAreaElement>(
-    event: ChangeEvent<T>
-  ) => {
-    const { id, name, value } = event.target;
-    const newState = {
-      ...state,
-      [name || id]: value,
     };
     setState(newState);
   };
@@ -124,7 +114,6 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
-                textAreaOnChange,
                 screenSize
               )
             );
@@ -136,7 +125,6 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
-                textAreaOnChange,
                 screenSize
               )
             );
@@ -150,7 +138,6 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                   index,
                   fieldOnChange,
                   selectOnChange,
-                  textAreaOnChange,
                   screenSize
                 )}
               </React.Fragment>

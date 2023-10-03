@@ -5,20 +5,16 @@ import { MultiValue, SingleValue } from 'react-select';
 import { ChangeEvent } from 'react';
 import { getComponent } from '.';
 
-type THTMLInputElement = HTMLInputElement & Record<string, never>;
-type THTMLTextAreaElement = HTMLTextAreaElement & Record<string, never>;
-
 export const getButtonRow = (
   index: number,
   obj: PageGeneratorRow,
-  fieldOnChange: (event: ChangeEvent<THTMLInputElement>) => void,
+  fieldOnChange: (event: ChangeEvent<(HTMLInputElement | HTMLTextAreaElement) & Record<string, never>>) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
     name: string
   ) => void,
-  textAreaOnChange: (event: ChangeEvent<THTMLTextAreaElement>) => void,
   screenSize: ScreenSize
 ) => {
   return (
@@ -32,7 +28,6 @@ export const getButtonRow = (
               groupedIndex,
               fieldOnChange,
               selectOnChange,
-              textAreaOnChange,
               screenSize
             )
           );
