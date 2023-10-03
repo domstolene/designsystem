@@ -61,7 +61,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
   const setErrorMessage = (name: string, errorMessage: string) => {
     const field = getFieldByName(name);
     if (field && isFieldWithValidations(field)) {
-      (field as FieldWithValidations).props.errorMessage = errorMessage;
+      field.props.errorMessage = errorMessage;
     }
   };
 
