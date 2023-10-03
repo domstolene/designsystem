@@ -53,7 +53,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
 
   const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(event: ChangeEvent<T>) => {
     const { id, name, value } = event.target;
-    let checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
+    const checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
     const newState = {
       ...state,
       [name || id]: event.target.type === 'checkbox' ? checked : value,

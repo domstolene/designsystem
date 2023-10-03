@@ -7,7 +7,6 @@ import {
   useScreenSize,
 } from '@norges-domstoler/dds-components';
 import {
-  FieldWithValidations,
   PageGeneratorField,
   PageGeneratorProps,
   PageGeneratorRow,
@@ -131,7 +130,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
 
   const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(event: ChangeEvent<T>) => {
     const { id, name, value } = event.target;
-    let checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
+    const checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
     setErrorMessage(name, ''); //clear errormessage when user types
     const newState = {
       ...state,
