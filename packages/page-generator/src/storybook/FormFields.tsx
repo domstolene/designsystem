@@ -93,7 +93,7 @@ export const FormFields: (PageGeneratorField | PageGeneratorRow)[] = [
           {
             message: 'Må være +47',
             rule: (value: string) => {
-              return value === "+47";
+              return value === '+47';
             },
           },
         ],

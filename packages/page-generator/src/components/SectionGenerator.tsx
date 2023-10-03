@@ -60,7 +60,9 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
     setState(newState);
   };
 
-  const textAreaOnChange = <T extends HTMLTextAreaElement>(event: ChangeEvent<T>) => {
+  const textAreaOnChange = <T extends HTMLTextAreaElement>(
+    event: ChangeEvent<T>
+  ) => {
     const { id, name, value } = event.target;
     const newState = {
       ...state,

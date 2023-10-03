@@ -65,27 +65,30 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     }
   };
 
-  const findFieldByNameInternal = (name: string, fieldsToSearch: (PageGeneratorField | PageGeneratorRow)[]): (PageGeneratorField | PageGeneratorRow | null) => {
-    console.log(name, fieldsToSearch)
+  const findFieldByNameInternal = (
+    name: string,
+    fieldsToSearch: (PageGeneratorField | PageGeneratorRow)[]
+  ): PageGeneratorField | PageGeneratorRow | null => {
+    console.log(name, fieldsToSearch);
     if (!fieldsToSearch) {
       return null;
     }
-    for(let f of fieldsToSearch) {
+    for (const f of fieldsToSearch) {
       // Search for fields with validation named name
-      if(isFieldWithValidations(f) && f.props && f.props.name === name) {
+      if (isFieldWithValidations(f) && f.props && f.props.name === name) {
         return f;
       }
       // If it's a row, search through it's fields recursively
-      let fieldWithRow = f as PageGeneratorRow
+      const fieldWithRow = f as PageGeneratorRow;
       if (fieldWithRow) {
-        let result = findFieldByNameInternal(name, fieldWithRow.fields)
+        const result = findFieldByNameInternal(name, fieldWithRow.fields);
         if (result) {
           return result;
         }
       }
     }
     return null;
-  }
+  };
 
   const getFieldByName = (name: string) => {
     return findFieldByNameInternal(name, fields);
@@ -123,7 +126,9 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     }
   };
 
-  const onBlur = <T extends HTMLInputElement | HTMLTextAreaElement>(event: FocusEvent<T>) => {
+  const onBlur = <T extends HTMLInputElement | HTMLTextAreaElement>(
+    event: FocusEvent<T>
+  ) => {
     const { name, value } = event.target;
     validateFields(name, value);
   };
@@ -138,7 +143,9 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     setState(newState);
   };
 
-  const textAreaOnChange = <T extends HTMLTextAreaElement>(event: ChangeEvent<T>) => {
+  const textAreaOnChange = <T extends HTMLTextAreaElement>(
+    event: ChangeEvent<T>
+  ) => {
     const { id, name, value } = event.target;
     const newState = {
       ...state,

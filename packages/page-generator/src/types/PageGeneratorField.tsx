@@ -84,9 +84,7 @@ type FieldWithoutChildren =
   | TypographyField
   | VisuallyHiddenField;
 
-export type FieldWithValidations = 
-  | TextInputField
-  | TextAreaField;
+export type FieldWithValidations = TextInputField | TextAreaField;
 
 type ButtonField = {
   component: PageGeneratorSupportedFields.Button;
