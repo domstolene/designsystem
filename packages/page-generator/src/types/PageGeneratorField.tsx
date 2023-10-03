@@ -80,12 +80,13 @@ type FieldWithoutChildren =
   | RadioButtonField
   | SelectField
   | SpinnerField
-  | TextAreaField
   | ToggleButtonField
   | TypographyField
   | VisuallyHiddenField;
 
-export type FieldWithValidations = TextInputField;
+export type FieldWithValidations = 
+  | TextInputField
+  | TextAreaField;
 
 type ButtonField = {
   component: PageGeneratorSupportedFields.Button;
@@ -266,6 +267,7 @@ type SpinnerField = {
 type TextAreaField = {
   component: PageGeneratorSupportedFields.TextArea;
   props: TextAreaProps;
+  validations?: PageGeneratorValidation[];
   hide?: boolean;
 };
 

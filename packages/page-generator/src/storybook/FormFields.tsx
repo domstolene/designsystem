@@ -89,6 +89,14 @@ export const FormFields: (PageGeneratorField | PageGeneratorRow)[] = [
           width: '90px',
           name: 'countryCode',
         },
+        validations: [
+          {
+            message: 'Må være +47',
+            rule: (value: string) => {
+              return value === "+47";
+            },
+          },
+        ],
       },
       {
         component: PageGeneratorSupportedFields.TextInput,
@@ -100,13 +108,22 @@ export const FormFields: (PageGeneratorField | PageGeneratorRow)[] = [
     ],
   },
   {
-    rowType: 'standard',
-    fields: [
+    component: PageGeneratorSupportedFields.TextArea,
+    props: {
+      label: 'Adresse',
+      name: 'adresse',
+    },
+    validations: [
       {
-        component: PageGeneratorSupportedFields.TextArea,
-        props: {
-          label: 'Adresse',
-          name: 'adresse',
+        message: 'Påkrevd',
+        rule: (value: string) => {
+          return value.length > 0;
+        },
+      },
+      {
+        message: 'Må være omg',
+        rule: (value: string) => {
+          return value === 'omg';
         },
       },
     ],
