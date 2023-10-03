@@ -69,10 +69,6 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     name: string,
     fieldsToSearch: (PageGeneratorField | PageGeneratorRow)[]
   ): PageGeneratorField | PageGeneratorRow | null => {
-    console.log(name, fieldsToSearch);
-    if (!fieldsToSearch) {
-      return null;
-    }
     for (const f of fieldsToSearch) {
       // Search for fields with validation named name
       if (isFieldWithValidations(f) && f.props && f.props.name === name) {
@@ -80,7 +76,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
       }
       // If it's a row, search through it's fields recursively
       const fieldWithRow = f as PageGeneratorRow;
-      if (fieldWithRow) {
+      if (fieldWithRow && fieldWithRow.fields && Array.isArray(fieldWithRow.fields)) {
         const result = findFieldByNameInternal(name, fieldWithRow.fields);
         if (result) {
           return result;
