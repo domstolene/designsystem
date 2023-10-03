@@ -56,7 +56,7 @@ export const getComponent = (
   ) => void,
   textAreaOnChange: (event: ChangeEvent<THTMLTextAreaElement>) => void,
   screenSize: ScreenSize,
-  onBlur?: <T extends HTMLInputElement>(event: FocusEvent<T>) => void
+  onBlur?: <T extends HTMLInputElement | HTMLTextAreaElement>(event: FocusEvent<T>) => void
 ) => {
   switch (field.component) {
     case PageGeneratorSupportedFields.Button:
@@ -287,7 +287,11 @@ export const getComponent = (
       return <Spinner {...field.props} key={index} />;
     case PageGeneratorSupportedFields.TextArea:
       return (
-        <TextArea {...field.props} key={index} onChange={textAreaOnChange} />
+        <TextArea
+          {...field.props}
+          key={index}
+          onChange={textAreaOnChange}
+          onBlur={onBlur} />
       );
     case PageGeneratorSupportedFields.TextInput:
       return (

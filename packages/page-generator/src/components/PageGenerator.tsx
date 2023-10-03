@@ -110,7 +110,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     }
   };
 
-  const onBlur = <T extends HTMLInputElement>(event: FocusEvent<T>) => {
+  const onBlur = <T extends HTMLInputElement | HTMLTextAreaElement>(event: FocusEvent<T>) => {
     const { name, value } = event.target;
     validateFields(name, value);
   };
@@ -128,7 +128,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
   const textAreaOnChange = <T extends HTMLTextAreaElement>(event: ChangeEvent<T>) => {
     const { id, name, value } = event.target;
     const newState = {
-      ...myState,
+      ...state,
       [name || id]: value,
     };
     setState(newState);
@@ -193,7 +193,8 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                           fieldOnChange,
                           selectOnChange,
                           textAreaOnChange,
-                          screenSize
+                          screenSize,
+                          onBlur
                         )
                       );
                     })}
