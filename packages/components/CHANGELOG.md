@@ -1,11 +1,5 @@
 # @norges-domstoler/dds-components
 
-## 13.9.0
-
-### Minor Changes
-
-- 410a73d: Eksponer TextAreaProps i en egen fil
-
 ## 13.8.7
 
 ### Patch Changes
