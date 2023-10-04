@@ -51,7 +51,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
-    "@types/react": "^18.2.23",
+    "@types/react": "^18.2.24",
     "@types/react-dom": "^18.2.8",
     "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
@@ -68,7 +68,7 @@
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
-    "vitest": "^0.34.5"
+    "vitest": "^0.34.6"
   },
   "peerDependencies": {
     "@norges-domstoler/dds-design-tokens": "^3",
@@ -86,7 +86,7 @@
     "attr-accept": "^2.2.2",
     "file-selector": "^0.6.0",
     "focus-visible": "^5.2.0",
-    "react-select": "^5.7.5",
+    "react-select": "^5.7.7",
     "tslib": "^2.6.2"
   },
   "publishConfig": {
