@@ -115,12 +115,6 @@ export const FormFields: (PageGeneratorField | PageGeneratorRow)[] = [
     },
     validations: [
       {
-        message: 'Påkrevd',
-        rule: (value: string) => {
-          return value.length > 0;
-        },
-      },
-      {
         message: 'Må være omg',
         rule: (value: string) => {
           return value === 'omg';
