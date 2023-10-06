@@ -74,13 +74,12 @@ export const PageGenerator = (props: PageGeneratorProps) => {
         return f;
       }
       // If it's a row, search through it's fields recursively
-      const fieldWithRow = f as PageGeneratorRow;
       if (
-        fieldWithRow &&
-        fieldWithRow.fields &&
-        Array.isArray(fieldWithRow.fields)
+        isPageGeneratorRow(f) &&
+        f.fields &&
+        Array.isArray(f.fields)
       ) {
-        const result = findFieldByNameInternal(name, fieldWithRow.fields);
+        const result = findFieldByNameInternal(name, f.fields);
         if (result) {
           return result;
         }
