@@ -21,6 +21,7 @@ import {
   RadioButtonGroup,
   Select,
   Spinner,
+  TextArea,
   TextInput,
   ToggleButton,
   ToggleButtonGroup,
@@ -40,12 +41,12 @@ import { MultiValue, SingleValue } from 'react-select';
 import { FocusEvent, ChangeEvent } from 'react';
 import { SectionGenerator } from '../components';
 
-type T = HTMLInputElement & Record<string, never>;
+type TElement = HTMLInputElement | HTMLTextAreaElement;
 
 export const getComponent = (
   field: PageGeneratorField,
   index: number,
-  fieldOnChange: (event: ChangeEvent<T>) => void,
+  fieldOnChange: (event: ChangeEvent<TElement & Record<string, never>>) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>
@@ -53,8 +54,15 @@ export const getComponent = (
     name: string
   ) => void,
   screenSize: ScreenSize,
-  onBlur?: <T extends HTMLInputElement>(event: FocusEvent<T>) => void
+  onBlur?: <T extends TElement>(event: FocusEvent<T>) => void
 ) => {
+  const inputFieldOnChange = (
+    event: ChangeEvent<HTMLInputElement & Record<string, never>>
+  ) => fieldOnChange(event);
+  const textAreaFieldOnChange = (
+    event: ChangeEvent<HTMLTextAreaElement & Record<string, never>>
+  ) => fieldOnChange(event);
+
   switch (field.component) {
     case PageGeneratorSupportedFields.Button:
       return <Button {...field.props} key={index} />;
@@ -72,7 +80,9 @@ export const getComponent = (
       }
       return <></>;
     case PageGeneratorSupportedFields.Checkbox:
-      return <Checkbox {...field.props} key={index} onChange={fieldOnChange} />;
+      return (
+        <Checkbox {...field.props} key={index} onChange={inputFieldOnChange} />
+      );
     case PageGeneratorSupportedFields.CheckboxGroup:
       return (
         <CheckboxGroup {...field.props} key={index}>
@@ -92,7 +102,11 @@ export const getComponent = (
       );
     case PageGeneratorSupportedFields.Datepicker:
       return (
-        <Datepicker {...field.props} key={index} onChange={fieldOnChange} />
+        <Datepicker
+          {...field.props}
+          key={index}
+          onChange={inputFieldOnChange}
+        />
       );
     case PageGeneratorSupportedFields.DescriptionList:
       return (
@@ -245,7 +259,11 @@ export const getComponent = (
       );
     case PageGeneratorSupportedFields.RadioButton:
       return (
-        <RadioButton {...field.props} key={index} onChange={fieldOnChange} />
+        <RadioButton
+          {...field.props}
+          key={index}
+          onChange={inputFieldOnChange}
+        />
       );
     case PageGeneratorSupportedFields.RadioButtonGroup:
       field.props.direction = screenSize > ScreenSize.XSmall ? 'row' : 'column';
@@ -275,18 +293,31 @@ export const getComponent = (
       );
     case PageGeneratorSupportedFields.Spinner:
       return <Spinner {...field.props} key={index} />;
+    case PageGeneratorSupportedFields.TextArea:
+      return (
+        <TextArea
+          {...field.props}
+          key={index}
+          onChange={textAreaFieldOnChange}
+          onBlur={onBlur}
+        />
+      );
     case PageGeneratorSupportedFields.TextInput:
       return (
         <TextInput
           {...field.props}
           key={index}
-          onChange={fieldOnChange}
+          onChange={inputFieldOnChange}
           onBlur={onBlur}
         />
       );
     case PageGeneratorSupportedFields.ToggleButton:
       return (
-        <ToggleButton {...field.props} key={index} onChange={fieldOnChange} />
+        <ToggleButton
+          {...field.props}
+          key={index}
+          onChange={inputFieldOnChange}
+        />
       );
     case PageGeneratorSupportedFields.ToggleButtonGroup:
       return (

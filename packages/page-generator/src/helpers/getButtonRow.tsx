@@ -5,12 +5,14 @@ import { MultiValue, SingleValue } from 'react-select';
 import { ChangeEvent } from 'react';
 import { getComponent } from '.';
 
-type T = HTMLInputElement & Record<string, never>;
-
 export const getButtonRow = (
   index: number,
   obj: PageGeneratorRow,
-  fieldOnChange: (event: ChangeEvent<T>) => void,
+  fieldOnChange: (
+    event: ChangeEvent<
+      (HTMLInputElement | HTMLTextAreaElement) & Record<string, never>
+    >
+  ) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>

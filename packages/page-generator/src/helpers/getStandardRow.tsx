@@ -5,8 +5,6 @@ import { ChangeEvent } from 'react';
 import { getComponent } from '.';
 import React from 'react';
 
-type T = HTMLInputElement & Record<string, never>;
-
 const Row = (props: SectionGeneratorRow) => {
   const { id, className, htmlProps, ...rest } = props;
   const restPartial = { ...rest } as Partial<SectionGeneratorRow>;
@@ -26,7 +24,11 @@ const Row = (props: SectionGeneratorRow) => {
 export const getStandardRow = (
   index: number,
   obj: SectionGeneratorRow,
-  fieldOnChange: (event: ChangeEvent<T>) => void,
+  fieldOnChange: (
+    event: ChangeEvent<
+      (HTMLInputElement | HTMLTextAreaElement) & Record<string, never>
+    >
+  ) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>

@@ -29,7 +29,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
   const { fields = [], stateOnChange, as } = props;
   const { id, className, htmlProps, ...rest } = props;
 
-  const [myState, setState] = useState({});
+  const [state, setState] = useState({});
 
   useEffect(() => {
     let state: PageGeneratorState<PageGeneratorStateOptionTypes> = {};
@@ -47,14 +47,17 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
 
   useEffect(() => {
     if (stateOnChange) {
-      stateOnChange(myState);
+      stateOnChange(state);
     }
-  }, [myState]);
+  }, [state]);
 
-  const fieldOnChange = <T extends HTMLInputElement>(event: ChangeEvent<T>) => {
-    const { id, name, value, checked } = event.target;
+  const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(
+    event: ChangeEvent<T>
+  ) => {
+    const { id, name, value } = event.target;
+    const checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
     const newState = {
-      ...myState,
+      ...state,
       [name || id]: event.target.type === 'checkbox' ? checked : value,
     };
     setState(newState);
@@ -73,7 +76,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
       value = chosen || null;
     }
     const newState = {
-      ...myState,
+      ...state,
       [name]: value,
     };
     setState(newState);

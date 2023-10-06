@@ -1,11 +1,4 @@
-import {
-  forwardRef,
-  TextareaHTMLAttributes,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import styled from 'styled-components';
 import {
   useCombinedRef,
@@ -19,7 +12,6 @@ import {
   StatefulInput,
   StyledInputProps,
   inputTypographyTypes,
-  CommonInputProps,
   getDefaultText,
   OuterInputContainer,
 } from '@norges-domstoler/dds-form';
@@ -27,6 +19,7 @@ import {
 import { scrollbarStyling } from '../ScrollableContainer';
 import { textAreaTokens } from './TextArea.tokens';
 import { renderInputMessage } from '../../utils/renderInputMessage';
+import { TextAreaProps } from './TextArea.types';
 
 const defaultWidth: Property.Width<string> = '320px';
 const { textarea } = textAreaTokens;
@@ -40,9 +33,6 @@ export const StyledTextArea = styled(StatefulInput)<StyledInputProps>`
   padding-bottom: ${textarea.paddingBottom};
   ${getFontStyling(inputTypographyTypes.medium)}
 `;
-
-export type TextAreaProps = CommonInputProps &
-  TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props, ref) => {

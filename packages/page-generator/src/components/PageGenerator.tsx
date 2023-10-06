@@ -57,24 +57,35 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     }
   }, [state, errors]);
 
-  const setErrorMessage = (index: number, errorMessage: string) => {
-    const field = fields[index];
-    if (isFieldWithValidations(field)) {
-      fields[index] = {
-        ...field,
-        props: {
-          ...field.props,
-          errorMessage,
-        },
-      };
+  const setErrorMessage = (name: string, errorMessage: string) => {
+    const field = getFieldByName(name);
+    if (field && isFieldWithValidations(field)) {
+      field.props.errorMessage = errorMessage;
     }
   };
 
-  const getFieldIndex = (name: string) => {
-    return fields.findIndex(
-      (f: PageGeneratorField | PageGeneratorRow) =>
-        isFieldWithValidations(f) && f.props && f.props.name === name
-    );
+  const findFieldByNameInternal = (
+    name: string,
+    fieldsToSearch: (PageGeneratorField | PageGeneratorRow)[]
+  ): PageGeneratorField | PageGeneratorRow | null => {
+    for (const f of fieldsToSearch) {
+      // Search for fields with validation named name
+      if (isFieldWithValidations(f) && f.props && f.props.name === name) {
+        return f;
+      }
+      // If it's a row, search through it's fields recursively
+      if (isPageGeneratorRow(f) && f.fields && Array.isArray(f.fields)) {
+        const result = findFieldByNameInternal(name, f.fields);
+        if (result) {
+          return result;
+        }
+      }
+    }
+    return null;
+  };
+
+  const getFieldByName = (name: string) => {
+    return findFieldByNameInternal(name, fields);
   };
 
   const updateErrors = (
@@ -93,9 +104,8 @@ export const PageGenerator = (props: PageGeneratorProps) => {
   };
 
   const validateFields = (name: string, value: string) => {
-    const index = getFieldIndex(name);
-    const field = fields[index];
-    if (isFieldWithValidations(field)) {
+    const field = getFieldByName(name);
+    if (field && isFieldWithValidations(field)) {
       const fieldErrors =
         (field.validations &&
           field.validations.filter(
@@ -104,20 +114,25 @@ export const PageGenerator = (props: PageGeneratorProps) => {
         [];
       updateErrors(fieldErrors, name, value);
       setErrorMessage(
-        index,
+        name,
         fieldErrors.length > 0 ? fieldErrors[0].message : ''
       );
     }
   };
 
-  const onBlur = <T extends HTMLInputElement>(event: FocusEvent<T>) => {
+  const onBlur = <T extends HTMLInputElement | HTMLTextAreaElement>(
+    event: FocusEvent<T>
+  ) => {
     const { name, value } = event.target;
     validateFields(name, value);
   };
 
-  const fieldOnChange = <T extends HTMLInputElement>(event: ChangeEvent<T>) => {
-    const { id, name, value, checked } = event.target;
-    setErrorMessage(getFieldIndex(name), ''); //clear errormessage when user types
+  const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(
+    event: ChangeEvent<T>
+  ) => {
+    const { id, name, value } = event.target;
+    const checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
+    setErrorMessage(name, ''); //clear errormessage when user types
     const newState = {
       ...state,
       [name || id]: event.target.type === 'checkbox' ? checked : value,
@@ -182,7 +197,8 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                           groupedIndex,
                           fieldOnChange,
                           selectOnChange,
-                          screenSize
+                          screenSize,
+                          onBlur
                         )
                       );
                     })}
