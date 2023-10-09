@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.8.8
+
+### Patch Changes
+
+- db0c5d72: Bump react-select til 5.7.7
+
 ## 13.8.7
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.6.0
+
+### Minor Changes
+
+- 630a4fbc: Add TextArea to PageGenerator
+
+### Patch Changes
+
+- Updated dependencies [db0c5d72]
+  - @norges-domstoler/dds-components@13.8.8
+
 ## 2.5.3
 
 ### Patch Changes
