@@ -29,13 +29,13 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
-    "@types/react": "^18.2.24",
-    "@types/react-dom": "^18.2.8",
+    "@types/react": "^18.2.26",
+    "@types/react-dom": "^18.2.11",
     "@typescript-eslint/eslint-plugin": "^5.59.11",
     "@typescript-eslint/parser": "^5.62.0",
     "clean-package": "2.2.0",
     "concurrently": "^8.2.1",
-    "eslint": "^8.50.0",
+    "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.33.2",
@@ -43,7 +43,7 @@
     "react-dom": "^18.2.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
+    "vite": "^4.4.11",
     "vitest": "^0.34.6"
   },
   "peerDependencies": {
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-design-tokens": "*",
-    "@storybook/addon-docs": "^7.4.5",
+    "@storybook/addon-docs": "^7.4.6",
     "focus-visible": "^5.2.0",
     "styled-components": "^5.3.11"
   },
