@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.6.1
+
+### Patch Changes
+
+- 029695f1: Fikse feil med designsystemet hvor det ikke fungerte i Next.js page router applikasjoner.
+- Updated dependencies [029695f1]
+- Updated dependencies [2b80dade]
+  - @norges-domstoler/dds-components@13.9.0
+  - @norges-domstoler/dds-typography@0.0.7
+
 ## 2.6.0
 
 ### Minor Changes

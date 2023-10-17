@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-icons
 
+## 0.1.4
+
+### Patch Changes
+
+- 029695f1: Fikse feil med designsystemet hvor det ikke fungerte i Next.js page router applikasjoner.
+- Updated dependencies [029695f1]
+  - @norges-domstoler/dds-core@0.0.8
+
 ## 0.1.3
 
 ### Patch Changes

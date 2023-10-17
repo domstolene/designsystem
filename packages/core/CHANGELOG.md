@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-core
 
+## 0.0.8
+
+### Patch Changes
+
+- 029695f1: Fikse feil med designsystemet hvor det ikke fungerte i Next.js page router applikasjoner.
+
 ## 0.0.7
 
 ### Patch Changes

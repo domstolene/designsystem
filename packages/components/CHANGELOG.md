@@ -1,5 +1,21 @@
 # @norges-domstoler/dds-components
 
+## 13.9.0
+
+### Minor Changes
+
+- 2b80dade: Legge til støtte for å bruke `children`-prop på Button istedenfor `label`. Deprecater samtidig `label`, vil bli fjernet neste major.
+
+### Patch Changes
+
+- 029695f1: Fikse feil med designsystemet hvor det ikke fungerte i Next.js page router applikasjoner.
+- Updated dependencies [029695f1]
+  - @norges-domstoler/dds-core@0.0.8
+  - @norges-domstoler/development-utils@1.1.3
+  - @norges-domstoler/dds-form@0.0.7
+  - @norges-domstoler/dds-icons@0.1.4
+  - @norges-domstoler/dds-typography@0.0.7
+
 ## 13.8.8
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-form
 
+## 0.0.7
+
+### Patch Changes
+
+- 029695f1: Fikse feil med designsystemet hvor det ikke fungerte i Next.js page router applikasjoner.
+- Updated dependencies [029695f1]
+  - @norges-domstoler/dds-core@0.0.8
+  - @norges-domstoler/dds-typography@0.0.7
+
 ## 0.0.6
 
 ### Patch Changes
