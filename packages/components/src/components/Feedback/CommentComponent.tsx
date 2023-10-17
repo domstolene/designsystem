@@ -60,12 +60,13 @@ export const CommentComponent = ({
       />
 
       <Button
-        label="Send inn"
         purpose="secondary"
         size="small"
         onClick={handleSubmit}
         loading={loading}
-      />
+      >
+        Send inn
+      </Button>
     </FlexContainer>
   );
 };

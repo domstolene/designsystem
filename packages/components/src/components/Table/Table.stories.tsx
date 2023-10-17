@@ -233,12 +233,9 @@ export const Hoverable = (args: TableProps) => {
 export const WithButtonAndIcons = (args: TableProps) => {
   const adminIcon = <Icon icon={PersonIcon} />;
   const deleteButton = (
-    <Button
-      label="Fjern tilgang"
-      appearance="borderless"
-      icon={TrashIcon}
-      iconPosition="left"
-    />
+    <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
+      Fjern tilgang
+    </Button>
   );
   return (
     <StoryTemplate title="Table - with buttons and icons">

@@ -41,10 +41,9 @@ const ControlledTable = () => {
   const [collapse, setCollapse] = useState(false);
   return (
     <>
-      <Button
-        label={controlButtonText}
-        onClick={() => setCollapse(!collapse)}
-      />
+      <Button onClick={() => setCollapse(!collapse)}>
+        {controlButtonText}
+      </Button>
       <CollapsibleTable headerValues={headers} isCollapsed={collapse}>
         <Table.Head>
           <CollapsibleTable.Row type="head">

@@ -5,7 +5,7 @@ import { vi } from 'vitest';
 describe('<Button />', () => {
   it('should have a label', () => {
     const label = 'button label';
-    render(<Button label={label} />);
+    render(<Button>{label}</Button>);
 
     expect(screen.queryByText(label)).toBeInTheDocument();
   });

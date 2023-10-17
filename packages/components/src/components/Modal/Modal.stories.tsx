@@ -31,31 +31,29 @@ export const Overview = () => {
 
   return (
     <StoryTemplate title="Modal - overview">
-      <Button
-        aria-haspopup="dialog"
-        label="Åpne lukkbar"
-        onClick={show}
-        ref={buttonRef}
-      />
+      <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
+        Åpne lukkbar
+      </Button>
       <Modal isOpen={!closed} onClose={close} header="Tittel">
         <ModalBody>Lukkbar modal</ModalBody>
         <ModalActions>
-          <Button label="OK" onClick={close} />
-          <Button purpose="secondary" label="Avbryt" onClick={close} />
+          <Button onClick={close}>OK</Button>
+          <Button purpose="secondary" onClick={close}>
+            Avbryt
+          </Button>
         </ModalActions>
       </Modal>
-      <Button
-        aria-haspopup="dialog"
-        label="Åpne ikke lukkbar"
-        onClick={show2}
-        ref={buttonRef2}
-      />
+      <Button aria-haspopup="dialog" onClick={show2} ref={buttonRef2}>
+        Åpne ikke lukkbar
+      </Button>
       <Modal isOpen={!closed2} header="Tittel">
         <ModalBody>Ikke lukkbar modal</ModalBody>
         <ModalActions>
-          <Button label="OK" onClick={close2} />
+          <Button onClick={close2}>OK</Button>
 
-          <Button purpose="secondary" label="Avbryt" onClick={close2} />
+          <Button purpose="secondary" onClick={close2}>
+            Avbryt
+          </Button>
         </ModalActions>
       </Modal>
     </StoryTemplate>
@@ -74,17 +72,16 @@ export const Default = (args: ModalProps) => {
 
   return (
     <StoryTemplate title="Modal - default">
-      <Button
-        aria-haspopup="dialog"
-        label="Åpne"
-        onClick={show}
-        ref={buttonRef}
-      />
+      <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
+        Åpne
+      </Button>
       <Modal {...args} isOpen={!closed} onClose={close}>
         <ModalBody>Modal</ModalBody>
         <ModalActions>
-          <Button label="OK" onClick={close} />
-          <Button purpose="secondary" label="Avbryt" onClick={close} />
+          <Button onClick={close}>OK</Button>
+          <Button purpose="secondary" onClick={close}>
+            Avbryt
+          </Button>
         </ModalActions>
       </Modal>
     </StoryTemplate>
@@ -100,12 +97,9 @@ export const NoActionButtons = (args: ModalProps) => {
 
   return (
     <StoryTemplate title="Modal - no action buttons">
-      <Button
-        aria-haspopup="dialog"
-        label="Åpne"
-        onClick={show}
-        ref={buttonRef}
-      />
+      <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
+        Åpne
+      </Button>
       <Modal
         {...args}
         isOpen={!closed}
@@ -131,12 +125,9 @@ export const Scrollable = (args: ModalProps) => {
 
   return (
     <StoryTemplate title="Modal - scrollable">
-      <Button
-        aria-haspopup="dialog"
-        label="Åpne scrollable"
-        onClick={show}
-        ref={buttonRef}
-      />
+      <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
+        Åpne scrollable
+      </Button>
       <Modal
         {...args}
         isOpen={!closed}
@@ -153,8 +144,10 @@ export const Scrollable = (args: ModalProps) => {
           rettssaken din vil bli veldig forsinket.
         </ModalBody>
         <ModalActions>
-          <Button label="OK" onClick={close} />
-          <Button purpose="secondary" label="Avbryt" onClick={close} />
+          <Button onClick={close}>OK</Button>
+          <Button purpose="secondary" onClick={close}>
+            Avbryt
+          </Button>
         </ModalActions>
       </Modal>
     </StoryTemplate>

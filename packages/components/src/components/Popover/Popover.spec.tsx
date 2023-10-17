@@ -15,7 +15,7 @@ const content = 'content';
 const TestComponent = () => {
   return (
     <PopoverGroup>
-      <Button label={buttonLabel} />
+      <Button>{buttonLabel}</Button>
       <Popover>{content}</Popover>
     </PopoverGroup>
   );
@@ -58,7 +58,7 @@ describe('<Popover />', () => {
     const title = 'title';
     render(
       <PopoverGroup>
-        <Button label={buttonLabel} />
+        <Button>{buttonLabel}</Button>
         <Popover title={title} />
       </PopoverGroup>
     );

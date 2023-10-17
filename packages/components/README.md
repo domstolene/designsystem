@@ -22,8 +22,10 @@ import { Button, TextInput } from '@norges-domstoler/dds-components';
 const App = () => (
   <>
     <TextInput label="Input" />
-    <Button label="Primary" />
-    <Button purpose="secondary" appearance="ghost" label="Secondary" />
+    <Button>Primary</Button>
+    <Button purpose="secondary" appearance="ghost">
+      Secondary
+    </Button>
   </>
 );
 

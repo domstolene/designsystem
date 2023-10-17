@@ -64,7 +64,7 @@ const items = [
 ];
 
 <OverflowMenuGroup>
-  <Button label="Åpne meny" />
+  <Button>Åpne meny</Button>
   <OverflowMenu items={items} />
 </OverflowMenuGroup>
 `} />
@@ -87,12 +87,13 @@ const items = [
 ];
 
 <Button
-  label="Åpne meny"
   ref={buttonRef}
   aria-haspopup="menu"
   aria-expanded={!isClosed ? true : undefined}
   aria-controls={id}
-/>
+>
+  Åpne meny
+</Button>
 <OverflowMenu
   isOpen={!isClosed}
   onClose={close}

@@ -154,7 +154,6 @@ export const FileUploader = (props: FileUploaderProps) => {
           type="button"
           appearance="filled"
           purpose="secondary"
-          label="Velg fil"
           icon={UploadIcon}
           htmlProps={{
             'aria-invalid': hasRootErrors ? true : undefined,
@@ -163,7 +162,9 @@ export const FileUploader = (props: FileUploaderProps) => {
               ...rootErrorsList.map(e => e.id),
             ]),
           }}
-        />
+        >
+          Velg fil
+        </Button>
       </Root>
       <ErrorList errors={rootErrorsList} />
 

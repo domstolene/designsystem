@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactElement } from 'react';
+import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
 import { BaseComponentProps } from '@norges-domstoler/dds-core';
 import { SvgIcon } from '@norges-domstoler/dds-icons';
 
@@ -17,8 +17,13 @@ export type ButtonProps = BaseComponentProps<
   {
     /**Størrelsen på knappen. */
     size?: ButtonSize;
-    /**Tekst i knappen. */
+    /**
+     * Innhold i knappen. Hvis `children` er definert så blir den prioritert.
+     * @deprecated Bruk `children` i stedet.
+     * */
     label?: string | ReactElement;
+    /**Innhold i knappen. Denne blir prioritert over `label`. */
+    children?: ReactNode;
     /**Bestemmer farger basert på formål. */
     purpose?: ButtonPurpose;
     /**	Posisjonen til ikonet i forhold til teksten.*/

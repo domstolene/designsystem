@@ -55,8 +55,9 @@ export const Overview = () => {
             setActiveStep(s => s + 1);
           }
         }}
-        label="Sett som ferdig"
-      />
+      >
+        Sett som ferdig
+      </Button>
     </StoryTemplate>
   );
 };
@@ -115,8 +116,9 @@ export const WithIcons = () => {
             setActiveStep(s => s + 1);
           }
         }}
-        label="Sett som ferdig"
-      />
+      >
+        Sett som ferdig
+      </Button>
     </StoryTemplate>
   );
 };
@@ -169,11 +171,10 @@ export const FutureStepsDisabled = () => {
         {activeStep === 2 && <div>Steg 3</div>}
       </div>
 
-      <Button
-        onClick={() => activeStep > 0 && setActiveStep(s => s - 1)}
-        label="Forrige steg"
-      />
-      <Button onClick={handleSetFinishedButtonClick} label="Neste steg" />
+      <Button onClick={() => activeStep > 0 && setActiveStep(s => s - 1)}>
+        Forrige steg
+      </Button>
+      <Button onClick={handleSetFinishedButtonClick}>Neste steg</Button>
     </StoryTemplate>
   );
 };
