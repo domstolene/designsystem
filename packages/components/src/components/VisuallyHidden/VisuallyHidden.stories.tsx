@@ -53,14 +53,18 @@ export const TableButtons = () => (
             <Table.Cell>Ane Bjerke</Table.Cell>
             <Table.Cell>Administrator</Table.Cell>
             <Table.Cell>
-              <Button label="Slett" size="small" purpose="danger" />
+              <Button size="small" purpose="danger">
+                Slett
+              </Button>
             </Table.Cell>
           </Table.Row>
           <Table.Row type="body">
             <Table.Cell>Sandra Lovsetter</Table.Cell>
             <Table.Cell>Bruker</Table.Cell>
             <Table.Cell>
-              <Button label="Slett" size="small" purpose="danger" />
+              <Button size="small" purpose="danger">
+                Slett
+              </Button>
             </Table.Cell>
           </Table.Row>
         </Table.Body>

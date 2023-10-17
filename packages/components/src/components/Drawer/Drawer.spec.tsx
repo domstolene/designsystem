@@ -15,7 +15,7 @@ const content = 'content';
 const TestComponent = () => {
   return (
     <DrawerGroup>
-      <Button label={buttonLabel} />
+      <Button>{buttonLabel}</Button>
       <Drawer>{content}</Drawer>
     </DrawerGroup>
   );
@@ -98,7 +98,7 @@ describe('<Drawer />', () => {
     const event = vi.fn();
     render(
       <DrawerGroup onClose={event}>
-        <Button label={buttonLabel} />
+        <Button>{buttonLabel}</Button>
         <Drawer>{content}</Drawer>
       </DrawerGroup>
     );
@@ -120,7 +120,7 @@ describe('<Drawer />', () => {
     const event = vi.fn();
     render(
       <DrawerGroup onClose={event}>
-        <Button label={buttonLabel} />
+        <Button>{buttonLabel}</Button>
         <Drawer>{content}</Drawer>
       </DrawerGroup>
     );
@@ -143,7 +143,7 @@ describe('<Drawer />', () => {
     const event = vi.fn();
     render(
       <DrawerGroup onOpen={event}>
-        <Button label={buttonLabel} />
+        <Button>{buttonLabel}</Button>
         <Drawer>{content}</Drawer>
       </DrawerGroup>
     );

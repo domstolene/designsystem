@@ -160,7 +160,6 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               <ListItem key={`pagination-item-${i}`}>
                 {item !== 'truncator' ? (
                   <Button
-                    label={item.toString()}
                     purpose={isActive ? 'primary' : 'secondary'}
                     appearance={isActive ? 'filled' : 'ghost'}
                     size="small"
@@ -172,7 +171,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                         ? `Nåværende side (side ${item})`
                         : `Gå til side ${item}`
                     }
-                  />
+                  >
+                    {item}
+                  </Button>
                 ) : (
                   <Icon
                     icon={MoreHorizontalIcon}
@@ -257,12 +258,13 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
           </ListItem>
           <ListItem>
             <Button
-              label={activePage.toString()}
               size="small"
               onClick={event => {
                 onPageChange(event, activePage);
               }}
-            />
+            >
+              {activePage}
+            </Button>
           </ListItem>
           <ListItem isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
             {nextPageButton}

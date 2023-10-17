@@ -263,12 +263,9 @@ export const WithButtonAndIcons = (args: CollapsibleTableProps) => {
     { content: 'Aksjoner', key: 'Aksjoner' },
   ];
   const deleteButton = (
-    <Button
-      label="Fjern tilgang"
-      appearance="borderless"
-      icon={TrashIcon}
-      iconPosition="left"
-    />
+    <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
+      Fjern tilgang
+    </Button>
   );
   return (
     <StoryTemplate title="Table - with buttons and icons" display="block">

@@ -56,12 +56,12 @@ const [open, setOpen] = useState(false);
 const show = () => setOpen(true);
 const close = () => setOpen(false);
 
-<Button label="Åpne" onClick={show} />
+<Button onClick={show}>Åpne</Button>
 
 <Modal header="Tittel" isOpen={open} onClose={close}>
   <ModalBody>Innhold</ModalBody>
   <ModalActions>
-    <Button label="OK" onClick={close} />
+    <Button onClick={close}>OK</Button>
   </ModalActions>
 </Modal>
 `} />
@@ -83,7 +83,9 @@ Når modalen lukkes skal fokus returneres til elementet som åpnet den. Hvis det
 
 const buttonRef = useRef(null);
 
-<Button label="Åpne" ref={buttonRef} onClick={show} />
+<Button ref={buttonRef} onClick={show}>
+  Åpne
+</Button>
 
 <Modal isOpen={open} onClose={close} triggerRef={buttonRef}>
   <ModalBody>Innhold</ModalBody>
@@ -102,10 +104,12 @@ Hvis du bruker handlingselementer i `<Modal />` kan det håndteres for eksempel 
 
 const buttonRef = useRef(null);
 
-<Button label="Åpne" ref={buttonRef} onClick={show} />
+<Button ref={buttonRef} onClick={show}>
+  Åpne
+</Button>
 
 <Modal isOpen={open}>
-  <Button label="OK" onClick={close} />
+  <Button onClick={close}>OK</Button>
 </Modal>
 `} />
 

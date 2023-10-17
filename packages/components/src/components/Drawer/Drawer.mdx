@@ -45,7 +45,7 @@ I tillegg kan det brukes `<DrawerGroup />`-subkomponenten som enkelt håndterer 
   import { Drawer, DrawerGroup, Button } from '@norges-domstoler/dds-components';
 
 <DrawerGroup>
-  <Button label="Åpne" />
+  <Button>Åpne</Button>
   <Drawer header="Tittel">Innhold</Drawer>
 </DrawerGroup>
 `} />
@@ -64,13 +64,14 @@ const buttonRef = useRef(null);
 const id = 'id';
 
 <Button
-  label="Åpne"
   onClick={show}
   ref={buttonRef}
   aria-expanded={!closed}
   aria-controls={id}
   aria-haspopup="dialog"
-/>
+>
+  Åpne
+</Button>
 <Drawer
   header="Tittel"
   id={id}

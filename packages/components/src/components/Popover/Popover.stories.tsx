@@ -31,7 +31,7 @@ export const ContentOverview = (args: PopoverProps) => {
     <StoryTemplate title="Popover - content overview" display="grid">
       <div>
         <PopoverGroup>
-          <Button label="Åpne" />
+          <Button>Åpne</Button>
           <Popover {...args} title="Tittel">
             <div
               style={{
@@ -43,33 +43,33 @@ export const ContentOverview = (args: PopoverProps) => {
               <Typography withMargins>
                 Dette er en popover med tittel, innhold og lukkeknapp
               </Typography>
-              <Button label="Klikk" />
+              <Button>Klikk</Button>
             </div>
           </Popover>
         </PopoverGroup>
       </div>
       <div>
         <PopoverGroup>
-          <Button label="Åpne" />
+          <Button>Åpne</Button>
           <Popover {...args} title="Tittel" withCloseButton={false}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Typography withMargins>
                 Dette er en popover med tittel og innhold
               </Typography>
-              <Button label="Klikk" />
+              <Button>Klikk</Button>
             </div>
           </Popover>
         </PopoverGroup>
       </div>
       <div>
         <PopoverGroup>
-          <Button label="Åpne" />
+          <Button>Åpne</Button>
           <Popover {...args}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <Typography withMargins>
                 Dette er en popover med innhold og lukkeknapp
               </Typography>
-              <Button label="Klikk" />
+              <Button>Klikk</Button>
             </div>
           </Popover>
         </PopoverGroup>
@@ -81,7 +81,7 @@ export const PlacementOverview = () => {
   const popover = (placement: Placement) => (
     <div>
       <PopoverGroup>
-        <Button label="Åpne" />
+        <Button>Åpne</Button>
         <Popover placement={placement}>{placement}</Popover>
       </PopoverGroup>
     </div>
@@ -117,13 +117,13 @@ export const Default = (args: PopoverProps) => {
   return (
     <StoryTemplate title="Popover - default" display="block">
       <PopoverGroup>
-        <Button label="Åpne" />
+        <Button>Åpne</Button>
         <Popover {...args}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Typography withMargins>
               Dette er en popover med tekst og knapp
             </Typography>
-            <Button label="Klikk" />
+            <Button>Klikk</Button>
           </div>
         </Popover>
       </PopoverGroup>
@@ -135,7 +135,7 @@ export const Overflow = (args: PopoverProps) => {
   return (
     <StoryTemplate title="Popover - overflow" display="block">
       <PopoverGroup>
-        <Button label="Åpne" />
+        <Button>Åpne</Button>
         <Popover
           {...args}
           sizeProps={{ maxWidth: '150px', maxHeight: '200px' }}
@@ -151,7 +151,7 @@ export const Overflow = (args: PopoverProps) => {
             >
               Dette er en popover med tekst og knapp
             </Typography>
-            <Button label="Klikk" />
+            <Button>Klikk</Button>
           </div>
         </Popover>
       </PopoverGroup>

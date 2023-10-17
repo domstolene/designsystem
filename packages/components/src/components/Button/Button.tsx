@@ -15,6 +15,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
       label,
+      children,
       purpose = 'primary',
       size = 'medium',
       iconPosition = 'left',
@@ -36,13 +37,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const as: ElementType = href ? 'a' : 'button';
 
-    const hasLabel = !!label;
+    const hasLabel = !!children || !!label;
     const hasIcon = !!icon;
 
     const wrapperProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
       href,
-      label,
       as,
       rel: href ? 'noreferrer noopener' : undefined,
       target: href && target ? target : undefined,
@@ -84,7 +84,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <>
             {iconPosition === 'left' && iconElement}
             <Label isHidden={loading} aria-hidden={loading}>
-              {label}
+              {children ?? label}
             </Label>
             {iconPosition === 'right' && iconElement}
           </>

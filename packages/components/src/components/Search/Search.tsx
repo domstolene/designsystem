@@ -257,10 +257,11 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
             {showSearchButton && (
               <Button
                 size={componentSize}
-                label={buttonLabel || 'Søk'}
                 onClick={onClick}
                 {...otherButtonProps}
-              />
+              >
+                {buttonLabel || 'Søk'}
+              </Button>
             )}
           </HorisontalContainer>
           {renderInputMessage(tip, tipId)}

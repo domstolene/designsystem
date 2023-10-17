@@ -12,17 +12,17 @@ export const OverviewPlacement = (args: DrawerProps) => {
   return (
     <StoryTemplate title="Drawer - placement overview">
       <DrawerGroup>
-        <Button label="Åpne høyre" />
+        <Button>Åpne høyre</Button>
         <Drawer {...args} header="Tittel">
           Innhold
-          <Button label="Gjør noe" />
+          <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
       <DrawerGroup>
-        <Button label="Åpne venstre" />
+        <Button>Åpne venstre</Button>
         <Drawer {...args} header="Tittel" placement="left">
           Innhold
-          <Button label="Gjør noe" />
+          <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
     </StoryTemplate>
@@ -33,7 +33,7 @@ export const OverviewSizes = (args: DrawerProps) => {
   return (
     <StoryTemplate title="Drawer - size overview">
       <DrawerGroup>
-        <Button label="Åpne liten" />
+        <Button>Åpne liten</Button>
         <Drawer {...args} header="Rettsmekling">
           <Typography>
             En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
@@ -51,11 +51,11 @@ export const OverviewSizes = (args: DrawerProps) => {
             på lik linje med en dom. Rettsmekling kan bare brukes i sivile
             saker, ikke i straffesaker.
           </Typography>
-          <Button label="Gjør noe" />
+          <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
       <DrawerGroup>
-        <Button label="Åpne medium" />
+        <Button>Åpne medium</Button>
         <Drawer {...args} header="Rettsmekling" size="medium">
           <Typography>
             En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
@@ -73,11 +73,11 @@ export const OverviewSizes = (args: DrawerProps) => {
             på lik linje med en dom. Rettsmekling kan bare brukes i sivile
             saker, ikke i straffesaker.
           </Typography>
-          <Button label="Gjør noe" />
+          <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
       <DrawerGroup>
-        <Button label="Åpne stor" />
+        <Button>Åpne stor</Button>
         <Drawer {...args} header="Rettsmekling" size="large">
           <Typography>
             En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
@@ -95,7 +95,7 @@ export const OverviewSizes = (args: DrawerProps) => {
             på lik linje med en dom. Rettsmekling kan bare brukes i sivile
             saker, ikke i straffesaker.
           </Typography>
-          <Button label="Gjør noe" />
+          <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
     </StoryTemplate>
@@ -106,10 +106,10 @@ export const Default = (args: DrawerProps) => {
   return (
     <StoryTemplate title="Drawer - default">
       <DrawerGroup>
-        <Button label="Åpne" />
+        <Button>Åpne</Button>
         <Drawer {...args} header="Tittel">
           Innhold
-          <Button label="Gjør noe" />
+          <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
     </StoryTemplate>
@@ -120,7 +120,7 @@ export const LongContent = (args: DrawerProps) => {
   return (
     <StoryTemplate title="Drawer - long content">
       <DrawerGroup>
-        <Button label="Åpne" />
+        <Button>Åpne</Button>
         <Drawer {...args} header="Rettsmekling">
           <Typography>
             En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
@@ -176,7 +176,7 @@ export const LongContent = (args: DrawerProps) => {
             unngår dermed den publisiteten som ordinær rettsbehandling kan
             medføre.
           </Typography>
-          <Button label="Gjør noe" />
+          <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
     </StoryTemplate>

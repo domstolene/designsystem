@@ -160,7 +160,7 @@ export const Centered = (args: TooltipProps) => (
 export const TextButton = (args: TooltipProps) => (
   <StoryTemplate title="Tooltip - text button" display="block">
     <Tooltip {...args} text="dette er en tooltip">
-      <Button label="Knapp" />
+      <Button>Knapp</Button>
     </Tooltip>
   </StoryTemplate>
 );

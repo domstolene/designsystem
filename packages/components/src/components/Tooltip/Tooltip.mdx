@@ -50,7 +50,7 @@ En tooltip består av:
   code={`import { Tooltip, Button } from '@norges-domstoler/dds-components';
 
 <Tooltip text="Tooltip">
-  <Button label="tekst" />
+  <Button>tekst</Button>
 </Tooltip>
 `} />
 
@@ -116,7 +116,7 @@ Det brukes ulike events til å lukke eller åpne tooltip. For å bruke callback 
   const onMouseOver = () => { ... } // noe logikk
 
 <Tooltip text="Tooltip" onMouseOver={onMouseOver}>
-  <Button label="tekst" onFocus={onFocus} />
+  <Button onFocus={onFocus}>tekst</Button>
 </Tooltip>
 `} />
 
