@@ -92,5 +92,5 @@
   "publishConfig": {
     "provenance": true
   },
-  "clean-package": "./clean-package.config.json"
+  "clean-package": "../../clean-package.config.json"
 }
