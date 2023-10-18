@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.1.3
+
+### Patch Changes
+
+- 029695f1: Fikse feil med designsystemet hvor det ikke fungerte i Next.js page router applikasjoner.
+
 ## 1.1.2
 
 ### Patch Changes
