@@ -37,11 +37,11 @@
     "elsa"
   ],
   "devDependencies": {
+    "@internationalized/date": "^3.2.0",
     "@norges-domstoler/dds-design-tokens": "*",
+    "@norges-domstoler/storybook-components": "*",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
-    "@internationalized/date": "^3.2.0",
-    "@norges-domstoler/storybook-components": "*",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.62.0",
     "clean-package": "2.2.0",
@@ -70,7 +70,9 @@
     "@norges-domstoler/dds-core": "*",
     "@norges-domstoler/dds-form": "*",
     "@norges-domstoler/dds-typography": "*",
+    "@react-aria/calendar": "^3.5.2",
     "@react-aria/datepicker": "^3.8.1",
+    "@react-stately/calendar": "^3.4.1",
     "@react-stately/datepicker": "^3.4.1"
   },
   "publishConfig": {
