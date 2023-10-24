@@ -8,7 +8,7 @@ const segment = {
   },
   focus: {
     textColor: colors.DdsColorNeutralsWhite,
-    backgroundColor: colors.DdsColorPrimaryLight,
+    backgroundColor: colors.DdsColorInteractiveBase,
   },
   placeholder: {
     textColor: colors.DdsColorNeutralsGray5,
