@@ -1,7 +1,0 @@
-import{j as u,a as t}from"./jsx-runtime-e43ccb36.js";import{S as i}from"./StoryTemplate-8c438c5f.js";import{I as a}from"./InputMessage-5d6127f2.js";const c={title:"dds-components/InputMessage",component:a,argTypes:{message:{control:{type:"text"}}}},e=()=>u(i,{title:"InputMessage - overview",children:[t(a,{messageType:"error",message:"feilmelding"}),t(a,{messageType:"tip",message:"hjelpetekst"})]}),s=r=>t(i,{title:"InputMessage - default",children:t(a,{...r,messageType:r.messageType||"error",message:r.message||"feilmelding"})});var o,p,m;e.parameters={...e.parameters,docs:{...(o=e.parameters)==null?void 0:o.docs,source:{originalSource:`() => <StoryTemplate title="InputMessage - overview">
-    <InputMessage messageType="error" message="feilmelding" />
-    <InputMessage messageType="tip" message="hjelpetekst" />
-  </StoryTemplate>`,...(m=(p=e.parameters)==null?void 0:p.docs)==null?void 0:m.source}}};var g,n,l;s.parameters={...s.parameters,docs:{...(g=s.parameters)==null?void 0:g.docs,source:{originalSource:`(args: InputMessageProps) => <StoryTemplate title="InputMessage - default">
-    <InputMessage {...args} messageType={args.messageType || 'error'} message={args.message || 'feilmelding'} />
-  </StoryTemplate>`,...(l=(n=s.parameters)==null?void 0:n.docs)==null?void 0:l.source}}};const d=["Overview","Default"],I=Object.freeze(Object.defineProperty({__proto__:null,Default:s,Overview:e,__namedExportsOrder:d,default:c},Symbol.toStringTag,{value:"Module"}));export{I};
-//# sourceMappingURL=InputMessage.stories-e8d37af7.js.map
