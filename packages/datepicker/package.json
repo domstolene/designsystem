@@ -17,9 +17,12 @@
     "build": "tsup --dts",
     "build:fast": "tsup",
     "dev": "npm run build:fast -- --watch",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
     "lint": "eslint --ext=jsx,ts,tsx src",
     "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
+    "verify:test": "npm test",
     "verify:types": "tsc --noEmit",
     "verify:lint": "npm run lint",
     "verify:prettier": "npm run prettier:check",
@@ -37,11 +40,11 @@
     "elsa"
   ],
   "devDependencies": {
+    "@internationalized/date": "^3.2.0",
     "@norges-domstoler/dds-design-tokens": "*",
+    "@norges-domstoler/storybook-components": "*",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
-    "@internationalized/date": "^3.2.0",
-    "@norges-domstoler/storybook-components": "*",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.62.0",
     "clean-package": "2.2.0",
@@ -70,7 +73,9 @@
     "@norges-domstoler/dds-core": "*",
     "@norges-domstoler/dds-form": "*",
     "@norges-domstoler/dds-typography": "*",
+    "@react-aria/calendar": "^3.5.2",
     "@react-aria/datepicker": "^3.8.1",
+    "@react-stately/calendar": "^3.4.1",
     "@react-stately/datepicker": "^3.4.1"
   },
   "publishConfig": {
