@@ -76,11 +76,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const [open, setOpen] = useState(false);
     const [inView, setInView] = useState(false);
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-    const { reference, floating, styles } = useFloatPosition(arrowElement, {
+    const { refs, styles } = useFloatPosition(arrowElement, {
       placement,
     });
     const tooltipRef = useRef<HTMLDivElement>(null);
-    const combinedRef = useCombinedRef(ref, floating, tooltipRef);
+    const combinedRef = useCombinedRef(ref, refs.setFloating, tooltipRef);
 
     const closeWhenNotInView: IntersectionObserverCallback = entries => {
       const [entry] = entries;
@@ -143,7 +143,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     const anchorElement = ReactChildren.only(
       isValidElement(children) &&
         cloneElement(children, {
-          ref: reference,
+          ref: refs.setReference,
           onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
           onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
           'aria-describedby': uniqueTooltipId,
