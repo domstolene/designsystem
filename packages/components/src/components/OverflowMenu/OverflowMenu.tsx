@@ -74,15 +74,17 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       ...rest
     } = props;
 
-    const { reference, floating, refs, styles } = useFloatPosition(null, {
+    const { refs, styles } = useFloatPosition(null, {
       placement,
       offset,
     });
 
-    const combinedRef = useCombinedRef(ref, floating);
+    const combinedRef = useCombinedRef(ref, refs.setFloating);
 
     useEffect(() => {
-      anchorRef ? reference(anchorRef.current) : reference(null);
+      anchorRef
+        ? refs.setReference(anchorRef.current)
+        : refs.setReference(null);
     }, [anchorRef]);
 
     useOnClickOutside(

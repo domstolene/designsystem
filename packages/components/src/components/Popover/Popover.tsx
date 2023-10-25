@@ -137,14 +137,16 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement && anchorElement
     );
 
-    const { reference, floating, styles } = useFloatPosition(null, {
+    const { refs, styles } = useFloatPosition(null, {
       placement,
       offset,
     });
-    const multiRef = useCombinedRef(ref, popoverRef, floating);
+    const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
 
     useEffect(() => {
-      anchorElement ? reference(anchorElement) : reference(null);
+      anchorElement
+        ? refs.setReference(anchorElement)
+        : refs.setReference(null);
     }, [anchorElement]);
 
     const elements: (HTMLElement | null)[] = [

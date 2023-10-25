@@ -69,8 +69,6 @@ export const useFloatPosition = (
   const {
     x,
     y,
-    reference,
-    floating,
     strategy,
     middlewareData,
     placement: actualPlacement,
@@ -83,8 +81,6 @@ export const useFloatPosition = (
   });
 
   return {
-    reference,
-    floating,
     refs,
     styles: {
       floating: {
