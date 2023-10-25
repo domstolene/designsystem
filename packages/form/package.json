@@ -50,7 +50,7 @@
     "eslint-plugin-react": "^7.33.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.3.6",
+    "styled-components": "^6.0.8",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
@@ -60,7 +60,7 @@
     "@norges-domstoler/dds-design-tokens": "^3",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
-    "styled-components": "^5"
+    "styled-components": "^5 || ^6"
   },
   "dependencies": {
     "@norges-domstoler/dds-core": "*",

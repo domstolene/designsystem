@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { inlineEditTokens } from './InlineEdit.tokens';
 import { Property } from 'csstype';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { StatefulInput } from '@norges-domstoler/dds-form';
+import { StatefulInput, StyledInputProps } from '@norges-domstoler/dds-form';
 
 const { inlineEdit, iconWrapper } = inlineEditTokens;
 
@@ -11,7 +11,7 @@ export const defaultWidth: Property.Width = '140px';
 type StyledInlineInputProps = {
   isEditing?: boolean;
   hideIcon?: boolean;
-};
+} & StyledInputProps;
 
 export const StyledInlineInput = styled(StatefulInput)<StyledInlineInputProps>`
   border-color: transparent;
@@ -35,7 +35,9 @@ export const StyledInlineInput = styled(StatefulInput)<StyledInlineInputProps>`
   }
 `;
 
-export const StyledInlineTextArea = styled(StyledInlineInput)`
+export const StyledInlineTextArea = styled(StyledInlineInput).attrs({
+  as: 'textarea',
+})<StyledInlineInputProps>`
   resize: vertical;
   ${scrollbarStyling.webkit}
   ${scrollbarStyling.firefox}

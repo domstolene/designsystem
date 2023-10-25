@@ -46,6 +46,7 @@ export function DateField<T extends DateValue>({
       {hasLabel && <Label {...labelProps}>{props.label}</Label>}
       <DateSegmentContainer
         {...fieldProps}
+        // @ts-expect-error styled-components 6 har dårlige typer
         componentSize={componentSize}
         ref={ref}
         hasErrorMessage={hasErrorMessage}

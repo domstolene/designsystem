@@ -61,7 +61,6 @@ export const InlineTextArea = forwardRef<
         )}
         <StyledInlineTextArea
           {...rest}
-          as="textarea"
           id={uniqueId}
           ref={combinedRef}
           hasErrorMessage={!!error || hasErrorMessage}

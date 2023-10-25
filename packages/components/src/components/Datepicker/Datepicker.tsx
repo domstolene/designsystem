@@ -18,7 +18,7 @@ import {
 import { datepickerTokens as tokens } from './Datepicker.tokens';
 import { renderInputMessage } from '../../utils/renderInputMessage';
 
-const StyledInput = styled(StatefulInput)`
+const StyledInput = styled(StatefulInput)<Pick<InputProps, 'componentSize'>>`
   &::-webkit-calendar-picker-indicator {
     background-image: ${`url('${CalendarIcon}')`};
     position: absolute;
