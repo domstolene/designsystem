@@ -53,7 +53,7 @@
     "@testing-library/user-event": "^14.5.1",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
-    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^5.62.0",
     "clean-package": "2.2.0",
     "concurrently": "^8.2.2",
