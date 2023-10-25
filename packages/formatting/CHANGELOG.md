@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.4.0
+
+### Minor Changes
+
+- eaff8a3e: Tillat versjon 6 av styled-components i peer dependencies.
+
 ## 1.3.6
 
 ### Patch Changes
