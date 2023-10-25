@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.2.0
+
+### Minor Changes
+
+- eaff8a3e: Tillat versjon 6 av styled-components i peer dependencies.
+
 ## 1.1.3
 
 ### Patch Changes

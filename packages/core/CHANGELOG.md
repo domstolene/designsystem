@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-core
 
+## 0.1.0
+
+### Minor Changes
+
+- eaff8a3e: Tillat versjon 6 av styled-components i peer dependencies.
+
+### Patch Changes
+
+- 958d5a99: Oppdatere @floating-ui/react-dom til versjon 2
+
 ## 0.0.8
 
 ### Patch Changes

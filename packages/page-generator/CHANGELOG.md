@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.7.0
+
+### Minor Changes
+
+- eaff8a3e: Tillat versjon 6 av styled-components i peer dependencies.
+
+### Patch Changes
+
+- Updated dependencies [958d5a99]
+- Updated dependencies [eaff8a3e]
+  - @norges-domstoler/dds-components@13.10.0
+  - @norges-domstoler/dds-typography@0.1.0
+
 ## 2.6.1
 
 ### Patch Changes
