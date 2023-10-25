@@ -1,5 +1,4 @@
 ---
-"@norges-domstoler/storybook-components": minor
 "@norges-domstoler/development-utils": minor
 "@norges-domstoler/dds-page-generator": minor
 "@norges-domstoler/dds-components": minor
