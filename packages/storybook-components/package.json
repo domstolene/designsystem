@@ -29,7 +29,7 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
-    "@types/react": "^18.2.31",
+    "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^5.62.0",
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-design-tokens": "*",
-    "@storybook/addon-docs": "^7.5.1",
+    "@storybook/addon-docs": "^7.5.2",
     "focus-visible": "^5.2.0",
     "styled-components": "^6.0.8"
   },
