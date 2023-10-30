@@ -18,21 +18,21 @@ export const typographyTypes: {
 
 const iconSizeTinyPx = calculateHeightWithLineHeight(
   fontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
-  fontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
+  fontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber,
 );
 
 const iconSizeSmallPx = calculateHeightWithLineHeight(
   fontPackages.body_sans_01.numbers.lineHeightNumber,
-  fontPackages.body_sans_01.numbers.fontSizeNumber
+  fontPackages.body_sans_01.numbers.fontSizeNumber,
 );
 
 const iconSizeMediumPx = calculateHeightWithLineHeight(
   fontPackages.body_sans_02.numbers.lineHeightNumber,
-  fontPackages.body_sans_02.numbers.fontSizeNumber
+  fontPackages.body_sans_02.numbers.fontSizeNumber,
 );
 const iconSizeLargePx = calculateHeightWithLineHeight(
   fontPackages.body_sans_04.numbers.lineHeightNumber,
-  fontPackages.body_sans_04.numbers.fontSizeNumber
+  fontPackages.body_sans_04.numbers.fontSizeNumber,
 );
 
 const svgOffset = spacing.SizesDdsSpacingLocalX0125NumberPx;

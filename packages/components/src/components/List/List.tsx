@@ -117,7 +117,7 @@ export const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
     };
 
     return <StyledList {...listProps}>{children}</StyledList>;
-  }
+  },
 );
 
 List.displayName = 'List';

@@ -20,7 +20,7 @@ describe('<PageGenerator />', () => {
       },
     ];
     render(
-      <PageGenerator as="form" fields={fields} stateOnChange={() => {}} />
+      <PageGenerator as="form" fields={fields} stateOnChange={() => {}} />,
     );
     const textInput = screen.getByLabelText(lastnameField);
     expect(textInput).toBeDefined();
@@ -50,7 +50,7 @@ describe('<PageGenerator />', () => {
       },
     ];
     render(
-      <PageGenerator as="div" fields={fields} stateOnChange={handleChanges} />
+      <PageGenerator as="div" fields={fields} stateOnChange={handleChanges} />,
     );
 
     const textInput = screen.getByLabelText(lastnameField);

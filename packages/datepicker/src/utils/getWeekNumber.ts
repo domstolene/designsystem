@@ -12,7 +12,7 @@ import {
  * @returns week number, 1 indexed
  */
 export function getWeekNumber(
-  date: CalendarDate | ZonedDateTime | CalendarDateTime
+  date: CalendarDate | ZonedDateTime | CalendarDateTime,
 ) {
   const dayOfWeek = getDayOfWeek(date);
   const dayOfYear = getDayOfYear(date);
@@ -55,7 +55,7 @@ export function getWeekNumber(
  * @returns day of week, 1 indexed
  */
 export function getDayOfWeek(
-  date: CalendarDate | ZonedDateTime | CalendarDateTime
+  date: CalendarDate | ZonedDateTime | CalendarDateTime,
 ) {
   const weekStart = startOfWeek(date, 'no-NO');
   return (
@@ -69,7 +69,7 @@ export function getDayOfWeek(
  * @returns day of year, 1 indexed
  */
 export function getDayOfYear(
-  date: CalendarDate | ZonedDateTime | CalendarDateTime
+  date: CalendarDate | ZonedDateTime | CalendarDateTime,
 ) {
   const yearStart = startOfYear(date);
   return (
@@ -80,7 +80,7 @@ export function getDayOfYear(
 }
 
 export function isLeapYear(
-  date: CalendarDate | ZonedDateTime | CalendarDateTime
+  date: CalendarDate | ZonedDateTime | CalendarDateTime,
 ) {
   return (
     (date.year % 4 === 0 && date.year % 100 !== 0) || date.year % 400 === 0

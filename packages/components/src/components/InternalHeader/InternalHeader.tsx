@@ -36,7 +36,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 
   const [contextMenuIsClosed, setContextMenuIsClosed] = useState(true);
   const [currentPage, setCurrentPage] = useState<string | undefined>(
-    currentPageHref
+    currentPageHref,
   );
 
   const buttonRef = useRef<HTMLButtonElement>(null);

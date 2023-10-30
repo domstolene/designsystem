@@ -12,7 +12,7 @@ const isValidDate = (date: Date) => {
 
 export const formatTime = <T extends string | Date | number>(
   date: T,
-  options: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' }
+  options: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' },
 ): string | T => {
   const myDate = new Date(date);
   if (isValidDate(myDate)) {
@@ -22,7 +22,7 @@ export const formatTime = <T extends string | Date | number>(
 };
 
 export const formatDate = <T extends string | Date | number>(
-  date: T
+  date: T,
 ): string | T => {
   const myDate = new Date(date);
   if (isValidDate(myDate)) {
@@ -37,7 +37,7 @@ export const formatDate = <T extends string | Date | number>(
 
 export const formatDateTime = <T extends string | Date | number>(
   date: T,
-  options: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' }
+  options: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' },
 ): string | T => {
   const myDate = new Date(date);
   if (isValidDate(myDate)) {

@@ -8,7 +8,7 @@ type ProgressTrackerContextType = {
 export const ProgressTrackerContext = createContext<ProgressTrackerContextType>(
   {
     activeStep: 0,
-  }
+  },
 );
 
 export const useProgressTrackerContext = () =>

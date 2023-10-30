@@ -25,7 +25,7 @@ describe('<TeaxtArea />', () => {
     render(<TextArea id={id} tip={tip} />);
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      `${id}-tip`
+      `${id}-tip`,
     );
   });
   it('should have aria-describedby and aria-invalid when errorMessage provided', () => {
@@ -34,7 +34,7 @@ describe('<TeaxtArea />', () => {
     render(<TextArea id={id} errorMessage={errorMessage} />);
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      `${id}-errorMessage`
+      `${id}-errorMessage`,
     );
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
   });

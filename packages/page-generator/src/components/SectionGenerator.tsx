@@ -52,7 +52,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
   }, [state]);
 
   const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(
-    event: ChangeEvent<T>
+    event: ChangeEvent<T>,
   ) => {
     const { id, name, value } = event.target;
     const checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
@@ -67,7 +67,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
-    name: string
+    name: string,
   ) => {
     let value = null;
     if (isMultiValue(chosen)) {
@@ -116,7 +116,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           } else {
@@ -127,7 +127,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           }
@@ -140,7 +140,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
                   index,
                   fieldOnChange,
                   selectOnChange,
-                  screenSize
+                  screenSize,
                 )}
               </React.Fragment>
             )

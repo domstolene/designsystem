@@ -34,7 +34,7 @@ import { getFocusableElements } from '../utils';
 export function useReturnFocusOnBlur<T extends HTMLElement>(
   active: boolean,
   onBlur: () => void,
-  triggerElement?: HTMLElement | null
+  triggerElement?: HTMLElement | null,
 ): RefObject<T> {
   const elementRef = useRef<T>(null);
 

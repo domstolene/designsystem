@@ -110,12 +110,12 @@ export type OverflowMenuItemProps =
   | OtherOverflowMenuItemProps;
 
 const isAnchorProps = (
-  props: OverflowMenuItemProps
+  props: OverflowMenuItemProps,
 ): props is AnchorOverflowMenuItemProps =>
   (props as AnchorOverflowMenuItemProps).href !== undefined;
 
 const isButtonProps = (
-  props: OverflowMenuItemProps
+  props: OverflowMenuItemProps,
 ): props is ButtonOverflowMenuItemProps =>
   (props as AnchorOverflowMenuItemProps).href === undefined &&
   (props as ButtonOverflowMenuItemProps).onClick !== undefined;
@@ -162,14 +162,14 @@ export const OverflowMenuItem = forwardRef<
   }, [index, setFocus]);
 
   const handleOnClick = (
-    e: MouseEvent<HTMLAnchorElement> & MouseEvent<HTMLButtonElement>
+    e: MouseEvent<HTMLAnchorElement> & MouseEvent<HTMLButtonElement>,
   ) => {
     handleSelect();
     onClick && onClick(e);
   };
 
   const handleOnKeyDown = (
-    e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>
+    e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>,
   ) => {
     handleSelect();
     onKeyDown && onKeyDown(e);

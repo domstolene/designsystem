@@ -37,7 +37,7 @@ export type ToggleRadioProps = BaseComponentProps<
 const calculateChecked = (
   value: unknown,
   group: ToggleBarContextType,
-  checked?: boolean
+  checked?: boolean,
 ): boolean => {
   if (typeof checked !== 'undefined') return checked;
 
@@ -92,7 +92,7 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
         </Content>
       </Label>
     );
-  }
+  },
 );
 
 ToggleRadio.displayName = 'ToggleRadio';

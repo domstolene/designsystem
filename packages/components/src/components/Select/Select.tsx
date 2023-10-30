@@ -62,7 +62,7 @@ export const createSelectOptions = <TValue extends string | number>(
 
 const DDSOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>,
-  componentSize: InputSize
+  componentSize: InputSize,
 ) => (
   <Option {...props}>
     {props.isSelected && (
@@ -74,7 +74,7 @@ const DDSOption = <TValue, IsMulti extends boolean>(
 
 const CustomOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>,
-  Element: (props: OptionProps<TValue, IsMulti>) => JSX.Element
+  Element: (props: OptionProps<TValue, IsMulti>) => JSX.Element,
 ) => (
   <Option {...props}>
     <Element {...props} />
@@ -85,8 +85,8 @@ const CustomSingleValue = <TOption, IsMulti extends boolean>(
   props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
   id?: string,
   Element?: (
-    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>
-  ) => JSX.Element
+    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
+  ) => JSX.Element,
 ) => (
   <SingleValue {...props}>
     <InnerSingleValue id={id}>
@@ -96,12 +96,12 @@ const CustomSingleValue = <TOption, IsMulti extends boolean>(
 );
 
 const DDSNoOptionsMessage = <TValue, IsMulti extends boolean>(
-  props: NoticeProps<TValue, IsMulti>
+  props: NoticeProps<TValue, IsMulti>,
 ) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
 
 const DDSClearIndicator = <TValue, IsMulti extends boolean>(
   props: ClearIndicatorProps<TValue, IsMulti>,
-  size: InputSize
+  size: InputSize,
 ) => (
   <ClearIndicator {...props}>
     <Icon icon={CloseSmallIcon} iconSize={getFormInputIconSize(size)} />
@@ -109,7 +109,7 @@ const DDSClearIndicator = <TValue, IsMulti extends boolean>(
 );
 
 const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
-  props: MultiValueRemoveProps<TValue, IsMulti>
+  props: MultiValueRemoveProps<TValue, IsMulti>,
 ) => (
   <MultiValueRemove {...props}>
     <Icon icon={CloseSmallIcon} iconSize="small" />
@@ -118,7 +118,7 @@ const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
 
 const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
   props: DropdownIndicatorProps<TValue, IsMulti>,
-  size: InputSize
+  size: InputSize,
 ) => (
   <DropdownIndicator {...props}>
     <Icon icon={ChevronDownIcon} iconSize={getFormInputIconSize(size)} />
@@ -128,7 +128,7 @@ const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
 const DDSInput = <TOption, IsMulti extends boolean>(
   props: InputProps<TOption, IsMulti>,
   ariaInvalid: boolean,
-  ariaDescribedby?: string
+  ariaDescribedby?: string,
 ) => (
   <Input
     {...props}
@@ -140,7 +140,7 @@ const DDSInput = <TOption, IsMulti extends boolean>(
 const DDSControl = <TValue, IsMulti extends boolean>(
   props: ControlProps<TValue, IsMulti>,
   componentSize: InputSize,
-  icon?: SvgIcon
+  icon?: SvgIcon,
 ) => (
   <Control {...props}>
     {icon && (
@@ -154,7 +154,7 @@ const defaultWidth: Property.Width<string> = '320px';
 
 const getPlaceholder = (
   placeholder?: ReactNode,
-  isMulti?: boolean
+  isMulti?: boolean,
 ): ReactNode =>
   placeholder
     ? placeholder
@@ -165,7 +165,7 @@ const getPlaceholder = (
 type WrappedReactSelectProps<
   TOption extends Record<string, unknown>,
   IsMulti extends boolean,
-  Group extends GroupBase<TOption>
+  Group extends GroupBase<TOption>,
 > = WithRequiredIf<
   TOption extends SelectOption ? false : true,
   ReactSelectProps<TOption, IsMulti, Group>,
@@ -174,7 +174,7 @@ type WrappedReactSelectProps<
 
 export type SelectProps<
   TOption extends Record<string, unknown>,
-  IsMulti extends boolean
+  IsMulti extends boolean,
 > = {
   /**Ledetekst for nedtrekkslisten. */
   label?: string;
@@ -195,10 +195,10 @@ export type SelectProps<
   /** Inline styling. */
   style?: React.CSSProperties;
   customOptionElement?: (
-    props: OptionProps<TOption, IsMulti, GroupBase<TOption>>
+    props: OptionProps<TOption, IsMulti, GroupBase<TOption>>,
   ) => JSX.Element;
   customSingleValueElement?: (
-    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>
+    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
   ) => JSX.Element;
 } & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
   WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
@@ -209,10 +209,10 @@ type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
 
 const SelectInner = <
   TOption extends Record<string, unknown>,
-  IsMulti extends boolean = false
+  IsMulti extends boolean = false,
 >(
   props: SelectProps<TOption, IsMulti>,
-  ref: ForwardRefType<TOption, IsMulti>
+  ref: ForwardRefType<TOption, IsMulti>,
 ) => {
   const {
     id,
@@ -300,7 +300,7 @@ const SelectInner = <
             singleValueId,
             tip ? tipId : undefined,
             errorMessage ? errorMessageId : undefined,
-          ])
+          ]),
         ),
       SingleValue: props =>
         CustomSingleValue(props, singleValueId, customSingleValueElement),

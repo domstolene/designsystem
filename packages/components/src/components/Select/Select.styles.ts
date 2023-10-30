@@ -35,7 +35,7 @@ export const prefix = 'dds-select';
 
 function getContainerControlPadding(
   componentSize: InputSize,
-  isMulti: boolean | undefined
+  isMulti: boolean | undefined,
 ) {
   return isMulti
     ? control.isMulti.sizes[componentSize].padding
@@ -137,7 +137,7 @@ export const StyledIcon = styled(Icon)`
 `;
 
 export const getCustomStyles = <TOption>(
-  size: InputSize
+  size: InputSize,
 ): Partial<StylesConfig<TOption, boolean, GroupBase<TOption>>> => ({
   control: () => ({
     position: 'relative',

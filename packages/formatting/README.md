@@ -19,7 +19,7 @@ import { formatFoedselsnummer } from '@norges-domstoler/dds-formatting';
 
 const mittUformaterteFoedselsnummer = '12345678901';
 const riktigFormatertFoedselsnummer = formatFoedselsnummer(
-  mittUformaterteFoedselsnummer
+  mittUformaterteFoedselsnummer,
 );
 ```
 

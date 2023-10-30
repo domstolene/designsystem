@@ -77,7 +77,7 @@ const getTableCellType = (type: TableCellType) => {
 export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
   (
     { children, type = 'data', layout = 'left', collapsibleProps, ...rest },
-    ref
+    ref,
   ) => {
     const as: ElementType = getTableCellType(type);
 
@@ -100,7 +100,7 @@ export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
         <InnerCell {...innerCellProps}>{children}</InnerCell>
       </StyledCell>
     );
-  }
+  },
 );
 
 Cell.displayName = 'Table.Cell';

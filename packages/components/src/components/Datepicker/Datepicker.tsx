@@ -95,7 +95,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
       'aria-describedby': ariaDescribedby,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-datepickerInput`;
@@ -146,7 +146,7 @@ export const Datepicker = forwardRef<HTMLInputElement, DatepickerProps>(
         {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
       </OuterInputContainer>
     );
-  }
+  },
 );
 Datepicker.displayName = 'Datepicker';
 
@@ -167,12 +167,12 @@ const defaultWidths: {
 
 const getWidth = (
   type: DatepickerType,
-  size: InputSize
+  size: InputSize,
 ): Property.Width<string> => defaultWidths[type][size];
 
 const getMax = (
   type: DatepickerType,
-  max?: string | number
+  max?: string | number,
 ): string | number | undefined => {
   if (max !== undefined) {
     return max;

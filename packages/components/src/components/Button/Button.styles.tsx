@@ -19,7 +19,7 @@ const {
 
 const getAppearanceAndPurposeStyling = (
   appearance: ButtonAppearance,
-  purpose: ButtonPurpose
+  purpose: ButtonPurpose,
 ) => {
   switch (appearance) {
     case 'filled':
@@ -104,18 +104,21 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   text-decoration: none;
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 0.2s, text-decoration-color 0.2s,
-      box-shadow 0.2s, border-color 0.2s, color 0.2s,
+    transition:
+      background-color 0.2s,
+      text-decoration-color 0.2s,
+      box-shadow 0.2s,
+      border-color 0.2s,
+      color 0.2s,
       ${focusVisibleTransitionValue};
   }
 
-  ${({ appearance, purpose }) =>
-    css`
-      border-radius: ${appearances[appearance].base.borderRadius};
-      box-shadow: ${appearances[appearance].base.boxShadow};
-      color: ${appearances[appearance].purpose[purpose].base.color};
-      ${getAppearanceAndPurposeStyling(appearance, purpose)}
-    `}
+  ${({ appearance, purpose }) => css`
+    border-radius: ${appearances[appearance].base.borderRadius};
+    box-shadow: ${appearances[appearance].base.boxShadow};
+    color: ${appearances[appearance].purpose[purpose].base.color};
+    ${getAppearanceAndPurposeStyling(appearance, purpose)}
+  `}
 
   ${({ hasIcon, hasLabel, appearance, purpose }) =>
     hasIcon &&

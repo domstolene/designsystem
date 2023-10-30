@@ -88,12 +88,12 @@ export const SearchSuggestions = forwardRef<
 
   const suggestionsHeaderId = derivativeIdGenerator(
     searchId,
-    'suggestions-header'
+    'suggestions-header',
   );
 
   const [focus, setFocus] = useRoveFocus(
     suggestions && suggestions.length,
-    !showSuggestions
+    !showSuggestions,
   );
 
   const suggestionsToRender = maxSuggestions

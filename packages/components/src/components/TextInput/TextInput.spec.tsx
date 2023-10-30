@@ -23,7 +23,7 @@ describe('<TextInput />', () => {
     render(<TextInput id={id} tip={tip} />);
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      `${id}-tip`
+      `${id}-tip`,
     );
   });
   it('should have aria-describedby when errorMessage provided', () => {
@@ -32,7 +32,7 @@ describe('<TextInput />', () => {
     render(<TextInput id={id} errorMessage={errorMessage} />);
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      `${id}-errorMessage`
+      `${id}-errorMessage`,
     );
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
   });
@@ -42,7 +42,7 @@ describe('<TextInput />', () => {
     render(<TextInput id={id} maxLength={length} />);
     expect(screen.getByRole('textbox')).toHaveAttribute(
       'aria-describedby',
-      `${id}-characterCounter`
+      `${id}-characterCounter`,
     );
     expect(screen.queryByText(`0/${length}`)).toBeInTheDocument();
   });
@@ -50,11 +50,11 @@ describe('<TextInput />', () => {
     const id = 'id';
     const length = 5;
     render(
-      <TextInput id={id} maxLength={length} withCharacterCounter={false} />
+      <TextInput id={id} maxLength={length} withCharacterCounter={false} />,
     );
     expect(screen.getByRole('textbox')).not.toHaveAttribute(
       'aria-describedby',
-      `${id}-characterCounter`
+      `${id}-characterCounter`,
     );
     expect(screen.queryByText(`0/${length}`)).not.toBeInTheDocument();
   });

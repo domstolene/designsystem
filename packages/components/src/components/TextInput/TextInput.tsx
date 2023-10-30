@@ -33,7 +33,7 @@ const defaultTinyWidth: Property.Width<string> = '210px';
 
 const getWidth = (
   size: InputSize,
-  width?: Property.Width<string>
+  width?: Property.Width<string>,
 ): Property.Width<string> => {
   if (width) return width;
   if (size === 'tiny') {
@@ -110,10 +110,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       suffix,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const [text, setText] = useState<string>(
-      getDefaultText(value, defaultValue)
+      getDefaultText(value, defaultValue),
     );
     const prefixRef = useRef<HTMLSpanElement>(null);
     const suffixRef = useRef<HTMLSpanElement>(null);
@@ -130,7 +130,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     }, [prefix, suffix, readOnly]);
 
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
-      event: React.ChangeEvent<HTMLInputElement>
+      event: React.ChangeEvent<HTMLInputElement>,
     ) => {
       setText(event.target.value);
 
@@ -151,7 +151,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
-      'characterCounter'
+      'characterCounter',
     );
     const tipId = derivativeIdGenerator(uniqueId, 'tip');
     const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
@@ -269,7 +269,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         )}
       </OuterInputContainer>
     );
-  }
+  },
 );
 
 TextInput.displayName = 'TextInput';

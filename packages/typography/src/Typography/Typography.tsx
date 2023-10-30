@@ -126,7 +126,7 @@ export type TypographyProps =
     } & OtherTypographyProps);
 
 const isAnchorProps = (
-  props: TypographyProps
+  props: TypographyProps,
 ): props is AnchorTypographyProps => props.typographyType === 'a';
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
@@ -171,7 +171,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
         {children}
       </StyledTypography>
     );
-  }
+  },
 );
 
 Typography.displayName = 'Typography';

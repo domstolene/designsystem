@@ -11,15 +11,15 @@ export const getButtonRow = (
   fieldOnChange: (
     event: ChangeEvent<
       (HTMLInputElement | HTMLTextAreaElement) & Record<string, never>
-    >
+    >,
   ) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
-    name: string
+    name: string,
   ) => void,
-  screenSize: ScreenSize
+  screenSize: ScreenSize,
 ) => {
   return (
     <ButtonRow columnsOccupied="all" key={index}>
@@ -32,7 +32,7 @@ export const getButtonRow = (
               groupedIndex,
               fieldOnChange,
               selectOnChange,
-              screenSize
+              screenSize,
             )
           );
         })}

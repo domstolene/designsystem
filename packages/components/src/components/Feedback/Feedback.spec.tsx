@@ -19,7 +19,7 @@ describe('<Feedback />', () => {
   it('should trigger onRating when thumb up button is clicked', () => {
     const onRating = vi.fn();
     render(
-      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />
+      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />,
     );
     const button = screen.getByLabelText('Bra');
 
@@ -33,7 +33,7 @@ describe('<Feedback />', () => {
   it('should trigger onRating when thumb down button is clicked', () => {
     const onRating = vi.fn();
     render(
-      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />
+      <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />,
     );
     const button = screen.getByLabelText('Dårlig');
 
@@ -49,7 +49,7 @@ describe('<Feedback />', () => {
       <Feedback
         ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
-      />
+      />,
     );
 
     assertInDocument([
@@ -67,7 +67,7 @@ describe('<Feedback />', () => {
       <Feedback
         ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'negative'}
-      />
+      />,
     );
 
     assertInDocument([
@@ -86,7 +86,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
         feedbackTextAreaExcluded
-      />
+      />,
     );
 
     assertInDocument([
@@ -126,7 +126,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'negative'}
         feedbackTextAreaExcluded
-      />
+      />,
     );
 
     assertInDocument([
@@ -149,7 +149,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
         feedbackTextValue={'Veldig bra tilbakemelding'}
-      />
+      />,
     );
 
     assertInDocument([
@@ -170,7 +170,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         ratingValue={'positive'}
         onSubmit={onSubmit}
-      />
+      />,
     );
     const button = screen.getByRole('button');
 
@@ -188,7 +188,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         onSubmit={onSubmit}
         feedbackTextAreaExcluded
-      />
+      />,
     );
     const button = screen.getByLabelText('Dårlig');
 
@@ -205,7 +205,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         thumbUpTooltip="Veldig bra"
         thumbDownTooltip="Veldig dårlig"
-      />
+      />,
     );
 
     assertInDocument([
@@ -246,7 +246,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         positiveFeedbackLabel="Hva var bra?"
         ratingValue="positive"
-      />
+      />,
     );
 
     assertInDocument([
@@ -265,7 +265,7 @@ describe('<Feedback />', () => {
         ratingLabel="Hva syns du om tjenesten?"
         negativeFeedbackLabel="Hva var dårlig?"
         ratingValue="negative"
-      />
+      />,
     );
 
     assertInDocument([
@@ -281,12 +281,12 @@ describe('<Feedback />', () => {
 
 const assertInDocument = (textsToCheck: string[]) => {
   textsToCheck.forEach(text =>
-    expect(screen.queryByText(text)).toBeInTheDocument()
+    expect(screen.queryByText(text)).toBeInTheDocument(),
   );
 };
 
 const assertNotInDocument = (textsToCheck: string[]) => {
   textsToCheck.forEach(text =>
-    expect(screen.queryByText(text)).not.toBeInTheDocument()
+    expect(screen.queryByText(text)).not.toBeInTheDocument(),
   );
 };

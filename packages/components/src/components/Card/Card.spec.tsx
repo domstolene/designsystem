@@ -11,7 +11,7 @@ describe('<Card />', () => {
     render(
       <Card cardType="navigation" href="#">
         text
-      </Card>
+      </Card>,
     );
     const card = screen.getByRole('link');
     expect(card).toBeInTheDocument();

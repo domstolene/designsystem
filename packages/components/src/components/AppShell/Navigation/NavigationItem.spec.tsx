@@ -9,7 +9,7 @@ describe('<AppShell.NavItem />', () => {
     render(
       <NavigationItem href="#" icon={MockIcon}>
         Test
-      </NavigationItem>
+      </NavigationItem>,
     );
 
     expect(screen.getByText('Test')).toBeInTheDocument();
@@ -20,7 +20,7 @@ describe('<AppShell.NavItem />', () => {
     render(
       <NavigationItem href="#" external>
         Test
-      </NavigationItem>
+      </NavigationItem>,
     );
 
     expect(screen.getByText('Test')).toBeInTheDocument();
@@ -35,7 +35,7 @@ describe('<AppShell.NavItem />', () => {
         <NavigationItem as="button" icon={MockIcon}>
           Button
         </NavigationItem>
-      </>
+      </>,
     );
 
     const link = await screen.findAllByRole('link');

@@ -10,13 +10,13 @@ describe('<Pagination />', () => {
   it('has aria label on each page', () => {
     render(<Pagination itemsAmount={100} defaultActivePage={3} />);
     expect(
-      within(screen.getAllByRole('listitem')[0]).getByRole('button')
+      within(screen.getAllByRole('listitem')[0]).getByRole('button'),
     ).toHaveAttribute('aria-label', 'Gå til forrige siden');
     expect(
-      within(screen.getAllByRole('listitem')[1]).getByRole('button')
+      within(screen.getAllByRole('listitem')[1]).getByRole('button'),
     ).toHaveAttribute('aria-label', 'Gå til side 1');
     expect(
-      within(screen.getAllByRole('listitem')[3]).getByRole('button')
+      within(screen.getAllByRole('listitem')[3]).getByRole('button'),
     ).toHaveAttribute('aria-label', 'Nåværende side (side 3)');
   });
   it('should render correct number of pages', () => {
@@ -25,7 +25,7 @@ describe('<Pagination />', () => {
         itemsAmount={6}
         defaultItemsPerPage={1}
         defaultActivePage={2}
-      />
+      />,
     );
     expect(screen.getAllByRole('listitem')).toHaveLength(8); // itemsAmount + < > buttons)
   });
@@ -39,7 +39,7 @@ describe('<Pagination />', () => {
         itemsAmount={6}
         defaultItemsPerPage={1}
         defaultActivePage={6}
-      />
+      />,
     );
     expect(screen.getAllByRole('listitem')).toHaveLength(7); // itemsAmount +  < button
   });
@@ -54,7 +54,7 @@ describe('<Pagination />', () => {
         defaultItemsPerPage={1}
         defaultActivePage={2}
         smallScreen
-      />
+      />,
     );
     expect(screen.getAllByRole('listitem')).toHaveLength(5); // active page + |< <  > >| buttons
   });

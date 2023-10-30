@@ -36,7 +36,7 @@ describe('<Datepicker />', () => {
     const inputElement = container.querySelector('input');
     expect(inputElement).toHaveAttribute(
       'aria-describedby',
-      `${id}-errorMessage`
+      `${id}-errorMessage`,
     );
     expect(inputElement).toHaveAttribute('aria-invalid', 'true');
   });

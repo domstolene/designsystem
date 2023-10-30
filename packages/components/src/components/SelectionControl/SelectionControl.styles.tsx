@@ -71,7 +71,10 @@ export const Container = styled.label<ContainerProps>`
 
   input ~ ${CustomSelectionControl} {
     @media (prefers-reduced-motion: no-preference) {
-      transition: box-shadow 0.2s, background-color 0.2s, border 0.2s;
+      transition:
+        box-shadow 0.2s,
+        background-color 0.2s,
+        border 0.2s;
     }
   }
 

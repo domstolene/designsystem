@@ -60,7 +60,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const multiRef = useCombinedRef(ref, textAreaRef);
     const [text, setText] = useState<string>(
-      getDefaultText(value, defaultValue)
+      getDefaultText(value, defaultValue),
     );
 
     useEffect(() => {
@@ -72,7 +72,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     }, [text]);
 
     const onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement> = (
-      event: React.ChangeEvent<HTMLTextAreaElement>
+      event: React.ChangeEvent<HTMLTextAreaElement>,
     ) => {
       setText(event.target.value);
 
@@ -124,7 +124,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
       </OuterInputContainer>
     );
-  }
+  },
 );
 
 TextArea.displayName = 'TextArea';

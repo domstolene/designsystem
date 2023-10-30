@@ -4,7 +4,7 @@ export const renderInputMessage = (
   tip?: string,
   tipId?: string,
   errorMessage?: string,
-  errorMessageId?: string
+  errorMessageId?: string,
 ) => (
   <>
     {errorMessage && errorMessageId && (

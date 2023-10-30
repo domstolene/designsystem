@@ -5,7 +5,7 @@ const arrayRange = (start: number, end: number) => {
 
 export function PaginationGenerator(
   pagesAmount: number,
-  activePage: number
+  activePage: number,
 ): (string | number)[] {
   const siblingsCount = 1;
   const maxPagesShown = 7;
@@ -23,7 +23,7 @@ export function PaginationGenerator(
         ? pagesAmount - 4 // - 4 to fit total columns /
         : activePage > 4 && pagesAmount > maxPagesShown
         ? activePage - siblingsCount
-        : 1
+        : 1,
     );
 
     const middleEndOffset =

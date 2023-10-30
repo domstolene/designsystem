@@ -25,8 +25,12 @@ export const Content = styled.span<ContentProps>`
   box-sizing: border-box;
   cursor: pointer;
   @media (prefers-reduced-motion: no-preference) {
-    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s,
-      color 0.2s, ${focusVisibleTransitionValue};
+    transition:
+      border-color 0.2s,
+      background-color 0.2s,
+      box-shadow 0.2s,
+      color 0.2s,
+      ${focusVisibleTransitionValue};
   }
   background-color: ${content.base.backgroundColor};
 

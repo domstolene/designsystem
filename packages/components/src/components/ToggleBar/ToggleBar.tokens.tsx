@@ -14,21 +14,21 @@ export const typographyTypes: { [k in ToggleBarSize]: StaticTypographyType } = {
 
 const iconSizeTiny = `${calculateHeightWithLineHeight(
   fontPackages.supportingStyle_tiny_01.numbers.lineHeightNumber,
-  fontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber
+  fontPackages.supportingStyle_tiny_01.numbers.fontSizeNumber,
 )}px`;
 
 const iconSizeSmall = `${calculateHeightWithLineHeight(
   fontPackages.body_sans_01.numbers.lineHeightNumber,
-  fontPackages.body_sans_01.numbers.fontSizeNumber
+  fontPackages.body_sans_01.numbers.fontSizeNumber,
 )}px`;
 
 const iconSizeMedium = `${calculateHeightWithLineHeight(
   fontPackages.body_sans_02.numbers.lineHeightNumber,
-  fontPackages.body_sans_02.numbers.fontSizeNumber
+  fontPackages.body_sans_02.numbers.fontSizeNumber,
 )}px`;
 const iconSizeLarge = `${calculateHeightWithLineHeight(
   fontPackages.body_sans_04.numbers.lineHeightNumber,
-  fontPackages.body_sans_04.numbers.fontSizeNumber
+  fontPackages.body_sans_04.numbers.fontSizeNumber,
 )}px`;
 
 const outerContainer = {

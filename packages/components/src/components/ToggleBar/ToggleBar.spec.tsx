@@ -10,7 +10,7 @@ const TestComponent = () => {
       value={value}
       onChange={(
         _e: ChangeEvent<HTMLInputElement>,
-        value: number | undefined
+        value: number | undefined,
       ) => {
         setValue(value);
       }}
@@ -43,7 +43,7 @@ describe('<ToggleBar />', () => {
     render(
       <ToggleBar>
         <ToggleRadio />
-      </ToggleBar>
+      </ToggleBar>,
     );
     const radioGroup = screen.queryByRole('radiogroup');
     expect(radioGroup).toBeInTheDocument();
@@ -55,7 +55,7 @@ describe('<ToggleBar />', () => {
       <ToggleBar id={id} label="label">
         <ToggleRadio label="test1" />
         <ToggleRadio label="test2" />
-      </ToggleBar>
+      </ToggleBar>,
     );
     const radioGroup = screen.getByRole('radiogroup');
     expect(radioGroup).toHaveAttribute('aria-labelledby', `${id}-label`);

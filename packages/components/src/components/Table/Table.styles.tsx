@@ -35,7 +35,10 @@ type StyledProps = {
 
 export const StyledRow = styled.tr<StyledProps>`
   @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      box-shadow 0.2s;
   }
 
   ${getFontStyling(defaultTypographyType, true)}

@@ -16,7 +16,7 @@ export const Body = forwardRef<HTMLTableSectionElement, TableBodyProps>(
         {children}
       </StyledBody>
     );
-  }
+  },
 );
 
 Body.displayName = 'Table.Body';

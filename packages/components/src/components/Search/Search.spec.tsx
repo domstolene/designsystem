@@ -27,14 +27,14 @@ describe('<Search />', () => {
     render(<Search tip={tip} id={id} />);
     expect(screen.getByRole('searchbox')).toHaveAttribute(
       'aria-describedby',
-      `${id}-tip`
+      `${id}-tip`,
     );
   });
   it('should render combobox when using autocomplete version', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [] }}>
         <Search />
-      </Search.AutocompleteWrapper>
+      </Search.AutocompleteWrapper>,
     );
     expect(screen.getByRole('combobox')).toBeInTheDocument();
   });
@@ -43,7 +43,7 @@ describe('<Search />', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [] }}>
         <Search />
-      </Search.AutocompleteWrapper>
+      </Search.AutocompleteWrapper>,
     );
     expect(screen.getByLabelText('Søkeforslag')).toBeInTheDocument();
   });
@@ -53,7 +53,7 @@ describe('<Search />', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [text] }}>
         <Search />
-      </Search.AutocompleteWrapper>
+      </Search.AutocompleteWrapper>,
     );
 
     const input = screen.getByRole('combobox');
@@ -71,7 +71,7 @@ describe('<Search />', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [text] }}>
         <Search />
-      </Search.AutocompleteWrapper>
+      </Search.AutocompleteWrapper>,
     );
 
     const input = screen.getByRole('combobox');
@@ -85,7 +85,7 @@ describe('<Search />', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [text] }}>
         <Search />
-      </Search.AutocompleteWrapper>
+      </Search.AutocompleteWrapper>,
     );
 
     const input = screen.getByRole('combobox');
@@ -99,7 +99,7 @@ describe('<Search />', () => {
     render(
       <Search.AutocompleteWrapper data={{ array: [text] }}>
         <Search />
-      </Search.AutocompleteWrapper>
+      </Search.AutocompleteWrapper>,
     );
 
     const input = screen.getByRole('combobox');
@@ -119,7 +119,7 @@ describe('<Search />', () => {
         onSuggestionSelection={event}
       >
         <Search />
-      </Search.AutocompleteWrapper>
+      </Search.AutocompleteWrapper>,
     );
 
     const input = screen.getByRole('combobox');

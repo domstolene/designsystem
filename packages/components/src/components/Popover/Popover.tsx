@@ -134,7 +134,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         onClose && onClose();
         onBlur && onBlur();
       },
-      anchorElement && anchorElement
+      anchorElement && anchorElement,
     );
 
     const { refs, styles } = useFloatPosition(null, {
@@ -196,7 +196,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         )}
       </Wrapper>
     ) : null;
-  }
+  },
 );
 
 Popover.displayName = 'Popover';

@@ -49,7 +49,7 @@ export const getElementType = (element: string): ElementType => {
 };
 
 export const isHeading = (
-  type: TypographyType
+  type: TypographyType,
 ): type is TypographyHeadingType => {
   return true;
 };

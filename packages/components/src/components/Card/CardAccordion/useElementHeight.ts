@@ -2,7 +2,7 @@ import { Nullable } from '@norges-domstoler/dds-core';
 import { useEffect, useState } from 'react';
 
 export function useElementHeight(
-  element: HTMLDivElement | null
+  element: HTMLDivElement | null,
 ): number | null {
   const [height, setHeight] = useState<Nullable<number>>(null);
 

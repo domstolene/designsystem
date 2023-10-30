@@ -35,7 +35,7 @@ const Bar = styled.div`
 `;
 
 export const ToggleBar = <T extends string | number = string>(
-  props: ToggleBarProps<T>
+  props: ToggleBarProps<T>,
 ) => {
   const {
     children,
@@ -58,7 +58,7 @@ export const ToggleBar = <T extends string | number = string>(
 
   const handleChange = combineHandlers(
     (e: ChangeEvent<HTMLInputElement>) => setGroupValue(e.target.value),
-    e => onChange && onChange(e, e.target.value as T)
+    e => onChange && onChange(e, e.target.value as T),
   );
 
   const labelId = label && `${uniqueId}-label`;

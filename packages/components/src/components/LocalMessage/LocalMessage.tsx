@@ -53,7 +53,7 @@ const Container = styled.div<ContainerProps>`
 
 function getGridTemplateAreas(
   layout: LocalMessageProps['layout'],
-  closeable: LocalMessageProps['closable']
+  closeable: LocalMessageProps['closable'],
 ) {
   if (closeable) {
     if (layout === 'horisontal') {
@@ -70,7 +70,7 @@ function getGridTemplateAreas(
 
 function getGridTemplateColumns(
   layout: LocalMessageProps['layout'],
-  closable: LocalMessageProps['closable']
+  closable: LocalMessageProps['closable'],
 ) {
   if (closable) {
     return layout === 'horisontal'
@@ -176,7 +176,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
         )}
       </Container>
     );
-  }
+  },
 );
 
 LocalMessage.displayName = 'LocalMessage';

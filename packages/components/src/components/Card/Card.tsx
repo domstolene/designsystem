@@ -28,7 +28,9 @@ const Container = styled.div<ContainerProps>`
     ${selection}
   }
   @media (prefers-reduced-motion: no-preference) {
-    transition: box-shadow 0.2s, border-color 0.2s;
+    transition:
+      box-shadow 0.2s,
+      border-color 0.2s;
   }
   ${({ color }) =>
     color &&

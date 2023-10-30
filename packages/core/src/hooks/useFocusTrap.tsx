@@ -17,7 +17,7 @@ import { getFocusableElements } from '../utils';
  */
 
 export function useFocusTrap<T extends HTMLElement>(
-  active: boolean
+  active: boolean,
 ): RefObject<T> {
   const elementRef = useRef<T>(null);
 

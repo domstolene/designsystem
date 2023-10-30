@@ -94,7 +94,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
           onClose && onClose();
           onToggle && onToggle();
         }
-      }
+      },
     );
 
     useOnKeyDown(['Esc', 'Escape'], () => {
@@ -132,7 +132,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
 
     const [focus, setFocus] = useRoveFocus(
       interactiveItems && interactiveItems.length,
-      !isOpen
+      !isOpen,
     );
 
     const interactiveItemsList = hasInteractiveItems
@@ -146,7 +146,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
               {...item}
               onClick={(
                 e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
-                  React.MouseEvent<HTMLButtonElement, MouseEvent>
+                  React.MouseEvent<HTMLButtonElement, MouseEvent>,
               ) => {
                 item.onClick && item.onClick(e);
                 onToggle && onToggle();
@@ -179,7 +179,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
                 <OverflowMenuList>
                   {interactiveItemsList?.slice(
                     navItemsFirstPos,
-                    navItemsLastPos + 1
+                    navItemsLastPos + 1,
                   )}
                 </OverflowMenuList>
               </nav>
@@ -191,7 +191,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
               <OverflowMenuList aria-label="kontekstmeny">
                 {interactiveItemsList?.slice(
                   contextItemsFirstPos,
-                  interactiveItemsList.length
+                  interactiveItemsList.length,
                 )}
               </OverflowMenuList>
             )}
@@ -222,7 +222,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         {interactiveContent()}
       </Container>
     );
-  }
+  },
 );
 
 OverflowMenu.displayName = 'OverflowMenu';

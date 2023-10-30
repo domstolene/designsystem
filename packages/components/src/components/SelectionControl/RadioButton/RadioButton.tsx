@@ -16,7 +16,7 @@ import { Container, CustomSelectionControl } from '../SelectionControl.styles';
 
 const isValueEqualToGroupValueOrFalsy = (
   value: unknown,
-  group: Nullable<RadioButtonGroup>
+  group: Nullable<RadioButtonGroup>,
 ): boolean => {
   if (typeof value !== 'undefined' && value !== null && group) {
     if (typeof value === 'number') {
@@ -108,7 +108,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
         <Typography as="span">{children ?? label}</Typography>
       </Container>
     );
-  }
+  },
 );
 
 RadioButton.displayName = 'RadioButton';

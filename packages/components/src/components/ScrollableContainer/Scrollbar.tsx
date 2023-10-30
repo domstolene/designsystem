@@ -69,7 +69,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
     const { clientHeight, scrollHeight } = ref;
     setIsScrollable(clientHeight !== scrollHeight);
     setThumbHeight(
-      Math.max((clientHeight / scrollHeight) * trackSize, minThumbHeightPx)
+      Math.max((clientHeight / scrollHeight) * trackSize, minThumbHeightPx),
     );
   }
 
@@ -87,7 +87,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
           const clickRatio =
             (clientY - trackTop + thumbOffset) / trackCurrent.clientHeight;
           const scrollAmount = Math.floor(
-            clickRatio * contentCurrent.scrollHeight
+            clickRatio * contentCurrent.scrollHeight,
           );
           contentCurrent.scrollTo({
             top: scrollAmount,
@@ -96,7 +96,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
         }
       }
     },
-    [thumbHeight]
+    [thumbHeight],
   );
 
   const handleThumbPositioning = useCallback(() => {
@@ -154,14 +154,14 @@ export const Scrollbar = (props: ScrollbarProps) => {
             (contentOffsetHeight / thumbHeight);
           const newScrollTop = Math.min(
             initialScrollTop + deltaY,
-            contentScrollHeight - contentOffsetHeight
+            contentScrollHeight - contentOffsetHeight,
           );
 
           contentRef.current.scrollTop = newScrollTop;
         }
       }
     },
-    [isDragging, scrollStartPosition, thumbHeight]
+    [isDragging, scrollStartPosition, thumbHeight],
   );
 
   useEffect(() => {

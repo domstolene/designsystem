@@ -8,7 +8,7 @@ describe('<DescriptionList />', () => {
       <DescriptionList>
         <DescriptionListTerm>{termText}</DescriptionListTerm>
         <DescriptionListDesc>desc</DescriptionListDesc>
-      </DescriptionList>
+      </DescriptionList>,
     );
     expect(screen.queryByText(termText)).toBeInTheDocument();
   });
@@ -18,7 +18,7 @@ describe('<DescriptionList />', () => {
       <DescriptionList>
         <DescriptionListTerm>Term</DescriptionListTerm>
         <DescriptionListDesc>{descText}</DescriptionListDesc>
-      </DescriptionList>
+      </DescriptionList>,
     );
     const desc = screen.getByRole('definition');
     expect(desc).toBeInTheDocument();

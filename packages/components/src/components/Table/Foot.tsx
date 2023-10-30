@@ -16,7 +16,7 @@ export const Foot = forwardRef<HTMLTableSectionElement, TableFootProps>(
         {children}
       </StyledFoot>
     );
-  }
+  },
 );
 
 Foot.displayName = 'Table.Foot';

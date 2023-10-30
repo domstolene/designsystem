@@ -94,7 +94,7 @@ export type PaginationProps = BaseComponentProps<
     /**Brukes til å hente side og eventuelt annen logikk ved endring av side. */
     onChange?: (
       event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-      page: number
+      page: number,
     ) => void;
     /**Brukes til å hente `selectedOption` og eventuelt kjøre annen logikk når `withSelect=true` ved endring av alternativ. */
     onSelectOptionChange?: (option: PaginationOption | null) => void;
@@ -137,7 +137,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
     const onPageChange = (
       event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-      page: number
+      page: number,
     ) => {
       page && setActivePage(page);
       if (event && onChange) {
@@ -323,7 +323,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         {navigationToBeRendered}
       </OuterContainer>
     );
-  }
+  },
 );
 
 Pagination.displayName = 'Pagination';

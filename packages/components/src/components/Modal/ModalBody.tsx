@@ -38,7 +38,7 @@ export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
     ) : (
       <Container {...containerProps}>{children}</Container>
     );
-  }
+  },
 );
 
 ModalBody.displayName = 'ModalBody';

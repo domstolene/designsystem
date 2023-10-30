@@ -46,7 +46,7 @@ export type SearchAutocompleteWrapperProps = {
 };
 
 export const SearchAutocompleteWrapper = (
-  props: SearchAutocompleteWrapperProps
+  props: SearchAutocompleteWrapperProps,
 ) => {
   const {
     value,
@@ -77,7 +77,7 @@ export const SearchAutocompleteWrapper = (
   }, [suggestions]);
 
   const isWeightedValueData = (
-    data: SearchData | WeightedSearchData
+    data: SearchData | WeightedSearchData,
   ): data is WeightedSearchData =>
     (data as WeightedSearchData).array[0].relevance !== undefined;
 
@@ -95,7 +95,7 @@ export const SearchAutocompleteWrapper = (
             suggestion =>
               filter
                 ? filter(suggestion.text, query)
-                : searchFilter(suggestion.text, query)
+                : searchFilter(suggestion.text, query),
           );
 
           finalSuggestions = filteredSuggestions
@@ -105,11 +105,13 @@ export const SearchAutocompleteWrapper = (
           const { sortFunction, array } = data;
 
           const filteredSuggestions: string[] = array.filter(suggestion =>
-            filter ? filter(suggestion, query) : searchFilter(suggestion, query)
+            filter
+              ? filter(suggestion, query)
+              : searchFilter(suggestion, query),
           );
 
           finalSuggestions = filteredSuggestions.sort(
-            sortFunction ? (a, b) => sortFunction(a, b) : undefined
+            sortFunction ? (a, b) => sortFunction(a, b) : undefined,
           );
         }
       }

@@ -49,7 +49,7 @@ interface UseFloatPositionOptions {
 
 export const useFloatPosition = (
   arrowRef: HTMLElement | null,
-  options: UseFloatPositionOptions = {}
+  options: UseFloatPositionOptions = {},
 ) => {
   const {
     animationFrame = true,
@@ -100,7 +100,7 @@ type Arrow = Partial<Coords> & { centerOffset: number };
 function getArrowStyling(
   strategy: Strategy,
   placement: Placement,
-  arrow: Arrow
+  arrow: Arrow,
 ) {
   const arrowPlacement = placementToArrowPlacement(placement);
 

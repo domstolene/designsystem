@@ -51,16 +51,16 @@ export const getComponent = (
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
-    name: string
+    name: string,
   ) => void,
   screenSize: ScreenSize,
-  onBlur?: <T extends TElement>(event: FocusEvent<T>) => void
+  onBlur?: <T extends TElement>(event: FocusEvent<T>) => void,
 ) => {
   const inputFieldOnChange = (
-    event: ChangeEvent<HTMLInputElement & Record<string, never>>
+    event: ChangeEvent<HTMLInputElement & Record<string, never>>,
   ) => fieldOnChange(event);
   const textAreaFieldOnChange = (
-    event: ChangeEvent<HTMLTextAreaElement & Record<string, never>>
+    event: ChangeEvent<HTMLTextAreaElement & Record<string, never>>,
   ) => fieldOnChange(event);
 
   switch (field.component) {
@@ -94,7 +94,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -119,7 +119,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -136,7 +136,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -173,7 +173,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -202,7 +202,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -233,7 +233,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -277,7 +277,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -330,7 +330,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}
@@ -359,7 +359,7 @@ export const getComponent = (
                 childIndex,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           })}

@@ -77,7 +77,7 @@ describe('<OverflowMenu />', () => {
       <OverflowMenuGroup onToggle={event}>
         <Button />
         <OverflowMenu />
-      </OverflowMenuGroup>
+      </OverflowMenuGroup>,
     );
 
     act(() => {
@@ -94,7 +94,7 @@ describe('<OverflowMenu />', () => {
       <OverflowMenuGroup onOpen={event}>
         <Button />
         <OverflowMenu />
-      </OverflowMenuGroup>
+      </OverflowMenuGroup>,
     );
 
     const menuButton = screen.getByRole('button');

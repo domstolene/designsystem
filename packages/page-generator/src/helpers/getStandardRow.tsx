@@ -27,15 +27,15 @@ export const getStandardRow = (
   fieldOnChange: (
     event: ChangeEvent<
       (HTMLInputElement | HTMLTextAreaElement) & Record<string, never>
-    >
+    >,
   ) => void,
   selectOnChange: (
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
-    name: string
+    name: string,
   ) => void,
-  screenSize: ScreenSize
+  screenSize: ScreenSize,
 ) => {
   return (
     <Row {...obj} key={index}>
@@ -47,7 +47,7 @@ export const getStandardRow = (
             groupedIndex,
             fieldOnChange,
             selectOnChange,
-            screenSize
+            screenSize,
           )
         );
       })}

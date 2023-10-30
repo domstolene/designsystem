@@ -205,7 +205,7 @@ export const SmallScreenWithContextMenu = (args: InternalHeaderProps) => {
 };
 
 export const SmallScreenWithNavigationAndContextMenu = (
-  args: InternalHeaderProps
+  args: InternalHeaderProps,
 ) => (
   <StoryTemplate
     title="InternalHeader - small screen with navigation and context menu"

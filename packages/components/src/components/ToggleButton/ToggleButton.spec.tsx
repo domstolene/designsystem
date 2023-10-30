@@ -22,7 +22,7 @@ describe('<ToggleButton />', () => {
     render(
       <ToggleButtonGroup labelId={labelId} label={label}>
         <ToggleButton label="Test" />
-      </ToggleButtonGroup>
+      </ToggleButtonGroup>,
     );
     expect(screen.getByText(label)).toBeInTheDocument;
     const group = screen.getByRole('group');

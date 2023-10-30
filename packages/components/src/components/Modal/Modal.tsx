@@ -158,7 +158,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             )}
           </Container>
         </Backdrop>,
-        parentElement
+        parentElement,
       )
     : null;
 });

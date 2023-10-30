@@ -11,7 +11,7 @@ export const Backdrop = styled.div<BackdropProps>`
   justify-content: center;
   background-color: ${changeRGBAAlpha(
     ddsBaseTokens.colors.DdsColorNeutralsGray9,
-    0.5
+    0.5,
   )};
   overflow-y: auto;
   top: 0;

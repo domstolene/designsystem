@@ -29,7 +29,7 @@ describe('<Checkbox />', () => {
     render(
       <CheckboxGroup groupId={groupId} tip="tip">
         <Checkbox id="test" label="Test" />
-      </CheckboxGroup>
+      </CheckboxGroup>,
     );
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toHaveAttribute('aria-describedby', `${groupId}-tip`);
@@ -39,12 +39,12 @@ describe('<Checkbox />', () => {
     render(
       <CheckboxGroup groupId={groupId} errorMessage="errorMessage">
         <Checkbox id="test" label="Test" />
-      </CheckboxGroup>
+      </CheckboxGroup>,
     );
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toHaveAttribute(
       'aria-describedby',
-      `${groupId}-errorMessage`
+      `${groupId}-errorMessage`,
     );
     expect(checkbox).toHaveAttribute('aria-invalid', 'true');
   });

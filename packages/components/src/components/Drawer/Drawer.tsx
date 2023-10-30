@@ -204,7 +204,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
             icon={CloseIcon}
           />
         </Container>,
-        parentElement
+        parentElement,
       )
     : null;
 });

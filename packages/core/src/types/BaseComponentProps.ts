@@ -14,7 +14,8 @@ import { HTMLAttributes, PropsWithChildren } from 'react';
 export type BaseComponentProps<
   TElement extends Element,
   TOtherProps extends Record<string, unknown> = Record<string, unknown>,
-  THTMLAttributesProps extends HTMLAttributes<TElement> = HTMLAttributes<TElement>
+  THTMLAttributesProps extends
+    HTMLAttributes<TElement> = HTMLAttributes<TElement>,
 > = Pick<THTMLAttributesProps, 'id' | 'className'> &
   TOtherProps & {
     /**Ekstra HTML-attributter som vil settes på elementet som genereres. Untatt `id` og `className` som settes på toppnivå. */
@@ -29,7 +30,7 @@ export type BaseComponentProps<
 export type BaseComponentPropsWithChildren<
   T extends Element,
   TProps extends Record<string, unknown> = Record<string, unknown>,
-  THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>
+  THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>,
 > = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
 
 export const joinClassNames = (...classNames: (string | undefined)[]) =>
@@ -40,12 +41,12 @@ type GetBaseHTMLProps = {
     id: HTMLAttributes<T>['id'],
     className: HTMLAttributes<T>['className'],
     htmlProps: HTMLAttributes<T> | undefined,
-    unknownProps: object
+    unknownProps: object,
   ): HTMLAttributes<T> & object;
   <T extends Element>(
     id: HTMLAttributes<T>['id'],
     htmlProps: HTMLAttributes<T> | undefined,
-    unknownProps: object
+    unknownProps: object,
   ): HTMLAttributes<T> & object;
 };
 
@@ -84,7 +85,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
     | HTMLAttributes<T>['className']
     | (HTMLAttributes<T> | undefined),
   htmlPropsOrUnknownProps: (HTMLAttributes<T> | undefined) | object,
-  unknownPropsOrUndefined?: object
+  unknownPropsOrUndefined?: object,
 ): HTMLAttributes<T> & object => {
   if (
     typeof htmlPropsOrClassName === 'string' ||
@@ -100,7 +101,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
 
     const propClassName = joinClassNames(
       htmlPropsOrClassName as string | undefined,
-      classNameFromHtmlProps
+      classNameFromHtmlProps,
     );
 
     return {

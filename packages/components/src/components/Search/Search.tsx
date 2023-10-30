@@ -57,13 +57,12 @@ const Input = styled(BaseInput)<InputProps>`
   }
   padding-right: ${input.base.paddingRight};
 
-  ${({ componentSize }) =>
-    css`
-      padding-top: ${input.sizes[componentSize].paddingTop};
-      padding-bottom: ${input.sizes[componentSize].paddingBottom};
-      padding-left: ${input.sizes[componentSize].paddingLeft};
-      ${getFontStyling(typographyTypes[componentSize])}
-    `}
+  ${({ componentSize }) => css`
+    padding-top: ${input.sizes[componentSize].paddingTop};
+    padding-bottom: ${input.sizes[componentSize].paddingBottom};
+    padding-left: ${input.sizes[componentSize].paddingLeft};
+    ${getFontStyling(typographyTypes[componentSize])}
+  `}
 `;
 
 type StyledSearchIconProps = {
@@ -143,7 +142,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       'aria-describedby': ariaDescribedby,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-searchInput`;
@@ -152,7 +151,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     const suggestionsId = derivativeIdGenerator(uniqueId, 'suggestions');
     const suggestionsDescriptionId = derivativeIdGenerator(
       uniqueId,
-      'suggestions-description'
+      'suggestions-description',
     );
 
     const [hasValue, setHasValue] = useState(!!value);
@@ -268,7 +267,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
         </div>
       </OuterContainer>
     );
-  }
+  },
 );
 
 Search.displayName = 'Search';

@@ -78,7 +78,7 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
         {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
       </OuterInputContainer>
     );
-  }
+  },
 );
 
 InlineInput.displayName = 'InlineInput';

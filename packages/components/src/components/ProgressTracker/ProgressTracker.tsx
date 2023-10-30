@@ -119,7 +119,7 @@ const passIndexPropToProgressTrackerItem = (children: ReactElement[]) =>
     cloneElement(item, {
       ...item.props,
       index,
-    })
+    }),
   );
 
 const intersperseItemsWithConnector = (children: ReactElement[]) =>

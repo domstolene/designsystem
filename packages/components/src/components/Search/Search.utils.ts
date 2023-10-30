@@ -8,10 +8,10 @@ import { ChangeEvent } from 'react';
  * @returns En change-event som har en tom streng som target value
  */
 export function createEmptyChangeEvent(
-  inputElementId: string
+  inputElementId: string,
 ): ChangeEvent<HTMLInputElement> {
   const inputElement = document.getElementById(
-    inputElementId
+    inputElementId,
   ) as HTMLInputElement;
 
   inputElement.value = '';
