@@ -12,8 +12,6 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 
 📕 [Formatering](packages/formatting/README.md)
 
-🧪 [Testapplikasjon](apps/testapp/README.md)
-
 ## 📖 Dokumentasjon
 
 [Elsa - dokumentasjon](https://design.domstol.no/)
