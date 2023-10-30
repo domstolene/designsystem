@@ -23,7 +23,7 @@ const Segment = styled.div`
   outline: none;
   padding: ${segmentTokens.padding.y} ${segmentTokens.padding.x};
 
-  :focus {
+  &:focus {
     background-color: ${segmentTokens.focus.backgroundColor};
     color: ${segmentTokens.focus.textColor};
   }

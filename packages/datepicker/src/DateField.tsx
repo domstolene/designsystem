@@ -2,12 +2,21 @@ import { useRef } from 'react';
 import { AriaDateFieldOptions, useDateField } from '@react-aria/datepicker';
 import { useDateFieldState } from '@react-stately/datepicker';
 import { DateValue, createCalendar } from '@internationalized/date';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { InputMessage, Label } from '@norges-domstoler/dds-components';
-import { InputProps, StatefulInput } from '@norges-domstoler/dds-form';
+import {
+  InputProps,
+  StatefulInput,
+  dangerInputfield,
+  focusDangerInputfield,
+  focusInputfield,
+  hoverDangerInputfield,
+  hoverInputfield,
+} from '@norges-domstoler/dds-form';
 
 import { DateSegment } from './DateSegment';
 import { datepickerTokens } from './Datepicker.tokens';
+import { locale } from './constants';
 
 export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
@@ -15,10 +24,37 @@ export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
 
 const DateFieldContainer = styled.div``;
 
-const DateSegmentContainer = styled(StatefulInput).attrs({ as: 'div' })`
+interface DateSegmentContainerProps {
+  hasErrorMessage: boolean;
+}
+
+const DateSegmentContainer = styled(StatefulInput).attrs({
+  as: 'div',
+})<DateSegmentContainerProps>`
   min-width: ${datepickerTokens.datefield.minWidth};
   display: flex;
   flex-direction: row;
+
+  &:hover {
+    ${hoverInputfield}
+  }
+
+  &:focus-within,
+  &:active {
+    ${focusInputfield}
+  }
+
+  ${({ hasErrorMessage }) =>
+    hasErrorMessage &&
+    css`
+      &:hover {
+        ${hoverDangerInputfield}
+      }
+      &:focus-within,
+      &:active {
+        ${focusDangerInputfield}
+      }
+    `}
 `;
 
 export function DateField<T extends DateValue>({
@@ -29,7 +65,7 @@ export function DateField<T extends DateValue>({
 }: DateFieldProps<T>) {
   const state = useDateFieldState({
     ...props,
-    locale: 'no',
+    locale,
     createCalendar,
   });
 
