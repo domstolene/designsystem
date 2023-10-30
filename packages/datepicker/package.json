@@ -1,7 +1,7 @@
 {
   "name": "@norges-domstoler/dds-datepicker",
-  "version": "1.0.3",
-  "description": "Datepicker-components used in Elsa - domstolenes designsystem",
+  "version": "0.0.0",
+  "description": "Date picker components used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
   "repository": {
