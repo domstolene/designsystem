@@ -1,5 +1,5 @@
+import { vi, describe, it, expect } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { vi } from 'vitest';
 import { Chip, ChipGroup } from '.';
 
 describe('<Chip />', () => {

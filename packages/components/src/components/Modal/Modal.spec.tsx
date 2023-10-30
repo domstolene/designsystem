@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { Modal, ModalBody } from '.';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { useState } from 'react';

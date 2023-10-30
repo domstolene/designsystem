@@ -1,4 +1,4 @@
-import { vi } from 'vitest';
+import { vi, describe, it, expect } from 'vitest';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { SplitButton } from '.';
 

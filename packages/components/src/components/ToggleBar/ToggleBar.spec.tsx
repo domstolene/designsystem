@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { act, render, screen } from '@testing-library/react';
 import { ChangeEvent, useState } from 'react';
 import { ToggleBar, ToggleRadio } from '.';
@@ -29,7 +30,7 @@ describe('<ToggleBar />', () => {
     expect(input?.checked).toBeTruthy();
   });
 
-  test('should update checked state when selecting a radio button', async () => {
+  it('should update checked state when selecting a radio button', async () => {
     const { container } = render(<TestComponent />);
     const label = container.querySelectorAll('label')[2];
     act(() => {

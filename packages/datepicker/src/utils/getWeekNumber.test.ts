@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { CalendarDate } from '@internationalized/date';
 import { getWeekNumber, getDayOfWeek, getDayOfYear } from './getWeekNumber';
 

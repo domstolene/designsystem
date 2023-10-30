@@ -1,4 +1,4 @@
-import { vi } from 'vitest';
+import { vi, describe, it, expect } from 'vitest';
 import { act, render, screen, within } from '@testing-library/react';
 import { Search } from '.';
 import userEvent from '@testing-library/user-event';
