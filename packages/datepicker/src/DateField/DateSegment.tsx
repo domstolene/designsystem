@@ -6,7 +6,7 @@ import type {
 } from '@react-stately/datepicker';
 import styled from 'styled-components';
 
-import { datepickerTokens } from './Datepicker.tokens';
+import { datepickerTokens } from '../Datepicker.tokens';
 const {
   datefield: { segment: segmentTokens },
 } = datepickerTokens;

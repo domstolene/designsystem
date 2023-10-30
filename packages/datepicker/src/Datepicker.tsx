@@ -1,4 +1,4 @@
-import { DateField } from './DateField';
+import { DateField } from './Datefield/DateField';
 
 export type DatepickerProps = {
   label?: string;

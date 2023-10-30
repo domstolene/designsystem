@@ -22,8 +22,8 @@ import {
 } from '@norges-domstoler/dds-form';
 
 import { DateSegment } from './DateSegment';
-import { datepickerTokens } from './Datepicker.tokens';
-import { locale } from './constants';
+import { datepickerTokens } from '../Datepicker.tokens';
+import { locale } from '../constants';
 
 export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
