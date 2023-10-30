@@ -1,3 +1,8 @@
+import {
+  CalendarIcon,
+  HStack,
+  TextInput,
+} from '@norges-domstoler/dds-components';
 import { Datepicker, DatepickerProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
@@ -17,7 +22,13 @@ export default {
 export const Default = (args: DatepickerProps) => {
   return (
     <StoryTemplate title="Datepicker - default">
-      <Datepicker {...args} />
+      <HStack>
+        <Datepicker {...args} />
+        <TextInput icon={CalendarIcon} />
+        <TextInput />
+      </HStack>
+      <TextInput icon={CalendarIcon} />
+      <TextInput />
     </StoryTemplate>
   );
 };

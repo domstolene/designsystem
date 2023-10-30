@@ -22,6 +22,11 @@ const Segment = styled.div`
   font-variant-numeric: tabular-nums;
   outline: none;
   padding: ${segmentTokens.padding.y} ${segmentTokens.padding.x};
+  font-family: ${segmentTokens.font.fontFamily};
+  font-size: ${segmentTokens.font.fontSize};
+  font-style: ${segmentTokens.font.fontStyle};
+  font-weight: ${segmentTokens.font.fontWeight};
+  line-height: ${segmentTokens.font.lineHeight};
 
   &:focus {
     background-color: ${segmentTokens.focus.backgroundColor};
@@ -33,9 +38,13 @@ const SegmentPlaceholder = styled.span`
   display: block;
   width: 100%;
   font-variant-numeric: tabular-nums;
+
+  font-family: ${segmentTokens.placeholder.fontFamily};
+  font-size: ${segmentTokens.placeholder.fontSize};
+  font-style: ${segmentTokens.placeholder.fontStyle};
+  font-weight: ${segmentTokens.placeholder.fontWeight};
+  line-height: ${segmentTokens.placeholder.lineHeight};
   color: ${segmentTokens.placeholder.textColor};
-  text-align: center;
-  font-style: italic;
 
   ${Segment}:focus & {
     color: ${segmentTokens.focus.textColor};
