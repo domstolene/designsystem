@@ -6,10 +6,10 @@ import type {
 } from '@react-stately/datepicker';
 import styled from 'styled-components';
 
-import { datepickerTokens } from '../Datepicker.tokens';
+import { datePickerTokens } from '../DatePicker.tokens';
 const {
   datefield: { segment: segmentTokens },
-} = datepickerTokens;
+} = datePickerTokens;
 
 interface DateSegmentProps {
   segment: DateSegmentType;

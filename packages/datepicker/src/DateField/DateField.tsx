@@ -22,7 +22,7 @@ import {
 } from '@norges-domstoler/dds-form';
 
 import { DateSegment } from './DateSegment';
-import { datepickerTokens } from '../Datepicker.tokens';
+import { datePickerTokens } from '../DatePicker.tokens';
 import { locale } from '../constants';
 
 export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
@@ -38,12 +38,12 @@ interface DateSegmentContainerProps {
 const InputDiv = styled(StatefulInput).attrs({
   as: 'div',
 })<DateSegmentContainerProps>`
-  min-width: ${datepickerTokens.datefield.minWidth};
+  min-width: ${datePickerTokens.datefield.minWidth};
   display: flex;
   flex-direction: row;
-  gap: ${datepickerTokens.gap};
+  gap: ${datePickerTokens.gap};
   align-items: center;
-  padding: ${datepickerTokens.datefield.padding};
+  padding: ${datePickerTokens.datefield.padding};
 
   &:hover {
     ${hoverInputfield}
@@ -75,15 +75,15 @@ const DateSegmentContainer = styled.div`
 const CalendarButton = styled.button`
   ${normalizeButton}
   position: relative;
-  height: ${datepickerTokens.calendarButton.size};
-  width: ${datepickerTokens.calendarButton.size};
+  height: ${datePickerTokens.calendarButton.size};
+  width: ${datePickerTokens.calendarButton.size};
   border: 0;
   padding: 0;
-  margin: -${datepickerTokens.calendarButton.size} 0;
-  border-radius: ${datepickerTokens.calendarButton.borderRadius};
+  margin: -${datePickerTokens.calendarButton.size} 0;
+  border-radius: ${datePickerTokens.calendarButton.borderRadius};
 
-  background-color: ${datepickerTokens.calendarButton.background};
-  color: ${datepickerTokens.calendarButton.color};
+  background-color: ${datePickerTokens.calendarButton.background};
+  color: ${datePickerTokens.calendarButton.color};
 
   transition: 50ms;
 
@@ -96,8 +96,8 @@ const CalendarButton = styled.button`
   }
 
   &:hover {
-    background-color: ${datepickerTokens.calendarButton.hover.background};
-    color: ${datepickerTokens.calendarButton.hover.color};
+    background-color: ${datePickerTokens.calendarButton.hover.background};
+    color: ${datePickerTokens.calendarButton.hover.color};
   }
 
   &:focus-visible {

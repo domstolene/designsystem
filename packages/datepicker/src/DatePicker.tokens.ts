@@ -1,7 +1,4 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens,
-} from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { colors } = ddsBaseTokens;
 
 const segment = {
@@ -43,7 +40,7 @@ const datefield = {
   segment,
 };
 
-export const datepickerTokens = {
+export const datePickerTokens = {
   gap: ddsBaseTokens.spacing.SizesDdsSpacingLocalX025,
   datefield,
   calendarButton,

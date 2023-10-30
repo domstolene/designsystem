@@ -3,12 +3,12 @@ import {
   HStack,
   TextInput,
 } from '@norges-domstoler/dds-components';
-import { Datepicker, DatepickerProps } from '.';
+import { DatePicker, DatePickerProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 export default {
-  title: 'ALPHA/dds-datepicker/Datepicker',
-  component: Datepicker,
+  title: 'ALPHA/dds-datepicker/DatePicker',
+  component: DatePicker,
   argTypes: {
     label: {
       control: 'text',
@@ -19,11 +19,11 @@ export default {
   },
 };
 
-export const Default = (args: DatepickerProps) => {
+export const Default = (args: DatePickerProps) => {
   return (
-    <StoryTemplate title="Datepicker - default">
+    <StoryTemplate title="DatePicker - default">
       <HStack>
-        <Datepicker {...args} />
+        <DatePicker {...args} />
         <TextInput icon={CalendarIcon} />
         <TextInput />
       </HStack>
