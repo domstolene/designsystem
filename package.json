@@ -8,7 +8,7 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --concurrency 14",
+    "dev": "turbo run dev",
     "build": "turbo run build",
     "build:docs": "turbo run build --filter @norges-domstoler/docs",
     "verify": "turbo run verify",
