@@ -10,7 +10,7 @@ const TestComponent = () => {
       value={value}
       onChange={(
         _e: ChangeEvent<HTMLInputElement>,
-        value: number | undefined
+        value: number | undefined,
       ) => {
         setValue(value);
       }}
@@ -43,7 +43,7 @@ describe('<RadioButton />', () => {
     render(
       <RadioButtonGroup>
         <RadioButton />
-      </RadioButtonGroup>
+      </RadioButtonGroup>,
     );
     const radioGroup = screen.queryByRole('radiogroup');
     expect(radioGroup).toBeInTheDocument();
@@ -54,7 +54,7 @@ describe('<RadioButton />', () => {
     render(
       <RadioButtonGroup groupId={groupId} tip="tip">
         <RadioButton label="test" />
-      </RadioButtonGroup>
+      </RadioButtonGroup>,
     );
     const radioGroup = screen.getByRole('radiogroup');
     expect(radioGroup).toHaveAttribute('aria-describedby', `${groupId}-tip`);
@@ -65,12 +65,12 @@ describe('<RadioButton />', () => {
     render(
       <RadioButtonGroup groupId={groupId} errorMessage="errorMessage">
         <RadioButton label="Test" />
-      </RadioButtonGroup>
+      </RadioButtonGroup>,
     );
     const radio = screen.getByRole('radio');
     expect(radio).toHaveAttribute(
       'aria-describedby',
-      `${groupId}-errorMessage`
+      `${groupId}-errorMessage`,
     );
     expect(radio).toHaveAttribute('aria-invalid', 'true');
   });

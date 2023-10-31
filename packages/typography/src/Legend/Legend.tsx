@@ -24,7 +24,7 @@ export const Legend = forwardRef<HTMLLegendElement, LegendProps>(
         {children}
       </Typography>
     );
-  }
+  },
 );
 
 Legend.displayName = 'Legend';

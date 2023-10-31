@@ -8,7 +8,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumb>Side 1</Breadcrumb>
         <Breadcrumb>Side 2</Breadcrumb>
         <Breadcrumb>Side 3</Breadcrumb>
-      </Breadcrumbs>
+      </Breadcrumbs>,
     );
     const breadcrumbs = screen.getByLabelText('brødsmulesti');
     expect(breadcrumbs).toHaveAttribute('aria-label', 'brødsmulesti');
@@ -19,7 +19,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumb>Side 1</Breadcrumb>
         <Breadcrumb>Side 2</Breadcrumb>
         <Breadcrumb>Side 3</Breadcrumb>
-      </Breadcrumbs>
+      </Breadcrumbs>,
     );
     const breadcrumbItems = screen.getAllByRole('listitem');
     expect(breadcrumbItems).toHaveLength(3);

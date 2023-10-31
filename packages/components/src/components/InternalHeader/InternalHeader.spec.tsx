@@ -17,7 +17,7 @@ describe('<InternalHeader />', () => {
       onClick: event,
     };
     const { container } = render(
-      <InternalHeader contextMenuElements={[element]} />
+      <InternalHeader contextMenuElements={[element]} />,
     );
     const contextMenuButton = container
       .querySelector('li')
@@ -33,7 +33,7 @@ describe('<InternalHeader />', () => {
       href: href,
     };
     const { container } = render(
-      <InternalHeader navigationElements={[element]} />
+      <InternalHeader navigationElements={[element]} />,
     );
     const navigationLink = container.querySelector('nav')?.querySelector('a');
     expect(navigationLink).toHaveAttribute('href', href);
@@ -48,7 +48,7 @@ describe('<InternalHeader />', () => {
       target: target,
     };
     const { container } = render(
-      <InternalHeader navigationElements={[element]} />
+      <InternalHeader navigationElements={[element]} />,
     );
     const navigationLink = container.querySelector('nav')?.querySelector('a');
     expect(navigationLink).toHaveAttribute('target', target);
@@ -62,7 +62,7 @@ describe('<InternalHeader />', () => {
       href: href,
     };
     const { container } = render(
-      <InternalHeader contextMenuElements={[element]} />
+      <InternalHeader contextMenuElements={[element]} />,
     );
     const contextMenuLink = container.querySelector('li')?.querySelector('a');
     expect(contextMenuLink).toHaveAttribute('href', href);
@@ -76,7 +76,7 @@ describe('<InternalHeader />', () => {
       href: href,
     };
     const { container } = render(
-      <InternalHeader contextMenuElements={[element]} />
+      <InternalHeader contextMenuElements={[element]} />,
     );
     const contextMenuLink = container.querySelector('li')?.querySelector('a');
     expect(contextMenuLink).toHaveAttribute('href', href);
@@ -90,7 +90,7 @@ describe('<InternalHeader />', () => {
       href: href,
     };
     const { container } = render(
-      <InternalHeader navigationElements={[element]} smallScreen />
+      <InternalHeader navigationElements={[element]} smallScreen />,
     );
     const navigationLink = container.querySelector('nav')?.querySelector('a');
     expect(navigationLink).toHaveAttribute('href', href);

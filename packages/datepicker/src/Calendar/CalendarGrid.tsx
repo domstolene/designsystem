@@ -72,7 +72,7 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
                   <CalendarCell key={i} state={state} date={date} />
                 ) : (
                   <td key={i} />
-                )
+                ),
               )}
             </tr>
           );

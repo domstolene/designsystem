@@ -22,7 +22,7 @@ describe('<Tooltip />', () => {
     render(
       <Tooltip text={text}>
         <Button />
-      </Tooltip>
+      </Tooltip>,
     );
     const tooltip = screen.getByText(text);
     await waitFor(() => {
@@ -34,7 +34,7 @@ describe('<Tooltip />', () => {
     render(
       <Tooltip text={text}>
         <Button />
-      </Tooltip>
+      </Tooltip>,
     );
     const textElement = screen.getByText(text);
     await waitFor(() => {
@@ -47,7 +47,7 @@ describe('<Tooltip />', () => {
     render(
       <Tooltip text={text} tooltipId={id}>
         <Button />
-      </Tooltip>
+      </Tooltip>,
     );
     const anchorElement = screen.getByRole('button');
     const tooltip = screen.getByText(text);
@@ -61,7 +61,7 @@ describe('<Tooltip />', () => {
     render(
       <Tooltip text={text}>
         <Button />
-      </Tooltip>
+      </Tooltip>,
     );
     const anchorElement = screen.getByRole('button');
     fireEvent.focusIn(anchorElement);
@@ -75,7 +75,7 @@ describe('<Tooltip />', () => {
     render(
       <Tooltip text={text} data-testid={testId}>
         <Button />
-      </Tooltip>
+      </Tooltip>,
     );
 
     const containerElement = screen.getByTestId(testId);
@@ -94,7 +94,7 @@ describe('<Tooltip />', () => {
     render(
       <Tooltip text={text}>
         <Button onFocus={event} />
-      </Tooltip>
+      </Tooltip>,
     );
     const anchorElement = screen.getByRole('button');
     fireEvent.focus(anchorElement!);
@@ -109,7 +109,7 @@ describe('<Tooltip />', () => {
     render(
       <Tooltip onMouseLeave={event} text={text} data-testid={testId}>
         <Button />
-      </Tooltip>
+      </Tooltip>,
     );
 
     const containerElement = screen.getByTestId(testId);

@@ -31,7 +31,7 @@ const options = createSelectOptions(
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',
   'Alternativ 3',
-  'Alternativ 4'
+  'Alternativ 4',
 );
 
 type SingleSelectProps = SelectProps<SelectOption, false>;

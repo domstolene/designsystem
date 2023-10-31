@@ -6,7 +6,7 @@ describe('<List />', () => {
     render(
       <List>
         <ListItem>Item</ListItem>
-      </List>
+      </List>,
     );
     const list = screen.getByRole('list');
     expect(list.nodeName).toEqual('UL');
@@ -15,7 +15,7 @@ describe('<List />', () => {
     render(
       <List listType="ordered">
         <ListItem>Item</ListItem>
-      </List>
+      </List>,
     );
     const list = screen.getByRole('list');
     expect(list.nodeName).toEqual('OL');
@@ -26,7 +26,7 @@ describe('<List />', () => {
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
-      </List>
+      </List>,
     );
     const listItems = screen.getAllByRole('listitem');
     expect(listItems).toHaveLength(3);
@@ -36,7 +36,7 @@ describe('<List />', () => {
     render(
       <List>
         <ListItem>{text}</ListItem>
-      </List>
+      </List>,
     );
     const listItemText = screen.getByText(text);
     expect(listItemText).toBeInTheDocument();

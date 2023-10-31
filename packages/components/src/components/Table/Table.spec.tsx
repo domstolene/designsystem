@@ -10,7 +10,7 @@ describe('<Table />', () => {
             <Table.Cell>Body</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
     const table = screen.getByRole('table');
     expect(table).toBeInTheDocument;
@@ -30,7 +30,7 @@ describe('<Table />', () => {
             <Table.Cell>{bodyText}</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
     const headerTextNode = screen.getByText(headerText);
     const bodyTextNode = screen.getByText(bodyText);
@@ -46,7 +46,7 @@ describe('<Table />', () => {
             <Table.Cell type="head">{headerText}</Table.Cell>
           </Table.Row>
         </Table.Head>
-      </Table>
+      </Table>,
     );
     const headerTextNode = screen.getByRole('columnheader');
     expect(headerTextNode.nodeName).toEqual('TH');
@@ -60,7 +60,7 @@ describe('<Table />', () => {
             <Table.Cell>{bodyText}</Table.Cell>
           </Table.Row>
         </Table.Body>
-      </Table>
+      </Table>,
     );
     const bodyTextNode = screen.getByRole('cell');
     expect(bodyTextNode.nodeName).toEqual('TD');

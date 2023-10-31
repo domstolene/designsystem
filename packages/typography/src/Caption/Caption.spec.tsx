@@ -7,7 +7,7 @@ describe('<Caption />', () => {
     render(
       <table>
         <Caption>{text}</Caption>
-      </table>
+      </table>,
     );
     expect(screen.queryByText(text)).toBeInTheDocument();
   });
@@ -16,7 +16,7 @@ describe('<Caption />', () => {
     render(
       <table>
         <Caption>{text}</Caption>
-      </table>
+      </table>,
     );
     expect(screen.getByText(text).nodeName).toBe('CAPTION');
   });

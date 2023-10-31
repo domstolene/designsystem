@@ -11,7 +11,7 @@ describe('<Typography />', () => {
     render(
       <Typography typographyType="a" href="/">
         text
-      </Typography>
+      </Typography>,
     );
     expect(screen.queryByRole('link')).toBeInTheDocument();
   });

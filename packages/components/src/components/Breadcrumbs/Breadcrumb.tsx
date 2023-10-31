@@ -7,7 +7,7 @@ export type BreadcrumbProps =
   | AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const isAnchorTypographyProps = (
-  props: BreadcrumbProps
+  props: BreadcrumbProps,
 ): props is AnchorHTMLAttributes<HTMLAnchorElement> => {
   return (props as AnchorHTMLAttributes<HTMLAnchorElement>).href != undefined;
 };
@@ -29,7 +29,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
         {children}
       </Typography>
     );
-  }
+  },
 );
 
 Breadcrumb.displayName = 'Breadcrumb';

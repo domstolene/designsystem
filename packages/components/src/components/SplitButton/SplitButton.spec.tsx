@@ -42,7 +42,7 @@ describe('<OverflowMenu />', () => {
       <TestComponent
         secondaryActions={item}
         primaryAction={{ label: primaryText, onClick: event }}
-      />
+      />,
     );
 
     const button = screen.getByText(primaryText);
@@ -59,7 +59,7 @@ describe('<OverflowMenu />', () => {
       <TestComponent
         secondaryActions={{ title: itemText, onClick: event }}
         primaryAction={primary}
-      />
+      />,
     );
 
     const item = screen.getByText(itemText);

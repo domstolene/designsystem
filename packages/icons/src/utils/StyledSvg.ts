@@ -15,7 +15,7 @@ export const StyledSvg = styled.svg.attrs<StyledSvgProps>(
       xmlns: 'http://www.w3.org/2000/svg',
       viewBox: `0 0 ${size} ${size}`,
     };
-  }
+  },
 )<StyledSvgProps>`
   display: inline-block;
   transition: fill 0.2s;

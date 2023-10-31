@@ -36,7 +36,7 @@ describe('<Tabs />', () => {
         <TabPanels>
           <TabPanel>Panel 1</TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs>,
     );
     expect(screen.getByRole('tab')).toBeInTheDocument();
     expect(screen.getByRole('tablist')).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe('<Tabs />', () => {
           <Tab>Tab 2</Tab>
           <Tab>Tab 3</Tab>
         </TabList>
-      </Tabs>
+      </Tabs>,
     );
     expect(screen.getByRole('tablist')).toBeInTheDocument();
     expect(screen.queryAllByRole('tab')).toHaveLength(3);
@@ -71,7 +71,7 @@ describe('<Tabs />', () => {
           <TabPanel>{tabPanelText}</TabPanel>
           <TabPanel>{tabPanelText}</TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs>,
     );
 
     const tab2 = screen.getByText(tabText2);
@@ -95,7 +95,7 @@ describe('<Tabs />', () => {
           <TabPanel>Panel 1</TabPanel>
           <TabPanel>Panel 2</TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs>,
     );
     const [tab1, tab2] = screen.getAllByRole('tab');
     expect(tab1).toHaveAttribute('aria-selected', 'true');
@@ -113,7 +113,7 @@ describe('<Tabs />', () => {
           <TabPanel>Panel 1</TabPanel>
           <TabPanel>Panel 2</TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs>,
     );
 
     const [tab1, tab2] = screen.getAllByRole('tab');
@@ -137,7 +137,7 @@ describe('<Tabs />', () => {
           <TabPanel>{tabPanelText}</TabPanel>
           <TabPanel>{tabPanelText}</TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs>,
     );
 
     const [tab1, tab2] = screen.getAllByRole('tab');
@@ -179,7 +179,7 @@ describe('<Tabs />', () => {
           <TabPanel>{tabPanelText}</TabPanel>
           <TabPanel>{tabPanelText}</TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs>,
     );
 
     let [tab1, tab2] = screen.getAllByRole('tab');
@@ -200,7 +200,7 @@ describe('<Tabs />', () => {
           <TabPanel>{tabPanelText}</TabPanel>
           <TabPanel>{tabPanelText}</TabPanel>
         </TabPanels>
-      </Tabs>
+      </Tabs>,
     );
 
     [tab1, tab2] = screen.getAllByRole('tab');

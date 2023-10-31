@@ -21,13 +21,13 @@ type StyledGridChildProps = {
 };
 
 export const isRelativeGridColumn = (
-  type: ColumnsOccupied | undefined
+  type: ColumnsOccupied | undefined,
 ): type is RelativeColumnsOccupied => {
   return type === 'all' || type === 'firstHalf' || type === 'secondHalf';
 };
 
 export const isGridColumn = (
-  type: ColumnsOccupied | undefined
+  type: ColumnsOccupied | undefined,
 ): type is GridColumnPerScreenSize => {
   return (
     (type as GridColumnPerScreenSize).xs !== undefined ||

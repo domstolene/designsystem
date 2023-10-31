@@ -122,7 +122,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
         </ControlsContainer>
       </Container>
     ) : null;
-  }
+  },
 );
 
 GlobalMessage.displayName = 'GlobalMessage';

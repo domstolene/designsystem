@@ -15,7 +15,7 @@ export const Row = forwardRef<HTMLTableRowElement, TableRowProps>(
         {children}
       </StyledRow>
     );
-  }
+  },
 );
 
 Row.displayName = 'Table.Row';

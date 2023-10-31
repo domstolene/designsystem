@@ -100,7 +100,7 @@ export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
         </OverflowMenuGroup>
       </Container>
     );
-  }
+  },
 );
 
 SplitButton.displayName = 'SplitButton';

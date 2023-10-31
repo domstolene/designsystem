@@ -5,7 +5,7 @@ import {
 } from '../types';
 
 export const isFieldWithValidations = (
-  obj: PageGeneratorField | PageGeneratorRow
+  obj: PageGeneratorField | PageGeneratorRow,
 ): obj is FieldWithValidations => {
   return obj && (obj as FieldWithValidations).validations !== undefined;
 };

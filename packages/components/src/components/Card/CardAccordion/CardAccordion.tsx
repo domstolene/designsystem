@@ -84,7 +84,7 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
       ref,
     };
     return <Wrapper {...wrapperProps}>{Children}</Wrapper>;
-  }
+  },
 );
 
 CardAccordion.displayName = 'CardAccordion';

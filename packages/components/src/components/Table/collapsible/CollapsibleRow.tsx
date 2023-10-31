@@ -70,12 +70,12 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
     }, [isCollapsed]);
 
     const collapsedHeaderValues = headerValues.filter(
-      (column, index) => definingColumnIndex.indexOf(index) === -1
+      (column, index) => definingColumnIndex.indexOf(index) === -1,
     );
 
     const childrenArray = Children.toArray(children);
     const collapsedChildren = childrenArray.filter(
-      (column, index) => definingColumnIndex.indexOf(index) === -1
+      (column, index) => definingColumnIndex.indexOf(index) === -1,
     );
 
     const prefix = 'collapsibleRow';
@@ -182,7 +182,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
         {children}
       </StyledRow>
     );
-  }
+  },
 );
 
 CollapsibleRow.displayName = 'CollapsibleTable.Row';

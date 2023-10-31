@@ -66,7 +66,7 @@ export const File = (props: FileProps) => {
             'aria-invalid': !isValid ? true : undefined,
             'aria-errormessage': !isValid ? 'Ugyldig fil' : undefined,
             'aria-describedby': spaceSeparatedIdListGenerator(
-              errorsList.map(e => e.id)
+              errorsList.map(e => e.id),
             ),
           }}
         />

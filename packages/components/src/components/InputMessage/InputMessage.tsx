@@ -72,7 +72,7 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
         </Typography>
       </InputMessageWrapper>
     );
-  }
+  },
 );
 
 InputMessage.displayName = 'InputMessage';

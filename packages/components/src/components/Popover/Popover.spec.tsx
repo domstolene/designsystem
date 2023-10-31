@@ -60,7 +60,7 @@ describe('<Popover />', () => {
       <PopoverGroup>
         <Button>{buttonLabel}</Button>
         <Popover title={title} />
-      </PopoverGroup>
+      </PopoverGroup>,
     );
     const button = screen.getByText(buttonLabel);
 
@@ -113,7 +113,7 @@ describe('<Popover />', () => {
       <PopoverGroup isOpen onCloseButtonClick={event}>
         <Button />
         <Popover withCloseButton />
-      </PopoverGroup>
+      </PopoverGroup>,
     );
 
     const closeButton = screen.getAllByRole('button')[1];
@@ -131,7 +131,7 @@ describe('<Popover />', () => {
       <PopoverGroup onTriggerClick={event}>
         <Button />
         <Popover />
-      </PopoverGroup>
+      </PopoverGroup>,
     );
     const triggerButton = screen.getByRole('button');
     act(() => {

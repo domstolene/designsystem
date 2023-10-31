@@ -67,7 +67,7 @@ export const SortCell = forwardRef<HTMLTableCellElement, TableSortCellProps>(
         {children} {makeSortIcon(isSorted, sortOrder)}
       </StyledButton>
     </Cell>
-  )
+  ),
 );
 
 SortCell.displayName = 'Table.SortCell';

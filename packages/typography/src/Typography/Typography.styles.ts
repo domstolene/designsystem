@@ -31,7 +31,7 @@ export const focusVisibleLinkTransitionValue =
 
 export const getFontStyling = (
   type: StaticTypographyType,
-  withColor?: boolean
+  withColor?: boolean,
 ) => {
   return {
     color: withColor ? tokens.typographyType[type].base.color : undefined,
@@ -42,7 +42,7 @@ export const getFontStyling = (
 export const getAdditionalFontStyle = (
   bold?: boolean,
   italic?: boolean,
-  underline?: boolean
+  underline?: boolean,
 ) => {
   return css`
     ${bold &&
@@ -63,7 +63,7 @@ export const getAdditionalFontStyle = (
 export const getMarginStyling = (
   typographyType: TypographyType,
   element: ElementType,
-  withMargins?: boolean
+  withMargins?: boolean,
 ) =>
   withMargins
     ? css`
@@ -89,7 +89,7 @@ export const getAnchorStyling = (
   external?: boolean,
   interactionStyling?: TypographyInteractionStyling,
   typographyType?: StaticTypographyType,
-  withMargins?: boolean
+  withMargins?: boolean,
 ) => css`
   ${typographyType
     ? css`

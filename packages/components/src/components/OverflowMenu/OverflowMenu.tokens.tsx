@@ -18,7 +18,7 @@ const element = {
 
 const iconHeight = calculateHeightWithLineHeight(
   fontPackages.body_sans_01.numbers.lineHeightNumber,
-  fontPackages.body_sans_01.numbers.fontSizeNumber
+  fontPackages.body_sans_01.numbers.fontSizeNumber,
 );
 
 const link = {

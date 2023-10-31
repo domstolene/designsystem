@@ -21,13 +21,12 @@ const StyledTable = styled.table<StyledTableProps>`
   }
   ${scrollbarStyling.webkit}
   ${scrollbarStyling.firefox}
-  ${({ density }) =>
-    css`
-      td,
-      th {
-        padding: ${cell.density[density].padding};
-      }
-    `}
+  ${({ density }) => css`
+    td,
+    th {
+      padding: ${cell.density[density].padding};
+    }
+  `}
   ${({ density }) =>
     density === 'extraCompact' &&
     css`
@@ -73,7 +72,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
     };
 
     return <StyledTable {...tableProps}>{children}</StyledTable>;
-  }
+  },
 );
 
 Table.displayName = 'Table';

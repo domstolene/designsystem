@@ -26,7 +26,7 @@ type ItemState =
 const toItemState = (
   active: boolean,
   completed: boolean,
-  disabled: boolean
+  disabled: boolean,
 ): ItemState => {
   if (disabled) {
     return 'disabled';
@@ -81,7 +81,10 @@ const ItemWrapper = styled.li`
 `;
 
 const ItemNumber = styled.div<ItemStyleProps>`
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
   border-radius: 50%;
   border: ${itemNumber.borderWidth} solid;
   width: ${itemNumber.size};
@@ -185,7 +188,7 @@ const ItemContentWrapper = styled.button<ItemStyleProps>`
 const getVisuallyHiddenText = (
   active: boolean,
   completed: boolean,
-  index: number
+  index: number,
 ) =>
   `${index + 1}, ${active ? '' : 'Trinn, '}${
     completed ? 'Ferdig, ' : 'Ikke ferdig, '

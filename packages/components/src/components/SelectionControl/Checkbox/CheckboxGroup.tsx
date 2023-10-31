@@ -73,7 +73,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         id,
         className,
         { ...htmlProps, 'aria-required': ariaRequired },
-        rest
+        rest,
       )}
     >
       <Typography

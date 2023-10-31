@@ -69,7 +69,7 @@ export const HStack = forwardRef<HTMLDivElement, StackProps>(
       ref={ref}
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     />
-  )
+  ),
 );
 
 HStack.displayName = 'HStack';
@@ -81,7 +81,7 @@ export const VStack = forwardRef<HTMLDivElement, StackProps>(
       ref={ref}
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     />
-  )
+  ),
 );
 
 VStack.displayName = 'VStack';

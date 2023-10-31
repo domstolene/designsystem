@@ -37,7 +37,7 @@ describe('<Chip />', () => {
     render(
       <ChipGroup>
         <Chip />
-      </ChipGroup>
+      </ChipGroup>,
     );
     const list = screen.getByRole('list');
     const listitem = screen.getByRole('listitem');

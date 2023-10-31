@@ -38,7 +38,7 @@ export const InlineEdit = (props: InlineEditProps) => {
   };
 
   const onBlurHandler: FocusEventHandler<EditElement> = (
-    e: FocusEvent<EditElement>
+    e: FocusEvent<EditElement>,
   ) => {
     if (!emptiable && e.target.value.trim() === '') {
       setEditingValue(value);
@@ -72,7 +72,7 @@ export const InlineEdit = (props: InlineEditProps) => {
         isEditing,
         value: editingValue,
         emptiable,
-      })
+      }),
   );
 
   return <>{inputChild}</>;

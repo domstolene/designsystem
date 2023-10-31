@@ -27,7 +27,10 @@ export const Input = styled.input`
   box-sizing: border-box;
   box-shadow: none;
   @media (prefers-reduced-motion: no-preference) {
-    transition: box-shadow 0.2s, border-color 0.2s, background-color 0.2s;
+    transition:
+      box-shadow 0.2s,
+      border-color 0.2s,
+      background-color 0.2s;
   }
   &[type='text'],
   &[type='password'],

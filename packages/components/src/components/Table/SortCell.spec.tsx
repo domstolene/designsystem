@@ -12,7 +12,7 @@ describe('<SortCell />', () => {
             <Table.SortCell onClick={event}></Table.SortCell>
           </Table.Row>
         </Table.Head>
-      </Table>
+      </Table>,
     );
     const sortButton = container.querySelector('th')?.querySelector('button');
     fireEvent.click(sortButton!);
@@ -31,7 +31,7 @@ describe('<SortCell />', () => {
             ></Table.SortCell>
           </Table.Row>
         </Table.Head>
-      </Table>
+      </Table>,
     );
     const sortCell = container.querySelector('th');
     expect(sortCell!.getAttribute('aria-sort')).toBe('ascending');

@@ -75,12 +75,12 @@ export const data: CellDataToSort[] = [
 
 export const mapCellContents = (
   data: CellDataToSort[],
-  headerCells: HeaderCellToSort[]
+  headerCells: HeaderCellToSort[],
 ): string[][] =>
   data.map(item =>
     headerCells.map(headerCell =>
       typeof item[headerCell.dataName as keyof CellDataToSort] !== 'undefined'
         ? (item[headerCell.dataName as keyof CellDataToSort] as string)
-        : ''
-    )
+        : '',
+    ),
   );

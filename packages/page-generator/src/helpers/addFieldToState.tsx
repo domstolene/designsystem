@@ -9,7 +9,7 @@ const FIELD_MISSING_NAME_OR_ID = 'FIELD_MISSING_NAME_OR_ID';
 
 export const addFieldToState = (
   field: PageGeneratorField,
-  state: PageGeneratorState<PageGeneratorStateOptionTypes>
+  state: PageGeneratorState<PageGeneratorStateOptionTypes>,
 ) => {
   let key = '';
   switch (field.component) {

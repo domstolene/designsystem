@@ -24,7 +24,7 @@ const getHeading = (innerHTML: string): PageGeneratorField => {
 
 const getDescriptionList = (
   children: DescriptionListGroupField[],
-  direction?: 'row' | 'column'
+  direction?: 'row' | 'column',
 ): PageGeneratorField => {
   return {
     component: PageGeneratorSupportedFields.DescriptionList,
@@ -37,7 +37,7 @@ const getDescriptionList = (
 
 const getDescriptionListGroup = (
   term: string,
-  desc: string | JSX.Element
+  desc: string | JSX.Element,
 ): DescriptionListGroupField => {
   return {
     component: PageGeneratorSupportedFields.DescriptionListGroup,
@@ -68,7 +68,7 @@ export const OtherFields = (): (PageGeneratorField | PageGeneratorRow)[] => {
         getDescriptionListGroup('Term2', 'Desc2'),
         getDescriptionListGroup('Term3', 'Desc3'),
       ],
-      'row'
+      'row',
     ),
     getHeading('DescriptionList - direction column'),
     getDescriptionList(
@@ -77,7 +77,7 @@ export const OtherFields = (): (PageGeneratorField | PageGeneratorRow)[] => {
         getDescriptionListGroup('Term2', 'Desc2'),
         getDescriptionListGroup('Term3', 'Desc3'),
       ],
-      'column'
+      'column',
     ),
     {
       component: PageGeneratorSupportedFields.Card,

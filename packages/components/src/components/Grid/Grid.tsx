@@ -21,7 +21,7 @@ type StyledGridProps = {
 const getHooksGridStyling = (
   screenSize: ScreenSize,
   maxWidth?: MaxWidthGrid,
-  rowGap?: RowGapGrid
+  rowGap?: RowGapGrid,
 ) => {
   const tokens = gridTokens[screenSize].grid;
   return {
@@ -42,10 +42,9 @@ const getHooksGridStyling = (
 
 const StyledGrid = styled.div<StyledGridProps>`
   display: grid;
-  ${({ maxWidth }) =>
-    css`
-      max-width: ${maxWidth};
-    `}
+  ${({ maxWidth }) => css`
+    max-width: ${maxWidth};
+  `}
   ${({ screenSize, maxWidth, rowGap }) =>
     getHooksGridStyling(screenSize, maxWidth, rowGap)}
 `;

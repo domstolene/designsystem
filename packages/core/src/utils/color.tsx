@@ -12,7 +12,7 @@ export type ColorAlphaFormat = 'hex8' | 'decimal';
 export const convertAlpha = (
   value: number | string,
   typeFrom: ColorAlphaFormat,
-  typeTo: ColorAlphaFormat
+  typeTo: ColorAlphaFormat,
 ) => {
   if (typeFrom === 'decimal' && typeTo === 'hex8') {
     const numberValue = Number(value);
@@ -20,7 +20,7 @@ export const convertAlpha = (
     if (typeof numberValue !== 'number' || numberValue > 1 || numberValue < 0)
       return '';
     const hex8 = Math.round(
-      255 * (Math.round(numberValue * 100) / 100)
+      255 * (Math.round(numberValue * 100) / 100),
     ).toString(16);
 
     return hex8.length === 1 ? '0' + hex8 : hex8;

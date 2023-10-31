@@ -45,7 +45,7 @@ describe('<Modal />', () => {
 
     expect(el.querySelector('div')?.querySelector('div')).toHaveAttribute(
       'id',
-      `${id}-header`
+      `${id}-header`,
     );
     expect(el).toHaveAttribute('aria-labelledby', `${id}-header`);
   });
@@ -55,7 +55,7 @@ describe('<Modal />', () => {
     render(
       <Modal isOpen={true}>
         <ModalBody>{content}</ModalBody>
-      </Modal>
+      </Modal>,
     );
     const el = screen.getByText(content);
     expect(el).toBeInTheDocument();

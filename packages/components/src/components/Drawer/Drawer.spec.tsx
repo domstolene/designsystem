@@ -100,7 +100,7 @@ describe('<Drawer />', () => {
       <DrawerGroup onClose={event}>
         <Button>{buttonLabel}</Button>
         <Drawer>{content}</Drawer>
-      </DrawerGroup>
+      </DrawerGroup>,
     );
     const button = screen.getByText(buttonLabel);
 
@@ -122,7 +122,7 @@ describe('<Drawer />', () => {
       <DrawerGroup onClose={event}>
         <Button>{buttonLabel}</Button>
         <Drawer>{content}</Drawer>
-      </DrawerGroup>
+      </DrawerGroup>,
     );
     const button = screen.getByText(buttonLabel);
 
@@ -145,7 +145,7 @@ describe('<Drawer />', () => {
       <DrawerGroup onOpen={event}>
         <Button>{buttonLabel}</Button>
         <Drawer>{content}</Drawer>
-      </DrawerGroup>
+      </DrawerGroup>,
     );
     const button = screen.getByText(buttonLabel);
 

@@ -9,7 +9,7 @@ import {
 import { Direction } from '../types';
 
 export const isKeyboardEvent = (
-  e: Event | KeyboardEvent<Element>
+  e: Event | KeyboardEvent<Element>,
 ): e is KeyboardEvent<Element> =>
   (e as KeyboardEvent<Element>).key !== undefined;
 
@@ -41,7 +41,7 @@ export const isKeyboardEvent = (
 export function useRoveFocus(
   size?: number,
   reset?: boolean,
-  direction: Direction = 'column'
+  direction: Direction = 'column',
 ): [number, Dispatch<SetStateAction<number>>] {
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
 
@@ -56,19 +56,19 @@ export function useRoveFocus(
         // Down arrow
         e.preventDefault();
         setCurrentFocusIndex(
-          currentFocusIndex === size - 1 ? 0 : currentFocusIndex + 1
+          currentFocusIndex === size - 1 ? 0 : currentFocusIndex + 1,
         );
       } else if (e.key === previousKey) {
         // Up arrow
         e.preventDefault();
         if (currentFocusIndex !== -1) {
           setCurrentFocusIndex(
-            currentFocusIndex === 0 ? size - 1 : currentFocusIndex - 1
+            currentFocusIndex === 0 ? size - 1 : currentFocusIndex - 1,
           );
         } else setCurrentFocusIndex(size - 1);
       }
     },
-    [size, currentFocusIndex, setCurrentFocusIndex, reset]
+    [size, currentFocusIndex, setCurrentFocusIndex, reset],
   );
 
   useEffect(() => {

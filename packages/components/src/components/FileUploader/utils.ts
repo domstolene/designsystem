@@ -6,7 +6,7 @@ export const preventDefaults = (event: React.BaseSyntheticEvent) => {
 };
 
 export const isDragEvent = (
-  event: unknown
+  event: unknown,
 ): event is React.DragEvent<unknown> => {
   const asDragEvent = event as React.DragEvent<unknown>;
 
@@ -14,7 +14,7 @@ export const isDragEvent = (
 };
 
 export const isEventWithFiles = (
-  event: React.DragEvent<unknown> | React.ChangeEvent<HTMLInputElement>
+  event: React.DragEvent<unknown> | React.ChangeEvent<HTMLInputElement>,
 ): boolean => {
   if (!isDragEvent(event)) {
     return event.target.files !== null && event.target.files !== undefined;
@@ -28,7 +28,7 @@ export const isEventWithFiles = (
 
 export const isFileAccepted = (
   file: File,
-  accept: string[] | undefined
+  accept: string[] | undefined,
 ): boolean => {
   return accept !== undefined ? accepted(file, accept) : true;
 };

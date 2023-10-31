@@ -56,7 +56,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       isLoading: loading,
       size,
       onClick: (
-        event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
+        event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
       ) => {
         if (!loading && onClick) {
           onClick(event);
@@ -104,7 +104,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
       </ButtonWrapper>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';

@@ -7,7 +7,7 @@
 export const replaceAll = (
   source: string,
   find: string,
-  replace: string
+  replace: string,
 ): string => {
   return source.split(find).join(replace);
 };

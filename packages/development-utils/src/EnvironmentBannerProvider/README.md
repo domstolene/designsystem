@@ -23,7 +23,7 @@ root.render(
   <EnvironmentBannerProvider environment={environment}>
     <App />
   </EnvironmentBannerProvider>,
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 ```
 

@@ -35,7 +35,9 @@ const Sidebar = styled.div<{
   bottom: 0;
   z-index: 100;
 
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transition:
+    transform 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
 
@@ -139,7 +141,7 @@ export const Navigation = ({
           {Children.map(internal, item => {
             if (item.type !== NavigationItem) {
               console.warn(
-                `Du bruker en React-komponent som ikke er tillat i AppShell-internal. Du kan kun bruke AppShell.NavItem i AppShell-internal.`
+                `Du bruker en React-komponent som ikke er tillat i AppShell-internal. Du kan kun bruke AppShell.NavItem i AppShell-internal.`,
               );
               return null;
             }
@@ -155,7 +157,7 @@ export const Navigation = ({
           {Children.map(external, item => {
             if (item.type !== NavigationItem) {
               console.warn(
-                'Du bruker en React-komponent som ikke er tillat i AppShell-external. Du kan kun bruke AppShell.NavItem i AppShell-external.'
+                'Du bruker en React-komponent som ikke er tillat i AppShell-external. Du kan kun bruke AppShell.NavItem i AppShell-external.',
               );
               return null;
             }

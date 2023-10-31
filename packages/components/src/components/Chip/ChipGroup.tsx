@@ -23,7 +23,7 @@ export const ChipGroup = forwardRef<HTMLUListElement, ChipGroupProps>(
         {groupChildren}
       </Group>
     );
-  }
+  },
 );
 
 ChipGroup.displayName = 'ChipGroup';

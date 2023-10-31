@@ -37,7 +37,7 @@ export const Default = (args: Partial<ComponentProps<typeof Calendar>>) => {
 };
 
 export const UnavailableWeekends = (
-  args: Partial<ComponentProps<typeof Calendar>>
+  args: Partial<ComponentProps<typeof Calendar>>,
 ) => {
   const [date, setDate] = useState<
     CalendarDate | ZonedDateTime | CalendarDateTime

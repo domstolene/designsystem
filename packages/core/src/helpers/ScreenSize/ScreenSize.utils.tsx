@@ -4,7 +4,7 @@ import { StandardProperties } from 'csstype';
 export type ScreenSizeLiteral = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export const getLiteralScreenSize = (
-  screenSize: ScreenSize
+  screenSize: ScreenSize,
 ): ScreenSizeLiteral => {
   switch (screenSize) {
     case ScreenSize.XLarge:

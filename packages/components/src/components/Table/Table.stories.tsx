@@ -354,7 +354,7 @@ export const WithCheckbox = (args: TableProps) => {
       currentRows.push(row);
     } else {
       const index = currentRows.findIndex(
-        selectedRow => selectedRow.id === row.id
+        selectedRow => selectedRow.id === row.id,
       );
       currentRows.splice(index, 1);
     }
@@ -412,7 +412,7 @@ export const WithCheckbox = (args: TableProps) => {
           <Table.Body>
             {rows.map(row => {
               const isSelected = selectedRows.find(
-                selectedRow => row.id === selectedRow.id
+                selectedRow => row.id === selectedRow.id,
               )
                 ? true
                 : false;
@@ -555,7 +555,7 @@ export const Sortable = (args: TableProps) => {
           isSorted: false,
           sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined,
         };
-      }
+      },
     );
     setHeaderSortCells(updateSortInfo);
   };

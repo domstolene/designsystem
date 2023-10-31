@@ -58,7 +58,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
         <List>{breadcrumbChildren}</List>
       </nav>
     );
-  }
+  },
 );
 
 Breadcrumbs.displayName = 'Breadcrumbs';

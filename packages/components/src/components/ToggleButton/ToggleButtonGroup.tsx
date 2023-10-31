@@ -13,10 +13,9 @@ const Group = styled.div<GroupProps>`
   gap: ${tokens.group.gap};
   display: flex;
   flex-wrap: wrap;
-  ${({ direction }) =>
-    css`
-      flex-direction: ${direction};
-    `}
+  ${({ direction }) => css`
+    flex-direction: ${direction};
+  `}
 `;
 
 const Container = styled.div`

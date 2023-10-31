@@ -35,7 +35,7 @@ import { useEffect, useState } from 'react';
 
 export const useMountTransition = (
   isMounted: boolean,
-  unmountDelay: number
+  unmountDelay: number,
 ) => {
   const [hasTransitionedIn, setHasTransitionedIn] = useState(false);
 

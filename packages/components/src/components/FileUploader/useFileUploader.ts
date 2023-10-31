@@ -45,7 +45,7 @@ export type FileUploaderHookProps = {
 const calcRootErrors = (
   files: FileUploaderFile[],
   maxFiles: number | undefined,
-  errorMessage: string | undefined
+  errorMessage: string | undefined,
 ): RootErrorList => {
   const errors: RootErrorList = [];
 
@@ -61,7 +61,7 @@ const calcRootErrors = (
 };
 
 export const useFileUploader = <TRootElement extends HTMLElement>(
-  props: FileUploaderHookProps
+  props: FileUploaderHookProps,
 ) => {
   const {
     initialFiles,
@@ -84,7 +84,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         file: f,
         errors: [],
       })),
-    [initialFiles]
+    [initialFiles],
   );
 
   const [state, dispatch] = useReducer(fileUploaderReducer, {
@@ -95,7 +95,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     rootErrors: calcRootErrors(
       initialFileUploaderFiles,
       maxFiles,
-      errorMessage
+      errorMessage,
     ),
   });
 
@@ -128,7 +128,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
   const onRootFocus = useCallback(
     () => dispatch({ type: 'focus' }),
-    [dispatch]
+    [dispatch],
   );
 
   const onRootBlur = useCallback(() => dispatch({ type: 'blur' }), [dispatch]);
@@ -146,7 +146,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         dispatch({ type: 'dragEnter' });
       }
     },
-    [dispatch, accept, maxFiles]
+    [dispatch, accept, maxFiles],
   );
 
   const onRootDragOver = useCallback((evt: React.DragEvent<TRootElement>) => {
@@ -168,12 +168,12 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
       dispatch({ type: 'dragLeave' });
     },
-    [dispatch]
+    [dispatch],
   );
 
   const setFiles = useCallback(
     async (
-      evt: React.DragEvent<TRootElement> | React.ChangeEvent<HTMLInputElement>
+      evt: React.DragEvent<TRootElement> | React.ChangeEvent<HTMLInputElement>,
     ) => {
       evt.preventDefault();
       if (isEventWithFiles(evt)) {
@@ -212,7 +212,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       maxFiles,
       onChange,
       dispatch,
-    ]
+    ],
   );
 
   const openFileDialog = useCallback(() => {
@@ -236,7 +236,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         });
       }
     },
-    [stateFiles, isControlled, maxFiles, errorMessage, onChange, dispatch]
+    [stateFiles, isControlled, maxFiles, errorMessage, onChange, dispatch],
   );
 
   const getRootProps = useCallback(
@@ -259,7 +259,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       setFiles,
       rootRef,
       disabled,
-    ]
+    ],
   );
 
   const getButtonProps = useCallback(
@@ -269,7 +269,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       onClick: openFileDialog,
       ref: buttonRef,
     }),
-    [openFileDialog, buttonRef]
+    [openFileDialog, buttonRef],
   );
 
   const getInputProps = useCallback(
@@ -284,7 +284,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       multiple: !maxFiles || maxFiles > 1,
       ...(accept ? { accept: accept.join(',') } : {}),
     }),
-    [inputRef, setFiles, maxFiles, accept]
+    [inputRef, setFiles, maxFiles, accept],
   );
 
   return {

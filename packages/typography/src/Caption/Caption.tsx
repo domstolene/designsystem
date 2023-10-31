@@ -24,7 +24,7 @@ export const Caption = forwardRef<HTMLTableCaptionElement, CaptionProps>(
         {children}
       </Typography>
     );
-  }
+  },
 );
 
 Caption.displayName = 'Caption';

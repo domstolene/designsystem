@@ -66,7 +66,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
 
   const findFieldByNameInternal = (
     name: string,
-    fieldsToSearch: (PageGeneratorField | PageGeneratorRow)[]
+    fieldsToSearch: (PageGeneratorField | PageGeneratorRow)[],
   ): PageGeneratorField | PageGeneratorRow | null => {
     for (const f of fieldsToSearch) {
       // Search for fields with validation named name
@@ -91,7 +91,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
   const updateErrors = (
     fieldErrors: PageGeneratorValidation[],
     name: string,
-    value: string
+    value: string,
   ) => {
     const newErrors = {
       ...errors,
@@ -109,26 +109,26 @@ export const PageGenerator = (props: PageGeneratorProps) => {
       const fieldErrors =
         (field.validations &&
           field.validations.filter(
-            (v: PageGeneratorValidation) => !v.rule(value)
+            (v: PageGeneratorValidation) => !v.rule(value),
           )) ||
         [];
       updateErrors(fieldErrors, name, value);
       setErrorMessage(
         name,
-        fieldErrors.length > 0 ? fieldErrors[0].message : ''
+        fieldErrors.length > 0 ? fieldErrors[0].message : '',
       );
     }
   };
 
   const onBlur = <T extends HTMLInputElement | HTMLTextAreaElement>(
-    event: FocusEvent<T>
+    event: FocusEvent<T>,
   ) => {
     const { name, value } = event.target;
     validateFields(name, value);
   };
 
   const fieldOnChange = <T extends HTMLInputElement | HTMLTextAreaElement>(
-    event: ChangeEvent<T>
+    event: ChangeEvent<T>,
   ) => {
     const { id, name, value } = event.target;
     const checked = (event as ChangeEvent<HTMLInputElement>).target?.checked;
@@ -144,7 +144,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     chosen:
       | SingleValue<Record<string, unknown>>
       | MultiValue<Record<string, unknown>>,
-    name: string
+    name: string,
   ) => {
     let value = null;
     if (isMultiValue(chosen)) {
@@ -177,7 +177,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                 obj,
                 fieldOnChange,
                 selectOnChange,
-                screenSize
+                screenSize,
               )
             );
           } else {
@@ -198,7 +198,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                           fieldOnChange,
                           selectOnChange,
                           screenSize,
-                          onBlur
+                          onBlur,
                         )
                       );
                     })}
@@ -217,7 +217,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
                   fieldOnChange,
                   selectOnChange,
                   screenSize,
-                  onBlur
+                  onBlur,
                 )}
               </GridChild>
             )

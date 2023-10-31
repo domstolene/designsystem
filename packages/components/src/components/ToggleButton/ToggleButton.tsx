@@ -36,7 +36,10 @@ const Content = styled.span<ContentProps>`
   padding: ${toggleButton.padding};
   ${getFontStyling(typographyType)}
   @media (prefers-reduced-motion: no-preference) {
-    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s,
+    transition:
+      border-color 0.2s,
+      background-color 0.2s,
+      box-shadow 0.2s,
       ${focusVisibleTransitionValue};
   }
 
@@ -97,7 +100,7 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
         </Content>
       </Container>
     );
-  }
+  },
 );
 
 ToggleButton.displayName = 'ToggleButton';

@@ -69,7 +69,7 @@ describe('<CollapsibleTable />', () => {
     render(table);
 
     expect(
-      screen.queryByText(headers[0].content.toString())
+      screen.queryByText(headers[0].content.toString()),
     ).toBeInTheDocument();
     expect(screen.queryByText(header2Content)).not.toBeInTheDocument();
     expect(screen.queryByText(bodyCellContent[0])).toBeInTheDocument();
@@ -101,7 +101,7 @@ describe('<CollapsibleTable />', () => {
     expect(screen.queryByText(header2Content)).toBeInTheDocument();
     expect(screen.queryByText(bodyCellContent[1])).toBeInTheDocument();
     expect(
-      screen.queryByText(collapsingColumnHeaderText)
+      screen.queryByText(collapsingColumnHeaderText),
     ).not.toBeInTheDocument();
 
     act(() => {
@@ -127,16 +127,16 @@ describe('<CollapsibleTable />', () => {
             <Table.Cell>{bodyCellContent[1]}</Table.Cell>
           </CollapsibleTable.Row>
         </Table.Body>
-      </CollapsibleTable>
+      </CollapsibleTable>,
     );
     expect(
-      screen.queryByText(headers[0].content.toString())
+      screen.queryByText(headers[0].content.toString()),
     ).toBeInTheDocument();
     expect(screen.queryByText(header2Content)).toBeInTheDocument();
     expect(screen.queryByText(bodyCellContent[1])).toBeInTheDocument();
     expect(screen.queryByText(bodyCellContent[0])).toBeInTheDocument();
     expect(
-      screen.queryByText(collapsingColumnHeaderText)
+      screen.queryByText(collapsingColumnHeaderText),
     ).not.toBeInTheDocument();
   });
 });

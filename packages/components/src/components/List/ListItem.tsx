@@ -15,7 +15,7 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
         {children}
       </StyledListItem>
     );
-  }
+  },
 );
 
 ListItem.displayName = 'ListItem';

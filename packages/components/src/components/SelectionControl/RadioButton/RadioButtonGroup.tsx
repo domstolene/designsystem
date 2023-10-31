@@ -34,7 +34,7 @@ export type RadioButtonGroupProps<T extends string | number> =
       /**Funksjonen for onChange-event for barna. */
       onChange?: (
         event: ChangeEvent<HTMLInputElement>,
-        value: T | undefined
+        value: T | undefined,
       ) => void;
       /**Legger en markør (*) bak label som indikerer at input er påkrevd. Gjør alle barna påkrevd ved å gi dem `required` prop. */
       required?: boolean;
@@ -58,7 +58,7 @@ export type RadioButtonGroupProps<T extends string | number> =
 
 const RadioButtonGroupInner = <T extends string | number = string>(
   props: RadioButtonGroupProps<T>,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) => {
   const {
     name,
@@ -90,7 +90,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
 
   const handleChange = combineHandlers(
     (e: ChangeEvent<HTMLInputElement>) => setGroupValue(e.target.value),
-    e => onChange && onChange(e, e.target.value as T)
+    e => onChange && onChange(e, e.target.value as T),
   );
 
   const hasErrorMessage = !!errorMessage;
@@ -116,7 +116,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
         id,
         className,
         { ...htmlProps, 'aria-required': ariaRequired },
-        rest
+        rest,
       )}
       ref={ref}
     >
@@ -145,9 +145,9 @@ const RadioButtonGroupInner = <T extends string | number = string>(
 };
 
 export const RadioButtonGroup = forwardRef(RadioButtonGroupInner) as <
-  T extends string | number = string
+  T extends string | number = string,
 >(
-  props: RadioButtonGroupProps<T> & { ref?: Ref<HTMLDivElement> }
+  props: RadioButtonGroupProps<T> & { ref?: Ref<HTMLDivElement> },
 ) => ReactElement;
 
 // @ts-expect-error TODO fix RadioButtonGroup type

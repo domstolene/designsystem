@@ -36,7 +36,7 @@ export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
     };
 
     return <Typography {...paragraphProps}>{children}</Typography>;
-  }
+  },
 );
 
 Paragraph.displayName = 'Paragraph';

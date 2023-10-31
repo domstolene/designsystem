@@ -147,7 +147,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
           onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
           'aria-describedby': uniqueTooltipId,
-        })
+        }),
     );
 
     const containerProps = {
@@ -193,7 +193,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         </TooltipWrapper>
       </Container>
     );
-  }
+  },
 );
 
 Tooltip.displayName = 'Tooltip';
