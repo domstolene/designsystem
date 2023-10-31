@@ -1,6 +1,8 @@
+import { describe, it, expect } from 'vitest';
+
 import { BaseComponentProps, getBaseHTMLProps } from './BaseComponentProps';
 
-type BCP = BaseComponentProps<HTMLElement> & {};
+type BCP = BaseComponentProps<HTMLElement>;
 
 describe('getBaseHTMLProps', () => {
   it('returns empty object if not receiving any non-undefined arguments', () => {
