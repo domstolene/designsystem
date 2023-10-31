@@ -8,10 +8,10 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "build:docs": "turbo run build --filter @norges-domstoler/docs",
-    "verify": "turbo run verify",
+    "dev": "turbo run dev --cache-dir=.turbo",
+    "build": "turbo run build --cache-dir=.turbo",
+    "build:docs": "turbo run build --filter @norges-domstoler/docs --cache-dir=.turbo",
+    "verify": "turbo run verify --cache-dir=.turbo",
     "changeset": "changeset",
     "prerelease": "npm run build",
     "release": "changeset publish",
