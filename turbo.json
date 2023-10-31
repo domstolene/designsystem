@@ -12,14 +12,8 @@
     "dev": {
       "cache": false
     },
-    "test": {
-      "dependsOn": ["build"],
-      "cache": false
-    },
-    "verify": {
-      "dependsOn": ["^build"],
-      "cache": false
-    }
+    "test": {},
+    "verify": {}
   },
   "globalDependencies": ["tsconfig.json"]
 }
