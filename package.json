@@ -16,7 +16,8 @@
     "prerelease": "npm run build",
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset publish --tag dev"
+    "release:dev": "changeset publish --tag dev",
+    "create:pkg": "plop component"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
     "@storybook/react-vite": "^7.5.2",
+    "plop": "^4.0.0",
     "turbo": "^1.10.16"
   },
   "overrides": {

@@ -1,0 +1,59 @@
+{
+  "name": "@norges-domstoler/dds-{{componentName}}",
+  "version": "0.0.0",
+  "description": "{{description}}",
+  "author": "Elsa Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domstolene/designsystem/blob/main/packages/{{dashCase componentName}}"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "src/index.ts",
+  "homepage": "https://design.domstol.no",
+  "scripts": {
+    "build": "tsup --dts",
+    "build:fast": "tsup",
+    "dev": "npm run build:fast -- --watch",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "keywords": [
+    "dds",
+    "{{componentName}}",
+    "domstolene",
+    "norges domstoler",
+    "elsa"
+  ],
+  "devDependencies": {
+    "@norges-domstoler/dds-design-tokens": "*",
+    "@norges-domstoler/storybook-components": "*",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "clean-package": "2.2.0",
+    "concurrently": "^8.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "@norges-domstoler/dds-design-tokens": "^3",
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18",
+    "styled-components": "^5 || ^6"
+  },
+  "dependencies": {
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "clean-package": "../../clean-package.config.json"
+}
