@@ -84,3 +84,5 @@ export function DateSegment({ segment, state }: DateSegmentProps) {
     </Segment>
   );
 }
+
+DateSegment.displayName = 'DateSegment';

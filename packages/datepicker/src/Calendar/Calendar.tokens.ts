@@ -73,4 +73,11 @@ const grid = {
   gap: '2px',
 };
 
-export const calendarTokens = { grid, cell };
+const popover = {
+  backgroundColor: ddsBaseTokens.colors.DdsColorNeutralsWhite,
+  borderRadius: ddsBaseTokens.borderRadius.RadiiDdsBorderRadius1Radius,
+  border: `2px solid ${ddsBaseTokens.border.BordersDdsBorderFocusInputfieldStroke}`,
+  padding: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
+};
+
+export const calendarTokens = { grid, cell, popover };
