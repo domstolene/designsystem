@@ -1,13 +1,20 @@
-name: Build and test verification
+name: Pull Request
+
 on:
   pull_request:
+    branches: [main]
 jobs:
-  build-and-test:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout branch
+        uses: actions/checkout@v4
 
-      - name: Cache turbo build setup
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Cache turbo
         uses: actions/cache@v3
         with:
           path: .turbo
@@ -15,23 +22,73 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          registry-url: "https://registry.npmjs.org"
-          cache: npm
-
-      - name: Install
-        run: npm ci
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Build
         run: npm run build
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Verify
-        run: npm run verify
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Cache turbo
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Run tests
+        run: npm run test
+
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Run ESLint
+        run: npm run lint
+
+  types:
+    name: TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Cache turbo
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Run typecheck
+        run: npm run typecheck
+
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Run prettier
+        run: npm run format:check
