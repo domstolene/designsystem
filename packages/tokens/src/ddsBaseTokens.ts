@@ -10,7 +10,7 @@ import {
   innerShadow,
   outerShadow,
   fontPackages,
-} from "../dds";
+} from '../dds';
 
 export const ddsBaseTokens = {
   colors,

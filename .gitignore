@@ -24,3 +24,6 @@ dist
 
 #turbo
 .turbo
+
+# Optional eslint cache
+.eslintcache

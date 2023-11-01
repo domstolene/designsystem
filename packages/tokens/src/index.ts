@@ -1,2 +1,2 @@
-export * from "./ddsBaseTokens";
-export * from "./ddsReferenceTokens";
+export * from './ddsBaseTokens';
+export * from './ddsReferenceTokens';

@@ -1,0 +1,3 @@
+packages/*/src/setupTests.ts
+packages/*/src/**/*.spec.tsx
+packages/*/dist

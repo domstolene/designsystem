@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from "./ddsBaseTokens";
+import { ddsBaseTokens } from './ddsBaseTokens';
 
 const {
   colors: Colors,
