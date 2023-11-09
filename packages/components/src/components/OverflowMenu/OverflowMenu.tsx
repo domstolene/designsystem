@@ -22,7 +22,9 @@ import { PersonIcon } from '@norges-domstoler/dds-icons';
 
 const { container, divider } = tokens;
 
-interface ContainerProps { isOpen: boolean }
+interface ContainerProps {
+  isOpen: boolean;
+}
 
 export const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
@@ -117,7 +119,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
 
     const hasContextItems = !!items && items.length > 0;
     const hasNavItems = !!navItems && navItems.length > 0;
-    const { name: username, ...userPropsRest } = userProps || {};
+    const { name: username, ...userPropsRest } = userProps ?? {};
     const hasStaticUser =
       username && userProps && !userProps.href && !userProps.onClick;
     const hasInteractiveUser =
@@ -130,10 +132,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
 
     const hasInteractiveItems = interactiveItems.length > 0;
 
-    const [focus, setFocus] = useRoveFocus(
-      interactiveItems && interactiveItems.length,
-      !isOpen,
-    );
+    const [focus, setFocus] = useRoveFocus(interactiveItems?.length, !isOpen);
 
     const interactiveItemsList = hasInteractiveItems
       ? interactiveItems.map((item, index) => (

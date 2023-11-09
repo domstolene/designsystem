@@ -21,24 +21,24 @@ export default {
 export const Overview = (args: CheckboxProps) => {
   return (
     <StoryTemplate title="Checkbox - overview" display="grid">
-      <Checkbox {...args} label={args.label || 'Default'} />
-      <Checkbox {...args} label={args.label || 'Checked'} checked />
-      <Checkbox {...args} label={args.label || 'Indeterminate'} indeterminate />
-      <Checkbox {...args} label={args.label || 'Disabled'} disabled />
+      <Checkbox {...args} label={args.label ?? 'Default'} />
+      <Checkbox {...args} label={args.label ?? 'Checked'} checked />
+      <Checkbox {...args} label={args.label ?? 'Indeterminate'} indeterminate />
+      <Checkbox {...args} label={args.label ?? 'Disabled'} disabled />
       <Checkbox
         {...args}
-        label={args.label || 'Disabled checked'}
+        label={args.label ?? 'Disabled checked'}
         disabled
         checked
       />
       <Checkbox
         {...args}
-        label={args.label || 'Disabled indeterminate'}
+        label={args.label ?? 'Disabled indeterminate'}
         disabled
         indeterminate
       />
-      <Checkbox {...args} label={args.label || 'Error'} error />
-      <Checkbox {...args} label={args.label || 'Error checked'} error checked />
+      <Checkbox {...args} label={args.label ?? 'Error'} error />
+      <Checkbox {...args} label={args.label ?? 'Error checked'} error checked />
       <Checkbox {...args} />
     </StoryTemplate>
   );

@@ -13,7 +13,7 @@ import { HTMLAttributes, PropsWithChildren } from 'react';
  */
 export type BaseComponentProps<
   TElement extends Element,
-  TOtherProps extends Record<string, unknown> = Record<string, unknown>,
+  TOtherProps extends object = object,
   THTMLAttributesProps extends
     HTMLAttributes<TElement> = HTMLAttributes<TElement>,
 > = Pick<THTMLAttributesProps, 'id' | 'className'> &
@@ -29,7 +29,7 @@ export type BaseComponentProps<
  */
 export type BaseComponentPropsWithChildren<
   T extends Element,
-  TProps extends Record<string, unknown> = Record<string, unknown>,
+  TProps extends object = object,
   THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>,
 > = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
 
@@ -115,7 +115,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
       id: htmlPropsId,
       className: htmlPropsClassName,
       ...restHTMLProps
-    } = (htmlPropsOrClassName ) ?? {};
+    } = htmlPropsOrClassName ?? {};
 
     const propId = id ?? htmlPropsId;
 

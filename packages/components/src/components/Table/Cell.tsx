@@ -30,7 +30,9 @@ const getLayoutStyle = (layout: TableCellLayout) => {
   }
 };
 
-interface StyledCellProps { type: TableCellType }
+interface StyledCellProps {
+  type: TableCellType;
+}
 
 const StyledCell = styled.td<StyledCellProps>`
   ${({ type }) =>
@@ -81,7 +83,7 @@ export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
   ) => {
     const as: ElementType = getTableCellType(type);
 
-    const { isCollapsibleChild } = collapsibleProps || {};
+    const { isCollapsibleChild } = collapsibleProps ?? {};
 
     const cellProps = {
       as: as,

@@ -146,7 +146,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     };
 
     const handleSelectChange = (option: PaginationOption | null) => {
-      setItemsPerPage(option?.value!);
+      if (option !== null) {
+        setItemsPerPage(option.value);
+      }
+
       if (onSelectOptionChange) {
         onSelectOptionChange(option);
       }

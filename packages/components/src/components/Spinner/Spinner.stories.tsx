@@ -34,8 +34,8 @@ export const Default = (args: SpinnerProps) => (
   <StoryTemplate title="Spinner - default">
     <Spinner
       {...args}
-      size={args.size || ddsBaseTokens.iconSizes.DdsIconsizeMedium}
-      color={args.color || 'interactive'}
+      size={args.size ?? ddsBaseTokens.iconSizes.DdsIconsizeMedium}
+      color={args.color ?? 'interactive'}
     />
   </StoryTemplate>
 );

@@ -42,11 +42,11 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       defaultValue,
       onChange,
       errorMessage,
-      required,
+      required = false,
       disabled,
       tip,
       label,
-      'aria-required': ariaRequired,
+      'aria-required': ariaRequired = false,
       'aria-describedby': ariaDescribedby,
       className,
       style,
@@ -64,7 +64,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     );
 
     useEffect(() => {
-      if (textAreaRef && textAreaRef.current) {
+      if (textAreaRef?.current) {
         textAreaRef.current.style.height = `${
           textAreaRef.current.scrollHeight + 2
         }px`;

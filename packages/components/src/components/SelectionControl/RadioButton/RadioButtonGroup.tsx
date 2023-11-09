@@ -66,12 +66,12 @@ const RadioButtonGroupInner = <T extends string | number = string>(
     groupId,
     errorMessage,
     tip,
-    disabled,
-    readOnly,
+    disabled = false,
+    readOnly = false,
     direction = 'row',
     value,
     children,
-    required,
+    required = false,
     onChange,
     id,
     className,
@@ -79,7 +79,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
     ...rest
   } = props;
 
-  const { 'aria-required': ariaRequired } = htmlProps;
+  const { 'aria-required': ariaRequired = false } = htmlProps;
 
   const [groupValue, setGroupValue] = useState<
     string | number | null | undefined

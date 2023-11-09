@@ -61,7 +61,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="primary"
         appearance="filled"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary
@@ -70,7 +70,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="secondary"
         appearance="filled"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Secondary
@@ -79,7 +79,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="danger"
         appearance="filled"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Danger
@@ -88,7 +88,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="primary"
         appearance="ghost"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary
@@ -97,7 +97,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="secondary"
         appearance="ghost"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Secondary
@@ -106,7 +106,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="danger"
         appearance="ghost"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Danger
@@ -115,7 +115,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="primary"
         appearance="borderless"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary
@@ -124,7 +124,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="secondary"
         appearance="borderless"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Secondary
@@ -133,7 +133,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="danger"
         appearance="borderless"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Danger
@@ -142,7 +142,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="primary"
         appearance="rounded"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary
@@ -151,7 +151,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="secondary"
         appearance="rounded"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Secondary
@@ -160,7 +160,7 @@ export const OverviewWithText = (args: ButtonProps) => {
         {...args}
         purpose="danger"
         appearance="rounded"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Danger
@@ -272,7 +272,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="tiny"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary
@@ -282,7 +282,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="small"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary
@@ -292,7 +292,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="medium"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary
@@ -302,7 +302,7 @@ export const OverviewSizes = (args: ButtonProps) => {
         purpose="primary"
         appearance="filled"
         size="large"
-        iconPosition={args.iconPosition || 'left'}
+        iconPosition={args.iconPosition ?? 'left'}
         icon={icons.PlusCircledIcon}
       >
         Primary

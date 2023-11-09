@@ -1,4 +1,8 @@
-export const fontPackageFormatter = (font: any) => {
+import { ddsStyles } from '../build/js/fontObject';
+
+type Font = (typeof ddsStyles)['$dds-font']['body']['sans-01'];
+
+export const fontPackageFormatter = (font: Font) => {
   return {
     base: {
       lineHeight: font.lineHeight.value,

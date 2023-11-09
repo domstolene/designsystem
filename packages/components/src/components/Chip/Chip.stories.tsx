@@ -11,6 +11,6 @@ export default {
 
 export const Default = (args: ChipProps) => (
   <StoryTemplate title="Chip - default">
-    <Chip {...args} text={args.text || 'Chip'} />
+    <Chip {...args} text={args.text ?? 'Chip'} />
   </StoryTemplate>
 );

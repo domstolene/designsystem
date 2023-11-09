@@ -2,7 +2,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
 import { forwardRef, ReactNode, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { visibilityTransition } from '@norges-domstoler/dds-core';
+import { PaperProps, visibilityTransition } from '@norges-domstoler/dds-core';
 import {
   Placement,
   useCombinedRef,
@@ -25,7 +25,7 @@ import { focusVisible } from '@norges-domstoler/dds-form';
 const { spacing: Spacing } = ddsBaseTokens;
 const { wrapper, content, closeButton, title } = tokens;
 
-interface WrapperProps {
+interface WrapperProps extends PaperProps {
   sizeProps?: PopoverSizeProps;
   hasTransitionedIn?: boolean;
   isOpen: boolean;
@@ -46,7 +46,12 @@ const Wrapper = styled(Paper)<WrapperProps>`
   ${({ sizeProps }) =>
     sizeProps &&
     css`
-      ${sizeProps}
+      width: ${sizeProps.width};
+      height: ${sizeProps.height};
+      min-width: ${sizeProps.minWidth};
+      min-height: ${sizeProps.minHeight};
+      max-width: ${sizeProps.maxWidth};
+      max-height: ${sizeProps.maxHeight};
     `}
 `;
 
@@ -149,9 +154,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         : refs.setReference(null);
     }, [anchorElement]);
 
-    const elements: (HTMLElement | null)[] = [
-      popoverRef.current!,
-    ];
+    const elements: (HTMLElement | null)[] = [popoverRef.current!];
     if (anchorElement) elements.push(anchorElement);
 
     useOnClickOutside(elements, () => {

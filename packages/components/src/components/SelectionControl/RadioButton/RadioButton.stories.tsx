@@ -20,16 +20,16 @@ export const Overview = (args: RadioButtonProps) => {
       display="grid"
       columnsAmount={2}
     >
-      <RadioButton {...args} label={args.label || 'Default'} />
-      <RadioButton {...args} label={args.label || 'Checked'} checked />
-      <RadioButton {...args} label={args.label || 'Disabled'} disabled />
+      <RadioButton {...args} label={args.label ?? 'Default'} />
+      <RadioButton {...args} label={args.label ?? 'Checked'} checked />
+      <RadioButton {...args} label={args.label ?? 'Disabled'} disabled />
       <RadioButton
         {...args}
-        label={args.label || 'Disabled checked'}
+        label={args.label ?? 'Disabled checked'}
         disabled
         checked
       />
-      <RadioButton {...args} label={args.label || 'Error'} error />
+      <RadioButton {...args} label={args.label ?? 'Error'} error />
     </StoryTemplate>
   );
 };

@@ -111,16 +111,20 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
   return Res as ProgressTrackerComponent;
 })();
 
-const removeInvalidChildren = (children: ReactNode) =>
-  Children.toArray(children).filter(isValidElement);
+function removeInvalidChildren<TProps extends object>(children: ReactNode) {
+  return Children.toArray(children).filter(isValidElement<TProps>);
+}
 
-const passIndexPropToProgressTrackerItem = (children: ReactElement[]) =>
-  Children.map(children, (item, index) =>
+function passIndexPropToProgressTrackerItem<TProps extends object>(
+  children: ReactElement<TProps>[],
+) {
+  return Children.map(children, (item, index) =>
     cloneElement(item, {
       ...item.props,
       index,
     }),
   );
+}
 
 const intersperseItemsWithConnector = (children: ReactElement[]) =>
   Children.map(children, (child, index) => {

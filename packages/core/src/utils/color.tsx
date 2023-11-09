@@ -55,15 +55,15 @@ export const addAlphaToRGB = (rgb: string, alpha: number | string) => {
 };
 
 export const RGBToHex = (value: string): string => {
-  const rgb = getRGBValues(value),
-    alpha = ((rgb && rgb[4]) || '').trim(),
-    hex = rgb
-      ? '#' +
-        (parseInt(rgb[1]) | (1 << 8)).toString(16).slice(1) +
-        (parseInt(rgb[2]) | (1 << 8)).toString(16).slice(1) +
-        (parseInt(rgb[3]) | (1 << 8)).toString(16).slice(1) +
-        convertAlpha(alpha, 'decimal', 'hex8')
-      : '';
+  const rgb = getRGBValues(value);
+  const alpha = (rgb?.[4] ?? '').trim();
+  const hex = rgb
+    ? '#' +
+      (parseInt(rgb[1]) | (1 << 8)).toString(16).slice(1) +
+      (parseInt(rgb[2]) | (1 << 8)).toString(16).slice(1) +
+      (parseInt(rgb[3]) | (1 << 8)).toString(16).slice(1) +
+      convertAlpha(alpha, 'decimal', 'hex8')
+    : '';
 
   return hex;
 };
@@ -73,7 +73,7 @@ export const changeRGBAAlpha = (value: string, alpha: number): string => {
     return '';
   }
 
-  return value.replace(/[\d\.]+\)$/g, alpha.toString() + ')');
+  return value.replace(/[\d.]+\)$/g, alpha.toString() + ')');
 };
 
 export const textColors = {

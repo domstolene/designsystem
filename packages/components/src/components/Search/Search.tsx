@@ -46,7 +46,9 @@ const getIconSize = (size: SearchSize): IconSize => {
   }
 };
 
-interface InputProps { componentSize: SearchSize }
+interface InputProps {
+  componentSize: SearchSize;
+}
 
 const Input = styled(BaseInput)<InputProps>`
   &[type='search']::-webkit-search-decoration,
@@ -191,7 +193,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
         context.suggestions ? suggestionsDescriptionId : undefined,
         ariaDescribedby,
       ]),
-      value: context.inputValue !== undefined ? context.inputValue : value,
+      value: context.inputValue ?? value,
       onChange: handleChange,
       autoComplete: 'off',
     };
@@ -200,7 +202,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       label: buttonLabel,
       onClick,
       ...otherButtonProps
-    } = buttonProps || {};
+    } = buttonProps ?? {};
 
     const hasSuggestions = !!context.suggestions;
     const showSearchButton = !!buttonProps && !!onClick;
@@ -259,7 +261,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 onClick={onClick}
                 {...otherButtonProps}
               >
-                {buttonLabel || 'Søk'}
+                {buttonLabel ?? 'Søk'}
               </Button>
             )}
           </HorisontalContainer>

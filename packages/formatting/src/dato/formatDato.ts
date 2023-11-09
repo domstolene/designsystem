@@ -41,7 +41,17 @@ export const formatDateTime = <T extends string | Date | number>(
 ): string | T => {
   const myDate = new Date(date);
   if (isValidDate(myDate)) {
-    return formatDate(myDate) + ' ' + formatTime(myDate, options);
+    const formattedDate = formatDate(myDate);
+    const formattedTime = formatTime(myDate, options);
+
+    if (
+      typeof formattedDate === 'string' &&
+      typeof formattedTime === 'string'
+    ) {
+      return formattedDate + ' ' + formattedTime;
+    }
+
+    return date;
   }
   return date;
 };

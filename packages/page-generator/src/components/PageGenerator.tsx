@@ -107,10 +107,9 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     const field = getFieldByName(name);
     if (field && isFieldWithValidations(field)) {
       const fieldErrors =
-        (field.validations?.filter(
-            (v: PageGeneratorValidation) => !v.rule(value),
-          )) ||
-        [];
+        field.validations?.filter(
+          (v: PageGeneratorValidation) => !v.rule(value),
+        ) ?? [];
       updateErrors(fieldErrors, name, value);
       setErrorMessage(
         name,
@@ -149,7 +148,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     if (isMultiValue(chosen)) {
       value = Array.isArray(chosen) ? chosen : null;
     } else {
-      value = chosen || null;
+      value = chosen ?? null;
     }
     const newState = {
       ...state,

@@ -53,7 +53,9 @@ const Container = styled(Paper)<ContainerProps>`
   ${({ widthProps }) =>
     widthProps &&
     css`
-      ${widthProps}
+      min-width: ${widthProps.minWidth};
+      max-width: ${widthProps.maxWidth};
+      width: ${widthProps.width};
     `}
 
   ${({ placement, isOpen }) =>

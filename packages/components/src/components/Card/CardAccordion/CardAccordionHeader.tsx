@@ -26,7 +26,7 @@ const ContentWrapper = styled.div`
 function getTypographyType(props: HeaderProps): StaticTypographyType {
   const { typographyType } = props;
 
-  return typographyType || typographyTypes.header;
+  return typographyType ?? typographyTypes.header;
 }
 
 interface HeaderProps {

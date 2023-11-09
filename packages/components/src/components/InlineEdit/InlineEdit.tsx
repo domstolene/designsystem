@@ -24,7 +24,7 @@ export const InlineEdit = (props: InlineEditProps) => {
     inputRef,
     children,
   } = props;
-  const [editingValue, setEditingValue] = useState<typeof value>(value || '');
+  const [editingValue, setEditingValue] = useState<typeof value>(value ?? '');
   const [isEditing, setIsEditing] = useState(false);
 
   const onChangeHandler = (e: ChangeEvent<EditElement>) => {

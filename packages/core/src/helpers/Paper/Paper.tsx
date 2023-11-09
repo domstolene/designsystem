@@ -30,7 +30,7 @@ const getBorder = (borderStyle: Border) => {
   }
 };
 
-interface PaperProps {
+export interface PaperProps {
   elevation?: Elevation;
   border?: Border;
 }

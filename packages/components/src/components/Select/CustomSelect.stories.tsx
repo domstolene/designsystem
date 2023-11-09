@@ -41,7 +41,7 @@ export const Example = (args: SingleSelectProps) => {
     <StoryTemplate title="Select - custom element" display="block">
       <Select
         {...args}
-        label={args.label || 'Egendefinert styling'}
+        label={args.label ?? 'Egendefinert styling'}
         options={options}
         customOptionElement={props => (
           <OptionElement isSelected={props.isSelected}>

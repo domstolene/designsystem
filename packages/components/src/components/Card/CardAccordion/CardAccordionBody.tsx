@@ -30,7 +30,7 @@ const expandingAnimation = css`
 function getPadding(props: BodyContainerProps): string {
   const { padding } = props;
 
-  return padding || tokens.body.padding;
+  return padding ?? tokens.body.padding;
 }
 
 interface BodyProps {
@@ -124,7 +124,7 @@ export const CardAccordionBody = forwardRef<
     ref,
     isExpanded,
     role: 'region',
-    height: height || initialExpandedHeight || 0,
+    height: height ?? initialExpandedHeight ?? 0,
   };
   const bodyContainerProps = {
     ref: bodyRef,

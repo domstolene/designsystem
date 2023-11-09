@@ -51,21 +51,21 @@ export const Overview = (args: TextAreaProps) => {
         {...args}
         label={args.label ?? 'Label'}
         errorMessage={
-          args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
+          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
         }
       />
       <TextArea
         {...args}
         errorMessage={
-          args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
+          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
         }
       />
       <TextArea
         {...args}
         label={args.label ?? 'Label'}
-        tip={args.tip || 'Dette er en hjelpetekst'}
+        tip={args.tip ?? 'Dette er en hjelpetekst'}
       />
-      <TextArea {...args} tip={args.tip || 'Dette er en hjelpetekst'} />
+      <TextArea {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
     </StoryTemplate>
   );
 };

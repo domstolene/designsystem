@@ -63,7 +63,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
         appearance="borderless"
         purpose="secondary"
         onClick={onClick}
-        aria-label={ariaLabel || `Fjern ${text ? `chip ${text}` : 'chip'}`}
+        aria-label={ariaLabel ?? `Fjern ${text ? `chip ${text}` : 'chip'}`}
       />
     </Container>
   ) : null;

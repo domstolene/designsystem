@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Paper } from '@norges-domstoler/dds-core';
+import { Paper, PaperProps } from '@norges-domstoler/dds-core';
 import { visibilityTransition } from '@norges-domstoler/dds-core';
 import {
   defaultTypographyType,
@@ -20,9 +20,9 @@ export const Container = styled.div`
   width: fit-content;
 `;
 
-interface WrapperProps {
+type WrapperProps = PaperProps & {
   open: boolean;
-}
+};
 
 export const TooltipWrapper = styled(Paper)<WrapperProps>`
   ${({ open }) => visibilityTransition(open)}

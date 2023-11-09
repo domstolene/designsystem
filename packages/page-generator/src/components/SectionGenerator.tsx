@@ -73,7 +73,7 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
     if (isMultiValue(chosen)) {
       value = Array.isArray(chosen) ? chosen : null;
     } else {
-      value = chosen || null;
+      value = chosen ?? null;
     }
     const newState = {
       ...state,

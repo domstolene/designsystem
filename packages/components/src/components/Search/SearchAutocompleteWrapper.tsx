@@ -58,7 +58,7 @@ export const SearchAutocompleteWrapper = (
     children,
   } = props;
 
-  const [inputValue, setInputValue] = useState(value || '');
+  const [inputValue, setInputValue] = useState(value ?? '');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -130,7 +130,7 @@ export const SearchAutocompleteWrapper = (
   };
 
   const handleSetInputValue = (value: string | undefined) => {
-    setInputValue(value || '');
+    setInputValue(value ?? '');
   };
 
   const inputRef = useRef<HTMLInputElement>(null);
