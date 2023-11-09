@@ -13,9 +13,9 @@ import { tabsTokens as tokens } from './Tabs.tokens';
 
 const { panel } = tokens;
 
-type PanelProps = {
+interface PanelProps {
   active: boolean;
-};
+}
 
 const Panel = styled.div<PanelProps>`
   padding: ${panel.padding};

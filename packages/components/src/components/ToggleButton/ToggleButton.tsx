@@ -17,9 +17,9 @@ import { ToggleButtonProps } from './ToggleButton.types';
 
 const { toggleButton } = tokens;
 
-type ContentProps = {
+interface ContentProps {
   hasIcon?: boolean;
-};
+}
 
 const Content = styled.span<ContentProps>`
   display: flex;

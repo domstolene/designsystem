@@ -6,7 +6,7 @@ import {
   useContext,
 } from 'react';
 
-export type AutocompleteSearchContextType = {
+export interface AutocompleteSearchContextType {
   onValueChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onSugggestionClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   suggestions?: string[];
@@ -14,7 +14,7 @@ export type AutocompleteSearchContextType = {
   inputValue?: string;
   inputRef?: RefObject<HTMLInputElement> | null;
   suggestionsRef?: RefObject<HTMLDivElement> | null;
-};
+}
 
 export const AutocompleteSearchContext =
   createContext<AutocompleteSearchContextType>({});

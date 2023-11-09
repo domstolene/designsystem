@@ -10,9 +10,9 @@ const Blockquote = styled.blockquote`
   text-align: left;
 `;
 
-type Props = {
+interface Props {
   children: ReactNode;
-};
+}
 
 export const Quote = (props: Props) => {
   return <Blockquote>{props.children}</Blockquote>;

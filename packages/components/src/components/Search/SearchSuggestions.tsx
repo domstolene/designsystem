@@ -18,9 +18,9 @@ import { derivativeIdGenerator } from '@norges-domstoler/dds-core';
 
 const { suggestionsContainer, suggestionsHeader } = tokens;
 
-type SuggestionsContainerProps = {
+interface SuggestionsContainerProps {
   isHidden?: boolean;
-};
+}
 
 const SuggestionsContainer = styled(Paper)<SuggestionsContainerProps>`
   ${({ isHidden }) => visibilityTransition(!isHidden)};
@@ -37,9 +37,9 @@ const SuggestionsContainer = styled(Paper)<SuggestionsContainerProps>`
   ${scrollbarStyling.webkit}
 `;
 
-type MenuItemProps = {
+interface MenuItemProps {
   size: SearchSize;
-};
+}
 
 const MenuItem = styled(OverflowMenuItem)<MenuItemProps>`
   ${({ size }) => getFontStyling(typographyTypes[size])}

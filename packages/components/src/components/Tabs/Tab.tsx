@@ -34,10 +34,10 @@ import { useTabsContext } from './Tabs.context';
 
 const { tab } = tokens;
 
-type ButtonProps = {
+interface ButtonProps {
   active: boolean;
   direction: Direction;
-};
+}
 
 const Button = styled.button<ButtonProps>`
   ${normalizeButton}

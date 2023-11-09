@@ -29,9 +29,9 @@ export type SplitButtonPurpose = ExtractStrict<
   'primary' | 'secondary'
 >;
 
-type OptionButtonProps = {
+interface OptionButtonProps {
   purpose: SplitButtonPurpose;
-};
+}
 
 const OptionButton = styled(Button)<OptionButtonProps>`
   border-top-left-radius: 0;
@@ -56,7 +56,7 @@ const OptionButton = styled(Button)<OptionButtonProps>`
   }
 `;
 
-export type SplitButtonProps = {
+export interface SplitButtonProps {
   /**Størrelse på komponenten. */
   size?: ButtonSize;
   /**Props for primær handling. Samme props som for `<Button />` unntatt `size`, `purpose`, og `appearance`. */
@@ -65,7 +65,7 @@ export type SplitButtonProps = {
   secondaryActions: OverflowMenuButtonItem[];
   /**Formål med knappen */
   purpose?: SplitButtonPurpose;
-};
+}
 export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
   (props, ref) => {
     const {

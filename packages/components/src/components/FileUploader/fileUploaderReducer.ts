@@ -1,10 +1,10 @@
 import { FileWithPath } from 'file-selector';
 import { Reducer } from 'react';
 
-export type FileUploaderFile = {
+export interface FileUploaderFile {
   file: FileWithPath;
   errors: string[];
-};
+}
 
 export type RootErrorList = string[];
 
@@ -26,13 +26,13 @@ export type FileUploaderAction =
       payload: RootErrorList;
     };
 
-export type FileUploaderState = {
+export interface FileUploaderState {
   files: FileUploaderFile[];
   isFocused: boolean;
   isFileDialogActive: boolean;
   isDragActive: boolean;
   rootErrors: string[];
-};
+}
 
 export const fileUploaderReducer: Reducer<
   FileUploaderState,

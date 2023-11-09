@@ -11,10 +11,10 @@ import { toggleBarTokens as tokens, typographyTypes } from './ToggleBar.tokens';
 
 const { content, label } = tokens;
 
-type ContentProps = {
+interface ContentProps {
   size: ToggleBarSize;
   justIcon: boolean;
-};
+}
 
 export const Content = styled.span<ContentProps>`
   display: flex;
@@ -48,9 +48,9 @@ export const Content = styled.span<ContentProps>`
   `}
 `;
 
-type LabelProps = {
+interface LabelProps {
   size: ToggleBarSize;
-};
+}
 
 export const Label = styled.label<LabelProps>`
   ${Content} {

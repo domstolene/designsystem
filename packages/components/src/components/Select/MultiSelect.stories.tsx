@@ -25,10 +25,10 @@ export default {
   },
 };
 
-type Option = {
+interface Option {
   label: string;
   value: string;
-};
+}
 
 const options: Option[] = [
   'Alternativ 1',

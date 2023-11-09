@@ -1,11 +1,11 @@
 import { SortOrder } from './SortCell';
 
-export type HeaderCellToSort = {
+export interface HeaderCellToSort {
   name: string;
   dataName: string;
   sortOrder?: SortOrder | 'none';
   isSorted?: boolean;
-};
+}
 
 export const headerCells: HeaderCellToSort[] = [
   {
@@ -34,13 +34,13 @@ export const headerCells: HeaderCellToSort[] = [
   },
 ];
 
-export type CellDataToSort = {
+export interface CellDataToSort {
   name: string;
   fnumber: string;
   employer: string;
   orgnumber: string;
   percentage: string;
-};
+}
 
 export const data: CellDataToSort[] = [
   {
@@ -80,7 +80,7 @@ export const mapCellContents = (
   data.map(item =>
     headerCells.map(headerCell =>
       typeof item[headerCell.dataName as keyof CellDataToSort] !== 'undefined'
-        ? (item[headerCell.dataName as keyof CellDataToSort] as string)
+        ? item[headerCell.dataName as keyof CellDataToSort]
         : '',
     ),
   );

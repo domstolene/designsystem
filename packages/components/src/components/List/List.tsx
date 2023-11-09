@@ -17,10 +17,10 @@ import { listTokens as tokens } from './List.tokens';
 
 const { list, listItem, bullet } = tokens;
 
-type StyledListProps = {
+interface StyledListProps {
   listType: ListType;
   typographyType: ListTypographyType;
-};
+}
 
 const StyledList = styled.ul<StyledListProps>`
   margin: ${list.base.margin};

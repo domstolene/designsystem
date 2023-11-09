@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { changeRGBAAlpha } from '@norges-domstoler/dds-core';
 
-type BackdropProps = { isOpen: boolean };
+interface BackdropProps {
+  isOpen: boolean;
+}
 
 export const Backdrop = styled.div<BackdropProps>`
   position: fixed;

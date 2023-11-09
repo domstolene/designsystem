@@ -15,9 +15,9 @@ import {
 import { TabsContext } from './Tabs.context';
 import { Property } from 'csstype';
 
-type ContainerProps = {
+interface ContainerProps {
   width?: Property.Width;
-};
+}
 
 const Container = styled.div<ContainerProps>`
   ${({ width }) =>

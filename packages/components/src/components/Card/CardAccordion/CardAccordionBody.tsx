@@ -33,11 +33,11 @@ function getPadding(props: BodyContainerProps): string {
   return padding || tokens.body.padding;
 }
 
-type BodyProps = {
+interface BodyProps {
   isExpanded?: boolean;
   animate: boolean;
   height: number;
-};
+}
 
 const Body = styled.div<BodyProps>`
   @media (prefers-reduced-motion: no-preference) {
@@ -48,13 +48,13 @@ const Body = styled.div<BodyProps>`
   overflow: hidden;
 `;
 
-type BodyContainerProps = {
+interface BodyContainerProps {
   isExpanded?: boolean;
   maxHeight?: number;
   animate: boolean;
   paddingTop?: Property.PaddingTop<string>;
   padding?: Property.Padding<string>;
-};
+}
 
 const BodyContainer = styled.div<BodyContainerProps>`
   padding: ${getPadding};

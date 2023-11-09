@@ -102,7 +102,9 @@ export const StatefulInput = styled(Input)<StyledInputProps>`
   }
 `;
 
-type OuterInputContainerProps = { width?: Property.Width };
+interface OuterInputContainerProps {
+  width?: Property.Width;
+}
 
 export const OuterInputContainer = styled.div<OuterInputContainerProps>`
   position: relative;

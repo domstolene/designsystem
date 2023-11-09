@@ -9,6 +9,7 @@ export type PageGeneratorStateOptionTypes =
   | undefined
   | PropsValue<SelectOption<unknown>>;
 
-export interface PageGeneratorState<StateOptionTypes> {
-  [name: string]: StateOptionTypes;
-}
+export type PageGeneratorState<StateOptionTypes> = Record<
+  string,
+  StateOptionTypes
+>;

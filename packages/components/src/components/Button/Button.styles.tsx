@@ -79,7 +79,7 @@ const getAppearanceAndPurposeStyling = (
   }
 };
 
-type ButtonWrapperProps = {
+interface ButtonWrapperProps {
   appearance: ButtonAppearance;
   purpose: ButtonPurpose;
   size: ButtonSize;
@@ -88,7 +88,7 @@ type ButtonWrapperProps = {
   hasLabel: boolean;
   isLoading: boolean;
   iconPosition?: IconPosition;
-};
+}
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${normalizeButton}
@@ -175,13 +175,13 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   }
 `;
 
-type StyledIconWrapperSpanProps = {
+interface StyledIconWrapperSpanProps {
   iconPosition?: IconPosition;
   size: ButtonSize;
   absolutePosition?: boolean;
   isHidden?: boolean;
   justIcon?: boolean;
-};
+}
 
 export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
   display: flex;
@@ -205,9 +205,9 @@ export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
     `}
 `;
 
-type LabelProps = {
+interface LabelProps {
   isHidden?: boolean;
-};
+}
 
 export const Label = styled.span<LabelProps>`
   ${({ isHidden }) =>

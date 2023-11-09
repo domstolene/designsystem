@@ -10,7 +10,7 @@ import {
 } from 'react';
 import { useOnKeyDown } from '@norges-domstoler/dds-core';
 
-export type PopoverGroupProps = {
+export interface PopoverGroupProps {
   /**Callback når det trykkes på lukkeknappen. */
   onCloseButtonClick?: () => void;
   /** Callback når det trykkes på anchor-elementet (trigger-elementet). */
@@ -21,7 +21,7 @@ export type PopoverGroupProps = {
   popoverId?: string;
   /** Barna til wrapperen: anchor-element som det første og `<Popover />` so det adnre.  */
   children: ReactNode;
-};
+}
 
 export const PopoverGroup = ({
   isOpen = false,

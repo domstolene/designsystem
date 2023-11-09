@@ -36,7 +36,7 @@ export type BaseComponentPropsWithChildren<
 export const joinClassNames = (...classNames: (string | undefined)[]) =>
   classNames.filter(Boolean).join(' ');
 
-type GetBaseHTMLProps = {
+interface GetBaseHTMLProps {
   <T extends Element>(
     id: HTMLAttributes<T>['id'],
     className: HTMLAttributes<T>['className'],
@@ -48,7 +48,7 @@ type GetBaseHTMLProps = {
     htmlProps: HTMLAttributes<T> | undefined,
     unknownProps: object,
   ): HTMLAttributes<T> & object;
-};
+}
 
 /**
  * Slår sammen id, className, htmlProps og unknownProps til ett objekt
@@ -115,7 +115,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
       id: htmlPropsId,
       className: htmlPropsClassName,
       ...restHTMLProps
-    } = (htmlPropsOrClassName as HTMLAttributes<T> | undefined) ?? {};
+    } = (htmlPropsOrClassName ) ?? {};
 
     const propId = id ?? htmlPropsId;
 

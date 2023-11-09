@@ -17,10 +17,10 @@ type ContextMenuElementProps = {
   | ButtonHTMLAttributes<HTMLButtonElement>
 );
 
-type InternaHeaderUserProps = {
+interface InternaHeaderUserProps {
   name: string;
   href?: string;
-};
+}
 
 export type InternalHeaderProps = BaseComponentProps<
   HTMLDivElement,

@@ -46,7 +46,7 @@ const getIconSize = (size: SearchSize): IconSize => {
   }
 };
 
-type InputProps = { componentSize: SearchSize };
+interface InputProps { componentSize: SearchSize }
 
 const Input = styled(BaseInput)<InputProps>`
   &[type='search']::-webkit-search-decoration,
@@ -65,9 +65,9 @@ const Input = styled(BaseInput)<InputProps>`
   `}
 `;
 
-type StyledSearchIconProps = {
+interface StyledSearchIconProps {
   size: SearchSize;
-};
+}
 
 const StyledSearchIcon = styled(Icon)<StyledSearchIconProps>`
   position: absolute;
@@ -92,9 +92,9 @@ const OuterContainer = styled.div`
   gap: ${outerContainer.gap};
 `;
 
-type HorisontalContainerProps = {
+interface HorisontalContainerProps {
   hasSearchButton: boolean;
-};
+}
 
 const HorisontalContainer = styled.div<HorisontalContainerProps>`
   ${props =>

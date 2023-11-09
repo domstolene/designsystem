@@ -1,10 +1,10 @@
 import { StorybookLink, StorybookLinkRow } from '.';
 
-type props = {
+interface props {
   docsHref: string;
   figmaHref?: string;
   githubHref: string;
-};
+}
 
 export const ComponentLinkRow = ({
   docsHref,

@@ -20,9 +20,9 @@ export const Container = styled.div`
   width: fit-content;
 `;
 
-type WrapperProps = {
+interface WrapperProps {
   open: boolean;
-};
+}
 
 export const TooltipWrapper = styled(Paper)<WrapperProps>`
   ${({ open }) => visibilityTransition(open)}

@@ -22,7 +22,7 @@ import { PersonIcon } from '@norges-domstoler/dds-icons';
 
 const { container, divider } = tokens;
 
-type ContainerProps = { isOpen: boolean };
+interface ContainerProps { isOpen: boolean }
 
 export const Container = styled.div<ContainerProps>`
   box-sizing: border-box;

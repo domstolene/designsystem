@@ -69,7 +69,7 @@ export const RGBToHex = (value: string): string => {
 };
 
 export const changeRGBAAlpha = (value: string, alpha: number): string => {
-  if (value.slice(0, 5) !== 'rgba(' || value.slice(-1) !== ')') {
+  if (!value.startsWith('rgba(') || !value.endsWith(')')) {
     return '';
   }
 

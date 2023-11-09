@@ -51,10 +51,10 @@ const {
   Control,
 } = components;
 
-export type SelectOption<TValue = unknown> = {
+export interface SelectOption<TValue = unknown> {
   label: string | number;
   value: TValue;
-};
+}
 
 export const createSelectOptions = <TValue extends string | number>(
   ...args: TValue[]

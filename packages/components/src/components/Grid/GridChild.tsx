@@ -13,12 +13,12 @@ import {
   getLiteralScreenSize,
 } from '@norges-domstoler/dds-core';
 
-type StyledGridChildProps = {
+interface StyledGridChildProps {
   screenSize: ScreenSize;
   columnsOccupied?: ColumnsOccupied;
   justifySelf?: Property.JustifySelf;
   gridRow?: Property.GridRow;
-};
+}
 
 export const isRelativeGridColumn = (
   type: ColumnsOccupied | undefined,

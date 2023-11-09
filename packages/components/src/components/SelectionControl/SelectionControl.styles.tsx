@@ -17,9 +17,9 @@ const {
 
 type SelectionControlType = 'radio' | 'checkbox';
 
-type CustomSelectionControlProps = {
+interface CustomSelectionControlProps {
   controlType?: SelectionControlType;
-};
+}
 
 export const CustomSelectionControl = styled.span<CustomSelectionControlProps>`
   position: absolute;
@@ -43,14 +43,14 @@ export const CustomSelectionControl = styled.span<CustomSelectionControlProps>`
   }
 `;
 
-type ContainerProps = {
+interface ContainerProps {
   hasLabel?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
   error?: boolean;
   indeterminate?: boolean;
   controlType: SelectionControlType;
-};
+}
 
 export const Container = styled.label<ContainerProps>`
   position: relative;

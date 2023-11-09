@@ -2,7 +2,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { CSSProperties } from 'react';
 
 export type CellVariant = 'default' | 'selected' | 'unavailable';
-type CellStyle = {
+interface CellStyle {
   bg: CSSProperties['background'];
   borderColor?: CSSProperties['backgroundColor'];
   color: CSSProperties['color'];
@@ -11,7 +11,7 @@ type CellStyle = {
   cursor?: CSSProperties['cursor'];
   hover?: Pick<CellStyle, 'bg' | 'color' | 'borderColor'>;
   today?: Pick<CellStyle, 'textDecoration' | 'borderColor'>;
-};
+}
 
 const cellVariantStyles: Record<CellVariant, CellStyle> = {
   default: {

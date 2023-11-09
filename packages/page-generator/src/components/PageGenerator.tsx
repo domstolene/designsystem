@@ -107,8 +107,7 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     const field = getFieldByName(name);
     if (field && isFieldWithValidations(field)) {
       const fieldErrors =
-        (field.validations &&
-          field.validations.filter(
+        (field.validations?.filter(
             (v: PageGeneratorValidation) => !v.rule(value),
           )) ||
         [];

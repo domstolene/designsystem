@@ -21,9 +21,9 @@ export const OuterContainer = styled.div`
   background-color: ${outerContainer.backgroundColor};
 `;
 
-type BannerProps = {
+interface BannerProps {
   hasContextMenu?: boolean;
-};
+}
 
 export const BannerWrapper = styled.div<BannerProps>`
   position: relative;

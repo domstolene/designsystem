@@ -13,22 +13,22 @@ import {
   AutocompleteSearchContextType,
 } from './AutocompleteSearch.context';
 
-type WeightedValue = {
+interface WeightedValue {
   text: string;
   relevance: number;
-};
+}
 
-export type WeightedSearchData = {
+export interface WeightedSearchData {
   array: WeightedValue[];
   sortFunction?: (a: WeightedValue, b: WeightedValue) => number;
-};
+}
 
-export type SearchData = {
+export interface SearchData {
   array: string[];
   sortFunction?: (a: string, b: string) => number;
-};
+}
 
-export type SearchAutocompleteWrapperProps = {
+export interface SearchAutocompleteWrapperProps {
   /**Array med data som kan søkes på og eventuelt tilhørende sorteringsfunksjon. Array kan bestå av elementer av typen `string`  eller objekter med vekt og tekst.*/
   data?: SearchData | WeightedSearchData;
   /** Ekstra callback ved `onChange` i `<Search>`. */
@@ -43,7 +43,7 @@ export type SearchAutocompleteWrapperProps = {
   children?: ReactNode;
   /**Initielle `value` i `<Search>`. */
   value?: string;
-};
+}
 
 export const SearchAutocompleteWrapper = (
   props: SearchAutocompleteWrapperProps,

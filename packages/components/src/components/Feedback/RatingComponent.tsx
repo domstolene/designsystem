@@ -9,9 +9,9 @@ import { Tooltip } from '../Tooltip';
 import { Button } from '../Button';
 import { FlexContainer } from './FlexContainer';
 
-type RatingContainerProps = {
+interface RatingContainerProps {
   layout: Layout;
-};
+}
 
 const RatingContainer = styled.div<RatingContainerProps>`
   display: flex;
@@ -27,14 +27,14 @@ const RatingButton = styled(Button)`
   color: ${ddsBaseTokens.colors.DdsColorNeutralsGray7};
 `;
 
-type RatingComponentType = {
+interface RatingComponentType {
   layout: Layout;
   ratingLabel: string;
   loading: boolean;
   thumbUpTooltip: string;
   thumbDownTooltip: string;
   handleRatingChange: (rating: Rating) => void;
-};
+}
 
 export const RatingComponent = ({
   layout,

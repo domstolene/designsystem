@@ -72,7 +72,7 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       onChange && onChange(event);
-      group && group.onChange && group.onChange(event);
+      group?.onChange && group.onChange(event);
     };
 
     return (
@@ -86,7 +86,7 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
           value={value}
           checked={calculateChecked(value, group, checked)}
         />
-        <Content size={group.size} justIcon={!!icon && !!!label}>
+        <Content size={group.size} justIcon={!!icon && !label}>
           {icon && <Icon icon={icon} iconSize="inherit" />}
           {label && <span>{label}</span>}
         </Content>

@@ -7,7 +7,9 @@ import {
 import { Typography } from '@norges-domstoler/dds-typography';
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
 
-type GroupProps = { direction?: Direction };
+interface GroupProps {
+  direction?: Direction;
+}
 
 const Group = styled.div<GroupProps>`
   gap: ${tokens.group.gap};

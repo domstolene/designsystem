@@ -9,7 +9,7 @@ import {
   useId,
 } from 'react';
 
-export type OverflowMenuGroupProps = {
+export interface OverflowMenuGroupProps {
   /**Ekstra logikk som kjøres når `<OverflowMenu />` åpnes og lukkes. */
   onToggle?: () => void;
   /**Ekstra logikk som kjøres når `<OverflowMenu />` åpnes. */
@@ -20,7 +20,7 @@ export type OverflowMenuGroupProps = {
   children: ReactNode;
   /**Custom id for `<OverflowMenu />`. */
   overflowMenuId?: string;
-};
+}
 
 export const OverflowMenuGroup = ({
   children,

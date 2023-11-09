@@ -4,10 +4,10 @@ import { BaseComponentProps } from '@norges-domstoler/dds-core';
 
 import { SvgIcon } from '@norges-domstoler/dds-icons';
 
-type OverflowMenuItemBase = {
+interface OverflowMenuItemBase {
   title: string;
   icon?: SvgIcon;
-};
+}
 
 export type OverflowMenuButtonItem = OverflowMenuItemBase &
   ButtonHTMLAttributes<HTMLButtonElement>;

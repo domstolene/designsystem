@@ -24,7 +24,7 @@ import {
   preventDefaults,
 } from './utils';
 
-export type FileUploaderHookProps = {
+export interface FileUploaderHookProps {
   id: string | undefined;
   /**Dersom komponenten skal styres internt. Utgangspunktet for filene som har blitt lastet opp. */
   initialFiles: FileList | undefined;
@@ -40,7 +40,7 @@ export type FileUploaderHookProps = {
   maxFiles: number | undefined;
   /**Feilmelding. Setter også error state. */
   errorMessage: string | undefined;
-};
+}
 
 const calcRootErrors = (
   files: FileUploaderFile[],

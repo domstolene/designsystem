@@ -10,13 +10,13 @@ import { ErrorList } from './ErrorList';
 import { fileTokens } from './FileUploader.tokens';
 import { FileUploaderFile } from './fileUploaderReducer';
 
-type FileProps = {
+interface FileProps {
   parentId: string;
   index: number;
   isValid: boolean;
   file: FileUploaderFile;
   removeFile: () => void;
-};
+}
 
 const FileWrapper = styled.li``;
 

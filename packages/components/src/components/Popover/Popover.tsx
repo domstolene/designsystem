@@ -25,11 +25,11 @@ import { focusVisible } from '@norges-domstoler/dds-form';
 const { spacing: Spacing } = ddsBaseTokens;
 const { wrapper, content, closeButton, title } = tokens;
 
-type WrapperProps = {
+interface WrapperProps {
   sizeProps?: PopoverSizeProps;
   hasTransitionedIn?: boolean;
   isOpen: boolean;
-};
+}
 
 const Wrapper = styled(Paper)<WrapperProps>`
   opacity: 0;
@@ -54,10 +54,10 @@ const TitleContainer = styled.div`
   margin-right: ${title.marginRight};
 `;
 
-type ContentContainerProps = {
+interface ContentContainerProps {
   hasTitle: boolean;
   withCloseButton: boolean;
-};
+}
 
 const ContentContainer = styled.div<ContentContainerProps>`
   ${({ withCloseButton, hasTitle }) =>
@@ -74,14 +74,14 @@ const StyledButton = styled(Button)`
   right: ${closeButton.right};
 `;
 
-export type PopoverSizeProps = {
+export interface PopoverSizeProps {
   width?: Property.Width<string>;
   height?: Property.Height<string>;
   minWidth?: Property.MinWidth<string>;
   minHeight?: Property.MinHeight<string>;
   maxWidth?: Property.MaxWidth<string>;
   maxHeight?: Property.MaxHeight<string>;
-};
+}
 
 export type PopoverProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -150,7 +150,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     }, [anchorElement]);
 
     const elements: (HTMLElement | null)[] = [
-      popoverRef.current as HTMLElement,
+      popoverRef.current!,
     ];
     if (anchorElement) elements.push(anchorElement);
 

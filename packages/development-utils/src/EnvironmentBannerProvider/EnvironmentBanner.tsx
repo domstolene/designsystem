@@ -6,7 +6,7 @@ type NonProdEnvironment = Exclude<Environment, 'PROD'>;
 
 export type BannerPosition = 'fixed' | 'absolute';
 
-export type EnvironmentBannerProps = {
+export interface EnvironmentBannerProps {
   /**
    * Miljøet som applikasjonen kjører i.
    * Hvis miljøet er PROD, vises ikke banneren.
@@ -16,7 +16,7 @@ export type EnvironmentBannerProps = {
    * @default 'fixed'
    */
   bannerPosition?: BannerPosition;
-};
+}
 
 function getBannerColor(environment: NonProdEnvironment): {
   background: string;

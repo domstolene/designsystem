@@ -75,7 +75,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
 
   const handleTrackClick = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
-      if (contentRef && contentRef.current) {
+      if (contentRef?.current) {
         const { current: trackCurrent } = trackRef;
         const { current: contentCurrent } = contentRef;
         if (trackCurrent && contentCurrent) {
@@ -112,7 +112,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
   }, []);
 
   useEffect(() => {
-    if (contentRef && contentRef.current && trackRef.current) {
+    if (contentRef?.current && trackRef.current) {
       const ref = contentRef.current;
       const { clientHeight } = trackRef.current;
       observer.current = new ResizeObserver(() => {
@@ -129,8 +129,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
 
   const handleThumbMousedown = useCallback((e: MouseEvent<HTMLDivElement>) => {
     setScrollStartPosition(e.clientY);
-    if (contentRef && contentRef.current)
-      setInitialScrollTop(contentRef.current.scrollTop);
+    if (contentRef?.current) setInitialScrollTop(contentRef.current.scrollTop);
     setIsDragging(true);
   }, []);
 
@@ -142,7 +141,7 @@ export const Scrollbar = (props: ScrollbarProps) => {
 
   const handleThumbMousemove = useCallback(
     (e: globalThis.MouseEvent) => {
-      if (contentRef && contentRef.current) {
+      if (contentRef?.current) {
         if (isDragging) {
           const {
             scrollHeight: contentScrollHeight,

@@ -27,7 +27,7 @@ import { locale } from '../constants';
 
 export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
-} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'errorMessage'>;
+} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip'>;
 
 const DateFieldContainer = styled.div``;
 

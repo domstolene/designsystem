@@ -18,11 +18,11 @@ const H1 = styled.h1`
   font: ${fontPackages.heading_sans_03.base};
 `;
 
-type ContainerProps = {
+interface ContainerProps {
   gap?: string;
   display?: StoryDisplay;
   columnsAmount?: number;
-};
+}
 
 const Container = styled.div<ContainerProps>`
   padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingLayoutX1};

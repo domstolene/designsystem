@@ -28,12 +28,12 @@ const getMaxWidth = (size: DrawerSize): Property.MaxWidth => {
   else return '400px';
 };
 
-type ContainerProps = {
+interface ContainerProps {
   placement: DrawerPlacement;
   isOpen: boolean;
   widthProps?: WidthProps;
   size: DrawerSize;
-};
+}
 
 const Container = styled(Paper)<ContainerProps>`
   position: fixed;
@@ -94,11 +94,11 @@ const StyledButton = styled(Button)`
 
 export type DrawerSize = 'small' | 'medium' | 'large';
 export type DrawerPlacement = 'left' | 'right';
-export type WidthProps = {
+export interface WidthProps {
   minWidth?: Property.MinWidth<string>;
   maxWidth?: Property.MaxWidth<string>;
   width?: Property.Width<string>;
-};
+}
 
 export type DrawerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

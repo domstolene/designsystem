@@ -1,7 +1,7 @@
 import { createContext, RefObject, useContext } from 'react';
 import { Direction } from '@norges-domstoler/dds-core';
 
-type Tabs = {
+interface Tabs {
   activeTab: number;
   tabsId: string;
   handleTabChange: (index: number) => void;
@@ -10,7 +10,7 @@ type Tabs = {
   hasTabFocus: boolean;
   setHasTabFocus: (hasFocus: boolean) => void;
   tabContentDirection: Direction;
-};
+}
 
 export const TabsContext = createContext<Tabs>({
   activeTab: 0,

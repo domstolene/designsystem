@@ -104,27 +104,27 @@ const Bar = styled.div<{ environmentBannerActive: boolean }>`
   }
 `;
 
-type TopBarProps = {
+interface TopBarProps {
   user: User;
   userMenuItems?: OverflowMenuProps['items'];
   isNavigationOpen: boolean;
   onNavigationOpenChange: (isOpen: boolean) => void;
   environmentBannerActive: boolean;
-};
+}
 
-export type User = {
+export interface User {
   /**Brukerens fulle navn (for- og etternavn). */
   name: string;
   /**Det aktive embetet til brukeren. */
   embete: Embete;
-};
+}
 
-export type Embete = {
+export interface Embete {
   /**Navnet på embetet. */
   name: string;
   /**Hvilken instans embetet er. */
   type: EmbeteType;
-};
+}
 
 export const TopBar = ({
   user,

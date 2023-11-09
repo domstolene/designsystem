@@ -30,7 +30,7 @@ const getLayoutStyle = (layout: TableCellLayout) => {
   }
 };
 
-type StyledCellProps = { type: TableCellType };
+interface StyledCellProps { type: TableCellType }
 
 const StyledCell = styled.td<StyledCellProps>`
   ${({ type }) =>
@@ -48,9 +48,9 @@ const InnerCell = styled.div<{ layout: TableCellLayout }>`
 
 export type TableCellType = 'data' | 'head';
 export type TableCellLayout = 'left' | 'right' | 'center' | 'text and icon';
-export type CollapsibleProps = {
+export interface CollapsibleProps {
   isCollapsibleChild?: boolean;
-};
+}
 
 export type TableCellProps = {
   /**Type celle. Returnerer enten `<td>` eller `<th>`. */

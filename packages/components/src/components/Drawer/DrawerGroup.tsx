@@ -9,7 +9,7 @@ import {
   useId,
 } from 'react';
 
-export type DrawerGroupProps = {
+export interface DrawerGroupProps {
   /**Barna til komponenten. */
   children: ReactNode;
   /**`id` til `<Drawer />`. */
@@ -18,7 +18,7 @@ export type DrawerGroupProps = {
   onOpen?: () => void;
   /**Ekstra logikk som kjøres når `<Drawer />` lukkes. */
   onClose?: () => void;
-};
+}
 
 export const DrawerGroup = ({
   children,
