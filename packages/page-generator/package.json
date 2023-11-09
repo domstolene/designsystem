@@ -36,7 +36,7 @@
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
-    "@mdx-js/react": "^2.3.0",
+    "@mdx-js/react": "^3.0.0",
     "@norges-domstoler/dds-components": "*",
     "@norges-domstoler/dds-design-tokens": "*",
     "@norges-domstoler/dds-typography": "*",

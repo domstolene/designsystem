@@ -37,7 +37,7 @@
     "elsa"
   ],
   "devDependencies": {
-    "@mdx-js/react": "^2.3.0",
+    "@mdx-js/react": "^3.0.0",
     "@norges-domstoler/dds-design-tokens": "*",
     "@norges-domstoler/storybook-components": "*",
     "@storybook/blocks": "^7.5.3",
