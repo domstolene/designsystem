@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.2.1
+
+### Patch Changes
+
+- 5ca91f84: Diverse småfikser oppdaget etter strengere eslint-regler
+
 ## 1.2.0
 
 ### Minor Changes

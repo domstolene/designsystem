@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.4.1
+
+### Patch Changes
+
+- 5ca91f84: Diverse småfikser oppdaget etter strengere eslint-regler
+
 ## 1.4.0
 
 ### Minor Changes

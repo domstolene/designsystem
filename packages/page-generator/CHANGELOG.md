@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.7.1
+
+### Patch Changes
+
+- abf6e105: Gjør typene til Select mer konkrete. `TOption` trenger nå kun å inneholde feltene `label` og `value`.
+- 5ca91f84: Diverse småfikser oppdaget etter strengere eslint-regler
+- Updated dependencies [7cb301f8]
+- Updated dependencies [b14868fb]
+- Updated dependencies [abf6e105]
+- Updated dependencies [5ca91f84]
+  - @norges-domstoler/dds-design-tokens@3.0.2
+  - @norges-domstoler/dds-components@13.10.1
+  - @norges-domstoler/dds-typography@0.1.1
+
 ## 2.7.0
 
 ### Minor Changes
