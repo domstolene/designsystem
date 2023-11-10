@@ -76,14 +76,14 @@ const IconWrapper = styled.span`
   height: ${link.iconWrapper.height};
 `;
 
-type BaseOverflowMenuItemProps = {
+interface BaseOverflowMenuItemProps {
   title: string;
   icon?: SvgIcon;
   focus?: boolean;
   setFocus?: Dispatch<SetStateAction<number>>;
   index?: number;
   isMenuClosed?: boolean;
-};
+}
 
 type AnchorOverflowMenuItemProps = BaseOverflowMenuItemProps &
   BaseComponentProps<

@@ -30,10 +30,10 @@ const getBorder = (borderStyle: Border) => {
   }
 };
 
-type PaperProps = {
+export interface PaperProps {
   elevation?: Elevation;
   border?: Border;
-};
+}
 
 export const Paper = styled.div<PaperProps>`
   box-sizing: border-box;

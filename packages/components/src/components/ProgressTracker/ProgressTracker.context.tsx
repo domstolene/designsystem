@@ -1,9 +1,9 @@
 import { createContext, useContext } from 'react';
 
-type ProgressTrackerContextType = {
+interface ProgressTrackerContextType {
   activeStep: number;
   handleStepChange?: (index: number) => void;
-};
+}
 
 export const ProgressTrackerContext = createContext<ProgressTrackerContextType>(
   {

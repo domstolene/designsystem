@@ -12,11 +12,11 @@ import {
   getLiteralScreenSize,
 } from '@norges-domstoler/dds-core';
 
-type StyledGridProps = {
+interface StyledGridProps {
   screenSize: ScreenSize;
   maxWidth?: MaxWidthGrid;
   rowGap?: RowGapGrid;
-};
+}
 
 const getHooksGridStyling = (
   screenSize: ScreenSize,

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { InputMessage } from '../InputMessage';
 import { errorsTokens } from './FileUploader.tokens';
 
-type ErrorListProps = {
+interface ErrorListProps {
   errors: {
     id: string | undefined;
     message: string;
   }[];
-};
+}
 
 export const MessageContainer = styled.div`
   display: flex;

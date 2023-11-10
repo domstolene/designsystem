@@ -1,4 +1,4 @@
-export type FeedbackProps = {
+export interface FeedbackProps {
   /**Om knappene skal være plassert under eller ved siden av teksten. */
   layout?: Layout;
   /**Label som er plassert over tommel opp/ned knappene */
@@ -31,7 +31,7 @@ export type FeedbackProps = {
   onFeedbackTextChange?: (feedbackText: string) => void;
   /**Callback når bruker sender inn feedback */
   onSubmit?: (rating: Rating, feedbackText: string) => void;
-};
+}
 
 export type Rating = 'positive' | 'negative';
 export type Layout = 'vertical' | 'horizontal';

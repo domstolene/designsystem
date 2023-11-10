@@ -33,9 +33,9 @@ const List = styled.ol`
   padding: 0;
 `;
 
-type ListItemProps = {
+interface ListItemProps {
   isHidden?: boolean;
-};
+}
 
 const ListItem = styled.li<ListItemProps>`
   display: inline-grid;
@@ -69,10 +69,10 @@ const IndicatorsContainer = styled.div`
   gap: ${indicatorsContainer.gap};
 `;
 
-export type PaginationOption = {
+export interface PaginationOption {
   label: string;
   value: number;
-};
+}
 
 export type PaginationProps = BaseComponentProps<
   HTMLElement,
@@ -146,7 +146,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     };
 
     const handleSelectChange = (option: PaginationOption | null) => {
-      setItemsPerPage(option?.value as number);
+      if (option !== null) {
+        setItemsPerPage(option.value);
+      }
+
       if (onSelectOptionChange) {
         onSelectOptionChange(option);
       }

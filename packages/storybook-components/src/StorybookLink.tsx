@@ -74,13 +74,13 @@ type LinkType = 'npm' | 'zeroheight' | 'figma' | 'slack' | 'github';
 
 type Size = 'small' | 'large';
 
-type StorybookLinkProps = {
+interface StorybookLinkProps {
   href: string;
   children?: ReactNode;
   text: string;
   linkType: LinkType;
   size?: Size;
-};
+}
 
 export const StorybookLink = ({
   text,

@@ -22,10 +22,10 @@ const Wrapper = styled.div<{ width?: Property.Width<string> }>`
   width: ${({ width }) => (width ? width : defaultWidth)};
 `;
 
-type RootProps = {
+interface RootProps {
   isDragActive: boolean;
   hasRootErrors: boolean;
-};
+}
 
 const Root = styled.div<RootProps>`
   box-sizing: border-box;

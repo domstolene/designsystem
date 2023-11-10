@@ -1,9 +1,8 @@
+import { SelectOption } from '@norges-domstoler/dds-components';
 import { MultiValue, SingleValue } from 'react-select';
 
 export const isMultiValue = (
-  obj:
-    | SingleValue<Record<string, unknown>>
-    | MultiValue<Record<string, unknown>>,
-): obj is MultiValue<Record<string, unknown>> => {
-  return (obj as MultiValue<Record<string, unknown>>)?.values !== undefined;
+  obj: SingleValue<SelectOption<unknown>> | MultiValue<SelectOption<unknown>>,
+): obj is MultiValue<SelectOption<unknown>> => {
+  return (obj as MultiValue<SelectOption<unknown>>)?.values !== undefined;
 };

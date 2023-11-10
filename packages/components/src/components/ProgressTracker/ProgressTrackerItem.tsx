@@ -41,11 +41,11 @@ const toItemState = (
 
 const { itemNumber, itemText, itemContentWrapper } = progressTrackerTokens;
 
-type ItemStyleProps = {
+interface ItemStyleProps {
   state: ItemState;
-};
+}
 
-type BaseItemProps = {
+interface BaseItemProps {
   /** Om steget er valgt eller ikke. Settes av konsument. */
   active?: boolean;
 
@@ -62,7 +62,7 @@ type BaseItemProps = {
 
   /** Indeksen til steget. NB! Denne settes automatisk av `<ProgressTracker />` og skal ikke settes manuelt. */
   index?: number;
-};
+}
 
 type ProgressTrackerItemProps =
   | ({

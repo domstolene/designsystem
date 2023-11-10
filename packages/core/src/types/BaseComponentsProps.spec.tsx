@@ -13,7 +13,7 @@ describe('getBaseHTMLProps', () => {
   it('returns id from base argument', () => {
     const props: BCP = { id: 'foo' };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
@@ -24,7 +24,7 @@ describe('getBaseHTMLProps', () => {
   it('returns id from htmlProps if base id is not set', () => {
     const props: BCP = { htmlProps: { id: 'fewa' } };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
@@ -35,7 +35,7 @@ describe('getBaseHTMLProps', () => {
   it('returns className from base argument', () => {
     const props: BCP = { className: 'foo' };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
@@ -46,7 +46,7 @@ describe('getBaseHTMLProps', () => {
   it('returns className from htmlProps if base className is not set', () => {
     const props: BCP = { htmlProps: { className: 'fewa' } };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
@@ -60,7 +60,7 @@ describe('getBaseHTMLProps', () => {
       htmlProps: { className: 'fewa' },
     };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
@@ -80,7 +80,7 @@ describe('getBaseHTMLProps', () => {
       },
     };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
@@ -97,11 +97,12 @@ describe('getBaseHTMLProps', () => {
       htmlProps: {
         'aria-label': 'arialabel',
       },
+      // @ts-expect-error
       'data-unknownProp': 'lol',
       'data-unknownProp2': 'lol2',
     };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, className, htmlProps, rest);
 
@@ -114,12 +115,13 @@ describe('getBaseHTMLProps', () => {
   });
   it('overwrites aria-attributes that are set on the root if they are set on htmlprops', () => {
     const props: BCP = {
+      // @ts-expect-error
       'aria-label': 'foobar',
       'aria-describedby': 'other',
       htmlProps: { 'aria-label': 'arialabelfromhtmlprops' },
     };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, htmlProps, rest);
 
@@ -135,10 +137,9 @@ describe('getBaseHTMLProps', () => {
         className: 'fewa',
         'aria-label': 'arialabl',
       },
-      'data-unknownProp': 'foo',
     };
 
-    const { id, className, htmlProps, testProp, ...rest } = props;
+    const { id, className, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, htmlProps, rest);
 
@@ -146,7 +147,6 @@ describe('getBaseHTMLProps', () => {
       id: 'foo',
       className: 'fewa',
       'aria-label': 'arialabl',
-      'data-unknownProp': 'foo',
     });
   });
 });

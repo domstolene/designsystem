@@ -90,14 +90,14 @@ const StyledDivider = styled(Divider)`
   border-color: ${navTokens.dividerColor};
 `;
 
-export type NavigationProps = {
+export interface NavigationProps {
   version: string;
   internal: ReactElement[];
   external: ReactElement[];
   user: User;
   userMenuItems?: OverflowMenuProps['items'];
   environmentBannerActive: boolean;
-};
+}
 
 export const Navigation = ({
   version,

@@ -20,11 +20,11 @@ export const Overview = (args: StoryTProps) => {
   const { text, href, ...rest } = args;
   return (
     <StoryTemplate title="Link - default">
-      <Link {...rest} href={href || 'https://www.domstol.no'}>
-        {text || 'Link'}
+      <Link {...rest} href={href ?? 'https://www.domstol.no'}>
+        {text ?? 'Link'}
       </Link>
-      <Link {...rest} external href={href || 'https://www.domstol.no'}>
-        {text || 'Link'}
+      <Link {...rest} external href={href ?? 'https://www.domstol.no'}>
+        {text ?? 'Link'}
       </Link>
     </StoryTemplate>
   );
@@ -34,8 +34,8 @@ export const Default = (args: StoryTProps) => {
   const { text, href, ...rest } = args;
   return (
     <StoryTemplate title="Link - default">
-      <Link {...rest} href={href || 'https://www.domstol.no'}>
-        {text || 'Link'}
+      <Link {...rest} href={href ?? 'https://www.domstol.no'}>
+        {text ?? 'Link'}
       </Link>
     </StoryTemplate>
   );

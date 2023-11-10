@@ -2,7 +2,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
 import { forwardRef, ReactNode, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { visibilityTransition } from '@norges-domstoler/dds-core';
+import { PaperProps, visibilityTransition } from '@norges-domstoler/dds-core';
 import {
   Placement,
   useCombinedRef,
@@ -25,11 +25,11 @@ import { focusVisible } from '@norges-domstoler/dds-form';
 const { spacing: Spacing } = ddsBaseTokens;
 const { wrapper, content, closeButton, title } = tokens;
 
-type WrapperProps = {
+interface WrapperProps extends PaperProps {
   sizeProps?: PopoverSizeProps;
   hasTransitionedIn?: boolean;
   isOpen: boolean;
-};
+}
 
 const Wrapper = styled(Paper)<WrapperProps>`
   opacity: 0;
@@ -46,7 +46,12 @@ const Wrapper = styled(Paper)<WrapperProps>`
   ${({ sizeProps }) =>
     sizeProps &&
     css`
-      ${sizeProps}
+      width: ${sizeProps.width};
+      height: ${sizeProps.height};
+      min-width: ${sizeProps.minWidth};
+      min-height: ${sizeProps.minHeight};
+      max-width: ${sizeProps.maxWidth};
+      max-height: ${sizeProps.maxHeight};
     `}
 `;
 
@@ -54,10 +59,10 @@ const TitleContainer = styled.div`
   margin-right: ${title.marginRight};
 `;
 
-type ContentContainerProps = {
+interface ContentContainerProps {
   hasTitle: boolean;
   withCloseButton: boolean;
-};
+}
 
 const ContentContainer = styled.div<ContentContainerProps>`
   ${({ withCloseButton, hasTitle }) =>
@@ -74,14 +79,14 @@ const StyledButton = styled(Button)`
   right: ${closeButton.right};
 `;
 
-export type PopoverSizeProps = {
+export interface PopoverSizeProps {
   width?: Property.Width<string>;
   height?: Property.Height<string>;
   minWidth?: Property.MinWidth<string>;
   minHeight?: Property.MinHeight<string>;
   maxWidth?: Property.MaxWidth<string>;
   maxHeight?: Property.MaxHeight<string>;
-};
+}
 
 export type PopoverProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -149,9 +154,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         : refs.setReference(null);
     }, [anchorElement]);
 
-    const elements: (HTMLElement | null)[] = [
-      popoverRef.current as HTMLElement,
-    ];
+    const elements: (HTMLElement | null)[] = [popoverRef.current!];
     if (anchorElement) elements.push(anchorElement);
 
     useOnClickOutside(elements, () => {

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export type StyledSvgChevronProps = {
+export interface StyledSvgChevronProps {
   isUp?: boolean;
-};
+}
 
 export const SvgChevron = styled.svg<StyledSvgChevronProps>`
   display: inline-block;

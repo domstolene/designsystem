@@ -11,10 +11,10 @@ type PickedHTMLAttributes = Pick<
   'htmlFor'
 >;
 
-type BaseLabelProps = {
+interface BaseLabelProps {
   /** Spesifiserer om input etiketten er knyttet til er påkrevd; påvirker styling. */
   showRequiredStyling?: boolean;
-};
+}
 
 export type LabelProps = BaseComponentPropsWithChildren<
   HTMLLabelElement,

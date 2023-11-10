@@ -7,7 +7,7 @@ import {
   EnvironmentBanner,
 } from './EnvironmentBanner';
 
-export type EnvironmentBannerProviderProps = {
+export interface EnvironmentBannerProviderProps {
   /**
    * Miljøet som applikasjonen kjører i.
    * Hvis miljøet er PROD, vises ikke banneren.
@@ -21,7 +21,7 @@ export type EnvironmentBannerProviderProps = {
    * @default 'fixed'
    */
   bannerPosition?: BannerPosition;
-};
+}
 
 const AppWrapper = styled.div`
   padding-top: ${ENVIRONMENT_BANNER_HEIGHT};

@@ -29,7 +29,7 @@ import {
 } from './Typography.types';
 import { getElementType } from './Typography.utils';
 
-type StyledTypographyProps = {
+interface StyledTypographyProps {
   as: ElementType;
   typographyType: TypographyType;
   withMargins?: boolean;
@@ -39,7 +39,7 @@ type StyledTypographyProps = {
   underline?: boolean;
   interactionProps?: TypographyInteractionStyling;
   externalLink?: boolean;
-};
+}
 
 const StyledTypography = styled.p<StyledTypographyProps>`
   user-select: text;
@@ -59,16 +59,14 @@ const StyledTypography = styled.p<StyledTypographyProps>`
         `}
 
   ${({ interactionProps }) =>
-    interactionProps &&
-    interactionProps.hover &&
+    interactionProps?.hover &&
     css`
       &:hover {
         ${interactionProps.hover as CSSObject}
       }
     `}
       ${({ interactionProps }) =>
-    interactionProps &&
-    interactionProps.active &&
+    interactionProps?.active &&
     css`
       &:active {
         ${interactionProps.active as CSSObject}

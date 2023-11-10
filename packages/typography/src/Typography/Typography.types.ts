@@ -111,10 +111,10 @@ export type InlineElement =
   | 'video'
   | 'wbr';
 
-export type TypographyInteractionStyling = {
+export interface TypographyInteractionStyling {
   hover?: CSSProperties;
   active?: CSSProperties;
-};
+}
 
 export type BaseTypographyProps = PropsWithChildren<{
   /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa. Brukes hovedsakelig i artikler og lignende. **OBS!** har forskjellig virkning på ulike typografityper. `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens `supportingStyles` får margin topp og bunn. */

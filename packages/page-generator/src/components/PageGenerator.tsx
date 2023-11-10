@@ -4,6 +4,7 @@ import {
   getBaseHTMLProps,
   Grid,
   GridChild,
+  SelectOption,
   useScreenSize,
 } from '@norges-domstoler/dds-components';
 import {
@@ -107,11 +108,9 @@ export const PageGenerator = (props: PageGeneratorProps) => {
     const field = getFieldByName(name);
     if (field && isFieldWithValidations(field)) {
       const fieldErrors =
-        (field.validations &&
-          field.validations.filter(
-            (v: PageGeneratorValidation) => !v.rule(value),
-          )) ||
-        [];
+        field.validations?.filter(
+          (v: PageGeneratorValidation) => !v.rule(value),
+        ) ?? [];
       updateErrors(fieldErrors, name, value);
       setErrorMessage(
         name,
@@ -142,15 +141,15 @@ export const PageGenerator = (props: PageGeneratorProps) => {
 
   const selectOnChange = (
     chosen:
-      | SingleValue<Record<string, unknown>>
-      | MultiValue<Record<string, unknown>>,
+      | SingleValue<SelectOption<unknown>>
+      | MultiValue<SelectOption<unknown>>,
     name: string,
   ) => {
     let value = null;
     if (isMultiValue(chosen)) {
       value = Array.isArray(chosen) ? chosen : null;
     } else {
-      value = chosen || null;
+      value = chosen ?? null;
     }
     const newState = {
       ...state,

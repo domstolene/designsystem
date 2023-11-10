@@ -22,9 +22,9 @@ const StyledScrollableContainer = styled.div`
   padding: ${outerContainer.padding};
 `;
 
-type ContentProps = {
+interface ContentProps {
   height: Property.Height;
-};
+}
 
 const Content = styled.div<ContentProps>`
   height: ${({ height }) => height};

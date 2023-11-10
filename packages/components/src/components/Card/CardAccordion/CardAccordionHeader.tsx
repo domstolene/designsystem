@@ -26,14 +26,14 @@ const ContentWrapper = styled.div`
 function getTypographyType(props: HeaderProps): StaticTypographyType {
   const { typographyType } = props;
 
-  return typographyType || typographyTypes.header;
+  return typographyType ?? typographyTypes.header;
 }
 
-type HeaderProps = {
+interface HeaderProps {
   padding?: Property.Padding<string>;
   typographyType?: StaticTypographyType;
   bold?: boolean;
-};
+}
 
 const HeaderContainer = styled.div<HeaderProps>`
   display: flex;

@@ -26,12 +26,12 @@ export const bodyRowStyles = (mode?: RowMode, selected?: boolean) => {
   `;
 };
 
-type StyledProps = {
+interface StyledProps {
   type: TableRowType;
   mode?: RowMode;
   selected?: boolean;
   hoverable?: boolean;
-};
+}
 
 export const StyledRow = styled.tr<StyledProps>`
   @media (prefers-reduced-motion: no-preference) {

@@ -39,6 +39,7 @@ import { SvgIcon } from '@norges-domstoler/dds-icons';
 import { getFormInputIconSize } from '../../utils/icon';
 import { renderInputMessage } from '../../utils/renderInputMessage';
 import { InputSize } from '@norges-domstoler/dds-form';
+import { T } from 'vitest/dist/reporters-5f784f42';
 
 const {
   Option,
@@ -51,10 +52,10 @@ const {
   Control,
 } = components;
 
-export type SelectOption<TValue = unknown> = {
+export interface SelectOption<TValue = unknown> {
   label: string | number;
   value: TValue;
-};
+}
 
 export const createSelectOptions = <TValue extends string | number>(
   ...args: TValue[]
@@ -163,9 +164,10 @@ const getPlaceholder = (
     : '-- Velg fra listen --';
 
 type WrappedReactSelectProps<
-  TOption extends Record<string, unknown>,
+  TOption extends SelectOption<TValue>,
   IsMulti extends boolean,
   Group extends GroupBase<TOption>,
+  TValue = unknown,
 > = WithRequiredIf<
   TOption extends SelectOption ? false : true,
   ReactSelectProps<TOption, IsMulti, Group>,
@@ -173,8 +175,9 @@ type WrappedReactSelectProps<
 >;
 
 export type SelectProps<
-  TOption extends Record<string, unknown>,
+  TOption extends SelectOption<TValue>,
   IsMulti extends boolean,
+  TValue = unknown,
 > = {
   /**Ledetekst for nedtrekkslisten. */
   label?: string;
@@ -208,8 +211,9 @@ type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
 >;
 
 const SelectInner = <
-  TOption extends Record<string, unknown>,
+  TOption extends SelectOption<TValue>,
   IsMulti extends boolean = false,
+  TValue = unknown,
 >(
   props: SelectProps<TOption, IsMulti>,
   ref: ForwardRefType<TOption, IsMulti>,
@@ -246,6 +250,7 @@ const SelectInner = <
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
@@ -270,6 +275,7 @@ const SelectInner = <
     options,
     value,
     defaultValue,
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
     isDisabled: isDisabled || readOnly,
     isClearable,
     placeholder: getPlaceholder(placeholder, isMulti),

@@ -9,9 +9,9 @@ import { toggleBarTokens as tokens } from './ToggleBar.tokens';
 import { Property } from 'csstype';
 import { ToggleBarProps, ToggleBarValue } from './ToggleBar.types';
 
-type OuterContainerProps = {
+interface OuterContainerProps {
   width?: Property.Width;
-};
+}
 
 const OuterContainer = styled.div<OuterContainerProps>`
   display: flex;

@@ -2,7 +2,7 @@ import { InputHTMLAttributes } from 'react';
 import { Property } from 'csstype';
 import { StaticTypographyType } from '@norges-domstoler/dds-typography';
 
-export type CommonInputProps = {
+export interface CommonInputProps {
   /**Ledetekst for input. */
   label?: string;
   /**Bredde for inputfeltet. */
@@ -11,7 +11,7 @@ export type CommonInputProps = {
   tip?: string;
   /**Feilmelding. Setter også error state. */
   errorMessage?: string;
-};
+}
 
 export type InputSize = 'medium' | 'small' | 'tiny';
 

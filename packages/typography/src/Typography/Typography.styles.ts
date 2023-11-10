@@ -124,14 +124,12 @@ export const getAnchorStyling = (
   `}
   &:hover {
     color: ${tokens.typographyType.a.hover.color};
-    ${interactionStyling &&
-    interactionStyling.hover &&
+    ${interactionStyling?.hover &&
     css`
       ${interactionStyling.hover as CSSObject}
     `}
   }
-  ${interactionStyling &&
-  interactionStyling.active &&
+  ${interactionStyling?.active &&
   css`
     &:active {
       ${interactionStyling.active as CSSObject}

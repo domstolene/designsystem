@@ -33,7 +33,7 @@ export type AppShellProps = PropsWithChildren<{
   environment?: Environment;
 }>;
 
-export type AppShellNavigationProps = {
+export interface AppShellNavigationProps {
   /**
    * Interne lenker i navigasjonen.
    */
@@ -42,7 +42,7 @@ export type AppShellNavigationProps = {
    * Eksterne lenker i navigasjonen.
    */
   external?: ReactElement[];
-};
+}
 
 const AppShellContainer = styled.div`
   display: flex;

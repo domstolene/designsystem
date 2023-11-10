@@ -11,11 +11,11 @@ const svgChevronLeftPath =
 const svgChevronRightPath =
   'M 3 4 L 7 0 L 8 1 C 8 1 8 1 8 1 L 4 5 L 3 4 C 3 4 3 4 3 4 L 3 4 Z';
 
-type SvgChevronProps = {
+interface SvgChevronProps {
   isUp?: boolean;
   height?: Property.Height<string>;
   width?: Property.Width<string>;
-};
+}
 
 export const AnimatedChevronUpDown = ({
   isUp,

@@ -42,14 +42,14 @@ function getContainerControlPadding(
     : control.sizes[componentSize].padding;
 }
 
-type StyledContainerProps = {
+interface StyledContainerProps {
   errorMessage?: string;
   isDisabled?: boolean;
   readOnly?: boolean;
   width?: Property.Width;
   componentSize: InputSize;
   isMulti?: boolean;
-};
+}
 
 export const Container = styled.div<StyledContainerProps>`
   margin: 0;

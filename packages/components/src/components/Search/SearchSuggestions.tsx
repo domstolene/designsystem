@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { removeListStyling } from '@norges-domstoler/dds-core';
-import { OverflowMenuItem } from '../OverflowMenu/OverflowMenuItem';
+import {
+  OverflowMenuItem,
+  OverflowMenuItemProps,
+} from '../OverflowMenu/OverflowMenuItem';
 import { searchTokens as tokens, typographyTypes } from './Search.tokens';
 import { Paper } from '@norges-domstoler/dds-core';
 import { SearchProps, SearchSize } from './Search';
@@ -18,9 +21,9 @@ import { derivativeIdGenerator } from '@norges-domstoler/dds-core';
 
 const { suggestionsContainer, suggestionsHeader } = tokens;
 
-type SuggestionsContainerProps = {
+interface SuggestionsContainerProps {
   isHidden?: boolean;
-};
+}
 
 const SuggestionsContainer = styled(Paper)<SuggestionsContainerProps>`
   ${({ isHidden }) => visibilityTransition(!isHidden)};
@@ -37,12 +40,12 @@ const SuggestionsContainer = styled(Paper)<SuggestionsContainerProps>`
   ${scrollbarStyling.webkit}
 `;
 
-type MenuItemProps = {
-  size: SearchSize;
+type MenuItemProps = OverflowMenuItemProps & {
+  size?: SearchSize;
 };
 
 const MenuItem = styled(OverflowMenuItem)<MenuItemProps>`
-  ${({ size }) => getFontStyling(typographyTypes[size])}
+  ${({ size }) => size && getFontStyling(typographyTypes[size])}
 `;
 
 const SuggestionsList = styled.ul`
@@ -91,10 +94,7 @@ export const SearchSuggestions = forwardRef<
     'suggestions-header',
   );
 
-  const [focus, setFocus] = useRoveFocus(
-    suggestions && suggestions.length,
-    !showSuggestions,
-  );
+  const [focus, setFocus] = useRoveFocus(suggestions?.length, !showSuggestions);
 
   const suggestionsToRender = maxSuggestions
     ? suggestions?.slice(maxSuggestions)

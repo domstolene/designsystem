@@ -5,7 +5,7 @@ const { border, colors, spacing } = ddsBaseTokens;
 
 const borderStyle = `${border.BordersDdsBorderStyleLightStrokeWeight} ${border.BordersDdsBorderStyleLightStroke} solid `;
 
-export const typographyTypes: { [k: string]: StaticTypographyType } = {
+export const typographyTypes: Record<string, StaticTypographyType> = {
   navLink: 'bodySans01',
 };
 

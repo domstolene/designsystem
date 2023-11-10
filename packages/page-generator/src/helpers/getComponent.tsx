@@ -28,6 +28,7 @@ import {
   VisuallyHidden,
   HStack,
   VStack,
+  SelectOption,
 } from '@norges-domstoler/dds-components';
 import {
   Heading,
@@ -49,8 +50,8 @@ export const getComponent = (
   fieldOnChange: (event: ChangeEvent<TElement & Record<string, never>>) => void,
   selectOnChange: (
     chosen:
-      | SingleValue<Record<string, unknown>>
-      | MultiValue<Record<string, unknown>>,
+      | SingleValue<SelectOption<unknown>>
+      | MultiValue<SelectOption<unknown>>,
     name: string,
   ) => void,
   screenSize: ScreenSize,

@@ -14,10 +14,10 @@ const StyledIcon = styled(Icon)`
   color: ${backLinkTokens.icon.color};
 `;
 
-export type BackLinkProps = {
+export interface BackLinkProps {
   label: string;
   href: string;
-};
+}
 
 export const BackLink = forwardRef<HTMLElement, BackLinkProps>((props, ref) => {
   return (

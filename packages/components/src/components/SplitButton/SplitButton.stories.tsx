@@ -45,10 +45,10 @@ export const FullWidth = () => (
   </StoryTemplate>
 );
 
-type SplitButtonVariantsProps = {
+interface SplitButtonVariantsProps {
   args: SplitButtonProps;
   purpose: SplitButtonPurpose;
-};
+}
 
 const SplitButtonVariants = ({ args, purpose }: SplitButtonVariantsProps) => (
   <>

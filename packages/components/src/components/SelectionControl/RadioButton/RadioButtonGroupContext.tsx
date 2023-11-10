@@ -2,13 +2,13 @@ import { Nullable } from '@norges-domstoler/dds-core';
 import React, { ChangeEvent, useContext } from 'react';
 
 export interface RadioButtonGroup {
-  disabled?: boolean;
-  readOnly?: boolean;
+  disabled: boolean;
+  readOnly: boolean;
   name?: string;
   value?: string | number | null;
-  error?: boolean;
+  error: boolean;
   errorMessageId?: string;
-  required?: boolean;
+  required: boolean;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 

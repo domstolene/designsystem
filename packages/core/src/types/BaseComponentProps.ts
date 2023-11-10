@@ -13,7 +13,7 @@ import { HTMLAttributes, PropsWithChildren } from 'react';
  */
 export type BaseComponentProps<
   TElement extends Element,
-  TOtherProps extends Record<string, unknown> = Record<string, unknown>,
+  TOtherProps extends object = object,
   THTMLAttributesProps extends
     HTMLAttributes<TElement> = HTMLAttributes<TElement>,
 > = Pick<THTMLAttributesProps, 'id' | 'className'> &
@@ -29,14 +29,14 @@ export type BaseComponentProps<
  */
 export type BaseComponentPropsWithChildren<
   T extends Element,
-  TProps extends Record<string, unknown> = Record<string, unknown>,
+  TProps extends object = object,
   THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>,
 > = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
 
 export const joinClassNames = (...classNames: (string | undefined)[]) =>
   classNames.filter(Boolean).join(' ');
 
-type GetBaseHTMLProps = {
+interface GetBaseHTMLProps {
   <T extends Element>(
     id: HTMLAttributes<T>['id'],
     className: HTMLAttributes<T>['className'],
@@ -48,7 +48,7 @@ type GetBaseHTMLProps = {
     htmlProps: HTMLAttributes<T> | undefined,
     unknownProps: object,
   ): HTMLAttributes<T> & object;
-};
+}
 
 /**
  * Slår sammen id, className, htmlProps og unknownProps til ett objekt
@@ -115,7 +115,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
       id: htmlPropsId,
       className: htmlPropsClassName,
       ...restHTMLProps
-    } = (htmlPropsOrClassName as HTMLAttributes<T> | undefined) ?? {};
+    } = htmlPropsOrClassName ?? {};
 
     const propId = id ?? htmlPropsId;
 

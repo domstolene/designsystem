@@ -1,4 +1,4 @@
-import { ScreenSize } from '@norges-domstoler/dds-components';
+import { ScreenSize, SelectOption } from '@norges-domstoler/dds-components';
 import { ButtonRow, PageGeneratorFlexContainer } from '../styles';
 import { PageGeneratorRow } from '../types';
 import { MultiValue, SingleValue } from 'react-select';
@@ -15,8 +15,8 @@ export const getButtonRow = (
   ) => void,
   selectOnChange: (
     chosen:
-      | SingleValue<Record<string, unknown>>
-      | MultiValue<Record<string, unknown>>,
+      | SingleValue<SelectOption<unknown>>
+      | MultiValue<SelectOption<unknown>>,
     name: string,
   ) => void,
   screenSize: ScreenSize,

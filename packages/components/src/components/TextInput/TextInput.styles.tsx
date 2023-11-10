@@ -17,9 +17,9 @@ export const MessageContainer = styled.div`
   justify-content: space-between;
 `;
 
-type StyledIconProps = {
+interface StyledIconProps {
   size: InputSize;
-};
+}
 
 export const StyledIcon = styled(Icon)<StyledIconProps>`
   position: absolute;

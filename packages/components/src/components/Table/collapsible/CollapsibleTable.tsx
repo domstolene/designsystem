@@ -4,9 +4,9 @@ import { Table } from '../Table';
 import { CollapsibleTableContext } from './Table.context';
 import { CollapsibleTableProps } from '../Table.types';
 
-type StyledTableProps = {
+interface StyledTableProps {
   isCollapsed?: boolean;
-};
+}
 
 const StyledTable = styled(Table)<StyledTableProps>`
   width: 100%;

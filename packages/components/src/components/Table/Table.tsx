@@ -7,11 +7,11 @@ import { TableDensity, TableProps } from './Table.types';
 
 const { cell, row } = tableTokens;
 
-type StyledTableProps = {
+interface StyledTableProps {
   density: TableDensity;
   stickyHeader?: boolean;
   withDividers?: boolean;
-};
+}
 
 const StyledTable = styled.table<StyledTableProps>`
   border-spacing: 0;

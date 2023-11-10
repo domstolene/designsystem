@@ -39,10 +39,10 @@ import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
 import { ComponentProps } from 'react';
 import { SectionGeneratorRow } from './SectionGeneratorRow';
 
-export type PageGeneratorValidation = {
+export interface PageGeneratorValidation {
   message: string;
   rule: (value: string) => boolean;
-};
+}
 
 export type PageGeneratorField =
   | FieldWithChildren
@@ -86,226 +86,226 @@ type FieldWithoutChildren =
 
 export type FieldWithValidations = TextInputField | TextAreaField;
 
-type ButtonField = {
+interface ButtonField {
   component: PageGeneratorSupportedFields.Button;
   props: ComponentProps<typeof Button>;
   hide?: boolean;
-};
+}
 
-type CardField = {
+interface CardField {
   component: PageGeneratorSupportedFields.Card;
   props: CardProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
   children?: (PageGeneratorField | SectionGeneratorRow)[];
-};
+}
 
-type CheckboxField = {
+interface CheckboxField {
   component: PageGeneratorSupportedFields.Checkbox;
   props: CheckboxProps;
   hide?: boolean;
-};
+}
 
-type CheckboxGroupField = {
+interface CheckboxGroupField {
   component: PageGeneratorSupportedFields.CheckboxGroup;
   props: CheckboxGroupProps;
   hide?: boolean;
   children: CheckboxField[];
-};
+}
 
-type DatepickerField = {
+interface DatepickerField {
   component: PageGeneratorSupportedFields.Datepicker;
   props: DatepickerProps;
   hide?: boolean;
-};
+}
 
-type DescriptionListField = {
+interface DescriptionListField {
   component: PageGeneratorSupportedFields.DescriptionList;
   props: DescriptionListProps;
   hide?: boolean;
   children: DescriptionListGroupField[];
-};
+}
 
-export type DescriptionListGroupField = {
+export interface DescriptionListGroupField {
   component: PageGeneratorSupportedFields.DescriptionListGroup;
   props: DescriptionListGroupProps;
   hide?: boolean;
   children: (DescriptionListTermField | DescriptionListDescField)[];
-};
+}
 
-type DescriptionListTermField = {
+interface DescriptionListTermField {
   component: PageGeneratorSupportedFields.DescriptionListTerm;
   props: DescriptionListTermProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
-};
+}
 
-type DescriptionListDescField = {
+interface DescriptionListDescField {
   component: PageGeneratorSupportedFields.DescriptionListDesc;
   props: DescriptionListDescProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
-};
+}
 
-type DividerField = {
+interface DividerField {
   component: PageGeneratorSupportedFields.Divider;
   props: DividerProps;
   hide?: boolean;
-};
+}
 
-type DrawerField = {
+interface DrawerField {
   component: PageGeneratorSupportedFields.Drawer;
   props: DrawerProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type DrawerGroupField = {
+interface DrawerGroupField {
   component: PageGeneratorSupportedFields.DrawerGroup;
   props: DrawerGroupProps;
   hide?: boolean;
   children: (ButtonField | DrawerField)[];
-};
+}
 
-type GlobalMessageField = {
+interface GlobalMessageField {
   component: PageGeneratorSupportedFields.GlobalMessage;
   props: GlobalMessageProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type HeadingField = {
+interface HeadingField {
   component: PageGeneratorSupportedFields.Heading;
   props: HeadingProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type HStackField = {
+interface HStackField {
   component: PageGeneratorSupportedFields.HStack;
   props: StackProps;
   hide?: boolean;
   children: PageGeneratorField[];
-};
+}
 
-type InputMessageField = {
+interface InputMessageField {
   component: PageGeneratorSupportedFields.InputMessage;
   props: InputMessageProps;
   hide?: boolean;
-};
+}
 
-type LabelField = {
+interface LabelField {
   component: PageGeneratorSupportedFields.Label;
   props: LabelProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type LinkField = {
+interface LinkField {
   component: PageGeneratorSupportedFields.Link;
   props: LinkProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type ListItemField = {
+interface ListItemField {
   component: PageGeneratorSupportedFields.ListItem;
   props?: ListItemProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type ListField = {
+interface ListField {
   component: PageGeneratorSupportedFields.List;
   props?: ListProps;
   hide?: boolean;
   children: ListItemField[];
-};
+}
 
-type LocalMessageField = {
+interface LocalMessageField {
   component: PageGeneratorSupportedFields.LocalMessage;
   props: LocalMessageProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type ParagraphField = {
+interface ParagraphField {
   component: PageGeneratorSupportedFields.Paragraph;
   props: ParagraphProps;
   hide?: boolean;
   innerHTML?: JSX.Element | string;
-};
+}
 
-type RadioButtonField = {
+interface RadioButtonField {
   component: PageGeneratorSupportedFields.RadioButton;
   props: RadioButtonProps;
   hide?: boolean;
-};
+}
 
-type RadioButtonGroupField = {
+interface RadioButtonGroupField {
   component: PageGeneratorSupportedFields.RadioButtonGroup;
   props: RadioButtonGroupProps<string | number>;
   hide?: boolean;
   children: RadioButtonField[];
-};
+}
 
-type SelectField = {
+interface SelectField {
   component: PageGeneratorSupportedFields.Select;
   props: SelectProps<SelectOption<unknown>, boolean>;
   name: string;
   hide?: boolean;
-};
+}
 
-type SpinnerField = {
+interface SpinnerField {
   component: PageGeneratorSupportedFields.Spinner;
   props: SpinnerProps;
   hide?: boolean;
-};
+}
 
-type TextAreaField = {
+interface TextAreaField {
   component: PageGeneratorSupportedFields.TextArea;
   props: TextAreaProps;
   validations?: PageGeneratorValidation[];
   hide?: boolean;
-};
+}
 
-type TextInputField = {
+interface TextInputField {
   component: PageGeneratorSupportedFields.TextInput;
   props: TextInputProps;
   validations?: PageGeneratorValidation[];
   hide?: boolean;
-};
+}
 
-type ToggleButtonField = {
+interface ToggleButtonField {
   component: PageGeneratorSupportedFields.ToggleButton;
   props: ToggleButtonProps;
   hide?: boolean;
-};
+}
 
-type ToggleButtonGroupField = {
+interface ToggleButtonGroupField {
   component: PageGeneratorSupportedFields.ToggleButtonGroup;
   props: ToggleButtonGroupProps;
   hide?: boolean;
   children: ToggleButtonField[];
-};
+}
 
-type TypographyField = {
+interface TypographyField {
   component: PageGeneratorSupportedFields.Typography;
   props: TypographyProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
-};
+}
 
-type VisuallyHiddenField = {
+interface VisuallyHiddenField {
   component: PageGeneratorSupportedFields.VisuallyHidden;
   props: VisuallyHiddenProps;
   hide?: boolean;
   innerHTML: JSX.Element | string;
-};
+}
 
-type VStackField = {
+interface VStackField {
   component: PageGeneratorSupportedFields.VStack;
   props: StackProps;
   hide?: boolean;
   children: PageGeneratorField[];
-};
+}

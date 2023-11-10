@@ -64,7 +64,7 @@ export type SpinnerProps = BaseComponentProps<
   SVGElement,
   {
     /**Farge på spinneren. */
-    color?: TextColor | string;
+    color?: TextColor | (string & NonNullable<unknown>);
     /**Størrelse; Setter høyde og bredde på spinneren. */
     size?: Property.Width<string>;
     /**Tekst som vises ved hover. */

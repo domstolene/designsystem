@@ -12,7 +12,7 @@ export default {
 
 export const Default = (args: ToggleButtonProps) => (
   <StoryTemplate title="ToggleButton - default">
-    <ToggleButton {...args} label={args.label || 'Tekst'} />
+    <ToggleButton {...args} label={args.label ?? 'Tekst'} />
   </StoryTemplate>
 );
 
@@ -20,7 +20,7 @@ export const WithIcon = (args: ToggleButtonProps) => (
   <StoryTemplate title="ToggleButton - default">
     <ToggleButton
       {...args}
-      label={args.label || 'Tekst'}
+      label={args.label ?? 'Tekst'}
       icon={NotificationsIcon}
     />
   </StoryTemplate>

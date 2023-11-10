@@ -1,4 +1,8 @@
-import { getBaseHTMLProps, ScreenSize } from '@norges-domstoler/dds-components';
+import {
+  getBaseHTMLProps,
+  ScreenSize,
+  SelectOption,
+} from '@norges-domstoler/dds-components';
 import { SectionGeneratorRow } from '../types';
 import { MultiValue, SingleValue } from 'react-select';
 import { ChangeEvent } from 'react';
@@ -31,8 +35,8 @@ export const getStandardRow = (
   ) => void,
   selectOnChange: (
     chosen:
-      | SingleValue<Record<string, unknown>>
-      | MultiValue<Record<string, unknown>>,
+      | SingleValue<SelectOption<unknown>>
+      | MultiValue<SelectOption<unknown>>,
     name: string,
   ) => void,
   screenSize: ScreenSize,

@@ -19,9 +19,9 @@ import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 
 const { wrapper, link } = tokens;
 
-type WrapperProps = {
+interface WrapperProps {
   top: Property.Top;
-};
+}
 
 const Wrapper = styled.div<WrapperProps>`
   box-sizing: border-box;

@@ -7,10 +7,10 @@ import {
   useContext,
 } from 'react';
 
-type AppShellContextValues = {
+interface AppShellContextValues {
   isOpen: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-};
+}
 
 const AppShellContext = createContext<AppShellContextValues>({
   isOpen: false,

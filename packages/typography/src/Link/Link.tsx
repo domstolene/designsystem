@@ -10,11 +10,11 @@ import {
   BaseTypographyProps,
 } from '../Typography';
 
-type StyledLinkProps = {
+interface StyledLinkProps {
   typographyType?: TypographyBodyType;
   withMargins?: boolean;
   external?: boolean;
-};
+}
 
 const StyledLink = styled.a<StyledLinkProps>`
   ${({ external, typographyType, withMargins }) =>

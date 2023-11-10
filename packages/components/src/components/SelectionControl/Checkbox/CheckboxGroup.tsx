@@ -41,7 +41,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     direction = 'row',
     errorMessage,
     tip,
-    required,
+    required = false,
     groupId,
     children,
     id,

@@ -70,31 +70,31 @@ export const TextInputOverview = (args: TextInputProps) => {
         {...args}
         label={args.label ?? 'Label'}
         errorMessage={
-          args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
+          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
         }
       />
       <TextInput
         {...args}
         errorMessage={
-          args.errorMessage || 'Dette er en feilmelding ved valideringsfeil'
+          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
         }
       />
       <TextInput
         {...args}
         label={args.label ?? 'Label'}
-        tip={args.tip || 'Dette er en hjelpetekst'}
+        tip={args.tip ?? 'Dette er en hjelpetekst'}
       />
-      <TextInput {...args} tip={args.tip || 'Dette er en hjelpetekst'} />
+      <TextInput {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
       <TextInput
         {...args}
         label={args.label ?? 'Label'}
         autoComplete="off"
-        tip={args.tip || 'Dette er en hjelpetekst med en tegnteller'}
+        tip={args.tip ?? 'Dette er en hjelpetekst med en tegnteller'}
         maxLength={20}
       />
       <TextInput
         {...args}
-        tip={args.tip || 'Dette er en hjelpetekst med en tegnteller'}
+        tip={args.tip ?? 'Dette er en hjelpetekst med en tegnteller'}
         maxLength={20}
       />
       <TextInput {...args} icon={MailIcon} label={args.label ?? 'Label'} />

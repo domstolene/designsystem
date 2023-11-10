@@ -18,6 +18,6 @@ export type TextInputProps = InputProps & {
   suffix?: string;
 };
 
-export type TextAffixProps = {
+export interface TextAffixProps {
   readOnly?: boolean;
-};
+}

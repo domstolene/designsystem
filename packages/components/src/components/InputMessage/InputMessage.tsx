@@ -10,9 +10,9 @@ import {
 
 import { ErrorIcon } from '@norges-domstoler/dds-icons';
 
-type WrapperProps = {
+interface WrapperProps {
   messageType: InputMessageType;
-};
+}
 
 const InputMessageWrapper = styled.div<WrapperProps>`
   display: flex;

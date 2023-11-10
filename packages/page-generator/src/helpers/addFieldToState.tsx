@@ -15,7 +15,7 @@ export const addFieldToState = (
   switch (field.component) {
     case PageGeneratorSupportedFields.Checkbox:
     case PageGeneratorSupportedFields.ToggleButton:
-      key = field.props.name || field.props.id || FIELD_MISSING_NAME_OR_ID;
+      key = field.props.name ?? field.props.id ?? FIELD_MISSING_NAME_OR_ID;
       state = {
         ...state,
         [key]: field.props.defaultChecked,
@@ -29,14 +29,14 @@ export const addFieldToState = (
       return state;
     case PageGeneratorSupportedFields.RadioButton:
     case PageGeneratorSupportedFields.RadioButtonGroup:
-      key = field.props.name || field.props.id || FIELD_MISSING_NAME_OR_ID;
+      key = field.props.name ?? field.props.id ?? FIELD_MISSING_NAME_OR_ID;
       state = {
         ...state,
         [key]: field.props.value,
       };
       return state;
     case PageGeneratorSupportedFields.Select:
-      key = field.name || field.props.id || FIELD_MISSING_NAME_OR_ID;
+      key = field.name ?? field.props.id ?? FIELD_MISSING_NAME_OR_ID;
       state = {
         ...state,
         [key]: field.props.defaultValue,
@@ -44,7 +44,7 @@ export const addFieldToState = (
       return state;
     case PageGeneratorSupportedFields.Datepicker:
     case PageGeneratorSupportedFields.TextInput:
-      key = field.props.name || field.props.id || FIELD_MISSING_NAME_OR_ID;
+      key = field.props.name ?? field.props.id ?? FIELD_MISSING_NAME_OR_ID;
       state = {
         ...state,
         [key]: field.props.defaultValue,

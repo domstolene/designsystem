@@ -6,7 +6,7 @@ import {
   TextareaHTMLAttributes,
 } from 'react';
 
-export type BaseInlineInputProps = {
+export interface BaseInlineInputProps {
   /**Spesifiserer error state. Hvis `errorMessage` ikke brukes må inputfeltet knyttes med ARIA til en feilmelding som vises andre steder i applikasjonen. */
   error?: boolean;
   /**Feilmelding. Setter også error state. */
@@ -19,7 +19,7 @@ export type BaseInlineInputProps = {
   emptiable?: boolean;
   /** **OBS!** settes automatisk av forelder. Spesifiserer om komponenten er i redigeringsmodus. */
   isEditing?: boolean;
-};
+}
 
 export type InlineEditProps = {
   /**Callback for når verdien blir lagret. */

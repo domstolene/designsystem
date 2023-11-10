@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Paper } from '@norges-domstoler/dds-core';
+import { Paper, PaperProps } from '@norges-domstoler/dds-core';
 import { visibilityTransition } from '@norges-domstoler/dds-core';
 import {
   defaultTypographyType,
@@ -20,7 +20,7 @@ export const Container = styled.div`
   width: fit-content;
 `;
 
-type WrapperProps = {
+type WrapperProps = PaperProps & {
   open: boolean;
 };
 

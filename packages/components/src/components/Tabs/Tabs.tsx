@@ -15,9 +15,9 @@ import {
 import { TabsContext } from './Tabs.context';
 import { Property } from 'csstype';
 
-type ContainerProps = {
+interface ContainerProps {
   width?: Property.Width;
-};
+}
 
 const Container = styled.div<ContainerProps>`
   ${({ width }) =>
@@ -58,7 +58,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-tabs`;
 
-  const [thisActiveTab, setActiveTab] = useState(activeTab || 0);
+  const [thisActiveTab, setActiveTab] = useState(activeTab ?? 0);
   const [hasTabFocus, setHasTabFocus] = useState(false);
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabPanelsRef = useRef<HTMLDivElement>(null);

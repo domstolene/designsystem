@@ -14,9 +14,9 @@ import { tagTokens as tokens, typographyType } from './Tag.tokens';
 
 const { wrapper } = tokens;
 
-type WrapperProps = {
+interface WrapperProps {
   purpose: TagPurpose;
-};
+}
 
 const Wrapper = styled(TextOverflowEllipsisWrapper)<WrapperProps>`
   display: inline-flex;

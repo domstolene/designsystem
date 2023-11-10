@@ -9,7 +9,9 @@ import { focusVisible } from '@norges-domstoler/dds-form';
 
 const { navLink } = tokens;
 
-type LinkProps = { isCurrent?: boolean };
+interface LinkProps {
+  isCurrent?: boolean;
+}
 
 export const Link = styled.a<LinkProps>`
   display: flex;

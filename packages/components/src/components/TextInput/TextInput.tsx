@@ -147,7 +147,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasLabel = !!label;
     const hasMessage = hasErrorMessage || hasTip || !!maxLength;
     const hasIcon = !!icon;
-    const hasAffix = !!(prefix || suffix);
+    const hasAffix = !!(prefix ?? suffix);
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -184,6 +184,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       width: getWidth(componentSize, width),
     };
 
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
     const showRequiredStyling = !!(required || ariaRequired);
 
     let extendedInput = null;

@@ -33,13 +33,13 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       id,
       name,
       label,
-      disabled,
-      readOnly,
-      error,
+      disabled = false,
+      readOnly = false,
+      error = false,
       checked,
       value,
       children,
-      required,
+      required = false,
       onChange,
       'aria-describedby': ariaDescribedby,
       className,
@@ -76,9 +76,9 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       disabled:
         disabled ||
         readOnly ||
-        radioButtonGroup?.disabled ||
-        radioButtonGroup?.readOnly,
-      required: required || radioButtonGroup?.required,
+        !!radioButtonGroup?.disabled ||
+        !!radioButtonGroup?.readOnly,
+      required: required || !!radioButtonGroup?.required,
       checked:
         typeof checked !== 'undefined'
           ? checked

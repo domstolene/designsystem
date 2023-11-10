@@ -18,7 +18,7 @@ const IconLabelSpan = styled.span`
   gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
 `;
 
-type CommentComponentType = {
+interface CommentComponentType {
   rating: Rating | null;
   feedbackText: string | undefined;
   positiveFeedbackLabel: string;
@@ -27,7 +27,7 @@ type CommentComponentType = {
   loading: boolean;
   handleSubmit: () => void;
   handleFeedbackTextChange: (newText: string) => void;
-};
+}
 
 export const CommentComponent = ({
   rating,

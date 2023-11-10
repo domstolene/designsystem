@@ -51,7 +51,7 @@ export const Default = (args: GlobalMessageProps) => {
     <StoryTemplate title="GlobalMessage - default">
       <GlobalMessage
         {...args}
-        message={args.message || 'En tilfeldig melding'}
+        message={args.message ?? 'En tilfeldig melding'}
       />
     </StoryTemplate>
   );
@@ -62,8 +62,8 @@ export const Closable = (args: GlobalMessageProps) => {
     <StoryTemplate title="GlobalMessage - closable">
       <GlobalMessage
         {...args}
-        purpose={args.purpose || 'info'}
-        message={args.message || 'En tilfeldig melding'}
+        purpose={args.purpose ?? 'info'}
+        message={args.message ?? 'En tilfeldig melding'}
         closable
       />
     </StoryTemplate>

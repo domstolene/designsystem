@@ -15,10 +15,10 @@ import {
   focusVisibleWithBorder,
 } from '@norges-domstoler/dds-form';
 
-type ContainerProps = {
+interface ContainerProps {
   color: CardColor;
   cardType: CardType;
-};
+}
 
 const Container = styled.div<ContainerProps>`
   border: ${tokens.base.border};

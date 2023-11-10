@@ -24,7 +24,7 @@ import {
   preventDefaults,
 } from './utils';
 
-export type FileUploaderHookProps = {
+export interface FileUploaderHookProps {
   id: string | undefined;
   /**Dersom komponenten skal styres internt. Utgangspunktet for filene som har blitt lastet opp. */
   initialFiles: FileList | undefined;
@@ -40,7 +40,7 @@ export type FileUploaderHookProps = {
   maxFiles: number | undefined;
   /**Feilmelding. Setter også error state. */
   errorMessage: string | undefined;
-};
+}
 
 const calcRootErrors = (
   files: FileUploaderFile[],
@@ -245,9 +245,11 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     } => ({
       onBlur: onRootBlur,
       onFocus: onRootFocus,
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onDragEnter: onRootDragEnter,
       onDragOver: onRootDragOver,
       onDragLeave: onRootDragLeave,
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onDrop: setFiles,
       ref: rootRef,
     }),
@@ -280,6 +282,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       style: { display: 'none' },
       tabIndex: -1,
       ref: inputRef,
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onChange: setFiles,
       multiple: !maxFiles || maxFiles > 1,
       ...(accept ? { accept: accept.join(',') } : {}),
