@@ -1,5 +1,9 @@
-import { useRef } from 'react';
-import { AriaDateFieldOptions, useDateField } from '@react-aria/datepicker';
+import { ComponentProps, RefObject, useRef } from 'react';
+import {
+  AriaDateFieldOptions,
+  useDateField,
+  useDatePicker,
+} from '@react-aria/datepicker';
 import { useDateFieldState } from '@react-stately/datepicker';
 import { DateValue, createCalendar } from '@internationalized/date';
 import styled, { css } from 'styled-components';
@@ -27,7 +31,9 @@ import { locale } from '../constants';
 
 export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
-} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip'>;
+  containerRef?: RefObject<HTMLDivElement>;
+  buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
+} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'errorMessage'>;
 
 const DateFieldContainer = styled.div``;
 
@@ -50,6 +56,7 @@ const InputDiv = styled(StatefulInput).attrs({
   }
 
   &:focus-within,
+  &.active,
   &:active {
     ${focusInputfield}
   }
@@ -61,6 +68,7 @@ const InputDiv = styled(StatefulInput).attrs({
         ${hoverDangerInputfield}
       }
       &:focus-within,
+      &.active,
       &:active {
         ${focusDangerInputfield}
       }
@@ -114,6 +122,8 @@ export function DateField<T extends DateValue>({
   errorMessage,
   tip,
   componentSize,
+  containerRef,
+  buttonProps,
   ...props
 }: DateFieldProps<T>) {
   const state = useDateFieldState({
@@ -130,8 +140,9 @@ export function DateField<T extends DateValue>({
   const hasLabel = props.label != null;
   const hasMessage = hasErrorMessage || hasTip;
 
+  console.log(buttonProps);
   return (
-    <DateFieldContainer className={props.className}>
+    <DateFieldContainer className={props.className} ref={containerRef}>
       {hasLabel && <Label {...labelProps}>{props.label}</Label>}
       <InputDiv
         {...fieldProps}
@@ -139,8 +150,13 @@ export function DateField<T extends DateValue>({
         componentSize={componentSize}
         ref={ref}
         hasErrorMessage={hasErrorMessage}
+        className={props.isOpen ? 'active' : ''}
       >
-        <CalendarButton aria-label="Åpne kalender">
+        <CalendarButton
+          {...buttonProps}
+          onClick={buttonProps?.onPress as ComponentProps<'button'>['onClick']}
+          aria-label="Åpne kalender"
+        >
           <Icon icon={CalendarIcon} />
         </CalendarButton>
         <DateSegmentContainer>
@@ -158,3 +174,5 @@ export function DateField<T extends DateValue>({
     </DateFieldContainer>
   );
 }
+
+DateField.displayName = 'DateField';

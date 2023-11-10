@@ -40,7 +40,7 @@ const Cell = styled.button<CellProps>`
   justify-content: center;
   cursor: pointer;
 
-  :focus-visible {
+  &:focus-visible {
     ${focusVisible}
   }
 
@@ -64,7 +64,7 @@ const Cell = styled.button<CellProps>`
 
       ${variantStyles.hover &&
       css`
-        :hover {
+        &:hover {
           background-color: ${variantStyles.hover.bg};
           color: ${variantStyles.hover.color};
           border-color: ${variantStyles.hover.borderColor ??

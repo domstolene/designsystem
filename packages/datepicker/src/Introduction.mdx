@@ -9,5 +9,15 @@ import { Meta } from '@storybook/addon-docs';
 ## Installasjon
 
 ```bash
-npm install @norges-domstoler/dds-datepicker
+npm install @norges-domstoler/dds-datepicker @internationalized/date
 ```
+
+Denne pakken avhenger av [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/), så du må derfor også installere denne pakken.
+
+### Hvorfor @internationalized/date?
+
+JavaScript sin `Date` har ikke noe konsept om tidssoner.
+Når vi oppretter et `Date`-objekt blir det opprettet med datoen og klokkeslettet i den lokale tidssonen.
+Dette er problematisk da det kan avvike fra den tiltenkte tidssonen bruker ønsker å oppgi dato og tidspunkt i.
+
+`@internationalized/date` gir oss mer passende implementasjoner for å håndtere dato og tidspunkt, da den tar hensyn til tidssoner.
