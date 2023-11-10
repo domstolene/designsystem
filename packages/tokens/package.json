@@ -37,7 +37,7 @@
     "postpack": "clean-package restore"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/node": "^20.8.10",
     "clean-package": "2.2.0",
