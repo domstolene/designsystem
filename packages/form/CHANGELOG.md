@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-form
 
+## 0.1.1
+
+### Patch Changes
+
+- 5ca91f84: Diverse småfikser oppdaget etter strengere eslint-regler
+- Updated dependencies [7cb301f8]
+- Updated dependencies [5ca91f84]
+  - @norges-domstoler/dds-design-tokens@3.0.2
+  - @norges-domstoler/dds-typography@0.1.1
+  - @norges-domstoler/dds-core@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes
