@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { MultiValue, SingleValue } from 'react-select';
 import {
+  SelectOption,
   getBaseHTMLProps,
   useScreenSize,
 } from '@norges-domstoler/dds-components';
@@ -65,8 +66,8 @@ export const SectionGenerator = (props: SectionGeneratorProps) => {
 
   const selectOnChange = (
     chosen:
-      | SingleValue<Record<string, unknown>>
-      | MultiValue<Record<string, unknown>>,
+      | SingleValue<SelectOption<unknown>>
+      | MultiValue<SelectOption<unknown>>,
     name: string,
   ) => {
     let value = null;

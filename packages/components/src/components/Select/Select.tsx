@@ -39,6 +39,7 @@ import { SvgIcon } from '@norges-domstoler/dds-icons';
 import { getFormInputIconSize } from '../../utils/icon';
 import { renderInputMessage } from '../../utils/renderInputMessage';
 import { InputSize } from '@norges-domstoler/dds-form';
+import { T } from 'vitest/dist/reporters-5f784f42';
 
 const {
   Option,
@@ -163,9 +164,10 @@ const getPlaceholder = (
     : '-- Velg fra listen --';
 
 type WrappedReactSelectProps<
-  TOption extends Record<string, unknown>,
+  TOption extends SelectOption<TValue>,
   IsMulti extends boolean,
   Group extends GroupBase<TOption>,
+  TValue = unknown,
 > = WithRequiredIf<
   TOption extends SelectOption ? false : true,
   ReactSelectProps<TOption, IsMulti, Group>,
@@ -173,8 +175,9 @@ type WrappedReactSelectProps<
 >;
 
 export type SelectProps<
-  TOption extends Record<string, unknown>,
+  TOption extends SelectOption<TValue>,
   IsMulti extends boolean,
+  TValue = unknown,
 > = {
   /**Ledetekst for nedtrekkslisten. */
   label?: string;
@@ -208,8 +211,9 @@ type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
 >;
 
 const SelectInner = <
-  TOption extends Record<string, unknown>,
+  TOption extends SelectOption<TValue>,
   IsMulti extends boolean = false,
+  TValue = unknown,
 >(
   props: SelectProps<TOption, IsMulti>,
   ref: ForwardRefType<TOption, IsMulti>,
