@@ -62,7 +62,7 @@
     "@react-aria/calendar": "^3.5.2",
     "@react-aria/datepicker": "^3.8.1",
     "@react-stately/calendar": "^3.4.2",
-    "@react-stately/datepicker": "^3.4.1"
+    "@react-stately/datepicker": "^3.9.0"
   },
   "publishConfig": {
     "provenance": true
