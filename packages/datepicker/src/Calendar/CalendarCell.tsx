@@ -93,8 +93,8 @@ export function CalendarCell({ date, state }: CalendarCellProps) {
   const variant: CellVariant = isSelected
     ? 'selected'
     : isUnavailable || isDisabled
-    ? 'unavailable'
-    : 'default';
+      ? 'unavailable'
+      : 'default';
 
   return (
     <td {...cellProps}>

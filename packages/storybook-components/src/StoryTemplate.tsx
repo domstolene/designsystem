@@ -38,25 +38,25 @@ const Container = styled.div<ContainerProps>`
           gap: ${gap};
         `
       : display === 'grid'
-      ? css`
-          display: grid;
-          gap: ${gap};
-          grid-template-columns: ${`repeat(
+        ? css`
+            display: grid;
+            gap: ${gap};
+            grid-template-columns: ${`repeat(
             ${columnsAmount},
             fit-content(100%) )`};
-        `
-      : display === 'flex-centered'
-      ? css`
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: ${gap};
-        `
-      : display === 'block'
-      ? css`
-          margin-top: ${gap};
-        `
-      : '')}
+          `
+        : display === 'flex-centered'
+          ? css`
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              gap: ${gap};
+            `
+          : display === 'block'
+            ? css`
+                margin-top: ${gap};
+              `
+            : '')}
 `;
 
 export type StoryDisplay = 'block' | 'flex-column' | 'grid' | 'flex-centered';

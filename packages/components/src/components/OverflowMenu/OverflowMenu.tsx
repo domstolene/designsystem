@@ -166,8 +166,8 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         const contextItemsFirstPos = !hasContextItems
           ? -1
           : hasNavItems
-          ? navItemsLastPos + 1
-          : userPropsPos + 1;
+            ? navItemsLastPos + 1
+            : userPropsPos + 1;
         return (
           <>
             {hasInteractiveUser && (

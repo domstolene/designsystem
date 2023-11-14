@@ -111,17 +111,17 @@ export const Container = styled.div<StyledContainerProps>`
           }
         `
       : isDisabled
-      ? css`
-          cursor: not-allowed;
-          .${prefix}__control {
-            border-color: ${control.disabled.borderColor};
-            background-color: ${control.disabled.backgroundColor};
-          }
-          &:hover .${prefix}__dropdown-indicator {
-            color: ${dropdownIndicator.base.color};
-          }
-        `
-      : ''}
+        ? css`
+            cursor: not-allowed;
+            .${prefix}__control {
+              border-color: ${control.disabled.borderColor};
+              background-color: ${control.disabled.backgroundColor};
+            }
+            &:hover .${prefix}__dropdown-indicator {
+              color: ${dropdownIndicator.base.color};
+            }
+          `
+        : ''}
 `;
 
 export const InnerSingleValue = styled.div`

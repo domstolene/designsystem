@@ -35,8 +35,8 @@ const Root = styled.div<RootProps>`
     isDragActive
       ? rootTokens.dragActive.borderColor
       : hasRootErrors
-      ? rootTokens.borderColorError
-      : rootTokens.borderColor};
+        ? rootTokens.borderColorError
+        : rootTokens.borderColor};
   padding: ${({ hasRootErrors }) =>
     hasRootErrors
       ? `calc(${rootTokens.paddingLeftRightTop} - 1px) calc(${rootTokens.paddingLeftRightTop} - 1px) ${rootTokens.paddingBottom}`

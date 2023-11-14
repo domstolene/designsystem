@@ -65,11 +65,11 @@ const Container = styled(Paper)<ContainerProps>`
           transform: ${isOpen ? 'translate(0px)' : 'translateX(-100%)'};
         `
       : placement === 'right'
-      ? css`
-          right: 0;
-          transform: ${isOpen ? 'translate(0px)' : 'translateX(100%)'};
-        `
-      : ''}
+        ? css`
+            right: 0;
+            transform: ${isOpen ? 'translate(0px)' : 'translateX(100%)'};
+          `
+        : ''}
 
   @media (prefers-reduced-motion: no-preference) {
     transition: transform 0.5s;
