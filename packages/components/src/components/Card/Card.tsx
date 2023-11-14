@@ -51,14 +51,14 @@ const Container = styled.div<ContainerProps>`
           }
         `
       : cardType === 'expandable'
-      ? css`
-          width: 100%;
-          box-sizing: border-box;
-          &:not(:first-of-type) {
-            border-top: none;
-          }
-        `
-      : ''}
+        ? css`
+            width: 100%;
+            box-sizing: border-box;
+            &:not(:first-of-type) {
+              border-top: none;
+            }
+          `
+        : ''}
 `;
 export type CardColor =
   | 'filledDark'

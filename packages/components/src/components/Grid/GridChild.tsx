@@ -43,10 +43,10 @@ const StyledGridChild = styled.div<StyledGridChildProps>`
     columnsOccupied === 'all'
       ? '1 / -1'
       : isGridColumn(columnsOccupied)
-      ? columnsOccupied[getLiteralScreenSize(screenSize)]
-      : isRelativeGridColumn(columnsOccupied)
-      ? tokens[screenSize].columns[columnsOccupied].gridColumn
-      : ''};
+        ? columnsOccupied[getLiteralScreenSize(screenSize)]
+        : isRelativeGridColumn(columnsOccupied)
+          ? tokens[screenSize].columns[columnsOccupied].gridColumn
+          : ''};
 
   justify-self: ${({ justifySelf }) => justifySelf && justifySelf};
   grid-row: ${({ gridRow }) => gridRow && gridRow};

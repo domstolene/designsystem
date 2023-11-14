@@ -20,22 +20,22 @@ export function PaginationGenerator(
       activePage < pagesBeforeTruncator || pagesAmount <= maxPagesShown
         ? 1
         : activePage + siblingsCount + 1 >= pagesAmount
-        ? pagesAmount - 4 // - 4 to fit total columns /
-        : activePage > 4 && pagesAmount > maxPagesShown
-        ? activePage - siblingsCount
-        : 1,
+          ? pagesAmount - 4 // - 4 to fit total columns /
+          : activePage > 4 && pagesAmount > maxPagesShown
+            ? activePage - siblingsCount
+            : 1,
     );
 
     const middleEndOffset =
       activePage < pagesBeforeTruncator && pagesAmount > maxPagesShown
         ? pagesBeforeTruncator
         : activePage < pagesBeforeTruncator && pagesAmount <= maxPagesShown
-        ? pagesAmount
-        : activePage + siblingsCount + 1 < pagesAmount - 1
-        ? activePage + siblingsCount
-        : activePage + siblingsCount + 1 === pagesAmount - 1
-        ? pagesAmount
-        : pagesAmount;
+          ? pagesAmount
+          : activePage + siblingsCount + 1 < pagesAmount - 1
+            ? activePage + siblingsCount
+            : activePage + siblingsCount + 1 === pagesAmount - 1
+              ? pagesAmount
+              : pagesAmount;
 
     const middleEndPage = Math.min(pagesAmount, middleEndOffset);
     pageRange = arrayRange(middleStartPage, middleEndPage);

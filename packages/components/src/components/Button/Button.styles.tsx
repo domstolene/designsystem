@@ -159,12 +159,12 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
           justify-content: center;
         `
       : hasIcon && hasLabel && iconPosition === 'left'
-      ? css`
-          justify-content: left;
-        `
-      : css`
-          justify-content: space-between;
-        `)}
+        ? css`
+            justify-content: left;
+          `
+        : css`
+            justify-content: space-between;
+          `)}
 
   &:focus-visible, &.focus-visible {
     ${focusVisible}

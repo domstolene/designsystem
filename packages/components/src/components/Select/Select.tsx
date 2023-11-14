@@ -160,8 +160,8 @@ const getPlaceholder = (
   placeholder
     ? placeholder
     : isMulti
-    ? '-- Velg en eller flere --'
-    : '-- Velg fra listen --';
+      ? '-- Velg en eller flere --'
+      : '-- Velg fra listen --';
 
 type WrappedReactSelectProps<
   TOption extends SelectOption<TValue>,
@@ -282,8 +282,8 @@ const SelectInner = <
     closeMenuOnSelect: closeMenuOnSelect
       ? closeMenuOnSelect
       : isMulti
-      ? false
-      : true,
+        ? false
+        : true,
     isMulti,
     inputId: uniqueId,
     name: uniqueId,
