@@ -42,7 +42,7 @@
     "@types/node": "^20.8.10",
     "clean-package": "2.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
-    "rollup": "^3.29.4",
+    "rollup": "^4.4.1",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-sass": "^1.12.21",
