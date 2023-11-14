@@ -3,7 +3,6 @@ import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { CalendarDate, today } from '@internationalized/date';
 import { useState } from 'react';
 import { Button } from '@norges-domstoler/dds-components';
-import { DateValue } from '@react-aria/calendar';
 
 export default {
   title: 'ALPHA/dds-datepicker/DatePicker',
@@ -27,7 +26,7 @@ export const Default = (args: Partial<DatePickerProps<CalendarDate>>) => {
 };
 
 export const Controlled = (args: Partial<DatePickerProps<CalendarDate>>) => {
-  const [value, setValue] = useState<DateValue | null>(today('Europe/Oslo'));
+  const [value, setValue] = useState<CalendarDate | null>(today('Europe/Oslo'));
 
   return (
     <StoryTemplate title="DatePicker - controlled">
