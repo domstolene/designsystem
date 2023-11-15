@@ -31,5 +31,14 @@ jobs:
       - name: Build 🔧
         run: npm run build:docs
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload entire repository
+          path: './apps/docs/storybook-static'
+
       - name: Deploy 🚀
         uses: actions/deploy-pages@v2
