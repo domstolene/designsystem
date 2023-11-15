@@ -1,1 +1,0 @@
-{"version":3,"file":"constants-69754a51.js","sources":["../../../../packages/storybook-components/src/constants.tsx"],"sourcesContent":["export const SB_DESIGNSYSTEM_URL =\n  'https://domstolene.github.io/designsystem/?path=/story/design-system';\n\nexport const SB_DESIGNSYSTEM_PREFIX = 'Design system';\n"],"names":["SB_DESIGNSYSTEM_URL"],"mappings":"AAAO,MAAMA,EACX"}
