@@ -33,7 +33,7 @@ export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
   containerRef?: RefObject<HTMLDivElement>;
   buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
-} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'errorMessage'>;
+} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip'>;
 
 const DateFieldContainer = styled.div``;
 
