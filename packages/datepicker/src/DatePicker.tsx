@@ -1,13 +1,12 @@
 import { useDatePickerState } from '@react-stately/datepicker';
-import { DateField } from './DateField/DateField';
+import { DateField, DateFieldProps } from './DateField/DateField';
 import {
+  AriaDateFieldOptions,
   AriaDatePickerProps,
   DateValue,
   useDatePicker,
 } from '@react-aria/datepicker';
 import { useRef } from 'react';
-import styled from 'styled-components';
-import { Popover } from '@norges-domstoler/dds-components';
 import { Calendar } from './Calendar/Calendar';
 import {
   CalendarPopover,
@@ -16,7 +15,8 @@ import {
 } from './CalendarPopover';
 
 export interface DatePickerProps<T extends DateValue>
-  extends AriaDatePickerProps<T> {
+  extends AriaDatePickerProps<T>,
+    Pick<DateFieldProps<T>, 'componentSize' | 'tip'> {
   label?: string;
   errorMessage?: string;
 }
@@ -24,6 +24,8 @@ export interface DatePickerProps<T extends DateValue>
 export function DatePicker<T extends DateValue>({
   label,
   errorMessage,
+  componentSize,
+  tip,
   ...props
 }: DatePickerProps<T>) {
   const state = useDatePickerState(props);
@@ -39,6 +41,8 @@ export function DatePicker<T extends DateValue>({
       <CalendarPopoverAnchor>
         <DateField
           {...fieldProps}
+          componentSize={componentSize}
+          tip={tip}
           label={label}
           errorMessage={errorMessage}
           containerRef={ref}
