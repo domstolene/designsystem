@@ -71,3 +71,19 @@ export const Tip = (args: Partial<DatePickerProps<CalendarDate>>) => {
     </StoryTemplate>
   );
 };
+
+export const ReadOnly = (args: Partial<DatePickerProps<CalendarDate>>) => {
+  return (
+    <StoryTemplate title="DatePicker - read only">
+      <DatePicker {...args} isReadOnly />
+    </StoryTemplate>
+  );
+};
+
+export const Disabled = (args: Partial<DatePickerProps<CalendarDate>>) => {
+  return (
+    <StoryTemplate title="DatePicker - disabled">
+      <DatePicker {...args} isDisabled />
+    </StoryTemplate>
+  );
+};
