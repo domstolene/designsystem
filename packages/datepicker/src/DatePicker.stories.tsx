@@ -46,14 +46,14 @@ export const WeekendsUnavailable = (
 export const Error = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - error">
-      <DatePicker {...args} errorMessage="Dato er påkrevd!" />
+      <DatePicker {...args} errorMessage="Her er noe veldig galt! 😨" />
     </StoryTemplate>
   );
 };
 
-export const Sizes = (args: Partial<DatePickerProps<CalendarDate>>) => {
+export const OverviewSizes = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
-    <StoryTemplate title="DatePicker - sizes">
+    <StoryTemplate title="DatePicker - overview sizes">
       <DatePicker {...args} componentSize="medium" label="Medium" />
       <DatePicker {...args} componentSize="small" label="Small" />
       <DatePicker {...args} componentSize="tiny" label="Tiny" />
