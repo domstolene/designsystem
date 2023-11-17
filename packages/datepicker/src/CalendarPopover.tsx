@@ -11,6 +11,7 @@ import {
   useCombinedRef,
   useFloatPosition,
   useOnClickOutside,
+  useOnKeyDown,
 } from '@norges-domstoler/dds-core';
 import styled from 'styled-components';
 
@@ -45,6 +46,7 @@ export const CalendarPopover = ({
   onClose,
 }: CalendarPopoverProps) => {
   const anchorRef = useRef<HTMLDivElement>(null);
+  useOnKeyDown('Escape', onClose);
   return (
     <CalendarPopoverContext.Provider value={{ anchorRef, isOpen, onClose }}>
       {children}
