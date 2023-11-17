@@ -41,14 +41,30 @@ const WeekNumber = styled.td`
 `;
 
 export function CalendarGrid({ state, ...props }: CalendarGridProps) {
-  const { gridProps, headerProps } = useCalendarGrid(props, state);
+  const {
+    gridProps: { onKeyDown, ...gridProps },
+    headerProps,
+  } = useCalendarGrid(props, state);
 
   // Get the number of weeks in the month so we can render the proper number of rows.
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
   const weekDays = ['Ma', 'Ti', 'On', 'To', 'Fr', 'Lø', 'Sø'];
 
   return (
-    <table {...gridProps} cellPadding="0">
+    <table
+      {...gridProps}
+      onKeyDown={e => {
+        if (
+          (e.key === 'Enter' || e.key === ' ') &&
+          state.isCellUnavailable(state.focusedDate)
+        ) {
+          return;
+        }
+
+        onKeyDown?.(e);
+      }}
+      cellPadding="0"
+    >
       <thead {...headerProps}>
         <tr>
           <Th>#</Th>
