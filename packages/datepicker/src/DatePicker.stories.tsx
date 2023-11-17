@@ -32,7 +32,7 @@ export default meta;
 export const Default = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - default">
-      <DatePicker {...args} />
+      <DatePicker label="Dato" {...args} />
     </StoryTemplate>
   );
 };
@@ -44,7 +44,7 @@ export const Controlled = (args: Partial<DatePickerProps<CalendarDate>>) => {
 
   return (
     <StoryTemplate title="DatePicker - controlled">
-      <DatePicker {...args} value={value} onChange={setValue} />
+      <DatePicker label="Dato" {...args} value={value} onChange={setValue} />
       <Button onClick={() => setValue(today('Europe/Oslo'))}>Set today</Button>
     </StoryTemplate>
   );
@@ -56,6 +56,7 @@ export const WeekendsUnavailable = (
   return (
     <StoryTemplate title="DatePicker - weekends unavailable">
       <DatePicker
+        label="Dato"
         {...args}
         isDateUnavailable={date => isWeekend(date, 'no-NO')}
       />
@@ -66,7 +67,11 @@ export const WeekendsUnavailable = (
 export const Error = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - error">
-      <DatePicker {...args} errorMessage="Her er noe veldig galt! 😨" />
+      <DatePicker
+        label="Dato"
+        {...args}
+        errorMessage="Her er noe veldig galt! 😨"
+      />
     </StoryTemplate>
   );
 };
@@ -85,6 +90,7 @@ export const Tip = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - tip">
       <DatePicker
+        label="Dato"
         {...args}
         tip="Visste du at denne komponenten også kan ha en tip?"
       />
@@ -95,7 +101,12 @@ export const Tip = (args: Partial<DatePickerProps<CalendarDate>>) => {
 export const ReadOnly = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - read only">
-      <DatePicker {...args} value={new CalendarDate(2023, 12, 24)} isReadOnly />
+      <DatePicker
+        label="Dato"
+        {...args}
+        value={new CalendarDate(2023, 12, 24)}
+        isReadOnly
+      />
     </StoryTemplate>
   );
 };
@@ -103,7 +114,7 @@ export const ReadOnly = (args: Partial<DatePickerProps<CalendarDate>>) => {
 export const Disabled = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - disabled">
-      <DatePicker {...args} isDisabled />
+      <DatePicker label="Dato" {...args} isDisabled />
     </StoryTemplate>
   );
 };
