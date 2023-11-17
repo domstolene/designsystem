@@ -50,29 +50,6 @@ const InputDiv = styled(StatefulInput).attrs({
   gap: ${datePickerTokens.gap};
   align-items: center;
   padding: ${datePickerTokens.datefield.padding};
-
-  &:hover {
-    ${hoverInputfield}
-  }
-
-  &:focus-within,
-  &.active,
-  &:active {
-    ${focusInputfield}
-  }
-
-  ${({ hasErrorMessage }) =>
-    hasErrorMessage &&
-    css`
-      &:hover {
-        ${hoverDangerInputfield}
-      }
-      &:focus-within,
-      &.active,
-      &:active {
-        ${focusDangerInputfield}
-      }
-    `}
 `;
 
 const DateSegmentContainer = styled.div`
@@ -103,14 +80,18 @@ const CalendarButton = styled.button`
     right: 0;
   }
 
-  &:hover {
+  &:hover:not(.disabled) {
     background-color: ${datePickerTokens.calendarButton.hover.background};
     color: ${datePickerTokens.calendarButton.hover.color};
   }
 
-  &:focus-visible {
+  &:focus-visible:not(.disabled) {
     ${focusVisible}
     outline-offset: 0;
+  }
+
+  &.disabled {
+    outline: none;
   }
 
   *::selection {
@@ -139,6 +120,7 @@ export function DateField<T extends DateValue>({
   const hasTip = !!tip;
   const hasLabel = props.label != null;
   const hasMessage = hasErrorMessage || hasTip;
+  const disabled = props.isDisabled || fieldProps['aria-disabled'];
 
   console.log(buttonProps);
   return (
@@ -150,15 +132,33 @@ export function DateField<T extends DateValue>({
         componentSize={componentSize}
         ref={ref}
         hasErrorMessage={hasErrorMessage}
-        className={props.isOpen ? 'active' : ''}
+        className={[
+          fieldProps.className,
+          disabled ? 'disabled' : false,
+          props.isOpen ? 'active' : false,
+          props.isReadOnly ? 'read-only' : false,
+        ]
+          .filter(Boolean)
+          .join(' ')}
       >
-        <CalendarButton
-          {...buttonProps}
-          onClick={buttonProps?.onPress as ComponentProps<'button'>['onClick']}
-          aria-label="Åpne kalender"
-        >
-          <Icon icon={CalendarIcon} />
-        </CalendarButton>
+        {!props.isReadOnly && (
+          <CalendarButton
+            {...buttonProps}
+            onClick={e => {
+              if (!disabled) {
+                const onClick =
+                  buttonProps?.onPress as ComponentProps<'button'>['onClick'];
+                onClick?.(e);
+              }
+            }}
+            aria-label="Åpne kalender"
+            className={[disabled ? 'disabled' : false]
+              .filter(Boolean)
+              .join(' ')}
+          >
+            <Icon icon={CalendarIcon} />
+          </CalendarButton>
+        )}
         <DateSegmentContainer>
           {state.segments.map((segment, i) => (
             <DateSegment key={i} segment={segment} state={state} />

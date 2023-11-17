@@ -56,3 +56,5 @@ export function DatePicker<T extends DateValue>({
     </CalendarPopover>
   );
 }
+
+DatePicker.displayName = 'DatePicker';
