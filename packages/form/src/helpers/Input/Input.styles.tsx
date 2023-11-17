@@ -47,9 +47,12 @@ export const Input = styled.input`
     ${selection}
   }
 
+  &:not(.disabled):not(.read-only):not(.active):hover,
   &:hover:enabled:read-write {
     ${hoverInputfield}
   }
+  &:not(.disabled):not(.read-only):focus-within,
+  &.active,
   &:focus:enabled:read-write,
   &:active:enabled:read-write {
     ${focusInputfield}
@@ -80,14 +83,17 @@ export const StatefulInput = styled(Input)<StyledInputProps>`
     hasErrorMessage &&
     css`
       ${dangerInputfield}
+      &:not(.disabled):hover,
       &:hover:enabled:read-write {
         ${hoverDangerInputfield}
       }
+      &:not(.disabled):focus-within,
       &:focus-within:enabled:read-write,
       &:active:enabled:read-write {
         ${focusDangerInputfield}
       }
     `}
+  &:not(.disabled).read-only,
   &:enabled:read-only {
     border: none;
     outline: none;
@@ -95,7 +101,7 @@ export const StatefulInput = styled(Input)<StyledInputProps>`
     background-color: ${input.readOnly.backgroundColor};
     padding-left: 0;
   }
-  &:disabled {
+  &.disabled &:disabled {
     cursor: not-allowed;
     color: ${input.disabled.color};
     background-color: ${input.disabled.backgroundColor};

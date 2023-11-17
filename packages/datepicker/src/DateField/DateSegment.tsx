@@ -28,7 +28,7 @@ const Segment = styled.div`
   font-weight: ${segmentTokens.font.fontWeight};
   line-height: ${segmentTokens.font.lineHeight};
 
-  &:focus {
+  &:focus:not([aria-readonly]) {
     background-color: ${segmentTokens.focus.backgroundColor};
     color: ${segmentTokens.focus.textColor};
   }

@@ -3,11 +3,31 @@ import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { CalendarDate, isWeekend, today } from '@internationalized/date';
 import { useState } from 'react';
 import { Button } from '@norges-domstoler/dds-components';
+import type { Meta } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof DatePicker> = {
   title: 'ALPHA/dds-datepicker/DatePicker',
   component: DatePicker,
+  argTypes: {
+    label: {
+      control: 'text',
+    },
+    tip: {
+      control: 'text',
+    },
+    errorMessage: {
+      control: 'text',
+    },
+    isDisabled: {
+      control: 'boolean',
+    },
+    isReadOnly: {
+      control: 'boolean',
+    },
+  },
 };
+
+export default meta;
 
 export const Default = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
@@ -75,7 +95,7 @@ export const Tip = (args: Partial<DatePickerProps<CalendarDate>>) => {
 export const ReadOnly = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - read only">
-      <DatePicker {...args} isReadOnly />
+      <DatePicker {...args} value={new CalendarDate(2023, 12, 24)} isReadOnly />
     </StoryTemplate>
   );
 };
