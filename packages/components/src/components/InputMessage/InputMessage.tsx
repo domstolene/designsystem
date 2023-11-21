@@ -14,7 +14,9 @@ interface WrapperProps {
   messageType: InputMessageType;
 }
 
-const InputMessageWrapper = styled.div<WrapperProps>`
+const InputMessageWrapper = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'messageType',
+})<WrapperProps>`
   display: flex;
   width: fit-content;
   word-break: break-word;

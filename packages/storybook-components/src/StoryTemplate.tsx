@@ -19,17 +19,17 @@ const H1 = styled.h1`
 `;
 
 interface ContainerProps {
-  gap?: string;
-  display?: StoryDisplay;
-  columnsAmount?: number;
+  $gap?: string;
+  $display?: StoryDisplay;
+  $columnsAmount?: number;
 }
 
 const Container = styled.div<ContainerProps>`
   padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingLayoutX1};
-  ${({ display, gap, columnsAmount }) =>
+  ${({ $display: display, $gap: gap, $columnsAmount }) =>
     gap &&
     display &&
-    columnsAmount &&
+    $columnsAmount &&
     (display === 'flex-column'
       ? css`
           display: flex;
@@ -42,7 +42,7 @@ const Container = styled.div<ContainerProps>`
             display: grid;
             gap: ${gap};
             grid-template-columns: ${`repeat(
-            ${columnsAmount},
+            ${$columnsAmount},
             fit-content(100%) )`};
           `
         : display === 'flex-centered'
@@ -64,7 +64,7 @@ export type StoryDisplay = 'block' | 'flex-column' | 'grid' | 'flex-centered';
 type StoryTemplateProps = {
   title: string;
   gap?: string;
-  columnsAmount?: number;
+  $columnsAmount?: number;
   display?: StoryDisplay;
   containerStyle?: CSSProperties;
 } & HTMLAttributes<HTMLDivElement>;
@@ -72,7 +72,7 @@ type StoryTemplateProps = {
 export const StoryTemplate = ({
   title,
   gap = '20px',
-  columnsAmount = 3,
+  $columnsAmount = 3,
   display = 'flex-column',
   children,
   containerStyle,
@@ -83,10 +83,10 @@ export const StoryTemplate = ({
       <H1>{title}</H1>
       <hr />
       <Container
-        gap={gap}
-        display={display}
+        $gap={gap}
+        $display={display}
         style={containerStyle}
-        columnsAmount={columnsAmount}
+        $columnsAmount={$columnsAmount}
       >
         {children}
       </Container>

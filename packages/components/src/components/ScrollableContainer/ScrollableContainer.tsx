@@ -22,12 +22,10 @@ const StyledScrollableContainer = styled.div`
   padding: ${outerContainer.padding};
 `;
 
-interface ContentProps {
-  height: Property.Height;
-}
-
-const Content = styled.div<ContentProps>`
-  height: ${({ height }) => height};
+const Content = styled.div<{
+  $height: Property.Height;
+}>`
+  height: ${({ $height }) => $height};
   overflow: auto;
   scrollbar-width: none;
   ::-webkit-scrollbar {
@@ -67,7 +65,7 @@ export const ScrollableContainer = (props: ScrollableContainerProps) => {
     <StyledScrollableContainer
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
-      <Content height={contentHeight} ref={ref} tabIndex={0}>
+      <Content $height={contentHeight} ref={ref} tabIndex={0}>
         {children}
       </Content>
       <Scrollbar contentRef={ref} />

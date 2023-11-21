@@ -53,7 +53,9 @@ const IconButtonText = styled.span`
   width: 0;
 `;
 
-const Bar = styled.div<{ environmentBannerActive: boolean }>`
+const Bar = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'environmentBannerActive',
+})<{ environmentBannerActive: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;

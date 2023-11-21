@@ -13,7 +13,9 @@ interface LinkProps {
   isCurrent?: boolean;
 }
 
-export const Link = styled.a<LinkProps>`
+export const Link = styled.a.withConfig({
+  shouldForwardProp: prop => prop !== 'isCurrent',
+})<LinkProps>`
   display: flex;
   align-items: center;
   height: 100%;

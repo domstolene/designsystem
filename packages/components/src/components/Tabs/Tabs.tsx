@@ -16,14 +16,14 @@ import { TabsContext } from './Tabs.context';
 import { Property } from 'csstype';
 
 interface ContainerProps {
-  width?: Property.Width;
+  $width?: Property.Width;
 }
 
 const Container = styled.div<ContainerProps>`
-  ${({ width }) =>
-    width &&
+  ${({ $width }) =>
+    $width &&
     css`
-      width: ${width};
+      width: ${$width};
     `};
 `;
 
@@ -92,7 +92,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
         tabContentDirection,
       }}
     >
-      <Container {...containerProps} width={width}>
+      <Container {...containerProps} $width={width}>
         {children}
       </Container>
     </TabsContext.Provider>

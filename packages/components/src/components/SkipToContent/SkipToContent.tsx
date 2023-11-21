@@ -19,14 +19,12 @@ import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 
 const { wrapper, link } = tokens;
 
-interface WrapperProps {
-  top: Property.Top;
-}
-
-const Wrapper = styled.div<WrapperProps>`
+const Wrapper = styled.div<{
+  $top: Property.Top;
+}>`
   box-sizing: border-box;
   position: absolute;
-  top: ${({ top }) => top};
+  top: ${({ $top: top }) => top};
   text-align: center;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
@@ -96,14 +94,12 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
       ...restHtmlProps
     } = htmlProps;
 
-    const wrapperProps = {
-      top,
-      className: joinClassNames(className, htmlPropsClassName),
-      style,
-    };
-
     return (
-      <Wrapper {...wrapperProps}>
+      <Wrapper
+        $top={top}
+        className={joinClassNames(className, htmlPropsClassName)}
+        style={style}
+      >
         <Link {...getBaseHTMLProps(id, restHtmlProps, rest)} ref={ref}>
           {text}
         </Link>

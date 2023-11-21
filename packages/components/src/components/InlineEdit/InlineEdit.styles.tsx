@@ -13,7 +13,9 @@ type StyledInlineInputProps = {
   hideIcon?: boolean;
 } & StyledInputProps;
 
-export const StyledInlineInput = styled(StatefulInput)<StyledInlineInputProps>`
+export const StyledInlineInput = styled(StatefulInput).withConfig({
+  shouldForwardProp: prop => prop !== 'isEditing' && prop !== 'hideIcon',
+})<StyledInlineInputProps>`
   border-color: transparent;
   background-color: ${inlineEdit.backgroundColor};
   padding: ${inlineEdit.padding};

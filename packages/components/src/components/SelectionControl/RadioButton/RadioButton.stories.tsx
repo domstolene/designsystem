@@ -18,7 +18,7 @@ export const Overview = (args: RadioButtonProps) => {
     <StoryTemplate
       title="Radio button - overview"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <RadioButton {...args} label={args.label ?? 'Default'} />
       <RadioButton {...args} label={args.label ?? 'Checked'} checked />

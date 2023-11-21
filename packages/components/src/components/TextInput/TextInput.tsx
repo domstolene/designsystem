@@ -4,6 +4,7 @@ import React, {
   useId,
   useRef,
   useLayoutEffect,
+  ComponentProps,
 } from 'react';
 import { Label } from '@norges-domstoler/dds-typography';
 import {
@@ -158,7 +159,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const generalInputProps = {
       id: uniqueId,
-      errorMessage,
       hasErrorMessage,
       required,
       disabled,
@@ -196,7 +196,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             <StyledIcon
               icon={icon}
               iconSize={getFormInputIconSize(componentSize)}
-              size={componentSize}
+              $size={componentSize}
             />
           }
           <StyledInput
@@ -204,7 +204,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             onChange={onChangeHandler}
             type={type}
             componentSize={componentSize}
-            hasIcon={hasIcon}
+            $hasIcon={hasIcon}
             {...generalInputProps}
           />
         </InputContainer>

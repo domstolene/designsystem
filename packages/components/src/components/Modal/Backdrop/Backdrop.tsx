@@ -6,7 +6,9 @@ interface BackdropProps {
   isOpen: boolean;
 }
 
-export const Backdrop = styled.div<BackdropProps>`
+export const Backdrop = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'isOpen',
+})<BackdropProps>`
   position: fixed;
   display: flex;
   align-items: center;

@@ -39,42 +39,36 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       ...restHtmlProps
     } = htmlProps;
 
-    const containerProps = {
-      error: error || checkboxGroup?.error,
-      disabled,
-      indeterminate,
-      htmlFor: uniqueId,
-      hasLabel,
-      className: joinClassNames(className, htmlPropsClassName),
-      style,
-    };
     type AriaChecked = 'mixed' | boolean | undefined;
 
-    const inputProps = {
-      ...getBaseHTMLProps(uniqueId, restHtmlProps, rest),
-      ref,
-      name,
-      indeterminate,
-      disabled,
-      'aria-describedby': spaceSeparatedIdListGenerator([
-        checkboxGroup?.tipId,
-        checkboxGroup?.errorMessageId,
-        ariaDescribedby,
-      ]),
-      'aria-invalid': error || checkboxGroup?.error ? true : undefined,
-      'aria-labelledby': checkboxGroup?.uniqueGroupId,
-      'aria-checked': indeterminate ? ('mixed' as AriaChecked) : undefined,
-      'aria-readonly': readOnly,
-    };
-
     return (
-      <Container {...containerProps} controlType="checkbox">
+      <Container
+        $error={error || checkboxGroup?.error}
+        disabled={disabled}
+        htmlFor={uniqueId}
+        $hasLabel={hasLabel}
+        $controlType="checkbox"
+        className={joinClassNames(className, htmlPropsClassName)}
+        style={style}
+      >
         <HiddenInput
-          {...inputProps}
+          {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
+          ref={ref}
+          name={name}
+          disabled={disabled}
+          aria-describedby={spaceSeparatedIdListGenerator([
+            checkboxGroup?.tipId,
+            checkboxGroup?.errorMessageId,
+            ariaDescribedby,
+          ])}
+          aria-invalid={error || checkboxGroup?.error ? true : undefined}
+          aria-labelledby={checkboxGroup?.uniqueGroupId}
+          aria-checked={indeterminate ? ('mixed' as AriaChecked) : undefined}
+          aria-readonly={readOnly}
           type="checkbox"
           data-indeterminate={indeterminate}
         />
-        <CustomSelectionControl controlType="checkbox" />
+        <CustomSelectionControl $controlType="checkbox" />
         {hasLabel && (
           <Typography color="inherit" as="span" typographyType="bodySans02">
             {label}

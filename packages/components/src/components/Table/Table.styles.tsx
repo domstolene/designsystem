@@ -26,14 +26,12 @@ export const bodyRowStyles = (mode?: RowMode, selected?: boolean) => {
   `;
 };
 
-interface StyledProps {
+export const StyledRow = styled.tr<{
   type: TableRowType;
-  mode?: RowMode;
-  selected?: boolean;
-  hoverable?: boolean;
-}
-
-export const StyledRow = styled.tr<StyledProps>`
+  $mode?: RowMode;
+  $selected?: boolean;
+  $hoverable?: boolean;
+}>`
   @media (prefers-reduced-motion: no-preference) {
     transition:
       background-color 0.2s,
@@ -49,7 +47,7 @@ export const StyledRow = styled.tr<StyledProps>`
       font-weight: 600;
       text-align: left;
     `}
-  ${({ type, mode, selected, hoverable }) =>
+  ${({ type, $mode: mode, $selected: selected, $hoverable: hoverable }) =>
     type === 'body' &&
     css`
       &:nth-of-type(even) {

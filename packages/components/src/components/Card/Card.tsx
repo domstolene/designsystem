@@ -20,7 +20,9 @@ interface ContainerProps {
   cardType: CardType;
 }
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'color' && prop !== 'cardType',
+})<ContainerProps>`
   border: ${tokens.base.border};
   ${getFontStyling(defaultTypographyType)};
   &::selection,

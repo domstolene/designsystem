@@ -17,11 +17,9 @@ const {
 
 type SelectionControlType = 'radio' | 'checkbox';
 
-interface CustomSelectionControlProps {
-  controlType?: SelectionControlType;
-}
-
-export const CustomSelectionControl = styled.span<CustomSelectionControlProps>`
+export const CustomSelectionControl = styled.span<{
+  $controlType?: SelectionControlType;
+}>`
   position: absolute;
   left: 0;
   box-sizing: border-box;
@@ -31,8 +29,8 @@ export const CustomSelectionControl = styled.span<CustomSelectionControlProps>`
   border-radius: ${selectionControl.base.borderRadius};
   height: ${selectionControl.base.height};
   width: ${selectionControl.base.width};
-  ${({ controlType }) =>
-    controlType === 'radio' &&
+  ${({ $controlType }) =>
+    $controlType === 'radio' &&
     css`
       border-radius: 50%;
     `}
@@ -43,16 +41,13 @@ export const CustomSelectionControl = styled.span<CustomSelectionControlProps>`
   }
 `;
 
-interface ContainerProps {
-  hasLabel?: boolean;
+export const Container = styled.label<{
+  $hasLabel?: boolean;
   disabled?: boolean;
-  readOnly?: boolean;
-  error?: boolean;
-  indeterminate?: boolean;
-  controlType: SelectionControlType;
-}
-
-export const Container = styled.label<ContainerProps>`
+  $readOnly?: boolean;
+  $error?: boolean;
+  $controlType: SelectionControlType;
+}>`
   position: relative;
   display: flex;
   align-items: center;
@@ -60,8 +55,8 @@ export const Container = styled.label<ContainerProps>`
   user-select: none;
   width: fit-content;
   color: ${container.color};
-  ${({ hasLabel }) =>
-    hasLabel
+  ${({ $hasLabel }) =>
+    $hasLabel
       ? css`
           padding-left: ${container.withLabel.paddingLeft};
         `
@@ -109,8 +104,8 @@ export const Container = styled.label<ContainerProps>`
     border-color: ${selectionControl.checked.hover.borderColor};
   }
 
-  ${({ error }) =>
-    error &&
+  ${({ $error }) =>
+    $error &&
     css`
       &:hover input:enabled ~ ${CustomSelectionControl} {
         background-color: ${selectionControl.hover.danger.backgroundColor};
@@ -151,8 +146,8 @@ export const Container = styled.label<ContainerProps>`
       cursor: not-allowed;
       color: ${container.disabled.color};
     `}
-  ${({ controlType }) =>
-    controlType === 'checkbox'
+  ${({ $controlType }) =>
+    $controlType === 'checkbox'
       ? css`
           ${CustomSelectionControl}:after {
             border: solid ${checkmark.checkbox.borderColor};
@@ -191,10 +186,10 @@ export const OuterGroupContainer = styled.div`
   gap: ${outerGroupContainer.gap};
 `;
 
-export const GroupContainer = styled.div<{ direction: Direction }>`
+export const GroupContainer = styled.div<{ $direction: Direction }>`
   display: flex;
-  ${({ direction }) => css`
-    flex-direction: ${direction};
-    gap: ${groupContainer[direction].gap};
+  ${({ $direction }) => css`
+    flex-direction: ${$direction};
+    gap: ${groupContainer[$direction].gap};
   `}
 `;

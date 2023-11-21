@@ -35,7 +35,9 @@ export interface PaperProps {
   border?: Border;
 }
 
-export const Paper = styled.div<PaperProps>`
+export const Paper = styled.div.withConfig({
+  shouldForwardProp: prop => prop !== 'elevation' && prop !== 'border',
+})<PaperProps>`
   box-sizing: border-box;
   margin: 0;
   background-color: ${tokens.paper.backgroundColor};

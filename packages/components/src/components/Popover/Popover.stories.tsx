@@ -90,7 +90,7 @@ export const PlacementOverview = () => {
     <StoryTemplate
       title="Popover - placement overview"
       display="grid"
-      columnsAmount={4}
+      $columnsAmount={4}
       containerStyle={{
         alignContent: 'center',
         justifyContent: 'center',

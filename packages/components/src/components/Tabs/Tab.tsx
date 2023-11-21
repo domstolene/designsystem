@@ -35,8 +35,8 @@ import { useTabsContext } from './Tabs.context';
 const { tab } = tokens;
 
 interface ButtonProps {
-  active: boolean;
-  direction: Direction;
+  $active: boolean;
+  $direction: Direction;
 }
 
 const Button = styled.button<ButtonProps>`
@@ -59,13 +59,13 @@ const Button = styled.button<ButtonProps>`
       ${focusVisibleTransitionValue};
   }
 
-  ${({ direction }) => css`
-    flex-direction: ${direction};
-    gap: ${tab[direction].gap};
+  ${({ $direction }) => css`
+    flex-direction: ${$direction};
+    gap: ${tab[$direction].gap};
   `};
 
-  ${({ active }) =>
-    active &&
+  ${({ $active }) =>
+    $active &&
     css`
       background-color: ${tab.active.backgroundColor};
       border-color: ${tab.active.borderColor};
@@ -153,19 +153,18 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     onKeyDown && onKeyDown(e);
   };
 
-  const buttonProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    ref: combinedRef,
-    'aria-selected': active,
-    role: 'tab',
-    active,
-    direction: tabContentDirection,
-    onClick: handleOnClick,
-    onKeyDown: handleOnKeyDown,
-    tabIndex: focus ? 0 : -1,
-  };
   return (
-    <Button {...buttonProps}>
+    <Button
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      ref={combinedRef}
+      aria-selected={active}
+      role="tab"
+      $active={active}
+      $direction={tabContentDirection}
+      onClick={handleOnClick}
+      onKeyDown={handleOnKeyDown}
+      tabIndex={focus ? 0 : -1}
+    >
       {icon && <Icon icon={icon} iconSize="inherit" />}
       <span>{children}</span>
     </Button>

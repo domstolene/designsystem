@@ -131,7 +131,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
         <GroupContainer
           role="radiogroup"
-          direction={direction}
+          $direction={direction}
           aria-labelledby={uniqueGroupId}
           aria-describedby={tipId}
           aria-errormessage={errorMessageId}

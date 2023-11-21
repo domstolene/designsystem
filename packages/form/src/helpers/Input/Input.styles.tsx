@@ -59,7 +59,17 @@ export const Input = styled.input`
   }
 `;
 
-export const StatefulInput = styled(Input)<StyledInputProps>`
+export const StatefulInput = styled(Input).withConfig({
+  shouldForwardProp: prop => {
+    const stylingProps: (keyof StyledInputProps)[] = [
+      'componentSize',
+      'hasErrorMessage',
+      'prefixLength',
+      'suffixLength',
+    ];
+    return !stylingProps.some(styleProp => styleProp === prop);
+  },
+})<StyledInputProps>`
   -webkit-appearance: textfield;
 
   padding-left: ${({ prefixLength, readOnly }) =>

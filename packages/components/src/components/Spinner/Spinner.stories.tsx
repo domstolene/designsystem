@@ -16,7 +16,7 @@ export const Overview = (args: SpinnerProps) => (
   <StoryTemplate
     title="Spinner - overview"
     display="grid"
-    columnsAmount={4}
+    $columnsAmount={4}
     gap="30px"
   >
     <Spinner {...args} />

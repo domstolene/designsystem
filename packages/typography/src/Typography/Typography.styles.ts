@@ -110,8 +110,8 @@ export const getAnchorStyling = (
   css`
     padding-right: calc(1em + ${tokens.typographyType.a.icon.marginLeft});
     position: relative;
-    ::after {
-      mask: ${`url('${OpenExternalIcon}')`} no-repeat center/contain;
+    &::after {
+      mask: ${`url('${OpenExternalIcon}')`} no-repeat center / contain;
       background: 0 0;
       background-color: currentColor;
       width: 1em;

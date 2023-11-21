@@ -46,11 +46,9 @@ const getIconSize = (size: SearchSize): IconSize => {
   }
 };
 
-interface InputProps {
-  componentSize: SearchSize;
-}
-
-const Input = styled(BaseInput)<InputProps>`
+const Input = styled(BaseInput)<{
+  $componentSize: SearchSize;
+}>`
   &[type='search']::-webkit-search-decoration,
   &[type='search']::-webkit-search-cancel-button,
   &[type='search']::-webkit-search-results-button,
@@ -59,24 +57,22 @@ const Input = styled(BaseInput)<InputProps>`
   }
   padding-right: ${input.base.paddingRight};
 
-  ${({ componentSize }) => css`
-    padding-top: ${input.sizes[componentSize].paddingTop};
-    padding-bottom: ${input.sizes[componentSize].paddingBottom};
-    padding-left: ${input.sizes[componentSize].paddingLeft};
-    ${getFontStyling(typographyTypes[componentSize])}
+  ${({ $componentSize }) => css`
+    padding-top: ${input.sizes[$componentSize].paddingTop};
+    padding-bottom: ${input.sizes[$componentSize].paddingBottom};
+    padding-left: ${input.sizes[$componentSize].paddingLeft};
+    ${getFontStyling(typographyTypes[$componentSize])}
   `}
 `;
 
-interface StyledSearchIconProps {
-  size: SearchSize;
-}
-
-const StyledSearchIcon = styled(Icon)<StyledSearchIconProps>`
+const StyledSearchIcon = styled(Icon)<{
+  $size: SearchSize;
+}>`
   position: absolute;
   left: ${searchIcon.base.left};
   color: ${searchIcon.base.color};
-  ${({ size }) => css`
-    top: ${tokens.searchIcon[size].top};
+  ${({ $size }) => css`
+    top: ${tokens.searchIcon[$size].top};
   `}
   z-index: 1;
 `;
@@ -94,13 +90,11 @@ const OuterContainer = styled.div`
   gap: ${outerContainer.gap};
 `;
 
-interface HorisontalContainerProps {
-  hasSearchButton: boolean;
-}
-
-const HorisontalContainer = styled.div<HorisontalContainerProps>`
+const HorisontalContainer = styled.div<{
+  $hasSearchButton: boolean;
+}>`
   ${props =>
-    props.hasSearchButton &&
+    props.$hasSearchButton &&
     css`
       display: grid;
       grid-template-columns: 1fr auto;
@@ -176,28 +170,6 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       handleChange(emptyChangeEvent);
     };
 
-    const containerProps = {
-      className,
-      style,
-    };
-
-    const inputProps = {
-      ...rest,
-      ref: combinedRef,
-      componentSize,
-      name,
-      type: 'search',
-      id: uniqueId,
-      'aria-describedby': spaceSeparatedIdListGenerator([
-        tip ? tipId : undefined,
-        context.suggestions ? suggestionsDescriptionId : undefined,
-        ariaDescribedby,
-      ]),
-      value: context.inputValue ?? value,
-      onChange: handleChange,
-      autoComplete: 'off',
-    };
-
     const {
       label: buttonLabel,
       onClick,
@@ -212,17 +184,31 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
         {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
         <div>
           <HorisontalContainer
-            hasSearchButton={showSearchButton}
-            {...containerProps}
+            $hasSearchButton={showSearchButton}
+            className={className}
+            style={style}
           >
             <InputContainer>
               <StyledSearchIcon
                 icon={SearchIcon}
-                size={componentSize}
+                $size={componentSize}
                 iconSize={getIconSize(componentSize)}
               />
               <Input
-                {...inputProps}
+                {...rest}
+                ref={combinedRef}
+                $componentSize={componentSize}
+                name={name}
+                type="search"
+                id={uniqueId}
+                aria-describedby={spaceSeparatedIdListGenerator([
+                  tip ? tipId : undefined,
+                  context.suggestions ? suggestionsDescriptionId : undefined,
+                  ariaDescribedby,
+                ])}
+                value={context.inputValue ?? value}
+                onChange={handleChange}
+                autoComplete="off"
                 aria-autocomplete={hasSuggestions ? 'list' : undefined}
                 aria-controls={hasSuggestions ? suggestionsId : undefined}
                 aria-expanded={context.showSuggestions}

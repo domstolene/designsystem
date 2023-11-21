@@ -18,7 +18,7 @@ export default {
 export const OverviewDate = () => (
   <StoryTemplate
     display="grid"
-    columnsAmount={2}
+    $columnsAmount={2}
     title="Datepicker - date overview"
   >
     <Datepicker label="Label" />
@@ -39,7 +39,7 @@ export const OverviewDate = () => (
 export const OverviewDatetime = () => (
   <StoryTemplate
     display="grid"
-    columnsAmount={2}
+    $columnsAmount={2}
     title="Datepicker - datetime overview"
   >
     <Datepicker type="datetime-local" label="Label" />
@@ -73,7 +73,7 @@ export const OverviewDatetime = () => (
 export const OverviewSizes = () => (
   <StoryTemplate
     display="grid"
-    columnsAmount={2}
+    $columnsAmount={2}
     title="Datepicker - sizes overview"
   >
     <Datepicker label="Label" componentSize="medium" />

@@ -34,24 +34,24 @@ const List = styled.ol`
 `;
 
 interface ListItemProps {
-  isHidden?: boolean;
+  $isHidden?: boolean;
 }
 
 const ListItem = styled.li<ListItemProps>`
   display: inline-grid;
   align-content: center;
-  ${({ isHidden }) =>
-    isHidden &&
+  ${({ $isHidden }) =>
+    $isHidden &&
     css`
       visibility: hidden;
     `}
 `;
 
-const OuterContainer = styled.div<{ smallScreen?: boolean }>`
+const OuterContainer = styled.div<{ $smallScreen?: boolean }>`
   display: flex;
   gap: ${outerContainer.gap};
-  ${({ smallScreen }) =>
-    smallScreen
+  ${({ $smallScreen }) =>
+    $smallScreen
       ? css`
           flex-direction: column;
           align-items: center;
@@ -221,7 +221,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
 
     const containerProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
-      smallScreen,
+      $smallScreen: smallScreen,
     };
 
     const isOnFirstPage = activePage === 1;
@@ -230,11 +230,11 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const navigation = withPagination ? (
       <Nav ref={ref} aria-label="paginering" {...navProps}>
         <List>
-          <ListItem isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+          <ListItem $isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
             {previousPageButton}
           </ListItem>
           {listItems}
-          <ListItem isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+          <ListItem $isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
             {nextPageButton}
           </ListItem>
         </List>
@@ -244,7 +244,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const smallScreenNavigation = withPagination ? (
       <Nav ref={ref} aria-label="paginering" {...navProps}>
         <List>
-          <ListItem isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+          <ListItem $isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
             <Button
               purpose="secondary"
               appearance="ghost"
@@ -256,7 +256,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               aria-label="Gå til første siden"
             />
           </ListItem>
-          <ListItem isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+          <ListItem $isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
             {previousPageButton}
           </ListItem>
           <ListItem>
@@ -269,10 +269,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               {activePage}
             </Button>
           </ListItem>
-          <ListItem isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+          <ListItem $isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
             {nextPageButton}
           </ListItem>
-          <ListItem isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+          <ListItem $isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
             <Button
               purpose="secondary"
               appearance="ghost"

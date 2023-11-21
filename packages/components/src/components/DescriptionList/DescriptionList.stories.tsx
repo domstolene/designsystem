@@ -21,7 +21,7 @@ export const Overview = () => {
       display="grid"
       title="DescriptionList - overview"
       gap="30px"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <DescriptionList>
         <DescriptionListTerm>Tittel</DescriptionListTerm>

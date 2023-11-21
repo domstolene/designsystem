@@ -11,14 +11,14 @@ import {
 } from '../Typography';
 
 interface StyledLinkProps {
-  typographyType?: TypographyBodyType;
-  withMargins?: boolean;
-  external?: boolean;
+  $typographyType?: TypographyBodyType;
+  $withMargins?: boolean;
+  $external?: boolean;
 }
 
 const StyledLink = styled.a<StyledLinkProps>`
-  ${({ external, typographyType, withMargins }) =>
-    getAnchorStyling(external, undefined, typographyType, withMargins)}
+  ${({ $external, $typographyType, $withMargins }) =>
+    getAnchorStyling($external, undefined, $typographyType, $withMargins)}
 `;
 
 type PickedHTMLAttributes = Pick<
@@ -50,17 +50,19 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     ...rest
   } = props;
 
-  const linkProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    typographyType,
-    ref,
-    rel: 'noopener noreferer',
-    target: external ? '_blank' : target ? target : undefined,
-    external,
-    ...rest,
-  };
-
-  return <StyledLink {...linkProps}>{children}</StyledLink>;
+  return (
+    <StyledLink
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      {...rest}
+      $typographyType={typographyType}
+      $external={external}
+      ref={ref}
+      rel="noopener noreferer"
+      target={external ? '_blank' : target}
+    >
+      {children}
+    </StyledLink>
+  );
 });
 
 Link.displayName = 'Link';

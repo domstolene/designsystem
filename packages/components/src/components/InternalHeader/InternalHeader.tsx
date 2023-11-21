@@ -84,7 +84,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
   return (
     <OuterContainer {...getBaseHTMLProps(id, className, htmlProps, rest)}>
-      <BannerWrapper hasContextMenu={hasContextMenu}>
+      <BannerWrapper $hasContextMenu={hasContextMenu}>
         <BannerLeftWrapper>
           <LovisaWrapper>
             <Typography typographyType="bodySans02" bold as="span">

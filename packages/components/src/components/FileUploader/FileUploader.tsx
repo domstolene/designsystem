@@ -23,29 +23,30 @@ const Wrapper = styled.div<{ width?: Property.Width<string> }>`
 `;
 
 interface RootProps {
-  isDragActive: boolean;
-  hasRootErrors: boolean;
+  $isDragActive: boolean;
+  $hasRootErrors: boolean;
 }
 
 const Root = styled.div<RootProps>`
   box-sizing: border-box;
-  border-width: ${({ hasRootErrors }) => (hasRootErrors ? '2px' : '1px')};
+  border-width: ${({ $hasRootErrors: hasRootErrors }) =>
+    hasRootErrors ? '2px' : '1px'};
   border-style: dashed;
-  border-color: ${({ isDragActive, hasRootErrors }) =>
-    isDragActive
+  border-color: ${({ $isDragActive, $hasRootErrors }) =>
+    $isDragActive
       ? rootTokens.dragActive.borderColor
-      : hasRootErrors
+      : $hasRootErrors
         ? rootTokens.borderColorError
         : rootTokens.borderColor};
-  padding: ${({ hasRootErrors }) =>
-    hasRootErrors
+  padding: ${({ $hasRootErrors }) =>
+    $hasRootErrors
       ? `calc(${rootTokens.paddingLeftRightTop} - 1px) calc(${rootTokens.paddingLeftRightTop} - 1px) ${rootTokens.paddingBottom}`
       : `${rootTokens.paddingLeftRightTop} ${rootTokens.paddingLeftRightTop} ${rootTokens.paddingBottom}`};
   display: flex;
   flex-direction: column;
   gap: ${rootTokens.gap};
-  background-color: ${({ isDragActive }) =>
-    isDragActive
+  background-color: ${({ $isDragActive }) =>
+    $isDragActive
       ? rootTokens.dragActive.backgroundColor
       : rootTokens.backgroundColor};
 `;
@@ -141,8 +142,8 @@ export const FileUploader = (props: FileUploaderProps) => {
       {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
       <Root
         {...getRootProps()}
-        isDragActive={isDragActive}
-        hasRootErrors={hasRootErrors}
+        $isDragActive={isDragActive}
+        $hasRootErrors={hasRootErrors}
       >
         <FileUploaderInput {...getInputProps()} />
         Dra og slipp filer her eller{' '}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FeedbackProps, Rating } from './Feedback.types';
 import { Paragraph } from '@norges-domstoler/dds-typography';
 import { RatingComponent } from './RatingComponent';

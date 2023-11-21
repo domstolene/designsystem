@@ -53,7 +53,9 @@ const AppShellContainer = styled.div`
   }
 `;
 
-const MainContent = styled.main<{ environmentBannerActive: boolean }>`
+const MainContent = styled.main.withConfig({
+  shouldForwardProp: prop => prop !== 'environmentBannerActive',
+})<{ environmentBannerActive: boolean }>`
   min-height: calc(100vh - ${appShellTokens.navigation.topBar.height});
   margin-top: ${({ environmentBannerActive }) =>
     environmentBannerActive

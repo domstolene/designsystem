@@ -28,11 +28,10 @@ export const AnimatedChevronUpDown = ({
       width={width}
       height={height}
       fill="currentColor"
-      isUp={isUp}
     >
-      <SvgChevronlGroup isUp={isUp}>
-        <SvgChevronlLeft d={svgChevronLeftPath} isUp={isUp} />
-        <SvgChevronlRight d={svgChevronRightPath} isUp={isUp} />
+      <SvgChevronlGroup $isUp={isUp}>
+        <SvgChevronlLeft d={svgChevronLeftPath} $isUp={isUp} />
+        <SvgChevronlRight d={svgChevronRightPath} $isUp={isUp} />
       </SvgChevronlGroup>
     </SvgChevron>
   );

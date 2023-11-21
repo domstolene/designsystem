@@ -257,12 +257,12 @@ const SelectInner = <
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
   const containerProps = {
-    width,
-    componentSize,
-    errorMessage,
-    isDisabled,
-    readOnly,
-    isMulti,
+    $width: width,
+    $componentSize: componentSize,
+    $errorMessage: errorMessage,
+    $isDisabled: isDisabled,
+    $readOnly: readOnly,
+    $isMulti: isMulti,
     className,
     style,
   };

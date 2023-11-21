@@ -52,7 +52,7 @@ export const Overview = (args: SingleSelectProps) => {
       title="Select - overview"
       gap="25px"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <Select {...args} label={args.label ?? 'Label'} options={options} />
       <Select
@@ -121,7 +121,7 @@ export const OverviewSizes = (args: SingleSelectProps) => {
     <StoryTemplate
       title="Select - overview sizes"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <Select {...args} componentSize="medium" options={options} />
       <Select
