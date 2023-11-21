@@ -6,7 +6,7 @@ import {
 } from '@react-aria/datepicker';
 import { useDateFieldState } from '@react-stately/datepicker';
 import { DateValue, createCalendar } from '@internationalized/date';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   CalendarIcon,
   Icon,
@@ -18,11 +18,7 @@ import {
 import {
   InputProps,
   StatefulInput,
-  focusDangerInputfield,
-  focusInputfield,
   focusVisible,
-  hoverDangerInputfield,
-  hoverInputfield,
 } from '@norges-domstoler/dds-form';
 
 import { DateSegment } from './DateSegment';
@@ -37,13 +33,9 @@ export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
 
 const DateFieldContainer = styled.div``;
 
-interface DateSegmentContainerProps {
-  hasErrorMessage: boolean;
-}
-
 const InputDiv = styled(StatefulInput).attrs({
   as: 'div',
-})<DateSegmentContainerProps>`
+})`
   min-width: ${datePickerTokens.datefield.minWidth};
   display: flex;
   flex-direction: row;
@@ -104,7 +96,7 @@ export function DateField<T extends DateValue>({
   tip,
   componentSize,
   containerRef,
-  buttonProps,
+  buttonProps: { onPress, ...buttonProps } = {},
   ...props
 }: DateFieldProps<T>) {
   const state = useDateFieldState({
@@ -122,7 +114,6 @@ export function DateField<T extends DateValue>({
   const hasMessage = hasErrorMessage || hasTip;
   const disabled = props.isDisabled || fieldProps['aria-disabled'];
 
-  console.log(buttonProps);
   return (
     <DateFieldContainer className={props.className} ref={containerRef}>
       {hasLabel && <Label {...labelProps}>{props.label}</Label>}
@@ -146,8 +137,7 @@ export function DateField<T extends DateValue>({
             {...buttonProps}
             onClick={e => {
               if (!disabled) {
-                const onClick =
-                  buttonProps?.onPress as ComponentProps<'button'>['onClick'];
+                const onClick = onPress as ComponentProps<'button'>['onClick'];
                 onClick?.(e);
               }
             }}

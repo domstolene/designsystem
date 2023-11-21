@@ -24,7 +24,18 @@ type ContainerProps = Pick<
   'purpose' | 'width' | 'layout' | 'closable'
 >;
 
-const Container = styled.div<ContainerProps>`
+const Container = styled.div.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof ContainerProps)[] = [
+      'layout',
+      'closable',
+      'purpose',
+      'width',
+    ];
+
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<ContainerProps>`
   box-sizing: border-box;
   display: grid;
   grid-template-areas: ${({ layout, closable }) =>

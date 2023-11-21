@@ -9,6 +9,7 @@ export default {
   title: 'dds-components/Typography/Link',
   component: Link,
   argTypes: {
+    external: { control: { type: 'boolean' } },
     typographyType: { control: { type: 'select' } },
     withMargins: { control: { type: 'boolean' } },
     text: { control: { type: 'text' } },

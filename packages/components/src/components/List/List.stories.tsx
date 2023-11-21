@@ -9,7 +9,7 @@ export default {
 
 export const Overview = (args: ListProps) => {
   return (
-    <StoryTemplate title="List - overview" display="grid" columnsAmount={4}>
+    <StoryTemplate title="List - overview" display="grid" $columnsAmount={4}>
       <List {...args} typographyType="bodySans01">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>

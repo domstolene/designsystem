@@ -17,7 +17,7 @@ export default {
 
 export const Overview = (args: IconProps) => {
   return (
-    <StoryTemplate title="Icon - overview" display="grid" columnsAmount={4}>
+    <StoryTemplate title="Icon - overview" display="grid" $columnsAmount={4}>
       <Icon {...args} iconSize="inherit" icon={OpenExternal} />
       <Icon {...args} iconSize="small" icon={OpenExternal} />
       <Icon {...args} iconSize="medium" icon={OpenExternal} />

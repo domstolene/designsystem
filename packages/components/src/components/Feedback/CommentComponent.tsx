@@ -7,10 +7,10 @@ import {
 } from '@norges-domstoler/dds-icons';
 import { Paragraph } from '@norges-domstoler/dds-typography';
 
-import { FlexContainer } from './FlexContainer';
 import { Button } from '../Button';
 import { Rating } from './Feedback.types';
 import { TextArea } from '../TextArea';
+import { VStack } from '../Stack';
 
 const IconLabelSpan = styled.span`
   display: inline-flex;
@@ -40,7 +40,7 @@ export const CommentComponent = ({
   handleFeedbackTextChange,
 }: CommentComponentType) => {
   return (
-    <FlexContainer flexDirection="column">
+    <VStack gap="layout-x1">
       <IconLabelSpan>
         <Icon
           icon={rating === 'positive' ? ThumbupFilled : ThumbdownFilled}
@@ -67,6 +67,6 @@ export const CommentComponent = ({
       >
         Send inn
       </Button>
-    </FlexContainer>
+    </VStack>
   );
 };

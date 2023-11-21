@@ -29,7 +29,7 @@ export const TextInputOverview = (args: TextInputProps) => {
     <StoryTemplate
       title="TextInput - overview"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
       style={{ alignItems: 'end' }}
     >
       <TextInput {...args} label={args.label ?? 'Label'} />
@@ -109,7 +109,7 @@ export const TextInputOverviewSizes = () => (
   <StoryTemplate
     title="TextInput - overview sizes"
     display="grid"
-    columnsAmount={2}
+    $columnsAmount={2}
   >
     <TextInput label="Label" />
     <TextInput label="Label" icon={MailIcon} />
@@ -148,7 +148,7 @@ export const TextInputAffixes = (args: TextInputProps) => (
   <StoryTemplate
     title="TextInput - With affixes"
     display="grid"
-    columnsAmount={1}
+    $columnsAmount={1}
   >
     <LocalMessage purpose="tips">
       <strong>OBS!</strong> Skjermleser leser ikke opp affixes. Husk derfor å

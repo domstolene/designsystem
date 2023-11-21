@@ -11,7 +11,9 @@ const fontPackage = (small?: boolean) => {
   return navTokens.logoAndVersion.logo;
 };
 
-export const NavigationLogo = styled.a<{ small?: boolean }>`
+export const NavigationLogo = styled.a.withConfig({
+  shouldForwardProp: prop => prop !== 'small',
+})<{ small?: boolean }>`
   font-size: ${({ small }) => fontPackage(small).fontSize};
   font-style: ${({ small }) => fontPackage(small).fontStyle};
   font-family: ${({ small }) => fontPackage(small).fontFamily};

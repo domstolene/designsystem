@@ -40,7 +40,17 @@ const getHooksGridStyling = (
   };
 };
 
-const StyledGrid = styled.div<StyledGridProps>`
+const StyledGrid = styled.div.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof StyledGridProps)[] = [
+      'maxWidth',
+      'rowGap',
+      'screenSize',
+    ];
+
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<StyledGridProps>`
   display: grid;
   ${({ maxWidth }) => css`
     max-width: ${maxWidth};

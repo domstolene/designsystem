@@ -54,10 +54,15 @@ const DescriptionListCell = styled(Cell)`
 `;
 
 export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
-  ({ type = 'body', mode = 'normal', children, ...rest }, ref) => {
+  (
+    { type = 'body', mode = 'normal', selected, hoverable, children, ...rest },
+    ref,
+  ) => {
     const rowProps = {
-      type,
-      mode,
+      $type: type,
+      $mode: mode,
+      $selected: selected,
+      $hoverable: hoverable,
       ...rest,
     };
     const { isCollapsed, headerValues, definingColumnIndex } =
@@ -103,7 +108,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
 
     const collapsedRows =
       collapsedRenderedChildren && collapsedRenderedChildren.length > 0 ? (
-        <StyledRow type="body">
+        <StyledRow type={type}>
           <DescriptionListCell colSpan={definingColumnIndex.length + 1}>
             <DescriptionList>{collapsedRenderedChildren}</DescriptionList>
           </DescriptionListCell>
@@ -124,7 +129,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
       if (type !== 'head' || !isCollapsed) return null;
 
       return (
-        <StyledRow ref={ref} {...rowProps}>
+        <StyledRow ref={ref} type={type} {...rowProps}>
           <>
             {definingColumnCells}
             <Table.Cell type="head" layout="center">
@@ -144,6 +149,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
       return (
         <StyledRow
           ref={ref}
+          type={type}
           {...rowProps}
           data-isopencollapsibleheader={!childrenCollapsed && true}
         >
@@ -178,7 +184,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
         )}
       </>
     ) : (
-      <StyledRow ref={ref} {...rowProps}>
+      <StyledRow ref={ref} type={type} {...rowProps}>
         {children}
       </StyledRow>
     );

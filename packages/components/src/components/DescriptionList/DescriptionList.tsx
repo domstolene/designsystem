@@ -11,7 +11,9 @@ const { term, desc, list } = tokens;
 
 type DListProps = Pick<DescriptionListProps, 'appearance' | 'direction'>;
 
-const DList = styled.dl<DListProps>`
+const DList = styled.dl.withConfig({
+  shouldForwardProp: prop => prop !== 'appearance' && prop !== 'direction',
+})<DListProps>`
   margin: 0;
   *::selection {
     ${selection}

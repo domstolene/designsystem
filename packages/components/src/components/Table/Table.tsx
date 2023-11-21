@@ -7,13 +7,11 @@ import { TableDensity, TableProps } from './Table.types';
 
 const { cell, row } = tableTokens;
 
-interface StyledTableProps {
-  density: TableDensity;
-  stickyHeader?: boolean;
-  withDividers?: boolean;
-}
-
-const StyledTable = styled.table<StyledTableProps>`
+const StyledTable = styled.table<{
+  $density: TableDensity;
+  $stickyHeader?: boolean;
+  $withDividers?: boolean;
+}>`
   border-spacing: 0;
   border-collapse: collapse;
   *::selection {
@@ -21,14 +19,14 @@ const StyledTable = styled.table<StyledTableProps>`
   }
   ${scrollbarStyling.webkit}
   ${scrollbarStyling.firefox}
-  ${({ density }) => css`
+  ${({ $density }) => css`
     td,
     th {
-      padding: ${cell.density[density].padding};
+      padding: ${cell.density[$density].padding};
     }
   `}
-  ${({ density }) =>
-    density === 'extraCompact' &&
+  ${({ $density }) =>
+    $density === 'extraCompact' &&
     css`
       th {
         background-color: ${row.head.extraCompact.backgroundColor};
@@ -43,8 +41,8 @@ const StyledTable = styled.table<StyledTableProps>`
         }
       }
     `}
-  ${({ stickyHeader }) =>
-    stickyHeader &&
+  ${({ $stickyHeader }) =>
+    $stickyHeader &&
     css`
       tr[type='head'] {
         th[type='head'] {
@@ -54,8 +52,8 @@ const StyledTable = styled.table<StyledTableProps>`
         }
       }
     `}
-  ${({ withDividers }) =>
-    withDividers &&
+  ${({ $withDividers }) =>
+    $withDividers &&
     css`
       tr[type='body'] {
         border-bottom: ${row.body.withDividers.borderBottom};
@@ -64,14 +62,21 @@ const StyledTable = styled.table<StyledTableProps>`
 `;
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
-  ({ density = 'normal', children, ...rest }, ref) => {
-    const tableProps = {
-      ref,
-      density,
-      ...rest,
-    };
-
-    return <StyledTable {...tableProps}>{children}</StyledTable>;
+  (
+    { density = 'normal', stickyHeader, withDividers, children, ...rest },
+    ref,
+  ) => {
+    return (
+      <StyledTable
+        {...rest}
+        ref={ref}
+        $density={density}
+        $stickyHeader={stickyHeader}
+        $withDividers={withDividers}
+      >
+        {children}
+      </StyledTable>
+    );
   },
 );
 

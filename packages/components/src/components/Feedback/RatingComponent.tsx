@@ -7,18 +7,16 @@ import { Layout, Rating } from './Feedback.types';
 import { Spinner } from '../Spinner';
 import { Tooltip } from '../Tooltip';
 import { Button } from '../Button';
-import { FlexContainer } from './FlexContainer';
+import { HStack } from '../Stack';
 
-interface RatingContainerProps {
-  layout: Layout;
-}
-
-const RatingContainer = styled.div<RatingContainerProps>`
+const RatingContainer = styled.div<{
+  $layout: Layout;
+}>`
   display: flex;
   gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX1};
-  ${({ layout }) => css`
-    flex-direction: ${layout === 'horizontal' ? 'row' : 'column'};
-    align-items: ${layout === 'horizontal' ? 'center' : 'start'};
+  ${({ $layout }) => css`
+    flex-direction: ${$layout === 'horizontal' ? 'row' : 'column'};
+    align-items: ${$layout === 'horizontal' ? 'center' : 'start'};
   `}
 `;
 
@@ -45,12 +43,12 @@ export const RatingComponent = ({
   handleRatingChange,
 }: RatingComponentType) => {
   return (
-    <RatingContainer layout={layout}>
+    <RatingContainer $layout={layout}>
       <Label>{ratingLabel}</Label>
       {loading ? (
         <Spinner tooltip="Laster opp tilbakemelding ..." />
       ) : (
-        <FlexContainer flexDirection="row">
+        <HStack gap="layout-x1">
           <Tooltip text={thumbUpTooltip}>
             <RatingButton
               htmlProps={{ 'aria-label': thumbUpTooltip }}
@@ -71,7 +69,7 @@ export const RatingComponent = ({
               />
             </div>
           </Tooltip>
-        </FlexContainer>
+        </HStack>
       )}
     </RatingContainer>
   );

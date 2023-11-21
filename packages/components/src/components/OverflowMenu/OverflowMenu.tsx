@@ -23,7 +23,7 @@ import { PersonIcon } from '@norges-domstoler/dds-icons';
 const { container, divider } = tokens;
 
 interface ContainerProps {
-  isOpen: boolean;
+  $isOpen: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -32,7 +32,7 @@ export const Container = styled.div<ContainerProps>`
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;
-  ${({ isOpen }) => visibilityTransition(isOpen)}
+  ${({ $isOpen }) => visibilityTransition($isOpen)}
   border: ${container.border};
   background-color: ${container.backgroundColor};
   border-radius: ${container.borderRadius};
@@ -206,7 +206,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       ...getBaseHTMLProps(id, className, restHTMLProps, rest),
       ref: combinedRef,
       id: id ?? `${generatedId}-overflowMenu`,
-      isOpen,
+      $isOpen: isOpen,
       style: { ...style, ...styles.floating },
       'aria-hidden': !isOpen,
       role: 'menu',

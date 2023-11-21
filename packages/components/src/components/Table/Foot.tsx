@@ -7,12 +7,8 @@ export type TableFootProps = HTMLAttributes<HTMLTableSectionElement>;
 
 export const Foot = forwardRef<HTMLTableSectionElement, TableFootProps>(
   ({ children, ...rest }, ref) => {
-    const footProps = {
-      ...rest,
-    };
-
     return (
-      <StyledFoot ref={ref} {...footProps}>
+      <StyledFoot ref={ref} {...rest}>
         {children}
       </StyledFoot>
     );

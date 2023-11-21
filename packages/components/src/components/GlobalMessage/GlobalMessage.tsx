@@ -17,9 +17,9 @@ import { getFontStyling } from '@norges-domstoler/dds-typography';
 
 const { container, contentContainer, icon } = tokens;
 
-type ContainerProps = Pick<GlobalMessageProps, 'purpose'>;
-
-const Container = styled.div<ContainerProps>`
+const Container = styled.div<{
+  $purpose: GlobalMessagePurpose;
+}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,12 +28,10 @@ const Container = styled.div<ContainerProps>`
   padding: ${container.padding};
   border-bottom: ${container.borderBottom};
   ${getFontStyling(typographyType, true)}
-  ${({ purpose }) =>
-    purpose &&
-    css`
-      border-color: ${container[purpose].borderColor};
-      background-color: ${container[purpose].backgroundColor};
-    `}
+  ${({ $purpose }) => css`
+    border-color: ${container[$purpose].borderColor};
+    background-color: ${container[$purpose].backgroundColor};
+  `}
 `;
 
 const MessageIconWrapper = styled(Icon)`
@@ -45,15 +43,15 @@ const ControlsContainer = styled.div`
   align-items: center;
 `;
 
-type ContentContainerProps = Pick<GlobalMessageProps, 'closable'>;
-
-const ContentContainer = styled.div<ContentContainerProps>`
+const ContentContainer = styled.div<{
+  $closable: GlobalMessageProps['closable'];
+}>`
   display: flex;
   align-items: center;
   padding-top: ${contentContainer.paddingTop};
   padding-bottom: ${contentContainer.paddingBottom};
-  padding-right: ${({ closable }) =>
-    closable
+  padding-right: ${({ $closable }) =>
+    $closable
       ? contentContainer.withClosable.paddingRight
       : contentContainer.paddingRight};
 `;
@@ -90,15 +88,13 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
 
     const [isClosed, setClosed] = useState(false);
 
-    const containerProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref,
-      purpose,
-    };
-
     return !isClosed ? (
-      <Container {...containerProps}>
-        <ContentContainer closable={closable}>
+      <Container
+        ref={ref}
+        $purpose={purpose}
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      >
+        <ContentContainer $closable={closable}>
           <MessageIconWrapper
             icon={purposeVariants[purpose].icon}
             color={icon[purpose].color}

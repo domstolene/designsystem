@@ -10,7 +10,7 @@ import { Property } from 'csstype';
 import { ToggleBarProps, ToggleBarValue } from './ToggleBar.types';
 
 interface OuterContainerProps {
-  width?: Property.Width;
+  $width?: Property.Width;
 }
 
 const OuterContainer = styled.div<OuterContainerProps>`
@@ -21,10 +21,10 @@ const OuterContainer = styled.div<OuterContainerProps>`
   *::selection {
     ${selection}
   }
-  ${({ width }) =>
-    width &&
+  ${({ $width }) =>
+    $width &&
     css`
-      width: ${width};
+      width: ${$width};
     `}
 `;
 
@@ -76,7 +76,7 @@ export const ToggleBar = <T extends string | number = string>(
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
         role="radiogroup"
         aria-labelledby={labelId ?? htmlProps?.['aria-labelledby']}
-        width={width}
+        $width={width}
       >
         {label && (
           <Typography typographyType="supportingStyleLabel01" id={labelId}>

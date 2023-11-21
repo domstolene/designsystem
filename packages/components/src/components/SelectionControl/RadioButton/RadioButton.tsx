@@ -90,21 +90,19 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       'aria-invalid': error || radioButtonGroup?.error ? true : undefined,
     };
 
-    const containerProps = {
-      error: error || radioButtonGroup?.error,
-      disabled: disabled || radioButtonGroup?.disabled,
-      readOnly: readOnly || radioButtonGroup?.readOnly,
-      style,
-      className: joinClassNames(className, htmlPropsClassName),
-      htmlFor: uniqueId,
-      controlType: 'radio',
-      hasLabel,
-    };
-
     return (
-      <Container {...containerProps} htmlFor={uniqueId} controlType="radio">
+      <Container
+        $error={error || radioButtonGroup?.error}
+        disabled={disabled || radioButtonGroup?.disabled}
+        $readOnly={readOnly || radioButtonGroup?.readOnly}
+        style={style}
+        className={joinClassNames(className, htmlPropsClassName)}
+        $hasLabel={hasLabel}
+        htmlFor={uniqueId}
+        $controlType="radio"
+      >
         <HiddenInput {...inputProps} ref={ref} />
-        <CustomSelectionControl controlType="radio" />
+        <CustomSelectionControl $controlType="radio" />
         <Typography as="span">{children ?? label}</Typography>
       </Container>
     );

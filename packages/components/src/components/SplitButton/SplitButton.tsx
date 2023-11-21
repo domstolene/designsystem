@@ -29,11 +29,9 @@ export type SplitButtonPurpose = ExtractStrict<
   'primary' | 'secondary'
 >;
 
-interface OptionButtonProps {
+const OptionButton = styled(Button)<{
   purpose: SplitButtonPurpose;
-}
-
-const OptionButton = styled(Button)<OptionButtonProps>`
+}>`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 

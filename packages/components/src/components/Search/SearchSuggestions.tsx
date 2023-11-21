@@ -21,12 +21,10 @@ import { derivativeIdGenerator } from '@norges-domstoler/dds-core';
 
 const { suggestionsContainer, suggestionsHeader } = tokens;
 
-interface SuggestionsContainerProps {
-  isHidden?: boolean;
-}
-
-const SuggestionsContainer = styled(Paper)<SuggestionsContainerProps>`
-  ${({ isHidden }) => visibilityTransition(!isHidden)};
+const SuggestionsContainer = styled(Paper)<{
+  $isHidden?: boolean;
+}>`
+  ${({ $isHidden }) => visibilityTransition(!$isHidden)};
   position: absolute;
   top: 100%;
   width: 100%;
@@ -40,12 +38,12 @@ const SuggestionsContainer = styled(Paper)<SuggestionsContainerProps>`
   ${scrollbarStyling.webkit}
 `;
 
-type MenuItemProps = OverflowMenuItemProps & {
-  size?: SearchSize;
-};
-
-const MenuItem = styled(OverflowMenuItem)<MenuItemProps>`
-  ${({ size }) => size && getFontStyling(typographyTypes[size])}
+const MenuItem = styled(OverflowMenuItem)<
+  OverflowMenuItemProps & {
+    $size?: SearchSize;
+  }
+>`
+  ${({ $size }) => $size && getFontStyling(typographyTypes[$size])}
 `;
 
 const SuggestionsList = styled.ul`
@@ -114,7 +112,7 @@ export const SearchSuggestions = forwardRef<
               title={suggestion}
               aria-setsize={suggestionsToRender.length}
               aria-posinset={index}
-              size={componentSize}
+              $size={componentSize}
             ></MenuItem>
           </li>
         );
@@ -128,7 +126,7 @@ export const SearchSuggestions = forwardRef<
     <SuggestionsContainer
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       ref={ref}
-      isHidden={isHidden}
+      $isHidden={isHidden}
       aria-hidden={isHidden}
     >
       <SuggestionsHeader

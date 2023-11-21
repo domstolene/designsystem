@@ -82,7 +82,7 @@ export const OverviewSizes = (args: SearchProps) => {
     <StoryTemplate
       title="Search - overview sizes"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <Search {...args} componentSize="small" />
       <Search

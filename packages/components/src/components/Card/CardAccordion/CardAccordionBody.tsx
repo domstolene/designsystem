@@ -39,7 +39,11 @@ interface BodyProps {
   height: number;
 }
 
-const Body = styled.div<BodyProps>`
+const Body = styled.div.withConfig({
+  shouldForwardProp: prop => {
+    return prop !== 'animate' && prop !== 'height' && prop !== 'isExpanded';
+  },
+})<BodyProps>`
   @media (prefers-reduced-motion: no-preference) {
     ${({ animate }) => animate && expandingAnimation}
   }
@@ -56,7 +60,19 @@ interface BodyContainerProps {
   padding?: Property.Padding<string>;
 }
 
-const BodyContainer = styled.div<BodyContainerProps>`
+const BodyContainer = styled.div.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof BodyContainerProps)[] = [
+      'isExpanded',
+      'maxHeight',
+      'animate',
+      'paddingTop',
+      'padding',
+    ];
+
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<BodyContainerProps>`
   padding: ${getPadding};
 
   ${({ paddingTop }) =>

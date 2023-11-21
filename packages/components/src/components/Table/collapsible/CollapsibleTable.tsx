@@ -4,11 +4,7 @@ import { Table } from '../Table';
 import { CollapsibleTableContext } from './Table.context';
 import { CollapsibleTableProps } from '../Table.types';
 
-interface StyledTableProps {
-  isCollapsed?: boolean;
-}
-
-const StyledTable = styled(Table)<StyledTableProps>`
+const StyledTable = styled(Table)`
   width: 100%;
   ${({ withDividers }) =>
     withDividers &&
@@ -32,13 +28,6 @@ export const CollapsibleTable = forwardRef<
     ...rest
   } = props;
 
-  const tableProps = {
-    ref,
-    density,
-    isCollapsed,
-    ...rest,
-  };
-
   return (
     <CollapsibleTableContext.Provider
       value={{
@@ -47,7 +36,9 @@ export const CollapsibleTable = forwardRef<
         definingColumnIndex,
       }}
     >
-      <StyledTable {...tableProps}>{children}</StyledTable>
+      <StyledTable ref={ref} density={density} {...rest}>
+        {children}
+      </StyledTable>
     </CollapsibleTableContext.Provider>
   );
 });

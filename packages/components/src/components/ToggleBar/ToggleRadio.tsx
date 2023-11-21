@@ -86,7 +86,7 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
           value={value}
           checked={calculateChecked(value, group, checked)}
         />
-        <Content size={group.size} justIcon={!!icon && !label}>
+        <Content $size={group.size} $justIcon={!!icon && !label}>
           {icon && <Icon icon={icon} iconSize="inherit" />}
           {label && <span>{label}</span>}
         </Content>

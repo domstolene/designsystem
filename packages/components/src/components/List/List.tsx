@@ -18,8 +18,8 @@ import { listTokens as tokens } from './List.tokens';
 const { list, listItem, bullet } = tokens;
 
 interface StyledListProps {
-  listType: ListType;
-  typographyType: ListTypographyType;
+  $listType: ListType;
+  $typographyType: ListTypographyType;
 }
 
 const StyledList = styled.ul<StyledListProps>`
@@ -33,17 +33,17 @@ const StyledList = styled.ul<StyledListProps>`
     ${selection}
   }
 
-  ${({ typographyType }) =>
-    typographyType === 'inherit'
+  ${({ $typographyType }) =>
+    $typographyType === 'inherit'
       ? css`
           font: inherit;
         `
       : css`
-          ${getFontStyling(typographyType)}
+          ${getFontStyling($typographyType)}
         `}
 
-  ${({ listType }) =>
-    listType === 'unordered'
+  ${({ $listType }) =>
+    $listType === 'unordered'
       ? css`
           padding-left: ${list.ul.paddingLeft};
           list-style: none;
@@ -108,15 +108,17 @@ export const List = forwardRef<HTMLUListElement | HTMLOListElement, ListProps>(
 
     const as: ElementType = listType === 'ordered' ? 'ol' : 'ul';
 
-    const listProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      listType,
-      typographyType,
-      as,
-      ref,
-    };
-
-    return <StyledList {...listProps}>{children}</StyledList>;
+    return (
+      <StyledList
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        as={as}
+        ref={ref}
+        $listType={listType}
+        $typographyType={typographyType}
+      >
+        {children}
+      </StyledList>
+    );
   },
 );
 

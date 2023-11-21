@@ -42,42 +42,40 @@ function getContainerControlPadding(
     : control.sizes[componentSize].padding;
 }
 
-interface StyledContainerProps {
-  errorMessage?: string;
-  isDisabled?: boolean;
-  readOnly?: boolean;
-  width?: Property.Width;
-  componentSize: InputSize;
-  isMulti?: boolean;
-}
-
-export const Container = styled.div<StyledContainerProps>`
+export const Container = styled.div<{
+  $errorMessage?: string;
+  $isDisabled?: boolean;
+  $readOnly?: boolean;
+  $width?: Property.Width;
+  $componentSize: InputSize;
+  $isMulti?: boolean;
+}>`
   margin: 0;
-  width: ${({ width }) => width};
+  width: ${({ $width }) => $width};
   position: relative;
 
   *::selection {
     ${selection}
   }
 
-  ${({ componentSize, isMulti }) => css`
+  ${({ $componentSize, $isMulti }) => css`
     .${prefix}__control {
-      padding: ${getContainerControlPadding(componentSize, isMulti)};
-      ${getFontStyling(typographyTypes.control[componentSize], true)}
+      padding: ${getContainerControlPadding($componentSize, $isMulti)};
+      ${getFontStyling(typographyTypes.control[$componentSize], true)}
     }
     .${prefix}__option {
-      ${getFontStyling(typographyTypes.option[componentSize], true)}
+      ${getFontStyling(typographyTypes.option[$componentSize], true)}
     }
     .${prefix}__placeholder {
-      ${getFontStyling(typographyTypes.placeholder[componentSize])}
+      ${getFontStyling(typographyTypes.placeholder[$componentSize])}
     }
     .${prefix}__menu-notice--no-options {
-      ${getFontStyling(typographyTypes.noOptionsMessage[componentSize])}
+      ${getFontStyling(typographyTypes.noOptionsMessage[$componentSize])}
     }
   `}
 
-  ${({ errorMessage }) =>
-    errorMessage &&
+  ${({ $errorMessage }) =>
+    $errorMessage &&
     css`
       .${prefix}__control {
         ${dangerInputfield}
@@ -97,8 +95,8 @@ export const Container = styled.div<StyledContainerProps>`
     color: ${dropdownIndicator.hover.color};
   }
 
-  ${({ isDisabled, readOnly }) =>
-    readOnly
+  ${({ $isDisabled, $readOnly }) =>
+    $readOnly
       ? css`
           .${prefix}__control {
             border-color: ${control.readOnly.borderColor};
@@ -110,7 +108,7 @@ export const Container = styled.div<StyledContainerProps>`
             color: ${dropdownIndicator.readOnly.color};
           }
         `
-      : isDisabled
+      : $isDisabled
         ? css`
             cursor: not-allowed;
             .${prefix}__control {

@@ -23,7 +23,7 @@ export default {
 
 export const Overview = (args: TextAreaProps) => {
   return (
-    <StoryTemplate title="Textrea - overview" display="grid" columnsAmount={2}>
+    <StoryTemplate title="Textrea - overview" display="grid" $columnsAmount={2}>
       <TextArea {...args} label={args.label ?? 'Label'} />
       <TextArea {...args} />
       <TextArea

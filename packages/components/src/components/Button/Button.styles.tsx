@@ -90,7 +90,22 @@ interface ButtonWrapperProps {
   iconPosition?: IconPosition;
 }
 
-export const ButtonWrapper = styled.button<ButtonWrapperProps>`
+export const ButtonWrapper = styled.button.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof ButtonWrapperProps)[] = [
+      'appearance',
+      'purpose',
+      'size',
+      'fullWidth',
+      'hasIcon',
+      'hasLabel',
+      'isLoading',
+      'iconPosition',
+    ];
+
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<ButtonWrapperProps>`
   ${normalizeButton}
   border: ${base.border};
   user-select: text;
@@ -183,7 +198,19 @@ interface StyledIconWrapperSpanProps {
   justIcon?: boolean;
 }
 
-export const StyledIconWrapperSpan = styled.span<StyledIconWrapperSpanProps>`
+export const StyledIconWrapperSpan = styled.span.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof StyledIconWrapperSpanProps)[] = [
+      'iconPosition',
+      'size',
+      'absolutePosition',
+      'isHidden',
+      'justIcon',
+    ];
+
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<StyledIconWrapperSpanProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,7 +236,9 @@ interface LabelProps {
   isHidden?: boolean;
 }
 
-export const Label = styled.span<LabelProps>`
+export const Label = styled.span.withConfig({
+  shouldForwardProp: prop => prop !== 'isHidden',
+})<LabelProps>`
   ${({ isHidden }) =>
     isHidden &&
     css`

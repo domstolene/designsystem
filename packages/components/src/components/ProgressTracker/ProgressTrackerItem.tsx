@@ -42,7 +42,7 @@ const toItemState = (
 const { itemNumber, itemText, itemContentWrapper } = progressTrackerTokens;
 
 interface ItemStyleProps {
-  state: ItemState;
+  $state: ItemState;
 }
 
 interface BaseItemProps {
@@ -96,7 +96,7 @@ const ItemNumber = styled.div<ItemStyleProps>`
   ${getFontStyling(typographyTypes.number)}
   font-weight: 600;
 
-  ${({ state }) => {
+  ${({ $state: state }) => {
     switch (state) {
       case 'activeIncomplete':
         return css`
@@ -138,7 +138,7 @@ const ItemText = styled.div<ItemStyleProps>`
   text-decoration: ${itemText.textDecoration};
   transition: text-decoration-color 0.2s;
 
-  ${({ state }) => {
+  ${({ $state: state }) => {
     switch (state) {
       case 'activeCompleted':
       case 'activeIncomplete':
@@ -178,7 +178,7 @@ const ItemContentWrapper = styled.button<ItemStyleProps>`
     ${focusVisible}
   }
 
-  ${({ state }) =>
+  ${({ $state: state }) =>
     state !== 'disabled' &&
     css`
       cursor: pointer;
@@ -206,8 +206,8 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const { activeStep, handleStepChange } = useProgressTrackerContext();
   const active = activeStep === index;
 
-  const styleProps = {
-    state: toItemState(active, completed, disabled),
+  const styleProps: ItemStyleProps = {
+    $state: toItemState(active, completed, disabled),
   };
 
   const stepNumberContent = useMemo(() => {

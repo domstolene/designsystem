@@ -35,7 +35,18 @@ interface ContainerProps {
   size: DrawerSize;
 }
 
-const Container = styled(Paper)<ContainerProps>`
+const Container = styled(Paper).withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof ContainerProps)[] = [
+      'placement',
+      'isOpen',
+      'widthProps',
+      'size',
+    ];
+
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<ContainerProps>`
   position: fixed;
   top: 0;
   height: 100%;

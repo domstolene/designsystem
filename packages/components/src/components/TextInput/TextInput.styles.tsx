@@ -18,14 +18,14 @@ export const MessageContainer = styled.div`
 `;
 
 interface StyledIconProps {
-  size: InputSize;
+  $size: InputSize;
 }
 
 export const StyledIcon = styled(Icon)<StyledIconProps>`
   position: absolute;
   color: ${icon.color};
-  ${({ size, iconSize }) => css`
-    left: ${icon.sizes[size].left};
+  ${({ $size, iconSize }) => css`
+    left: ${icon.sizes[$size].left};
     ${iconSize === 'small'
       ? css`
           top: ${`calc(50% - ${iconSizes.DdsIconsizeSmallNumberPx / 2}px)`};
@@ -38,12 +38,12 @@ export const StyledIcon = styled(Icon)<StyledIconProps>`
 `;
 
 type StyledInputProps = {
-  hasIcon?: boolean;
+  $hasIcon?: boolean;
 } & Pick<InputProps, 'componentSize'>;
 
 export const StyledInput = styled(StatefulInput)<StyledInputProps>`
-  ${({ componentSize, hasIcon }) =>
-    hasIcon &&
+  ${({ componentSize, $hasIcon }) =>
+    $hasIcon &&
     componentSize &&
     css`
       padding-left: ${input.withIcon[componentSize].paddingLeft};

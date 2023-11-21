@@ -41,7 +41,22 @@ interface StyledTypographyProps {
   externalLink?: boolean;
 }
 
-const StyledTypography = styled.p<StyledTypographyProps>`
+const StyledTypography = styled.p.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof StyledTypographyProps)[] = [
+      'externalLink',
+      'typographyType',
+      'withMargins',
+      'interactionProps',
+      'bold',
+      'italic',
+      'underline',
+      'color',
+      'as',
+    ];
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<StyledTypographyProps>`
   user-select: text;
   &::selection,
   *::selection {

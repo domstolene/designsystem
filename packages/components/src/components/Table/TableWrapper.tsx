@@ -2,9 +2,9 @@ import { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { scrollbarStyling } from '../ScrollableContainer';
 
-const Wrapper = styled.div<{ overflowX: boolean }>`
-  ${({ overflowX }) =>
-    overflowX &&
+const Wrapper = styled.div<{ $overflowX: boolean }>`
+  ${({ $overflowX }) =>
+    $overflowX &&
     css`
       overflow-x: auto;
     `}
@@ -40,13 +40,11 @@ export const TableWrapper = ({ children, ...rest }: TableWrapperProps) => {
     return () => window.removeEventListener('resize', handleResize);
   });
 
-  const wrapperProps = {
-    ref: wrapperRef,
-    overflowX,
-    ...rest,
-  };
-
-  return <Wrapper {...wrapperProps}>{children}</Wrapper>;
+  return (
+    <Wrapper $overflowX={overflowX} ref={wrapperRef} {...rest}>
+      {children}
+    </Wrapper>
+  );
 };
 
 TableWrapper.displayName = 'Table.Wrapper';

@@ -26,15 +26,15 @@ const { spacing: Spacing } = ddsBaseTokens;
 const { wrapper, content, closeButton, title } = tokens;
 
 interface WrapperProps extends PaperProps {
-  sizeProps?: PopoverSizeProps;
-  hasTransitionedIn?: boolean;
-  isOpen: boolean;
+  $sizeProps?: PopoverSizeProps;
+  $hasTransitionedIn?: boolean;
+  $isOpen: boolean;
 }
 
 const Wrapper = styled(Paper)<WrapperProps>`
   opacity: 0;
-  ${({ hasTransitionedIn, isOpen }) =>
-    hasTransitionedIn && visibilityTransition(hasTransitionedIn && isOpen)}
+  ${({ $hasTransitionedIn, $isOpen }) =>
+    $hasTransitionedIn && visibilityTransition($hasTransitionedIn && $isOpen)}
   position: absolute;
   width: fit-content;
   z-index: 100;
@@ -43,15 +43,15 @@ const Wrapper = styled(Paper)<WrapperProps>`
   &:focus-visible {
     ${focusVisible}
   }
-  ${({ sizeProps }) =>
-    sizeProps &&
+  ${({ $sizeProps }) =>
+    $sizeProps &&
     css`
-      width: ${sizeProps.width};
-      height: ${sizeProps.height};
-      min-width: ${sizeProps.minWidth};
-      min-height: ${sizeProps.minHeight};
-      max-width: ${sizeProps.maxWidth};
-      max-height: ${sizeProps.maxHeight};
+      width: ${$sizeProps.width};
+      height: ${$sizeProps.height};
+      min-width: ${$sizeProps.minWidth};
+      min-height: ${$sizeProps.minHeight};
+      max-width: ${$sizeProps.maxWidth};
+      max-height: ${$sizeProps.maxHeight};
     `}
 `;
 
@@ -60,14 +60,14 @@ const TitleContainer = styled.div`
 `;
 
 interface ContentContainerProps {
-  hasTitle: boolean;
-  withCloseButton: boolean;
+  $hasTitle: boolean;
+  $withCloseButton: boolean;
 }
 
 const ContentContainer = styled.div<ContentContainerProps>`
-  ${({ withCloseButton, hasTitle }) =>
-    withCloseButton &&
-    !hasTitle &&
+  ${({ $withCloseButton, $hasTitle }) =>
+    $withCloseButton &&
+    !$hasTitle &&
     css`
       margin-top: ${content.noTitle.marginTop};
     `}
@@ -163,18 +163,18 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
     const hasTransitionedIn = useMountTransition(isOpen, 400);
 
-    const wrapperProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref: multiRef,
-      isOpen,
-      hasTransitionedIn,
-      tabIndex: -1,
-      style: { ...htmlProps.style, ...styles.floating },
-      role: 'dialog',
-    };
-
     return isOpen || hasTransitionedIn ? (
-      <Wrapper {...wrapperProps} elevation={3} border="light">
+      <Wrapper
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        ref={multiRef}
+        $isOpen={isOpen}
+        $hasTransitionedIn={hasTransitionedIn}
+        tabIndex={-1}
+        style={{ ...htmlProps.style, ...styles.floating }}
+        role="dialog"
+        elevation={3}
+        border="light"
+      >
         {title && (
           <TitleContainer>
             {typeof title === 'string' ? (
@@ -184,7 +184,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             )}
           </TitleContainer>
         )}
-        <ContentContainer hasTitle={!!title} withCloseButton={withCloseButton}>
+        <ContentContainer
+          $hasTitle={!!title}
+          $withCloseButton={withCloseButton}
+        >
           {children}
         </ContentContainer>
         {withCloseButton && (

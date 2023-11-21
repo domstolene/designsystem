@@ -8,14 +8,15 @@ import { normalizeButton } from '@norges-domstoler/dds-core';
 
 import { CellVariant, calendarTokens } from './Calendar.tokens';
 import { timezone } from '../constants';
+import { buttonTokens } from '@norges-domstoler/dds-components/src/components/Button/Button.tokens';
 
 interface CalendarCellProps extends AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
 }
 
 interface CellProps {
-  variant: CellVariant;
-  isToday: boolean;
+  $variant: CellVariant;
+  $isToday: boolean;
 }
 
 const Cell = styled.button<CellProps>`
@@ -31,8 +32,8 @@ const Cell = styled.button<CellProps>`
   line-height: ${calendarTokens.cell.font.lineHeight};
 
   border: ${calendarTokens.cell.borderWidth} solid
-    ${({ isToday }) =>
-      isToday ? calendarTokens.cell.today.borderColor : 'transparent'};
+    ${({ $isToday }) =>
+      $isToday ? calendarTokens.cell.today.borderColor : 'transparent'};
   border-radius: ${calendarTokens.cell.borderRadius};
 
   display: flex;
@@ -44,8 +45,8 @@ const Cell = styled.button<CellProps>`
     ${focusVisible}
   }
 
-  ${({ variant, isToday }) => {
-    const variantStyles = calendarTokens.cell.variants[variant];
+  ${({ $variant, $isToday }) => {
+    const variantStyles = calendarTokens.cell.variants[$variant];
     return css`
       background-color: ${variantStyles.bg};
       color: ${variantStyles.color};
@@ -56,7 +57,7 @@ const Cell = styled.button<CellProps>`
 
       ${() =>
         variantStyles.today &&
-        isToday &&
+        $isToday &&
         css`
           border-color: ${variantStyles.today.borderColor};
           text-decoration: ${variantStyles.today.textDecoration};
@@ -100,8 +101,8 @@ export function CalendarCell({ date, state }: CalendarCellProps) {
     <td {...cellProps}>
       <Cell
         {...buttonProps}
-        isToday={isToday(date, timezone)}
-        variant={variant}
+        $isToday={isToday(date, timezone)}
+        $variant={variant}
         ref={ref}
         hidden={isOutsideVisibleRange}
       >

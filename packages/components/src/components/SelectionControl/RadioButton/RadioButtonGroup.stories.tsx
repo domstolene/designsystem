@@ -26,7 +26,7 @@ export const Overview = (args: RadioButtonGroupProps<string>) => {
     <StoryTemplate
       title="Radio button group - overview"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <RadioButtonGroup
         {...args}

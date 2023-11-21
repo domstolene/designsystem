@@ -30,22 +30,20 @@ const getLayoutStyle = (layout: TableCellLayout) => {
   }
 };
 
-interface StyledCellProps {
-  type: TableCellType;
-}
-
-const StyledCell = styled.td<StyledCellProps>`
-  ${({ type }) =>
+const StyledCell = styled.td<{
+  $type: TableCellType;
+}>`
+  ${({ $type: type }) =>
     type === 'head' &&
     css`
       background-color: ${cell.head.backgroundColor};
     `}
 `;
 
-const InnerCell = styled.div<{ layout: TableCellLayout }>`
+const InnerCell = styled.div<{ $layout: TableCellLayout }>`
   display: flex;
   align-items: center;
-  ${({ layout }) => getLayoutStyle(layout)}
+  ${({ $layout: layout }) => getLayoutStyle(layout)}
 `;
 
 export type TableCellType = 'data' | 'head';
@@ -85,21 +83,11 @@ export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
 
     const { isCollapsibleChild } = collapsibleProps ?? {};
 
-    const cellProps = {
-      as: as,
-      type,
-      ...rest,
-    };
-
-    const innerCellProps = {
-      layout,
-    };
-
     return isCollapsibleChild ? (
       <DescriptionListDesc>{children}</DescriptionListDesc>
     ) : (
-      <StyledCell ref={ref} {...cellProps}>
-        <InnerCell {...innerCellProps}>{children}</InnerCell>
+      <StyledCell as={as} ref={ref} $type={type} {...rest}>
+        <InnerCell $layout={layout}>{children}</InnerCell>
       </StyledCell>
     );
   },

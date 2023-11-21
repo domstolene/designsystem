@@ -8,17 +8,16 @@ import {
   getBaseHTMLProps,
 } from '@norges-domstoler/dds-core';
 
-type StyledSpinnerProps = Pick<SpinnerProps, 'size'> & {
-  outerAnimationDelay: number;
-};
-
-const StyledSpinner = styled.svg<StyledSpinnerProps>`
+const StyledSpinner = styled.svg<{
+  $size: SpinnerProps['size'];
+  $outerAnimationDelay: number;
+}>`
   display: block;
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
+  width: ${({ $size }) => $size};
+  height: ${({ $size }) => $size};
   stroke-dasharray: 90, 150;
   animation: rotate 1.5s linear infinite;
-  animation-delay: ${({ outerAnimationDelay }) => outerAnimationDelay}ms;
+  animation-delay: ${({ $outerAnimationDelay }) => $outerAnimationDelay}ms;
 
   @media (prefers-reduced-motion: no-preference) {
     animation: rotate 2s linear infinite;
@@ -31,17 +30,16 @@ const StyledSpinner = styled.svg<StyledSpinnerProps>`
   }
 `;
 
-type CircleProps = Pick<SpinnerProps, 'color'> & {
-  innerAnimationDelay: number;
-};
-
-const Circle = styled.circle<CircleProps>`
-  stroke: ${({ color }) => color && getTextColor(color)};
+const Circle = styled.circle<{
+  $color: SpinnerProps['color'];
+  $innerAnimationDelay: number;
+}>`
+  stroke: ${({ $color }) => $color && getTextColor($color)};
   stroke-linecap: round;
 
   @media (prefers-reduced-motion: no-preference) {
     animation: dash 1.5s ease-in-out infinite;
-    animation-delay: ${({ innerAnimationDelay }) => innerAnimationDelay}ms;
+    animation-delay: ${({ $innerAnimationDelay }) => $innerAnimationDelay}ms;
 
     @keyframes dash {
       0% {
@@ -92,13 +90,8 @@ export function Spinner(props: SpinnerProps) {
 
   const spinnerProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
-    outerAnimationDelay,
-    size,
-  };
-
-  const circleProps = {
-    innerAnimationDelay,
-    color,
+    $outerAnimationDelay: outerAnimationDelay,
+    $size: size,
   };
 
   return (
@@ -110,7 +103,8 @@ export function Spinner(props: SpinnerProps) {
     >
       {tooltip && <title id={uniqueId}>{tooltip}</title>}
       <Circle
-        {...circleProps}
+        $innerAnimationDelay={innerAnimationDelay}
+        $color={color}
         cx="25"
         cy="25"
         r="20"

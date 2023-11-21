@@ -25,7 +25,7 @@ export const Overview = (args: CheckboxGroupProps) => {
     <StoryTemplate
       title="CheckboxGroup - overview"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <CheckboxGroup {...args} label={args.label ?? 'Label'}>
         <Checkbox label="Option 1" />

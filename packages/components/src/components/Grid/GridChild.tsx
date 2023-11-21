@@ -38,7 +38,17 @@ export const isGridColumn = (
   );
 };
 
-const StyledGridChild = styled.div<StyledGridChildProps>`
+const StyledGridChild = styled.div.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof StyledGridChildProps)[] = [
+      'columnsOccupied',
+      'justifySelf',
+      'gridRow',
+      'screenSize',
+    ];
+    return !styleOnlyProps.some(styleProp => styleProp === prop);
+  },
+})<StyledGridChildProps>`
   grid-column: ${({ screenSize, columnsOccupied }) =>
     columnsOccupied === 'all'
       ? '1 / -1'

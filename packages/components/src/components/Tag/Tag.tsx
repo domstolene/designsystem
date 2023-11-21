@@ -15,7 +15,7 @@ import { tagTokens as tokens, typographyType } from './Tag.tokens';
 const { wrapper } = tokens;
 
 interface WrapperProps {
-  purpose: TagPurpose;
+  $purpose: TagPurpose;
 }
 
 const Wrapper = styled(TextOverflowEllipsisWrapper)<WrapperProps>`
@@ -25,9 +25,9 @@ const Wrapper = styled(TextOverflowEllipsisWrapper)<WrapperProps>`
   border-radius: ${wrapper.borderRadius};
   padding: ${wrapper.padding};
   ${getFontStyling(typographyType)}
-  ${({ purpose }) => css`
-    background-color: ${wrapper.purpose[purpose].backgroundColor};
-    border-color: ${wrapper.purpose[purpose].borderColor};
+  ${({ $purpose }) => css`
+    background-color: ${wrapper.purpose[$purpose].backgroundColor};
+    border-color: ${wrapper.purpose[$purpose].borderColor};
   `}
 `;
 
@@ -57,7 +57,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
     <Wrapper
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       ref={ref}
-      purpose={purpose}
+      $purpose={purpose}
     >
       <TextOverflowEllipsisInner>{text}</TextOverflowEllipsisInner>
     </Wrapper>

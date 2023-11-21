@@ -18,7 +18,7 @@ import { ToggleButtonProps } from './ToggleButton.types';
 const { toggleButton } = tokens;
 
 interface ContentProps {
-  hasIcon?: boolean;
+  $hasIcon?: boolean;
 }
 
 const Content = styled.span<ContentProps>`
@@ -43,8 +43,8 @@ const Content = styled.span<ContentProps>`
       ${focusVisibleTransitionValue};
   }
 
-  ${({ hasIcon }) =>
-    hasIcon &&
+  ${({ $hasIcon }) =>
+    $hasIcon &&
     css`
       gap: ${toggleButton.gap};
     `}
@@ -82,20 +82,14 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-toggleButton`;
 
-    const inputProps = {
-      ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
-      ref,
-      type: 'checkbox',
-    };
-
-    const containerProps = {
-      htmlFor: uniqueId,
-    };
-
     return (
-      <Container {...containerProps}>
-        <HiddenInput {...inputProps} />
-        <Content hasIcon={!!icon}>
+      <Container htmlFor={uniqueId}>
+        <HiddenInput
+          {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
+          ref={ref}
+          type="checkbox"
+        />
+        <Content $hasIcon={!!icon}>
           {icon && <Icon icon={icon} iconSize="inherit" />} {label}
         </Content>
       </Container>

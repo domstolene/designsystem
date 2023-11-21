@@ -35,7 +35,10 @@ interface HeaderProps {
   bold?: boolean;
 }
 
-const HeaderContainer = styled.div<HeaderProps>`
+const HeaderContainer = styled.div.withConfig({
+  shouldForwardProp: prop =>
+    prop !== 'padding' && prop !== 'typographyType' && prop !== 'bold',
+})<HeaderProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;

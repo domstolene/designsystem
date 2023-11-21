@@ -41,7 +41,7 @@ const ContentContainer = styled.div`
 
 export const Overview = () => {
   return (
-    <StoryTemplate title="Card - overview" display="grid" columnsAmount={4}>
+    <StoryTemplate title="Card - overview" display="grid" $columnsAmount={4}>
       <Card cardType="info">
         <ContentContainer>
           <Typography typographyType="headingSans03">Title</Typography>

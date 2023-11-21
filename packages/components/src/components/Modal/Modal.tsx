@@ -109,32 +109,23 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
   const hasTransitionedIn = useMountTransition(isOpen, 200);
 
-  const backdropProps = {
-    isOpen: hasTransitionedIn && isOpen,
-  };
-
-  const containerProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    ref: combinedRef,
-    role: 'dialog',
-    'aria-modal': true,
-    'aria-hidden': !isOpen,
-    tabIndex: -1,
-    'aria-labelledby': headerId,
-    id: modalId,
-  };
-
-  const headerContainerProps = {
-    id: headerId,
-  };
-
   return isOpen || hasTransitionedIn
     ? createPortal(
-        <Backdrop {...backdropProps}>
-          <Container {...containerProps} elevation={4}>
+        <Backdrop isOpen={hasTransitionedIn && isOpen}>
+          <Container
+            {...getBaseHTMLProps(id, className, htmlProps, rest)}
+            ref={combinedRef}
+            role="dialog"
+            aria-modal
+            aria-hidden={!isOpen}
+            tabIndex={-1}
+            aria-labelledby={headerId}
+            id={modalId}
+            elevation={4}
+          >
             <ContentContainer>
               {header && (
-                <HeaderContainer {...headerContainerProps}>
+                <HeaderContainer id={headerId}>
                   {typeof header === 'string' ? (
                     <Typography typographyType="headingSans03">
                       {header}

@@ -12,8 +12,8 @@ import { toggleBarTokens as tokens, typographyTypes } from './ToggleBar.tokens';
 const { content, label } = tokens;
 
 interface ContentProps {
-  size: ToggleBarSize;
-  justIcon: boolean;
+  $size: ToggleBarSize;
+  $justIcon: boolean;
 }
 
 export const Content = styled.span<ContentProps>`
@@ -34,16 +34,16 @@ export const Content = styled.span<ContentProps>`
   }
   background-color: ${content.base.backgroundColor};
 
-  ${({ size, justIcon }) => css`
-    ${justIcon
+  ${({ $size, $justIcon }) => css`
+    ${$justIcon
       ? css`
-          font-size: ${content.size[size].justIcon.fontSize};
-          padding: ${content.size[size].justIcon.padding};
+          font-size: ${content.size[$size].justIcon.fontSize};
+          padding: ${content.size[$size].justIcon.padding};
         `
       : css`
-          gap: ${content.size[size].withText.gap};
-          padding: ${content.size[size].withText.padding};
-          ${getFontStyling(typographyTypes[size])}
+          gap: ${content.size[$size].withText.gap};
+          padding: ${content.size[$size].withText.padding};
+          ${getFontStyling(typographyTypes[$size])}
         `}
   `}
 `;

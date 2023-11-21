@@ -253,7 +253,7 @@ export const OverviewSizes = (args: ButtonProps) => {
     <StoryTemplate
       title="Button overview - sizes"
       display="grid"
-      columnsAmount={4}
+      $columnsAmount={4}
     >
       <Button {...args} purpose="primary" appearance="filled" size="tiny">
         Primary
@@ -344,7 +344,7 @@ export const OverviewLoading = (args: ButtonProps) => {
     <StoryTemplate
       title="Button overview - loading"
       display="grid"
-      columnsAmount={4}
+      $columnsAmount={4}
     >
       <Button
         {...args}

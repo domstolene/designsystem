@@ -89,7 +89,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
           role="group"
           aria-labelledby={uniqueGroupId}
           aria-describedby={tip ? tipId : undefined}
-          direction={direction}
+          $direction={direction}
         >
           {children}
         </GroupContainer>

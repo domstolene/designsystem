@@ -38,7 +38,7 @@ export const OverviewWithText = (args: ToggleBarProps<string>) => {
     <StoryTemplate
       title="ToggleBar - overview with text"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <ToggleBar
         {...args}

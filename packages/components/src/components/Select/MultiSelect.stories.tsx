@@ -46,7 +46,7 @@ export const Overview = (args: MultiSelectProps) => {
       title="Multiselect - overview"
       gap="25px"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <DDSSelect
         {...args}
@@ -136,7 +136,7 @@ export const OverviewSizes = (args: MultiSelectProps) => {
     <StoryTemplate
       title="MultiSelect - overview sizes"
       display="grid"
-      columnsAmount={2}
+      $columnsAmount={2}
     >
       <DDSSelect {...args} options={options} isMulti />
       <DDSSelect {...args} options={options} isMulti icon={CourtIcon} />

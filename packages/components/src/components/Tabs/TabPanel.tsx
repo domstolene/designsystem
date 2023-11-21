@@ -14,7 +14,7 @@ import { tabsTokens as tokens } from './Tabs.tokens';
 const { panel } = tokens;
 
 interface PanelProps {
-  active: boolean;
+  $active: boolean;
 }
 
 const Panel = styled.div<PanelProps>`
@@ -23,8 +23,8 @@ const Panel = styled.div<PanelProps>`
     transition: ${focusVisibleTransitionValue};
   }
 
-  ${({ active }) =>
-    !active &&
+  ${({ $active }) =>
+    !$active &&
     css`
       display: none;
     `}
@@ -43,14 +43,17 @@ export type TabPanelProps = BaseComponentPropsWithChildren<
 
 export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
   ({ active = false, children, id, className, htmlProps, ...rest }, ref) => {
-    const panelProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref,
-      tabIndex: 0,
-      role: 'tabpanel',
-      active,
-    };
-    return <Panel {...panelProps}>{children}</Panel>;
+    return (
+      <Panel
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        ref={ref}
+        tabIndex={0}
+        role="tabpanel"
+        $active={active}
+      >
+        {children}
+      </Panel>
+    );
   },
 );
 

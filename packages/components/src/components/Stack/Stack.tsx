@@ -33,7 +33,19 @@ export interface StackStyleProps {
   padding?: keyof typeof stackTokens.spacing | 0;
 }
 
-const Stack = styled.div<StackStyleProps>`
+const Stack = styled.div.withConfig({
+  shouldForwardProp: prop => {
+    const styleOnlyProps: (keyof StackStyleProps)[] = [
+      'align',
+      'direction',
+      'gap',
+      'justify',
+      'padding',
+    ];
+
+    return !styleOnlyProps.some(p => p === prop);
+  },
+})<StackStyleProps>`
   display: flex;
   flex-direction: ${({ direction }) =>
     direction === 'horizontal' ? 'row' : 'column'};

@@ -12,7 +12,10 @@ import { useAppShellContext } from '../AppShellContext';
 
 const { navigation: navTokens } = appShellTokens;
 
-const Sidebar = styled.div<{
+const Sidebar = styled.div.withConfig({
+  shouldForwardProp: prop =>
+    prop !== 'isOpen' && prop !== 'environmentBannerActive',
+})<{
   isOpen: boolean;
   environmentBannerActive: boolean;
 }>`

@@ -22,7 +22,7 @@ export const OuterContainer = styled.div`
 `;
 
 interface BannerProps {
-  hasContextMenu?: boolean;
+  $hasContextMenu?: boolean;
 }
 
 export const BannerWrapper = styled.div<BannerProps>`
@@ -31,8 +31,8 @@ export const BannerWrapper = styled.div<BannerProps>`
   align-items: center;
   border-bottom: ${banner.borderBottom};
   padding-right: ${banner.paddingRight};
-  ${({ hasContextMenu }) =>
-    hasContextMenu &&
+  ${({ $hasContextMenu }) =>
+    $hasContextMenu &&
     css`
       padding-right: ${banner.hasContextMenu.paddingRight};
     `}
