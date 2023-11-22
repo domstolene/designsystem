@@ -12,11 +12,15 @@ export function handleElementWithBackdropMount(container: HTMLElement) {
 }
 
 export function handleElementWithBackdropUnmount(container: HTMLElement) {
-  const scrollY = parseInt(document.body.style.top) || 0;
+  const scrollY = parseInt(document.body.style.top);
 
   container.style.removeProperty('overflow-y');
   container.style.removeProperty('position');
   container.style.removeProperty('top');
+
+  if (isNaN(scrollY)) {
+    return;
+  }
 
   window.scrollTo(0, scrollY * -1);
 }
