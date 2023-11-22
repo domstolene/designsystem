@@ -14,17 +14,11 @@ export default {
 export const Overview = () => {
   const [closed, setClosed] = useState(true);
   const show = () => setClosed(false);
-  const close = () => {
-    setClosed(true);
-    buttonRef.current?.focus();
-  };
+  const close = () => setClosed(true);
 
   const [closed2, setClosed2] = useState(true);
   const show2 = () => setClosed2(false);
-  const close2 = () => {
-    setClosed2(true);
-    buttonRef2.current?.focus();
-  };
+  const close2 = () => setClosed2(true);
 
   const buttonRef = useRef<HTMLButtonElement>(null);
   const buttonRef2 = useRef<HTMLButtonElement>(null);
@@ -34,7 +28,12 @@ export const Overview = () => {
       <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
         Åpne lukkbar
       </Button>
-      <Modal isOpen={!closed} onClose={close} header="Tittel">
+      <Modal
+        isOpen={!closed}
+        triggerRef={buttonRef}
+        onClose={close}
+        header="Tittel"
+      >
         <ModalBody>Lukkbar modal</ModalBody>
         <ModalActions>
           <Button onClick={close}>OK</Button>
@@ -46,7 +45,7 @@ export const Overview = () => {
       <Button aria-haspopup="dialog" onClick={show2} ref={buttonRef2}>
         Åpne ikke lukkbar
       </Button>
-      <Modal isOpen={!closed2} header="Tittel">
+      <Modal isOpen={!closed2} triggerRef={buttonRef2} header="Tittel">
         <ModalBody>Ikke lukkbar modal</ModalBody>
         <ModalActions>
           <Button onClick={close2}>OK</Button>
@@ -63,10 +62,7 @@ export const Overview = () => {
 export const Default = (args: ModalProps) => {
   const [closed, setClosed] = useState(true);
   const show = () => setClosed(false);
-  const close = () => {
-    setClosed(true);
-    buttonRef.current?.focus();
-  };
+  const close = () => setClosed(true);
 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -75,7 +71,7 @@ export const Default = (args: ModalProps) => {
       <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
         Åpne
       </Button>
-      <Modal {...args} isOpen={!closed} onClose={close}>
+      <Modal {...args} triggerRef={buttonRef} isOpen={!closed} onClose={close}>
         <ModalBody>Modal</ModalBody>
         <ModalActions>
           <Button onClick={close}>OK</Button>
@@ -116,10 +112,7 @@ export const NoActionButtons = (args: ModalProps) => {
 export const Scrollable = (args: ModalProps) => {
   const [closed, setClosed] = useState(true);
   const show = () => setClosed(false);
-  const close = () => {
-    setClosed(true);
-    buttonRef.current?.focus();
-  };
+  const close = () => setClosed(true);
 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -131,6 +124,7 @@ export const Scrollable = (args: ModalProps) => {
       <Modal
         {...args}
         isOpen={!closed}
+        triggerRef={buttonRef}
         onClose={close}
         htmlProps={{
           style: { width: '300px' },
