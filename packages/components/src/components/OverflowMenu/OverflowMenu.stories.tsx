@@ -45,7 +45,7 @@ export const Default = (args: OverflowMenuProps) => {
   return (
     <StoryTemplate title="OverflowMenu - default" display="flex-centered">
       <OverflowMenuGroup>
-        <Button icon={MenuIcon} />
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
         <OverflowMenu {...args} items={items} />
       </OverflowMenuGroup>
     </StoryTemplate>
@@ -59,7 +59,7 @@ export const WithStaticUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon={MenuIcon} />
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
         <OverflowMenu
           {...args}
           items={items}
@@ -77,7 +77,7 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon={MenuIcon} />
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
         <OverflowMenu
           {...args}
           items={items}
@@ -95,7 +95,7 @@ export const WithNavigation = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon={MenuIcon} />
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
         <OverflowMenu {...args} items={items} navItems={navItems} />
       </OverflowMenuGroup>
     </StoryTemplate>
@@ -109,7 +109,7 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
       display="flex-centered"
     >
       <OverflowMenuGroup>
-        <Button icon={MenuIcon} />
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
         <OverflowMenu
           {...args}
           items={items}
