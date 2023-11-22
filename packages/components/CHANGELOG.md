@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 13.10.2
+
+### Patch Changes
+
+- 19370afa: Fikser bug hvor åpning av modal førte til at vinduet ble scrollet til toppen av siden.
+- 8fea35f5: Slutter å videresende styling-props til DOM-en. Tidligere ble alle styling props vi brukte i styled-components videresendt til DOM-en. Disse blir nå filtrert ut for å unngå å ha ugyldige props på DOM-elementer.
+- f8c865b5: Bump `@floating-ui/react-dom` til `2.0.4`
+- Updated dependencies [8fea35f5]
+  - @norges-domstoler/dds-typography@0.1.2
+  - @norges-domstoler/dds-icons@0.2.2
+  - @norges-domstoler/dds-core@0.1.2
+  - @norges-domstoler/dds-form@0.1.2
+
 ## 13.10.1
 
 ### Patch Changes

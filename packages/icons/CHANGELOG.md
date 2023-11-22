@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-icons
 
+## 0.2.2
+
+### Patch Changes
+
+- 8fea35f5: Slutter å videresende styling-props til DOM-en. Tidligere ble alle styling props vi brukte i styled-components videresendt til DOM-en. Disse blir nå filtrert ut for å unngå å ha ugyldige props på DOM-elementer.
+- Updated dependencies [8fea35f5]
+  - @norges-domstoler/dds-core@0.1.2
+
 ## 0.2.1
 
 ### Patch Changes
