@@ -4,7 +4,7 @@ import { Property } from 'csstype';
 import {
   BaseComponentProps,
   getBaseHTMLProps,
-  joinClassNames,
+  cn,
 } from '@norges-domstoler/dds-core';
 import {
   getFontStyling,
@@ -97,7 +97,7 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
     return (
       <Wrapper
         $top={top}
-        className={joinClassNames(className, htmlPropsClassName)}
+        className={cn(className, htmlPropsClassName)}
         style={style}
       >
         <Link {...getBaseHTMLProps(id, restHtmlProps, rest)} ref={ref}>

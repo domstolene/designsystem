@@ -15,15 +15,27 @@ export default {
   },
 };
 
-export const Overview = () => {
+export const Overview = (args: Partial<HeadingProps>) => {
   return (
     <StoryTemplate title="Heading - overview">
-      <Heading level={1}>Heading 1</Heading>
-      <Heading level={2}>Heading 2</Heading>
-      <Heading level={3}>Heading 3</Heading>
-      <Heading level={4}>Heading 4</Heading>
-      <Heading level={5}>Heading 5</Heading>
-      <Heading level={6}>Heading 6</Heading>
+      <Heading {...args} level={1}>
+        Heading 1
+      </Heading>
+      <Heading {...args} level={2}>
+        Heading 2
+      </Heading>
+      <Heading {...args} level={3}>
+        Heading 3
+      </Heading>
+      <Heading {...args} level={4}>
+        Heading 4
+      </Heading>
+      <Heading {...args} level={5}>
+        Heading 5
+      </Heading>
+      <Heading {...args} level={6}>
+        Heading 6
+      </Heading>
     </StoryTemplate>
   );
 };

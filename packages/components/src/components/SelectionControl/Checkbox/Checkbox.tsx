@@ -1,7 +1,7 @@
 import { forwardRef, useId } from 'react';
 import {
   getBaseHTMLProps,
-  joinClassNames,
+  cn,
   spaceSeparatedIdListGenerator,
 } from '@norges-domstoler/dds-core';
 
@@ -48,7 +48,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         htmlFor={uniqueId}
         $hasLabel={hasLabel}
         $controlType="checkbox"
-        className={joinClassNames(className, htmlPropsClassName)}
+        className={cn(className, htmlPropsClassName)}
         style={style}
       >
         <HiddenInput

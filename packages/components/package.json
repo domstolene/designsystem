@@ -70,9 +70,7 @@
     "@norges-domstoler/development-utils": "*",
     "attr-accept": "^2.2.2",
     "file-selector": "^0.6.0",
-    "focus-visible": "^5.2.0",
-    "react-select": "^5.8.0",
-    "tslib": "^2.6.2"
+    "react-select": "^5.8.0"
   },
   "publishConfig": {
     "provenance": true
