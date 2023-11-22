@@ -1,9 +1,5 @@
 import { ChangeEvent, forwardRef, useId } from 'react';
-import {
-  getBaseHTMLProps,
-  joinClassNames,
-  Nullable,
-} from '@norges-domstoler/dds-core';
+import { getBaseHTMLProps, cn, Nullable } from '@norges-domstoler/dds-core';
 import { Typography } from '@norges-domstoler/dds-typography';
 import { HiddenInput } from '@norges-domstoler/dds-form';
 
@@ -96,7 +92,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
         disabled={disabled || radioButtonGroup?.disabled}
         $readOnly={readOnly || radioButtonGroup?.readOnly}
         style={style}
-        className={joinClassNames(className, htmlPropsClassName)}
+        className={cn(className, htmlPropsClassName)}
         $hasLabel={hasLabel}
         htmlFor={uniqueId}
         $controlType="radio"

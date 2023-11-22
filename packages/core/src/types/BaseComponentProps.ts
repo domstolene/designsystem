@@ -1,4 +1,5 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
+import { cn } from '../utils/dom';
 
 /**
  * Basetype for props som eksponeres til konsumenter av designsystemet.
@@ -32,9 +33,6 @@ export type BaseComponentPropsWithChildren<
   TProps extends object = object,
   THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>,
 > = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
-
-export const joinClassNames = (...classNames: (string | undefined)[]) =>
-  classNames.filter(Boolean).join(' ');
 
 interface GetBaseHTMLProps {
   <T extends Element>(
@@ -99,7 +97,7 @@ export const getBaseHTMLProps: GetBaseHTMLProps = <T extends Element>(
 
     const propId = id ?? idFromHtmlProps;
 
-    const propClassName = joinClassNames(
+    const propClassName = cn(
       htmlPropsOrClassName as string | undefined,
       classNameFromHtmlProps,
     );

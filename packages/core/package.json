@@ -45,6 +45,9 @@
     "vite": "^5.0.0",
     "vitest": "^0.34.6"
   },
+  "dependencies": {
+    "@floating-ui/react-dom": "^2.0.4"
+  },
   "peerDependencies": {
     "@norges-domstoler/dds-design-tokens": "^3.0.2",
     "react": "^16 || ^17 || ^18",
