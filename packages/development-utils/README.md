@@ -9,7 +9,7 @@ Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [Elsa 
 ## 📦 Installasjon
 
 ```sh
-npm install @norges-domstoler/development-utils
+pnpm add @norges-domstoler/development-utils
 ```
 
 ## Komponenter

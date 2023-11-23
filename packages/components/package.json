@@ -21,7 +21,7 @@
     "test:watch": "vitest watch",
     "build": "tsup --dts",
     "build:fast": "tsup",
-    "dev": "npm run build:fast -- --watch",
+    "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
@@ -37,8 +37,8 @@
     "elsa"
   ],
   "devDependencies": {
-    "@norges-domstoler/dds-design-tokens": "*",
-    "@norges-domstoler/storybook-components": "*",
+    "@norges-domstoler/dds-design-tokens": "workspace:*",
+    "@norges-domstoler/storybook-components": "workspace:*",
     "@storybook/blocks": "^7.5.3",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.1.2",
@@ -46,6 +46,7 @@
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "clean-package": "2.2.0",
+    "csstype": "^3.1.2",
     "jsdom": "^22.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -63,11 +64,11 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.4",
-    "@norges-domstoler/dds-core": "*",
-    "@norges-domstoler/dds-form": "*",
-    "@norges-domstoler/dds-icons": "*",
-    "@norges-domstoler/dds-typography": "*",
-    "@norges-domstoler/development-utils": "*",
+    "@norges-domstoler/dds-core": "workspace:*",
+    "@norges-domstoler/dds-form": "workspace:*",
+    "@norges-domstoler/dds-icons": "workspace:*",
+    "@norges-domstoler/dds-typography": "workspace:*",
+    "@norges-domstoler/development-utils": "workspace:*",
     "attr-accept": "^2.2.2",
     "file-selector": "^0.6.0",
     "react-select": "^5.8.0"

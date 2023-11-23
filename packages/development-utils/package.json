@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsup --dts",
     "build:fast": "tsup",
-    "dev": "npm run build:fast -- --watch",
+    "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"

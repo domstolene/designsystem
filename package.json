@@ -16,8 +16,11 @@
     "lint": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --config .eslintrc.cjs --cache",
     "format:check": "prettier --check packages/**/src --cache",
     "format:write": "prettier --write packages/**/src --cache",
+    "storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build",
+    "serve:storybook": "pnpx serve storybook-static",
     "changeset": "changeset",
-    "prerelease": "npm run build",
+    "prerelease": "pnpm build",
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset publish --tag dev",
@@ -35,21 +38,41 @@
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
+    "@norges-domstoler/dds-components": "workspace:*",
+    "@norges-domstoler/dds-design-tokens": "workspace:*",
+    "@norges-domstoler/dds-icons": "workspace:*",
+    "@norges-domstoler/dds-typography": "workspace:*",
+    "@norges-domstoler/storybook-components": "workspace:*",
+    "@storybook/addon-a11y": "^7.5.3",
+    "@storybook/addon-docs": "^7.5.3",
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-storysource": "^7.5.3",
+    "@storybook/blocks": "^7.5.3",
+    "@storybook/core-common": "^7.5.3",
+    "@storybook/react": "^7.5.3",
     "@storybook/react-vite": "^7.5.3",
+    "@storybook/testing-library": "^0.2.2",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "eslint": "^8.54.0",
     "eslint-plugin-react": "^7.33.2",
     "plop": "^4.0.0",
     "prettier": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.5.3",
+    "styled-components": "^6.1.1",
+    "tsup": "^8.0.0",
     "turbo": "^1.10.16"
   },
-  "overrides": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+  "pnpm": {
+    "overrides": {
+      "react": "18.2.0",
+      "react-dom": "18.2.0"
+    }
   },
   "volta": {
     "node": "20.8.1",
-    "npm": "10.2.0"
+    "pnpm": "8.10.5"
   }
 }

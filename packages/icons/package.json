@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsup --dts",
     "build:fast": "tsup",
-    "dev": "npm run build:fast -- --watch",
+    "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
@@ -31,10 +31,11 @@
     "elsa"
   ],
   "devDependencies": {
-    "@norges-domstoler/dds-design-tokens": "*",
+    "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "clean-package": "2.2.0",
+    "csstype": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.1",
@@ -50,7 +51,7 @@
     "styled-components": "^5 || ^6"
   },
   "dependencies": {
-    "@norges-domstoler/dds-core": "*"
+    "@norges-domstoler/dds-core": "workspace:*"
   },
   "publishConfig": {
     "provenance": true

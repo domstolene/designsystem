@@ -9,7 +9,7 @@ Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [ Elsa
 ## 📦 Installasjon
 
 ```sh
-npm install @norges-domstoler/dds-page-generator
+pnpm add @norges-domstoler/dds-page-generator
 ```
 
 ## 🔨 Bruk

@@ -17,7 +17,7 @@
   "scripts": {
     "build": "tsup --dts",
     "build:fast": "tsup",
-    "dev": "npm run build:fast -- --watch",
+    "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
@@ -36,7 +36,7 @@
     "react-dom": "^16 || ^17 || ^18"
   },
   "dependencies": {
-    "@norges-domstoler/dds-design-tokens": "*",
+    "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@storybook/addon-docs": "^7.5.3",
     "focus-visible": "^5.2.0",
     "styled-components": "^6.1.1"
