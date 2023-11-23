@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.2.2
+
+### Patch Changes
+
+- f21593bb: Bruker mer spesifikk versjon av interne dependencies
+
 ## 1.2.1
 
 ### Patch Changes

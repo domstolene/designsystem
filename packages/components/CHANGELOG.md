@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 13.10.4
+
+### Patch Changes
+
+- f21593bb: Bruker mer spesifikk versjon av interne dependencies
+- Updated dependencies [f21593bb]
+  - @norges-domstoler/development-utils@1.2.2
+  - @norges-domstoler/dds-typography@0.1.3
+  - @norges-domstoler/dds-design-tokens@3.0.3
+  - @norges-domstoler/dds-icons@0.2.3
+  - @norges-domstoler/dds-core@0.1.4
+  - @norges-domstoler/dds-form@0.1.4
+
 ## 13.10.3
 
 ### Patch Changes

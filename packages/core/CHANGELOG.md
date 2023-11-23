@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-core
 
+## 0.1.4
+
+### Patch Changes
+
+- f21593bb: Bruker mer spesifikk versjon av interne dependencies
+- Updated dependencies [f21593bb]
+  - @norges-domstoler/dds-design-tokens@3.0.3
+
 ## 0.1.3
 
 ### Patch Changes
