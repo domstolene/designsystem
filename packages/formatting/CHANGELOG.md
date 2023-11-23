@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.4.2
+
+### Patch Changes
+
+- f21593bb: Bruker mer spesifikk versjon av interne dependencies
+
 ## 1.4.1
 
 ### Patch Changes

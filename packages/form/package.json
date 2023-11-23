@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-form",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Base components/styles and other helpers used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
@@ -47,7 +47,7 @@
     "vitest": "^0.34.6"
   },
   "peerDependencies": {
-    "@norges-domstoler/dds-design-tokens": "^3.0.2",
+    "@norges-domstoler/dds-design-tokens": "^3.0.3",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5 || ^6"

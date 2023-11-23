@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.7.2
+
+### Patch Changes
+
+- f21593bb: Bruker mer spesifikk versjon av interne dependencies
+- Updated dependencies [f21593bb]
+  - @norges-domstoler/dds-components@13.10.4
+  - @norges-domstoler/dds-typography@0.1.3
+  - @norges-domstoler/dds-design-tokens@3.0.3
+
 ## 2.7.1
 
 ### Patch Changes
