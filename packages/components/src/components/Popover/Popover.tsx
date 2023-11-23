@@ -159,7 +159,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       if (isOpen) onClose && onClose();
     });
 
-
     return isOpen || hasTransitionedIn ? (
       <Wrapper
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
