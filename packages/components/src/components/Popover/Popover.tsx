@@ -138,10 +138,10 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       placement,
       offset,
     });
-     // Use position from anchor element for the popover
-     refs.setReference(anchorElement || null);
+    // Use position from anchor element for the popover
+    refs.setReference(anchorElement || null);
 
-     const popoverRef = useReturnFocusOnBlur(
+    const popoverRef = useReturnFocusOnBlur(
       isOpen && hasTransitionedIn,
       () => {
         onClose && onClose();
@@ -150,7 +150,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement && anchorElement,
     );
 
-     const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
+    const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
 
     const elements: (HTMLElement | null)[] = [popoverRef.current!];
     if (anchorElement) elements.push(anchorElement);
