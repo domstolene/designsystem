@@ -74,6 +74,19 @@ export const ContentOverview = (args: PopoverProps) => {
           </Popover>
         </PopoverGroup>
       </div>
+      <div style={{marginTop: "100vh"}}>
+        <PopoverGroup>
+          <Button>Åpne</Button>
+          <Popover {...args}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Typography withMargins>
+                Dette er en popover lengre nede på siden som ikke scroller deg opp
+              </Typography>
+              <Button>Klikk</Button>
+            </div>
+          </Popover>
+        </PopoverGroup>
+      </div>
     </StoryTemplate>
   );
 };

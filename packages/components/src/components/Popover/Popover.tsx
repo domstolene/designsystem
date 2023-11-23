@@ -132,9 +132,17 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       htmlProps = {},
       ...rest
     } = props;
+    const hasTransitionedIn = useMountTransition(isOpen, 400);
 
-    const popoverRef = useReturnFocusOnBlur(
-      isOpen,
+    const { refs, styles } = useFloatPosition(null, {
+      placement,
+      offset,
+    });
+     // Use position from anchor element for the popover
+     refs.setReference(anchorElement || null);
+
+     const popoverRef = useReturnFocusOnBlur(
+      isOpen && hasTransitionedIn,
       () => {
         onClose && onClose();
         onBlur && onBlur();
@@ -142,17 +150,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement && anchorElement,
     );
 
-    const { refs, styles } = useFloatPosition(null, {
-      placement,
-      offset,
-    });
-    const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
-
-    useEffect(() => {
-      anchorElement
-        ? refs.setReference(anchorElement)
-        : refs.setReference(null);
-    }, [anchorElement]);
+     const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
 
     const elements: (HTMLElement | null)[] = [popoverRef.current!];
     if (anchorElement) elements.push(anchorElement);
@@ -161,7 +159,6 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       if (isOpen) onClose && onClose();
     });
 
-    const hasTransitionedIn = useMountTransition(isOpen, 400);
 
     return isOpen || hasTransitionedIn ? (
       <Wrapper
