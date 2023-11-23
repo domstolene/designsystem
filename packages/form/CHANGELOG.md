@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-form
 
+## 0.1.3
+
+### Patch Changes
+
+- 2eced7f0: Fjerner ubrukte dependencies og interne filer
+- Updated dependencies [2eced7f0]
+  - @norges-domstoler/dds-core@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes

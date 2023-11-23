@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 13.10.3
+
+### Patch Changes
+
+- 2eced7f0: Fjerner ubrukte dependencies og interne filer
+- e9e2da32: Fikser bug hvor åpning av popover førte til av vinduet ble scrollet til toppen av siden.
+- Updated dependencies [2eced7f0]
+  - @norges-domstoler/dds-core@0.1.3
+  - @norges-domstoler/dds-form@0.1.3
+
 ## 13.10.2
 
 ### Patch Changes
