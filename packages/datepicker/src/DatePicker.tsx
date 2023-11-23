@@ -1,11 +1,7 @@
 import { useDatePickerState } from '@react-stately/datepicker';
 import { DateField, DateFieldProps } from './DateField/DateField';
-import {
-  AriaDateFieldOptions,
-  AriaDatePickerProps,
-  DateValue,
-  useDatePicker,
-} from '@react-aria/datepicker';
+import { useDatePicker } from '@react-aria/datepicker';
+import type { DateValue, AriaDatePickerProps } from '@react-types/datepicker';
 import { useRef } from 'react';
 import { Calendar } from './Calendar/Calendar';
 import {

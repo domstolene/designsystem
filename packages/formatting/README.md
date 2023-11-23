@@ -9,7 +9,7 @@ Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [ Elsa
 ## 📦 Installasjon
 
 ```sh
-npm install @norges-domstoler/dds-formatting
+pnpm add @norges-domstoler/dds-formatting
 ```
 
 ## 🔨 Bruk

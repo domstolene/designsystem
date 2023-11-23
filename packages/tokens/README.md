@@ -27,7 +27,7 @@ Referanse-tokens (OBS! under arbeid) bruker base-tokens til å definere logikk f
 ## 📦 Installasjon
 
 ```sh
-npm install @norges-domstoler/dds-design-tokens
+pnpm add @norges-domstoler/dds-design-tokens
 ```
 
 ## 🔨 Bruk
@@ -83,7 +83,7 @@ Klon repoet og installer style-dictionary i `/tokens/dds`:
 
 ```
 cd tokens/dds
-npm install -D style-dictionary
+pnpm add -D style-dictionary
 ```
 
 ### Generere design tokens i kode
@@ -91,11 +91,11 @@ npm install -D style-dictionary
 Biblioteket bruker [Style-dictionary](https://amzn.github.io/style-dictionary) for å generere design tokens som JS-konstanter, CSS-variabler og SCSS-variabler fra en eller flere JSON-filer. JSON-filen(e) ligger i `/dds/properties`. For å generere variabler fra JSON kjør følgende kommando fra `/dds`:
 
 ```
-npm run build-tokens
+pnpm build-tokens
 ```
 
 Genererte variabler ligger i `/dds/build` organisert etter plattform.
 
 ### Build
 
-Det brukes custom build for generering av variabler, den ligger i `/dds/build.js`. I tillegg spesifiserer `/dds/config.json` hva output skal være og mappestruktur for den etter `npm run build-tokens` kjøres.
+Det brukes custom build for generering av variabler, den ligger i `/dds/build.js`. I tillegg spesifiserer `/dds/config.json` hva output skal være og mappestruktur for den etter `pnpm build-tokens` kjøres.

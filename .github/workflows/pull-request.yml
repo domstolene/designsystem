@@ -23,7 +23,7 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
   tests:
     name: Tests
@@ -44,7 +44,7 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Run tests
-        run: npm run test
+        run: pnpm test
 
   eslint:
     name: ESLint
@@ -57,7 +57,7 @@ jobs:
         uses: ./.github/composite-actions/install
 
       - name: Run ESLint
-        run: npm run lint
+        run: pnpm lint
 
   types:
     name: TypeScript
@@ -78,7 +78,7 @@ jobs:
         uses: ./.github/composite-actions/install
 
       - name: Run typecheck
-        run: npm run typecheck
+        run: pnpm typecheck
 
   prettier:
     name: Prettier
@@ -91,4 +91,4 @@ jobs:
         uses: ./.github/composite-actions/install
 
       - name: Run prettier
-        run: npm run format:check
+        run: pnpm format:check

@@ -31,7 +31,7 @@
     "clean": "rm -r dist dds/build || :",
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "build:clean": "npm run clean && npm run build",
+    "build:clean": "pnpm clean && pnpm build",
     "build:tokens": "node ./dds/build.js",
     "prepack": "clean-package",
     "postpack": "clean-package restore"

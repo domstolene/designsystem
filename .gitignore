@@ -27,3 +27,5 @@ dist
 
 # Optional eslint cache
 .eslintcache
+
+storybook-static

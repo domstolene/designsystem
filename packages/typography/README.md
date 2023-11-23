@@ -8,11 +8,11 @@ Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [Elsa 
 
 ## 📦 Installasjon
 
-Dette er en intern pakke (enn så lenge) og kan ikke installeres direkte fra npm.
+Dette er en intern pakke og skal ikke installeres direkte fra npm.
 For interne pakker kan du legge pakken til som en dependency i `package.json`:
 
 ```json
 "dependencies": {
-  "@norges-domstoler/dds-typography": "*"
+  "@norges-domstoler/dds-typography": "workspace:*"
 }
 ```

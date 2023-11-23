@@ -17,19 +17,11 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Cache turbo build setup
-        uses: actions/cache@v3
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-
       - name: Install
         uses: ./.github/composite-actions/install
 
       - name: Build 🔧
-        run: npm run build:docs
+        run: pnpm build:storybook
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -38,7 +30,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: './apps/docs/storybook-static'
+          path: './storybook-static'
 
       - name: Deploy 🚀
         uses: actions/deploy-pages@v2

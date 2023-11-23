@@ -4,10 +4,10 @@ const config: StorybookConfig = {
   stories: [
     '../stories/**/*.stories.@(js|jsx|ts|tsx)',
     '../stories/**/*.@(md|mdx)',
-    '../../../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
-    '../../../packages/*/src/**/*.mdx',
+    '../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../packages/*/src/**/*.mdx',
   ],
-  staticDirs: ['./images', '../../../packages/components/dist/assets/fonts'],
+  staticDirs: ['./images', '../packages/components/dist/assets/fonts'],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
