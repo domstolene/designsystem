@@ -36,3 +36,9 @@ Start opp utviklingsmiljøet
 ```bash
 pnpm dev
 ```
+
+Start opp storybook
+
+```bash
+pnpm storybook
+```
