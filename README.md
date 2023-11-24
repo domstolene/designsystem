@@ -24,6 +24,8 @@ Team Elsa setter pris på all bidrag. Les hvordan bidra i [guiden for bidragsyte
 
 > Vi anbefaler å installere [Volta](https://volta.sh/) for versjonshåndtering av Node.js og pnpm.
 > Volta vil automatisk installere riktig versjon av Node.js og pnpm når du jobber med designsystemet.
+> Siden Volta kun har eksperimentell støtte for pnpm må du legge til `VOLTA_FEATURE_PNPM=1` i .bashrc, .zshrc eller tilsvarende.
+> Se [https://docs.volta.sh/advanced/pnpm](https://docs.volta.sh/advanced/pnpm) for mer informasjon.
 
 Installer avhengigheter
 
@@ -35,4 +37,10 @@ Start opp utviklingsmiljøet
 
 ```bash
 pnpm dev
+```
+
+Start opp storybook
+
+```bash
+pnpm storybook
 ```
