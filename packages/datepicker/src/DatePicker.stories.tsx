@@ -2,7 +2,13 @@ import { DatePicker, DatePickerProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { CalendarDate, isWeekend, today } from '@internationalized/date';
 import { useState } from 'react';
-import { Button } from '@norges-domstoler/dds-components';
+import {
+  Button,
+  Datepicker,
+  HStack,
+  Label,
+  VStack,
+} from '@norges-domstoler/dds-components';
 import type { Meta } from '@storybook/react';
 
 const meta: Meta<typeof DatePicker> = {
@@ -82,6 +88,26 @@ export const OverviewSizes = (args: Partial<DatePickerProps<CalendarDate>>) => {
       <DatePicker {...args} componentSize="medium" label="Medium" />
       <DatePicker {...args} componentSize="small" label="Small" />
       <DatePicker {...args} componentSize="tiny" label="Tiny" />
+    </StoryTemplate>
+  );
+};
+
+export const OverviewSizesComparedWithOldDatePicker = (
+  args: Partial<DatePickerProps<CalendarDate>>,
+) => {
+  const componentSizes = ['medium', 'small', 'tiny'] as const;
+  return (
+    <StoryTemplate title="DatePicker - overview sizes">
+      {componentSizes.map(componentSize => (
+        <VStack align="flex-start" gap="local-x0.25">
+          <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
+          <HStack gap="local-x0.25">
+            <DatePicker {...args} componentSize={componentSize} />
+            <Datepicker componentSize={componentSize} />
+          </HStack>
+          <Datepicker componentSize={componentSize} />
+        </VStack>
+      ))}
     </StoryTemplate>
   );
 };

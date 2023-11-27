@@ -4,29 +4,34 @@ import type {
   DateSegment as DateSegmentType,
   DateFieldState,
 } from '@react-stately/datepicker';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { datePickerTokens } from '../DatePicker.tokens';
+import { type DatePickerProps } from '../DatePicker';
+import { DateValue } from '@react-aria/calendar';
 const {
   datefield: { segment: segmentTokens },
 } = datePickerTokens;
 
-interface DateSegmentProps {
+interface DateSegmentProps
+  extends Pick<Required<DatePickerProps<DateValue>>, 'componentSize'> {
   segment: DateSegmentType;
   state: DateFieldState;
 }
 
-const Segment = styled.div`
+const Segment = styled.div<Pick<DateSegmentProps, 'componentSize'>>`
   display: block;
   width: max-content;
   font-variant-numeric: tabular-nums;
   outline: none;
   padding: ${segmentTokens.padding.y} ${segmentTokens.padding.x};
-  font-family: ${segmentTokens.font.fontFamily};
-  font-size: ${segmentTokens.font.fontSize};
-  font-style: ${segmentTokens.font.fontStyle};
-  font-weight: ${segmentTokens.font.fontWeight};
-  line-height: ${segmentTokens.font.lineHeight};
+  ${({ componentSize }) => css`
+    font-family: ${segmentTokens[componentSize].font.fontFamily};
+    font-size: ${segmentTokens[componentSize].font.fontSize};
+    font-style: ${segmentTokens[componentSize].font.fontStyle};
+    font-weight: ${segmentTokens[componentSize].font.fontWeight};
+    line-height: ${segmentTokens[componentSize].font.lineHeight};
+  `}
 
   &:focus:not([aria-readonly]) {
     background-color: ${segmentTokens.focus.backgroundColor};
@@ -34,30 +39,37 @@ const Segment = styled.div`
   }
 `;
 
-const SegmentPlaceholder = styled.span`
+const SegmentPlaceholder = styled.span<Pick<DateSegmentProps, 'componentSize'>>`
   display: block;
   width: 100%;
   font-variant-numeric: tabular-nums;
 
-  font-family: ${segmentTokens.placeholder.fontFamily};
-  font-size: ${segmentTokens.placeholder.fontSize};
-  font-style: ${segmentTokens.placeholder.fontStyle};
-  font-weight: ${segmentTokens.placeholder.fontWeight};
-  line-height: ${segmentTokens.placeholder.lineHeight};
-  color: ${segmentTokens.placeholder.textColor};
+  ${({ componentSize }) => css`
+    font-family: ${segmentTokens[componentSize].placeholder.fontFamily};
+    font-size: ${segmentTokens[componentSize].placeholder.fontSize};
+    font-style: ${segmentTokens[componentSize].placeholder.fontStyle};
+    font-weight: ${segmentTokens[componentSize].placeholder.fontWeight};
+    line-height: ${segmentTokens[componentSize].placeholder.lineHeight};
+    color: ${segmentTokens[componentSize].placeholder.textColor};
+  `}
 
   ${Segment}:focus & {
     color: ${segmentTokens.focus.textColor};
   }
 `;
 
-export function DateSegment({ segment, state }: DateSegmentProps) {
+export function DateSegment({
+  segment,
+  state,
+  componentSize,
+}: DateSegmentProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { segmentProps } = useDateSegment(segment, state, ref);
 
   return (
     <Segment
       {...segmentProps}
+      componentSize={componentSize}
       ref={ref}
       style={{
         ...segmentProps.style,
@@ -69,6 +81,7 @@ export function DateSegment({ segment, state }: DateSegmentProps) {
     >
       <SegmentPlaceholder
         aria-hidden="true"
+        componentSize={componentSize}
         style={{
           visibility: segment.isPlaceholder ? undefined : 'hidden',
           height: segment.isPlaceholder ? undefined : 0,

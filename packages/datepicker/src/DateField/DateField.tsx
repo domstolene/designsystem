@@ -6,7 +6,7 @@ import {
 } from '@react-aria/datepicker';
 import { useDateFieldState } from '@react-stately/datepicker';
 import { DateValue, createCalendar } from '@internationalized/date';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   CalendarIcon,
   Icon,
@@ -18,6 +18,7 @@ import {
 import {
   InputProps,
   StatefulInput,
+  StyledInputProps,
   focusVisible,
 } from '@norges-domstoler/dds-form';
 
@@ -35,13 +36,15 @@ const DateFieldContainer = styled.div``;
 
 const InputDiv = styled(StatefulInput).attrs({
   as: 'div',
-})`
-  min-width: ${datePickerTokens.datefield.minWidth};
+})<StyledInputProps>`
+  min-width: ${({ componentSize = 'medium' }) =>
+    datePickerTokens.datefield[componentSize].minWidth};
   display: flex;
   flex-direction: row;
   gap: ${datePickerTokens.gap};
   align-items: center;
-  padding: ${datePickerTokens.datefield.padding};
+  padding-left: ${datePickerTokens.datefield.paddingX};
+  padding-right: ${datePickerTokens.datefield.paddingX};
 `;
 
 const DateSegmentContainer = styled.div`
@@ -49,14 +52,18 @@ const DateSegmentContainer = styled.div`
   flex-direction: row;
 `;
 
-const CalendarButton = styled.button`
+const CalendarButton = styled.button<
+  Pick<DateFieldProps<DateValue>, 'componentSize'>
+>`
   ${normalizeButton}
   position: relative;
-  height: ${datePickerTokens.calendarButton.size};
-  width: ${datePickerTokens.calendarButton.size};
+  ${({ componentSize = 'medium' }) => css`
+    height: ${datePickerTokens.calendarButton[componentSize].size};
+    width: ${datePickerTokens.calendarButton[componentSize].size};
+    margin: calc(0px - ${datePickerTokens.calendarButton[componentSize].size}) 0;
+  `}
   border: 0;
   padding: 0;
-  margin: -${datePickerTokens.calendarButton.size} 0;
   border-radius: ${datePickerTokens.calendarButton.borderRadius};
 
   background-color: ${datePickerTokens.calendarButton.background};
@@ -94,7 +101,7 @@ const CalendarButton = styled.button`
 export function DateField<T extends DateValue>({
   errorMessage,
   tip,
-  componentSize,
+  componentSize = 'medium',
   containerRef,
   buttonProps: { onPress, ...buttonProps } = {},
   ...props
@@ -119,7 +126,6 @@ export function DateField<T extends DateValue>({
       {hasLabel && <Label {...labelProps}>{props.label}</Label>}
       <InputDiv
         {...fieldProps}
-        // @ts-expect-error styled-components 6 har dårlige typer
         componentSize={componentSize}
         ref={ref}
         hasErrorMessage={hasErrorMessage}
@@ -145,13 +151,22 @@ export function DateField<T extends DateValue>({
             className={[disabled ? 'disabled' : false]
               .filter(Boolean)
               .join(' ')}
+            componentSize={componentSize}
           >
-            <Icon icon={CalendarIcon} />
+            <Icon
+              icon={CalendarIcon}
+              iconSize={componentSize === 'medium' ? 'medium' : 'small'}
+            />
           </CalendarButton>
         )}
         <DateSegmentContainer>
           {state.segments.map((segment, i) => (
-            <DateSegment key={i} segment={segment} state={state} />
+            <DateSegment
+              componentSize={componentSize}
+              key={i}
+              segment={segment}
+              state={state}
+            />
           ))}
         </DateSegmentContainer>
       </InputDiv>
