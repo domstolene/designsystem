@@ -111,7 +111,8 @@ export const StatefulInput = styled(Input).withConfig({
     background-color: ${input.readOnly.backgroundColor};
     padding-left: 0;
   }
-  &.disabled &:disabled {
+  &.disabled,
+  &:disabled {
     cursor: not-allowed;
     color: ${input.disabled.color};
     background-color: ${input.disabled.backgroundColor};
