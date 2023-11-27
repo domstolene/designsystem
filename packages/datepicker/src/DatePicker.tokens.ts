@@ -2,8 +2,32 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { colors } = ddsBaseTokens;
 
 const segment = {
-  font: {
-    ...ddsBaseTokens.fontPackages.body_sans_02.base,
+  medium: {
+    font: {
+      ...ddsBaseTokens.fontPackages.body_sans_02.base,
+    },
+    placeholder: {
+      ...ddsBaseTokens.fontPackages.supportingStyle_placeholdertext_01.base,
+      textColor: colors.DdsColorNeutralsGray6,
+    },
+  },
+  small: {
+    font: {
+      ...ddsBaseTokens.fontPackages.body_sans_01.base,
+    },
+    placeholder: {
+      ...ddsBaseTokens.fontPackages.supportingStyle_placeholdertext_02.base,
+      textColor: colors.DdsColorNeutralsGray6,
+    },
+  },
+  tiny: {
+    font: {
+      ...ddsBaseTokens.fontPackages.supportingStyle_tiny_01.base,
+    },
+    placeholder: {
+      ...ddsBaseTokens.fontPackages.supportingStyle_placeholdertext_03.base,
+      textColor: colors.DdsColorNeutralsGray6,
+    },
   },
   padding: {
     x: '0.05rem',
@@ -13,17 +37,12 @@ const segment = {
     textColor: colors.DdsColorNeutralsWhite,
     backgroundColor: colors.DdsColorInteractiveBase,
   },
-  placeholder: {
-    ...ddsBaseTokens.fontPackages.supportingStyle_placeholdertext_01.base,
-    textColor: colors.DdsColorNeutralsGray6,
-  },
 };
 
 const calendarButton = {
   color: colors.DdsColorNeutralsGray9,
   background: 'transparent',
   borderRadius: ddsBaseTokens.borderRadius.RadiiDdsBorderRadius1Radius,
-  size: '32px',
   hover: {
     background: colors.DdsColorInteractiveLightest,
     color: colors.DdsColorInteractiveBase,
@@ -32,11 +51,28 @@ const calendarButton = {
     background: colors.DdsColorInteractiveLighter,
     color: colors.DdsColorInteractiveBase,
   },
+  medium: {
+    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeMedium} + ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05})`,
+  },
+  small: {
+    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeSmall} + ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05})`,
+  },
+  tiny: {
+    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeSmall} + ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05})`,
+  },
 };
 
 const datefield = {
-  minWidth: '160px',
-  padding: `${ddsBaseTokens.spacing.SizesDdsSpacingLocalX075} ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05}`,
+  medium: {
+    minWidth: '160px',
+  },
+  small: {
+    minWidth: '140px',
+  },
+  tiny: {
+    minWidth: '125px',
+  },
+  paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
   segment,
 };
 
