@@ -41,6 +41,9 @@ const segment = {
 
 const calendarButton = {
   color: colors.DdsColorNeutralsGray9,
+  disabled: {
+    color: colors.DdsColorNeutralsGray6,
+  },
   background: 'transparent',
   borderRadius: ddsBaseTokens.borderRadius.RadiiDdsBorderRadius1Radius,
   hover: {
@@ -71,6 +74,10 @@ const datefield = {
   },
   tiny: {
     minWidth: '125px',
+  },
+  disabled: {
+    background: ddsBaseTokens.colors.DdsColorNeutralsGray5,
+    color: ddsBaseTokens.colors.DdsColorNeutralsGray7,
   },
   paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
   segment,

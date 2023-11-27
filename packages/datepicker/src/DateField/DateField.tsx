@@ -12,6 +12,7 @@ import {
   Icon,
   InputMessage,
   Label,
+  cn,
   normalizeButton,
   selection,
 } from '@norges-domstoler/dds-components';
@@ -30,7 +31,7 @@ export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
   containerRef?: RefObject<HTMLDivElement>;
   buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
-} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip'>;
+} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'disabled'>;
 
 const DateFieldContainer = styled.div``;
 
@@ -45,6 +46,12 @@ const InputDiv = styled(StatefulInput).attrs({
   align-items: center;
   padding-left: ${datePickerTokens.datefield.paddingX};
   padding-right: ${datePickerTokens.datefield.paddingX};
+  /* ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${datePickerTokens.datefield.disabled.background};
+      color: ${datePickerTokens.datefield.disabled.color};
+    `} */
 `;
 
 const DateSegmentContainer = styled.div`
@@ -52,22 +59,27 @@ const DateSegmentContainer = styled.div`
   flex-direction: row;
 `;
 
-const CalendarButton = styled.button<
-  Pick<DateFieldProps<DateValue>, 'componentSize'>
->`
+const CalendarButton = styled.button<{
+  $componentSize: DateFieldProps<DateValue>['componentSize'];
+  $isDisabled: DateFieldProps<DateValue>['disabled'];
+}>`
   ${normalizeButton}
   position: relative;
-  ${({ componentSize = 'medium' }) => css`
-    height: ${datePickerTokens.calendarButton[componentSize].size};
-    width: ${datePickerTokens.calendarButton[componentSize].size};
-    margin: calc(0px - ${datePickerTokens.calendarButton[componentSize].size}) 0;
+  ${({ $componentSize = 'medium' }) => css`
+    height: ${datePickerTokens.calendarButton[$componentSize].size};
+    width: ${datePickerTokens.calendarButton[$componentSize].size};
+    margin: calc(0px - ${datePickerTokens.calendarButton[$componentSize].size})
+      0;
   `}
   border: 0;
   padding: 0;
   border-radius: ${datePickerTokens.calendarButton.borderRadius};
 
   background-color: ${datePickerTokens.calendarButton.background};
-  color: ${datePickerTokens.calendarButton.color};
+  color: ${({ $isDisabled }) =>
+    $isDisabled
+      ? datePickerTokens.calendarButton.disabled.color
+      : datePickerTokens.calendarButton.color};
 
   transition: 50ms;
 
@@ -119,28 +131,29 @@ export function DateField<T extends DateValue>({
   const hasTip = !!tip;
   const hasLabel = props.label != null;
   const hasMessage = hasErrorMessage || hasTip;
-  const disabled = props.isDisabled || fieldProps['aria-disabled'];
+  const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
   return (
     <DateFieldContainer className={props.className} ref={containerRef}>
       {hasLabel && <Label {...labelProps}>{props.label}</Label>}
       <InputDiv
         {...fieldProps}
+        disabled={disabled}
         componentSize={componentSize}
         ref={ref}
         hasErrorMessage={hasErrorMessage}
-        className={[
+        className={cn(
           fieldProps.className,
-          disabled ? 'disabled' : false,
-          props.isOpen ? 'active' : false,
-          props.isReadOnly ? 'read-only' : false,
-        ]
-          .filter(Boolean)
-          .join(' ')}
+          disabled && 'disabled',
+          props.isOpen && 'active',
+          props.isReadOnly && 'read-only',
+        )}
       >
         {!props.isReadOnly && (
           <CalendarButton
             {...buttonProps}
+            $isDisabled={disabled}
+            $componentSize={componentSize}
             onClick={e => {
               if (!disabled) {
                 const onClick = onPress as ComponentProps<'button'>['onClick'];
@@ -151,7 +164,6 @@ export function DateField<T extends DateValue>({
             className={[disabled ? 'disabled' : false]
               .filter(Boolean)
               .join(' ')}
-            componentSize={componentSize}
           >
             <Icon
               icon={CalendarIcon}
