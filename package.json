@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
+    "@changesets/cli": "^2.26.2",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/dds-icons": "workspace:*",
@@ -52,8 +52,8 @@
     "@storybook/react": "^7.5.3",
     "@storybook/react-vite": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
     "eslint": "^8.54.0",
     "eslint-plugin-react": "^7.33.2",
     "plop": "^4.0.0",
@@ -62,7 +62,7 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.5.3",
     "styled-components": "^6.1.1",
-    "tsup": "^8.0.0",
+    "tsup": "^8.0.1",
     "turbo": "^1.10.16"
   },
   "pnpm": {
