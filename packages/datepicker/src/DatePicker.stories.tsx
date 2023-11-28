@@ -7,6 +7,7 @@ import {
   Datepicker,
   HStack,
   Label,
+  TextInput,
   VStack,
 } from '@norges-domstoler/dds-components';
 import type { Meta } from '@storybook/react';
@@ -106,6 +107,26 @@ export const OverviewSizesComparedWithOldDatePicker = (
             <Datepicker componentSize={componentSize} />
           </HStack>
           <Datepicker componentSize={componentSize} />
+        </VStack>
+      ))}
+    </StoryTemplate>
+  );
+};
+
+export const OverviewSizesComparedWithTextInput = (
+  args: Partial<DatePickerProps<CalendarDate>>,
+) => {
+  const componentSizes = ['medium', 'small', 'tiny'] as const;
+  return (
+    <StoryTemplate title="DatePicker - overview sizes">
+      {componentSizes.map(componentSize => (
+        <VStack align="flex-start" gap="local-x0.25">
+          <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
+          <HStack gap="local-x0.25">
+            <DatePicker {...args} componentSize={componentSize} />
+            <TextInput componentSize={componentSize} />
+          </HStack>
+          <TextInput componentSize={componentSize} />
         </VStack>
       ))}
     </StoryTemplate>
