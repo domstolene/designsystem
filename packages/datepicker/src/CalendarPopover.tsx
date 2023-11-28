@@ -104,7 +104,16 @@ export const CalendarPopoverContent = ({
   if (!isOpen) return null;
 
   return (
-    <PopoverContentContainer ref={combinedRef} style={styles.floating}>
+    <PopoverContentContainer
+      ref={combinedRef}
+      style={styles.floating}
+      onBlur={e => {
+        const newFocus = e.relatedTarget;
+        if (ref.current && !ref.current.contains(newFocus)) {
+          onClose();
+        }
+      }}
+    >
       {children}
     </PopoverContentContainer>
   );
