@@ -78,6 +78,7 @@ const PopoverContentContainer = styled.div`
   border: ${popoverTokens.border};
   border-radius: ${popoverTokens.borderRadius};
   padding: ${popoverTokens.padding};
+  z-index: ${popoverTokens.zIndex};
 `;
 
 interface CalendarPopoverContentProps {

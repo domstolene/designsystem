@@ -78,6 +78,7 @@ const popover = {
   borderRadius: ddsBaseTokens.borderRadius.RadiiDdsBorderRadius1Radius,
   border: `2px solid ${ddsBaseTokens.border.BordersDdsBorderFocusInputfieldStroke}`,
   padding: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
+  zIndex: 100,
 };
 
 export const calendarTokens = { grid, cell, popover };
