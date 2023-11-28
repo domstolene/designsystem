@@ -135,7 +135,11 @@ export function DateField<T extends DateValue>({
 
   return (
     <DateFieldContainer className={props.className} ref={containerRef}>
-      {hasLabel && <Label {...labelProps}>{props.label}</Label>}
+      {hasLabel && (
+        <Label {...labelProps} showRequiredStyling={props.isRequired}>
+          {props.label}
+        </Label>
+      )}
       <InputDiv
         {...fieldProps}
         disabled={disabled}
