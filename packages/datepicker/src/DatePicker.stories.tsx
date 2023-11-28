@@ -44,6 +44,14 @@ export const Default = (args: Partial<DatePickerProps<CalendarDate>>) => {
   );
 };
 
+export const Required = (args: Partial<DatePickerProps<CalendarDate>>) => {
+  return (
+    <StoryTemplate title="DatePicker - default">
+      <DatePicker label="Dato" {...args} isRequired />
+    </StoryTemplate>
+  );
+};
+
 export const Controlled = (args: Partial<DatePickerProps<CalendarDate>>) => {
   const [value, setValue] = useState<CalendarDate | null>(
     new CalendarDate(2023, 8, 28),

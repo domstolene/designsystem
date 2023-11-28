@@ -40,7 +40,7 @@ const InputDiv = styled(StatefulInput).attrs({
 })<StyledInputProps>`
   min-width: ${({ componentSize = 'medium' }) =>
     datePickerTokens.datefield[componentSize].minWidth};
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   gap: ${datePickerTokens.gap};
   align-items: center;
@@ -135,7 +135,11 @@ export function DateField<T extends DateValue>({
 
   return (
     <DateFieldContainer className={props.className} ref={containerRef}>
-      {hasLabel && <Label {...labelProps}>{props.label}</Label>}
+      {hasLabel && (
+        <Label {...labelProps} showRequiredStyling={props.isRequired}>
+          {props.label}
+        </Label>
+      )}
       <InputDiv
         {...fieldProps}
         disabled={disabled}

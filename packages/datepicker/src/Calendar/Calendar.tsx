@@ -45,7 +45,7 @@ function createCalendar(identifier: string) {
   }
 }
 
-type CalendarProps<T extends DateValue> = AriaCalendarProps<T>;
+export type CalendarProps<T extends DateValue> = AriaCalendarProps<T>;
 
 export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   const state = useCalendarState({
@@ -53,15 +53,19 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
     createCalendar,
     locale,
   });
-  const { calendarProps, prevButtonProps, nextButtonProps, title } =
-    useCalendar(props, state);
+  const {
+    calendarProps,
+    prevButtonProps: { onPress: onPrev, 'aria-label': prevAriaLabel },
+    nextButtonProps: { onPress: onNext, 'aria-label': nextAriaLabel },
+    title,
+  } = useCalendar(props, state);
 
   return (
     <CalendarContainer {...calendarProps}>
       <CalendarHeader>
         <Button
-          {...prevButtonProps}
-          onClick={e => prevButtonProps.onPress?.(e as never)}
+          aria-label={prevAriaLabel}
+          onClick={e => onPrev?.(e as never)}
           size="small"
           purpose="secondary"
           appearance="borderless"
@@ -69,8 +73,8 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
         />
         <Month>{title}</Month>
         <Button
-          {...nextButtonProps}
-          onClick={e => nextButtonProps.onPress?.(e as never)}
+          aria-label={nextAriaLabel}
+          onClick={e => onNext?.(e as never)}
           size="small"
           purpose="secondary"
           appearance="borderless"
