@@ -40,7 +40,7 @@ const InputDiv = styled(StatefulInput).attrs({
 })<StyledInputProps>`
   min-width: ${({ componentSize = 'medium' }) =>
     datePickerTokens.datefield[componentSize].minWidth};
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   gap: ${datePickerTokens.gap};
   align-items: center;
