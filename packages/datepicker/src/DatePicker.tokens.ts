@@ -68,18 +68,20 @@ const calendarButton = {
 const datefield = {
   medium: {
     minWidth: '160px',
+    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
   },
   small: {
     minWidth: '140px',
+    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
   },
   tiny: {
     minWidth: '125px',
+    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX025,
   },
   disabled: {
     background: ddsBaseTokens.colors.DdsColorNeutralsGray5,
     color: ddsBaseTokens.colors.DdsColorNeutralsGray7,
   },
-  paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
   segment,
 };
 

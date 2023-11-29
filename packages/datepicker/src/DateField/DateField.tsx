@@ -44,14 +44,10 @@ const InputDiv = styled(StatefulInput).attrs({
   flex-direction: row;
   gap: ${datePickerTokens.gap};
   align-items: center;
-  padding-left: ${datePickerTokens.datefield.paddingX};
-  padding-right: ${datePickerTokens.datefield.paddingX};
-  /* ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: ${datePickerTokens.datefield.disabled.background};
-      color: ${datePickerTokens.datefield.disabled.color};
-    `} */
+  padding-left: ${({ componentSize = 'medium' }) =>
+    datePickerTokens.datefield[componentSize].paddingX};
+  padding-right: ${({ componentSize = 'medium' }) =>
+    datePickerTokens.datefield[componentSize].paddingX};
 `;
 
 const DateSegmentContainer = styled.div`
@@ -64,13 +60,16 @@ const CalendarButton = styled.button<{
   $isDisabled: DateFieldProps<DateValue>['disabled'];
 }>`
   ${normalizeButton}
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   ${({ $componentSize = 'medium' }) => css`
     height: ${datePickerTokens.calendarButton[$componentSize].size};
     width: ${datePickerTokens.calendarButton[$componentSize].size};
     margin: calc(0px - ${datePickerTokens.calendarButton[$componentSize].size})
       0;
   `}
+  margin-left: -1px; // To align with TextInputs icons
   border: 0;
   padding: 0;
   border-radius: ${datePickerTokens.calendarButton.borderRadius};
@@ -82,14 +81,6 @@ const CalendarButton = styled.button<{
       : datePickerTokens.calendarButton.color};
 
   transition: 50ms;
-
-  > svg {
-    position: absolute
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
 
   &:hover:not(.disabled) {
     background-color: ${datePickerTokens.calendarButton.hover.background};
