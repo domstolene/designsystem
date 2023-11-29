@@ -4,6 +4,7 @@ import { CalendarDate, isWeekend, today } from '@internationalized/date';
 import { useState } from 'react';
 import {
   Button,
+  CalendarIcon,
   Datepicker,
   HStack,
   Label,
@@ -135,6 +136,26 @@ export const OverviewSizesComparedWithTextInput = (
             <TextInput componentSize={componentSize} />
           </HStack>
           <TextInput componentSize={componentSize} />
+        </VStack>
+      ))}
+    </StoryTemplate>
+  );
+};
+
+export const OverviewSizesComparedWithTextInputWithIcon = (
+  args: Partial<DatePickerProps<CalendarDate>>,
+) => {
+  const componentSizes = ['medium', 'small', 'tiny'] as const;
+  return (
+    <StoryTemplate title="DatePicker - overview sizes">
+      {componentSizes.map(componentSize => (
+        <VStack align="flex-start" gap="local-x0.25">
+          <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
+          <HStack gap="local-x0.25">
+            <DatePicker {...args} componentSize={componentSize} />
+            <TextInput componentSize={componentSize} icon={CalendarIcon} />
+          </HStack>
+          <TextInput componentSize={componentSize} icon={CalendarIcon} />
         </VStack>
       ))}
     </StoryTemplate>
