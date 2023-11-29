@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-datepicker
 
+## 0.0.2
+
+### Patch Changes
+
+- a87eac4a: Fikser at plasseringen for kalenderikonet til DatePickeren ikke var lik som TextInput sin ikonplassering.
+
 ## 0.0.1
 
 ### Patch Changes
