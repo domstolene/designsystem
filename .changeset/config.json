@@ -4,7 +4,7 @@
   "commit": false,
   "fixed": [],
   "linked": [],
-  "ignore": ["@norges-domstoler/dds-datepicker"],
+  "ignore": [],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
