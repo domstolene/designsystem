@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 13.10.5
+
+### Patch Changes
+
+- Updated dependencies [c9e7b6fb]
+  - @norges-domstoler/dds-form@0.1.5
+
 ## 13.10.4
 
 ### Patch Changes
