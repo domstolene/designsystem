@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-form
 
+## 0.1.5
+
+### Patch Changes
+
+- c9e7b6fb: Små tweaks på når disabled styling vises
+
 ## 0.1.4
 
 ### Patch Changes
