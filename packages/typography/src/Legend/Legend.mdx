@@ -36,14 +36,39 @@ Se stories med kontrollere i <Typography externalLink typographyType="a" href={`
 
 ## Introduksjon
 
-`<Legend />` er en komponent som tilsvarer `<legend>` HTML tag - tittel for en gruppe i skjema.
+`<Legend />` er en komponent som tilsvarer `<legend>` HTML taggen.
+HTML taggen `<legend>`, sammen med `<fieldset>`, brukes for å knytte relaterte skjemaelementer sammen.
+Hvis du skal ha overskrifter for grupper av skjemaelementer, så skal du alltid bruke `<fieldset>` og `<Legend>` for å markere disse gruppene.
+Ved å gjøre dette blir brukeropplevelsen til skjermleserbrukere bedre.
+Skjermleseren vil da kunne lese opp overskriften når en bruker får et skjemaelement i fokus.
+Dette gjør det mulig for skjermleserbrukere å kunne Tabbe gjennom skjemaer, uten å miste konteksten.
+
+For eksempler og mer utfyllende informasjon om bruk av `<fieldset>` og `<legend>`, kan vi anbefale [gov.uk sin bloggpost om fieldset og legend](https://accessibility.blog.gov.uk/2016/07/22/using-the-fieldset-and-legend-elements/).
 
 ## Bruk i koden
 
 <Source
-  code={`import { Legend } from '@norges-domstoler/dds-components';
+  code={`import { Legend, TextInput } from '@norges-domstoler/dds-components';
 
-<Legend>Legend</Legend>`} />
+<form>
+  <fieldset>
+    <Legend>Klagende parts adresse</Legend>
+
+    <TextInput label="Gatenavn" />
+    <TextInput label="Postnummer" />
+    <TextInput label="Poststed" />
+
+  </fieldset>
+  <fieldset>
+    <Legend>Innklagede parts adresse</Legend>
+
+    <TextInput label="Gatenavn" />
+    <TextInput label="Postnummer" />
+    <TextInput label="Poststed" />
+
+  </fieldset>
+</form>
+`} />
 
 ## API
 
