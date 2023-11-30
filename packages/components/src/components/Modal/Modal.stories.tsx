@@ -2,6 +2,7 @@ import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Modal, ModalBody, ModalActions, ModalProps } from '.';
 import { Button } from '../Button';
 import { useRef, useState } from 'react';
+import { Search } from '../Search';
 
 export default {
   title: 'dds-components/Modal',
@@ -136,6 +137,41 @@ export const Scrollable = (args: ModalProps) => {
           saken. Det må spesielle grunner til for at du ikke skal få oppfylt
           ditt ønske, for eksempel at advokaten er opptatt i lang tid slik at
           rettssaken din vil bli veldig forsinket.
+        </ModalBody>
+        <ModalActions>
+          <Button onClick={close}>OK</Button>
+          <Button purpose="secondary" onClick={close}>
+            Avbryt
+          </Button>
+        </ModalActions>
+      </Modal>
+    </StoryTemplate>
+  );
+};
+
+export const WithInitialFocusRef = (args: ModalProps) => {
+  const [closed, setClosed] = useState(true);
+  const show = () => setClosed(false);
+  const close = () => setClosed(true);
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const initialFocusRef = useRef<HTMLInputElement>(null);
+
+  return (
+    <StoryTemplate title="Modal - with initial focus">
+      <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
+        Åpne
+      </Button>
+      <Modal
+        {...args}
+        isOpen={!closed}
+        triggerRef={buttonRef}
+        initialFocusRef={initialFocusRef}
+        onClose={close}
+        header="Søk etter sak"
+      >
+        <ModalBody>
+          <Search ref={initialFocusRef} label="Saksnummer" />
         </ModalBody>
         <ModalActions>
           <Button onClick={close}>OK</Button>

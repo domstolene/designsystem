@@ -64,6 +64,8 @@ export type ModalProps = BaseComponentPropsWithChildren<
     header?: string | ReactNode;
     /**Ref som brukes til returnering av fokus. */
     triggerRef?: RefObject<HTMLElement>;
+    /**Ref som skal motta fokus når Modal åpnes. Hvis utelatt blir Modal fokusert. */
+    initialFocusRef?: RefObject<HTMLElement>;
   }
 >;
 
@@ -76,6 +78,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     onClose,
     id,
     triggerRef,
+    initialFocusRef,
     className,
     htmlProps,
     ...rest
@@ -84,7 +87,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const modalId = id ?? `${generatedId}-modal`;
   const headerId = `${modalId}-header`;
 
-  const modalRef = useFocusTrap<HTMLDivElement>(isOpen);
+  const modalRef = useFocusTrap<HTMLDivElement>(isOpen, initialFocusRef);
   const combinedRef = useCombinedRef(ref, modalRef);
   const handleClose = () => {
     if (onClose && isOpen) {
