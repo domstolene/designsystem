@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 13.11.0
+
+### Minor Changes
+
+- e2f96277: Legger til `initialFocusRef`-prop til Modal, som lar deg styre hvilket element i modalen som skal fokuseres når modalen åpnes.
+
+### Patch Changes
+
+- Updated dependencies [e2f96277]
+  - @norges-domstoler/dds-core@0.2.0
+  - @norges-domstoler/dds-form@0.1.6
+  - @norges-domstoler/dds-icons@0.2.4
+  - @norges-domstoler/dds-typography@0.1.4
+
 ## 13.10.5
 
 ### Patch Changes
