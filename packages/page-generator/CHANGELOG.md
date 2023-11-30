@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.7.4
+
+### Patch Changes
+
+- Updated dependencies [e2f96277]
+  - @norges-domstoler/dds-components@13.11.0
+  - @norges-domstoler/dds-typography@0.1.4
+
 ## 2.7.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-typography
 
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies [e2f96277]
+  - @norges-domstoler/dds-core@0.2.0
+  - @norges-domstoler/dds-icons@0.2.4
+
 ## 0.1.3
 
 ### Patch Changes

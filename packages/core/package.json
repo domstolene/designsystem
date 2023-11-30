@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-core",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Base components/styles and other helpers used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
