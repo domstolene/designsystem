@@ -13,11 +13,13 @@ import { getFocusableElements } from '../utils';
  * }
  * ```
  * @param active om focus skal fanges, f.eks. når en modal åpnes.
+ * @param initialFocusRef Ref som skal motta focus når focus trap er aktiv.
  * @returns ref til elementet som fanger fokus.
  */
 
 export function useFocusTrap<T extends HTMLElement>(
   active: boolean,
+  initialFocusRef: RefObject<HTMLElement> | undefined = undefined,
 ): RefObject<T> {
   const elementRef = useRef<T>(null);
 
@@ -43,8 +45,12 @@ export function useFocusTrap<T extends HTMLElement>(
     const element = elementRef.current;
 
     if (element && active) {
-      element.focus();
-      element.addEventListener('keydown', handleFocus);
+      if (initialFocusRef?.current) {
+        initialFocusRef.current.focus();
+      } else {
+        element.focus();
+        element.addEventListener('keydown', handleFocus);
+      }
     }
 
     return () => {
