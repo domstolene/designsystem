@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 13.11.1
+
+### Patch Changes
+
+- Updated dependencies [97bc0e3]
+  - @norges-domstoler/dds-core@0.2.1
+  - @norges-domstoler/dds-form@0.1.7
+  - @norges-domstoler/dds-icons@0.2.5
+  - @norges-domstoler/dds-typography@0.1.5
+
 ## 13.11.0
 
 ### Minor Changes

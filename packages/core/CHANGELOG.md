@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-core
 
+## 0.2.1
+
+### Patch Changes
+
+- 97bc0e3: Fikser feil med useOnClickOutside, hvor den ble kalt for alle klikk.
+
 ## 0.2.0
 
 ### Minor Changes

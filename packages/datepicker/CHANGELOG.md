@@ -1,5 +1,21 @@
 # @norges-domstoler/dds-datepicker
 
+## 0.1.0
+
+### Minor Changes
+
+- 29c3e42: Legger til funksjoner for å oversette til/fra native/@internationalized/date.
+
+### Patch Changes
+
+- ce5075d: Fikser varsler om manglende aria-label
+- b6a43ea: Fikser bug hvor forms ble submittet når en åpnet kalenderen.
+- Updated dependencies [97bc0e3]
+  - @norges-domstoler/dds-core@0.2.1
+  - @norges-domstoler/dds-components@13.11.1
+  - @norges-domstoler/dds-form@0.1.7
+  - @norges-domstoler/dds-typography@0.1.5
+
 ## 0.0.3
 
 ### Patch Changes
