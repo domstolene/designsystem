@@ -147,6 +147,7 @@ export function DateField<T extends DateValue>({
         {!props.isReadOnly && (
           <CalendarButton
             {...buttonProps}
+            type="button"
             $isDisabled={disabled}
             $componentSize={componentSize}
             onClick={e => {
