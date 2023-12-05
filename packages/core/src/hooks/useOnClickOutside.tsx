@@ -21,14 +21,12 @@ export function useOnClickOutside(
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
       const elements = Array.isArray(element) ? element : [element];
-      let targetElement = event.target as HTMLElement;
 
-      while (targetElement) {
-        if (elements.indexOf(targetElement) != -1) {
-          return;
-        }
-        targetElement = targetElement.parentNode as HTMLElement;
-      }
+      const hasClickedInside = elements.some(
+        el => el?.contains(event.target as HTMLElement),
+      );
+      if (hasClickedInside) return;
+
       handler(event);
     };
     document.addEventListener('mousedown', listener);

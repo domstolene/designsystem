@@ -39,7 +39,6 @@ import { SvgIcon } from '@norges-domstoler/dds-icons';
 import { getFormInputIconSize } from '../../utils/icon';
 import { renderInputMessage } from '../../utils/renderInputMessage';
 import { InputSize } from '@norges-domstoler/dds-form';
-import { T } from 'vitest/dist/reporters-5f784f42';
 
 const {
   Option,
