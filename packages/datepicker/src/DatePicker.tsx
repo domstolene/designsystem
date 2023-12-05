@@ -18,7 +18,6 @@ export interface DatePickerProps<T extends DateValue>
 }
 
 export function DatePicker<T extends DateValue>({
-  label,
   errorMessage,
   componentSize,
   tip,
@@ -39,7 +38,7 @@ export function DatePicker<T extends DateValue>({
           {...fieldProps}
           componentSize={componentSize}
           tip={tip}
-          label={label}
+          label={props.label}
           errorMessage={errorMessage}
           containerRef={ref}
           buttonProps={buttonProps}

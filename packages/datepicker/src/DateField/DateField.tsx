@@ -156,7 +156,6 @@ export function DateField<T extends DateValue>({
                 onClick?.(e);
               }
             }}
-            aria-label="Åpne kalender"
             className={[disabled ? 'disabled' : false]
               .filter(Boolean)
               .join(' ')}
