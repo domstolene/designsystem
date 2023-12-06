@@ -101,6 +101,7 @@ export function CalendarCell({ date, state }: CalendarCellProps) {
     <td {...cellProps}>
       <Cell
         {...buttonProps}
+        type="button"
         $isToday={isToday(date, timezone)}
         $variant={variant}
         ref={ref}

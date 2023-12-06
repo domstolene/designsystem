@@ -64,6 +64,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
     <CalendarContainer {...calendarProps}>
       <CalendarHeader>
         <Button
+          type="button"
           aria-label={prevAriaLabel}
           onClick={e => onPrev?.(e as never)}
           size="small"
@@ -73,6 +74,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
         />
         <Month>{title}</Month>
         <Button
+          type="button"
           aria-label={nextAriaLabel}
           onClick={e => onNext?.(e as never)}
           size="small"
