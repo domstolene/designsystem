@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-datepicker
 
+## 0.2.0
+
+### Minor Changes
+
+- f607865: Legger til støtte for å style DateField gjennom `style`-prop.
+
+### Patch Changes
+
+- 53c34df: Fisker bug hvor knappene inne i kalenderkomponenten submittet forms
+
 ## 0.1.0
 
 ### Minor Changes
