@@ -194,3 +194,11 @@ export const Disabled = (args: Partial<DatePickerProps<CalendarDate>>) => {
     </StoryTemplate>
   );
 };
+
+export const CustomWidth = (args: Partial<DatePickerProps<CalendarDate>>) => {
+  return (
+    <StoryTemplate title="DatePicker - custom width">
+      <DatePicker label="Dato" {...args} style={{ width: '420px' }} />
+    </StoryTemplate>
+  );
+};

@@ -31,9 +31,15 @@ export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
   containerRef?: RefObject<HTMLDivElement>;
   buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
-} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'disabled'>;
+} & Pick<
+    InputProps,
+    'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
+  >;
 
-const DateFieldContainer = styled.div``;
+const DateFieldContainer = styled.div`
+  display: inline-flex;
+  flex-direction: column;
+`;
 
 const InputDiv = styled(StatefulInput).attrs({
   as: 'div',
@@ -106,6 +112,7 @@ export function DateField<T extends DateValue>({
   tip,
   componentSize = 'medium',
   containerRef,
+  style,
   buttonProps: { onPress, ...buttonProps } = {},
   ...props
 }: DateFieldProps<T>) {
@@ -143,6 +150,10 @@ export function DateField<T extends DateValue>({
           props.isOpen && 'active',
           props.isReadOnly && 'read-only',
         )}
+        style={{
+          ...(fieldProps.style ?? {}),
+          ...(style ?? {}),
+        }}
       >
         {!props.isReadOnly && (
           <CalendarButton
