@@ -12,7 +12,7 @@ import {
 
 export interface DatePickerProps<T extends DateValue>
   extends AriaDatePickerProps<T>,
-    Pick<DateFieldProps<T>, 'componentSize' | 'tip'> {
+    Pick<DateFieldProps<T>, 'componentSize' | 'tip' | 'style'> {
   label?: string;
   errorMessage?: string;
 }
@@ -21,6 +21,7 @@ export function DatePicker<T extends DateValue>({
   errorMessage,
   componentSize,
   tip,
+  style,
   ...props
 }: DatePickerProps<T>) {
   const state = useDatePickerState(props);
@@ -43,6 +44,7 @@ export function DatePicker<T extends DateValue>({
           containerRef={ref}
           buttonProps={buttonProps}
           isOpen={state.isOpen}
+          style={style}
         />
       </CalendarPopoverAnchor>
       <CalendarPopoverContent>
