@@ -8,6 +8,7 @@ import {
   Datepicker,
   HStack,
   Label,
+  Modal,
   TextInput,
   VStack,
 } from '@norges-domstoler/dds-components';
@@ -199,6 +200,35 @@ export const CustomWidth = (args: Partial<DatePickerProps<CalendarDate>>) => {
   return (
     <StoryTemplate title="DatePicker - custom width">
       <DatePicker label="Dato" {...args} style={{ width: '420px' }} />
+    </StoryTemplate>
+  );
+};
+
+export const InsideModal = (args: Partial<DatePickerProps<CalendarDate>>) => {
+  const [isOpen, setOpen] = useState(true);
+  return (
+    <StoryTemplate title="DatePicker - disabled">
+      <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+        <DatePicker label="Dato" {...args} />
+      </Modal>
+    </StoryTemplate>
+  );
+};
+
+export const Form = (args: Partial<DatePickerProps<CalendarDate>>) => {
+  return (
+    <StoryTemplate title="DatePicker - form">
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          const data = Object.fromEntries(new FormData(event.currentTarget));
+          console.log(data);
+        }}
+      >
+        <DatePicker name="date" label="Dato" {...args} />
+        <TextInput name="text" label="Tekst" />
+        <Button>Send</Button>
+      </form>
     </StoryTemplate>
   );
 };
