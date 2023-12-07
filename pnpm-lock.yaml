@@ -96,6 +96,15 @@ importers:
 
   apps/experiment:
     dependencies:
+      '@norges-domstoler/dds-components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      '@norges-domstoler/dds-datepicker':
+        specifier: workspace:*
+        version: link:../../packages/datepicker
+      '@norges-domstoler/dds-design-tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       react:
         specifier: 18.2.0
         version: 18.2.0

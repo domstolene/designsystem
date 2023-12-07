@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@norges-domstoler/dds-components": "workspace:*",
+    "@norges-domstoler/dds-datepicker": "workspace:*",
+    "@norges-domstoler/dds-design-tokens": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
