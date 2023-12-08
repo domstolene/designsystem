@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@internationalized/date": "^3.5.0",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-datepicker": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

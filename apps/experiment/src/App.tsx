@@ -1,7 +1,9 @@
 import { HtmlForm } from './html-form';
+import { ReactHookForm } from './react-hook-form';
 
 const paths: Record<string, JSX.Element> = {
   '/html-form': <HtmlForm />,
+  '/react-hook-form': <ReactHookForm />,
 };
 
 export function App() {
