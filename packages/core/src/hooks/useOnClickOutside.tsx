@@ -25,7 +25,14 @@ export function useOnClickOutside(
       const hasClickedInside = elements.some(
         el => el?.contains(event.target as HTMLElement),
       );
-      if (hasClickedInside) return;
+
+      // ClearIndicator in react-select removes itself from DOM before this handler goes off.
+      // Therefore a click on it will always be counted as a click outside, for everything.
+      // This is not a great solution, but it is a fair assumption that this will do more good than harm.
+      const clickedOnSomethingInDocument = document.contains(
+        event.target as Node,
+      );
+      if (hasClickedInside || !clickedOnSomethingInDocument) return;
 
       handler(event);
     };

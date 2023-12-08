@@ -1,5 +1,5 @@
-import { Property } from 'csstype';
 import React, { HTMLAttributes, ReactNode, useId } from 'react';
+import { Property } from 'csstype';
 import {
   ClearIndicatorProps,
   components,
@@ -249,7 +249,6 @@ const SelectInner = <
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
@@ -274,8 +273,7 @@ const SelectInner = <
     options,
     value,
     defaultValue,
-    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    isDisabled: isDisabled || readOnly,
+    isDisabled: !!isDisabled || readOnly,
     isClearable,
     placeholder: getPlaceholder(placeholder, isMulti),
     closeMenuOnSelect: closeMenuOnSelect
