@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-icons
 
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies [d482ef7]
+  - @norges-domstoler/dds-core@0.2.2
+
 ## 0.2.5
 
 ### Patch Changes

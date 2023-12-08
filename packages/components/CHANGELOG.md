@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 13.11.2
+
+### Patch Changes
+
+- d482ef7: Fikser bug hvor Drawer lukket seg når en trykte på clear-knapp i Select.
+- Updated dependencies [d482ef7]
+  - @norges-domstoler/dds-core@0.2.2
+  - @norges-domstoler/dds-form@0.1.8
+  - @norges-domstoler/dds-icons@0.2.6
+  - @norges-domstoler/dds-typography@0.1.6
+
 ## 13.11.1
 
 ### Patch Changes

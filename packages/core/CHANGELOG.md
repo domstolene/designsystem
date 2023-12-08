@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-core
 
+## 0.2.2
+
+### Patch Changes
+
+- d482ef7: Fikser bug hvor Drawer lukket seg når en trykte på clear-knapp i Select.
+
 ## 0.2.1
 
 ### Patch Changes
