@@ -214,21 +214,3 @@ export const InsideModal = (args: Partial<DatePickerProps<CalendarDate>>) => {
     </StoryTemplate>
   );
 };
-
-export const Form = (args: Partial<DatePickerProps<CalendarDate>>) => {
-  return (
-    <StoryTemplate title="DatePicker - form">
-      <form
-        onSubmit={event => {
-          event.preventDefault();
-          const data = Object.fromEntries(new FormData(event.currentTarget));
-          console.log(data);
-        }}
-      >
-        <DatePicker name="date" label="Dato" {...args} />
-        <TextInput name="text" label="Tekst" />
-        <Button>Send</Button>
-      </form>
-    </StoryTemplate>
-  );
-};

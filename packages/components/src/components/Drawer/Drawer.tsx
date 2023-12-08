@@ -169,7 +169,11 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   const elements: (HTMLElement | null)[] = [drawerRef.current as HTMLElement];
   if (triggerRef) elements.push(triggerRef.current);
 
-  useOnClickOutside(elements, () => isOpen && onClose && onClose());
+  useOnClickOutside(elements, () => {
+    if (isOpen) {
+      onClose?.();
+    }
+  });
 
   const hasTransitionedIn = useMountTransition(isOpen, 500);
 
