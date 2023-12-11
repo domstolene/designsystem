@@ -45,6 +45,11 @@ const Body = styled.div.withConfig({
     return prop !== 'animate' && prop !== 'height' && prop !== 'isExpanded';
   },
 })<BodyProps>`
+  ${({ isExpanded }) =>
+    !isExpanded &&
+    css`
+      display: none;
+    `}
   @media (prefers-reduced-motion: no-preference) {
     ${({ animate }) => animate && expandingAnimation}
   }
