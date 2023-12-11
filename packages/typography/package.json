@@ -36,16 +36,16 @@
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
-    "@types/react": "^18.2.41",
+    "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "clean-package": "2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.1",
     "tsup": "^8.0.1",
-    "typescript": "^5.3.2",
-    "vite": "^5.0.5",
-    "vitest": "^1.0.1"
+    "typescript": "^5.3.3",
+    "vite": "^5.0.7",
+    "vitest": "^1.0.4"
   },
   "peerDependencies": {
     "@norges-domstoler/dds-design-tokens": "^3.0.3",
