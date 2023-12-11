@@ -27,7 +27,7 @@ const connector = {
 };
 
 const itemNumber = {
-  size: '28px',
+  size: '1.75rem',
   borderWidth: '2px',
   iconSize: 'small' as IconSize,
   active: {
