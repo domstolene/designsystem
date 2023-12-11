@@ -1,19 +1,10 @@
-import {
-  forwardRef,
-  useState,
-  useEffect,
-  ReactElement,
-  Children as ReactChildren,
-  cloneElement,
-  isValidElement,
-  useId,
-  useCallback,
-} from 'react';
+import { forwardRef, useState, useEffect, useId, useCallback } from 'react';
 import styled from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '@norges-domstoler/dds-core';
+import { CardAccordionContextProvider } from './CardAccordionContext';
 
 const Wrapper = styled.div``;
 
@@ -49,41 +40,29 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
     }, [isExpanded]);
 
     const toggleExpanded = useCallback(() => {
-      const newExpanded = !expanded;
+      setExpanded(prevExpanded => {
+        const newExpanded = !prevExpanded;
 
-      setExpanded(newExpanded);
+        if (onChange) {
+          onChange(newExpanded);
+        }
 
-      if (onChange) {
-        onChange(newExpanded);
-      }
-    }, [expanded, onChange]);
+        return newExpanded;
+      });
+    }, [onChange]);
 
-    const Children = ReactChildren.map(children, (child, childIndex) => {
-      const headerId = `${accordionId}-header`;
-      const bodyId = `${accordionId}-body`;
-
-      return (
-        isValidElement(child) &&
-        (childIndex === 0
-          ? cloneElement(child as ReactElement, {
-              isExpanded: expanded,
-              toggleExpanded,
-              id: headerId,
-              bodyId,
-            })
-          : cloneElement(child as ReactElement, {
-              isExpanded: expanded,
-              id: bodyId,
-              headerId,
-            }))
-      );
-    });
-
-    const wrapperProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref,
-    };
-    return <Wrapper {...wrapperProps}>{Children}</Wrapper>;
+    return (
+      <Wrapper {...getBaseHTMLProps(id, className, htmlProps, rest)} ref={ref}>
+        <CardAccordionContextProvider
+          headerId={`${accordionId}-header`}
+          bodyId={`${accordionId}-body`}
+          isExpanded={expanded}
+          toggleExpanded={toggleExpanded}
+        >
+          {children}
+        </CardAccordionContextProvider>
+      </Wrapper>
+    );
   },
 );
 

@@ -1,14 +1,7 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { Card, CardAccordion, CardAccordionBody } from '.';
+import { Canvas, Meta, ArgTypes } from '@storybook/blocks';
+import { CardAccordion, CardAccordionBody } from '.';
 import {
   Source,
-  StorybookLink,
   ComponentLinkRow,
   LinkToInteractiveStory,
   SB_DESIGNSYSTEM_URL,
@@ -27,9 +20,7 @@ import * as CardStories from './Card.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={CardStories.Default} />
-</Canvas>
+<Canvas of={CardStories.Default} />
 
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-card`} />
 
