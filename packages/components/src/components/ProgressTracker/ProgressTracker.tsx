@@ -26,6 +26,7 @@ import {
   CardAccordionHeader,
   CardAccordionBody,
 } from '../Card';
+import { SmallScreenHeaderContext } from './SmallScreenHeaderContext';
 
 const ItemsWrapper = styled.ol`
   display: flex;
@@ -132,21 +133,25 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
                 }}
               >
                 <CardAccordionHeader>
-                  <SmallScreenWrapper>
-                    {currentStepWithoutConnectors[activeStep]}
-                    <Typography
-                      typographyType="supportingStyleHelperText01"
-                      style={{
-                        marginLeft:
-                          progressTrackerTokens.smallScreenTokens.marginLeft,
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      {`Steg ${activeStep + 1} av ${
-                        currentStepWithoutConnectors.length
-                      }`}
-                    </Typography>
-                  </SmallScreenWrapper>
+                  <SmallScreenHeaderContext.Provider
+                    value={{ isInHeader: true }}
+                  >
+                    <SmallScreenWrapper>
+                      {currentStepWithoutConnectors[activeStep]}
+                      <Typography
+                        typographyType="supportingStyleHelperText01"
+                        style={{
+                          marginLeft:
+                            progressTrackerTokens.smallScreenTokens.marginLeft,
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {`Steg ${activeStep + 1} av ${
+                          currentStepWithoutConnectors.length
+                        }`}
+                      </Typography>
+                    </SmallScreenWrapper>
+                  </SmallScreenHeaderContext.Provider>
                 </CardAccordionHeader>
                 <CardAccordionBody>
                   <ItemsWrapper>{steps}</ItemsWrapper>

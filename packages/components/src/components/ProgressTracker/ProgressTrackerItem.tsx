@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 import { CheckIcon } from '@norges-domstoler/dds-icons';
 import { SvgIcon } from '@norges-domstoler/dds-icons';
@@ -15,6 +15,7 @@ import {
   focusVisibleTransitionValue,
   focusVisible,
 } from '@norges-domstoler/dds-form';
+import { SmallScreenHeaderContext } from './SmallScreenHeaderContext';
 
 type ItemState =
   | 'activeCompleted'
@@ -203,6 +204,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     icon,
     children,
   } = props;
+  const { isInHeader } = useContext(SmallScreenHeaderContext);
 
   const { activeStep, handleStepChange } = useProgressTrackerContext();
   const active = activeStep === index;
@@ -224,10 +226,13 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   }, [completed, icon, index]);
 
   return (
-    <ItemWrapper aria-current={active ? 'step' : undefined}>
+    <ItemWrapper
+      as={isInHeader ? 'div' : 'li'}
+      aria-current={active && !isInHeader ? 'step' : undefined}
+    >
       <ItemContentWrapper
         {...styleProps}
-        as={handleStepChange ? 'button' : 'div'}
+        as={handleStepChange && !isInHeader ? 'button' : 'div'}
         onClick={
           !disabled && handleStepChange
             ? () => handleStepChange(index)
