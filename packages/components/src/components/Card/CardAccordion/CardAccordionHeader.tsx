@@ -16,6 +16,7 @@ import {
   StaticTypographyType,
 } from '@norges-domstoler/dds-typography';
 import { Property } from 'csstype';
+import { useCardAccordionContext } from './CardAccordionContext';
 
 const { header, chevronWrapper } = tokens;
 
@@ -85,23 +86,20 @@ const ChevronWrapper = styled.span`
   margin-left: ${chevronWrapper.marginLeft};
 `;
 
-export type CardAccordionHeaderProps = BaseComponentPropsWithChildren<
-  HTMLButtonElement,
-  {
-    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller body er utvidet.  */
-    isExpanded?: boolean;
-    /** **OBS!** denne propen blir satt automatisk av forelder. Callback for å styre utvidelse og sammentrukking.  */
-    toggleExpanded?: () => void;
-    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionBody />`.  */
-    bodyId?: string;
-    /**Overskriver default padding. */
-    padding?: Property.Padding<string>;
-    /**Overskriver default teksttype. */
-    typographyType?: StaticTypographyType;
-    /**Angir om teksten skal være i "bold"-format. */
-    bold?: boolean;
-  },
-  ButtonHTMLAttributes<HTMLButtonElement>
+export type CardAccordionHeaderProps = Omit<
+  BaseComponentPropsWithChildren<
+    HTMLButtonElement,
+    {
+      /**Overskriver default padding. */
+      padding?: Property.Padding<string>;
+      /**Overskriver default teksttype. */
+      typographyType?: StaticTypographyType;
+      /**Angir om teksten skal være i "bold"-format. */
+      bold?: boolean;
+    },
+    ButtonHTMLAttributes<HTMLButtonElement>
+  >,
+  'id'
 >;
 
 export const CardAccordionHeader = forwardRef<
@@ -110,10 +108,6 @@ export const CardAccordionHeader = forwardRef<
 >((props, ref) => {
   const {
     children,
-    isExpanded = false,
-    toggleExpanded,
-    bodyId,
-    id,
     className,
     htmlProps,
     padding,
@@ -122,18 +116,19 @@ export const CardAccordionHeader = forwardRef<
     ...rest
   } = props;
 
-  const handleClick = () => {
-    if (toggleExpanded) {
-      toggleExpanded();
-    }
-  };
+  const {
+    headerId: id,
+    bodyId,
+    toggleExpanded,
+    isExpanded,
+  } = useCardAccordionContext();
 
   const headerWrapperProps = {
     ...getBaseHTMLProps(id, className, htmlProps, rest),
     'aria-expanded': isExpanded,
     'aria-controls': bodyId,
     ref,
-    onClick: handleClick,
+    onClick: toggleExpanded,
   };
 
   const chevronProps = {

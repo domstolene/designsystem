@@ -20,6 +20,7 @@ import {
   typographyTypes,
 } from './CardAccordion.tokens';
 import { useElementHeight } from './useElementHeight';
+import { useCardAccordionContext } from './CardAccordionContext';
 
 const expandingAnimation = css`
   @media (prefers-reduced-motion: no-preference) {
@@ -82,35 +83,27 @@ const BodyContainer = styled.div.withConfig({
     `}
 `;
 
-export type CardAccordionBodyProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  {
-    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller komponenten om den skal utvides.  */
-    isExpanded?: boolean;
-    /** **OBS!** denne propen blir satt automatisk av forelder. Forteller `id` til `<CardAccordionHeader />`.  */
-    headerId?: string;
-    /**Overskriver default padding på toppen. Brukes når barn har spacing på toppen, f.eks. en overskrift. */
-    paddingTop?: Property.PaddingTop<string>;
-    /**Overskriver default padding. */
-    padding?: Property.Padding<string>;
-  }
+export type CardAccordionBodyProps = Omit<
+  BaseComponentPropsWithChildren<
+    HTMLDivElement,
+    {
+      /**Overskriver default padding på toppen. Brukes når barn har spacing på toppen, f.eks. en overskrift. */
+      paddingTop?: Property.PaddingTop<string>;
+      /**Overskriver default padding. */
+      padding?: Property.Padding<string>;
+    }
+  >,
+  'id'
 >;
 
 export const CardAccordionBody = forwardRef<
   HTMLDivElement,
   CardAccordionBodyProps
 >((props, ref) => {
-  const {
-    children,
-    isExpanded,
-    headerId,
-    id,
-    className,
-    htmlProps,
-    padding,
-    paddingTop,
-    ...rest
-  } = props;
+  const { children, className, htmlProps, padding, paddingTop, ...rest } =
+    props;
+
+  const { headerId, isExpanded, bodyId: id } = useCardAccordionContext();
 
   const bodyRef = useRef<HTMLDivElement>(null);
 
@@ -135,28 +128,24 @@ export const CardAccordionBody = forwardRef<
     }
   }, [isMounted]);
 
-  const bodyProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    ref,
-    isExpanded,
-    role: 'region',
-    height: height ?? initialExpandedHeight ?? 0,
-  };
-  const bodyContainerProps = {
-    ref: bodyRef,
-    isExpanded,
-    padding,
-    paddingTop,
-  };
-
   return (
     <Body
-      {...bodyProps}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      ref={ref}
+      isExpanded={isExpanded}
+      role="region"
+      height={height ?? initialExpandedHeight ?? 0}
       animate={animate}
       aria-labelledby={headerId}
       aria-hidden={!isExpanded}
     >
-      <BodyContainer {...bodyContainerProps} animate={animate}>
+      <BodyContainer
+        ref={bodyRef}
+        isExpanded={isExpanded}
+        padding={padding}
+        paddingTop={paddingTop}
+        animate={animate}
+      >
         {children}
       </BodyContainer>
     </Body>
