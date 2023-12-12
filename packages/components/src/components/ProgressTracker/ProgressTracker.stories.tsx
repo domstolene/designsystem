@@ -227,7 +227,10 @@ export const Mobile = () => {
       <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
         <ProgressTracker
           activeStep={activeStep}
-          onStepChange={step => setActiveStep(step)}
+          onStepChange={step => {
+            setDrawerOpen(false);
+            setActiveStep(step);
+          }}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
             Partopplysninger med lang tekst
