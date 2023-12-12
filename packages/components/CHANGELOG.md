@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 13.11.3
+
+### Patch Changes
+
+- b4f284e: Fikser bug hvor fokuserbare-elementer i lukkede accordions var fokuserbare.
+- 40089c4: Fikser bug med ProgressTracker hvor text zoom førte til at tallene i stegsirklene vokste seg større enn sirklene.
+
 ## 13.11.2
 
 ### Patch Changes
