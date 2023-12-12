@@ -1,10 +1,10 @@
 import {
   JordskifterettIcon,
+  TingrettIcon,
   LagmannsrettIcon,
   PersonIcon,
-  SvgProps,
-  TingrettIcon,
-} from '@norges-domstoler/dds-icons';
+} from '../../Icon/icons';
+import { SvgProps } from '../../Icon/utils';
 
 export type EmbeteType =
   | 'jordskifterett'

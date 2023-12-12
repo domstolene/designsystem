@@ -1,7 +1,7 @@
 import { InputHTMLAttributes } from 'react';
-import { SvgIcon } from '@norges-domstoler/dds-icons';
-import { BaseComponentProps } from '@norges-domstoler/dds-core';
 import { CheckboxPickedHTMLAttributes } from '../SelectionControl/Checkbox';
+import { BaseComponentProps } from '../../types';
+import { SvgIcon } from '../Icon/utils';
 
 export type ToggleButtonProps = BaseComponentProps<
   HTMLInputElement,

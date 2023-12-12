@@ -1,5 +1,5 @@
-import { Nullable } from '@norges-domstoler/dds-core';
 import { useEffect, useState } from 'react';
+import { Nullable } from '../../../types';
 
 export function useElementHeight(
   element: HTMLDivElement | null,

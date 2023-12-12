@@ -2,19 +2,19 @@ import { Table, CollapsibleTableProps } from '..';
 import { Button } from '../../Button';
 import { data, headerCells, mapCellContents } from '../tableData';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Icon } from '@norges-domstoler/dds-icons';
+import { CollapsibleTable } from '..';
+import { VisuallyHidden } from '../../VisuallyHidden';
+import { useScreenSize, ScreenSize } from '../../../hooks';
+import { Icon } from '../../Icon';
 import {
-  AttachmentIcon,
+  PersonIcon,
+  TrashIcon,
+  StarIcon,
   FileIcon,
   JordskifterettIcon,
-  PersonIcon,
-  StarIcon,
-  TrashIcon,
-} from '@norges-domstoler/dds-icons';
-import { CollapsibleTable } from '..';
-import { ScreenSize, useScreenSize } from '@norges-domstoler/dds-core';
-import { Link } from '@norges-domstoler/dds-typography';
-import { VisuallyHidden } from '../../VisuallyHidden';
+  AttachmentIcon,
+} from '../../Icon/icons';
+import { Link } from '../../Typography';
 
 export default {
   title: 'dds-components/Table/CollapsibleTable BETA',

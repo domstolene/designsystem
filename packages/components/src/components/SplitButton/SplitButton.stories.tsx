@@ -1,6 +1,6 @@
 import { SplitButton, SplitButtonProps, SplitButtonPurpose } from '.';
-import { PlusCircledIcon } from '@norges-domstoler/dds-icons';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { PlusCircledIcon } from '../Icon/icons';
 
 export default {
   title: 'dds-components/SplitButton',

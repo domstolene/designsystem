@@ -6,14 +6,10 @@ import {
   purposeVariants,
   typographyType,
 } from './GlobalMessage.tokens';
-import { Icon } from '@norges-domstoler/dds-icons';
-import { Typography } from '@norges-domstoler/dds-typography';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { CloseIcon } from '@norges-domstoler/dds-icons';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { Icon } from '../Icon';
+import { CloseIcon } from '../Icon/icons';
+import { getFontStyling, Typography } from '../Typography';
 
 const { container, contentContainer, icon } = tokens;
 

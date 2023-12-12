@@ -1,6 +1,5 @@
 import { useEffect, useState, ChangeEvent } from 'react';
 import { Table, TableProps, SortOrder } from '.';
-import { Paragraph } from '@norges-domstoler/dds-typography';
 import { Button } from '../Button';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import {
@@ -11,9 +10,10 @@ import {
   mapCellContents,
 } from './tableData';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Icon } from '@norges-domstoler/dds-icons';
-import { PersonIcon, TrashIcon } from '@norges-domstoler/dds-icons';
 import { ScrollableContainer } from '../ScrollableContainer';
+import { Icon } from '../Icon';
+import { PersonIcon, TrashIcon } from '../Icon/icons';
+import { Paragraph } from '../Typography';
 
 export default {
   title: 'dds-components/Table/Table',

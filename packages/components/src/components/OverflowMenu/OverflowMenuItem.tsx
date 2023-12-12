@@ -16,18 +16,12 @@ import {
   overflowMenuTokens as tokens,
   typographyType,
 } from './OverflowMenu.tokens';
-import { Icon } from '@norges-domstoler/dds-icons';
-import { useCombinedRef } from '@norges-domstoler/dds-core';
-import {
-  BaseComponentProps,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { SvgIcon } from '@norges-domstoler/dds-icons';
-import { normalizeButton } from '@norges-domstoler/dds-core';
-import {
-  focusVisibleLink,
-  getFontStyling,
-} from '@norges-domstoler/dds-typography';
+import { useCombinedRef } from '../../hooks';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { normalizeButton } from '../helpers';
+import { Icon } from '../Icon';
+import { SvgIcon } from '../Icon/utils';
+import { getFontStyling, focusVisibleLink } from '../Typography';
 
 const { element, link } = tokens;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { changeRGBAAlpha } from '@norges-domstoler/dds-core';
+import { changeRGBAAlpha } from '../../../utils';
 
 interface BackdropProps {
   isOpen: boolean;

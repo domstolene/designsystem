@@ -1,8 +1,8 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { ToggleBar, ToggleRadio } from '.';
 import { ToggleBarProps } from './ToggleBar.types';
-import { PlusCircledIcon } from '@norges-domstoler/dds-icons';
 import { useState } from 'react';
+import { PlusCircledIcon } from '../Icon/icons';
 
 export default {
   title: 'dds-components/ToggleBar',

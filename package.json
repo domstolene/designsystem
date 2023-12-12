@@ -40,8 +40,6 @@
     "@changesets/cli": "^2.27.1",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
-    "@norges-domstoler/dds-icons": "workspace:*",
-    "@norges-domstoler/dds-typography": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
     "@storybook/addon-a11y": "^7.6.3",
     "@storybook/addon-docs": "^7.6.3",

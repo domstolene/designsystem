@@ -1,22 +1,19 @@
 import { forwardRef, HTMLAttributes, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { Typography } from '@norges-domstoler/dds-typography';
 import { Button } from '../Button';
 import { Select } from '../Select';
 import { PaginationGenerator } from './paginationGenerator';
-import { Icon } from '@norges-domstoler/dds-icons';
 import { paginationTokens as tokens } from './Pagination.tokens';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { Icon } from '../Icon';
+import { Typography } from '../Typography';
 import {
   MoreHorizontalIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronFirstIcon,
   ChevronLastIcon,
-} from '@norges-domstoler/dds-icons';
-import {
-  BaseComponentProps,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
+} from '../Icon/icons';
 
 const { outerContainer, indicatorsContainer, truncationIcon, list } = tokens;
 

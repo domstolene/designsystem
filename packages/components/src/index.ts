@@ -1,7 +1,9 @@
-export * from '@norges-domstoler/dds-core';
-export * from '@norges-domstoler/dds-form';
-export * from '@norges-domstoler/dds-icons';
-export * from '@norges-domstoler/dds-typography';
+export * from './components/helpers';
+export * from './components/Icon/icons';
+export * as icons from './components/Icon/icons';
+export * from './hooks';
+export * from './types';
+export { cn } from './utils/dom';
 
 export * from './components/AppShell';
 export * from './components/SelectionControl/RadioButton';
@@ -37,6 +39,7 @@ export * from './components/VisuallyHidden';
 export * from './components/ScrollableContainer';
 export * from './components/ToggleBar';
 export * from './components/Grid';
+export * from './components/Icon';
 export * from './components/ProgressTracker';
 export * from './components/InlineEdit';
 export * from './components/TextArea';
@@ -46,3 +49,4 @@ export * from './components/FileUploader';
 export * from './components/EmptyContent';
 export * from './components/BackLink';
 export * from './components/Feedback';
+export * from './components/Typography';

@@ -1,11 +1,8 @@
 import { useId } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { Typography } from '@norges-domstoler/dds-typography';
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { Typography } from '../Typography';
 
 interface GroupProps {
   direction?: Direction;

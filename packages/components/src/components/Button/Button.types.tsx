@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
-import { BaseComponentProps } from '@norges-domstoler/dds-core';
-import { SvgIcon } from '@norges-domstoler/dds-icons';
+import { BaseComponentProps } from '../../types';
+import { SvgIcon } from '../Icon/utils';
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
 export type ButtonSize = 'tiny' | 'small' | 'medium' | 'large';

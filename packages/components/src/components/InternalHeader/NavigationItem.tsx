@@ -1,11 +1,11 @@
 import { AnchorHTMLAttributes, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
 import {
   internalHeaderTokens as tokens,
   typographyTypes,
 } from './InternalHeader.tokens';
-import { focusVisible } from '@norges-domstoler/dds-form';
+import { getFontStyling } from '../Typography';
+import { focusVisible } from '../helpers';
 
 const { navLink } = tokens;
 

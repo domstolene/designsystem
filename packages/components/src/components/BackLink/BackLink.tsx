@@ -1,8 +1,9 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import { Icon, icons } from '@norges-domstoler/dds-icons';
-import { Typography } from '@norges-domstoler/dds-typography';
 import { backLinkTokens } from './BackLink.tokens';
+import { Typography } from '../Typography';
+import { icons } from '../..';
+import { Icon } from '../Icon';
 
 const Nav = styled('nav')`
   align-items: center;

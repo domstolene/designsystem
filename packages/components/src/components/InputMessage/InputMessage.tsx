@@ -1,14 +1,11 @@
 import styled, { css } from 'styled-components';
-import { Icon } from '@norges-domstoler/dds-icons';
 import { inputMessageTokens as tokens } from './InputMessage.tokens';
-import { Typography } from '@norges-domstoler/dds-typography';
 import { forwardRef } from 'react';
-import {
-  BaseComponentProps,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 
-import { ErrorIcon } from '@norges-domstoler/dds-icons';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { Icon } from '../Icon';
+import { ErrorIcon } from '../Icon/icons';
+import { Typography } from '../Typography';
 
 interface WrapperProps {
   messageType: InputMessageType;

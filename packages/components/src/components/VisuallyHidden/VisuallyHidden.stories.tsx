@@ -1,8 +1,8 @@
 import { VisuallyHidden, VisuallyHiddenProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Typography } from '@norges-domstoler/dds-typography';
 import { Table } from '../Table';
 import { Button } from '../Button';
+import { Typography } from '../Typography';
 
 export default {
   title: 'dds-components/VisuallyHidden',

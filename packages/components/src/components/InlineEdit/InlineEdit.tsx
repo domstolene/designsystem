@@ -9,7 +9,7 @@ import {
   ReactElement,
 } from 'react';
 import { InlineEditProps } from './InlineEdit.types';
-import { useOnClickOutside, useOnKeyDown } from '@norges-domstoler/dds-core';
+import { useOnKeyDown, useOnClickOutside } from '../../hooks';
 
 type EditElement = HTMLInputElement | HTMLTextAreaElement;
 

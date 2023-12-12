@@ -1,13 +1,9 @@
 import styled, { css } from 'styled-components';
-import { Icon } from '@norges-domstoler/dds-icons';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import {
-  InputProps,
-  InputSize,
-  StatefulInput,
-} from '@norges-domstoler/dds-form';
 
 import { textInputTokens as tokens } from './TextInput.tokens';
+import { InputSize, InputProps, StatefulInput } from '../helpers';
+import { Icon } from '../Icon';
 
 const { iconSizes } = ddsBaseTokens;
 const { input, icon } = tokens;

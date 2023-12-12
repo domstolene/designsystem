@@ -1,15 +1,12 @@
 import { forwardRef, useId } from 'react';
-import {
-  getBaseHTMLProps,
-  cn,
-  spaceSeparatedIdListGenerator,
-} from '@norges-domstoler/dds-core';
 
-import { Typography } from '@norges-domstoler/dds-typography';
 import { CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
 import { CustomSelectionControl, Container } from '../SelectionControl.styles';
-import { HiddenInput } from '@norges-domstoler/dds-form';
+import { getBaseHTMLProps } from '../../../types';
+import { cn, spaceSeparatedIdListGenerator } from '../../../utils';
+import { HiddenInput } from '../../helpers';
+import { Typography } from '../../Typography';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {

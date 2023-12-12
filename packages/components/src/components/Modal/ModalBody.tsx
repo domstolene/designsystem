@@ -1,11 +1,8 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 import { ScrollableContainer } from '../ScrollableContainer';
 import { Property } from 'csstype';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const Container = styled.div``;
 

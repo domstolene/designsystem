@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { MenuIcon, CloseIcon, SvgProps } from '@norges-domstoler/dds-icons';
 import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
 
 import { EmbeteIcon, EmbeteType } from './EmbeteIcon';
@@ -11,6 +10,8 @@ import {
   OverflowMenuGroup,
   OverflowMenuProps,
 } from '../../OverflowMenu';
+import { CloseIcon, MenuIcon } from '../../Icon/icons';
+import { SvgProps } from '../../Icon/utils';
 
 const { navigation: navTokens, floatingActionButtons } = appShellTokens;
 

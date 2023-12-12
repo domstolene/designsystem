@@ -1,6 +1,4 @@
 import { Grid, GridChild, GridProps } from '.';
-import { ScreenSize, useScreenSize } from '@norges-domstoler/dds-core';
-import { FilterIcon, PlusIcon } from '@norges-domstoler/dds-icons';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
 import { InternalHeader } from '../InternalHeader';
@@ -9,7 +7,9 @@ import { Search } from '../Search';
 import { Table } from '../Table';
 import { Tag } from '../Tag';
 import { TextInput } from '../TextInput';
-import { Heading } from '@norges-domstoler/dds-typography';
+import { useScreenSize, ScreenSize } from '../../hooks';
+import { FilterIcon, PlusIcon } from '../Icon/icons';
+import { Heading } from '../Typography';
 
 export default {
   title: 'dds-components/Grid',

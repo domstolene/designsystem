@@ -1,14 +1,6 @@
 import { forwardRef, useEffect, useId } from 'react';
 import styled from 'styled-components';
-import { selection, visibilityTransition } from '@norges-domstoler/dds-core';
 import { scrollbarStyling } from '../ScrollableContainer';
-import {
-  useCombinedRef,
-  useOnClickOutside,
-  useOnKeyDown,
-  useFloatPosition,
-  useRoveFocus,
-} from '@norges-domstoler/dds-core';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
 import { Divider } from '../Divider';
@@ -17,8 +9,16 @@ import {
   OverflowMenuNavItem,
   OverflowMenuProps,
 } from '.';
-import { getBaseHTMLProps } from '@norges-domstoler/dds-core';
-import { PersonIcon } from '@norges-domstoler/dds-icons';
+import {
+  useFloatPosition,
+  useCombinedRef,
+  useOnClickOutside,
+  useOnKeyDown,
+  useRoveFocus,
+} from '../../hooks';
+import { getBaseHTMLProps } from '../../types';
+import { visibilityTransition, selection } from '../helpers';
+import { PersonIcon } from '../Icon/icons';
 
 const { container, divider } = tokens;
 

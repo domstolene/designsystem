@@ -1,11 +1,11 @@
 import { ComponentProps } from 'react';
 import { AppShell } from '.';
 import {
-  BarChartIcon,
-  ChecklistIcon,
   FolderIcon,
+  ChecklistIcon,
   GavelIcon,
-} from '@norges-domstoler/dds-icons';
+  BarChartIcon,
+} from '../Icon/icons';
 
 export default {
   title: 'dds-components/AppShell',

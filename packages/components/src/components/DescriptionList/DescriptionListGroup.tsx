@@ -1,12 +1,9 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 
 import { descriptionListTokens as tokens } from './DescriptionList.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 type StyledGroupProps = Pick<
   DescriptionListGroupProps,

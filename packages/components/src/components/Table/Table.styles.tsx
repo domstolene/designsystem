@@ -1,12 +1,9 @@
 import styled, { css } from 'styled-components';
-import {
-  getFontStyling,
-  defaultTypographyType,
-} from '@norges-domstoler/dds-typography';
-import { focusVisibleInset } from '@norges-domstoler/dds-form';
 
 import { RowMode, TableRowType } from './Table.types';
 import { tableTokens } from './Table.tokens';
+import { getFontStyling, defaultTypographyType } from '../Typography';
+import { focusVisibleInset } from '../helpers';
 
 const { row } = tableTokens;
 

@@ -21,12 +21,6 @@ importers:
       '@norges-domstoler/dds-design-tokens':
         specifier: workspace:*
         version: link:packages/tokens
-      '@norges-domstoler/dds-icons':
-        specifier: workspace:*
-        version: link:packages/icons
-      '@norges-domstoler/dds-typography':
-        specifier: workspace:*
-        version: link:packages/typography
       '@norges-domstoler/storybook-components':
         specifier: workspace:*
         version: link:packages/storybook-components
@@ -99,18 +93,6 @@ importers:
       '@floating-ui/react-dom':
         specifier: ^2.0.4
         version: 2.0.4(react-dom@18.2.0)(react@18.2.0)
-      '@norges-domstoler/dds-core':
-        specifier: workspace:*
-        version: link:../core
-      '@norges-domstoler/dds-form':
-        specifier: workspace:*
-        version: link:../form
-      '@norges-domstoler/dds-icons':
-        specifier: workspace:*
-        version: link:../icons
-      '@norges-domstoler/dds-typography':
-        specifier: workspace:*
-        version: link:../typography
       '@norges-domstoler/development-utils':
         specifier: workspace:*
         version: link:../development-utils
@@ -179,66 +161,11 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1(jsdom@23.0.1)
 
-  packages/core:
-    dependencies:
-      '@floating-ui/react-dom':
-        specifier: ^2.0.4
-        version: 2.0.4(react-dom@18.2.0)(react@18.2.0)
-    devDependencies:
-      '@norges-domstoler/dds-design-tokens':
-        specifier: workspace:*
-        version: link:../tokens
-      '@testing-library/jest-dom':
-        specifier: ^6.1.5
-        version: 6.1.5(vitest@1.0.1)
-      '@types/react':
-        specifier: ^18.2.41
-        version: 18.2.41
-      '@types/react-dom':
-        specifier: ^18.2.17
-        version: 18.2.17
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      csstype:
-        specifier: ^3.1.2
-        version: 3.1.2
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      styled-components:
-        specifier: ^6.1.1
-        version: 6.1.1(react-dom@18.2.0)(react@18.2.0)
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.2)
-      typescript:
-        specifier: ^5.3.2
-        version: 5.3.2
-      vite:
-        specifier: ^5.0.5
-        version: 5.0.5
-      vitest:
-        specifier: ^1.0.1
-        version: 1.0.1(jsdom@23.0.1)
-
   packages/datepicker:
     dependencies:
       '@norges-domstoler/dds-components':
         specifier: workspace:*
         version: link:../components
-      '@norges-domstoler/dds-core':
-        specifier: workspace:*
-        version: link:../core
-      '@norges-domstoler/dds-form':
-        specifier: workspace:*
-        version: link:../form
-      '@norges-domstoler/dds-typography':
-        specifier: workspace:*
-        version: link:../typography
       '@react-aria/calendar':
         specifier: ^3.5.3
         version: 3.5.3(react-dom@18.2.0)(react@18.2.0)
@@ -337,100 +264,11 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1(jsdom@23.0.1)
 
-  packages/form:
-    dependencies:
-      '@norges-domstoler/dds-core':
-        specifier: workspace:*
-        version: link:../core
-      '@norges-domstoler/dds-typography':
-        specifier: workspace:*
-        version: link:../typography
-    devDependencies:
-      '@norges-domstoler/dds-design-tokens':
-        specifier: workspace:*
-        version: link:../tokens
-      '@types/react':
-        specifier: ^18.2.41
-        version: 18.2.41
-      '@types/react-dom':
-        specifier: ^18.2.17
-        version: 18.2.17
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      csstype:
-        specifier: ^3.1.2
-        version: 3.1.2
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      styled-components:
-        specifier: ^6.1.1
-        version: 6.1.1(react-dom@18.2.0)(react@18.2.0)
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.2)
-      typescript:
-        specifier: ^5.3.2
-        version: 5.3.2
-      vite:
-        specifier: ^5.0.5
-        version: 5.0.5
-      vitest:
-        specifier: ^1.0.1
-        version: 1.0.1(jsdom@23.0.1)
-
   packages/formatting:
     devDependencies:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.2)
-      typescript:
-        specifier: ^5.3.2
-        version: 5.3.2
-      vite:
-        specifier: ^5.0.5
-        version: 5.0.5
-      vitest:
-        specifier: ^1.0.1
-        version: 1.0.1(jsdom@23.0.1)
-
-  packages/icons:
-    dependencies:
-      '@norges-domstoler/dds-core':
-        specifier: workspace:*
-        version: link:../core
-    devDependencies:
-      '@norges-domstoler/dds-design-tokens':
-        specifier: workspace:*
-        version: link:../tokens
-      '@types/react':
-        specifier: ^18.2.41
-        version: 18.2.41
-      '@types/react-dom':
-        specifier: ^18.2.17
-        version: 18.2.17
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      csstype:
-        specifier: ^3.1.2
-        version: 3.1.2
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      styled-components:
-        specifier: ^6.1.1
-        version: 6.1.1(react-dom@18.2.0)(react@18.2.0)
       tsup:
         specifier: ^8.0.1
         version: 8.0.1(typescript@5.3.2)
@@ -452,9 +290,6 @@ importers:
       '@norges-domstoler/dds-design-tokens':
         specifier: workspace:*
         version: link:../tokens
-      '@norges-domstoler/dds-typography':
-        specifier: workspace:*
-        version: link:../typography
       react-select:
         specifier: ^5.8.0
         version: 5.8.0(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)
@@ -577,55 +412,6 @@ importers:
       typescript:
         specifier: ^5.3.2
         version: 5.3.2
-
-  packages/typography:
-    dependencies:
-      '@norges-domstoler/dds-core':
-        specifier: workspace:*
-        version: link:../core
-      '@norges-domstoler/dds-icons':
-        specifier: workspace:*
-        version: link:../icons
-    devDependencies:
-      '@norges-domstoler/dds-design-tokens':
-        specifier: workspace:*
-        version: link:../tokens
-      '@testing-library/jest-dom':
-        specifier: ^6.1.5
-        version: 6.1.5(vitest@1.0.1)
-      '@testing-library/react':
-        specifier: ^14.1.2
-        version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
-      '@types/react':
-        specifier: ^18.2.41
-        version: 18.2.41
-      '@types/react-dom':
-        specifier: ^18.2.17
-        version: 18.2.17
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      styled-components:
-        specifier: ^6.1.1
-        version: 6.1.1(react-dom@18.2.0)(react@18.2.0)
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.2)
-      typescript:
-        specifier: ^5.3.2
-        version: 5.3.2
-      vite:
-        specifier: ^5.0.5
-        version: 5.0.5
-      vitest:
-        specifier: ^1.0.1
-        version: 1.0.1(jsdom@23.0.1)
 
 packages:
 

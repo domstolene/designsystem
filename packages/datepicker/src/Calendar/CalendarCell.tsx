@@ -3,12 +3,11 @@ import { AriaCalendarCellProps, useCalendarCell } from '@react-aria/calendar';
 import { CalendarState, RangeCalendarState } from '@react-stately/calendar';
 import { isToday } from '@internationalized/date';
 import styled, { css } from 'styled-components';
-import { focusVisible } from '@norges-domstoler/dds-form';
-import { normalizeButton } from '@norges-domstoler/dds-core';
+import { focusVisible } from '@norges-domstoler/dds-components';
 
 import { CellVariant, calendarTokens } from './Calendar.tokens';
 import { timezone } from '../constants';
-import { buttonTokens } from '@norges-domstoler/dds-components/src/components/Button/Button.tokens';
+import { normalizeButton } from '@norges-domstoler/dds-components';
 
 interface CalendarCellProps extends AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;

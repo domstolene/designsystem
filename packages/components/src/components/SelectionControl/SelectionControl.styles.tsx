@@ -1,11 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Direction } from '@norges-domstoler/dds-core';
-import {
-  focusVisible,
-  focusVisibleTransitionValue,
-} from '@norges-domstoler/dds-form';
 
 import { selectionControlTokens } from './SelectionControl.tokens';
+import { Direction } from '../../types';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 
 const {
   selectionControl,

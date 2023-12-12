@@ -1,5 +1,5 @@
-import { Nullable } from '@norges-domstoler/dds-core';
 import React, { useContext } from 'react';
+import { Nullable } from '../../../types';
 
 export interface CheckboxGroupContextProps {
   error?: boolean;

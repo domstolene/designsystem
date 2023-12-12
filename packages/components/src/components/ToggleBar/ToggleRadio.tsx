@@ -1,13 +1,10 @@
 import { forwardRef, InputHTMLAttributes, ChangeEvent, useId } from 'react';
-import { SvgIcon } from '@norges-domstoler/dds-icons';
-import {
-  BaseComponentProps,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { Icon } from '@norges-domstoler/dds-icons';
 import { ToggleBarContextType, useToggleBarContext } from './ToggleBar.context';
 import { Label, Content } from './ToggleRadio.styles';
-import { HiddenInput } from '@norges-domstoler/dds-form';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { Icon } from '../Icon';
+import { SvgIcon } from '../Icon/utils';
+import { HiddenInput } from '../helpers';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,

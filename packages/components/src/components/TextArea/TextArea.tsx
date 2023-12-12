@@ -1,25 +1,24 @@
 import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { Property } from 'csstype';
+
+import { scrollbarStyling } from '../ScrollableContainer';
+import { textAreaTokens } from './TextArea.tokens';
+import { renderInputMessage } from '../../utils/renderInputMessage';
+import { TextAreaProps } from './TextArea.types';
+import { useCombinedRef } from '../../hooks';
 import {
-  useCombinedRef,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '@norges-domstoler/dds-core';
-import { Label } from '@norges-domstoler/dds-typography';
-import { Property } from 'csstype';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
+} from '../../utils';
 import {
   StatefulInput,
   StyledInputProps,
   inputTypographyTypes,
   getDefaultText,
   OuterInputContainer,
-} from '@norges-domstoler/dds-form';
-
-import { scrollbarStyling } from '../ScrollableContainer';
-import { textAreaTokens } from './TextArea.tokens';
-import { renderInputMessage } from '../../utils/renderInputMessage';
-import { TextAreaProps } from './TextArea.types';
+} from '../helpers';
+import { getFontStyling, Label } from '../Typography';
 
 const defaultWidth: Property.Width<string> = '320px';
 const { textarea } = textAreaTokens;

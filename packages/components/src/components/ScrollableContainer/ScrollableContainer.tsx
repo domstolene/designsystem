@@ -1,16 +1,10 @@
 import { useRef } from 'react';
 import styled from 'styled-components';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 import { Scrollbar } from './Scrollbar';
 import { Property } from 'csstype';
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
-import {
-  focusVisibleTransitionValue,
-  focusVisible,
-} from '@norges-domstoler/dds-form';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { focusVisibleTransitionValue, focusVisible } from '../helpers';
 
 const { track, content, outerContainer } = tokens;
 

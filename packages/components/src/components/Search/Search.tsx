@@ -1,20 +1,4 @@
 import {
-  derivativeIdGenerator,
-  spaceSeparatedIdListGenerator,
-  useCombinedRef,
-} from '@norges-domstoler/dds-core';
-import {
-  Input as BaseInput,
-  InputProps as BaseInputProps,
-} from '@norges-domstoler/dds-form';
-import {
-  CloseSmallIcon,
-  Icon,
-  IconSize,
-  SearchIcon,
-} from '@norges-domstoler/dds-icons';
-import { getFontStyling, Label } from '@norges-domstoler/dds-typography';
-import {
   ButtonHTMLAttributes,
   ChangeEvent,
   forwardRef,
@@ -31,6 +15,15 @@ import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import { searchTokens as tokens, typographyTypes } from './Search.tokens';
 import { createEmptyChangeEvent } from './Search.utils';
 import { SearchSuggestions } from './SearchSuggestions';
+import { useCombinedRef } from '../../hooks';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator,
+} from '../../utils';
+import { IconSize, Icon } from '../Icon';
+import { SearchIcon, CloseSmallIcon } from '../Icon/icons';
+import { getFontStyling, Label } from '../Typography';
+import { Input as BaseInput, InputProps as BaseInputProps } from '../helpers';
 
 const { input, outerContainer, horisontalContainer, searchIcon, clearButton } =
   tokens;

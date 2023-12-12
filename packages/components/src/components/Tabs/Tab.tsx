@@ -10,27 +10,24 @@ import {
   KeyboardEvent,
 } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  useCombinedRef,
-  useOnKeyDown,
-  BaseComponentPropsWithChildren,
-  Direction,
-  getBaseHTMLProps,
-  normalizeButton,
-  removeButtonStyling,
-} from '@norges-domstoler/dds-core';
-import { Icon, SvgIcon } from '@norges-domstoler/dds-icons';
-import {
-  getFontStyling,
-  defaultTypographyType,
-} from '@norges-domstoler/dds-typography';
-import {
-  focusVisibleTransitionValue,
-  focusVisible,
-} from '@norges-domstoler/dds-form';
 
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useTabsContext } from './Tabs.context';
+import { useCombinedRef, useOnKeyDown } from '../../hooks';
+import {
+  Direction,
+  BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import {
+  focusVisible,
+  focusVisibleTransitionValue,
+  normalizeButton,
+  removeButtonStyling,
+} from '../helpers';
+import { Icon } from '../Icon';
+import { SvgIcon } from '../Icon/utils';
+import { getFontStyling, defaultTypographyType } from '../Typography';
 
 const { tab } = tokens;
 

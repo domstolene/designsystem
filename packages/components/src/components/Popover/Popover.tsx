@@ -1,26 +1,26 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { Property } from 'csstype';
-import { forwardRef, ReactNode, useEffect } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { PaperProps, visibilityTransition } from '@norges-domstoler/dds-core';
+import { Button } from '../Button';
+import { popoverTokens as tokens } from './Popover.tokens';
 import {
   Placement,
-  useCombinedRef,
+  useMountTransition,
   useFloatPosition,
   useReturnFocusOnBlur,
-  useMountTransition,
   useOnClickOutside,
-} from '@norges-domstoler/dds-core';
+  useCombinedRef,
+} from '../../hooks';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { Button } from '../Button';
-import { Typography } from '@norges-domstoler/dds-typography';
-import { popoverTokens as tokens } from './Popover.tokens';
-import { CloseIcon } from '@norges-domstoler/dds-icons';
-import { Paper } from '@norges-domstoler/dds-core';
-import { focusVisible } from '@norges-domstoler/dds-form';
+  PaperProps,
+  Paper,
+  visibilityTransition,
+  focusVisible,
+} from '../helpers';
+import { CloseIcon } from '../Icon/icons';
+import { Typography } from '../Typography';
 
 const { spacing: Spacing } = ddsBaseTokens;
 const { wrapper, content, closeButton, title } = tokens;

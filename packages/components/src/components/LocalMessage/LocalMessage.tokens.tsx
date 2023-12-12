@@ -1,15 +1,15 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ButtonPurpose } from '../Button';
+import { LocalMessagePurpose } from './LocalMessage';
 import {
-  ErrorIcon,
-  TipIcon,
   InfoIcon,
+  ErrorIcon,
   WarningIcon,
   CheckCircledIcon,
-} from '@norges-domstoler/dds-icons';
-import { SvgIcon } from '@norges-domstoler/dds-icons';
-import { ButtonPurpose } from '../Button';
-import { StaticTypographyType } from '@norges-domstoler/dds-typography';
-import { LocalMessagePurpose } from './LocalMessage';
+  TipIcon,
+} from '../Icon/icons';
+import { SvgIcon } from '../Icon/utils';
+import { StaticTypographyType } from '../Typography';
 
 const { colors, spacing, borderRadius, border, outerShadow } = ddsBaseTokens;
 
