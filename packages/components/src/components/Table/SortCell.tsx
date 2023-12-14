@@ -1,19 +1,11 @@
 import { forwardRef, MouseEvent } from 'react';
-import { Icon } from '@norges-domstoler/dds-icons';
-import {
-  UnfoldMoreIcon,
-  ChevronUpIcon,
-  ChevronDownIcon,
-} from '@norges-domstoler/dds-icons';
 import styled from 'styled-components';
-import {
-  normalizeButton,
-  removeButtonStyling,
-} from '@norges-domstoler/dds-core';
-import { focusVisible } from '@norges-domstoler/dds-form';
 
 import { Cell, TableCellProps } from './Cell';
 import { tableTokens } from './Table.tokens';
+import { focusVisible, normalizeButton, removeButtonStyling } from '../helpers';
+import { Icon } from '../Icon';
+import { UnfoldMoreIcon, ChevronDownIcon, ChevronUpIcon } from '../Icon/icons';
 
 const { cell } = tableTokens;
 

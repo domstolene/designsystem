@@ -1,7 +1,4 @@
 import { ChangeEvent, forwardRef, useId } from 'react';
-import { getBaseHTMLProps, cn, Nullable } from '@norges-domstoler/dds-core';
-import { Typography } from '@norges-domstoler/dds-typography';
-import { HiddenInput } from '@norges-domstoler/dds-form';
 
 import { RadioButtonProps } from './RadioButton.types';
 import {
@@ -9,6 +6,10 @@ import {
   useRadioButtonGroup,
 } from './RadioButtonGroupContext';
 import { Container, CustomSelectionControl } from '../SelectionControl.styles';
+import { Nullable, getBaseHTMLProps } from '../../../types';
+import { cn } from '../../../utils';
+import { HiddenInput } from '../../helpers';
+import { Typography } from '../../Typography';
 
 const isValueEqualToGroupValueOrFalsy = (
   value: unknown,

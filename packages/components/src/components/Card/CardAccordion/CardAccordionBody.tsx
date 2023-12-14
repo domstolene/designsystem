@@ -8,12 +8,10 @@ import {
 } from 'react';
 import styled, { css } from 'styled-components';
 import {
-  useIsMounted,
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
   Nullable,
-} from '@norges-domstoler/dds-core';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
+} from '../../../types';
 
 import {
   cardAccordionTokens as tokens,
@@ -21,6 +19,8 @@ import {
 } from './CardAccordion.tokens';
 import { useElementHeight } from './useElementHeight';
 import { useCardAccordionContext } from './CardAccordionContext';
+import { useIsMounted } from '../../../hooks';
+import { getFontStyling } from '../../Typography';
 
 const expandingAnimation = css`
   @media (prefers-reduced-motion: no-preference) {

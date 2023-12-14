@@ -1,6 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { InternalHeader, InternalHeaderProps } from '.';
-import { EditIcon } from '@norges-domstoler/dds-icons';
+import { EditIcon } from '../Icon/icons';
 
 export default {
   title: 'dds-components/InternalHeader',

@@ -9,17 +9,6 @@ import {
   useEffect,
 } from 'react';
 import styled from 'styled-components';
-import {
-  focusVisibleTransitionValue,
-  focusVisible,
-} from '@norges-domstoler/dds-form';
-import {
-  removeButtonStyling,
-  derivativeIdGenerator,
-  spaceSeparatedIdListGenerator,
-  AnimatedChevronUpDown,
-} from '@norges-domstoler/dds-core';
-
 import { Table } from '..';
 import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
 import { VisuallyHidden } from '../../VisuallyHidden';
@@ -28,6 +17,16 @@ import { useCollapsibleTableContext } from './Table.context';
 import { TableRowProps } from '../Table.types';
 import { StyledRow } from '../Table.styles';
 import { tableTokens } from '../Table.tokens';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator,
+} from '../../../utils';
+import {
+  removeButtonStyling,
+  AnimatedChevronUpDown,
+  focusVisible,
+  focusVisibleTransitionValue,
+} from '../../helpers';
 
 const { collapseButton } = tableTokens;
 

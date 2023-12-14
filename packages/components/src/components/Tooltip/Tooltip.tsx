@@ -10,23 +10,16 @@ import React, {
   useState,
 } from 'react';
 import {
-  Placement,
-  useCombinedRef,
-  useOnKeyDown,
-  useFloatPosition,
-} from '@norges-domstoler/dds-core';
-import {
-  BaseComponentProps,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { combineHandlers } from '@norges-domstoler/dds-core';
-import {
   ArrowWrapper,
   Container,
   SvgArrow,
   TooltipWrapper,
 } from './Tooltip.styles';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
+import { Placement } from '@floating-ui/react-dom';
+import { useFloatPosition, useCombinedRef, useOnKeyDown } from '../../hooks';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { combineHandlers } from '../../utils';
 
 const { svgArrow } = tokens;
 

@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { BaseComponentProps } from '@norges-domstoler/dds-core';
+import { BaseComponentProps } from '../../../types';
 
 export type CheckboxPickedHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,

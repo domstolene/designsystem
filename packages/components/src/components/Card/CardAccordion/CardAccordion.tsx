@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {
   BaseComponentPropsWithChildren,
   getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
+} from '../../../types';
 import { CardAccordionContextProvider } from './CardAccordionContext';
 
 const Wrapper = styled.div``;

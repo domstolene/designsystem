@@ -6,8 +6,8 @@ import {
   InputSize,
   InputTypographyTypes,
   inputTypographyTypes,
-} from '@norges-domstoler/dds-form';
-import { StaticTypographyType } from '@norges-domstoler/dds-typography';
+} from '../helpers';
+import { StaticTypographyType } from '../Typography';
 
 const { colors, spacing, borderRadius, border } = ddsBaseTokens;
 

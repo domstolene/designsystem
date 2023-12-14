@@ -1,7 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
 import { useState } from 'react';
-import { NotificationsIcon } from '@norges-domstoler/dds-icons';
+import { NotificationsIcon } from '../Icon/icons';
 
 export default {
   title: 'dds-components/Tabs',

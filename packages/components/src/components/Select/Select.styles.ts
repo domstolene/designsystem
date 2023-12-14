@@ -1,18 +1,18 @@
 import { GroupBase, StylesConfig } from 'react-select';
 import styled, { css } from 'styled-components';
-import { selection } from '@norges-domstoler/dds-core';
 import { scrollbarStyling } from '../ScrollableContainer';
 import { selectTokens as tokens, typographyTypes } from './Select.tokens';
 import { Property } from 'csstype';
-import { Icon } from '@norges-domstoler/dds-icons';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
 import {
   InputSize,
   dangerInputfield,
-  hoverDangerInputfield,
   focusInputfield,
+  hoverDangerInputfield,
   hoverInputfield,
-} from '@norges-domstoler/dds-form';
+  selection,
+} from '../helpers';
+import { Icon } from '../Icon';
+import { getFontStyling } from '../Typography';
 
 const {
   control,

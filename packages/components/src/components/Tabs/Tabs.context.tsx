@@ -1,5 +1,5 @@
 import { createContext, RefObject, useContext } from 'react';
-import { Direction } from '@norges-domstoler/dds-core';
+import { Direction } from '../../types';
 
 interface Tabs {
   activeTab: number;

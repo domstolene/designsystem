@@ -15,13 +15,11 @@ import {
   cn,
   normalizeButton,
   selection,
-} from '@norges-domstoler/dds-components';
-import {
   InputProps,
   StatefulInput,
   StyledInputProps,
   focusVisible,
-} from '@norges-domstoler/dds-form';
+} from '@norges-domstoler/dds-components';
 
 import { DateSegment } from './DateSegment';
 import { datePickerTokens } from '../DatePicker.tokens';

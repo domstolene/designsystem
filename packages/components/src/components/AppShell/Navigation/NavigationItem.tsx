@@ -1,15 +1,12 @@
 import styled from 'styled-components';
-import { type PropsOf, type As } from '@norges-domstoler/dds-core';
-import {
-  Icon,
-  SvgIcon,
-  ChevronRightIcon,
-  OpenExternalIcon,
-} from '@norges-domstoler/dds-icons';
 import { type MouseEventHandler } from 'react';
 
 import { appShellTokens } from '../AppShell.tokens';
 import { useAppShellContext } from '../AppShellContext';
+import { type As, type PropsOf } from '../../../types';
+import { Icon } from '../../Icon';
+import { OpenExternalIcon, ChevronRightIcon } from '../../Icon/icons';
+import { SvgIcon } from '../../Icon/utils';
 
 const { navigation: navTokens } = appShellTokens;
 

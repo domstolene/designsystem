@@ -1,10 +1,4 @@
 import { forwardRef, TextareaHTMLAttributes, useId, useRef } from 'react';
-import { EditIcon } from '@norges-domstoler/dds-icons';
-import { Icon } from '@norges-domstoler/dds-icons';
-import {
-  derivativeIdGenerator,
-  spaceSeparatedIdListGenerator,
-} from '@norges-domstoler/dds-core';
 import {
   IconWrapper,
   defaultWidth,
@@ -12,12 +6,15 @@ import {
 } from './InlineEdit.styles';
 import { BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
-import { useCombinedRef } from '@norges-domstoler/dds-core';
 import { renderInputMessage } from '../../utils/renderInputMessage';
+import { useCombinedRef } from '../../hooks';
 import {
-  OuterInputContainer,
-  InputContainer,
-} from '@norges-domstoler/dds-form';
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator,
+} from '../../utils';
+import { OuterInputContainer, InputContainer } from '../helpers';
+import { Icon } from '../Icon';
+import { EditIcon } from '../Icon/icons';
 
 export type InlineTextAreaProps = BaseInlineInputProps &
   TextareaHTMLAttributes<HTMLTextAreaElement>;

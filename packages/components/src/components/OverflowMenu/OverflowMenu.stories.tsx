@@ -7,7 +7,7 @@ import {
 } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Button } from '../Button';
-import { MenuIcon, PlusCircledIcon } from '@norges-domstoler/dds-icons';
+import { PlusCircledIcon, MenuIcon } from '../Icon/icons';
 
 export default {
   title: 'dds-components/OverflowMenu',

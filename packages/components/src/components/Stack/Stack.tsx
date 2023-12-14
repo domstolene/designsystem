@@ -2,11 +2,8 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { stackTokens } from './Stack.tokens';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 import { StandardProperties } from 'csstype';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 export interface StackStyleProps {
   /**

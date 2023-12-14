@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { inlineEditTokens } from './InlineEdit.tokens';
 import { Property } from 'csstype';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { StatefulInput, StyledInputProps } from '@norges-domstoler/dds-form';
+import { StyledInputProps, StatefulInput } from '../helpers';
 
 const { inlineEdit, iconWrapper } = inlineEditTokens;
 

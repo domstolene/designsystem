@@ -6,9 +6,9 @@ import {
   DescriptionListProps,
 } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Typography } from '@norges-domstoler/dds-typography';
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
-import { CallIcon } from '@norges-domstoler/dds-icons';
+import { CallIcon } from '../Icon/icons';
+import { Typography } from '../Typography';
 
 export default {
   title: 'dds-components/DescriptionList',

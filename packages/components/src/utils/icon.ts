@@ -1,5 +1,5 @@
-import { InputSize } from '@norges-domstoler/dds-form';
-import { IconSize } from '@norges-domstoler/dds-icons';
+import { InputSize } from '../components/helpers';
+import { IconSize } from '../components/Icon';
 
 export const getFormInputIconSize = (componentSize: InputSize): IconSize => {
   switch (componentSize) {

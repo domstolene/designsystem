@@ -4,21 +4,7 @@ import React, {
   useId,
   useRef,
   useLayoutEffect,
-  ComponentProps,
 } from 'react';
-import { Label } from '@norges-domstoler/dds-typography';
-import {
-  derivativeIdGenerator,
-  spaceSeparatedIdListGenerator,
-} from '@norges-domstoler/dds-core';
-import {
-  InputSize,
-  getDefaultText,
-  InputContainer,
-  InputAffixContainer,
-  StatefulInput,
-  OuterInputContainer,
-} from '@norges-domstoler/dds-form';
 import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
 
@@ -28,6 +14,19 @@ import { getFormInputIconSize } from '../../utils/icon';
 import CharCounter from './CharCounter';
 import { TextAffixProps, TextInputProps } from './TextInput.types';
 import { MessageContainer, StyledIcon, StyledInput } from './TextInput.styles';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator,
+} from '../../utils';
+import {
+  InputSize,
+  getDefaultText,
+  InputContainer,
+  InputAffixContainer,
+  StatefulInput,
+  OuterInputContainer,
+} from '../helpers';
+import { Label } from '../Typography';
 
 const defaultWidth: Property.Width<string> = '320px';
 const defaultTinyWidth: Property.Width<string> = '210px';

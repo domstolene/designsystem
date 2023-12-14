@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { BaseComponentPropsWithChildren } from '@norges-domstoler/dds-core';
+import { BaseComponentPropsWithChildren } from '../../../types';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,

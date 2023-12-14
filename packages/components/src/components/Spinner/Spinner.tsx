@@ -1,12 +1,9 @@
 import React, { useId } from 'react';
 import styled from 'styled-components';
 import { Property } from 'csstype';
-import { getTextColor, TextColor } from '@norges-domstoler/dds-core';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import {
-  BaseComponentProps,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { getTextColor, TextColor } from '../../utils';
 
 const StyledSpinner = styled.svg<{
   $size: SpinnerProps['size'];

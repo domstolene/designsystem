@@ -27,14 +27,12 @@ import {
   DrawerGroupProps,
   StackProps,
   Button,
-} from '@norges-domstoler/dds-components';
-import {
   HeadingProps,
   LabelProps,
   LinkProps,
   ParagraphProps,
   TypographyProps,
-} from '@norges-domstoler/dds-typography';
+} from '@norges-domstoler/dds-components';
 import { PageGeneratorSupportedFields } from './PageGeneratorSupportedFields';
 import { ComponentProps } from 'react';
 import { SectionGeneratorRow } from './SectionGeneratorRow';

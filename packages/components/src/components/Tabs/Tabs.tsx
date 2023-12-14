@@ -7,13 +7,13 @@ import {
   useRef,
   useState,
 } from 'react';
+import { TabsContext } from './Tabs.context';
+import { Property } from 'csstype';
 import {
   BaseComponentPropsWithChildren,
   Direction,
   getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { TabsContext } from './Tabs.context';
-import { Property } from 'csstype';
+} from '../../types';
 
 interface ContainerProps {
   $width?: Property.Width;

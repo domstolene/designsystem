@@ -1,10 +1,10 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { hoverInputfield, dangerInputfield } from '@norges-domstoler/dds-form';
 
 import {
   selectionControlSize,
   selectionControlSizeNumberPx,
 } from './SelectionControl.utils';
+import { hoverInputfield, dangerInputfield } from '../helpers';
 
 const { colors, spacing, borderRadius } = ddsBaseTokens;
 

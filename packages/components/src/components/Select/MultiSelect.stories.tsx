@@ -1,7 +1,7 @@
-import { CourtIcon } from '@norges-domstoler/dds-icons';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import { Select as DDSSelect, SelectProps } from './Select';
+import { CourtIcon } from '../Icon/icons';
 
 export default {
   title: 'dds-components/Select/MultiSelect',

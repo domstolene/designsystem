@@ -1,11 +1,9 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
 import { descriptionListTokens as tokens } from './DescriptionList.tokens';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
-import { Icon, SvgIcon } from '@norges-domstoler/dds-icons';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { Icon } from '../Icon';
+import { SvgIcon } from '../Icon/utils';
 
 const DListDesc = styled.dd`
   margin-inline-start: 0;

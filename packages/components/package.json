@@ -64,10 +64,6 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.4",
-    "@norges-domstoler/dds-core": "workspace:*",
-    "@norges-domstoler/dds-form": "workspace:*",
-    "@norges-domstoler/dds-icons": "workspace:*",
-    "@norges-domstoler/dds-typography": "workspace:*",
     "@norges-domstoler/development-utils": "workspace:*",
     "attr-accept": "^2.2.2",
     "file-selector": "^0.6.0",

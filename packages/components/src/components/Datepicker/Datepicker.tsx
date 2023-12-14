@@ -1,22 +1,22 @@
 import { forwardRef, useId } from 'react';
-import {
-  derivativeIdGenerator,
-  spaceSeparatedIdListGenerator,
-  selection,
-} from '@norges-domstoler/dds-core';
-import { Label } from '@norges-domstoler/dds-typography';
 import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
 import CalendarIcon from './calendar_today.svg';
-import {
-  StatefulInput,
-  OuterInputContainer,
-  InputSize,
-  InputProps,
-} from '@norges-domstoler/dds-form';
 
 import { datepickerTokens as tokens } from './Datepicker.tokens';
 import { renderInputMessage } from '../../utils/renderInputMessage';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator,
+} from '../../utils';
+import {
+  InputProps,
+  InputSize,
+  OuterInputContainer,
+  StatefulInput,
+  selection,
+} from '../helpers';
+import { Label } from '../Typography';
 
 const StyledInput = styled(StatefulInput)<Pick<InputProps, 'componentSize'>>`
   &::-webkit-calendar-picker-indicator {

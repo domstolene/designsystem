@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { icons } from '@norges-domstoler/dds-icons';
+import { icons } from '../..';
 
 export default {
   title: 'dds-components/Button',

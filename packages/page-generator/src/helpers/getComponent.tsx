@@ -29,14 +29,12 @@ import {
   HStack,
   VStack,
   SelectOption,
-} from '@norges-domstoler/dds-components';
-import {
   Heading,
   Label,
   Link,
   Paragraph,
   Typography,
-} from '@norges-domstoler/dds-typography';
+} from '@norges-domstoler/dds-components';
 import { PageGeneratorField, PageGeneratorSupportedFields } from '../types';
 import { MultiValue, SingleValue } from 'react-select';
 import { FocusEvent, ChangeEvent } from 'react';

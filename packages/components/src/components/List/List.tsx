@@ -3,17 +3,11 @@ import styled, { css } from 'styled-components';
 import bulletLvl1 from './bullets/jordskifterett_bullet1.svg';
 import bulletLvl2 from './bullets/lagmannsrett_bullet2.svg';
 import bulletLvl3 from './bullets/tingrett_bullet3.svg';
-import {
-  TypographyBodyType,
-  getFontStyling,
-} from '@norges-domstoler/dds-typography';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-  selection,
-} from '@norges-domstoler/dds-core';
 
 import { listTokens as tokens } from './List.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { selection } from '../helpers';
+import { getFontStyling, TypographyBodyType } from '../Typography';
 
 const { list, listItem, bullet } = tokens;
 

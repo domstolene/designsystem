@@ -1,11 +1,11 @@
 import { ElementType, forwardRef, MouseEvent } from 'react';
-import { Icon } from '@norges-domstoler/dds-icons';
-import { getBaseHTMLProps } from '@norges-domstoler/dds-core';
 
 import { buttonTokens as tokens } from './Button.tokens';
 import { Spinner } from '../Spinner';
 import { ButtonProps } from './Button.types';
 import { ButtonWrapper, StyledIconWrapperSpan, Label } from './Button.styles';
+import { getBaseHTMLProps } from '../../types';
+import { Icon } from '../Icon';
 
 const {
   button: { sizes, appearances },

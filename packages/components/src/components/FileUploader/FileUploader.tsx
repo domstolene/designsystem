@@ -1,11 +1,5 @@
 import { useId } from 'react';
 import styled from 'styled-components';
-import { UploadIcon } from '@norges-domstoler/dds-icons';
-import {
-  derivativeIdGenerator,
-  spaceSeparatedIdListGenerator,
-} from '@norges-domstoler/dds-core';
-import { Label } from '@norges-domstoler/dds-typography';
 import { Button } from '../Button';
 import { InputMessage } from '../InputMessage';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -15,6 +9,12 @@ import { rootTokens } from './FileUploader.tokens';
 import { FileList } from './types';
 import { FileUploaderHookProps, useFileUploader } from './useFileUploader';
 import { Property } from 'csstype';
+import {
+  derivativeIdGenerator,
+  spaceSeparatedIdListGenerator,
+} from '../../utils';
+import { UploadIcon } from '../Icon/icons';
+import { Label } from '../Typography';
 
 const defaultWidth: Property.Width<string> = '320px';
 

@@ -1,5 +1,5 @@
 import { useContext, createContext } from 'react';
-import { ScreenSize } from '@norges-domstoler/dds-core';
+import { ScreenSize } from '../../hooks';
 
 export interface GridContextProps {
   screenSize: ScreenSize;

@@ -1,5 +1,5 @@
-import { Nullable } from '@norges-domstoler/dds-core';
 import React, { ChangeEvent, useContext } from 'react';
+import { Nullable } from '../../../types';
 
 export interface RadioButtonGroup {
   disabled: boolean;

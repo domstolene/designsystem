@@ -8,20 +8,20 @@ import {
   useState,
 } from 'react';
 import { RadioButtonGroupContext } from './RadioButtonGroupContext';
-import { Typography } from '@norges-domstoler/dds-typography';
-import {
-  combineHandlers,
-  RequiredMarker,
-  BaseComponentPropsWithChildren,
-  Direction,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 
 import { renderInputMessage } from '../../../utils/renderInputMessage';
 import {
   GroupContainer,
   OuterGroupContainer,
 } from '../SelectionControl.styles';
+import {
+  BaseComponentPropsWithChildren,
+  Direction,
+  getBaseHTMLProps,
+} from '../../../types';
+import { combineHandlers } from '../../../utils';
+import { RequiredMarker } from '../../helpers';
+import { Typography } from '../../Typography';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<

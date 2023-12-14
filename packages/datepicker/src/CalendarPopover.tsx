@@ -7,15 +7,15 @@ import {
   useEffect,
   useRef,
 } from 'react';
-import {
-  useCombinedRef,
-  useFloatPosition,
-  useOnClickOutside,
-  useOnKeyDown,
-} from '@norges-domstoler/dds-core';
 import styled from 'styled-components';
 
 import { calendarTokens } from './Calendar/Calendar.tokens';
+import {
+  useOnKeyDown,
+  useFloatPosition,
+  useCombinedRef,
+  useOnClickOutside,
+} from '@norges-domstoler/dds-components';
 const { popover: popoverTokens } = calendarTokens;
 
 /**------------------------------------------------------------------------

@@ -1,11 +1,8 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  selection,
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 import { descriptionListTokens as tokens } from './DescriptionList.tokens';
+import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import { selection } from '../helpers';
 
 const { term, desc, list } = tokens;
 

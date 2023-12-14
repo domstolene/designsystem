@@ -1,20 +1,17 @@
 import { useMemo } from 'react';
 import styled, { css } from 'styled-components';
-import { CheckIcon } from '@norges-domstoler/dds-icons';
-import { SvgIcon } from '@norges-domstoler/dds-icons';
-import { BaseComponentPropsWithChildren } from '@norges-domstoler/dds-core';
-import { Icon } from '@norges-domstoler/dds-icons';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 import { useProgressTrackerContext } from './ProgressTracker.context';
 import {
   progressTrackerTokens,
   typographyTypes,
 } from './ProgressTracker.tokens';
-import {
-  focusVisibleTransitionValue,
-  focusVisible,
-} from '@norges-domstoler/dds-form';
+import { BaseComponentPropsWithChildren } from '../../types';
+import { Icon } from '../Icon';
+import { CheckIcon } from '../Icon/icons';
+import { SvgIcon } from '../Icon/utils';
+import { getFontStyling } from '../Typography';
+import { focusVisibleTransitionValue, focusVisible } from '../helpers';
 
 type ItemState =
   | 'activeCompleted'

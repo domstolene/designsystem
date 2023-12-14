@@ -1,23 +1,17 @@
 import styled from 'styled-components';
-import { removeListStyling } from '@norges-domstoler/dds-core';
 import {
   OverflowMenuItem,
   OverflowMenuItemProps,
 } from '../OverflowMenu/OverflowMenuItem';
 import { searchTokens as tokens, typographyTypes } from './Search.tokens';
-import { Paper } from '@norges-domstoler/dds-core';
 import { SearchProps, SearchSize } from './Search';
-import { Typography } from '@norges-domstoler/dds-typography';
-import { getFontStyling } from '@norges-domstoler/dds-typography';
-import {
-  BaseComponentProps,
-  getBaseHTMLProps,
-} from '@norges-domstoler/dds-core';
 import { forwardRef, MouseEvent } from 'react';
-import { useRoveFocus } from '@norges-domstoler/dds-core';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { visibilityTransition } from '@norges-domstoler/dds-core';
-import { derivativeIdGenerator } from '@norges-domstoler/dds-core';
+import { useRoveFocus } from '../../hooks';
+import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { derivativeIdGenerator } from '../../utils';
+import { Paper, visibilityTransition, removeListStyling } from '../helpers';
+import { getFontStyling, Typography } from '../Typography';
 
 const { suggestionsContainer, suggestionsHeader } = tokens;
 
