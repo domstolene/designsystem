@@ -1,4 +1,4 @@
-import { ComponentProps, RefObject, useRef } from 'react';
+import { ComponentProps, Ref, forwardRef, useRef } from 'react';
 import {
   AriaDateFieldOptions,
   useDateField,
@@ -27,7 +27,6 @@ import { locale } from '../constants';
 
 export type DateFieldProps<T extends DateValue> = AriaDateFieldOptions<T> & {
   className?: string;
-  containerRef?: RefObject<HTMLDivElement>;
   buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
 } & Pick<
     InputProps,
@@ -105,15 +104,17 @@ const CalendarButton = styled.button<{
   }
 `;
 
-export function DateField<T extends DateValue>({
-  errorMessage,
-  tip,
-  componentSize = 'medium',
-  containerRef,
-  style,
-  buttonProps: { onPress, ...buttonProps } = {},
-  ...props
-}: DateFieldProps<T>) {
+function _DateField<T extends DateValue>(
+  {
+    errorMessage,
+    tip,
+    componentSize = 'medium',
+    style,
+    buttonProps: { onPress, ...buttonProps } = {},
+    ...props
+  }: DateFieldProps<T>,
+  forwardedRef: Ref<HTMLDivElement> = { current: null },
+) {
   const state = useDateFieldState({
     ...props,
     locale,
@@ -130,7 +131,7 @@ export function DateField<T extends DateValue>({
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
   return (
-    <DateFieldContainer className={props.className} ref={containerRef}>
+    <DateFieldContainer className={props.className} ref={forwardedRef}>
       {hasLabel && (
         <Label {...labelProps} showRequiredStyling={props.isRequired}>
           {props.label}
@@ -196,4 +197,5 @@ export function DateField<T extends DateValue>({
   );
 }
 
+export const DateField = forwardRef(_DateField);
 DateField.displayName = 'DateField';
