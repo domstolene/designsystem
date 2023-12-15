@@ -14,7 +14,7 @@ const {
 } = datePickerTokens;
 
 interface DateSegmentProps
-  extends Pick<Required<DatePickerProps<DateValue>>, 'componentSize'> {
+  extends Pick<Required<DatePickerProps>, 'componentSize'> {
   segment: DateSegmentType;
   state: DateFieldState;
 }

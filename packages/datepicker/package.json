@@ -59,8 +59,10 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-components": "workspace:*",
+    "@react-aria/button": "^3.9.0",
     "@react-aria/calendar": "^3.5.3",
     "@react-aria/datepicker": "^3.9.0",
+    "@react-aria/focus": "^3.15.0",
     "@react-stately/calendar": "^3.4.2",
     "@react-stately/datepicker": "^3.9.0"
   },
