@@ -17,8 +17,10 @@ export type FocusableRef<T extends HTMLElement = HTMLElement> = Ref<
   FocusableRefValue<T>
 >;
 
-export function useFocusManagerRef(ref: FocusableRef<HTMLElement>) {
-  const domRef = useRef(null);
+export function useFocusManagerRef<T extends HTMLElement = HTMLElement>(
+  ref: Ref<unknown>,
+) {
+  const domRef = useRef<T>(null);
   useImperativeHandle(ref, () => ({
     ...createDOMRef(domRef),
     focus() {

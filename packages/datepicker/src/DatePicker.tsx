@@ -1,6 +1,6 @@
 import { useDatePickerState } from '@react-stately/datepicker';
 import { useDatePicker } from '@react-aria/datepicker';
-import type { DateValue, AriaDatePickerProps } from '@react-types/datepicker';
+import type { AriaDatePickerProps } from '@react-types/datepicker';
 import { Ref, forwardRef, useRef } from 'react';
 import { useCombinedRef } from '@norges-domstoler/dds-components';
 import { DateField, DateFieldProps } from './DateField/DateField';
@@ -12,6 +12,7 @@ import {
 } from './CalendarPopover';
 import { CalendarDate } from '@internationalized/date';
 import {
+  FocusableRef,
   FocusableRefValue,
   useFocusManagerRef,
 } from './utils/useFocusManagerRef';
@@ -23,10 +24,16 @@ export interface DatePickerProps
   errorMessage?: string;
 }
 
-export const DatePicker = forwardRef<FocusableRefValue, DatePickerProps>(
+const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
+  return typeof ref === 'object' && ref !== null && 'focus' in ref;
+};
+
+export const DatePicker = forwardRef<HTMLElement, DatePickerProps>(
   ({ errorMessage, componentSize, tip, style, ...props }, forwardedRef) => {
     const state = useDatePickerState(props);
-    const domRef = useFocusManagerRef(forwardedRef);
+    const domRef = useFocusManagerRef(
+      refIsFocusable(forwardRef) ? forwardedRef : null,
+    );
     const ref = useRef<HTMLElement>(null);
     const combinedRef = useCombinedRef(ref, domRef);
     const { buttonProps, calendarProps, fieldProps } = useDatePicker(

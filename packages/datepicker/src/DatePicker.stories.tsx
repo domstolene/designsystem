@@ -203,10 +203,10 @@ export const CustomWidth = (args: Partial<DatePickerProps>) => {
 };
 
 export const ControlFocus = (args: Partial<DatePickerProps>) => {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLElement>(null);
   return (
     <VStack gap="layout-x1">
-      <DatePicker label="Dato" {...args} ref={ref as any} />
+      <DatePicker label="Dato" {...args} ref={ref} />
       <Button onClick={() => ref.current?.focus()}>Fokuser DatePicker</Button>
     </VStack>
   );
@@ -215,7 +215,8 @@ export const ControlFocus = (args: Partial<DatePickerProps>) => {
 export const InsideModal = (args: Partial<DatePickerProps>) => {
   const [isOpen, setOpen] = useState(true);
   return (
-    <StoryTemplate title="DatePicker - disabled">
+    <StoryTemplate title="DatePicker - modal">
+      <Button onClick={() => setOpen(true)}>Åpne modal</Button>
       <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
         <DatePicker label="Dato" {...args} />
       </Modal>
