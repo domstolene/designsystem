@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-datepicker
 
+## 0.3.0
+
+### Minor Changes
+
+- 9b52bfd: Legge til mulighet for å sende inn ref til DatePicker
+
+### Patch Changes
+
+- 4634c63: Samle alle interne pakker tilbake inn i dds-components
+- Updated dependencies [4634c63]
+  - @norges-domstoler/dds-components@13.11.4
+
 ## 0.2.2
 
 ### Patch Changes

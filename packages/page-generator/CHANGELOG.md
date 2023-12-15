@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-page-generator
 
+## 2.7.8
+
+### Patch Changes
+
+- 4634c63: Samle alle interne pakker tilbake inn i dds-components
+- Updated dependencies [4634c63]
+  - @norges-domstoler/dds-components@13.11.4
+
 ## 2.7.7
 
 ### Patch Changes

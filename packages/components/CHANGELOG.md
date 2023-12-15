@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.11.4
+
+### Patch Changes
+
+- 4634c63: Samle alle interne pakker tilbake inn i dds-components
+
 ## 13.11.3
 
 ### Patch Changes
