@@ -7,17 +7,15 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      defaultValue: 'Forrige nivå',
     },
     href: {
       control: 'text',
-      defaultValue: '/',
     },
   },
 };
 
-export const Default = (args: BackLinkProps) => (
+export const Default = (args: Partial<BackLinkProps>) => (
   <StoryTemplate title="BackLink - default">
-    <BackLink {...args} />
+    <BackLink label="Forrige nivå" href="?" {...args} />
   </StoryTemplate>
 );
