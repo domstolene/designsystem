@@ -39,7 +39,7 @@
   "devDependencies": {
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@storybook/blocks": "^7.6.5",
+    "@storybook/blocks": "^7.6.6",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
@@ -54,7 +54,7 @@
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
-    "vitest": "^1.0.4"
+    "vitest": "^1.1.0"
   },
   "peerDependencies": {
     "@norges-domstoler/dds-design-tokens": "^3.0.3",

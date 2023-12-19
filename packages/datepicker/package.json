@@ -37,7 +37,7 @@
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
     "@react-types/datepicker": "^3.7.0",
-    "@storybook/blocks": "^7.6.5",
+    "@storybook/blocks": "^7.6.6",
     "@testing-library/jest-dom": "^6.1.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
@@ -48,7 +48,7 @@
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
-    "vitest": "^1.0.4"
+    "vitest": "^1.1.0"
   },
   "peerDependencies": {
     "@internationalized/date": "^3",
