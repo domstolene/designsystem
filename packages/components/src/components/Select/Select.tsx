@@ -1,21 +1,13 @@
 import React, { HTMLAttributes, ReactNode, useId } from 'react';
 import { Property } from 'csstype';
 import {
-  ClearIndicatorProps,
-  components,
-  DropdownIndicatorProps,
   default as ReactSelect,
   GroupBase,
-  InputProps,
-  NoticeProps,
   OptionProps,
   Props as ReactSelectProps,
   SelectInstance,
   SingleValueProps,
-  MultiValueRemoveProps,
-  ControlProps,
 } from 'react-select';
-import { getFormInputIconSize } from '../../utils/icon';
 import { renderInputMessage } from '../../utils/renderInputMessage';
 import { WithRequiredIf } from '../../types';
 import {
@@ -23,128 +15,26 @@ import {
   searchFilter,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { Icon } from '../Icon';
-import { CheckIcon, CloseSmallIcon, ChevronDownIcon } from '../Icon/icons';
 import { SvgIcon } from '../Icon/utils';
 import { Label } from '../Typography';
 import { InputSize } from '../helpers';
+import { prefix, getCustomStyles, Container } from './Select.styles';
 import {
-  InnerSingleValue,
-  StyledIcon,
-  prefix,
-  getCustomStyles,
-  Container,
-} from './Select.styles';
-
-const {
-  Option,
-  NoOptionsMessage,
-  Input,
-  SingleValue,
-  ClearIndicator,
-  DropdownIndicator,
-  MultiValueRemove,
-  Control,
-} = components;
+  CustomOption,
+  DDSNoOptionsMessage,
+  DDSInput,
+  CustomSingleValue,
+  DDSClearIndicator,
+  DDSDropdownIndicator,
+  DDSMultiValueRemove,
+  DDSControl,
+  DDSOption,
+} from './SelectComponents';
 
 export interface SelectOption<TValue = unknown> {
   label: string | number;
   value: TValue;
 }
-
-export const createSelectOptions = <TValue extends string | number>(
-  ...args: TValue[]
-): SelectOption<TValue>[] => args.map(v => ({ label: v, value: v }));
-
-const DDSOption = <TValue, IsMulti extends boolean>(
-  props: OptionProps<TValue, IsMulti>,
-  componentSize: InputSize,
-) => (
-  <Option {...props}>
-    {props.isSelected && (
-      <Icon icon={CheckIcon} iconSize={getFormInputIconSize(componentSize)} />
-    )}
-    {props.children}
-  </Option>
-);
-
-const CustomOption = <TValue, IsMulti extends boolean>(
-  props: OptionProps<TValue, IsMulti>,
-  Element: (props: OptionProps<TValue, IsMulti>) => JSX.Element,
-) => (
-  <Option {...props}>
-    <Element {...props} />
-  </Option>
-);
-
-const CustomSingleValue = <TOption, IsMulti extends boolean>(
-  props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
-  id?: string,
-  Element?: (
-    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
-  ) => JSX.Element,
-) => (
-  <SingleValue {...props}>
-    <InnerSingleValue id={id}>
-      {Element ? <Element {...props} /> : props.children}
-    </InnerSingleValue>
-  </SingleValue>
-);
-
-const DDSNoOptionsMessage = <TValue, IsMulti extends boolean>(
-  props: NoticeProps<TValue, IsMulti>,
-) => <NoOptionsMessage {...props}>Ingen treff</NoOptionsMessage>;
-
-const DDSClearIndicator = <TValue, IsMulti extends boolean>(
-  props: ClearIndicatorProps<TValue, IsMulti>,
-  size: InputSize,
-) => (
-  <ClearIndicator {...props}>
-    <Icon icon={CloseSmallIcon} iconSize={getFormInputIconSize(size)} />
-  </ClearIndicator>
-);
-
-const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
-  props: MultiValueRemoveProps<TValue, IsMulti>,
-) => (
-  <MultiValueRemove {...props}>
-    <Icon icon={CloseSmallIcon} iconSize="small" />
-  </MultiValueRemove>
-);
-
-const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
-  props: DropdownIndicatorProps<TValue, IsMulti>,
-  size: InputSize,
-) => (
-  <DropdownIndicator {...props}>
-    <Icon icon={ChevronDownIcon} iconSize={getFormInputIconSize(size)} />
-  </DropdownIndicator>
-);
-
-const DDSInput = <TOption, IsMulti extends boolean>(
-  props: InputProps<TOption, IsMulti>,
-  ariaInvalid: boolean,
-  ariaDescribedby?: string,
-) => (
-  <Input
-    {...props}
-    aria-invalid={ariaInvalid}
-    aria-describedby={ariaDescribedby}
-  />
-);
-
-const DDSControl = <TValue, IsMulti extends boolean>(
-  props: ControlProps<TValue, IsMulti>,
-  componentSize: InputSize,
-  icon?: SvgIcon,
-) => (
-  <Control {...props}>
-    {icon && (
-      <StyledIcon icon={icon} iconSize={getFormInputIconSize(componentSize)} />
-    )}
-    {props.children}
-  </Control>
-);
 
 const defaultWidth: Property.Width<string> = '320px';
 
@@ -159,21 +49,16 @@ const getPlaceholder = (
       : '-- Velg fra listen --';
 
 type WrappedReactSelectProps<
-  TOption extends SelectOption<TValue>,
+  Option,
   IsMulti extends boolean,
-  Group extends GroupBase<TOption>,
-  TValue = unknown,
+  Group extends GroupBase<Option>,
 > = WithRequiredIf<
-  TOption extends SelectOption ? false : true,
-  ReactSelectProps<TOption, IsMulti, Group>,
+  Option extends SelectOption ? false : true,
+  ReactSelectProps<Option, IsMulti, Group>,
   'getOptionLabel' | 'getOptionValue'
 >;
 
-export type SelectProps<
-  TOption extends SelectOption<TValue>,
-  IsMulti extends boolean,
-  TValue = unknown,
-> = {
+export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   /**Ledetekst for nedtrekkslisten. */
   label?: string;
   /**Størrelsen på komponenten. */
@@ -193,26 +78,22 @@ export type SelectProps<
   /** Inline styling. */
   style?: React.CSSProperties;
   customOptionElement?: (
-    props: OptionProps<TOption, IsMulti, GroupBase<TOption>>,
+    props: OptionProps<Option, IsMulti, GroupBase<Option>>,
   ) => JSX.Element;
   customSingleValueElement?: (
-    props: SingleValueProps<TOption, IsMulti, GroupBase<TOption>>,
+    props: SingleValueProps<Option, IsMulti, GroupBase<Option>>,
   ) => JSX.Element;
 } & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
-  WrappedReactSelectProps<TOption, IsMulti, GroupBase<TOption>>;
+  WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 
-type ForwardRefType<TOption, IsMulti extends boolean> = React.ForwardedRef<
-  SelectInstance<TOption, IsMulti, GroupBase<TOption>>
+type ForwardRefType<Option, IsMulti extends boolean> = React.ForwardedRef<
+  SelectInstance<Option, IsMulti, GroupBase<Option>>
 >;
 
-const SelectInner = <
-  TOption extends SelectOption<TValue>,
-  IsMulti extends boolean = false,
-  TValue = unknown,
->(
-  props: SelectProps<TOption, IsMulti>,
-  ref: ForwardRefType<TOption, IsMulti>,
-) => {
+function SelectInner<Option = unknown, IsMulti extends boolean = false>(
+  props: SelectProps<Option, IsMulti>,
+  ref: ForwardRefType<Option, IsMulti>,
+) {
   const {
     id,
     label,
@@ -262,9 +143,9 @@ const SelectInner = <
   };
 
   const reactSelectProps: ReactSelectProps<
-    TOption,
+    Option,
     IsMulti,
-    GroupBase<TOption>
+    GroupBase<Option>
   > = {
     options,
     value,
@@ -281,7 +162,7 @@ const SelectInner = <
     inputId: uniqueId,
     name: uniqueId,
     classNamePrefix: prefix,
-    styles: getCustomStyles<TOption>(componentSize),
+    styles: getCustomStyles<Option>(componentSize),
     filterOption: (option, inputValue) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';
@@ -324,7 +205,7 @@ const SelectInner = <
       {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
     </Container>
   );
-};
+}
 
 export const Select = React.forwardRef(SelectInner) as typeof SelectInner;
 
