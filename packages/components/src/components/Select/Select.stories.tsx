@@ -44,9 +44,7 @@ const optionsLong = createSelectOptions(
   'Alternativ 7',
 );
 
-type SingleSelectProps = SelectProps<SelectOption, false>;
-
-export const Overview = (args: SingleSelectProps) => {
+export const Overview = (args: SelectProps) => {
   return (
     <StoryTemplate
       title="Select - overview"
@@ -116,7 +114,7 @@ export const Overview = (args: SingleSelectProps) => {
   );
 };
 
-export const OverviewSizes = (args: SingleSelectProps) => {
+export const OverviewSizes = (args: SelectProps) => {
   return (
     <StoryTemplate
       title="Select - overview sizes"
@@ -148,7 +146,7 @@ export const OverviewSizes = (args: SingleSelectProps) => {
   );
 };
 
-export const Default = (args: SingleSelectProps) => {
+export const Default = (args: SelectProps) => {
   return (
     <StoryTemplate title="Select - default">
       <Select {...args} options={options} />
@@ -156,7 +154,7 @@ export const Default = (args: SingleSelectProps) => {
   );
 };
 
-export const WithGroups = (args: SingleSelectProps) => {
+export const WithGroups = (args: SelectProps) => {
   const groupedOptions = [
     {
       label: 'Gruppe 1',
@@ -180,7 +178,7 @@ export const WithGroups = (args: SingleSelectProps) => {
   );
 };
 
-export const WithLabel = (args: SingleSelectProps) => {
+export const WithLabel = (args: SelectProps) => {
   return (
     <StoryTemplate title="Select - with label">
       <Select {...args} label={args.label ?? 'Label'} options={options} />
@@ -188,10 +186,31 @@ export const WithLabel = (args: SingleSelectProps) => {
   );
 };
 
-export const ManyItems = (args: SingleSelectProps) => {
+export const ManyItems = (args: SelectProps) => {
   return (
     <StoryTemplate title="Select - many options">
       <Select {...args} label={args.label ?? 'Label'} options={optionsLong} />
+    </StoryTemplate>
+  );
+};
+
+export const CustomData = (
+  args: SelectProps<{ name: string; employeeId: number }>,
+) => {
+  const employees = [
+    { name: 'Petter', employeeId: 123 },
+    { name: 'Marianne', employeeId: 456 },
+    { name: 'Endre', employeeId: 789 },
+  ];
+  return (
+    <StoryTemplate title="Select - custom data">
+      <Select
+        {...args}
+        label={args.label ?? 'Saksbehandler'}
+        options={employees}
+        getOptionLabel={option => option.name}
+        getOptionValue={option => option.employeeId.toString()}
+      />
     </StoryTemplate>
   );
 };
