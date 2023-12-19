@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.11.5
+
+### Patch Changes
+
+- 76d0288: Utvide typestøtte for `options`-prop i Select til å støtte vilkårlige typer. Tidligere var det kun tillat med options av typen `{value: T, label: string}`.
+
 ## 13.11.4
 
 ### Patch Changes
