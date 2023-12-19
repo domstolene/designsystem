@@ -39,12 +39,12 @@
   "devDependencies": {
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@storybook/blocks": "^7.6.4",
+    "@storybook/blocks": "^7.6.5",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
     "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.17",
+    "@types/react-dom": "^18.2.18",
     "clean-package": "2.2.0",
     "csstype": "3.1.2",
     "jsdom": "^23.0.1",
@@ -53,7 +53,7 @@
     "styled-components": "^6.1.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
-    "vite": "^5.0.8",
+    "vite": "^5.0.10",
     "vitest": "^1.0.4"
   },
   "peerDependencies": {
