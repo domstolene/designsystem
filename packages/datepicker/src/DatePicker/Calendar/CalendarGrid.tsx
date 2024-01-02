@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { CalendarCell } from './CalendarCell';
 import { locale } from '../constants';
-import { getWeekNumber } from '../utils/getWeekNumber';
+import { getWeekNumber } from '../../utils/getWeekNumber';
 import { calendarTokens } from './Calendar.tokens';
 
 const { grid: gridTokens } = calendarTokens;

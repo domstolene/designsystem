@@ -15,7 +15,7 @@ import {
   FocusableRef,
   FocusableRefValue,
   useFocusManagerRef,
-} from './utils/useFocusManagerRef';
+} from '../utils/useFocusManagerRef';
 
 export interface DatePickerProps
   extends AriaDatePickerProps<CalendarDate>,
