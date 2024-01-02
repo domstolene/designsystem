@@ -108,7 +108,7 @@ export const OverviewSizesComparedWithOldDatePicker = (
   return (
     <StoryTemplate title="DatePicker - overview sizes">
       {componentSizes.map(componentSize => (
-        <VStack align="flex-start" gap="local-x0.25">
+        <VStack key={componentSize} align="flex-start" gap="local-x0.25">
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
           <HStack gap="local-x0.25">
             <DatePicker {...args} componentSize={componentSize} />
@@ -128,7 +128,7 @@ export const OverviewSizesComparedWithTextInput = (
   return (
     <StoryTemplate title="DatePicker - overview sizes">
       {componentSizes.map(componentSize => (
-        <VStack align="flex-start" gap="local-x0.25">
+        <VStack key={componentSize} align="flex-start" gap="local-x0.25">
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
           <HStack gap="local-x0.25">
             <DatePicker {...args} componentSize={componentSize} />
@@ -148,7 +148,7 @@ export const OverviewSizesComparedWithTextInputWithIcon = (
   return (
     <StoryTemplate title="DatePicker - overview sizes">
       {componentSizes.map(componentSize => (
-        <VStack align="flex-start" gap="local-x0.25">
+        <VStack key={componentSize} align="flex-start" gap="local-x0.25">
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
           <HStack gap="local-x0.25">
             <DatePicker {...args} componentSize={componentSize} />
