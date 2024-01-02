@@ -39,22 +39,22 @@
   "devDependencies": {
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@storybook/blocks": "^7.6.6",
-    "@testing-library/jest-dom": "^6.1.5",
+    "@storybook/blocks": "^7.6.7",
+    "@testing-library/jest-dom": "^6.1.6",
     "@testing-library/react": "^14.1.2",
-    "@testing-library/user-event": "^14.5.1",
-    "@types/react": "^18.2.45",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "clean-package": "2.2.0",
     "csstype": "3.1.2",
     "jsdom": "^23.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^6.1.1",
+    "styled-components": "^6.1.6",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
-    "vitest": "^1.1.0"
+    "vitest": "^1.1.1"
   },
   "peerDependencies": {
     "@norges-domstoler/dds-design-tokens": "^3.0.3",
