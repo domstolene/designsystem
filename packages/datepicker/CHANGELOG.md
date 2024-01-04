@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-datepicker
 
+## 0.4.0
+
+### Minor Changes
+
+- 9362245: Legger til `TimeField`-komponent
+
+### Patch Changes
+
+- 61ff0ef: Fikse feil hvor DatePicker ikke alignet riktig i forhold til andre input-elementer.
+
 ## 0.3.2
 
 ### Patch Changes
