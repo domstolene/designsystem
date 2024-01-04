@@ -15,7 +15,7 @@ export type DateInputProps = {
   className?: string;
   active?: boolean;
   children: ReactNode;
-  button?: ReactNode;
+  prefix?: ReactNode;
   label?: ReactNode;
   internalRef: Ref<HTMLDivElement>;
 } & Pick<ReturnType<typeof useDateField>, 'fieldProps' | 'labelProps'> &
@@ -70,7 +70,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       readOnly,
       required,
       children,
-      button,
+      prefix: button,
       labelProps,
       fieldProps,
       ...props

@@ -53,7 +53,7 @@ function _TimeField<T extends TimeValue>(
       readOnly={props.isReadOnly}
       labelProps={labelProps}
       fieldProps={fieldProps}
-      button={
+      prefix={
         !props.isReadOnly && (
           <TimeFieldIcon
             $componentSize={componentSize}
