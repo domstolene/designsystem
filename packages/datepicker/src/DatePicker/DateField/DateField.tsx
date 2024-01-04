@@ -49,7 +49,7 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
         ref={forwardedRef}
         internalRef={ref}
         readOnly={props.isReadOnly}
-        button={
+        prefix={
           !props.isReadOnly && (
             <CalendarButton
               componentSize={componentSize}
