@@ -12,12 +12,12 @@ import { DateInput } from '../common/DateInput';
 import styled from 'styled-components';
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
-const TimePickerIcon = styled(Icon)`
+const TimeFieldIcon = styled(Icon)`
   color: ${datePickerTokens.calendarButton.color};
   margin-left: -1px; // To align with TextInputs icons
 `;
 
-export type TimePickerProps<T extends TimeValue = TimeValue> =
+export type TimeFieldProps<T extends TimeValue = TimeValue> =
   AriaTimeFieldProps<T> & {
     className?: string;
   } & Pick<
@@ -25,8 +25,8 @@ export type TimePickerProps<T extends TimeValue = TimeValue> =
       'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
     >;
 
-function _TimePicker<T extends TimeValue>(
-  { componentSize = 'medium', style, ...props }: TimePickerProps<T>,
+function _TimeField<T extends TimeValue>(
+  { componentSize = 'medium', style, ...props }: TimeFieldProps<T>,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   const ref = useRef<HTMLInputElement>(null);
@@ -51,7 +51,7 @@ function _TimePicker<T extends TimeValue>(
       fieldProps={fieldProps}
       button={
         !props.isReadOnly && (
-          <TimePickerIcon
+          <TimeFieldIcon
             icon={TimeIcon}
             iconSize={componentSize == 'medium' ? 'medium' : 'small'}
           />
@@ -70,6 +70,6 @@ function _TimePicker<T extends TimeValue>(
   );
 }
 
-export const TimePicker = forwardRef(_TimePicker);
+export const TimeField = forwardRef(_TimeField);
 
-TimePicker.displayName = 'TimePicker';
+TimeField.displayName = 'TimeField';
