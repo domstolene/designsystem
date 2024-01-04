@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-datepicker
 
+## 0.4.1
+
+### Patch Changes
+
+- 5022e24: Fikse at TimeField-ikon ikke var plassert riktig i forhold til andre Input med ikon.
+
 ## 0.4.0
 
 ### Minor Changes
