@@ -12,8 +12,12 @@ import { DateInput } from '../common/DateInput';
 import styled from 'styled-components';
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
-const TimeFieldIcon = styled(Icon)`
+const TimeFieldIcon = styled(Icon)<{
+  $componentSize: Exclude<TimeFieldProps['componentSize'], undefined>;
+}>`
   color: ${datePickerTokens.calendarButton.color};
+  width: ${({ $componentSize }) =>
+    datePickerTokens.calendarButton[$componentSize].size};
   margin-left: -1px; // To align with TextInputs icons
 `;
 
@@ -52,6 +56,7 @@ function _TimeField<T extends TimeValue>(
       button={
         !props.isReadOnly && (
           <TimeFieldIcon
+            $componentSize={componentSize}
             icon={TimeIcon}
             iconSize={componentSize == 'medium' ? 'medium' : 'small'}
           />
