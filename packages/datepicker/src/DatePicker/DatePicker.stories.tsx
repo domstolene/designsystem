@@ -111,10 +111,10 @@ export const OverviewSizesComparedWithOldDatePicker = (
         <VStack key={componentSize} align="flex-start" gap="local-x0.25">
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
           <HStack gap="local-x0.25">
-            <DatePicker {...args} componentSize={componentSize} />
-            <Datepicker componentSize={componentSize} />
+            <DatePicker label="Dato" {...args} componentSize={componentSize} />
+            <Datepicker label="Dato" componentSize={componentSize} />
           </HStack>
-          <Datepicker componentSize={componentSize} />
+          <Datepicker label="Dato" componentSize={componentSize} />
         </VStack>
       ))}
     </StoryTemplate>
@@ -131,10 +131,10 @@ export const OverviewSizesComparedWithTextInput = (
         <VStack key={componentSize} align="flex-start" gap="local-x0.25">
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
           <HStack gap="local-x0.25">
-            <DatePicker {...args} componentSize={componentSize} />
-            <TextInput componentSize={componentSize} />
+            <DatePicker {...args} label="Dato" componentSize={componentSize} />
+            <TextInput label="Dato" componentSize={componentSize} />
           </HStack>
-          <TextInput componentSize={componentSize} />
+          <TextInput label="Dato" componentSize={componentSize} />
         </VStack>
       ))}
     </StoryTemplate>
@@ -151,10 +151,18 @@ export const OverviewSizesComparedWithTextInputWithIcon = (
         <VStack key={componentSize} align="flex-start" gap="local-x0.25">
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
           <HStack gap="local-x0.25">
-            <DatePicker {...args} componentSize={componentSize} />
-            <TextInput componentSize={componentSize} icon={CalendarIcon} />
+            <DatePicker label="Dato" {...args} componentSize={componentSize} />
+            <TextInput
+              componentSize={componentSize}
+              label="Dato"
+              icon={CalendarIcon}
+            />
           </HStack>
-          <TextInput componentSize={componentSize} icon={CalendarIcon} />
+          <TextInput
+            componentSize={componentSize}
+            label="Dato"
+            icon={CalendarIcon}
+          />
         </VStack>
       ))}
     </StoryTemplate>

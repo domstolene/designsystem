@@ -87,6 +87,7 @@ const datefield = {
 
 export const datePickerTokens = {
   gap: ddsBaseTokens.spacing.SizesDdsSpacingLocalX025,
+  labelGap: ddsBaseTokens.spacing.SizesDdsSpacingLocalX0125,
   datefield,
   calendarButton,
 };

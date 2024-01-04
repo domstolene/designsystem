@@ -33,6 +33,7 @@ export type DateInputProps = {
 const DateFieldContainer = styled.div`
   display: inline-flex;
   flex-direction: column;
+  gap: ${datePickerTokens.labelGap};
 `;
 
 const InputDiv = styled(StatefulInput).attrs({

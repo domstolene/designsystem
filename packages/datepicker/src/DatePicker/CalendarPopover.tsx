@@ -58,6 +58,10 @@ export const CalendarPopover = ({
  * CalendarPopoverAnchor
  *------------------------------------------------------------------------*/
 
+const Anchor = styled.div`
+  display: inline-flex;
+`;
+
 interface CalendarPopoverAnchorProps {
   children: ReactElement;
 }
@@ -66,7 +70,7 @@ export const CalendarPopoverAnchor = ({
   children,
 }: CalendarPopoverAnchorProps) => {
   const { anchorRef } = useContext(CalendarPopoverContext);
-  return <div ref={anchorRef ?? undefined}>{children}</div>;
+  return <Anchor ref={anchorRef ?? undefined}>{children}</Anchor>;
 };
 
 /**------------------------------------------------------------------------
