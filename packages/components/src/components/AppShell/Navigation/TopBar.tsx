@@ -113,6 +113,7 @@ interface TopBarProps {
   isNavigationOpen: boolean;
   onNavigationOpenChange: (isOpen: boolean) => void;
   environmentBannerActive: boolean;
+  title: string;
 }
 
 export interface User {
@@ -135,6 +136,7 @@ export const TopBar = ({
   isNavigationOpen,
   onNavigationOpenChange,
   environmentBannerActive,
+  title,
 }: TopBarProps) => {
   const Icon = (props: SvgProps) => (
     <EmbeteIcon {...props} type={user.embete.type} />
@@ -147,7 +149,7 @@ export const TopBar = ({
           icon={isNavigationOpen ? CloseIcon : MenuIcon}
           onClick={() => onNavigationOpenChange(!isNavigationOpen)}
         />
-        <NavigationLogo small>Lovisa</NavigationLogo>
+        <NavigationLogo small>{title}</NavigationLogo>
       </LogoBurgerGroup>
       <ActionButtonGroup>
         <OverflowMenuGroup>

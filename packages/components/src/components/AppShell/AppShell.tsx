@@ -31,6 +31,11 @@ export type AppShellProps = PropsWithChildren<{
    * Når environment er undefined eller `"PROD"` så vises ikke banneret.
    */
   environment?: Environment;
+  /**
+   * `title` brukes for å definere en egen tittel øverst i komponenten.
+   * Når `title` er undefined blir tittel satt til `Lovisa`.
+   */
+  title?: string;
 }>;
 
 export interface AppShellNavigationProps {
@@ -78,6 +83,7 @@ export const AppShell = ({
   user,
   userMenuItems,
   environment = 'PROD',
+  title = 'Lovisa',
 }: AppShellProps) => {
   const environmentBannerActive = environment !== 'PROD';
   return (
@@ -91,6 +97,7 @@ export const AppShell = ({
           internal={internal}
           external={external}
           environmentBannerActive={environmentBannerActive}
+          title={title}
         />
         <MainContent environmentBannerActive={environmentBannerActive}>
           {children}
