@@ -100,6 +100,7 @@ export interface NavigationProps {
   user: User;
   userMenuItems?: OverflowMenuProps['items'];
   environmentBannerActive: boolean;
+  title: string;
 }
 
 export const Navigation = ({
@@ -109,6 +110,7 @@ export const Navigation = ({
   internal,
   external,
   environmentBannerActive,
+  title,
 }: NavigationProps) => {
   const { isOpen, setOpen } = useAppShellContext();
 
@@ -131,13 +133,14 @@ export const Navigation = ({
         isNavigationOpen={isOpen}
         onNavigationOpenChange={newOpen => setOpen(newOpen)}
         environmentBannerActive={environmentBannerActive}
+        title={title}
       />
       <Sidebar
         isOpen={isOpen}
         environmentBannerActive={environmentBannerActive}
       >
         <LogoAndVersionContainer>
-          <NavigationLogo>Lovisa</NavigationLogo>
+          <NavigationLogo>{title}</NavigationLogo>
           {version !== '' && <Version>v {version}</Version>}
         </LogoAndVersionContainer>
         <NavigationItems>
