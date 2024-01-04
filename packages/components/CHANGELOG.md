@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.12.0
+
+### Minor Changes
+
+- 0541191: Legg til støtte for egendefinert tittel i AppShell
+
 ## 13.11.5
 
 ### Patch Changes
