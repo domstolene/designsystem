@@ -96,6 +96,24 @@ importers:
       '@norges-domstoler/development-utils':
         specifier: workspace:*
         version: link:../development-utils
+      '@react-aria/button':
+        specifier: ^3.9.1
+        version: 3.9.1(react@18.2.0)
+      '@react-aria/calendar':
+        specifier: ^3.5.4
+        version: 3.5.4(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/datepicker':
+        specifier: ^3.9.1
+        version: 3.9.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/focus':
+        specifier: ^3.16.0
+        version: 3.16.0(react@18.2.0)
+      '@react-stately/calendar':
+        specifier: ^3.4.3
+        version: 3.4.3(react@18.2.0)
+      '@react-stately/datepicker':
+        specifier: ^3.9.1
+        version: 3.9.1(react@18.2.0)
       attr-accept:
         specifier: ^2.2.2
         version: 2.2.2
@@ -106,12 +124,18 @@ importers:
         specifier: ^5.8.0
         version: 5.8.0(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
+      '@internationalized/date':
+        specifier: ^3.5.1
+        version: 3.5.1
       '@norges-domstoler/dds-design-tokens':
         specifier: workspace:*
         version: link:../tokens
       '@norges-domstoler/storybook-components':
         specifier: workspace:*
         version: link:../storybook-components
+      '@react-types/datepicker':
+        specifier: ^3.7.1
+        version: 3.7.1(react@18.2.0)
       '@storybook/blocks':
         specifier: ^7.6.7
         version: 7.6.7(@types/react-dom@18.2.18)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)
