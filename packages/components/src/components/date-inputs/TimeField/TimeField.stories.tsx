@@ -3,19 +3,16 @@ import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import type { Meta } from '@storybook/react';
 import { TimeValue } from '@react-types/datepicker';
 import { Time } from '@internationalized/date';
-import {
-  Button,
-  HStack,
-  Label,
-  TextInput,
-  TimeIcon,
-  VStack,
-} from '@norges-domstoler/dds-components';
 import { useState } from 'react';
 import { DatePicker } from '../DatePicker';
+import { Button } from '../../Button';
+import { TimeIcon } from '../../Icon/icons';
+import { VStack, HStack } from '../../Stack';
+import { TextInput } from '../../TextInput';
+import { Label } from '../../Typography';
 
 const meta: Meta<typeof TimeField> = {
-  title: 'ALPHA/dds-datepicker/TimeField',
+  title: 'dds-components/TimeField',
   component: TimeField,
 };
 

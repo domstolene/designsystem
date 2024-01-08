@@ -11,11 +11,7 @@ import {
   CalendarPopoverContent,
 } from './CalendarPopover';
 import { CalendarDate } from '@internationalized/date';
-import {
-  FocusableRef,
-  FocusableRefValue,
-  useFocusManagerRef,
-} from '../utils/useFocusManagerRef';
+import { FocusableRef, useFocusManagerRef } from '../utils/useFocusManagerRef';
 
 export interface DatePickerProps
   extends AriaDatePickerProps<CalendarDate>,

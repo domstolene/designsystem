@@ -13,11 +13,8 @@ const preview: Preview = {
         order: [
           'Introduction',
           'dds-components',
+          ['dds-components', '*'],
           'dds-page-generator',
-          '*',
-          'ALPHA',
-          ['dds-datepicker', ['Introduction']],
-          'Icons',
         ],
       },
     },
