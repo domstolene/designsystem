@@ -2,20 +2,13 @@ import { DatePicker, DatePickerProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { CalendarDate, isWeekend, today } from '@internationalized/date';
 import { useRef, useState } from 'react';
-import {
-  Button,
-  CalendarIcon,
-  Datepicker,
-  HStack,
-  Label,
-  Modal,
-  TextInput,
-  VStack,
-} from '@norges-domstoler/dds-components';
 import type { Meta } from '@storybook/react';
+import { Button } from '../../Button';
+import { Modal } from '../../Modal';
+import { VStack } from '../../Stack';
 
 const meta: Meta<typeof DatePicker> = {
-  title: 'ALPHA/dds-datepicker/DatePicker',
+  title: 'dds-components/DatePicker',
   component: DatePicker,
   argTypes: {
     label: {
@@ -101,74 +94,6 @@ export const OverviewSizes = (args: Partial<DatePickerProps>) => {
   );
 };
 
-export const OverviewSizesComparedWithOldDatePicker = (
-  args: Partial<DatePickerProps>,
-) => {
-  const componentSizes = ['medium', 'small', 'tiny'] as const;
-  return (
-    <StoryTemplate title="DatePicker - overview sizes">
-      {componentSizes.map(componentSize => (
-        <VStack key={componentSize} align="flex-start" gap="local-x0.25">
-          <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
-          <HStack gap="local-x0.25">
-            <DatePicker label="Dato" {...args} componentSize={componentSize} />
-            <Datepicker label="Dato" componentSize={componentSize} />
-          </HStack>
-          <Datepicker label="Dato" componentSize={componentSize} />
-        </VStack>
-      ))}
-    </StoryTemplate>
-  );
-};
-
-export const OverviewSizesComparedWithTextInput = (
-  args: Partial<DatePickerProps>,
-) => {
-  const componentSizes = ['medium', 'small', 'tiny'] as const;
-  return (
-    <StoryTemplate title="DatePicker - overview sizes">
-      {componentSizes.map(componentSize => (
-        <VStack key={componentSize} align="flex-start" gap="local-x0.25">
-          <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
-          <HStack gap="local-x0.25">
-            <DatePicker {...args} label="Dato" componentSize={componentSize} />
-            <TextInput label="Dato" componentSize={componentSize} />
-          </HStack>
-          <TextInput label="Dato" componentSize={componentSize} />
-        </VStack>
-      ))}
-    </StoryTemplate>
-  );
-};
-
-export const OverviewSizesComparedWithTextInputWithIcon = (
-  args: Partial<DatePickerProps>,
-) => {
-  const componentSizes = ['medium', 'small', 'tiny'] as const;
-  return (
-    <StoryTemplate title="DatePicker - overview sizes">
-      {componentSizes.map(componentSize => (
-        <VStack key={componentSize} align="flex-start" gap="local-x0.25">
-          <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
-          <HStack gap="local-x0.25">
-            <DatePicker label="Dato" {...args} componentSize={componentSize} />
-            <TextInput
-              componentSize={componentSize}
-              label="Dato"
-              icon={CalendarIcon}
-            />
-          </HStack>
-          <TextInput
-            componentSize={componentSize}
-            label="Dato"
-            icon={CalendarIcon}
-          />
-        </VStack>
-      ))}
-    </StoryTemplate>
-  );
-};
-
 export const Tip = (args: Partial<DatePickerProps>) => {
   return (
     <StoryTemplate title="DatePicker - tip">
@@ -205,7 +130,7 @@ export const Disabled = (args: Partial<DatePickerProps>) => {
 export const CustomWidth = (args: Partial<DatePickerProps>) => {
   return (
     <StoryTemplate title="DatePicker - custom width">
-      <DatePicker label="Dato" {...args} style={{ width: '420px' }} />
+      <DatePicker label="Dato" {...args} style={{ width: '1337px' }} />
     </StoryTemplate>
   );
 };

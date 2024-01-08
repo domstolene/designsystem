@@ -27,6 +27,7 @@ export * from './components/SkipToContent';
 export * from './components/Tooltip';
 export * from './components/Modal';
 export * from './components/Drawer';
+export * from './components/date-inputs';
 export * from './components/OverflowMenu';
 export * from './components/Popover';
 export * from './components/InputMessage';

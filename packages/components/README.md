@@ -40,12 +40,13 @@ Sjekk [komponentstatus](https://design.domstol.no/987b33f71/p/438035-komponenter
 
 Tilgjengelige komponenter:
 
+- AppShell
 - Breadcrumbs
 - Button
 - Card (inkludert CardAccordion)
 - Checkbox
 - Chip
-- Datepicker
+- DatePicker
 - DescriptionList
 - Divider
 - Drawer
@@ -76,6 +77,7 @@ Tilgjengelige komponenter:
 - Tag
 - TextInput
 - TextArea
+- TimePicker
 - ToggleBar
 - ToggleButton
 - Tooltip

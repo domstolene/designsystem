@@ -20,7 +20,7 @@ import * as DatePickerStories from './DatePicker.stories';
 <ComponentLinkRow
   docsHref="TODO"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=13559%3A226257&mode=design&t=Ogap795lEH2RYDhQ-1"
-  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/datepicker"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/date-inputs/DatePicker"
 />
 
 ## Demo
@@ -30,7 +30,7 @@ import * as DatePickerStories from './DatePicker.stories';
 </Canvas>
 
 <LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-datepicker-datepicker`}
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-datepicker`}
 />
 
 ## Bruk i koden
@@ -38,7 +38,7 @@ import * as DatePickerStories from './DatePicker.stories';
 <Source
   code={`
 import { useState } from 'react';
-import { DatePicker } from '@norges-domstoler/dds-datepicker';
+import { DatePicker } from '@norges-domstoler/dds-components';
 import { CalendarDate } from '@internationalized/date';
 
 const [value, setValue] = useState<CalendarDate | undefined>(
