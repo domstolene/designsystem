@@ -10,15 +10,8 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: [
-          'Introduction',
-          'dds-components',
-          'dds-page-generator',
-          '*',
-          'ALPHA',
-          ['dds-datepicker', ['Introduction']],
-          'Icons',
-        ],
+        method: 'alphabetical',
+        order: ['Introduction', 'dds-components', 'dds-page-generator'],
       },
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
