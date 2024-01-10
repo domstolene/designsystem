@@ -37,7 +37,7 @@ export const CommentComponent = ({
   handleFeedbackTextChange,
 }: CommentComponentType) => {
   return (
-    <VStack gap="x1">
+    <VStack gap="x1" align="flex-start">
       <IconLabelSpan>
         <Icon
           icon={rating === 'positive' ? ThumbupFilled : ThumbdownFilled}
