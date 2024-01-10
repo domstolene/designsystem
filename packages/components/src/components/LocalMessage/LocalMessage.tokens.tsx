@@ -20,8 +20,8 @@ const container = {
     boxShadow: outerShadow.DdsShadow1Onlight,
     borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
     border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid`,
-    padding: spacing.SizesDdsSpacingLocalX075,
-    gap: spacing.SizesDdsSpacingLocalX05,
+    padding: spacing.SizesDdsSpacingX075,
+    gap: spacing.SizesDdsSpacingX05,
   },
   purpose: {
     info: {
@@ -84,7 +84,7 @@ const purposeVariants: {
 };
 
 const icon = {
-  marginRight: `${spacing.SizesDdsSpacingLocalX075}`,
+  marginRight: `${spacing.SizesDdsSpacingX075}`,
   info: {
     color: colors.DdsColorInfoDarkest,
   },

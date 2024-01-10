@@ -6,16 +6,16 @@ import {
 const { spacing } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
-const ulLiPaddingLeft = `1em + ${spacing.SizesDdsSpacingLocalX025}`;
-const ulPaddingLeft = `${spacing.SizesDdsSpacingLocalX2} - (${ulLiPaddingLeft})`;
+const ulLiPaddingLeft = `1em + ${spacing.SizesDdsSpacingX025}`;
+const ulPaddingLeft = `${spacing.SizesDdsSpacingX2} - (${ulLiPaddingLeft})`;
 
 const list = {
   base: {
-    margin: `${spacing.SizesDdsSpacingLocalX1} 0`,
+    margin: `${spacing.SizesDdsSpacingX1} 0`,
     color: textDefault.textColor,
   },
   ol: {
-    paddingLeft: spacing.SizesDdsSpacingLocalX2,
+    paddingLeft: spacing.SizesDdsSpacingX2,
   },
   ul: {
     paddingLeft: `calc(${ulPaddingLeft})`,
@@ -37,5 +37,5 @@ export const listTokens = {
   list,
   listItem,
   bullet,
-  spaceLeft: spacing.SizesDdsSpacingLocalX2,
+  spaceLeft: spacing.SizesDdsSpacingX2,
 };

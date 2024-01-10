@@ -43,7 +43,7 @@ const BaseLink = styled.a`
   line-height: ${navItemTokens.lineHeight};
   letter-spacing: ${navItemTokens.letterSpacing};
 
-  :hover:not(.active) {
+  &:hover:not(.active) {
     background-color: ${navItemTokens.hover.backgroundColor};
   }
 

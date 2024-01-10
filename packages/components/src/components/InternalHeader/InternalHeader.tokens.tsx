@@ -13,7 +13,7 @@ const navLink = {
   base: {
     color: colors.DdsColorNeutralsGray9,
     backgroundColor: colors.DdsColorNeutralsWhite,
-    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
+    padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX15}`,
   },
   hover: {
     color: colors.DdsColorInteractiveDark,
@@ -32,19 +32,19 @@ const outerContainer = {
 };
 
 const applicationNameWrapper = {
-  padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15}`,
+  padding: `${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX15}`,
 };
 
 const lovisaWrapper = {
-  padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15}`,
+  padding: `${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX15}`,
   borderRight: borderStyle,
 };
 
 const banner = {
   borderBottom: borderStyle,
-  paddingRight: spacing.SizesDdsSpacingLocalX1,
+  paddingRight: spacing.SizesDdsSpacingX1,
   hasContextMenu: {
-    paddingRight: spacing.SizesDdsSpacingLayoutX4,
+    paddingRight: spacing.SizesDdsSpacingX4,
   },
 };
 
@@ -53,8 +53,8 @@ const navigation = {
 };
 
 const contextGroup = {
-  right: spacing.SizesDdsSpacingLocalX075,
-  top: spacing.SizesDdsSpacingLocalX025,
+  right: spacing.SizesDdsSpacingX075,
+  top: spacing.SizesDdsSpacingX025,
 };
 
 export const internalHeaderTokens = {

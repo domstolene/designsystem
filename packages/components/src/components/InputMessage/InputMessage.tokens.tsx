@@ -7,15 +7,15 @@ const message = {
     backgroundColor: colors.DdsColorNeutralsWhite,
   },
   error: {
-    padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+    padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
     color: colors.DdsColorDangerBase,
     backgroundColor: colors.DdsColorDangerLightest,
-    gap: spacing.SizesDdsSpacingLocalX05,
+    gap: spacing.SizesDdsSpacingX05,
   },
 };
 
 const icon = {
-  marginTop: spacing.SizesDdsSpacingLocalX0125,
+  marginTop: spacing.SizesDdsSpacingX0125,
 };
 
 export const inputMessageTokens = {

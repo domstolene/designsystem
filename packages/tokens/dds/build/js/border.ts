@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Thu, 22 Sep 2022 09:11:12 GMT
- */
-
 export const BordersDdsBorderFocusBaseStrokeAlign = "inside";
 export const BordersDdsBorderFocusBaseStrokeMiterLimit = 4;
 export const BordersDdsBorderFocusBaseStrokeWeight = "1px";

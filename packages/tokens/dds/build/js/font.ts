@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Thu, 22 Sep 2022 09:11:12 GMT
- */
-
 export const DdsFontHeadingSans01FontSize = "16px";
 export const DdsFontHeadingSans01FontSizeNumberPx = 16;
 export const DdsFontHeadingSans01TextDecoration = "none";

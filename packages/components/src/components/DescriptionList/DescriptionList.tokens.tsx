@@ -12,32 +12,32 @@ const term = {
     },
   },
   firstOfType: {
-    marginTop: spacing.SizesDdsSpacingLocalX1,
+    marginTop: spacing.SizesDdsSpacingX1,
   },
 };
 
 const desc = {
   base: {
-    gap: spacing.SizesDdsSpacingLocalX025,
+    gap: spacing.SizesDdsSpacingX025,
     color: colors.DdsColorNeutralsGray9,
   },
   lastChild: {
-    marginBottom: spacing.SizesDdsSpacingLocalX1,
+    marginBottom: spacing.SizesDdsSpacingX1,
   },
 };
 
 const list = {
   beforeNextTerm: {
-    marginTop: spacing.SizesDdsSpacingLocalX2,
+    marginTop: spacing.SizesDdsSpacingX2,
   },
   rowDirection: {
-    columnGap: spacing.SizesDdsSpacingLocalX2,
+    columnGap: spacing.SizesDdsSpacingX2,
   },
 };
 
 const group = {
   base: {
-    margin: spacing.SizesDdsSpacingLocalX2,
+    margin: spacing.SizesDdsSpacingX2,
   },
 };
 

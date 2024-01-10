@@ -126,7 +126,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement,
       children,
       placement = 'bottom',
-      offset = Spacing.SizesDdsSpacingLocalX05NumberPx,
+      offset = Spacing.SizesDdsSpacingX05NumberPx,
       id,
       className,
       htmlProps = {},

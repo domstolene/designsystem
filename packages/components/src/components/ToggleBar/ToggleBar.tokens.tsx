@@ -32,7 +32,7 @@ const iconSizeLarge = `${calculateHeightWithLineHeight(
 )}px`;
 
 const outerContainer = {
-  gap: spacing.SizesDdsSpacingLocalX0125,
+  gap: spacing.SizesDdsSpacingX0125,
 };
 
 const label = {
@@ -68,43 +68,43 @@ const content = {
   size: {
     tiny: {
       justIcon: {
-        padding: spacing.SizesDdsSpacingLocalX025,
+        padding: spacing.SizesDdsSpacingX025,
 
         fontSize: iconSizeTiny,
       },
       withText: {
-        padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX075}`,
-        gap: spacing.SizesDdsSpacingLocalX05,
+        padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX075}`,
+        gap: spacing.SizesDdsSpacingX05,
       },
     },
     small: {
       justIcon: {
-        padding: spacing.SizesDdsSpacingLocalX05,
+        padding: spacing.SizesDdsSpacingX05,
         fontSize: iconSizeSmall,
       },
       withText: {
-        padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1}`,
-        gap: spacing.SizesDdsSpacingLocalX05,
+        padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX1}`,
+        gap: spacing.SizesDdsSpacingX05,
       },
     },
     medium: {
       justIcon: {
-        padding: spacing.SizesDdsSpacingLocalX075,
+        padding: spacing.SizesDdsSpacingX075,
         fontSize: iconSizeMedium,
       },
       withText: {
-        padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX15}`,
-        gap: spacing.SizesDdsSpacingLocalX05,
+        padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX15}`,
+        gap: spacing.SizesDdsSpacingX05,
       },
     },
     large: {
       justIcon: {
-        padding: spacing.SizesDdsSpacingLocalX1,
+        padding: spacing.SizesDdsSpacingX1,
         fontSize: iconSizeLarge,
       },
       withText: {
-        padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX2}`,
-        gap: spacing.SizesDdsSpacingLocalX1,
+        padding: `${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX2}`,
+        gap: spacing.SizesDdsSpacingX1,
       },
     },
   },

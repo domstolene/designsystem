@@ -6,23 +6,23 @@ const input = {
   withIcon: {
     medium: {
       paddingLeft: `${
-        spacing.SizesDdsSpacingLocalX075NumberPx +
+        spacing.SizesDdsSpacingX075NumberPx +
         iconSizes.DdsIconsizeMediumNumberPx +
-        spacing.SizesDdsSpacingLocalX05NumberPx
+        spacing.SizesDdsSpacingX05NumberPx
       }px`,
     },
     small: {
       paddingLeft: `${
-        spacing.SizesDdsSpacingLocalX075NumberPx +
+        spacing.SizesDdsSpacingX075NumberPx +
         iconSizes.DdsIconsizeSmallNumberPx +
-        spacing.SizesDdsSpacingLocalX05NumberPx
+        spacing.SizesDdsSpacingX05NumberPx
       }px`,
     },
     tiny: {
       paddingLeft: `${
-        spacing.SizesDdsSpacingLocalX05NumberPx +
+        spacing.SizesDdsSpacingX05NumberPx +
         iconSizes.DdsIconsizeSmallNumberPx +
-        spacing.SizesDdsSpacingLocalX025NumberPx
+        spacing.SizesDdsSpacingX025NumberPx
       }px`,
     },
   },
@@ -38,16 +38,16 @@ const icon = {
   color: colors.DdsColorNeutralsGray9,
   sizes: {
     medium: {
-      top: spacing.SizesDdsSpacingLocalX075,
-      left: spacing.SizesDdsSpacingLocalX075,
+      top: spacing.SizesDdsSpacingX075,
+      left: spacing.SizesDdsSpacingX075,
     },
     small: {
-      top: spacing.SizesDdsSpacingLocalX075,
-      left: spacing.SizesDdsSpacingLocalX075,
+      top: spacing.SizesDdsSpacingX075,
+      left: spacing.SizesDdsSpacingX075,
     },
     tiny: {
-      top: spacing.SizesDdsSpacingLocalX05,
-      left: spacing.SizesDdsSpacingLocalX05,
+      top: spacing.SizesDdsSpacingX05,
+      left: spacing.SizesDdsSpacingX05,
     },
   },
 };

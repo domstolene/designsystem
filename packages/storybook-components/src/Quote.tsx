@@ -6,7 +6,7 @@ const { colors, spacing } = ddsBaseTokens;
 
 const Blockquote = styled.blockquote`
   border-left: 4px solid ${colors.DdsColorInteractiveBase};
-  padding: ${spacing.SizesDdsSpacingLocalX05};
+  padding: ${spacing.SizesDdsSpacingX05};
   text-align: left;
 `;
 

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 22 Sep 2022 09:11:12 GMT
+ * Generated on Wed, 10 Jan 2024 13:04:31 GMT
  */
 
 :root {
@@ -429,20 +429,16 @@
   --dds-iconsize-medium: 24px;
   --dds-iconsize-large: 40px;
   --dds-iconsize-small: 16px;
-  --sizes-dds-spacing-local-x-3: 48px; /* 48px */
-  --sizes-dds-spacing-local-x-2-5: 40px; /* 40px */
-  --sizes-dds-spacing-local-x-2: 32px; /* 32px */
-  --sizes-dds-spacing-local-x-1-5: 24px; /* 24px */
-  --sizes-dds-spacing-local-x-1: 16px; /* 16px */
-  --sizes-dds-spacing-local-x-0-75: 12px; /* 12px */
-  --sizes-dds-spacing-local-x-0-5: 8px; /* 8px */
-  --sizes-dds-spacing-local-x-0-25: 4px; /* 4px */
-  --sizes-dds-spacing-local-x-0-125: 2px; /* 2px */
-  --sizes-dds-spacing-layout-x-10: 160px; /* 160px */
-  --sizes-dds-spacing-layout-x-6: 96px; /* 96px */
-  --sizes-dds-spacing-layout-x-4: 64px; /* 64px */
-  --sizes-dds-spacing-layout-x-3: 48px; /* 48px */
-  --sizes-dds-spacing-layout-x-2: 32px; /* 32px */
-  --sizes-dds-spacing-layout-x-1-5: 24px; /* 24px */
-  --sizes-dds-spacing-layout-x-1: 16px; /* 16px */
+  --sizes-dds-spacing-x3: 48px; /* 48px */
+  --sizes-dds-spacing-x2-5: 40px; /* 40px */
+  --sizes-dds-spacing-x2: 32px; /* 32px */
+  --sizes-dds-spacing-x10: 160px; /* 160px */
+  --sizes-dds-spacing-x1-5: 24px; /* 24px */
+  --sizes-dds-spacing-x6: 96px; /* 96px */
+  --sizes-dds-spacing-x1: 16px; /* 16px */
+  --sizes-dds-spacing-x4: 64px; /* 64px */
+  --sizes-dds-spacing-x0-75: 12px; /* 12px */
+  --sizes-dds-spacing-x0-5: 8px; /* 8px */
+  --sizes-dds-spacing-x0-25: 4px; /* 4px */
+  --sizes-dds-spacing-x0-125: 2px; /* 2px */
 }

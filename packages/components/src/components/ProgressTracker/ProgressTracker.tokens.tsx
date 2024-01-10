@@ -13,11 +13,11 @@ export const typographyTypes: {
 };
 
 const itemsWrapper = {
-  gap: spacing.SizesDdsSpacingLocalX0125,
+  gap: spacing.SizesDdsSpacingX0125,
 };
 
 const itemContentWrapper = {
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
 };
 
 const connector = {

@@ -17,8 +17,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridXs0599Count,
       columnGap: grid.DdsGridXs0599GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX1,
-      marginRight: spacing.SizesDdsSpacingLayoutX1,
+      marginLeft: spacing.SizesDdsSpacingX1,
+      marginRight: spacing.SizesDdsSpacingX1,
     },
 
     columns: {
@@ -34,8 +34,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridSm600959Count,
       columnGap: grid.DdsGridSm600959GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX2,
-      marginRight: spacing.SizesDdsSpacingLayoutX2,
+      marginLeft: spacing.SizesDdsSpacingX2,
+      marginRight: spacing.SizesDdsSpacingX2,
     },
     columns: {
       firstHalf: {
@@ -50,8 +50,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridMd9601279Count,
       columnGap: grid.DdsGridMd9601279GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX4,
-      marginRight: spacing.SizesDdsSpacingLayoutX4,
+      marginLeft: spacing.SizesDdsSpacingX4,
+      marginRight: spacing.SizesDdsSpacingX4,
     },
     columns: {
       firstHalf: {
@@ -66,8 +66,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridLg12801919Count,
       columnGap: grid.DdsGridLg12801919GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX6,
-      marginRight: spacing.SizesDdsSpacingLayoutX6,
+      marginLeft: spacing.SizesDdsSpacingX6,
+      marginRight: spacing.SizesDdsSpacingX6,
     },
     columns: {
       firstHalf: {
@@ -82,8 +82,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridXl1920Count,
       columnGap: grid.DdsGridXl1920GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX10,
-      marginRight: spacing.SizesDdsSpacingLayoutX10,
+      marginLeft: spacing.SizesDdsSpacingX10,
+      marginRight: spacing.SizesDdsSpacingX10,
     },
     columns: {
       firstHalf: {

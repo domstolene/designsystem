@@ -3,13 +3,13 @@ const { colors, spacing, fontPackages, borderRadius, breakpoints } =
   ddsBaseTokens;
 
 const navigationItems = {
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
   item: {
     ...fontPackages.body_sans_02.base,
     color: colors.DdsColorNeutralsGray1,
     borderRadius: borderRadius.RadiiDdsBorderRadius3Radius,
-    padding: spacing.SizesDdsSpacingLocalX075,
-    gap: spacing.SizesDdsSpacingLocalX05,
+    padding: spacing.SizesDdsSpacingX075,
+    gap: spacing.SizesDdsSpacingX05,
     external: {
       ...fontPackages.body_sans_01.base,
     },
@@ -40,10 +40,10 @@ const logoAndVersion = {
 };
 
 const topBar = {
-  padding: spacing.SizesDdsSpacingLocalX025,
-  height: `calc(${spacing.SizesDdsSpacingLayoutX3} + 2 * ${spacing.SizesDdsSpacingLocalX025})`,
+  padding: spacing.SizesDdsSpacingX025,
+  height: `calc(${spacing.SizesDdsSpacingX3} + 2 * ${spacing.SizesDdsSpacingX025})`,
   buttonTextColor: colors.DdsColorNeutralsGray3,
-  gap: spacing.SizesDdsSpacingLocalX025,
+  gap: spacing.SizesDdsSpacingX025,
 };
 
 const navigation = {
@@ -53,9 +53,9 @@ const navigation = {
 
   color: colors.DdsColorNeutralsGray1,
   backgroundColor: colors.DdsColorPrimaryBase,
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
   dividerColor: colors.DdsColorPrimaryLight,
-  padding: spacing.SizesDdsSpacingLocalX1,
+  padding: spacing.SizesDdsSpacingX1,
   width: '264px',
 
   mobile: {
@@ -65,7 +65,7 @@ const navigation = {
 };
 
 const floatingActionButtons = {
-  gap: spacing.SizesDdsSpacingLocalX1,
+  gap: spacing.SizesDdsSpacingX1,
   textColor: colors.DdsColorNeutralsGray7,
   backgroundColor: colors.DdsColorNeutralsWhite,
   borderRadius: borderRadius.RadiiDdsBorderRadius3Radius,

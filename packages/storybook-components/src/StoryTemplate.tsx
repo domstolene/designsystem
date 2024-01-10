@@ -25,7 +25,7 @@ interface ContainerProps {
 }
 
 const Container = styled.div<ContainerProps>`
-  padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingLayoutX1};
+  padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingX1};
   ${({ $display: display, $gap: gap, $columnsAmount }) =>
     gap &&
     display &&

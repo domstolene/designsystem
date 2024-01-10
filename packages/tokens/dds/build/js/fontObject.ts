@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Thu, 22 Sep 2022 09:11:12 GMT
- */
-
  export const ddsStyles = {
   "$dds-font": {
     "heading": {
@@ -11,6 +6,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -33,6 +30,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -54,6 +53,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -75,6 +76,8 @@
         "fontWeight": {
           "value": 600,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 600,
             "type": "number"
@@ -96,6 +99,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -117,6 +122,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -138,6 +145,8 @@
         "_fontStyleOld": {
           "value": "SemiBold",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "SemiBold",
             "type": "string"
@@ -160,6 +169,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -183,6 +194,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -206,6 +219,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -229,6 +244,8 @@
           "value": 6.400000095367432,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 6.400000095367432,
             "type": "number",
@@ -251,6 +268,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -275,6 +294,8 @@
           "value": 18,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 18,
             "type": "number",
@@ -297,6 +318,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -318,6 +341,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -339,6 +364,8 @@
         "fontWeight": {
           "value": 600,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 600,
             "type": "number"
@@ -360,6 +387,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -381,6 +410,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -402,6 +433,8 @@
         "_fontStyleOld": {
           "value": "SemiBold",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "SemiBold",
             "type": "string"
@@ -424,6 +457,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -447,6 +482,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -470,6 +507,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -493,6 +532,8 @@
           "value": 7.199999809265137,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 7.199999809265137,
             "type": "number",
@@ -515,6 +556,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -539,6 +582,8 @@
           "value": 24,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 24,
             "type": "number",
@@ -561,6 +606,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -582,6 +629,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -603,6 +652,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -624,6 +675,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -645,6 +698,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -666,6 +721,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -688,6 +745,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -711,6 +770,8 @@
           "value": "1.35em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 135,
             "type": "number",
@@ -734,6 +795,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -757,6 +820,8 @@
           "value": 9.600000381469727,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 9.600000381469727,
             "type": "number",
@@ -779,6 +844,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -803,6 +870,8 @@
           "value": 32,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 32,
             "type": "number",
@@ -825,6 +894,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -846,6 +917,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -867,6 +940,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -888,6 +963,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -909,6 +986,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -930,6 +1009,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -952,6 +1033,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -975,6 +1058,8 @@
           "value": "1.35em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 135,
             "type": "number",
@@ -998,6 +1083,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -1021,6 +1108,8 @@
           "value": 12.800000190734863,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12.800000190734863,
             "type": "number",
@@ -1043,6 +1132,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1067,6 +1158,8 @@
           "value": 40,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 40,
             "type": "number",
@@ -1089,6 +1182,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1110,6 +1205,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -1131,6 +1228,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -1152,6 +1251,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1173,6 +1274,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1194,6 +1297,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -1216,6 +1321,8 @@
           "value": "-0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": -1,
             "type": "number",
@@ -1239,6 +1346,8 @@
           "value": "1.35em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 135,
             "type": "number",
@@ -1262,6 +1371,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -1285,6 +1396,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -1307,6 +1420,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1331,6 +1446,8 @@
           "value": 48,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 48,
             "type": "number",
@@ -1353,6 +1470,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1374,6 +1493,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -1395,6 +1516,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -1416,6 +1539,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1437,6 +1562,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1458,6 +1585,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -1480,6 +1609,8 @@
           "value": "-0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": -1,
             "type": "number",
@@ -1503,6 +1634,8 @@
           "value": "1.2em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 120,
             "type": "number",
@@ -1526,6 +1659,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -1549,6 +1684,8 @@
           "value": 19.200000762939453,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 19.200000762939453,
             "type": "number",
@@ -1571,6 +1708,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1595,6 +1734,8 @@
           "value": 64,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 64,
             "type": "number",
@@ -1617,6 +1758,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1638,6 +1781,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -1659,6 +1804,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -1680,6 +1827,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1701,6 +1850,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1722,6 +1873,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -1744,6 +1897,8 @@
           "value": "-0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": -1,
             "type": "number",
@@ -1767,6 +1922,8 @@
           "value": "1.2em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 120,
             "type": "number",
@@ -1790,6 +1947,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -1813,6 +1972,8 @@
           "value": 25.600000381469727,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 25.600000381469727,
             "type": "number",
@@ -1835,6 +1996,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1859,6 +2022,8 @@
           "value": 80,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 80,
             "type": "number",
@@ -1881,6 +2046,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -1902,6 +2069,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -1923,6 +2092,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -1944,6 +2115,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1965,6 +2138,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -1986,6 +2161,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -2008,6 +2185,8 @@
           "value": "-0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": -1,
             "type": "number",
@@ -2031,6 +2210,8 @@
           "value": "1.2em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 120,
             "type": "number",
@@ -2054,6 +2235,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -2077,6 +2260,8 @@
           "value": 32,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 32,
             "type": "number",
@@ -2099,6 +2284,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2125,6 +2312,8 @@
           "value": 14,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 14,
             "type": "number",
@@ -2147,6 +2336,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2168,6 +2359,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -2189,6 +2382,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -2210,6 +2405,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -2231,6 +2428,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -2252,6 +2451,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -2274,6 +2475,8 @@
           "value": "0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 1,
             "type": "number",
@@ -2297,6 +2500,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -2320,6 +2525,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -2343,6 +2550,8 @@
           "value": 14,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 14,
             "type": "number",
@@ -2365,6 +2574,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2389,6 +2600,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -2411,6 +2624,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2432,6 +2647,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -2453,6 +2670,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -2474,6 +2693,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -2495,6 +2716,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -2516,6 +2739,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -2538,6 +2763,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -2561,6 +2788,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -2584,6 +2813,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -2607,6 +2838,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -2629,6 +2862,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2653,6 +2888,8 @@
           "value": 18,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 18,
             "type": "number",
@@ -2675,6 +2912,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2696,6 +2935,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -2717,6 +2958,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -2738,6 +2981,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -2759,6 +3004,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -2780,6 +3027,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -2802,6 +3051,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -2825,6 +3076,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -2848,6 +3101,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -2871,6 +3126,8 @@
           "value": 18,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 18,
             "type": "number",
@@ -2893,6 +3150,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2917,6 +3176,8 @@
           "value": 20,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 20,
             "type": "number",
@@ -2939,6 +3200,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -2960,6 +3223,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -2981,6 +3246,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -3002,6 +3269,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3023,6 +3292,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3044,6 +3315,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -3066,6 +3339,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3089,6 +3364,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -3112,6 +3389,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3135,6 +3414,8 @@
           "value": 20,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 20,
             "type": "number",
@@ -3157,6 +3438,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -3183,6 +3466,8 @@
           "value": 18,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 18,
             "type": "number",
@@ -3205,6 +3490,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -3226,6 +3513,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -3247,6 +3536,8 @@
         "fontWeight": {
           "value": 600,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 600,
             "type": "number"
@@ -3268,6 +3559,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3289,6 +3582,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3310,6 +3605,8 @@
         "_fontStyleOld": {
           "value": "SemiBold",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "SemiBold",
             "type": "string"
@@ -3332,6 +3629,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3355,6 +3654,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -3378,6 +3679,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3401,6 +3704,8 @@
           "value": 18,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 18,
             "type": "number",
@@ -3423,6 +3728,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -3447,6 +3754,8 @@
           "value": 24,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 24,
             "type": "number",
@@ -3469,6 +3778,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -3490,6 +3801,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -3511,6 +3824,8 @@
         "fontWeight": {
           "value": 600,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 600,
             "type": "number"
@@ -3532,6 +3847,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3553,6 +3870,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3574,6 +3893,8 @@
         "_fontStyleOld": {
           "value": "SemiBold",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "SemiBold",
             "type": "string"
@@ -3596,6 +3917,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3619,6 +3942,8 @@
           "value": "1.35em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 135,
             "type": "number",
@@ -3642,6 +3967,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3665,6 +3992,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -3687,6 +4016,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -3711,6 +4042,8 @@
           "value": 24,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 24,
             "type": "number",
@@ -3733,6 +4066,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -3754,6 +4089,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -3775,6 +4112,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -3796,6 +4135,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3817,6 +4158,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -3838,6 +4181,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -3860,6 +4205,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3883,6 +4230,8 @@
           "value": "1.35em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 135,
             "type": "number",
@@ -3906,6 +4255,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -3929,6 +4280,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -3951,6 +4304,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -3975,6 +4330,8 @@
           "value": 32,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 32,
             "type": "number",
@@ -3997,6 +4354,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -4018,6 +4377,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -4039,6 +4400,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -4060,6 +4423,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4081,6 +4446,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4102,6 +4469,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -4124,6 +4493,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -4147,6 +4518,8 @@
           "value": "1.35em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 135,
             "type": "number",
@@ -4170,6 +4543,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -4193,6 +4568,8 @@
           "value": 21,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 21,
             "type": "number",
@@ -4215,6 +4592,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -4239,6 +4618,8 @@
           "value": 40,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 40,
             "type": "number",
@@ -4261,6 +4642,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -4282,6 +4665,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -4303,6 +4688,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -4324,6 +4711,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4345,6 +4734,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4366,6 +4757,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -4388,6 +4781,8 @@
           "value": "-0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": -1,
             "type": "number",
@@ -4411,6 +4806,8 @@
           "value": "1.35em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 135,
             "type": "number",
@@ -4434,6 +4831,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -4457,6 +4856,8 @@
           "value": 26,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 26,
             "type": "number",
@@ -4479,6 +4880,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -4505,6 +4908,8 @@
           "value": 14,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 14,
             "type": "number",
@@ -4527,6 +4932,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -4548,6 +4955,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -4569,6 +4978,8 @@
         "fontWeight": {
           "value": 600,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 600,
             "type": "number"
@@ -4590,6 +5001,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4611,6 +5024,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4632,6 +5047,8 @@
         "_fontStyleOld": {
           "value": "SemiBold",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "SemiBold",
             "type": "string"
@@ -4654,6 +5071,8 @@
           "value": "0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 1,
             "type": "number",
@@ -4677,6 +5096,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -4700,6 +5121,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -4723,6 +5146,8 @@
           "value": 14,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 14,
             "type": "number",
@@ -4745,6 +5170,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -4769,6 +5196,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -4791,6 +5220,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -4812,6 +5243,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -4833,6 +5266,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -4854,6 +5289,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4875,6 +5312,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -4896,6 +5335,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -4918,6 +5359,8 @@
           "value": "0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 1,
             "type": "number",
@@ -4941,6 +5384,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -4964,6 +5409,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -4987,6 +5434,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -5009,6 +5458,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5033,6 +5484,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -5055,6 +5508,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5076,6 +5531,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -5097,6 +5554,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -5118,6 +5577,8 @@
         "fontStyle": {
           "value": "italic",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "italic",
             "type": "string"
@@ -5139,6 +5600,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -5160,6 +5623,8 @@
         "_fontStyleOld": {
           "value": "Italic",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Italic",
             "type": "string"
@@ -5182,6 +5647,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -5205,6 +5672,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -5228,6 +5697,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -5251,6 +5722,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -5273,6 +5746,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5297,6 +5772,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -5319,6 +5796,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5340,6 +5819,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -5361,6 +5842,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -5382,6 +5865,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -5403,6 +5888,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -5424,6 +5911,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -5446,6 +5935,8 @@
           "value": "0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 1,
             "type": "number",
@@ -5469,6 +5960,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -5492,6 +5985,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -5515,6 +6010,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -5537,6 +6034,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5561,6 +6060,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -5583,6 +6084,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5604,6 +6107,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -5625,6 +6130,8 @@
         "fontWeight": {
           "value": 300,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 300,
             "type": "number"
@@ -5646,6 +6153,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -5667,6 +6176,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -5688,6 +6199,8 @@
         "_fontStyleOld": {
           "value": "Light",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Light",
             "type": "string"
@@ -5710,6 +6223,8 @@
           "value": "0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 1,
             "type": "number",
@@ -5733,6 +6248,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -5756,6 +6273,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -5779,6 +6298,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -5801,6 +6322,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5825,6 +6348,8 @@
           "value": 14,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 14,
             "type": "number",
@@ -5847,6 +6372,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -5868,6 +6395,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -5889,6 +6418,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -5910,6 +6441,8 @@
         "fontStyle": {
           "value": "italic",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "italic",
             "type": "string"
@@ -5931,6 +6464,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -5952,6 +6487,8 @@
         "_fontStyleOld": {
           "value": "Italic",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Italic",
             "type": "string"
@@ -5974,6 +6511,8 @@
           "value": "0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 1,
             "type": "number",
@@ -5997,6 +6536,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -6020,6 +6561,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -6043,6 +6586,8 @@
           "value": 14,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 14,
             "type": "number",
@@ -6065,6 +6610,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -6089,6 +6636,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -6111,6 +6660,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -6132,6 +6683,8 @@
         "fontFamily": {
           "value": "IBM Plex Sans",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Sans",
             "type": "string"
@@ -6153,6 +6706,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -6174,6 +6729,8 @@
         "fontStyle": {
           "value": "italic",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "italic",
             "type": "string"
@@ -6195,6 +6752,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -6216,6 +6775,8 @@
         "_fontStyleOld": {
           "value": "Italic",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Italic",
             "type": "string"
@@ -6238,6 +6799,8 @@
           "value": "0.01em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 1,
             "type": "number",
@@ -6261,6 +6824,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -6284,6 +6849,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -6307,6 +6874,8 @@
           "value": 12,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 12,
             "type": "number",
@@ -6329,6 +6898,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -6355,6 +6926,8 @@
           "value": 16,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 16,
             "type": "number",
@@ -6377,6 +6950,8 @@
         "textDecoration": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"
@@ -6398,6 +6973,8 @@
         "fontFamily": {
           "value": "IBM Plex Mono",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "IBM Plex Mono",
             "type": "string"
@@ -6419,6 +6996,8 @@
         "fontWeight": {
           "value": 400,
           "type": "number",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 400,
             "type": "number"
@@ -6440,6 +7019,8 @@
         "fontStyle": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -6461,6 +7042,8 @@
         "fontStretch": {
           "value": "normal",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "normal",
             "type": "string"
@@ -6482,6 +7065,8 @@
         "_fontStyleOld": {
           "value": "Regular",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "Regular",
             "type": "string"
@@ -6504,6 +7089,8 @@
           "value": "0em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -6527,6 +7114,8 @@
           "value": "1.5em",
           "type": "number",
           "unit": "percent",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 150,
             "type": "number",
@@ -6550,6 +7139,8 @@
           "value": 0,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 0,
             "type": "number",
@@ -6573,6 +7164,8 @@
           "value": 9,
           "type": "number",
           "unit": "pixel",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": 9,
             "type": "number",
@@ -6595,6 +7188,8 @@
         "textCase": {
           "value": "none",
           "type": "string",
+          "filePath": "properties/font/font.json",
+          "isSource": true,
           "original": {
             "value": "none",
             "type": "string"

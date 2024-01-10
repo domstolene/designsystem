@@ -10,7 +10,7 @@ import {
 } from '@floating-ui/react-dom';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const defaultOffset = ddsBaseTokens.spacing.SizesDdsSpacingLocalX05NumberPx;
+const defaultOffset = ddsBaseTokens.spacing.SizesDdsSpacingX05NumberPx;
 
 export type Placement =
   | 'top'

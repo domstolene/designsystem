@@ -12,7 +12,7 @@ import { Paragraph } from '../Typography';
 const IconLabelSpan = styled.span`
   display: inline-flex;
   align-items: center;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
+  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
 `;
 
 interface CommentComponentType {
@@ -37,7 +37,7 @@ export const CommentComponent = ({
   handleFeedbackTextChange,
 }: CommentComponentType) => {
   return (
-    <VStack gap="layout-x1">
+    <VStack gap="x1" align="flex-start">
       <IconLabelSpan>
         <Icon
           icon={rating === 'positive' ? ThumbupFilled : ThumbdownFilled}

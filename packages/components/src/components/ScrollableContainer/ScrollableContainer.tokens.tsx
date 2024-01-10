@@ -22,11 +22,11 @@ const thumb = {
 };
 
 const content = {
-  paddingRight: spacing.SizesDdsSpacingLocalX05,
+  paddingRight: spacing.SizesDdsSpacingX05,
 };
 
 const outerContainer = {
-  padding: spacing.SizesDdsSpacingLocalX025,
+  padding: spacing.SizesDdsSpacingX025,
 };
 
 export const scrollbarTokens = {

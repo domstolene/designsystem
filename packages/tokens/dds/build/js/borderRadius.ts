@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Thu, 22 Sep 2022 09:11:12 GMT
- */
-
 export const RadiiDdsBorderRadius1Radius = "2px";
 export const RadiiDdsBorderRadius1RadiusNumberPx = 2;
 export const RadiiDdsBorderRadius1RadiiTopLeft = "2px";

@@ -14,10 +14,10 @@ const checkmark = {
   },
   radio: {
     backgroundColor: colors.DdsColorNeutralsWhite,
-    height: spacing.SizesDdsSpacingLocalX05,
-    width: spacing.SizesDdsSpacingLocalX05,
-    left: `calc(50% - ${spacing.SizesDdsSpacingLocalX05NumberPx / 2}px)`,
-    top: `calc(50% - ${spacing.SizesDdsSpacingLocalX05NumberPx / 2}px)`,
+    height: spacing.SizesDdsSpacingX05,
+    width: spacing.SizesDdsSpacingX05,
+    left: `calc(50% - ${spacing.SizesDdsSpacingX05NumberPx / 2}px)`,
+    top: `calc(50% - ${spacing.SizesDdsSpacingX05NumberPx / 2}px)`,
   },
 };
 
@@ -84,7 +84,7 @@ const container = {
   },
   withLabel: {
     paddingLeft: `${
-      selectionControlSizeNumberPx + spacing.SizesDdsSpacingLocalX05NumberPx
+      selectionControlSizeNumberPx + spacing.SizesDdsSpacingX05NumberPx
     }px`,
   },
   noLabel: {
@@ -94,13 +94,13 @@ const container = {
 
 const groupContainer = {
   row: {
-    gap: spacing.SizesDdsSpacingLocalX075,
+    gap: spacing.SizesDdsSpacingX075,
   },
-  column: { gap: spacing.SizesDdsSpacingLocalX05 },
+  column: { gap: spacing.SizesDdsSpacingX05 },
 };
 
 const outerGroupContainer = {
-  gap: spacing.SizesDdsSpacingLocalX0125,
+  gap: spacing.SizesDdsSpacingX0125,
 };
 
 export const selectionControlTokens = {

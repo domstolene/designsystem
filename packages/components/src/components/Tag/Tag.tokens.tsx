@@ -9,7 +9,7 @@ export const typographyType: StaticTypographyType = 'bodySans01';
 const wrapper = {
   border: '1px solid',
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  padding: `${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX025}`,
+  padding: `${spacing.SizesDdsSpacingX0125} ${spacing.SizesDdsSpacingX025}`,
   purpose: {
     default: {
       backgroundColor: colors.DdsColorNeutralsGray1,

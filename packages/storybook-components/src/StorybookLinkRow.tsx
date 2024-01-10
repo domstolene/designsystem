@@ -7,11 +7,11 @@ export const StorybookLinkRow = styled.div.withConfig({
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX075};
+  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
   ${({ withSpacing }) =>
     withSpacing === true &&
     css`
       justify-content: center;
-      margin-top: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX2};
+      margin-top: ${ddsBaseTokens.spacing.SizesDdsSpacingX2};
     `}
 `;
