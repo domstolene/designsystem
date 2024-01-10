@@ -10,11 +10,11 @@ const icon = {
 };
 
 const listItem = {
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
 };
 
 const list = {
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
 };
 
 export const breadcrumbTokens = {

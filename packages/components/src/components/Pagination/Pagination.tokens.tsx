@@ -3,7 +3,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { spacing, colors } = ddsBaseTokens;
 
 const list = {
-  gap: spacing.SizesDdsSpacingLocalX075,
+  gap: spacing.SizesDdsSpacingX075,
 };
 
 const truncationIcon = {
@@ -11,10 +11,10 @@ const truncationIcon = {
 };
 
 const outerContainer = {
-  gap: spacing.SizesDdsSpacingLocalX075,
+  gap: spacing.SizesDdsSpacingX075,
 };
 const indicatorsContainer = {
-  gap: spacing.SizesDdsSpacingLocalX075,
+  gap: spacing.SizesDdsSpacingX075,
 };
 
 export const paginationTokens = {

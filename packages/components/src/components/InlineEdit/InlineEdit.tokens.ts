@@ -3,11 +3,11 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { colors, spacing, fontPackages } = ddsBaseTokens;
 
 const inlineEdit = {
-  padding: spacing.SizesDdsSpacingLocalX025,
+  padding: spacing.SizesDdsSpacingX025,
   font: fontPackages.body_sans_02.base,
   backgroundColor: 'transparent',
   withIcon: {
-    paddingLeft: spacing.SizesDdsSpacingLocalX2,
+    paddingLeft: spacing.SizesDdsSpacingX2,
   },
   hover: {
     backgroundColor: colors.DdsColorInteractiveLightest,
@@ -18,8 +18,8 @@ const inlineEdit = {
 };
 
 const iconWrapper = {
-  top: spacing.SizesDdsSpacingLocalX05,
-  left: spacing.SizesDdsSpacingLocalX05,
+  top: spacing.SizesDdsSpacingX05,
+  left: spacing.SizesDdsSpacingX05,
 };
 
 export const inlineEditTokens = {

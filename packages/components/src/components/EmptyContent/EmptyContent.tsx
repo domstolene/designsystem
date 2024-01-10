@@ -9,11 +9,11 @@ const StyledEmptyContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: ${spacing.SizesDdsSpacingLayoutX10};
+  min-height: ${spacing.SizesDdsSpacingX10};
   height: 100%;
   width: 100%;
   background-color: ${colors.DdsColorNeutralsGray1};
-  padding: ${spacing.SizesDdsSpacingLayoutX15};
+  padding: ${spacing.SizesDdsSpacingX15};
 `;
 
 const StyledEmptyContentText = styled.div`
@@ -21,7 +21,7 @@ const StyledEmptyContentText = styled.div`
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: ${spacing.SizesDdsSpacingLayoutX1};
+  gap: ${spacing.SizesDdsSpacingX1};
 `;
 
 export type EmptyContentProps = {

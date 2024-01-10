@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { ddsBaseTokens } from "@norges-domstoler/dds-design-tokens";
+import styled, { css } from 'styled-components';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   Typography,
   TextInput,
@@ -9,10 +9,10 @@ import {
   useScreenSize,
   ScreenSize,
   Card,
-} from "@norges-domstoler/dds-components";
+} from '@norges-domstoler/dds-components';
 
 export default {
-  title: "Examples/Grid",
+  title: 'Examples/Grid',
 };
 
 const { breakpoints, grid, spacing } = ddsBaseTokens;
@@ -21,7 +21,7 @@ const ArticlePageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(${grid.DdsGridLg12801919Count}, minmax(0, 1fr));
   column-gap: ${grid.DdsGridLg12801919GutterSize};
-  row-gap: ${spacing.SizesDdsSpacingLayoutX1};
+  row-gap: ${spacing.SizesDdsSpacingX1};
 `;
 
 const GridHeader = styled.div`
@@ -98,7 +98,7 @@ const ArticleGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(${grid.DdsGridLg12801919Count}, minmax(0, 1fr));
   column-gap: ${grid.DdsGridLg12801919GutterSize};
-  margin: ${spacing.SizesDdsSpacingLayoutX1} ${spacing.SizesDdsSpacingLayoutX3};
+  margin: ${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX3};
 `;
 
 const Header = styled.div`
@@ -337,25 +337,25 @@ const gridTokens = {
     grid: {
       columns: grid.DdsGridXs0599Count,
       gap: grid.DdsGridXs0599GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX1,
-      marginRight: spacing.SizesDdsSpacingLayoutX1,
+      marginLeft: spacing.SizesDdsSpacingX1,
+      marginRight: spacing.SizesDdsSpacingX1,
     },
     all: {
-      gridColumn: "1 / -1",
+      gridColumn: '1 / -1',
     },
     firstHalf: {
-      gridColumn: "1 / -1",
+      gridColumn: '1 / -1',
     },
     secondHalf: {
-      gridColumn: "1 / -1",
+      gridColumn: '1 / -1',
     },
   },
   [ScreenSize.Small]: {
     grid: {
       columns: grid.DdsGridSm600959Count,
       gap: grid.DdsGridSm600959GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX1,
-      marginRight: spacing.SizesDdsSpacingLayoutX1,
+      marginLeft: spacing.SizesDdsSpacingX1,
+      marginRight: spacing.SizesDdsSpacingX1,
     },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridSm600959Count / 2 + 1}`,
@@ -370,8 +370,8 @@ const gridTokens = {
     grid: {
       columns: grid.DdsGridMd9601279Count,
       gap: grid.DdsGridMd9601279GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX1,
-      marginRight: spacing.SizesDdsSpacingLayoutX1,
+      marginLeft: spacing.SizesDdsSpacingX1,
+      marginRight: spacing.SizesDdsSpacingX1,
     },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridMd9601279Count / 2 + 1}`,
@@ -386,8 +386,8 @@ const gridTokens = {
     grid: {
       columns: grid.DdsGridLg12801919Count,
       gap: grid.DdsGridLg12801919GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX1,
-      marginRight: spacing.SizesDdsSpacingLayoutX1,
+      marginLeft: spacing.SizesDdsSpacingX1,
+      marginRight: spacing.SizesDdsSpacingX1,
     },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridLg12801919Count / 2 + 1}`,
@@ -402,8 +402,8 @@ const gridTokens = {
     grid: {
       columns: grid.DdsGridXl1920Count,
       gap: grid.DdsGridXl1920GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX1,
-      marginRight: spacing.SizesDdsSpacingLayoutX1,
+      marginLeft: spacing.SizesDdsSpacingX1,
+      marginRight: spacing.SizesDdsSpacingX1,
     },
     firstHalf: {
       gridColumn: `1 / ${grid.DdsGridXs0599Count / 2 + 1}`,
@@ -426,7 +426,7 @@ const getHooksGridStyling = (screenSize: ScreenSize) => {
   };
 };
 
-type ColumnsOccupied = "all" | "firstHalf" | "secondHalf";
+type ColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 
 type GridProps = {
   screenSize: ScreenSize;
@@ -444,8 +444,8 @@ const HooksGrid = styled.div<GridProps>`
 
 const GridChild = styled.div<GridChildProps>`
   grid-column: ${({ screenSize, columnsOccupied }) =>
-    columnsOccupied === "all"
-      ? "1 / -1"
+    columnsOccupied === 'all'
+      ? '1 / -1'
       : gridTokens[screenSize][columnsOccupied].gridColumn};
 `;
 const HooksFullWidthToRight = styled(GridChild)`
@@ -529,10 +529,10 @@ export const FormWithHooks = () => {
 
 const AutolayoutGrid = styled.div`
   display: grid;
-  gap: ${spacing.SizesDdsSpacingLayoutX1};
+  gap: ${spacing.SizesDdsSpacingX1};
   grid-template-columns: repeat(
     auto-fit,
-    minmax(${spacing.SizesDdsSpacingLayoutX10}, 1fr)
+    minmax(${spacing.SizesDdsSpacingX10}, 1fr)
   );
 `;
 

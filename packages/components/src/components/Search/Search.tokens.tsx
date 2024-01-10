@@ -15,57 +15,57 @@ export const typographyTypes: { [k in SearchSize]: StaticTypographyType } = {
 };
 
 const paddingLeftSmall = `${
-  spacing.SizesDdsSpacingLocalX075NumberPx +
+  spacing.SizesDdsSpacingX075NumberPx +
   iconSizes.DdsIconsizeSmallNumberPx +
-  spacing.SizesDdsSpacingLocalX05NumberPx
+  spacing.SizesDdsSpacingX05NumberPx
 }px`;
 const paddingLeftMedium = `${
-  spacing.SizesDdsSpacingLocalX075NumberPx +
+  spacing.SizesDdsSpacingX075NumberPx +
   iconSizes.DdsIconsizeMediumNumberPx +
-  spacing.SizesDdsSpacingLocalX05NumberPx
+  spacing.SizesDdsSpacingX05NumberPx
 }px`;
 
 const paddingLeftLarge = `${
-  spacing.SizesDdsSpacingLocalX075NumberPx +
+  spacing.SizesDdsSpacingX075NumberPx +
   iconSizes.DdsIconsizeMediumNumberPx +
-  spacing.SizesDdsSpacingLocalX05NumberPx
+  spacing.SizesDdsSpacingX05NumberPx
 }px`;
 
 const input = {
   base: {
-    paddingRight: spacing.SizesDdsSpacingLocalX25,
-    paddingLeft: spacing.SizesDdsSpacingLocalX3,
+    paddingRight: spacing.SizesDdsSpacingX25,
+    paddingLeft: spacing.SizesDdsSpacingX3,
   },
   sizes: {
     small: {
-      paddingTop: spacing.SizesDdsSpacingLocalX05,
-      paddingBottom: spacing.SizesDdsSpacingLocalX05,
+      paddingTop: spacing.SizesDdsSpacingX05,
+      paddingBottom: spacing.SizesDdsSpacingX05,
       paddingLeft: paddingLeftSmall,
     },
     medium: {
-      paddingTop: spacing.SizesDdsSpacingLocalX075,
-      paddingBottom: spacing.SizesDdsSpacingLocalX075,
+      paddingTop: spacing.SizesDdsSpacingX075,
+      paddingBottom: spacing.SizesDdsSpacingX075,
       paddingLeft: paddingLeftMedium,
     },
     large: {
-      paddingTop: spacing.SizesDdsSpacingLocalX1,
-      paddingBottom: spacing.SizesDdsSpacingLocalX1,
+      paddingTop: spacing.SizesDdsSpacingX1,
+      paddingBottom: spacing.SizesDdsSpacingX1,
       paddingLeft: paddingLeftLarge,
     },
   },
 };
 
 const horisontalContainer = {
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
 };
 
 const outerContainer = {
-  gap: spacing.SizesDdsSpacingLocalX0125,
+  gap: spacing.SizesDdsSpacingX0125,
 };
 
 const searchIcon = {
   base: {
-    left: spacing.SizesDdsSpacingLocalX075,
+    left: spacing.SizesDdsSpacingX075,
     color: textDefault.textColor,
   },
   small: {
@@ -80,19 +80,19 @@ const searchIcon = {
 };
 
 const clearButton = {
-  right: spacing.SizesDdsSpacingLocalX075,
+  right: spacing.SizesDdsSpacingX075,
   top: `calc(50% - 14px)`, // Knappen er 28px høy. Trekker fra 14px for å få den midtstilt.
   color: textDefault.textColor,
 };
 
 const suggestionsContainer = {
-  marginTop: spacing.SizesDdsSpacingLocalX025,
+  marginTop: spacing.SizesDdsSpacingX025,
   border: `1px solid ${colors.DdsColorInteractiveBase}`,
   boxShadow: `0 0 0 1px ${colors.DdsColorInteractiveBase}`,
 };
 
 const suggestionsHeader = {
-  paddingLeft: spacing.SizesDdsSpacingLocalX1,
+  paddingLeft: spacing.SizesDdsSpacingX1,
 };
 
 export const searchTokens = {

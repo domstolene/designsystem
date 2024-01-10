@@ -13,7 +13,7 @@ const link = {
 
 const wrapper = {
   backgroundColor: colors.DdsColorPrimaryBase,
-  padding: spacing.SizesDdsSpacingLocalX025,
+  padding: spacing.SizesDdsSpacingX025,
 };
 
 export const skipToContentTokens = {

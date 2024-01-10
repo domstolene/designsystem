@@ -60,25 +60,25 @@ const control = {
   isMulti: {
     sizes: {
       medium: {
-        padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
+        padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX075}`,
       },
       small: {
-        padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075}`,
+        padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075}`,
       },
       tiny: {
-        padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+        padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
       },
     },
   },
   sizes: {
     medium: {
-      padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
+      padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX075}`,
     },
     small: {
-      padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075}`,
+      padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075}`,
     },
     tiny: {
-      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+      padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
     },
   },
 };
@@ -115,19 +115,19 @@ const menu = {
   borderColor: colors.DdsColorInteractiveBase,
   backgroundColor: colors.DdsColorNeutralsWhite,
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  marginTop: spacing.SizesDdsSpacingLocalX025,
-  marginBottom: spacing.SizesDdsSpacingLocalX025,
+  marginTop: spacing.SizesDdsSpacingX025,
+  marginBottom: spacing.SizesDdsSpacingX025,
 };
 
 const groupHeading = {
   color: colors.DdsColorNeutralsGray7,
-  padding: `${spacing.SizesDdsSpacingLocalX05}  ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX0125} ${spacing.SizesDdsSpacingLocalX075}`,
+  padding: `${spacing.SizesDdsSpacingX05}  ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX0125} ${spacing.SizesDdsSpacingX075}`,
 };
 
 const option = {
   base: {
-    gap: spacing.SizesDdsSpacingLocalX05,
-    padding: `${spacing.SizesDdsSpacingLocalX075}`,
+    gap: spacing.SizesDdsSpacingX05,
+    padding: `${spacing.SizesDdsSpacingX075}`,
     backgroundColor: colors.DdsColorNeutralsWhite,
   },
   hover: {
@@ -144,7 +144,7 @@ const option = {
 };
 
 const noOptionsMessage = {
-  padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1}`,
+  padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX1}`,
   color: colors.DdsColorNeutralsGray6,
 };
 
@@ -154,14 +154,14 @@ const multiValue = {
 };
 
 const multiValueLabel = {
-  padding: `0 ${spacing.SizesDdsSpacingLocalX025}`,
+  padding: `0 ${spacing.SizesDdsSpacingX025}`,
   color: colors.DdsColorNeutralsGray9,
 };
 
 const multiValueRemove = {
   base: {
     color: colors.DdsColorNeutralsGray9,
-    padding: `0 ${spacing.SizesDdsSpacingLocalX025}`,
+    padding: `0 ${spacing.SizesDdsSpacingX025}`,
     borderTopRightRadius: borderRadius.RadiiDdsBorderRadius1Radius,
     borderBottomRightRadius: borderRadius.RadiiDdsBorderRadius1Radius,
   },
@@ -174,12 +174,12 @@ const multiValueRemove = {
 
 const valueContainer = {
   isMulti: {
-    gap: spacing.SizesDdsSpacingLocalX025,
+    gap: spacing.SizesDdsSpacingX025,
   },
 };
 
 const icon = {
-  marginRight: spacing.SizesDdsSpacingLocalX05,
+  marginRight: spacing.SizesDdsSpacingX05,
 };
 
 export const selectTokens = {

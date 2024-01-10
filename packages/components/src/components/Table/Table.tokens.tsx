@@ -37,28 +37,28 @@ const row = {
 const cell = {
   density: {
     normal: {
-      padding: `${spacing.SizesDdsSpacingLocalX15} ${spacing.SizesDdsSpacingLocalX075}`,
+      padding: `${spacing.SizesDdsSpacingX15} ${spacing.SizesDdsSpacingX075}`,
     },
     compact: {
-      padding: `${spacing.SizesDdsSpacingLocalX075}`,
+      padding: `${spacing.SizesDdsSpacingX075}`,
     },
     extraCompact: {
-      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+      padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
     },
   },
   head: {
     backgroundColor: colors.DdsColorPrimaryLightest,
   },
   sort: {
-    gap: spacing.SizesDdsSpacingLocalX05,
+    gap: spacing.SizesDdsSpacingX05,
     icon: {
-      marginInlineStart: spacing.SizesDdsSpacingLocalX05,
+      marginInlineStart: spacing.SizesDdsSpacingX05,
     },
   },
   layout: {
     textAndIcon: {
-      gap: spacing.SizesDdsSpacingLocalX075,
-      marginRight: spacing.SizesDdsSpacingLocalX075,
+      gap: spacing.SizesDdsSpacingX075,
+      marginRight: spacing.SizesDdsSpacingX075,
     },
   },
 };

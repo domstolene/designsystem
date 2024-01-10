@@ -55,28 +55,28 @@ const calendarButton = {
     color: colors.DdsColorInteractiveBase,
   },
   medium: {
-    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeMedium} + ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05})`,
+    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeMedium} + ${ddsBaseTokens.spacing.SizesDdsSpacingX05})`,
   },
   small: {
-    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeSmall} + ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05})`,
+    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeSmall} + ${ddsBaseTokens.spacing.SizesDdsSpacingX05})`,
   },
   tiny: {
-    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeSmall} + ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05})`,
+    size: `calc(${ddsBaseTokens.iconSizes.DdsIconsizeSmall} + ${ddsBaseTokens.spacing.SizesDdsSpacingX05})`,
   },
 };
 
 const datefield = {
   medium: {
     minWidth: '160px',
-    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
+    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingX05,
   },
   small: {
     minWidth: '140px',
-    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
+    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingX05,
   },
   tiny: {
     minWidth: '125px',
-    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingLocalX025,
+    paddingX: ddsBaseTokens.spacing.SizesDdsSpacingX025,
   },
   disabled: {
     background: ddsBaseTokens.colors.DdsColorNeutralsGray5,
@@ -86,8 +86,8 @@ const datefield = {
 };
 
 export const datePickerTokens = {
-  gap: ddsBaseTokens.spacing.SizesDdsSpacingLocalX025,
-  labelGap: ddsBaseTokens.spacing.SizesDdsSpacingLocalX0125,
+  gap: ddsBaseTokens.spacing.SizesDdsSpacingX025,
+  labelGap: ddsBaseTokens.spacing.SizesDdsSpacingX0125,
   datefield,
   calendarButton,
 };

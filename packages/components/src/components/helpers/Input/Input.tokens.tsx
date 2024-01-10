@@ -21,7 +21,7 @@ const input = {
     border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid ${colors.DdsColorNeutralsGray5}`,
     borderColor: TextInput.input.borderColor,
     backgroundColor: colors.DdsColorNeutralsWhite,
-    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX075}`,
+    padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX075}`,
   },
   disabled: {
     color: colors.DdsColorNeutralsGray7,
@@ -32,22 +32,22 @@ const input = {
   },
   sizes: {
     medium: {
-      padding: spacing.SizesDdsSpacingLocalX075,
+      padding: spacing.SizesDdsSpacingX075,
     },
     small: {
-      padding: `${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX075}`,
+      padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075}`,
     },
     tiny: {
-      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX05}`,
+      padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
     },
   },
   affix: {
-    gap: spacing.SizesDdsSpacingLocalX1NumberPx,
+    gap: spacing.SizesDdsSpacingX1NumberPx,
   },
 };
 
 const container = {
-  gap: spacing.SizesDdsSpacingLocalX0125,
+  gap: spacing.SizesDdsSpacingX0125,
 };
 
 export const inputTokens = {

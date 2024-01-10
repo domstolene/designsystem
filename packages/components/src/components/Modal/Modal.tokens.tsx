@@ -3,15 +3,15 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { spacing } = ddsBaseTokens;
 
 const container = {
-  padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15} ${spacing.SizesDdsSpacingLocalX15}`,
+  padding: `${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX15} ${spacing.SizesDdsSpacingX15}`,
 };
 
 const contentContainer = {
-  paddingRight: spacing.SizesDdsSpacingLocalX1,
-  gap: spacing.SizesDdsSpacingLocalX1,
+  paddingRight: spacing.SizesDdsSpacingX1,
+  gap: spacing.SizesDdsSpacingX1,
 };
 const actionsContainer = {
-  gap: spacing.SizesDdsSpacingLocalX1,
+  gap: spacing.SizesDdsSpacingX1,
 };
 
 export const modalTokens = {

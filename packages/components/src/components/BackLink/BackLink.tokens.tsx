@@ -7,7 +7,7 @@ const icon = {
 };
 
 const nav = {
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
 };
 
 export const backLinkTokens = {

@@ -85,10 +85,10 @@ export const OverviewSizesComparedWithTextInputWithIcon = (
           key={componentSize}
           align="flex-start"
           justify="flex-start"
-          gap="local-x0.25"
+          gap="x0.25"
         >
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
-          <HStack gap="local-x0.25">
+          <HStack gap="x0.25">
             <TimeField
               label="Tidspunkt"
               {...args}
@@ -122,9 +122,9 @@ export const OverviewSizesWithDatePicker = (
           key={componentSize}
           align="flex-start"
           justify="flex-start"
-          gap="local-x0.25"
+          gap="x0.25"
         >
-          <HStack gap="local-x0.25">
+          <HStack gap="x0.25">
             <TimeField
               {...args}
               componentSize={componentSize}

@@ -9,13 +9,13 @@ const tab = {
   base: {
     borderBottom: `${border.BordersDdsBorderStyleLightStrokeWeight} solid transparent`,
     color: colors.DdsColorNeutralsGray7,
-    padding: spacing.SizesDdsSpacingLocalX05,
+    padding: spacing.SizesDdsSpacingX05,
   },
   row: {
-    gap: spacing.SizesDdsSpacingLocalX05,
+    gap: spacing.SizesDdsSpacingX05,
   },
   column: {
-    gap: spacing.SizesDdsSpacingLocalX025,
+    gap: spacing.SizesDdsSpacingX025,
   },
   active: {
     backgroundColor: colors.DdsColorInteractiveLightest,
@@ -31,7 +31,7 @@ const tab = {
 };
 
 const panel = {
-  padding: spacing.SizesDdsSpacingLocalX025,
+  padding: spacing.SizesDdsSpacingX025,
 };
 
 export const tabsTokens = {

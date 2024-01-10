@@ -77,7 +77,7 @@ const popover = {
   backgroundColor: ddsBaseTokens.colors.DdsColorNeutralsWhite,
   borderRadius: ddsBaseTokens.borderRadius.RadiiDdsBorderRadius1Radius,
   border: `2px solid ${ddsBaseTokens.border.BordersDdsBorderFocusInputfieldStroke}`,
-  padding: ddsBaseTokens.spacing.SizesDdsSpacingLocalX05,
+  padding: ddsBaseTokens.spacing.SizesDdsSpacingX05,
   zIndex: 100,
 };
 

@@ -138,7 +138,7 @@ export const CustomWidth = (args: Partial<DatePickerProps>) => {
 export const ControlFocus = (args: Partial<DatePickerProps>) => {
   const ref = useRef<HTMLElement>(null);
   return (
-    <VStack gap="layout-x1">
+    <VStack gap="x1">
       <DatePicker label="Dato" {...args} ref={ref} />
       <Button onClick={() => ref.current?.focus()}>Fokuser DatePicker</Button>
     </VStack>

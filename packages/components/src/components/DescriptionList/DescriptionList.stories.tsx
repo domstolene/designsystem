@@ -120,7 +120,7 @@ export const WithIcon = (args: DescriptionListProps) => {
 };
 
 export const RowDirectionExample = (args: DescriptionListProps) => {
-  const margin = tokens.spacing.SizesDdsSpacingLocalX1;
+  const margin = tokens.spacing.SizesDdsSpacingX1;
   return (
     <StoryTemplate title="DescriptionList - Flere kolonner">
       <div>

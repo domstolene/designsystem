@@ -18,14 +18,13 @@ export default {
 };
 
 const IconContainer = styled.div`
-  padding: ${spacing.SizesDdsSpacingLocalX05}
-    ${spacing.SizesDdsSpacingLocalX025};
+  padding: ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX025};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  gap: ${spacing.SizesDdsSpacingLocalX075};
+  gap: ${spacing.SizesDdsSpacingX075};
   width: 80px;
   @media only screen and (min-width: 1400px) {
     width: 100px;
@@ -41,14 +40,14 @@ const OverviewContainer = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: ${spacing.SizesDdsSpacingLocalX05};
+  gap: ${spacing.SizesDdsSpacingX05};
 `;
 
 const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: ${spacing.SizesDdsSpacingLayoutX15};
+  gap: ${spacing.SizesDdsSpacingX15};
   max-width: 800px;
   margin: auto;
   @media only screen and (min-width: 1400px) {
@@ -74,14 +73,14 @@ const MessageWrapper = styled.div`
 const GroupHeader = styled.div`
   display: flex;
   align-items: center;
-  gap: ${spacing.SizesDdsSpacingLocalX025};
+  gap: ${spacing.SizesDdsSpacingX025};
   position: relative;
 `;
 
 const CodeBlock = styled.div`
   background-color: ${colors.DdsColorNeutralsGray8};
-  padding: ${spacing.SizesDdsSpacingLocalX05} ${spacing.SizesDdsSpacingLocalX1};
-  margin: ${spacing.SizesDdsSpacingLayoutX1} 0;
+  padding: ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX1};
+  margin: ${spacing.SizesDdsSpacingX1} 0;
   border-radius: ${borderRadius.RadiiDdsBorderRadius1Radius};
   code {
     color: white;
@@ -93,8 +92,8 @@ const IconRow = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: ${spacing.SizesDdsSpacingLocalX05};
-  margin-bottom: ${spacing.SizesDdsSpacingLocalX1};
+  gap: ${spacing.SizesDdsSpacingX05};
+  margin-bottom: ${spacing.SizesDdsSpacingX1};
 `;
 
 export const Overview = () => {

@@ -12,7 +12,7 @@ export const typographyTypes: {
 };
 
 const header = {
-  padding: `${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15}`,
+  padding: `${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX15}`,
   hover: {
     boxShadow: `0 0 0 ${border.BordersDdsBorderFocusInputfieldStrokeWeight} ${border.BordersDdsBorderFocusInputfieldStroke}`,
   },
@@ -24,14 +24,13 @@ const header = {
 const chevronWrapper = {
   width: iconSizes.DdsIconsizeMedium,
   height: iconSizes.DdsIconsizeMedium,
-  marginLeft: spacing.SizesDdsSpacingLocalX05,
+  marginLeft: spacing.SizesDdsSpacingX05,
 };
 
 const body = {
-  padding: `${spacing.SizesDdsSpacingLocalX1} ${
-    spacing.SizesDdsSpacingLocalX2NumberPx +
-    spacing.SizesDdsSpacingLocalX075NumberPx
-  }px ${spacing.SizesDdsSpacingLocalX2} ${spacing.SizesDdsSpacingLocalX15}`,
+  padding: `${spacing.SizesDdsSpacingX1} ${
+    spacing.SizesDdsSpacingX2NumberPx + spacing.SizesDdsSpacingX075NumberPx
+  }px ${spacing.SizesDdsSpacingX2} ${spacing.SizesDdsSpacingX15}`,
 };
 
 export const cardAccordionTokens = {
@@ -40,6 +39,6 @@ export const cardAccordionTokens = {
   chevronWrapper,
   chevron: {
     width: iconSizes.DdsIconsizeMedium,
-    height: spacing.SizesDdsSpacingLocalX05,
+    height: spacing.SizesDdsSpacingX05,
   },
 };

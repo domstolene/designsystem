@@ -13,7 +13,7 @@ const toggleButton = {
   border: button.base.border,
   backgroundColor: colors.DdsColorNeutralsWhite,
   color: colors.DdsColorNeutralsGray7,
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
   borderRadius: button.appearances.rounded.base.borderRadius,
   padding: button.sizes.small.text.padding,
   hover: selectionControl.hover.base,
@@ -25,11 +25,11 @@ const toggleButton = {
 };
 
 const group = {
-  gap: spacing.SizesDdsSpacingLocalX075,
+  gap: spacing.SizesDdsSpacingX075,
 };
 
 const container = {
-  gap: spacing.SizesDdsSpacingLocalX05,
+  gap: spacing.SizesDdsSpacingX05,
 };
 
 export const toggleButtonTokens = {

@@ -3,20 +3,20 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { spacing } = ddsBaseTokens;
 
 const wrapper = {
-  padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1} ${spacing.SizesDdsSpacingLocalX15} ${spacing.SizesDdsSpacingLocalX1}`,
+  padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX1} ${spacing.SizesDdsSpacingX15} ${spacing.SizesDdsSpacingX1}`,
 };
 const closeButton = {
-  top: spacing.SizesDdsSpacingLocalX025,
-  right: spacing.SizesDdsSpacingLocalX025,
+  top: spacing.SizesDdsSpacingX025,
+  right: spacing.SizesDdsSpacingX025,
 };
 
 const title = {
-  marginRight: spacing.SizesDdsSpacingLocalX2,
+  marginRight: spacing.SizesDdsSpacingX2,
 };
 
 const content = {
   noTitle: {
-    marginTop: spacing.SizesDdsSpacingLocalX2,
+    marginTop: spacing.SizesDdsSpacingX2,
   },
 };
 

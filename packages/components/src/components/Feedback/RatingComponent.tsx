@@ -13,7 +13,7 @@ const RatingContainer = styled.div<{
   $layout: Layout;
 }>`
   display: flex;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX1};
+  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX1};
   ${({ $layout }) => css`
     flex-direction: ${$layout === 'horizontal' ? 'row' : 'column'};
     align-items: ${$layout === 'horizontal' ? 'center' : 'start'};
@@ -48,7 +48,7 @@ export const RatingComponent = ({
       {loading ? (
         <Spinner tooltip="Laster opp tilbakemelding ..." />
       ) : (
-        <HStack gap="layout-x1">
+        <HStack gap="x1">
           <Tooltip text={thumbUpTooltip}>
             <RatingButton
               htmlProps={{ 'aria-label': thumbUpTooltip }}

@@ -37,26 +37,26 @@ Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. 
 ### JS
 
 ```js
-import * as React from "react";
-import { render } from "react-dom";
-import { ddsBaseTokens } from "@norges-domstoler/dds-design-tokens";
+import * as React from 'react';
+import { render } from 'react-dom';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
 
 const style = {
   backgroundColor: Colors.DdsColorPrimaryBase,
-  padding: Spacing.SizesDdsSpacingLocalX075,
+  padding: Spacing.SizesDdsSpacingX075,
 };
 
 const App = () => <div style={style}>Tekst</div>;
 
-render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById('root'));
 ```
 
 ### CSS
 
 ```css
-@import "@norges-domstoler/dds-design-tokens/dist/css/colors.css";
+@import '@norges-domstoler/dds-design-tokens/dist/css/colors.css';
 
 body {
   background-color: var(--dds-color-primary-base);
@@ -66,7 +66,7 @@ body {
 ### SCSS
 
 ```scss
-@use "@norges-domstoler/dds-design-tokens/dist/scss/colors" as colors;
+@use '@norges-domstoler/dds-design-tokens/dist/scss/colors' as colors;
 
 body {
   background-color: colors.$dds-color-primary-base;
