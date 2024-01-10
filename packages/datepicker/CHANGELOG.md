@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-datepicker
 
+## 0.4.2
+
+### Patch Changes
+
+- Updated dependencies [0193878]
+  - @norges-domstoler/dds-components@13.13.0
+
 ## 0.4.1
 
 ### Patch Changes
