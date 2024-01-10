@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 13.13.0
+
+### Minor Changes
+
+- 0193878: Legge til Flickr-ikon.
+
 ## 13.12.0
 
 ### Minor Changes
