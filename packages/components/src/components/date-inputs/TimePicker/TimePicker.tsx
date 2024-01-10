@@ -12,8 +12,8 @@ import { DateInput } from '../common/DateInput';
 import styled from 'styled-components';
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
-const TimeFieldIcon = styled(Icon)<{
-  $componentSize: Exclude<TimeFieldProps['componentSize'], undefined>;
+const TimePickerIcon = styled(Icon)<{
+  $componentSize: Exclude<TimePickerProps['componentSize'], undefined>;
 }>`
   color: ${datePickerTokens.calendarButton.color};
   width: ${({ $componentSize }) =>
@@ -21,7 +21,7 @@ const TimeFieldIcon = styled(Icon)<{
   margin-left: -1px; // To align with TextInputs icons
 `;
 
-export type TimeFieldProps<T extends TimeValue = TimeValue> =
+export type TimePickerProps<T extends TimeValue = TimeValue> =
   AriaTimeFieldProps<T> & {
     className?: string;
   } & Pick<
@@ -29,8 +29,8 @@ export type TimeFieldProps<T extends TimeValue = TimeValue> =
       'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
     >;
 
-function _TimeField<T extends TimeValue>(
-  { componentSize = 'medium', style, ...props }: TimeFieldProps<T>,
+function _TimePicker<T extends TimeValue>(
+  { componentSize = 'medium', style, ...props }: TimePickerProps<T>,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   const ref = useRef<HTMLInputElement>(null);
@@ -55,7 +55,7 @@ function _TimeField<T extends TimeValue>(
       fieldProps={fieldProps}
       prefix={
         !props.isReadOnly && (
-          <TimeFieldIcon
+          <TimePickerIcon
             $componentSize={componentSize}
             icon={TimeIcon}
             iconSize={componentSize == 'medium' ? 'medium' : 'small'}
@@ -75,6 +75,6 @@ function _TimeField<T extends TimeValue>(
   );
 }
 
-export const TimeField = forwardRef(_TimeField);
+export const TimePicker = forwardRef(_TimePicker);
 
-TimeField.displayName = 'TimeField';
+TimePicker.displayName = 'TimePicker';

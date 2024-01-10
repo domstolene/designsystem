@@ -1,4 +1,4 @@
-import { TimeField, TimeFieldProps } from '.';
+import { TimePicker, TimePickerProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import type { Meta } from '@storybook/react';
 import { TimeValue } from '@react-types/datepicker';
@@ -11,35 +11,35 @@ import { VStack, HStack } from '../../Stack';
 import { TextInput } from '../../TextInput';
 import { Label } from '../../Typography';
 
-const meta: Meta<typeof TimeField> = {
-  title: 'dds-components/TimeField',
-  component: TimeField,
+const meta: Meta<typeof TimePicker> = {
+  title: 'dds-components/TimePicker',
+  component: TimePicker,
 };
 
 export default meta;
 
-export const Default = (args: Partial<TimeFieldProps<TimeValue>>) => {
+export const Default = (args: Partial<TimePickerProps<TimeValue>>) => {
   return (
-    <StoryTemplate title="TimeField - default">
-      <TimeField label="Tidspunkt" {...args} />
+    <StoryTemplate title="TimePicker - default">
+      <TimePicker label="Tidspunkt" {...args} />
     </StoryTemplate>
   );
 };
 
-export const Required = (args: Partial<TimeFieldProps<TimeValue>>) => {
+export const Required = (args: Partial<TimePickerProps<TimeValue>>) => {
   return (
-    <StoryTemplate title="DatePicker - default">
-      <TimeField label="Tidspunkt" {...args} isRequired />
+    <StoryTemplate title="TimePicker - required">
+      <TimePicker label="Tidspunkt" {...args} isRequired />
     </StoryTemplate>
   );
 };
 
-export const Controlled = (args: Partial<TimeFieldProps<TimeValue>>) => {
+export const Controlled = (args: Partial<TimePickerProps<TimeValue>>) => {
   const [value, setValue] = useState<TimeValue | null>(new Time(12));
 
   return (
-    <StoryTemplate title="TimeField - controlled">
-      <TimeField
+    <StoryTemplate title="TimePicker - controlled">
+      <TimePicker
         label="Tidspunkt"
         {...args}
         value={value}
@@ -52,10 +52,10 @@ export const Controlled = (args: Partial<TimeFieldProps<TimeValue>>) => {
   );
 };
 
-export const Error = (args: Partial<TimeFieldProps<TimeValue>>) => {
+export const Error = (args: Partial<TimePickerProps<TimeValue>>) => {
   return (
-    <StoryTemplate title="TimeField - error">
-      <TimeField
+    <StoryTemplate title="TimePicker - error">
+      <TimePicker
         label="Tidspunkt"
         {...args}
         errorMessage="Her er noe veldig galt! 😨"
@@ -64,22 +64,22 @@ export const Error = (args: Partial<TimeFieldProps<TimeValue>>) => {
   );
 };
 
-export const OverviewSizes = (args: Partial<TimeFieldProps<TimeValue>>) => {
+export const OverviewSizes = (args: Partial<TimePickerProps<TimeValue>>) => {
   return (
-    <StoryTemplate title="TimeField - overview sizes">
-      <TimeField {...args} componentSize="medium" label="Medium" />
-      <TimeField {...args} componentSize="small" label="Small" />
-      <TimeField {...args} componentSize="tiny" label="Tiny" />
+    <StoryTemplate title="TimePicker - overview sizes">
+      <TimePicker {...args} componentSize="medium" label="Medium" />
+      <TimePicker {...args} componentSize="small" label="Small" />
+      <TimePicker {...args} componentSize="tiny" label="Tiny" />
     </StoryTemplate>
   );
 };
 
 export const OverviewSizesComparedWithTextInputWithIcon = (
-  args: Partial<TimeFieldProps>,
+  args: Partial<TimePickerProps>,
 ) => {
   const componentSizes = ['medium', 'small', 'tiny'] as const;
   return (
-    <StoryTemplate title="TimeField - overview sizes">
+    <StoryTemplate title="TimePicker - overview sizes">
       {componentSizes.map(componentSize => (
         <VStack
           key={componentSize}
@@ -89,7 +89,7 @@ export const OverviewSizesComparedWithTextInputWithIcon = (
         >
           <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
           <HStack gap="x0.25">
-            <TimeField
+            <TimePicker
               label="Tidspunkt"
               {...args}
               componentSize={componentSize}
@@ -112,11 +112,11 @@ export const OverviewSizesComparedWithTextInputWithIcon = (
 };
 
 export const OverviewSizesWithDatePicker = (
-  args: Partial<TimeFieldProps<TimeValue>>,
+  args: Partial<TimePickerProps<TimeValue>>,
 ) => {
   const componentSizes = ['medium', 'small', 'tiny'] as const;
   return (
-    <StoryTemplate title="TimeField - overview sizes with datepicker">
+    <StoryTemplate title="TimePicker - overview sizes with datepicker">
       {componentSizes.map(componentSize => (
         <VStack
           key={componentSize}
@@ -125,7 +125,7 @@ export const OverviewSizesWithDatePicker = (
           gap="x0.25"
         >
           <HStack gap="x0.25">
-            <TimeField
+            <TimePicker
               {...args}
               componentSize={componentSize}
               label="Tidspunkt"

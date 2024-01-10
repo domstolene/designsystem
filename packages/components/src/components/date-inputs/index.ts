@@ -1,6 +1,6 @@
 export { DatePicker, Calendar } from './DatePicker';
 export type { DatePickerProps, CalendarProps } from './DatePicker';
-export { TimeField, type TimeFieldProps } from './TimeField';
+export { TimePicker, type TimePickerProps } from './TimePicker';
 export {
   dateValueToNativeDate,
   nativeDateToDateValue,
