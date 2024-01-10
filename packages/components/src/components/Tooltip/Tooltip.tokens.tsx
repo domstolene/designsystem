@@ -3,7 +3,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 const { colors, spacing } = ddsBaseTokens;
 
 const wrapper = {
-  padding: `${spacing.SizesDdsSpacingLocalX075}`,
+  padding: `${spacing.SizesDdsSpacingX075}`,
 };
 
 const svgArrow = {

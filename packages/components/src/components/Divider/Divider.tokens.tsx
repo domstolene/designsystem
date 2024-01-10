@@ -4,8 +4,8 @@ const { border, spacing } = ddsBaseTokens;
 
 const divider = {
   borderTop: `${border.BordersDdsBorderStyleLightStrokeWeight} solid`,
-  marginTop: spacing.SizesDdsSpacingLocalX1,
-  marginBottom: spacing.SizesDdsSpacingLocalX1,
+  marginTop: spacing.SizesDdsSpacingX1,
+  marginBottom: spacing.SizesDdsSpacingX1,
   color: {
     primary: {
       borderColor: border.BordersDdsBorderStyleDarkStroke,

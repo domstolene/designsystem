@@ -11,7 +11,7 @@ export const typographyType: StaticTypographyType = 'bodySans02';
 
 const container = {
   borderBottom: '2px solid',
-  padding: `0 ${spacing.SizesDdsSpacingLocalX1}`,
+  padding: `0 ${spacing.SizesDdsSpacingX1}`,
   info: {
     borderColor: colors.DdsColorInfoLighter,
     backgroundColor: colors.DdsColorInfoLightest,
@@ -27,12 +27,12 @@ const container = {
 };
 
 const contentContainer = {
-  paddingRight: spacing.SizesDdsSpacingLocalX15,
-  paddingTop: spacing.SizesDdsSpacingLocalX075,
-  paddingBottom: spacing.SizesDdsSpacingLocalX075,
-  gap: spacing.SizesDdsSpacingLocalX075,
+  paddingRight: spacing.SizesDdsSpacingX15,
+  paddingTop: spacing.SizesDdsSpacingX075,
+  paddingBottom: spacing.SizesDdsSpacingX075,
+  gap: spacing.SizesDdsSpacingX075,
   withClosable: {
-    paddingRight: spacing.SizesDdsSpacingLocalX075,
+    paddingRight: spacing.SizesDdsSpacingX075,
   },
 };
 
@@ -60,7 +60,7 @@ export const globalMessageTokens = {
   container,
   contentContainer,
   icon: {
-    marginRight: `${spacing.SizesDdsSpacingLocalX075}`,
+    marginRight: `${spacing.SizesDdsSpacingX075}`,
     info: {
       color: colors.DdsColorInfoDarkest,
     },

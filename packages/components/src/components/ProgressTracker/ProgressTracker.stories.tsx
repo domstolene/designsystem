@@ -368,7 +368,7 @@ const Fieldset = styled.fieldset`
 
 const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack gap="layout-x1" align="flex-start">
+    <VStack gap="x1" align="flex-start">
       <Heading level={1} style={{ marginBottom: '1rem' }}>
         Rolle- og saksnummer
       </Heading>
@@ -405,7 +405,7 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
 
 const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack gap="layout-x1" align="flex-start">
+    <VStack gap="x1" align="flex-start">
       <Heading level={1} style={{ marginBottom: '1rem' }}>
         Kontaktinformasjon
       </Heading>
@@ -437,7 +437,7 @@ const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
 
 const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack gap="layout-x1" align="flex-start">
+    <VStack gap="x1" align="flex-start">
       <Heading level={1} style={{ marginBottom: '1rem' }}>
         Fakturainformasjon
       </Heading>

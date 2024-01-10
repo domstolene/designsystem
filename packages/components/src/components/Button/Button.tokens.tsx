@@ -35,7 +35,7 @@ const iconSizeLargePx = calculateHeightWithLineHeight(
   fontPackages.body_sans_04.numbers.fontSizeNumber,
 );
 
-const svgOffset = spacing.SizesDdsSpacingLocalX0125NumberPx;
+const svgOffset = spacing.SizesDdsSpacingX0125NumberPx;
 
 const filledButtonColors = {
   primary: {
@@ -102,7 +102,7 @@ const sizes = {
     justIcon: {
       icon: {
         fontSize: `${iconSizeLargePx + svgOffset}px`,
-        padding: spacing.SizesDdsSpacingLocalX1,
+        padding: spacing.SizesDdsSpacingX1,
       },
       wrapper: {
         height: `${iconSizeLargePx}px`,
@@ -110,17 +110,17 @@ const sizes = {
       },
     },
     text: {
-      padding: `${spacing.SizesDdsSpacingLocalX1} ${
-        spacing.SizesDdsSpacingLocalX2NumberPx - 2
+      padding: `${spacing.SizesDdsSpacingX1} ${
+        spacing.SizesDdsSpacingX2NumberPx - 2
       }px`,
     },
-    textAndIcon: { gap: spacing.SizesDdsSpacingLocalX1 },
+    textAndIcon: { gap: spacing.SizesDdsSpacingX1 },
   },
   medium: {
     justIcon: {
       icon: {
         fontSize: `${iconSizeMediumPx + svgOffset}px`,
-        padding: spacing.SizesDdsSpacingLocalX075,
+        padding: spacing.SizesDdsSpacingX075,
       },
       wrapper: {
         height: `${iconSizeMediumPx}px`,
@@ -128,17 +128,17 @@ const sizes = {
       },
     },
     text: {
-      padding: `${spacing.SizesDdsSpacingLocalX075} ${
-        spacing.SizesDdsSpacingLocalX15NumberPx - 2
+      padding: `${spacing.SizesDdsSpacingX075} ${
+        spacing.SizesDdsSpacingX15NumberPx - 2
       }px`,
     },
-    textAndIcon: { gap: spacing.SizesDdsSpacingLocalX075 },
+    textAndIcon: { gap: spacing.SizesDdsSpacingX075 },
   },
   small: {
     justIcon: {
       icon: {
         fontSize: `${iconSizeSmallPx + svgOffset}px`,
-        padding: spacing.SizesDdsSpacingLocalX05,
+        padding: spacing.SizesDdsSpacingX05,
       },
       wrapper: {
         height: `${iconSizeSmallPx}px`,
@@ -146,17 +146,17 @@ const sizes = {
       },
     },
     text: {
-      padding: `${spacing.SizesDdsSpacingLocalX05} ${
-        spacing.SizesDdsSpacingLocalX1NumberPx - 2
+      padding: `${spacing.SizesDdsSpacingX05} ${
+        spacing.SizesDdsSpacingX1NumberPx - 2
       }px`,
     },
-    textAndIcon: { gap: spacing.SizesDdsSpacingLocalX05 },
+    textAndIcon: { gap: spacing.SizesDdsSpacingX05 },
   },
   tiny: {
     justIcon: {
       icon: {
         fontSize: `${iconSizeTinyPx + svgOffset}px`,
-        padding: spacing.SizesDdsSpacingLocalX025,
+        padding: spacing.SizesDdsSpacingX025,
       },
       wrapper: {
         height: `${iconSizeTinyPx}px`,
@@ -164,9 +164,9 @@ const sizes = {
       },
     },
     text: {
-      padding: `${spacing.SizesDdsSpacingLocalX025} ${spacing.SizesDdsSpacingLocalX075}`,
+      padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX075}`,
     },
-    textAndIcon: { gap: spacing.SizesDdsSpacingLocalX05 },
+    textAndIcon: { gap: spacing.SizesDdsSpacingX05 },
   },
 };
 

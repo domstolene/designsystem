@@ -36,7 +36,7 @@ const bodyOnDark = (
 );
 
 const ContentContainer = styled.div`
-  padding: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX075};
+  padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
 `;
 
 export const Overview = () => {

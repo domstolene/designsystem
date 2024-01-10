@@ -2,7 +2,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
 const { border: Border, spacing } = ddsBaseTokens;
 
-export const outlineOffset = spacing.SizesDdsSpacingLocalX0125;
+export const outlineOffset = spacing.SizesDdsSpacingX0125;
 
 export const focusVisible = {
   outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Border.BordersDdsBorderFocusBaseStroke} solid`,

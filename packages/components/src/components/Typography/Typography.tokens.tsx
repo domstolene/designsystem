@@ -19,8 +19,8 @@ const a = {
     color: colors.DdsColorInteractiveDark,
   },
   icon: {
-    marginTop: spacing.SizesDdsSpacingLocalX025,
-    marginLeft: spacing.SizesDdsSpacingLocalX025,
+    marginTop: spacing.SizesDdsSpacingX025,
+    marginLeft: spacing.SizesDdsSpacingX025,
   },
 };
 

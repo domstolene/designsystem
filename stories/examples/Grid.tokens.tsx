@@ -1,9 +1,9 @@
-import { ddsBaseTokens } from "@norges-domstoler/dds-design-tokens";
-import { ScreenSize } from "@norges-domstoler/dds-components";
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ScreenSize } from '@norges-domstoler/dds-components';
 
 const { grid, spacing } = ddsBaseTokens;
 
-const allColumns = "1 / -1";
+const allColumns = '1 / -1';
 const halfWayColumn = {
   [ScreenSize.Small]: grid.DdsGridSm600959Count / 2 + 1,
   [ScreenSize.Medium]: grid.DdsGridMd9601279Count / 2 + 1,
@@ -16,8 +16,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridXs0599Count,
       gap: grid.DdsGridXs0599GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX1,
-      marginRight: spacing.SizesDdsSpacingLayoutX1,
+      marginLeft: spacing.SizesDdsSpacingX1,
+      marginRight: spacing.SizesDdsSpacingX1,
     },
 
     columns: {
@@ -33,8 +33,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridSm600959Count,
       gap: grid.DdsGridSm600959GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX2,
-      marginRight: spacing.SizesDdsSpacingLayoutX2,
+      marginLeft: spacing.SizesDdsSpacingX2,
+      marginRight: spacing.SizesDdsSpacingX2,
     },
     columns: {
       firstHalf: {
@@ -49,8 +49,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridMd9601279Count,
       gap: grid.DdsGridMd9601279GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX4,
-      marginRight: spacing.SizesDdsSpacingLayoutX4,
+      marginLeft: spacing.SizesDdsSpacingX4,
+      marginRight: spacing.SizesDdsSpacingX4,
     },
     columns: {
       firstHalf: {
@@ -65,8 +65,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridLg12801919Count,
       gap: grid.DdsGridLg12801919GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX6,
-      marginRight: spacing.SizesDdsSpacingLayoutX6,
+      marginLeft: spacing.SizesDdsSpacingX6,
+      marginRight: spacing.SizesDdsSpacingX6,
     },
     columns: {
       firstHalf: {
@@ -81,8 +81,8 @@ export const gridTokens = {
     grid: {
       columns: grid.DdsGridXl1920Count,
       gap: grid.DdsGridXl1920GutterSize,
-      marginLeft: spacing.SizesDdsSpacingLayoutX10,
-      marginRight: spacing.SizesDdsSpacingLayoutX10,
+      marginLeft: spacing.SizesDdsSpacingX10,
+      marginRight: spacing.SizesDdsSpacingX10,
     },
     columns: {
       firstHalf: {

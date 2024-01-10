@@ -22,20 +22,20 @@ const LinkBlockInner = styled.div<{ size: Size }>`
     if (size === 'large') {
       return css`
         flex-direction: column;
-        gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX075};
-        padding: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX075};
+        gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
+        padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
         align-items: center;
         @media only screen and (max-width: 350px) {
           & {
-            padding: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
+            padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
           }
         }
       `;
     } else if (size === 'small') {
       return css`
         flex-direction: row;
-        gap: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
-        padding: ${ddsBaseTokens.spacing.SizesDdsSpacingLocalX05};
+        gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
+        padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
         align-items: center;
       `;
     }

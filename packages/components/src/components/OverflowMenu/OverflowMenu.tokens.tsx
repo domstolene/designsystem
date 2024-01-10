@@ -11,8 +11,8 @@ const element = {
     color: colors.DdsColorNeutralsGray9,
     textDecoration: 'none',
     backgroundColor: colors.DdsColorNeutralsWhite,
-    padding: `${spacing.SizesDdsSpacingLocalX075} ${spacing.SizesDdsSpacingLocalX1}`,
-    gap: spacing.SizesDdsSpacingLocalX025,
+    padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX1}`,
+    gap: spacing.SizesDdsSpacingX025,
   },
 };
 
@@ -40,8 +40,8 @@ const container = {
 };
 
 const divider = {
-  marginRight: spacing.SizesDdsSpacingLocalX15,
-  marginLeft: spacing.SizesDdsSpacingLocalX15,
+  marginRight: spacing.SizesDdsSpacingX15,
+  marginLeft: spacing.SizesDdsSpacingX15,
 };
 
 export const overflowMenuTokens = {
@@ -49,5 +49,5 @@ export const overflowMenuTokens = {
   element,
   link,
   divider,
-  offset: spacing.SizesDdsSpacingLocalX0125NumberPx,
+  offset: spacing.SizesDdsSpacingX0125NumberPx,
 };
