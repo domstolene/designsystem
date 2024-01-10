@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Thu, 22 Sep 2022 09:11:12 GMT
- */
-
 export const DdsBreakpointXs = "1px";
 export const DdsBreakpointXsNumberPx = 1;
 export const DdsBreakpointSm = "600px";

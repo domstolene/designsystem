@@ -1,8 +1,3 @@
-/**
- * Do not edit directly
- * Generated on Thu, 22 Sep 2022 09:11:12 GMT
- */
-
 export const DdsGridXs0599Pattern = "columns";
 export const DdsGridXs0599GutterSize = "16px";
 export const DdsGridXs0599GutterSizeNumberPx = 16;
