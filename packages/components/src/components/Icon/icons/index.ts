@@ -61,6 +61,7 @@ export * from './filterList';
 export * from './filterListOff';
 export * from './filterOff';
 export * from './findInPage';
+export * from './flickr';
 export * from './folder';
 export * from './folderAdd';
 export * from './folderShielded';
