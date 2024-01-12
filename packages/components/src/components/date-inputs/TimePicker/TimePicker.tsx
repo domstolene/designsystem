@@ -11,6 +11,7 @@ import { locale } from '../DatePicker/constants';
 import { DateInput } from '../common/DateInput';
 import styled from 'styled-components';
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
+import { Time } from '@internationalized/date';
 
 const TimePickerIcon = styled(Icon)<{
   $componentSize: Exclude<TimePickerProps['componentSize'], undefined>;
@@ -21,16 +22,15 @@ const TimePickerIcon = styled(Icon)<{
   margin-left: -1px; // To align with TextInputs icons
 `;
 
-export type TimePickerProps<T extends TimeValue = TimeValue> =
-  AriaTimeFieldProps<T> & {
-    className?: string;
-  } & Pick<
-      InputProps,
-      'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
-    >;
+export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> & {
+  className?: string;
+} & Pick<
+    InputProps,
+    'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
+  >;
 
-function _TimePicker<T extends TimeValue>(
-  { componentSize = 'medium', style, ...props }: TimePickerProps<T>,
+function _TimePicker(
+  { componentSize = 'medium', style, ...props }: TimePickerProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   const ref = useRef<HTMLInputElement>(null);
@@ -38,7 +38,11 @@ function _TimePicker<T extends TimeValue>(
     ...props,
     locale,
   });
-  const { labelProps, fieldProps } = useTimeField(props, state, ref);
+  const { labelProps, fieldProps } = useTimeField(
+    { ...props, hideTimeZone: true, granularity: 'hour' },
+    state,
+    ref,
+  );
 
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
