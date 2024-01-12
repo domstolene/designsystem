@@ -1,5 +1,25 @@
 # @norges-domstoler/dds-components
 
+## 14.0.0
+
+### Major Changes
+
+- 40c538c: Oppgrader `@norges-domstoler/dds-design-tokens` til versjon 4
+- e14504d: Ny `<DatePicker>`-komponent som erstatter den gamle `<Datepicker>`-komponenten.
+  Se [migreringsguide](https://design.domstol.no/987b33f71/p/886994-v13-til-v14) for mer informasjon.
+
+### Minor Changes
+
+- 177c7d2: Ny `<TimePicker>`-komponent! I den gamle datovelgeren så var det støtte for å plukke både tid og dato sammen, noe som ikke er støttet i den nye datovelgeren. Vi anbefaler istedet å separere dato- og tidsvelging og vi introduserer derfor denne tidsvelgeren. Likt som i `<DatePicker>` så bruker denne komponenten også Adobe sin `@internationalized/date`, så husk å legge til en avhengighet til den når du oppdaterer.
+
+### Patch Changes
+
+- 56a8638: Fikse bug med Feedback-komponenten hvor det valgfrie kommentarfeltet som dukker opp ble midtstilt.
+- 70d2961: Fikse bug med AppShell sin meny, hvor lenkene i menyen hadde hover-effekt kun på teksten, ikke hele elementet.
+- fa2a848: Bump @floating-ui/react-dom til 2.0.5
+- Updated dependencies [cc6cbc7]
+  - @norges-domstoler/dds-design-tokens@4.0.0
+
 ## 13.13.0
 
 ### Minor Changes
