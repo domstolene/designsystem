@@ -38,7 +38,11 @@ function _TimePicker(
     ...props,
     locale,
   });
-  const { labelProps, fieldProps } = useTimeField(props, state, ref);
+  const { labelProps, fieldProps } = useTimeField(
+    { ...props, hideTimeZone: true, granularity: 'hour' },
+    state,
+    ref,
+  );
 
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
