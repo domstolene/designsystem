@@ -1,11 +1,20 @@
 import { DatePicker, DatePickerProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { CalendarDate, isWeekend, today } from '@internationalized/date';
+import {
+  CalendarDate,
+  DateFormatter,
+  Time,
+  isWeekend,
+  toCalendarDateTime,
+  today,
+} from '@internationalized/date';
 import { useRef, useState } from 'react';
 import type { Meta } from '@storybook/react';
 import { Button } from '../../Button';
 import { Modal } from '../../Modal';
-import { VStack } from '../../Stack';
+import { HStack, VStack } from '../../Stack';
+import { TimePicker } from '../TimePicker';
+import { Paragraph } from '../../Typography';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'dds-components/DatePicker',
@@ -153,6 +162,36 @@ export const InsideModal = (args: Partial<DatePickerProps>) => {
       <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
         <DatePicker label="Dato" {...args} />
       </Modal>
+    </StoryTemplate>
+  );
+};
+
+export const DateAndTime = (args: Partial<DatePickerProps>) => {
+  const norwegianDateFormatter = new DateFormatter('no-NO', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+  });
+  const [date, setDate] = useState<CalendarDate>(today('Europe/Oslo'));
+  const [time, setTime] = useState<Time>(new Time(12, 0, 0));
+  const dateTime = toCalendarDateTime(date, time);
+  return (
+    <StoryTemplate title="DatePicker - date and time">
+      <HStack gap="x1">
+        <DatePicker
+          label="Dato"
+          value={date}
+          onChange={newValue => setDate(newValue)}
+        />
+        <TimePicker
+          label="Tid"
+          value={time}
+          onChange={newTime => setTime(newTime)}
+        />
+      </HStack>
+      <Paragraph>
+        Valg dato og tid:{' '}
+        {norwegianDateFormatter.format(dateTime.toDate('Europe/Oslo'))}
+      </Paragraph>
     </StoryTemplate>
   );
 };
