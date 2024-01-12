@@ -18,7 +18,7 @@ const meta: Meta<typeof TimePicker> = {
 
 export default meta;
 
-export const Default = (args: Partial<TimePickerProps<TimeValue>>) => {
+export const Default = (args: Partial<TimePickerProps>) => {
   return (
     <StoryTemplate title="TimePicker - default">
       <TimePicker label="Tidspunkt" {...args} />
@@ -26,7 +26,7 @@ export const Default = (args: Partial<TimePickerProps<TimeValue>>) => {
   );
 };
 
-export const Required = (args: Partial<TimePickerProps<TimeValue>>) => {
+export const Required = (args: Partial<TimePickerProps>) => {
   return (
     <StoryTemplate title="TimePicker - required">
       <TimePicker label="Tidspunkt" {...args} isRequired />
@@ -34,8 +34,8 @@ export const Required = (args: Partial<TimePickerProps<TimeValue>>) => {
   );
 };
 
-export const Controlled = (args: Partial<TimePickerProps<TimeValue>>) => {
-  const [value, setValue] = useState<TimeValue | null>(new Time(12));
+export const Controlled = (args: Partial<TimePickerProps>) => {
+  const [value, setValue] = useState<Time | null>(new Time(12));
 
   return (
     <StoryTemplate title="TimePicker - controlled">
@@ -52,7 +52,7 @@ export const Controlled = (args: Partial<TimePickerProps<TimeValue>>) => {
   );
 };
 
-export const Error = (args: Partial<TimePickerProps<TimeValue>>) => {
+export const Error = (args: Partial<TimePickerProps>) => {
   return (
     <StoryTemplate title="TimePicker - error">
       <TimePicker
@@ -64,7 +64,7 @@ export const Error = (args: Partial<TimePickerProps<TimeValue>>) => {
   );
 };
 
-export const OverviewSizes = (args: Partial<TimePickerProps<TimeValue>>) => {
+export const OverviewSizes = (args: Partial<TimePickerProps>) => {
   return (
     <StoryTemplate title="TimePicker - overview sizes">
       <TimePicker {...args} componentSize="medium" label="Medium" />
@@ -111,9 +111,7 @@ export const OverviewSizesComparedWithTextInputWithIcon = (
   );
 };
 
-export const OverviewSizesWithDatePicker = (
-  args: Partial<TimePickerProps<TimeValue>>,
-) => {
+export const OverviewSizesWithDatePicker = (args: Partial<TimePickerProps>) => {
   const componentSizes = ['medium', 'small', 'tiny'] as const;
   return (
     <StoryTemplate title="TimePicker - overview sizes with datepicker">
