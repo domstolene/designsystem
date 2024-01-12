@@ -1,0 +1,56 @@
+import {
+  Canvas,
+  Story,
+  Meta,
+  ArgTypes,
+  PRIMARY_STORY,
+} from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+  SB_DESIGNSYSTEM_URL,
+  LinkToInteractiveStory,
+} from '@norges-domstoler/storybook-components';
+import * as TimePickerStories from './TimePicker.stories';
+
+<Meta of={TimePickerStories} />
+
+# TimePicker
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/60a9ff-timepicker/b/11f1d8"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=417%3A16&mode=design&t=yAZzSopZv7pOdHLa-1"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/date-inputs/TimePicker"
+/>
+
+## Demo
+
+<Canvas>
+  <Story of={TimePickerStories.Default} />
+</Canvas>
+
+<LinkToInteractiveStory
+  href={`${SB_DESIGNSYSTEM_URL}dds-components-timepicker`}
+/>
+
+## Bruk i koden
+
+<Source
+  code={`
+import { useState } from 'react';
+import { TimePicker } from '@norges-domstoler/dds-components';
+import { Time } from '@internationalized/date';
+
+const [value, setValue] = useState<Time | undefined>(
+new Time(12, 0, 0)
+);
+
+<TimePicker label="Tidspunkt" value={value} onChange={setValue} />
+`} />
+
+## API
+
+`TimePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
+For mer utfyllende dokumentasjon av props referrerer vi deg til [`useTimeField` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/useTimeField.html).
+
+<ArgTypes story={PRIMARY_STORY} />
