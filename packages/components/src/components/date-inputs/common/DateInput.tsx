@@ -91,6 +91,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
         )}
         <InputDiv
           {...fieldProps}
+          style={style}
           disabled={disabled}
           componentSize={componentSize}
           ref={internalRef}

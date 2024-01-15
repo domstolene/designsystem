@@ -1,6 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
-import { createSelectOptions, Select, SelectOption, SelectProps } from '.';
+import { createSelectOptions, Select, SelectProps } from '.';
 import { CourtIcon } from '../Icon/icons';
 
 export default {

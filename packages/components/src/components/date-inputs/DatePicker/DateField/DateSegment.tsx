@@ -8,7 +8,6 @@ import styled, { css } from 'styled-components';
 
 import { datePickerTokens } from '../DatePicker.tokens';
 import { type DatePickerProps } from '../DatePicker';
-import { DateValue } from '@react-aria/calendar';
 const {
   datefield: { segment: segmentTokens },
 } = datePickerTokens;

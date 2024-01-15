@@ -1,9 +1,5 @@
 import { Ref, forwardRef, useRef } from 'react';
-import {
-  AriaTimeFieldProps,
-  TimeValue,
-  useTimeField,
-} from '@react-aria/datepicker';
+import { AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
 import { Icon, InputProps, TimeIcon } from '@norges-domstoler/dds-components';
 import { DateSegment } from '../DatePicker/DateField/DateSegment';
@@ -30,7 +26,7 @@ export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> & {
   >;
 
 function _TimePicker(
-  { componentSize = 'medium', style, ...props }: TimePickerProps,
+  { componentSize = 'medium', ...props }: TimePickerProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   const ref = useRef<HTMLInputElement>(null);
