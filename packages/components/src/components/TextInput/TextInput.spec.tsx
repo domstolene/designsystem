@@ -6,17 +6,17 @@ describe('<TextInput />', () => {
   it('should have a label', () => {
     const label = 'button label';
     render(<TextInput label={label} />);
-    expect(screen.queryByText(label)).toBeInTheDocument();
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
   it('renders provided error message', () => {
     const errorMessage = 'this is an error';
     render(<TextInput errorMessage={errorMessage} />);
-    expect(screen.queryByText(errorMessage)).toBeInTheDocument();
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
   it('renders provided tip', () => {
     const tip = 'this is a tip';
     render(<TextInput tip={tip} />);
-    expect(screen.queryByText(tip)).toBeInTheDocument();
+    expect(screen.getByText(tip)).toBeInTheDocument();
   });
   it('should have aria-describedby when tip provided', () => {
     const id = 'id';
@@ -45,7 +45,7 @@ describe('<TextInput />', () => {
       'aria-describedby',
       `${id}-characterCounter`,
     );
-    expect(screen.queryByText(`0/${length}`)).toBeInTheDocument();
+    expect(screen.getByText(`0/${length}`)).toBeInTheDocument();
   });
   it('should not have character counter when both maxLength and withCharacterCounter=false provided', () => {
     const id = 'id';
@@ -63,7 +63,7 @@ describe('<TextInput />', () => {
     const tip = 'this is a tip';
     const errorMessage = 'this is an error';
     render(<TextInput tip={tip} errorMessage={errorMessage} />);
-    expect(screen.queryByText(errorMessage)).toBeInTheDocument();
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
     expect(screen.queryByText(tip)).not.toBeInTheDocument();
   });
   it('should render correct number of characters when both maxLength and value are provided', () => {

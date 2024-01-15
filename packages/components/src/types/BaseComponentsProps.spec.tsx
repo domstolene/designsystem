@@ -97,7 +97,7 @@ describe('getBaseHTMLProps', () => {
       htmlProps: {
         'aria-label': 'arialabel',
       },
-      // @ts-expect-error
+      // @ts-expect-error Tester oppførsel med ukjent prop
       'data-unknownProp': 'lol',
       'data-unknownProp2': 'lol2',
     };
@@ -115,13 +115,13 @@ describe('getBaseHTMLProps', () => {
   });
   it('overwrites aria-attributes that are set on the root if they are set on htmlprops', () => {
     const props: BCP = {
-      // @ts-expect-error
+      // @ts-expect-error tester oppførsel med ukjent prop
       'aria-label': 'foobar',
       'aria-describedby': 'other',
       htmlProps: { 'aria-label': 'arialabelfromhtmlprops' },
     };
 
-    const { id, className, htmlProps, ...rest } = props;
+    const { id, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, htmlProps, rest);
 
@@ -139,7 +139,7 @@ describe('getBaseHTMLProps', () => {
       },
     };
 
-    const { id, className, htmlProps, ...rest } = props;
+    const { id, htmlProps, ...rest } = props;
 
     const baseHTMLProps = getBaseHTMLProps(id, htmlProps, rest);
 

@@ -1,5 +1,6 @@
 import { vi, describe, it, expect } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { InternalHeader } from '.';
 
 describe('<InternalHeader />', () => {
@@ -10,19 +11,17 @@ describe('<InternalHeader />', () => {
     expect(appNameElement).toBeInTheDocument();
   });
 
-  it('should run onclick event from context menu', () => {
+  it('should run onclick event from context menu', async () => {
     const event = vi.fn();
     const element = {
       title: 'action',
       onClick: event,
     };
-    const { container } = render(
-      <InternalHeader contextMenuElements={[element]} />,
-    );
-    const contextMenuButton = container
-      .querySelector('li')
-      ?.querySelector('button');
-    fireEvent.click(contextMenuButton!);
+    render(<InternalHeader contextMenuElements={[element]} />);
+    const contextMenuButton = screen.getByRole('button');
+    await userEvent.click(contextMenuButton!);
+    const contextMenuLink = screen.getByRole('menuitem');
+    await userEvent.click(contextMenuLink);
     expect(event).toHaveBeenCalled();
   });
 
@@ -32,10 +31,8 @@ describe('<InternalHeader />', () => {
       title: 'link',
       href: href,
     };
-    const { container } = render(
-      <InternalHeader navigationElements={[element]} />,
-    );
-    const navigationLink = container.querySelector('nav')?.querySelector('a');
+    render(<InternalHeader navigationElements={[element]} />);
+    const navigationLink = screen.getByRole('link');
     expect(navigationLink).toHaveAttribute('href', href);
   });
 
@@ -47,52 +44,40 @@ describe('<InternalHeader />', () => {
       href: href,
       target: target,
     };
-    const { container } = render(
-      <InternalHeader navigationElements={[element]} />,
-    );
-    const navigationLink = container.querySelector('nav')?.querySelector('a');
+    render(<InternalHeader navigationElements={[element]} />);
+    const navigationLink = screen.getByRole('link');
     expect(navigationLink).toHaveAttribute('target', target);
   });
 
-  it('should have a link in context menu', () => {
+  it('should have a link in context menu', async () => {
     const href = '#';
     const title = 'title';
     const element = {
       title: title,
       href: href,
     };
-    const { container } = render(
-      <InternalHeader contextMenuElements={[element]} />,
-    );
-    const contextMenuLink = container.querySelector('li')?.querySelector('a');
+    render(<InternalHeader contextMenuElements={[element]} />);
+
+    const contextMenuButton = screen.getByRole('button');
+    await userEvent.click(contextMenuButton);
+
+    const contextMenuLink = screen.getByRole('menuitem');
     expect(contextMenuLink).toHaveAttribute('href', href);
   });
 
-  it('should have a link in context menu', () => {
+  it('should have a nav link in context menu', async () => {
     const href = '#';
     const title = 'title';
     const element = {
       title: title,
       href: href,
     };
-    const { container } = render(
-      <InternalHeader contextMenuElements={[element]} />,
-    );
-    const contextMenuLink = container.querySelector('li')?.querySelector('a');
-    expect(contextMenuLink).toHaveAttribute('href', href);
-  });
-
-  it('should have a nav link in context menu', () => {
-    const href = '#';
-    const title = 'title';
-    const element = {
-      title: title,
-      href: href,
-    };
-    const { container } = render(
-      <InternalHeader navigationElements={[element]} smallScreen />,
-    );
-    const navigationLink = container.querySelector('nav')?.querySelector('a');
+    render(<InternalHeader navigationElements={[element]} smallScreen />);
+    const burgerButton = screen.getByRole('button');
+    await userEvent.click(burgerButton);
+    const navigationLink = screen.getByRole('menuitem', {
+      name: element.title,
+    });
     expect(navigationLink).toHaveAttribute('href', href);
   });
 

@@ -24,5 +24,11 @@ module.exports = {
         tsconfigRootDir: __dirname,
       },
     },
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
+      plugins: ['testing-library'],
+      extends: ['plugin:testing-library/react'],
+      rules: {},
+    },
   ],
 };

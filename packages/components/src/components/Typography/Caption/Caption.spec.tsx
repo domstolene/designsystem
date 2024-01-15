@@ -10,7 +10,7 @@ describe('<Caption />', () => {
         <Caption>{text}</Caption>
       </table>,
     );
-    expect(screen.queryByText(text)).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('should render a caption', () => {
     const text = 'text';

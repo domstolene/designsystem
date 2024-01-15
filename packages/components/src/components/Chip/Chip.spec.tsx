@@ -1,5 +1,6 @@
 import { vi, describe, it, expect } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { Chip, ChipGroup } from '.';
 
 describe('<Chip />', () => {
@@ -8,11 +9,11 @@ describe('<Chip />', () => {
     render(<Chip text={text} />);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
-  it('Should remove component from DOM on close', () => {
+  it('Should remove component from DOM on close', async () => {
     const text = 'text';
     render(<Chip text={text} />);
     const button = screen.getByRole('button');
-    fireEvent.click(button!);
+    await userEvent.click(button!);
     expect(screen.queryByText(text)).not.toBeInTheDocument();
   });
   it('Should have aria-label based on text', () => {
@@ -26,11 +27,11 @@ describe('<Chip />', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-label', 'Fjern chip');
   });
-  it('Should call onClose event', () => {
+  it('Should call onClose event', async () => {
     const event = vi.fn();
     render(<Chip onClose={event} />);
     const button = screen.getByRole('button');
-    fireEvent.click(button!);
+    await userEvent.click(button!);
     expect(event).toHaveBeenCalled();
   });
   it('Should render <ul> with a <li> child', () => {

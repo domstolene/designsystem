@@ -6,7 +6,7 @@ describe('<Heading />', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Heading level={1}>{text}</Heading>);
-    expect(screen.queryByText(text)).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('should render a heading', () => {
     render(<Heading level={1} />);

@@ -6,7 +6,7 @@ describe('<Label />', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Label>{text}</Label>);
-    expect(screen.queryByText(text)).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('should render <label>', () => {
     const text = 'text';

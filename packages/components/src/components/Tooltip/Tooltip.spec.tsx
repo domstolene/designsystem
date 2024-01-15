@@ -1,14 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { vi } from 'vitest';
-import {
-  screen,
-  fireEvent,
-  render,
-  waitFor,
-  act,
-} from '@testing-library/react';
+import { screen, fireEvent, render, waitFor } from '@testing-library/react';
 import { Tooltip } from '.';
 import { Button } from '../Button';
+import userEvent from '@testing-library/user-event';
 
 // Mock the IntersectionObserver
 window.IntersectionObserver = vi.fn().mockImplementation(() => ({
@@ -52,10 +47,8 @@ describe('<Tooltip />', () => {
     );
     const anchorElement = screen.getByRole('button');
     const tooltip = screen.getByText(text);
-    await waitFor(() => {
-      expect(anchorElement).toHaveAttribute('aria-describedby', id);
-      expect(tooltip).toHaveAttribute('id', id);
-    });
+    expect(anchorElement).toHaveAttribute('aria-describedby', id);
+    expect(tooltip).toHaveAttribute('id', id);
   });
   it('should give tooltip aria-hidden=false on focus', async () => {
     const text = 'text';
@@ -72,22 +65,16 @@ describe('<Tooltip />', () => {
   });
   it('should give tooltip aria-hidden=false on mouse over', async () => {
     const text = 'text';
-    const testId = 'test1';
     render(
-      <Tooltip text={text} data-testid={testId}>
+      <Tooltip text={text}>
         <Button />
       </Tooltip>,
     );
 
-    const containerElement = screen.getByTestId(testId);
-
-    act(() => {
-      fireEvent.mouseOver(containerElement!);
-    });
-
-    await waitFor(() => {
-      expect(screen.getByText(text)).toHaveAttribute('aria-hidden', 'false');
-    });
+    await userEvent.hover(screen.getByRole('button'));
+    await waitFor(() =>
+      expect(screen.getByText(text)).toHaveAttribute('aria-hidden', 'false'),
+    );
   });
   it('should call button onFocus event', async () => {
     const event = vi.fn();
@@ -115,12 +102,9 @@ describe('<Tooltip />', () => {
 
     const containerElement = screen.getByTestId(testId);
 
-    act(() => {
-      fireEvent.mouseLeave(containerElement!);
-    });
+    await userEvent.hover(containerElement);
+    await userEvent.unhover(containerElement);
 
-    await waitFor(() => {
-      expect(event).toHaveBeenCalled();
-    });
+    expect(event).toHaveBeenCalled();
   });
 });

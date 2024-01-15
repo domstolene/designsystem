@@ -1,7 +1,7 @@
 import { vi, describe, it, expect } from 'vitest';
-import { act, render, screen, within } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { Search } from '.';
-import userEvent from '@testing-library/user-event';
 
 describe('<Search />', () => {
   it('should render a searchbox', () => {
@@ -11,15 +11,15 @@ describe('<Search />', () => {
   });
   it('should render a search button with a label', () => {
     const label = 'Søk';
-    render(<Search buttonProps={{ onClick: e => {}, label: label }} />);
+    render(<Search buttonProps={{ onClick: () => null, label: label }} />);
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
-    expect(screen.queryByText(label)).toBeInTheDocument();
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
   it('renders provided tip', () => {
     const tip = 'tip';
     render(<Search tip={tip} />);
-    expect(screen.queryByText(tip)).toBeInTheDocument();
+    expect(screen.getByText(tip)).toBeInTheDocument();
   });
   it('should have aria-describedby when tip provided', () => {
     const tip = 'tip';
@@ -60,9 +60,8 @@ describe('<Search />', () => {
     await userEvent.type(input, `${text}`);
     const option = screen.getByRole('option');
     expect(option).toBeInTheDocument();
-    const { queryByText, queryByRole } = within(option);
-    expect(queryByText(text)).toBeInTheDocument();
-    expect(queryByRole('menuitem')).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
+    expect(screen.getByRole('menuitem')).toBeInTheDocument();
   });
 
   it('should not render search suggestion when query is too short', async () => {

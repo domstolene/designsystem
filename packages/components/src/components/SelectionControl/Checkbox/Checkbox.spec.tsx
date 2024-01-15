@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Checkbox, CheckboxGroup } from '.';
+import { userEvent } from '@testing-library/user-event';
 
 describe('<Checkbox />', () => {
   it('should have a label', () => {
@@ -9,20 +10,19 @@ describe('<Checkbox />', () => {
     const labelElement = screen.getByText(label);
     expect(labelElement).toBeInTheDocument();
   });
-  it('should be selectable', () => {
+  it('should be selectable', async () => {
     render(<Checkbox id="test" label="Test" />);
-    const checkbox = document.getElementById('test');
+    const checkbox = screen.getByRole('checkbox');
     expect(checkbox).not.toBeChecked();
-    checkbox?.click();
+    await userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
   });
-  it('should be disabled', () => {
+  it('should be disabled', async () => {
     render(<Checkbox id="test" label="Test" disabled />);
-    const checkbox = document.getElementById('test');
-    const input = document.querySelector('input');
-    expect(input?.disabled).toBeTruthy();
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).toBeDisabled();
     expect(checkbox).not.toBeChecked();
-    checkbox?.click();
+    await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
   it('children of CheckboxGroup should have aria-describedby as tip id when tip provided', () => {

@@ -1,12 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { Modal, ModalBody } from '.';
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { ReactNode, useEffect, useState } from 'react';
 import { Button } from '../Button';
 
@@ -58,11 +53,9 @@ describe('<Modal />', () => {
     render(<Modal id={id} isOpen={true} header={header}></Modal>);
     const el = screen.getByRole('dialog');
 
-    expect(el.querySelector('div')?.querySelector('div')).toHaveAttribute(
-      'id',
-      `${id}-header`,
-    );
     expect(el).toHaveAttribute('aria-labelledby', `${id}-header`);
+    const label = screen.getByLabelText(header);
+    expect(label).toBeInTheDocument();
   });
 
   it('should have body content', () => {
@@ -94,9 +87,7 @@ describe('<Modal />', () => {
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
 
-    act(() => {
-      fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
-    });
+    await userEvent.keyboard('[Escape]');
 
     const elQuery = screen.queryByRole('dialog');
     expect(elQuery).not.toBeInTheDocument();
@@ -155,11 +146,7 @@ describe('<Modal />', () => {
       </TestComponent>,
     );
     expect(mount).toBeCalledTimes(1);
-
-    const el = screen.getByRole('dialog');
-    act(() => {
-      fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
-    });
+    await userEvent.keyboard('[Escape]');
     expect(mount).toBeCalledTimes(1);
   });
 });

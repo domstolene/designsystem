@@ -7,18 +7,18 @@ describe('<TeaxtArea />', () => {
     const label = 'button label';
     const id = 'id';
     render(<TextArea label={label} id={id} />);
-    expect(screen.queryByText(label)).toBeInTheDocument();
+    expect(screen.getByText(label)).toBeInTheDocument();
     expect(screen.getByText(label)).toHaveAttribute('for', id);
   });
   it('renders provided error message', () => {
     const errorMessage = 'this is an error';
     render(<TextArea errorMessage={errorMessage} />);
-    expect(screen.queryByText(errorMessage)).toBeInTheDocument();
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
   it('renders provided tip', () => {
     const tip = 'this is a tip';
     render(<TextArea tip={tip} />);
-    expect(screen.queryByText(tip)).toBeInTheDocument();
+    expect(screen.getByText(tip)).toBeInTheDocument();
   });
   it('should have aria-describedby when tip provided', () => {
     const id = 'id';
@@ -43,7 +43,7 @@ describe('<TeaxtArea />', () => {
     const tip = 'this is a tip';
     const errorMessage = 'this is an error';
     render(<TextArea tip={tip} errorMessage={errorMessage} />);
-    expect(screen.queryByText(errorMessage)).toBeInTheDocument();
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
     expect(screen.queryByText(tip)).not.toBeInTheDocument();
   });
 });

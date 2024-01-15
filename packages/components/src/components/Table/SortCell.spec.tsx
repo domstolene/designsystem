@@ -1,39 +1,42 @@
 import { vi, describe, it, expect } from 'vitest';
-import { fireEvent, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Table } from '.';
+import userEvent from '@testing-library/user-event';
 
 describe('<SortCell />', () => {
-  it('should run onclick event', () => {
+  it('should run onclick event', async () => {
     const event = vi.fn();
-    const { container } = render(
+    render(
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.SortCell onClick={event}></Table.SortCell>
+            <Table.SortCell onClick={event}>Sorter</Table.SortCell>
           </Table.Row>
         </Table.Head>
       </Table>,
     );
-    const sortButton = container.querySelector('th')?.querySelector('button');
-    fireEvent.click(sortButton!);
+    const sortButton = screen.getByRole('button', { name: /sorter/i });
+    await userEvent.click(sortButton!);
     expect(event).toHaveBeenCalled();
   });
 
   it('should have aria-sort', () => {
-    const { container } = render(
+    render(
       <Table>
         <Table.Head>
           <Table.Row>
             <Table.SortCell
               isSorted={true}
               sortOrder="ascending"
-              onClick={() => {}}
-            ></Table.SortCell>
+              onClick={() => null}
+            >
+              Sorter
+            </Table.SortCell>
           </Table.Row>
         </Table.Head>
       </Table>,
     );
-    const sortCell = container.querySelector('th');
+    const sortCell = screen.getByRole('columnheader');
     expect(sortCell!.getAttribute('aria-sort')).toBe('ascending');
   });
 });

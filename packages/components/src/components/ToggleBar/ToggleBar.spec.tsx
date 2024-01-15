@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { act, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { ChangeEvent, useState } from 'react';
 import { ToggleBar, ToggleRadio } from '.';
 
@@ -25,19 +26,16 @@ const TestComponent = () => {
 
 describe('<ToggleBar />', () => {
   it('should set default checked state', () => {
-    const { container } = render(<TestComponent />);
-    const input = container.querySelector('input');
-    expect(input?.checked).toBeTruthy();
+    render(<TestComponent />);
+    const input = screen.getAllByRole('radio')[0];
+    expect(input).toBeChecked();
   });
 
   it('should update checked state when selecting a radio button', async () => {
-    const { container } = render(<TestComponent />);
-    const label = container.querySelectorAll('label')[2];
-    act(() => {
-      label?.click();
-    });
-    const input = label.querySelector('input');
-    expect(input?.checked).toBeTruthy();
+    render(<TestComponent />);
+    const radio = screen.getAllByRole('radio')[2];
+    await userEvent.click(radio);
+    expect(radio).toBeChecked();
   });
 
   it('ToggleBar should have radiogroup as role', () => {

@@ -1,13 +1,8 @@
 import { vi, describe, it, expect } from 'vitest';
-import {
-  screen,
-  render,
-  act,
-  fireEvent,
-  waitFor,
-} from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import { Popover, PopoverGroup } from '.';
 import { Button } from '../Button';
+import userEvent from '@testing-library/user-event';
 
 const buttonLabel = 'label';
 const content = 'content';
@@ -42,19 +37,17 @@ describe('<Popover />', () => {
     expect(popover).not.toBeInTheDocument();
   });
 
-  it('should open on click', () => {
+  it('should open on click', async () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     const popover = screen.getByRole('dialog');
     expect(popover).toBeInTheDocument();
   });
 
-  it('should render title when opened', () => {
+  it('should render title when opened', async () => {
     const title = 'title';
     render(
       <PopoverGroup>
@@ -64,22 +57,18 @@ describe('<Popover />', () => {
     );
     const button = screen.getByText(buttonLabel);
 
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     const titleElement = screen.getByText(title);
     expect(titleElement).toBeInTheDocument();
   });
 
-  it('should render content when opened', () => {
+  it('should render content when opened', async () => {
     render(<TestComponent />);
 
     const button = screen.getByText(buttonLabel);
 
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     const contentElement = screen.getByText(content);
     expect(contentElement).toBeInTheDocument();
@@ -89,17 +78,13 @@ describe('<Popover />', () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
-    act(() => {
-      button.click();
-    });
+    await userEvent.click(button);
 
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
     const closeButton = screen.getByLabelText('Lukk');
 
-    act(() => {
-      fireEvent.click(closeButton!);
-    });
+    await userEvent.click(closeButton!);
 
     const elQuery = screen.queryByRole('dialog');
     await waitFor(() => {
@@ -107,7 +92,7 @@ describe('<Popover />', () => {
     });
   });
 
-  it('should run onclick event for closing button', () => {
+  it('should run onclick event for closing button', async () => {
     const event = vi.fn();
     render(
       <PopoverGroup isOpen onCloseButtonClick={event}>
@@ -118,14 +103,12 @@ describe('<Popover />', () => {
 
     const closeButton = screen.getAllByRole('button')[1];
 
-    act(() => {
-      fireEvent.click(closeButton);
-    });
+    await userEvent.click(closeButton);
 
     expect(event).toHaveBeenCalled();
   });
 
-  it('should run onclick event for trigger element', () => {
+  it('should run onclick event for trigger element', async () => {
     const event = vi.fn();
     render(
       <PopoverGroup onTriggerClick={event}>
@@ -134,9 +117,7 @@ describe('<Popover />', () => {
       </PopoverGroup>,
     );
     const triggerButton = screen.getByRole('button');
-    act(() => {
-      fireEvent.click(triggerButton);
-    });
+    await userEvent.click(triggerButton);
     expect(event).toHaveBeenCalled();
   });
 
@@ -144,15 +125,11 @@ describe('<Popover />', () => {
     render(<TestComponent />);
     const button = screen.getByText(buttonLabel);
 
-    act(() => {
-      button.click();
-    });
+    await userEvent.click(button);
     const popover = await screen.findByRole('dialog');
     expect(popover).toBeInTheDocument();
 
-    act(() => {
-      fireEvent.keyDown(popover, { key: 'Escape', code: 'Escape' });
-    });
+    await userEvent.keyboard('[Escape]');
 
     const elQuery = screen.queryByRole('dialog');
     await waitFor(() => {
