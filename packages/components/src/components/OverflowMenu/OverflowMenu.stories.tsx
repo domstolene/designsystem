@@ -17,11 +17,11 @@ export default {
 const items: OverflowMenuContextItem[] = [
   {
     title: 'Handling',
-    onClick: () => {},
+    onClick: () => null,
   },
   {
     title: 'Handling 2',
-    onClick: () => {},
+    onClick: () => null,
     icon: PlusCircledIcon,
   },
   {
@@ -81,7 +81,7 @@ export const WithInteractiveUser = (args: OverflowMenuProps) => {
         <OverflowMenu
           {...args}
           items={items}
-          userProps={{ name: 'Brukernavn', onClick: () => {} }}
+          userProps={{ name: 'Brukernavn', onClick: () => null }}
         />
       </OverflowMenuGroup>
     </StoryTemplate>
@@ -114,7 +114,7 @@ export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
           {...args}
           items={items}
           navItems={navItems}
-          userProps={{ name: 'Brukernavn', onClick: () => {} }}
+          userProps={{ name: 'Brukernavn', onClick: () => null }}
         ></OverflowMenu>
       </OverflowMenuGroup>
     </StoryTemplate>

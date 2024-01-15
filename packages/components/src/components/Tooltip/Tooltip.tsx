@@ -103,7 +103,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       }
       return () => {
         if (tooltipRef.current) {
-          window.removeEventListener('scroll', () => {});
+          window.removeEventListener('scroll', () => null);
         }
       };
     }, []);

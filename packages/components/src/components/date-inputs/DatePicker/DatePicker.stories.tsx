@@ -166,7 +166,7 @@ export const InsideModal = (args: Partial<DatePickerProps>) => {
   );
 };
 
-export const DateAndTime = (args: Partial<DatePickerProps>) => {
+export const DateAndTime = () => {
   const norwegianDateFormatter = new DateFormatter('no-NO', {
     dateStyle: 'full',
     timeStyle: 'short',

@@ -1,7 +1,6 @@
 import { TimePicker, TimePickerProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import type { Meta } from '@storybook/react';
-import { TimeValue } from '@react-types/datepicker';
 import { Time } from '@internationalized/date';
 import { useState } from 'react';
 import { DatePicker } from '../DatePicker';

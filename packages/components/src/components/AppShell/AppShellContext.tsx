@@ -14,7 +14,7 @@ interface AppShellContextValues {
 
 const AppShellContext = createContext<AppShellContextValues>({
   isOpen: false,
-  setOpen: () => {},
+  setOpen: () => null,
 });
 
 export const AppShellContextProvider = ({

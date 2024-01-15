@@ -31,7 +31,7 @@ interface CalendarPopoverContextValue {
 const CalendarPopoverContext = createContext<CalendarPopoverContextValue>({
   anchorRef: null,
   isOpen: false,
-  onClose: () => {},
+  onClose: () => null,
 });
 
 interface CalendarPopoverProps {
