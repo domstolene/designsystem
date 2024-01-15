@@ -12,8 +12,8 @@ describe('<GlobalMessage />', () => {
 
   it('should call onClose event', () => {
     const event = vi.fn();
-    const { container } = render(<GlobalMessage closable onClose={event} />);
-    const closeButton = container.querySelector('button');
+    render(<GlobalMessage closable onClose={event} />);
+    const closeButton = screen.getByRole('button');
     fireEvent.click(closeButton!);
     expect(event).toHaveBeenCalled();
   });

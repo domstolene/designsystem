@@ -1,18 +1,27 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { Modal, ModalBody } from '.';
-import { act, fireEvent, render, screen } from '@testing-library/react';
-import { useState } from 'react';
+import { act, render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { ReactNode, useEffect, useState } from 'react';
 import { Button } from '../Button';
 
-const TestComponent = () => {
-  const [closed, setClosed] = useState(true);
-  const show = () => setClosed(false);
-  const close = () => setClosed(true);
+const TestComponent = ({
+  children,
+  defaultOpen = false,
+}: {
+  children?: ReactNode;
+  defaultOpen?: boolean;
+}) => {
+  const [open, setOpen] = useState(defaultOpen);
+  const show = () => setOpen(true);
+  const close = () => setOpen(false);
 
   return (
     <>
-      <Button onClick={show} />
-      <Modal isOpen={!closed} onClose={close}></Modal>
+      <Button onClick={show} data-testid="open-button" />
+      <Modal isOpen={open} onClose={close}>
+        {children}
+      </Modal>
     </>
   );
 };
@@ -44,11 +53,9 @@ describe('<Modal />', () => {
     render(<Modal id={id} isOpen={true} header={header}></Modal>);
     const el = screen.getByRole('dialog');
 
-    expect(el.querySelector('div')?.querySelector('div')).toHaveAttribute(
-      'id',
-      `${id}-header`,
-    );
     expect(el).toHaveAttribute('aria-labelledby', `${id}-header`);
+    const label = screen.getByLabelText(header);
+    expect(label).toBeInTheDocument();
   });
 
   it('should have body content', () => {
@@ -75,19 +82,12 @@ describe('<Modal />', () => {
   });
 
   it('should hide after Esc keydown', async () => {
-    render(<TestComponent />);
-    const button = screen.getAllByRole('button')[0];
-
-    act(() => {
-      button.click();
-    });
+    render(<TestComponent defaultOpen />);
 
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
 
-    act(() => {
-      fireEvent.keyDown(el, { key: 'Escape', code: 'Escape' });
-    });
+    await userEvent.keyboard('[Escape]');
 
     const elQuery = screen.queryByRole('dialog');
     expect(elQuery).not.toBeInTheDocument();
@@ -125,5 +125,28 @@ describe('<Modal />', () => {
       button.click();
     });
     expect(document.body.style.position).toBe('');
+  });
+
+  it('should not re-mount body when closing', async () => {
+    const mount = vi.fn();
+
+    const MountTestComponent = () => {
+      useEffect(() => {
+        mount();
+      }, []);
+
+      return <></>;
+    };
+
+    render(
+      <TestComponent defaultOpen>
+        <ModalBody>
+          <MountTestComponent />
+        </ModalBody>
+      </TestComponent>,
+    );
+    expect(mount).toBeCalledTimes(1);
+    await userEvent.keyboard('[Escape]');
+    expect(mount).toBeCalledTimes(1);
   });
 });

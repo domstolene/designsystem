@@ -1,5 +1,6 @@
 import { vi, describe, it, expect } from 'vitest';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { Button } from '.';
 
 describe('<Button />', () => {
@@ -7,7 +8,7 @@ describe('<Button />', () => {
     const label = 'button label';
     render(<Button>{label}</Button>);
 
-    expect(screen.queryByText(label)).toBeInTheDocument();
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
   it('renders an anchor element if href prop is provided', () => {
     render(<Button href="/" />);
@@ -15,23 +16,19 @@ describe('<Button />', () => {
 
     expect(button).toBeInTheDocument();
   });
-  it('calls onClick when button is clicked', () => {
+  it('calls onClick when button is clicked', async () => {
     const onClick = vi.fn();
     render(<Button onClick={onClick} />);
     const button = screen.getByRole('button');
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     expect(onClick).toHaveBeenCalledTimes(1);
   });
-  it('disables the button if it is in a loading state', () => {
+  it('disables the button if it is in a loading state', async () => {
     const onClick = vi.fn();
     render(<Button loading onClick={onClick} />);
     const button = screen.getByRole('button');
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     expect(button).toHaveAttribute('aria-disabled', 'true');
     expect(onClick).not.toHaveBeenCalled();

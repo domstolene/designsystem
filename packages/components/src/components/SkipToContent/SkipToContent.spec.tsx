@@ -5,8 +5,8 @@ import { SkipToContent } from '.';
 describe('<SkipToContent />', () => {
   it('should have a link in navigation', () => {
     const href = '#';
-    const { container } = render(<SkipToContent href={href} />);
-    const link = container.querySelector('div')?.querySelector('a');
+    render(<SkipToContent href={href} />);
+    const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', href);
   });
   it('should display provided text', () => {

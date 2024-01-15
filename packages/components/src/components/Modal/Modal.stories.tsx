@@ -1,7 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Modal, ModalBody, ModalActions, ModalProps } from '.';
 import { Button } from '../Button';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Search } from '../Search';
 
 export default {
@@ -181,5 +181,27 @@ export const WithInitialFocusRef = (args: ModalProps) => {
         </ModalActions>
       </Modal>
     </StoryTemplate>
+  );
+};
+
+const TestComponent = () => {
+  useEffect(() => {
+    console.log('mounted');
+  }, []);
+  console.log('render');
+  return <div></div>;
+};
+
+export const Test = () => {
+  const [isOpen, setOpen] = useState(false);
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Åpne</Button>
+      <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+        <ModalBody>
+          <TestComponent />
+        </ModalBody>
+      </Modal>
+    </>
   );
 };

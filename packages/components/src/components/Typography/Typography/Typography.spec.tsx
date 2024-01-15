@@ -6,7 +6,7 @@ describe('<Typography />', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Typography>{text}</Typography>);
-    expect(screen.queryByText(text)).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('should have role="link"', () => {
     render(
@@ -14,6 +14,6 @@ describe('<Typography />', () => {
         text
       </Typography>,
     );
-    expect(screen.queryByRole('link')).toBeInTheDocument();
+    expect(screen.getByRole('link')).toBeInTheDocument();
   });
 });

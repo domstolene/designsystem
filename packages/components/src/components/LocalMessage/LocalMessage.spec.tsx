@@ -1,6 +1,7 @@
 import { vi, describe, it, expect } from 'vitest';
 import { LocalMessage } from './LocalMessage';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 
 describe('<LocalMessage />', () => {
   it('has message', () => {
@@ -10,11 +11,11 @@ describe('<LocalMessage />', () => {
     expect(messageElement).toBeInTheDocument();
   });
 
-  it('should call onClose event', () => {
+  it('should call onClose event', async () => {
     const event = vi.fn();
-    const { container } = render(<LocalMessage closable onClose={event} />);
-    const closeButton = container.querySelector('button');
-    fireEvent.click(closeButton!);
+    render(<LocalMessage closable onClose={event} />);
+    const closeButton = screen.getByRole('button');
+    await userEvent.click(closeButton);
     expect(event).toHaveBeenCalled();
   });
 });

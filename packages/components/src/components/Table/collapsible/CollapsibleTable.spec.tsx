@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { screen, render, act, fireEvent } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { useState } from 'react';
 import { CollapsibleTable, Table } from '..';
 import { Button } from '../../Button';
@@ -69,48 +70,42 @@ describe('<CollapsibleTable />', () => {
   it('should hide second column when collapsed', () => {
     render(table);
 
-    expect(
-      screen.queryByText(headers[0].content.toString()),
-    ).toBeInTheDocument();
+    expect(screen.getByText(headers[0].content.toString())).toBeInTheDocument();
     expect(screen.queryByText(header2Content)).not.toBeInTheDocument();
-    expect(screen.queryByText(bodyCellContent[0])).toBeInTheDocument();
+    expect(screen.getByText(bodyCellContent[0])).toBeInTheDocument();
     expect(screen.queryByText(bodyCellContent[1])).not.toBeInTheDocument();
 
     expect(screen.queryByRole('term')).not.toBeInTheDocument();
     expect(screen.queryByRole('definition')).not.toBeInTheDocument();
   });
 
-  it('should render <DescriptionList> with children while row expanded', () => {
+  it('should render <DescriptionList> with children while row expanded', async () => {
     render(table);
     const collapseButton = screen.getByRole('button');
 
-    act(() => {
-      fireEvent.click(collapseButton);
-    });
+    await userEvent.click(collapseButton);
 
-    expect(screen.queryByText(header2Content)).toBeInTheDocument();
-    expect(screen.queryByText(bodyCellContent[1])).toBeInTheDocument();
+    expect(screen.getByText(header2Content)).toBeInTheDocument();
+    expect(screen.getByText(bodyCellContent[1])).toBeInTheDocument();
 
-    expect(screen.queryByRole('term')).toBeInTheDocument();
-    expect(screen.queryByRole('definition')).toBeInTheDocument();
+    expect(screen.getByRole('term')).toBeInTheDocument();
+    expect(screen.getByRole('definition')).toBeInTheDocument();
   });
 
-  it('table should switch between collapsed and not collapsed', () => {
+  it('table should switch between collapsed and not collapsed', async () => {
     render(<ControlledTable />);
     const controlButton = screen.getByText(controlButtonText);
 
-    expect(screen.queryByText(header2Content)).toBeInTheDocument();
-    expect(screen.queryByText(bodyCellContent[1])).toBeInTheDocument();
+    expect(screen.getByText(header2Content)).toBeInTheDocument();
+    expect(screen.getByText(bodyCellContent[1])).toBeInTheDocument();
     expect(
       screen.queryByText(collapsingColumnHeaderText),
     ).not.toBeInTheDocument();
 
-    act(() => {
-      fireEvent.click(controlButton);
-    });
+    await userEvent.click(controlButton);
     expect(screen.queryByText(header2Content)).not.toBeInTheDocument();
     expect(screen.queryByText(bodyCellContent[1])).not.toBeInTheDocument();
-    expect(screen.queryByText(collapsingColumnHeaderText)).toBeInTheDocument();
+    expect(screen.getByText(collapsingColumnHeaderText)).toBeInTheDocument();
   });
 
   it('should render ordinary table when headerValues is an empty array', () => {
@@ -130,12 +125,10 @@ describe('<CollapsibleTable />', () => {
         </Table.Body>
       </CollapsibleTable>,
     );
-    expect(
-      screen.queryByText(headers[0].content.toString()),
-    ).toBeInTheDocument();
-    expect(screen.queryByText(header2Content)).toBeInTheDocument();
-    expect(screen.queryByText(bodyCellContent[1])).toBeInTheDocument();
-    expect(screen.queryByText(bodyCellContent[0])).toBeInTheDocument();
+    expect(screen.getByText(headers[0].content.toString())).toBeInTheDocument();
+    expect(screen.getByText(header2Content)).toBeInTheDocument();
+    expect(screen.getByText(bodyCellContent[1])).toBeInTheDocument();
+    expect(screen.getByText(bodyCellContent[0])).toBeInTheDocument();
     expect(
       screen.queryByText(collapsingColumnHeaderText),
     ).not.toBeInTheDocument();

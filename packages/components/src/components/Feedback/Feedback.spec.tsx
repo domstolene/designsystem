@@ -1,5 +1,6 @@
 import { vi, describe, it, expect } from 'vitest';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { Feedback } from './Feedback';
 
 describe('<Feedback />', () => {
@@ -16,30 +17,26 @@ describe('<Feedback />', () => {
     ]);
   });
 
-  it('should trigger onRating when thumb up button is clicked', () => {
+  it('should trigger onRating when thumb up button is clicked', async () => {
     const onRating = vi.fn();
     render(
       <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />,
     );
     const button = screen.getByLabelText('Bra');
 
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     expect(onRating).toHaveBeenCalledTimes(1);
   });
 
-  it('should trigger onRating when thumb down button is clicked', () => {
+  it('should trigger onRating when thumb down button is clicked', async () => {
     const onRating = vi.fn();
     render(
       <Feedback ratingLabel="Hva syns du om tjenesten?" onRating={onRating} />,
     );
     const button = screen.getByLabelText('Dårlig');
 
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     expect(onRating).toHaveBeenCalledTimes(1);
   });
@@ -163,7 +160,7 @@ describe('<Feedback />', () => {
     assertNotInDocument(['Hva syns du om tjenesten?', 'Bra', 'Dårlig']);
   });
 
-  it('should trigger onSubmit when submit button is clicked', () => {
+  it('should trigger onSubmit when submit button is clicked', async () => {
     const onSubmit = vi.fn();
     render(
       <Feedback
@@ -174,14 +171,12 @@ describe('<Feedback />', () => {
     );
     const button = screen.getByRole('button');
 
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 
-  it('should trigger onSubmit when rating button is clicked and text area is excluded', () => {
+  it('should trigger onSubmit when rating button is clicked and text area is excluded', async () => {
     const onSubmit = vi.fn();
     render(
       <Feedback
@@ -192,9 +187,7 @@ describe('<Feedback />', () => {
     );
     const button = screen.getByLabelText('Dårlig');
 
-    act(() => {
-      fireEvent.click(button);
-    });
+    await userEvent.click(button);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
@@ -281,7 +274,7 @@ describe('<Feedback />', () => {
 
 const assertInDocument = (textsToCheck: string[]) => {
   textsToCheck.forEach(text =>
-    expect(screen.queryByText(text)).toBeInTheDocument(),
+    expect(screen.getByText(text)).toBeInTheDocument(),
   );
 };
 
