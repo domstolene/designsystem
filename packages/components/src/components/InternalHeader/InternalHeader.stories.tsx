@@ -59,7 +59,7 @@ const userWithHref = {
 const menuElementWithIcon = {
   title: 'action',
   icon: EditIcon,
-  onClick: () => {},
+  onClick: () => null,
 };
 const menuElement = {
   title: 'kontekstmenypunkt',

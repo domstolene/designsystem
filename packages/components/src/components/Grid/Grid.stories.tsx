@@ -41,7 +41,7 @@ export const PageExample = (args: GridProps) => {
             xl: '1/9',
           }}
         >
-          <Search buttonProps={{ onClick: () => {} }} />
+          <Search buttonProps={{ onClick: () => null }} />
         </GridChild>
         <GridChild
           columnsOccupied={{

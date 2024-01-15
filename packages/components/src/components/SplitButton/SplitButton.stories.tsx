@@ -10,11 +10,11 @@ export default {
 const items = [
   {
     title: 'Sekundær handling',
-    onClick: () => {},
+    onClick: () => null,
   },
   {
     title: 'Sekundær handling 2',
-    onClick: () => {},
+    onClick: () => null,
     icon: PlusCircledIcon,
   },
 ];
