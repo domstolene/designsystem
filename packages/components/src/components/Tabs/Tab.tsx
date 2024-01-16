@@ -10,6 +10,7 @@ import {
   KeyboardEvent,
 } from 'react';
 import styled, { css } from 'styled-components';
+import type * as CSS from 'csstype';
 
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useTabsContext } from './Tabs.context';
@@ -28,6 +29,7 @@ import {
 import { Icon } from '../Icon';
 import { SvgIcon } from '../Icon/utils';
 import { getFontStyling, defaultTypographyType } from '../Typography';
+import { useSetTabWidth } from './TabWidthContext';
 
 const { tab } = tokens;
 
@@ -95,6 +97,11 @@ export type TabProps = BaseComponentPropsWithChildren<
     setFocus?: Dispatch<SetStateAction<number>>;
     /** Indeksen til `<Tab />`. **OBS!** settes automatisk av forelder.*/
     index?: number;
+    /**
+     * Bredden til `<Tab />`. Her er det støtte for de samme enhetene som du kan bruke i `grid-template-columns`.
+     * @default '1fr'
+     */
+    width?: CSS.Properties['width'];
   } & Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>,
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>
 >;
@@ -112,8 +119,13 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
     id,
     className,
     htmlProps,
+    width = '1fr',
     ...rest
   } = props;
+
+  // Tell parent what my width should be
+  // This is used for the grid layout
+  useSetTabWidth(index!, width);
 
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);

@@ -6,8 +6,10 @@ import {
   cloneElement,
   FocusEvent,
   ReactElement,
+  useState,
 } from 'react';
-import styled from 'styled-components';
+import type * as CSS from 'csstype';
+import styled, { css } from 'styled-components';
 
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useTabsContext } from './Tabs.context';
@@ -19,14 +21,26 @@ import {
   useOnClickOutside,
 } from '../../hooks';
 import { focusVisibleTransitionValue, focusVisible } from '../helpers';
+import { TabWidthContextProvider } from './TabWidthContext';
 
 const { tabList } = tokens;
 
-const TabRow = styled.div`
-  border-bottom: ${tabList.borderBottom};
-  display: grid;
+const autoFlow = css`
   grid-auto-flow: column;
   grid-auto-columns: 1fr;
+`;
+
+const templateColumns = (templateColumns: string) => css`
+  grid-template-columns: ${templateColumns};
+`;
+
+const TabRow = styled.div<{ $gridTemplateColumns: string }>`
+  border-bottom: ${tabList.borderBottom};
+  display: grid;
+  ${({ $gridTemplateColumns }) =>
+    $gridTemplateColumns === ''
+      ? autoFlow
+      : templateColumns($gridTemplateColumns)}
   overflow-x: auto;
   ${scrollbarStyling.webkit}
   ${scrollbarStyling.firefox}
@@ -77,6 +91,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       );
     });
 
+    const [widths, setWidths] = useState<CSS.Properties['width'][]>([]);
     useOnKeyDown('Tab', () => {
       setHasTabFocus(false);
       tabPanelsRef?.current?.focus();
@@ -101,7 +116,13 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       onFocus: handleOnFocus,
     };
 
-    return <TabRow {...tabListProps}>{tabListChildren}</TabRow>;
+    return (
+      <TabWidthContextProvider onChangeWidths={setWidths}>
+        <TabRow {...tabListProps} $gridTemplateColumns={widths.join(' ')}>
+          {tabListChildren}
+        </TabRow>
+      </TabWidthContextProvider>
+    );
   },
 );
 

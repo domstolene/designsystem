@@ -2,6 +2,8 @@ import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
 import { useState } from 'react';
 import { NotificationsIcon } from '../Icon/icons';
+import { Paragraph } from '../Typography';
+import { VStack } from '../Stack';
 
 export default {
   title: 'dds-components/Tabs',
@@ -165,5 +167,28 @@ export const ManyTabs = (args: TabsProps) => (
         <TabPanel>Innhold 10</TabPanel>
       </TabPanels>
     </Tabs>
+  </StoryTemplate>
+);
+
+export const MaxContentWidth = (args: TabsProps) => (
+  <StoryTemplate title="Tabs - fixed width" display="block">
+    <VStack align="flex-start" gap="x1">
+      <Paragraph>
+        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
+        Her er alle tabs satt til å ha bredde "<code>max-content</code>".
+      </Paragraph>
+      <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
+        <TabList>
+          <Tab width="max-content">Tab 1</Tab>
+          <Tab width="max-content">Tab 2</Tab>
+          <Tab width="max-content">Tab 3</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Innhold 1</TabPanel>
+          <TabPanel>Innhold 2</TabPanel>
+          <TabPanel>Innhold 3</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </VStack>
   </StoryTemplate>
 );
