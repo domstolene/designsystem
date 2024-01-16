@@ -5,7 +5,7 @@ import {
   Canvas,
   Story,
 } from '@storybook/blocks';
-import { Tabs, TabList, Tab, TabPanel, TabPanels } from '.';
+import { Tab, TabPanel } from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -27,9 +27,7 @@ import * as TabsStories from './Tabs.stories';
 ## Demo
 
 <Canvas>
-  {/* <Story id="dds-components-tabs--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-tabs--default" />
+  <Story of={TabsStories.Default} />
 </Canvas>
 
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-tabs`} />
@@ -47,7 +45,7 @@ Komponenten består av flere subkomponenter:
 ## Bruk i koden
 
 <Source
-  code={`import { Tabs, Tab } from '@norges-domstoler/dds-components';
+  code={`import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@norges-domstoler/dds-components';
    <Tabs>
        <TabList>
            <Tab> Tab 1 </Tab>
@@ -85,6 +83,26 @@ I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttr
 En liste med `<Tab />`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
 
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+For å endre på bredden til tabs kan du bruke `width`-attributtet. Her støttes alle de samme enhetene som i `grid-template-columns` i CSS.
+
+<Source
+  code={`import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@norges-domstoler/dds-components';
+  <Tabs>
+    <TabList>
+      <Tab width="max-content">Tab 1</Tab>
+      <Tab width="8rem">Tab 2</Tab>
+      <Tab width="1fr">Tab 3</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>Innhold 1</TabPanel>
+      <TabPanel>Innhold 2</TabPanel>
+      <TabPanel>Innhold 3</TabPanel>
+    </TabPanels>
+  </Tabs>
+
+`}
+/>
 
 ### TabPanel
 
