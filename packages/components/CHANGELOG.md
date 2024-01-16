@@ -1,5 +1,28 @@
 # @norges-domstoler/dds-components
 
+## 14.1.0
+
+### Minor Changes
+
+- 74b19ad: Legger til støtte for å styre bredden til Tabs gjennom en ny `width`-prop på `<Tab>`-komponenten. Her er det støtte for alle de samme enhetene som du ville brukt i `grid-template-columns`. Default verdi er som før, `1fr`.
+
+  Eksempel:
+
+  ```jsx
+  <Tabs>
+    <TabList>
+      <Tab width="max-content">Tab 1</Tab>
+      <Tab width="8rem">Tab 2</Tab>
+      <Tab width="1fr">Tab 3</Tab>
+    </TabList>
+    <TabPanels>...</TabPanels>
+  </Tabs>
+  ```
+
+### Patch Changes
+
+- 2321638: Fikser bug med Time- og DatePicker hvor style-prop ikke fungerte
+
 ## 14.0.0
 
 ### Major Changes
