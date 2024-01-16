@@ -22,8 +22,8 @@ export function useOnClickOutside(
     const listener = (event: MouseEvent | TouchEvent) => {
       const elements = Array.isArray(element) ? element : [element];
 
-      const hasClickedInside = elements.some(
-        el => el?.contains(event.target as HTMLElement),
+      const hasClickedInside = elements.some(el =>
+        el?.contains(event.target as HTMLElement),
       );
 
       // ClearIndicator in react-select removes itself from DOM before this handler goes off.
