@@ -1,12 +1,15 @@
 import { forwardRef } from 'react';
 import { TableRowProps } from './Table.types';
 import { StyledRow } from './Table.styles';
+import { useIsInTableHead } from './Head';
 
 export const Row = forwardRef<HTMLTableRowElement, TableRowProps>(
   (
-    { type = 'body', mode = 'normal', hoverable, selected, children, ...rest },
+    { type: _type, mode = 'normal', hoverable, selected, children, ...rest },
     ref,
   ) => {
+    const isInHeader = useIsInTableHead();
+    const type = _type ?? (isInHeader ? 'head' : 'body');
     return (
       <StyledRow
         type={type}

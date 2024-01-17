@@ -34,7 +34,7 @@ export default {
 
 const mappedHeaderCells = headerCells.map(headerCell => {
   return (
-    <Table.Cell key={`head-${headerCell.dataName}`} type="head">
+    <Table.Cell key={`head-${headerCell.dataName}`}>
       {headerCell.name}
     </Table.Cell>
   );
@@ -46,7 +46,7 @@ export const Default = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
-            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+            <Table.Row>{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -71,7 +71,7 @@ export const WithDividers = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args} withDividers>
           <Table.Head>
-            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+            <Table.Row>{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -96,7 +96,7 @@ export const Focusable = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
-            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+            <Table.Row>{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -127,7 +127,7 @@ export const Compact = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args} density="compact">
           <Table.Head>
-            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+            <Table.Row>{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -152,7 +152,7 @@ export const ExtraCompact = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args} density="extraCompact">
           <Table.Head>
-            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+            <Table.Row>{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -177,7 +177,7 @@ export const StickyHeader = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args} stickyHeader>
           <Table.Head>
-            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+            <Table.Row>{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -211,7 +211,7 @@ export const Hoverable = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
-            <Table.Row type="head">{mappedHeaderCells}</Table.Row>
+            <Table.Row>{mappedHeaderCells}</Table.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -242,11 +242,11 @@ export const WithButtonAndIcons = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
-            <Table.Row type="head">
-              <Table.Cell type="head">Navn</Table.Cell>
-              <Table.Cell type="head">Navn</Table.Cell>
-              <Table.Cell type="head">Rolle</Table.Cell>
-              <Table.Cell type="head"></Table.Cell>
+            <Table.Row>
+              <Table.Cell>Navn</Table.Cell>
+              <Table.Cell>Navn</Table.Cell>
+              <Table.Cell>Rolle</Table.Cell>
+              <Table.Cell></Table.Cell>
             </Table.Row>
           </Table.Head>
           <Table.Body>
@@ -293,11 +293,9 @@ export const WithSum = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
-            <Table.Row type="head">
-              <Table.Cell type="head">Saksnummer</Table.Cell>
-              <Table.Cell type="head" layout="right">
-                Antall dokumenter
-              </Table.Cell>
+            <Table.Row>
+              <Table.Cell>Saksnummer</Table.Cell>
+              <Table.Cell layout="right">Antall dokumenter</Table.Cell>
             </Table.Row>
           </Table.Head>
           <Table.Body>
@@ -361,25 +359,6 @@ export const WithCheckbox = (args: TableProps) => {
     setselectedRows(currentRows);
   }
 
-  // function handleClick(row: chechboxRow) {
-  //   const currentRows = [...selectedRows];
-  //   const index = currentRows.findIndex(
-  //     selectedRow => selectedRow.id === row.id
-  //   );
-  //   if (index >= 0) {
-  //     currentRows.splice(index, 1);
-  //   } else {
-  //     currentRows.push(row);
-  //   }
-  //   setselectedRows(currentRows);
-  // }
-
-  // function handleCheckboxClick(e: React.MouseEvent<HTMLInputElement>) {
-  //   e.preventDefault();
-  //   e.stopPropagation();
-  //   e.nativeEvent.stopImmediatePropagation();
-  // }
-
   function changeAll(e: ChangeEvent<HTMLInputElement>) {
     if (e.target.checked) {
       setselectedRows([...rows]);
@@ -392,8 +371,8 @@ export const WithCheckbox = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
-            <Table.Row type="head">
-              <Table.Cell type="head">
+            <Table.Row>
+              <Table.Cell>
                 <Checkbox
                   indeterminate={
                     selectedRows?.length > 0 &&
@@ -403,7 +382,6 @@ export const WithCheckbox = (args: TableProps) => {
                   }
                   checked={selectedRows?.length === rows.length ? true : false}
                   onChange={e => changeAll(e)}
-                  // onClick={(e) => handleCheckboxClick(e)}
                 />
               </Table.Cell>
               {mappedHeaderCells}
@@ -458,7 +436,7 @@ export const Complex = (args: TableProps) => {
           <colgroup span={2}></colgroup>
           <colgroup span={2}></colgroup>
           <Table.Body>
-            <Table.Row type="head">
+            <Table.Row>
               <Table.Cell rowSpan={2}></Table.Cell>
               <Table.Cell type="head" colSpan={2} scope="colgroup">
                 Mars
@@ -578,11 +556,11 @@ export const Sortable = (args: TableProps) => {
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
-            <Table.Row type="head">
+            <Table.Row>
               {headerSortCells.map(headerCell => {
                 if (!headerCell.sortOrder) {
                   return (
-                    <Table.Cell type="head" key={`head-${headerCell.dataName}`}>
+                    <Table.Cell key={`head-${headerCell.dataName}`}>
                       {headerCell.name}
                     </Table.Cell>
                   );
