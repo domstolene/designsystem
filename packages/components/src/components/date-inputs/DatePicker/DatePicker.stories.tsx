@@ -15,6 +15,10 @@ import { Modal } from '../../Modal';
 import { HStack, VStack } from '../../Stack';
 import { TimePicker } from '../TimePicker';
 import { Paragraph } from '../../Typography';
+import {
+  calendarDateToNativeDate,
+  nativeDateToCalendarDate,
+} from '../utils/transform';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'dds-components/DatePicker',
@@ -193,5 +197,15 @@ export const DateAndTime = () => {
         {norwegianDateFormatter.format(dateTime.toDate('Europe/Oslo'))}
       </Paragraph>
     </StoryTemplate>
+  );
+};
+
+export const NativeDate = () => {
+  const [date, setDate] = useState<Date>(new Date());
+  return (
+    <DatePicker
+      value={nativeDateToCalendarDate(date)}
+      onChange={d => setDate(calendarDateToNativeDate(d))}
+    />
   );
 };
