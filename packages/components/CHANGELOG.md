@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 14.3.0
+
+### Minor Changes
+
+- a0f9d17: Legger til støtte for å enklere overstyre bredden på `<DatePicker>` og `<TimePicker>` gjennom ny `width`-prop. Denne fungerer likt som på den gamle `<Datepicker>`-komponenten.
+- 1e8ef24: Bedre defaults for `<Table.Row>` og `<Table.Cell>` sine `type`-props. Nå er default verdi `"head"` når de er brukt inne i en `<Table.Head>`, og `"body"`/`"data"` ellers. Dette vil for de fleste bety at det ikke lenger er nødvendig å forholde seg til `type`-propen i disse komponentene. Har du en litt mer kompleks tabell hvor header-celler ikke nødvendigvis er brukt inne i en `<Table.Head>`-komponent, kan du fortsatt sette `type`-propen til `"head"` for å få riktig styling.
+
 ## 14.2.0
 
 ### Minor Changes
