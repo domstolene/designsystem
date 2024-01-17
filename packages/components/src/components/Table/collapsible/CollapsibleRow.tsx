@@ -27,6 +27,7 @@ import {
   focusVisible,
   focusVisibleTransitionValue,
 } from '../../helpers';
+import { useIsInTableHead } from '../Head';
 
 const { collapseButton } = tableTokens;
 
@@ -54,9 +55,11 @@ const DescriptionListCell = styled(Cell)`
 
 export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
   (
-    { type = 'body', mode = 'normal', selected, hoverable, children, ...rest },
+    { type: _type, mode = 'normal', selected, hoverable, children, ...rest },
     ref,
   ) => {
+    const isInHead = useIsInTableHead();
+    const type = _type ?? (isInHead ? 'head' : 'body');
     const rowProps = {
       $type: type,
       $mode: mode,

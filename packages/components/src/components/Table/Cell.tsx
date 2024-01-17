@@ -7,6 +7,7 @@ import {
 import styled, { css } from 'styled-components';
 import { DescriptionListDesc } from '../DescriptionList';
 import { tableTokens } from './Table.tokens';
+import { useIsInTableHead } from './Head';
 
 const { cell } = tableTokens;
 
@@ -53,7 +54,10 @@ export interface CollapsibleProps {
 }
 
 export type TableCellProps = {
-  /**Type celle. Returnerer enten `<td>` eller `<th>`. */
+  /**
+   * Type celle. Returnerer enten `<td>` eller `<th>`.
+   * @default 'data' hvis den er brukt i `<Table.Body>` eller `<Table.Foot>`, 'head' hvis den er i `<Table.Head>`.
+   */
   type?: TableCellType;
   /**Layout av innholdet i cellen. 'tekst and icon' legger `gap` mellom barna og andre barnet i cellen.  */
   layout?: TableCellLayout;
@@ -76,9 +80,11 @@ const getTableCellType = (type: TableCellType) => {
 
 export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
   (
-    { children, type = 'data', layout = 'left', collapsibleProps, ...rest },
+    { children, type: _type, layout = 'left', collapsibleProps, ...rest },
     ref,
   ) => {
+    const isInHead = useIsInTableHead();
+    const type = _type ?? (isInHead ? 'head' : 'data');
     const as: ElementType = getTableCellType(type);
 
     const { isCollapsibleChild } = collapsibleProps ?? {};

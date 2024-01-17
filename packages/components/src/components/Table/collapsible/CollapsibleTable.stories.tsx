@@ -36,7 +36,7 @@ export default {
 
 const mappedHeaderCells = headerCells.map(headerCell => {
   return (
-    <Table.Cell key={`head-${headerCell.dataName}`} type="head">
+    <Table.Cell key={`head-${headerCell.dataName}`}>
       {headerCell.name}
     </Table.Cell>
   );
@@ -61,9 +61,7 @@ export const SingleDefiningColumn = (args: CollapsibleTableProps) => {
         isCollapsed={args.isCollapsed !== false && true}
       >
         <Table.Head>
-          <CollapsibleTable.Row type="head">
-            {mappedHeaderCells}
-          </CollapsibleTable.Row>
+          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
         </Table.Head>
         <Table.Body>
           {mapCellContents(data, headerCells).map(row => (
@@ -96,9 +94,7 @@ export const MultipleDefiningColumns = (args: CollapsibleTableProps) => {
           definingColumnIndex={[0, 2]}
         >
           <Table.Head>
-            <CollapsibleTable.Row type="head">
-              {mappedHeaderCells}
-            </CollapsibleTable.Row>
+            <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -132,9 +128,7 @@ export const PrioritizedDefiningColumns = (args: CollapsibleTableProps) => {
           definingColumnIndex={[2, 0]}
         >
           <Table.Head>
-            <CollapsibleTable.Row type="head">
-              {mappedHeaderCells}
-            </CollapsibleTable.Row>
+            <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -163,9 +157,7 @@ export const WithDividers = (args: CollapsibleTableProps) => {
         isCollapsed={args.isCollapsed !== false && true}
       >
         <Table.Head>
-          <CollapsibleTable.Row type="head">
-            {mappedHeaderCells}
-          </CollapsibleTable.Row>
+          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
         </Table.Head>
         <Table.Body>
           {mapCellContents(data, headerCells).map(row => (
@@ -193,9 +185,7 @@ export const Compact = (args: CollapsibleTableProps) => {
         isCollapsed={args.isCollapsed !== false && true}
       >
         <Table.Head>
-          <CollapsibleTable.Row type="head">
-            {mappedHeaderCells}
-          </CollapsibleTable.Row>
+          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
         </Table.Head>
         <Table.Body>
           {mapCellContents(data, headerCells).map(row => (
@@ -224,9 +214,7 @@ export const StickyHeader = (args: CollapsibleTableProps) => {
         definingColumnIndex={[0, 2]}
       >
         <Table.Head>
-          <CollapsibleTable.Row type="head">
-            {mappedHeaderCells}
-          </CollapsibleTable.Row>
+          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
         </Table.Head>
         <Table.Body>
           {mapCellContents(data, headerCells).map(row => (
@@ -271,10 +259,10 @@ export const WithButtonAndIcons = (args: CollapsibleTableProps) => {
     <StoryTemplate title="Table - with buttons and icons" display="block">
       <CollapsibleTable {...args} headerValues={headerValues} isCollapsed>
         <Table.Head>
-          <CollapsibleTable.Row type="head">
+          <CollapsibleTable.Row>
             {headerValues.map(headerCell => {
               return (
-                <Table.Cell key={`head-${headerCell.key}`} type="head">
+                <Table.Cell key={`head-${headerCell.key}`}>
                   {headerCell.content}
                 </Table.Cell>
               );
@@ -311,9 +299,7 @@ export const Responsive = (args: CollapsibleTableProps) => {
           headerValues={headerValues}
         >
           <Table.Head>
-            <CollapsibleTable.Row type="head">
-              {mappedHeaderCells}
-            </CollapsibleTable.Row>
+            <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -348,9 +334,7 @@ export const ResposiveMultipleBreakpoints = (args: CollapsibleTableProps) => {
           definingColumnIndex={screenSize === ScreenSize.XSmall ? [2] : [2, 0]}
         >
           <Table.Head>
-            <CollapsibleTable.Row type="head">
-              {mappedHeaderCells}
-            </CollapsibleTable.Row>
+            <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
           </Table.Head>
           <Table.Body>
             {mapCellContents(data, headerCells).map(row => (
@@ -402,9 +386,9 @@ export const Example = () => {
         definingColumnIndex={[0, 1, 2, 3, 4]}
       >
         <Table.Head>
-          <CollapsibleTable.Row type="head">
+          <CollapsibleTable.Row>
             {headers.map(i => (
-              <Table.Cell type="head"> {i.content} </Table.Cell>
+              <Table.Cell> {i.content} </Table.Cell>
             ))}
           </CollapsibleTable.Row>
         </Table.Head>

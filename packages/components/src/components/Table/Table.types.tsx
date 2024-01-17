@@ -29,7 +29,10 @@ export type TableRowType = 'body' | 'head';
 export type RowMode = 'normal' | 'sum';
 
 export type TableRowProps = {
-  /**Spesifiserer om raden skal brukes i `<head>` eller `<body>`-seksjonen. */
+  /**
+   * Spesifiserer om raden skal brukes i `<head>` eller `<body>`-seksjonen.
+   * @default 'body' hvis den er brukt i `<Table.Body>` eller `<Table.Foot>`, 'head' hvis den er i `<Table.Head>`.
+   */
   type?: TableRowType;
   /**Custom modus for rader som har ytterligere semantisk betydning (f.eks. summeringsrad), definerer kun styling. Ved bruk av sum må `<Cell>` med tall i høyrestilles vha layout prop.  */
   mode?: RowMode;
