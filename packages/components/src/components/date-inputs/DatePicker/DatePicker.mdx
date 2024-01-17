@@ -55,8 +55,8 @@ Om du derimot allikevel skulle ha behov for å bruke native JS Date, så har vi 
 
 <Source
   code={`
-function nativeDateToDateValue(date: Date, timeZone: string | undefined = 'Europe/Oslo'): DateValue;
-function dateValueToNativeDate(date: DateValue, timeZone: string | undefined = 'Europe/Oslo'): Date;
+function nativeDateToCalendarDate(date: Date): CalendarDate;
+function calendarDateToNativeDate(date: CalendarDate, time?: Time): Date;
 `}
 />
 
@@ -64,14 +64,14 @@ function dateValueToNativeDate(date: DateValue, timeZone: string | undefined = '
 
 <Source code={`
 import { useState } from 'react';
-import { DatePicker, nativeDateToDateValue, dateValueToNativeDate } from '@norges-domstoler/dds-datepicker';
+import { DatePicker, nativeDateToCalendarDate, calendarDateToNativeDate } from '@norges-domstoler/dds-datepicker';
 
 const [value, setValue] = useState<Date>(new Date());
 
 <DatePicker
   label="Velg dato"
-  value={nativeDateToDateValue(value)}
-  onChange={d => dateValueToNativeDate(setValue)}
+  value={nativeDateToCalendarDate(value)}
+  onChange={d => setValue(calendarDateToNativeDate(d))}
 />
 `}/>
 
