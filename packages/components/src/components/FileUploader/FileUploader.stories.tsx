@@ -3,7 +3,7 @@ import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { FileUploader } from './FileUploader';
 
 export default {
-  title: 'dds-components/FileUploader BETA',
+  title: 'dds-components/FileUploader',
   component: FileUploader,
   argTypes: {
     color: { control: { type: 'text' } },
