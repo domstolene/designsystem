@@ -1,6 +1,6 @@
 import { ReactNode, Ref, forwardRef } from 'react';
 import { useDateField } from '@react-aria/datepicker';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   InputMessage,
   Label,
@@ -9,6 +9,8 @@ import {
   StatefulInput,
   StyledInputProps,
 } from '@norges-domstoler/dds-components';
+import type * as CSS from 'csstype';
+
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
 export type DateInputProps = {
@@ -18,6 +20,7 @@ export type DateInputProps = {
   prefix?: ReactNode;
   label?: ReactNode;
   internalRef: Ref<HTMLDivElement>;
+  width?: CSS.Properties['width'];
 } & Pick<ReturnType<typeof useDateField>, 'fieldProps' | 'labelProps'> &
   Pick<
     InputProps,
@@ -38,9 +41,15 @@ const DateFieldContainer = styled.div`
 
 const InputDiv = styled(StatefulInput).attrs({
   as: 'div',
-})<StyledInputProps>`
-  min-width: ${({ componentSize = 'medium' }) =>
-    datePickerTokens.datefield[componentSize].minWidth};
+})<StyledInputProps & { $width: CSS.Properties['width'] }>`
+  ${({ $width, componentSize = 'medium' }) =>
+    $width
+      ? css`
+          width: ${$width};
+        `
+      : css`
+          min-width: ${datePickerTokens.datefield[componentSize].minWidth};
+        `}
   display: inline-flex;
   flex-direction: row;
   gap: ${datePickerTokens.gap};
@@ -73,6 +82,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       prefix: button,
       labelProps,
       fieldProps,
+      width,
       ...props
     },
     forwardedRef,
@@ -91,6 +101,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
         )}
         <InputDiv
           {...fieldProps}
+          $width={width}
           style={style}
           disabled={disabled}
           componentSize={componentSize}
