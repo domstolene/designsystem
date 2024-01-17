@@ -1,15 +1,17 @@
+import { type AriaButtonProps, useButton } from '@react-aria/button';
+import { useRef } from 'react';
+import styled, { css } from 'styled-components';
+
 import {
-  normalizeButton,
-  focusVisible,
-  selection,
   CalendarIcon,
   Icon,
+  focusVisible,
+  normalizeButton,
+  selection,
 } from '@norges-domstoler/dds-components';
-import { useButton, AriaButtonProps } from '@react-aria/button';
-import styled, { css } from 'styled-components';
+
 import type { DateFieldProps } from './DateField';
 import { datePickerTokens } from '../DatePicker.tokens';
-import { useRef } from 'react';
 
 const StyledButton = styled.button<{
   $componentSize: DateFieldProps['componentSize'];

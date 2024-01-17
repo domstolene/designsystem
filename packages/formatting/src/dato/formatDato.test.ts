@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import { formatDate, formatTime, formatDateTime } from './formatDato';
+import { formatDate, formatDateTime, formatTime } from './formatDato';
 
 describe('formatDato()', () => {
   describe('formatDate', () => {

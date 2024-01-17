@@ -1,13 +1,13 @@
-import { Children, ReactElement, useEffect } from 'react';
+import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
+import { Children, type ReactElement, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { appShellTokens } from '../AppShell.tokens';
-import { Divider } from '../../Divider';
 import { NavigationItem } from './NavigationItem';
-import { TopBar, User } from './TopBar';
 import { NavigationLogo } from './NavigationLogo';
-import { OverflowMenuProps } from '../../OverflowMenu';
-import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
+import { TopBar, type User } from './TopBar';
+import { Divider } from '../../Divider';
+import { type OverflowMenuProps } from '../../OverflowMenu';
+import { appShellTokens } from '../AppShell.tokens';
 import { useAppShellContext } from '../AppShellContext';
 
 const { navigation: navTokens } = appShellTokens;

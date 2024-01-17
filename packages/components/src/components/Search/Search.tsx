@@ -1,16 +1,14 @@
 import {
-  ButtonHTMLAttributes,
-  ChangeEvent,
+  type ButtonHTMLAttributes,
+  type ChangeEvent,
+  type InputHTMLAttributes,
+  type MouseEvent,
   forwardRef,
-  InputHTMLAttributes,
-  MouseEvent,
   useId,
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { renderInputMessage } from '../../utils/renderInputMessage';
-import { Button } from '../Button';
-import { VisuallyHidden } from '../VisuallyHidden';
+
 import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import { searchTokens as tokens, typographyTypes } from './Search.tokens';
 import { createEmptyChangeEvent } from './Search.utils';
@@ -20,10 +18,16 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { IconSize, Icon } from '../Icon';
-import { SearchIcon, CloseSmallIcon } from '../Icon/icons';
-import { getFontStyling, Label } from '../Typography';
-import { Input as BaseInput, InputProps as BaseInputProps } from '../helpers';
+import { renderInputMessage } from '../../utils/renderInputMessage';
+import { Button } from '../Button';
+import {
+  Input as BaseInput,
+  type InputProps as BaseInputProps,
+} from '../helpers';
+import { Icon, type IconSize } from '../Icon';
+import { CloseSmallIcon, SearchIcon } from '../Icon/icons';
+import { Label, getFontStyling } from '../Typography';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const { input, outerContainer, horisontalContainer, searchIcon, clearButton } =
   tokens;

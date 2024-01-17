@@ -1,5 +1,6 @@
-import { Chip, ChipProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Chip, type ChipProps } from '.';
 
 export default {
   title: 'dds-components/Chip/Chip',

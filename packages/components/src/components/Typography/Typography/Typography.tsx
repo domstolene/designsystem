@@ -1,29 +1,29 @@
 import {
+  type AnchorHTMLAttributes,
+  type ElementType,
+  type HTMLAttributes,
   forwardRef,
-  ElementType,
-  HTMLAttributes,
-  AnchorHTMLAttributes,
 } from 'react';
-import styled, { css, CSSObject } from 'styled-components';
+import styled, { type CSSObject, css } from 'styled-components';
 
-import { typographyTokens as tokens } from '../Typography.tokens';
 import {
+  getAdditionalFontStyle,
   getAnchorStyling,
   getMarginStyling,
-  getAdditionalFontStyle,
 } from './Typography.styles';
 import {
-  TypographyType,
-  TypographyInteractionStyling,
-  TypographyComponentProps,
-  AnchorTypographyType,
-  LabelTypographyType,
-  OtherTypographyType,
+  type AnchorTypographyType,
+  type LabelTypographyType,
+  type OtherTypographyType,
+  type TypographyComponentProps,
+  type TypographyInteractionStyling,
+  type TypographyType,
 } from './Typography.types';
 import { getElementType } from './Typography.utils';
-import { BaseComponentProps, getBaseHTMLProps } from '../../../types';
-import { TextColor, getTextColor } from '../../../utils';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
+import { type TextColor, getTextColor } from '../../../utils';
 import { selection } from '../../helpers';
+import { typographyTokens as tokens } from '../Typography.tokens';
 
 interface StyledTypographyProps {
   as: ElementType;

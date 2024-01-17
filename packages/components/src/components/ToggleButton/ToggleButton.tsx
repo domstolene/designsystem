@@ -5,7 +5,7 @@ import {
   toggleButtonTokens as tokens,
   typographyType,
 } from './ToggleButton.tokens';
-import { ToggleButtonProps } from './ToggleButton.types';
+import { type ToggleButtonProps } from './ToggleButton.types';
 import { getBaseHTMLProps } from '../../types';
 import {
   HiddenInput,

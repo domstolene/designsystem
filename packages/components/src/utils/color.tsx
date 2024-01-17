@@ -2,7 +2,7 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { Property } from 'csstype';
+import { type Property } from 'csstype';
 
 const { colors } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;

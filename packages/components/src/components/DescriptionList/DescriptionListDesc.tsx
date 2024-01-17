@@ -1,9 +1,13 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
+
 import { descriptionListTokens as tokens } from './DescriptionList.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { Icon } from '../Icon';
-import { SvgIcon } from '../Icon/utils';
+import { type SvgIcon } from '../Icon/utils';
 
 const DListDesc = styled.dd`
   margin-inline-start: 0;

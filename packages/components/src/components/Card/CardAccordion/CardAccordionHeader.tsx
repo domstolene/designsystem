@@ -1,21 +1,22 @@
-import { forwardRef, ButtonHTMLAttributes } from 'react';
+import { type Property } from 'csstype';
+import { type ButtonHTMLAttributes, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+
 import {
   cardAccordionTokens as tokens,
   typographyTypes,
 } from './CardAccordion.tokens';
-import { Property } from 'csstype';
 import { useCardAccordionContext } from './CardAccordionContext';
 import {
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import {
+  AnimatedChevronUpDown,
   normalizeButton,
   removeButtonStyling,
-  AnimatedChevronUpDown,
 } from '../../helpers';
-import { StaticTypographyType, getFontStyling } from '../../Typography';
+import { type StaticTypographyType, getFontStyling } from '../../Typography';
 
 const { header, chevronWrapper } = tokens;
 

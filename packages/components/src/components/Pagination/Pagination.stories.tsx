@@ -1,5 +1,6 @@
-import { Pagination, PaginationProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Pagination, type PaginationProps } from '.';
 
 export default {
   title: 'dds-components/Pagination',

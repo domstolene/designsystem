@@ -1,14 +1,15 @@
 import {
-  RefObject,
+  type MouseEvent,
+  type RefObject,
+  useCallback,
   useEffect,
   useRef,
   useState,
-  useCallback,
-  MouseEvent,
 } from 'react';
 import styled from 'styled-components';
+
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 const { track, thumb, minThumbHeightPx } = tokens;
 

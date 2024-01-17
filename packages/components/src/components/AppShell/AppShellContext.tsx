@@ -1,10 +1,10 @@
 import {
+  type Dispatch,
   type ReactNode,
   type SetStateAction,
-  type Dispatch,
   createContext,
-  useState,
   useContext,
+  useState,
 } from 'react';
 
 interface AppShellContextValues {

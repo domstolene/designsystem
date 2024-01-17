@@ -1,9 +1,10 @@
-import { ChangeEvent, useState, useId } from 'react';
+import { type Property } from 'csstype';
+import { type ChangeEvent, useId, useState } from 'react';
 import styled, { css } from 'styled-components';
+
 import { ToggleBarContext } from './ToggleBar.context';
 import { toggleBarTokens as tokens } from './ToggleBar.tokens';
-import { Property } from 'csstype';
-import { ToggleBarProps, ToggleBarValue } from './ToggleBar.types';
+import { type ToggleBarProps, type ToggleBarValue } from './ToggleBar.types';
 import { getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
 import { selection } from '../helpers';

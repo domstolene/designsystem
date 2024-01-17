@@ -1,4 +1,4 @@
-import { SvgProps } from './propTypes';
+import { type SvgProps } from './propTypes';
 import { StyledSvg } from './StyledSvg';
 
 export function SvgWrapper(props: SvgProps) {

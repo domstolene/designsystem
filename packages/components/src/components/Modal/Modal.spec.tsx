@@ -1,9 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
-import { Modal, ModalBody } from '.';
 import { act, render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { ReactNode, useEffect, useState } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
+import { describe, expect, it, vi } from 'vitest';
+
 import { Button } from '../Button';
+
+import { Modal, ModalBody } from '.';
 
 const TestComponent = ({
   children,

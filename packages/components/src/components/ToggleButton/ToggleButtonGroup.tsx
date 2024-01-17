@@ -1,7 +1,11 @@
 import { useId } from 'react';
 import styled, { css } from 'styled-components';
+
 import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { Typography } from '../Typography';
 
 interface GroupProps {

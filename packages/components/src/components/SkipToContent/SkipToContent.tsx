@@ -1,12 +1,12 @@
+import { type Property } from 'csstype';
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import { Property } from 'csstype';
 
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
-import { getFontStyling, defaultTypographyType } from '../Typography';
-import { focusVisibleTransitionValue, focusVisibleOnDark } from '../helpers';
+import { focusVisibleOnDark, focusVisibleTransitionValue } from '../helpers';
+import { defaultTypographyType, getFontStyling } from '../Typography';
 
 const { wrapper, link } = tokens;
 

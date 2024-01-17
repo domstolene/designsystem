@@ -1,6 +1,7 @@
-import { ChangeEvent } from 'react';
-import { Property } from 'csstype';
-import { BaseComponentPropsWithChildren } from '../../types';
+import { type Property } from 'csstype';
+import { type ChangeEvent } from 'react';
+
+import { type BaseComponentPropsWithChildren } from '../../types';
 
 export type ToggleBarValue = string | number | null | undefined;
 export type ToggleBarSize = 'tiny' | 'small' | 'medium' | 'large';

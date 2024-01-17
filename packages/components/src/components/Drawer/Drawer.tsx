@@ -1,22 +1,25 @@
-import { forwardRef, ReactNode, RefObject, useId } from 'react';
+import { type Property } from 'csstype';
+import { type ReactNode, type RefObject, forwardRef, useId } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { css } from 'styled-components';
-import { Button } from '../Button';
-import { Property } from 'csstype';
 
 import { drawerTokens as tokens } from './Drawer.tokens';
-import { ScrollableContainer } from '../ScrollableContainer';
 import {
-  useFocusTrap,
   useCombinedRef,
-  useOnKeyDown,
-  useOnClickOutside,
+  useFocusTrap,
   useMountTransition,
+  useOnClickOutside,
+  useOnKeyDown,
 } from '../../hooks';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { focusVisible, Paper } from '../helpers';
-import { Typography } from '../Typography';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { Button } from '../Button';
+import { Paper, focusVisible } from '../helpers';
 import { CloseIcon } from '../Icon/icons';
+import { ScrollableContainer } from '../ScrollableContainer';
+import { Typography } from '../Typography';
 
 const { container, contentContainer } = tokens;
 

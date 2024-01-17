@@ -1,6 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import { BaseComponentProps, getBaseHTMLProps } from './BaseComponentProps';
+import {
+  type BaseComponentProps,
+  getBaseHTMLProps,
+} from './BaseComponentProps';
 
 type BCP = BaseComponentProps<HTMLElement>;
 

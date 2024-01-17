@@ -1,23 +1,24 @@
+import type * as CSS from 'csstype';
 import {
-  ButtonHTMLAttributes,
-  Dispatch,
+  type ButtonHTMLAttributes,
+  type Dispatch,
+  type KeyboardEvent,
+  type MouseEvent,
+  type SetStateAction,
   forwardRef,
-  SetStateAction,
   useCallback,
   useEffect,
-  MouseEvent,
   useRef,
-  KeyboardEvent,
 } from 'react';
 import styled, { css } from 'styled-components';
-import type * as CSS from 'csstype';
 
-import { tabsTokens as tokens } from './Tabs.tokens';
 import { useTabsContext } from './Tabs.context';
+import { tabsTokens as tokens } from './Tabs.tokens';
+import { useSetTabWidth } from './TabWidthContext';
 import { useCombinedRef, useOnKeyDown } from '../../hooks';
 import {
-  Direction,
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
+  type Direction,
   getBaseHTMLProps,
 } from '../../types';
 import {
@@ -27,9 +28,8 @@ import {
   removeButtonStyling,
 } from '../helpers';
 import { Icon } from '../Icon';
-import { SvgIcon } from '../Icon/utils';
-import { getFontStyling, defaultTypographyType } from '../Typography';
-import { useSetTabWidth } from './TabWidthContext';
+import { type SvgIcon } from '../Icon/utils';
+import { defaultTypographyType, getFontStyling } from '../Typography';
 
 const { tab } = tokens;
 

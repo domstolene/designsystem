@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { ChangeEvent, useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
+import { describe, expect, it } from 'vitest';
+
 import { ToggleBar, ToggleRadio } from '.';
 
 const TestComponent = () => {

@@ -4,7 +4,7 @@ import {
   selectionControlSize,
   selectionControlSizeNumberPx,
 } from './SelectionControl.utils';
-import { hoverInputfield, dangerInputfield } from '../helpers';
+import { dangerInputfield, hoverInputfield } from '../helpers';
 
 const { colors, spacing, borderRadius } = ddsBaseTokens;
 

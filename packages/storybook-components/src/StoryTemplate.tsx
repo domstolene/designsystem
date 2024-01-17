@@ -1,10 +1,10 @@
-import { CSSProperties, HTMLAttributes } from 'react';
-import styled, { css } from 'styled-components';
-import 'focus-visible';
 import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
+import type { CSSProperties, HTMLAttributes } from 'react';
+import { css, styled } from 'styled-components';
+import 'focus-visible';
 
 const { fontPackages } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;

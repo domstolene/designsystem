@@ -1,8 +1,12 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, RefObject } from 'react';
+import {
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type RefObject,
+} from 'react';
 
-import { Placement } from '../../hooks';
-import { BaseComponentProps } from '../../types';
-import { SvgIcon } from '../Icon/utils';
+import { type Placement } from '../../hooks';
+import { type BaseComponentProps } from '../../types';
+import { type SvgIcon } from '../Icon/utils';
 
 interface OverflowMenuItemBase {
   title: string;

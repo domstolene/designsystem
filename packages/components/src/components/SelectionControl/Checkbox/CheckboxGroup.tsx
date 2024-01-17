@@ -1,22 +1,22 @@
 import { useId } from 'react';
+
 import {
   CheckboxGroupContext,
-  CheckboxGroupContextProps,
+  type CheckboxGroupContextProps,
 } from './CheckboxGroupContext';
-
-import { renderInputMessage } from '../../../utils/renderInputMessage';
 import {
-  OuterGroupContainer,
-  GroupContainer,
-} from '../SelectionControl.styles';
-import {
-  BaseComponentPropsWithChildren,
-  Direction,
+  type BaseComponentPropsWithChildren,
+  type Direction,
   getBaseHTMLProps,
 } from '../../../types';
 import { derivativeIdGenerator } from '../../../utils';
+import { renderInputMessage } from '../../../utils/renderInputMessage';
 import { RequiredMarker } from '../../helpers';
 import { Typography } from '../../Typography';
+import {
+  GroupContainer,
+  OuterGroupContainer,
+} from '../SelectionControl.styles';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

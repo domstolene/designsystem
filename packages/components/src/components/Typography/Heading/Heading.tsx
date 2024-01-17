@@ -1,13 +1,14 @@
-import { ElementType, forwardRef } from 'react';
+import { type ElementType, forwardRef } from 'react';
+
 import {
-  TypographyHeadingType,
-  BaseTypographyProps,
-  Typography,
-} from '../Typography';
-import {
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import {
+  type BaseTypographyProps,
+  Typography,
+  type TypographyHeadingType,
+} from '../Typography';
 
 const getHeadingElement = (level: HeadingLevel): ElementType => `h${level}`;
 

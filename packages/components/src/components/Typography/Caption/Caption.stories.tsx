@@ -1,5 +1,6 @@
-import { Caption, CaptionProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Caption, type CaptionProps } from '.';
 
 type StoryTProps = {
   text: string;

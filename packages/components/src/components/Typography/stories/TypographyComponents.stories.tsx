@@ -1,6 +1,14 @@
-import { Label, Paragraph, Heading, Link, Legend, Caption } from '..';
-import { Typography } from '..';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import {
+  Caption,
+  Heading,
+  Label,
+  Legend,
+  Link,
+  Paragraph,
+  Typography,
+} from '..';
 
 export default {
   title: 'dds-components/Typography/Overview',

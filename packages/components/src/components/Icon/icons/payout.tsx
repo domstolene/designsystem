@@ -1,4 +1,4 @@
-import { SvgProps } from '../utils/propTypes';
+import { type SvgProps } from '../utils/propTypes';
 import { SvgWrapper } from '../utils/SvgWrapper';
 export function PayoutIcon(props: SvgProps) {
   return (

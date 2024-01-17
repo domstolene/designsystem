@@ -1,13 +1,22 @@
-import { useRef } from 'react';
-import { AriaCalendarCellProps, useCalendarCell } from '@react-aria/calendar';
-import { CalendarState, RangeCalendarState } from '@react-stately/calendar';
 import { isToday } from '@internationalized/date';
+import {
+  type AriaCalendarCellProps,
+  useCalendarCell,
+} from '@react-aria/calendar';
+import {
+  type CalendarState,
+  type RangeCalendarState,
+} from '@react-stately/calendar';
+import { useRef } from 'react';
 import styled, { css } from 'styled-components';
-import { focusVisible } from '@norges-domstoler/dds-components';
 
-import { CellVariant, calendarTokens } from './Calendar.tokens';
+import {
+  focusVisible,
+  normalizeButton,
+} from '@norges-domstoler/dds-components';
+
+import { type CellVariant, calendarTokens } from './Calendar.tokens';
 import { timezone } from '../constants';
-import { normalizeButton } from '@norges-domstoler/dds-components';
 
 interface CalendarCellProps extends AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;

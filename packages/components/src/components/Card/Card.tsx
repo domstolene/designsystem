@@ -1,9 +1,13 @@
-import { AnchorHTMLAttributes, RefObject } from 'react';
+import { type AnchorHTMLAttributes, type RefObject } from 'react';
 import styled, { css } from 'styled-components';
+
 import { cardTokens as tokens } from './Card.tokens';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { focusVisibleWithBorder, hoverWithBorder, selection } from '../helpers';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { getFontStyling, defaultTypographyType } from '../Typography';
+import { defaultTypographyType, getFontStyling } from '../Typography';
 
 interface ContainerProps {
   color: CardColor;

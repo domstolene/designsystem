@@ -1,10 +1,10 @@
-import { GroupBase, StylesConfig } from 'react-select';
+import { type Property } from 'csstype';
+import { type GroupBase, type StylesConfig } from 'react-select';
 import styled, { css } from 'styled-components';
-import { scrollbarStyling } from '../ScrollableContainer';
+
 import { selectTokens as tokens, typographyTypes } from './Select.tokens';
-import { Property } from 'csstype';
 import {
-  InputSize,
+  type InputSize,
   dangerInputfield,
   focusInputfield,
   hoverDangerInputfield,
@@ -12,6 +12,7 @@ import {
   selection,
 } from '../helpers';
 import { Icon } from '../Icon';
+import { scrollbarStyling } from '../ScrollableContainer';
 import { getFontStyling } from '../Typography';
 
 const {

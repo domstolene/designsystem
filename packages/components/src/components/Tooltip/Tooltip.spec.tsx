@@ -1,9 +1,10 @@
-import { describe, it, expect } from 'vitest';
-import { vi } from 'vitest';
-import { screen, fireEvent, render, waitFor } from '@testing-library/react';
-import { Tooltip } from '.';
-import { Button } from '../Button';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
+
+import { Button } from '../Button';
+
+import { Tooltip } from '.';
 
 // Mock the IntersectionObserver
 window.IntersectionObserver = vi.fn().mockImplementation(() => ({

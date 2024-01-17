@@ -1,14 +1,16 @@
-import { Popover, PopoverProps, PopoverGroup } from '.';
-import { Button } from '../Button';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import styled from 'styled-components';
 import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { Placement } from '../../hooks';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import styled from 'styled-components';
+
+import { type Placement } from '../../hooks';
+import { Button } from '../Button';
 import { removeButtonStyling } from '../helpers';
 import { Typography } from '../Typography';
+
+import { Popover, PopoverGroup, type PopoverProps } from '.';
 
 export default {
   title: 'dds-components/Popover',

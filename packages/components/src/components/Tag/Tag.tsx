@@ -2,11 +2,11 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { tagTokens as tokens, typographyType } from './Tag.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import {
+  TextOverflowEllipsisInner,
   TextOverflowEllipsisWrapper,
   getFontStyling,
-  TextOverflowEllipsisInner,
 } from '../Typography';
 
 const { wrapper } = tokens;

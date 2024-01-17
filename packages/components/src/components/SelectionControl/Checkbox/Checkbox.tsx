@@ -1,12 +1,12 @@
 import { forwardRef, useId } from 'react';
 
-import { CheckboxProps } from './Checkbox.types';
+import { type CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
-import { CustomSelectionControl, Container } from '../SelectionControl.styles';
 import { getBaseHTMLProps } from '../../../types';
 import { cn, spaceSeparatedIdListGenerator } from '../../../utils';
 import { HiddenInput } from '../../helpers';
 import { Typography } from '../../Typography';
+import { Container, CustomSelectionControl } from '../SelectionControl.styles';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {

@@ -1,8 +1,10 @@
-import { vi, describe, it, expect } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { Drawer, DrawerGroup } from '.';
+import { describe, expect, it, vi } from 'vitest';
+
 import { Button } from '../Button';
+
+import { Drawer, DrawerGroup } from '.';
 
 const buttonLabel = 'label';
 const content = 'content';

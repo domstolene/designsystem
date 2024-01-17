@@ -1,15 +1,17 @@
-import { Grid, GridChild, GridProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { ScreenSize, useScreenSize } from '../../hooks';
 import { Button } from '../Button';
+import { FilterIcon, PlusIcon } from '../Icon/icons';
 import { InternalHeader } from '../InternalHeader';
 import { Pagination } from '../Pagination';
 import { Search } from '../Search';
 import { Table } from '../Table';
 import { Tag } from '../Tag';
 import { TextInput } from '../TextInput';
-import { useScreenSize, ScreenSize } from '../../hooks';
-import { FilterIcon, PlusIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
+
+import { Grid, GridChild, type GridProps } from '.';
 
 export default {
   title: 'dds-components/Grid',

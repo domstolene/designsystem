@@ -1,8 +1,8 @@
 import {
-  ChangeEvent,
+  type ChangeEvent,
+  type MouseEvent,
+  type RefObject,
   createContext,
-  MouseEvent,
-  RefObject,
   useContext,
 } from 'react';
 

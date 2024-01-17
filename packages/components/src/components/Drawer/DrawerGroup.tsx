@@ -1,12 +1,12 @@
 import {
-  ReactNode,
   Children as ReactChildren,
-  isValidElement,
+  type ReactElement,
+  type ReactNode,
   cloneElement,
-  ReactElement,
-  useState,
-  useRef,
+  isValidElement,
   useId,
+  useRef,
+  useState,
 } from 'react';
 
 export interface DrawerGroupProps {

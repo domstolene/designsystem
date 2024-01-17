@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { type HTMLAttributes, forwardRef } from 'react';
 import styled from 'styled-components';
 
 const Li = styled.li`

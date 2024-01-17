@@ -1,12 +1,13 @@
 import {
+  type Dispatch,
+  type KeyboardEvent,
+  type SetStateAction,
   useCallback,
-  useState,
   useEffect,
-  Dispatch,
-  SetStateAction,
-  KeyboardEvent,
+  useState,
 } from 'react';
-import { Direction } from '../types';
+
+import { type Direction } from '../types';
 
 export const isKeyboardEvent = (
   e: Event | KeyboardEvent<Element>,

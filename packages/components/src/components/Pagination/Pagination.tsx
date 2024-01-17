@@ -1,19 +1,20 @@
-import { forwardRef, HTMLAttributes, useState } from 'react';
+import { type HTMLAttributes, forwardRef, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from '../Button';
-import { Select } from '../Select';
-import { PaginationGenerator } from './paginationGenerator';
+
 import { paginationTokens as tokens } from './Pagination.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { PaginationGenerator } from './paginationGenerator';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { Button } from '../Button';
 import { Icon } from '../Icon';
-import { Typography } from '../Typography';
 import {
-  MoreHorizontalIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
   ChevronFirstIcon,
   ChevronLastIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  MoreHorizontalIcon,
 } from '../Icon/icons';
+import { Select } from '../Select';
+import { Typography } from '../Typography';
 
 const { outerContainer, indicatorsContainer, truncationIcon, list } = tokens;
 

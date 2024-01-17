@@ -1,7 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { ToggleBarSize } from './ToggleBar.types';
+
+import { type ToggleBarSize } from './ToggleBar.types';
 import { calculateHeightWithLineHeight } from '../../utils';
-import { StaticTypographyType } from '../Typography';
+import { type StaticTypographyType } from '../Typography';
 
 const { colors, spacing, border, borderRadius, fontPackages } = ddsBaseTokens;
 

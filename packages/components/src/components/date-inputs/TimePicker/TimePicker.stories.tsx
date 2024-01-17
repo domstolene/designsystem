@@ -1,14 +1,16 @@
-import { TimePicker, TimePickerProps } from '.';
+import { Time } from '@internationalized/date';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import type { Meta } from '@storybook/react';
-import { Time } from '@internationalized/date';
 import { useState } from 'react';
-import { DatePicker } from '../DatePicker';
+
 import { Button } from '../../Button';
 import { TimeIcon } from '../../Icon/icons';
-import { VStack, HStack } from '../../Stack';
+import { HStack, VStack } from '../../Stack';
 import { TextInput } from '../../TextInput';
 import { Label } from '../../Typography';
+import { DatePicker } from '../DatePicker';
+
+import { TimePicker, type TimePickerProps } from '.';
 
 const meta: Meta<typeof TimePicker> = {
   title: 'dds-components/TimePicker',

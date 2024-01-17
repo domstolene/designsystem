@@ -1,16 +1,17 @@
-import { ElementType } from 'react';
-import { css, CSSObject } from 'styled-components';
-import OpenExternalIcon from './openExternal.svg';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-const { border, colors } = ddsBaseTokens;
+import { type ElementType } from 'react';
+import { type CSSObject, css } from 'styled-components';
 
-import { typographyTokens as tokens } from '../Typography.tokens';
+import OpenExternalIcon from './openExternal.svg';
 import {
-  StaticTypographyType,
-  TypographyInteractionStyling,
-  TypographyType,
+  type StaticTypographyType,
+  type TypographyInteractionStyling,
+  type TypographyType,
 } from './Typography.types';
 import { isHeading, isInlineElement } from './Typography.utils';
+import { typographyTokens as tokens } from '../Typography.tokens';
+
+const { border, colors } = ddsBaseTokens;
 
 export const focusVisibleLink = {
   outline: 'none',

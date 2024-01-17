@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Checkbox, CheckboxGroup } from '.';
 import { userEvent } from '@testing-library/user-event';
+import { describe, expect, it } from 'vitest';
+
+import { Checkbox, CheckboxGroup } from '.';
 
 describe('<Checkbox />', () => {
   it('should have a label', () => {

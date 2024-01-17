@@ -1,5 +1,6 @@
+import { type Property } from 'csstype';
+
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
-import { Property } from 'csstype';
 
 const { thumb, track } = tokens;
 const scrollbarWidth: Property.ScrollbarWidth = 'thin';

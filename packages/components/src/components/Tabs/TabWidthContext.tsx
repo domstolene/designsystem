@@ -1,3 +1,4 @@
+import type * as CSS from 'csstype';
 import {
   type Dispatch,
   type ReactNode,
@@ -6,7 +7,6 @@ import {
   useContext,
   useLayoutEffect,
 } from 'react';
-import type * as CSS from 'csstype';
 
 type Width = CSS.Properties['width'];
 

@@ -1,6 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
-import { Select as DDSSelect, SelectProps } from './Select';
+import { Select as DDSSelect, type SelectProps } from './Select';
 import { CourtIcon } from '../Icon/icons';
 
 export default {

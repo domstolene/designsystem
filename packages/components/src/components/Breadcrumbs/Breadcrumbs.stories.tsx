@@ -1,5 +1,6 @@
-import { Breadcrumbs, BreadcrumbsProps, Breadcrumb } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Breadcrumb, Breadcrumbs, type BreadcrumbsProps } from '.';
 
 export default {
   title: 'dds-components/Breadcrumbs',

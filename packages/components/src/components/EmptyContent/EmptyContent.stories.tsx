@@ -1,5 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { EmptyContent, EmptyContentProps } from './EmptyContent';
+
+import { EmptyContent, type EmptyContentProps } from './EmptyContent';
 
 export default {
   title: 'dds-components/EmptyContent',

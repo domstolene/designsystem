@@ -1,7 +1,8 @@
 import { forwardRef } from 'react';
-import { TableRowProps } from './Table.types';
-import { StyledRow } from './Table.styles';
+
 import { useIsInTableHead } from './Head';
+import { StyledRow } from './Table.styles';
+import { type TableRowProps } from './Table.types';
 
 export const Row = forwardRef<HTMLTableRowElement, TableRowProps>(
   (

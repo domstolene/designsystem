@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
+
 import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
-import { InternalHeaderProps } from './InternalHeader.types';
-import { OverflowMenu } from '../OverflowMenu';
+import { type InternalHeaderProps } from './InternalHeader.types';
 import { selection } from '../helpers';
+import { OverflowMenu } from '../OverflowMenu';
 
 const {
   outerContainer,

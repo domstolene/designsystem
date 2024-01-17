@@ -1,19 +1,21 @@
-import { useEffect, useState, ChangeEvent } from 'react';
-import { Table, TableProps, SortOrder } from '.';
-import { Button } from '../Button';
-import { Checkbox } from '../SelectionControl/Checkbox';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type ChangeEvent, useEffect, useState } from 'react';
+
 import {
-  HeaderCellToSort,
-  CellDataToSort,
+  type CellDataToSort,
+  type HeaderCellToSort,
   data,
   headerCells,
   mapCellContents,
 } from './tableData';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { ScrollableContainer } from '../ScrollableContainer';
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { PersonIcon, TrashIcon } from '../Icon/icons';
+import { ScrollableContainer } from '../ScrollableContainer';
+import { Checkbox } from '../SelectionControl/Checkbox';
 import { Paragraph } from '../Typography';
+
+import { type SortOrder, Table, type TableProps } from '.';
 
 export default {
   title: 'dds-components/Table/Table',

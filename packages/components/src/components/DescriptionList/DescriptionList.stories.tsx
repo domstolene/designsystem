@@ -1,14 +1,16 @@
+import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { CallIcon } from '../Icon/icons';
+import { Typography } from '../Typography';
+
 import {
   DescriptionList,
   DescriptionListDesc,
-  DescriptionListTerm,
   DescriptionListGroup,
-  DescriptionListProps,
+  type DescriptionListProps,
+  DescriptionListTerm,
 } from '.';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
-import { CallIcon } from '../Icon/icons';
-import { Typography } from '../Typography';
 
 export default {
   title: 'dds-components/DescriptionList',

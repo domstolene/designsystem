@@ -1,4 +1,5 @@
-import { useContext, createContext } from 'react';
+import { createContext, useContext } from 'react';
+
 import { ScreenSize } from '../../hooks';
 
 export interface GridContextProps {

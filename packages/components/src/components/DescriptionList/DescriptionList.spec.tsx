@@ -1,6 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { DescriptionList, DescriptionListTerm, DescriptionListDesc } from '.';
+import { describe, expect, it } from 'vitest';
+
+import { DescriptionList, DescriptionListDesc, DescriptionListTerm } from '.';
 
 describe('<DescriptionList />', () => {
   it('should render description term', () => {

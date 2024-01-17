@@ -1,11 +1,13 @@
-import { ComponentProps } from 'react';
-import { AppShell } from '.';
+import { type ComponentProps } from 'react';
+
 import {
-  FolderIcon,
-  ChecklistIcon,
-  GavelIcon,
   BarChartIcon,
+  ChecklistIcon,
+  FolderIcon,
+  GavelIcon,
 } from '../Icon/icons';
+
+import { AppShell } from '.';
 
 export default {
   title: 'dds-components/AppShell',

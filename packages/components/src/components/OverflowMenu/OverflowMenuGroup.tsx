@@ -1,12 +1,12 @@
 import {
+  Children as ReactChildren,
+  type ReactElement,
+  type ReactNode,
+  cloneElement,
+  isValidElement,
+  useId,
   useRef,
   useState,
-  Children as ReactChildren,
-  ReactNode,
-  isValidElement,
-  cloneElement,
-  ReactElement,
-  useId,
 } from 'react';
 
 export interface OverflowMenuGroupProps {

@@ -1,21 +1,22 @@
 import { GregorianCalendar } from '@internationalized/date';
 import {
+  type AriaCalendarProps,
+  type DateValue,
+  useCalendar,
+} from '@react-aria/calendar';
+import { useCalendarState } from '@react-stately/calendar';
+import { type FC, type PropsWithChildren } from 'react';
+import styled from 'styled-components';
+
+import {
   ArrowLeftIcon,
   ArrowRightIcon,
   Button,
   Heading,
 } from '@norges-domstoler/dds-components';
-import {
-  AriaCalendarProps,
-  DateValue,
-  useCalendar,
-} from '@react-aria/calendar';
-import { useCalendarState } from '@react-stately/calendar';
-import styled from 'styled-components';
 
 import { CalendarGrid } from './CalendarGrid';
 import { locale } from '../constants';
-import { FC, PropsWithChildren } from 'react';
 
 const CalendarHeader = styled.div`
   display: flex;

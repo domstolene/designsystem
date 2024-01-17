@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components';
+
 import { buttonTokens as tokens, typographyTypes } from './Button.tokens';
 import {
-  ButtonAppearance,
-  ButtonPurpose,
-  ButtonSize,
-  IconPosition,
+  type ButtonAppearance,
+  type ButtonPurpose,
+  type ButtonSize,
+  type IconPosition,
 } from './Button.types';
 import {
   focusVisible,

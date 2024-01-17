@@ -1,7 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { Property } from 'csstype';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { SvgIcon } from './utils';
+import { type Property } from 'csstype';
+
+import { type SvgIcon } from './utils';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {

@@ -1,27 +1,27 @@
+import type * as CSS from 'csstype';
 import {
-  forwardRef,
-  HTMLAttributes,
   Children,
-  isValidElement,
+  type FocusEvent,
+  type HTMLAttributes,
+  type ReactElement,
   cloneElement,
-  FocusEvent,
-  ReactElement,
+  forwardRef,
+  isValidElement,
   useState,
 } from 'react';
-import type * as CSS from 'csstype';
 import styled, { css } from 'styled-components';
 
-import { tabsTokens as tokens } from './Tabs.tokens';
 import { useTabsContext } from './Tabs.context';
-import { scrollbarStyling } from '../ScrollableContainer';
-import {
-  useRoveFocus,
-  useCombinedRef,
-  useOnKeyDown,
-  useOnClickOutside,
-} from '../../hooks';
-import { focusVisibleTransitionValue, focusVisible } from '../helpers';
+import { tabsTokens as tokens } from './Tabs.tokens';
 import { TabWidthContextProvider } from './TabWidthContext';
+import {
+  useCombinedRef,
+  useOnClickOutside,
+  useOnKeyDown,
+  useRoveFocus,
+} from '../../hooks';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
+import { scrollbarStyling } from '../ScrollableContainer';
 
 const { tabList } = tokens;
 

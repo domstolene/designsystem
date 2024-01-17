@@ -1,19 +1,23 @@
-import { useDatePickerState } from '@react-stately/datepicker';
+import { type CalendarDate } from '@internationalized/date';
 import { useDatePicker } from '@react-aria/datepicker';
+import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
-import { Ref, forwardRef, useRef } from 'react';
 import type * as CSS from 'csstype';
+import { type Ref, forwardRef, useRef } from 'react';
+
 import { useCombinedRef } from '@norges-domstoler/dds-components';
 
-import { DateField, DateFieldProps } from './DateField/DateField';
 import { Calendar } from './Calendar/Calendar';
 import {
   CalendarPopover,
   CalendarPopoverAnchor,
   CalendarPopoverContent,
 } from './CalendarPopover';
-import { CalendarDate } from '@internationalized/date';
-import { FocusableRef, useFocusManagerRef } from '../utils/useFocusManagerRef';
+import { DateField, type DateFieldProps } from './DateField/DateField';
+import {
+  type FocusableRef,
+  useFocusManagerRef,
+} from '../utils/useFocusManagerRef';
 
 export interface DatePickerProps
   extends Omit<AriaDatePickerProps<CalendarDate>, 'granularity'>,

@@ -1,5 +1,5 @@
-import { Ref, RefObject, useImperativeHandle, useRef } from 'react';
 import { createFocusManager } from '@react-aria/focus';
+import { type Ref, type RefObject, useImperativeHandle, useRef } from 'react';
 
 interface DOMRefValue<T extends HTMLElement = HTMLElement> {
   UNSAFE_getDOMNode(): T | null;

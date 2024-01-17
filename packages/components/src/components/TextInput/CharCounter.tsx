@@ -1,6 +1,7 @@
 import { useId } from 'react';
 import styled from 'styled-components';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Typography } from '../Typography';
 
 const Wrapper = styled(Typography)`

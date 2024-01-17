@@ -1,5 +1,6 @@
-import { ChangeEvent, createContext, useContext } from 'react';
-import { ToggleBarSize, ToggleBarValue } from './ToggleBar.types';
+import { type ChangeEvent, createContext, useContext } from 'react';
+
+import { type ToggleBarSize, type ToggleBarValue } from './ToggleBar.types';
 
 export interface ToggleBarContextType {
   size: ToggleBarSize;

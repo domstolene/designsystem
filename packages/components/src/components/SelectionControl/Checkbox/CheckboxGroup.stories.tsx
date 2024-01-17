@@ -1,5 +1,6 @@
-import { Checkbox, CheckboxGroup, CheckboxGroupProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Checkbox, CheckboxGroup, type CheckboxGroupProps } from '.';
 
 export default {
   title: 'dds-components/Checkbox/CheckboxGroup',

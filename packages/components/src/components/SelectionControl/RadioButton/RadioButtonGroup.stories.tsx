@@ -1,6 +1,7 @@
-import { RadioButton, RadioButtonGroup, RadioButtonGroupProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { useState } from 'react';
+
+import { RadioButton, RadioButtonGroup, type RadioButtonGroupProps } from '.';
 
 export default {
   title: 'dds-components/RadioButton/RadioButtonGroup',

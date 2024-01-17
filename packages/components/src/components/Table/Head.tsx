@@ -1,4 +1,9 @@
-import { createContext, forwardRef, HTMLAttributes, useContext } from 'react';
+import {
+  type HTMLAttributes,
+  createContext,
+  forwardRef,
+  useContext,
+} from 'react';
 import styled from 'styled-components';
 
 const StyledHead = styled.thead``;

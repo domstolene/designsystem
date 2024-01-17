@@ -1,5 +1,6 @@
-import { forwardRef, HTMLAttributes } from 'react';
+import { type HTMLAttributes, forwardRef } from 'react';
 import styled from 'styled-components';
+
 import { modalTokens as tokens } from './Modal.tokens';
 
 const Container = styled.div`

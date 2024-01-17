@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
-import { Nullable } from '../../../types';
+import { createContext, useContext } from 'react';
+
+import { type Nullable } from '../../../types';
 
 export interface CheckboxGroupContextProps {
   error?: boolean;
@@ -9,7 +10,7 @@ export interface CheckboxGroupContextProps {
 }
 
 export const CheckboxGroupContext =
-  React.createContext<Nullable<CheckboxGroupContextProps>>(null);
+  createContext<Nullable<CheckboxGroupContextProps>>(null);
 
 export const useCheckboxGroup = () => {
   return useContext(CheckboxGroupContext);

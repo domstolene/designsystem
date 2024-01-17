@@ -1,5 +1,3 @@
-import { DatePicker, DatePickerProps } from '.';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import {
   CalendarDate,
   DateFormatter,
@@ -8,17 +6,21 @@ import {
   toCalendarDateTime,
   today,
 } from '@internationalized/date';
-import { useRef, useState } from 'react';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import type { Meta } from '@storybook/react';
+import { useRef, useState } from 'react';
+
 import { Button } from '../../Button';
 import { Modal } from '../../Modal';
 import { HStack, VStack } from '../../Stack';
-import { TimePicker } from '../TimePicker';
 import { Paragraph } from '../../Typography';
+import { TimePicker } from '../TimePicker';
 import {
   calendarDateToNativeDate,
   nativeDateToCalendarDate,
 } from '../utils/transform';
+
+import { DatePicker, type DatePickerProps } from '.';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'dds-components/DatePicker',

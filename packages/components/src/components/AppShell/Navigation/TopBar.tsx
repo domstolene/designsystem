@@ -1,17 +1,17 @@
-import styled from 'styled-components';
 import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
+import styled from 'styled-components';
 
-import { EmbeteIcon, EmbeteType } from './EmbeteIcon';
-import { appShellTokens } from '../AppShell.tokens';
+import { EmbeteIcon, type EmbeteType } from './EmbeteIcon';
 import { NavigationLogo } from './NavigationLogo';
 import { Button } from '../../Button';
+import { CloseIcon, MenuIcon } from '../../Icon/icons';
+import { type SvgProps } from '../../Icon/utils';
 import {
   OverflowMenu,
   OverflowMenuGroup,
-  OverflowMenuProps,
+  type OverflowMenuProps,
 } from '../../OverflowMenu';
-import { CloseIcon, MenuIcon } from '../../Icon/icons';
-import { SvgProps } from '../../Icon/utils';
+import { appShellTokens } from '../AppShell.tokens';
 
 const { navigation: navTokens, floatingActionButtons } = appShellTokens;
 

@@ -1,15 +1,16 @@
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+
+import { Icon } from './Icon';
+import { CopyIcon } from './icons/copy';
+import { type SvgIcon, type SvgProps } from './utils';
 import { icons } from '../..';
 import { Button } from '../Button';
 import { LocalMessage } from '../LocalMessage';
 import { Modal, ModalBody } from '../Modal';
 import { Typography } from '../Typography';
-import { Icon } from './Icon';
-import { CopyIcon } from './icons/copy';
-import { SvgIcon, SvgProps } from './utils';
 
 const { colors, spacing, borderRadius } = ddsBaseTokens;
 

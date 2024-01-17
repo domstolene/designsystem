@@ -1,20 +1,21 @@
+import { type Property } from 'csstype';
 import { useId } from 'react';
 import styled from 'styled-components';
-import { Button } from '../Button';
-import { InputMessage } from '../InputMessage';
-import { VisuallyHidden } from '../VisuallyHidden';
+
 import { ErrorList } from './ErrorList';
 import { File } from './File';
 import { rootTokens } from './FileUploader.tokens';
-import { FileList } from './types';
-import { FileUploaderHookProps, useFileUploader } from './useFileUploader';
-import { Property } from 'csstype';
+import { type FileList } from './types';
+import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { Button } from '../Button';
 import { UploadIcon } from '../Icon/icons';
+import { InputMessage } from '../InputMessage';
 import { Label } from '../Typography';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 const defaultWidth: Property.Width<string> = '320px';
 

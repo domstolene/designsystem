@@ -1,5 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { StaticTypographyType } from '../../Typography';
+
+import { type StaticTypographyType } from '../../Typography';
 
 const { spacing, border, iconSizes } = ddsBaseTokens;
 

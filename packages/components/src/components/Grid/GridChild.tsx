@@ -1,11 +1,15 @@
+import { type Property } from 'csstype';
+import { type HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { gridTokens as tokens } from './Grid.tokens';
-import { Property } from 'csstype';
+
 import { useGridContext } from './Grid.context';
-import { HTMLAttributes } from 'react';
-import { ScreenSize } from '../../hooks';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { getLiteralScreenSize, BreakpointBasedProps } from '../helpers';
+import { gridTokens as tokens } from './Grid.tokens';
+import { type ScreenSize } from '../../hooks';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { type BreakpointBasedProps, getLiteralScreenSize } from '../helpers';
 
 interface StyledGridChildProps {
   screenSize: ScreenSize;

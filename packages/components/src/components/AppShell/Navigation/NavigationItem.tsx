@@ -1,12 +1,12 @@
-import styled from 'styled-components';
 import { type MouseEventHandler } from 'react';
+import styled from 'styled-components';
 
-import { appShellTokens } from '../AppShell.tokens';
-import { useAppShellContext } from '../AppShellContext';
 import { type As, type PropsOf } from '../../../types';
 import { Icon } from '../../Icon';
-import { OpenExternalIcon, ChevronRightIcon } from '../../Icon/icons';
-import { SvgIcon } from '../../Icon/utils';
+import { ChevronRightIcon, OpenExternalIcon } from '../../Icon/icons';
+import { type SvgIcon } from '../../Icon/utils';
+import { appShellTokens } from '../AppShell.tokens';
+import { useAppShellContext } from '../AppShellContext';
 
 const { navigation: navTokens } = appShellTokens;
 

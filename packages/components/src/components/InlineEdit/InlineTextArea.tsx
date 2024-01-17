@@ -1,18 +1,19 @@
-import { forwardRef, TextareaHTMLAttributes, useId, useRef } from 'react';
+import { type TextareaHTMLAttributes, forwardRef, useId, useRef } from 'react';
+
 import {
   IconWrapper,
-  defaultWidth,
   StyledInlineTextArea,
+  defaultWidth,
 } from './InlineEdit.styles';
-import { BaseInlineInputProps } from './InlineEdit.types';
+import { type BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
-import { renderInputMessage } from '../../utils/renderInputMessage';
 import { useCombinedRef } from '../../hooks';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { OuterInputContainer, InputContainer } from '../helpers';
+import { renderInputMessage } from '../../utils/renderInputMessage';
+import { InputContainer, OuterInputContainer } from '../helpers';
 import { Icon } from '../Icon';
 import { EditIcon } from '../Icon/icons';
 

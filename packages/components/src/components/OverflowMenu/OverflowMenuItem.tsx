@@ -1,27 +1,28 @@
 import {
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type Dispatch,
+  type ForwardedRef,
+  type KeyboardEvent,
+  type MouseEvent,
+  type SetStateAction,
   forwardRef,
   useCallback,
   useEffect,
   useRef,
-  Dispatch,
-  SetStateAction,
-  MouseEvent,
-  KeyboardEvent,
-  ForwardedRef,
 } from 'react';
 import styled, { css } from 'styled-components';
+
 import {
   overflowMenuTokens as tokens,
   typographyType,
 } from './OverflowMenu.tokens';
 import { useCombinedRef } from '../../hooks';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { normalizeButton } from '../helpers';
 import { Icon } from '../Icon';
-import { SvgIcon } from '../Icon/utils';
-import { getFontStyling, focusVisibleLink } from '../Typography';
+import { type SvgIcon } from '../Icon/utils';
+import { focusVisibleLink, getFontStyling } from '../Typography';
 
 const { element, link } = tokens;
 

@@ -1,5 +1,6 @@
-import { createContext, RefObject, useContext } from 'react';
-import { Direction } from '../../types';
+import { type RefObject, createContext, useContext } from 'react';
+
+import { type Direction } from '../../types';
 
 interface Tabs {
   activeTab: number;

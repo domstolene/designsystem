@@ -1,7 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { TextInput, TextInputProps } from '.';
-import { LocalMessage } from '../LocalMessage';
+
 import { MailIcon } from '../Icon/icons';
+import { LocalMessage } from '../LocalMessage';
+
+import { TextInput, type TextInputProps } from '.';
 
 export default {
   title: 'dds-components/TextInput',

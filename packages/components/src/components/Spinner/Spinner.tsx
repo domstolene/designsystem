@@ -1,9 +1,10 @@
-import React, { useId } from 'react';
-import styled from 'styled-components';
-import { Property } from 'csstype';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { getTextColor, TextColor } from '../../utils';
+import { type Property } from 'csstype';
+import { useId, useRef } from 'react';
+import styled from 'styled-components';
+
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type TextColor, getTextColor } from '../../utils';
 
 const StyledSpinner = styled.svg<{
   $size: SpinnerProps['size'];
@@ -78,7 +79,7 @@ export function Spinner(props: SpinnerProps) {
     ...rest
   } = props;
 
-  const mountTime = React.useRef(Date.now());
+  const mountTime = useRef(Date.now());
   const outerAnimationDelay = -(mountTime.current % 2000);
   const innerAnimationDelay = -(mountTime.current % 1500);
 

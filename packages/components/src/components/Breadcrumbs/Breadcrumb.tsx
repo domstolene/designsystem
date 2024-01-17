@@ -1,4 +1,9 @@
-import { AnchorHTMLAttributes, forwardRef, HTMLAttributes } from 'react';
+import {
+  type AnchorHTMLAttributes,
+  type HTMLAttributes,
+  forwardRef,
+} from 'react';
+
 import { Typography } from '../Typography';
 
 export type BreadcrumbProps =

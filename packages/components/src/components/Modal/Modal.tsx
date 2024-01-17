@@ -1,23 +1,32 @@
-import { forwardRef, ReactNode, RefObject, useEffect, useId } from 'react';
-import styled from 'styled-components';
-import { Button } from '../Button';
-import { modalTokens as tokens } from './Modal.tokens';
+import {
+  type ReactNode,
+  type RefObject,
+  forwardRef,
+  useEffect,
+  useId,
+} from 'react';
 import { createPortal } from 'react-dom';
+import styled from 'styled-components';
 
 import {
+  Backdrop,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
-  Backdrop,
 } from './Backdrop';
+import { modalTokens as tokens } from './Modal.tokens';
 import {
-  useFocusTrap,
   useCombinedRef,
+  useFocusTrap,
+  useMountTransition,
   useOnClickOutside,
   useOnKeyDown,
-  useMountTransition,
 } from '../../hooks';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { focusVisible, Paper, selection } from '../helpers';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { Button } from '../Button';
+import { Paper, focusVisible, selection } from '../helpers';
 import { CloseIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
 

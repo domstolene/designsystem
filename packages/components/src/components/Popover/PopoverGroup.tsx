@@ -1,13 +1,14 @@
 import {
-  useState,
-  ReactElement,
   Children as ReactChildren,
+  type ReactElement,
+  type ReactNode,
   cloneElement,
   isValidElement,
-  useRef,
-  ReactNode,
   useId,
+  useRef,
+  useState,
 } from 'react';
+
 import { useOnKeyDown } from '../../hooks';
 
 export interface PopoverGroupProps {

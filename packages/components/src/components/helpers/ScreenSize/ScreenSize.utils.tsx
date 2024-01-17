@@ -1,4 +1,5 @@
-import { StandardProperties } from 'csstype';
+import { type StandardProperties } from 'csstype';
+
 import { ScreenSize } from '../../../hooks';
 
 export type ScreenSizeLiteral = 'xs' | 'sm' | 'md' | 'lg' | 'xl';

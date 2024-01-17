@@ -1,7 +1,9 @@
-import { Tooltip, TooltipProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
+
+import { Tooltip, type TooltipProps } from '.';
 
 export default {
   title: 'dds-components/Tooltip',

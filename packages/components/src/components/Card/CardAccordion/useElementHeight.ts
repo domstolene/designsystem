@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Nullable } from '../../../types';
+
+import { type Nullable } from '../../../types';
 
 export function useElementHeight(
   element: HTMLDivElement | null,

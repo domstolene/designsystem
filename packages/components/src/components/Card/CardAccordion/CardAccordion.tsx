@@ -1,10 +1,11 @@
-import { forwardRef, useState, useEffect, useId, useCallback } from 'react';
+import { forwardRef, useCallback, useEffect, useId, useState } from 'react';
 import styled from 'styled-components';
+
+import { CardAccordionContextProvider } from './CardAccordionContext';
 import {
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { CardAccordionContextProvider } from './CardAccordionContext';
 
 const Wrapper = styled.div``;
 

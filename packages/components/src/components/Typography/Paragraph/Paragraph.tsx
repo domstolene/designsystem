@@ -1,14 +1,15 @@
 import { forwardRef } from 'react';
+
 import {
-  TypographyBodyType,
-  TypographyLeadType,
-  BaseTypographyProps,
-  Typography,
-} from '../Typography';
-import {
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import {
+  type BaseTypographyProps,
+  Typography,
+  type TypographyBodyType,
+  type TypographyLeadType,
+} from '../Typography';
 
 export type ParagraphProps = BaseComponentPropsWithChildren<
   HTMLParagraphElement,

@@ -1,5 +1,6 @@
-import { Typography } from '..';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Typography } from '..';
 
 export default {
   title: 'dds-components/Typography/Overview/Typography types',

@@ -1,5 +1,6 @@
-import { TextareaHTMLAttributes } from 'react';
-import { CommonInputProps } from '../helpers';
+import { type TextareaHTMLAttributes } from 'react';
+
+import { type CommonInputProps } from '../helpers';
 
 export type TextAreaProps = CommonInputProps &
   TextareaHTMLAttributes<HTMLTextAreaElement>;

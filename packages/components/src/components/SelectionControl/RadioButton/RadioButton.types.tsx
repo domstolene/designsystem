@@ -1,5 +1,6 @@
-import { InputHTMLAttributes } from 'react';
-import { BaseComponentPropsWithChildren } from '../../../types';
+import { type InputHTMLAttributes } from 'react';
+
+import { type BaseComponentPropsWithChildren } from '../../../types';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,

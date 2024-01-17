@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import { selectionControlTokens } from './SelectionControl.tokens';
-import { Direction } from '../../types';
+import { type Direction } from '../../types';
 import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 
 const {

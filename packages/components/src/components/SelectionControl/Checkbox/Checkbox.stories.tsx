@@ -1,5 +1,6 @@
-import { Checkbox, CheckboxProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Checkbox, type CheckboxProps } from '.';
 
 export default {
   title: 'dds-components/Checkbox/Checkbox',

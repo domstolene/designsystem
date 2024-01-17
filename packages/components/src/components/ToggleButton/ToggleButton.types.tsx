@@ -1,7 +1,8 @@
-import { InputHTMLAttributes } from 'react';
-import { CheckboxPickedHTMLAttributes } from '../SelectionControl/Checkbox';
-import { BaseComponentProps } from '../../types';
-import { SvgIcon } from '../Icon/utils';
+import { type InputHTMLAttributes } from 'react';
+
+import { type BaseComponentProps } from '../../types';
+import { type SvgIcon } from '../Icon/utils';
+import { type CheckboxPickedHTMLAttributes } from '../SelectionControl/Checkbox';
 
 export type ToggleButtonProps = BaseComponentProps<
   HTMLInputElement,

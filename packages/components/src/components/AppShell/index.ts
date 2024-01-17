@@ -1,4 +1,4 @@
-import { AppShell as BaseAppShell, AppShellProps } from './AppShell';
+import { type AppShellProps, AppShell as BaseAppShell } from './AppShell';
 import { NavigationItem } from './Navigation/NavigationItem';
 
 type CompoundAppShell = typeof BaseAppShell & {

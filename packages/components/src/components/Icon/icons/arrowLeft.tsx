@@ -1,5 +1,5 @@
+import { type SvgProps } from '../utils/propTypes';
 import { SvgWrapper } from '../utils/SvgWrapper';
-import { SvgProps } from '../utils/propTypes';
 export function ArrowLeftIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>

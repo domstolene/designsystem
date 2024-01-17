@@ -1,22 +1,23 @@
-import { forwardRef, useRef } from 'react';
 import {
-  AriaDateFieldOptions,
-  useDateField,
-  useDatePicker,
-} from '@react-aria/datepicker';
-import { useDateFieldState } from '@react-stately/datepicker';
-import {
-  CalendarDate,
-  DateValue,
+  type CalendarDate,
+  type DateValue,
   createCalendar,
 } from '@internationalized/date';
-import { InputProps } from '@norges-domstoler/dds-components';
+import {
+  type AriaDateFieldOptions,
+  useDateField,
+  type useDatePicker,
+} from '@react-aria/datepicker';
+import { useDateFieldState } from '@react-stately/datepicker';
 import type * as CSS from 'csstype';
+import { forwardRef, useRef } from 'react';
 
-import { DateSegment } from './DateSegment';
-import { locale } from '../constants';
+import { type InputProps } from '@norges-domstoler/dds-components';
+
 import { CalendarButton } from './CalendarButton';
+import { DateSegment } from './DateSegment';
 import { DateInput } from '../../common/DateInput';
+import { locale } from '../constants';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {

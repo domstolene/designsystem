@@ -1,7 +1,8 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { useState } from 'react';
-import { InlineEditTextArea } from './InlineEditTextArea';
+
 import { InlineEditInput } from './InlineEditInput';
+import { InlineEditTextArea } from './InlineEditTextArea';
 
 export default {
   title: 'dds-components/InlineEdit',

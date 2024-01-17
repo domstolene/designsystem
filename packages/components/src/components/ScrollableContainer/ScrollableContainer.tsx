@@ -1,10 +1,14 @@
+import { type Property } from 'csstype';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import { Scrollbar } from './Scrollbar';
-import { Property } from 'csstype';
+
 import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { focusVisibleTransitionValue, focusVisible } from '../helpers';
+import { Scrollbar } from './Scrollbar';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 
 const { track, content, outerContainer } = tokens;
 

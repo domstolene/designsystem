@@ -1,15 +1,15 @@
 import {
-  colors,
-  font,
-  breakpoints,
   border,
   borderRadius,
-  spacing,
-  iconSizes,
+  breakpoints,
+  colors,
+  font,
+  fontPackages,
   grid,
+  iconSizes,
   innerShadow,
   outerShadow,
-  fontPackages,
+  spacing,
 } from '../dds';
 
 export const ddsBaseTokens = {

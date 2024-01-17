@@ -1,9 +1,10 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { ButtonPurpose } from '../Button';
-import { GlobalMessagePurpose } from './GlobalMessage';
-import { InfoIcon, ErrorIcon, WarningIcon } from '../Icon/icons';
-import { SvgIcon } from '../Icon/utils';
-import { StaticTypographyType } from '../Typography';
+
+import { type GlobalMessagePurpose } from './GlobalMessage';
+import { type ButtonPurpose } from '../Button';
+import { ErrorIcon, InfoIcon, WarningIcon } from '../Icon/icons';
+import { type SvgIcon } from '../Icon/utils';
+import { type StaticTypographyType } from '../Typography';
 
 const { colors, spacing } = ddsBaseTokens;
 

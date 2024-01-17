@@ -1,11 +1,11 @@
-import { forwardRef, MouseEvent } from 'react';
+import { type MouseEvent, forwardRef } from 'react';
 import styled from 'styled-components';
 
-import { Cell, TableCellProps } from './Cell';
+import { Cell, type TableCellProps } from './Cell';
 import { tableTokens } from './Table.tokens';
 import { focusVisible, normalizeButton, removeButtonStyling } from '../helpers';
 import { Icon } from '../Icon';
-import { UnfoldMoreIcon, ChevronDownIcon, ChevronUpIcon } from '../Icon/icons';
+import { ChevronDownIcon, ChevronUpIcon, UnfoldMoreIcon } from '../Icon/icons';
 
 const { cell } = tableTokens;
 

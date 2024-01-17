@@ -1,7 +1,11 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+
 import { descriptionListTokens as tokens } from './DescriptionList.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { selection } from '../helpers';
 
 const { term, desc, list } = tokens;

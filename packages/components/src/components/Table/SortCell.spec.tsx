@@ -1,7 +1,8 @@
-import { vi, describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Table } from '.';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
+
+import { Table } from '.';
 
 describe('<SortCell />', () => {
   it('should run onclick event', async () => {

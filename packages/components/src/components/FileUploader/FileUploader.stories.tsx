@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { useEffect, useState } from 'react';
+
 import { FileUploader } from './FileUploader';
 
 export default {

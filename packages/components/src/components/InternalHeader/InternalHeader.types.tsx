@@ -1,6 +1,7 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { BaseComponentProps } from '../../types';
-import { SvgIcon } from '../Icon/utils';
+import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
+
+import { type BaseComponentProps } from '../../types';
+import { type SvgIcon } from '../Icon/utils';
 
 type NavigationLinkProps = {
   href: string;

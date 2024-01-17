@@ -1,5 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { GlobalMessage, GlobalMessageProps } from './GlobalMessage';
+
+import { GlobalMessage, type GlobalMessageProps } from './GlobalMessage';
 
 export default {
   title: 'dds-components/GlobalMessage',

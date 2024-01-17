@@ -1,6 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Breadcrumbs, Breadcrumb } from '.';
+import { describe, expect, it } from 'vitest';
+
+import { Breadcrumb, Breadcrumbs } from '.';
 
 describe('Breadcrumbs', () => {
   it('has aria-label', () => {

@@ -1,13 +1,14 @@
-import { vi, describe, it, expect } from 'vitest';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
-import { InlineEditTextArea } from './InlineEditTextArea';
-import { InlineEditInput } from './InlineEditInput';
+import { describe, expect, it, vi } from 'vitest';
+
 import {
-  InlineEditInputProps,
-  InlineEditTextAreaProps,
+  type InlineEditInputProps,
+  type InlineEditTextAreaProps,
 } from './InlineEdit.types';
+import { InlineEditInput } from './InlineEditInput';
+import { InlineEditTextArea } from './InlineEditTextArea';
 
 const initialValue = 'v';
 const newValue = 'text';

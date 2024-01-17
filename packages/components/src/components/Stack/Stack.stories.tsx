@@ -1,5 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { HStack, StackProps, VStack } from './Stack';
+
+import { HStack, type StackProps, VStack } from './Stack';
 
 export default {
   title: 'dds-components/Stack',

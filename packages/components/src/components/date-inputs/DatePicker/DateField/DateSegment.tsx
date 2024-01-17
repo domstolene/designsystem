@@ -1,13 +1,13 @@
-import { useRef } from 'react';
 import { useDateSegment } from '@react-aria/datepicker';
 import type {
-  DateSegment as DateSegmentType,
   DateFieldState,
+  DateSegment as DateSegmentType,
 } from '@react-stately/datepicker';
+import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import { datePickerTokens } from '../DatePicker.tokens';
 import { type DatePickerProps } from '../DatePicker';
+import { datePickerTokens } from '../DatePicker.tokens';
 const {
   datefield: { segment: segmentTokens },
 } = datePickerTokens;

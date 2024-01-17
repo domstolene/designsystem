@@ -1,20 +1,21 @@
 import { useRef, useState } from 'react';
-import { Button } from '../Button';
-import { InternalHeaderProps } from './InternalHeader.types';
+
 import {
-  OuterContainer,
+  ApplicationNameWrapper,
+  BannerLeftWrapper,
+  BannerWrapper,
+  ContextMenuGroup,
+  LovisaWrapper,
   Navigation,
   NavigationList,
-  BannerWrapper,
-  BannerLeftWrapper,
-  LovisaWrapper,
-  ApplicationNameWrapper,
-  ContextMenuGroup,
+  OuterContainer,
   StyledOverflowMenu,
 } from './InternalHeader.styles';
-import { NavigationItem } from './NavigationItem';
+import { type InternalHeaderProps } from './InternalHeader.types';
 import { InternalHeaderListItem } from './InternalHeaderListItem';
+import { NavigationItem } from './NavigationItem';
 import { getBaseHTMLProps } from '../../types';
+import { Button } from '../Button';
 import { MenuIcon, MoreVerticalIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
 

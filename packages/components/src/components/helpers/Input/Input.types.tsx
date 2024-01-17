@@ -1,6 +1,7 @@
-import { InputHTMLAttributes } from 'react';
-import { Property } from 'csstype';
-import { StaticTypographyType } from '../../Typography';
+import { type Property } from 'csstype';
+import { type InputHTMLAttributes } from 'react';
+
+import { type StaticTypographyType } from '../../Typography';
 
 export interface CommonInputProps {
   /**Ledetekst for input. */
