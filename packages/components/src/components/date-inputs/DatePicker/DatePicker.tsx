@@ -2,7 +2,9 @@ import { useDatePickerState } from '@react-stately/datepicker';
 import { useDatePicker } from '@react-aria/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
 import { Ref, forwardRef, useRef } from 'react';
+import type * as CSS from 'csstype';
 import { useCombinedRef } from '@norges-domstoler/dds-components';
+
 import { DateField, DateFieldProps } from './DateField/DateField';
 import { Calendar } from './Calendar/Calendar';
 import {
@@ -18,6 +20,10 @@ export interface DatePickerProps
     Pick<DateFieldProps<CalendarDate>, 'componentSize' | 'tip' | 'style'> {
   label?: string;
   errorMessage?: string;
+  /**
+   * For å sette en egendefinert bredde på komponenten.
+   */
+  width?: CSS.Properties['width'];
 }
 
 const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
@@ -25,7 +31,7 @@ const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
 };
 
 export function _DatePicker(
-  { errorMessage, componentSize, tip, style, ...props }: DatePickerProps,
+  { errorMessage, componentSize, tip, style, width, ...props }: DatePickerProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   const state = useDatePickerState(props);
@@ -53,6 +59,7 @@ export function _DatePicker(
           buttonProps={buttonProps}
           isOpen={state.isOpen}
           style={style}
+          width={width}
         />
       </CalendarPopoverAnchor>
       <CalendarPopoverContent>

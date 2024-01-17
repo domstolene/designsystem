@@ -11,6 +11,7 @@ import {
   createCalendar,
 } from '@internationalized/date';
 import { InputProps } from '@norges-domstoler/dds-components';
+import type * as CSS from 'csstype';
 
 import { DateSegment } from './DateSegment';
 import { locale } from '../constants';
@@ -21,6 +22,10 @@ export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
     className?: string;
     buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
+    /**
+     * For å sette en egendefinert bredde på komponenten.
+     */
+    width?: CSS.Properties['width'];
   } & Pick<
       InputProps,
       'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'

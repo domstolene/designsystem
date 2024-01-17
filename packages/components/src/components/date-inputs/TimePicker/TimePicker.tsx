@@ -1,13 +1,17 @@
 import { Ref, forwardRef, useRef } from 'react';
 import { AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
-import { Icon, InputProps, TimeIcon } from '@norges-domstoler/dds-components';
+import type * as CSS from 'csstype';
+import styled from 'styled-components';
+import { Time } from '@internationalized/date';
+
 import { DateSegment } from '../DatePicker/DateField/DateSegment';
 import { locale } from '../DatePicker/constants';
 import { DateInput } from '../common/DateInput';
-import styled from 'styled-components';
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
-import { Time } from '@internationalized/date';
+import { Icon } from '../../Icon';
+import { TimeIcon } from '../../Icon/icons';
+import { InputProps } from '../../helpers/Input/Input.types';
 
 const TimePickerIcon = styled(Icon)<{
   $componentSize: Exclude<TimePickerProps['componentSize'], undefined>;
@@ -20,13 +24,17 @@ const TimePickerIcon = styled(Icon)<{
 
 export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> & {
   className?: string;
+  /**
+   * For å sette en egendefinert bredde på komponenten.
+   */
+  width?: CSS.Properties['width'];
 } & Pick<
     InputProps,
     'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
   >;
 
 function _TimePicker(
-  { componentSize = 'medium', ...props }: TimePickerProps,
+  { componentSize = 'medium', width, ...props }: TimePickerProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
   const ref = useRef<HTMLInputElement>(null);
@@ -45,6 +53,7 @@ function _TimePicker(
   return (
     <DateInput
       {...props}
+      width={width}
       disabled={disabled}
       required={props.isRequired}
       componentSize={componentSize}
