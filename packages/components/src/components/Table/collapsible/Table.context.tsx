@@ -1,5 +1,6 @@
-import { useContext, createContext } from 'react';
-import { HeaderValues } from '../Table.types';
+import { createContext, useContext } from 'react';
+
+import { type HeaderValues } from '../Table.types';
 
 interface CollapsibleTableContextProps {
   isCollapsed?: boolean;

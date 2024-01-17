@@ -1,10 +1,10 @@
 import {
   JordskifterettIcon,
-  TingrettIcon,
   LagmannsrettIcon,
   PersonIcon,
+  TingrettIcon,
 } from '../../Icon/icons';
-import { SvgProps } from '../../Icon/utils';
+import { type SvgProps } from '../../Icon/utils';
 
 export type EmbeteType =
   | 'jordskifterett'

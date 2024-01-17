@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 
 const Wrapper = styled.span`
   position: absolute;

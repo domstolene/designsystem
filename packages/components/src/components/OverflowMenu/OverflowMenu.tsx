@@ -1,24 +1,26 @@
 import { forwardRef, useEffect, useId } from 'react';
 import styled from 'styled-components';
-import { scrollbarStyling } from '../ScrollableContainer';
-import { OverflowMenuItem } from './OverflowMenuItem';
+
 import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
-import { Divider } from '../Divider';
+import { OverflowMenuItem } from './OverflowMenuItem';
 import {
-  OverflowMenuContextItem,
-  OverflowMenuNavItem,
-  OverflowMenuProps,
-} from '.';
-import {
-  useFloatPosition,
   useCombinedRef,
+  useFloatPosition,
   useOnClickOutside,
   useOnKeyDown,
   useRoveFocus,
 } from '../../hooks';
 import { getBaseHTMLProps } from '../../types';
-import { visibilityTransition, selection } from '../helpers';
+import { Divider } from '../Divider';
+import { selection, visibilityTransition } from '../helpers';
 import { PersonIcon } from '../Icon/icons';
+import { scrollbarStyling } from '../ScrollableContainer';
+
+import {
+  type OverflowMenuContextItem,
+  type OverflowMenuNavItem,
+  type OverflowMenuProps,
+} from '.';
 
 const { container, divider } = tokens;
 

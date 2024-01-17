@@ -1,8 +1,14 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Scrollbar, ScrollableContainer, ScrollableContainerProps } from '.';
-import { useRef, CSSProperties } from 'react';
+import { type CSSProperties, useRef } from 'react';
 import styled from 'styled-components';
+
 import { focusVisible } from '../helpers';
+
+import {
+  ScrollableContainer,
+  type ScrollableContainerProps,
+  Scrollbar,
+} from '.';
 
 export default {
   title: 'dds-components/ScrollableContainer',

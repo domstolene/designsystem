@@ -1,11 +1,12 @@
 import {
-  forwardRef,
-  HTMLAttributes,
   Children,
+  type HTMLAttributes,
+  type ReactElement,
   cloneElement,
+  forwardRef,
   isValidElement,
-  ReactElement,
 } from 'react';
+
 import { useTabsContext } from './Tabs.context';
 import { useCombinedRef } from '../../hooks';
 

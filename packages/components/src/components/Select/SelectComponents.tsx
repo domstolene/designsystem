@@ -1,20 +1,21 @@
 import {
-  ClearIndicatorProps,
-  ControlProps,
-  DropdownIndicatorProps,
-  GroupBase,
-  InputProps,
-  MultiValueRemoveProps,
-  NoticeProps,
-  OptionProps,
-  SingleValueProps,
+  type ClearIndicatorProps,
+  type ControlProps,
+  type DropdownIndicatorProps,
+  type GroupBase,
+  type InputProps,
+  type MultiValueRemoveProps,
+  type NoticeProps,
+  type OptionProps,
+  type SingleValueProps,
   components,
 } from 'react-select';
-import { getFormInputIconSize } from '../../utils';
-import { Icon, SvgIcon } from '../Icon';
-import { CheckIcon, CloseSmallIcon, ChevronDownIcon } from '../Icon/icons';
-import { InputSize } from '../helpers';
+
 import { InnerSingleValue, StyledIcon } from './Select.styles';
+import { getFormInputIconSize } from '../../utils';
+import { type InputSize } from '../helpers';
+import { Icon, type SvgIcon } from '../Icon';
+import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../Icon/icons';
 
 const {
   Option,

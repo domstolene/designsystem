@@ -2,7 +2,8 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
-import { InputTypographyTypes } from './Input.types';
+
+import { type InputTypographyTypes } from './Input.types';
 
 const { colors, spacing, border } = ddsBaseTokens;
 

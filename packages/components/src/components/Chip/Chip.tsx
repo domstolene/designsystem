@@ -1,15 +1,15 @@
 import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../Button';
 import { chipTokens as tokens, typographyType } from './Chip.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { Button } from '../Button';
+import { CloseIcon } from '../Icon/icons';
 import {
+  TextOverflowEllipsisInner,
   TextOverflowEllipsisWrapper,
   getFontStyling,
-  TextOverflowEllipsisInner,
 } from '../Typography';
-import { CloseIcon } from '../Icon/icons';
 
 const { container } = tokens;
 

@@ -1,21 +1,25 @@
 import {
   Children,
+  type ForwardRefExoticComponent,
+  Fragment,
+  type ReactElement,
+  type ReactNode,
   cloneElement,
   forwardRef,
-  ForwardRefExoticComponent,
-  Fragment,
   isValidElement,
-  ReactElement,
-  ReactNode,
   useEffect,
-  useState,
   useMemo,
+  useState,
 } from 'react';
 import styled from 'styled-components';
+
 import { ProgressTrackerContext } from './ProgressTracker.context';
 import { progressTrackerTokens } from './ProgressTracker.tokens';
 import { ProgressTrackerItem } from './ProgressTrackerItem';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 
 const ItemsWrapper = styled.ol`
   display: flex;

@@ -1,14 +1,15 @@
-import { AnchorHTMLAttributes, forwardRef } from 'react';
+import { type AnchorHTMLAttributes, forwardRef } from 'react';
 import styled from 'styled-components';
+
 import {
-  TypographyBodyType,
-  getAnchorStyling,
-  BaseTypographyProps,
-} from '../Typography';
-import {
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import {
+  type BaseTypographyProps,
+  type TypographyBodyType,
+  getAnchorStyling,
+} from '../Typography';
 
 interface StyledLinkProps {
   $typographyType?: TypographyBodyType;

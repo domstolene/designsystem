@@ -1,5 +1,5 @@
-import { InputSize } from '../components/helpers';
-import { IconSize } from '../components/Icon';
+import { type InputSize } from '../components/helpers';
+import { type IconSize } from '../components/Icon';
 
 export const getFormInputIconSize = (componentSize: InputSize): IconSize => {
   switch (componentSize) {

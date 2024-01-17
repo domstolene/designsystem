@@ -1,9 +1,9 @@
-import { Property } from 'csstype';
+import { type Property } from 'csstype';
 import {
-  InputHTMLAttributes,
-  ReactNode,
-  RefObject,
-  TextareaHTMLAttributes,
+  type InputHTMLAttributes,
+  type ReactNode,
+  type RefObject,
+  type TextareaHTMLAttributes,
 } from 'react';
 
 export interface BaseInlineInputProps {

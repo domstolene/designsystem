@@ -1,33 +1,34 @@
 import {
-  forwardRef,
   Children,
-  useState,
-  isValidElement,
-  cloneElement,
-  ReactElement,
   Fragment,
+  type ReactElement,
+  cloneElement,
+  forwardRef,
+  isValidElement,
   useEffect,
+  useState,
 } from 'react';
 import styled from 'styled-components';
-import { Table } from '..';
-import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
-import { VisuallyHidden } from '../../VisuallyHidden';
-import { Cell } from '../Cell';
+
 import { useCollapsibleTableContext } from './Table.context';
-import { TableRowProps } from '../Table.types';
-import { StyledRow } from '../Table.styles';
-import { tableTokens } from '../Table.tokens';
+import { Table } from '..';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
+import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
 import {
-  removeButtonStyling,
   AnimatedChevronUpDown,
   focusVisible,
   focusVisibleTransitionValue,
+  removeButtonStyling,
 } from '../../helpers';
+import { VisuallyHidden } from '../../VisuallyHidden';
+import { Cell } from '../Cell';
 import { useIsInTableHead } from '../Head';
+import { StyledRow } from '../Table.styles';
+import { tableTokens } from '../Table.tokens';
+import { type TableRowProps } from '../Table.types';
 
 const { collapseButton } = tableTokens;
 

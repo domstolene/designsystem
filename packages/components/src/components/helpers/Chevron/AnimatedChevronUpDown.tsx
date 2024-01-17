@@ -1,10 +1,11 @@
+import { type Property } from 'csstype';
+
 import {
-  SvgChevronlRight,
-  SvgChevronlLeft,
-  SvgChevronlGroup,
   SvgChevron,
+  SvgChevronlGroup,
+  SvgChevronlLeft,
+  SvgChevronlRight,
 } from './AnimatedChevronUpDown.styles';
-import { Property } from 'csstype';
 
 const svgChevronLeftPath =
   'M 1 0 L 5 4 C 5 4 5 4 5 4 L 4 5 C 4 5 4 5 4 5 C 4 5 4 5 4 5 L 0 1 C 0 1 0 1 0 1 L 1 0 C 1 0 1 0 1 0 C 1 0 1 0 1 0 L 1 0 Z';

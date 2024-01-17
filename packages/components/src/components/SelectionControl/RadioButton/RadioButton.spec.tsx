@@ -1,8 +1,9 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { ChangeEvent, useState } from 'react';
-import { RadioButton, RadioButtonGroup } from '.';
 import userEvent from '@testing-library/user-event';
+import { type ChangeEvent, useState } from 'react';
+import { describe, expect, it } from 'vitest';
+
+import { RadioButton, RadioButtonGroup } from '.';
 
 const TestComponent = () => {
   const [value, setValue] = useState<number | undefined>(1);

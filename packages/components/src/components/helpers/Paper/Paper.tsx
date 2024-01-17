@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components';
-import { selection } from '../styling';
-import { paperTokens as tokens } from './Paper.tokens';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import styled, { css } from 'styled-components';
+
+import { paperTokens as tokens } from './Paper.tokens';
+import { selection } from '../styling';
 const { outerShadow, border } = ddsBaseTokens;
 
 type Elevation = 1 | 2 | 3 | 4;

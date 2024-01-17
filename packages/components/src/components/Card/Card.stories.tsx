@@ -1,15 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { useState } from 'react';
 import styled from 'styled-components';
-import {
-  Card,
-  CardAccordion,
-  CardAccordionBody,
-  CardAccordionHeader,
-  CardProps,
-  ExpandableCardProps,
-} from '.';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -17,6 +10,15 @@ import {
 } from '../DescriptionList';
 import { Divider } from '../Divider';
 import { Typography } from '../Typography';
+
+import {
+  Card,
+  CardAccordion,
+  CardAccordionBody,
+  CardAccordionHeader,
+  type CardProps,
+  type ExpandableCardProps,
+} from '.';
 
 export default {
   title: 'dds-components/Card',

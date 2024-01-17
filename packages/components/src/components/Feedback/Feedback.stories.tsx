@@ -1,5 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Feedback, FeedbackProps } from '.';
+
+import { Feedback, type FeedbackProps } from '.';
 
 export default {
   title: 'dds-components/Feedback',

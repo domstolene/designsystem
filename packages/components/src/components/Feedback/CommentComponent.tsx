@@ -1,12 +1,12 @@
-import styled from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import styled from 'styled-components';
 
+import { type Rating } from './Feedback.types';
 import { Button } from '../Button';
-import { Rating } from './Feedback.types';
-import { TextArea } from '../TextArea';
-import { VStack } from '../Stack';
 import { Icon } from '../Icon';
-import { ThumbupFilled, ThumbdownFilled } from '../Icon/icons';
+import { ThumbdownFilled, ThumbupFilled } from '../Icon/icons';
+import { VStack } from '../Stack';
+import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 
 const IconLabelSpan = styled.span`

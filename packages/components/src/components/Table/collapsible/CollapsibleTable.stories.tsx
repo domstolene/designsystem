@@ -1,20 +1,20 @@
-import { Table, CollapsibleTableProps } from '..';
-import { Button } from '../../Button';
-import { data, headerCells, mapCellContents } from '../tableData';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { CollapsibleTable } from '..';
-import { VisuallyHidden } from '../../VisuallyHidden';
-import { useScreenSize, ScreenSize } from '../../../hooks';
+
+import { CollapsibleTable, type CollapsibleTableProps, Table } from '..';
+import { ScreenSize, useScreenSize } from '../../../hooks';
+import { Button } from '../../Button';
 import { Icon } from '../../Icon';
 import {
-  PersonIcon,
-  TrashIcon,
-  StarIcon,
+  AttachmentIcon,
   FileIcon,
   JordskifterettIcon,
-  AttachmentIcon,
+  PersonIcon,
+  StarIcon,
+  TrashIcon,
 } from '../../Icon/icons';
 import { Link } from '../../Typography';
+import { VisuallyHidden } from '../../VisuallyHidden';
+import { data, headerCells, mapCellContents } from '../tableData';
 
 export default {
   title: 'dds-components/Table/CollapsibleTable BETA',

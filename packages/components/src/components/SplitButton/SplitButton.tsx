@@ -1,14 +1,20 @@
 import { forwardRef, useState } from 'react';
 import styled from 'styled-components';
-import { Button, ButtonProps, ButtonPurpose, ButtonSize } from '../Button';
+
+import { tokens } from './SplitButton.tokens';
+import { type ExtractStrict } from '../../types';
+import {
+  Button,
+  type ButtonProps,
+  type ButtonPurpose,
+  type ButtonSize,
+} from '../Button';
+import { ChevronDownIcon, ChevronUpIcon } from '../Icon/icons';
 import {
   OverflowMenu,
-  OverflowMenuButtonItem,
+  type OverflowMenuButtonItem,
   OverflowMenuGroup,
 } from '../OverflowMenu';
-import { tokens } from './SplitButton.tokens';
-import { ExtractStrict } from '../../types';
-import { ChevronUpIcon, ChevronDownIcon } from '../Icon/icons';
 
 const Container = styled.div`
   display: flex;

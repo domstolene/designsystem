@@ -1,5 +1,5 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { CSSProperties } from 'react';
+import { type CSSProperties } from 'react';
 
 export type CellVariant = 'default' | 'selected' | 'unavailable';
 interface CellStyle {

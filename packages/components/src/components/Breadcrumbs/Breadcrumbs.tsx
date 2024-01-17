@@ -1,11 +1,15 @@
-import { forwardRef, Children } from 'react';
+import { Children, forwardRef } from 'react';
 import styled from 'styled-components';
+
 import { breadcrumbTokens, typographyType } from './Breadcrumb.tokens';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { removeListStyling } from '../helpers';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import { Icon } from '../Icon';
-import { getFontStyling } from '../Typography';
 import { ChevronRightIcon } from '../Icon/icons';
+import { getFontStyling } from '../Typography';
 
 const { icon, list, listItem } = breadcrumbTokens;
 

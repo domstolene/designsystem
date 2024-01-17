@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import { forwardRef } from 'react';
+import styled, { css } from 'styled-components';
 
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { inputMessageTokens as tokens } from './InputMessage.tokens';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Icon } from '../Icon';
 import { ErrorIcon } from '../Icon/icons';
 import { Typography } from '../Typography';

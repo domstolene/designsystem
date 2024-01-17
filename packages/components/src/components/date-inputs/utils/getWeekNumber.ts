@@ -1,10 +1,10 @@
 import {
-  CalendarDate,
-  ZonedDateTime,
-  CalendarDateTime,
+  type CalendarDate,
+  type CalendarDateTime,
+  type ZonedDateTime,
+  endOfYear,
   startOfWeek,
   startOfYear,
-  endOfYear,
 } from '@internationalized/date';
 
 /**

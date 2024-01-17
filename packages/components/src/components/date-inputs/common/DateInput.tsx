@@ -1,15 +1,16 @@
-import { ReactNode, Ref, forwardRef } from 'react';
-import { useDateField } from '@react-aria/datepicker';
+import { type useDateField } from '@react-aria/datepicker';
+import type * as CSS from 'csstype';
+import { type ReactNode, type Ref, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+
 import {
   InputMessage,
+  type InputProps,
   Label,
-  cn,
-  InputProps,
   StatefulInput,
-  StyledInputProps,
+  type StyledInputProps,
+  cn,
 } from '@norges-domstoler/dds-components';
-import type * as CSS from 'csstype';
 
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 

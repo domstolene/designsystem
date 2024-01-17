@@ -1,6 +1,7 @@
-import { describe, it, expect } from 'vitest';
 import { CalendarDate } from '@internationalized/date';
-import { getWeekNumber, getDayOfWeek, getDayOfYear } from './getWeekNumber';
+import { describe, expect, it } from 'vitest';
+
+import { getDayOfWeek, getDayOfYear, getWeekNumber } from './getWeekNumber';
 
 describe('getWeekNumber()', () => {
   it('calculates first week correctly', () => {

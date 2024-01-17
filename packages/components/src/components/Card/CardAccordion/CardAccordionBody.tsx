@@ -1,4 +1,4 @@
-import { Property } from 'csstype';
+import { type Property } from 'csstype';
 import {
   forwardRef,
   useEffect,
@@ -7,19 +7,19 @@ import {
   useState,
 } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  BaseComponentPropsWithChildren,
-  getBaseHTMLProps,
-  Nullable,
-} from '../../../types';
 
 import {
   cardAccordionTokens as tokens,
   typographyTypes,
 } from './CardAccordion.tokens';
-import { useElementHeight } from './useElementHeight';
 import { useCardAccordionContext } from './CardAccordionContext';
+import { useElementHeight } from './useElementHeight';
 import { useIsMounted } from '../../../hooks';
+import {
+  type BaseComponentPropsWithChildren,
+  type Nullable,
+  getBaseHTMLProps,
+} from '../../../types';
 import { getFontStyling } from '../../Typography';
 
 const expandingAnimation = css`

@@ -1,8 +1,12 @@
+import { type Property } from 'csstype';
 import { forwardRef } from 'react';
 import styled from 'styled-components';
+
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { ScrollableContainer } from '../ScrollableContainer';
-import { Property } from 'csstype';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 
 const Container = styled.div``;
 

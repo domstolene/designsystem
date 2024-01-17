@@ -1,15 +1,15 @@
-import { ChangeEvent, forwardRef, useId } from 'react';
+import { type ChangeEvent, forwardRef, useId } from 'react';
 
-import { RadioButtonProps } from './RadioButton.types';
+import { type RadioButtonProps } from './RadioButton.types';
 import {
-  RadioButtonGroup,
+  type RadioButtonGroup,
   useRadioButtonGroup,
 } from './RadioButtonGroupContext';
-import { Container, CustomSelectionControl } from '../SelectionControl.styles';
-import { Nullable, getBaseHTMLProps } from '../../../types';
+import { type Nullable, getBaseHTMLProps } from '../../../types';
 import { cn } from '../../../utils';
 import { HiddenInput } from '../../helpers';
 import { Typography } from '../../Typography';
+import { Container, CustomSelectionControl } from '../SelectionControl.styles';
 
 const isValueEqualToGroupValueOrFalsy = (
   value: unknown,

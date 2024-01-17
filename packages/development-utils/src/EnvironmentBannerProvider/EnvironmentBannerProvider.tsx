@@ -1,9 +1,10 @@
-import styled from 'styled-components';
 import type { ReactNode } from 'react';
+import styled from 'styled-components';
+
 import {
-  BannerPosition,
+  type BannerPosition,
   ENVIRONMENT_BANNER_HEIGHT,
-  Environment,
+  type Environment,
   EnvironmentBanner,
 } from './EnvironmentBanner';
 

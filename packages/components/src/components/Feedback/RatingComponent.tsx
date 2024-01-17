@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import styled, { css } from 'styled-components';
 
-import { Layout, Rating } from './Feedback.types';
-import { Spinner } from '../Spinner';
-import { Tooltip } from '../Tooltip';
+import { type Layout, type Rating } from './Feedback.types';
 import { Button } from '../Button';
+import { Thumbdown, Thumbup } from '../Icon/icons';
+import { Spinner } from '../Spinner';
 import { HStack } from '../Stack';
+import { Tooltip } from '../Tooltip';
 import { Label } from '../Typography';
-import { Thumbup, Thumbdown } from '../Icon/icons';
 
 const RatingContainer = styled.div<{
   $layout: Layout;

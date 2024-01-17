@@ -1,21 +1,22 @@
-import React, {
-  ButtonHTMLAttributes,
-  HTMLAttributes,
-  InputHTMLAttributes,
-  Ref,
-  useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
-} from 'react';
 import {
-  FileUploaderFile,
+  type FileWithPath,
+  fromEvent as getFilesFromEvent,
+} from 'file-selector';
+import type React from 'react';
+import {
+  type ButtonHTMLAttributes,
+  type HTMLAttributes,
+  type InputHTMLAttributes,
+  type Ref,
+} from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+
+import {
+  type FileUploaderFile,
+  type RootErrorList,
   fileUploaderReducer,
-  RootErrorList,
 } from './fileUploaderReducer';
-import { FileWithPath, fromEvent as getFilesFromEvent } from 'file-selector';
-import { Accept, FileList } from './types';
+import { type Accept, type FileList } from './types';
 import {
   getInvalidFileTypeErrorMessage,
   getTooManyFilesErrorMessage,

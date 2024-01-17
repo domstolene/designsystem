@@ -1,6 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { LocalMessage, type LocalMessageProps } from './LocalMessage';
 import { List, ListItem } from '../List';
-import { LocalMessage, LocalMessageProps } from './LocalMessage';
 import { Typography } from '../Typography';
 
 export default {

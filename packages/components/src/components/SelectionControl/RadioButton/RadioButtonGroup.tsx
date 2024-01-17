@@ -1,27 +1,27 @@
 import {
-  ChangeEvent,
+  type ChangeEvent,
+  type HTMLAttributes,
+  type ReactElement,
+  type Ref,
   forwardRef,
-  HTMLAttributes,
-  ReactElement,
-  Ref,
   useId,
   useState,
 } from 'react';
-import { RadioButtonGroupContext } from './RadioButtonGroupContext';
 
+import { RadioButtonGroupContext } from './RadioButtonGroupContext';
+import {
+  type BaseComponentPropsWithChildren,
+  type Direction,
+  getBaseHTMLProps,
+} from '../../../types';
+import { combineHandlers } from '../../../utils';
 import { renderInputMessage } from '../../../utils/renderInputMessage';
+import { RequiredMarker } from '../../helpers';
+import { Typography } from '../../Typography';
 import {
   GroupContainer,
   OuterGroupContainer,
 } from '../SelectionControl.styles';
-import {
-  BaseComponentPropsWithChildren,
-  Direction,
-  getBaseHTMLProps,
-} from '../../../types';
-import { combineHandlers } from '../../../utils';
-import { RequiredMarker } from '../../helpers';
-import { Typography } from '../../Typography';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<

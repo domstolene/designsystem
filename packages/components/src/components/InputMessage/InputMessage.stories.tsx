@@ -1,5 +1,6 @@
-import { InputMessage, InputMessageProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { InputMessage, type InputMessageProps } from '.';
 
 export default {
   title: 'dds-components/InputMessage',

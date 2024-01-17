@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { dividerTokens as tokens } from './Divider.tokens';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 
 export type DividerColor = 'primary' | 'primaryLighter';
 

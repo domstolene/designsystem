@@ -1,6 +1,7 @@
 import { forwardRef, useRef } from 'react';
+
 import { InlineEdit } from './InlineEdit';
-import { InlineEditInputProps } from './InlineEdit.types';
+import { type InlineEditInputProps } from './InlineEdit.types';
 import { InlineInput } from './InlineInput';
 import { useCombinedRef } from '../../hooks';
 

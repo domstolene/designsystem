@@ -1,5 +1,6 @@
-import { Chip, ChipGroup, ChipGroupProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Chip, ChipGroup, type ChipGroupProps } from '.';
 
 export default {
   title: 'dds-components/Chip/ChipGroup',

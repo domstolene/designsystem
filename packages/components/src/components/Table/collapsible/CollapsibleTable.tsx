@@ -1,8 +1,9 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { Table } from '../Table';
+
 import { CollapsibleTableContext } from './Table.context';
-import { CollapsibleTableProps } from '../Table.types';
+import { Table } from '../Table';
+import { type CollapsibleTableProps } from '../Table.types';
 
 const StyledTable = styled(Table)`
   width: 100%;

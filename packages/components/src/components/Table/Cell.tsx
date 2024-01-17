@@ -1,13 +1,14 @@
 import {
-  ElementType,
+  type ElementType,
+  type TdHTMLAttributes,
+  type ThHTMLAttributes,
   forwardRef,
-  ThHTMLAttributes,
-  TdHTMLAttributes,
 } from 'react';
 import styled, { css } from 'styled-components';
-import { DescriptionListDesc } from '../DescriptionList';
-import { tableTokens } from './Table.tokens';
+
 import { useIsInTableHead } from './Head';
+import { tableTokens } from './Table.tokens';
+import { DescriptionListDesc } from '../DescriptionList';
 
 const { cell } = tableTokens;
 

@@ -1,6 +1,11 @@
-import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react';
-import { BaseComponentProps } from '../../types';
-import { SvgIcon } from '../Icon/utils';
+import {
+  type ButtonHTMLAttributes,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
+
+import { type BaseComponentProps } from '../../types';
+import { type SvgIcon } from '../Icon/utils';
 
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger';
 export type ButtonSize = 'tiny' | 'small' | 'medium' | 'large';

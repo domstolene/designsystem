@@ -1,17 +1,17 @@
-import { Ref, forwardRef, useRef } from 'react';
-import { AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
+import { type Time } from '@internationalized/date';
+import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
 import type * as CSS from 'csstype';
+import { type Ref, forwardRef, useRef } from 'react';
 import styled from 'styled-components';
-import { Time } from '@internationalized/date';
 
-import { DateSegment } from '../DatePicker/DateField/DateSegment';
-import { locale } from '../DatePicker/constants';
-import { DateInput } from '../common/DateInput';
-import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
+import { type InputProps } from '../../helpers/Input/Input.types';
 import { Icon } from '../../Icon';
 import { TimeIcon } from '../../Icon/icons';
-import { InputProps } from '../../helpers/Input/Input.types';
+import { DateInput } from '../common/DateInput';
+import { locale } from '../DatePicker/constants';
+import { DateSegment } from '../DatePicker/DateField/DateSegment';
+import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
 const TimePickerIcon = styled(Icon)<{
   $componentSize: Exclude<TimePickerProps['componentSize'], undefined>;

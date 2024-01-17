@@ -2,12 +2,13 @@ import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
+
 import {
-  InputSize,
-  InputTypographyTypes,
+  type InputSize,
+  type InputTypographyTypes,
   inputTypographyTypes,
 } from '../helpers';
-import { StaticTypographyType } from '../Typography';
+import { type StaticTypographyType } from '../Typography';
 
 const { colors, spacing, borderRadius, border } = ddsBaseTokens;
 

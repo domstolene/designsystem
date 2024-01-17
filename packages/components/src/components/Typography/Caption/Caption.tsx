@@ -1,9 +1,10 @@
 import { forwardRef } from 'react';
-import { BaseTypographyProps, Typography } from '../Typography';
+
 import {
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import { type BaseTypographyProps, Typography } from '../Typography';
 
 export type CaptionProps = BaseComponentPropsWithChildren<
   HTMLTableCaptionElement,

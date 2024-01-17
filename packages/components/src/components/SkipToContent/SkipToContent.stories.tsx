@@ -1,7 +1,9 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { SkipToContent, SkipToContentProps } from '.';
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
 import { Typography } from '../Typography';
+
+import { SkipToContent, type SkipToContentProps } from '.';
 
 const { colors: Colors } = ddsBaseTokens;
 

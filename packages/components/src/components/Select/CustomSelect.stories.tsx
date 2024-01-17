@@ -1,8 +1,13 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-
 import React from 'react';
 import styled from 'styled-components';
-import { createSelectOptions, Select, SelectOption, SelectProps } from '.';
+
+import {
+  Select,
+  type SelectOption,
+  type SelectProps,
+  createSelectOptions,
+} from '.';
 
 export default {
   title: 'dds-components/Select/CustomSelect',

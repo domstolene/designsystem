@@ -1,6 +1,6 @@
 import {
   CalendarDate,
-  DateValue,
+  type DateValue,
   Time,
   fromDate,
 } from '@internationalized/date';

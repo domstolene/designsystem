@@ -1,4 +1,5 @@
-import { HTMLAttributes, PropsWithChildren } from 'react';
+import { type HTMLAttributes, type PropsWithChildren } from 'react';
+
 import { cn } from '../../../components/src/utils/dom';
 
 /**

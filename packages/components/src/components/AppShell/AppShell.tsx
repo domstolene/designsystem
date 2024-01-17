@@ -1,16 +1,16 @@
-import { PropsWithChildren, ReactElement } from 'react';
+import {
+  ENVIRONMENT_BANNER_HEIGHT,
+  type Environment,
+  EnvironmentBanner,
+} from '@norges-domstoler/development-utils';
+import { type PropsWithChildren, type ReactElement } from 'react';
 import styled from 'styled-components';
 
 import { appShellTokens } from './AppShell.tokens';
-import { Navigation } from './Navigation/Navigation';
-import { User } from './Navigation/TopBar';
-import { OverflowMenuProps } from '../OverflowMenu';
-import {
-  Environment,
-  EnvironmentBanner,
-  ENVIRONMENT_BANNER_HEIGHT,
-} from '@norges-domstoler/development-utils';
 import { AppShellContextProvider } from './AppShellContext';
+import { Navigation } from './Navigation/Navigation';
+import { type User } from './Navigation/TopBar';
+import { type OverflowMenuProps } from '../OverflowMenu';
 
 export type AppShellProps = PropsWithChildren<{
   /**

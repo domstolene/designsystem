@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 
 /**
  * Lager en change-event som kan resette verdien i et input-felt.

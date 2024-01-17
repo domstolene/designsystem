@@ -1,9 +1,10 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { scrollbarStyling } from '../ScrollableContainer';
+
 import { tableTokens } from './Table.tokens';
-import { TableDensity, TableProps } from './Table.types';
+import { type TableDensity, type TableProps } from './Table.types';
 import { selection } from '../helpers';
+import { scrollbarStyling } from '../ScrollableContainer';
 
 const { cell, row } = tableTokens;
 

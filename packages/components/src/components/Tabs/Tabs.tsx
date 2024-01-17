@@ -1,17 +1,18 @@
-import styled, { css } from 'styled-components';
+import { type Property } from 'csstype';
 import {
+  type HTMLAttributes,
   forwardRef,
-  HTMLAttributes,
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
+import styled, { css } from 'styled-components';
+
 import { TabsContext } from './Tabs.context';
-import { Property } from 'csstype';
 import {
-  BaseComponentPropsWithChildren,
-  Direction,
+  type BaseComponentPropsWithChildren,
+  type Direction,
   getBaseHTMLProps,
 } from '../../types';
 

@@ -1,5 +1,6 @@
-import { Label, LabelProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Label, type LabelProps } from '.';
 
 type StoryTProps = {
   text: string;

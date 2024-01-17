@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import styled from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { type ReactNode } from 'react';
+import styled from 'styled-components';
 
 const { colors, spacing } = ddsBaseTokens;
 

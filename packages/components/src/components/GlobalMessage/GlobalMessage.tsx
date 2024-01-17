@@ -1,15 +1,19 @@
-import styled, { css } from 'styled-components';
-import { Button } from '../Button';
 import { forwardRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+
 import {
-  globalMessageTokens as tokens,
   purposeVariants,
+  globalMessageTokens as tokens,
   typographyType,
 } from './GlobalMessage.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { CloseIcon } from '../Icon/icons';
-import { getFontStyling, Typography } from '../Typography';
+import { Typography, getFontStyling } from '../Typography';
 
 const { container, contentContainer, icon } = tokens;
 

@@ -1,5 +1,6 @@
-import { Legend, LegendProps } from '..';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Legend, type LegendProps } from '..';
 
 type StoryTProps = {
   text: string;

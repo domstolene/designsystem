@@ -1,5 +1,6 @@
-import { forwardRef, HTMLAttributes, Children } from 'react';
+import { Children, type HTMLAttributes, forwardRef } from 'react';
 import styled from 'styled-components';
+
 import { chipTokens as tokens } from './Chip.tokens';
 import { removeListStyling } from '../helpers';
 

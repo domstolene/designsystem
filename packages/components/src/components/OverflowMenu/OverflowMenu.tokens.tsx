@@ -1,6 +1,7 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+
 import { calculateHeightWithLineHeight } from '../../utils';
-import { StaticTypographyType } from '../Typography';
+import { type StaticTypographyType } from '../Typography';
 
 const { border, borderRadius, colors, spacing, fontPackages } = ddsBaseTokens;
 

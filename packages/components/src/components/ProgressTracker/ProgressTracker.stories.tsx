@@ -1,22 +1,23 @@
-import { useState } from 'react';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { useState } from 'react';
 import styled from 'styled-components';
+
+import { ProgressTracker } from './ProgressTracker';
 import { Button } from '../Button';
 import { Drawer } from '../Drawer';
 import {
-  PersonIcon,
+  ArrowRightIcon,
   AttachmentIcon,
-  GavelIcon,
   ChecklistIcon,
   ChevronRightIcon,
-  ArrowRightIcon,
+  GavelIcon,
+  PersonIcon,
 } from '../Icon/icons';
 import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { VStack } from '../Stack';
 import { TextInput } from '../TextInput';
-import { Heading, Paragraph, Legend } from '../Typography';
-import { ProgressTracker } from './ProgressTracker';
+import { Heading, Legend, Paragraph } from '../Typography';
 
 export default {
   title: 'dds-components/ProgressTracker',

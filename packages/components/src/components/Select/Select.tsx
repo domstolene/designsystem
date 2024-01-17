@@ -1,35 +1,36 @@
-import React, { HTMLAttributes, ReactNode, useId } from 'react';
-import { Property } from 'csstype';
+import { type Property } from 'csstype';
+import { type HTMLAttributes, type ReactNode, forwardRef, useId } from 'react';
 import {
+  type GroupBase,
+  type OptionProps,
   default as ReactSelect,
-  GroupBase,
-  OptionProps,
-  Props as ReactSelectProps,
-  SelectInstance,
-  SingleValueProps,
+  type Props as ReactSelectProps,
+  type SelectInstance,
+  type SingleValueProps,
 } from 'react-select';
-import { renderInputMessage } from '../../utils/renderInputMessage';
-import { WithRequiredIf } from '../../types';
+
+import { Container, getCustomStyles, prefix } from './Select.styles';
+import {
+  CustomOption,
+  CustomSingleValue,
+  DDSClearIndicator,
+  DDSControl,
+  DDSDropdownIndicator,
+  DDSInput,
+  DDSMultiValueRemove,
+  DDSNoOptionsMessage,
+  DDSOption,
+} from './SelectComponents';
+import { type WithRequiredIf } from '../../types';
 import {
   derivativeIdGenerator,
   searchFilter,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { SvgIcon } from '../Icon/utils';
+import { renderInputMessage } from '../../utils/renderInputMessage';
+import { type InputSize } from '../helpers';
+import { type SvgIcon } from '../Icon/utils';
 import { Label } from '../Typography';
-import { InputSize } from '../helpers';
-import { prefix, getCustomStyles, Container } from './Select.styles';
-import {
-  CustomOption,
-  DDSNoOptionsMessage,
-  DDSInput,
-  CustomSingleValue,
-  DDSClearIndicator,
-  DDSDropdownIndicator,
-  DDSMultiValueRemove,
-  DDSControl,
-  DDSOption,
-} from './SelectComponents';
 
 export interface SelectOption<TValue = unknown> {
   label: string | number;
@@ -207,7 +208,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   );
 }
 
-export const Select = React.forwardRef(SelectInner) as typeof SelectInner;
+export const Select = forwardRef(SelectInner) as typeof SelectInner;
 
 // @ts-expect-error TODO fix Select type
 Select.displayName = 'Select';

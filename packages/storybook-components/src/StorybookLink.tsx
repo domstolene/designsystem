@@ -1,19 +1,19 @@
-import { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
 import {
   ddsBaseTokens,
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
+import { type ReactNode } from 'react';
+import styled, { css } from 'styled-components';
 
 const { border, colors } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
 import {
-  ZeroheightSvg,
-  NpmSvg,
   FigmaSvg,
-  SlackSvg,
   GithubSvg,
+  NpmSvg,
+  SlackSvg,
+  ZeroheightSvg,
 } from './assets/logos';
 
 const LinkBlockInner = styled.div<{ size: Size }>`

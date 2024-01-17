@@ -1,9 +1,12 @@
+import { type Property } from 'csstype';
 import { forwardRef } from 'react';
 import styled from 'styled-components';
-import { Property } from 'csstype';
 
 import { descriptionListTokens as tokens } from './DescriptionList.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 
 type StyledGroupProps = Pick<
   DescriptionListGroupProps,

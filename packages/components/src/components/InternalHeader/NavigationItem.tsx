@@ -1,11 +1,12 @@
-import { AnchorHTMLAttributes, forwardRef } from 'react';
+import { type AnchorHTMLAttributes, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+
 import {
   internalHeaderTokens as tokens,
   typographyTypes,
 } from './InternalHeader.tokens';
-import { getFontStyling } from '../Typography';
 import { focusVisible } from '../helpers';
+import { getFontStyling } from '../Typography';
 
 const { navLink } = tokens;
 

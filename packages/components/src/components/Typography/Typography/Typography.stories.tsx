@@ -1,6 +1,7 @@
-import styled from 'styled-components';
-import { Typography, TypographyProps } from '..';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import styled from 'styled-components';
+
+import { Typography, type TypographyProps } from '..';
 
 type StoryTProps = {
   text: string;

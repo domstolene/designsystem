@@ -1,30 +1,30 @@
+import { type Property } from 'csstype';
 import React, {
-  useState,
   forwardRef,
   useId,
-  useRef,
   useLayoutEffect,
+  useRef,
+  useState,
 } from 'react';
-import { Property } from 'csstype';
 import styled, { css } from 'styled-components';
 
-import { textInputTokens } from './TextInput.tokens';
-import { renderInputMessage } from '../../utils/renderInputMessage';
-import { getFormInputIconSize } from '../../utils/icon';
 import CharCounter from './CharCounter';
-import { TextAffixProps, TextInputProps } from './TextInput.types';
 import { MessageContainer, StyledIcon, StyledInput } from './TextInput.styles';
+import { textInputTokens } from './TextInput.tokens';
+import { type TextAffixProps, type TextInputProps } from './TextInput.types';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { getFormInputIconSize } from '../../utils/icon';
+import { renderInputMessage } from '../../utils/renderInputMessage';
 import {
-  InputSize,
-  getDefaultText,
-  InputContainer,
   InputAffixContainer,
-  StatefulInput,
+  InputContainer,
+  type InputSize,
   OuterInputContainer,
+  StatefulInput,
+  getDefaultText,
 } from '../helpers';
 import { Label } from '../Typography';
 

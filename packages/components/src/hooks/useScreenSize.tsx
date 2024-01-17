@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { useEffect, useState } from 'react';
 
 const { breakpoints } = ddsBaseTokens;
 

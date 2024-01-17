@@ -1,23 +1,27 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { Property } from 'csstype';
-import { forwardRef, ReactNode } from 'react';
+import { type Property } from 'csstype';
+import { type ReactNode, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from '../Button';
+
 import { popoverTokens as tokens } from './Popover.tokens';
 import {
-  Placement,
-  useMountTransition,
-  useFloatPosition,
-  useReturnFocusOnBlur,
-  useOnClickOutside,
+  type Placement,
   useCombinedRef,
+  useFloatPosition,
+  useMountTransition,
+  useOnClickOutside,
+  useReturnFocusOnBlur,
 } from '../../hooks';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
 import {
-  PaperProps,
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { Button } from '../Button';
+import {
   Paper,
-  visibilityTransition,
+  type PaperProps,
   focusVisible,
+  visibilityTransition,
 } from '../helpers';
 import { CloseIcon } from '../Icon/icons';
 import { Typography } from '../Typography';

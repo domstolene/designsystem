@@ -1,11 +1,11 @@
 import {
+  type Coords,
+  type Strategy,
   arrow,
   autoUpdate,
-  Coords,
   flip,
   offset as floatingOffset,
   shift,
-  Strategy,
   useFloating,
 } from '@floating-ui/react-dom';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';

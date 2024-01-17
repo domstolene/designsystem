@@ -1,6 +1,7 @@
-import { Heading, Paragraph } from '..';
-import styled from 'styled-components';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import styled from 'styled-components';
+
+import { Heading, Paragraph } from '..';
 
 export default {
   title: 'dds-components/Typography/Examples',

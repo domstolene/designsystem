@@ -1,8 +1,10 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Modal, ModalBody, ModalActions, ModalProps } from '.';
-import { Button } from '../Button';
 import { useEffect, useRef, useState } from 'react';
+
+import { Button } from '../Button';
 import { Search } from '../Search';
+
+import { Modal, ModalActions, ModalBody, type ModalProps } from '.';
 
 export default {
   title: 'dds-components/Modal',

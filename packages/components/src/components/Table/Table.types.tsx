@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { type HTMLAttributes, type ReactNode } from 'react';
 
 export type TableDensity = 'normal' | 'compact' | 'extraCompact';
 

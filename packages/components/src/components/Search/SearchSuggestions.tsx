@@ -1,17 +1,18 @@
+import { type MouseEvent, forwardRef } from 'react';
 import styled from 'styled-components';
+
+import { type SearchProps, type SearchSize } from './Search';
+import { searchTokens as tokens, typographyTypes } from './Search.tokens';
+import { useRoveFocus } from '../../hooks';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { derivativeIdGenerator } from '../../utils';
+import { Paper, removeListStyling, visibilityTransition } from '../helpers';
 import {
   OverflowMenuItem,
-  OverflowMenuItemProps,
+  type OverflowMenuItemProps,
 } from '../OverflowMenu/OverflowMenuItem';
-import { searchTokens as tokens, typographyTypes } from './Search.tokens';
-import { SearchProps, SearchSize } from './Search';
-import { forwardRef, MouseEvent } from 'react';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { useRoveFocus } from '../../hooks';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { derivativeIdGenerator } from '../../utils';
-import { Paper, visibilityTransition, removeListStyling } from '../helpers';
-import { getFontStyling, Typography } from '../Typography';
+import { Typography, getFontStyling } from '../Typography';
 
 const { suggestionsContainer, suggestionsHeader } = tokens;
 

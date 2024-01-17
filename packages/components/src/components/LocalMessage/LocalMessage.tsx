@@ -1,16 +1,20 @@
-import styled, { css } from 'styled-components';
-import { Button } from '../Button';
+import { type Property } from 'csstype';
 import { forwardRef, useState } from 'react';
+import styled, { css } from 'styled-components';
+
 import { localMessageTokens as tokens } from './LocalMessage.tokens';
-import { Property } from 'csstype';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { Button } from '../Button';
 import { selection } from '../helpers';
 import { Icon } from '../Icon';
 import { CloseIcon } from '../Icon/icons';
 import {
-  getFontStyling,
-  defaultTypographyType,
   Typography,
+  defaultTypographyType,
+  getFontStyling,
 } from '../Typography';
 
 const defaultWidth: Property.Width<string> = '400px';

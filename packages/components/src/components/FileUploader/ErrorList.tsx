@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { InputMessage } from '../InputMessage';
+
 import { errorsTokens } from './FileUploader.tokens';
+import { InputMessage } from '../InputMessage';
 
 interface ErrorListProps {
   errors: {

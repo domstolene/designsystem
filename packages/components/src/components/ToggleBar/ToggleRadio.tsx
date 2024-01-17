@@ -1,10 +1,19 @@
-import { forwardRef, InputHTMLAttributes, ChangeEvent, useId } from 'react';
-import { ToggleBarContextType, useToggleBarContext } from './ToggleBar.context';
-import { Label, Content } from './ToggleRadio.styles';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { Icon } from '../Icon';
-import { SvgIcon } from '../Icon/utils';
+import {
+  type ChangeEvent,
+  type InputHTMLAttributes,
+  forwardRef,
+  useId,
+} from 'react';
+
+import {
+  type ToggleBarContextType,
+  useToggleBarContext,
+} from './ToggleBar.context';
+import { Content, Label } from './ToggleRadio.styles';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { HiddenInput } from '../helpers';
+import { Icon } from '../Icon';
+import { type SvgIcon } from '../Icon/utils';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,

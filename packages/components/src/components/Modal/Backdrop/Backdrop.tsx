@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import styled from 'styled-components';
+
 import { changeRGBAAlpha } from '../../../utils';
 
 interface BackdropProps {

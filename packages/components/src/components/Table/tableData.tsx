@@ -1,4 +1,4 @@
-import { SortOrder } from './SortCell';
+import { type SortOrder } from './SortCell';
 
 export interface HeaderCellToSort {
   name: string;

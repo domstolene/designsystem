@@ -1,5 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Search, SearchProps } from '.';
+
+import { Search, type SearchProps } from '.';
 
 export default {
   title: 'dds-components/Search',

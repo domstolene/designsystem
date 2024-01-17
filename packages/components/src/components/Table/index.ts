@@ -1,19 +1,24 @@
-import { Table as BaseTable } from './Table';
-import { CollapsibleTable as BaseCollapsibleTable } from './collapsible/CollapsibleTable';
+import { Body, type TableBodyProps } from './Body';
 import {
-  TableProps,
-  TableDensity,
-  CollapsibleTableProps,
-  TableRowProps,
-  TableRowType,
-} from './Table.types';
-import { Head, TableHeadProps } from './Head';
-import { Body, TableBodyProps } from './Body';
-import { Foot, TableFootProps } from './Foot';
-import { Row } from './Row';
+  Cell,
+  type TableCellLayout,
+  type TableCellProps,
+  type TableCellType,
+} from './Cell';
 import { CollapsibleRow } from './collapsible/CollapsibleRow';
-import { Cell, TableCellProps, TableCellLayout, TableCellType } from './Cell';
-import { SortCell, TableSortCellProps, SortOrder } from './SortCell';
+import { CollapsibleTable as BaseCollapsibleTable } from './collapsible/CollapsibleTable';
+import { Foot, type TableFootProps } from './Foot';
+import { Head, type TableHeadProps } from './Head';
+import { Row } from './Row';
+import { SortCell, type SortOrder, type TableSortCellProps } from './SortCell';
+import { Table as BaseTable } from './Table';
+import {
+  type CollapsibleTableProps,
+  type TableDensity,
+  type TableProps,
+  type TableRowProps,
+  type TableRowType,
+} from './Table.types';
 import { TableWrapper } from './TableWrapper';
 
 type TableCompoundProps = typeof BaseTable & {

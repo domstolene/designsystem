@@ -1,6 +1,8 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { ToggleButton, ToggleButtonProps } from '.';
+
 import { NotificationsIcon } from '../Icon/icons';
+
+import { ToggleButton, type ToggleButtonProps } from '.';
 
 export default {
   title: 'dds-components/ToggleButton/ToggleButton',

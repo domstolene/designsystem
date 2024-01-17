@@ -1,14 +1,16 @@
+import { type Placement } from '@floating-ui/react-dom';
 import React, {
+  type HTMLAttributes,
   Children as ReactChildren,
   cloneElement,
   forwardRef,
-  HTMLAttributes,
   isValidElement,
   useEffect,
   useId,
   useRef,
   useState,
 } from 'react';
+
 import {
   ArrowWrapper,
   Container,
@@ -16,9 +18,8 @@ import {
   TooltipWrapper,
 } from './Tooltip.styles';
 import { tooltipTokens as tokens } from './Tooltip.tokens';
-import { Placement } from '@floating-ui/react-dom';
-import { useFloatPosition, useCombinedRef, useOnKeyDown } from '../../hooks';
-import { BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { useCombinedRef, useFloatPosition, useOnKeyDown } from '../../hooks';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { combineHandlers } from '../../utils';
 
 const { svgArrow } = tokens;

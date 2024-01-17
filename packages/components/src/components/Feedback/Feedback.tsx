@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { FeedbackProps, Rating } from './Feedback.types';
-import { RatingComponent } from './RatingComponent';
+
 import { CommentComponent } from './CommentComponent';
+import { type FeedbackProps, type Rating } from './Feedback.types';
+import { RatingComponent } from './RatingComponent';
 import { Paragraph } from '../Typography';
 
 export const Feedback = ({

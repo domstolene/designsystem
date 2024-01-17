@@ -1,12 +1,18 @@
 import { getWeeksInMonth } from '@internationalized/date';
-import { AriaCalendarGridProps, useCalendarGrid } from '@react-aria/calendar';
-import { CalendarState, RangeCalendarState } from '@react-stately/calendar';
+import {
+  type AriaCalendarGridProps,
+  useCalendarGrid,
+} from '@react-aria/calendar';
+import {
+  type CalendarState,
+  type RangeCalendarState,
+} from '@react-stately/calendar';
 import styled from 'styled-components';
 
-import { CalendarCell } from './CalendarCell';
-import { locale } from '../constants';
-import { getWeekNumber } from '../../utils/getWeekNumber';
 import { calendarTokens } from './Calendar.tokens';
+import { CalendarCell } from './CalendarCell';
+import { getWeekNumber } from '../../utils/getWeekNumber';
+import { locale } from '../constants';
 
 const { grid: gridTokens } = calendarTokens;
 

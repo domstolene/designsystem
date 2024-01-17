@@ -1,5 +1,6 @@
-import { InputHTMLAttributes } from 'react';
-import { BaseComponentProps } from '../../../types';
+import { type InputHTMLAttributes } from 'react';
+
+import { type BaseComponentProps } from '../../../types';
 
 export type CheckboxPickedHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,

@@ -1,17 +1,18 @@
 import { useMemo } from 'react';
 import styled, { css } from 'styled-components';
-import { VisuallyHidden } from '../VisuallyHidden';
+
 import { useProgressTrackerContext } from './ProgressTracker.context';
 import {
   progressTrackerTokens,
   typographyTypes,
 } from './ProgressTracker.tokens';
-import { BaseComponentPropsWithChildren } from '../../types';
+import { type BaseComponentPropsWithChildren } from '../../types';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { Icon } from '../Icon';
 import { CheckIcon } from '../Icon/icons';
-import { SvgIcon } from '../Icon/utils';
+import { type SvgIcon } from '../Icon/utils';
 import { getFontStyling } from '../Typography';
-import { focusVisibleTransitionValue, focusVisible } from '../helpers';
+import { VisuallyHidden } from '../VisuallyHidden';
 
 type ItemState =
   | 'activeCompleted'

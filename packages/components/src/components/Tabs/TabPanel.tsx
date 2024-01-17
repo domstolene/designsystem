@@ -2,8 +2,11 @@ import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { tabsTokens as tokens } from './Tabs.tokens';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
-import { focusVisibleTransitionValue, focusVisible } from '../helpers';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 
 const { panel } = tokens;
 

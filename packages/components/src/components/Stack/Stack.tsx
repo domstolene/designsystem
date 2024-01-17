@@ -1,9 +1,12 @@
+import { type StandardProperties } from 'csstype';
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { stackTokens } from './Stack.tokens';
-import { StandardProperties } from 'csstype';
-import { BaseComponentPropsWithChildren, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 
 export interface StackStyleProps {
   /**

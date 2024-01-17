@@ -1,6 +1,7 @@
-import { vi, describe, it, expect } from 'vitest';
-import { GlobalMessage } from './GlobalMessage';
 import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
+
+import { GlobalMessage } from './GlobalMessage';
 
 describe('<GlobalMessage />', () => {
   it('has message', () => {

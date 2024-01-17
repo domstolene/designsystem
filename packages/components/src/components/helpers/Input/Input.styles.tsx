@@ -1,7 +1,8 @@
+import { type Property } from 'csstype';
 import styled, { css } from 'styled-components';
-import { inputTokens as tokens, inputTypographyTypes } from './Input.tokens';
-import { StyledInputProps } from '.';
-import { Property } from 'csstype';
+
+import { inputTypographyTypes, inputTokens as tokens } from './Input.tokens';
+import { getFontStyling } from '../../Typography';
 import {
   dangerInputfield,
   focusDangerInputfield,
@@ -10,7 +11,8 @@ import {
   hoverInputfield,
   selection,
 } from '../styling';
-import { getFontStyling } from '../../Typography';
+
+import { type StyledInputProps } from '.';
 
 const { input, container } = tokens;
 

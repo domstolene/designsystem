@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
-import { RowMode, TableRowType } from './Table.types';
 import { tableTokens } from './Table.tokens';
-import { getFontStyling, defaultTypographyType } from '../Typography';
+import { type RowMode, type TableRowType } from './Table.types';
 import { focusVisibleInset } from '../helpers';
+import { defaultTypographyType, getFontStyling } from '../Typography';
 
 const { row } = tableTokens;
 

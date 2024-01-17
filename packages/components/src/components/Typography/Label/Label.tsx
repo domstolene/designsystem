@@ -1,10 +1,11 @@
-import { forwardRef, LabelHTMLAttributes } from 'react';
-import { BaseTypographyProps, Typography } from '../Typography';
+import { type LabelHTMLAttributes, forwardRef } from 'react';
+
 import {
-  BaseComponentPropsWithChildren,
+  type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import { RequiredMarker } from '../../helpers';
+import { type BaseTypographyProps, Typography } from '../Typography';
 
 type PickedHTMLAttributes = Pick<
   LabelHTMLAttributes<HTMLLabelElement>,

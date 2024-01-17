@@ -1,5 +1,6 @@
-import { Link, LinkProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Link, type LinkProps } from '.';
 
 type StoryTProps = {
   text: string;

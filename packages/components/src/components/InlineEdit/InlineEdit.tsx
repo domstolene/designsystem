@@ -1,15 +1,16 @@
 import {
-  ChangeEvent,
-  useState,
-  FocusEventHandler,
-  FocusEvent,
+  type ChangeEvent,
   Children,
+  type FocusEvent,
+  type FocusEventHandler,
+  type ReactElement,
   cloneElement,
   isValidElement,
-  ReactElement,
+  useState,
 } from 'react';
-import { InlineEditProps } from './InlineEdit.types';
-import { useOnKeyDown, useOnClickOutside } from '../../hooks';
+
+import { type InlineEditProps } from './InlineEdit.types';
+import { useOnClickOutside, useOnKeyDown } from '../../hooks';
 
 type EditElement = HTMLInputElement | HTMLTextAreaElement;
 

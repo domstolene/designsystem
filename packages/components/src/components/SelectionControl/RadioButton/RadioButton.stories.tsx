@@ -1,5 +1,6 @@
-import { RadioButton, RadioButtonProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { RadioButton, type RadioButtonProps } from '.';
 
 export default {
   title: 'dds-components/RadioButton/RadioButton',

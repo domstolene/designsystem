@@ -1,4 +1,4 @@
-import { SvgProps } from '../utils';
+import { type SvgProps } from '../utils';
 import { SvgWrapper } from '../utils/SvgWrapper';
 
 export function FileShieldedIcon(props: SvgProps) {

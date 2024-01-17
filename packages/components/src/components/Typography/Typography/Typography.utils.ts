@@ -1,9 +1,10 @@
-import { ElementType } from 'react';
+import { type ElementType } from 'react';
+
 import {
-  TypographyBodyType,
-  TypographyType,
-  TypographyHeadingType,
-  InlineElement,
+  type InlineElement,
+  type TypographyBodyType,
+  type TypographyHeadingType,
+  type TypographyType,
 } from './Typography.types';
 
 export const defaultTypographyType: TypographyBodyType = 'bodySans02';

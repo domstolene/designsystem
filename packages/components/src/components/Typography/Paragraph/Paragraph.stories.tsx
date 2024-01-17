@@ -1,5 +1,6 @@
-import { Paragraph, ParagraphProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Paragraph, type ParagraphProps } from '.';
 
 type StoryTProps = {
   text: string;

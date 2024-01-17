@@ -1,5 +1,5 @@
-import { SvgIcon } from '../Icon/utils';
-import { InputProps } from '../helpers';
+import { type InputProps } from '../helpers';
+import { type SvgIcon } from '../Icon/utils';
 
 export type TextInputProps = InputProps & {
   /** Spesifiserer om tegntelleren skal vises ved bruk av `maxLength` attributt. */

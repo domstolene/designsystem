@@ -1,7 +1,7 @@
 import {
-  ReactElement,
-  ReactNode,
-  RefObject,
+  type ReactElement,
+  type ReactNode,
+  type RefObject,
   createContext,
   useContext,
   useEffect,
@@ -9,13 +9,14 @@ import {
 } from 'react';
 import styled from 'styled-components';
 
-import { calendarTokens } from './Calendar/Calendar.tokens';
 import {
-  useOnKeyDown,
-  useFloatPosition,
   useCombinedRef,
+  useFloatPosition,
   useOnClickOutside,
+  useOnKeyDown,
 } from '@norges-domstoler/dds-components';
+
+import { calendarTokens } from './Calendar/Calendar.tokens';
 const { popover: popoverTokens } = calendarTokens;
 
 /**------------------------------------------------------------------------

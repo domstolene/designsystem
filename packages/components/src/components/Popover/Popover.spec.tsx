@@ -1,8 +1,10 @@
-import { vi, describe, it, expect } from 'vitest';
-import { screen, render, waitFor } from '@testing-library/react';
-import { Popover, PopoverGroup } from '.';
-import { Button } from '../Button';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
+
+import { Button } from '../Button';
+
+import { Popover, PopoverGroup } from '.';
 
 const buttonLabel = 'label';
 const content = 'content';

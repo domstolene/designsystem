@@ -1,24 +1,24 @@
+import { type Property } from 'csstype';
 import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { Property } from 'csstype';
 
-import { scrollbarStyling } from '../ScrollableContainer';
 import { textAreaTokens } from './TextArea.tokens';
-import { renderInputMessage } from '../../utils/renderInputMessage';
-import { TextAreaProps } from './TextArea.types';
+import { type TextAreaProps } from './TextArea.types';
 import { useCombinedRef } from '../../hooks';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { renderInputMessage } from '../../utils/renderInputMessage';
 import {
-  StatefulInput,
-  StyledInputProps,
-  inputTypographyTypes,
-  getDefaultText,
   OuterInputContainer,
+  StatefulInput,
+  type StyledInputProps,
+  getDefaultText,
+  inputTypographyTypes,
 } from '../helpers';
-import { getFontStyling, Label } from '../Typography';
+import { scrollbarStyling } from '../ScrollableContainer';
+import { Label, getFontStyling } from '../Typography';
 
 const defaultWidth: Property.Width<string> = '320px';
 const { textarea } = textAreaTokens;

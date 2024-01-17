@@ -1,5 +1,5 @@
-import { replaceAll } from '../replaceAll';
 import { containsOnlyNumbers } from '../containsOnlyNumbers';
+import { replaceAll } from '../replaceAll';
 
 /**
  * Formaterer organisasjonsnummer i henhold til retningslinjene i Elsa.

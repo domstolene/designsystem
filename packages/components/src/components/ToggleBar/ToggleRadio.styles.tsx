@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 
-import { ToggleBarSize } from './ToggleBar.types';
 import { toggleBarTokens as tokens, typographyTypes } from './ToggleBar.tokens';
+import { type ToggleBarSize } from './ToggleBar.types';
 import {
-  focusVisibleTransitionValue,
   HiddenInput,
   focusVisible,
+  focusVisibleTransitionValue,
 } from '../helpers';
 import { getFontStyling } from '../Typography';
 

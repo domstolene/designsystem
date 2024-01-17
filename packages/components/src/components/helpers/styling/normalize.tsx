@@ -1,4 +1,4 @@
-import { Property } from 'csstype';
+import { type Property } from 'csstype';
 
 export const normalizeButton = {
   margin: 0,

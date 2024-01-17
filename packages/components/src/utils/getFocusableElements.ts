@@ -1,4 +1,4 @@
-import { RefObject } from 'react';
+import { type RefObject } from 'react';
 
 export function getFocusableElements<T extends HTMLElement>(
   elementRef: RefObject<T>,

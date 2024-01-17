@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { css, styled } from 'styled-components';
 
 export const StorybookLinkRow = styled.div.withConfig({
   shouldForwardProp: prop => prop !== 'withSpacing',

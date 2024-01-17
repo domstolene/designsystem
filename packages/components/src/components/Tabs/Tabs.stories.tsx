@@ -1,9 +1,11 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Tabs, TabList, Tab, TabsProps, TabPanel, TabPanels } from '.';
 import { useState } from 'react';
+
 import { NotificationsIcon } from '../Icon/icons';
-import { Paragraph } from '../Typography';
 import { VStack } from '../Stack';
+import { Paragraph } from '../Typography';
+
+import { Tab, TabList, TabPanel, TabPanels, Tabs, type TabsProps } from '.';
 
 export default {
   title: 'dds-components/Tabs',

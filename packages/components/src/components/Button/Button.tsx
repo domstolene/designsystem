@@ -1,11 +1,11 @@
-import { ElementType, forwardRef, MouseEvent } from 'react';
+import { type ElementType, type MouseEvent, forwardRef } from 'react';
 
+import { ButtonWrapper, Label, StyledIconWrapperSpan } from './Button.styles';
 import { buttonTokens as tokens } from './Button.tokens';
-import { Spinner } from '../Spinner';
-import { ButtonProps } from './Button.types';
-import { ButtonWrapper, StyledIconWrapperSpan, Label } from './Button.styles';
+import { type ButtonProps } from './Button.types';
 import { getBaseHTMLProps } from '../../types';
 import { Icon } from '../Icon';
+import { Spinner } from '../Spinner';
 
 const {
   button: { sizes, appearances },

@@ -1,14 +1,15 @@
 import {
-  ChangeEvent,
-  MouseEvent,
-  ReactNode,
+  type ChangeEvent,
+  type MouseEvent,
+  type ReactNode,
   useEffect,
   useRef,
   useState,
 } from 'react';
+
 import {
   AutocompleteSearchContext,
-  AutocompleteSearchContextType,
+  type AutocompleteSearchContextType,
 } from './AutocompleteSearch.context';
 import { useOnClickOutside, useOnKeyDown } from '../../hooks';
 import { searchFilter } from '../../utils';

@@ -1,8 +1,9 @@
+import { type Property } from 'csstype';
 import styled, { css } from 'styled-components';
+
 import { inlineEditTokens } from './InlineEdit.tokens';
-import { Property } from 'csstype';
+import { StatefulInput, type StyledInputProps } from '../helpers';
 import { scrollbarStyling } from '../ScrollableContainer';
-import { StyledInputProps, StatefulInput } from '../helpers';
 
 const { inlineEdit, iconWrapper } = inlineEditTokens;
 

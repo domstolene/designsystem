@@ -1,5 +1,6 @@
-import { Heading, HeadingProps } from '.';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Heading, type HeadingProps } from '.';
 
 type StoryTProps = {
   text: string;

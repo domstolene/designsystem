@@ -1,9 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Table } from '../Table';
 import { useState } from 'react';
-import { InlineEditTextArea } from './InlineEditTextArea';
 
-import { InlineEditTextAreaProps } from './InlineEdit.types';
+import { type InlineEditTextAreaProps } from './InlineEdit.types';
+import { InlineEditTextArea } from './InlineEditTextArea';
+import { Table } from '../Table';
 
 export default {
   title: 'dds-components/InlineEdit/InlineEditTextArea',

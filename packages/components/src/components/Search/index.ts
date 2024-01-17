@@ -1,12 +1,18 @@
-import { Search as BaseSearch, SearchProps, SearchSize } from './Search';
+import {
+  Search as BaseSearch,
+  type SearchProps,
+  type SearchSize,
+} from './Search';
 import {
   SearchAutocompleteWrapper,
-  SearchAutocompleteWrapperProps,
-  SearchData,
-  WeightedSearchData,
+  type SearchAutocompleteWrapperProps,
+  type SearchData,
+  type WeightedSearchData,
 } from './SearchAutocompleteWrapper';
-
-import { SearchSuggestions, SearchSuggestionsProps } from './SearchSuggestions';
+import {
+  SearchSuggestions,
+  type SearchSuggestionsProps,
+} from './SearchSuggestions';
 
 type SearchCompoundProps = typeof BaseSearch & {
   AutocompleteWrapper: typeof SearchAutocompleteWrapper;

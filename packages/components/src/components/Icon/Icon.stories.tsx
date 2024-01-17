@@ -1,6 +1,8 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
-import { Icon, IconProps } from '.';
+
+import { Icon, type IconProps } from '.';
 
 export default {
   title: 'dds-components/Icon',

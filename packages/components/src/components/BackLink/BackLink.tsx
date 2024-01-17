@@ -1,9 +1,10 @@
 import { forwardRef } from 'react';
 import styled from 'styled-components';
+
 import { backLinkTokens } from './BackLink.tokens';
-import { Typography } from '../Typography';
 import { icons } from '../..';
 import { Icon } from '../Icon';
+import { Typography } from '../Typography';
 
 const Nav = styled('nav')`
   align-items: center;

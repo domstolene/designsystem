@@ -1,6 +1,8 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { List, ListItem, ListProps } from '.';
+
 import { Typography } from '../Typography';
+
+import { List, ListItem, type ListProps } from '.';
 
 export default {
   title: 'dds-components/List',

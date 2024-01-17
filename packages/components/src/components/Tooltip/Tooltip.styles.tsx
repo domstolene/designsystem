@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+
 import { tooltipTokens as tokens } from './Tooltip.tokens';
-import { PaperProps, Paper, visibilityTransition } from '../helpers';
-import { getFontStyling, defaultTypographyType } from '../Typography';
+import { Paper, type PaperProps, visibilityTransition } from '../helpers';
+import { defaultTypographyType, getFontStyling } from '../Typography';
 
 const { wrapper } = tokens;
 

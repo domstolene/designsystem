@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { Button } from '../Button';
 import { ErrorList } from './ErrorList';
 import { fileTokens } from './FileUploader.tokens';
-import { FileUploaderFile } from './fileUploaderReducer';
+import { type FileUploaderFile } from './fileUploaderReducer';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { Button } from '../Button';
 import { CloseIcon } from '../Icon/icons';
 
 interface FileProps {

@@ -1,8 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Table } from '../Table';
 import { useState } from 'react';
+
+import { type InlineEditInputProps } from './InlineEdit.types';
 import { InlineEditInput } from './InlineEditInput';
-import { InlineEditInputProps } from './InlineEdit.types';
+import { Table } from '../Table';
 
 export default {
   title: 'dds-components/InlineEdit/InlineEditInput',

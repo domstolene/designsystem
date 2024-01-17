@@ -1,13 +1,15 @@
+import { StoryTemplate } from '@norges-domstoler/storybook-components';
+
+import { Button } from '../Button';
+import { MenuIcon, PlusCircledIcon } from '../Icon/icons';
+
 import {
   OverflowMenu,
-  OverflowMenuProps,
+  type OverflowMenuContextItem,
   OverflowMenuGroup,
-  OverflowMenuContextItem,
-  OverflowMenuNavItem,
+  type OverflowMenuNavItem,
+  type OverflowMenuProps,
 } from '.';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { Button } from '../Button';
-import { PlusCircledIcon, MenuIcon } from '../Icon/icons';
 
 export default {
   title: 'dds-components/OverflowMenu',
