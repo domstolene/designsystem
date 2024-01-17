@@ -24,8 +24,7 @@
     "prerelease": "pnpm build",
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset publish --tag dev",
-    "create:pkg": "plop component"
+    "release:dev": "changeset publish --tag dev"
   },
   "repository": {
     "type": "git",
@@ -56,7 +55,6 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-testing-library": "^6.2.0",
-    "plop": "^4.0.1",
     "prettier": "^3.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
