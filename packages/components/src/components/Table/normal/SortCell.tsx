@@ -3,9 +3,17 @@ import styled from 'styled-components';
 
 import { Cell, type TableCellProps } from './Cell';
 import { tableTokens } from './Table.tokens';
-import { focusVisible, normalizeButton, removeButtonStyling } from '../helpers';
-import { Icon } from '../Icon';
-import { ChevronDownIcon, ChevronUpIcon, UnfoldMoreIcon } from '../Icon/icons';
+import {
+  focusVisible,
+  normalizeButton,
+  removeButtonStyling,
+} from '../../helpers';
+import { Icon } from '../../Icon';
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  UnfoldMoreIcon,
+} from '../../Icon/icons';
 
 const { cell } = tableTokens;
 

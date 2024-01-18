@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { type InlineEditTextAreaProps } from './InlineEdit.types';
 import { InlineEditTextArea } from './InlineEditTextArea';
-import { Table } from '../Table';
+import { Table } from '../Table/normal';
 
 export default {
   title: 'dds-components/InlineEdit/InlineEditTextArea',

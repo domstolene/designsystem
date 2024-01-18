@@ -30,16 +30,6 @@ export const focusVisibleLinkOnDark = {
 export const focusVisibleLinkTransitionValue =
   'background-color 0.2s, text-decoration 0.2s, color 0.2s';
 
-export const getFontStyling = (
-  type: StaticTypographyType,
-  withColor?: boolean,
-) => {
-  return {
-    color: withColor ? tokens.typographyType[type].base.color : undefined,
-    ...tokens.typographyType[type].base.font,
-  };
-};
-
 export const getAdditionalFontStyle = (
   bold?: boolean,
   italic?: boolean,

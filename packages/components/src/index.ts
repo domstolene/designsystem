@@ -14,7 +14,7 @@ export * from './components/Select';
 export * from './components/GlobalMessage';
 export * from './components/LocalMessage';
 export * from './components/Search';
-export * from './components/Table';
+export * from './components/Table/normal';
 export * from './components/Breadcrumbs';
 export * from './components/Pagination';
 export * from './components/Divider';

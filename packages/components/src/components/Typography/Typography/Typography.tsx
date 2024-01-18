@@ -21,8 +21,8 @@ import {
 } from './Typography.types';
 import { getElementType } from './Typography.utils';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
-import { type TextColor, getTextColor } from '../../../utils';
-import { selection } from '../../helpers';
+import { type TextColor, getTextColor } from '../../../utils/color';
+import { selection } from '../../helpers/styling/selection';
 import { typographyTokens as tokens } from '../Typography.tokens';
 
 interface StyledTypographyProps {

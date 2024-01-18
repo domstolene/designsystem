@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components';
 
 import { useIsInTableHead } from './Head';
 import { tableTokens } from './Table.tokens';
-import { DescriptionListDesc } from '../DescriptionList';
+import { DescriptionListDesc } from '../../DescriptionList';
 
 const { cell } = tableTokens;
 

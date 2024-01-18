@@ -2,8 +2,8 @@ import { forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { backLinkTokens } from './BackLink.tokens';
-import { icons } from '../..';
 import { Icon } from '../Icon';
+import * as icons from '../Icon/icons';
 import { Typography } from '../Typography';
 
 const Nav = styled('nav')`
