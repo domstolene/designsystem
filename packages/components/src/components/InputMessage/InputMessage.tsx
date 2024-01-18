@@ -5,7 +5,7 @@ import { inputMessageTokens as tokens } from './InputMessage.tokens';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { Icon } from '../Icon';
 import { ErrorIcon } from '../Icon/icons';
-import { Typography } from '../Typography';
+import { Typography } from '../Typography/Typography/Typography';
 
 interface WrapperProps {
   messageType: InputMessageType;

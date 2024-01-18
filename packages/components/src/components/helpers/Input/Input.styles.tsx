@@ -2,7 +2,7 @@ import { type Property } from 'csstype';
 import styled, { css } from 'styled-components';
 
 import { inputTypographyTypes, inputTokens as tokens } from './Input.tokens';
-import { getFontStyling } from '../../Typography';
+import { getFontStyling } from '../../Typography/Typography/Typography.utils';
 import {
   dangerInputfield,
   focusDangerInputfield,

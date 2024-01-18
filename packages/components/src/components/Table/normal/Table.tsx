@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components';
 
 import { tableTokens } from './Table.tokens';
 import { type TableDensity, type TableProps } from './Table.types';
-import { selection } from '../helpers';
-import { scrollbarStyling } from '../ScrollableContainer';
+import { selection } from '../../helpers';
+import { scrollbarStyling } from '../../ScrollableContainer';
 
 const { cell, row } = tableTokens;
 

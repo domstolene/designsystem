@@ -13,18 +13,6 @@ export type TableProps = {
 
 export type HeaderValues = Array<{ key: string; content: ReactNode }>;
 
-export type CollapsibleTableProps = {
-  /**Om tabellen skal kollapse. */
-  isCollapsed?: boolean;
-  /**Innhold i headere (`content`) og deres `key`. `headerValues.content` må være den samme som faktisk innhold i `<Table.Cell type='head'>`. */
-  headerValues: HeaderValues;
-  /**
-   * Indeksen(e) til kolonnen(e) som skal synes når tabellen er kollapset. Rekkefølgen i array avgjør rekkefølgen i render.
-   * @default [0]
-   *  */
-  definingColumnIndex?: Array<number>;
-} & TableProps;
-
 export type TableRowType = 'body' | 'head';
 export type RowMode = 'normal' | 'sum';
 

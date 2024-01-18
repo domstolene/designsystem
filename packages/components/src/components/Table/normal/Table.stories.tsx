@@ -8,12 +8,12 @@ import {
   headerCells,
   mapCellContents,
 } from './tableData';
-import { Button } from '../Button';
-import { Icon } from '../Icon';
-import { PersonIcon, TrashIcon } from '../Icon/icons';
-import { ScrollableContainer } from '../ScrollableContainer';
-import { Checkbox } from '../SelectionControl/Checkbox';
-import { Paragraph } from '../Typography';
+import { Button } from '../../Button';
+import { Icon } from '../../Icon';
+import { PersonIcon, TrashIcon } from '../../Icon/icons';
+import { ScrollableContainer } from '../../ScrollableContainer';
+import { Checkbox } from '../../SelectionControl/Checkbox';
+import { Paragraph } from '../../Typography';
 
 import { type SortOrder, Table, type TableProps } from '.';
 

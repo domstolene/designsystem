@@ -1,7 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import { Button } from '../Button';
-import { Table } from '../Table';
+import { Table } from '../Table/normal';
 import { Typography } from '../Typography';
 
 import { VisuallyHidden, type VisuallyHiddenProps } from '.';

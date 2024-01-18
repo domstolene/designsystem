@@ -11,7 +11,6 @@ import {
 import styled from 'styled-components';
 
 import { useCollapsibleTableContext } from './Table.context';
-import { Table } from '..';
 import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
@@ -24,11 +23,11 @@ import {
   removeButtonStyling,
 } from '../../helpers';
 import { VisuallyHidden } from '../../VisuallyHidden';
-import { Cell } from '../Cell';
-import { useIsInTableHead } from '../Head';
-import { StyledRow } from '../Table.styles';
-import { tableTokens } from '../Table.tokens';
-import { type TableRowProps } from '../Table.types';
+import { Table, type TableRowProps } from '../normal';
+import { Cell } from '../normal/Cell';
+import { useIsInTableHead } from '../normal/Head';
+import { StyledRow } from '../normal/Table.styles';
+import { tableTokens } from '../normal/Table.tokens';
 
 const { collapseButton } = tableTokens;
 

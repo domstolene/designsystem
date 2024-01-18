@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { type InlineEditInputProps } from './InlineEdit.types';
 import { InlineEditInput } from './InlineEditInput';
-import { Table } from '../Table';
+import { Table } from '../Table/normal';
 
 export default {
   title: 'dds-components/InlineEdit/InlineEditInput',

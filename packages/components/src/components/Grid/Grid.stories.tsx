@@ -6,7 +6,7 @@ import { FilterIcon, PlusIcon } from '../Icon/icons';
 import { InternalHeader } from '../InternalHeader';
 import { Pagination } from '../Pagination';
 import { Search } from '../Search';
-import { Table } from '../Table';
+import { Table } from '../Table/normal';
 import { Tag } from '../Tag';
 import { TextInput } from '../TextInput';
 import { Heading } from '../Typography';

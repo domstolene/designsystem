@@ -2,10 +2,12 @@ import { type ElementType } from 'react';
 
 import {
   type InlineElement,
+  type StaticTypographyType,
   type TypographyBodyType,
   type TypographyHeadingType,
   type TypographyType,
 } from './Typography.types';
+import { typographyTokens } from '../Typography.tokens';
 
 export const defaultTypographyType: TypographyBodyType = 'bodySans02';
 
@@ -113,3 +115,15 @@ export const inlineElements: Array<ElementType> = [
 
 export const isInlineElement = (as: ElementType): as is InlineElement =>
   inlineElements.indexOf(as) !== -1;
+
+export const getFontStyling = (
+  type: StaticTypographyType,
+  withColor?: boolean,
+) => {
+  return {
+    color: withColor
+      ? typographyTokens.typographyType[type].base.color
+      : undefined,
+    ...typographyTokens.typographyType[type].base.font,
+  };
+};
