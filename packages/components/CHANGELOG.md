@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 14.3.1
+
+### Patch Changes
+
+- 71b5649: Fikser bug i `<Select>` hvor nedtrekksmenyen ble skjult om den gikk utenfor forelder med `overflow: hidden`
+
 ## 14.3.0
 
 ### Minor Changes
