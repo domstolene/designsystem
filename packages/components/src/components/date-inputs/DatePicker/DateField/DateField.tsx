@@ -12,10 +12,9 @@ import { useDateFieldState } from '@react-stately/datepicker';
 import type * as CSS from 'csstype';
 import { forwardRef, useRef } from 'react';
 
-import { type InputProps } from '@norges-domstoler/dds-components';
-
 import { CalendarButton } from './CalendarButton';
 import { DateSegment } from './DateSegment';
+import { type InputProps } from '../../../helpers';
 import { DateInput } from '../../common/DateInput';
 import { locale } from '../constants';
 

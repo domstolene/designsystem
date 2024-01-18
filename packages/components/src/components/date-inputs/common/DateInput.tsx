@@ -3,15 +3,14 @@ import type * as CSS from 'csstype';
 import { type ReactNode, type Ref, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
+import { cn } from '../../../utils';
 import {
-  InputMessage,
   type InputProps,
-  Label,
   StatefulInput,
   type StyledInputProps,
-  cn,
-} from '@norges-domstoler/dds-components';
-
+} from '../../helpers';
+import { InputMessage } from '../../InputMessage';
+import { Label } from '../../Typography';
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
 export type DateInputProps = {

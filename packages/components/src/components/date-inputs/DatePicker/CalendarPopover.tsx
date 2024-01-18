@@ -9,14 +9,14 @@ import {
 } from 'react';
 import styled from 'styled-components';
 
+import { calendarTokens } from './Calendar/Calendar.tokens';
 import {
   useCombinedRef,
   useFloatPosition,
   useOnClickOutside,
   useOnKeyDown,
-} from '@norges-domstoler/dds-components';
+} from '../../../hooks';
 
-import { calendarTokens } from './Calendar/Calendar.tokens';
 const { popover: popoverTokens } = calendarTokens;
 
 /**------------------------------------------------------------------------

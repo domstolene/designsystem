@@ -8,14 +8,10 @@ import { useCalendarState } from '@react-stately/calendar';
 import { type FC, type PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  Button,
-  Heading,
-} from '@norges-domstoler/dds-components';
-
 import { CalendarGrid } from './CalendarGrid';
+import { Button } from '../../../Button';
+import { ArrowLeftIcon, ArrowRightIcon } from '../../../Icon/icons';
+import { Heading } from '../../../Typography';
 import { locale } from '../constants';
 
 const CalendarHeader = styled.div`
