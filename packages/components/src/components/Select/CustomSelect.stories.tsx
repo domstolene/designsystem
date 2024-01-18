@@ -67,7 +67,7 @@ const OptionIcon = styled.div<{ selected: boolean }>`
   width: 32px;
   height: 32px;
   min-width: 32px;
-  border: ${props => props.selected && '2px solid rgba(46, 120, 170, 1)'};
+  border: ${props => props.selected && '2px solid #106EAD'};
 `;
 
 const SingleIcon = styled.div`

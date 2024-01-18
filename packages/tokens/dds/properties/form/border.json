@@ -100,7 +100,7 @@
             "unit": "pixel"
           },
           "stroke": {
-            "value": "rgba(46, 120, 170, 1)",
+            "value": "#106EAD",
             "type": "color"
           }
         },
