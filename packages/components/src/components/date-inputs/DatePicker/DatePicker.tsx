@@ -5,8 +5,6 @@ import type { AriaDatePickerProps } from '@react-types/datepicker';
 import type * as CSS from 'csstype';
 import { type Ref, forwardRef, useRef } from 'react';
 
-import { useCombinedRef } from '@norges-domstoler/dds-components';
-
 import { Calendar } from './Calendar/Calendar';
 import {
   CalendarPopover,
@@ -14,6 +12,7 @@ import {
   CalendarPopoverContent,
 } from './CalendarPopover';
 import { DateField, type DateFieldProps } from './DateField/DateField';
+import { useCombinedRef } from '../../../hooks';
 import {
   type FocusableRef,
   useFocusManagerRef,

@@ -10,12 +10,8 @@ import {
 import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import {
-  focusVisible,
-  normalizeButton,
-} from '@norges-domstoler/dds-components';
-
 import { type CellVariant, calendarTokens } from './Calendar.tokens';
+import { focusVisible, normalizeButton } from '../../../helpers';
 import { timezone } from '../constants';
 
 interface CalendarCellProps extends AriaCalendarCellProps {
