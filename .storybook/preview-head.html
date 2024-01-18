@@ -29,7 +29,10 @@
 
   code {
     font-family: var(--dds-font-code-monospace-02-font-family);
-    color: var(--dds-color-neutrals-gray-9);
+
+    &:not(#error-stack) {
+      color: var(--dds-color-neutrals-gray-9);
+    }
   }
 
   .icon-code code {
