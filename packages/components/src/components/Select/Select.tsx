@@ -192,6 +192,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,
+    menuPortalTarget: document?.body,
     ...rest,
   };
 
