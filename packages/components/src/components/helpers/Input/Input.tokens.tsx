@@ -47,11 +47,6 @@ const input = {
   },
 };
 
-const container = {
-  gap: spacing.SizesDdsSpacingX0125,
-};
-
 export const inputTokens = {
   input,
-  container,
 };

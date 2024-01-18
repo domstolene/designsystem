@@ -180,7 +180,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const outerInputContainerProps = {
       className,
       style,
-      width: getWidth(componentSize, width),
+      $width: getWidth(componentSize, width),
     };
 
     // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing

@@ -14,7 +14,7 @@ import {
 
 import { type StyledInputProps } from '.';
 
-const { input, container } = tokens;
+const { input } = tokens;
 
 export const Input = styled.input`
   position: relative;
@@ -122,13 +122,12 @@ export const StatefulInput = styled(Input).withConfig({
 `;
 
 interface OuterInputContainerProps {
-  width?: Property.Width;
+  $width?: Property.Width;
 }
 
 export const OuterInputContainer = styled.div<OuterInputContainerProps>`
   position: relative;
-  gap: ${container.gap};
-  width: ${({ width }) => width};
+  width: ${({ $width }) => $width};
 `;
 
 /**Brukes som container til input og ikon for posisjonering. */

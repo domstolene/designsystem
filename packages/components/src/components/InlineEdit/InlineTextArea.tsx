@@ -46,7 +46,7 @@ export const InlineTextArea = forwardRef<
   const combinedRef = useCombinedRef(ref, inputRef);
 
   return (
-    <OuterInputContainer width={width}>
+    <OuterInputContainer $width={width}>
       <InputContainer>
         {!isEditing && !hideIcon && (
           <IconWrapper
