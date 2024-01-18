@@ -137,3 +137,11 @@ export const OverviewSizesWithDatePicker = (args: Partial<TimePickerProps>) => {
     </StoryTemplate>
   );
 };
+
+export const CustomWidth = (args: Partial<TimePickerProps>) => {
+  return (
+    <StoryTemplate title="TimePicker - custom width">
+      <TimePicker {...args} width="500px" label="Tidspunkt" />
+    </StoryTemplate>
+  );
+};
