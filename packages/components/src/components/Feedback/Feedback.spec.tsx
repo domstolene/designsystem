@@ -273,13 +273,13 @@ describe('<Feedback />', () => {
   });
 });
 
-const assertInDocument = (textsToCheck: string[]) => {
+const assertInDocument = (textsToCheck: Array<string>) => {
   textsToCheck.forEach(text =>
     expect(screen.getByText(text)).toBeInTheDocument(),
   );
 };
 
-const assertNotInDocument = (textsToCheck: string[]) => {
+const assertNotInDocument = (textsToCheck: Array<string>) => {
   textsToCheck.forEach(text =>
     expect(screen.queryByText(text)).not.toBeInTheDocument(),
   );

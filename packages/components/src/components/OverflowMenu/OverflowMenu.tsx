@@ -116,8 +116,9 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       }
     });
 
-    const interactiveItems: (OverflowMenuContextItem | OverflowMenuNavItem)[] =
-      [];
+    const interactiveItems: Array<
+      OverflowMenuContextItem | OverflowMenuNavItem
+    > = [];
 
     const hasContextItems = !!items && items.length > 0;
     const hasNavItems = !!navItems && navItems.length > 0;

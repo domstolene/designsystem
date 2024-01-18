@@ -63,7 +63,7 @@ export const Input = styled.input`
 
 export const StatefulInput = styled(Input).withConfig({
   shouldForwardProp: prop => {
-    const stylingProps: (keyof StyledInputProps)[] = [
+    const stylingProps: Array<keyof StyledInputProps> = [
       'componentSize',
       'hasErrorMessage',
       'prefixLength',

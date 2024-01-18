@@ -19,7 +19,7 @@ const TabContext = createContext<TabContextState | null>(null);
 
 interface TabWidthContextProviderProps {
   children: ReactNode;
-  onChangeWidths: Dispatch<SetStateAction<Width[]>>;
+  onChangeWidths: Dispatch<SetStateAction<Array<Width>>>;
 }
 
 export function TabWidthContextProvider({

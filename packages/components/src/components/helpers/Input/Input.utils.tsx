@@ -1,6 +1,6 @@
 export function getDefaultText(
-  value?: string | number | readonly string[],
-  defaultValue?: string | number | readonly string[],
+  value?: string | number | ReadonlyArray<string>,
+  defaultValue?: string | number | ReadonlyArray<string>,
 ): string {
   if (typeof value === 'string') {
     return value;

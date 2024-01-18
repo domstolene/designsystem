@@ -28,7 +28,7 @@ export const isEventWithFiles = (
 
 export const isFileAccepted = (
   file: File,
-  accept: string[] | undefined,
+  accept: Array<string> | undefined,
 ): boolean => {
   return accept !== undefined ? accepted(file, accept) : true;
 };

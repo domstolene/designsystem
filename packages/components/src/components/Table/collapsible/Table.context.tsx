@@ -5,7 +5,7 @@ import { type HeaderValues } from '../Table.types';
 interface CollapsibleTableContextProps {
   isCollapsed?: boolean;
   headerValues: HeaderValues;
-  definingColumnIndex: number[];
+  definingColumnIndex: Array<number>;
 }
 
 export const CollapsibleTableContext =

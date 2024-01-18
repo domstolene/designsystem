@@ -40,7 +40,7 @@ const getHooksGridStyling = (
 
 const StyledGrid = styled.div.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof StyledGridProps)[] = [
+    const styleOnlyProps: Array<keyof StyledGridProps> = [
       'maxWidth',
       'rowGap',
       'screenSize',

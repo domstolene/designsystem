@@ -20,12 +20,12 @@ interface WeightedValue {
 }
 
 export interface WeightedSearchData {
-  array: WeightedValue[];
+  array: Array<WeightedValue>;
   sortFunction?: (a: WeightedValue, b: WeightedValue) => number;
 }
 
 export interface SearchData {
-  array: string[];
+  array: Array<string>;
   sortFunction?: (a: string, b: string) => number;
 }
 
@@ -60,7 +60,7 @@ export const SearchAutocompleteWrapper = (
   } = props;
 
   const [inputValue, setInputValue] = useState(value ?? '');
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState<Array<string>>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const closeSuggestions = () =>
@@ -85,14 +85,14 @@ export const SearchAutocompleteWrapper = (
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     handleSetInputValue(query);
-    let finalSuggestions: string[] = [];
+    let finalSuggestions: Array<string> = [];
 
     if (query.length >= queryLength) {
       if (data) {
         if (isWeightedValueData(data)) {
           const { sortFunction, array } = data;
 
-          const filteredSuggestions: WeightedValue[] = array.filter(
+          const filteredSuggestions: Array<WeightedValue> = array.filter(
             suggestion =>
               filter
                 ? filter(suggestion.text, query)
@@ -105,7 +105,7 @@ export const SearchAutocompleteWrapper = (
         } else {
           const { sortFunction, array } = data;
 
-          const filteredSuggestions: string[] = array.filter(suggestion =>
+          const filteredSuggestions: Array<string> = array.filter(suggestion =>
             filter
               ? filter(suggestion, query)
               : searchFilter(suggestion, query),

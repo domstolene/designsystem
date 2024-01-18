@@ -117,7 +117,7 @@ function removeInvalidChildren<TProps extends object>(children: ReactNode) {
 }
 
 function passIndexPropToProgressTrackerItem<TProps extends object>(
-  children: ReactElement<TProps>[],
+  children: Array<ReactElement<TProps>>,
 ) {
   return Children.map(children, (item, index) =>
     cloneElement(item, {
@@ -127,7 +127,7 @@ function passIndexPropToProgressTrackerItem<TProps extends object>(
   );
 }
 
-const intersperseItemsWithConnector = (children: ReactElement[]) =>
+const intersperseItemsWithConnector = (children: Array<ReactElement>) =>
   Children.map(children, (child, index) => {
     if (index === 0) {
       return child;

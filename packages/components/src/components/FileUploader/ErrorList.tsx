@@ -4,10 +4,10 @@ import { errorsTokens } from './FileUploader.tokens';
 import { InputMessage } from '../InputMessage';
 
 interface ErrorListProps {
-  errors: {
+  errors: Array<{
     id: string | undefined;
     message: string;
-  }[];
+  }>;
 }
 
 export const MessageContainer = styled.div`

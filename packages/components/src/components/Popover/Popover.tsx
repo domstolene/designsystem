@@ -156,7 +156,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
     const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
 
-    const elements: (HTMLElement | null)[] = [popoverRef.current!];
+    const elements: Array<HTMLElement | null> = [popoverRef.current!];
     if (anchorElement) elements.push(anchorElement);
 
     useOnClickOutside(elements, () => {

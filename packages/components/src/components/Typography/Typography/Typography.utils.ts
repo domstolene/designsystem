@@ -55,7 +55,7 @@ export const isHeading = (
   return true;
 };
 
-export const inlineElements: ElementType[] = [
+export const inlineElements: Array<ElementType> = [
   'a',
   'abbr',
   'audio',

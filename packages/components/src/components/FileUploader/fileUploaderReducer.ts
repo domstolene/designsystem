@@ -3,10 +3,10 @@ import { type Reducer } from 'react';
 
 export interface FileUploaderFile {
   file: FileWithPath;
-  errors: string[];
+  errors: Array<string>;
 }
 
-export type RootErrorList = string[];
+export type RootErrorList = Array<string>;
 
 export type FileUploaderAction =
   | { type: 'focus' }
@@ -15,11 +15,11 @@ export type FileUploaderAction =
   | { type: 'dragLeave' }
   | {
       type: 'onSetFiles';
-      payload: FileUploaderFile[];
+      payload: Array<FileUploaderFile>;
     }
   | {
       type: 'onRemoveFile';
-      payload: FileUploaderFile[];
+      payload: Array<FileUploaderFile>;
     }
   | {
       type: 'setRootErrors';
@@ -27,11 +27,11 @@ export type FileUploaderAction =
     };
 
 export interface FileUploaderState {
-  files: FileUploaderFile[];
+  files: Array<FileUploaderFile>;
   isFocused: boolean;
   isFileDialogActive: boolean;
   isDragActive: boolean;
-  rootErrors: string[];
+  rootErrors: Array<string>;
 }
 
 export const fileUploaderReducer: Reducer<

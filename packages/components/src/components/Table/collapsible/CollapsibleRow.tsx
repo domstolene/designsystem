@@ -87,7 +87,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
     );
 
     const prefix = 'collapsibleRow';
-    const collapsibleIds: string[] = [];
+    const collapsibleIds: Array<string> = [];
 
     const collapsedRenderedChildren =
       isCollapsed && collapsedHeaderValues.length > 0

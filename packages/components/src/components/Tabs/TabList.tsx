@@ -91,7 +91,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       );
     });
 
-    const [widths, setWidths] = useState<CSS.Properties['width'][]>([]);
+    const [widths, setWidths] = useState<Array<CSS.Properties['width']>>([]);
     useOnKeyDown('Tab', () => {
       setHasTabFocus(false);
       tabPanelsRef?.current?.focus();

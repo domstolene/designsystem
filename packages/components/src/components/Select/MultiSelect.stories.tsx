@@ -30,7 +30,7 @@ interface Option {
   value: string;
 }
 
-const options: Option[] = [
+const options: Array<Option> = [
   'Alternativ 1',
   'Alternativ 2',
   'Veldig langt alternativ her veldig langt alternativ her',

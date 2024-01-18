@@ -38,7 +38,7 @@ interface ContainerProps {
 
 const Container = styled(Paper).withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof ContainerProps)[] = [
+    const styleOnlyProps: Array<keyof ContainerProps> = [
       'placement',
       'isOpen',
       'widthProps',
@@ -167,7 +167,9 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     }
   });
 
-  const elements: (HTMLElement | null)[] = [drawerRef.current as HTMLElement];
+  const elements: Array<HTMLElement | null> = [
+    drawerRef.current as HTMLElement,
+  ];
   if (triggerRef) elements.push(triggerRef.current);
 
   useOnClickOutside(elements, () => {

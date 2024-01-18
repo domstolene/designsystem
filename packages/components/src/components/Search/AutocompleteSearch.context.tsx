@@ -9,7 +9,7 @@ import {
 export interface AutocompleteSearchContextType {
   onValueChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onSugggestionClick?: (e: MouseEvent<HTMLButtonElement>) => void;
-  suggestions?: string[];
+  suggestions?: Array<string>;
   showSuggestions?: boolean;
   inputValue?: string;
   inputRef?: RefObject<HTMLInputElement> | null;

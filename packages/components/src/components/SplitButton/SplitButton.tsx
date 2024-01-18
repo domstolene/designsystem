@@ -66,7 +66,7 @@ export interface SplitButtonProps {
   /**Props for primær handling. Samme props som for `<Button />` unntatt `size`, `purpose`, og `appearance`. */
   primaryAction: Omit<ButtonProps, 'size' | 'apperance' | 'purpose'>;
   /**Props for sekunære handlinger. */
-  secondaryActions: OverflowMenuButtonItem[];
+  secondaryActions: Array<OverflowMenuButtonItem>;
   /**Formål med knappen */
   purpose?: SplitButtonPurpose;
 }

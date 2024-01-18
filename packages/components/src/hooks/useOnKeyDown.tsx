@@ -15,7 +15,7 @@ import { useEffect } from 'react';
  */
 
 export const useOnKeyDown = (
-  key: string | string[],
+  key: string | Array<string>,
   handler: (event: KeyboardEvent) => void,
 ) => {
   useEffect(() => {

@@ -39,7 +39,7 @@ interface StyledTypographyProps {
 
 const StyledTypography = styled.p.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof StyledTypographyProps)[] = [
+    const styleOnlyProps: Array<keyof StyledTypographyProps> = [
       'externalLink',
       'typographyType',
       'withMargins',
