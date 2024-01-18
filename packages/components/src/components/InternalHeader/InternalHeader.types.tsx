@@ -35,9 +35,9 @@ export type InternalHeaderProps = BaseComponentProps<
     /**Info om brukeren. Dukker opp som punkt på toppen av kontekstmenyen med tekst oppgitt i name. Blir en lenke hvis href er oppgitt. */
     userProps?: InternaHeaderUserProps;
     /**Lenker som skal vises i navigasjonsmenyen. */
-    navigationElements?: NavigationLinkProps[];
+    navigationElements?: Array<NavigationLinkProps>;
     /**Lenker eller knapper som skal vises i kontekstmenyen. Støtter ikon i tillegg til tekst. */
-    contextMenuElements?: ContextMenuElementProps[];
+    contextMenuElements?: Array<ContextMenuElementProps>;
     /**URL til siden i navigasjonen brukeren er på. Gir highlight til navigasjonselementet i navigationElements med samme URL. */
     currentPageHref?: string;
     /**Ekstra logikk som kjøres når currentPage endres. */

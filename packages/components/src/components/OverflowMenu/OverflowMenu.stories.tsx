@@ -16,7 +16,7 @@ export default {
   component: OverflowMenu,
 };
 
-const items: OverflowMenuContextItem[] = [
+const items: Array<OverflowMenuContextItem> = [
   {
     title: 'Handling',
     onClick: () => null,
@@ -32,7 +32,7 @@ const items: OverflowMenuContextItem[] = [
   },
 ];
 
-const navItems: OverflowMenuNavItem[] = [
+const navItems: Array<OverflowMenuNavItem> = [
   {
     title: 'Navigasjon',
     href: '#',

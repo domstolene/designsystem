@@ -34,7 +34,7 @@ export interface FileUploaderHookProps {
   /**Callback for når fil-listen endres. */
   onChange: (newFiles: FileList) => void;
   /**Hvilke filendelser eller mime-typer som filopplasteren skal akseptere. */
-  accept: Accept[] | undefined;
+  accept: Array<Accept> | undefined;
   /**Om filopplasteren er avslått eller ikke */
   disabled: boolean | undefined;
   /**Maks antall filer som tillates. */
@@ -44,7 +44,7 @@ export interface FileUploaderHookProps {
 }
 
 const calcRootErrors = (
-  files: FileUploaderFile[],
+  files: Array<FileUploaderFile>,
   maxFiles: number | undefined,
   errorMessage: string | undefined,
 ): RootErrorList => {
@@ -181,7 +181,9 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
         const existingFileNames = stateFiles.map(f => f.file.name);
 
         // TODO: Fiks cast her.
-        const filesFromEvent = (await getFilesFromEvent(evt)) as FileWithPath[];
+        const filesFromEvent = (await getFilesFromEvent(
+          evt,
+        )) as Array<FileWithPath>;
 
         const newFiles = filesFromEvent
           .filter(f => !existingFileNames.includes(f.name))

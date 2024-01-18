@@ -88,7 +88,7 @@ export type PaginationProps = BaseComponentProps<
     /**Spesifiserer om `<Select />` til å velge antall resultater per side skal vises. */
     withSelect?: boolean;
     /**Custom options for `<Select />`. **OBS!** hvis det settes custom `selectOptions` bør "alle"-alternativet inkluderes der det er relevant, da brukere ofte liker å ha muligheten. */
-    selectOptions?: PaginationOption[];
+    selectOptions?: Array<PaginationOption>;
     /**Brukes til å hente side og eventuelt annen logikk ved endring av side. */
     onChange?: (
       event: React.MouseEvent<HTMLButtonElement, MouseEvent>,

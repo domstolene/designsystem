@@ -27,7 +27,7 @@ type ContainerProps = Pick<
 
 const Container = styled.div.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof ContainerProps)[] = [
+    const styleOnlyProps: Array<keyof ContainerProps> = [
       'layout',
       'closable',
       'purpose',

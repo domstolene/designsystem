@@ -11,7 +11,7 @@ export enum ScreenSize {
   XLarge,
 }
 
-const screenSizesAndMediaQueries: [ScreenSize, string][] = [
+const screenSizesAndMediaQueries: Array<[ScreenSize, string]> = [
   [
     ScreenSize.XLarge,
     `only screen and (min-width: ${breakpoints.DdsBreakpointXl})`,

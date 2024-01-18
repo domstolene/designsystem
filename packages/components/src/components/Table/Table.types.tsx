@@ -11,7 +11,7 @@ export type TableProps = {
   withDividers?: boolean;
 } & HTMLAttributes<HTMLTableElement>;
 
-export type HeaderValues = { key: string; content: ReactNode }[];
+export type HeaderValues = Array<{ key: string; content: ReactNode }>;
 
 export type CollapsibleTableProps = {
   /**Om tabellen skal kollapse. */
@@ -22,7 +22,7 @@ export type CollapsibleTableProps = {
    * Indeksen(e) til kolonnen(e) som skal synes når tabellen er kollapset. Rekkefølgen i array avgjør rekkefølgen i render.
    * @default [0]
    *  */
-  definingColumnIndex?: number[];
+  definingColumnIndex?: Array<number>;
 } & TableProps;
 
 export type TableRowType = 'body' | 'head';

@@ -68,7 +68,7 @@ interface BodyContainerProps {
 
 const BodyContainer = styled.div.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof BodyContainerProps)[] = [
+    const styleOnlyProps: Array<keyof BodyContainerProps> = [
       'isExpanded',
       'maxHeight',
       'animate',

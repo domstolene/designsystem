@@ -64,4 +64,4 @@ type MimeType =
 
 export type Accept = MimeType | FileExtensionAccept;
 
-export type FileList = File[];
+export type FileList = Array<File>;

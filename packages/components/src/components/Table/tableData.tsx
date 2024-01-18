@@ -7,7 +7,7 @@ export interface HeaderCellToSort {
   isSorted?: boolean;
 }
 
-export const headerCells: HeaderCellToSort[] = [
+export const headerCells: Array<HeaderCellToSort> = [
   {
     name: 'Arbeidstakers navn',
     dataName: 'name',
@@ -42,7 +42,7 @@ export interface CellDataToSort {
   percentage: string;
 }
 
-export const data: CellDataToSort[] = [
+export const data: Array<CellDataToSort> = [
   {
     name: 'Sandra Lovsetter',
     fnumber: '01048000138',
@@ -74,9 +74,9 @@ export const data: CellDataToSort[] = [
 ];
 
 export const mapCellContents = (
-  data: CellDataToSort[],
-  headerCells: HeaderCellToSort[],
-): string[][] =>
+  data: Array<CellDataToSort>,
+  headerCells: Array<HeaderCellToSort>,
+): Array<Array<string>> =>
   data.map(item =>
     headerCells.map(headerCell =>
       typeof item[headerCell.dataName as keyof CellDataToSort] !== 'undefined'

@@ -35,7 +35,7 @@ export interface StackStyleProps {
 
 const Stack = styled.div.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof StackStyleProps)[] = [
+    const styleOnlyProps: Array<keyof StackStyleProps> = [
       'align',
       'direction',
       'gap',

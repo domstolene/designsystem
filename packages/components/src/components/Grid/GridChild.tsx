@@ -38,7 +38,7 @@ export const isGridColumn = (
 
 const StyledGridChild = styled.div.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof StyledGridChildProps)[] = [
+    const styleOnlyProps: Array<keyof StyledGridChildProps> = [
       'columnsOccupied',
       'justifySelf',
       'gridRow',

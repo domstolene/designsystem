@@ -95,8 +95,8 @@ const StyledDivider = styled(Divider)`
 
 export interface NavigationProps {
   version: string;
-  internal: ReactElement[];
-  external: ReactElement[];
+  internal: Array<ReactElement>;
+  external: Array<ReactElement>;
   user: User;
   userMenuItems?: OverflowMenuProps['items'];
   environmentBannerActive: boolean;

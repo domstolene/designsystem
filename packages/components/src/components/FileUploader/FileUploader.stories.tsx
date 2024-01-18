@@ -13,7 +13,7 @@ export default {
 };
 
 const SingleFileUploader = () => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<Array<File>>([]);
 
   return (
     <FileUploader
@@ -30,7 +30,7 @@ const SingleFileUploader = () => {
 };
 
 const PdfUploader = () => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<Array<File>>([]);
 
   return (
     <FileUploader
@@ -48,7 +48,7 @@ const PdfUploader = () => {
 };
 
 const WithErrorMessage = () => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<Array<File>>([]);
   const [deferredErrorMessage, setDeferredErrorMessage] = useState('');
 
   useEffect(() => {

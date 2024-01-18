@@ -20,7 +20,9 @@ import { useCallback } from 'react';
  * {@link useCombinedRef}
  */
 
-export function useCombinedRef<T>(...refs: React.Ref<T>[]): RefCallback<T> {
+export function useCombinedRef<T>(
+  ...refs: Array<React.Ref<T>>
+): RefCallback<T> {
   return useCallback((element: T) => {
     refs.forEach(ref => {
       if (typeof ref === 'function') ref(element);

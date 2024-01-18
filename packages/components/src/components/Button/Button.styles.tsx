@@ -94,7 +94,7 @@ interface ButtonWrapperProps {
 
 export const ButtonWrapper = styled.button.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof ButtonWrapperProps)[] = [
+    const styleOnlyProps: Array<keyof ButtonWrapperProps> = [
       'appearance',
       'purpose',
       'size',
@@ -202,7 +202,7 @@ interface StyledIconWrapperSpanProps {
 
 export const StyledIconWrapperSpan = styled.span.withConfig({
   shouldForwardProp: prop => {
-    const styleOnlyProps: (keyof StyledIconWrapperSpanProps)[] = [
+    const styleOnlyProps: Array<keyof StyledIconWrapperSpanProps> = [
       'iconPosition',
       'size',
       'absolutePosition',

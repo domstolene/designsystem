@@ -53,7 +53,7 @@ export type SearchSuggestionsProps = BaseComponentProps<
   HTMLDivElement,
   Pick<SearchProps, 'componentSize'> & {
     /**Forslag som vises i listen. */
-    suggestions?: string[];
+    suggestions?: Array<string>;
     /** Om listen skal vises. */
     showSuggestions?: boolean;
     /**Callback når et forslag blir valgt, inkludert søkefunksjon. */

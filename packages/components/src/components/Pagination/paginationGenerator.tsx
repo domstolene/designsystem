@@ -6,13 +6,13 @@ const arrayRange = (start: number, end: number) => {
 export function PaginationGenerator(
   pagesAmount: number,
   activePage: number,
-): (string | number)[] {
+): Array<string | number> {
   const siblingsCount = 1;
   const maxPagesShown = 7;
   const pagesBeforeTruncator = 5;
   const truncator = 'truncator';
 
-  let pageRange: (string | number)[];
+  let pageRange: Array<string | number>;
 
   if (pagesAmount > 4) {
     const middleStartPage = Math.max(

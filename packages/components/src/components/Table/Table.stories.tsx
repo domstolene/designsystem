@@ -327,7 +327,7 @@ export const WithCheckbox = (args: TableProps) => {
     id: string;
   } & CellDataToSort;
 
-  const rows: chechboxRow[] = [
+  const rows: Array<chechboxRow> = [
     {
       id: 'ch-1',
       ...data[0],
@@ -346,7 +346,7 @@ export const WithCheckbox = (args: TableProps) => {
     },
   ];
 
-  const [selectedRows, setselectedRows] = useState<chechboxRow[]>([]);
+  const [selectedRows, setselectedRows] = useState<Array<chechboxRow>>([]);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>, row: chechboxRow) {
     const currentRows = [...selectedRows];
@@ -506,8 +506,9 @@ export const Complex = (args: TableProps) => {
 
 export const Sortable = (args: TableProps) => {
   const [headerSortCells, setHeaderSortCells] =
-    useState<HeaderCellToSort[]>(headerCells);
-  const [dataCellContents, setDataCellContents] = useState<string[][]>();
+    useState<Array<HeaderCellToSort>>(headerCells);
+  const [dataCellContents, setDataCellContents] =
+    useState<Array<Array<string>>>();
 
   useEffect(() => {
     if (headerSortCells) {
@@ -540,7 +541,7 @@ export const Sortable = (args: TableProps) => {
     setHeaderSortCells(updateSortInfo);
   };
 
-  const handleSort = (data: CellDataToSort[]) =>
+  const handleSort = (data: Array<CellDataToSort>) =>
     data.sort((a, b) => {
       const sorted = headerSortCells.find(headerCell => headerCell.isSorted);
       if (!sorted) return 1;

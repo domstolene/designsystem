@@ -42,11 +42,11 @@ export interface AppShellNavigationProps {
   /**
    * Interne lenker i navigasjonen.
    */
-  internal?: ReactElement[];
+  internal?: Array<ReactElement>;
   /**
    * Eksterne lenker i navigasjonen.
    */
-  external?: ReactElement[];
+  external?: Array<ReactElement>;
 }
 
 const AppShellContainer = styled.div`
