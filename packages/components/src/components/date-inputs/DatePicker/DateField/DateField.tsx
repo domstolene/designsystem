@@ -10,7 +10,13 @@ import {
 } from '@react-aria/datepicker';
 import { useDateFieldState } from '@react-stately/datepicker';
 import type * as CSS from 'csstype';
-import { forwardRef, useRef } from 'react';
+import {
+  type ForwardRefExoticComponent,
+  type Ref,
+  type RefAttributes,
+  forwardRef,
+  useRef,
+} from 'react';
 
 import { CalendarButton } from './CalendarButton';
 import { DateSegment } from './DateSegment';
@@ -22,6 +28,7 @@ export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
     className?: string;
     buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
+    groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
     /**
      * For å sette en egendefinert bredde på komponenten.
      */
@@ -31,52 +38,63 @@ export type DateFieldProps<T extends DateValue = CalendarDate> =
       'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
     >;
 
-export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(
-  ({ componentSize = 'medium', buttonProps, ...props }, forwardedRef) => {
-    const state = useDateFieldState({
-      ...props,
-      locale,
-      createCalendar,
-    });
+function _DateField(
+  {
+    componentSize = 'medium',
+    buttonProps,
+    groupProps,
+    ...props
+  }: DateFieldProps,
+  forwardedRef: Ref<HTMLDivElement>,
+) {
+  const state = useDateFieldState({
+    ...props,
+    locale,
+    createCalendar,
+  });
 
-    const ref = useRef<HTMLInputElement>(null);
-    const { labelProps, fieldProps } = useDateField(props, state, ref);
+  const ref = useRef<HTMLInputElement>(null);
+  const { labelProps, fieldProps } = useDateField(props, state, ref);
 
-    const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
+  const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
-    return (
-      <DateInput
-        {...props}
-        componentSize={componentSize}
-        label={props.label}
-        disabled={disabled}
-        required={props.isRequired}
-        ref={forwardedRef}
-        internalRef={ref}
-        readOnly={props.isReadOnly}
-        prefix={
-          !props.isReadOnly && (
-            <CalendarButton
-              componentSize={componentSize}
-              {...buttonProps}
-              isDisabled={disabled}
-            />
-          )
-        }
-        labelProps={labelProps}
-        fieldProps={fieldProps}
-      >
-        {state.segments.map((segment, i) => (
-          <DateSegment
+  return (
+    <DateInput
+      {...props}
+      groupProps={groupProps}
+      componentSize={componentSize}
+      label={props.label}
+      disabled={disabled}
+      required={props.isRequired}
+      ref={forwardedRef}
+      internalRef={ref}
+      readOnly={props.isReadOnly}
+      prefix={
+        !props.isReadOnly && (
+          <CalendarButton
             componentSize={componentSize}
-            key={i}
-            segment={segment}
-            state={state}
+            {...buttonProps}
+            isDisabled={disabled}
           />
-        ))}
-      </DateInput>
-    );
-  },
-);
+        )
+      }
+      labelProps={labelProps}
+      fieldProps={fieldProps}
+    >
+      {state.segments.map((segment, i) => (
+        <DateSegment
+          componentSize={componentSize}
+          key={i}
+          segment={segment}
+          state={state}
+        />
+      ))}
+    </DateInput>
+  );
+}
+
+export const DateField: ForwardRefExoticComponent<
+  DateFieldProps & RefAttributes<HTMLDivElement>
+> = forwardRef(_DateField);
 
 DateField.displayName = 'DateField';

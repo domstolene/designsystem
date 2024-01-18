@@ -67,15 +67,15 @@ const calendarButton = {
 
 const datefield = {
   medium: {
-    minWidth: '160px',
+    width: '160px',
     paddingX: ddsBaseTokens.spacing.SizesDdsSpacingX05,
   },
   small: {
-    minWidth: '140px',
+    width: '140px',
     paddingX: ddsBaseTokens.spacing.SizesDdsSpacingX05,
   },
   tiny: {
-    minWidth: '125px',
+    width: '125px',
     paddingX: ddsBaseTokens.spacing.SizesDdsSpacingX025,
   },
   disabled: {
@@ -87,7 +87,6 @@ const datefield = {
 
 export const datePickerTokens = {
   gap: ddsBaseTokens.spacing.SizesDdsSpacingX025,
-  labelGap: ddsBaseTokens.spacing.SizesDdsSpacingX0125,
   datefield,
   calendarButton,
 };

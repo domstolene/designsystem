@@ -88,7 +88,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const showRequiredStyling = required || !!ariaRequired;
 
     const containerProps = {
-      width,
+      $width: width,
       className,
       style,
     };

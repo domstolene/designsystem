@@ -43,7 +43,7 @@ export function _DatePicker(
   );
   const ref = useRef<HTMLElement>(null);
   const combinedRef = useCombinedRef(ref, domRef);
-  const { buttonProps, calendarProps, fieldProps } = useDatePicker(
+  const { buttonProps, calendarProps, fieldProps, groupProps } = useDatePicker(
     { ...props, granularity: 'day' },
     state,
     ref,
@@ -54,6 +54,7 @@ export function _DatePicker(
       <CalendarPopoverAnchor>
         <DateField
           {...fieldProps}
+          groupProps={groupProps}
           ref={combinedRef}
           componentSize={componentSize}
           tip={tip}
