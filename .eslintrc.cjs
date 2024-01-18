@@ -24,6 +24,7 @@ module.exports = {
     },
   },
   rules: {
+    '@typescript-eslint/array-type': ['error', { default: 'generic' }], // https://tkdodo.eu/blog/array-types-in-type-script
     '@typescript-eslint/consistent-type-imports': [
       'error',
       {
