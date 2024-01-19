@@ -33,7 +33,7 @@ const Container = styled.label`
   width: ${favStarTokens().size};
   height: ${favStarTokens().size};
 
-  &:focus-within {
+  &:has(${HiddenInput}:focus-visible) {
     ${focusVisible}
     @media (prefers-reduced-motion: no-preference) {
       transition: ${focusVisibleTransitionValue};
