@@ -4,6 +4,7 @@ const tokens = {
   base: {
     color: ddsBaseTokens.colors.DdsColorNeutralsGray6,
     borderRadius: ddsBaseTokens.borderRadius.RadiiDdsBorderRadius1Radius,
+    size: ddsBaseTokens.iconSizes.DdsIconsizeMedium,
     backgroundColor: 'transparent',
   },
   variants: {
