@@ -3,6 +3,7 @@ import {
   type InputHTMLAttributes,
   type Ref,
   forwardRef,
+  useId,
 } from 'react';
 import styled, { css } from 'styled-components';
 
@@ -26,7 +27,7 @@ export interface FavStarProps
 
 const TRANSITION_SPEED = '0.1s';
 
-const Container = styled.div`
+const Container = styled.label`
   position: relative;
   cursor: pointer;
   width: ${favStarTokens().size};
@@ -80,6 +81,7 @@ const StyledIcon = styled(Icon)<{ $opacity?: number }>`
 
 function _FavStar(
   {
+    id,
     className,
     style,
     onChange,
@@ -90,20 +92,19 @@ function _FavStar(
   }: FavStarProps,
   ref: Ref<HTMLInputElement>,
 ) {
+  const generatedId = useId();
   const [checked, setChecked] = useControllableState({
     value: checkedProp,
     defaultValue: defaultChecked ?? false,
     onChange,
   });
   return (
-    <Container
-      onClick={() => setChecked(prev => !prev)}
-      className={className}
-      style={style}
-    >
+    <Container className={className} style={style} htmlFor={id ?? generatedId}>
       <HiddenInput
         {...props}
+        id={id ?? generatedId}
         checked={checked}
+        onChange={e => setChecked(e.target.checked)}
         ref={ref}
         type="checkbox"
         aria-label={ariaLabel}
