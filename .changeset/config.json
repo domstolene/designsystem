@@ -6,5 +6,6 @@
   "linked": [],
   "ignore": [],
   "access": "public",
-  "baseBranch": "main"
+  "baseBranch": "main",
+  "bumpVersionsWithWorkspaceProtocolOnly": true
 }
