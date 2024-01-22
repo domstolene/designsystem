@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 10 Jan 2024 13:04:31 GMT
+ * Generated on Mon, 22 Jan 2024 11:05:28 GMT
  */
 
 :root {
@@ -21,13 +21,13 @@
   --dds-color-neutrals-gray-7: rgba(58, 65, 70, 1);
   --dds-color-neutrals-gray-8: rgba(34, 39, 42, 1);
   --dds-color-neutrals-gray-9: rgba(11, 13, 14, 1);
-  --dds-color-interactive-lightest: rgba(234, 242, 247, 1);
-  --dds-color-interactive-lighter: rgba(171, 201, 221, 1);
-  --dds-color-interactive-light: rgba(109, 161, 196, 1);
-  --dds-color-interactive-base: rgba(46, 120, 170, 1); /* Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den */
-  --dds-color-interactive-dark: rgba(37, 96, 136, 1);
-  --dds-color-interactive-darker: rgba(28, 72, 102, 1);
-  --dds-color-interactive-darkest: rgba(18, 48, 68, 1);
+  --dds-color-interactive-lightest: rgba(231, 241, 247, 1);
+  --dds-color-interactive-lighter: rgba(159, 197, 222, 1);
+  --dds-color-interactive-light: rgba(88, 154, 198, 1);
+  --dds-color-interactive-base: rgba(16, 110, 173, 1); /* Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den */
+  --dds-color-interactive-dark: rgba(13, 88, 138, 1);
+  --dds-color-interactive-darker: rgba(10, 66, 104, 1);
+  --dds-color-interactive-darkest: rgba(6, 44, 69, 1);
   --dds-color-secondary-lightest: rgba(230, 237, 237, 1); /* --l80 */
   --dds-color-secondary-lighter: rgba(205, 219, 219, 1);
   --dds-color-secondary-light: rgba(184, 205, 205, 1);

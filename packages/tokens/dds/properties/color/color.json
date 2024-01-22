@@ -111,44 +111,44 @@
       "lightest": {
         "category": "color",
         "exportKey": "color",
-        "value": "rgba(234, 242, 247, 1)",
+        "value": "rgba(231, 241, 247, 1)",
         "type": "color"
       },
       "lighter": {
         "category": "color",
         "exportKey": "color",
-        "value": "rgba(171, 201, 221, 1)",
+        "value": "rgba(159, 197, 222, 1)",
         "type": "color"
       },
       "light": {
         "category": "color",
         "exportKey": "color",
-        "value": "rgba(109, 161, 196, 1)",
+        "value": "rgba(88, 154, 198, 1)",
         "type": "color"
       },
       "base": {
         "category": "color",
         "exportKey": "color",
         "comment": "Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den",
-        "value": "rgba(46, 120, 170, 1)",
+        "value": "rgba(16, 110, 173, 1)",
         "type": "color"
       },
       "dark": {
         "category": "color",
         "exportKey": "color",
-        "value": "rgba(37, 96, 136, 1)",
+        "value": "rgba(13, 88, 138, 1)",
         "type": "color"
       },
       "darker": {
         "category": "color",
         "exportKey": "color",
-        "value": "rgba(28, 72, 102, 1)",
+        "value": "rgba(10, 66, 104, 1)",
         "type": "color"
       },
       "darkest": {
         "category": "color",
         "exportKey": "color",
-        "value": "rgba(18, 48, 68, 1)",
+        "value": "rgba(6, 44, 69, 1)",
         "type": "color"
       }
     },
