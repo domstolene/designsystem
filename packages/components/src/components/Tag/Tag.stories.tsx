@@ -1,7 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 
 import { HStack, VStack } from '../Stack';
-import { Heading } from '../Typography';
 
 import { Tag, type TagProps } from '.';
 
@@ -14,28 +13,46 @@ export default {
   },
 };
 
-export const Default = (args: TagProps) => (
+export const Default = (args: Omit<TagProps, 'text'>) => (
   <StoryTemplate title="Tag - default" display="block">
-    <Tag text="default" {...args} />
+    <Tag {...args}>default</Tag>
   </StoryTemplate>
 );
 
-export const Overview = (args: TagProps) => (
+export const Overview = (args: Omit<TagProps, 'text'>) => (
   <StoryTemplate title="Tag - overview">
     <HStack gap="x4">
       <VStack align="flex-start" gap="x1">
-        <Tag {...args} text="default" />
-        <Tag {...args} text="success" purpose="success" />
-        <Tag {...args} text="danger" purpose="danger" />
-        <Tag {...args} text="warning" purpose="warning" />
-        <Tag {...args} text="info" purpose="info" />
+        <Tag {...args}>default</Tag>
+        <Tag {...args} purpose="success">
+          success
+        </Tag>
+        <Tag {...args} purpose="danger">
+          danger
+        </Tag>
+        <Tag {...args} purpose="warning">
+          warning
+        </Tag>
+        <Tag {...args} purpose="info">
+          info
+        </Tag>
       </VStack>
       <VStack align="flex-start" gap="x1">
-        <Tag {...args} withIcon text="default" />
-        <Tag {...args} withIcon text="success" purpose="success" />
-        <Tag {...args} withIcon text="danger" purpose="danger" />
-        <Tag {...args} withIcon text="warning" purpose="warning" />
-        <Tag {...args} withIcon text="info" purpose="info" />
+        <Tag {...args} withIcon>
+          default
+        </Tag>
+        <Tag {...args} withIcon purpose="success">
+          success
+        </Tag>
+        <Tag {...args} withIcon purpose="danger">
+          danger
+        </Tag>
+        <Tag {...args} withIcon purpose="warning">
+          warning
+        </Tag>
+        <Tag {...args} withIcon purpose="info">
+          info
+        </Tag>
       </VStack>
     </HStack>
   </StoryTemplate>
@@ -43,10 +60,20 @@ export const Overview = (args: TagProps) => (
 
 export const WithIcon = (args: TagProps) => (
   <StoryTemplate title="Tag - with icon">
-    <Tag {...args} withIcon text="default" />
-    <Tag {...args} withIcon text="success" purpose="success" />
-    <Tag {...args} withIcon text="danger" purpose="danger" />
-    <Tag {...args} withIcon text="warning" purpose="warning" />
-    <Tag {...args} withIcon text="info" purpose="info" />
+    <Tag {...args} withIcon>
+      default
+    </Tag>
+    <Tag {...args} withIcon purpose="success">
+      success
+    </Tag>
+    <Tag {...args} withIcon purpose="danger">
+      danger
+    </Tag>
+    <Tag {...args} withIcon purpose="warning">
+      warning
+    </Tag>
+    <Tag {...args} withIcon purpose="info">
+      info
+    </Tag>
   </StoryTemplate>
 );

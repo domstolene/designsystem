@@ -1,8 +1,11 @@
-import { forwardRef } from 'react';
+import { type ReactNode, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { tagTokens as tokens, typographyType } from './Tag.tokens';
-import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { Icon } from '../Icon';
 import {
   TextOverflowEllipsisInner,
@@ -38,12 +41,20 @@ const StyledIcon = styled(Icon)<Pick<WrapperProps, '$purpose'>>`
 
 export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
 
-export type TagProps = BaseComponentProps<
+export type TagProps = BaseComponentPropsWithChildren<
   HTMLSpanElement,
   {
-    /**Tekst som vises i `<Tag />.` */
+    /**
+     * Innholdet til `<Tag>.` Kan brukes istedenfor `text`.
+     */
+    children?: ReactNode;
+    /**
+     * Samme oppførsel som `children`. Er `children` brukt vil denne ignoreres. Tekst som vises i `<Tag>`.
+     */
     text?: string;
-    /**Formål med status eller kategorisering. Påvirker styling. */
+    /**
+     * Formål med status eller kategorisering. Påvirker styling.
+     * */
     purpose?: TagPurpose;
     /**
      * Om `<Tag>` skal ha et ikon til venstre for teksten. Tags med `purpose="default"` har aldri ikon.
@@ -59,6 +70,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
     purpose = 'default',
     id,
     className,
+    children,
     htmlProps,
     withIcon,
     ...rest
@@ -80,7 +92,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
           iconSize={tokens.wrapper.icon.size}
         />
       )}
-      <TextOverflowEllipsisInner>{text}</TextOverflowEllipsisInner>
+      <TextOverflowEllipsisInner>{children ?? text}</TextOverflowEllipsisInner>
     </Wrapper>
   );
 });
