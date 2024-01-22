@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 14.4.0
+
+### Minor Changes
+
+- 032fab6: Ny komponent `<FavStar>`, som kan brukes for favorisering
+
+### Patch Changes
+
+- 67ac145: Fikset en styling feil som gjorde at `<DatePicker>` med label var `1px` lavere enn `<TextInput>`.
+- Updated dependencies [8d85f05]
+  - @norges-domstoler/dds-design-tokens@4.0.1
+
 ## 14.3.1
 
 ### Patch Changes

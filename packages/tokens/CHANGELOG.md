@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-design-tokens
 
+## 4.0.1
+
+### Patch Changes
+
+- 8d85f05: Det er blitt gjort små justeringer på interactive-fargene for å få bedre kontrast mellom seg. Noen av fargekombinasjonene som var brukt hadde ikke tilstrekkelig kontrast til å oppfylle kontrastkrav.
+
 ## 4.0.0
 
 ### Major Changes
