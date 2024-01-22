@@ -8,6 +8,10 @@ export const focusVisible = {
   outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Border.BordersDdsBorderFocusBaseStroke} solid`,
   outlineOffset: outlineOffset,
 };
+export const focusVisibleCard = {
+  outline: `${Border.BordersDdsBorderFocusCardStrokeWeight} ${Border.BordersDdsBorderFocusCardStroke} solid`,
+  outlineOffset: outlineOffset,
+};
 
 export const focusVisibleOnDark = {
   outline: `${Border.BordersDdsBorderFocusOndarkStrokeWeight} ${Border.BordersDdsBorderFocusOndarkStroke} solid`,

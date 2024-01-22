@@ -6,7 +6,7 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { focusVisibleWithBorder, hoverWithBorder, selection } from '../helpers';
+import { focusVisibleCard, hoverWithBorder, selection } from '../helpers';
 import { defaultTypographyType, getFontStyling } from '../Typography';
 
 interface ContainerProps {
@@ -42,8 +42,8 @@ const Container = styled.div.withConfig({
           &:hover {
             ${hoverWithBorder}
           }
-          &:focus {
-            ${focusVisibleWithBorder}
+          &:focus-visible {
+            ${focusVisibleCard}
           }
         `
       : cardType === 'expandable'
