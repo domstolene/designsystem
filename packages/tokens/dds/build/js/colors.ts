@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 10 Jan 2024 13:04:31 GMT
+ * Generated on Mon, 22 Jan 2024 11:05:28 GMT
  */
 
 export const DdsColorPrimaryLightest = "rgba(234, 239, 244, 1)";
@@ -20,13 +20,13 @@ export const DdsColorNeutralsGray6 = "rgba(84, 92, 98, 1)";
 export const DdsColorNeutralsGray7 = "rgba(58, 65, 70, 1)";
 export const DdsColorNeutralsGray8 = "rgba(34, 39, 42, 1)";
 export const DdsColorNeutralsGray9 = "rgba(11, 13, 14, 1)";
-export const DdsColorInteractiveLightest = "rgba(234, 242, 247, 1)";
-export const DdsColorInteractiveLighter = "rgba(171, 201, 221, 1)";
-export const DdsColorInteractiveLight = "rgba(109, 161, 196, 1)";
-export const DdsColorInteractiveBase = "rgba(46, 120, 170, 1)"; // Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den
-export const DdsColorInteractiveDark = "rgba(37, 96, 136, 1)";
-export const DdsColorInteractiveDarker = "rgba(28, 72, 102, 1)";
-export const DdsColorInteractiveDarkest = "rgba(18, 48, 68, 1)";
+export const DdsColorInteractiveLightest = "rgba(231, 241, 247, 1)";
+export const DdsColorInteractiveLighter = "rgba(159, 197, 222, 1)";
+export const DdsColorInteractiveLight = "rgba(88, 154, 198, 1)";
+export const DdsColorInteractiveBase = "rgba(16, 110, 173, 1)"; // Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den
+export const DdsColorInteractiveDark = "rgba(13, 88, 138, 1)";
+export const DdsColorInteractiveDarker = "rgba(10, 66, 104, 1)";
+export const DdsColorInteractiveDarkest = "rgba(6, 44, 69, 1)";
 export const DdsColorSecondaryLightest = "rgba(230, 237, 237, 1)"; // --l80
 export const DdsColorSecondaryLighter = "rgba(205, 219, 219, 1)";
 export const DdsColorSecondaryLight = "rgba(184, 205, 205, 1)";
