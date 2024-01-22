@@ -60,7 +60,7 @@
   },
   "peerDependencies": {
     "@internationalized/date": "^3",
-    "@norges-domstoler/dds-design-tokens": "^4.0.0",
+    "@norges-domstoler/dds-design-tokens": "^4",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5 || ^6"
