@@ -43,7 +43,8 @@ const Container = styled.label`
   @media (prefers-reduced-motion: no-preference) {
     transition:
       ${TRANSITION_SPEED} color,
-      ${TRANSITION_SPEED} background-color;
+      ${TRANSITION_SPEED} background-color,
+      ${TRANSITION_SPEED} transform;
   }
 
   ${getVariantStyle()}
@@ -57,6 +58,10 @@ const Container = styled.label`
     &:hover {
       ${getVariantStyle('checkedHover')}
     }
+  }
+
+  &:active {
+    transform: scale(0.75);
   }
 `;
 
