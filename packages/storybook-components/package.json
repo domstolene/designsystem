@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-design-tokens": "workspace:*",
-    "@storybook/addon-docs": "^7.6.8",
+    "@storybook/addon-docs": "^7.6.10",
     "focus-visible": "^5.2.0",
     "styled-components": "^6.1.8"
   },
