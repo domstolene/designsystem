@@ -5,7 +5,6 @@ import {
   Canvas,
   Story,
 } from '@storybook/blocks';
-import { Tag } from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -27,9 +26,7 @@ import * as TagStories from './Tag.stories';
 ## Demo
 
 <Canvas>
-  {/* <Story id="dds-components-tag--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-tag--default" />
+  <Story of={TagStories.Default} />
 </Canvas>
 
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-tag`} />
@@ -40,11 +37,11 @@ import * as TagStories from './Tag.stories';
   code={`
   import { Tag } from '@norges-domstoler/dds-components';
 
-<Tag text="status" />
+<Tag>status</Tag>
 `} />
 
 ## API
 
-<ArgTypes of={PRIMARY_STORY} />
+<ArgTypes of={TagStories} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSpanElement>`-interface i `htmlProps`.
