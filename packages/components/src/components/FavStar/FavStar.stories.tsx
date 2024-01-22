@@ -7,6 +7,7 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { AttachmentIcon } from '../Icon/icons';
 import { Checkbox } from '../SelectionControl/Checkbox';
+import { VStack } from '../Stack';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
 import { Heading, Link } from '../Typography';
@@ -14,7 +15,14 @@ import { Heading, Link } from '../Typography';
 const meta: Meta<typeof FavStar> = {
   title: 'dds-components/FavStar',
   component: FavStar,
-  argTypes: {},
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: ['medium', 'large'],
+      },
+    },
+  },
 };
 
 export default meta;
@@ -23,6 +31,27 @@ export const Default = (args: Partial<FavStarProps>) => {
   return (
     <StoryTemplate title="FavStar - default">
       <FavStar {...args} />
+    </StoryTemplate>
+  );
+};
+
+export const OverviewSizes = (args: Partial<FavStarProps>) => {
+  return (
+    <StoryTemplate title="FavStar - overview sizes">
+      <VStack gap="x3" align="flex-start">
+        <VStack gap="x1" align="flex-start">
+          <Heading level={2} typographyType="headingSans03">
+            Medium
+          </Heading>
+          <FavStar {...args} size="medium" />
+        </VStack>
+        <VStack gap="x1" align="flex-start">
+          <Heading level={2} typographyType="headingSans03">
+            Large
+          </Heading>
+          <FavStar {...args} size="large" />
+        </VStack>
+      </VStack>
     </StoryTemplate>
   );
 };

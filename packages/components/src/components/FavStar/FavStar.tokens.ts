@@ -4,7 +4,6 @@ const tokens = {
   base: {
     color: ddsBaseTokens.colors.DdsColorNeutralsGray6,
     borderRadius: ddsBaseTokens.borderRadius.RadiiDdsBorderRadius1Radius,
-    size: ddsBaseTokens.iconSizes.DdsIconsizeMedium,
     backgroundColor: 'transparent',
   },
   variants: {
@@ -19,8 +18,21 @@ const tokens = {
       color: ddsBaseTokens.colors.DdsColorInteractiveDark,
     },
   },
-};
+  medium: {
+    size: ddsBaseTokens.iconSizes.DdsIconsizeMedium,
+  },
+  large: {
+    size: ddsBaseTokens.iconSizes.DdsIconsizeLarge,
+  },
+} as const;
 
-export function favStarTokens(variant?: keyof typeof tokens.variants) {
-  return { ...tokens.base, ...(variant ? tokens.variants[variant] : {}) };
+export function favStarTokens(
+  size: 'medium' | 'large',
+  variant?: keyof typeof tokens.variants,
+) {
+  return {
+    ...tokens.base,
+    ...tokens[size],
+    ...(variant ? tokens.variants[variant] : {}),
+  };
 }

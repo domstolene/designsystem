@@ -1,14 +1,12 @@
-import {
-  type DetailedHTMLProps,
-  type InputHTMLAttributes,
-  type Ref,
-  forwardRef,
-  useId,
-} from 'react';
+import { type Ref, forwardRef, useId } from 'react';
 import styled, { css } from 'styled-components';
 
 import { favStarTokens } from './FavStar.tokens';
 import { useControllableState } from '../../hooks/useControllableState';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import {
   HiddenInput,
   focusVisible,
@@ -17,21 +15,37 @@ import {
 import { Icon } from '../Icon';
 import { StarFilledIcon, StarIcon } from '../Icon/icons';
 
+type ComponentSize = 'medium' | 'large';
+
 export interface FavStarProps
-  extends Omit<
-    DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-    'children' | 'ref' | 'onChange' | 'value' | 'defaultValue'
-  > {
+  extends BaseComponentPropsWithChildren<HTMLElement> {
+  /**
+   * Status på favorisering. `true` betyr at den er favorisert.
+   */
+  checked?: boolean;
+  /**
+   * Hvis du skal bruke `<FavStar>` uncontrolled så kan denne brukes til å sette den initielle "favortitt"-statusen.
+   * @default false
+   */
+  defaultChecked?: boolean;
+  /**
+   * Callback som blir kalt når brukeren endrer status på favorisering.
+   */
   onChange?: (checked: boolean) => void;
+  /**
+   * Størrelse på `<FavStar>`. `'medium'` er den mest vanlige størrelsen.
+   * @default 'medium'
+   */
+  size?: ComponentSize;
 }
 
 const TRANSITION_SPEED = '0.1s';
 
-const Container = styled.label`
+const Container = styled.label<{ size: ComponentSize }>`
   position: relative;
   cursor: pointer;
-  width: ${favStarTokens().size};
-  height: ${favStarTokens().size};
+  width: ${({ size }) => favStarTokens(size).size};
+  height: ${({ size }) => favStarTokens(size).size};
 
   &:has(${HiddenInput}:focus-visible) {
     ${focusVisible}
@@ -47,16 +61,16 @@ const Container = styled.label`
       ${TRANSITION_SPEED} transform;
   }
 
-  ${getVariantStyle()}
+  ${({ size }) => getVariantStyle(size)}
 
   &:hover {
-    ${getVariantStyle('hover')}
+    ${({ size }) => getVariantStyle(size, 'hover')}
   }
 
   &:has(${HiddenInput}:checked) {
-    ${getVariantStyle('checked')}
+    ${({ size }) => getVariantStyle(size, 'checked')}
     &:hover {
-      ${getVariantStyle('checkedHover')}
+      ${({ size }) => getVariantStyle(size, 'checkedHover')}
     }
   }
 
@@ -65,11 +79,14 @@ const Container = styled.label`
   }
 `;
 
-function getVariantStyle(variant?: Parameters<typeof favStarTokens>[0]) {
+function getVariantStyle(
+  size: ComponentSize,
+  variant?: Parameters<typeof favStarTokens>[1],
+) {
   return css`
-    color: ${favStarTokens(variant).color};
-    background-color: ${favStarTokens(variant).backgroundColor};
-    border-radius: ${favStarTokens(variant).borderRadius};
+    color: ${favStarTokens(size, variant).color};
+    background-color: ${favStarTokens(size, variant).backgroundColor};
+    border-radius: ${favStarTokens(size, variant).borderRadius};
   `;
 }
 
@@ -84,46 +101,57 @@ const StyledIcon = styled(Icon)<{ $opacity?: number }>`
   opacity: ${({ $opacity = 1 }) => $opacity};
 `;
 
-function _FavStar(
-  {
-    id,
-    className,
-    style,
-    onChange,
-    checked: checkedProp,
-    defaultChecked,
-    'aria-label': ariaLabel = 'Favoritt',
-    ...props
-  }: FavStarProps,
-  ref: Ref<HTMLInputElement>,
-) {
-  const generatedId = useId();
-  const [checked, setChecked] = useControllableState({
-    value: checkedProp,
-    defaultValue: defaultChecked ?? false,
-    onChange,
-  });
-  return (
-    <Container className={className} style={style} htmlFor={id ?? generatedId}>
-      <HiddenInput
-        {...props}
-        id={id ?? generatedId}
-        checked={checked}
-        onChange={e => setChecked(e.target.checked)}
-        ref={ref}
-        type="checkbox"
-        aria-label={ariaLabel}
-      />
-      <StyledIcon iconSize="medium" icon={StarIcon} />
-      <StyledIcon
-        iconSize="medium"
-        icon={StarFilledIcon}
-        $opacity={checked ? 1 : 0}
-      />
-    </Container>
-  );
-}
-
-export const FavStar = forwardRef(_FavStar);
+export const FavStar = forwardRef(
+  (
+    {
+      id,
+      className,
+      onChange,
+      checked: checkedProp,
+      defaultChecked,
+      size = 'medium',
+      htmlProps,
+      ...rest
+    }: FavStarProps,
+    ref: Ref<HTMLInputElement>,
+  ) => {
+    const { style, ...props } = getBaseHTMLProps(
+      id,
+      className,
+      htmlProps,
+      rest,
+    );
+    const generatedId = useId();
+    const [checked, setChecked] = useControllableState({
+      value: checkedProp,
+      defaultValue: defaultChecked ?? false,
+      onChange,
+    });
+    return (
+      <Container
+        size={size}
+        className={className}
+        style={style}
+        htmlFor={id ?? generatedId}
+      >
+        <HiddenInput
+          {...props}
+          id={id ?? generatedId}
+          checked={checked}
+          onChange={e => setChecked(e.target.checked)}
+          ref={ref}
+          type="checkbox"
+          aria-label={props['aria-label'] ?? 'Favoriser'}
+        />
+        <StyledIcon iconSize={size} icon={StarIcon} />
+        <StyledIcon
+          iconSize={size}
+          icon={StarFilledIcon}
+          $opacity={checked ? 1 : 0}
+        />
+      </Container>
+    );
+  },
+);
 
 FavStar.displayName = 'FavStar';
