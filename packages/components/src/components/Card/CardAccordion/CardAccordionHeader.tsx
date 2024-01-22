@@ -13,6 +13,7 @@ import {
 } from '../../../types';
 import {
   AnimatedChevronUpDown,
+  focusVisibleCard,
   normalizeButton,
   removeButtonStyling,
 } from '../../helpers';
@@ -72,8 +73,7 @@ const HeaderWrapperButton = styled.button`
 
   &:focus-visible,
   &.focus-visible {
-    outline: none;
-    box-shadow: ${header.focus.boxShadow};
+    ${focusVisibleCard}
   }
 `;
 

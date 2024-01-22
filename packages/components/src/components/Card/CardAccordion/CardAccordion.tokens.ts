@@ -17,9 +17,6 @@ const header = {
   hover: {
     boxShadow: `0 0 0 ${border.BordersDdsBorderFocusInputfieldStrokeWeight} ${border.BordersDdsBorderFocusInputfieldStroke}`,
   },
-  focus: {
-    boxShadow: `0 0 0 ${border.BordersDdsBorderFocusCardStrokeWeight} ${border.BordersDdsBorderFocusCardStroke}`,
-  },
 };
 
 const chevronWrapper = {
