@@ -12,7 +12,9 @@
     "*.css",
     "*.scss"
   ],
-  "main": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -32,15 +34,12 @@
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "build:clean": "pnpm clean && pnpm build",
-    "build:tokens": "node ./dds/build.js",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "build:tokens": "node ./dds/build.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/node": "^20.11.2",
-    "clean-package": "2.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.4",
     "rollup-plugin-copy": "^3.5.0",
@@ -52,6 +51,5 @@
   },
   "publishConfig": {
     "provenance": true
-  },
-  "clean-package": "./clean-package.config.json"
+  }
 }

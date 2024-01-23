@@ -11,7 +11,9 @@
   "files": [
     "dist"
   ],
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "homepage": "https://design.domstol.no",
   "scripts": {
     "build": "tsup --dts",
@@ -19,9 +21,7 @@
     "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest watch",
-    "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "test:watch": "vitest watch"
   },
   "keywords": [
     "dds",
@@ -33,7 +33,6 @@
     "elsa"
   ],
   "devDependencies": {
-    "clean-package": "2.2.0",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.11",
@@ -41,6 +40,5 @@
   },
   "publishConfig": {
     "provenance": true
-  },
-  "clean-package": "../../clean-package.config.json"
+  }
 }
