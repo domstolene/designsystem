@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 14.5.0
+
+### Minor Changes
+
+- 65eeeb2: Legger til støtte for å bruke `children` istedenfor `text`-prop'en i `<Tag>`. Dette gjøres for å være mer konsistent i bruk med våre andre komponentener. `children` tar prioritet over `text`.
+- abfae62: Legger til mulighet for å få `<Tag>` med ikon. Vi har valgt ut de riktige ikonene til hver tag-"purpose" så du trenger ikke tenke på mer enn om du vil vise ikonet. Du gjør ikonet synlig gjennom den nye `withIcon`-prop'en.
+
+### Patch Changes
+
+- 4c751f1: Bedre fokusmarkering på `<Card>`.
+- 546edf8: Fikser bug i byggepipeline som førte til at "tomme" pakker ble publisert
+- Updated dependencies [546edf8]
+  - @norges-domstoler/dds-design-tokens@4.0.2
+
 ## 14.4.0
 
 ### Minor Changes

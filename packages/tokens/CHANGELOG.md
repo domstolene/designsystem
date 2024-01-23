@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-design-tokens
 
+## 4.0.2
+
+### Patch Changes
+
+- 546edf8: Fikser bug i byggepipeline som førte til at "tomme" pakker ble publisert
+
 ## 4.0.1
 
 ### Patch Changes
