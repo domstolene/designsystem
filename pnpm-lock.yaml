@@ -99,9 +99,6 @@ importers:
       '@floating-ui/react-dom':
         specifier: ^2.0.5
         version: 2.0.5(react-dom@18.2.0)(react@18.2.0)
-      '@norges-domstoler/dds-design-tokens':
-        specifier: ^4
-        version: link:../tokens
       '@norges-domstoler/development-utils':
         specifier: workspace:*
         version: link:../development-utils
@@ -136,6 +133,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.1
         version: 3.5.1
+      '@norges-domstoler/dds-design-tokens':
+        specifier: workspace:*
+        version: link:../tokens
       '@norges-domstoler/storybook-components':
         specifier: workspace:*
         version: link:../storybook-components
