@@ -6,6 +6,7 @@ export * from './types';
 export { cn } from './utils/dom';
 
 export * from './components/AppShell';
+export * from './components/FavStar';
 export * from './components/SelectionControl/RadioButton';
 export * from './components/SelectionControl/Checkbox';
 export * from './components/Button';
