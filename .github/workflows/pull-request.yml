@@ -56,6 +56,9 @@ jobs:
       - name: Install
         uses: ./.github/composite-actions/install
 
+      - name: Build
+        run: pnpm build
+
       - name: Run ESLint
         run: pnpm lint:ci
 
