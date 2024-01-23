@@ -38,7 +38,6 @@
   ],
   "devDependencies": {
     "@internationalized/date": "^3.5.1",
-    "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
     "@react-types/datepicker": "^3.7.1",
     "@storybook/blocks": "^7.6.8",
