@@ -238,6 +238,10 @@ export const getCustomStyles = <TOption>(
     marginTop: menu.marginTop,
     marginBottom: menu.marginBottom,
   }),
+  menuPortal: provided => ({
+    ...provided,
+    zIndex: 99999,
+  }),
   group: () => ({
     boxSizing: 'border-box',
   }),

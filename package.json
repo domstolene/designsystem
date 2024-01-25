@@ -10,7 +10,6 @@
   "scripts": {
     "dev": "turbo run dev --cache-dir=.turbo",
     "build": "turbo run build --cache-dir=.turbo",
-    "build:docs": "turbo run build --filter @norges-domstoler/docs --cache-dir=.turbo",
     "typecheck": "turbo run typecheck --cache-dir=.turbo",
     "test": "turbo run test --cache-dir=.turbo",
     "lint": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs",
