@@ -39,14 +39,14 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/node": "^20.11.2",
+    "@types/node": "^20.11.5",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.4",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-sass": "^1.12.21",
     "rollup-plugin-typescript2": "^0.36.0",
-    "style-dictionary": "^3.9.1",
+    "style-dictionary": "^3.9.2",
     "typescript": "^5.3.3"
   },
   "publishConfig": {
