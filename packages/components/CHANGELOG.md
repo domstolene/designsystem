@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 14.5.1
+
+### Patch Changes
+
+- 0500104: Fikser feil hvor Select sin nedtrekksmeny ikke vistes i Drawer og Modal.
+- 56bdad6: Bump @floating-ui/react fra 2.0.5 til 2.0.6
+
 ## 14.5.0
 
 ### Minor Changes
