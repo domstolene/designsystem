@@ -215,3 +215,28 @@ export const CustomData = (
     </StoryTemplate>
   );
 };
+
+// export const InDrawer = () => {
+//   return (
+//     <DrawerGroup>
+//       <Button>Åpne skuff</Button>
+//       <Drawer>
+//         <Select label="Velg" options={options} />
+//       </Drawer>
+//     </DrawerGroup>
+//   );
+// };
+
+// export const InModal = () => {
+//   const [isOpen, setOpen] = useState(true);
+//   return (
+//     <>
+//       <Button onClick={() => setOpen(true)}>Åpne</Button>
+//       <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+//         <ModalBody>
+//           <Select label="Velg" options={options} />
+//         </ModalBody>
+//       </Modal>
+//     </>
+//   );
+// };
