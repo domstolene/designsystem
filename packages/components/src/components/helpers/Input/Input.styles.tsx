@@ -49,7 +49,7 @@ export const Input = styled.input`
     ${selection}
   }
 
-  &:not(.disabled):not(.read-only):not(.active):hover,
+  &:not(input):not(textarea):not(.disabled):not(.read-only):not(.active):hover,
   &:hover:enabled:read-write {
     ${hoverInputfield}
   }
