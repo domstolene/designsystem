@@ -5,57 +5,36 @@ import { type InternalHeaderProps } from './InternalHeader.types';
 import { selection } from '../helpers';
 import { OverflowMenu } from '../OverflowMenu';
 
-const {
-  outerContainer,
-  applicationNameWrapper,
-  lovisaWrapper,
-  banner,
-  navigation,
-  contextGroup,
-} = tokens;
+const { bar, separator } = tokens;
 
-export const OuterContainer = styled.div`
-  position: relative;
+export const Bar = styled.div<{ $hasNavigation: boolean }>`
   *::selection {
     ${selection}
   }
-  background-color: ${outerContainer.backgroundColor};
-`;
-
-interface BannerProps {
-  $hasContextMenu?: boolean;
-}
-
-export const BannerWrapper = styled.div<BannerProps>`
-  position: relative;
+  background-color: ${bar.backgroundColor};
   display: flex;
+  gap: ${bar.itemGap};
   align-items: center;
-  border-bottom: ${banner.borderBottom};
-  padding-right: ${banner.paddingRight};
-  ${({ $hasContextMenu }) =>
-    $hasContextMenu &&
-    css`
-      padding-right: ${banner.hasContextMenu.paddingRight};
-    `}
+  min-height: ${bar.minHeight};
+  border-bottom: ${bar.borderBottom};
+
+  ${({ $hasNavigation }) =>
+    $hasNavigation
+      ? css`
+          ${ContextMenuGroup} {
+            margin-left: auto;
+          }
+        `
+      : css`
+          ${BarSeparator} {
+            margin-left: auto;
+          }
+        `}
 `;
 
-export const BannerLeftWrapper = styled.div`
-  display: flex;
-`;
-
-export const ApplicationNameWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  padding: ${applicationNameWrapper.padding};
-`;
-
-export const LovisaWrapper = styled.div`
-  padding: ${lovisaWrapper.padding};
-  border-right: ${lovisaWrapper.borderRight};
-`;
-
-export const Navigation = styled.nav`
-  border-bottom: ${navigation.borderBottom};
+export const BarSeparator = styled.div`
+  border-left: ${separator.width} solid ${separator.color};
+  align-self: stretch;
 `;
 
 type NavListProps = Pick<InternalHeaderProps, 'smallScreen'>;
@@ -63,9 +42,13 @@ type NavListProps = Pick<InternalHeaderProps, 'smallScreen'>;
 export const NavigationList = styled.ul<NavListProps>`
   box-sizing: border-box;
   display: flex;
+  gap: ${bar.itemGap};
+  align-items: center;
+  width: 100%;
   ${({ smallScreen }) =>
     smallScreen &&
     css`
+      align-items: initial;
       flex-direction: column;
     `}
   list-style-type: none;
@@ -73,12 +56,12 @@ export const NavigationList = styled.ul<NavListProps>`
   margin: 0;
 `;
 
-export const ContextMenuGroup = styled.div`
-  position: absolute;
-  top: ${contextGroup.top};
-  right: ${contextGroup.right};
-`;
+export const ContextMenuGroup = styled.div``;
 
 export const StyledOverflowMenu = styled(OverflowMenu)`
   max-height: calc(100vh - 110px);
+`;
+
+export const NavLi = styled.li`
+  display: flex;
 `;

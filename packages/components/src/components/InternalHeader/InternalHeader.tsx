@@ -1,15 +1,11 @@
 import { useRef, useState } from 'react';
-import styled from 'styled-components';
 
 import {
-  ApplicationNameWrapper,
-  BannerLeftWrapper,
-  BannerWrapper,
+  Bar,
+  BarSeparator,
   ContextMenuGroup,
-  LovisaWrapper,
-  Navigation,
+  NavLi,
   NavigationList,
-  OuterContainer,
   StyledOverflowMenu,
 } from './InternalHeader.styles';
 import { type InternalHeaderProps } from './InternalHeader.types';
@@ -18,10 +14,6 @@ import { getBaseHTMLProps } from '../../types';
 import { Button } from '../Button';
 import { MenuIcon, MoreVerticalIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
-
-const Li = styled.li`
-  display: flex;
-`;
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {
@@ -65,44 +57,40 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 
   const navigation =
     hasNavigationElements && !smallScreen ? (
-      <Navigation aria-label="sidenavigasjon">
+      <nav aria-label="sidenavigasjon">
         <NavigationList>
           {navigationElements.map((item, index) => {
             const { href, ...rest } = item;
             const isCurrent = href === currentPage;
             return (
-              <Li key={index}>
+              <NavLi key={index}>
                 <NavigationItem
                   href={href}
                   {...rest}
                   isCurrent={isCurrent}
                   onClick={() => handleCurrentPageChange(href)}
                 />
-              </Li>
+              </NavLi>
             );
           })}
         </NavigationList>
-      </Navigation>
+      </nav>
     ) : null;
 
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
   return (
-    <OuterContainer {...getBaseHTMLProps(id, className, htmlProps, rest)}>
-      <BannerWrapper $hasContextMenu={hasContextMenu}>
-        <BannerLeftWrapper>
-          <LovisaWrapper>
-            <Typography typographyType="bodySans02" bold as="span">
-              {applicationName}
-            </Typography>
-          </LovisaWrapper>
-          <ApplicationNameWrapper>
-            <Typography typographyType="bodySans02" as="span">
-              {applicationDesc}
-            </Typography>
-          </ApplicationNameWrapper>
-        </BannerLeftWrapper>
-      </BannerWrapper>
+    <Bar
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      $hasNavigation={!!navigation}
+    >
+      <Typography typographyType="bodySans02" bold as="span">
+        {applicationName}
+      </Typography>
+      <Typography typographyType="bodySans02" as="span">
+        {applicationDesc}
+      </Typography>
+      <BarSeparator />
       {navigation}
       {hasContextMenu && (
         <ContextMenuGroup>
@@ -126,7 +114,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
           />
         </ContextMenuGroup>
       )}
-    </OuterContainer>
+    </Bar>
   );
 };
 
