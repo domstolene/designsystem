@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import styled from 'styled-components';
 
 import {
   ApplicationNameWrapper,
@@ -12,12 +13,15 @@ import {
   StyledOverflowMenu,
 } from './InternalHeader.styles';
 import { type InternalHeaderProps } from './InternalHeader.types';
-import { InternalHeaderListItem } from './InternalHeaderListItem';
 import { NavigationItem } from './NavigationItem';
 import { getBaseHTMLProps } from '../../types';
 import { Button } from '../Button';
 import { MenuIcon, MoreVerticalIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
+
+const Li = styled.li`
+  display: flex;
+`;
 
 export const InternalHeader = (props: InternalHeaderProps) => {
   const {
@@ -67,14 +71,14 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             const { href, ...rest } = item;
             const isCurrent = href === currentPage;
             return (
-              <InternalHeaderListItem key={index}>
+              <Li key={index}>
                 <NavigationItem
                   href={href}
                   {...rest}
                   isCurrent={isCurrent}
                   onClick={() => handleCurrentPageChange(href)}
                 />
-              </InternalHeaderListItem>
+              </Li>
             );
           })}
         </NavigationList>
