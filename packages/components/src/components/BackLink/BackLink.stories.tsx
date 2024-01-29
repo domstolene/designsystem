@@ -1,10 +1,17 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { BackLink, type BackLinkProps } from '.';
+import { BackLink } from '.';
 
 export default {
   title: 'dds-components/BackLink',
   component: BackLink,
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'shown' },
+    },
+  },
   argTypes: {
     label: {
       control: 'text',
@@ -15,8 +22,13 @@ export default {
   },
 };
 
-export const Default = (args: Partial<BackLinkProps>) => (
-  <StoryTemplate title="BackLink - default">
-    <BackLink label="Forrige nivå" href="?" {...args} />
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof BackLink>;
+
+export const Default: Story = {
+  args: { label: 'Forrige nivå', href: '?' },
+  decorators: Story => (
+    <StoryTemplate title="BackLink - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
