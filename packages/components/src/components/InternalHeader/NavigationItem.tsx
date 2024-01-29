@@ -1,53 +1,43 @@
 import { type AnchorHTMLAttributes, forwardRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import {
-  internalHeaderTokens as tokens,
-  typographyTypes,
-} from './InternalHeader.tokens';
-import { focusVisible } from '../helpers';
+import { getNavTokens } from './NavigationItem.tokens';
+import { focusVisibleInset } from '../helpers';
 import { getFontStyling } from '../Typography';
 
-const { navLink } = tokens;
-
 interface LinkProps {
-  isCurrent?: boolean;
+  $active: boolean;
 }
 
-export const Link = styled.a.withConfig({
-  shouldForwardProp: prop => prop !== 'isCurrent',
-})<LinkProps>`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  box-sizing: border-box;
+export const Link = styled.a<LinkProps>`
+  ${getFontStyling('bodySans02')}
   text-decoration: none;
-  @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 0.2s;
-  }
-  color: ${navLink.base.color};
-  background-color: ${navLink.base.backgroundColor};
-  padding: ${navLink.base.padding};
-  ${getFontStyling(typographyTypes.navLink)}
+
+  color: ${({ $active }) => getNavTokens({ active: $active }).color};
+  background-color: ${({ $active }) =>
+    getNavTokens({ active: $active }).backgroundColor};
+  padding: ${({ $active }) => getNavTokens({ active: $active }).padding};
+  border-radius: ${({ $active }) =>
+    getNavTokens({ active: $active }).borderRadius};
+
   &:hover {
-    color: ${navLink.hover.color};
+    color: ${({ $active }) => getNavTokens({ active: $active }).hover.color};
+    background-color: ${({ $active }) =>
+      getNavTokens({ active: $active }).hover.backgroundColor};
   }
+
   &:active {
-    color: ${navLink.active.color};
+    color: ${getNavTokens({ active: true }).color};
+    background-color: ${getNavTokens({ active: true }).backgroundColor};
   }
   &:focus-visible,
   &.focus-visible {
-    ${focusVisible};
+    ${focusVisibleInset};
   }
-  ${({ isCurrent }) =>
-    isCurrent &&
-    css`
-      color: ${navLink.current.color};
-      background-color: ${navLink.current.backgroundColor};
-      &:hover {
-        color: ${navLink.current.color};
-      }
-    `}
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s;
+  }
 `;
 
 export type NavigationItemProps = {
@@ -59,15 +49,13 @@ export const NavigationItem = forwardRef<
   HTMLAnchorElement,
   NavigationItemProps
 >(({ title, isCurrent, ...rest }, ref) => {
-  const linkProps = {
-    ref,
-    isCurrent,
-
-    ...rest,
-  };
-
   return (
-    <Link {...linkProps} aria-current={isCurrent ? 'page' : undefined}>
+    <Link
+      {...rest}
+      ref={ref}
+      aria-current={isCurrent ? 'page' : undefined}
+      $active={isCurrent ?? false}
+    >
       {title}
     </Link>
   );
