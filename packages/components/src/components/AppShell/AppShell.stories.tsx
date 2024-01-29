@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import {
   BarChartIcon,
@@ -12,18 +12,31 @@ import { AppShell } from '.';
 export default {
   title: 'dds-components/AppShell',
   component: AppShell,
-};
+  argTypes: {
+    title: { control: 'text' },
+    version: { control: 'text' },
+  },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourseState: 'shown' },
+    },
+  },
+} satisfies Meta<typeof AppShell>;
 
-export const Default = (args: Partial<ComponentProps<typeof AppShell>>) => (
-  <AppShell
-    version="1.0.0"
-    user={{
+type Story = StoryObj<typeof AppShell>;
+
+export const Default: Story = {
+  args: {
+    title: 'Lovisa',
+    version: '1.0.0',
+    user: {
       embete: { name: 'Borgarting Lagmannsrett', type: 'høyesterett' },
       name: 'Kari Nordmann',
-    }}
-    environment="PROD"
-    userMenuItems={[{ title: 'Bytt embete' }, { title: 'Logg ut' }]}
-    navigation={{
+    },
+    environment: 'PROD',
+    userMenuItems: [{ title: 'Bytt embete' }, { title: 'Logg ut' }],
+    navigation: {
       internal: [
         <AppShell.NavItem active href="#" icon={FolderIcon}>
           Saker
@@ -52,7 +65,6 @@ export const Default = (args: Partial<ComponentProps<typeof AppShell>>) => (
           Statistikk
         </AppShell.NavItem>,
       ],
-    }}
-    {...args}
-  />
-);
+    },
+  },
+};

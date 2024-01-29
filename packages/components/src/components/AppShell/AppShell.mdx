@@ -1,9 +1,8 @@
-import { Canvas, Story, Meta, ArgTypes } from '@storybook/blocks';
+import { Meta, ArgTypes, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as AppShellStories from './AppShell.stories';
 
@@ -19,13 +18,9 @@ import * as AppShellStories from './AppShell.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={AppShellStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-backbutton`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/AppShell" story="Default">Storybook</LinkTo>.
 
 ## Bruk i koden
 
