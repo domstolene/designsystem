@@ -6,6 +6,8 @@ const config: StorybookConfig = {
     '../stories/**/*.@(md|mdx)',
     '../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
     '../packages/*/src/**/*.mdx',
+    '../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx)',
+    '../packages/*/stories/**/*.mdx',
   ],
   staticDirs: ['./images', '../packages/components/dist/assets/fonts'],
   addons: [
