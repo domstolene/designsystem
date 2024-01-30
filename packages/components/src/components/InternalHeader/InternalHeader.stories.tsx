@@ -69,8 +69,8 @@ type Story = StoryObj<typeof InternalHeader>;
 
 export const Default: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
   },
   decorators: Story => (
     <StoryTemplate title="InternalHeader - default" display="block">
@@ -81,8 +81,8 @@ export const Default: Story = {
 
 export const Overview: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
   },
   decorators: Story => (
     <StoryTemplate
@@ -144,8 +144,8 @@ export const Overview: Story = {
 
 export const WithNavigationAndContextMenu: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
     navigationElements: navigationLinks,
     contextMenuElements: menuElements,
     userProps: user,
@@ -162,8 +162,8 @@ export const WithNavigationAndContextMenu: Story = {
 
 export const WithCurrentPage: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
     navigationElements: [navigationLink, uniqueNavigationLink],
     contextMenuElements: menuElements,
     userProps: user,
@@ -178,8 +178,8 @@ export const WithCurrentPage: Story = {
 
 export const SmallScreenWithNavigation: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
     navigationElements: navigationLinks,
     smallScreen: true,
   },
@@ -195,8 +195,8 @@ export const SmallScreenWithNavigation: Story = {
 
 export const SmallScreenWithContextMenu: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
     contextMenuElements: menuElements,
     smallScreen: true,
   },
@@ -212,8 +212,8 @@ export const SmallScreenWithContextMenu: Story = {
 
 export const SmallScreenWithNavigationAndContextMenu: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
     contextMenuElements: menuElements,
     navigationElements: navigationLinks,
     userProps: user,
@@ -231,8 +231,8 @@ export const SmallScreenWithNavigationAndContextMenu: Story = {
 
 export const NonInteractiveUserOnly: Story = {
   args: {
-    applicationName: 'Navn på applikasjon',
-    applicationDesc: 'Beskrivelse/tittel på underside',
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
     userProps: user,
   },
   decorators: Story => (
