@@ -1,16 +1,8 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { GlobalMessage } from '.';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as GlobalMessageStories from './GlobalMessage.stories';
 
@@ -26,27 +18,13 @@ import * as GlobalMessageStories from './GlobalMessage.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-globalmessage--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-globalmessage--default" />
-</Canvas>
+Se stories med kontrollere i <LinkTo title="dds-components/GlobalMessage" story="Default">Storybook</LinkTo>.
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-globalmessage`}
-/>
+## Props
 
-## Bruk i koden
-
-<Source
-  code={`
-  import { GlobalMessage } from '@norges-domstoler/dds-components';
-
-<GlobalMessage message="Dette er en global melding" />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={GlobalMessageStories.Default} sourceState="shown" />
+<Controls of={GlobalMessageStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

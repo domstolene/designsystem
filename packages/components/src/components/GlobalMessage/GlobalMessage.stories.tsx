@@ -1,6 +1,8 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { GlobalMessage, type GlobalMessageProps } from './GlobalMessage';
+import { GlobalMessage } from './GlobalMessage';
+import { VStack } from '../Stack';
 
 export default {
   title: 'dds-components/GlobalMessage',
@@ -9,11 +11,37 @@ export default {
     message: { control: { type: 'text' } },
     closable: { control: { type: 'boolean' } },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Overview = (args: GlobalMessageProps) => {
-  return (
+type Story = StoryObj<typeof GlobalMessage>;
+
+export const Default: Story = {
+  args: {
+    purpose: 'info',
+    message: 'En tilfeldig melding',
+  },
+  decorators: Story => (
+    <StoryTemplate title="GlobalMessage - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate title="GlobalMessage - overview">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <VStack>
       <GlobalMessage {...args} purpose="info" message="En tilfeldig melding" />
       <GlobalMessage
         {...args}
@@ -43,30 +71,19 @@ export const Overview = (args: GlobalMessageProps) => {
         message="En tilfeldig melding"
         closable
       />
-    </StoryTemplate>
-  );
+    </VStack>
+  ),
 };
 
-export const Default = (args: GlobalMessageProps) => {
-  return (
+export const Closable: Story = {
+  args: {
+    purpose: 'info',
+    message: 'En tilfeldig melding',
+    closable: true,
+  },
+  decorators: Story => (
     <StoryTemplate title="GlobalMessage - default">
-      <GlobalMessage
-        {...args}
-        message={args.message ?? 'En tilfeldig melding'}
-      />
+      <Story />
     </StoryTemplate>
-  );
-};
-
-export const Closable = (args: GlobalMessageProps) => {
-  return (
-    <StoryTemplate title="GlobalMessage - closable">
-      <GlobalMessage
-        {...args}
-        purpose={args.purpose ?? 'info'}
-        message={args.message ?? 'En tilfeldig melding'}
-        closable
-      />
-    </StoryTemplate>
-  );
+  ),
 };
