@@ -1,6 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { EmptyContent, type EmptyContentProps } from './EmptyContent';
+import { EmptyContent } from './EmptyContent';
 
 export default {
   title: 'dds-components/EmptyContent',
@@ -11,11 +12,34 @@ export default {
       type: { name: 'string', required: false },
     },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Overview = (args: EmptyContentProps) => {
-  return (
-    <StoryTemplate title="EmptyContent">
+type Story = StoryObj<typeof EmptyContent>;
+
+export const Default: Story = {
+  args: { title: 'Tittel', message: 'Dette er en tekst.' },
+  decorators: Story => (
+    <StoryTemplate title="EmptyContent - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="EmptyContent - overview">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <EmptyContent {...args} title="Tittel" message="Dette er en tekst." />
 
       <EmptyContent {...args} message="Kort melding." />
@@ -39,6 +63,6 @@ export const Overview = (args: EmptyContentProps) => {
           message="Ligger inne i et element med definert høyde og bredde."
         />
       </div>
-    </StoryTemplate>
-  );
+    </>
+  ),
 };
