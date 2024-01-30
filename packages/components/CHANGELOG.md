@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 14.6.0
+
+### Minor Changes
+
+- b249a81: `<InternalHeader>` har fått utseendet justert. Før havnet menypunkter på egen linje, under resten av `<InternalHeader>`-innholdet. Nå ligger alt på samme linje.
+
+### Patch Changes
+
+- d860626: Fikser bug i input og textarea hvor disabled og read-only varianter hadde hover-effekt
+- 85d0946: Bump @floating-ui/react-dom til 2.0.8
+- d175bd8: Fikser at valgt element i nedtrekksmenyen til Select forsvinner.
+
 ## 14.5.1
 
 ### Patch Changes
