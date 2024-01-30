@@ -1,6 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Feedback, type FeedbackProps } from '.';
+import { Divider } from '../Divider';
+
+import { Feedback } from '.';
 
 export default {
   title: 'dds-components/Feedback',
@@ -54,183 +57,94 @@ export default {
     },
   },
   parameters: {
-    controls: {
-      exclude: ['style', 'className'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
 
-export const Default = (args: FeedbackProps) => {
-  return (
-    <StoryTemplate title="Feedback - Default">
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-      />
+type Story = StoryObj<typeof Feedback>;
+
+export const Default: Story = {
+  args: { ratingLabel: 'Hva syns du om tjenesten?' },
+  decorators: Story => (
+    <StoryTemplate title="Feedback - default">
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const HorizontalLayout = (args: FeedbackProps) => {
-  return (
-    <StoryTemplate title="Feedback - Horizontal Layout">
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        layout="horizontal"
-      />
+export const HorizontalLayout: Story = {
+  args: { ratingLabel: 'Hva syns du om tjenesten?', layout: 'horizontal' },
+  decorators: Story => (
+    <StoryTemplate title="Feedback - horizontal layout">
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const WithoutTextArea = (args: FeedbackProps) => {
-  return (
-    <StoryTemplate title="Feedback - Without Text Area">
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        feedbackTextAreaExcluded
-      />
+export const WithoutTextArea: Story = {
+  args: {
+    ratingLabel: 'Hva syns du om tjenesten?',
+    feedbackTextAreaExcluded: true,
+  },
+  decorators: Story => (
+    <StoryTemplate title="Feedback - without text area">
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const CustomLabels = (args: FeedbackProps) => {
-  return (
-    <StoryTemplate title="Feedback - Custom Labels">
-      <Feedback
-        {...args}
-        ratingLabel={'Min egne label'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-      />
-      <hr style={{ width: '100%' }} />
-      <Feedback
-        {...args}
-        ratingLabel={'Min egne label'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        positiveFeedbackLabel={'Min egne positive label'}
-        ratingValue="positive"
-      />
-      <hr style={{ width: '100%' }} />
-      <Feedback
-        {...args}
-        ratingLabel={'Min egne label'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        negativeFeedbackLabel={'Min egne negative label'}
-        ratingValue="negative"
-      />
+export const CustomLabels: Story = {
+  args: {
+    ratingLabel: 'Min egen label',
+    positiveFeedbackLabel: 'Min egen positive label',
+    negativeFeedbackLabel: 'Min egen negative label',
+  },
+  decorators: Story => (
+    <StoryTemplate title="Feedback - custom labels">
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <>
+      <Feedback {...args} />
+      <Divider />
+      <Feedback {...args} ratingValue="positive" />
+      <Divider />
+      <Feedback {...args} ratingValue="negative" />
+    </>
+  ),
 };
 
-export const CustomButtonTooltips = (args: FeedbackProps) => {
-  return (
-    <StoryTemplate title="Feedback - Custom Button Tooltips">
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        thumbUpTooltip={'Liker'}
-        thumbDownTooltip={'Liker ikke'}
-      />
+export const CustomButtonTooltip: Story = {
+  args: {
+    ratingLabel: 'Hva syns du om tjenesten?',
+    thumbUpTooltip: 'Liker',
+    thumbDownTooltip: 'Liker ikke',
+  },
+  decorators: Story => (
+    <StoryTemplate title="Feedback - custom button tooltip">
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const LoadingState = (args: FeedbackProps) => {
-  return (
-    <StoryTemplate title="Feedback - Loading">
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        loading
-      />
-      <hr style={{ width: '100%' }} />
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        ratingValue="positive"
-        loading
-      />
+export const LoadingState: Story = {
+  args: {
+    ratingLabel: 'Hva synes du om tjenesten?',
+  },
+  decorators: Story => (
+    <StoryTemplate title="Feedback - loading">
+      <Story />
     </StoryTemplate>
-  );
-};
-
-export const ControlledComponent = (args: FeedbackProps) => {
-  return (
-    <StoryTemplate title="Feedback - Controlled Component">
-      Komponenten kan også brukes som en "controlled component", altså at
-      verdiene styres helt fra utsiden av komponenten.
-      <hr style={{ width: '100%' }} />
-      Kontrollert rating:
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        ratingValue={null}
-      />
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        ratingValue="positive"
-      />
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        ratingValue="negative"
-      />
-      <hr style={{ width: '100%' }} />
-      Kontrollert tekstfelt:
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        ratingValue="positive"
-        feedbackTextValue="Dette var ekstremt bra; Tommel opp!"
-      />
-      <hr style={{ width: '100%' }} />
-      Kontrollert at tilbakemelding er sendt inn:
-      <Feedback
-        {...args}
-        ratingLabel={args.ratingLabel ?? 'Hva syns du om tjenesten?'}
-        onSubmit={undefined}
-        onRating={undefined}
-        onFeedbackTextChange={undefined}
-        isSubmitted
-      />
-    </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <>
+      <Feedback {...args} loading />
+      <Divider />
+      <Feedback {...args} ratingValue="positive" loading />
+    </>
+  ),
 };

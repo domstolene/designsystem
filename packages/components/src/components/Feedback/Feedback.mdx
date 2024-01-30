@@ -1,16 +1,6 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Story,
-  Canvas,
-} from '@storybook/blocks';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Meta, Canvas, Controls, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as FeedbackStories from './Feedback.stories';
 
 <Meta of={FeedbackStories} />
@@ -29,22 +19,11 @@ Denne feedback-komponenten kan brukes sammen med den [fellese tilbakemeldingskli
 
 ## Demo
 
-<Canvas>
-  <Story of={FeedbackStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-feedback`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/" story="Default">Storybook</LinkTo>.
 
-## Bruk i koden
+## Props
 
-<Source
-  code={`import { Feedback } from '@norges-domstoler/dds-components';
-
-<Feedback ratingLabel="Hvordan opplevdes innsendingen?" />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={FeedbackStories.Default} sourceState="shown" />
+<Controls of={FeedbackStories.Default} />
