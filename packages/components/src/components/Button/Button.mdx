@@ -1,10 +1,6 @@
-import { Story, Canvas, Meta, ArgTypes } from '@storybook/blocks';
-import {
-  Source,
-  ComponentLinkRow,
-  LinkToInteractiveStory,
-  SB_DESIGNSYSTEM_URL,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ButtonStories from './Button.stories';
 
 <Meta of={ButtonStories} />
@@ -19,24 +15,14 @@ import * as ButtonStories from './Button.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={ButtonStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-button`} />
+Se stories med kontrollere i <LinkTo title="dds-components/Button" story="Default">Storybook</LinkTo>.
 
-## Bruk i koden
+## Props
 
-<Source
-  code={`
-  import { Button } from '@norges-domstoler/dds-components';
-
-<Button>Knapp</Button>
-`} />
-
-## API
-
-<ArgTypes of={ButtonStories.Default} />
+<Canvas of={ButtonStories.Default} sourceState="shown" />
+<Controls of={ButtonStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`. `type`, `onClick`, `onFocus` og `onBlur` er tilgjengelige på rotnivå.
 
