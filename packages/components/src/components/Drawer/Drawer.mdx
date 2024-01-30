@@ -1,16 +1,9 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Canvas, Controls, Primary, Meta, ArgTypes } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import { DrawerGroup } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as DrawerStories from './Drawer.stories';
 
@@ -26,11 +19,9 @@ import * as DrawerStories from './Drawer.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={DrawerStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-drawer`} />
+Se stories med kontrollere i <LinkTo title="dds-components/Drawer" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -82,13 +73,14 @@ const id = 'id';
   Innhold
 </Drawer>`} />
 
-## API
+## Props
 
 ### Drawer
 
 Hovedkomponenten `<Drawer/>`.
 
-<ArgTypes of={DrawerStories} />
+<Canvas of={DrawerStories.Default} sourceState="shown" />
+<Controls of={DrawerStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
