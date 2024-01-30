@@ -1,147 +1,95 @@
 import { Time } from '@internationalized/date';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import type { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { Button } from '../../Button';
-import { TimeIcon } from '../../Icon/icons';
-import { HStack, VStack } from '../../Stack';
-import { TextInput } from '../../TextInput';
-import { Label } from '../../Typography';
-import { DatePicker } from '../DatePicker';
 
-import { TimePicker, type TimePickerProps } from '.';
+import { TimePicker } from '.';
 
 const meta: Meta<typeof TimePicker> = {
   title: 'dds-components/TimePicker',
   component: TimePicker,
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
 export default meta;
 
-export const Default = (args: Partial<TimePickerProps>) => {
-  return (
+type Story = StoryObj<typeof TimePicker>;
+
+export const Default: Story = {
+  args: { label: 'Tidspunkt' },
+  decorators: Story => (
     <StoryTemplate title="TimePicker - default">
-      <TimePicker label="Tidspunkt" {...args} />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const Required = (args: Partial<TimePickerProps>) => {
-  return (
+export const Required: Story = {
+  args: { label: 'Tidspunkt', isRequired: true },
+  decorators: Story => (
     <StoryTemplate title="TimePicker - required">
-      <TimePicker label="Tidspunkt" {...args} isRequired />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const Controlled = (args: Partial<TimePickerProps>) => {
-  const [value, setValue] = useState<Time | null>(new Time(12));
-
-  return (
-    <StoryTemplate title="TimePicker - controlled">
-      <TimePicker
-        label="Tidspunkt"
-        {...args}
-        value={value}
-        onChange={setValue}
-      />
-      <Button onClick={() => setValue(new Time(12))}>
-        Sett til klokken 12
-      </Button>
+export const Controlled: Story = {
+  args: { label: 'Tidspunkt' },
+  decorators: Story => (
+    <StoryTemplate title="TimePicker - required">
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => {
+    const [value, setValue] = useState<Time | null>(new Time(12));
+
+    return (
+      <StoryTemplate title="TimePicker - controlled">
+        <TimePicker {...args} value={value} onChange={setValue} />
+        <Button onClick={() => setValue(new Time(12))}>
+          Sett til klokken 12
+        </Button>
+      </StoryTemplate>
+    );
+  },
 };
 
-export const Error = (args: Partial<TimePickerProps>) => {
-  return (
+export const Error: Story = {
+  args: { label: 'Tidspunkt', errorMessage: 'Her er noe veldig galt! 😨' },
+  decorators: Story => (
     <StoryTemplate title="TimePicker - error">
-      <TimePicker
-        label="Tidspunkt"
-        {...args}
-        errorMessage="Her er noe veldig galt! 😨"
-      />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const OverviewSizes = (args: Partial<TimePickerProps>) => {
-  return (
+export const OverviewSizes: Story = {
+  decorators: Story => (
     <StoryTemplate title="TimePicker - overview sizes">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <TimePicker {...args} componentSize="medium" label="Medium" />
       <TimePicker {...args} componentSize="small" label="Small" />
       <TimePicker {...args} componentSize="tiny" label="Tiny" />
-    </StoryTemplate>
-  );
+    </>
+  ),
 };
 
-export const OverviewSizesComparedWithTextInputWithIcon = (
-  args: Partial<TimePickerProps>,
-) => {
-  const componentSizes = ['medium', 'small', 'tiny'] as const;
-  return (
-    <StoryTemplate title="TimePicker - overview sizes">
-      {componentSizes.map(componentSize => (
-        <VStack
-          key={componentSize}
-          align="flex-start"
-          justify="flex-start"
-          gap="x0.25"
-        >
-          <Label style={{ textTransform: 'capitalize' }}>{componentSize}</Label>
-          <HStack gap="x0.25">
-            <TimePicker
-              label="Tidspunkt"
-              {...args}
-              componentSize={componentSize}
-            />
-            <TextInput
-              label="Tidspunkt"
-              componentSize={componentSize}
-              icon={TimeIcon}
-            />
-          </HStack>
-          <TextInput
-            label="Tidspunkt"
-            componentSize={componentSize}
-            icon={TimeIcon}
-          />
-        </VStack>
-      ))}
-    </StoryTemplate>
-  );
-};
-
-export const OverviewSizesWithDatePicker = (args: Partial<TimePickerProps>) => {
-  const componentSizes = ['medium', 'small', 'tiny'] as const;
-  return (
-    <StoryTemplate title="TimePicker - overview sizes with datepicker">
-      {componentSizes.map(componentSize => (
-        <VStack
-          key={componentSize}
-          align="flex-start"
-          justify="flex-start"
-          gap="x0.25"
-        >
-          <HStack gap="x0.25">
-            <TimePicker
-              {...args}
-              componentSize={componentSize}
-              label="Tidspunkt"
-            />
-            <DatePicker componentSize={componentSize} label="Tidspunkt" />
-          </HStack>
-          <DatePicker componentSize={componentSize} label="Tidspunkt" />
-        </VStack>
-      ))}
-    </StoryTemplate>
-  );
-};
-
-export const CustomWidth = (args: Partial<TimePickerProps>) => {
-  return (
+export const CustomWidth: Story = {
+  args: { label: 'Tidspunkt', width: '500px' },
+  decorators: Story => (
     <StoryTemplate title="TimePicker - custom width">
-      <TimePicker {...args} width="500px" label="Tidspunkt" />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
