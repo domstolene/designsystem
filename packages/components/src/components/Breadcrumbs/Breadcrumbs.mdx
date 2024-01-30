@@ -1,17 +1,6 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { Breadcrumb, Breadcrumbs } from '.';
-import {
-  Source,
-  ComponentLinkRow,
-  LinkToInteractiveStory,
-  SB_DESIGNSYSTEM_URL,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as BreadcrumbsStories from './Breadcrumbs.stories';
 
 <Meta of={BreadcrumbsStories} />
@@ -26,13 +15,9 @@ import * as BreadcrumbsStories from './Breadcrumbs.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={BreadcrumbsStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-breadcrumbs`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/Breadcrumbs" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -43,26 +28,14 @@ Komponenten består av to subkomponenter:
 
 Siste `<Breadcrumb />` skal være den siden brukeren er på, uten oppgitt URL.
 
-## Bruk i koden
-
-<Source
-  code={`
-  import { Breadcrumb, Breadcrumbs } from '@norges-domstoler/dds-components';
-
-<Breadcrumbs>
-  <Breadcrumb href="#">Side 1</Breadcrumb>
-  <Breadcrumb href="#">Side 2</Breadcrumb>
-  <Breadcrumb>Side 3</Breadcrumb>
-</Breadcrumbs>
-`} />
-
-## API
+## Props
 
 ### Breadcrumbs
 
-Selve brødsmulestien. Skal ha `<Breadcrumb />` som barn.
+<Canvas of={BreadcrumbsStories.Default} sourceState="shown" />
+<Controls of={BreadcrumbsStories.Default} />
 
-<ArgTypes of={BreadcrumbsStories.Default} />
+Selve brødsmulestien. Skal ha `<Breadcrumb />` som barn.
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
 
