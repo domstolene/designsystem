@@ -1,16 +1,9 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Meta, ArgTypes, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import { DescriptionListDesc, DescriptionListGroup } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as DescriptionListStories from './DescriptionList.stories';
 
@@ -26,13 +19,9 @@ import * as DescriptionListStories from './DescriptionList.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={DescriptionListStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-descriptionlist`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/DescriptionList" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
