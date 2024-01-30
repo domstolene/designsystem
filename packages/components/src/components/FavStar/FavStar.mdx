@@ -1,15 +1,8 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 
 import * as FavStarStories from './FavStar.stories';
@@ -26,11 +19,9 @@ import * as FavStarStories from './FavStar.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={FavStarStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-favstar`} />
+Se stories med kontrollere i <LinkTo title="dds-components/FavStar" story="Default">Storybook</LinkTo>.
 
 ## Bruk i koden
 
@@ -44,6 +35,7 @@ const [checked, setChecked] = useState<boolean>(false);
 <FavStar checked={checked} onChange={setChecked} />
 `} />
 
-## API
+## Props
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={FavStarStories.Default} sourceState="shown" />
+<Controls of={FavStarStories.Default} />
