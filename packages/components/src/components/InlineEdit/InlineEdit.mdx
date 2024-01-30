@@ -1,18 +1,12 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { InlineEditInput, InlineEditTextArea } from '.';
+import { Primary, Meta, Canvas, Controls } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as InlineEditStories from './InlineEdit.stories';
+import * as InlineEditInputStories from './InlineEditInput.stories';
+import * as InlineEditTextAreaStories from './InlineEditTextArea.stories';
 
 <Meta of={InlineEditStories} />
 
@@ -26,21 +20,9 @@ import * as InlineEditStories from './InlineEdit.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-inlineedit-inlineeditinput--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-inlineedit-inlineeditinput--default" />
-</Canvas>
-
-<Canvas>
-  {/* <Story id="dds-components-inlineedit-inlineedittextarea--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-inlineedit-inlineedittextarea--default" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-inlineedit`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/InlineEdit" story="OverviewInputTypes">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -62,13 +44,14 @@ const [value, setValue] = useState('');
 `}
 />
 
-## API
+## Props
 
 ### InlineEditTextArea
 
 Inputfeltet. Returnerer `<textarea>`.
 
-<ArgTypes of={InlineEditTextArea} />
+<Canvas of={InlineEditTextAreaStories.Default} sourceState="shown" />
+<Controls of={InlineEditTextAreaStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
 
@@ -76,6 +59,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAt
 
 Inputfeltet. Returnerer `<input>`.
 
-<ArgTypes of={InlineEditInput} />
+<Canvas of={InlineEditInputStories.Default} sourceState="shown" />
+<Controls of={InlineEditInputStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
