@@ -1,8 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { EditIcon } from '../Icon/icons';
 
-import { InternalHeader, type InternalHeaderProps } from '.';
+import { InternalHeader } from '.';
 
 export default {
   title: 'dds-components/InternalHeader',
@@ -14,13 +15,9 @@ export default {
     smallScreen: { control: { type: 'boolean' } },
   },
   parameters: {
-    controls: {
-      exclude: [
-        'style',
-        'contextMenuElements',
-        'navigationElements',
-        'userProps',
-      ],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
@@ -47,8 +44,6 @@ const navigationLinks = [
   longNavigationLink,
 ];
 
-const shortNavigationLinks = [navigationLink, navigationLink, navigationLink];
-
 const user = {
   name: 'Navn Navnesen',
 };
@@ -70,206 +65,182 @@ const menuElement = {
 
 const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
-export const Overview = () => (
-  <StoryTemplate
-    title="InternalHeader - overview"
-    gap="40px"
-    containerStyle={{ alignItems: 'stretch' }}
-  >
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-    />
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-      navigationElements={navigationLinks}
-      contextMenuElements={menuElements}
-      userProps={user}
-    />
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-      navigationElements={[navigationLink, uniqueNavigationLink]}
-      contextMenuElements={menuElements}
-      userProps={user}
-      currentPageHref="#"
-    />
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-      navigationElements={navigationLinks}
-      userProps={userWithHref}
-    />
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-      navigationElements={navigationLinks}
-      contextMenuElements={menuElements}
-      userProps={userWithHref}
-    />
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-      contextMenuElements={menuElements}
-      userProps={user}
-    />
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-      navigationElements={navigationLinks}
-      contextMenuElements={menuElements}
-      userProps={user}
-      smallScreen
-    />
-    <InternalHeader
-      applicationDesc="Beskrivelse/tittel på underside"
-      applicationName="Navn på applikasjon"
-      navigationElements={navigationLinks}
-      userProps={user}
-      smallScreen
-    />
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof InternalHeader>;
 
-export const Default = (args: InternalHeaderProps) => (
-  <StoryTemplate title="InternalHeader - default" display="block">
-    <InternalHeader
-      applicationName="Navn på applikasjon"
-      applicationDesc="Beskrivelse/tittel på underside"
-      {...args}
-    />
-  </StoryTemplate>
-);
+export const Default: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+  },
+  decorators: Story => (
+    <StoryTemplate title="InternalHeader - default" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
-export const WithNavigationAndContextMenu = (args: InternalHeaderProps) => (
-  <StoryTemplate
-    title="InternalHeader - with nav and context menu"
-    display="block"
-  >
-    <InternalHeader
-      applicationName="Navn på applikasjon"
-      applicationDesc="Beskrivelse/tittel på underside"
-      {...args}
-      navigationElements={navigationLinks}
-      contextMenuElements={menuElements}
-      userProps={user}
-    />
-  </StoryTemplate>
-);
-
-export const WithCurrentPage = (args: InternalHeaderProps) => {
-  return (
-    <StoryTemplate title="InternalHeader - with current page" display="block">
+export const Overview: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+  },
+  decorators: Story => (
+    <StoryTemplate
+      title="InternalHeader - overview"
+      gap="40px"
+      containerStyle={{ alignItems: 'stretch' }}
+    >
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <InternalHeader {...args} />
       <InternalHeader
-        applicationName="Navn på applikasjon"
-        applicationDesc="Beskrivelse/tittel på underside"
+        {...args}
+        navigationElements={navigationLinks}
+        contextMenuElements={menuElements}
+        userProps={user}
+      />
+      <InternalHeader
         {...args}
         navigationElements={[navigationLink, uniqueNavigationLink]}
         contextMenuElements={menuElements}
         userProps={user}
         currentPageHref="#"
       />
-    </StoryTemplate>
-  );
-};
-
-export const SmallScreenWithNavigation = (args: InternalHeaderProps) => (
-  <StoryTemplate
-    title="InternalHeader - small screen with navigation"
-    display="block"
-  >
-    <InternalHeader
-      applicationName="Navn på applikasjon"
-      applicationDesc="Beskrivelse/tittel på underside"
-      {...args}
-      navigationElements={navigationLinks}
-      smallScreen
-    />
-  </StoryTemplate>
-);
-
-export const SmallScreenWithContextMenu = (args: InternalHeaderProps) => {
-  return (
-    <StoryTemplate
-      title="InternalHeader - small screen with context menu"
-      display="block"
-    >
       <InternalHeader
-        applicationName="Navn på applikasjon"
-        applicationDesc="Beskrivelse/tittel på underside"
+        {...args}
+        navigationElements={navigationLinks}
+        userProps={userWithHref}
+      />
+      <InternalHeader
+        {...args}
+        navigationElements={navigationLinks}
+        contextMenuElements={menuElements}
+        userProps={userWithHref}
+      />
+      <InternalHeader
         {...args}
         contextMenuElements={menuElements}
         userProps={user}
       />
-    </StoryTemplate>
-  );
+      <InternalHeader
+        {...args}
+        navigationElements={navigationLinks}
+        contextMenuElements={menuElements}
+        userProps={user}
+        smallScreen
+      />
+      <InternalHeader
+        {...args}
+        navigationElements={navigationLinks}
+        userProps={user}
+        smallScreen
+      />
+    </>
+  ),
 };
 
-export const SmallScreenWithNavigationAndContextMenu = (
-  args: InternalHeaderProps,
-) => (
-  <StoryTemplate
-    title="InternalHeader - small screen with navigation and context menu"
-    display="block"
-  >
-    <InternalHeader
-      applicationName="Navn på applikasjon"
-      applicationDesc="Beskrivelse/tittel på underside"
-      {...args}
-      userProps={user}
-      navigationElements={navigationLinks}
-      contextMenuElements={menuElements}
-      smallScreen
-    />
-  </StoryTemplate>
-);
+export const WithNavigationAndContextMenu: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+    navigationElements: navigationLinks,
+    contextMenuElements: menuElements,
+    userProps: user,
+  },
+  decorators: Story => (
+    <StoryTemplate
+      title="InternalHeader - with nav and context menu"
+      display="block"
+    >
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
-export const NoStoryHeading = (args: InternalHeaderProps) => (
-  <InternalHeader
-    applicationName="Navn på applikasjon"
-    applicationDesc="Beskrivelse/tittel på underside"
-    {...args}
-    userProps={user}
-    navigationElements={shortNavigationLinks}
-    contextMenuElements={menuElements}
-  />
-);
+export const WithCurrentPage: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+    navigationElements: [navigationLink, uniqueNavigationLink],
+    contextMenuElements: menuElements,
+    userProps: user,
+    currentPageHref: '#',
+  },
+  decorators: Story => (
+    <StoryTemplate title="InternalHeader - with current page" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
-export const NoStoryHeadingSmallScreen = (args: InternalHeaderProps) => (
-  <InternalHeader
-    applicationName="Navn på applikasjon"
-    applicationDesc="Beskrivelse/tittel på underside"
-    {...args}
-    navigationElements={navigationLinks}
-    contextMenuElements={menuElements}
-    userProps={user}
-    smallScreen
-  />
-);
+export const SmallScreenWithNavigation: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+    navigationElements: navigationLinks,
+    smallScreen: true,
+  },
+  decorators: Story => (
+    <StoryTemplate
+      title="InternalHeader - small screen with navigation"
+      display="block"
+    >
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
-export const NoStoryHeadingSmallScreenLong = (args: InternalHeaderProps) => (
-  <InternalHeader
-    applicationName="Navn på applikasjon"
-    applicationDesc="Beskrivelse/tittel på underside"
-    {...args}
-    navigationElements={[...navigationLinks, ...navigationLinks]}
-    contextMenuElements={[...navigationLinks, ...navigationLinks]}
-    userProps={user}
-    smallScreen
-  />
-);
+export const SmallScreenWithContextMenu: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+    contextMenuElements: menuElements,
+    smallScreen: true,
+  },
+  decorators: Story => (
+    <StoryTemplate
+      title="InternalHeader - small screen with context menu"
+      display="block"
+    >
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
-export const NonInteractiveUserOnly = (args: InternalHeaderProps) => (
-  <StoryTemplate
-    title="InternalHeader - non-interactive user only"
-    display="block"
-  >
-    <InternalHeader
-      applicationName="Navn på applikasjon"
-      applicationDesc="Beskrivelse/tittel på underside"
-      {...args}
-      userProps={user}
-    />
-  </StoryTemplate>
-);
+export const SmallScreenWithNavigationAndContextMenu: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+    contextMenuElements: menuElements,
+    navigationElements: navigationLinks,
+    userProps: user,
+    smallScreen: true,
+  },
+  decorators: Story => (
+    <StoryTemplate
+      title="InternalHeader - small screen with navigation and context menu"
+      display="block"
+    >
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const NonInteractiveUserOnly: Story = {
+  args: {
+    applicationName: 'Navn på applikasjon',
+    applicationDesc: 'Beskrivelse/tittel på underside',
+    userProps: user,
+  },
+  decorators: Story => (
+    <StoryTemplate
+      title="InternalHeader - non-interactive user only"
+      display="block"
+    >
+      <Story />
+    </StoryTemplate>
+  ),
+};
