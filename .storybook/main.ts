@@ -11,6 +11,7 @@ const config: StorybookConfig = {
   ],
   staticDirs: ['./images', '../packages/components/dist/assets/fonts'],
   addons: [
+    '@storybook/addon-links',
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     {

@@ -33,6 +33,9 @@ importers:
       '@storybook/addon-essentials':
         specifier: 7.6.10
         version: 7.6.10(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addon-links':
+        specifier: ^7.6.10
+        version: 7.6.10(react@18.2.0)
       '@storybook/addon-storysource':
         specifier: 7.6.10
         version: 7.6.10
@@ -3737,6 +3740,20 @@ packages:
     resolution: {integrity: sha512-dIuS5QmoT1R+gFOcf6CoBa6D9UR5/wHCfPqPRH8dNNcCLtIGSHWQ4v964mS5OCq1Huj7CghmR15lOUk7SaYwUA==}
     dependencies:
       '@storybook/global': 5.0.0
+    dev: true
+
+  /@storybook/addon-links@7.6.10(react@18.2.0):
+    resolution: {integrity: sha512-s/WkSYHpr2pb9p57j6u/xDBg3TKJhBq55YMl0GB5gXgkRPIeuGbPhGJhm2yTGVFLvXgr/aHHnOxb/R/W8PiRhA==}
+    peerDependencies:
+      react: 18.2.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      '@storybook/csf': 0.1.2
+      '@storybook/global': 5.0.0
+      react: 18.2.0
+      ts-dedent: 2.2.0
     dev: true
 
   /@storybook/addon-measure@7.6.10:
