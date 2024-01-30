@@ -265,6 +265,7 @@ export const getCustomStyles = <TOption>(
     alignItems: 'center',
     gap: option.base.gap,
     padding: option.base.padding,
+    color: option.base.color,
     backgroundColor: option.base.backgroundColor,
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',
@@ -274,6 +275,7 @@ export const getCustomStyles = <TOption>(
       backgroundColor: option.hover.backgroundColor,
     },
     ...(state.isSelected && {
+      color: option.selected.color,
       backgroundColor: option.selected.backgroundColor,
     }),
     ...(state.isFocused && {
