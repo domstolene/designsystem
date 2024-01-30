@@ -1,17 +1,29 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Chip, type ChipProps } from '.';
+import { Chip } from '.';
 
 export default {
   title: 'dds-components/Chip/Chip',
   component: Chip,
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
   argTypes: {
     text: { control: { type: 'text' } },
   },
 };
 
-export const Default = (args: ChipProps) => (
-  <StoryTemplate title="Chip - default">
-    <Chip {...args} text={args.text ?? 'Chip'} />
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof Chip>;
+
+export const Default: Story = {
+  args: { text: 'Chip' },
+  decorators: Story => (
+    <StoryTemplate title="Chip - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};

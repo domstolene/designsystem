@@ -1,10 +1,6 @@
-import { Canvas, Story, Meta, ArgTypes } from '@storybook/blocks';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ChipStories from './Chip.stories';
 import * as ChipGroupStories from './ChipGroup.stories';
 
@@ -20,17 +16,11 @@ import * as ChipGroupStories from './ChipGroup.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={ChipStories.Default} />
-</Canvas>
+<Canvas of={ChipStories.Default} />
 
-<Canvas>
-  <Story of={ChipGroupStories.Default} />
-</Canvas>
+<Canvas of={ChipGroupStories.Default} />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-chip-chip`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/Chip/Chip" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -39,30 +29,19 @@ Komponenten består av to subkomponenter:
 - `<Chip />` - hovedkomponenten
 - `<ChipGroup />` - en gruppe som rendrer en liste med `<Chip />`-barn
 
-## Bruk i koden
-
-<Source
-  code={`
-  import { Chip, ChipGroup } from '@norges-domstoler/dds-components';
-
-<Chip text="text" />
-
-<ChipGroup>
-  <Chip text="text" />
-</ChipGroup>
-`} />
-
-## API
+## Props
 
 ### Chip
 
-<ArgTypes of={ChipStories} />
+<Canvas of={ChipStories.Default} />
+<Controls of={ChipStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
 ### ChipGroup
 
-<ArgTypes of={ChipGroupStories} />
+<Canvas of={ChipGroupStories.Default} />
+<Controls of={ChipGroupStories.Default} />
 
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLUListElement>`-interface i `htmlProps`.
 
