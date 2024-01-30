@@ -1,6 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Checkbox, type CheckboxProps } from '.';
+import { Checkbox } from '.';
 
 export default {
   title: 'dds-components/Checkbox/Checkbox',
@@ -13,15 +14,23 @@ export default {
     indeterminate: { control: { type: 'boolean' } },
   },
   parameters: {
-    controls: {
-      exclude: ['style', 'className'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
 
-export const Overview = (args: CheckboxProps) => {
-  return (
+type Story = StoryObj<typeof Checkbox>;
+
+export const Overview: Story = {
+  decorators: Story => (
     <StoryTemplate title="Checkbox - overview" display="grid">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <Checkbox {...args} label={args.label ?? 'Default'} />
       <Checkbox {...args} label={args.label ?? 'Checked'} checked />
       <Checkbox {...args} label={args.label ?? 'Indeterminate'} indeterminate />
@@ -41,21 +50,15 @@ export const Overview = (args: CheckboxProps) => {
       <Checkbox {...args} label={args.label ?? 'Error'} error />
       <Checkbox {...args} label={args.label ?? 'Error checked'} error checked />
       <Checkbox {...args} />
-    </StoryTemplate>
-  );
+    </>
+  ),
 };
 
-export const Default = (args: CheckboxProps) => {
-  return (
+export const Default: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
     <StoryTemplate title="Checkbox - default" display="block">
-      <Checkbox {...args} />
+      <Story />
     </StoryTemplate>
-  );
-};
-export const WithLabel = (args: CheckboxProps) => {
-  return (
-    <StoryTemplate title="Checkbox - with label" display="block">
-      <Checkbox {...args} label={args.label ?? 'Label'} />
-    </StoryTemplate>
-  );
+  ),
 };

@@ -1,15 +1,8 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Story, Canvas, Controls, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as CheckboxStories from './Checkbox.stories';
 import * as CheckboxGroupStories from './CheckboxGroup.stories';
@@ -26,39 +19,20 @@ import * as CheckboxGroupStories from './CheckboxGroup.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={CheckboxStories.Default} />
-</Canvas>
+<Canvas of={CheckboxStories.Default} />
 
-<Canvas>
-  <Story of={CheckboxGroupStories.Default} />
-</Canvas>
+<Canvas of={CheckboxGroupStories.Default} />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-checkbox-checkbox`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/Checkbox/Checkbox" story="Default">Storybook</LinkTo>.
 
-## Bruk i koden
-
-<Source
-  code={`
-  import { Checkbox, CheckboxGroup } from '@norges-domstoler/dds-components';
-
-<Checkbox label="Option" />
-
-<CheckboxGroup label="Label">
-  <Checkbox label="Option" />
-  <Checkbox label="Option" />
-</CheckboxGroup>
-`} />
-
-## API
+## Props
 
 ### Checkbox
 
 En avkrysningboks.
 
-<ArgTypes of={CheckboxStories} />
+<Canvas of={CheckboxStories.Default} sourceState="shown" />
+<Controls of={CheckboxStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
 `name`, `checked`, `defaultChecked`, `value`, `defaultValue`, `onChange`, `onBlur` er tilgjengelige på rotnivå.
@@ -67,7 +41,8 @@ I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttri
 
 Wrapper for en `<Checkbox />` gruppe. Brukes ved flere barn.
 
-<ArgTypes of={CheckboxGroupStories} />
+<Canvas of={CheckboxGroupStories.Default} sourceState="shown" />
+<Controls of={CheckboxGroupStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
