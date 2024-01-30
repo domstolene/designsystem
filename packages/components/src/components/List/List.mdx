@@ -1,16 +1,8 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Canvas,
-  Story,
-} from '@storybook/blocks';
-import { List, ListItem } from '.';
+import { Meta, ArgTypes, Canvas, Controls, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as ListStories from './List.stories';
 
@@ -26,13 +18,9 @@ import * as ListStories from './List.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-list--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-list--default" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-list`} />
+Se stories med kontrollere i <LinkTo title="dds-components/List" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -41,25 +29,14 @@ Lister bygges med to subkomponenter som tilsvarer native HTML-elementer:
 - `<List />`
 - `<ListItem />`
 
-## Bruk i koden
-
-<Source
-  code={`
-  import { List, ListItem } from '@norges-domstoler/dds-components';
-
-<List>
-  <ListItem> Item </ListItem>
-  <ListItem> Item </ListItem>
-</List>
-`} />
-
-## API
+## Props
 
 ### List
 
 Tilsvarer `<ul>` eller `<ol>`.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={ListStories.Default} sourceState="shown" />
+<Controls of={ListStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLOListElement>` og `HTMLAttributes<HTMLUListElement>`-interface i `htmlProps`.
 
