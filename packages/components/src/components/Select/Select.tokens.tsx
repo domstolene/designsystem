@@ -127,6 +127,7 @@ const groupHeading = {
 
 const option = {
   base: {
+    color: textDefault.textColor,
     gap: spacing.SizesDdsSpacingX05,
     padding: `${spacing.SizesDdsSpacingX075}`,
     backgroundColor: colors.DdsColorNeutralsWhite,
@@ -140,6 +141,7 @@ const option = {
     backgroundColor: colors.DdsColorInteractiveLightest,
   },
   selected: {
+    color: textDefault.textColor,
     backgroundColor: colors.DdsColorNeutralsWhite,
   },
 };
