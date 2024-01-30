@@ -1,8 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 
-import { Icon, type IconProps } from '.';
+import { Icon } from '.';
 
 export default {
   title: 'dds-components/Icon',
@@ -11,38 +12,59 @@ export default {
     color: { control: { type: 'text' } },
   },
   parameters: {
-    controls: {
-      exclude: ['className'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
 
-export const Overview = (args: IconProps) => {
-  return (
-    <StoryTemplate title="Icon - overview" display="grid" $columnsAmount={4}>
-      <Icon {...args} iconSize="inherit" icon={OpenExternal} />
-      <Icon {...args} iconSize="small" icon={OpenExternal} />
-      <Icon {...args} iconSize="medium" icon={OpenExternal} />
-      <Icon {...args} iconSize="large" icon={OpenExternal} />
-    </StoryTemplate>
-  );
-};
+type Story = StoryObj<typeof Icon>;
 
-export const Default = (args: IconProps) => {
-  return (
+export const Default: Story = {
+  args: {
+    icon: OpenExternal,
+  },
+  decorators: Story => (
     <StoryTemplate title="Icon - default">
-      <Icon {...args} icon={OpenExternal} />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const Inherit = (args: IconProps) => {
-  return (
-    <StoryTemplate title="Icon - inherit">
-      <p style={{ display: 'flex', alignItems: 'center', fontSize: '20px' }}>
-        <Icon {...args} icon={OpenExternal} iconSize="inherit" />
-        Tekst
-      </p>
+export const Overview: Story = {
+  args: {
+    icon: OpenExternal,
+  },
+  decorators: Story => (
+    <StoryTemplate title="Icon - overview" display="grid" $columnsAmount={4}>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <>
+      <Icon {...args} iconSize="inherit" />
+      <Icon {...args} iconSize="small" />
+      <Icon {...args} iconSize="medium" />
+      <Icon {...args} iconSize="large" />
+    </>
+  ),
+};
+
+export const Inherit: Story = {
+  args: {
+    icon: OpenExternal,
+    iconSize: 'inherit',
+  },
+  decorators: Story => (
+    <StoryTemplate title="Icon - inherit">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <p style={{ display: 'flex', alignItems: 'center', fontSize: '20px' }}>
+      <Icon {...args} />
+      Tekst
+    </p>
+  ),
 };
