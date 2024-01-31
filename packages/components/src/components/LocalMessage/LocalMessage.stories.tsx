@@ -1,6 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { LocalMessage, type LocalMessageProps } from './LocalMessage';
+import { LocalMessage } from './LocalMessage';
 import { List, ListItem } from '../List';
 import { Typography } from '../Typography';
 
@@ -15,11 +16,38 @@ export default {
     width: { control: { type: 'text' } },
     closable: { control: { type: 'boolean' } },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Overview = (args: LocalMessageProps) => {
-  return (
+type Story = StoryObj<typeof LocalMessage>;
+
+export const Default: Story = {
+  args: {
+    children: 'Dette er en lokal melding',
+  },
+  decorators: Story => (
+    <StoryTemplate title="LocalMessage - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const Overview: Story = {
+  args: {
+    children: 'Dette er en lokal melding',
+  },
+  decorators: Story => (
     <StoryTemplate title="LocalMessage - overview">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <LocalMessage {...args} purpose="info" />
       <LocalMessage {...args} purpose="warning" />
       <LocalMessage {...args} purpose="danger" />
@@ -34,45 +62,40 @@ export const Overview = (args: LocalMessageProps) => {
       <LocalMessage {...args} purpose="success" closable />
       <LocalMessage {...args} purpose="tips" closable />
       <LocalMessage {...args} layout="vertical" closable />
-    </StoryTemplate>
-  );
+    </>
+  ),
 };
 
-export const Default = (args: LocalMessageProps) => {
-  return (
-    <StoryTemplate title="LocalMessage - default">
-      <LocalMessage {...args} message={args.message} />
-    </StoryTemplate>
-  );
-};
-
-export const Closable = (args: LocalMessageProps) => {
-  return (
+export const Closable: Story = {
+  args: {
+    children: 'Dette er en lokal melding',
+    closable: true,
+  },
+  decorators: Story => (
     <StoryTemplate title="LocalMessage - closable">
-      <LocalMessage
-        {...args}
-        purpose={args.purpose}
-        message={args.message}
-        closable
-      />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const ComplexContent = (args: LocalMessageProps) => {
-  return (
+export const ComplexContent: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate title="LocalMessage - complex content">
-      <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
-        <Typography typographyType="headingSans03" withMargins>
-          Dette er en viktig melding
-        </Typography>
-        <Typography withMargins>Meldingen har en liste i seg:</Typography>
-        <List>
-          <ListItem>Noe her</ListItem>
-          <ListItem>Og også her</ListItem>
-          <ListItem>Og litt mer info her</ListItem>
-        </List>
-      </LocalMessage>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
+      <Typography typographyType="headingSans03" withMargins>
+        Dette er en viktig melding
+      </Typography>
+      <Typography withMargins>Meldingen har en liste i seg:</Typography>
+      <List>
+        <ListItem>Noe her</ListItem>
+        <ListItem>Og også her</ListItem>
+        <ListItem>Og litt mer info her</ListItem>
+      </List>
+    </LocalMessage>
+  ),
 };
