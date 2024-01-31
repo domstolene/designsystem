@@ -1,17 +1,10 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Story,
-  Canvas,
-} from '@storybook/blocks';
-import { Popover, PopoverGroup } from '.';
+import { Meta, ArgTypes, Canvas, Controls, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
+import { PopoverGroup } from '.';
 import * as PopoverStories from './Popover.stories';
 
 <Meta of={PopoverStories} />
@@ -26,13 +19,9 @@ import * as PopoverStories from './Popover.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-popover--default" height="350px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary height="350px" />
 
-  <Story id="dds-components-popover--default" height="350px" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-popover`} />
+Se stories med kontrollere i <LinkTo title="dds-components/Popover" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -53,7 +42,7 @@ Komponenten består av tre elementer:
 </PopoverGroup>
 `} />
 
-## API
+## Props
 
 ### PopoverGroup
 
@@ -72,7 +61,8 @@ Wrapper der anchor-elementet skal være første barnet og `<Popover />` skal væ
 
 Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og onBlur.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={PopoverStories.Default} sourceState="shown" />
+<Controls of={PopoverStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`. **OBS!** `id` er ekskludert da den blir sendt som prop fra <PopoverGroup /> for å sørge for riktig oppførsel. `id` settes via `<PopoverGroup />` `popoverId`-prop.
 
@@ -81,12 +71,12 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 <Source
   code={`
   export type PopoverSizeProps = {
-  width?: CSS.Property.Width<string>;
-  height?: CSS.Property.Height<string>;
-  minWidth?: CSS.Property.MinWidth<string>;
-  minHeight?: CSS.Property.MinHeight<string>;
-  maxWidth?: CSS.Property.MaxWidth<string>;
-  maxHeight?: CSS.Property.MaxHeight<string>;
+    width?: CSS.Property.Width<string>;
+    height?: CSS.Property.Height<string>;
+    minWidth?: CSS.Property.MinWidth<string>;
+    minHeight?: CSS.Property.MinHeight<string>;
+    maxWidth?: CSS.Property.MaxWidth<string>;
+    maxHeight?: CSS.Property.MaxHeight<string>;
   };
   `}
 />
@@ -95,11 +85,7 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 Det kan være relevant å begrense størrelsen på Popover slik at ikke hele teksten vises ved overflow. Da bør den synlige teksten avsluttes med en ellipse:
 
-<Canvas>
-  {/* <Story height="350px" id="dds-components-popover--overflow" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story height="350px" id="dds-components-popover--overflow" />
-</Canvas>
+<Canvas height="350px" of={PopoverStories.Overflow} />
 
 For å oppnå det kan du sette sizeProps til ønskede verdier og gi tekstelementet som
 er barnet i `<Popover />` følgende CSS:
