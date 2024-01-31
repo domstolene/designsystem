@@ -1,18 +1,11 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Canvas,
-  Story,
-} from '@storybook/blocks';
+import { ArgTypes, Meta, Canvas, Controls, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import * as ProgressTrackerStories from './ProgressTracker.stories';
 
 import { ProgressTracker } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 
 <Meta of={ProgressTrackerStories} />
@@ -27,15 +20,9 @@ import {
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-progresstracker--overview" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-progresstracker--overview" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-progresstracker`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/ProgressTracker" story="Overview">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -72,7 +59,8 @@ console.log(index)
 
 Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item />` som barn.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={ProgressTrackerStories.Overview} sourceState="shown" />
+<Controls of={ProgressTrackerStories.Overview} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
