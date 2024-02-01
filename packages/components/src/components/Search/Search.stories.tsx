@@ -1,6 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Search, type SearchProps } from '.';
+import { VStack } from '../Stack';
+
+import { Search } from '.';
 
 export default {
   title: 'dds-components/Search',
@@ -10,8 +13,9 @@ export default {
     label: { control: { type: 'text' } },
   },
   parameters: {
-    controls: {
-      exclude: ['style', 'className', 'buttonProps'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
@@ -33,9 +37,26 @@ const array = [
   'Øst-Agder',
 ];
 
-export const Overview = (args: SearchProps) => {
-  return (
+type Story = StoryObj<typeof Search>;
+
+export const Default: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="Search - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate title="Search - overview">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <VStack gap="x1">
       <Search {...args} componentSize="medium" />
       <Search {...args} componentSize="medium" tip="Dette er en hjelpetekst" />
       <Search {...args} label={args.label ?? 'Label'} />
@@ -74,17 +95,23 @@ export const Overview = (args: SearchProps) => {
         componentSize="medium"
         buttonProps={{ onClick: () => null, loading: true }}
       />
-    </StoryTemplate>
-  );
+    </VStack>
+  ),
 };
 
-export const OverviewSizes = (args: SearchProps) => {
-  return (
+export const OverviewSizes: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate
       title="Search - overview sizes"
       display="grid"
       $columnsAmount={2}
     >
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <Search {...args} componentSize="small" />
       <Search
         {...args}
@@ -103,13 +130,19 @@ export const OverviewSizes = (args: SearchProps) => {
         componentSize="large"
         buttonProps={{ onClick: () => null, label: 'Søk' }}
       />
-    </StoryTemplate>
-  );
+    </>
+  ),
 };
 
-export const OverviewWithSuggestions = (args: SearchProps) => {
-  return (
-    <StoryTemplate title="Search - overview with suggestions">
+export const OverviewWithSuggestion: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="Search - overview with suggestion">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <VStack gap="x1">
       <Search.AutocompleteWrapper data={{ array }}>
         <Search {...args} componentSize="large" />
       </Search.AutocompleteWrapper>
@@ -119,32 +152,32 @@ export const OverviewWithSuggestions = (args: SearchProps) => {
       <Search.AutocompleteWrapper data={{ array }}>
         <Search {...args} componentSize="small" />
       </Search.AutocompleteWrapper>
-    </StoryTemplate>
-  );
+    </VStack>
+  ),
 };
 
-export const Default = (args: SearchProps) => {
-  return (
-    <StoryTemplate title="Search - default" display="block">
+export const WithButton: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="Search - with button">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Search {...args} buttonProps={{ onClick: () => null, label: 'Søk' }} />
+  ),
+};
+
+export const WithSuggestions: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="Search - with suggestions">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Search.AutocompleteWrapper data={{ array }}>
       <Search {...args} />
-    </StoryTemplate>
-  );
-};
-
-export const WithButton = (args: SearchProps) => {
-  return (
-    <StoryTemplate title="Search - with button" display="block">
-      <Search {...args} buttonProps={{ onClick: () => null, label: 'Søk' }} />
-    </StoryTemplate>
-  );
-};
-
-export const WithSuggestions = (args: SearchProps) => {
-  return (
-    <StoryTemplate title="Search - with suggestions" display="block">
-      <Search.AutocompleteWrapper data={{ array }}>
-        <Search {...args} />
-      </Search.AutocompleteWrapper>
-    </StoryTemplate>
-  );
+    </Search.AutocompleteWrapper>
+  ),
 };
