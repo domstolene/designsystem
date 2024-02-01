@@ -1,16 +1,9 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Story,
-  Canvas,
-} from '@storybook/blocks';
-import { Scrollbar, ScrollableContainer } from '.';
+import { Meta, ArgTypes, Primary, Canvas, Controls } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { Scrollbar } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as ScrollableContainerStories from './ScrollableContainer.stories';
 
@@ -26,15 +19,9 @@ import * as ScrollableContainerStories from './ScrollableContainer.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-scrollablecontainer--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-scrollablecontainer--default" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-scrollablecontainer`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/ScrollableContainer" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -96,13 +83,14 @@ const contentRef = useRef();
 </div>
 `} />
 
-## API
+## Props
 
 ## ScrollableContainer
 
 Hovedkomponenten for scrollbar innhold.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={ScrollableContainerStories.Default} sourceState="shown" />
+<Controls of={ScrollableContainerStories.Default} />
 
 ## Scrollbar
 
