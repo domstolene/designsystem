@@ -1,16 +1,8 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { SkipToContent } from '.';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as SkipToContentStories from './SkipToContent.stories';
 
@@ -26,15 +18,9 @@ import * as SkipToContentStories from './SkipToContent.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-skiptocontent--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-skiptocontent--default" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-skiptocontent`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/SkipToContent" story="Default">Storybook</LinkTo>.
 
 ## Bruk i koden
 
@@ -48,9 +34,10 @@ import * as SkipToContentStories from './SkipToContent.stories';
 </body>
 `} />
 
-## API
+## Props
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={SkipToContentStories.Default} sourceState="shown" />
+<Controls of={SkipToContentStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLAnchorElement>`-interface i `htmlProps`.
 
