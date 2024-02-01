@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { PlusCircledIcon } from '../Icon/icons';
 
@@ -7,6 +8,12 @@ import { SplitButton, type SplitButtonProps, type SplitButtonPurpose } from '.';
 export default {
   title: 'dds-components/SplitButton',
   component: SplitButton,
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
 const items = [
@@ -21,31 +28,46 @@ const items = [
   },
 ];
 
-export const Overview = (args: SplitButtonProps) => (
-  <StoryTemplate title="SplitButton - overview" display="grid">
-    <SplitButtonVariants args={args} purpose="primary" />
-    <SplitButtonVariants args={args} purpose="secondary" />
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof SplitButton>;
 
-export const Default = (args: SplitButtonProps) => (
-  <StoryTemplate title="SplitButton - default" display="block">
-    <SplitButton
-      {...args}
-      primaryAction={{ label: 'Tekst' }}
-      secondaryActions={items}
-    />
-  </StoryTemplate>
-);
+export const Default: Story = {
+  args: {
+    primaryAction: { label: 'Tekst', fullWidth: true },
+    secondaryActions: items,
+  },
+  decorators: Story => (
+    <StoryTemplate title="SplitButton - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
-export const FullWidth = () => (
-  <StoryTemplate title="SplitButton - full width" display="block">
-    <SplitButton
-      primaryAction={{ label: 'Tekst', fullWidth: true }}
-      secondaryActions={items}
-    />
-  </StoryTemplate>
-);
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="SplitButton - overview" display="grid">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <SplitButtonVariants args={args} purpose="primary" />
+      <SplitButtonVariants args={args} purpose="secondary" />
+    </>
+  ),
+};
+
+export const FullWidth: Story = {
+  args: {
+    primaryAction: { label: 'Tekst', fullWidth: true },
+    secondaryActions: items,
+  },
+  decorators: Story => (
+    <StoryTemplate title="SplitButton - full width">
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
 interface SplitButtonVariantsProps {
   args: SplitButtonProps;
