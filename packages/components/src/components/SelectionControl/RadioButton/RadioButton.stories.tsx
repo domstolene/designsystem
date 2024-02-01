@@ -1,6 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { RadioButton, type RadioButtonProps } from '.';
+import { RadioButton } from '.';
 
 export default {
   title: 'dds-components/RadioButton/RadioButton',
@@ -12,15 +13,38 @@ export default {
     readOnly: { control: { type: 'boolean' } },
     className: { control: { type: 'text' } },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Overview = (args: RadioButtonProps) => {
-  return (
+type Story = StoryObj<typeof RadioButton>;
+
+export const Default: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate title="RadioButton - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate
-      title="Radio button - overview"
+      title="RadioButton - overview"
       display="grid"
       $columnsAmount={2}
     >
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <RadioButton {...args} label={args.label ?? 'Default'} />
       <RadioButton {...args} label={args.label ?? 'Checked'} checked />
       <RadioButton {...args} label={args.label ?? 'Disabled'} disabled />
@@ -31,15 +55,6 @@ export const Overview = (args: RadioButtonProps) => {
         checked
       />
       <RadioButton {...args} label={args.label ?? 'Error'} error />
-    </StoryTemplate>
-  );
-};
-
-export const Default = (args: RadioButtonProps) => {
-  return (
-    <StoryTemplate title="Radio button - default">
-      <RadioButton {...args} label={args.label ?? 'Label'} name="test" />
-      <RadioButton {...args} label={args.label ?? 'Label'} name="test" />
-    </StoryTemplate>
-  );
+    </>
+  ),
 };

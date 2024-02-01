@@ -1,16 +1,8 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { Spinner } from '.';
+import { Story, Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as SpinnerStories from './Spinner.stories';
 
@@ -25,28 +17,17 @@ import * as SpinnerStories from './Spinner.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-spinner--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-spinner--default" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-spinner`} />
+Se stories med kontrollere i <LinkTo title="dds-components/Spinner" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
 `<Spinner />` er et animert `<svg>`-element som bruker nåværende tid til å bestemme hvor den skal starte i animasjonen.
 
-## Bruk i koden
+## Props
 
-<Source
-  code={`import { Spinner } from '@norges-domstoler/dds-components';
-
-<Spinner />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={SpinnerStories.Default} sourceState="shown" />
+<Controls of={SpinnerStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSVGElement>`-interface i `htmlProps`.

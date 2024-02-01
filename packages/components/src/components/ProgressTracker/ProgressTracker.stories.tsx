@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -22,218 +23,39 @@ import { Heading, Legend, Paragraph } from '../Typography';
 export default {
   title: 'dds-components/ProgressTracker',
   component: ProgressTracker,
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Overview = () => {
-  const numSteps = 3;
+type Story = StoryObj<typeof ProgressTracker>;
 
-  const [activeStep, setActiveStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set());
-
-  return (
-    <StoryTemplate title="ProgressTracker - overview" display="block">
-      <ProgressTracker
-        activeStep={activeStep}
-        onStepChange={step => setActiveStep(step)}
-        htmlProps={{ style: { maxWidth: '800px' } }}
-      >
-        <ProgressTracker.Item completed={completedSteps.has(0)}>
-          Partopplysninger
-        </ProgressTracker.Item>
-        <ProgressTracker.Item completed={completedSteps.has(1)}>
-          Slutning
-        </ProgressTracker.Item>
-        <ProgressTracker.Item completed={completedSteps.has(2)}>
-          Vedlegg
-        </ProgressTracker.Item>
-        <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
-          Sammendrag
-        </ProgressTracker.Item>
-      </ProgressTracker>
-
-      <div style={{ margin: '10px' }}>
-        {activeStep === 0 && <div>Steg 1</div>}
-        {activeStep === 1 && <div>Steg 2</div>}
-        {activeStep === 2 && <div>Steg 3</div>}
-        {activeStep === 3 && <div>Steg 4</div>}
-      </div>
-
-      <Button
-        onClick={() => {
-          setCompletedSteps(s => new Set([...s, activeStep]));
-          if (activeStep < numSteps - 1) {
-            setActiveStep(s => s + 1);
-          }
-        }}
-      >
-        Sett som ferdig
-      </Button>
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="ProgressTracker - overview">
+      <Story />
     </StoryTemplate>
-  );
-};
+  ),
+  render: args => {
+    const numSteps = 3;
 
-export const WithIcons = () => {
-  const numSteps = 3;
+    const [activeStep, setActiveStep] = useState(0);
+    const [completedSteps, setCompletedSteps] = useState(new Set());
 
-  const [activeStep, setActiveStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set());
-
-  return (
-    <StoryTemplate title="ProgressTracker - with icons" display="block">
-      <ProgressTracker
-        activeStep={activeStep}
-        htmlProps={{ style: { maxWidth: '800px' } }}
-        onStepChange={step => setActiveStep(step)}
-      >
-        <ProgressTracker.Item
-          icon={PersonIcon}
-          completed={completedSteps.has(0)}
-        >
-          Partopplysninger
-        </ProgressTracker.Item>
-        <ProgressTracker.Item
-          icon={AttachmentIcon}
-          completed={completedSteps.has(1)}
-        >
-          Vedlegg
-        </ProgressTracker.Item>
-        <ProgressTracker.Item
-          icon={GavelIcon}
-          completed={completedSteps.has(2)}
-        >
-          Slutning
-        </ProgressTracker.Item>
-        <ProgressTracker.Item
-          icon={ChecklistIcon}
-          completed={completedSteps.has(3)}
-          disabled
-        >
-          Sammendrag
-        </ProgressTracker.Item>
-      </ProgressTracker>
-
-      <div style={{ margin: '10px' }}>
-        {activeStep === 0 && <div>Steg 1</div>}
-        {activeStep === 1 && <div>Steg 2</div>}
-        {activeStep === 2 && <div>Steg 3</div>}
-        {activeStep === 3 && <div>Steg 4</div>}
-      </div>
-
-      <Button
-        onClick={() => {
-          setCompletedSteps(s => new Set([...s, activeStep]));
-          if (activeStep < numSteps - 1) {
-            setActiveStep(s => s + 1);
-          }
-        }}
-      >
-        Sett som ferdig
-      </Button>
-    </StoryTemplate>
-  );
-};
-
-export const FutureStepsDisabled = () => {
-  const numSteps = 3;
-
-  const [activeStep, setActiveStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set<number>());
-  const highestCompletedStep = Math.max(...Array.from(completedSteps), -1);
-
-  const handleSetFinishedButtonClick = () => {
-    setCompletedSteps(s => new Set([...s, activeStep]));
-    if (activeStep < numSteps - 1) {
-      setActiveStep(s => s + 1);
-    }
-  };
-
-  const isDisabled = (index: number) => index > highestCompletedStep + 1;
-
-  return (
-    <StoryTemplate title="ProgressTracker - disabled steps" display="block">
-      <ProgressTracker
-        activeStep={activeStep}
-        htmlProps={{ style: { maxWidth: '800px' } }}
-        onStepChange={step => setActiveStep(step)}
-      >
-        <ProgressTracker.Item
-          disabled={isDisabled(0)}
-          completed={completedSteps.has(0)}
-        >
-          Partopplysninger
-        </ProgressTracker.Item>
-        <ProgressTracker.Item
-          disabled={isDisabled(1)}
-          completed={completedSteps.has(1)}
-        >
-          Slutning
-        </ProgressTracker.Item>
-        <ProgressTracker.Item
-          disabled={isDisabled(2)}
-          completed={completedSteps.has(2)}
-        >
-          Vedlegg
-        </ProgressTracker.Item>
-      </ProgressTracker>
-      <div style={{ margin: '10px' }}>
-        {activeStep === 0 && <div>Steg 1</div>}
-        {activeStep === 1 && <div>Steg 2</div>}
-        {activeStep === 2 && <div>Steg 3</div>}
-      </div>
-
-      <Button onClick={() => activeStep > 0 && setActiveStep(s => s - 1)}>
-        Forrige steg
-      </Button>
-      <Button onClick={handleSetFinishedButtonClick}>Neste steg</Button>
-    </StoryTemplate>
-  );
-};
-
-export const Mobile = () => {
-  const numSteps = 3;
-
-  const [activeStep, setActiveStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set());
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
-
-  return (
-    <StoryTemplate title="ProgressTracker - mobile" display="block">
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <div>
-          {activeStep === 0 && <div>Steg 1</div>}
-          {activeStep === 1 && <div>Steg 2</div>}
-          {activeStep === 2 && <div>Steg 3</div>}
-          {activeStep === 3 && <div>Steg 4</div>}
-          <Button
-            onClick={() => {
-              setCompletedSteps(s => new Set([...s, activeStep]));
-              if (activeStep < numSteps - 1) {
-                setActiveStep(s => s + 1);
-              }
-            }}
-          >
-            Sett som ferdig
-          </Button>
-        </div>
-        <Button
-          purpose="secondary"
-          onClick={() => setDrawerOpen(true)}
-          iconPosition="right"
-          icon={ChevronRightIcon}
-        >
-          Steg {activeStep + 1} av 4
-        </Button>
-      </div>
-      <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+    return (
+      <>
         <ProgressTracker
+          {...args}
           activeStep={activeStep}
-          onStepChange={step => {
-            setDrawerOpen(false);
-            setActiveStep(step);
-          }}
+          onStepChange={step => setActiveStep(step)}
+          htmlProps={{ style: { maxWidth: '800px' } }}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
-            Partopplysninger med lang tekst
+            Partopplysninger
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(1)}>
             Slutning
@@ -245,9 +67,232 @@ export const Mobile = () => {
             Sammendrag
           </ProgressTracker.Item>
         </ProgressTracker>
-      </Drawer>
+
+        <div style={{ margin: '10px' }}>
+          {activeStep === 0 && <div>Steg 1</div>}
+          {activeStep === 1 && <div>Steg 2</div>}
+          {activeStep === 2 && <div>Steg 3</div>}
+          {activeStep === 3 && <div>Steg 4</div>}
+        </div>
+
+        <Button
+          onClick={() => {
+            setCompletedSteps(s => new Set([...s, activeStep]));
+            if (activeStep < numSteps - 1) {
+              setActiveStep(s => s + 1);
+            }
+          }}
+        >
+          Sett som ferdig
+        </Button>
+      </>
+    );
+  },
+};
+
+export const WithIcons: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="ProgressTracker - with icons">
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => {
+    const numSteps = 3;
+
+    const [activeStep, setActiveStep] = useState(0);
+    const [completedSteps, setCompletedSteps] = useState(new Set());
+
+    return (
+      <>
+        <ProgressTracker
+          {...args}
+          activeStep={activeStep}
+          htmlProps={{ style: { maxWidth: '800px' } }}
+          onStepChange={step => setActiveStep(step)}
+        >
+          <ProgressTracker.Item
+            icon={PersonIcon}
+            completed={completedSteps.has(0)}
+          >
+            Partopplysninger
+          </ProgressTracker.Item>
+          <ProgressTracker.Item
+            icon={AttachmentIcon}
+            completed={completedSteps.has(1)}
+          >
+            Vedlegg
+          </ProgressTracker.Item>
+          <ProgressTracker.Item
+            icon={GavelIcon}
+            completed={completedSteps.has(2)}
+          >
+            Slutning
+          </ProgressTracker.Item>
+          <ProgressTracker.Item
+            icon={ChecklistIcon}
+            completed={completedSteps.has(3)}
+            disabled
+          >
+            Sammendrag
+          </ProgressTracker.Item>
+        </ProgressTracker>
+
+        <div style={{ margin: '10px' }}>
+          {activeStep === 0 && <div>Steg 1</div>}
+          {activeStep === 1 && <div>Steg 2</div>}
+          {activeStep === 2 && <div>Steg 3</div>}
+          {activeStep === 3 && <div>Steg 4</div>}
+        </div>
+
+        <Button
+          onClick={() => {
+            setCompletedSteps(s => new Set([...s, activeStep]));
+            if (activeStep < numSteps - 1) {
+              setActiveStep(s => s + 1);
+            }
+          }}
+        >
+          Sett som ferdig
+        </Button>
+      </>
+    );
+  },
+};
+
+export const FutureStepsDisabled: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="ProgressTracker - future steps disabled">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const numSteps = 3;
+
+    const [activeStep, setActiveStep] = useState(0);
+    const [completedSteps, setCompletedSteps] = useState(new Set<number>());
+    const highestCompletedStep = Math.max(...Array.from(completedSteps), -1);
+
+    const handleSetFinishedButtonClick = () => {
+      setCompletedSteps(s => new Set([...s, activeStep]));
+      if (activeStep < numSteps - 1) {
+        setActiveStep(s => s + 1);
+      }
+    };
+
+    const isDisabled = (index: number) => index > highestCompletedStep + 1;
+
+    return (
+      <>
+        <ProgressTracker
+          {...args}
+          activeStep={activeStep}
+          htmlProps={{ style: { maxWidth: '800px' } }}
+          onStepChange={step => setActiveStep(step)}
+        >
+          <ProgressTracker.Item
+            disabled={isDisabled(0)}
+            completed={completedSteps.has(0)}
+          >
+            Partopplysninger
+          </ProgressTracker.Item>
+          <ProgressTracker.Item
+            disabled={isDisabled(1)}
+            completed={completedSteps.has(1)}
+          >
+            Slutning
+          </ProgressTracker.Item>
+          <ProgressTracker.Item
+            disabled={isDisabled(2)}
+            completed={completedSteps.has(2)}
+          >
+            Vedlegg
+          </ProgressTracker.Item>
+        </ProgressTracker>
+        <div style={{ margin: '10px' }}>
+          {activeStep === 0 && <div>Steg 1</div>}
+          {activeStep === 1 && <div>Steg 2</div>}
+          {activeStep === 2 && <div>Steg 3</div>}
+        </div>
+
+        <Button onClick={() => activeStep > 0 && setActiveStep(s => s - 1)}>
+          Forrige steg
+        </Button>
+        <Button onClick={handleSetFinishedButtonClick}>Neste steg</Button>
+      </>
+    );
+  },
+};
+
+export const Mobile: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="ProgressTracker - mobile">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const numSteps = 3;
+
+    const [activeStep, setActiveStep] = useState(0);
+    const [completedSteps, setCompletedSteps] = useState(new Set());
+    const [isDrawerOpen, setDrawerOpen] = useState(false);
+
+    return (
+      <>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div>
+            {activeStep === 0 && <div>Steg 1</div>}
+            {activeStep === 1 && <div>Steg 2</div>}
+            {activeStep === 2 && <div>Steg 3</div>}
+            {activeStep === 3 && <div>Steg 4</div>}
+            <Button
+              onClick={() => {
+                setCompletedSteps(s => new Set([...s, activeStep]));
+                if (activeStep < numSteps - 1) {
+                  setActiveStep(s => s + 1);
+                }
+              }}
+            >
+              Sett som ferdig
+            </Button>
+          </div>
+          <Button
+            purpose="secondary"
+            onClick={() => setDrawerOpen(true)}
+            iconPosition="right"
+            icon={ChevronRightIcon}
+          >
+            Steg {activeStep + 1} av 4
+          </Button>
+        </div>
+        <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+          <ProgressTracker
+            {...args}
+            activeStep={activeStep}
+            onStepChange={step => {
+              setDrawerOpen(false);
+              setActiveStep(step);
+            }}
+          >
+            <ProgressTracker.Item completed={completedSteps.has(0)}>
+              Partopplysninger med lang tekst
+            </ProgressTracker.Item>
+            <ProgressTracker.Item completed={completedSteps.has(1)}>
+              Slutning
+            </ProgressTracker.Item>
+            <ProgressTracker.Item completed={completedSteps.has(2)}>
+              Vedlegg
+            </ProgressTracker.Item>
+            <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
+              Sammendrag
+            </ProgressTracker.Item>
+          </ProgressTracker>
+        </Drawer>
+      </>
+    );
+  },
 };
 
 const Layout = styled.div`
@@ -277,84 +322,94 @@ const DesktopOnly = styled.div`
   }
 `;
 
-export const RealWorldExample = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set<number>());
-  const [progressTrackerDrawerOpen, setProgressTrackerDrawerOpen] =
-    useState(false);
+export const RealWorldExample: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="ProgressTracker - real world example">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const [activeStep, setActiveStep] = useState(0);
+    const [completedSteps, setCompletedSteps] = useState(new Set<number>());
+    const [progressTrackerDrawerOpen, setProgressTrackerDrawerOpen] =
+      useState(false);
 
-  const steps = [
-    'Rolle- og saksnummer',
-    'Kontaktinformasjon',
-    'Fakturainformasjon',
-    'Salærberegning',
-    'Fravær',
-    'Utlegg',
-    'Oppsummering',
-  ];
-  const stepItems = steps.map((step, index) => (
-    <ProgressTracker.Item key={step} completed={completedSteps.has(index)}>
-      {step}
-    </ProgressTracker.Item>
-  ));
+    const steps = [
+      'Rolle- og saksnummer',
+      'Kontaktinformasjon',
+      'Fakturainformasjon',
+      'Salærberegning',
+      'Fravær',
+      'Utlegg',
+      'Oppsummering',
+    ];
+    const stepItems = steps.map((step, index) => (
+      <ProgressTracker.Item key={step} completed={completedSteps.has(index)}>
+        {step}
+      </ProgressTracker.Item>
+    ));
 
-  const completeStep = (step: number) => {
-    setCompletedSteps(s => new Set([...s, activeStep]));
-    setActiveStep(step + 1);
-  };
+    const completeStep = (step: number) => {
+      setCompletedSteps(s => new Set([...s, activeStep]));
+      setActiveStep(step + 1);
+    };
 
-  const formSteps = [
-    <RolleSaksnummerForm onSubmit={() => completeStep(0)} />,
-    <Kontaktinformasjon onSubmit={() => completeStep(1)} />,
-    <Fakturainformasjon onSubmit={() => completeStep(2)} />,
-    <Heading level={1}>Salærberegning</Heading>,
-    <Heading level={1}>Fravær</Heading>,
-    <Heading level={1}>Utlegg</Heading>,
-    <Heading level={1}>Oppsummering</Heading>,
-  ];
+    const formSteps = [
+      <RolleSaksnummerForm onSubmit={() => completeStep(0)} />,
+      <Kontaktinformasjon onSubmit={() => completeStep(1)} />,
+      <Fakturainformasjon onSubmit={() => completeStep(2)} />,
+      <Heading level={1}>Salærberegning</Heading>,
+      <Heading level={1}>Fravær</Heading>,
+      <Heading level={1}>Utlegg</Heading>,
+      <Heading level={1}>Oppsummering</Heading>,
+    ];
 
-  return (
-    <Layout>
-      <FormWrapper>
-        <MobileOnly>
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button
-              purpose="secondary"
-              onClick={() => setProgressTrackerDrawerOpen(true)}
-              iconPosition="right"
-              icon={ChevronRightIcon}
+    return (
+      <Layout>
+        <FormWrapper>
+          <MobileOnly>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <Button
+                purpose="secondary"
+                onClick={() => setProgressTrackerDrawerOpen(true)}
+                iconPosition="right"
+                icon={ChevronRightIcon}
+              >
+                Steg {activeStep + 1} av {steps.length}
+              </Button>
+            </div>
+          </MobileOnly>
+          {formSteps[activeStep]}
+        </FormWrapper>
+        <ProgressTrackerWrapper>
+          <MobileOnly>
+            <Drawer
+              isOpen={progressTrackerDrawerOpen}
+              onClose={() => setProgressTrackerDrawerOpen(false)}
             >
-              Steg {activeStep + 1} av {steps.length}
-            </Button>
-          </div>
-        </MobileOnly>
-        {formSteps[activeStep]}
-      </FormWrapper>
-      <ProgressTrackerWrapper>
-        <MobileOnly>
-          <Drawer
-            isOpen={progressTrackerDrawerOpen}
-            onClose={() => setProgressTrackerDrawerOpen(false)}
-          >
+              <ProgressTracker
+                {...args}
+                activeStep={activeStep}
+                onStepChange={newStep => setActiveStep(newStep)}
+              >
+                {stepItems}
+              </ProgressTracker>
+            </Drawer>
+          </MobileOnly>
+          <DesktopOnly>
             <ProgressTracker
+              {...args}
               activeStep={activeStep}
               onStepChange={newStep => setActiveStep(newStep)}
             >
               {stepItems}
             </ProgressTracker>
-          </Drawer>
-        </MobileOnly>
-        <DesktopOnly>
-          <ProgressTracker
-            activeStep={activeStep}
-            onStepChange={newStep => setActiveStep(newStep)}
-          >
-            {stepItems}
-          </ProgressTracker>
-        </DesktopOnly>
-      </ProgressTrackerWrapper>
-    </Layout>
-  );
+          </DesktopOnly>
+        </ProgressTrackerWrapper>
+      </Layout>
+    );
+  },
 };
 
 const Fieldset = styled.fieldset`

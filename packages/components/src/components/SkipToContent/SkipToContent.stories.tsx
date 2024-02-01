@@ -1,9 +1,10 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { Typography } from '../Typography';
 
-import { SkipToContent, type SkipToContentProps } from '.';
+import { SkipToContent } from '.';
 
 const { colors: Colors } = ddsBaseTokens;
 
@@ -15,37 +16,58 @@ export default {
     top: { control: { type: 'text' } },
   },
   parameters: {
-    controls: {
-      exclude: ['style', 'className', 'href'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
 
-export const Overview = () => (
-  <StoryTemplate title="Skip to content - overview" display="block">
-    <div style={{ position: 'relative' }}>
-      <SkipToContent href="#innhold" />
-      <SkipToContent href="#innhold" top={'30px'} text="Alternativ tekst" />
-      'Tab' når du er i frame for å se varianter av komponenten
-      <Typography id="innhold">Innhold</Typography>
-    </div>
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof SkipToContent>;
 
-export const Default = (args: SkipToContentProps) => (
-  <StoryTemplate title="Skip to content - default" display="block">
+export const Default: Story = {
+  args: { href: '#innhold' },
+  decorators: Story => (
+    <StoryTemplate title="SkipToContent - default" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <div style={{ position: 'relative' }}>
-      <SkipToContent {...args} href="#innhold" />
+      <SkipToContent {...args} />
       'Tab' når du er i frame for å se komponenten
       <Typography id="innhold">Innhold</Typography>
     </div>
-  </StoryTemplate>
-);
+  ),
+};
 
-export const Example = (args: SkipToContentProps) => (
-  <StoryTemplate title="Skip to content - example" display="block">
+export const Overview: Story = {
+  args: { href: '#innhold' },
+  decorators: Story => (
+    <StoryTemplate title="SkipToContent - overview" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <div style={{ position: 'relative' }}>
-      <SkipToContent {...args} href="#innhold" />
+      <SkipToContent {...args} />
+      <SkipToContent {...args} top={'30px'} text="Alternativ tekst" />
+      'Tab' når du er i frame for å se varianter av komponenten
+      <Typography id="innhold">Innhold</Typography>
+    </div>
+  ),
+};
+
+export const Example: Story = {
+  args: { href: '#innhold' },
+  decorators: Story => (
+    <StoryTemplate title="SkipToContent - example" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <div style={{ position: 'relative' }}>
+      <SkipToContent {...args} />
       'Tab' når du er i frame for å se komponenten; 'Enter' for å åpne i ny side
       og teste
       <Typography typographyType="headingSans08" withMargins>
@@ -63,5 +85,5 @@ export const Example = (args: SkipToContentProps) => (
         Innhold
       </Typography>
     </div>
-  </StoryTemplate>
-);
+  ),
+};

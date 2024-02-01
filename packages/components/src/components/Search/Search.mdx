@@ -1,16 +1,9 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Canvas, Controls, Primary, Meta, ArgTypes } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import { Search } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as SearchStories from './Search.stories';
 
@@ -26,25 +19,13 @@ import * as SearchStories from './Search.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-search--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-search--default" />
-</Canvas>
+<Canvas of={SearchStories.WithButton} />
 
-<Canvas>
-  {/* <Story id="dds-components-search--with-button" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Canvas of={SearchStories.WithSuggestions} height="470px" />
 
-  <Story id="dds-components-search--with-button" />
-</Canvas>
-
-<Canvas>
-  {/* <Story height="470px" id="dds-components-search--with-suggestions" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story height="470px" id="dds-components-search--with-suggestions" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-search`} />
+Se stories med kontrollere i <LinkTo title="dds-components/Search" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -94,13 +75,14 @@ $}
 `}
 />
 
-## API
+## Props
 
 ### Search
 
 Søkefeltet.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={SearchStories.Default} sourceState="shown" />
+<Controls of={SearchStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 

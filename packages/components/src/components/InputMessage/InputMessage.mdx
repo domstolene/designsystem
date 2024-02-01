@@ -1,16 +1,8 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { InputMessage } from '.';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as InputMessageStories from './InputMessage.stories';
 
@@ -26,15 +18,9 @@ import * as InputMessageStories from './InputMessage.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-inputmessage--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-inputmessage--default" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-inputmessage`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -42,16 +28,9 @@ import * as InputMessageStories from './InputMessage.stories';
 
 **OBS!** Komponenten brukes kun i corner cases der custom inputelementer må brukes istedenfor komponentene fra Elsa.
 
-## Bruk i koden
+## Props
 
-<Source
-  code={`import { InputMessage } fra '@norges-domstoler/dds-components';
-
-<InputMessage messageType="tip" message="hjelpetekst" />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={InputMessageStories.Default} sourceState="shown" />
+<Controls of={InputMessageStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

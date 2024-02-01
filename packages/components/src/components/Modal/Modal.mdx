@@ -1,11 +1,6 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Canvas,
-  Story,
-} from '@storybook/blocks';
-import { Modal, ModalBody, ModalActions } from '.';
+import { Meta, Canvas, Controls, Primary, ArgTypes } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { ModalBody } from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -26,11 +21,9 @@ import * as ModalStories from './Modal.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={ModalStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-modal`} />
+Se stories med kontrollere i <LinkTo title="dds-components/Modal" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -111,13 +104,14 @@ const buttonRef = useRef(null);
 </Modal>
 `} />
 
-## API
+## Props
 
 ### Modal
 
 Hovedkomponenten for modal. Kan ha `<ModalBody />`, `<ModalActions />` og ellers fritt valgt innhold som barn. Legger vertikal spacing mellom barn.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={ModalStories.Default} sourceState="shown" />
+<Controls of={ModalStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 

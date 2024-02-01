@@ -1,17 +1,46 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { Typography } from '../Typography';
 
-import { List, ListItem, type ListProps } from '.';
+import { List, ListItem } from '.';
 
 export default {
   title: 'dds-components/List',
   component: List,
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Overview = (args: ListProps) => {
-  return (
+type Story = StoryObj<typeof List>;
+
+export const Default: Story = {
+  decorators: Story => (
+    <StoryTemplate title="List - default">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <List {...args}>
+      <ListItem>Item</ListItem>
+      <ListItem>Item</ListItem>
+      <ListItem>Item</ListItem>
+    </List>
+  ),
+};
+
+export const Overview: Story = {
+  decorators: Story => (
     <StoryTemplate title="List - overview" display="grid" $columnsAmount={4}>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <List {...args} typographyType="bodySans01">
         <ListItem>Item</ListItem>
         <ListItem>Item</ListItem>
@@ -155,75 +184,70 @@ export const Overview = (args: ListProps) => {
           </List>
         </ListItem>
       </List>
-    </StoryTemplate>
-  );
+    </>
+  ),
 };
 
-export const Default = (args: ListProps) => {
-  return (
-    <StoryTemplate title="List - default">
-      <List {...args}>
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-      </List>
-    </StoryTemplate>
-  );
-};
-
-export const Nested = (args: ListProps) => {
-  return (
+export const Nested: Story = {
+  decorators: Story => (
     <StoryTemplate title="List - nested">
-      <List {...args}>
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List {...args}>
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List {...args}>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
+      <Story />
     </StoryTemplate>
-  );
-};
-
-export const Example = (args: ListProps) => {
-  return (
-    <StoryTemplate title="List - example">
-      <div style={{ maxWidth: '700px' }}>
-        <Typography withMargins>
-          Første gang du gjør tjeneste som arbeidslivskyndig meddommer, vil
-          rettens leder be deg om:
-        </Typography>
+  ),
+  render: args => (
+    <List {...args}>
+      <ListItem>Item</ListItem>
+      <ListItem>Item</ListItem>
+      <ListItem>
+        Item
         <List {...args}>
-          <ListItem>å følge nøye med i forhandlingen</ListItem>
+          <ListItem>Item</ListItem>
           <ListItem>
-            merke deg forklaringene som blir gitt og bevisene som blir fremlagt
-          </ListItem>
-          <ListItem>
-            å gi uttrykk for hvordan du vurderer saken etter at bevisene er lagt
-            frem
-          </ListItem>
-          <ListItem>
-            å ikke legge vekt på andre forhold enn bevisene som er ført i saken
+            Item
+            <List {...args}>
+              <ListItem>Item</ListItem>
+              <ListItem>Item</ListItem>
+            </List>
           </ListItem>
         </List>
-        <Typography withMargins>
-          Første gang du er i retten må du også avgi en forsikring. Den sier at
-          du både i den aktuelle saken og i fremtidige saker vil gi vel akt på
-          alt som fremkommer gjennom forhandlingene i retten, og at du vil dømme
-          slik du finner sannest å rettest å være etter loven og sakens
-          bevisligheter. På oppfordring fra dommeren, skal du til dette svare:
-          «Det forsikrer jeg.»
-        </Typography>
-      </div>
+      </ListItem>
+    </List>
+  ),
+};
+
+export const Example: Story = {
+  decorators: Story => (
+    <StoryTemplate title="List - example">
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <div style={{ maxWidth: '700px' }}>
+      <Typography withMargins>
+        Første gang du gjør tjeneste som arbeidslivskyndig meddommer, vil
+        rettens leder be deg om:
+      </Typography>
+      <List {...args}>
+        <ListItem>å følge nøye med i forhandlingen</ListItem>
+        <ListItem>
+          merke deg forklaringene som blir gitt og bevisene som blir fremlagt
+        </ListItem>
+        <ListItem>
+          å gi uttrykk for hvordan du vurderer saken etter at bevisene er lagt
+          frem
+        </ListItem>
+        <ListItem>
+          å ikke legge vekt på andre forhold enn bevisene som er ført i saken
+        </ListItem>
+      </List>
+      <Typography withMargins>
+        Første gang du er i retten må du også avgi en forsikring. Den sier at du
+        både i den aktuelle saken og i fremtidige saker vil gi vel akt på alt
+        som fremkommer gjennom forhandlingene i retten, og at du vil dømme slik
+        du finner sannest å rettest å være etter loven og sakens bevisligheter.
+        På oppfordring fra dommeren, skal du til dette svare: «Det forsikrer
+        jeg.»
+      </Typography>
+    </div>
+  ),
 };

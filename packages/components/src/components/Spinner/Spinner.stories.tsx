@@ -1,7 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Spinner, type SpinnerProps } from '.';
+import { Spinner } from '.';
 
 export default {
   title: 'dds-components/Spinner',
@@ -11,32 +12,50 @@ export default {
     size: { control: { type: 'text' } },
     tooltip: { control: { type: 'text' }, defaultValue: 'Innlasting pågår' },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Overview = (args: SpinnerProps) => (
-  <StoryTemplate
-    title="Spinner - overview"
-    display="grid"
-    $columnsAmount={4}
-    gap="30px"
-  >
-    <Spinner {...args} />
-    <Spinner {...args} size="60px" tooltip="Egendefinert melding" />
-    <Spinner {...args} color="gray4" />
-    <Spinner {...args} color="gray4" size="60px" />
-    <Spinner {...args} color="success" />
-    <Spinner {...args} color="success" size="60px" />
-    <Spinner {...args} color="gray7" />
-    <Spinner {...args} color="gray7" size="60px" />
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof Spinner>;
 
-export const Default = (args: SpinnerProps) => (
-  <StoryTemplate title="Spinner - default">
-    <Spinner
-      {...args}
-      size={args.size ?? ddsBaseTokens.iconSizes.DdsIconsizeMedium}
-      color={args.color ?? 'interactive'}
-    />
-  </StoryTemplate>
-);
+export const Default: Story = {
+  args: {
+    size: ddsBaseTokens.iconSizes.DdsIconsizeMedium,
+    color: 'interactive',
+  },
+  decorators: Story => (
+    <StoryTemplate title="Spinner - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate
+      title="Spinner - overview"
+      display="grid"
+      $columnsAmount={4}
+      gap="30px"
+    >
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <Spinner {...args} />
+      <Spinner {...args} size="60px" tooltip="Egendefinert melding" />
+      <Spinner {...args} color="gray4" />
+      <Spinner {...args} color="gray4" size="60px" />
+      <Spinner {...args} color="success" />
+      <Spinner {...args} color="success" size="60px" />
+      <Spinner {...args} color="gray7" />
+      <Spinner {...args} color="gray7" size="60px" />
+    </>
+  ),
+};

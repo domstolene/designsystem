@@ -1,11 +1,9 @@
-import { Canvas, Story, Meta, ArgTypes } from '@storybook/blocks';
-import { RadioButtonGroup } from '.';
+import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
+import LinkTo from '@storybook/addon-links/react';
 import * as RadioButtonStories from './RadioButton.stories';
 import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
 
@@ -21,36 +19,20 @@ import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={RadioButtonStories.Default} />
-</Canvas>
+<Canvas of={RadioButtonStories.Default} />
 
-<Canvas>
-  <Story of={RadioButtonGroupStories.Default} />
-</Canvas>
+<Canvas of={RadioButtonGroupStories.Default} />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-radiobutton-radiobutton`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/RadioButton" story="Default">Storybook</LinkTo>.
 
-## Bruk i koden
-
-<Source
-  code={`import { RadioButton, RadioButtonGroup } from '@norges-domstoler/dds-components';
-
-<RadioButtonGroup label="Gruppe">
-  <RadioButton label="Alternativ 1" />
-  <RadioButton label="Alternativ 2" />
-</RadioButtonGroup>
-`} />
-
-## API
+## Props
 
 ### RadioButton
 
 En radioknapp.
 
-<ArgTypes of={RadioButtonStories} />
+<Canvas of={RadioButtonStories.Default} sourceState="shown" />
+<Controls of={RadioButtonStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
 
@@ -58,7 +40,8 @@ I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttri
 
 Wrapper for en `<RadioButton />` gruppe. Brukes ved flere barn.
 
-<ArgTypes of={RadioButtonGroupStories} />
+<Canvas of={RadioButtonGroupStories.Default} sourceState="shown" />
+<Controls of={RadioButtonGroupStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 

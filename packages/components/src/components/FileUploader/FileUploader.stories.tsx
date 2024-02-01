@@ -1,7 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
 import { FileUploader } from './FileUploader';
+import { VStack } from '../Stack';
 
 export default {
   title: 'dds-components/FileUploader',
@@ -10,6 +12,23 @@ export default {
     color: { control: { type: 'text' } },
     size: { control: { type: 'text' } },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
+};
+
+type Story = StoryObj<typeof FileUploader>;
+
+export const Default: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="FileUploader - default">
+      <Story />
+    </StoryTemplate>
+  ),
 };
 
 const SingleFileUploader = () => {
@@ -72,12 +91,18 @@ const WithErrorMessage = () => {
   );
 };
 
-export const Overview = () => {
-  return (
-    <StoryTemplate title="FileUploader - overview">
+export const Overview: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="FileUploader - default">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: () => (
+    <VStack>
       <SingleFileUploader />
       <PdfUploader />
       <WithErrorMessage />
-    </StoryTemplate>
-  );
+    </VStack>
+  ),
 };

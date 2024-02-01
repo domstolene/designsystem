@@ -1,15 +1,8 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as DatePickerStories from './DatePicker.stories';
 
@@ -25,13 +18,9 @@ import * as DatePickerStories from './DatePicker.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={DatePickerStories.Default} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-datepicker`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/DatePicker" story="Default">Storybook</LinkTo>.
 
 ## Bruk i koden
 
@@ -75,9 +64,10 @@ const [value, setValue] = useState<Date>(new Date());
 />
 `}/>
 
-## API
+## Props
 
 `DatePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
 For mer utfyllende dokumentasjon av props referrerer vi deg til [`DatePicker` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/DatePicker.html#props).
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={DatePickerStories.Default} sourceState="shown" />
+<Controls of={DatePickerStories.Default} />

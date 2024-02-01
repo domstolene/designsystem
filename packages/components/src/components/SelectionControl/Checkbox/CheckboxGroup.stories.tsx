@@ -1,6 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Checkbox, CheckboxGroup, type CheckboxGroupProps } from '.';
+import { Checkbox, CheckboxGroup } from '.';
 
 export default {
   title: 'dds-components/Checkbox/CheckboxGroup',
@@ -15,115 +16,78 @@ export default {
     indeterminate: { control: { type: 'boolean' } },
   },
   parameters: {
-    controls: {
-      exclude: ['style', 'className'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
 
-export const Overview = (args: CheckboxGroupProps) => {
-  return (
+type Story = StoryObj<typeof CheckboxGroup>;
+
+export const Overview: Story = {
+  args: {
+    label: 'Label',
+    children: [
+      <Checkbox key={0} label="Option 1" />,
+      <Checkbox key={1} label="Option 2" />,
+      <Checkbox key={2} label="Option 3" />,
+    ],
+  },
+  decorators: Story => (
     <StoryTemplate
       title="CheckboxGroup - overview"
       display="grid"
       $columnsAmount={2}
     >
-      <CheckboxGroup {...args} label={args.label ?? 'Label'}>
-        <Checkbox label="Option 1" />
-        <Checkbox label="Option 2" />
-        <Checkbox label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup {...args} label={args.label ?? 'Label'} direction="column">
-        <Checkbox label="Option 1" />
-        <Checkbox label="Option 2" />
-        <Checkbox label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup {...args} label={args.label ?? 'Label'} required>
-        <Checkbox label="Option 1" />
-        <Checkbox label="Option 2" />
-        <Checkbox label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup
-        {...args}
-        label={args.label ?? 'Label'}
-        direction="column"
-        required
-      >
-        <Checkbox label="Option 1" />
-        <Checkbox label="Option 2" />
-        <Checkbox label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup
-        {...args}
-        label={args.label ?? 'Label'}
-        tip="Dette er en hjelpetekst"
-      >
-        <Checkbox label="Option 1" />
-        <Checkbox label="Option 2" />
-        <Checkbox label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup
-        {...args}
-        label={args.label ?? 'Label'}
-        direction="column"
-        tip="Dette er en hjelpetekst"
-      >
-        <Checkbox label="Option 1" />
-        <Checkbox label="Option 2" />
-        <Checkbox label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup
-        {...args}
-        label={args.label ?? 'Label'}
-        errorMessage="Dette er en feilmelding"
-      >
-        <Checkbox error label="Option 1" />
-        <Checkbox error label="Option 2" />
-        <Checkbox error label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup
-        {...args}
-        label={args.label ?? 'Label'}
-        direction="column"
-        errorMessage="Dette er en feilmelding"
-      >
-        <Checkbox error label="Option 1" />
-        <Checkbox error label="Option 2" />
-        <Checkbox error label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup
-        {...args}
-        label={args.label ?? 'Label'}
-        tip="Dette er en hjelpetekst"
-        errorMessage="Dette er en feilmelding"
-      >
-        <Checkbox error label="Option 1" />
-        <Checkbox error label="Option 2" />
-        <Checkbox error label="Option 3" />
-      </CheckboxGroup>
-      <CheckboxGroup
-        {...args}
-        label={args.label ?? 'Label'}
-        direction="column"
-        tip="Dette er en hjelpetekst"
-        errorMessage="Dette er en feilmelding"
-      >
-        <Checkbox error label="Option 1" />
-        <Checkbox error label="Option 2" />
-        <Checkbox error label="Option 3" />
-      </CheckboxGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <>
+      <CheckboxGroup {...args} />
+      <CheckboxGroup {...args} direction="column" />
+      <CheckboxGroup {...args} required />
+      <CheckboxGroup {...args} direction="column" required />
+      <CheckboxGroup {...args} tip="Dette er en hjelpetekst" />
+      <CheckboxGroup
+        {...args}
+        direction="column"
+        tip="Dette er en hjelpetekst"
+      />
+      <CheckboxGroup {...args} errorMessage="Dette er en feilmelding" />
+      <CheckboxGroup
+        {...args}
+        direction="column"
+        errorMessage="Dette er en feilmelding"
+      />
+      <CheckboxGroup
+        {...args}
+        tip="Dette er en hjelpetekst"
+        errorMessage="Dette er en feilmelding"
+      />
+      <CheckboxGroup
+        {...args}
+        direction="column"
+        tip="Dette er en hjelpetekst"
+        errorMessage="Dette er en feilmelding"
+      />
+    </>
+  ),
 };
 
-export const Default = (args: CheckboxGroupProps) => {
-  return (
+export const Default: Story = {
+  args: {
+    label: 'Label',
+    children: [
+      <Checkbox key={0} label="Option 1" />,
+      <Checkbox key={1} label="Option 2" />,
+      <Checkbox key={2} label="Option 3" />,
+    ],
+  },
+  decorators: Story => (
     <StoryTemplate title="CheckboxGroup - default">
-      <CheckboxGroup {...args} label={args.label ?? 'Label'}>
-        <Checkbox label="Option 1" />
-        <Checkbox label="Option 2" />
-        <Checkbox label="Option 3" />
-      </CheckboxGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };

@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
 import { MenuIcon, PlusCircledIcon } from '../Icon/icons';
@@ -8,12 +9,17 @@ import {
   type OverflowMenuContextItem,
   OverflowMenuGroup,
   type OverflowMenuNavItem,
-  type OverflowMenuProps,
 } from '.';
 
 export default {
   title: 'dds-components/OverflowMenu',
   component: OverflowMenu,
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
 const items: Array<OverflowMenuContextItem> = [
@@ -43,82 +49,106 @@ const navItems: Array<OverflowMenuNavItem> = [
   },
 ];
 
-export const Default = (args: OverflowMenuProps) => {
-  return (
+type Story = StoryObj<typeof OverflowMenu>;
+
+export const Default: Story = {
+  args: {
+    items,
+  },
+  decorators: Story => (
     <StoryTemplate title="OverflowMenu - default" display="flex-centered">
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu {...args} items={items} />
-      </OverflowMenuGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <OverflowMenuGroup>
+      <Button icon={MenuIcon} aria-label="Åpne meny" />
+      <OverflowMenu {...args} />
+    </OverflowMenuGroup>
+  ),
 };
 
-export const WithStaticUser = (args: OverflowMenuProps) => {
-  return (
+export const WithStaticUser: Story = {
+  args: {
+    items,
+    userProps: { name: 'Brukernavn' },
+  },
+  decorators: Story => (
     <StoryTemplate
       title="OverflowMenu - with static user"
       display="flex-centered"
     >
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu
-          {...args}
-          items={items}
-          userProps={{ name: 'Brukernavn' }}
-        />
-      </OverflowMenuGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <OverflowMenuGroup>
+      <Button icon={MenuIcon} aria-label="Åpne meny" />
+      <OverflowMenu {...args} />
+    </OverflowMenuGroup>
+  ),
 };
 
-export const WithInteractiveUser = (args: OverflowMenuProps) => {
-  return (
+export const WithInteractiveUser: Story = {
+  args: {
+    items,
+    userProps: { name: 'Brukernavn', onClick: () => null },
+  },
+  decorators: Story => (
     <StoryTemplate
       title="OverflowMenu - with interactive user"
       display="flex-centered"
     >
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu
-          {...args}
-          items={items}
-          userProps={{ name: 'Brukernavn', onClick: () => null }}
-        />
-      </OverflowMenuGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <OverflowMenuGroup>
+      <Button icon={MenuIcon} aria-label="Åpne meny" />
+      <OverflowMenu {...args} />
+    </OverflowMenuGroup>
+  ),
 };
 
-export const WithNavigation = (args: OverflowMenuProps) => {
-  return (
+export const WithNavigation: Story = {
+  args: {
+    items,
+    navItems,
+  },
+  decorators: Story => (
     <StoryTemplate
       title="OverflowMenu - with navigation"
       display="flex-centered"
     >
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu {...args} items={items} navItems={navItems} />
-      </OverflowMenuGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <OverflowMenuGroup>
+      <Button icon={MenuIcon} aria-label="Åpne meny" />
+      <OverflowMenu {...args} />
+    </OverflowMenuGroup>
+  ),
 };
 
-export const WithNavigationAndInteractiveUser = (args: OverflowMenuProps) => {
-  return (
+export const WithNavigationAndInteractiveUser: Story = {
+  args: {
+    items,
+    navItems,
+    userProps: { name: 'Brukernavn', onClick: () => null },
+  },
+  decorators: Story => (
     <StoryTemplate
       title="OverflowMenu - with navigation and interactive user"
       display="flex-centered"
     >
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu
-          {...args}
-          items={items}
-          navItems={navItems}
-          userProps={{ name: 'Brukernavn', onClick: () => null }}
-        ></OverflowMenu>
-      </OverflowMenuGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <OverflowMenuGroup>
+      <Button icon={MenuIcon} aria-label="Åpne meny" />
+      <OverflowMenu {...args} />
+    </OverflowMenuGroup>
+  ),
 };

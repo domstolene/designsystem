@@ -3,14 +3,16 @@ import {
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { type Placement } from '../../hooks';
 import { Button } from '../Button';
 import { removeButtonStyling } from '../helpers';
+import { VStack } from '../Stack';
 import { Typography } from '../Typography';
 
-import { Popover, PopoverGroup, type PopoverProps } from '.';
+import { Popover, PopoverGroup } from '.';
 
 export default {
   title: 'dds-components/Popover',
@@ -22,15 +24,46 @@ export default {
     offset: { control: { type: 'number' } },
   },
   parameters: {
-    controls: {
-      exclude: ['onCloseButton', 'anchorElement'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
 
-export const ContentOverview = (args: PopoverProps) => {
-  return (
+type Story = StoryObj<typeof Popover>;
+
+export const Default: Story = {
+  args: {},
+  decorators: Story => (
+    <StoryTemplate title="Popover - default">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <PopoverGroup>
+      <Button>Åpne</Button>
+      <Popover {...args}>
+        <VStack align="flex-start">
+          <Typography withMargins>
+            Dette er en popover med tekst og knapp
+          </Typography>
+          <Button>Klikk</Button>
+        </VStack>
+      </Popover>
+    </PopoverGroup>
+  ),
+};
+
+export const ContentOverview: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate title="Popover - content overview" display="grid">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <div>
         <PopoverGroup>
           <Button>Åpne</Button>
@@ -76,19 +109,13 @@ export const ContentOverview = (args: PopoverProps) => {
           </Popover>
         </PopoverGroup>
       </div>
-    </StoryTemplate>
-  );
+    </>
+  ),
 };
-export const PlacementOverview = () => {
-  const popover = (placement: Placement) => (
-    <div>
-      <PopoverGroup>
-        <Button>Åpne</Button>
-        <Popover placement={placement}>{placement}</Popover>
-      </PopoverGroup>
-    </div>
-  );
-  return (
+
+export const PlacementOverview: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate
       title="Popover - placement overview"
       display="grid"
@@ -99,85 +126,91 @@ export const PlacementOverview = () => {
         padding: '150px 40px 200px 40px',
       }}
     >
-      {popover('top-start')}
-      {popover('bottom-start')}
-      {popover('left-start')}
-      {popover('right-start')}
-      {popover('top')}
-      {popover('bottom')}
-      {popover('right')}
-      {popover('left')}
-      {popover('top-end')}
-      {popover('bottom-end')}
-      {popover('right-end')}
-      {popover('left-end')}
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => {
+    const popover = (placement: Placement) => (
+      <div>
+        <PopoverGroup>
+          <Button>Åpne</Button>
+          <Popover {...args} placement={placement}>
+            {placement}
+          </Popover>
+        </PopoverGroup>
+      </div>
+    );
+    return (
+      <>
+        {popover('top-start')}
+        {popover('bottom-start')}
+        {popover('left-start')}
+        {popover('right-start')}
+        {popover('top')}
+        {popover('bottom')}
+        {popover('right')}
+        {popover('left')}
+        {popover('top-end')}
+        {popover('bottom-end')}
+        {popover('right-end')}
+        {popover('left-end')}
+      </>
+    );
+  },
 };
 
-export const Default = (args: PopoverProps) => {
-  return (
-    <StoryTemplate title="Popover - default" display="block">
-      <PopoverGroup>
-        <Button>Åpne</Button>
-        <Popover {...args}>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography withMargins>
-              Dette er en popover med tekst og knapp
-            </Typography>
-            <Button>Klikk</Button>
-          </div>
-        </Popover>
-      </PopoverGroup>
-    </StoryTemplate>
-  );
-};
-
-export const Overflow = (args: PopoverProps) => {
-  return (
+export const Overflow: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate title="Popover - overflow" display="block">
-      <PopoverGroup>
-        <Button>Åpne</Button>
-        <Popover
-          {...args}
-          sizeProps={{ maxWidth: '150px', maxHeight: '200px' }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography
-              withMargins
-              style={{
-                textOverflow: 'ellipsis',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              Dette er en popover med tekst og knapp
-            </Typography>
-            <Button>Klikk</Button>
-          </div>
-        </Popover>
-      </PopoverGroup>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <PopoverGroup>
+      <Button>Åpne</Button>
+      <Popover {...args} sizeProps={{ maxWidth: '150px', maxHeight: '200px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <Typography
+            withMargins
+            style={{
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Dette er en popover med tekst og knapp
+          </Typography>
+          <Button>Klikk</Button>
+        </div>
+      </Popover>
+    </PopoverGroup>
+  ),
 };
 
-export const InlineExample = (args: PopoverProps) => {
-  const Trigger = styled.button`
-    ${removeButtonStyling}
-    user-select: text;
-    text-decoration: underline;
-    color: ${ddsBaseTokens.colors.DdsColorInteractiveBase};
-    &:hover {
-      color: ${ddsBaseTokens.colors.DdsColorInteractiveDark};
-    }
-    &:focus {
-      color: ${ddsBaseTokens.colors.DdsColorNeutralsWhite};
-      background-color: ${ddsReferenceTokens.focus.colorDefault};
-      text-decoration: none;
-    }
-  `;
-  return (
+export const InlineExample: Story = {
+  args: {},
+  decorators: Story => (
     <StoryTemplate title="Popover - inline example" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const Trigger = styled.button`
+      ${removeButtonStyling}
+      user-select: text;
+      text-decoration: underline;
+      color: ${ddsBaseTokens.colors.DdsColorInteractiveBase};
+      &:hover {
+        color: ${ddsBaseTokens.colors.DdsColorInteractiveDark};
+      }
+      &:focus {
+        color: ${ddsBaseTokens.colors.DdsColorNeutralsWhite};
+        background-color: ${ddsReferenceTokens.focus.colorDefault};
+        text-decoration: none;
+      }
+    `;
+    return (
       <Typography>
         Når du kommer til domstolen er det viktig at du finner rettssalen der
         innkallingen sier du skal møte. Vent utenfor salen, du blir hentet når
@@ -198,6 +231,6 @@ export const InlineExample = (args: PopoverProps) => {
         det vanskelig for deg å vente, så ta det opp på forhånd med den som har
         innkalt deg.
       </Typography>
-    </StoryTemplate>
-  );
+    );
+  },
 };

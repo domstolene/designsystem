@@ -1,17 +1,6 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { Icon } from '.';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import { Link } from '../Typography';
 import * as IconStories from './Icon.stories';
 
@@ -30,31 +19,15 @@ import * as IconStories from './Icon.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-icon--overview" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-icon--overview" />
-</Canvas>
+<Canvas of={IconStories.Overview} />
 
-<Canvas>
-  {/* <Story id="dds-components-icon--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+Se stories med kontrollere i <LinkTo title="dds-components/Icon" story="Default">Storybook</LinkTo>.
 
-  <Story id="dds-components-icon--default" />
-</Canvas>
+## Props
 
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-icon`} />
-
-## Bruk i koden
-
-<Source
-  code={`
-  import { Icon, CloseIcon } from '@norges-domstoler/dds-components';
-
-<Icon icon={CloseIcon} />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={IconStories.Default} sourceState="shown" />
+<Controls of={IconStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSVGElement>`-interface i `htmlProps`.

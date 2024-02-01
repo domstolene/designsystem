@@ -1,9 +1,8 @@
-import { Story, Canvas, Meta, ArgTypes } from '@storybook/blocks';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  LinkToInteractiveStory,
-  SB_DESIGNSYSTEM_URL,
 } from '@norges-domstoler/storybook-components';
 import * as FileUploaderStories from './FileUploader.stories';
 
@@ -19,13 +18,9 @@ import * as FileUploaderStories from './FileUploader.stories';
 
 ## Demo
 
-<Canvas>
-  <Story of={FileUploaderStories.Overview} />
-</Canvas>
+<Primary />
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-fileuploader-beta`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/FileUploader" story="Default">Storybook</LinkTo>.
 
 ## Bruk i koden
 
@@ -37,6 +32,7 @@ import { FileUploader } from '@norges-domstoler/dds-components';
 `}
 />
 
-## API
+## Props
 
-<ArgTypes of={FileUploaderStories} />
+<Canvas of={FileUploaderStories.Default} sourceState="shown" />
+<Controls of={FileUploaderStories.Default} />

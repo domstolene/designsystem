@@ -1,16 +1,8 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { Pagination } from '.';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as PaginationStories from './Pagination.stories';
 
@@ -26,27 +18,14 @@ import * as PaginationStories from './Pagination.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-pagination--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-pagination--default" />
-</Canvas>
+Se stories med kontrollere i <LinkTo title="dds-components/Pagination" story="Default">Storybook</LinkTo>.
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-pagination`}
-/>
+## Props
 
-## Bruk i koden
-
-<Source
-  code={`import { Pagination } from '@norges-domstoler/dds-components';
-
-<Pagination itemsAmount={100} withCounter />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={PaginationStories.Default} sourceState="shown" />
+<Controls of={PaginationStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
 

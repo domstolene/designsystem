@@ -6,12 +6,22 @@ const config: StorybookConfig = {
     '../stories/**/*.@(md|mdx)',
     '../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)',
     '../packages/*/src/**/*.mdx',
+    '../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx)',
+    '../packages/*/stories/**/*.mdx',
   ],
   staticDirs: ['./images', '../packages/components/dist/assets/fonts'],
   addons: [
+    '@storybook/addon-links',
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
-    '@storybook/addon-storysource',
+    {
+      name: '@storybook/addon-storysource',
+      options: {
+        loaderOptions: {
+          injectStoryParameters: true,
+        },
+      },
+    },
   ],
   framework: {
     name: '@storybook/react-vite',
@@ -21,20 +31,12 @@ const config: StorybookConfig = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: prop => {
-        if (
-          prop.declarations === undefined ||
-          prop.declarations === null ||
-          prop.declarations.every(dec =>
-            /node_modules\/@types\/react(-dom)?/.test(dec.fileName),
-          )
-        ) {
-          return false;
-        }
-
-        return true;
-      },
+      propFilter: prop =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
+  },
+  docs: {
+    autodocs: true,
   },
 };
 

@@ -1,17 +1,6 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Canvas,
-  Story,
-} from '@storybook/blocks';
-import { LocalMessage } from '.';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Meta, Canvas, Controls, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as LocalMessageStories from './LocalMessage.stories';
 
 <Meta of={LocalMessageStories} />
@@ -26,26 +15,13 @@ import * as LocalMessageStories from './LocalMessage.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-localmessage--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-localmessage--default" />
-</Canvas>
+Se stories med kontrollere i <LinkTo title="dds-components/LocalMessage" story="Default">Storybook</LinkTo>.
 
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-localmessage`}
-/>
+## Props
 
-## Bruk i koden
-
-<Source
-  code={`import { LocalMessage } from '@norges-domstoler/dds-components';
-
-<LocalMessage message="Dette er en lokal melding" />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={LocalMessageStories.Default} sourceState="shown" />
+<Controls of={LocalMessageStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`. `children` kan brukes istedenfor `message`.

@@ -1,16 +1,9 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { OverflowMenu, OverflowMenuGroup } from '.';
+import { Canvas, Controls, Primary, Meta, ArgTypes } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { OverflowMenuGroup } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as OverflowMenuStories from './OverflowMenu.stories';
 
@@ -26,27 +19,11 @@ import * as OverflowMenuStories from './OverflowMenu.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-overflowmenu--default" height="400px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary height="600px" />
 
-  <Story id="dds-components-overflowmenu--default" height="400px" />
-</Canvas>
+<Canvas of={OverflowMenuStories.WithInteractiveUser} height="450px" />
 
-<Canvas>
-  {/* <Story id="dds-components-overflowmenu--with-navigation" height="600px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-overflowmenu--with-navigation" height="600px" />
-</Canvas>
-
-<Canvas>
-  {/* <Story id="dds-components-overflowmenu--with-interactive-user" height="450px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-overflowmenu--with-interactive-user" height="450px" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-overflowmenu`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/OverflowMenu" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -103,13 +80,14 @@ const items = [
 />
 `} />
 
-## API
+## Props
 
 ### OverflowMenu
 
 Hovedkomponenten `<OverflowMenu/>`.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={OverflowMenuStories.Default} sourceState="shown" />
+<Controls of={OverflowMenuStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 

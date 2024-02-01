@@ -1,16 +1,9 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Meta, ArgTypes, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import { GridChild } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import { Link } from '../Typography';
 import * as GridStories from './Grid.stories';
@@ -26,13 +19,9 @@ import * as GridStories from './Grid.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-grid--page-example" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-grid--page-example" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-grid`} />
+Se stories med kontrollere i <LinkTo title="dds-components/Grid" story="PageExample">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -83,7 +72,7 @@ Grid består av to subkomponenter:
 
 En container-komponent for `<GridChild>` barn. Den håndterer grid layout basert på skjermstørrelse med hensyn til brekkpunkter.
 
-<ArgTypes story={PRIMARY_STORY} />
+<ArgTypes of={GridStories} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface eller `HTMLAttributes<HTMLFormElement>`-interface i `htmlProps`.
 `style` støtte både på rotnivå og i `htmlProps`.

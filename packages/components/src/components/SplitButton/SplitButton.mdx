@@ -1,16 +1,8 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { SplitButton } from '.';
+import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as SplitButtonStories from './SplitButton.stories';
 
@@ -26,15 +18,9 @@ import * as SplitButtonStories from './SplitButton.stories';
 
 ## Demo
 
-<Canvas>
-  {/* <Story id="dds-components-splitbutton--default" height="380px" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Primary />
 
-  <Story id="dds-components-splitbutton--default" height="380px" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-splitbutton`}
-/>
+Se stories med kontrollere i <LinkTo title="dds-components/SplitButton" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -61,6 +47,7 @@ onClick: () => {},
 
 ## API
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={SplitButtonStories.Default} sourceState="shown" />
+<Controls of={SplitButtonStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
