@@ -53,7 +53,7 @@ export const Input = styled.input`
   &:hover:enabled:read-write {
     ${hoverInputfield}
   }
-  &:not(.disabled):not(.read-only):focus-within,
+  &:not(.disabled):not(.read-only):not(:read-only):focus-within,
   &.active,
   &:focus:enabled:read-write,
   &:active:enabled:read-write {
