@@ -84,6 +84,7 @@ export const StatefulInput = styled(Input).withConfig({
     (readOnly
       ? `${suffixLength}px !important`
       : `calc(${input.affix.gap}px + ${suffixLength}px) !important`)};
+
   ${({ componentSize }) =>
     componentSize &&
     css`
@@ -112,6 +113,7 @@ export const StatefulInput = styled(Input).withConfig({
     cursor: default;
     background-color: ${input.readOnly.backgroundColor};
     padding-left: 0;
+    padding-top: ${input.readOnly.paddingTop};
   }
   &.disabled,
   &:disabled {

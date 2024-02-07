@@ -70,6 +70,15 @@ export const Error: Story = {
   ),
 };
 
+export const ReadOnly: Story = {
+  args: { label: 'Tidspunkt', isReadOnly: true },
+  decorators: Story => (
+    <StoryTemplate title="TimePicker - read only">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
 export const OverviewSizes: Story = {
   decorators: Story => (
     <StoryTemplate title="TimePicker - overview sizes">
