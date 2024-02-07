@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 14.6.1
+
+### Patch Changes
+
+- 413848e: Fikset top spacing for readonly felt
+- 4e21f82: Fjernet fokusstyling i read-only inputfelt
+
 ## 14.6.0
 
 ### Minor Changes
