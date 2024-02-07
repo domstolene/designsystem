@@ -30,6 +30,7 @@ const input = {
   },
   readOnly: {
     backgroundColor: 'transparent',
+    paddingTop: spacing.SizesDdsSpacingX0125,
   },
   sizes: {
     medium: {

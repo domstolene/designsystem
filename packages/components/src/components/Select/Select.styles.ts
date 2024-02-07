@@ -102,6 +102,8 @@ export const Container = styled.div<{
           .${prefix}__control {
             border-color: ${control.readOnly.borderColor};
             background-color: ${control.readOnly.backgroundColor};
+            padding-top: ${control.readOnly.paddingTop};
+            padding-left: 0;
           }
           .${prefix}__dropdown-indicator,
             &:hover

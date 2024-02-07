@@ -57,6 +57,7 @@ const control = {
   readOnly: {
     borderColor: 'transparent',
     backgroundColor: 'transparent',
+    paddingTop: spacing.SizesDdsSpacingX0125,
   },
   isMulti: {
     sizes: {
