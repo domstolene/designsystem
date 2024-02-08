@@ -52,6 +52,12 @@ const container = {
   },
 };
 
+const content = {
+  base: {
+    paddingRight: spacing.SizesDdsSpacingX075,
+  },
+};
+
 const purposeVariants: {
   [k in LocalMessagePurpose]: {
     icon: SvgIcon;
@@ -108,6 +114,7 @@ const icon = {
 
 export const localMessageTokens = {
   container,
+  content,
   purposeVariants,
   icon,
 };
