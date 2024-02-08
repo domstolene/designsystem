@@ -17,8 +17,7 @@ import {
   getFontStyling,
 } from '../Typography';
 
-const defaultWidth: Property.Width<string> = '400px';
-const { container, icon, purposeVariants } = tokens;
+const { container, content, icon, purposeVariants } = tokens;
 
 type ContainerProps = Pick<
   LocalMessageProps,
@@ -98,6 +97,7 @@ const MessageIconWrapper = styled(Icon)`
 
 const TextContainer = styled.div`
   grid-area: text;
+  padding-right: ${content.base.paddingRight};
 `;
 
 const CloseButton = styled(Button)<Pick<LocalMessageProps, 'layout'>>`
@@ -140,7 +140,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       purpose = 'info',
       closable,
       onClose,
-      width = defaultWidth,
+      width,
       layout = 'horisontal',
       children,
       id,
