@@ -43,7 +43,11 @@ export function EmptyContent({
   return (
     <StyledEmptyContent {...rest}>
       <StyledEmptyContentText>
-        {title && <Heading level={titleHeadingLevel}>{title}</Heading>}
+        {title && (
+          <Heading level={titleHeadingLevel} typographyType="headingSans02">
+            {title}
+          </Heading>
+        )}
         <Paragraph>{message}</Paragraph>
       </StyledEmptyContentText>
     </StyledEmptyContent>
