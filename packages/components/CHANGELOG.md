@@ -1,5 +1,20 @@
 # @norges-domstoler/dds-components
 
+## 15.0.0
+
+### Major Changes
+
+- f050214: Legger til X-ikon, sletter Twitter-ikon. Twitter-ikonet skal ikke brukes lenger. Sentrerer også Flickr-ikon.
+
+### Minor Changes
+
+- 672072a: Legger til støtte for `disabled` og `readOnly` i `CheckboxGroup`. Standariserer styling av disse tilstandene på tvers av selection controls.
+- de2e4ff: Støtte for `headingLevel` i `EmptyContent`. Grunnet krav for UU skal overskriftsnivået på tittel følge hierarkiet, og konsumenter skal sette det selv når default ikke passer.
+
+### Patch Changes
+
+- 97b57e8: Fjerner `defaultWidth` fra `LocalMessage` da den ikke skal ha hardkodet bredde. Legger på litt padding i innhold for bedre avstand.
+
 ## 14.6.1
 
 ### Patch Changes
