@@ -1,5 +1,4 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as EmptyContentStories from './EmptyContent.stories';
 
@@ -13,15 +12,7 @@ import * as EmptyContentStories from './EmptyContent.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/EmptyContent"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/EmptyContent" story="Default">Storybook</LinkTo>.
-
 ## Props
 
 <Canvas of={EmptyContentStories.Default} sourceState="shown" />
 <Controls of={EmptyContentStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
