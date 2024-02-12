@@ -30,13 +30,13 @@
   code {
     font-family: var(--dds-font-code-monospace-02-font-family);
 
-    &:not(#error-stack) {
+    &.icon-code {
+      font-size: var(--dds-font-body-sans-01-font-size);
+    }
+
+    &:not(#error-stack):not(.icon-code) {
       color: var(--dds-color-neutrals-gray-9);
     }
-  }
-
-  .icon-code code {
-    font-size: var(--dds-font-body-sans-01-font-size);
   }
 
   .docblock-argstable td div code,

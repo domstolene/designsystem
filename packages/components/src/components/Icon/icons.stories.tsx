@@ -83,7 +83,7 @@ const CodeBlock = styled.div`
   padding: ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX1};
   margin: ${spacing.SizesDdsSpacingX1} 0;
   border-radius: ${borderRadius.RadiiDdsBorderRadius1Radius};
-  code {
+  code.icon-code {
     color: white;
   }
 `;
@@ -201,8 +201,8 @@ export const Overview = () => {
               />
               {copiedImport && copyConfirmation}
             </GroupHeader>
-            <CodeBlock className="icon-code">
-              <code>{importCode}</code>
+            <CodeBlock>
+              <code className="icon-code">{importCode}</code>
             </CodeBlock>
             <GroupHeader>
               <Typography typographyType="headingSans02">Bruk</Typography>
@@ -214,8 +214,8 @@ export const Overview = () => {
               />
               {copiedUse && copyConfirmation}
             </GroupHeader>
-            <CodeBlock className="icon-code">
-              <code>{useCode}</code>
+            <CodeBlock>
+              <code className="icon-code">{useCode}</code>
             </CodeBlock>
           </ModalBody>
         </Modal>
