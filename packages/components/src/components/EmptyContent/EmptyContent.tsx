@@ -2,7 +2,7 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-import { Typography } from '../Typography';
+import { Heading, type HeadingLevel, Paragraph } from '../Typography';
 
 const { colors, spacing } = ddsBaseTokens;
 
@@ -26,18 +26,25 @@ const StyledEmptyContentText = styled.div`
 `;
 
 export type EmptyContentProps = {
+  /**Tittel - kort oppsummering. */
   title?: string;
+  /**Nivå på overskriften. Sørg for at den følger hierarkiet på siden. */
+  titleHeadingLevel?: HeadingLevel;
+  /**Melding - beskrivelse og forklaring på hvordan brukeren kan få innhold. */
   message: string;
 } & HTMLAttributes<HTMLDivElement>;
 
-export function EmptyContent({ title, message, ...rest }: EmptyContentProps) {
+export function EmptyContent({
+  title,
+  message,
+  titleHeadingLevel = 5,
+  ...rest
+}: EmptyContentProps) {
   return (
     <StyledEmptyContent {...rest}>
       <StyledEmptyContentText>
-        {title && (
-          <Typography typographyType="headingSans02">{title}</Typography>
-        )}
-        <Typography typographyType="bodySans02">{message}</Typography>
+        {title && <Heading level={titleHeadingLevel}>{title}</Heading>}
+        <Paragraph>{message}</Paragraph>
       </StyledEmptyContentText>
     </StyledEmptyContent>
   );
