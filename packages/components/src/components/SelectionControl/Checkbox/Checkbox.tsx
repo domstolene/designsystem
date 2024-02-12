@@ -7,6 +7,7 @@ import { cn, spaceSeparatedIdListGenerator } from '../../../utils';
 import { HiddenInput } from '../../helpers';
 import { Typography } from '../../Typography';
 import { Container, CustomSelectionControl } from '../SelectionControl.styles';
+import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
@@ -41,7 +42,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     return (
       <Container
         $error={error || checkboxGroup?.error}
-        disabled={disabled}
+        disabled={disabled || checkboxGroup?.disabled}
+        $readOnly={readOnly || checkboxGroup?.readOnly}
         htmlFor={uniqueId}
         $hasLabel={hasLabel}
         $controlType="checkbox"
@@ -52,7 +54,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
           ref={ref}
           name={name}
-          disabled={disabled}
+          disabled={
+            disabled ||
+            readOnly ||
+            !!checkboxGroup?.disabled ||
+            !!checkboxGroup?.readOnly
+          }
           aria-describedby={spaceSeparatedIdListGenerator([
             checkboxGroup?.tipId,
             checkboxGroup?.errorMessageId,
@@ -67,9 +74,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         />
         <CustomSelectionControl $controlType="checkbox" />
         {hasLabel && (
-          <Typography color="inherit" as="span" typographyType="bodySans02">
-            {label}
-          </Typography>
+          <Typography {...selectionControlTypographyProps}>{label}</Typography>
         )}
       </Container>
     );

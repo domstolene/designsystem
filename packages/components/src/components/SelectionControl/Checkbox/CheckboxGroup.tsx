@@ -29,9 +29,14 @@ export type CheckboxGroupProps = BaseComponentPropsWithChildren<
     groupId?: string;
     /**Meldingen som vises ved valideringsfeil. Sender error-tilstand til barna når det finnes  og setter `aria-describedby` for barna. */
     errorMessage?: string;
+    /**Hjelpetekst for gruppen. */
     tip?: string;
     /**Indikerer at det er påkrevd å velge minst ett alternativ. Innebærer visuell endring. **OBS!** `required` må i tillegg gis til `<Checkbox />` manuelt. */
     required?: boolean;
+    /**Gir alle barna `disabled` prop. */
+    disabled?: boolean;
+    /**Gir alle barna `readOnly` prop. */
+    readOnly?: boolean;
   }
 >;
 
@@ -42,6 +47,8 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     errorMessage,
     tip,
     required = false,
+    disabled = false,
+    readOnly = false,
     groupId,
     children,
     id,
@@ -65,6 +72,8 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     errorMessageId: errorMessage ? errorMessageId : undefined,
     uniqueGroupId,
     tipId: tip ? tipId : undefined,
+    disabled,
+    readOnly,
   };
 
   return (

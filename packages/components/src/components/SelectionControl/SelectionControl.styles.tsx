@@ -137,6 +137,11 @@ export const Container = styled.label<{
     display: block;
   }
 
+  ${({ $readOnly }) =>
+    $readOnly &&
+    css`
+      cursor: default;
+    `}
   ${({ disabled }) =>
     disabled &&
     css`
