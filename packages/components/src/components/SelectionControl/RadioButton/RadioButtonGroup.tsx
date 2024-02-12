@@ -8,7 +8,10 @@ import {
   useState,
 } from 'react';
 
-import { RadioButtonGroupContext } from './RadioButtonGroupContext';
+import {
+  RadioButtonGroupContext,
+  type RadioButtonGroupContextProps,
+} from './RadioButtonGroupContext';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
@@ -99,7 +102,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   const tipId = tip && `${uniqueGroupId}-tip`;
   const errorMessageId = errorMessage && `${uniqueGroupId}-errorMessage`;
 
-  const contextProps = {
+  const contextProps: RadioButtonGroupContextProps = {
     name,
     disabled,
     error: hasErrorMessage,

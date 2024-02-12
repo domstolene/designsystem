@@ -7,6 +7,8 @@ export interface CheckboxGroupContextProps {
   errorMessageId?: string;
   uniqueGroupId?: string;
   tipId?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
 }
 
 export const CheckboxGroupContext =

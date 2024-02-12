@@ -2,7 +2,7 @@ import { type ChangeEvent, forwardRef, useId } from 'react';
 
 import { type RadioButtonProps } from './RadioButton.types';
 import {
-  type RadioButtonGroup,
+  type RadioButtonGroupContextProps,
   useRadioButtonGroup,
 } from './RadioButtonGroupContext';
 import { type Nullable, getBaseHTMLProps } from '../../../types';
@@ -10,10 +10,11 @@ import { cn } from '../../../utils';
 import { HiddenInput } from '../../helpers';
 import { Typography } from '../../Typography';
 import { Container, CustomSelectionControl } from '../SelectionControl.styles';
+import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
 const isValueEqualToGroupValueOrFalsy = (
   value: unknown,
-  group: Nullable<RadioButtonGroup>,
+  group: Nullable<RadioButtonGroupContextProps>,
 ): boolean => {
   if (typeof value !== 'undefined' && value !== null && group) {
     if (typeof value === 'number') {
@@ -100,7 +101,9 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       >
         <HiddenInput {...inputProps} ref={ref} />
         <CustomSelectionControl $controlType="radio" />
-        <Typography as="span">{children ?? label}</Typography>
+        <Typography {...selectionControlTypographyProps}>
+          {children ?? label}
+        </Typography>
       </Container>
     );
   },

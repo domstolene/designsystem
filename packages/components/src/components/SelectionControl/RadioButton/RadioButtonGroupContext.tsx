@@ -2,7 +2,7 @@ import { type ChangeEvent, createContext, useContext } from 'react';
 
 import { type Nullable } from '../../../types';
 
-export interface RadioButtonGroup {
+export interface RadioButtonGroupContextProps {
   disabled: boolean;
   readOnly: boolean;
   name?: string;
@@ -14,7 +14,7 @@ export interface RadioButtonGroup {
 }
 
 export const RadioButtonGroupContext =
-  createContext<Nullable<RadioButtonGroup>>(null);
+  createContext<Nullable<RadioButtonGroupContextProps>>(null);
 
 export const useRadioButtonGroup = () => {
   return useContext(RadioButtonGroupContext);
