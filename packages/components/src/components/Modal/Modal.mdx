@@ -1,11 +1,8 @@
-import { Meta, Canvas, Controls, Primary, ArgTypes } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/blocks';
 import { ModalBody } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as ModalStories from './Modal.stories';
 
@@ -19,12 +16,6 @@ import * as ModalStories from './Modal.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Modal"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Modal" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
 En modal kan ha valgfritt innhold, men for å simplifisere implementasjonen av vanlige mønstre har vi predefinert visuell formatering av typiske elementer i en modal:
@@ -37,11 +28,30 @@ Ved bruk av disse elementene vil innholdet i `<Modal />` få spacing utav boksen
 
 Siden modal er en komponent som låser sideinnholdet idet den dukker opp er det viktig å sørge for at det er mulig å lukke modalen, enten ved å gjøre den generelt lukkbar (se API) og/eller ved interaksjon med handlingselementene.
 
+## Props
+
+### Modal
+
+Hovedkomponenten for modal. Kan ha `<ModalBody />`, `<ModalActions />` og ellers fritt valgt innhold som barn. Legger vertikal spacing mellom barn.
+
+<Canvas of={ModalStories.Default} sourceState="shown" />
+<Controls of={ModalStories.Default} />
+
+### ModalBody
+
+Subkomponent for hovedinnhold i modal (tekstlig informasjon o.l.). Brukes som barn i `<Modal />`.
+
+<ArgTypes of={ModalBody} />
+
+### ModalActions
+
+Subkomponent for handlingselementer, typisk knapper. Brukes som barn i `<Modal />`. Legger horisontal spacing mellom barn og legger de over flere rader ved behov.
+
 ## Bruk i koden
 
 <Source
   code={`import { Modal, ModalBody, ModalActions, Button } from '@norges-domstoler/dds-components';
-  import { useState } from 'react';
+import { useState } from 'react';
 
 const [open, setOpen] = useState(false);
 const show = () => setOpen(true);
@@ -103,28 +113,3 @@ const buttonRef = useRef(null);
   <Button onClick={close}>OK</Button>
 </Modal>
 `} />
-
-## Props
-
-### Modal
-
-Hovedkomponenten for modal. Kan ha `<ModalBody />`, `<ModalActions />` og ellers fritt valgt innhold som barn. Legger vertikal spacing mellom barn.
-
-<Canvas of={ModalStories.Default} sourceState="shown" />
-<Controls of={ModalStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
-### ModalBody
-
-Subkomponent for hovedinnhold i modal (tekstlig informasjon o.l.). Brukes som barn i `<Modal />`.
-
-<ArgTypes of={ModalBody} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
-### ModalActions
-
-Subkomponent for handlingselementer, typisk knapper. Brukes som barn i `<Modal />`. Legger horisontal spacing mellom barn og legger de over flere rader ved behov.
-
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

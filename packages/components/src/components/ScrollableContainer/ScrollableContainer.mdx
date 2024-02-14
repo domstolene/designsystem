@@ -1,5 +1,4 @@
-import { Meta, ArgTypes, Primary, Canvas, Controls } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta, ArgTypes, Canvas, Controls } from '@storybook/blocks';
 import { Scrollbar } from '.';
 import {
   Source,
@@ -17,18 +16,27 @@ import * as ScrollableContainerStories from './ScrollableContainer.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ScrollableContainer"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/ScrollableContainer" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
 To subkomponenter er tilgjengelige:
 
-- `ScrollableContainer` - hovedkomponenten; en wrapper for innhold som skal scrolles. Håndterer scrolling og fokus ut av boksen.
-- `Scrollbar` - selve scrollbaren som brukes i `ScrollableContainer`. Håndterer scrolling når knyttet til elementet som skal scrolles. Kan brukes alene og håndtere plassering av scrollbaren og styling av innholdselementet selv.
+- **`<ScrollableContainer />`** - hovedkomponenten; en wrapper for innhold som skal scrolles. Håndterer scrolling og fokus ut av boksen.
+- **`<Scrollbar />`** - selve scrollbaren som brukes i `ScrollableContainer`. Håndterer scrolling når knyttet til elementet som skal scrolles. Kan brukes alene og håndtere plassering av scrollbaren og styling av innholdselementet selv.
+
+## Props
+
+### ScrollableContainer
+
+Hovedkomponenten for scrollbar innhold.
+
+<Canvas of={ScrollableContainerStories.Default} sourceState="shown" />
+<Controls of={ScrollableContainerStories.Default} />
+
+### Scrollbar
+
+Alenestående scrollbar til mer custom bruk.
+
+<ArgTypes of={Scrollbar} />
 
 ## Bruk i koden
 
@@ -45,14 +53,14 @@ To subkomponenter er tilgjengelige:
 `}
 />
 
-### Kun med `<Scrollbar>`
+### Kun med `<Scrollbar />`
 
-Ved bruk av kun `<Scrollbar/>` må man håndtere styling av containere, kobling til innholdet, plasseringen av `<Scrollbar/>` og fokus.
+Ved bruk av kun `<Scrollbar />` må man håndtere styling av containere, kobling til innholdet, plasseringen av `<Scrollbar/>` og fokus.
 
 <Source
   code={`import { Scrollbar, focusVisible } from '@norges-domstoler/dds-components';
-  import { useRef } from 'React';
-  import styled fromf 'styled-components';
+import { useRef } from 'React';
+import styled fromf 'styled-components';
 
 const containerStyle = {
 display: 'grid',
@@ -82,18 +90,3 @@ const contentRef = useRef();
   <Scrollbar />
 </div>
 `} />
-
-## Props
-
-## ScrollableContainer
-
-Hovedkomponenten for scrollbar innhold.
-
-<Canvas of={ScrollableContainerStories.Default} sourceState="shown" />
-<Controls of={ScrollableContainerStories.Default} />
-
-## Scrollbar
-
-Alenestående scrollbar til mer custom bruk.
-
-<ArgTypes of={Scrollbar} />

@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { MailIcon } from '../Icon/icons';
 import { LocalMessage } from '../LocalMessage';
@@ -13,6 +14,8 @@ export default {
     tip: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
+    withCharacterCounter: { control: { type: 'boolean' } },
+    maxLength: { control: { type: 'number' } },
     required: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
@@ -20,11 +23,14 @@ export default {
     suffix: { control: { type: 'text' } },
   },
   parameters: {
-    controls: {
-      exclude: ['style', 'className'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
+
+type Story = StoryObj<typeof TextInput>;
 
 export const TextInputOverview = (args: TextInputProps) => {
   return (
@@ -122,20 +128,21 @@ export const TextInputOverviewSizes = () => (
   </StoryTemplate>
 );
 
-export const Default = (args: TextInputProps) => {
-  return (
+export const Default: Story = {
+  decorators: Story => (
     <StoryTemplate title="TextInput - default">
-      <TextInput {...args} />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const WithLabel = (args: TextInputProps) => {
-  return (
+export const WithLabel: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
     <StoryTemplate title="TextInput - with label">
-      <TextInput {...args} label={args.label ?? 'Label'} />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
 export const WithCharacterCount = (args: TextInputProps) => {

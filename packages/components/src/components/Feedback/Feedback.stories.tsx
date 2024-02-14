@@ -22,13 +22,13 @@ export default {
       control: 'text',
     },
     ratingValue: {
+      options: {
+        null: null,
+        positive: 'positive',
+        negative: 'negative',
+      },
       control: {
         type: 'radio',
-        options: {
-          null: null,
-          positive: 'positive',
-          negative: 'negative',
-        },
       },
     },
     positiveFeedbackLabel: {

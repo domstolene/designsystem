@@ -1,5 +1,4 @@
-import { Meta, ArgTypes, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta, ArgTypes, Canvas, Controls } from '@storybook/blocks';
 import { DescriptionListDesc, DescriptionListGroup } from '.';
 import {
   Source,
@@ -17,33 +16,14 @@ import * as DescriptionListStories from './DescriptionList.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/DescriptionList"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/DescriptionList" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
-Beskrivelseslister bygges med styled versjoner av native HTML elementer og et wrapper-subkomponent ved behov. Disse styled komponentene er `<DescriptionList />` og dens subkomponenter: `<DescriptionListTerm />`, `<DescriptionListDesc />` og `<DescriptionListGroup />`.
+Beskrivelseslister bygges med følgende subkomponenter:
 
-## Bruk i koden
-
-<Source
-  code={`
-  import {
-  DescriptionList,
-  DescriptionListDesc,
-  DescriptionListTerm
-  } from '@norges-domstoler/dds-components';
-
-<DescriptionList>
-  <DescriptionListTerm>Uttrykk</DescriptionListTerm>
-  <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-  <DescriptionListTerm>Uttrykk</DescriptionListTerm>
-  <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-</DescriptionList>
-`} />
+- **`<DescriptionList />`**: tilsvarer `<dl>`, hele listen.
+- **`<DescriptionListTerm />`**: tilsvarer `<dt>`, uttrykk eller ledetekst.
+- **`<DescriptionListDesc />`**: tilsvarer `<dd>`, verdi eller beskrivelse.
+- **`<DescriptionListGroup />`**: wrapper til bruk for gruppering eller spesifikk layout.
 
 ## API
 
@@ -51,23 +31,18 @@ Beskrivelseslister bygges med styled versjoner av native HTML elementer og et wr
 
 Tilsvarer `<dl>`.
 
-<ArgTypes of={DescriptionListStories} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDListElement>`-interface i `htmlProps`.
+<Canvas of={DescriptionListStories.Default} sourceState="shown" />
+<Controls of={DescriptionListStories.Default} />
 
 ### DescriptionListTerm
 
 Tilsvarer `<dt>`.
-
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
 
 ### DescriptionListDesc
 
 Tilsvarer `<dd>`.
 
 <ArgTypes of={DescriptionListDesc} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
 
 ### DescriptionListGroup
 
@@ -77,26 +52,9 @@ til andre formål.
 
 <ArgTypes of={DescriptionListGroup} />
 
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
 #### Eksempler
 
 Hvis beskrivelseslisten skal legge seg over flere kolonner
 på en spesifikk måte kan man sette `direction="row"` på DescriptionList-elementet.
 
-<Source
-  code={`
-  <DescriptionList direction="row">
-  <DescriptionListGroup>
-   <DescriptionListTerm>Uttrykk</DescriptionListTerm>
-   <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-   <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-  </DescriptionListGroup>
-  <DescriptionListGroup>
-   <DescriptionListTerm>Uttrykk</DescriptionListTerm>
-   <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-  </DescriptionListGroup>
-  {/* ...flere grupper */}
-  </DescriptionList>
-  `}
-/>
+<Canvas of={DescriptionListStories.RowDirectionExample} sourceState="shown" />

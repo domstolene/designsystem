@@ -1,9 +1,5 @@
-import { Story, Canvas, Controls, Primary, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as SpinnerStories from './Spinner.stories';
 
 <Meta of={SpinnerStories} />
@@ -15,12 +11,6 @@ import * as SpinnerStories from './Spinner.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Spinner"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Spinner" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
 `<Spinner />` er et animert `<svg>`-element som bruker nåværende tid til å bestemme hvor den skal starte i animasjonen.
@@ -29,5 +19,3 @@ Se stories med kontrollere i <LinkTo title="dds-components/Spinner" story="Defau
 
 <Canvas of={SpinnerStories.Default} sourceState="shown" />
 <Controls of={SpinnerStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSVGElement>`-interface i `htmlProps`.

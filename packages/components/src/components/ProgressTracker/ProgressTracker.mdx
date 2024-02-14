@@ -1,7 +1,5 @@
-import { ArgTypes, Meta, Canvas, Controls, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { ArgTypes, Meta, Canvas, Controls } from '@storybook/blocks';
 import * as ProgressTrackerStories from './ProgressTracker.stories';
-
 import { ProgressTracker } from '.';
 import {
   Source,
@@ -18,18 +16,29 @@ import {
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ProgressTracker"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/ProgressTracker" story="Overview">Storybook</LinkTo>.
-
 ## Oversikt
 
 Komponenten består av:
 
 - `<ProgressTracker />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har to eller flere `<ProgressTracker.Item />` som barn.
 - `<ProgressTracker.Item />` - et steg.
+
+## API
+
+### ProgressTracker
+
+Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item />` som barn.
+
+<Canvas of={ProgressTrackerStories.Overview} sourceState="shown" />
+<Controls of={ProgressTrackerStories.Overview} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+
+### ProgressTracker.Item
+
+Et steg.
+
+<ArgTypes of={ProgressTracker.Item} />
 
 ## Bruk i koden
 
@@ -52,22 +61,3 @@ console.log(index)
   </ProgressTracker.Item>
 </ProgressTracker>
 `} />
-
-## API
-
-### ProgressTracker
-
-Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item />` som barn.
-
-<Canvas of={ProgressTrackerStories.Overview} sourceState="shown" />
-<Controls of={ProgressTrackerStories.Overview} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
-### ProgressTracker.Item
-
-Et steg.
-
-<ArgTypes of={ProgressTracker.Item} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`.

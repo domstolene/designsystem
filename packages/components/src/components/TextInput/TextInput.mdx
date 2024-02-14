@@ -1,17 +1,5 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Story,
-  Canvas,
-} from '@storybook/blocks';
-import { TextInput } from '.';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as TextInputStories from './TextInput.stories';
 
 <Meta of={TextInputStories} />
@@ -24,47 +12,16 @@ import * as TextInputStories from './TextInput.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/TextInput"
 />
 
-## Demo
+## Props
 
-<Canvas>
-  {/* <Story id="dds-components-textinput--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-textinput--default" />
-</Canvas>
-
-<Canvas>
-  {/* <Story id="dds-components-textinput--with-label" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-textinput--with-label" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-textinput`}
-/>
-
-## Bruk i koden
-
-<Source
-  code={`import { TextInput } from '@norges-domstoler/dds-components';
-
-<TextInput label="Ledetekst" />
-`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
+<Canvas of={TextInputStories.WithLabel} sourceState="shown" />
+<Controls of={TextInputStories.WithLabel} />
 
 ### maxLength
 
 Når native attributtet `maxLength` brukes dukker det opp en tegnteller til høyre under inputfeltet:
 
-<Canvas>
-  {/* <Story id="dds-components-textinput--with-character-count" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-textinput--with-character-count" />
-</Canvas>
+<Canvas of={TextInputStories.WithCharacterCount} sourceState="shown" />
 
 For å ikke vise tegntelleren sett `withCharacterCounter=false`.
 

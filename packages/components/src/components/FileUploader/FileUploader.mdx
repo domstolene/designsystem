@@ -16,11 +16,10 @@ import * as FileUploaderStories from './FileUploader.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/FileUploader"
 />
 
-## Demo
+## Props
 
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/FileUploader" story="Default">Storybook</LinkTo>.
+<Canvas of={FileUploaderStories.Default} sourceState="shown" />
+<Controls of={FileUploaderStories.Default} />
 
 ## Bruk i koden
 
@@ -31,8 +30,3 @@ import { FileUploader } from '@norges-domstoler/dds-components';
 <FileUploader onChange={(newFiles) => ...} />
 `}
 />
-
-## Props
-
-<Canvas of={FileUploaderStories.Default} sourceState="shown" />
-<Controls of={FileUploaderStories.Default} />

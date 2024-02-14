@@ -1,5 +1,4 @@
-import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta, Story } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -16,11 +15,15 @@ import * as DatePickerStories from './DatePicker.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/date-inputs/DatePicker"
 />
 
-## Demo
+## Props
 
-<Primary />
+`DatePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
+For mer utfyllende dokumentasjon av props referrerer vi deg til [`DatePicker` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/DatePicker.html#props).
 
-Se stories med kontrollere i <LinkTo title="dds-components/DatePicker" story="Default">Storybook</LinkTo>.
+<Canvas>
+  <Story of={DatePickerStories.Default} height="500px" />
+</Canvas>
+<Controls of={DatePickerStories.Default} />
 
 ## Bruk i koden
 
@@ -63,11 +66,3 @@ const [value, setValue] = useState<Date>(new Date());
   onChange={d => setValue(calendarDateToNativeDate(d))}
 />
 `}/>
-
-## Props
-
-`DatePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
-For mer utfyllende dokumentasjon av props referrerer vi deg til [`DatePicker` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/DatePicker.html#props).
-
-<Canvas of={DatePickerStories.Default} sourceState="shown" />
-<Controls of={DatePickerStories.Default} />

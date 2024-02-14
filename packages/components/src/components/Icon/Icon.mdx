@@ -1,4 +1,4 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import { Link } from '../Typography';
@@ -13,21 +13,11 @@ import * as IconStories from './Icon.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Icon"
 />
 
-## Introduksjon
+## Oversikt
 
-`<Icon />` er en code-only komponent som tar inn ikonnavn og returnerer tilsvarende svg-ikon fra <Link href="https://domstolene.github.io/designsystem/?path=/story/icons-overview--overview">ikonutvalget</Link>. Den brukes for å gi riktig størrelse til ikonet og eventuelt enkelt sette en farge og annen styling. Les mer om hvilke ikoner vi bruker og retningslinjer under <Link href="https://design.domstol.no/987b33f71/p/4046f8-ikoner/b/60d80f">Ikoner</Link>.
-
-## Demo
-
-<Primary />
-
-<Canvas of={IconStories.Overview} />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Icon" story="Default">Storybook</LinkTo>.
+`<Icon />` er en code-only komponent som tar inn et svg-ikon fra <LinkTo title="Icons/Overview" story="Overview">ikonutvalget</LinkTo> og returnerer den med riktig størrelse og annen styling. Les mer om hvilke ikoner vi bruker og retningslinjer under <Link href="https://design.domstol.no/987b33f71/p/4046f8-ikoner/b/60d80f" external>Ikoner</Link>.
 
 ## Props
 
 <Canvas of={IconStories.Default} sourceState="shown" />
 <Controls of={IconStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLSVGElement>`-interface i `htmlProps`.

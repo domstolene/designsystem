@@ -1,5 +1,4 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ChipStories from './Chip.stories';
 import * as ChipGroupStories from './ChipGroup.stories';
@@ -13,14 +12,6 @@ import * as ChipGroupStories from './ChipGroup.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7788%3A148018"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Chip"
 />
-
-## Demo
-
-<Canvas of={ChipStories.Default} />
-
-<Canvas of={ChipGroupStories.Default} />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Chip/Chip" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -36,14 +27,11 @@ Komponenten består av to subkomponenter:
 <Canvas of={ChipStories.Default} />
 <Controls of={ChipStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
 ### ChipGroup
 
 <Canvas of={ChipGroupStories.Default} />
-<Controls of={ChipGroupStories.Default} />
 
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLUListElement>`-interface i `htmlProps`.
+Det støttes alle native HTML-attributter for `<ul>`.
 
 ## Retningslinjer
 

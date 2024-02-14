@@ -1,9 +1,5 @@
-import { Primary, Meta, Canvas, Controls } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InlineEditStories from './InlineEdit.stories';
 import * as InlineEditInputStories from './InlineEditInput.stories';
 import * as InlineEditTextAreaStories from './InlineEditTextArea.stories';
@@ -18,31 +14,12 @@ import * as InlineEditTextAreaStories from './InlineEditTextArea.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=9005%3A150044"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/InlineEdit" story="OverviewInputTypes">Storybook</LinkTo>.
-
 ## Oversikt
 
 `<InlineEdit>`-komponentene håndterer inline redigering, f.eks i tabeller. Vi har følgende komponenter:
 
 - `<InlineEditInput />` - returnerer `<input>`.
 - `<InlineEditTextArea />` - returnerer `<textarea>`.
-
-## Bruk i koden
-
-<Source
-  code={`import { InlineEditInput, InlineEditTextArea } fra '@norges-domstoler/dds-components';
-
-const [value, setValue] = useState('');
-
-<InlineEditInput value={value} onSetValue={setValue} />
-<InlineEditTextArea value={value} onSetValue={setValue} />
-
-`}
-/>
 
 ## Props
 
@@ -53,13 +30,9 @@ Inputfeltet. Returnerer `<textarea>`.
 <Canvas of={InlineEditTextAreaStories.Default} sourceState="shown" />
 <Controls of={InlineEditTextAreaStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
-
 ### InlineEditInput
 
 Inputfeltet. Returnerer `<input>`.
 
 <Canvas of={InlineEditInputStories.Default} sourceState="shown" />
 <Controls of={InlineEditInputStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.

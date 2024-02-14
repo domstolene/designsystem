@@ -1,5 +1,4 @@
-import { Canvas, Controls, Primary, Meta, ArgTypes } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta, ArgTypes } from '@storybook/blocks';
 import { DrawerGroup } from '.';
 import {
   Source,
@@ -17,29 +16,30 @@ import * as DrawerStories from './Drawer.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Drawer"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Drawer" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
-`<Drawer />` er en komponent som vises når et trigger-element interageres med, vanligvis når en knapp trykkes. `<Drawer />` kan ha valgfritt innhold.
+Drawer bygges med følgende elementer:
 
-I tillegg kan det brukes `<DrawerGroup />`-subkomponenten som enkelt håndterer lukking og åpning og gir både `<Drawer />` og trigger-elementet ARIA-attributter. Den skal ha trigger-elementet som første barn og `<Drawer />` som andre barn. Subkomponenten er valgfri å bruke. Hvis den ikke brukes må oppførsel, referanser og ARIA-attributter håndteres utenfor komponentene på eget ansvar.
+- **Trigger-element**: styrer en drawer, er typisk en knapp.
+- **`<Drawer />`**: er en komponent som vises når et trigger-element interageres med, vanligvis en knapp. `<Drawer />` kan ha valgfritt innhold.
+- **`<DrawerGroup />`**: håndterer lukking og åpning og gir både `<Drawer />` og trigger-elementet ARIA-attributter. Den skal ha trigger-elementet som første barn og `<Drawer />` som andre barn. Subkomponenten er valgfri å bruke. Hvis den ikke brukes må oppførsel, referanser og ARIA-attributter håndteres utenfor komponentene på eget ansvar.
+
+## API
+
+### Drawer
+
+Hovedkomponenten `<Drawer/>`.
+
+<Canvas of={DrawerStories.LongContent} sourceState="shown" />
+<Controls of={DrawerStories.LongContent} />
+
+### DrawerGroup
+
+En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<Drawer />` ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer />` som andre barn. Valgfri å bruke.
+
+<ArgTypes of={DrawerGroup} />
 
 ## Bruk i koden
-
-<Source
-  code={`
-  import { Drawer, DrawerGroup, Button } from '@norges-domstoler/dds-components';
-
-<DrawerGroup>
-  <Button>Åpne</Button>
-  <Drawer header="Tittel">Innhold</Drawer>
-</DrawerGroup>
-`} />
 
 ### Uten `<DrawerGroup />`
 
@@ -72,20 +72,3 @@ const id = 'id';
 >
   Innhold
 </Drawer>`} />
-
-## Props
-
-### Drawer
-
-Hovedkomponenten `<Drawer/>`.
-
-<Canvas of={DrawerStories.Default} sourceState="shown" />
-<Controls of={DrawerStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
-### DrawerGroup
-
-En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<Drawer />` ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer />` som andre barn. Valgfri å bruke.
-
-<ArgTypes of={DrawerGroup} />

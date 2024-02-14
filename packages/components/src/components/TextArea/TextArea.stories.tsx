@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { TextArea } from './TextArea';
 import { type TextAreaProps } from './TextArea.types';
@@ -16,11 +17,14 @@ export default {
     readOnly: { control: { type: 'boolean' } },
   },
   parameters: {
-    controls: {
-      exclude: ['style', 'className'],
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
     },
   },
 };
+
+type Story = StoryObj<typeof TextArea>;
 
 export const Overview = (args: TextAreaProps) => {
   return (
@@ -71,18 +75,19 @@ export const Overview = (args: TextAreaProps) => {
   );
 };
 
-export const Default = (args: TextAreaProps) => {
-  return (
-    <StoryTemplate title="TextArea - default" display="block">
-      <TextArea {...args} />
+export const Default: Story = {
+  decorators: Story => (
+    <StoryTemplate title="TextArea - default">
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const WithLabel = (args: TextAreaProps) => {
-  return (
+export const WithLabel: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
     <StoryTemplate title="TextArea - with label">
-      <TextArea {...args} label={args.label ?? 'Label'} />
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };

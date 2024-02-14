@@ -1,9 +1,5 @@
-import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as DividerStories from './Divider.stories';
 
 <Meta of={DividerStories} />
@@ -16,24 +12,7 @@ import * as DividerStories from './Divider.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Divider"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Divider" story="Default">Storybook</LinkTo>.
-
-## Bruk i koden
-
-<Source
-  code={`
-  import { Divider } from '@norges-domstoler/dds-components';
-
-<Divider />
-`} />
-
-## API
+## Props
 
 <Canvas of={DividerStories.Default} sourceState="shown" />
 <Controls of={DividerStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLHRElement>`-interface i `htmlProps`.

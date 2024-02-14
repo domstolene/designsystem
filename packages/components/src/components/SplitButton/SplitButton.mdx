@@ -1,5 +1,4 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -16,18 +15,17 @@ import * as SplitButtonStories from './SplitButton.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=155%3A37"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/SplitButton" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
 `<SplitButton />` er en todelt knapp som skal brukes ved flere relaterte handlinger, der den ene er mest vanlig.
 Komponenten består av to knapper: én for den primære handlingen, og én for å åpne en meny med sekundære handlinger.
 Når menyen åpnes og en handling velges blir den umiddelbart gjennomført.
 `<SplitButton />` er dermed en fusjon med en knapp og meny.
+
+## API
+
+<Canvas of={SplitButtonStories.Default} sourceState="shown" />
+<Controls of={SplitButtonStories.Default} />
 
 ## Bruk i koden
 
@@ -44,10 +42,3 @@ onClick: () => {},
   secondaryActions={items}
 />
 `} />
-
-## API
-
-<Canvas of={SplitButtonStories.Default} sourceState="shown" />
-<Controls of={SplitButtonStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

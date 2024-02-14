@@ -1,10 +1,4 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Canvas, Story, Meta, ArgTypes, Controls } from '@storybook/blocks';
 import { Table, CollapsibleTable } from '../';
 import { Tag } from '../../Tag';
 import {
@@ -14,6 +8,7 @@ import {
   LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as TableStories from './Table.stories';
+import * as CollapsibleTableStories from '../collapsible/CollapsibleTable.stories';
 
 <Meta of={TableStories} />
 
@@ -129,7 +124,8 @@ Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivEl
 
 Tilsvarer `<table>`.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={TableStories.Default} />
+<Controls of={TableStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableElement>`-interface.
 
@@ -187,7 +183,8 @@ Kollapset tilstand brukes som mobilversjon.
 
 Rekkefølgen på definerende kolonner følger rekkefølgen i `definingColumnIndex`.
 
-<ArgTypes of={CollapsibleTable} />
+<Canvas of={CollapsibleTableStories.SingleDefiningColumn} />
+<Controls of={CollapsibleTableStories.SingleDefiningColumn} />
 
 ### CollapsibleTable.Row <Tag text="BETA" purpose="warning" />
 

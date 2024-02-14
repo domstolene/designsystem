@@ -29,6 +29,11 @@ export default {
     stickyHeader: {
       control: { type: 'boolean' },
     },
+    withDividers: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   parameters: {
     controls: {

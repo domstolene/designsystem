@@ -1,5 +1,4 @@
-import { Canvas, Controls, Primary, Meta, ArgTypes } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
 import { OverflowMenuGroup } from '.';
 import {
   Source,
@@ -17,19 +16,13 @@ import * as OverflowMenuStories from './OverflowMenu.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/OverflowMenu"
 />
 
-## Demo
-
-<Primary height="600px" />
-
-<Canvas of={OverflowMenuStories.WithInteractiveUser} height="450px" />
-
-Se stories med kontrollere i <LinkTo title="dds-components/OverflowMenu" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
-`<OverflowMenu />` er en komponent som viser og skjuler en liste med handlinger og/eller lenker når brukeren trykker på en knapp. `<OverflowMenu />` plasseres i forhold til knappen, som kalles anchor-element. **OBS!** Anchor-elementet er ikke en del av komponenten, men den knyttes til `<OverflowMenu />` via props (se API).
+OverflowMenu er en komponent som viser og skjuler en meny med handlinger og/eller lenker når brukeren trykker på en knapp - anchor-elementet. Den består av tre elementer:
 
-For at typisk logikk ved åpning, lukking, refs og ARIA-attributter skal håndteres ut av boksen bruk `<OverflowMenuGroup />`-subkomponent. Den er ikke obligatorisk å bruke, men oppførsel og UU må da håndteres på eget ansvar.
+- **`<OverflowMenu />`** - selve menyen.
+- **Anchor-element** - valgfritt element som åpner menyen. `<OverflowMenu />` posisjoneres i forhold til anchor-elementet.
+- **`<OverflowMenuGroup />`** - wrapper som håndterer åpning, lukking, refs og universell utforming. Den skal ha `<OverflowMenu />` og anchor-element som barn. Ikke obligatorisk å bruke, men overnevnt må isåfall håndteres på eget ansvar.
 
 ## Bruk i koden
 
@@ -86,7 +79,9 @@ const items = [
 
 Hovedkomponenten `<OverflowMenu/>`.
 
-<Canvas of={OverflowMenuStories.Default} sourceState="shown" />
+<Canvas>
+  <Story of={OverflowMenuStories.Default} height="300px" />
+</Canvas>
 <Controls of={OverflowMenuStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

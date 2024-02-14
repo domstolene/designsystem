@@ -1,5 +1,4 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -17,11 +16,14 @@ import * as FavStarStories from './FavStar.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/FavStar"
 />
 
-## Demo
+## Oversikt
 
-<Primary />
+En komponent for å legge noe til i favoritter; bruker `<input type="checkbox">`.
 
-Se stories med kontrollere i <LinkTo title="dds-components/FavStar" story="Default">Storybook</LinkTo>.
+## Props
+
+<Canvas of={FavStarStories.Default} sourceState="shown" />
+<Controls of={FavStarStories.Default} />
 
 ## Bruk i koden
 
@@ -34,8 +36,3 @@ const [checked, setChecked] = useState<boolean>(false);
 
 <FavStar checked={checked} onChange={setChecked} />
 `} />
-
-## Props
-
-<Canvas of={FavStarStories.Default} sourceState="shown" />
-<Controls of={FavStarStories.Default} />

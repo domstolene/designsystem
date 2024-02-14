@@ -1,9 +1,5 @@
-import { Meta, ArgTypes, Canvas, Controls, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ListStories from './List.stories';
 
 <Meta of={ListStories} />
@@ -15,12 +11,6 @@ import * as ListStories from './List.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3332%3A94240"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/List"
 />
-
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/List" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -38,10 +28,6 @@ Tilsvarer `<ul>` eller `<ol>`.
 <Canvas of={ListStories.Default} sourceState="shown" />
 <Controls of={ListStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLOListElement>` og `HTMLAttributes<HTMLUListElement>`-interface i `htmlProps`.
-
 ### ListItem
 
 Tilsvarer `<li>`.
-
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLLiElement>`-interface i `htmlProps`.

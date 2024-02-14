@@ -1,5 +1,4 @@
-import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as BreadcrumbsStories from './Breadcrumbs.stories';
 
@@ -12,12 +11,6 @@ import * as BreadcrumbsStories from './Breadcrumbs.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=1676%3A0"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Breadcrumbs"
 />
-
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Breadcrumbs" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -41,10 +34,11 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 ### Breadcrumb
 
-Brødsmule. Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke.
-**OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
+Brødsmule.
+Den støtter alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
+Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke.
 
-Det støttes alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
+**OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
 
 ## Retningslinjer
 

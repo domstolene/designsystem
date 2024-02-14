@@ -1,9 +1,5 @@
-import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as RadioButtonStories from './RadioButton.stories';
 import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
 
@@ -17,33 +13,26 @@ import * as RadioButtonGroupStories from './RadioButtonGroup.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/RadioButton"
 />
 
-## Demo
+## Oversikt
 
-<Canvas of={RadioButtonStories.Default} />
+Følgende komponenter er tilgjengelige:
 
-<Canvas of={RadioButtonGroupStories.Default} />
-
-Se stories med kontrollere i <LinkTo title="dds-components/RadioButton" story="Default">Storybook</LinkTo>.
+- **`<RadioButton />`** - en radioknapp.
+- **`<RadioButtonGroup />`** - en gruppe-wrapper for flere radioknapper.
 
 ## Props
 
 ### RadioButton
 
-En radioknapp.
-
 <Canvas of={RadioButtonStories.Default} sourceState="shown" />
 <Controls of={RadioButtonStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
-
 ### RadioButtonGroup
 
-Wrapper for en `<RadioButton />` gruppe. Brukes ved flere barn.
+Wrapper for en `<RadioButton />` gruppe. Den håndtere universell utforming og oppførsel.
 
 <Canvas of={RadioButtonGroupStories.Default} sourceState="shown" />
 <Controls of={RadioButtonGroupStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
 ## Retningslinjer
 

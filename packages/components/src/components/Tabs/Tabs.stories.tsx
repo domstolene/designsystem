@@ -16,14 +16,6 @@ export default {
     TabPanel: TabPanel,
     TabPanels: TabPanels,
   },
-  argTypes: {
-    activeTab: {
-      control: 'number',
-    },
-    tabWidth: {
-      control: 'text',
-    },
-  },
 };
 
 export const Overview = () => (
