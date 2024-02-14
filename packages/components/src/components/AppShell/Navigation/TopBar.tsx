@@ -66,9 +66,9 @@ const Bar = styled.div.withConfig({
   color: ${navTokens.color};
   background-color: ${navTokens.backgroundColor};
   box-sizing: border-box;
-  z-index: 101;
+  z-index: 99;
 
-  position: fixed;
+  position: absolute;
   top: ${({ environmentBannerActive }) =>
     environmentBannerActive ? ENVIRONMENT_BANNER_HEIGHT : '0'};
   left: 0;
