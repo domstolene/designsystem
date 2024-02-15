@@ -1,16 +1,8 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Canvas,
-  Story,
-} from '@storybook/blocks';
+import { Meta, ArgTypes, Canvas, Story } from '@storybook/blocks';
 import { Tab, TabPanel } from '.';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import * as TabsStories from './Tabs.stories';
 
@@ -24,14 +16,6 @@ import * as TabsStories from './Tabs.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Tabs"
 />
 
-## Demo
-
-<Canvas>
-  <Story of={TabsStories.Default} />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-tabs`} />
-
 ## Oversikt
 
 Komponenten består av flere subkomponenter:
@@ -42,33 +26,15 @@ Komponenten består av flere subkomponenter:
 - `<TabPanel />` - panel med innhold som hører til en spesifikk fane.
 - `<TabPanels />` - liste med paneler. Håndterer ARIA-attributter og `id` for barna.
 
-## Bruk i koden
-
-<Source
-  code={`import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@norges-domstoler/dds-components';
-   <Tabs>
-       <TabList>
-           <Tab> Tab 1 </Tab>
-           <Tab> Tab 2 </Tab>
-       </TabList>
-       <TabPanels>
-           <TabPanel> Innhold 1 </TabPanel>
-           <TabPanel> Innhold 2 </TabPanel>
-       </TabPanels>
-   </Tabs>
-
-`}
-/>
-
 ## API
 
 ### Tabs
 
 Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList />` og `<TabPanels />` som barn.
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={TabsStories.Default} sourceState="shown" />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+<ArgTypes story={TabsStories.Default} />
 
 ### Tab
 
@@ -76,13 +42,7 @@ En fane. Tilhørende `<TabPanel />` vises ved museklikk.
 
 <ArgTypes of={Tab} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`.
-
-### TabList
-
-En liste med `<Tab />`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
-
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+#### `width`
 
 For å endre på bredden til tabs kan du bruke `width`-attributtet. Her støttes alle de samme enhetene som i `grid-template-columns` i CSS.
 
@@ -104,16 +64,20 @@ For å endre på bredden til tabs kan du bruke `width`-attributtet. Her støttes
 `}
 />
 
+### TabList
+
+En liste med `<Tab />`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
+
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+
 ### TabPanel
 
 Panel med innhold. Vises ved museklikk på tilhørende `<Tab />`.
 
 <ArgTypes of={TabPanel} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`.
-
 ### TabPanels
 
 En liste med `<TabPanel />`. Setter attributter som `aria-labelledby` for barna. `<TabPanels />` skal ha `<TabPanel />` som barn i samme rekkefølge som tilhørende paneler i `<TabList />`.
 
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.

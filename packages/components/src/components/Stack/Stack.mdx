@@ -1,11 +1,4 @@
-import {
-  Story,
-  Canvas,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { VStack } from '.';
+import { Story, Canvas, Meta, ArgTypes } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -58,6 +51,6 @@ De lar deg respektivt legge elementer i en kolonne eller rad.
 
 ## API
 
-<ArgTypes story={PRIMARY_STORY} />
+<ArgTypes of={StackStories.VStackOverview} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

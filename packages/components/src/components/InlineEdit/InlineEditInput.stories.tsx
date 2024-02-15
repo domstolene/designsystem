@@ -13,19 +13,11 @@ export default {
     error: { control: { type: 'boolean' } },
     errorMessage: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
+    hideIcon: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {
-      exclude: [
-        'style',
-        'className',
-        'onFocus',
-        'onBlur',
-        'onChange',
-        'onSetValue',
-        'inputRef',
-        'children',
-      ],
+      exclude: ['inputRef'],
     },
   },
 };

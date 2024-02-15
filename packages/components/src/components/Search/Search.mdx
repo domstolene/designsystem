@@ -1,5 +1,4 @@
-import { Canvas, Controls, Primary, Meta, ArgTypes } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
 import { Search } from '.';
 import {
   Source,
@@ -17,74 +16,23 @@ import * as SearchStories from './Search.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Search"
 />
 
-## Demo
-
-<Primary />
-
-<Canvas of={SearchStories.WithButton} />
-
-<Canvas of={SearchStories.WithSuggestions} height="470px" />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Search" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
-`<Search>` er en komponent som tilsvarer `<input type="search">` og kan vise en søkeknapp hvis ønsket.
-I tillegg finnes det følgende subkomponenter:
+Følgende komponenter er tilgjengelige:
 
-- **`<Search.AutocompleteWrapper>`** - wrapper for `<Search>` som håndterer autocomplete-funksjonalitet hvis er ønsket.
+- **`<Search>`** - søkelfelt; tilsvarer `<input type="search">` og kan vise en søkeknapp hvis ønsket.
+- **`<Search.AutocompleteWrapper>`** - wrapper for `<Search>` som håndterer autofullføringsforslag hvis ønsket.
   Den rendrer en liste med forslag under søkefeltet basert på brukerens input.
   Støtter en rekke custom props.
 - **`<Search.Suggestions>`** - selve listen med forslag.
-  Brukes i `<Search.AutocompleteWrapper>`, men kan brukes uten wrapper hvis konsumenten skal håndtere oppførselen selv.
-
-## Bruk i koden
-
-<Source
-  code={`import { Search } from '@norges-domstoler/dds-components';
-
-const handleSearch = () => {
-
-$$
-// code
-}
-
-const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-$if( e.key == 'Enter' ){
-  $$handleSearch();
-$}
-};
-
-
-
-<Search onKeyPress={handleKeyPress} />
-
-
-
-<Search
-  onKeyPress={handleKeyPress}
-  buttonProps={{ onClick: () => handleSearch() }}
-/>
-
-
-
-<Search.AutocompleteWrapper>
-  <Search onKeyPress={handleKeyPress} />
-</Search.AutocompleteWrapper>
-
-`}
-/>
+  Brukes under panseret i `<Search.AutocompleteWrapper>`, men kan brukes uten wrapper hvis konsumenten skal håndtere oppførselen selv.
 
 ## Props
 
 ### Search
 
-Søkefeltet.
-
 <Canvas of={SearchStories.Default} sourceState="shown" />
 <Controls of={SearchStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface.
 
 #### Types
 
@@ -98,8 +46,11 @@ I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttri
 
 ### Search.AutocompleteWrapper
 
-En wrapper som håndterer autocomplete-funksjonalitet.
+En wrapper som håndterer autofullføring. Skal ha `<Search>` som barn.
 
+<Canvas>
+  <Story of={SearchStories.WithSuggestions} height="470px" />
+</Canvas>
 <ArgTypes of={Search.AutocompleteWrapper} />
 
 #### Types
@@ -111,22 +62,57 @@ En wrapper som håndterer autocomplete-funksjonalitet.
    text: string;
    relevance: number;
   };
-  sortFunction?: (a: WeightedValue, b: WeightedValue) => number;
+    sortFunction?: (a: WeightedValue, b: WeightedValue) => number;
   };
 
 type SearchData = {
-$$array: string[];
-$$sortFunction?: (a: string, b: string) => number;
-};`}
+array: string[];
+sortFunction?: (a: string, b: string) => number;
+};
+`}
 />
 
 ### Search.Suggestions
 
-Liste med forslag. Håndterer tastaturfokus internt.
+Liste med forslag. Brukes ved custom autofullføring uten `<Search.AutocompleteWrapper>`. Håndterer tastaturfokus internt.
 
 <ArgTypes of={Search.Suggestions} />
+
+## Bruk i koden
+
+<Source
+  code={`import { Search } from '@norges-domstoler/dds-components';
+
+const handleSearch = () => {
+// kode
+}
+
+const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+if( e.key == 'Enter' ){
+handleSearch();
+}
+};
+
+// Vanlig
+
+<Search onKeyPress={handleKeyPress} />
+
+// Med knapp
+
+<Search
+  onKeyPress={handleKeyPress}
+  buttonProps={{ onClick: () => handleSearch() }}
+/>
+
+// Med autofullfør
+
+<Search.AutocompleteWrapper>
+  <Search onKeyPress={handleKeyPress} />
+</Search.AutocompleteWrapper>
+
+`}
+/>
 
 ## Retningslinjer
 
 - Mens resultater lastes inn bør det indikeres til brukeren. Hvis det brukes en søkeknapp gjøres det via `loading` i `buttonProps`. Hvis søkeknappen ikke brukes bør det gjøres med `<Spinner />` i resultatlista.
-$$

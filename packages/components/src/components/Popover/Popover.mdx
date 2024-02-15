@@ -1,5 +1,4 @@
-import { Meta, ArgTypes, Canvas, Controls, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta, ArgTypes, Canvas, Controls, Story } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -17,54 +16,24 @@ import * as PopoverStories from './Popover.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Popover"
 />
 
-## Demo
-
-<Primary height="350px" />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Popover" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
 Komponenten består av tre elementer:
 
-- **`<PopoverGroup />`** - wrapper for to barn: et anchor-element som styrer popover og selve popover-elementet: `<Popover />`.
+- **`<Popover />`** - en komponent som dukker opp via museklikk på anchor-elementet.
 - **Anchor-element**, som er også et trigger-element. Et valgfritt interaktivt element, typisk en knapp, som åpner og lukker popover. Elementet får attributtene `onClick`, `ref`, `aria-haspopup` og `aria-controls` fra `<PopoverGroup />`.
-- **`<Popover />`** - en komponent som dukker opp via museklikk på anchor-elementet. Får enkelte props fra `<PopoverGroup />` som ikke kan overskrives.
-
-## Bruk i koden
-
-<Source
-  code={`import { Button, Popover, PopoverGroup } from '@norges-domstoler/dds-components';
-
-<PopoverGroup>
-  <Button>Åpne</Button>
-  <Popover title="Tittel">Dette er en popover</Popover>
-</PopoverGroup>
-`} />
+- **`<PopoverGroup />`** - wrapper for to barn: anchor-element `<Popover />`. Den håndterer oppførsel og universell utforming.
 
 ## Props
-
-### PopoverGroup
-
-Wrapper der anchor-elementet skal være første barnet og `<Popover />` skal være andre barnet. `<PopoverGroup />` har to funksjoner:
-
-- Håndtering av barnas oppførsel: åpning og lukking av popover, eventuelle ekstra callbacks.
-- Automatisk forplanting av enkelte props hos barna: referanse til anchor-elementet for å simplifisere bruken av komponenten, aria-attributter for å oppfylle brukervennlighetskrav osv.
-
-`<PopoverGroup />` returnerer kun barna uten en HTML-tag rundt dem.
-
-**OBS!** all kontroll av `<Popover />` som onClick events implementeres i `<PopoverGroup />`, ikke direkte i `<Popover />`.
-
-<ArgTypes of={PopoverGroup} />
 
 ### Popover
 
 Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og onBlur.
 
-<Canvas of={PopoverStories.Default} sourceState="shown" />
+<Canvas>
+  <Story of={PopoverStories.Default} height="350px" />
+</Canvas>
 <Controls of={PopoverStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`. **OBS!** `id` er ekskludert da den blir sendt som prop fra <PopoverGroup /> for å sørge for riktig oppførsel. `id` settes via `<PopoverGroup />` `popoverId`-prop.
 
 #### Types
 
@@ -85,7 +54,9 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 Det kan være relevant å begrense størrelsen på Popover slik at ikke hele teksten vises ved overflow. Da bør den synlige teksten avsluttes med en ellipse:
 
-<Canvas height="350px" of={PopoverStories.Overflow} />
+<Canvas>
+  <Story height="350px" of={PopoverStories.Overflow} />
+</Canvas>
 
 For å oppnå det kan du sette sizeProps til ønskede verdier og gi tekstelementet som
 er barnet i `<Popover />` følgende CSS:
@@ -94,10 +65,34 @@ er barnet i `<Popover />` følgende CSS:
   language="css"
   code={`
   text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+overflow: hidden;
+white-space: nowrap;
   `}
 />
+
+### PopoverGroup
+
+Wrapper der anchor-elementet skal være første barnet og `<Popover />` skal være andre barnet. `<PopoverGroup />` har to funksjoner:
+
+- Håndtering av barnas oppførsel: åpning og lukking av popover, eventuelle ekstra callbacks.
+- Automatisk forplanting av enkelte props hos barna: referanse til anchor-elementet og aria-attributter for universell utofrming.
+
+`<PopoverGroup />` returnerer kun barna uten en HTML-tag rundt dem.
+
+**OBS!** all kontroll av `<Popover />` som onClick events implementeres i `<PopoverGroup />`, ikke direkte i `<Popover />`.
+
+<ArgTypes of={PopoverGroup} />
+
+## Bruk i koden
+
+<Source
+  code={`import { Button, Popover, PopoverGroup } from '@norges-domstoler/dds-components';
+
+<PopoverGroup>
+  <Button>Åpne</Button>
+  <Popover title="Tittel">Dette er en popover</Popover>
+</PopoverGroup>
+`} />
 
 ## Retningslinjer
 

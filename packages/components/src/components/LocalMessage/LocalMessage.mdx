@@ -1,5 +1,4 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as LocalMessageStories from './LocalMessage.stories';
 
@@ -13,15 +12,7 @@ import * as LocalMessageStories from './LocalMessage.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/LocalMessage"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/LocalMessage" story="Default">Storybook</LinkTo>.
-
 ## Props
 
 <Canvas of={LocalMessageStories.Default} sourceState="shown" />
 <Controls of={LocalMessageStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`. `children` kan brukes istedenfor `message`.

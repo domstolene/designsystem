@@ -1,9 +1,5 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InputMessageStories from './InputMessage.stories';
 
 <Meta of={InputMessageStories} />
@@ -16,12 +12,6 @@ import * as InputMessageStories from './InputMessage.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/" story="Default">Storybook</LinkTo>.
-
 ## Oversikt
 
 `<InputMessage />` brukes til å vise hjelpetekst eller feilmelding som tilhører et custom inputelement (radio, checkbox, inputfelt...).
@@ -32,5 +22,3 @@ Se stories med kontrollere i <LinkTo title="dds-components/" story="Default">Sto
 
 <Canvas of={InputMessageStories.Default} sourceState="shown" />
 <Controls of={InputMessageStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

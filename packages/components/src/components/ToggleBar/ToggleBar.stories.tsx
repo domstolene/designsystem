@@ -11,6 +11,8 @@ export default {
   component: ToggleBar,
   argTypes: {
     label: { control: { type: 'text' } },
+    name: { control: { type: 'text' } },
+    width: { control: { type: 'text' } },
   },
 };
 

@@ -143,6 +143,23 @@ export const Default: Story = {
 
 export const Accordion: Story = {
   decorators: Story => (
+    <StoryTemplate title="Card - accordion">
+      <Story />
+    </StoryTemplate>
+  ),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  render: (args: any) => (
+    <Card {...args} cardType="expandable">
+      <CardAccordion>
+        <CardAccordionHeader>Header</CardAccordionHeader>
+        <CardAccordionBody>Content</CardAccordionBody>
+      </CardAccordion>
+    </Card>
+  ),
+};
+
+export const Accordions: Story = {
+  decorators: Story => (
     <StoryTemplate title="Card - accordion" gap="0">
       <Story />
     </StoryTemplate>

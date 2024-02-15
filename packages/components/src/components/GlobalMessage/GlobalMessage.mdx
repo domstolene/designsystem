@@ -1,9 +1,5 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as GlobalMessageStories from './GlobalMessage.stories';
 
 <Meta of={GlobalMessageStories} />
@@ -16,15 +12,7 @@ import * as GlobalMessageStories from './GlobalMessage.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/GlobalMessage"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/GlobalMessage" story="Default">Storybook</LinkTo>.
-
 ## Props
 
 <Canvas of={GlobalMessageStories.Default} sourceState="shown" />
 <Controls of={GlobalMessageStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

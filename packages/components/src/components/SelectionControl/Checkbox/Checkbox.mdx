@@ -1,9 +1,5 @@
-import { Story, Canvas, Controls, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
-import {
-  Source,
-  ComponentLinkRow,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as CheckboxStories from './Checkbox.stories';
 import * as CheckboxGroupStories from './CheckboxGroup.stories';
 
@@ -16,26 +12,21 @@ import * as CheckboxGroupStories from './CheckboxGroup.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Checkbox"
 />
+## Oversikt
 
-## Demo
+Følgende komponenter er tilgjengelige:
 
-<Canvas of={CheckboxStories.Default} />
-
-<Canvas of={CheckboxGroupStories.Default} />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Checkbox/Checkbox" story="Default">Storybook</LinkTo>.
+- **`<Checkbox />`** - en avkrysningsboks.
+- **`<CheckboxGroup />`** - en gruppe-wrapper for flere avkrysningsbokser med felles ledetekst.
 
 ## Props
 
 ### Checkbox
 
-En avkrysningboks.
-
 <Canvas of={CheckboxStories.Default} sourceState="shown" />
 <Controls of={CheckboxStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
-`name`, `checked`, `defaultChecked`, `value`, `defaultValue`, `onChange`, `onBlur` er tilgjengelige på rotnivå.
+Native HTML-attributter `name`, `checked`, `defaultChecked`, `value`, `defaultValue`, `onChange`, `onBlur` er tilgjengelige på rotnivå.
 
 ### CheckboxGroup
 
@@ -43,8 +34,6 @@ Wrapper for en `<Checkbox />` gruppe. Brukes ved flere barn.
 
 <Canvas of={CheckboxGroupStories.Default} sourceState="shown" />
 <Controls of={CheckboxGroupStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
 
 ## Retningslinjer
 

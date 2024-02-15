@@ -97,10 +97,7 @@ export type TabProps = BaseComponentPropsWithChildren<
     setFocus?: Dispatch<SetStateAction<number>>;
     /** Indeksen til `<Tab />`. **OBS!** settes automatisk av forelder.*/
     index?: number;
-    /**
-     * Bredden til `<Tab />`. Her er det støtte for de samme enhetene som du kan bruke i `grid-template-columns`.
-     * @default '1fr'
-     */
+    /** Bredden til `<Tab />`. Her er det støtte for de samme enhetene som du kan bruke i `grid-template-columns`. */
     width?: CSS.Properties['width'];
   } & Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>,
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>

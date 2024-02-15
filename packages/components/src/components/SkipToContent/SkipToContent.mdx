@@ -1,5 +1,4 @@
-import { Canvas, Controls, Primary, Meta } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -16,11 +15,10 @@ import * as SkipToContentStories from './SkipToContent.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/SkipToContent"
 />
 
-## Demo
+## Props
 
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/SkipToContent" story="Default">Storybook</LinkTo>.
+<Canvas of={SkipToContentStories.Default} sourceState="shown" />
+<Controls of={SkipToContentStories.Default} />
 
 ## Bruk i koden
 
@@ -33,13 +31,6 @@ Se stories med kontrollere i <LinkTo title="dds-components/SkipToContent" story=
   <Typography id="innhold">Innhold</Typography>
 </body>
 `} />
-
-## Props
-
-<Canvas of={SkipToContentStories.Default} sourceState="shown" />
-<Controls of={SkipToContentStories.Default} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLAnchorElement>`-interface i `htmlProps`.
 
 ## Retningslinjer
 

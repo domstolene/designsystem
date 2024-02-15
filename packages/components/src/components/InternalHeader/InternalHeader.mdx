@@ -1,5 +1,4 @@
-import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -15,19 +14,6 @@ import * as InternalHeaderStories from './InternalHeader.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3431%3A94756"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/InternalHeader"
 />
-
-## Demo
-
-<Primary />
-
-<Canvas of={InternalHeaderStories.WithNavigationAndContextMenu} />
-
-<Canvas
-  of={InternalHeaderStories.SmallScreenWithNavigationAndContextMenu}
-  height="650px"
-/>
-
-Se stories med kontrollere i <LinkTo title="dds-components/InternalHeader" story="Default">Storybook</LinkTo>.
 
 ## Oversikt
 
@@ -68,8 +54,6 @@ name: 'Name'
 <Canvas of={InternalHeaderStories.Default} sourceState="shown" />
 <Controls of={InternalHeaderStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-
 ### Types
 
 <Source
@@ -105,6 +89,24 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 `}
 />
+
+## Varianter
+
+<Primary />
+
+<Canvas>
+  <Story
+    of={InternalHeaderStories.WithNavigationAndContextMenu}
+    height="500px"
+  />
+</Canvas>
+
+<Canvas>
+  <Story
+    of={InternalHeaderStories.SmallScreenWithNavigationAndContextMenu}
+    height="650px"
+  />
+</Canvas>
 
 ## Retningslinjer
 

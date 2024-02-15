@@ -1,5 +1,4 @@
-import { Canvas, Controls, Meta, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ButtonStories from './Button.stories';
 
@@ -13,18 +12,12 @@ import * as ButtonStories from './Button.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Button"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Button" story="Default">Storybook</LinkTo>.
-
 ## Props
 
 <Canvas of={ButtonStories.Default} sourceState="shown" />
 <Controls of={ButtonStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `ButtonHTMLAttributes<HTMLButtonElement>`-interface i `htmlProps`. `type`, `onClick`, `onFocus` og `onBlur` er tilgjengelige på rotnivå.
+Native HTML-attributter `type`, `onClick`, `onFocus` og `onBlur` er tilgjengelige på rotnivå.
 
 ## Retningslinjer
 

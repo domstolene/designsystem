@@ -78,9 +78,11 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   className?: string;
   /** Inline styling. */
   style?: React.CSSProperties;
+  /** Custom element som vises for det valgte elementet. */
   customOptionElement?: (
     props: OptionProps<Option, IsMulti, GroupBase<Option>>,
   ) => JSX.Element;
+  /** Custom element som vises i listen over alternativer. */
   customSingleValueElement?: (
     props: SingleValueProps<Option, IsMulti, GroupBase<Option>>,
   ) => JSX.Element;

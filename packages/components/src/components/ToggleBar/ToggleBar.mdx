@@ -1,17 +1,6 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import { ToggleBar, ToggleRadio } from '.';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Meta, ArgTypes, Controls } from '@storybook/blocks';
+import { ToggleRadio } from '.';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ToggleBarStories from './ToggleBar.stories';
 
 <Meta of={ToggleBarStories} />
@@ -24,44 +13,12 @@ import * as ToggleBarStories from './ToggleBar.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ToggleBar"
 />
 
-## Demo
-
-<Canvas>
-  {/* <Story id="dds-components-togglebar--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-togglebar--default" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-togglebar`}
-/>
-
 ## Oversikt
 
 ToggleBar er en rad med semantiske radioknapper. Den består av følgende subkomponenter:
 
-- `<ToggleBar />` - wrapper for barna.
-- `<ToggleRadio />` - elementer å velge mellom.
-
-## Bruk i koden
-
-<Source
-  code={`import { ToggleRadio, ToggleBar } from '@norges-domstoler/dds-components';
-
-const [value, setValue] = useState<string | undefined>();
-
-<ToggleBar
-  label="Gruppe"
-  name="navn"
-  value={value}
-  onChange={(event, value) => {
-    setValue(value);
-  }}
->
-  <ToggleRadio value="alt1" label="Alternativ 1" />
-  <ToggleRadio value="alt2" label="Alternativ 2" />
-</ToggleBar>
-`} />
+- **`<ToggleBar />`** - wrapper for barna.
+- **`<ToggleRadio />`** - elementer å velge mellom.
 
 ## API
 
@@ -69,25 +26,19 @@ const [value, setValue] = useState<string | undefined>();
 
 En rad med `<ToggleRadio />`.
 
-<ArgTypes story={PRIMARY_STORY} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `DivHTMLAttributes<HTMLInputElement>`-interface i `htmlProps`.
+<Canvas of={ToggleBarStories.Default} sourceState="shown" />
+<Controls of={ToggleBarStories.Default} />
 
 #### Bredde
 
 Bredden på alle `<ToggleRadio />` i en `<ToggleBar />` skal være den samme. `<ToggleBar />` tar i utganspunktet hele tigjengelige bredden og fordeler den likt mellom barna. Spesifikk bredde kan settes enten i `<ToggleBar />` eller i selvutviklede wrapperen til `<ToggleBar />`.
 
-<Canvas>
-  {/* <Story id="dds-components-togglebar--with-width" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-togglebar--with-width" />
-</Canvas>
+<Canvas of={ToggleBarStories.WithWidth} sourceState="shown" />
 
 ### ToggleRadio
 
+Radioknapp.
+
 <ArgTypes of={ToggleRadio} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `InputHTMLAttributes<HTMLDivElement>`-interface på følgende måte:
-
-- `'name'`, `'checked'`, `'value'`, `'onChange'`, `'aria-labelledby'`, `'aria-label'` på toppnivå.
-- resterende i `htmlProps`.
+Native HTML-attributter `'name'`, `'checked'`, `'value'`, `'onChange'`, `'aria-labelledby'`, `'aria-label'` støttes på toppnivå.

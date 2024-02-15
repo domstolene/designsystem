@@ -1,5 +1,4 @@
-import { Meta, ArgTypes, Primary } from '@storybook/blocks';
-import LinkTo from '@storybook/addon-links/react';
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -16,11 +15,17 @@ import * as AppShellStories from './AppShell.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/AppShell/AppShell"
 />
 
-## Demo
+## Oversikt
 
-<Primary />
+Komponenten er en standard wrapper for en Lovisa-applikasjon.
 
-Se stories med kontrollere i <LinkTo title="dds-components/AppShell" story="Default">Storybook</LinkTo>.
+## API
+
+<Canvas>
+  <Story of={AppShellStories.Default} height="700px" />
+</Canvas>
+
+<Controls of={AppShellStories.Default} />
 
 ## Bruk i koden
 
@@ -48,7 +53,3 @@ import { AppShell, FolderIcon, ChecklistIcon } from '@norges-domstoler/dds-compo
   Applikasjonskoden din her...
 </AppShell>
 `} />
-
-## API
-
-<ArgTypes of={AppShellStories.Default} />

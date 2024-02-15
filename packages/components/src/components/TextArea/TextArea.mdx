@@ -1,17 +1,5 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Story,
-  Canvas,
-} from '@storybook/blocks';
-import { TextArea } from '.';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Meta, Controls, Canvas } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as TextAreaStories from './TextArea.stories';
 
 <Meta of={TextAreaStories} />
@@ -24,35 +12,10 @@ import * as TextAreaStories from './TextArea.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/TextArea"
 />
 
-## Demo
-
-<Canvas>
-  {/* <Story id="dds-components-textarea--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-textarea--default" />
-</Canvas>
-
-<Canvas>
-  {/* <Story id="dds-components-textarea--with-label" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-textarea--with-label" />
-</Canvas>
-
-<LinkToInteractiveStory
-  href={`${SB_DESIGNSYSTEM_URL}dds-components-textarea`}
-/>
-
-## Bruk i koden
-
-<Source
-  code={`import { TextArea } from '@norges-domstoler/dds-components';
-
-<TextArea label="Ledetekst" />
-`} />
-
 ## API
 
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={TextAreaStories.WithLabel} sourceState="shown" />
+<Controls of={TextAreaStories.WithLabel} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
 

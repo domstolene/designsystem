@@ -20,7 +20,7 @@ export interface PopoverGroupProps {
   isOpen?: boolean;
   /** `id` til `<Popover />.` */
   popoverId?: string;
-  /** Barna til wrapperen: anchor-element som det første og `<Popover />` so det adnre.  */
+  /** Barna til wrapperen: anchor-element som det første og `<Popover />` som det andre.  */
   children: ReactNode;
 }
 
