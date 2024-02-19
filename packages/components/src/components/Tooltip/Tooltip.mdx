@@ -1,16 +1,7 @@
-import {
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-  Canvas,
-  Story,
-} from '@storybook/blocks';
-import { Tooltip } from '.';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
 import { Table } from '../Table';
 import * as TooltipStories from './Tooltip.stories';
@@ -25,40 +16,19 @@ import * as TooltipStories from './Tooltip.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Tooltip"
 />
 
-## Demo
-
-<Canvas>
-  {/* <Story id="dds-components-tooltip--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-tooltip--default" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-tooltip`} />
-
 ## Oversikt
 
 En tooltip består av:
 
-- `<Tooltip />`- wrapper som håndterer kontroll og rendering av tooltip
-- Valgfritt anchor element som skal være det eneste barnet til `<Tooltip />`. Det kontrollerer når tooltip vises via tastaturfokus og tooltip plasseres i forhold til dette elementet. Et anchor element er et interaktivt element. `<Tooltip />` sender enkelte props til anchor-elementet som ikke kan overskrives, som `aria-describedby` og `ref`.
+- **`<Tooltip />`** - wrapper som håndterer kontroll og rendering av tooltip
+- **Anchor-element** - valgfritt interaktivt element som skal være det eneste barnet til `<Tooltip />`. Det kontrollerer når tooltip vises via tastaturfokus og tooltip plasseres i forhold til dette elementet. `<Tooltip />` sender enkelte props til anchor-elementet som ikke kan overskrives, som `aria-describedby` og `ref`.
 
 `<Tooltip />` returnerer anchor elementet og en tooltip wrappet i en `<div>`.
 
-## Bruk i koden
-
-<Source
-  code={`import { Tooltip, Button } from '@norges-domstoler/dds-components';
-
-<Tooltip text="Tooltip">
-  <Button>tekst</Button>
-</Tooltip>
-`} />
-
 ## API
 
-<ArgTypes story={PRIMARY_STORY} />
-
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+<Canvas of={TooltipStories.Default} sourceState="shown" />
+<Controls of={TooltipStories.Default} />
 
 ### Events
 

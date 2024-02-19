@@ -1,18 +1,6 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
-import { Label } from '.';
-import { Link } from '..';
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+
 import * as LabelStories from './Label.stories';
 
 <Meta of={LabelStories} />
@@ -21,33 +9,18 @@ import * as LabelStories from './Label.stories';
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211782&mode=design&t=gx7RPj9DH45EpNDL-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Label"
 />
-
-## Demo
-
-<Canvas>
-  {/* <Story id="dds-components-typography-label--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-typography-label--default" />
-</Canvas>
-
-Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Link>.
 
 ## Oversikt
 
 `<Label />` er en komponent som tilsvarer `<label>` HTML tag.
 
-## Bruk i koden
+## Props
 
-<Source
-  code={`import { Label } from '@norges-domstoler/dds-components';
-
-<Label>Label</Label>`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
+<Canvas of={LabelStories.Default} />
+<Controls of={LabelStories.Default} />
 
 I tillegg støttes native HTML-attributter som er en del av
 `HTMLAttributes<HTMLLabelElement>`-interface.

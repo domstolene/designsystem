@@ -1,8 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { NotificationsIcon } from '../Icon/icons';
 
-import { ToggleButton, type ToggleButtonProps } from '.';
+import { ToggleButton } from '.';
 
 export default {
   title: 'dds-components/ToggleButton/ToggleButton',
@@ -10,20 +11,30 @@ export default {
   argTypes: {
     label: { control: 'text' },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Default = (args: ToggleButtonProps) => (
-  <StoryTemplate title="ToggleButton - default">
-    <ToggleButton {...args} label={args.label ?? 'Tekst'} />
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof ToggleButton>;
 
-export const WithIcon = (args: ToggleButtonProps) => (
-  <StoryTemplate title="ToggleButton - default">
-    <ToggleButton
-      {...args}
-      label={args.label ?? 'Tekst'}
-      icon={NotificationsIcon}
-    />
-  </StoryTemplate>
-);
+export const Default: Story = {
+  args: { label: 'Tekst' },
+  decorators: Story => (
+    <StoryTemplate title="ToggleButton - default">
+      <Story />
+    </StoryTemplate>
+  ),
+};
+
+export const WithIcon: Story = {
+  args: { label: 'Tekst', icon: NotificationsIcon },
+  decorators: Story => (
+    <StoryTemplate title="ToggleButton - with icon">
+      <Story />
+    </StoryTemplate>
+  ),
+};

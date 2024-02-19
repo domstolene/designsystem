@@ -1,25 +1,29 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Caption, type CaptionProps } from '.';
-
-type StoryTProps = {
-  text: string;
-} & CaptionProps;
+import { Caption } from '.';
 
 export default {
   title: 'dds-components/Typography/Caption',
   component: Caption,
   argTypes: {
     withMargins: { control: { type: 'boolean' } },
-    text: { control: { type: 'text' } },
+  },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'shown' },
+    },
   },
 };
 
-export const Default = (args: StoryTProps) => {
-  const { text, ...rest } = args;
-  return (
+type Story = StoryObj<typeof Caption>;
+
+export const Default: Story = {
+  args: { children: 'Caption' },
+  decorators: Story => (
     <StoryTemplate title="Caption - default">
-      <Caption {...rest}>{text || 'Caption'}</Caption>
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };

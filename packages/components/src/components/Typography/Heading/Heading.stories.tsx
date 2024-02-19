@@ -1,20 +1,23 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { Heading, type HeadingProps } from '.';
-
-type StoryTProps = {
-  text: string;
-} & HeadingProps;
 
 export default {
   title: 'dds-components/Typography/Heading',
   component: Heading,
   argTypes: {
-    typographyType: { control: { type: 'select' } },
     withMargins: { control: { type: 'boolean' } },
-    text: { control: { type: 'text' } },
+  },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'shown' },
+    },
   },
 };
+
+type Story = StoryObj<typeof Heading>;
 
 export const Overview = (args: Partial<HeadingProps>) => {
   return (
@@ -41,13 +44,11 @@ export const Overview = (args: Partial<HeadingProps>) => {
   );
 };
 
-export const Default = (args: StoryTProps) => {
-  const { text, level, ...rest } = args;
-  return (
+export const Default: Story = {
+  args: { children: 'Heading', level: 1 },
+  decorators: Story => (
     <StoryTemplate title="Heading - default">
-      <Heading {...rest} level={level || 1}>
-        {text || 'Heading'}
-      </Heading>
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };

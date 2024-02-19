@@ -1,32 +1,39 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import {
-  ToggleButton,
-  ToggleButtonGroup,
-  type ToggleButtonGroupProps,
-} from '.';
+import { ToggleButton, ToggleButtonGroup } from '.';
 
 export default {
   title: 'dds-components/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup,
+  argTypes: {
+    label: { control: 'text' },
+  },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
 
-export const Default = (args: ToggleButtonGroupProps) => (
-  <StoryTemplate title="ToggleButtonGroup - default">
-    <ToggleButtonGroup {...args}>
-      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
-      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
-      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />
-    </ToggleButtonGroup>
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof ToggleButtonGroup>;
 
-export const WithLabel = (args: ToggleButtonGroupProps) => (
-  <StoryTemplate title="ToggleButtonGroup - with label">
-    <ToggleButtonGroup {...args} label="Label">
-      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
-      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />{' '}
-      <ToggleButton label="Tekst" /> <ToggleButton label="Tekst" />
-    </ToggleButtonGroup>
-  </StoryTemplate>
-);
+export const Default: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate title="ToggleButtonGroup - default" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <ToggleButtonGroup {...args}>
+        <ToggleButton label="Tekst" />
+        <ToggleButton label="Tekst" />
+        <ToggleButton label="Tekst" />
+        <ToggleButton label="Tekst" />
+      </ToggleButtonGroup>
+    </>
+  ),
+};

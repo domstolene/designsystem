@@ -1,10 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Link, type LinkProps } from '.';
-
-type StoryTProps = {
-  text: string;
-} & LinkProps;
+import { Link } from '.';
 
 export default {
   title: 'dds-components/Typography/Link',
@@ -13,32 +10,38 @@ export default {
     external: { control: { type: 'boolean' } },
     typographyType: { control: { type: 'select' } },
     withMargins: { control: { type: 'boolean' } },
-    text: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
+  },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'shown' },
+    },
   },
 };
 
-export const Overview = (args: StoryTProps) => {
-  const { text, href, ...rest } = args;
-  return (
+type Story = StoryObj<typeof Link>;
+
+export const Default: Story = {
+  args: { children: 'Link', href: 'https://www.domstol.no' },
+  decorators: Story => (
     <StoryTemplate title="Link - default">
-      <Link {...rest} href={href ?? 'https://www.domstol.no'}>
-        {text ?? 'Link'}
-      </Link>
-      <Link {...rest} external href={href ?? 'https://www.domstol.no'}>
-        {text ?? 'Link'}
-      </Link>
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };
 
-export const Default = (args: StoryTProps) => {
-  const { text, href, ...rest } = args;
-  return (
+export const Overview: Story = {
+  args: { children: 'Link', href: 'https://www.domstol.no' },
+  decorators: Story => (
     <StoryTemplate title="Link - default">
-      <Link {...rest} href={href ?? 'https://www.domstol.no'}>
-        {text ?? 'Link'}
-      </Link>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <>
+      <Link {...args} />
+      <Link {...args} external />
+    </>
+  ),
 };

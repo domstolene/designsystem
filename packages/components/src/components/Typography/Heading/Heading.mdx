@@ -1,17 +1,5 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
-import { Heading } from '.';
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import { Link } from '..';
 import * as HeadingStories from './Heading.stories';
 
@@ -21,35 +9,15 @@ import * as HeadingStories from './Heading.stories';
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211812&mode=design&t=gx7RPj9DH45EpNDL-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Heading"
 />
-
-## Demo
-
-<Canvas>
-  {/* <Story id="dds-components-typography-heading--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-typography-heading--default" />
-</Canvas>
-
-Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Link>.
 
 ## Oversikt
 
 `<Heading />` er en komponent som tilsvarer `<h1>`-`<h6>` HTML tag. Den bruker oversikten over typografistiler definert i <Link external href="https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f">Typografi | Stiler og bruk</Link> til å gi tekst riktig styling.
 
-## Bruk i koden
+## Props
 
-<Source
-  code={`import { Heading } from '@norges-domstoler/dds-components';
-
-<Heading level={1}>Heading</Heading>`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
-
-I tillegg støttes native HTML-attributter som er en del av
-`HTMLAttributes<HTMLHeadingElement>`-interface.
-`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
-sammen av komponenten.
+<Canvas of={HeadingStories.Default} />
+<Controls of={HeadingStories.Default} />

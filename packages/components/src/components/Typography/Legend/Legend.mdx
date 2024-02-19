@@ -1,18 +1,8 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
+import { Canvas, Meta, Controls } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
 } from '@norges-domstoler/storybook-components';
-import { Legend } from '.';
-import { Typography } from '..';
 import * as LegendStories from './Legend.stories';
 
 <Meta of={LegendStories} />
@@ -21,29 +11,24 @@ import * as LegendStories from './Legend.stories';
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211792&mode=design&t=XBHlNDhFak7JkOlt-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Legend"
 />
 
-## Demo
+## Oversikt
 
-<Canvas>
-  {/* <Story id="dds-components-typography-legend--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-typography-legend--default" />
-</Canvas>
-
-Se stories med kontrollere i <Typography externalLink typographyType="a" href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Typography>.
-
-## Introduksjon
-
-`<Legend />` er en komponent som tilsvarer `<legend>` HTML taggen.
-HTML taggen `<legend>`, sammen med `<fieldset>`, brukes for å knytte relaterte skjemaelementer sammen.
-Hvis du skal ha overskrifter for grupper av skjemaelementer, så skal du alltid bruke `<fieldset>` og `<Legend>` for å markere disse gruppene.
-Ved å gjøre dette blir brukeropplevelsen til skjermleserbrukere bedre.
+`<Legend />` er en komponent som tilsvarer `<legend>` HTML taggen. `<legend>`, sammen med `<fieldset>`, brukes for å knytte relaterte skjemaelementer sammen.
+Hvis du skal ha overskrifter for grupper av skjemaelementer skal du alltid bruke `<fieldset>` og `<Legend />` for å markere disse gruppene.
+Dette gjør brukeropplevelsen til skjermleserbrukere bedre.
 Skjermleseren vil da kunne lese opp overskriften når en bruker får et skjemaelement i fokus.
-Dette gjør det mulig for skjermleserbrukere å kunne Tabbe gjennom skjemaer, uten å miste konteksten.
+Dette gjør det mulig for skjermleserbrukere å kunne tabbe gjennom skjemaer, uten å miste konteksten.
 
 For eksempler og mer utfyllende informasjon om bruk av `<fieldset>` og `<legend>`, kan vi anbefale [gov.uk sin bloggpost om fieldset og legend](https://accessibility.blog.gov.uk/2016/07/22/using-the-fieldset-and-legend-elements/).
+
+## Props
+
+<Canvas of={LegendStories.Default} />
+<Controls of={LegendStories.Default} />
 
 ## Bruk i koden
 
@@ -69,12 +54,3 @@ For eksempler og mer utfyllende informasjon om bruk av `<fieldset>` og `<legend>
   </fieldset>
 </form>
 `} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
-
-I tillegg støttes native HTML-attributter som er en del av
-`HTMLAttributes<HTMLLegendElement>`-interface.
-`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
-sammen av komponenten.

@@ -1,10 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { Paragraph, type ParagraphProps } from '.';
-
-type StoryTProps = {
-  text: string;
-} & ParagraphProps;
+import { Paragraph } from '.';
 
 export default {
   title: 'dds-components/Typography/Paragraph',
@@ -12,50 +9,61 @@ export default {
   argTypes: {
     typographyType: { control: { type: 'select' } },
     withMargins: { control: { type: 'boolean' } },
-    text: { control: { type: 'text' } },
+  },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'shown' },
+    },
   },
 };
 
-export const Overview = (args: StoryTProps) => {
-  const { text, ...rest } = args;
-  return (
-    <StoryTemplate title="Paragraph - overview">
-      <Paragraph {...rest} typographyType="bodySans01">
-        {text || 'bodySans01'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="bodySans02">
-        {text || 'bodySans02'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="bodySans03">
-        {text || 'bodySans03'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="bodySans04">
-        {text || 'bodySans04'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="leadSans01">
-        {text || 'leadSans01'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="leadSans02">
-        {text || 'leadSans02'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="leadSans03">
-        {text || 'leadSans03'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="leadSans04">
-        {text || 'leadSans04'}
-      </Paragraph>
-      <Paragraph {...rest} typographyType="leadSans05">
-        {text || 'leadSans05'}
-      </Paragraph>
+type Story = StoryObj<typeof Paragraph>;
+
+export const Overview: Story = {
+  decorators: Story => (
+    <StoryTemplate title="Paragraph - default">
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <>
+      <Paragraph {...args} typographyType="bodySans01">
+        {args.children || 'bodySans01'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="bodySans02">
+        {args.children || 'bodySans02'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="bodySans03">
+        {args.children || 'bodySans03'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="bodySans04">
+        {args.children || 'bodySans04'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="leadSans01">
+        {args.children || 'leadSans01'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="leadSans02">
+        {args.children || 'leadSans02'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="leadSans03">
+        {args.children || 'leadSans03'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="leadSans04">
+        {args.children || 'leadSans04'}
+      </Paragraph>
+      <Paragraph {...args} typographyType="leadSans05">
+        {args.children || 'leadSans05'}
+      </Paragraph>
+    </>
+  ),
 };
 
-export const Default = (args: StoryTProps) => {
-  const { text, ...rest } = args;
-  return (
-    <StoryTemplate title="Paragraph - default">
-      <Paragraph {...rest}>{text || 'Paragraph'}</Paragraph>
+export const Default: Story = {
+  args: { children: 'Paragraph' },
+  decorators: Story => (
+    <StoryTemplate title="Paragraph - overview">
+      <Story />
     </StoryTemplate>
-  );
+  ),
 };

@@ -1,16 +1,5 @@
-import {
-  Canvas,
-  Story,
-  Meta,
-  ArgTypes,
-  PRIMARY_STORY,
-} from '@storybook/blocks';
-import {
-  Source,
-  ComponentLinkRow,
-  SB_DESIGNSYSTEM_URL,
-  LinkToInteractiveStory,
-} from '@norges-domstoler/storybook-components';
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import { Link } from '.';
 import * as LinkStories from './Link.stories';
 
@@ -20,40 +9,22 @@ import * as LinkStories from './Link.stories';
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211814&mode=design&t=XBHlNDhFak7JkOlt-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Link"
 />
 
-## Demo
-
-<Canvas>
-  {/* <Story id="dds-components-typography-link--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-typography-link--default" />
-</Canvas>
-
-Se stories med kontrollere i <Link external href={`${SB_DESIGNSYSTEM_URL}dds-components-typography`}>Storybook</Link>.
-
-## Introduksjon
+## Oversikt
 
 `<Link />` er en komponent som tilsvarer `<a>` HTML tag. Den arver font-relatert styling. Når arvet styling skal overskrives brukes oversikten over typografistiler definert i <Link external href="https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f">Typografi | Stiler og bruk</Link> (se API).
 
-## Bruk i koden
+## Props
 
-<Source
-  code={`import { Link } from '@norges-domstoler/dds-components';
+<Canvas of={LinkStories.Default} />
+<Controls of={LinkStories.Default} />
 
-<Link href="https://domstol.no">Link</Link>`} />
-
-## API
-
-<ArgTypes story={PRIMARY_STORY} />
-
-I tillegg støttes native HTML-attributter som er en del av
-`AnchorHTMLAttributes<HTMLAnchorElement>`-interface.
-`style`-prop kan settes både på toppnivå og i `htmlProps`, og blir slått
-sammen av komponenten. `onClick`, `href` og `target` støttes på toppnivå.
+`onClick`, `href` og `target` støttes på toppnivå.
 
 ## Retningslinjer
 
-- En lenke trenger ha `href` prop for assisterende teknologi skal tolke elementet riktig.
+- En lenke må ha `href` prop for assisterende teknologi skal tolke elementet riktig.
 - Komponenten brukes kun til sematiske `<a>`-elementer.
