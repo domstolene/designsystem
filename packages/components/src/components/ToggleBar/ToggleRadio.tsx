@@ -64,6 +64,8 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
       name,
       onChange,
       checked,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
       icon,
       label,
       htmlProps,
@@ -91,6 +93,8 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
           onChange={handleChange}
           value={value}
           checked={calculateChecked(value, group, checked)}
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledBy}
         />
         <Content $size={group.size} $justIcon={!!icon && !label}>
           {icon && <Icon icon={icon} iconSize="inherit" />}
