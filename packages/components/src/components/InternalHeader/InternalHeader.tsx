@@ -90,7 +90,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       <Typography typographyType="bodySans02" as="span">
         {applicationDesc}
       </Typography>
-      <BarSeparator />
+      {(hasContextMenu || navigation !== null) && <BarSeparator />}
       {navigation}
       {hasContextMenu && (
         <ContextMenuGroup>
