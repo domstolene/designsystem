@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 15.0.1
+
+### Patch Changes
+
+- c2aa1a9: Fikser støtte for `aria-label` og `aria-labelledby` i `<ToggleRadio />`
+- ee8bd68: Fikser spacing i `<InternalHeader />`, og skjuler separator hvis hverken navigasjon eller kontekstmeny finnes
+- d9e133c: Fikser at Drawer havnet under AppShell sin flytende profilknapp.
+
 ## 15.0.0
 
 ### Major Changes
