@@ -20,39 +20,20 @@ import * as InternalHeaderStories from './InternalHeader.stories';
 `<InternalHeader />` er ment for å bli brukt som header i alle Lovisa
 webapplikasjoner.
 
+Komponenten støtter horisontal navigasjon med lenker, og den kan også ha en kontekstmeny på høyresiden. Denne menyen kan inneholde enten en lenke eller statisk tekst som viser brukernavnet, i tillegg til en liste med lenker eller knapper. Du finner detaljene i Props-seksjonen.
+
 Ettersom Lovisa Next kommer på plass
 vil `<InternalHeader />` også bli videreutviklet til å bli et felles
 navigasjonspunkt mellom ulike tjenester og applikasjoner. Lenker ti andre
 applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn på applikasjonen.
 
-Komponenten støtter horisontal navigasjon med lenker og en kontekstmeny til høyre som kan inneholde et en lenke eller tekst som viser brukernavnet og en liste med lenker eller knapper. Se detaljer i API.
-
-## Bruk i koden
-
-<Source
-  code={`
-  import { InternalHeader } from '@norges-domstoler/dds-components';
-
-const navLinks = [
-{ title: 'Title', href: '#' },
-{ title: 'Title', href: '#' },
-]
-
-const user = {
-name: 'Name'
-}
-
-<InternalHeader
-  applicationName="App"
-  navigationElements={navLinks}
-  userProps={user}
-/>
-`} />
-
 ## Props
 
-<Canvas of={InternalHeaderStories.Default} sourceState="shown" />
-<Controls of={InternalHeaderStories.Default} />
+<Canvas
+  of={InternalHeaderStories.WithNavigationAndContextMenu}
+  sourceState="shown"
+/>
+<Controls of={InternalHeaderStories.WithNavigationAndContextMenu} />
 
 ### Types
 
@@ -97,14 +78,14 @@ name: 'Name'
 <Canvas>
   <Story
     of={InternalHeaderStories.WithNavigationAndContextMenu}
-    height="500px"
+    height="400px"
   />
 </Canvas>
 
 <Canvas>
   <Story
     of={InternalHeaderStories.SmallScreenWithNavigationAndContextMenu}
-    height="650px"
+    height="550px"
   />
 </Canvas>
 

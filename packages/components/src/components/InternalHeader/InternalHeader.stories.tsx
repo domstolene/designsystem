@@ -37,12 +37,8 @@ const longNavigationLink = {
   title: 'Veldig veldig veldig velidg lang tittel her',
 };
 
-const navigationLinks = [
-  navigationLink,
-  navigationLink,
-  navigationLink,
-  longNavigationLink,
-];
+const navigationLinks = [navigationLink, navigationLink, navigationLink];
+const navigationLinksWithLong = [...navigationLinks, longNavigationLink];
 
 const user = {
   name: 'Navn Navnesen',
@@ -224,6 +220,18 @@ export const SmallScreenWithNavigationAndContextMenu: Story = {
       title="InternalHeader - small screen with navigation and context menu"
       display="block"
     >
+      <Story />
+    </StoryTemplate>
+  ),
+};
+export const WithNavigationLongLink: Story = {
+  args: {
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
+    navigationElements: navigationLinksWithLong,
+  },
+  decorators: Story => (
+    <StoryTemplate title="InternalHeader - with long link" display="block">
       <Story />
     </StoryTemplate>
   ),

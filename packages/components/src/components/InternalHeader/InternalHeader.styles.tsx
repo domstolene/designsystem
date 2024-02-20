@@ -17,6 +17,8 @@ export const Bar = styled.div<{ $hasNavigation: boolean }>`
   align-items: center;
   min-height: ${bar.minHeight};
   border-bottom: ${bar.borderBottom};
+  padding-left: ${bar.paddingLeft};
+  padding-right: ${bar.paddingRight};
 
   ${({ $hasNavigation }) =>
     $hasNavigation
