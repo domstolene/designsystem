@@ -62,7 +62,7 @@ export const Default: Story = {
 };
 
 export const Overview: Story = {
-  args: { header: 'Tittel' },
+  args: { header: 'Tittel', onClose: undefined },
   decorators: Story => (
     <StoryTemplate title="Modal - overview">
       <Story />
