@@ -16,49 +16,93 @@ export const typographyType: StaticTypographyType = 'bodySans01';
 const wrapper = {
   border: '1px solid',
   borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  padding: `${spacing.SizesDdsSpacingX0125} ${spacing.SizesDdsSpacingX025}`,
+  padding: `${spacing.SizesDdsSpacingX0125} ${spacing.SizesDdsSpacingX05}`,
   icon: {
     padding: [
       spacing.SizesDdsSpacingX0125,
+      spacing.SizesDdsSpacingX05,
+      spacing.SizesDdsSpacingX0125,
       spacing.SizesDdsSpacingX025,
-      spacing.SizesDdsSpacingX0125,
-      spacing.SizesDdsSpacingX0125,
     ].join(' '),
-    gap: spacing.SizesDdsSpacingX0125,
+    gap: spacing.SizesDdsSpacingX025,
     size: 'small',
   },
   purpose: {
     default: {
-      backgroundColor: colors.DdsColorNeutralsGray1,
-      borderColor: colors.DdsColorNeutralsGray3,
       icon: undefined,
+      base: {
+        backgroundColor: colors.DdsColorNeutralsGray1,
+        borderColor: colors.DdsColorNeutralsGray3,
+        icon: undefined,
+      },
+      strong: {
+        backgroundColor: colors.DdsColorNeutralsGray3,
+        borderColor: colors.DdsColorNeutralsGray3,
+        icon: undefined,
+      },
     },
     success: {
-      ...localMessageTokens.container.purpose.success,
-      icon: {
-        icon: CheckCircledIcon,
-        color: colors.DdsColorSuccessDarkest,
+      icon: CheckCircledIcon,
+      base: {
+        ...localMessageTokens.container.purpose.success,
+        icon: {
+          color: colors.DdsColorSuccessDarkest,
+        },
+      },
+      strong: {
+        backgroundColor: colors.DdsColorSuccessLight,
+        borderColor: colors.DdsColorSuccessLight,
+        icon: {
+          color: colors.DdsColorNeutralsGray9,
+        },
       },
     },
     danger: {
-      ...localMessageTokens.container.purpose.danger,
-      icon: {
-        icon: ErrorIcon,
-        color: colors.DdsColorDangerDarkest,
+      icon: ErrorIcon,
+      base: {
+        ...localMessageTokens.container.purpose.danger,
+        icon: {
+          color: colors.DdsColorDangerDarkest,
+        },
+      },
+      strong: {
+        backgroundColor: colors.DdsColorDangerLight,
+        borderColor: colors.DdsColorDangerLight,
+        icon: {
+          color: colors.DdsColorNeutralsGray9,
+        },
       },
     },
     warning: {
-      ...localMessageTokens.container.purpose.warning,
-      icon: {
-        icon: WarningIcon,
-        color: colors.DdsColorWarningDarkest,
+      icon: WarningIcon,
+      base: {
+        ...localMessageTokens.container.purpose.warning,
+        icon: {
+          color: colors.DdsColorWarningDarkest,
+        },
+      },
+      strong: {
+        backgroundColor: colors.DdsColorWarningLight,
+        borderColor: colors.DdsColorWarningLight,
+        icon: {
+          color: colors.DdsColorNeutralsGray9,
+        },
       },
     },
     info: {
-      ...localMessageTokens.container.purpose.info,
-      icon: {
-        icon: InfoIcon,
-        color: colors.DdsColorInfoDarkest,
+      icon: InfoIcon,
+      base: {
+        ...localMessageTokens.container.purpose.info,
+        icon: {
+          color: colors.DdsColorInfoDarkest,
+        },
+      },
+      strong: {
+        backgroundColor: colors.DdsColorInfoLight,
+        borderColor: colors.DdsColorInfoLight,
+        icon: {
+          color: colors.DdsColorNeutralsGray9,
+        },
       },
     },
   },
