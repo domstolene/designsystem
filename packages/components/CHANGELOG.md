@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 15.1.0
+
+### Minor Changes
+
+- 063ca48: Legger til `strong` variant av `<Tag />` for alle `purpose`. Den har sterkere visuelt uttrykk.
+
+### Patch Changes
+
+- 063ca48: Justerer på avstandene i `<Tag />`
+- 063ca48: Endrer farge på ramme i `<Tag />` og `<LocalMessage />` slik at de er like.
+
 ## 15.0.1
 
 ### Patch Changes
