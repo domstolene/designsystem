@@ -1,8 +1,9 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
 import { HStack, VStack } from '../Stack';
 
-import { Tag, type TagProps } from '.';
+import { Tag } from '.';
 
 export default {
   title: 'dds-components/Tag',
@@ -13,67 +14,90 @@ export default {
   },
 };
 
-export const Default = (args: Omit<TagProps, 'text'>) => (
-  <StoryTemplate title="Tag - default" display="block">
-    <Tag {...args}>default</Tag>
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof Tag>;
 
-export const Overview = (args: Omit<TagProps, 'text'>) => (
-  <StoryTemplate title="Tag - overview">
-    <HStack gap="x4">
-      <VStack align="flex-start" gap="x1">
-        <Tag {...args}>default</Tag>
-        <Tag {...args} purpose="success">
-          success
-        </Tag>
-        <Tag {...args} purpose="danger">
-          danger
-        </Tag>
-        <Tag {...args} purpose="warning">
-          warning
-        </Tag>
-        <Tag {...args} purpose="info">
-          info
-        </Tag>
-      </VStack>
-      <VStack align="flex-start" gap="x1">
-        <Tag {...args} withIcon>
-          default
-        </Tag>
-        <Tag {...args} withIcon purpose="success">
-          success
-        </Tag>
-        <Tag {...args} withIcon purpose="danger">
-          danger
-        </Tag>
-        <Tag {...args} withIcon purpose="warning">
-          warning
-        </Tag>
-        <Tag {...args} withIcon purpose="info">
-          info
-        </Tag>
-      </VStack>
-    </HStack>
-  </StoryTemplate>
-);
+export const Default: Story = {
+  args: { children: 'default' },
+  decorators: Story => (
+    <StoryTemplate title="Tag - default" display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+};
 
-export const WithIcon = (args: TagProps) => (
-  <StoryTemplate title="Tag - with icon">
-    <Tag {...args} withIcon>
-      default
-    </Tag>
-    <Tag {...args} withIcon purpose="success">
-      success
-    </Tag>
-    <Tag {...args} withIcon purpose="danger">
-      danger
-    </Tag>
-    <Tag {...args} withIcon purpose="warning">
-      warning
-    </Tag>
-    <Tag {...args} withIcon purpose="info">
-      info
-    </Tag>
-  </StoryTemplate>
-);
+export const Overview: Story = {
+  args: { children: 'default' },
+  decorators: Story => (
+    <StoryTemplate title="Tag - overview" display="grid" $columnsAmount={4}>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <HStack align="flex-start" gap="x2">
+        <VStack align="flex-start" gap="x1">
+          <Tag {...args} purpose="success">
+            success
+          </Tag>
+          <Tag {...args} purpose="info">
+            info
+          </Tag>
+          <Tag {...args} purpose="danger">
+            danger
+          </Tag>
+          <Tag {...args} purpose="warning">
+            warning
+          </Tag>
+          <Tag {...args}>default</Tag>
+        </VStack>
+
+        <VStack align="flex-start" gap="x1">
+          <Tag {...args} withIcon purpose="success">
+            success
+          </Tag>
+          <Tag {...args} withIcon purpose="info">
+            info
+          </Tag>
+          <Tag {...args} withIcon purpose="danger">
+            danger
+          </Tag>
+          <Tag {...args} withIcon purpose="warning">
+            warning
+          </Tag>
+        </VStack>
+
+        <VStack align="flex-start" gap="x1">
+          <Tag {...args} strong purpose="success">
+            success
+          </Tag>
+          <Tag {...args} strong purpose="info">
+            info
+          </Tag>
+          <Tag {...args} strong purpose="danger">
+            danger
+          </Tag>
+          <Tag {...args} strong purpose="warning">
+            warning
+          </Tag>
+          <Tag {...args} strong>
+            default
+          </Tag>
+        </VStack>
+        <VStack align="flex-start" gap="x1">
+          <Tag {...args} strong withIcon purpose="success">
+            success
+          </Tag>
+          <Tag {...args} strong withIcon purpose="info">
+            info
+          </Tag>
+          <Tag {...args} strong withIcon purpose="danger">
+            danger
+          </Tag>
+          <Tag {...args} strong withIcon purpose="warning">
+            warning
+          </Tag>
+        </VStack>
+      </HStack>
+    </>
+  ),
+};

@@ -26,23 +26,23 @@ const container = {
   },
   purpose: {
     info: {
-      borderColor: colors.DdsColorInfoLighter,
+      borderColor: colors.DdsColorInfoBase,
       backgroundColor: colors.DdsColorInfoLightest,
     },
     warning: {
-      borderColor: colors.DdsColorWarningLighter,
+      borderColor: colors.DdsColorWarningBase,
       backgroundColor: colors.DdsColorWarningLightest,
     },
     danger: {
-      borderColor: colors.DdsColorDangerLighter,
+      borderColor: colors.DdsColorDangerBase,
       backgroundColor: colors.DdsColorDangerLightest,
     },
     success: {
-      borderColor: colors.DdsColorSuccessLighter,
+      borderColor: colors.DdsColorSuccessBase,
       backgroundColor: colors.DdsColorSuccessLightest,
     },
     tips: {
-      borderColor: colors.DdsColorPrimaryLighter,
+      borderColor: colors.DdsColorPrimaryBase,
       backgroundColor: colors.DdsColorPrimaryLightest,
     },
     confidential: {

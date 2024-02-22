@@ -17,6 +17,7 @@ const { wrapper } = tokens;
 
 interface WrapperProps {
   $purpose: TagPurpose;
+  $strong?: boolean;
   $withIcon: boolean;
 }
 
@@ -29,14 +30,17 @@ const Wrapper = styled(TextOverflowEllipsisWrapper)<WrapperProps>`
   padding: ${({ $withIcon }) =>
     $withIcon ? wrapper.icon.padding : wrapper.padding};
   ${getFontStyling(typographyType)}
-  ${({ $purpose }) => css`
-    background-color: ${wrapper.purpose[$purpose].backgroundColor};
-    border-color: ${wrapper.purpose[$purpose].borderColor};
+  ${({ $purpose, $strong }) => css`
+    background-color: ${wrapper.purpose[$purpose][$strong ? 'strong' : 'base']
+      .backgroundColor};
+    border-color: ${wrapper.purpose[$purpose][$strong ? 'strong' : 'base']
+      .borderColor};
   `}
 `;
 
-const StyledIcon = styled(Icon)<Pick<WrapperProps, '$purpose'>>`
-  color: ${({ $purpose }) => wrapper.purpose[$purpose].icon?.color};
+const StyledIcon = styled(Icon)<Pick<WrapperProps, '$purpose' | '$strong'>>`
+  color: ${({ $purpose, $strong }) =>
+    wrapper.purpose[$purpose][$strong ? 'strong' : 'base'].icon?.color};
 `;
 
 export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
@@ -57,6 +61,10 @@ export type TagProps = BaseComponentPropsWithChildren<
      * */
     purpose?: TagPurpose;
     /**
+     * Variant med sterkere visuelt uttrykk. Hver `purpose` har en sterk variant.
+     */
+    strong?: boolean;
+    /**
      * Om `<Tag>` skal ha et ikon til venstre for teksten. Tags med `purpose="default"` har aldri ikon.
      * @default false
      */
@@ -68,6 +76,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
   const {
     text,
     purpose = 'default',
+    strong,
     id,
     className,
     children,
@@ -83,12 +92,14 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       ref={ref}
       $purpose={purpose}
+      $strong={strong}
       $withIcon={Boolean(withIcon && icon)}
     >
       {withIcon && icon && (
         <StyledIcon
           $purpose={purpose}
-          icon={icon.icon}
+          $strong={strong}
+          icon={icon}
           iconSize={tokens.wrapper.icon.size}
         />
       )}
