@@ -94,40 +94,13 @@ const ItemNumber = styled.div<ItemStyleProps>`
   ${getFontStyling(typographyTypes.number)}
   font-weight: 600;
 
-  ${({ $state: state }) => {
-    switch (state) {
-      case 'activeIncomplete':
-        return css`
-          border-color: ${itemNumber.active.borderColor};
-          color: ${itemNumber.active.color};
-          background-color: ${itemNumber.active.backgroundColor};
-        `;
-      case 'activeCompleted':
-        return css`
-          border-color: ${itemNumber.completed.borderColor};
-          color: ${itemNumber.completed.color};
-          background-color: ${itemNumber.completed.backgroundColor};
-        `;
-      case 'inactiveCompleted':
-        return css`
-          border-color: ${itemNumber.completed.borderColor};
-          color: ${itemNumber.completed.color};
-          background-color: ${itemNumber.completed.backgroundColor};
-        `;
-      case 'inactiveIncomplete':
-        return css`
-          border-color: ${itemNumber.inactive.borderColor};
-          color: ${itemNumber.inactive.color};
-          background-color: ${itemNumber.inactive.backgroundColor};
-        `;
-      case 'disabled':
-        return css`
-          border-color: ${itemNumber.disabled.borderColor};
-          color: ${itemNumber.disabled.color};
-          background-color: ${itemNumber.disabled.backgroundColor};
-        `;
-    }
-  }}
+  ${({ $state: state }) =>
+    state &&
+    css`
+      border-color: ${itemNumber[state].borderColor};
+      color: ${itemNumber[state].color};
+      background-color: ${itemNumber[state].backgroundColor};
+    `}
 `;
 
 const ItemText = styled.div<ItemStyleProps>`
@@ -136,27 +109,12 @@ const ItemText = styled.div<ItemStyleProps>`
   text-decoration: ${itemText.textDecoration};
   transition: text-decoration-color 0.2s;
 
-  ${({ $state: state }) => {
-    switch (state) {
-      case 'activeCompleted':
-      case 'activeIncomplete':
-        return css`
-          color: ${itemText.active.color};
-          text-decoration-color: ${itemText.active.textDecorationColor};
-        `;
-      case 'inactiveCompleted':
-      case 'inactiveIncomplete':
-        return css`
-          color: ${itemText.inactive.color};
-          text-decoration-color: ${itemText.inactive.textDecorationColor};
-        `;
-      case 'disabled':
-        return css`
-          color: ${itemText.disabled.color};
-          text-decoration: ${itemText.disabled.textDecoration};
-        `;
-    }
-  }};
+  ${({ $state: state }) =>
+    state &&
+    css`
+      color: ${itemText[state].color};
+      text-decoration-color: ${itemText[state].textDecorationColor};
+    `};
 `;
 
 const ItemContentWrapper = styled.button<ItemStyleProps>`
@@ -172,7 +130,8 @@ const ItemContentWrapper = styled.button<ItemStyleProps>`
   gap: ${itemContentWrapper.gap};
   transition: ${focusVisibleTransitionValue};
 
-  :focus-visible {
+  &:focus-visible,
+  &.focus-visible {
     ${focusVisible}
   }
 
@@ -180,6 +139,14 @@ const ItemContentWrapper = styled.button<ItemStyleProps>`
     state !== 'disabled' &&
     css`
       cursor: pointer;
+      &:hover > ${ItemText} {
+        color: ${itemText[state].hover.color};
+        text-decoration-color: ${itemText[state].hover.textDecorationColor};
+      }
+      &:hover > ${ItemNumber} {
+        background-color: ${itemNumber[state].hover.backgroundColor};
+        border-color: ${itemNumber[state].hover.borderColor};
+      }
     `}
 `;
 
