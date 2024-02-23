@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { ErrorList } from './ErrorList';
 import { File } from './File';
-import { rootTokens } from './FileUploader.tokens';
+import { noZoneContainerTokens, rootTokens } from './FileUploader.tokens';
 import { type FileList } from './types';
 import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
 import {
@@ -52,6 +52,10 @@ const Root = styled.div<RootProps>`
       : rootTokens.backgroundColor};
 `;
 
+const NoZoneContainer = styled.div`
+  padding: ${noZoneContainerTokens.padding};
+`;
+
 const FileUploaderInput = styled.input``;
 
 const FileListElement = styled.ul`
@@ -73,6 +77,8 @@ type FileUploaderProps = {
   onChange: (newFiles: FileList) => void;
   /**Bredde for filopplasteren. */
   width?: Property.Width<string>;
+  /**Om drag-and-drop zone skal vises. */
+  withDragAndDrop?: boolean;
 } & Partial<FileUploaderHookProps>;
 
 export const FileUploader = (props: FileUploaderProps) => {
@@ -81,6 +87,7 @@ export const FileUploader = (props: FileUploaderProps) => {
     label,
     tip,
     required = false,
+    withDragAndDrop = true,
     initialFiles,
     value,
     accept,
@@ -133,6 +140,27 @@ export const FileUploader = (props: FileUploaderProps) => {
     message: e,
   }));
 
+  const button = (
+    <Button
+      {...getButtonProps()}
+      id={uniqueId}
+      size="medium"
+      type="button"
+      appearance="filled"
+      purpose="secondary"
+      icon={UploadIcon}
+      htmlProps={{
+        'aria-invalid': hasRootErrors ? true : undefined,
+        'aria-describedby': spaceSeparatedIdListGenerator([
+          hasTip ? tipId : undefined,
+          ...rootErrorsList.map(e => e.id),
+        ]),
+      }}
+    >
+      Velg fil
+    </Button>
+  );
+
   return (
     <Wrapper width={width}>
       {hasLabel && (
@@ -141,33 +169,25 @@ export const FileUploader = (props: FileUploaderProps) => {
         </Label>
       )}
       {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
-      <Root
-        {...getRootProps()}
-        $isDragActive={isDragActive}
-        $hasRootErrors={hasRootErrors}
-      >
-        <FileUploaderInput {...getInputProps()} />
-        Dra og slipp filer her eller{' '}
-        <VisuallyHidden as="span">velg fil med påfølgende knapp</VisuallyHidden>
-        <Button
-          {...getButtonProps()}
-          id={uniqueId}
-          size="medium"
-          type="button"
-          appearance="filled"
-          purpose="secondary"
-          icon={UploadIcon}
-          htmlProps={{
-            'aria-invalid': hasRootErrors ? true : undefined,
-            'aria-describedby': spaceSeparatedIdListGenerator([
-              hasTip ? tipId : undefined,
-              ...rootErrorsList.map(e => e.id),
-            ]),
-          }}
+      {withDragAndDrop ? (
+        <Root
+          {...getRootProps()}
+          $isDragActive={isDragActive}
+          $hasRootErrors={hasRootErrors}
         >
-          Velg fil
-        </Button>
-      </Root>
+          <FileUploaderInput {...getInputProps()} />
+          Dra og slipp filer her eller{' '}
+          <VisuallyHidden as="span">
+            velg fil med påfølgende knapp
+          </VisuallyHidden>
+          {button}
+        </Root>
+      ) : (
+        <NoZoneContainer>
+          <FileUploaderInput {...getInputProps()} />
+          {button}
+        </NoZoneContainer>
+      )}
       <ErrorList errors={rootErrorsList} />
 
       <FileListElement>{fileListElements}</FileListElement>

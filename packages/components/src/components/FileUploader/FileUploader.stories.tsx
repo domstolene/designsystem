@@ -9,13 +9,19 @@ export default {
   title: 'dds-components/FileUploader',
   component: FileUploader,
   argTypes: {
-    color: { control: { type: 'text' } },
-    size: { control: { type: 'text' } },
+    label: { control: { type: 'text' } },
+    tip: { control: { type: 'text' } },
+    maxFiles: { control: { type: 'number' } },
+    withDragAndDrop: { control: { type: 'boolean' } },
+    errorMessage: { control: { type: 'text' } },
+    required: { control: { type: 'boolean' } },
+    disabled: { control: { type: 'boolean' } },
+    width: { control: { type: 'text' } },
   },
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 };
@@ -23,7 +29,7 @@ export default {
 type Story = StoryObj<typeof FileUploader>;
 
 export const Default: Story = {
-  args: {},
+  args: { label: 'Last opp fil' },
   decorators: Story => (
     <StoryTemplate title="FileUploader - default">
       <Story />
@@ -37,7 +43,25 @@ const SingleFileUploader = () => {
   return (
     <FileUploader
       label="Last opp fil"
-      tip="Maks 1"
+      tip="Maks 1 fil"
+      required
+      initialFiles={files}
+      onChange={files => {
+        setFiles(files);
+      }}
+      maxFiles={1}
+    />
+  );
+};
+
+const NoZoneUploader = () => {
+  const [files, setFiles] = useState<Array<File>>([]);
+
+  return (
+    <FileUploader
+      label="Last opp fil"
+      tip="Maks 1 fil"
+      withDragAndDrop={false}
       required
       initialFiles={files}
       onChange={files => {
@@ -54,7 +78,7 @@ const PdfUploader = () => {
   return (
     <FileUploader
       label="Last opp PDF"
-      tip="Kun pdf-filer. Maks 2"
+      tip="Kun PDF-filer. Maks 2 filer"
       required
       initialFiles={files}
       onChange={files => {
@@ -78,8 +102,8 @@ const WithErrorMessage = () => {
 
   return (
     <FileUploader
-      label="Last opp"
-      tip="Maks 2"
+      label="Last opp fil"
+      tip="Maks 2 filer"
       required
       initialFiles={files}
       onChange={files => {
@@ -94,15 +118,49 @@ const WithErrorMessage = () => {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="FileUploader - default">
+    <StoryTemplate title="FileUploader - overview">
       <Story />
     </StoryTemplate>
   ),
   render: () => (
-    <VStack>
+    <VStack gap="x1">
       <SingleFileUploader />
       <PdfUploader />
+      <NoZoneUploader />
       <WithErrorMessage />
     </VStack>
   ),
+};
+export const NoZone: Story = {
+  args: { label: 'Last opp fil' },
+  decorators: Story => (
+    <StoryTemplate title="FileUploader - no drag & drop zone">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    return <FileUploader {...args} withDragAndDrop={false} />;
+  },
+};
+
+export const Pdf: Story = {
+  args: { label: 'Last opp fil', tip: 'Kun PDF-filer' },
+  decorators: Story => (
+    <StoryTemplate title="FileUploader - PDF">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const [files, setFiles] = useState<Array<File>>([]);
+    return (
+      <FileUploader
+        {...args}
+        initialFiles={files}
+        onChange={files => {
+          setFiles(files);
+        }}
+        accept={['.pdf', 'application/pdf']}
+      />
+    );
+  },
 };
