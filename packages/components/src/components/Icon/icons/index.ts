@@ -152,3 +152,4 @@ export * from './lineChart';
 export * from './trendingUp';
 export * from './trendingDown';
 export * from './libraryAdd';
+export * from './helpSimple';
