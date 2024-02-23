@@ -39,7 +39,22 @@ export interface FavStarProps
   size?: ComponentSize;
 }
 
-const TRANSITION_SPEED = '0.1s';
+const TRANSITION_SPEED = '0.2s';
+
+const StyledIcon = styled(Icon)<{ $opacity?: number }>`
+  color: currentColor;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: ${({ $opacity = 1 }) => $opacity};
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      opacity ${TRANSITION_SPEED},
+      transform ${TRANSITION_SPEED};
+  }
+`;
 
 const Container = styled.label<{ size: ComponentSize }>`
   position: relative;
@@ -49,16 +64,14 @@ const Container = styled.label<{ size: ComponentSize }>`
 
   &:has(${HiddenInput}:focus-visible) {
     ${focusVisible}
-    @media (prefers-reduced-motion: no-preference) {
-      transition: ${focusVisibleTransitionValue};
-    }
   }
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
       ${TRANSITION_SPEED} color,
       ${TRANSITION_SPEED} background-color,
-      ${TRANSITION_SPEED} transform;
+      ${TRANSITION_SPEED} transform,
+      ${focusVisibleTransitionValue};
   }
 
   ${({ size }) => getVariantStyle(size)}
@@ -75,7 +88,9 @@ const Container = styled.label<{ size: ComponentSize }>`
   }
 
   &:active {
-    transform: scale(0.75);
+    ${StyledIcon} {
+      transform: scale(0.75);
+    }
   }
 `;
 
@@ -89,17 +104,6 @@ function getVariantStyle(
     border-radius: ${favStarTokens(size, variant).borderRadius};
   `;
 }
-
-const StyledIcon = styled(Icon)<{ $opacity?: number }>`
-  color: currentColor;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: ${TRANSITION_SPEED} opacity;
-  opacity: ${({ $opacity = 1 }) => $opacity};
-`;
 
 export const FavStar = forwardRef(
   (
