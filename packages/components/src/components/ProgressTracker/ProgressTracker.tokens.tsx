@@ -31,12 +31,17 @@ const itemNumber = {
   size: '1.75rem',
   borderWidth: '2px',
   iconSize: 'small' as IconSize,
-  active: {
+  activeIncomplete: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorNeutralsWhite,
     backgroundColor: colors.DdsColorInteractiveBase,
+    hover: {
+      borderColor: colors.DdsColorInteractiveBase,
+      color: colors.DdsColorNeutralsWhite,
+      backgroundColor: colors.DdsColorInteractiveBase,
+    },
   },
-  completed: {
+  activeCompleted: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorNeutralsWhite,
     backgroundColor: colors.DdsColorInteractiveBase,
@@ -46,7 +51,17 @@ const itemNumber = {
       backgroundColor: colors.DdsColorInteractiveDark,
     },
   },
-  inactive: {
+  inactiveCompleted: {
+    borderColor: colors.DdsColorInteractiveBase,
+    color: colors.DdsColorNeutralsWhite,
+    backgroundColor: colors.DdsColorInteractiveBase,
+    hover: {
+      borderColor: colors.DdsColorInteractiveDark,
+      color: colors.DdsColorNeutralsWhite,
+      backgroundColor: colors.DdsColorInteractiveDark,
+    },
+  },
+  inactiveIncomplete: {
     borderColor: colors.DdsColorInteractiveBase,
     color: colors.DdsColorInteractiveBase,
     backgroundColor: colors.DdsColorNeutralsWhite,
@@ -66,20 +81,41 @@ const itemNumber = {
 const itemText = {
   textDecoration: 'underline',
 
-  active: {
-    color: colors.DdsColorNeutralsGray9,
-    textDecorationColor: colors.DdsColorNeutralsGray9,
-  },
-  inactive: {
-    color: colors.DdsColorNeutralsGray7,
+  activeCompleted: {
+    color: colors.DdsColorInteractiveBase,
     textDecorationColor: 'transparent',
     hover: {
-      textDecorationColor: colors.DdsColorNeutralsGray7,
+      color: colors.DdsColorInteractiveBase,
+      textDecorationColor: 'transparent',
+    },
+  },
+  activeIncomplete: {
+    color: colors.DdsColorInteractiveBase,
+    textDecorationColor: 'transparent',
+    hover: {
+      color: colors.DdsColorInteractiveBase,
+      textDecorationColor: 'transparent',
+    },
+  },
+  inactiveIncomplete: {
+    color: colors.DdsColorNeutralsGray7,
+    textDecorationColor: colors.DdsColorNeutralsGray7,
+    hover: {
+      color: colors.DdsColorInteractiveBase,
+      textDecorationColor: colors.DdsColorInteractiveBase,
+    },
+  },
+  inactiveCompleted: {
+    color: colors.DdsColorNeutralsGray7,
+    textDecorationColor: colors.DdsColorNeutralsGray7,
+    hover: {
+      color: colors.DdsColorInteractiveBase,
+      textDecorationColor: colors.DdsColorInteractiveBase,
     },
   },
   disabled: {
     color: colors.DdsColorNeutralsGray6,
-    textDecoration: 'none',
+    textDecorationColor: 'transparent',
   },
 };
 
