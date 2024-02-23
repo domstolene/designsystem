@@ -34,14 +34,14 @@ export const isKeyboardEvent = (
  * }
  * ```
  * @param size antall elementer i gruppen.
- * @param reset om fokus i gruppen skal nullstilles; når man tabber seg inn i gruppen skal focus være nullstilt.
+ * @param active om fokus skal kontrolleres av hooken. Når status blir inaktiv vil fokusrekkefølge nullstilles.
  * @param direction retning elementene blas i.
  * @returns hook par: indeksen til fokuserte elemenentet og funksjonen som håndterer fokus.
  */
 
 export function useRoveFocus(
   size?: number,
-  reset?: boolean,
+  active?: boolean,
   direction: Direction = 'column',
 ): [number, Dispatch<SetStateAction<number>>] {
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
@@ -52,32 +52,33 @@ export function useRoveFocus(
   const handleKeyDown = useCallback(
     (e: Event) => {
       if (!size || !isKeyboardEvent(e)) return;
-      if (reset) setCurrentFocusIndex(-1);
       if (e.key === nextKey) {
         // Down arrow
         e.preventDefault();
-        setCurrentFocusIndex(
-          currentFocusIndex === size - 1 ? 0 : currentFocusIndex + 1,
-        );
+        setCurrentFocusIndex(prev => (prev === size - 1 ? 0 : prev + 1));
       } else if (e.key === previousKey) {
         // Up arrow
         e.preventDefault();
-        if (currentFocusIndex !== -1) {
-          setCurrentFocusIndex(
-            currentFocusIndex === 0 ? size - 1 : currentFocusIndex - 1,
-          );
-        } else setCurrentFocusIndex(size - 1);
+        setCurrentFocusIndex(prev => {
+          if (prev === -1 || prev === 0) return size - 1;
+          return prev - 1;
+        });
       }
     },
-    [size, currentFocusIndex, setCurrentFocusIndex, reset],
+    [size, setCurrentFocusIndex],
   );
 
   useEffect(() => {
+    if (!active) {
+      setCurrentFocusIndex(-1);
+      return;
+    }
+
     document.addEventListener('keydown', handleKeyDown, false);
     return () => {
       document.removeEventListener('keydown', handleKeyDown, false);
     };
-  }, [handleKeyDown]);
+  }, [handleKeyDown, active]);
 
   return [currentFocusIndex, setCurrentFocusIndex];
 }

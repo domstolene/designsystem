@@ -87,7 +87,7 @@ export const SearchSuggestions = forwardRef<
     'suggestions-header',
   );
 
-  const [focus, setFocus] = useRoveFocus(suggestions?.length, !showSuggestions);
+  const [focus] = useRoveFocus(suggestions?.length, showSuggestions);
 
   const suggestionsToRender = maxSuggestions
     ? suggestions?.slice(maxSuggestions)
@@ -101,7 +101,6 @@ export const SearchSuggestions = forwardRef<
             <MenuItem
               index={index}
               focus={focus === index && showSuggestions}
-              setFocus={setFocus}
               aria-label={`søk på ${suggestion}`}
               onClick={onSuggestionClick}
               title={suggestion}

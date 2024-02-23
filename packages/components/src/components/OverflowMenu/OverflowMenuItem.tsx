@@ -1,13 +1,8 @@
 import {
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
-  type Dispatch,
   type ForwardedRef,
-  type KeyboardEvent,
-  type MouseEvent,
-  type SetStateAction,
   forwardRef,
-  useCallback,
   useEffect,
   useRef,
 } from 'react';
@@ -75,7 +70,6 @@ interface BaseOverflowMenuItemProps {
   title: string;
   icon?: SvgIcon;
   focus?: boolean;
-  setFocus?: Dispatch<SetStateAction<number>>;
   index?: number;
   isMenuClosed?: boolean;
 }
@@ -119,19 +113,7 @@ export const OverflowMenuItem = forwardRef<
   HTMLAnchorElement,
   OverflowMenuItemProps
 >((props, ref) => {
-  const {
-    title,
-    icon,
-    focus,
-    setFocus,
-    index,
-    id,
-    className,
-    htmlProps = {},
-    ...rest
-  } = props;
-
-  const { onKeyDown } = htmlProps;
+  const { title, icon, focus, id, className, htmlProps = {}, ...rest } = props;
 
   let href: AnchorOverflowMenuItemProps['href'];
   let onClick: ButtonOverflowMenuItemProps['onClick'];
@@ -150,30 +132,8 @@ export const OverflowMenuItem = forwardRef<
     }
   }, [focus]);
 
-  const handleSelect = useCallback(() => {
-    if (setFocus && index) {
-      setFocus(index);
-    }
-  }, [index, setFocus]);
-
-  const handleOnClick = (
-    e: MouseEvent<HTMLAnchorElement> & MouseEvent<HTMLButtonElement>,
-  ) => {
-    handleSelect();
-    onClick && onClick(e);
-  };
-
-  const handleOnKeyDown = (
-    e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>,
-  ) => {
-    handleSelect();
-    onKeyDown && onKeyDown(e);
-  };
-
   const linkProps = {
     href,
-    onClick: handleOnClick,
-    onKeyDown: handleOnKeyDown,
     role: 'menuitem',
     tabIndex: focus ? 0 : -1,
   };
