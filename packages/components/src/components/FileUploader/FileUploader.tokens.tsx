@@ -15,6 +15,10 @@ export const rootTokens = {
   },
 };
 
+export const noZoneContainerTokens = {
+  padding: [spacing.SizesDdsSpacingX05, 0].join(' '),
+};
+
 export const fileTokens = {
   marginTop: spacing.SizesDdsSpacingX05,
   paddingLeftRight: spacing.SizesDdsSpacingX05,
