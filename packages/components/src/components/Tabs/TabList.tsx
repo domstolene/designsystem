@@ -14,12 +14,7 @@ import styled, { css } from 'styled-components';
 import { useTabsContext } from './Tabs.context';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { TabWidthContextProvider } from './TabWidthContext';
-import {
-  useCombinedRef,
-  useOnClickOutside,
-  useOnKeyDown,
-  useRoveFocus,
-} from '../../hooks';
+import { useCombinedRef, useRoveFocus } from '../../hooks';
 import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { scrollbarStyling } from '../ScrollableContainer';
 
@@ -67,13 +62,12 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       handleTabChange,
       tabListRef,
       hasTabFocus,
-      tabPanelsRef,
       setHasTabFocus,
     } = useTabsContext();
 
     const uniqueId = id ?? `${tabsId}-tablist`;
     const childrenArray = Children.toArray(children).length;
-    const [focus, setFocus] = useRoveFocus(childrenArray, !hasTabFocus, 'row');
+    const [focus, setFocus] = useRoveFocus(childrenArray, hasTabFocus, 'row');
     const combinedRef = useCombinedRef(ref, tabListRef);
 
     const tabListChildren = Children.map(children, (child, index) => {
@@ -92,33 +86,36 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     });
 
     const [widths, setWidths] = useState<Array<CSS.Properties['width']>>([]);
-    useOnKeyDown('Tab', () => {
-      setHasTabFocus(false);
-      tabPanelsRef?.current?.focus();
-    });
-
-    useOnClickOutside((tabListRef?.current as HTMLElement) || null, () => {
-      setHasTabFocus(false);
-    });
 
     const handleOnFocus = (event: FocusEvent<HTMLDivElement, Element>) => {
       setHasTabFocus(true);
       onFocus && onFocus(event);
     };
 
-    const tabListProps = {
-      ...rest,
-      ref: combinedRef,
-      role: 'tablist',
-      'aria-label': 'Bruk venste og høyre piltast for å bla',
-      id: uniqueId,
-      tabIndex: 0,
-      onFocus: handleOnFocus,
+    const handleOnBlur = (event: FocusEvent<HTMLDivElement, Element>) => {
+      // Fjern tabIndex fra forrige tab med focus når focus flytter seg til `<TabList>`
+      if (tabListRef?.current === event.relatedTarget) {
+        setFocus(-1);
+      }
+
+      if (!tabListRef?.current?.contains(event.relatedTarget)) {
+        setHasTabFocus(false);
+      }
     };
 
     return (
       <TabWidthContextProvider onChangeWidths={setWidths}>
-        <TabRow {...tabListProps} $gridTemplateColumns={widths.join(' ')}>
+        <TabRow
+          {...rest}
+          ref={combinedRef}
+          role="tablist"
+          aria-label="Bruk venste og høyre piltast for å bla"
+          id={uniqueId}
+          tabIndex={0}
+          onFocus={handleOnFocus}
+          onBlur={handleOnBlur}
+          $gridTemplateColumns={widths.join(' ')}
+        >
           {tabListChildren}
         </TabRow>
       </TabWidthContextProvider>

@@ -135,7 +135,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
 
     const hasInteractiveItems = interactiveItems.length > 0;
 
-    const [focus, setFocus] = useRoveFocus(interactiveItems?.length, !isOpen);
+    const [focus] = useRoveFocus(interactiveItems?.length, isOpen);
 
     const interactiveItemsList = hasInteractiveItems
       ? interactiveItems.map((item, index) => (
@@ -143,7 +143,6 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
             <OverflowMenuItem
               index={index}
               focus={focus === index && isOpen}
-              setFocus={setFocus}
               icon={hasInteractiveUser && index === 0 ? PersonIcon : undefined}
               {...item}
               onClick={(

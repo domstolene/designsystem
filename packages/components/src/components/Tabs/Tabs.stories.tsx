@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import { NotificationsIcon } from '../Icon/icons';
 import { VStack } from '../Stack';
+import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs, type TabsProps } from '.';
@@ -90,7 +91,10 @@ export const ActiveTab = (args: TabsProps) => {
           <Tab>Tab 3</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>Innhold 1</TabPanel>
+          <TabPanel>
+            <span>Innhold 1</span>
+            <TextArea label="test" />
+          </TabPanel>
           <TabPanel>Innhold 2</TabPanel>
           <TabPanel>Innhold 3</TabPanel>
         </TabPanels>

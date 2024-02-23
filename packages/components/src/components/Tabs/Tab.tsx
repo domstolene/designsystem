@@ -15,7 +15,7 @@ import styled, { css } from 'styled-components';
 import { useTabsContext } from './Tabs.context';
 import { tabsTokens as tokens } from './Tabs.tokens';
 import { useSetTabWidth } from './TabWidthContext';
-import { useCombinedRef, useOnKeyDown } from '../../hooks';
+import { useCombinedRef } from '../../hooks';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
@@ -126,20 +126,13 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
 
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
-  const { tabPanelsRef, setHasTabFocus, tabContentDirection } =
-    useTabsContext();
+  const { tabContentDirection } = useTabsContext();
 
   useEffect(() => {
     if (focus) {
       itemRef.current?.focus();
-      setHasTabFocus(true);
     }
   }, [focus]);
-
-  useOnKeyDown('Tab', () => {
-    setHasTabFocus(false);
-    tabPanelsRef?.current?.focus();
-  });
 
   const handleSelect = useCallback(() => {
     if (setFocus && index) {
