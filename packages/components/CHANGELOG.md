@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 15.2.0
+
+### Minor Changes
+
+- dacce3b: Legger til helpSimple-ikon
+- 58dabc7: Støtte for `withDragAndDrop` attributt i `<FileUploader />` som viser komponenten uten drop-sone.
+
+### Patch Changes
+
+- 81c559c: Fikser state styling i `<ProgressTacker />`
+- c604ef7: Fikser trykkeflaten i `<FavStar />` som er mindre enn den synlige flaten, og animerer bakgrunnsfargen på ikonet.
+
 ## 15.1.0
 
 ### Minor Changes
