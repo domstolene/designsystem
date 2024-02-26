@@ -1,16 +1,11 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { colors, spacing } = ddsBaseTokens;
+const { spacing } = ddsBaseTokens;
 
-const icon = {
-  color: colors.DdsColorInteractiveBase,
-};
-
-const nav = {
-  gap: spacing.SizesDdsSpacingX05,
+const link = {
+  gap: spacing.SizesDdsSpacingX025,
 };
 
 export const backLinkTokens = {
-  icon,
-  nav,
+  link,
 };

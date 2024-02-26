@@ -4,31 +4,33 @@ import styled from 'styled-components';
 import { backLinkTokens } from './BackLink.tokens';
 import { Icon } from '../Icon';
 import * as icons from '../Icon/icons';
-import { Typography } from '../Typography';
+import { Link } from '../Typography';
 
-const Nav = styled('nav')`
+const StyledLink = styled(Link)`
   align-items: center;
   display: flex;
-  gap: ${backLinkTokens.nav.gap};
-`;
-
-const StyledIcon = styled(Icon)`
-  color: ${backLinkTokens.icon.color};
+  gap: ${backLinkTokens.link.gap};
 `;
 
 export interface BackLinkProps {
+  /**
+   * Ledetekst.
+   */
   label: string;
+  /**
+   * URL til forrige nivå.
+   */
   href: string;
 }
 
 export const BackLink = forwardRef<HTMLElement, BackLinkProps>((props, ref) => {
   return (
-    <Nav ref={ref}>
-      <StyledIcon icon={icons.ArrowLeftIcon} iconSize="small" />
-      <Typography typographyType="a" href={props.href}>
+    <nav ref={ref} aria-label="gå tilbake">
+      <StyledLink href={props.href}>
+        <Icon icon={icons.ArrowLeftIcon} iconSize="small" />
         {props.label}
-      </Typography>
-    </Nav>
+      </StyledLink>
+    </nav>
   );
 });
 
