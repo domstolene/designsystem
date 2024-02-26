@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 15.2.1
+
+### Patch Changes
+
+- f34ba7a: Fikser feil hvor `<OverflowMenu>`, `<Tabs>` og `<Search.AutocompleteWrapper>` blokkerte andre elementer fra å bruke piltastene.
+- 1731bf8: Fikser spacing og trykkeflate i `<BackLink />`.
+
 ## 15.2.0
 
 ### Minor Changes
