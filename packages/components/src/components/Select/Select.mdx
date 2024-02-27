@@ -24,9 +24,9 @@ import * as MultiSelectStories from './MultiSelect.stories';
 
 Komponenten har tre varianter:
 
-- `<Select />` - nedtrekksliste
-- `<Select isMulti />` - nedtrekksliste med multivalg
-- custom `<Select />` - nedtrekksliste med custom visuelle elementer for både det valgte elemetet og alternativer i lista
+- **`<Select />`** - nedtrekksliste
+- **`<Select isMulti />`** - nedtrekksliste med multivalg
+- **Custom `<Select />`** - nedtrekksliste med custom visuelle elementer for både det valgte elemetet og alternativer i lista
 
 ## API
 
@@ -145,6 +145,14 @@ Brukeren kan filtrere alternativer ved å gi tekstlig input. Det brukes en custo
 Komponenten har default bredde. Dette gjør at valgte alternativer ved `isMulti` vil prøve å fylle opp bredden og videre legge seg nedover. Hvis det er ønsket at komponenten skal utvide seg i bredden når flere alternativer blir valgt bør det settes f.eks. `width='fit-content'` og `min-width` i styling:
 
 <Canvas of={MultiSelectStories.WithFitContent} sourceState="shown" />
+
+#### Med verdi
+
+<Canvas of={MultiSelectStories.WithValue} sourceState="shown" />
+
+#### Med default verdi
+
+<Canvas of={MultiSelectStories.WithDefaultValue} sourceState="shown" />
 
 ## Retningslinjer
 

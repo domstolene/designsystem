@@ -28,7 +28,7 @@ type Story = StoryObj<typeof SkipToContent>;
 export const Default: Story = {
   args: { href: '#innhold' },
   decorators: Story => (
-    <StoryTemplate title="SkipToContent - default" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -44,7 +44,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: { href: '#innhold' },
   decorators: Story => (
-    <StoryTemplate title="SkipToContent - overview" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -61,7 +61,7 @@ export const Overview: Story = {
 export const Example: Story = {
   args: { href: '#innhold' },
   decorators: Story => (
-    <StoryTemplate title="SkipToContent - example" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -75,7 +75,7 @@ export const Example: Story = {
       </Typography>
       <div
         style={{
-          height: '800px',
+          height: '1000px',
           backgroundColor: Colors.DdsColorPrimaryLightest,
         }}
       >

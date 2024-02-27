@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Link>;
 export const Default: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no' },
   decorators: Story => (
-    <StoryTemplate title="Link - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -34,7 +34,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no' },
   decorators: Story => (
-    <StoryTemplate title="Link - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

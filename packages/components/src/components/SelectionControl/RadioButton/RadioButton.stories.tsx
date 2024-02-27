@@ -26,7 +26,7 @@ type Story = StoryObj<typeof RadioButton>;
 export const Default: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate title="RadioButton - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -35,11 +35,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate
-      title="RadioButton - overview"
-      display="grid"
-      $columnsAmount={2}
-    >
+    <StoryTemplate display="grid" $columnsAmount={2}>
       <Story />
     </StoryTemplate>
   ),

@@ -59,10 +59,7 @@ const headerValues = headerCells.map(cell => {
 
 export const SingleDefiningColumn = (args: CollapsibleTableProps) => {
   return (
-    <StoryTemplate
-      title="CollapsibleTable - single defining column"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <CollapsibleTable
         {...args}
         headerValues={headerValues}
@@ -89,10 +86,7 @@ export const SingleDefiningColumn = (args: CollapsibleTableProps) => {
 
 export const MultipleDefiningColumns = (args: CollapsibleTableProps) => {
   return (
-    <StoryTemplate
-      title="CollapsibleTable - multiple defining columns"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Table.Wrapper style={{ width: '100%' }}>
         <CollapsibleTable
           {...args}
@@ -123,10 +117,7 @@ export const MultipleDefiningColumns = (args: CollapsibleTableProps) => {
 
 export const PrioritizedDefiningColumns = (args: CollapsibleTableProps) => {
   return (
-    <StoryTemplate
-      title="CollapsibleTable - prioritized defining columns"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Table.Wrapper style={{ width: '100%' }}>
         <CollapsibleTable
           {...args}
@@ -157,7 +148,7 @@ export const PrioritizedDefiningColumns = (args: CollapsibleTableProps) => {
 
 export const WithDividers = (args: CollapsibleTableProps) => {
   return (
-    <StoryTemplate title="CollapsibleTable - with dividers" display="block">
+    <StoryTemplate display="block">
       <CollapsibleTable
         {...args}
         withDividers
@@ -185,7 +176,7 @@ export const WithDividers = (args: CollapsibleTableProps) => {
 
 export const Compact = (args: CollapsibleTableProps) => {
   return (
-    <StoryTemplate title="CollapsibleTable - compact" display="block">
+    <StoryTemplate display="block">
       <CollapsibleTable
         {...args}
         density="compact"
@@ -213,7 +204,7 @@ export const Compact = (args: CollapsibleTableProps) => {
 
 export const StickyHeader = (args: CollapsibleTableProps) => {
   return (
-    <StoryTemplate title="CollapsibleTable - sticky header" display="block">
+    <StoryTemplate display="block">
       <CollapsibleTable
         {...args}
         stickyHeader
@@ -264,7 +255,7 @@ export const WithButtonAndIcons = (args: CollapsibleTableProps) => {
     </Button>
   );
   return (
-    <StoryTemplate title="Table - with buttons and icons" display="block">
+    <StoryTemplate display="block">
       <CollapsibleTable {...args} headerValues={headerValues} isCollapsed>
         <Table.Head>
           <CollapsibleTable.Row>
@@ -299,7 +290,7 @@ export const WithButtonAndIcons = (args: CollapsibleTableProps) => {
 export const Responsive = (args: CollapsibleTableProps) => {
   const screenSize = useScreenSize();
   return (
-    <StoryTemplate title="CollapsibleTable - responsive" display="block">
+    <StoryTemplate display="block">
       <Table.Wrapper style={{ width: '100%' }}>
         <CollapsibleTable
           {...args}
@@ -329,10 +320,7 @@ export const Responsive = (args: CollapsibleTableProps) => {
 export const ResposiveMultipleBreakpoints = (args: CollapsibleTableProps) => {
   const screenSize = useScreenSize();
   return (
-    <StoryTemplate
-      title="CollapsibleTable - responsive multiple breakpoints"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Table.Wrapper style={{ width: '100%' }}>
         <CollapsibleTable
           {...args}
@@ -387,7 +375,7 @@ export const Example = () => {
   const isXSmall = screenSize <= ScreenSize.XSmall;
   const iconSize = isXSmall ? 'small' : 'medium';
   return (
-    <StoryTemplate title="CollapsibleTable - Example" display="block">
+    <StoryTemplate display="block">
       <CollapsibleTable
         isCollapsed={isSmall}
         headerValues={headers}

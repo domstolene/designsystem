@@ -25,7 +25,7 @@ type Story = StoryObj<typeof EmptyContent>;
 export const Default: Story = {
   args: { title: 'Tittel', message: 'Dette er en tekst.' },
   decorators: Story => (
-    <StoryTemplate title="EmptyContent - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -34,7 +34,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="EmptyContent - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

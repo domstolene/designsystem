@@ -28,7 +28,7 @@ type Story = StoryObj<typeof RadioButtonGroup>;
 export const Default: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate title="RadioButtonGroup - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -53,11 +53,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate
-      title="RadioButtonGroup - overview"
-      display="grid"
-      $columnsAmount={2}
-    >
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -80,37 +76,10 @@ export const Overview: Story = {
         </RadioButtonGroup>
         <RadioButtonGroup
           {...args}
-          direction="column"
-          value={value}
-          name="test1"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-        <RadioButtonGroup
-          {...args}
           tip="Dette er en hjelpetekst"
           direction="row"
           value={value}
           name="test2"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-        <RadioButtonGroup
-          {...args}
-          tip="Dette er en hjelpetekst"
-          direction="column"
-          value={value}
-          name="test3"
           onChange={(_event, value) => {
             setValue(value);
           }}
@@ -136,20 +105,6 @@ export const Overview: Story = {
         <RadioButtonGroup
           {...args}
           errorMessage="Dette er en feilmelding"
-          direction="column"
-          value={value}
-          name="test5"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-        <RadioButtonGroup
-          {...args}
-          errorMessage="Dette er en feilmelding"
           tip="Dette er en hjelpetekst"
           direction="row"
           value={value}
@@ -164,11 +119,9 @@ export const Overview: Story = {
         </RadioButtonGroup>
         <RadioButtonGroup
           {...args}
-          errorMessage="Dette er en feilmelding"
-          tip="Dette er en hjelpetekst"
           direction="column"
           value={value}
-          name="test7"
+          name="test1"
           onChange={(_event, value) => {
             setValue(value);
           }}

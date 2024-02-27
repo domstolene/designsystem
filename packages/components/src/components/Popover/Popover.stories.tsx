@@ -36,7 +36,7 @@ type Story = StoryObj<typeof Popover>;
 export const Default: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Popover - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -58,7 +58,7 @@ export const Default: Story = {
 export const ContentOverview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Popover - content overview" display="grid">
+    <StoryTemplate display="grid">
       <Story />
     </StoryTemplate>
   ),
@@ -117,7 +117,6 @@ export const PlacementOverview: Story = {
   args: {},
   decorators: Story => (
     <StoryTemplate
-      title="Popover - placement overview"
       display="grid"
       $columnsAmount={4}
       containerStyle={{
@@ -162,7 +161,7 @@ export const PlacementOverview: Story = {
 export const Overflow: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Popover - overflow" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -191,7 +190,7 @@ export const Overflow: Story = {
 export const InlineExample: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Popover - inline example" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),

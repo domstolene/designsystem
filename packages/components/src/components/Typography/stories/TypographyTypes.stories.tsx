@@ -9,7 +9,7 @@ export default {
 
 export const Body = () => {
   return (
-    <StoryTemplate title="Typography - body styles overview">
+    <StoryTemplate>
       <Typography typographyType="bodySans01">
         bodySans01 - Når du kommer inn i rettssalen, blir du bedt om å stå ved
         vitneboksen. Så blir du spurt om hva du heter, hvor du bor og så videre.
@@ -40,7 +40,7 @@ export const Body = () => {
 
 export const Headings = () => {
   return (
-    <StoryTemplate title="Typography - heading styles overview" gap="30px">
+    <StoryTemplate gap="30px">
       <Typography typographyType="headingSans01">Heading-sans-01</Typography>
       <Typography typographyType="headingSans02">Heading-sans-02</Typography>
       <Typography typographyType="headingSans03">Heading-sans-03</Typography>
@@ -55,7 +55,7 @@ export const Headings = () => {
 
 export const Leads = () => {
   return (
-    <StoryTemplate title=" Typography - lead styles overview" gap="30px">
+    <StoryTemplate gap="30px">
       <Typography typographyType="leadSans01">lead-sans-01</Typography>
       <Typography typographyType="leadSans02">lead-sans-02</Typography>
       <Typography typographyType="leadSans03">lead-sans-03</Typography>
@@ -67,7 +67,7 @@ export const Leads = () => {
 
 export const Supporting = () => {
   return (
-    <StoryTemplate title="Typography - supporting styles overview" gap="30px">
+    <StoryTemplate gap="30px">
       <Typography typographyType="supportingStyleLabel01">
         supportingStyleLabel01
       </Typography>
@@ -95,7 +95,7 @@ export const Supporting = () => {
 
 export const Link = () => {
   return (
-    <StoryTemplate title="Typography - link styles overview">
+    <StoryTemplate>
       <Typography typographyType="a" href="https://www.domstol.no">
         Link
       </Typography>

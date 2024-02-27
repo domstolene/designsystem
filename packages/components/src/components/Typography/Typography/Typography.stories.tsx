@@ -29,7 +29,7 @@ type Story = StoryObj<typeof Typography>;
 export const Default: Story = {
   args: { children: 'Typography' },
   decorators: Story => (
-    <StoryTemplate title="Typography - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

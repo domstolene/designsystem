@@ -35,43 +35,23 @@ export const Overview: Story = {
     ],
   },
   decorators: Story => (
-    <StoryTemplate
-      title="CheckboxGroup - overview"
-      display="grid"
-      $columnsAmount={2}
-    >
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
     <>
       <CheckboxGroup {...args} />
-      <CheckboxGroup {...args} direction="column" />
       <CheckboxGroup {...args} required />
-      <CheckboxGroup {...args} direction="column" required />
       <CheckboxGroup {...args} tip="Dette er en hjelpetekst" />
-      <CheckboxGroup
-        {...args}
-        direction="column"
-        tip="Dette er en hjelpetekst"
-      />
       <CheckboxGroup {...args} errorMessage="Dette er en feilmelding" />
-      <CheckboxGroup
-        {...args}
-        direction="column"
-        errorMessage="Dette er en feilmelding"
-      />
+
       <CheckboxGroup
         {...args}
         tip="Dette er en hjelpetekst"
         errorMessage="Dette er en feilmelding"
       />
-      <CheckboxGroup
-        {...args}
-        direction="column"
-        tip="Dette er en hjelpetekst"
-        errorMessage="Dette er en feilmelding"
-      />
+      <CheckboxGroup {...args} direction="column" />
     </>
   ),
 };
@@ -86,7 +66,7 @@ export const Default: Story = {
     ],
   },
   decorators: Story => (
-    <StoryTemplate title="CheckboxGroup - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

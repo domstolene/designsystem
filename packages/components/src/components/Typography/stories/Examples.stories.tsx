@@ -9,11 +9,12 @@ export default {
 
 const ArticleContainer = styled.div`
   max-width: 700px;
+  margin-top: -1rem;
 `;
 
 export const Article = () => {
   return (
-    <StoryTemplate title="Article - example">
+    <StoryTemplate>
       <ArticleContainer>
         <Heading level={1} typographyType="headingSans06" withMargins>
           Vitne

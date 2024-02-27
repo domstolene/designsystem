@@ -25,7 +25,7 @@ export const Default: Story = {
     message: 'feilmelding',
   },
   decorators: Story => (
-    <StoryTemplate title="InputMessage - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -33,7 +33,7 @@ export const Default: Story = {
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate title="InputMessage - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

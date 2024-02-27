@@ -9,9 +9,7 @@ import 'focus-visible';
 const { fontPackages } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
-const StoryContainer = styled.div`
-  padding: 1.5rem;
-`;
+const StoryContainer = styled.div``;
 
 const H1 = styled.h1`
   color: ${textDefault.textColor};
@@ -22,11 +20,16 @@ interface ContainerProps {
   $gap?: string;
   $display?: StoryDisplay;
   $columnsAmount?: number;
+  $hasTitle?: boolean;
 }
 
 const Container = styled.div<ContainerProps>`
-  padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingX1};
-  ${({ $display: display, $gap: gap, $columnsAmount }) =>
+  ${({ $hasTitle: hasTitle }) =>
+    hasTitle &&
+    css`
+      padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingX1};
+    `}
+  ${({ $display: display, $gap: gap, $columnsAmount, $hasTitle: hasTitle }) =>
     gap &&
     display &&
     $columnsAmount &&
@@ -52,7 +55,7 @@ const Container = styled.div<ContainerProps>`
               justify-content: center;
               gap: ${gap};
             `
-          : display === 'block'
+          : display === 'block' && hasTitle
             ? css`
                 margin-top: ${gap};
               `
@@ -62,7 +65,7 @@ const Container = styled.div<ContainerProps>`
 export type StoryDisplay = 'block' | 'flex-column' | 'grid' | 'flex-centered';
 
 type StoryTemplateProps = {
-  title: string;
+  title?: string;
   gap?: string;
   $columnsAmount?: number;
   display?: StoryDisplay;
@@ -80,9 +83,14 @@ export const StoryTemplate = ({
 }: StoryTemplateProps) => {
   return (
     <StoryContainer {...rest} className="component-container">
-      <H1>{title}</H1>
-      <hr />
+      {title && (
+        <>
+          <H1>{title}</H1>
+          <hr />
+        </>
+      )}
       <Container
+        $hasTitle={!!title}
         $gap={gap}
         $display={display}
         style={containerStyle}

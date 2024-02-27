@@ -18,7 +18,7 @@ const ExampleElement = () => (
 );
 
 export const VStackOverview = (args: StackProps) => (
-  <StoryTemplate title="VStack - overview">
+  <StoryTemplate>
     <VStack {...args}>
       <ExampleElement />
       <ExampleElement />
@@ -29,7 +29,7 @@ export const VStackOverview = (args: StackProps) => (
 );
 
 export const HStackOverview = (args: StackProps) => (
-  <StoryTemplate title="HStack - overview">
+  <StoryTemplate>
     <HStack {...args}>
       <ExampleElement />
       <ExampleElement />

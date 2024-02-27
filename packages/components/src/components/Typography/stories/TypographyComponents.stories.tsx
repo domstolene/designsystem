@@ -25,7 +25,7 @@ export default {
 
 export const ComponentsOverview = () => {
   return (
-    <StoryTemplate title="Typography components - overview">
+    <StoryTemplate>
       <Heading level={1}>Heading</Heading>
       <Paragraph>Paragraph</Paragraph>
       <Label>Label</Label>

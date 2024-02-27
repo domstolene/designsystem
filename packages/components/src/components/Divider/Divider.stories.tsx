@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Divider>;
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate title="Divider - overview" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -34,7 +34,7 @@ export const Overview: Story = {
 
 export const Default: Story = {
   decorators: Story => (
-    <StoryTemplate title="Divider - default" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -42,7 +42,7 @@ export const Default: Story = {
 
 export const Example: Story = {
   decorators: Story => (
-    <StoryTemplate title="Divider - example">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

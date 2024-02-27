@@ -25,14 +25,24 @@ export default {
 
 type Story = StoryObj<typeof DescriptionList>;
 
+export const Default: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <DescriptionList {...args}>
+      <DescriptionListTerm>Tittel</DescriptionListTerm>
+      <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+      <DescriptionListTerm>Tittel</DescriptionListTerm>
+      <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+    </DescriptionList>
+  ),
+};
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate
-      display="grid"
-      title="DescriptionList - overview"
-      gap="30px"
-      $columnsAmount={2}
-    >
+    <StoryTemplate display="grid" gap="30px" $columnsAmount={2}>
       <Story />
     </StoryTemplate>
   ),
@@ -80,25 +90,9 @@ export const Overview: Story = {
   ),
 };
 
-export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate title="DescriptionList - default">
-      <Story />
-    </StoryTemplate>
-  ),
-  render: args => (
-    <DescriptionList {...args}>
-      <DescriptionListTerm>Tittel</DescriptionListTerm>
-      <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-      <DescriptionListTerm>Tittel</DescriptionListTerm>
-      <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-    </DescriptionList>
-  ),
-};
-
 export const Group: Story = {
   decorators: Story => (
-    <StoryTemplate title="DescriptionList - group">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -129,7 +123,7 @@ export const Group: Story = {
 
 export const WithIcon: Story = {
   decorators: Story => (
-    <StoryTemplate title="DescriptionList - with icon">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -146,7 +140,7 @@ export const WithIcon: Story = {
 const margin = tokens.spacing.SizesDdsSpacingX1;
 export const RowDirectionExample: Story = {
   decorators: Story => (
-    <StoryTemplate title="DescriptionList - flere kolonner">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

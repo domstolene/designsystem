@@ -20,7 +20,20 @@ import * as CollapsibleTableStories from '../collapsible/CollapsibleTable.storie
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Table"
 />
 
-## Demo
+## Oversikt
+
+Tabeller bygges ved å bruke styled versjoner av native HTML elementer. Disse komponentene er:
+
+- **`<Table.Wrapper />`** - wrapper for tabell.
+- **`<Table />`** - selve tabellen.
+- **Subkomponenter:** `<Table.Head />`, `<Table.Body />`, `<Table.Foot />`, `<Table.Row />`, `<Table.Cell />`, `<Table.SortCell />`.
+- **`<CollapsibleTable />`** - variant av tabell som kan kollapses, med tilhørende rad-komponent: `<CollapsibleTable.Row>`.
+
+Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel, mens andre har kun native props, som forklart i API.
+
+## Varianter
+
+### Tabell
 
 <Canvas>
   {/* <Story id="dds-components-table-table--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
@@ -28,30 +41,15 @@ import * as CollapsibleTableStories from '../collapsible/CollapsibleTable.storie
   <Story id="dds-components-table-table--default" />
 </Canvas>
 
+### Kollapsibel tabell
+
 <Canvas>
   {/* <Story id="dds-components-table-collapsibletable-beta--single-defining-column" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
 
   <Story id="dds-components-table-collapsibletable-beta--single-defining-column" />
 </Canvas>
 
-<Canvas>
-  {/* <Story id="dds-components-table-collapsibletable-beta--multiple-defining-columns" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-table-collapsibletable-beta--multiple-defining-columns" />
-</Canvas>
-
 <LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-table`} />
-
-## Oversikt
-
-Tabeller bygges ved å bruke styled versjoner av native HTML elementer. Disse komponentene er:
-
-- `<Table.Wrapper />` - wrapper for tabell.
-- `<Table />` - selve tabellen.
-- Subkomponenter: `<Table.Head />`, `<Table.Body />`, `<Table.Foot />`, `<Table.Row />`, `<Table.Cell />`, `<Table.SortCell />`.
-- BETA - variant av tabell som kan kollapses, med tilhørende rad-komponent: `<CollapsibleTable />` og `<CollapsibleTable.Row>`.
-
-Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel, mens andre har kun native props, som forklart i API.
 
 ## Bruk i koden
 
@@ -171,7 +169,7 @@ Et styled `<Cell type='head'>`-element som brukes som `<th>` i sorteringskolonne
 
 I tillegg støttes `<Cell>`-props, bortsett fra `type` da den er satt til `'head'`.
 
-### CollapsibleTable <Tag text="BETA" purpose="warning" />
+### CollapsibleTable
 
 En variant av `<Table>` som kan kollapse deler av hver rad.
 Konsumenten må bestemme en eller flere såkalte definerende kolonner - kolonner som vises til enhver tid som i vanlig tabell, mens reseterende kolonner kan kollapse.
@@ -186,7 +184,7 @@ Rekkefølgen på definerende kolonner følger rekkefølgen i `definingColumnInde
 <Canvas of={CollapsibleTableStories.SingleDefiningColumn} />
 <Controls of={CollapsibleTableStories.SingleDefiningColumn} />
 
-### CollapsibleTable.Row <Tag text="BETA" purpose="warning" />
+### CollapsibleTable.Row
 
 En variant av `<Table.Row>` som brukes med `<CollapsibleTable>`. Den håndterer kollapsing.
 

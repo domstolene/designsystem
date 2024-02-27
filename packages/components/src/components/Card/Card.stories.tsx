@@ -45,7 +45,7 @@ const ContentContainer = styled.div`
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate title="Card - overview" display="grid" $columnsAmount={4}>
+    <StoryTemplate display="grid" $columnsAmount={4}>
       <Story />
     </StoryTemplate>
   ),
@@ -135,7 +135,7 @@ export const Overview: Story = {
 export const Default: Story = {
   args: { children: 'Content' },
   decorators: Story => (
-    <StoryTemplate title="Card - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -143,7 +143,7 @@ export const Default: Story = {
 
 export const Accordion: Story = {
   decorators: Story => (
-    <StoryTemplate title="Card - accordion">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -160,7 +160,7 @@ export const Accordion: Story = {
 
 export const Accordions: Story = {
   decorators: Story => (
-    <StoryTemplate title="Card - accordion" gap="0">
+    <StoryTemplate gap="0">
       <Story />
     </StoryTemplate>
   ),
@@ -233,7 +233,7 @@ export const Accordions: Story = {
 
 export const AccordionControlled: Story = {
   decorators: Story => (
-    <StoryTemplate title="Card - accordion" gap="0">
+    <StoryTemplate gap="0">
       <Story />
     </StoryTemplate>
   ),
@@ -257,7 +257,7 @@ export const AccordionControlled: Story = {
 
 export const AccordionCustom: Story = {
   decorators: Story => (
-    <StoryTemplate title="Card - accordion" gap="0">
+    <StoryTemplate gap="0">
       <Story />
     </StoryTemplate>
   ),
@@ -298,7 +298,7 @@ export const AccordionCustom: Story = {
 
 export const Examples: Story = {
   decorators: Story => (
-    <StoryTemplate title="Card - examples">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

@@ -27,7 +27,7 @@ export const Default: Story = {
     message: 'En tilfeldig melding',
   },
   decorators: Story => (
-    <StoryTemplate title="GlobalMessage - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -36,12 +36,12 @@ export const Default: Story = {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="GlobalMessage - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
-    <VStack>
+    <VStack gap="x1">
       <GlobalMessage {...args} purpose="info" message="En tilfeldig melding" />
       <GlobalMessage
         {...args}
@@ -82,7 +82,7 @@ export const Closable: Story = {
     closable: true,
   },
   decorators: Story => (
-    <StoryTemplate title="GlobalMessage - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Drawer>;
 export const Default: Story = {
   args: { header: 'Tittel' },
   decorators: Story => (
-    <StoryTemplate title="Drawer - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -46,7 +46,7 @@ export const Default: Story = {
 export const OverviewPlacement: Story = {
   args: { header: 'Tittel' },
   decorators: Story => (
-    <StoryTemplate title="Drawer - placement overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -73,7 +73,7 @@ export const OverviewPlacement: Story = {
 export const OverviewSizes: Story = {
   args: { header: 'Rettsmekling' },
   decorators: Story => (
-    <StoryTemplate title="Drawer - size overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -158,13 +158,13 @@ export const OverviewSizes: Story = {
 export const LongContent: Story = {
   args: { header: 'Rettsmekling' },
   decorators: Story => (
-    <StoryTemplate title="Drawer - long content">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
     <DrawerGroup>
-      <Button>Åpne</Button>
+      <Button>Åpne lang</Button>
       <Drawer {...args}>
         <div>
           <Paragraph withMargins>

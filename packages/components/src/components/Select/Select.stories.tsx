@@ -47,12 +47,7 @@ const optionsLong = createSelectOptions(
 
 export const Overview = (args: SelectProps) => {
   return (
-    <StoryTemplate
-      title="Select - overview"
-      gap="25px"
-      display="grid"
-      $columnsAmount={2}
-    >
+    <StoryTemplate gap="25px" display="grid" $columnsAmount={2}>
       <Select {...args} label={args.label ?? 'Label'} options={options} />
       <Select
         {...args}
@@ -117,11 +112,7 @@ export const Overview = (args: SelectProps) => {
 
 export const OverviewSizes = (args: SelectProps) => {
   return (
-    <StoryTemplate
-      title="Select - overview sizes"
-      display="grid"
-      $columnsAmount={2}
-    >
+    <StoryTemplate display="grid" $columnsAmount={2}>
       <Select {...args} componentSize="medium" options={options} />
       <Select
         {...args}
@@ -149,8 +140,8 @@ export const OverviewSizes = (args: SelectProps) => {
 
 export const Default = (args: SelectProps) => {
   return (
-    <StoryTemplate title="Select - default">
-      <Select {...args} options={options} />
+    <StoryTemplate>
+      <Select {...args} options={options} label={args.label ?? 'Label'} />
     </StoryTemplate>
   );
 };
@@ -173,23 +164,15 @@ export const WithGroups = (args: SelectProps) => {
     },
   ];
   return (
-    <StoryTemplate title="Select - with groups">
+    <StoryTemplate>
       <Select {...args} options={groupedOptions} />
-    </StoryTemplate>
-  );
-};
-
-export const WithLabel = (args: SelectProps) => {
-  return (
-    <StoryTemplate title="Select - with label">
-      <Select {...args} label={args.label ?? 'Label'} options={options} />
     </StoryTemplate>
   );
 };
 
 export const ManyItems = (args: SelectProps) => {
   return (
-    <StoryTemplate title="Select - many options">
+    <StoryTemplate>
       <Select {...args} label={args.label ?? 'Label'} options={optionsLong} />
     </StoryTemplate>
   );
@@ -204,7 +187,7 @@ export const CustomData = (
     { name: 'Endre', employeeId: 789 },
   ];
   return (
-    <StoryTemplate title="Select - custom data">
+    <StoryTemplate>
       <Select
         {...args}
         label={args.label ?? 'Saksbehandler'}

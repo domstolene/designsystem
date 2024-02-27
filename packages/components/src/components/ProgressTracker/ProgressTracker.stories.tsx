@@ -36,7 +36,7 @@ type Story = StoryObj<typeof ProgressTracker>;
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="ProgressTracker - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -93,7 +93,7 @@ export const Overview: Story = {
 export const WithIcons: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="ProgressTracker - with icons">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -163,7 +163,7 @@ export const WithIcons: Story = {
 export const FutureStepsDisabled: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="ProgressTracker - future steps disabled">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -225,10 +225,10 @@ export const FutureStepsDisabled: Story = {
   },
 };
 
-export const Mobile: Story = {
+export const SmallScreen: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="ProgressTracker - mobile">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -325,7 +325,7 @@ const DesktopOnly = styled.div`
 export const RealWorldExample: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="ProgressTracker - real world example">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

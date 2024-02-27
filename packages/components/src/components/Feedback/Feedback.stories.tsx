@@ -69,7 +69,7 @@ type Story = StoryObj<typeof Feedback>;
 export const Default: Story = {
   args: { ratingLabel: 'Hva syns du om tjenesten?' },
   decorators: Story => (
-    <StoryTemplate title="Feedback - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -78,7 +78,7 @@ export const Default: Story = {
 export const HorizontalLayout: Story = {
   args: { ratingLabel: 'Hva syns du om tjenesten?', layout: 'horizontal' },
   decorators: Story => (
-    <StoryTemplate title="Feedback - horizontal layout">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -90,7 +90,7 @@ export const WithoutTextArea: Story = {
     feedbackTextAreaExcluded: true,
   },
   decorators: Story => (
-    <StoryTemplate title="Feedback - without text area">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -103,7 +103,7 @@ export const CustomLabels: Story = {
     negativeFeedbackLabel: 'Min egen negative label',
   },
   decorators: Story => (
-    <StoryTemplate title="Feedback - custom labels">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -125,7 +125,7 @@ export const CustomButtonTooltip: Story = {
     thumbDownTooltip: 'Liker ikke',
   },
   decorators: Story => (
-    <StoryTemplate title="Feedback - custom button tooltip">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -136,7 +136,7 @@ export const LoadingState: Story = {
     ratingLabel: 'Hva synes du om tjenesten?',
   },
   decorators: Story => (
-    <StoryTemplate title="Feedback - loading">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

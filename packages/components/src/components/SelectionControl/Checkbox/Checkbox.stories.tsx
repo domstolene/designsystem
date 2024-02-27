@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Checkbox>;
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate title="Checkbox - overview" display="grid">
+    <StoryTemplate display="grid">
       <Story />
     </StoryTemplate>
   ),
@@ -57,7 +57,7 @@ export const Overview: Story = {
 export const Default: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate title="Checkbox - default" display="block">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

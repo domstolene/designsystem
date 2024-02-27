@@ -117,7 +117,7 @@ export const PageExample: Story = {
 export const JustRelativeColumns: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Grid - just relative columns" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),

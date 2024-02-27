@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Heading>;
 
 export const Overview = (args: Partial<HeadingProps>) => {
   return (
-    <StoryTemplate title="Heading - overview">
+    <StoryTemplate>
       <Heading {...args} level={1}>
         Heading 1
       </Heading>
@@ -47,7 +47,7 @@ export const Overview = (args: Partial<HeadingProps>) => {
 export const Default: Story = {
   args: { children: 'Heading', level: 1 },
   decorators: Story => (
-    <StoryTemplate title="Heading - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

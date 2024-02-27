@@ -42,7 +42,7 @@ type Story = StoryObj<typeof Search>;
 export const Default: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Search - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -51,7 +51,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Search - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -102,11 +102,7 @@ export const Overview: Story = {
 export const OverviewSizes: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate
-      title="Search - overview sizes"
-      display="grid"
-      $columnsAmount={2}
-    >
+    <StoryTemplate display="grid" $columnsAmount={2}>
       <Story />
     </StoryTemplate>
   ),
@@ -137,7 +133,7 @@ export const OverviewSizes: Story = {
 export const OverviewWithSuggestion: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Search - overview with suggestion">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -159,7 +155,7 @@ export const OverviewWithSuggestion: Story = {
 export const WithButton: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Search - with button">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -171,7 +167,7 @@ export const WithButton: Story = {
 export const WithSuggestions: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Search - with suggestions">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

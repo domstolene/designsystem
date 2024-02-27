@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Paragraph>;
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate title="Paragraph - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -62,7 +62,7 @@ export const Overview: Story = {
 export const Default: Story = {
   args: { children: 'Paragraph' },
   decorators: Story => (
-    <StoryTemplate title="Paragraph - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

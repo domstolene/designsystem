@@ -69,7 +69,7 @@ export const Default: Story = {
     applicationDesc: 'Produktnavn',
   },
   decorators: Story => (
-    <StoryTemplate title="InternalHeader - default" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -81,11 +81,7 @@ export const Overview: Story = {
     applicationDesc: 'Produktnavn',
   },
   decorators: Story => (
-    <StoryTemplate
-      title="InternalHeader - overview"
-      gap="40px"
-      containerStyle={{ alignItems: 'stretch' }}
-    >
+    <StoryTemplate gap="40px" containerStyle={{ alignItems: 'stretch' }}>
       <Story />
     </StoryTemplate>
   ),
@@ -147,10 +143,7 @@ export const WithNavigationAndContextMenu: Story = {
     userProps: user,
   },
   decorators: Story => (
-    <StoryTemplate
-      title="InternalHeader - with nav and context menu"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -166,7 +159,7 @@ export const WithCurrentPage: Story = {
     currentPageHref: '#',
   },
   decorators: Story => (
-    <StoryTemplate title="InternalHeader - with current page" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -180,10 +173,7 @@ export const SmallScreenWithNavigation: Story = {
     smallScreen: true,
   },
   decorators: Story => (
-    <StoryTemplate
-      title="InternalHeader - small screen with navigation"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -197,10 +187,7 @@ export const SmallScreenWithContextMenu: Story = {
     smallScreen: true,
   },
   decorators: Story => (
-    <StoryTemplate
-      title="InternalHeader - small screen with context menu"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -216,10 +203,7 @@ export const SmallScreenWithNavigationAndContextMenu: Story = {
     smallScreen: true,
   },
   decorators: Story => (
-    <StoryTemplate
-      title="InternalHeader - small screen with navigation and context menu"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -231,7 +215,7 @@ export const WithNavigationLongLink: Story = {
     navigationElements: navigationLinksWithLong,
   },
   decorators: Story => (
-    <StoryTemplate title="InternalHeader - with long link" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -244,10 +228,7 @@ export const NonInteractiveUserOnly: Story = {
     userProps: user,
   },
   decorators: Story => (
-    <StoryTemplate
-      title="InternalHeader - non-interactive user only"
-      display="block"
-    >
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),

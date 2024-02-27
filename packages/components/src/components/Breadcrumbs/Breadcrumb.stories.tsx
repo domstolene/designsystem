@@ -19,7 +19,7 @@ type Story = StoryObj<typeof Breadcrumb>;
 
 export const BreadcrumbDefault: Story = {
   decorators: Story => (
-    <StoryTemplate title="Breadcrumb - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
