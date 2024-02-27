@@ -1,6 +1,7 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as BreadcrumbsStories from './Breadcrumbs.stories';
+import * as BreadcrumbStories from './Breadcrumb.stories';
 
 <Meta of={BreadcrumbsStories} />
 
@@ -16,8 +17,8 @@ import * as BreadcrumbsStories from './Breadcrumbs.stories';
 
 Komponenten består av to subkomponenter:
 
-- `<Breadcrumbs />` som er selve brødsmulestien
-- `<Breadcrumb />` som er barna i brødsmulestien
+- **`<Breadcrumbs />`** som er selve brødsmulestien
+- **`<Breadcrumb />`** som er barna i brødsmulestien
 
 Siste `<Breadcrumb />` skal være den siden brukeren er på, uten oppgitt URL.
 
@@ -25,7 +26,7 @@ Siste `<Breadcrumb />` skal være den siden brukeren er på, uten oppgitt URL.
 
 ### Breadcrumbs
 
-<Canvas of={BreadcrumbsStories.Default} sourceState="shown" />
+<Canvas of={BreadcrumbsStories.Default} />
 <Controls of={BreadcrumbsStories.Default} />
 
 Selve brødsmulestien. Skal ha `<Breadcrumb />` som barn.
@@ -34,11 +35,14 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 ### Breadcrumb
 
-Brødsmule.
-Den støtter alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
-Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke.
+Brødsmule. Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikke.
 
 **OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
+
+<Canvas of={BreadcrumbStories.BreadcrumbDefault} />
+<Controls of={BreadcrumbStories.BreadcrumbDefault} />
+
+Den støtter alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
 
 ## Retningslinjer
 
