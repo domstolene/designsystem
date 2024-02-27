@@ -9,12 +9,20 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
+  argTypes: { smallScreen: { control: { type: 'boolean' } } },
 } satisfies Meta<typeof Breadcrumbs>;
 
 type Story = StoryObj<typeof Breadcrumbs>;
+
+const children = [
+  <Breadcrumb href="#">Side 1</Breadcrumb>,
+  <Breadcrumb href="#">Side 2</Breadcrumb>,
+  <Breadcrumb href="#">Side 3</Breadcrumb>,
+  <Breadcrumb>Siden du er på</Breadcrumb>,
+];
 
 export const Default: Story = {
   decorators: Story => (
@@ -23,10 +31,35 @@ export const Default: Story = {
     </StoryTemplate>
   ),
   args: {
-    children: [
-      <Breadcrumb href="#">Side 1</Breadcrumb>,
-      <Breadcrumb href="#">Side 2</Breadcrumb>,
-      <Breadcrumb>Side 3</Breadcrumb>,
-    ],
+    children,
+  },
+};
+
+export const Overview: Story = {
+  decorators: Story => (
+    <StoryTemplate title="Breadcrumbs - overview">
+      <Story />
+    </StoryTemplate>
+  ),
+  args: {
+    children,
+  },
+  render: args => (
+    <>
+      <Breadcrumbs {...args} />
+      <Breadcrumbs {...args} smallScreen />
+    </>
+  ),
+};
+
+export const SmallScreen: Story = {
+  decorators: Story => (
+    <StoryTemplate title="Breadcrumbs - smallScreen">
+      <Story />
+    </StoryTemplate>
+  ),
+  args: {
+    children,
+    smallScreen: true,
   },
 };

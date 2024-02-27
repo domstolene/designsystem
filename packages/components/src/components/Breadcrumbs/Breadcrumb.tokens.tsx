@@ -12,6 +12,9 @@ const icon = {
 
 const listItem = {
   gap: spacing.SizesDdsSpacingX05,
+  notSmallScreen: {
+    padding: `${spacing.SizesDdsSpacingX0125} 0`,
+  },
 };
 
 const list = {
