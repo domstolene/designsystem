@@ -62,6 +62,6 @@ type MimeType =
   | `audio/${AudioMimeType | AnyMimeType}`
   | `application/${ApplicationMimeType}`;
 
-export type Accept = MimeType | FileExtensionAccept;
+export type FileUploaderAccept = MimeType | FileExtensionAccept;
 
 export type FileList = Array<File>;

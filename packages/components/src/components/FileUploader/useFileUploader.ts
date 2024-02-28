@@ -16,7 +16,7 @@ import {
   type RootErrorList,
   fileUploaderReducer,
 } from './fileUploaderReducer';
-import { type Accept, type FileList } from './types';
+import { type FileList, type FileUploaderAccept } from './types';
 import {
   getInvalidFileTypeErrorMessage,
   getTooManyFilesErrorMessage,
@@ -34,7 +34,7 @@ export interface FileUploaderHookProps {
   /**Callback for når fil-listen endres. */
   onChange: (newFiles: FileList) => void;
   /**Hvilke filendelser eller mime-typer som filopplasteren skal akseptere. */
-  accept: Array<Accept> | undefined;
+  accept: Array<FileUploaderAccept> | undefined;
   /**Om filopplasteren er avslått eller ikke */
   disabled: boolean | undefined;
   /**Maks antall filer som tillates. */
