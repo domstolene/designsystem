@@ -30,7 +30,7 @@ export const BreadcrumbDefault: Story = {
 
 export const BreadcrumbOverview: Story = {
   decorators: Story => (
-    <StoryTemplate title="Breadcrumb - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

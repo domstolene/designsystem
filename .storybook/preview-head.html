@@ -9,10 +9,10 @@
     width: 100%;
   }
 
-  #docs-root .sbdocs-wrapper {
-    padding: 0 20px 4rem 20px;
+  #storybook-docs .sbdocs-wrapper {
+    padding: 0 20px 2rem 20px;
     margin: auto;
-    max-width: 850px;
+    max-width: 52rem;
   }
 
   body,
@@ -27,6 +27,12 @@
     line-height: var(--dds-font-body-sans-02-line-height);
   }
 
+  .sbdocs-preview .docblock-code-toggle,
+  .sbdocs-preview button {
+    font-family: var(--dds-font-body-sans-02-font-family), 'Trebuchet MS',
+      sans-serif;
+  }
+
   code {
     font-family: var(--dds-font-code-monospace-02-font-family);
 
@@ -39,6 +45,11 @@
     }
   }
 
+  .docblock-argstable td div code {
+    background-color: var(--dds-color-neutrals-gray-1);
+    border: 1px solid var(--dds-color-neutrals-gray-2);
+  }
+
   .docblock-argstable td div code,
   code span,
   pre span.token {
@@ -48,6 +59,8 @@
   .docblock-argstable tbody td:nth-of-type(3) > div:first-of-type span {
     font-family: var(--dds-font-code-monospace-02-font-family) !important ;
     color: var(--dds-color-neutrals-gray-9);
+    background-color: var(--dds-color-neutrals-gray-1);
+    border: 1px solid var(--dds-color-neutrals-gray-2);
   }
 
   .docblock-argstable tbody td:nth-of-type(2) > div:first-of-type {
@@ -119,6 +132,7 @@
     line-height: var(--dds-font-heading-sans-05-line-height);
     margin-bottom: var(--dds-font-heading-sans-05-paragraph-spacing);
     padding-top: var(--spacing-dds-spacing-padding-top-heading-sans-05-top);
+    border-bottom: 1px solid var(--borders-dds-border-style-light-stroke);
   }
 
   .sbdocs h3:not(.docs-story *) {

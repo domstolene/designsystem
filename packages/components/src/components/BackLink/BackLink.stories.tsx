@@ -27,7 +27,7 @@ type Story = StoryObj<typeof BackLink>;
 export const Default: Story = {
   args: { label: 'Forrige nivå', href: '?' },
   decorators: Story => (
-    <StoryTemplate title="BackLink - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

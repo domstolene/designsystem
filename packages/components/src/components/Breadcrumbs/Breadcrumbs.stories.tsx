@@ -26,7 +26,7 @@ const children = [
 
 export const Default: Story = {
   decorators: Story => (
-    <StoryTemplate title="Breadcrumbs - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -37,7 +37,7 @@ export const Default: Story = {
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate title="Breadcrumbs - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
