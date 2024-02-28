@@ -28,39 +28,29 @@ type Story = StoryObj<typeof TextArea>;
 
 export const Overview = (args: TextAreaProps) => {
   return (
-    <StoryTemplate title="Textrea - overview" display="grid" $columnsAmount={2}>
+    <StoryTemplate display="grid" $columnsAmount={2}>
       <TextArea {...args} label={args.label ?? 'Label'} />
-      <TextArea {...args} />
       <TextArea
         {...args}
         label={args.label ?? 'Label'}
         required
         value="Påkrevd"
       />
-      <TextArea {...args} required value="Påkrevd" />
       <TextArea
         {...args}
         label={args.label ?? 'Label'}
         disabled
         value="Disabled"
       />
-      <TextArea {...args} disabled value="Disabled" />
       <TextArea
         {...args}
         label={args.label ?? 'Label'}
         readOnly
         value="Readonly"
       />
-      <TextArea {...args} readOnly value="Readonly" />
       <TextArea
         {...args}
         label={args.label ?? 'Label'}
-        errorMessage={
-          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-        }
-      />
-      <TextArea
-        {...args}
         errorMessage={
           args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
         }
@@ -70,23 +60,15 @@ export const Overview = (args: TextAreaProps) => {
         label={args.label ?? 'Label'}
         tip={args.tip ?? 'Dette er en hjelpetekst'}
       />
-      <TextArea {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+      <TextArea {...args} />
     </StoryTemplate>
   );
 };
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate title="TextArea - default">
-      <Story />
-    </StoryTemplate>
-  ),
-};
-
-export const WithLabel: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate title="TextArea - with label">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

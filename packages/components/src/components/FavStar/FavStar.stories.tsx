@@ -38,7 +38,7 @@ type Story = StoryObj<typeof FavStar>;
 export const Default: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="FavStar - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -47,7 +47,7 @@ export const Default: Story = {
 export const OverviewSizes: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="FavStar - overview sizes">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -72,7 +72,7 @@ export const OverviewSizes: Story = {
 export const Controlled: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="FavStar - controlled">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -94,7 +94,7 @@ export const Controlled: Story = {
 export const UsingRef: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="FavStar - using ref">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -112,7 +112,7 @@ export const UsingRef: Story = {
 export const RealWorld: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="FavStar - real world">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

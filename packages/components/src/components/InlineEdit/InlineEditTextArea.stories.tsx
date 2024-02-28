@@ -30,7 +30,7 @@ export const Overview = (args: InlineEditTextAreaProps) => {
   const [value5, setValue5] = useState('tømbar');
   const [value6, setValue6] = useState('uten ikon');
   return (
-    <StoryTemplate title="InlineEditTextArea - overview">
+    <StoryTemplate>
       <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
       <InlineEditTextArea {...args} onSetValue={setValue2} value={value2} />
       <InlineEditTextArea
@@ -64,7 +64,7 @@ export const Overview = (args: InlineEditTextAreaProps) => {
 export const Default = (args: InlineEditTextAreaProps) => {
   const [value, setValue] = useState('');
   return (
-    <StoryTemplate title="InlineEditTextArea - default" display="block">
+    <StoryTemplate display="block">
       <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
     </StoryTemplate>
   );
@@ -74,7 +74,7 @@ export const InTable = () => {
   const [value, setValue] = useState();
   const [value2, setValue2] = useState();
   return (
-    <StoryTemplate title="InlineEditTextArea - in table" display="block">
+    <StoryTemplate display="block">
       <Table.Wrapper>
         <Table>
           <Table.Head>

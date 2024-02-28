@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
   argTypes: {
@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Chip>;
 export const Default: Story = {
   args: { text: 'Chip' },
   decorators: Story => (
-    <StoryTemplate title="Chip - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

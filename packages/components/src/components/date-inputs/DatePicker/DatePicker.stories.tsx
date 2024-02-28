@@ -57,7 +57,7 @@ type Story = StoryObj<typeof DatePicker>;
 export const Default: Story = {
   args: { label: 'Dato' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -66,7 +66,7 @@ export const Default: Story = {
 export const Required: Story = {
   args: { label: 'Dato', isRequired: true },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - required">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -75,7 +75,7 @@ export const Required: Story = {
 export const Controlled: Story = {
   args: { label: 'Dato' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - controlled">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -98,7 +98,7 @@ export const Controlled: Story = {
 export const WeekendsUnavailable: Story = {
   args: { label: 'Dato', isDateUnavailable: date => isWeekend(date, 'no-NO') },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - weekends unavailable">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -107,7 +107,7 @@ export const WeekendsUnavailable: Story = {
 export const Error: Story = {
   args: { label: 'Dato', errorMessage: 'Her er noe veldig galt! 😨' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - error">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -115,7 +115,7 @@ export const Error: Story = {
 
 export const OverviewSizes: Story = {
   decorators: Story => (
-    <StoryTemplate title="DatePicker - weekends unavailable">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -134,7 +134,7 @@ export const Tip: Story = {
     tip: 'Visste du at denne komponenten også kan ha en tip?',
   },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - tip">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -147,7 +147,7 @@ export const ReadOnly: Story = {
     value: new CalendarDate(2023, 12, 24),
   },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - read only">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -160,7 +160,7 @@ export const Disabled: Story = {
     value: new CalendarDate(2023, 12, 24),
   },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - disabled">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -169,7 +169,7 @@ export const Disabled: Story = {
 export const CustomWidth: Story = {
   args: { label: 'Dato', width: '1337px' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - custom width">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -178,7 +178,7 @@ export const CustomWidth: Story = {
 export const ControlFocus: Story = {
   args: { label: 'Dato' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - control focus">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -196,7 +196,7 @@ export const ControlFocus: Story = {
 export const InsideModal: Story = {
   args: { label: 'Dato' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - inside modal">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -216,7 +216,7 @@ export const InsideModal: Story = {
 export const DateAndTime: Story = {
   args: { label: 'Dato' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - date and time">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -254,7 +254,7 @@ export const DateAndTime: Story = {
 export const NativeDate: Story = {
   args: { label: 'Dato' },
   decorators: Story => (
-    <StoryTemplate title="DatePicker - native date">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

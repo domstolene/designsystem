@@ -31,7 +31,7 @@ Komponenten består av tre elementer:
 Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og onBlur.
 
 <Canvas>
-  <Story of={PopoverStories.Default} height="350px" />
+  <Story of={PopoverStories.Default} height="280px" />
 </Canvas>
 <Controls of={PopoverStories.Default} />
 
@@ -55,7 +55,7 @@ Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes
 Det kan være relevant å begrense størrelsen på Popover slik at ikke hele teksten vises ved overflow. Da bør den synlige teksten avsluttes med en ellipse:
 
 <Canvas>
-  <Story height="350px" of={PopoverStories.Overflow} />
+  <Story height="300px" of={PopoverStories.Overflow} />
 </Canvas>
 
 For å oppnå det kan du sette sizeProps til ønskede verdier og gi tekstelementet som

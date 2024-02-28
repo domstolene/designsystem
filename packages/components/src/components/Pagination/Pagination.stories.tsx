@@ -35,7 +35,7 @@ type Story = StoryObj<typeof Pagination>;
 export const Default: Story = {
   args: { itemsAmount: 100 },
   decorators: Story => (
-    <StoryTemplate title="Pagination - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -44,28 +44,15 @@ export const Default: Story = {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Pagination - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
-    <VStack gap="x2">
-      <Pagination {...args} itemsAmount={70} />
+    <VStack gap="x3" align="start">
       <Pagination {...args} itemsAmount={100} />
-      <Pagination {...args} defaultActivePage={6} itemsAmount={100} />
+
       <Pagination {...args} withCounter itemsAmount={100} />
-      <Pagination
-        {...args}
-        withCounter
-        defaultItemsPerPage={20}
-        itemsAmount={100}
-      />
-      <Pagination
-        {...args}
-        withPagination={false}
-        withCounter
-        itemsAmount={100}
-      />
       <Pagination {...args} withSelect itemsAmount={100} />
       <Pagination {...args} withCounter withSelect itemsAmount={100} />
       <Pagination
@@ -77,11 +64,9 @@ export const Overview: Story = {
       />
       <Pagination
         {...args}
+        withPagination={false}
         withCounter
-        withSelect
-        defaultItemsPerPage={customOptions[0].value}
-        selectOptions={customOptions}
-        itemsAmount={customOptionsItemsAmount}
+        itemsAmount={100}
       />
     </VStack>
   ),
@@ -90,12 +75,12 @@ export const Overview: Story = {
 export const OverviewMobile: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Pagination - overview mobile">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
-    <VStack gap="x2">
+    <VStack gap="x3">
       <Pagination {...args} smallScreen itemsAmount={100} />
       <Pagination {...args} smallScreen withCounter itemsAmount={100} />
       <Pagination
@@ -113,4 +98,43 @@ export const OverviewMobile: Story = {
       />
     </VStack>
   ),
+};
+
+export const CustomOptions: Story = {
+  args: { itemsAmount: 100 },
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Pagination
+      {...args}
+      withCounter
+      withSelect
+      defaultItemsPerPage={customOptions[0].value}
+      selectOptions={customOptions}
+      itemsAmount={customOptionsItemsAmount}
+    />
+  ),
+};
+
+export const DefaultActivePage: Story = {
+  args: { itemsAmount: 100 },
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => <Pagination {...args} defaultActivePage={6} />,
+};
+
+export const DefaultItemsPerPage: Story = {
+  args: { itemsAmount: 100 },
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => <Pagination {...args} withCounter defaultItemsPerPage={48} />,
 };

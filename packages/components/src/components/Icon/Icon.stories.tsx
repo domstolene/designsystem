@@ -21,12 +21,14 @@ export default {
 
 type Story = StoryObj<typeof Icon>;
 
+const icon = OpenExternal;
+
 export const Default: Story = {
   args: {
-    icon: OpenExternal,
+    icon,
   },
   decorators: Story => (
-    <StoryTemplate title="Icon - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -34,10 +36,10 @@ export const Default: Story = {
 
 export const Overview: Story = {
   args: {
-    icon: OpenExternal,
+    icon,
   },
   decorators: Story => (
-    <StoryTemplate title="Icon - overview" display="grid" $columnsAmount={4}>
+    <StoryTemplate display="grid" $columnsAmount={4}>
       <Story />
     </StoryTemplate>
   ),
@@ -53,16 +55,23 @@ export const Overview: Story = {
 
 export const Inherit: Story = {
   args: {
-    icon: OpenExternal,
+    icon,
     iconSize: 'inherit',
   },
   decorators: Story => (
-    <StoryTemplate title="Icon - inherit">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
-    <p style={{ display: 'flex', alignItems: 'center', fontSize: '20px' }}>
+    <p
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '4px',
+        fontSize: '20px',
+      }}
+    >
       <Icon {...args} />
       Tekst
     </p>

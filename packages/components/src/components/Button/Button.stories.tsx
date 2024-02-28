@@ -28,7 +28,7 @@ type Story = StoryObj<typeof Button>;
 export const Default: Story = {
   args: { children: 'Tekst' },
   decorators: Story => (
-    <StoryTemplate title="Button - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -36,7 +36,7 @@ export const Default: Story = {
 
 export const OverviewWithText: Story = {
   decorators: Story => (
-    <StoryTemplate title="Button overview - with text" display="grid">
+    <StoryTemplate display="grid">
       <Story />
     </StoryTemplate>
   ),
@@ -193,7 +193,7 @@ export const OverviewWithText: Story = {
 export const OverviewJustIcon: Story = {
   args: { icon: icons.CloseIcon },
   decorators: Story => (
-    <StoryTemplate title="Button overview - just icon" display="grid">
+    <StoryTemplate display="grid">
       <Story />
     </StoryTemplate>
   ),
@@ -217,11 +217,7 @@ export const OverviewJustIcon: Story = {
 
 export const OverviewSizes: Story = {
   decorators: Story => (
-    <StoryTemplate
-      title="Button overview - sizes"
-      display="grid"
-      $columnsAmount={4}
-    >
+    <StoryTemplate display="grid" $columnsAmount={4}>
       <Story />
     </StoryTemplate>
   ),
@@ -313,11 +309,7 @@ export const OverviewSizes: Story = {
 
 export const OverviewLoading: Story = {
   decorators: Story => (
-    <StoryTemplate
-      title="Button overview - loading"
-      display="grid"
-      $columnsAmount={4}
-    >
+    <StoryTemplate display="grid" $columnsAmount={4}>
       <Story />
     </StoryTemplate>
   ),
@@ -498,7 +490,7 @@ export const OverviewLoading: Story = {
 export const OverviewFullWidth: Story = {
   args: { fullWidth: true },
   decorators: Story => (
-    <StoryTemplate title="Button overview - full width">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -554,7 +546,7 @@ export const TextWithIcon: Story = {
     iconPosition: 'left',
   },
   decorators: Story => (
-    <StoryTemplate title="Button - text with icon">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -563,7 +555,7 @@ export const TextWithIcon: Story = {
 export const Icon: Story = {
   args: { icon: icons.CloseIcon },
   decorators: Story => (
-    <StoryTemplate title="Button - just icon">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -572,7 +564,7 @@ export const Icon: Story = {
 export const Ghost: Story = {
   args: { children: 'Tekst' },
   decorators: Story => (
-    <StoryTemplate title="Button - ghost">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -594,7 +586,7 @@ export const Ghost: Story = {
 export const Borderless: Story = {
   args: { children: 'Tekst' },
   decorators: Story => (
-    <StoryTemplate title="Button - borderless">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -610,7 +602,7 @@ export const Borderless: Story = {
 export const Rounded: Story = {
   args: { children: 'Tekst' },
   decorators: Story => (
-    <StoryTemplate title="Button - rounded">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

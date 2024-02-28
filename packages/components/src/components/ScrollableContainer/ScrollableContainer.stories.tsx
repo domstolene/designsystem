@@ -1,7 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type StoryObj } from '@storybook/react';
+import { type Property } from 'csstype';
 import { type CSSProperties, useRef } from 'react';
-import styled from 'styled-components';
 
 import { focusVisible } from '../helpers';
 
@@ -26,40 +26,12 @@ type Story = StoryObj<typeof ScrollableContainer>;
 export const Default: Story = {
   args: { contentHeight: '300px' },
   decorators: Story => (
-    <StoryTemplate title="ScrollableContainer - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
     <ScrollableContainer {...args}>
-      <p>
-        Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
-        begrense kostnadene veldig. Under hele meklingsprosessen betaler staten
-        for eventuell hjelp fra sakkyndig psykolog underveis. Hvis dere ikke
-        blir enige gjennom mekling, innkaller retten til et nytt rettsmøte
-        (hovedforhandling).
-      </p>
-      <p>
-        Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
-        begrense kostnadene veldig. Under hele meklingsprosessen betaler staten
-        for eventuell hjelp fra sakkyndig psykolog underveis. Hvis dere ikke
-        blir enige gjennom mekling, innkaller retten til et nytt rettsmøte
-        (hovedforhandling).
-      </p>
-      <p>
-        Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
-        begrense kostnadene veldig. Under hele meklingsprosessen betaler staten
-        for eventuell hjelp fra sakkyndig psykolog underveis. Hvis dere ikke
-        blir enige gjennom mekling, innkaller retten til et nytt rettsmøte
-        (hovedforhandling).
-      </p>
-      <p>
-        Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
-        begrense kostnadene veldig. Under hele meklingsprosessen betaler staten
-        for eventuell hjelp fra sakkyndig psykolog underveis. Hvis dere ikke
-        blir enige gjennom mekling, innkaller retten til et nytt rettsmøte
-        (hovedforhandling).
-      </p>
       <p>
         Hvis både du og den andre forelderen ønsker å forsøke mekling, kan det
         begrense kostnadene veldig. Under hele meklingsprosessen betaler staten
@@ -151,11 +123,12 @@ export const Default: Story = {
 export const JustScrollbar: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="ScrollableContainer - just scrollbar">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
-  render: () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: args => {
     const contentRef = useRef<HTMLDivElement>(null);
     const containerStyle: CSSProperties = {
       display: 'grid',
@@ -164,21 +137,21 @@ export const JustScrollbar: Story = {
       padding: '4px',
     };
 
-    const ContentContainer = styled.div`
-      height: 500px;
-      overflow: auto;
-      scrollbar-width: none;
-      ::-webkit-scrollbar {
-        display: none;
-      }
-      :focus-visible {
-        ${focusVisible};
-      }
-    `;
+    const contentContainerStyle = {
+      height: '300px',
+      overflow: 'auto',
+      scrollbarWidth: 'none' as Property.ScrollbarWidth,
+      '&::WebkitScrollbar': {
+        display: 'none',
+      },
+      ':focus-visible': {
+        ...focusVisible,
+      },
+    };
 
     return (
       <div style={containerStyle}>
-        <ContentContainer ref={contentRef} tabIndex={0}>
+        <div style={contentContainerStyle} ref={contentRef} tabIndex={0}>
           <p>
             Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
             det begrense kostnadene veldig. Under hele meklingsprosessen betaler
@@ -228,70 +201,7 @@ export const JustScrollbar: Story = {
             dere ikke blir enige gjennom mekling, innkaller retten til et nytt
             rettsmøte (hovedforhandling).
           </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-          <p>
-            Hvis både du og den andre forelderen ønsker å forsøke mekling, kan
-            det begrense kostnadene veldig. Under hele meklingsprosessen betaler
-            staten for eventuell hjelp fra sakkyndig psykolog underveis. Hvis
-            dere ikke blir enige gjennom mekling, innkaller retten til et nytt
-            rettsmøte (hovedforhandling).
-          </p>
-        </ContentContainer>
+        </div>
         <Scrollbar contentRef={contentRef} />
       </div>
     );

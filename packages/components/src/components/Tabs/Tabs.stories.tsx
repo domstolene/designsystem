@@ -20,7 +20,7 @@ export default {
 };
 
 export const Overview = () => (
-  <StoryTemplate title="Tabs - overview">
+  <StoryTemplate>
     <Tabs>
       <TabList>
         <Tab>Restriksjoner</Tab>
@@ -46,7 +46,7 @@ export const Overview = () => (
 );
 
 export const Default = (args: TabsProps) => (
-  <StoryTemplate title="Tabs - default" display="block">
+  <StoryTemplate display="block">
     <Tabs {...args}>
       <TabList>
         <Tab>Tab 1</Tab>
@@ -63,7 +63,7 @@ export const Default = (args: TabsProps) => (
 );
 
 export const WithIcon = (args: TabsProps) => (
-  <StoryTemplate title="Tabs - with icon">
+  <StoryTemplate>
     <Tabs {...args}>
       <TabList>
         <Tab icon={NotificationsIcon}>Tab 1</Tab>
@@ -83,7 +83,7 @@ export const ActiveTab = (args: TabsProps) => {
   const [activeTab, setActiveTab] = useState(1);
 
   return (
-    <StoryTemplate title="Tabs - active tab" display="block">
+    <StoryTemplate display="block">
       <Tabs {...args} activeTab={activeTab} onChange={tab => setActiveTab(tab)}>
         <TabList>
           <Tab>Tab 1</Tab>
@@ -104,7 +104,7 @@ export const ActiveTab = (args: TabsProps) => {
 };
 
 export const WithWidth = (args: TabsProps) => (
-  <StoryTemplate title="Tabs - tab width" display="block">
+  <StoryTemplate display="block">
     <Tabs {...args} width="500px">
       <TabList>
         <Tab>Tab 1</Tab>
@@ -121,7 +121,7 @@ export const WithWidth = (args: TabsProps) => (
 );
 
 export const TabLongNames = (args: TabsProps) => (
-  <StoryTemplate title="Tabs - tab width" display="block">
+  <StoryTemplate display="block">
     <Tabs {...args}>
       <TabList>
         <Tab>Partsopplysninger</Tab>
@@ -138,7 +138,7 @@ export const TabLongNames = (args: TabsProps) => (
 );
 
 export const ManyTabs = (args: TabsProps) => (
-  <StoryTemplate title="Tabs - many tabs" display="block">
+  <StoryTemplate display="block">
     <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
       <TabList>
         <Tab>Tab1</Tab>
@@ -169,7 +169,7 @@ export const ManyTabs = (args: TabsProps) => (
 );
 
 export const MaxContentWidth = (args: TabsProps) => (
-  <StoryTemplate title="Tabs - fixed width" display="block">
+  <StoryTemplate display="block">
     <VStack align="flex-start" gap="x1">
       <Paragraph>
         Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.

@@ -31,7 +31,7 @@ type Story = StoryObj<typeof FileUploader>;
 export const Default: Story = {
   args: { label: 'Last opp fil' },
   decorators: Story => (
-    <StoryTemplate title="FileUploader - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -118,7 +118,7 @@ const WithErrorMessage = () => {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="FileUploader - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -134,7 +134,7 @@ export const Overview: Story = {
 export const NoZone: Story = {
   args: { label: 'Last opp fil' },
   decorators: Story => (
-    <StoryTemplate title="FileUploader - no drag & drop zone">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -146,7 +146,7 @@ export const NoZone: Story = {
 export const Pdf: Story = {
   args: { label: 'Last opp fil', tip: 'Kun PDF-filer' },
   decorators: Story => (
-    <StoryTemplate title="FileUploader - PDF">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

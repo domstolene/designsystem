@@ -36,7 +36,7 @@ export const Default: Story = {
     secondaryActions: items,
   },
   decorators: Story => (
-    <StoryTemplate title="SplitButton - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -45,7 +45,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="SplitButton - overview" display="grid">
+    <StoryTemplate display="grid">
       <Story />
     </StoryTemplate>
   ),
@@ -63,7 +63,7 @@ export const FullWidth: Story = {
     secondaryActions: items,
   },
   decorators: Story => (
-    <StoryTemplate title="SplitButton - full width">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),

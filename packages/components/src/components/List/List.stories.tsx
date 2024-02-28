@@ -20,7 +20,7 @@ type Story = StoryObj<typeof List>;
 
 export const Default: Story = {
   decorators: Story => (
-    <StoryTemplate title="List - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -35,7 +35,7 @@ export const Default: Story = {
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate title="List - overview" display="grid" $columnsAmount={4}>
+    <StoryTemplate display="grid" $columnsAmount={4}>
       <Story />
     </StoryTemplate>
   ),
@@ -190,7 +190,7 @@ export const Overview: Story = {
 
 export const Nested: Story = {
   decorators: Story => (
-    <StoryTemplate title="List - nested">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -217,7 +217,7 @@ export const Nested: Story = {
 
 export const Example: Story = {
   decorators: Story => (
-    <StoryTemplate title="List - example">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

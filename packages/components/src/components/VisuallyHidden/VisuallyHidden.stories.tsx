@@ -25,7 +25,7 @@ type Story = StoryObj<typeof VisuallyHidden>;
 
 export const Default: Story = {
   decorators: Story => (
-    <StoryTemplate title="VisuallyHidden - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -39,7 +39,7 @@ export const Default: Story = {
 
 export const WithLink: Story = {
   decorators: Story => (
-    <StoryTemplate title="VisuallyHidden - link example">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -67,7 +67,7 @@ export const WithLink: Story = {
 
 export const TableButtons: Story = {
   decorators: Story => (
-    <StoryTemplate title="VisuallyHidden - table example">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

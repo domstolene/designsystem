@@ -19,7 +19,7 @@ type Story = StoryObj<typeof Tag>;
 export const Default: Story = {
   args: { children: 'default' },
   decorators: Story => (
-    <StoryTemplate title="Tag - default" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -28,7 +28,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: { children: 'default' },
   decorators: Story => (
-    <StoryTemplate title="Tag - overview" display="grid" $columnsAmount={4}>
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

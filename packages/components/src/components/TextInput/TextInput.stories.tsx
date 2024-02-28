@@ -35,29 +35,21 @@ type Story = StoryObj<typeof TextInput>;
 export const TextInputOverview = (args: TextInputProps) => {
   return (
     <StoryTemplate
-      title="TextInput - overview"
       display="grid"
       $columnsAmount={2}
       style={{ alignItems: 'end' }}
     >
       <TextInput {...args} label={args.label ?? 'Label'} />
-      <TextInput {...args} />
       <TextInput
         {...args}
         label={args.label ?? 'Label'}
         required
         value="Påkrevd inputfelt"
       />
-      <TextInput {...args} required value="Påkrevd inputfelt" />
       <TextInput
         {...args}
         aria-required
         label={args.label ?? 'Label'}
-        value="Påkrevd inputfelt med aria-required"
-      />
-      <TextInput
-        {...args}
-        aria-required
         value="Påkrevd inputfelt med aria-required"
       />
       <TextInput
@@ -66,23 +58,15 @@ export const TextInputOverview = (args: TextInputProps) => {
         disabled
         value="Disabled inputfelt"
       />
-      <TextInput {...args} disabled value="Disabled inputfelt" />
       <TextInput
         {...args}
         label={args.label ?? 'Label'}
         readOnly
         value="Readonly inputfelt"
       />
-      <TextInput {...args} readOnly value="Readonly inputfelt" />
       <TextInput
         {...args}
         label={args.label ?? 'Label'}
-        errorMessage={
-          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-        }
-      />
-      <TextInput
-        {...args}
         errorMessage={
           args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
         }
@@ -92,7 +76,6 @@ export const TextInputOverview = (args: TextInputProps) => {
         label={args.label ?? 'Label'}
         tip={args.tip ?? 'Dette er en hjelpetekst'}
       />
-      <TextInput {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
       <TextInput
         {...args}
         label={args.label ?? 'Label'}
@@ -100,25 +83,16 @@ export const TextInputOverview = (args: TextInputProps) => {
         tip={args.tip ?? 'Dette er en hjelpetekst med en tegnteller'}
         maxLength={20}
       />
-      <TextInput
-        {...args}
-        tip={args.tip ?? 'Dette er en hjelpetekst med en tegnteller'}
-        maxLength={20}
-      />
       <TextInput {...args} icon={MailIcon} label={args.label ?? 'Label'} />
-      <TextInput {...args} icon={MailIcon} />
-      <TextInput {...args} prefix="Prefix" />
-      <TextInput {...args} suffix="Suffix" />
+      <TextInput {...args} label={args.label ?? 'Label'} prefix="Prefix" />
+      <TextInput {...args} label={args.label ?? 'Label'} suffix="Suffix" />
+      <TextInput {...args} />
     </StoryTemplate>
   );
 };
 
 export const TextInputOverviewSizes = () => (
-  <StoryTemplate
-    title="TextInput - overview sizes"
-    display="grid"
-    $columnsAmount={2}
-  >
+  <StoryTemplate display="grid" $columnsAmount={2}>
     <TextInput label="Label" />
     <TextInput label="Label" icon={MailIcon} />
     <TextInput label="Label" componentSize="small" />
@@ -129,17 +103,9 @@ export const TextInputOverviewSizes = () => (
 );
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate title="TextInput - default">
-      <Story />
-    </StoryTemplate>
-  ),
-};
-
-export const WithLabel: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate title="TextInput - with label">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -147,18 +113,14 @@ export const WithLabel: Story = {
 
 export const WithCharacterCount = (args: TextInputProps) => {
   return (
-    <StoryTemplate title="TextInput - with character count">
+    <StoryTemplate>
       <TextInput {...args} maxLength={25} label={args.label ?? 'Label'} />
     </StoryTemplate>
   );
 };
 
 export const TextInputAffixes = (args: TextInputProps) => (
-  <StoryTemplate
-    title="TextInput - With affixes"
-    display="grid"
-    $columnsAmount={1}
-  >
+  <StoryTemplate display="grid" $columnsAmount={1}>
     <LocalMessage purpose="tips">
       <strong>OBS!</strong> Skjermleser leser ikke opp affixes. Husk derfor å
       inkludere en tilstrekkelig beskrivende label i tillegg.

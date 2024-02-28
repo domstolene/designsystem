@@ -26,7 +26,7 @@ type Story = StoryObj<typeof Modal>;
 export const Default: Story = {
   args: {},
   decorators: Story => (
-    <StoryTemplate title="Modal - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -64,7 +64,7 @@ export const Default: Story = {
 export const Overview: Story = {
   args: { header: 'Tittel', onClose: undefined },
   decorators: Story => (
-    <StoryTemplate title="Modal - overview">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -120,7 +120,7 @@ export const Overview: Story = {
 export const NoActionButtons: Story = {
   args: { header: 'Info' },
   decorators: Story => (
-    <StoryTemplate title="Modal - no action buttons">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -152,7 +152,7 @@ export const NoActionButtons: Story = {
 export const Scrollable: Story = {
   args: { header: 'Fritt valg av forsvarer' },
   decorators: Story => (
-    <StoryTemplate title="Modal - scrollable">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -198,7 +198,7 @@ export const Scrollable: Story = {
 export const WithInitialFocus: Story = {
   args: { header: 'Søk etter sak' },
   decorators: Story => (
-    <StoryTemplate title="Modal - with initial focus">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

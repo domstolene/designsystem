@@ -56,7 +56,7 @@ export const Default: Story = {
     items,
   },
   decorators: Story => (
-    <StoryTemplate title="OverflowMenu - default" display="flex-centered">
+    <StoryTemplate display="flex-centered">
       <Story />
     </StoryTemplate>
   ),
@@ -74,10 +74,7 @@ export const WithStaticUser: Story = {
     userProps: { name: 'Brukernavn' },
   },
   decorators: Story => (
-    <StoryTemplate
-      title="OverflowMenu - with static user"
-      display="flex-centered"
-    >
+    <StoryTemplate display="flex-centered">
       <Story />
     </StoryTemplate>
   ),
@@ -95,10 +92,7 @@ export const WithInteractiveUser: Story = {
     userProps: { name: 'Brukernavn', onClick: () => null },
   },
   decorators: Story => (
-    <StoryTemplate
-      title="OverflowMenu - with interactive user"
-      display="flex-centered"
-    >
+    <StoryTemplate display="flex-centered">
       <Story />
     </StoryTemplate>
   ),
@@ -116,10 +110,7 @@ export const WithNavigation: Story = {
     navItems,
   },
   decorators: Story => (
-    <StoryTemplate
-      title="OverflowMenu - with navigation"
-      display="flex-centered"
-    >
+    <StoryTemplate display="flex-centered">
       <Story />
     </StoryTemplate>
   ),
@@ -138,10 +129,7 @@ export const WithNavigationAndInteractiveUser: Story = {
     userProps: { name: 'Brukernavn', onClick: () => null },
   },
   decorators: Story => (
-    <StoryTemplate
-      title="OverflowMenu - with navigation and interactive user"
-      display="flex-centered"
-    >
+    <StoryTemplate display="flex-centered">
       <Story />
     </StoryTemplate>
   ),

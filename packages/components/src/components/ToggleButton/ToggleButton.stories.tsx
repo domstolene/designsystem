@@ -24,7 +24,7 @@ type Story = StoryObj<typeof ToggleButton>;
 export const Default: Story = {
   args: { label: 'Tekst' },
   decorators: Story => (
-    <StoryTemplate title="ToggleButton - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -33,7 +33,7 @@ export const Default: Story = {
 export const WithIcon: Story = {
   args: { label: 'Tekst', icon: NotificationsIcon },
   decorators: Story => (
-    <StoryTemplate title="ToggleButton - with icon">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

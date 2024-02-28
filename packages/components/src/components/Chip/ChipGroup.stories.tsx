@@ -9,7 +9,7 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 };
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof ChipGroup>;
 
 export const Default: Story = {
   decorators: Story => (
-    <StoryTemplate title="ChipGroup - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

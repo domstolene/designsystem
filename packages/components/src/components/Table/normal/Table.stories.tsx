@@ -44,7 +44,7 @@ const mappedHeaderCells = headerCells.map(headerCell => {
 
 export const Default = (args: TableProps) => {
   return (
-    <StoryTemplate title="Table - default">
+    <StoryTemplate>
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>

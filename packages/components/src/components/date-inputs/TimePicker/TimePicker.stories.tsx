@@ -25,7 +25,7 @@ type Story = StoryObj<typeof TimePicker>;
 export const Default: Story = {
   args: { label: 'Tidspunkt' },
   decorators: Story => (
-    <StoryTemplate title="TimePicker - default">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -34,7 +34,7 @@ export const Default: Story = {
 export const Required: Story = {
   args: { label: 'Tidspunkt', isRequired: true },
   decorators: Story => (
-    <StoryTemplate title="TimePicker - required">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -43,7 +43,7 @@ export const Required: Story = {
 export const Controlled: Story = {
   args: { label: 'Tidspunkt' },
   decorators: Story => (
-    <StoryTemplate title="TimePicker - required">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -51,7 +51,7 @@ export const Controlled: Story = {
     const [value, setValue] = useState<Time | null>(new Time(12));
 
     return (
-      <StoryTemplate title="TimePicker - controlled">
+      <StoryTemplate>
         <TimePicker {...args} value={value} onChange={setValue} />
         <Button onClick={() => setValue(new Time(12))}>
           Sett til klokken 12
@@ -64,7 +64,7 @@ export const Controlled: Story = {
 export const Error: Story = {
   args: { label: 'Tidspunkt', errorMessage: 'Her er noe veldig galt! 😨' },
   decorators: Story => (
-    <StoryTemplate title="TimePicker - error">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -73,7 +73,7 @@ export const Error: Story = {
 export const ReadOnly: Story = {
   args: { label: 'Tidspunkt', isReadOnly: true },
   decorators: Story => (
-    <StoryTemplate title="TimePicker - read only">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -81,7 +81,7 @@ export const ReadOnly: Story = {
 
 export const OverviewSizes: Story = {
   decorators: Story => (
-    <StoryTemplate title="TimePicker - overview sizes">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
@@ -97,7 +97,7 @@ export const OverviewSizes: Story = {
 export const CustomWidth: Story = {
   args: { label: 'Tidspunkt', width: '500px' },
   decorators: Story => (
-    <StoryTemplate title="TimePicker - custom width">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

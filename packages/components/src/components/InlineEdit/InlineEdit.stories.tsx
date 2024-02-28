@@ -34,7 +34,7 @@ export const OverviewInputTypes = () => {
   const [value2, setValue2] = useState('');
 
   return (
-    <StoryTemplate title="InlineEdit - overview input types">
+    <StoryTemplate>
       <InlineEditInput value={value} onSetValue={setValue} />
       <InlineEditTextArea value={value2} onSetValue={setValue2} />
     </StoryTemplate>

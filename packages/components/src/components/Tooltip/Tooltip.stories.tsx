@@ -26,7 +26,6 @@ type Story = StoryObj<typeof Tooltip>;
 export const Overview: Story = {
   decorators: Story => (
     <StoryTemplate
-      title="Tooltip - default"
       display="grid"
       containerStyle={{
         alignContent: 'center',
@@ -143,7 +142,6 @@ export const Default: Story = {
   args: { text: 'Dette er en tooltip' },
   decorators: Story => (
     <StoryTemplate
-      title="Tooltip - default"
       display="block"
       containerStyle={{
         alignContent: 'center',

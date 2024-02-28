@@ -30,7 +30,7 @@ export const Overview = (args: InlineEditInputProps) => {
   const [value5, setValue5] = useState('tømbar');
   const [value6, setValue6] = useState('uten ikon');
   return (
-    <StoryTemplate title="InlineEditInput - overview">
+    <StoryTemplate>
       <InlineEditInput {...args} value={value} onSetValue={setValue} />
       <InlineEditInput {...args} onSetValue={setValue2} value={value2} />
       <InlineEditInput {...args} onSetValue={setValue3} value={value3} error />
@@ -59,7 +59,7 @@ export const Overview = (args: InlineEditInputProps) => {
 export const Default = (args: InlineEditInputProps) => {
   const [value, setValue] = useState('');
   return (
-    <StoryTemplate title="InlineEditInput - default" display="block">
+    <StoryTemplate display="block">
       <InlineEditInput {...args} value={value} onSetValue={setValue} />
     </StoryTemplate>
   );
@@ -69,7 +69,7 @@ export const InTable = () => {
   const [value, setValue] = useState();
   const [value2, setValue2] = useState();
   return (
-    <StoryTemplate title="InlineEditInput - in table" display="block">
+    <StoryTemplate display="block">
       <Table.Wrapper>
         <Table>
           <Table.Head>

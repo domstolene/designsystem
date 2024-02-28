@@ -26,7 +26,7 @@ type Story = StoryObj<typeof ToggleBar>;
 
 export const Default: Story = {
   decorators: Story => (
-    <StoryTemplate title="ToggleBar - default" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -53,11 +53,7 @@ export const Default: Story = {
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate
-      title="ToggleBar - overview"
-      display="grid"
-      $columnsAmount={3}
-    >
+    <StoryTemplate display="grid" $columnsAmount={3}>
       <Story />
     </StoryTemplate>
   ),
@@ -204,7 +200,7 @@ export const Overview: Story = {
 
 export const WithDefaultValue: Story = {
   decorators: Story => (
-    <StoryTemplate title="ToggleBar - with default value" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -231,7 +227,7 @@ export const WithDefaultValue: Story = {
 
 export const WithLongWords: Story = {
   decorators: Story => (
-    <StoryTemplate title="ToggleBar - with long words" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
@@ -258,7 +254,7 @@ export const WithLongWords: Story = {
 
 export const WithWidth: Story = {
   decorators: Story => (
-    <StoryTemplate title="ToggleBar - with width" display="block">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),

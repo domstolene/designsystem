@@ -55,38 +55,6 @@ Alenestående scrollbar til mer custom bruk.
 
 ### Kun med `<Scrollbar />`
 
-Ved bruk av kun `<Scrollbar />` må man håndtere styling av containere, kobling til innholdet, plasseringen av `<Scrollbar/>` og fokus.
+Ved bruk av kun `<Scrollbar />` må man håndtere styling av containere, kobling til innholdet, plasseringen av `<Scrollbar/>` og fokus. Se koden i eksempelet.
 
-<Source
-  code={`import { Scrollbar, focusVisible } from '@norges-domstoler/dds-components';
-import { useRef } from 'React';
-import styled fromf 'styled-components';
-
-const containerStyle = {
-display: 'grid',
-gridTemplate: 'auto / 1fr 20px',
-overflow: 'hidden'
-};
-
-const Content = styled.div\`
-height: 500px;
-overflow: auto;
-scrollbar-width: none;
-::-webkit-scrollbar {
-display: none;
-}
-:focus-visible {
-\${focusVisible}
-}
-\`;
-
-const contentRef = useRef();
-
-<div style={containerStyle}>
-  <Content tabIndex={0}>
-    <p>lang tekst</p>
-    <p>lang tekst</p>
-  </Content>
-  <Scrollbar />
-</div>
-`} />
+<Canvas of={ScrollableContainerStories.JustScrollbar} sourceState="shown" />

@@ -22,7 +22,7 @@ type Story = StoryObj<typeof ToggleButtonGroup>;
 export const Default: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate title="ToggleButtonGroup - default" display="block">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

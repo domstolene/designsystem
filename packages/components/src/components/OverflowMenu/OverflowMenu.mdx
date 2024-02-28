@@ -80,7 +80,7 @@ const items = [
 Hovedkomponenten `<OverflowMenu/>`.
 
 <Canvas>
-  <Story of={OverflowMenuStories.Default} height="300px" />
+  <Story of={OverflowMenuStories.Default} height="210px" />
 </Canvas>
 <Controls of={OverflowMenuStories.Default} />
 
@@ -129,3 +129,26 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<OverflowMenu />` ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu />` som andre barn. Ikke obligatorisk, men da må oppførsel osv. håndteres utenfor komponenten.
 
 <ArgTypes of={OverflowMenuGroup} />
+
+## Eksempler
+
+### Med interaktiv bruker
+
+<Canvas>
+  <Story of={OverflowMenuStories.WithInteractiveUser} height="240px" />
+</Canvas>
+### Med navigasjon
+<Canvas>
+  <Story of={OverflowMenuStories.WithNavigation} height="320px" />
+</Canvas>
+### Med statisk bruker
+<Canvas>
+  <Story of={OverflowMenuStories.WithStaticUser} height="250px" />
+</Canvas>
+### Med navigasjon og interaktiv bruker
+<Canvas>
+  <Story
+    of={OverflowMenuStories.WithNavigationAndInteractiveUser}
+    height="360px"
+  />
+</Canvas>
