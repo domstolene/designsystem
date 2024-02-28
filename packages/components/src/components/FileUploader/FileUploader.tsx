@@ -64,7 +64,7 @@ const FileListElement = styled.ul`
   list-style-type: none;
 `;
 
-type FileUploaderProps = {
+export type FileUploaderProps = {
   /**Id til filopplasteren. */
   id?: string;
   /**Ledetekst for filopplaster. */
