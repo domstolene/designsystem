@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 15.3.0
+
+### Minor Changes
+
+- d4f4193: Støtte for `smallScreen` i `<Breadcrumbs />` med trunkering av barn og `<OverflowMenu />`.
+- c2294b2: Eksporterer følgene types fra `<FileUploader />`: `FileUploaderAccept`, `FileList` og `FileUploaderProps` slik at konsumenter kan importere de i sine løsninger.
+
+### Patch Changes
+
+- d4f4193: Justerer avstander og ikonstørrelse i `<Breadcrumbs />`.
+
 ## 15.2.1
 
 ### Patch Changes
