@@ -33,6 +33,10 @@ const Month: FC<PropsWithChildren> = styled(Heading).attrs({
   text-transform: capitalize;
 `;
 
+const StyledButton = styled(Button)`
+  user-select: none;
+`;
+
 function createCalendar(identifier: string) {
   switch (identifier) {
     case 'gregory':
@@ -60,7 +64,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   return (
     <CalendarContainer {...calendarProps}>
       <CalendarHeader>
-        <Button
+        <StyledButton
           type="button"
           aria-label={prevAriaLabel}
           onClick={e => onPrev?.(e as never)}
@@ -70,7 +74,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
           icon={ArrowLeftIcon}
         />
         <Month>{title}</Month>
-        <Button
+        <StyledButton
           type="button"
           aria-label={nextAriaLabel}
           onClick={e => onNext?.(e as never)}
