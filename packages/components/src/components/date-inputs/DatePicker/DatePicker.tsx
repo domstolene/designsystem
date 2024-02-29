@@ -21,10 +21,16 @@ import {
 export interface DatePickerProps
   extends Omit<AriaDatePickerProps<CalendarDate>, 'granularity'>,
     Pick<DateFieldProps<CalendarDate>, 'componentSize' | 'tip' | 'style'> {
+  /**
+   * Ledetekst.
+   */
   label?: string;
+  /**
+   * Feilmelding.
+   */
   errorMessage?: string;
   /**
-   * For å sette en egendefinert bredde på komponenten.
+   * Egendefinert bredde på komponenten.
    */
   width?: CSS.Properties['width'];
 }

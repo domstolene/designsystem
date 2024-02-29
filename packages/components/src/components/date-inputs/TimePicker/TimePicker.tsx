@@ -23,15 +23,15 @@ const TimePickerIcon = styled(Icon)<{
 `;
 
 export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> & {
+  /**
+   * Navn på egne klasser.
+   */
   className?: string;
   /**
-   * For å sette en egendefinert bredde på komponenten.
+   * Egendefinert bredde på komponenten.
    */
   width?: CSS.Properties['width'];
-} & Pick<
-    InputProps,
-    'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
-  >;
+} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'style'>;
 
 function _TimePicker(
   { componentSize = 'medium', width, ...props }: TimePickerProps,
