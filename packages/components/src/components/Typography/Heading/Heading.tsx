@@ -1,5 +1,6 @@
 import { type ElementType, forwardRef } from 'react';
 
+import { ScreenSize, useScreenSize } from '../../../hooks';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -31,6 +32,25 @@ const getDefaultTypographyType = (h: ElementType): TypographyHeadingType => {
   }
 };
 
+const scaledTypographyType = (
+  type: TypographyHeadingType,
+): TypographyHeadingType => {
+  switch (type) {
+    case 'headingSans08':
+      return 'headingSans07';
+    case 'headingSans07':
+      return 'headingSans06';
+    case 'headingSans06':
+      return 'headingSans05';
+    case 'headingSans05':
+      return 'headingSans04';
+    case 'headingSans04':
+      return 'headingSans03';
+    default:
+      return type;
+  }
+};
+
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type HeadingProps = BaseComponentPropsWithChildren<
@@ -57,11 +77,17 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
 
     const headingElement: ElementType = getHeadingElement(level);
 
+    const standardTypographyType =
+      typographyType ?? getDefaultTypographyType(headingElement);
+
+    const screenSize = useScreenSize();
+    const isSmallScreen = screenSize <= ScreenSize.Small;
+
     const headingProps = {
       ...getBaseHTMLProps(id, className, htmlProps, rest),
-      typographyType: typographyType
-        ? typographyType
-        : getDefaultTypographyType(headingElement),
+      typographyType: isSmallScreen
+        ? scaledTypographyType(standardTypographyType)
+        : standardTypographyType,
       as: headingElement,
       ref,
     };
