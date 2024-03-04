@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 
 import {
+  AppNameLink,
   Bar,
   BarSeparator,
   ContextMenuGroup,
@@ -19,6 +20,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   const {
     applicationDesc,
     applicationName,
+    applicationHref,
     smallScreen,
     navigationElements,
     contextMenuElements,
@@ -85,7 +87,13 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       $hasNavigation={!!navigation}
     >
       <Typography typographyType="bodySans02" bold as="span">
-        {applicationName}
+        {applicationHref ? (
+          <AppNameLink href={applicationHref} rel="noopener noreferrer">
+            {applicationName}
+          </AppNameLink>
+        ) : (
+          applicationName
+        )}
       </Typography>
       <Typography typographyType="bodySans02" as="span">
         {applicationDesc}

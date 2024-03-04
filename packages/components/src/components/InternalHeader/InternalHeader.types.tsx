@@ -30,6 +30,8 @@ export type InternalHeaderProps = BaseComponentProps<
     applicationName?: string;
     /**Beskrivelse på applikasjonen ellen tittel på en underside. Tilgjengelig fram til Lovisa Next kommer. */
     applicationDesc?: string;
+    /**URL til hovedsiden. */
+    applicationHref?: string;
     /**Indikerer om versjonen for små skjermer skal vises. */
     smallScreen?: boolean;
     /**Info om brukeren. Dukker opp som punkt på toppen av kontekstmenyen med tekst oppgitt i name. Blir en lenke hvis href er oppgitt. */

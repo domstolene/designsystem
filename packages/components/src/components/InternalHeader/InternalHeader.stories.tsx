@@ -233,3 +233,16 @@ export const NonInteractiveUserOnly: Story = {
     </StoryTemplate>
   ),
 };
+
+export const WithHomeLink: Story = {
+  args: {
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
+    applicationHref: '#',
+  },
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+};

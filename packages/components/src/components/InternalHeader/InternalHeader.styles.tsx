@@ -2,7 +2,12 @@ import styled, { css } from 'styled-components';
 
 import { internalHeaderTokens as tokens } from './InternalHeader.tokens';
 import { type InternalHeaderProps } from './InternalHeader.types';
-import { selection } from '../helpers';
+import {
+  focusVisible,
+  focusVisibleTransitionValue,
+  inheritLinkStyling,
+  selection,
+} from '../helpers';
 import { OverflowMenu } from '../OverflowMenu';
 
 const { bar, separator } = tokens;
@@ -37,6 +42,15 @@ export const Bar = styled.div<{ $hasNavigation: boolean }>`
 export const BarSeparator = styled.div`
   border-left: ${separator.width} solid ${separator.color};
   align-self: stretch;
+`;
+
+export const AppNameLink = styled.a`
+  ${inheritLinkStyling}
+  transition: ${focusVisibleTransitionValue};
+  &:focus-visible,
+  &.focus-visible {
+    ${focusVisible}
+  }
 `;
 
 type NavListProps = Pick<InternalHeaderProps, 'smallScreen'>;
