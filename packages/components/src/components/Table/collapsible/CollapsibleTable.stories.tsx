@@ -1,6 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { type CollapsibleTableProps } from './CollapsibleTable.types';
 import { ScreenSize, useScreenSize } from '../../../hooks';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
@@ -20,7 +20,7 @@ import { data, headerCells, mapCellContents } from '../normal/tableData';
 import { CollapsibleTable } from '.';
 
 export default {
-  title: 'dds-components/Table/CollapsibleTable BETA',
+  title: 'dds-components/Table/CollapsibleTable',
   component: CollapsibleTable,
   argTypes: {
     isCollapsed: {
@@ -42,6 +42,8 @@ export default {
   },
 };
 
+type Story = StoryObj<typeof CollapsibleTable>;
+
 const mappedHeaderCells = headerCells.map(headerCell => {
   return (
     <Table.Cell key={`head-${headerCell.dataName}`}>
@@ -57,157 +59,45 @@ const headerValues = headerCells.map(cell => {
   };
 });
 
-export const SingleDefiningColumn = (args: CollapsibleTableProps) => {
-  return (
-    <StoryTemplate display="block">
-      <CollapsibleTable
-        {...args}
-        headerValues={headerValues}
-        isCollapsed={args.isCollapsed !== false && true}
-      >
-        <Table.Head>
-          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
-        </Table.Head>
-        <Table.Body>
-          {mapCellContents(data, headerCells).map(row => (
-            <CollapsibleTable.Row key={row.toString()}>
-              {row.map(cellContent => (
-                <Table.Cell key={`body-${cellContent}`}>
-                  {cellContent}
-                </Table.Cell>
-              ))}
-            </CollapsibleTable.Row>
-          ))}
-        </Table.Body>
-      </CollapsibleTable>
+export const SingleDefiningColumn: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
     </StoryTemplate>
-  );
-};
-
-export const MultipleDefiningColumns = (args: CollapsibleTableProps) => {
-  return (
-    <StoryTemplate display="block">
-      <Table.Wrapper style={{ width: '100%' }}>
-        <CollapsibleTable
-          {...args}
-          style={{ width: '100%' }}
-          isCollapsed={args.isCollapsed !== false && true}
-          headerValues={headerValues}
-          definingColumnIndex={[0, 2]}
-        >
-          <Table.Head>
-            <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <CollapsibleTable.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </CollapsibleTable.Row>
+  ),
+  render: args => (
+    <CollapsibleTable
+      {...args}
+      headerValues={headerValues}
+      isCollapsed={args.isCollapsed !== false && true}
+    >
+      <Table.Head>
+        <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
+      </Table.Head>
+      <Table.Body>
+        {mapCellContents(data, headerCells).map(row => (
+          <CollapsibleTable.Row key={row.toString()}>
+            {row.map(cellContent => (
+              <Table.Cell key={`body-${cellContent}`}>{cellContent}</Table.Cell>
             ))}
-          </Table.Body>
-        </CollapsibleTable>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
+          </CollapsibleTable.Row>
+        ))}
+      </Table.Body>
+    </CollapsibleTable>
+  ),
 };
 
-export const PrioritizedDefiningColumns = (args: CollapsibleTableProps) => {
-  return (
+export const MultipleDefiningColumns: Story = {
+  decorators: Story => (
     <StoryTemplate display="block">
-      <Table.Wrapper style={{ width: '100%' }}>
-        <CollapsibleTable
-          {...args}
-          style={{ width: '100%' }}
-          isCollapsed={args.isCollapsed !== false && true}
-          headerValues={headerValues}
-          definingColumnIndex={[2, 0]}
-        >
-          <Table.Head>
-            <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <CollapsibleTable.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </CollapsibleTable.Row>
-            ))}
-          </Table.Body>
-        </CollapsibleTable>
-      </Table.Wrapper>
+      <Story />
     </StoryTemplate>
-  );
-};
-
-export const WithDividers = (args: CollapsibleTableProps) => {
-  return (
-    <StoryTemplate display="block">
+  ),
+  render: args => (
+    <Table.Wrapper style={{ width: '100%' }}>
       <CollapsibleTable
         {...args}
-        withDividers
-        headerValues={headerValues}
-        isCollapsed={args.isCollapsed !== false && true}
-      >
-        <Table.Head>
-          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
-        </Table.Head>
-        <Table.Body>
-          {mapCellContents(data, headerCells).map(row => (
-            <CollapsibleTable.Row key={row.toString()}>
-              {row.map(cellContent => (
-                <Table.Cell key={`body-${cellContent}`}>
-                  {cellContent}
-                </Table.Cell>
-              ))}
-            </CollapsibleTable.Row>
-          ))}
-        </Table.Body>
-      </CollapsibleTable>
-    </StoryTemplate>
-  );
-};
-
-export const Compact = (args: CollapsibleTableProps) => {
-  return (
-    <StoryTemplate display="block">
-      <CollapsibleTable
-        {...args}
-        density="compact"
-        headerValues={headerValues}
-        isCollapsed={args.isCollapsed !== false && true}
-      >
-        <Table.Head>
-          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
-        </Table.Head>
-        <Table.Body>
-          {mapCellContents(data, headerCells).map(row => (
-            <CollapsibleTable.Row key={row.toString()}>
-              {row.map(cellContent => (
-                <Table.Cell key={`body-${cellContent}`}>
-                  {cellContent}
-                </Table.Cell>
-              ))}
-            </CollapsibleTable.Row>
-          ))}
-        </Table.Body>
-      </CollapsibleTable>
-    </StoryTemplate>
-  );
-};
-
-export const StickyHeader = (args: CollapsibleTableProps) => {
-  return (
-    <StoryTemplate display="block">
-      <CollapsibleTable
-        {...args}
-        stickyHeader
+        style={{ width: '100%' }}
         isCollapsed={args.isCollapsed !== false && true}
         headerValues={headerValues}
         definingColumnIndex={[0, 2]}
@@ -225,6 +115,31 @@ export const StickyHeader = (args: CollapsibleTableProps) => {
               ))}
             </CollapsibleTable.Row>
           ))}
+        </Table.Body>
+      </CollapsibleTable>
+    </Table.Wrapper>
+  ),
+};
+
+export const PrioritizedDefiningColumns: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper style={{ width: '100%' }}>
+      <CollapsibleTable
+        {...args}
+        style={{ width: '100%' }}
+        isCollapsed={args.isCollapsed !== false && true}
+        headerValues={headerValues}
+        definingColumnIndex={[2, 0]}
+      >
+        <Table.Head>
+          <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
+        </Table.Head>
+        <Table.Body>
           {mapCellContents(data, headerCells).map(row => (
             <CollapsibleTable.Row key={row.toString()}>
               {row.map(cellContent => (
@@ -236,26 +151,126 @@ export const StickyHeader = (args: CollapsibleTableProps) => {
           ))}
         </Table.Body>
       </CollapsibleTable>
-    </StoryTemplate>
-  );
+    </Table.Wrapper>
+  ),
 };
 
-export const WithButtonAndIcons = (args: CollapsibleTableProps) => {
-  const adminIcon = <Icon icon={PersonIcon} />;
-
-  const headerValues = [
-    { content: 'Navn til venstre', key: 'Navn til venstre' },
-    { content: 'Navn til høyre', key: 'Navn til høyre' },
-    { content: 'Rolle', key: 'Rolle' },
-    { content: 'Aksjoner', key: 'Aksjoner' },
-  ];
-  const deleteButton = (
-    <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
-      Fjern tilgang
-    </Button>
-  );
-  return (
+export const WithDividers: Story = {
+  decorators: Story => (
     <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <CollapsibleTable
+      {...args}
+      withDividers
+      headerValues={headerValues}
+      isCollapsed={args.isCollapsed !== false && true}
+    >
+      <Table.Head>
+        <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
+      </Table.Head>
+      <Table.Body>
+        {mapCellContents(data, headerCells).map(row => (
+          <CollapsibleTable.Row key={row.toString()}>
+            {row.map(cellContent => (
+              <Table.Cell key={`body-${cellContent}`}>{cellContent}</Table.Cell>
+            ))}
+          </CollapsibleTable.Row>
+        ))}
+      </Table.Body>
+    </CollapsibleTable>
+  ),
+};
+
+export const Compact: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <CollapsibleTable
+      {...args}
+      density="compact"
+      headerValues={headerValues}
+      isCollapsed={args.isCollapsed !== false && true}
+    >
+      <Table.Head>
+        <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
+      </Table.Head>
+      <Table.Body>
+        {mapCellContents(data, headerCells).map(row => (
+          <CollapsibleTable.Row key={row.toString()}>
+            {row.map(cellContent => (
+              <Table.Cell key={`body-${cellContent}`}>{cellContent}</Table.Cell>
+            ))}
+          </CollapsibleTable.Row>
+        ))}
+      </Table.Body>
+    </CollapsibleTable>
+  ),
+};
+
+export const StickyHeader: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <CollapsibleTable
+      {...args}
+      stickyHeader
+      isCollapsed={args.isCollapsed !== false && true}
+      headerValues={headerValues}
+      definingColumnIndex={[0, 2]}
+    >
+      <Table.Head>
+        <CollapsibleTable.Row>{mappedHeaderCells}</CollapsibleTable.Row>
+      </Table.Head>
+      <Table.Body>
+        {mapCellContents(data, headerCells).map(row => (
+          <CollapsibleTable.Row key={row.toString()}>
+            {row.map(cellContent => (
+              <Table.Cell key={`body-${cellContent}`}>{cellContent}</Table.Cell>
+            ))}
+          </CollapsibleTable.Row>
+        ))}
+        {mapCellContents(data, headerCells).map(row => (
+          <CollapsibleTable.Row key={row.toString()}>
+            {row.map(cellContent => (
+              <Table.Cell key={`body-${cellContent}`}>{cellContent}</Table.Cell>
+            ))}
+          </CollapsibleTable.Row>
+        ))}
+      </Table.Body>
+    </CollapsibleTable>
+  ),
+};
+
+const adminIcon = <Icon icon={PersonIcon} />;
+
+export const WithButtonAndIcons: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const headerValues = [
+      { content: 'Navn til venstre', key: 'Navn til venstre' },
+      { content: 'Navn til høyre', key: 'Navn til høyre' },
+      { content: 'Rolle', key: 'Rolle' },
+      { content: 'Aksjoner', key: 'Aksjoner' },
+    ];
+    const deleteButton = (
+      <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
+        Fjern tilgang
+      </Button>
+    );
+    return (
       <CollapsibleTable {...args} headerValues={headerValues} isCollapsed>
         <Table.Head>
           <CollapsibleTable.Row>
@@ -283,14 +298,19 @@ export const WithButtonAndIcons = (args: CollapsibleTableProps) => {
           ))}
         </Table.Body>
       </CollapsibleTable>
-    </StoryTemplate>
-  );
+    );
+  },
 };
 
-export const Responsive = (args: CollapsibleTableProps) => {
-  const screenSize = useScreenSize();
-  return (
+export const Responsive: Story = {
+  decorators: Story => (
     <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const screenSize = useScreenSize();
+    return (
       <Table.Wrapper style={{ width: '100%' }}>
         <CollapsibleTable
           {...args}
@@ -313,14 +333,19 @@ export const Responsive = (args: CollapsibleTableProps) => {
           </Table.Body>
         </CollapsibleTable>
       </Table.Wrapper>
-    </StoryTemplate>
-  );
+    );
+  },
 };
 
-export const ResposiveMultipleBreakpoints = (args: CollapsibleTableProps) => {
-  const screenSize = useScreenSize();
-  return (
+export const ResposiveMultipleBreakpoints: Story = {
+  decorators: Story => (
     <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const screenSize = useScreenSize();
+    return (
       <Table.Wrapper style={{ width: '100%' }}>
         <CollapsibleTable
           {...args}
@@ -345,37 +370,42 @@ export const ResposiveMultipleBreakpoints = (args: CollapsibleTableProps) => {
           </Table.Body>
         </CollapsibleTable>
       </Table.Wrapper>
-    </StoryTemplate>
-  );
+    );
+  },
 };
 
-export const Example = () => {
-  const headers = [
-    {
-      key: 'fav',
-      content: <VisuallyHidden as="span">Velg som favoritt</VisuallyHidden>,
-    },
-    {
-      key: 'Dokumenttype',
-      content: <VisuallyHidden as="span">Dokumenttype</VisuallyHidden>,
-    },
-    { key: 'Nummer', content: 'Nr.' },
-    {
-      key: 'Lest status',
-      content: <VisuallyHidden as="span">Lest status</VisuallyHidden>,
-    },
-    { key: 'Dokumentnavn', content: 'Dokumentnavn' },
-    { key: 'Avsender', content: 'Avsender' },
-    { key: 'Mottakere', content: 'Mottakere' },
-    { key: 'Sendt', content: 'Sendt' },
-  ];
-
-  const screenSize = useScreenSize();
-  const isSmall = screenSize <= ScreenSize.Small;
-  const isXSmall = screenSize <= ScreenSize.XSmall;
-  const iconSize = isXSmall ? 'small' : 'medium';
-  return (
+const headers = [
+  {
+    key: 'fav',
+    content: <VisuallyHidden as="span">Velg som favoritt</VisuallyHidden>,
+  },
+  {
+    key: 'Dokumenttype',
+    content: <VisuallyHidden as="span">Dokumenttype</VisuallyHidden>,
+  },
+  { key: 'Nummer', content: 'Nr.' },
+  {
+    key: 'Lest status',
+    content: <VisuallyHidden as="span">Lest status</VisuallyHidden>,
+  },
+  { key: 'Dokumentnavn', content: 'Dokumentnavn' },
+  { key: 'Avsender', content: 'Avsender' },
+  { key: 'Mottakere', content: 'Mottakere' },
+  { key: 'Sendt', content: 'Sendt' },
+];
+export const Example: Story = {
+  decorators: Story => (
     <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: args => {
+    const screenSize = useScreenSize();
+    const isSmall = screenSize <= ScreenSize.Small;
+    const isXSmall = screenSize <= ScreenSize.XSmall;
+    const iconSize = isXSmall ? 'small' : 'medium';
+    return (
       <CollapsibleTable
         isCollapsed={isSmall}
         headerValues={headers}
@@ -430,6 +460,6 @@ export const Example = () => {
           </CollapsibleTable.Row>
         </Table.Body>
       </CollapsibleTable>
-    </StoryTemplate>
-  );
+    );
+  },
 };
