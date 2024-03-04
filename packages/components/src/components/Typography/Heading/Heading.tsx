@@ -17,13 +17,13 @@ const getDefaultTypographyType = (h: ElementType): TypographyHeadingType => {
     case 'h1':
       return 'headingSans06';
     case 'h2':
-      return 'headingSans05';
-    case 'h3':
       return 'headingSans04';
-    case 'h4':
+    case 'h3':
       return 'headingSans03';
-    case 'h5':
+    case 'h4':
       return 'headingSans02';
+    case 'h5':
+      return 'headingSans01';
     case 'h6':
       return 'headingSans01';
     default:
