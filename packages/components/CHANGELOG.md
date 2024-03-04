@@ -1,5 +1,20 @@
 # @norges-domstoler/dds-components
 
+## 15.4.0
+
+### Minor Changes
+
+- 5cc9092: Støtte for prop `applicationNameHref` som gjør appnavnet til en lenke til hjemmesiden i `<InternalHeader />`.
+
+### Patch Changes
+
+- fe471c1: Fjerner `disabled` prop i `<TimePicker />`, da det er `isDisabled` som er støttet.
+- 1270247: Oppdaterer default styling i `<Heading />` for nivåene 2, 3, 4 og 5.
+
+  - Stilen på overskriften vil forandre seg der det brukes default og nivå 2-5, f.eks. `<Heading level={3}>`. Hvis nye default ikke passer må `typogaphyType` prop brukes for å få den ønskede stilen.
+
+- 65f4bbf: Fikser slik at brukeren ikke markerer tekst når de blar i måneder i `<DatePicker />`.
+
 ## 15.3.0
 
 ### Minor Changes
