@@ -35,82 +35,13 @@ Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel,
 
 ### Tabell
 
-<Canvas>
-  {/* <Story id="dds-components-table-table--default" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-table-table--default" />
-</Canvas>
+<Canvas of={TableStories.Default} />
 
 ### Kollapsibel tabell
 
-<Canvas>
-  {/* <Story id="dds-components-table-collapsibletable-beta--single-defining-column" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
+<Canvas of={CollapsibleTableStories.SingleDefiningColumn} />
 
-  <Story id="dds-components-table-collapsibletable-beta--single-defining-column" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-table`} />
-
-## Bruk i koden
-
-<Source
-  code={`import { Table } from '@norges-domstoler/dds-components';
-
-<Table.Wrapper>
-  <Table>
-    <Table.Head>
-      <Table.Row>
-        <Table.Cell>Navn</Table.Cell>
-        <Table.Cell>Rolle</Table.Cell>
-      </Table.Row>
-    </Table.Head>
-    <Table.Body>
-      <Table.Row>
-        <Table.Cell>Sandra Lovsetter</Table.Cell>
-        <Table.Cell>Admin</Table.Cell>
-      </Table.Row>
-      <Table.Row>
-        <Table.Cell>Marie Bjerke</Table.Cell>
-        <Table.Cell>Admin</Table.Cell>
-      </Table.Row>
-    </Table.Body>
-  </Table>
-</Table.Wrapper>
-
-//Collapsible - beta
-
-const headerValues = [
-{
-key: 'navn',
-content: 'Navn',
-},
-{
-key: 'rolle',
-content: 'Rolle',
-}
-]
-
-<CollapsibleTable>
-  <Table.Head>
-    <CollapsibleTable.Row headerValues={headerValues}>
-      <Table.Cell>{headerValues[0].content}</Table.Cell>
-      <Table.Cell>{headerValues[1].content}</Table.Cell>
-    </CollapsibleTable.Row>
-  </Table.Head>
-  <Table.Body>
-    <CollapsibleTable.Row>
-      <Table.Cell>Sandra Lovsetter</Table.Cell>
-      <Table.Cell>Admin</Table.Cell>
-    </CollapsibleTable.Row>
-    <CollapsibleTable.Row>
-      <Table.Cell>Marie Bjerke</Table.Cell>
-      <Table.Cell>Admin</Table.Cell>
-    </CollapsibleTable.Row>
-  </Table.Body>
-</CollapsibleTable>
-`} />
-
-## API
+## Props
 
 ### Table.Wrapper
 
@@ -190,6 +121,70 @@ En variant av `<Table.Row>` som brukes med `<CollapsibleTable>`. Den håndterer 
 
 <ArgTypes of={CollapsibleTable.Row} />
 
+## Bruk i koden
+
+<Source
+  code={`import { Table, CollapsibleTable } from '@norges-domstoler/dds-components';
+
+// Normal
+
+<Table.Wrapper>
+  <Table>
+    <Table.Head>
+      <Table.Row>
+        <Table.Cell>Navn</Table.Cell>
+        <Table.Cell>Rolle</Table.Cell>
+      </Table.Row>
+    </Table.Head>
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>Sandra Lovsetter</Table.Cell>
+        <Table.Cell>Admin</Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>Marie Bjerke</Table.Cell>
+        <Table.Cell>Admin</Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
+</Table.Wrapper>
+
+// Collapsible
+
+const headerValues = [
+{
+key: 'navn',
+content: 'Navn',
+},
+{
+key: 'rolle',
+content: 'Rolle',
+}
+]
+
+<CollapsibleTable>
+  <Table.Head>
+    <CollapsibleTable.Row headerValues={headerValues}>
+      <Table.Cell>{headerValues[0].content}</Table.Cell>
+      <Table.Cell>{headerValues[1].content}</Table.Cell>
+    </CollapsibleTable.Row>
+  </Table.Head>
+  <Table.Body>
+    <CollapsibleTable.Row>
+      <Table.Cell>Sandra Lovsetter</Table.Cell>
+      <Table.Cell>Admin</Table.Cell>
+    </CollapsibleTable.Row>
+    <CollapsibleTable.Row>
+      <Table.Cell>Marie Bjerke</Table.Cell>
+      <Table.Cell>Admin</Table.Cell>
+    </CollapsibleTable.Row>
+  </Table.Body>
+</CollapsibleTable>
+`} />
+
 ## Retningslinjer
 
 - Bruk `<Table.Foot>` som footer i tabellen ved summering av verdier i en kolonne eller lignende.
+- Hele raden skal ikke være klikkbar. Hvis det trengs en handling på en rad skal det brukes lenker eller knapper i selve raden:
+
+<Canvas of={TableStories.InteractiveContent} />

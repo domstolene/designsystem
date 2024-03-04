@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
 import {
@@ -13,9 +14,9 @@ import { Icon } from '../../Icon';
 import { PersonIcon, TrashIcon } from '../../Icon/icons';
 import { ScrollableContainer } from '../../ScrollableContainer';
 import { Checkbox } from '../../SelectionControl/Checkbox';
-import { Paragraph } from '../../Typography';
+import { Link, Paragraph } from '../../Typography';
 
-import { type SortOrder, Table, type TableProps } from '.';
+import { type SortOrder, Table } from '.';
 
 export default {
   title: 'dds-components/Table/Table',
@@ -32,7 +33,15 @@ export default {
       },
     },
   },
+  parameters: {
+    docs: {
+      story: { inline: true },
+      canvas: { sourceState: 'hidden' },
+    },
+  },
 };
+
+type Story = StoryObj<typeof Table>;
 
 const mappedHeaderCells = headerCells.map(headerCell => {
   return (
@@ -42,334 +51,367 @@ const mappedHeaderCells = headerCells.map(headerCell => {
   );
 });
 
-export const Default = (args: TableProps) => {
-  return (
+export const Default: Story = {
+  decorators: Story => (
     <StoryTemplate>
-      <Table.Wrapper>
-        <Table {...args}>
-          <Table.Head>
-            <Table.Row>{mappedHeaderCells}</Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
+      <Story />
     </StoryTemplate>
-  );
-};
-
-export const WithDividers = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - with dividers">
-      <Table.Wrapper>
-        <Table {...args} withDividers>
-          <Table.Head>
-            <Table.Row>{mappedHeaderCells}</Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const Focusable = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - focusable">
-      <Table.Wrapper>
-        <Table {...args}>
-          <Table.Head>
-            <Table.Row>{mappedHeaderCells}</Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row
-                key={row.toString()}
-                tabIndex={0}
-                onClick={() => {
-                  console.log('click');
-                }}
-              >
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const Compact = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - compact">
-      <Table.Wrapper>
-        <Table {...args} density="compact">
-          <Table.Head>
-            <Table.Row>{mappedHeaderCells}</Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const ExtraCompact = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - extraCompact">
-      <Table.Wrapper>
-        <Table {...args} density="extraCompact">
-          <Table.Head>
-            <Table.Row>{mappedHeaderCells}</Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const StickyHeader = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - sticky header">
-      <Table.Wrapper>
-        <Table {...args} stickyHeader>
-          <Table.Head>
-            <Table.Row>{mappedHeaderCells}</Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()}>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const Hoverable = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - hoverable">
-      <Table.Wrapper>
-        <Table {...args}>
-          <Table.Head>
-            <Table.Row>{mappedHeaderCells}</Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {mapCellContents(data, headerCells).map(row => (
-              <Table.Row key={row.toString()} hoverable>
-                {row.map(cellContent => (
-                  <Table.Cell key={`body-${cellContent}`}>
-                    {cellContent}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const WithButtonAndIcons = (args: TableProps) => {
-  const adminIcon = <Icon icon={PersonIcon} />;
-  const deleteButton = (
-    <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
-      Fjern tilgang
-    </Button>
-  );
-  return (
-    <StoryTemplate title="Table - with buttons and icons">
-      <Table.Wrapper>
-        <Table {...args}>
-          <Table.Head>
-            <Table.Row>
-              <Table.Cell>Navn</Table.Cell>
-              <Table.Cell>Navn</Table.Cell>
-              <Table.Cell>Rolle</Table.Cell>
-              <Table.Cell></Table.Cell>
-            </Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {data.map(item => (
-              <Table.Row key={item.name}>
-                <Table.Cell layout="text and icon">
-                  {adminIcon} {item.name}
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
                 </Table.Cell>
-                <Table.Cell layout="text and icon">
-                  {item.name} {adminIcon}
-                </Table.Cell>
-                <Table.Cell>Admin</Table.Cell>
-                <Table.Cell layout="center">{deleteButton}</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
 };
 
-export const WithSum = (args: TableProps) => {
-  const sumData = [
-    {
-      id: '20-1234531TVI',
-      amount: 472,
-    },
-    {
-      id: '21-4317383TVI',
-      amount: 4,
-    },
-    {
-      id: '89-9204832TVI',
-      amount: 56,
-    },
-    {
-      id: '30-9204712TVI',
-      amount: 23,
-    },
-  ];
-  return (
-    <StoryTemplate title="Table - sum">
-      <Table.Wrapper>
-        <Table {...args}>
-          <Table.Head>
-            <Table.Row>
-              <Table.Cell>Saksnummer</Table.Cell>
-              <Table.Cell layout="right">Antall dokumenter</Table.Cell>
+export const WithDividers: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args} withDividers>
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
             </Table.Row>
-          </Table.Head>
-          <Table.Body>
-            {sumData.map(item => (
-              <Table.Row key={item.id}>
-                <Table.Cell>{item.id}</Table.Cell>
-                <Table.Cell layout="right">{item.amount}</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-          <Table.Foot>
-            <Table.Row mode="sum">
-              <Table.Cell>Totalt</Table.Cell>
-              <Table.Cell layout="right">
-                {sumData.reduce((a, b) => a + (b.amount || 0), 0)}
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
+export const Focusable: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row
+              key={row.toString()}
+              tabIndex={0}
+              onClick={() => {
+                console.log('click');
+              }}
+            >
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
+export const Compact: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args} density="compact">
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
+export const ExtraCompact: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args} density="extraCompact">
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
+export const StickyHeader: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args} stickyHeader>
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
+export const Hoverable: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row key={row.toString()} hoverable>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
+const adminIcon = <Icon icon={PersonIcon} />;
+const deleteButton = (
+  <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
+    Fjern tilgang
+  </Button>
+);
+export const WithButtonAndIcons: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>
+            <Table.Cell>Navn</Table.Cell>
+            <Table.Cell>Navn</Table.Cell>
+            <Table.Cell>Rolle</Table.Cell>
+            <Table.Cell></Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {data.map(item => (
+            <Table.Row key={item.name}>
+              <Table.Cell layout="text and icon">
+                {adminIcon} {item.name}
               </Table.Cell>
+              <Table.Cell layout="text and icon">
+                {item.name} {adminIcon}
+              </Table.Cell>
+              <Table.Cell>Admin</Table.Cell>
+              <Table.Cell layout="center">{deleteButton}</Table.Cell>
             </Table.Row>
-          </Table.Foot>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
 };
 
-export const WithCheckbox = (args: TableProps) => {
-  type chechboxRow = {
-    id: string;
-  } & CellDataToSort;
+const sumData = [
+  {
+    id: '20-1234531TVI',
+    amount: 472,
+  },
+  {
+    id: '21-4317383TVI',
+    amount: 4,
+  },
+  {
+    id: '89-9204832TVI',
+    amount: 56,
+  },
+  {
+    id: '30-9204712TVI',
+    amount: 23,
+  },
+];
 
-  const rows: Array<chechboxRow> = [
-    {
-      id: 'ch-1',
-      ...data[0],
-    },
-    {
-      id: 'ch-2',
-      ...data[1],
-    },
-    {
-      id: 'ch-3',
-      ...data[2],
-    },
-    {
-      id: 'ch-4',
-      ...data[3],
-    },
-  ];
+export const WithSum: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>
+            <Table.Cell>Saksnummer</Table.Cell>
+            <Table.Cell layout="right">Antall dokumenter</Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {sumData.map(item => (
+            <Table.Row key={item.id}>
+              <Table.Cell>{item.id}</Table.Cell>
+              <Table.Cell layout="right">{item.amount}</Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+        <Table.Foot>
+          <Table.Row mode="sum">
+            <Table.Cell>Totalt</Table.Cell>
+            <Table.Cell layout="right">
+              {sumData.reduce((a, b) => a + (b.amount || 0), 0)}
+            </Table.Cell>
+          </Table.Row>
+        </Table.Foot>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
 
-  const [selectedRows, setselectedRows] = useState<Array<chechboxRow>>([]);
+export const WithCheckbox: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    type chechboxRow = {
+      id: string;
+    } & CellDataToSort;
 
-  function handleChange(e: ChangeEvent<HTMLInputElement>, row: chechboxRow) {
-    const currentRows = [...selectedRows];
-    if (e.target.checked) {
-      currentRows.push(row);
-    } else {
-      const index = currentRows.findIndex(
-        selectedRow => selectedRow.id === row.id,
-      );
-      currentRows.splice(index, 1);
+    const rows: Array<chechboxRow> = [
+      {
+        id: 'ch-1',
+        ...data[0],
+      },
+      {
+        id: 'ch-2',
+        ...data[1],
+      },
+      {
+        id: 'ch-3',
+        ...data[2],
+      },
+      {
+        id: 'ch-4',
+        ...data[3],
+      },
+    ];
+
+    const [selectedRows, setselectedRows] = useState<Array<chechboxRow>>([]);
+
+    function handleChange(e: ChangeEvent<HTMLInputElement>, row: chechboxRow) {
+      const currentRows = [...selectedRows];
+      if (e.target.checked) {
+        currentRows.push(row);
+      } else {
+        const index = currentRows.findIndex(
+          selectedRow => selectedRow.id === row.id,
+        );
+        currentRows.splice(index, 1);
+      }
+      setselectedRows(currentRows);
     }
-    setselectedRows(currentRows);
-  }
 
-  function changeAll(e: ChangeEvent<HTMLInputElement>) {
-    if (e.target.checked) {
-      setselectedRows([...rows]);
-    } else {
-      setselectedRows([]);
+    function changeAll(e: ChangeEvent<HTMLInputElement>) {
+      if (e.target.checked) {
+        setselectedRows([...rows]);
+      } else {
+        setselectedRows([]);
+      }
     }
-  }
-  return (
-    <StoryTemplate title="Table - with checkboxes">
+    return (
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
@@ -423,139 +465,147 @@ export const WithCheckbox = (args: TableProps) => {
           </Table.Body>
         </Table>
       </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const Complex = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - complex">
-      <Table.Wrapper>
-        <Table {...args} stickyHeader>
-          <colgroup>
-            <col />
-          </colgroup>
-          <colgroup span={2}></colgroup>
-          <colgroup span={2}></colgroup>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell rowSpan={2}></Table.Cell>
-              <Table.Cell type="head" colSpan={2} scope="colgroup">
-                Mars
-              </Table.Cell>
-              <Table.Cell type="head" colSpan={2} scope="colgroup">
-                Venus
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row type="head">
-              <Table.Cell type="head" scope="col">
-                Produced
-              </Table.Cell>
-              <Table.Cell type="head" scope="col">
-                Sold
-              </Table.Cell>
-              <Table.Cell type="head" scope="col">
-                Produced
-              </Table.Cell>
-              <Table.Cell type="head" scope="col">
-                Sold
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell type="head" scope="row">
-                Teddy Bears
-              </Table.Cell>
-              <Table.Cell>50,000</Table.Cell>
-              <Table.Cell>30,000</Table.Cell>
-              <Table.Cell>100,000</Table.Cell>
-              <Table.Cell>80,000</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell type="head" scope="row">
-                Board Games
-              </Table.Cell>
-              <Table.Cell>10,000</Table.Cell>
-              <Table.Cell>5,000</Table.Cell>
-              <Table.Cell>12,000</Table.Cell>
-              <Table.Cell>9,000</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell type="head" scope="row">
-                Dolls
-              </Table.Cell>
-              <Table.Cell>50,000</Table.Cell>
-              <Table.Cell>30,000</Table.Cell>
-              <Table.Cell>100,000</Table.Cell>
-              <Table.Cell>80,000</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell type="head" scope="row">
-                Action Figures
-              </Table.Cell>
-              <Table.Cell>10,000</Table.Cell>
-              <Table.Cell>5,000</Table.Cell>
-              <Table.Cell>12,000</Table.Cell>
-              <Table.Cell>9,000</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
-};
-
-export const Sortable = (args: TableProps) => {
-  const [headerSortCells, setHeaderSortCells] =
-    useState<Array<HeaderCellToSort>>(headerCells);
-  const [dataCellContents, setDataCellContents] =
-    useState<Array<Array<string>>>();
-
-  useEffect(() => {
-    if (headerSortCells) {
-      const sortedData = handleSort(data);
-      const mappedCellContents = mapCellContents(sortedData, headerSortCells);
-      setDataCellContents(mappedCellContents);
-    }
-  }, [headerSortCells]);
-
-  const onClickSort = (sortHeaderCell: HeaderCellToSort) => {
-    const updateSortInfo = headerSortCells.map(
-      (headerCell): HeaderCellToSort => {
-        if (sortHeaderCell.dataName === headerCell.dataName) {
-          return {
-            ...sortHeaderCell,
-            isSorted: true,
-            sortOrder:
-              sortHeaderCell.sortOrder === 'ascending'
-                ? 'descending'
-                : 'ascending',
-          };
-        }
-        return {
-          ...headerCell,
-          isSorted: false,
-          sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined,
-        };
-      },
     );
-    setHeaderSortCells(updateSortInfo);
-  };
+  },
+};
 
-  const handleSort = (data: Array<CellDataToSort>) =>
-    data.sort((a, b) => {
-      const sorted = headerSortCells.find(headerCell => headerCell.isSorted);
-      if (!sorted) return 1;
+export const Complex: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args} stickyHeader>
+        <colgroup>
+          <col />
+        </colgroup>
+        <colgroup span={2}></colgroup>
+        <colgroup span={2}></colgroup>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell rowSpan={2}></Table.Cell>
+            <Table.Cell type="head" colSpan={2} scope="colgroup">
+              Mars
+            </Table.Cell>
+            <Table.Cell type="head" colSpan={2} scope="colgroup">
+              Venus
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row type="head">
+            <Table.Cell type="head" scope="col">
+              Produced
+            </Table.Cell>
+            <Table.Cell type="head" scope="col">
+              Sold
+            </Table.Cell>
+            <Table.Cell type="head" scope="col">
+              Produced
+            </Table.Cell>
+            <Table.Cell type="head" scope="col">
+              Sold
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Teddy Bears
+            </Table.Cell>
+            <Table.Cell>50,000</Table.Cell>
+            <Table.Cell>30,000</Table.Cell>
+            <Table.Cell>100,000</Table.Cell>
+            <Table.Cell>80,000</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Board Games
+            </Table.Cell>
+            <Table.Cell>10,000</Table.Cell>
+            <Table.Cell>5,000</Table.Cell>
+            <Table.Cell>12,000</Table.Cell>
+            <Table.Cell>9,000</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Dolls
+            </Table.Cell>
+            <Table.Cell>50,000</Table.Cell>
+            <Table.Cell>30,000</Table.Cell>
+            <Table.Cell>100,000</Table.Cell>
+            <Table.Cell>80,000</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell type="head" scope="row">
+              Action Figures
+            </Table.Cell>
+            <Table.Cell>10,000</Table.Cell>
+            <Table.Cell>5,000</Table.Cell>
+            <Table.Cell>12,000</Table.Cell>
+            <Table.Cell>9,000</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
 
-      const { sortOrder, dataName } = sorted;
-      const name = dataName as keyof CellDataToSort;
+export const Sortable: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const [headerSortCells, setHeaderSortCells] =
+      useState<Array<HeaderCellToSort>>(headerCells);
+    const [dataCellContents, setDataCellContents] =
+      useState<Array<Array<string>>>();
 
-      if (sortOrder === 'ascending') return a[name] > b[name] ? 1 : -1;
-      if (sortOrder === 'descending') return a[name] < b[name] ? 1 : -1;
-      return 0;
-    });
+    useEffect(() => {
+      if (headerSortCells) {
+        const sortedData = handleSort(data);
+        const mappedCellContents = mapCellContents(sortedData, headerSortCells);
+        setDataCellContents(mappedCellContents);
+      }
+    }, [headerSortCells]);
 
-  return (
-    <StoryTemplate title="Table - sortable">
+    const onClickSort = (sortHeaderCell: HeaderCellToSort) => {
+      const updateSortInfo = headerSortCells.map(
+        (headerCell): HeaderCellToSort => {
+          if (sortHeaderCell.dataName === headerCell.dataName) {
+            return {
+              ...sortHeaderCell,
+              isSorted: true,
+              sortOrder:
+                sortHeaderCell.sortOrder === 'ascending'
+                  ? 'descending'
+                  : 'ascending',
+            };
+          }
+          return {
+            ...headerCell,
+            isSorted: false,
+            sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined,
+          };
+        },
+      );
+      setHeaderSortCells(updateSortInfo);
+    };
+
+    const handleSort = (data: Array<CellDataToSort>) =>
+      data.sort((a, b) => {
+        const sorted = headerSortCells.find(headerCell => headerCell.isSorted);
+        if (!sorted) return 1;
+
+        const { sortOrder, dataName } = sorted;
+        const name = dataName as keyof CellDataToSort;
+
+        if (sortOrder === 'ascending') return a[name] > b[name] ? 1 : -1;
+        if (sortOrder === 'descending') return a[name] < b[name] ? 1 : -1;
+        return 0;
+      });
+
+    return (
       <Table.Wrapper>
         <Table {...args}>
           <Table.Head>
@@ -598,50 +648,58 @@ export const Sortable = (args: TableProps) => {
           </Table.Body>
         </Table>
       </Table.Wrapper>
-    </StoryTemplate>
-  );
+    );
+  },
 };
 
-export const ColumnAndRowHeaders = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - column and row headers">
-      <Table.Wrapper>
-        <Table {...args}>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell></Table.Cell>
-              {headerCells.map(headerCell => (
-                <Table.Cell
-                  key={`head-${headerCell.dataName}`}
-                  type="head"
-                  scope="col"
-                >
-                  {headerCell.name}
-                </Table.Cell>
-              ))}
-            </Table.Row>
-            {data.map(item => (
-              <Table.Row key={item.name}>
-                <Table.Cell type="head" scope="row">
-                  Header
-                </Table.Cell>
-                <Table.Cell> {item.name} </Table.Cell>
-                <Table.Cell> {item.fnumber} </Table.Cell>
-                <Table.Cell> {item.employer} </Table.Cell>
-                <Table.Cell> {item.orgnumber} </Table.Cell>
-                <Table.Cell> {item.percentage} </Table.Cell>
-              </Table.Row>
+export const ColumnAndRowHeaders: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell></Table.Cell>
+            {headerCells.map(headerCell => (
+              <Table.Cell
+                key={`head-${headerCell.dataName}`}
+                type="head"
+                scope="col"
+              >
+                {headerCell.name}
+              </Table.Cell>
             ))}
-          </Table.Body>
-        </Table>
-      </Table.Wrapper>
-    </StoryTemplate>
-  );
+          </Table.Row>
+          {data.map(item => (
+            <Table.Row key={item.name}>
+              <Table.Cell type="head" scope="row">
+                Header
+              </Table.Cell>
+              <Table.Cell> {item.name} </Table.Cell>
+              <Table.Cell> {item.fnumber} </Table.Cell>
+              <Table.Cell> {item.employer} </Table.Cell>
+              <Table.Cell> {item.orgnumber} </Table.Cell>
+              <Table.Cell> {item.percentage} </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
 };
 
-export const WithScroll = (args: TableProps) => {
-  return (
-    <StoryTemplate title="Table - with scroll">
+export const WithScroll: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
       <Paragraph>
         Her brukes komponenten ScrollableContainer for å gjøre det mulig å
         scrolle i tabellen når den blir bredere enn vinduets bredde. Du kan
@@ -679,6 +737,42 @@ export const WithScroll = (args: TableProps) => {
           </Table>
         </Table.Wrapper>
       </ScrollableContainer>
+    </>
+  ),
+};
+
+export const InteractiveContent: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>
+            <Table.Cell>Dokumentnavn</Table.Cell>
+            <Table.Cell>Sakbehandler</Table.Cell>
+            <Table.Cell>Status</Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {data.map(item => (
+            <Table.Row key={item.name} hoverable>
+              <Table.Cell>
+                <Link href="#">
+                  {' '}
+                  Krav om sak fra Marie Luneby, Knut-Håkon Dagsvik, Sonja Luneby
+                  og Petter Olaf Jensen.pdf
+                </Link>
+              </Table.Cell>
+              <Table.Cell>{item.name}</Table.Cell>
+              <Table.Cell>Ulest</Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
 };
