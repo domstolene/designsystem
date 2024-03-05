@@ -29,11 +29,12 @@ interface CalendarPopoverContextValue {
   onClose: () => void;
 }
 
-const CalendarPopoverContext = createContext<CalendarPopoverContextValue>({
-  anchorRef: null,
-  isOpen: false,
-  onClose: () => null,
-});
+export const CalendarPopoverContext =
+  createContext<CalendarPopoverContextValue>({
+    anchorRef: null,
+    isOpen: false,
+    onClose: () => null,
+  });
 
 interface CalendarPopoverProps {
   children: ReactNode;
@@ -107,16 +108,7 @@ export const CalendarPopoverContent = ({
   if (!isOpen) return null;
 
   return (
-    <PopoverContentContainer
-      ref={combinedRef}
-      style={styles.floating}
-      onBlur={e => {
-        const newFocus = e.relatedTarget;
-        if (ref.current && !ref.current.contains(newFocus)) {
-          onClose();
-        }
-      }}
-    >
+    <PopoverContentContainer ref={combinedRef} style={styles.floating}>
       {children}
     </PopoverContentContainer>
   );
