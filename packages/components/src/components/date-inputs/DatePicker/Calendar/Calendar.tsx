@@ -5,13 +5,20 @@ import {
   useCalendar,
 } from '@react-aria/calendar';
 import { useCalendarState } from '@react-stately/calendar';
-import { type FC, type PropsWithChildren } from 'react';
+import {
+  type FC,
+  type KeyboardEvent,
+  type KeyboardEventHandler,
+  type PropsWithChildren,
+  useContext,
+} from 'react';
 import styled from 'styled-components';
 
 import { CalendarGrid } from './CalendarGrid';
 import { Button } from '../../../Button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../Icon/icons';
 import { Heading } from '../../../Typography';
+import { CalendarPopoverContext } from '../CalendarPopover';
 import { locale } from '../constants';
 
 const CalendarHeader = styled.div`
@@ -61,6 +68,16 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
     title,
   } = useCalendar(props, state);
 
+  const { onClose } = useContext(CalendarPopoverContext);
+
+  const closeOnKeyboardBlurBack: KeyboardEventHandler<HTMLButtonElement> = (
+    event: KeyboardEvent<HTMLButtonElement>,
+  ) => {
+    if (event.key === 'Tab' && event.shiftKey === true) {
+      onClose();
+    }
+  };
+
   return (
     <CalendarContainer {...calendarProps}>
       <CalendarHeader>
@@ -72,6 +89,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
           purpose="secondary"
           appearance="borderless"
           icon={ArrowLeftIcon}
+          htmlProps={{ onKeyDown: closeOnKeyboardBlurBack }}
         />
         <Month>{title}</Month>
         <StyledButton

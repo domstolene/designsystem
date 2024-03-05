@@ -7,11 +7,12 @@ import {
   type CalendarState,
   type RangeCalendarState,
 } from '@react-stately/calendar';
-import { useRef } from 'react';
+import { type KeyboardEvent, useContext, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { type CellVariant, calendarTokens } from './Calendar.tokens';
 import { focusVisible, normalizeButton } from '../../../helpers';
+import { CalendarPopoverContext } from '../CalendarPopover';
 import { timezone } from '../constants';
 
 interface CalendarCellProps extends AriaCalendarCellProps {
@@ -95,11 +96,19 @@ export function CalendarCell({ date, state }: CalendarCellProps) {
     return <td {...cellProps} />;
   }
 
+  const { onClose } = useContext(CalendarPopoverContext);
+
   const variant: CellVariant = isSelected
     ? 'selected'
     : isUnavailable || isDisabled
       ? 'unavailable'
       : 'default';
+
+  const closeOnKeyboardBlurForward = (event: KeyboardEvent) => {
+    if (event.key === 'Tab' && event.shiftKey === false) {
+      onClose();
+    }
+  };
 
   return (
     <td {...cellProps}>
@@ -110,6 +119,7 @@ export function CalendarCell({ date, state }: CalendarCellProps) {
         $variant={variant}
         ref={ref}
         hidden={isOutsideVisibleRange}
+        onKeyDown={closeOnKeyboardBlurForward}
       >
         {formattedDate}
       </Cell>
