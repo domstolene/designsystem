@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 15.4.1
+
+### Patch Changes
+
+- ade4158: Justerer spacing i `<Chip />`.
+- dfed172: Fikser at museklikk på knapper for å bla i måneder i `<Datepicker />` ikke skal lukke kalender i Safari.
+
+  - Fikser også at museklikk inne i kalenderen ikke lukker den (for alle nettlesere).
+
+- 0147de5: Fikser at `<FileUploader>` sin `accept`-prop kastet feil ved bruk av ESM-bygg.
+
 ## 15.4.0
 
 ### Minor Changes
