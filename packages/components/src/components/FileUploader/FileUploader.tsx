@@ -175,7 +175,10 @@ export const FileUploader = (props: FileUploaderProps) => {
           $isDragActive={isDragActive}
           $hasRootErrors={hasRootErrors}
         >
-          <FileUploaderInput {...getInputProps()} />
+          <FileUploaderInput
+            {...getInputProps()}
+            data-testid="file-uploader-input"
+          />
           Dra og slipp filer her eller{' '}
           <VisuallyHidden as="span">
             velg fil med påfølgende knapp
