@@ -1,4 +1,4 @@
-import accepted from 'attr-accept';
+import { isAccepted } from './attr-accept';
 
 export const preventDefaults = (event: React.BaseSyntheticEvent) => {
   event.preventDefault();
@@ -30,7 +30,7 @@ export const isFileAccepted = (
   file: File,
   accept: Array<string> | undefined,
 ): boolean => {
-  return accept !== undefined ? accepted(file, accept) : true;
+  return accept !== undefined ? isAccepted(file, accept) : true;
 };
 
 // export const isFileSizeAccepted = (

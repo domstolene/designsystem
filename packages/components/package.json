@@ -73,7 +73,6 @@
     "@react-aria/focus": "^3.16.2",
     "@react-stately/calendar": "^3.4.4",
     "@react-stately/datepicker": "^3.9.2",
-    "attr-accept": "^2.2.2",
     "file-selector": "^0.6.0",
     "react-select": "^5.8.0"
   },
