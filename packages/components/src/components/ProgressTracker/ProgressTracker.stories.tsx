@@ -241,23 +241,7 @@ export const SmallScreen: Story = {
 
     return (
       <>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div>
-            {activeStep === 0 && <div>Steg 1</div>}
-            {activeStep === 1 && <div>Steg 2</div>}
-            {activeStep === 2 && <div>Steg 3</div>}
-            {activeStep === 3 && <div>Steg 4</div>}
-            <Button
-              onClick={() => {
-                setCompletedSteps(s => new Set([...s, activeStep]));
-                if (activeStep < numSteps - 1) {
-                  setActiveStep(s => s + 1);
-                }
-              }}
-            >
-              Sett som ferdig
-            </Button>
-          </div>
+        <div>
           <Button
             purpose="secondary"
             onClick={() => setDrawerOpen(true)}
@@ -266,6 +250,19 @@ export const SmallScreen: Story = {
           >
             Steg {activeStep + 1} av 4
           </Button>
+          <div style={{ marginTop: '1rem' }}>
+            {activeStep >= 0 && <div>Steg {activeStep + 1}</div>}
+            <Button
+              onClick={() => {
+                setCompletedSteps(s => new Set([...s, activeStep]));
+                if (activeStep < numSteps - 1) {
+                  setActiveStep(s => s + 1);
+                }
+              }}
+            >
+              Sett steg ferdig
+            </Button>
+          </div>
         </div>
         <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
           <ProgressTracker
