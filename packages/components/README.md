@@ -23,7 +23,7 @@ const App = () => (
   <>
     <TextInput label="Input" />
     <Button>Primary</Button>
-    <Button purpose="secondary" appearance="ghost">
+    <Button purpose="secondary" size="small">
       Secondary
     </Button>
   </>
@@ -50,6 +50,9 @@ Tilgjengelige komponenter:
 - DescriptionList
 - Divider
 - Drawer
+- EmptyContent
+- FavStar
+- Feedback
 - FileUploader
 - GlobalMessage
 - Grid

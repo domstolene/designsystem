@@ -14,7 +14,7 @@ pnpm add @norges-domstoler/development-utils
 
 ## Komponenter
 
-- [EnvironmentBannerProvider](./src/EnvironmentBannerProvider/README.md)
+- EnvironmentBannerProvider
 
 ## ⌨️ For bidragsytere
 
