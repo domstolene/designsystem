@@ -24,20 +24,20 @@ export default {
 
 const navigationLink = {
   href: '#',
-  title: 'navigasjonspunkt',
+  title: 'navlenke',
 };
 
 const uniqueNavigationLink = {
   href: '#/',
-  title: 'unik navigasjonspunkt',
+  title: 'unik navlenke',
 };
 
 const longNavigationLink = {
   href: '#',
-  title: 'Veldig veldig veldig velidg lang tittel her',
+  title: 'Veldig veldig veldig velidg lang lenke her',
 };
 
-const navigationLinks = [navigationLink, navigationLink, navigationLink];
+const navigationLinks = [navigationLink, navigationLink];
 const navigationLinksWithLong = [...navigationLinks, longNavigationLink];
 
 const user = {
@@ -50,7 +50,7 @@ const userWithHref = {
 };
 
 const menuElementWithIcon = {
-  title: 'action',
+  title: 'handling',
   icon: EditIcon,
   onClick: () => null,
 };
@@ -61,6 +61,8 @@ const menuElement = {
 
 const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
+const containerStyling = { marginLeft: '-1rem', marginRight: '-1rem' };
+
 type Story = StoryObj<typeof InternalHeader>;
 
 export const Default: Story = {
@@ -69,7 +71,7 @@ export const Default: Story = {
     applicationDesc: 'Produktnavn',
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -81,7 +83,10 @@ export const Overview: Story = {
     applicationDesc: 'Produktnavn',
   },
   decorators: Story => (
-    <StoryTemplate gap="40px" containerStyle={{ alignItems: 'stretch' }}>
+    <StoryTemplate
+      gap="40px"
+      containerStyle={{ alignItems: 'stretch', ...containerStyling }}
+    >
       <Story />
     </StoryTemplate>
   ),
@@ -143,7 +148,7 @@ export const WithNavigationAndContextMenu: Story = {
     userProps: user,
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -159,7 +164,7 @@ export const WithCurrentPage: Story = {
     currentPageHref: '#',
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -173,7 +178,7 @@ export const SmallScreenWithNavigation: Story = {
     smallScreen: true,
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -187,7 +192,7 @@ export const SmallScreenWithContextMenu: Story = {
     smallScreen: true,
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -203,7 +208,7 @@ export const SmallScreenWithNavigationAndContextMenu: Story = {
     smallScreen: true,
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -215,7 +220,7 @@ export const WithNavigationLongLink: Story = {
     navigationElements: navigationLinksWithLong,
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -228,7 +233,7 @@ export const NonInteractiveUserOnly: Story = {
     userProps: user,
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),
@@ -241,7 +246,7 @@ export const WithHomeLink: Story = {
     applicationHref: '#',
   },
   decorators: Story => (
-    <StoryTemplate display="block">
+    <StoryTemplate display="block" containerStyle={containerStyling}>
       <Story />
     </StoryTemplate>
   ),

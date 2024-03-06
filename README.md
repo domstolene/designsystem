@@ -1,6 +1,6 @@
 # Elsa - Domstolenes designsystem
 
-Elsa er Domstolenes offisielle designsystem. Det består av design i Figma, [dokumentasjon](https://design.domstol.no/) og dette monorepoet. I repoet ligger det to bibliotek/pakker: [dds-design-tokens](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens) og [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components).
+Elsa er Domstolenes offisielle designsystem. Det består av design i Figma, [dokumentasjon](https://design.domstol.no/) og dette monorepoet.
 
 I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med designsystemet.
 
@@ -12,9 +12,11 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 
 📕 [Formatering](packages/formatting/README.md)
 
-## 📖 Dokumentasjon
+🔧 [Dev utils](packages/development-utils/README.md)
 
-[Elsa - dokumentasjon](https://design.domstol.no/)
+## 🏬 Storefront
+
+📖 [Elsa - dokumentasjon](https://design.domstol.no/)
 
 ## 🤝 Bidra
 
@@ -44,3 +46,13 @@ Start opp storybook
 ```bash
 pnpm storybook
 ```
+
+#### Legge til change notes
+
+Når du er ferdig med PR, legg til [changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md):
+
+```bash
+pnpm changeset
+```
+
+Velg pakke(r) som ble endret, velg riktig semver bump type, og skriv changelog entry for neste release.
