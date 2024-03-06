@@ -1,5 +1,6 @@
 import { type CalendarDate } from '@internationalized/date';
 import { useDatePicker } from '@react-aria/datepicker';
+import { I18nProvider } from '@react-aria/i18n';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
 import type * as CSS from 'csstype';
@@ -11,6 +12,7 @@ import {
   CalendarPopoverAnchor,
   CalendarPopoverContent,
 } from './CalendarPopover';
+import { locale } from './constants';
 import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
 import {
@@ -56,26 +58,28 @@ export function _DatePicker(
   );
 
   return (
-    <CalendarPopover isOpen={state.isOpen} onClose={state.close}>
-      <CalendarPopoverAnchor>
-        <DateField
-          {...fieldProps}
-          groupProps={groupProps}
-          ref={combinedRef}
-          componentSize={componentSize}
-          tip={tip}
-          label={props.label}
-          errorMessage={errorMessage}
-          buttonProps={buttonProps}
-          isOpen={state.isOpen}
-          style={style}
-          width={width}
-        />
-      </CalendarPopoverAnchor>
-      <CalendarPopoverContent>
-        <Calendar {...calendarProps} />
-      </CalendarPopoverContent>
-    </CalendarPopover>
+    <I18nProvider locale={locale}>
+      <CalendarPopover isOpen={state.isOpen} onClose={state.close}>
+        <CalendarPopoverAnchor>
+          <DateField
+            {...fieldProps}
+            groupProps={groupProps}
+            ref={combinedRef}
+            componentSize={componentSize}
+            tip={tip}
+            label={props.label}
+            errorMessage={errorMessage}
+            buttonProps={buttonProps}
+            isOpen={state.isOpen}
+            style={style}
+            width={width}
+          />
+        </CalendarPopoverAnchor>
+        <CalendarPopoverContent>
+          <Calendar {...calendarProps} />
+        </CalendarPopoverContent>
+      </CalendarPopover>
+    </I18nProvider>
   );
 }
 

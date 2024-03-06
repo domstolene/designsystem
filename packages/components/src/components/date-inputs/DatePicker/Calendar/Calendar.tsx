@@ -4,6 +4,7 @@ import {
   type DateValue,
   useCalendar,
 } from '@react-aria/calendar';
+import { useLocale } from '@react-aria/i18n';
 import { useCalendarState } from '@react-stately/calendar';
 import {
   type FC,
@@ -19,7 +20,6 @@ import { Button } from '../../../Button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../Icon/icons';
 import { Heading } from '../../../Typography';
 import { CalendarPopoverContext } from '../CalendarPopover';
-import { locale } from '../constants';
 
 const CalendarHeader = styled.div`
   display: flex;
@@ -56,6 +56,7 @@ function createCalendar(identifier: string) {
 export type CalendarProps<T extends DateValue> = AriaCalendarProps<T>;
 
 export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
+  const { locale } = useLocale();
   const state = useCalendarState({
     ...props,
     createCalendar,

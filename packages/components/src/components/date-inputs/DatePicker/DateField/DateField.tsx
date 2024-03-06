@@ -8,6 +8,7 @@ import {
   useDateField,
   type useDatePicker,
 } from '@react-aria/datepicker';
+import { useLocale } from '@react-aria/i18n';
 import { useDateFieldState } from '@react-stately/datepicker';
 import type * as CSS from 'csstype';
 import {
@@ -22,7 +23,6 @@ import { CalendarButton } from './CalendarButton';
 import { DateSegment } from './DateSegment';
 import { type InputProps } from '../../../helpers';
 import { DateInput } from '../../common/DateInput';
-import { locale } from '../constants';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
@@ -47,6 +47,7 @@ function _DateField(
   }: DateFieldProps,
   forwardedRef: Ref<HTMLDivElement>,
 ) {
+  const { locale } = useLocale();
   const state = useDateFieldState({
     ...props,
     locale,
