@@ -3,6 +3,7 @@ import {
   type AriaCalendarGridProps,
   useCalendarGrid,
 } from '@react-aria/calendar';
+import { useLocale } from '@react-aria/i18n';
 import {
   type CalendarState,
   type RangeCalendarState,
@@ -12,7 +13,6 @@ import styled from 'styled-components';
 import { calendarTokens } from './Calendar.tokens';
 import { CalendarCell } from './CalendarCell';
 import { getWeekNumber } from '../../utils/getWeekNumber';
-import { locale } from '../constants';
 
 const { grid: gridTokens } = calendarTokens;
 
@@ -47,6 +47,7 @@ const WeekNumber = styled.td`
 `;
 
 export function CalendarGrid({ state, ...props }: CalendarGridProps) {
+  const { locale } = useLocale();
   const {
     gridProps: { onKeyDown, ...gridProps },
     headerProps,

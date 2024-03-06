@@ -71,6 +71,7 @@
     "@react-aria/calendar": "^3.5.6",
     "@react-aria/datepicker": "^3.9.3",
     "@react-aria/focus": "^3.16.2",
+    "@react-aria/i18n": "^3.10.2",
     "@react-stately/calendar": "^3.4.4",
     "@react-stately/datepicker": "^3.9.2",
     "file-selector": "^0.6.0",
