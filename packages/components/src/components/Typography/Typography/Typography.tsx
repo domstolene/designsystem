@@ -23,6 +23,8 @@ import { getElementType } from './Typography.utils';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
 import { type TextColor, getTextColor } from '../../../utils/color';
 import { selection } from '../../helpers/styling/selection';
+import { Icon } from '../../Icon';
+import { OpenExternalIcon } from '../../Icon/icons';
 import { typographyTokens as tokens } from '../Typography.tokens';
 
 interface StyledTypographyProps {
@@ -178,6 +180,9 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
     return (
       <StyledTypography ref={ref} {...typographyProps}>
         {children}
+        {externalLinkProp && (
+          <Icon icon={OpenExternalIcon} iconSize="inherit" />
+        )}
       </StyledTypography>
     );
   },

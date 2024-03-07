@@ -2,7 +2,6 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type ElementType } from 'react';
 import { type CSSObject, css } from 'styled-components';
 
-import OpenExternalIcon from './openExternal.svg';
 import {
   type StaticTypographyType,
   type TypographyInteractionStyling,
@@ -99,18 +98,11 @@ export const getAnchorStyling = (
   }
   ${external &&
   css`
-    padding-right: calc(1em + ${tokens.typographyType.a.icon.marginLeft});
-    position: relative;
-    &::after {
-      mask: ${`url('${OpenExternalIcon}')`} no-repeat center / contain;
-      background: 0 0;
-      background-color: currentColor;
-      width: 1em;
-      height: 1em;
-      content: '';
-      position: absolute;
-      margin-top: ${tokens.typographyType.a.icon.marginTop};
-      margin-left: ${tokens.typographyType.a.icon.marginLeft};
+    & > svg {
+      display: inline;
+      margin: 0.1em 0.1em -0.1em;
+      transform: translateY(0.05em);
+      vertical-align: baseline;
     }
   `}
   &:hover {

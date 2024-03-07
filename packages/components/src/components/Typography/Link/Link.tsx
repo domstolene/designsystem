@@ -5,6 +5,8 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import { Icon } from '../../Icon';
+import { OpenExternalIcon } from '../../Icon/icons';
 import {
   type BaseTypographyProps,
   type TypographyBodyType,
@@ -62,6 +64,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
       target={external ? '_blank' : target}
     >
       {children}
+      {external && <Icon iconSize="inherit" icon={OpenExternalIcon} />}
     </StyledLink>
   );
 });
