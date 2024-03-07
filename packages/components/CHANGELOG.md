@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 15.5.0
+
+### Minor Changes
+
+- 5075eab: Legger til ny komponent: `<InlineButton/>`. Den ser ut som en lenke og brukes i mengdetekst.
+- 12e556f: Automatisk skalering av stiler `headingSans04`-`headingSans08` i `<Heading />`. På skjerm under 600px skal komponenten automatisk bruke en typografistil ett steg mindre. Eksempel: hvis `headingSans08` er valgt skal det automatisk bli `headingSans07` på mindre skjerm. En mer rutinert system blir implementert når vi har semantiske tokens på plass, f.eks. dedikert stil med skalering for <h4> i alle Lovisa-apper.
+
+### Patch Changes
+
+- 9488da4: Fikser språkfeil i DatePicker hvor den tekstlige representasjonen for måned i kalenderen fortsatt brukte språket til nettleseren
+- 4bf7732: Fikser at ikon som vises `<Link external />` ikke overlapper med annet innhold
+
 ## 15.4.1
 
 ### Patch Changes
