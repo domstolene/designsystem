@@ -22,6 +22,7 @@ export * from './components/FileUploader';
 export * from './components/GlobalMessage';
 export * from './components/Grid';
 export * from './components/Icon';
+export * from './components/InlineButton';
 export * from './components/InlineEdit';
 export * from './components/InputMessage';
 export * from './components/InternalHeader';
