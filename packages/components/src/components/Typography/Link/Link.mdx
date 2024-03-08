@@ -1,5 +1,8 @@
 import { Canvas, Meta, Controls } from '@storybook/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import { Link } from '.';
 import * as LinkStories from './Link.stories';
 
@@ -28,3 +31,27 @@ import * as LinkStories from './Link.stories';
 
 - En lenke må ha `href` prop for assisterende teknologi skal tolke elementet riktig.
 - Komponenten brukes kun til sematiske `<a>`-elementer.
+
+## Med `react-router`
+
+Bruk hooks tilgjengelige i `react-router` for å returnere Elsa `<Link />` som custom lenke:
+
+<Source code={`
+
+import { useHref, useLinkClickHandler } from 'react-router-dom';
+
+import { Link } from '@norges-domstoler/dds-components';
+import type { LinkProps } from '@norges-domstoler/dds-components';
+
+type RouterConnectedLinkProps = Omit<LinkProps, 'onClick'>;
+
+export default function RouterConnectedLink(
+  props: RouterConnectedLinkProps,
+): JSX.Element {
+  const { href, ...rest } = props;
+  const routerHref = href ? useHref(href) : undefined;
+  const linkClickHandler = href ? useLinkClickHandler(href) : () => {};
+
+return <Link {...rest} href={routerHref} onClick={linkClickHandler} />;
+}
+`} />
