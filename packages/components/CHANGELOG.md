@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 15.6.0
+
+### Minor Changes
+
+- 4112489: Ny komponent: `<Fieldset />`. Brukes til gruppering av inputfelt i skjema. Brukes sammen med `<Legend />`.
+- 29d6c04: Nye ikoner: `GuardianIcon` og `PowerOfAttorneyIcon`
+
+### Patch Changes
+
+- 4112489: Fjerner padding fra `<Legend />`.
+
 ## 15.5.0
 
 ### Minor Changes
