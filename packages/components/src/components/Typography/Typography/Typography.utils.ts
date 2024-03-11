@@ -57,6 +57,10 @@ export const isHeading = (
   return true;
 };
 
+export const isLegend = (as: ElementType): boolean => {
+  return as === 'legend';
+};
+
 export const inlineElements: Array<ElementType> = [
   'a',
   'abbr',
