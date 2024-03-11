@@ -18,6 +18,7 @@ export * from './components/Drawer';
 export * from './components/EmptyContent';
 export * from './components/FavStar';
 export * from './components/Feedback';
+export * from './components/Fieldset';
 export * from './components/FileUploader';
 export * from './components/GlobalMessage';
 export * from './components/Grid';

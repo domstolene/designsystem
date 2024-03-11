@@ -7,7 +7,7 @@ import {
   type TypographyInteractionStyling,
   type TypographyType,
 } from './Typography.types';
-import { isHeading, isInlineElement } from './Typography.utils';
+import { isHeading, isInlineElement, isLegend } from './Typography.utils';
 import { typographyTokens as tokens } from '../Typography.tokens';
 
 const { border, colors } = ddsBaseTokens;
@@ -69,6 +69,11 @@ export const getMarginStyling = (
         css`
           padding-top: ${tokens.typographyType[typographyType].margins
             .paddingTop};
+        `}
+        /**Margin i legend følger spacing mellom inputfelt i en gruppe, ikke den typografiske */
+        ${isLegend(element) &&
+        css`
+          margin-bottom: ${tokens.element.legend.margins.marginBottom};
         `}
       `
     : css`

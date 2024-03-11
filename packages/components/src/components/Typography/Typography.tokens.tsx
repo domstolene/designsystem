@@ -322,6 +322,12 @@ const supportingStyleTiny02 = {
   },
 };
 
+const legend = {
+  margins: {
+    marginBottom: spacing.SizesDdsSpacingX15,
+  },
+};
+
 export const typographyTokens = {
   typographyType: {
     a,
@@ -349,6 +355,9 @@ export const typographyTokens = {
     supportingStylePlaceholderText03,
     supportingStyleTiny01,
     supportingStyleTiny02,
+  },
+  element: {
+    legend,
   },
   style: {
     bold,

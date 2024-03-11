@@ -17,8 +17,8 @@ import * as LegendStories from './Legend.stories';
 
 ## Oversikt
 
-`<Legend />` er en komponent som tilsvarer `<legend>` HTML taggen. `<legend>`, sammen med `<fieldset>`, brukes for å knytte relaterte skjemaelementer sammen.
-Hvis du skal ha overskrifter for grupper av skjemaelementer skal du alltid bruke `<fieldset>` og `<Legend />` for å markere disse gruppene.
+`<Legend />` er en komponent som tilsvarer `<legend>` HTML taggen. `<legend>`, sammen med `<Fieldset />`, brukes for å knytte relaterte skjemaelementer sammen.
+Hvis du skal ha overskrifter for grupper av skjemaelementer skal du alltid bruke `<Fieldset />` og `<Legend />` for å markere disse gruppene.
 Dette gjør brukeropplevelsen til skjermleserbrukere bedre.
 Skjermleseren vil da kunne lese opp overskriften når en bruker får et skjemaelement i fokus.
 Dette gjør det mulig for skjermleserbrukere å kunne tabbe gjennom skjemaer, uten å miste konteksten.
@@ -33,24 +33,24 @@ For eksempler og mer utfyllende informasjon om bruk av `<fieldset>` og `<legend>
 ## Bruk i koden
 
 <Source
-  code={`import { Legend, TextInput } from '@norges-domstoler/dds-components';
+  code={`import { Fieldset, Legend, TextInput } from '@norges-domstoler/dds-components';
 
 <form>
-  <fieldset>
-    <Legend>Klagende parts adresse</Legend>
+  <Fieldset>
+    <Legend withMargins>Klagende parter adresse</Legend>
 
     <TextInput label="Gatenavn" />
     <TextInput label="Postnummer" />
     <TextInput label="Poststed" />
 
-  </fieldset>
-  <fieldset>
-    <Legend>Innklagede parts adresse</Legend>
+  </Fieldset>
+  <Fieldset>
+    <Legend withMargins>Innklagede parter adresse</Legend>
 
     <TextInput label="Gatenavn" />
     <TextInput label="Postnummer" />
     <TextInput label="Poststed" />
 
-  </fieldset>
+  </Fieldset>
 </form>
 `} />
