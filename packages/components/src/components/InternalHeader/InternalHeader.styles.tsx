@@ -12,7 +12,10 @@ import { OverflowMenu } from '../OverflowMenu';
 
 const { bar, separator } = tokens;
 
-export const Bar = styled.div<{ $hasNavigation: boolean }>`
+export const Bar = styled.div<{
+  $hasNavigation: boolean;
+  $smallScreen?: boolean;
+}>`
   *::selection {
     ${selection}
   }
@@ -24,6 +27,13 @@ export const Bar = styled.div<{ $hasNavigation: boolean }>`
   border-bottom: ${bar.borderBottom};
   padding-left: ${bar.paddingLeft};
   padding-right: ${bar.paddingRight};
+  ${({ $smallScreen }) =>
+    $smallScreen &&
+    css`
+      gap: ${bar.smallScreen.itemGap};
+      padding-left: ${bar.smallScreen.paddingLeft};
+      padding-right: ${bar.smallScreen.paddingRight};
+    `}
 
   ${({ $hasNavigation }) =>
     $hasNavigation

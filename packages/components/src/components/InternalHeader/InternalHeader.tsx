@@ -85,6 +85,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     <Bar
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       $hasNavigation={!!navigation}
+      $smallScreen={smallScreen}
     >
       <Typography typographyType="bodySans02" bold as="span">
         {applicationHref ? (
