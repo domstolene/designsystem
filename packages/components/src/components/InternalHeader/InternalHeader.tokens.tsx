@@ -9,6 +9,11 @@ const bar = {
   borderBottom: `${border.BordersDdsBorderStyleLightStroke} solid ${border.BordersDdsBorderStyleLightStrokeWeight}`,
   paddingLeft: spacing.SizesDdsSpacingX15,
   paddingRight: spacing.SizesDdsSpacingX15,
+  smallScreen: {
+    itemGap: spacing.SizesDdsSpacingX1,
+    paddingLeft: spacing.SizesDdsSpacingX1,
+    paddingRight: spacing.SizesDdsSpacingX05,
+  },
 };
 
 const separator = {
