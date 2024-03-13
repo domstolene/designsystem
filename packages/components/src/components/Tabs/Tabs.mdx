@@ -1,4 +1,4 @@
-import { Meta, ArgTypes, Canvas, Story } from '@storybook/blocks';
+import { Meta, ArgTypes, Canvas, Story, Controls } from '@storybook/blocks';
 import { Tab, TabPanel } from '.';
 import {
   Source,
@@ -34,7 +34,7 @@ Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList
 
 <Canvas of={TabsStories.Default} sourceState="shown" />
 
-<ArgTypes story={TabsStories.Default} />
+<Controls of={TabsStories.Default} />
 
 ### Tab
 

@@ -8,8 +8,9 @@ export default {
   title: 'dds-components/GlobalMessage',
   component: GlobalMessage,
   argTypes: {
-    message: { control: { type: 'text' } },
-    closable: { control: { type: 'boolean' } },
+    message: { control: 'text' },
+    closable: { control: 'boolean' },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

@@ -15,11 +15,15 @@ export default {
     },
   },
   argTypes: {
-    loading: { control: { type: 'boolean' } },
-    fullWidth: { control: { type: 'boolean' } },
-    href: { control: { type: 'text' } },
-    children: { control: { type: 'text' } },
+    loading: { control: 'boolean' },
+    fullWidth: { control: 'boolean' },
+    href: { control: 'text' },
+    children: { control: 'text' },
+    loadingTooltip: { control: 'text' },
     label: { table: { disable: true } },
+    htmlProps: { control: false },
+    target: { control: false },
+    icon: { control: false },
   },
 };
 

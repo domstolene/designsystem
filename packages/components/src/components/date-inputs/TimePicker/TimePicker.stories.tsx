@@ -16,6 +16,7 @@ const meta: Meta<typeof TimePicker> = {
     errorMessage: { control: { type: 'text' } },
     isDisabled: { control: { type: 'boolean' } },
     isReadOnly: { control: { type: 'boolean' } },
+    className: { table: { disable: true } },
   },
   parameters: {
     docs: {

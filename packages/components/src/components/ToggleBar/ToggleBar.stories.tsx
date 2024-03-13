@@ -10,9 +10,11 @@ export default {
   title: 'dds-components/ToggleBar',
   component: ToggleBar,
   argTypes: {
-    label: { control: { type: 'text' } },
-    name: { control: { type: 'text' } },
-    width: { control: { type: 'text' } },
+    label: { control: 'text' },
+    name: { control: 'text' },
+    width: { control: 'text' },
+    value: { control: false },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

@@ -23,6 +23,10 @@ import { Heading, Legend, Paragraph } from '../Typography';
 export default {
   title: 'dds-components/ProgressTracker',
   component: ProgressTracker,
+  argTypes: {
+    activeStep: { control: 'number' },
+    htmlProps: { control: false },
+  },
   parameters: {
     docs: {
       story: { inline: true },

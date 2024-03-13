@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { NotificationsIcon } from '../Icon/icons';
@@ -6,7 +7,7 @@ import { VStack } from '../Stack';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 
-import { Tab, TabList, TabPanel, TabPanels, Tabs, type TabsProps } from '.';
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
 export default {
   title: 'dds-components/Tabs',
@@ -17,36 +18,22 @@ export default {
     TabPanel: TabPanel,
     TabPanels: TabPanels,
   },
+  argTypes: {
+    width: { control: 'text' },
+    htmlProps: { control: false },
+    activeTab: { control: 'number' },
+  },
 };
 
-export const Overview = () => (
-  <StoryTemplate>
-    <Tabs>
-      <TabList>
-        <Tab>Restriksjoner</Tab>
-        <Tab>Aktører</Tab>
-        <Tab>Logg</Tab>
-      </TabList>
-    </Tabs>
-    <Tabs>
-      <TabList>
-        <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-        <Tab icon={NotificationsIcon}>Aktører</Tab>
-        <Tab icon={NotificationsIcon}>Logg</Tab>
-      </TabList>
-    </Tabs>
-    <Tabs tabContentDirection="column">
-      <TabList>
-        <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
-        <Tab icon={NotificationsIcon}>Aktører</Tab>
-        <Tab icon={NotificationsIcon}>Logg</Tab>
-      </TabList>
-    </Tabs>
-  </StoryTemplate>
-);
+type Story = StoryObj<typeof Tabs>;
 
-export const Default = (args: TabsProps) => (
-  <StoryTemplate display="block">
+export const Default: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <Tabs {...args}>
       <TabList>
         <Tab>Tab 1</Tab>
@@ -59,11 +46,50 @@ export const Default = (args: TabsProps) => (
         <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
-  </StoryTemplate>
-);
+  ),
+};
 
-export const WithIcon = (args: TabsProps) => (
-  <StoryTemplate>
+export const Overview: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: args => (
+    <>
+      <Tabs>
+        <TabList>
+          <Tab>Restriksjoner</Tab>
+          <Tab>Aktører</Tab>
+          <Tab>Logg</Tab>
+        </TabList>
+      </Tabs>
+      <Tabs>
+        <TabList>
+          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+          <Tab icon={NotificationsIcon}>Aktører</Tab>
+          <Tab icon={NotificationsIcon}>Logg</Tab>
+        </TabList>
+      </Tabs>
+      <Tabs tabContentDirection="column">
+        <TabList>
+          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+          <Tab icon={NotificationsIcon}>Aktører</Tab>
+          <Tab icon={NotificationsIcon}>Logg</Tab>
+        </TabList>
+      </Tabs>
+    </>
+  ),
+};
+
+export const WithIcon: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <Tabs {...args}>
       <TabList>
         <Tab icon={NotificationsIcon}>Tab 1</Tab>
@@ -76,14 +102,18 @@ export const WithIcon = (args: TabsProps) => (
         <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
-  </StoryTemplate>
-);
+  ),
+};
 
-export const ActiveTab = (args: TabsProps) => {
-  const [activeTab, setActiveTab] = useState(1);
-
-  return (
+export const ActiveTab: Story = {
+  decorators: Story => (
     <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const [activeTab, setActiveTab] = useState(1);
+    return (
       <Tabs {...args} activeTab={activeTab} onChange={tab => setActiveTab(tab)}>
         <TabList>
           <Tab>Tab 1</Tab>
@@ -99,12 +129,17 @@ export const ActiveTab = (args: TabsProps) => {
           <TabPanel>Innhold 3</TabPanel>
         </TabPanels>
       </Tabs>
-    </StoryTemplate>
-  );
+    );
+  },
 };
 
-export const WithWidth = (args: TabsProps) => (
-  <StoryTemplate display="block">
+export const WithWidth: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <Tabs {...args} width="500px">
       <TabList>
         <Tab>Tab 1</Tab>
@@ -117,11 +152,16 @@ export const WithWidth = (args: TabsProps) => (
         <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
-  </StoryTemplate>
-);
+  ),
+};
 
-export const TabLongNames = (args: TabsProps) => (
-  <StoryTemplate display="block">
+export const TabLongNames: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <Tabs {...args}>
       <TabList>
         <Tab>Partsopplysninger</Tab>
@@ -134,11 +174,16 @@ export const TabLongNames = (args: TabsProps) => (
         <TabPanel>Innhold 3</TabPanel>
       </TabPanels>
     </Tabs>
-  </StoryTemplate>
-);
+  ),
+};
 
-export const ManyTabs = (args: TabsProps) => (
-  <StoryTemplate display="block">
+export const ManyTabs: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
       <TabList>
         <Tab>Tab1</Tab>
@@ -165,28 +210,35 @@ export const ManyTabs = (args: TabsProps) => (
         <TabPanel>Innhold 10</TabPanel>
       </TabPanels>
     </Tabs>
-  </StoryTemplate>
-);
+  ),
+};
 
-export const MaxContentWidth = (args: TabsProps) => (
-  <StoryTemplate display="block">
-    <VStack align="flex-start" gap="x1">
-      <Paragraph>
-        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
-        Her er alle tabs satt til å ha bredde "<code>max-content</code>".
-      </Paragraph>
-      <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
-        <TabList>
-          <Tab width="max-content">Tab 1</Tab>
-          <Tab width="max-content">Tab 2</Tab>
-          <Tab width="max-content">Tab 3</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>Innhold 1</TabPanel>
-          <TabPanel>Innhold 2</TabPanel>
-          <TabPanel>Innhold 3</TabPanel>
-        </TabPanels>
-      </Tabs>
-    </VStack>
-  </StoryTemplate>
-);
+export const MaxContentWidth: Story = {
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <VStack align="flex-start" gap="x1">
+        <Paragraph>
+          Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
+          Her er alle tabs satt til å ha bredde "<code>max-content</code>".
+        </Paragraph>
+        <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
+          <TabList>
+            <Tab width="max-content">Aktører</Tab>
+            <Tab width="max-content">Restriksjoner</Tab>
+            <Tab width="max-content">Vedlegg</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>Innhold 1</TabPanel>
+            <TabPanel>Innhold 2</TabPanel>
+            <TabPanel>Innhold 3</TabPanel>
+          </TabPanels>
+        </Tabs>
+      </VStack>
+    </>
+  ),
+};

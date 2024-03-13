@@ -54,7 +54,7 @@ export const Overview: Story = {
 
 export const SmallScreen: Story = {
   decorators: Story => (
-    <StoryTemplate title="Breadcrumbs - smallScreen">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),

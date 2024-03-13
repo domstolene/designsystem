@@ -11,7 +11,11 @@ export default {
   title: 'dds-components/Modal',
   component: Modal,
   argTypes: {
-    header: { control: { type: 'text' } },
+    header: { control: 'text' },
+    parentElement: { control: false },
+    triggerRef: { control: false },
+    initialFocusRef: { control: false },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

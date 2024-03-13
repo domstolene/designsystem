@@ -14,6 +14,9 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
+  argTypes: {
+    htmlProps: { control: false },
+  },
 };
 
 type Story = StoryObj<typeof List>;

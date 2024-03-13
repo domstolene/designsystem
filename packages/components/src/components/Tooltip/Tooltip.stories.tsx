@@ -10,8 +10,11 @@ export default {
   title: 'dds-components/Tooltip',
   component: Tooltip,
   argTypes: {
-    text: { control: { type: 'text' } },
-    delay: { control: { type: 'number' } },
+    text: { control: 'text' },
+    delay: { control: 'number' },
+    htmlProps: { control: false },
+    children: { control: false },
+    tooltipId: { control: false },
   },
   parameters: {
     docs: {

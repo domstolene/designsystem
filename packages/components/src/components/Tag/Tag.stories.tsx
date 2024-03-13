@@ -11,6 +11,9 @@ export default {
   argTypes: {
     text: { control: 'text' },
     withIcon: { control: 'boolean' },
+    strong: { control: 'boolean' },
+    children: { control: 'text' },
+    htmlProps: { control: false },
   },
 };
 

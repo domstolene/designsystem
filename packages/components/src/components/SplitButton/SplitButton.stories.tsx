@@ -14,6 +14,11 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
+  argTypes: {
+    htmlProps: { control: false },
+    secondaryActions: { control: false },
+    primaryAction: { control: false },
+  },
 };
 
 const items = [

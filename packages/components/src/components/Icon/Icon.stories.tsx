@@ -9,7 +9,9 @@ export default {
   title: 'dds-components/Icon',
   component: Icon,
   argTypes: {
-    color: { control: { type: 'text' } },
+    color: { control: 'text' },
+    htmlProps: { control: false },
+    icon: { control: false },
   },
   parameters: {
     docs: {

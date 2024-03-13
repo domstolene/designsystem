@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, ArgTypes } from '@storybook/blocks';
+import { Story, Canvas, Meta, ArgTypes, Controls } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
@@ -16,20 +16,15 @@ import * as StackStories from './Stack.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Stack"
 />
 
-## Demo
-
-<Canvas>
-  {/* <Story id="dds-components-stack--v-stack-overview" /> is deprecated, please migrate it to <Story of={referenceToStory} /> see: https://storybook.js.org/migration-guides/7.0 */}
-
-  <Story id="dds-components-stack--v-stack-overview" />
-</Canvas>
-
-<LinkToInteractiveStory href={`${SB_DESIGNSYSTEM_URL}dds-components-stack`} />
-
 ## Oversikt
 
 `<VStack>` og `<HStack>` er komponenter som skal hjelpe deg med layout.
 De lar deg respektivt legge elementer i en kolonne eller rad.
+
+## Props
+
+<Canvas of={StackStories.VStackDefault} />
+<Controls of={StackStories.VStackDefault} />
 
 ## Bruk i koden
 
@@ -48,9 +43,5 @@ De lar deg respektivt legge elementer i en kolonne eller rad.
   <div />
 </HStack>
 `} />
-
-## API
-
-<ArgTypes of={StackStories.VStackOverview} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.

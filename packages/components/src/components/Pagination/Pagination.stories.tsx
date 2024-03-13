@@ -15,6 +15,8 @@ export default {
     smallScreen: { control: 'boolean' },
     defaultItemsPerPage: { control: 'number' },
     defaultActivePage: { control: 'number' },
+    selectOptions: { control: false },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

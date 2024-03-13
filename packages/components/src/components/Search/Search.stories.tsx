@@ -9,8 +9,9 @@ export default {
   title: 'dds-components/Search',
   component: Search,
   argTypes: {
-    tip: { control: { type: 'text' } },
-    label: { control: { type: 'text' } },
+    tip: { control: 'text' },
+    label: { control: 'text' },
+    buttonProps: { control: false },
   },
   parameters: {
     docs: {
@@ -34,6 +35,7 @@ const array = [
   'to ord',
   'ghost2',
   'Jan-Ole Olsen',
+  'Jan-Ole Osten',
   'Øst-Agder',
 ];
 

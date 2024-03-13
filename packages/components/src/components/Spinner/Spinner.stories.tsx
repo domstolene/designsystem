@@ -8,9 +8,10 @@ export default {
   title: 'dds-components/Spinner',
   component: Spinner,
   argTypes: {
-    color: { control: { type: 'text' } },
-    size: { control: { type: 'text' } },
-    tooltip: { control: { type: 'text' }, defaultValue: 'Innlasting pågår' },
+    color: { control: 'text' },
+    size: { control: 'text' },
+    tooltip: { control: 'text', defaultValue: 'Innlasting pågår' },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {
