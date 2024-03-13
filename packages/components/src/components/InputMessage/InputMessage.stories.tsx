@@ -23,7 +23,7 @@ type Story = StoryObj<typeof InputMessage>;
 export const Default: Story = {
   args: {
     messageType: 'error',
-    message: 'feilmelding',
+    message: 'Feilmelding',
   },
   decorators: Story => (
     <StoryTemplate>
@@ -40,8 +40,8 @@ export const Overview: Story = {
   ),
   render: args => (
     <>
-      <InputMessage {...args} messageType="error" message="feilmelding" />
-      <InputMessage {...args} messageType="tip" message="hjelpetekst" />
+      <InputMessage {...args} messageType="error" message="Feilmelding" />
+      <InputMessage {...args} messageType="tip" message="Hjelpetekst" />
     </>
   ),
 };

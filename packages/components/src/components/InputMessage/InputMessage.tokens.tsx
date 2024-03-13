@@ -8,9 +8,11 @@ const message = {
   },
   error: {
     padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
-    color: colors.DdsColorDangerBase,
     backgroundColor: colors.DdsColorDangerLightest,
-    gap: spacing.SizesDdsSpacingX05,
+    gap: spacing.SizesDdsSpacingX025,
+    icon: {
+      color: colors.DdsColorDangerDark,
+    },
   },
 };
 

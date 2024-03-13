@@ -19,14 +19,12 @@ const InputMessageWrapper = styled.div.withConfig({
   word-break: break-word;
   max-width: 100%;
   ${({ messageType }) =>
-    messageType === 'error'
-      ? css`
-          color: ${tokens.message.error.color};
-          background-color: ${tokens.message.error.backgroundColor};
-          padding: ${tokens.message.error.padding};
-          gap: ${tokens.message.error.gap};
-        `
-      : ''}
+    messageType === 'error' &&
+    css`
+      background-color: ${tokens.message.error.backgroundColor};
+      padding: ${tokens.message.error.padding};
+      gap: ${tokens.message.error.gap};
+    `}
   svg {
     margin-top: ${tokens.icon.marginTop};
   }
@@ -58,14 +56,18 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
 
     return (
       <InputMessageWrapper {...wrapperProps}>
-        {isError && <Icon icon={ErrorIcon} iconSize="inherit" />}
+        {isError && (
+          <Icon
+            icon={ErrorIcon}
+            iconSize="small"
+            color={tokens.message.error.icon.color}
+          />
+        )}
         <Typography
           typographyType={
-            isError ? 'supportingStyleLabel01' : 'supportingStyleHelperText01'
+            isError ? 'bodySans01' : 'supportingStyleHelperText01'
           }
           as="span"
-          bold={isError ? true : undefined}
-          color={isError ? tokens.message.error.color : undefined}
         >
           {message}
         </Typography>
