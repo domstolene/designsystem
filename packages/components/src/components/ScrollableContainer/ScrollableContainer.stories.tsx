@@ -11,7 +11,8 @@ export default {
   title: 'dds-components/ScrollableContainer',
   component: ScrollableContainer,
   argTypes: {
-    contentHeight: { control: { type: 'text' } },
+    contentHeight: { control: 'text' },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

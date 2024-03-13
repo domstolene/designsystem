@@ -14,6 +14,7 @@ export default {
   },
   argTypes: {
     text: { control: { type: 'text' } },
+    htmlProps: { control: false },
   },
 };
 

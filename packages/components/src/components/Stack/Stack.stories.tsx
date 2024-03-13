@@ -1,6 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type StoryObj } from '@storybook/react';
 
-import { HStack, type StackProps, VStack } from './Stack';
+import { HStack, VStack } from './Stack';
 
 export default {
   title: 'dds-components/Stack',
@@ -17,24 +18,36 @@ const ExampleElement = () => (
   />
 );
 
-export const VStackOverview = (args: StackProps) => (
-  <StoryTemplate>
+type Story = StoryObj<typeof VStack>;
+
+export const VStackDefault: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <VStack {...args}>
       <ExampleElement />
       <ExampleElement />
       <ExampleElement />
       <ExampleElement />
     </VStack>
-  </StoryTemplate>
-);
+  ),
+};
 
-export const HStackOverview = (args: StackProps) => (
-  <StoryTemplate>
+export const HStackDefault: Story = {
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
     <HStack {...args}>
       <ExampleElement />
       <ExampleElement />
       <ExampleElement />
       <ExampleElement />
     </HStack>
-  </StoryTemplate>
-);
+  ),
+};

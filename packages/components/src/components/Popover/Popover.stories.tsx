@@ -18,10 +18,13 @@ export default {
   title: 'dds-components/Popover',
   component: Popover,
   argTypes: {
-    withCloseButton: { control: { type: 'boolean' } },
-    placement: { control: { type: 'text' } },
-    title: { control: { type: 'text' } },
-    offset: { control: { type: 'number' } },
+    withCloseButton: { control: 'boolean' },
+    placement: { control: 'text' },
+    title: { control: 'text' },
+    offset: { control: 'number' },
+    htmlProps: { control: false },
+    sizeProps: { control: false },
+    anchorElement: { control: false },
   },
   parameters: {
     docs: {

@@ -41,6 +41,9 @@ const meta: Meta<typeof DatePicker> = {
     errorMessage: {
       control: 'text',
     },
+    width: {
+      control: 'text',
+    },
     isDisabled: {
       control: 'boolean',
     },

@@ -12,8 +12,9 @@ export default {
   title: 'dds-components/SkipToContent',
   component: SkipToContent,
   argTypes: {
-    text: { control: { type: 'text' } },
-    top: { control: { type: 'text' } },
+    text: { control: 'text' },
+    top: { control: 'text' },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

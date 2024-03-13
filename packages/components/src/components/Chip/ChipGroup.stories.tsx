@@ -12,6 +12,9 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
+  argTypes: {
+    htmlProps: { control: false },
+  },
 };
 
 type Story = StoryObj<typeof ChipGroup>;

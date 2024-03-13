@@ -11,11 +11,12 @@ export default {
   component: LocalMessage,
   argTypes: {
     message: {
-      control: { type: 'text' },
+      control: 'text',
       defaultValue: 'En tilfeldig melding',
     },
-    width: { control: { type: 'text' } },
-    closable: { control: { type: 'boolean' } },
+    width: { control: 'text' },
+    closable: { control: 'boolean' },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

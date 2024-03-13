@@ -59,3 +59,8 @@ Header i `<CardAccordion />`. Skal brukes som første barn og den får automatis
 Body i `<CardAccordion />`. Skal brukes som andre barn og den får automatisk riktig `id` fra `<CardAccordion />`. Komponenten har default typografi som kan bli overskrevet ved å bruke `<Typography />` som barneelement(er).
 
 <ArgTypes of={CardAccordionBody} />
+
+## Retningslinjer
+
+- Ikke legg interaktive elementer (knapp, radio, inputfelt...) inni `<CardAccordionHeader />`. Den er allerede en knapp og kan ikke ha nøstet interaksjon.
+- Ikke bruk `<CardAcconrdionHeader />` til å kontrollere andre elementer, som å åpne `<OverflowMenu />` eller en modal.

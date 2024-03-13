@@ -4,7 +4,7 @@ import { type StoryObj } from '@storybook/react';
 import { MailIcon } from '../Icon/icons';
 import { LocalMessage } from '../LocalMessage';
 
-import { TextInput, type TextInputProps } from '.';
+import { TextInput } from '.';
 
 export default {
   title: 'dds-components/TextInput',
@@ -21,6 +21,7 @@ export default {
     readOnly: { control: { type: 'boolean' } },
     prefix: { control: { type: 'text' } },
     suffix: { control: { type: 'text' } },
+    icon: { control: { disable: true } },
   },
   parameters: {
     docs: {
@@ -32,76 +33,6 @@ export default {
 
 type Story = StoryObj<typeof TextInput>;
 
-export const TextInputOverview = (args: TextInputProps) => {
-  return (
-    <StoryTemplate
-      display="grid"
-      $columnsAmount={2}
-      style={{ alignItems: 'end' }}
-    >
-      <TextInput {...args} label={args.label ?? 'Label'} />
-      <TextInput
-        {...args}
-        label={args.label ?? 'Label'}
-        required
-        value="Påkrevd inputfelt"
-      />
-      <TextInput
-        {...args}
-        aria-required
-        label={args.label ?? 'Label'}
-        value="Påkrevd inputfelt med aria-required"
-      />
-      <TextInput
-        {...args}
-        label={args.label ?? 'Label'}
-        disabled
-        value="Disabled inputfelt"
-      />
-      <TextInput
-        {...args}
-        label={args.label ?? 'Label'}
-        readOnly
-        value="Readonly inputfelt"
-      />
-      <TextInput
-        {...args}
-        label={args.label ?? 'Label'}
-        errorMessage={
-          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-        }
-      />
-      <TextInput
-        {...args}
-        label={args.label ?? 'Label'}
-        tip={args.tip ?? 'Dette er en hjelpetekst'}
-      />
-      <TextInput
-        {...args}
-        label={args.label ?? 'Label'}
-        autoComplete="off"
-        tip={args.tip ?? 'Dette er en hjelpetekst med en tegnteller'}
-        maxLength={20}
-      />
-      <TextInput {...args} icon={MailIcon} label={args.label ?? 'Label'} />
-      <TextInput {...args} label={args.label ?? 'Label'} prefix="Prefix" />
-      <TextInput {...args} label={args.label ?? 'Label'} suffix="Suffix" />
-      <TextInput {...args} />
-    </StoryTemplate>
-  );
-};
-
-export const TextInputOverviewSizes = () => (
-  <StoryTemplate display="grid" $columnsAmount={2}>
-    <TextInput label="Label" />
-    <TextInput label="Label" icon={MailIcon} />
-    <TextInput label="Label" componentSize="small" />
-    <TextInput label="Label" componentSize="small" icon={MailIcon} />
-    <TextInput label="Label" componentSize="tiny" />
-    <TextInput label="Label" componentSize="tiny" icon={MailIcon} />
-  </StoryTemplate>
-);
-
 export const Default: Story = {
   args: { label: 'Label' },
   decorators: Story => (
@@ -111,27 +42,103 @@ export const Default: Story = {
   ),
 };
 
-export const WithCharacterCount = (args: TextInputProps) => {
-  return (
-    <StoryTemplate>
-      <TextInput {...args} maxLength={25} label={args.label ?? 'Label'} />
+export const Overview: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate
+      display="grid"
+      $columnsAmount={2}
+      style={{ alignItems: 'end' }}
+    >
+      <Story />
     </StoryTemplate>
-  );
+  ),
+  render: args => (
+    <>
+      <TextInput {...args} />
+      <TextInput {...args} required value="Påkrevd inputfelt" />
+
+      <TextInput {...args} disabled value="Disabled inputfelt" />
+      <TextInput {...args} readOnly value="Readonly inputfelt" />
+      <TextInput
+        {...args}
+        errorMessage={
+          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
+        }
+      />
+      <TextInput {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+      <TextInput
+        {...args}
+        autoComplete="off"
+        tip={args.tip ?? 'Dette er en hjelpetekst med en tegnteller'}
+        maxLength={20}
+      />
+      <TextInput {...args} icon={MailIcon} />
+      <TextInput {...args} prefix="Prefix" />
+      <TextInput {...args} suffix="Suffix" />
+    </>
+  ),
 };
 
-export const TextInputAffixes = (args: TextInputProps) => (
-  <StoryTemplate display="grid" $columnsAmount={1}>
-    <LocalMessage purpose="tips">
-      <strong>OBS!</strong> Skjermleser leser ikke opp affixes. Husk derfor å
-      inkludere en tilstrekkelig beskrivende label i tillegg.
-    </LocalMessage>
-    <TextInput {...args} prefix="Prefix" label="Med prefix" />
-    <TextInput {...args} suffix="Suffix" label="Med suffix" />
-    <TextInput
-      {...args}
-      prefix="Prefix"
-      suffix="Suffix"
-      label="Med prefix og suffix"
-    />
-  </StoryTemplate>
-);
+export const Sizes: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate display="grid" $columnsAmount={2}>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <TextInput {...args} />
+      <TextInput {...args} icon={MailIcon} />
+      <TextInput {...args} componentSize="small" />
+      <TextInput {...args} componentSize="small" icon={MailIcon} />
+      <TextInput {...args} componentSize="tiny" />
+      <TextInput {...args} componentSize="tiny" icon={MailIcon} />
+    </>
+  ),
+};
+
+export const WithAffixes: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <LocalMessage purpose="tips">
+        <strong>OBS!</strong> Skjermleser leser ikke opp affixes. Husk derfor å
+        inkludere en tilstrekkelig beskrivende label i tillegg.
+      </LocalMessage>
+      <TextInput {...args} prefix="Prefix" label="Med prefix" />
+      <TextInput {...args} suffix="Suffix" label="Med suffix" />
+      <TextInput
+        {...args}
+        prefix="Prefix"
+        suffix="Suffix"
+        label="Med prefix og suffix"
+      />
+    </>
+  ),
+};
+
+export const WithCharacterCount: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => <TextInput {...args} maxLength={25} />,
+};
+
+export const WithAriaRequired: Story = {
+  args: { label: 'Label', 'aria-required': true },
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
+  ),
+};

@@ -7,7 +7,8 @@ export default {
   title: 'dds-components/InputMessage',
   component: InputMessage,
   argTypes: {
-    message: { control: { type: 'text' } },
+    message: { control: 'text' },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

@@ -46,6 +46,12 @@ export default {
     thumbDownTooltip: {
       control: 'text',
     },
+    ratingSubmittedTitle: {
+      control: 'text',
+    },
+    submittedTitle: {
+      control: 'text',
+    },
     feedbackTextAreaExcluded: {
       control: 'boolean',
     },

@@ -8,6 +8,8 @@ export default {
   component: ToggleButtonGroup,
   argTypes: {
     label: { control: 'text' },
+    htmlProps: { control: false },
+    labelId: { control: false },
   },
   parameters: {
     docs: {

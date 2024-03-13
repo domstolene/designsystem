@@ -23,6 +23,10 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
+  argTypes: {
+    htmlProps: { control: false },
+    cardRef: { control: false },
+  },
 };
 
 type Story = StoryObj<typeof Card>;

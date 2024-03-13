@@ -15,6 +15,13 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
+  argTypes: {
+    isOpen: { control: false },
+    htmlProps: { control: false },
+    triggerRef: { control: false },
+    parentElement: { control: false },
+    widthProps: { control: false },
+  },
 };
 
 type Story = StoryObj<typeof Drawer>;
