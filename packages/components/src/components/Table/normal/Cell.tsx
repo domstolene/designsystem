@@ -16,11 +16,11 @@ const getLayoutStyle = (layout: TableCellLayout) => {
   switch (layout) {
     case 'center':
       return css`
-        justify-content: center;
+        text-align: center;
       `;
     case 'right':
       return css`
-        justify-content: flex-end;
+        text-align: right;
       `;
     case 'text and icon':
       return css`
@@ -34,12 +34,14 @@ const getLayoutStyle = (layout: TableCellLayout) => {
 
 const StyledCell = styled.td<{
   $type: TableCellType;
+  $layout?: TableCellLayout;
 }>`
   ${({ $type: type }) =>
     type === 'head' &&
     css`
       background-color: ${cell.head.backgroundColor};
     `}
+  ${({ $layout: layout }) => layout && getLayoutStyle(layout)}
 `;
 
 const InnerCell = styled.div<{ $layout: TableCellLayout }>`
@@ -60,7 +62,7 @@ export type TableCellProps = {
    * @default 'data' hvis den er brukt i `<Table.Body>` eller `<Table.Foot>`, 'head' hvis den er i `<Table.Head>`.
    */
   type?: TableCellType;
-  /**Layout av innholdet i cellen. 'tekst and icon' legger `gap` mellom barna og andre barnet i cellen.  */
+  /**Layout av innholdet i cellen; legger en flex `<div>` i cellen, unntatt 'none' som ikke legger inn noe. 'tekst and icon' legger `gap` mellom barna og andre barnet i cellen.  */
   layout?: TableCellLayout;
   /** Props ved bruk av `<CollapsibleRow>`. **OBS!** settes automatisk av forelder. */
   collapsibleProps?: CollapsibleProps;
@@ -89,12 +91,23 @@ export const Cell = forwardRef<HTMLTableCellElement, TableCellProps>(
     const as: ElementType = getTableCellType(type);
 
     const { isCollapsibleChild } = collapsibleProps ?? {};
+    const isComplexLayout = layout === 'text and icon';
 
     return isCollapsibleChild ? (
       <DescriptionListDesc>{children}</DescriptionListDesc>
     ) : (
-      <StyledCell as={as} ref={ref} $type={type} {...rest}>
-        <InnerCell $layout={layout}>{children}</InnerCell>
+      <StyledCell
+        as={as}
+        ref={ref}
+        $layout={isComplexLayout ? undefined : layout}
+        $type={type}
+        {...rest}
+      >
+        {isComplexLayout ? (
+          <InnerCell $layout={layout}>{children}</InnerCell>
+        ) : (
+          children
+        )}
       </StyledCell>
     );
   },
