@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 15.7.0
+
+### Minor Changes
+
+- 8f038bb: Ny prop `hideFileList` i `<FileUploader />`. Brukes hvis man lager custom filliste og skal skjule den som er i komponenten.
+
+### Patch Changes
+
+- d080d03: Fikser kontrast i `<InputMessage />`
+- 86b46dd: Eksporter styling for Grid
+- 999ed9e: `layout`-prop pleide å legge til en flex `<div>` i en celle for å styre layout; det er som regel unødvendig.Fjerner div-en for alle varianter av layout unntatt tekst og ikon. Bruker `text-align` direkte på cellen i de andre variantene.
+- 821d255: Fikser spacing for `smallScreen` versjon av `<InternalHeader />`, slik at den tar mindre plass.
+
 ## 15.6.0
 
 ### Minor Changes
