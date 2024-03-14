@@ -16,7 +16,7 @@ interface StyledGridProps {
   rowGap?: RowGapGrid;
 }
 
-const getHooksGridStyling = (
+export const getHooksGridStyling = (
   screenSize: ScreenSize,
   maxWidth?: MaxWidthGrid,
   rowGap?: RowGapGrid,
