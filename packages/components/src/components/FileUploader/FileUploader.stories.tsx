@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { FileUploader } from './FileUploader';
 import { VStack } from '../Stack';
+import { Heading, Paragraph } from '../Typography';
 
 export default {
   title: 'dds-components/FileUploader',
@@ -164,6 +165,43 @@ export const Pdf: Story = {
         }}
         accept={['.pdf', 'application/pdf']}
       />
+    );
+  },
+};
+
+export const CustomFileList: Story = {
+  args: { label: 'Last opp fil' },
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => {
+    const [files, setFiles] = useState<Array<File>>([]);
+    return (
+      <>
+        <Paragraph withMargins>Last opp en fil for å se listen.</Paragraph>
+        <FileUploader
+          {...args}
+          hideFileList
+          initialFiles={files}
+          onChange={files => {
+            setFiles(files);
+          }}
+        />
+        {files.length > 0 && (
+          <>
+            <Heading withMargins level={4}>
+              Filer
+            </Heading>
+            <ul>
+              {files.map(file => (
+                <li key={file.name}>{file.name}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </>
     );
   },
 };

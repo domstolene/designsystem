@@ -79,6 +79,8 @@ export type FileUploaderProps = {
   width?: Property.Width<string>;
   /**Om drag-and-drop zone skal vises. */
   withDragAndDrop?: boolean;
+  /**Om listen med opplastede filer skal skjules. Brukes kun hvis listen blir vist på egen måte. */
+  hideFileList?: boolean;
 } & Partial<FileUploaderHookProps>;
 
 export const FileUploader = (props: FileUploaderProps) => {
@@ -96,6 +98,7 @@ export const FileUploader = (props: FileUploaderProps) => {
     onChange,
     width,
     errorMessage,
+    hideFileList,
   } = props;
 
   const generatedId = useId();
@@ -192,8 +195,7 @@ export const FileUploader = (props: FileUploaderProps) => {
         </NoZoneContainer>
       )}
       <ErrorList errors={rootErrorsList} />
-
-      <FileListElement>{fileListElements}</FileListElement>
+      {!hideFileList && <FileListElement>{fileListElements}</FileListElement>}
     </Wrapper>
   );
 };
