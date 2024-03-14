@@ -26,6 +26,17 @@ import * as FileUploaderStories from './FileUploader.stories';
   code={`
 import { FileUploader } from '@norges-domstoler/dds-components';
 
-<FileUploader onChange={(newFiles) => ...} />
-`}
+const [files, setFiles] = useState<Array<File>>([]);
+
+<FileUploader
+  onChange={files => {
+    setFiles(files);
+  }}
 />
+`} />
+
+## Eksempler
+
+### Custom filliste
+
+<Canvas of={FileUploaderStories.CustomFileList} />
