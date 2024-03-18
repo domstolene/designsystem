@@ -1,6 +1,6 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type StoryObj } from '@storybook/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { FileUploader } from './FileUploader';
 import { VStack } from '../Stack';
@@ -76,33 +76,8 @@ const NoZoneUploader = () => {
   );
 };
 
-const PdfUploader = () => {
-  const [files, setFiles] = useState<Array<File>>([]);
-
-  return (
-    <FileUploader
-      label="Last opp PDF"
-      tip="Kun PDF-filer. Maks 2 filer"
-      required
-      initialFiles={files}
-      onChange={files => {
-        setFiles(files);
-      }}
-      accept={['.pdf', 'application/pdf']}
-      maxFiles={2}
-    />
-  );
-};
-
 const WithErrorMessage = () => {
   const [files, setFiles] = useState<Array<File>>([]);
-  const [deferredErrorMessage, setDeferredErrorMessage] = useState('');
-
-  useEffect(() => {
-    setTimeout(() => {
-      setDeferredErrorMessage('Feilmelding som kommer etter 3 sek.');
-    }, 3000);
-  }, []);
 
   return (
     <FileUploader
@@ -113,7 +88,7 @@ const WithErrorMessage = () => {
       onChange={files => {
         setFiles(files);
       }}
-      errorMessage={deferredErrorMessage}
+      errorMessage="Feilmelding"
       maxFiles={2}
     />
   );
@@ -129,7 +104,6 @@ export const Overview: Story = {
   render: () => (
     <VStack gap="x1">
       <SingleFileUploader />
-      <PdfUploader />
       <NoZoneUploader />
       <WithErrorMessage />
     </VStack>

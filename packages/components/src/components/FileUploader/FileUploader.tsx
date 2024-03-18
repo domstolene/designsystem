@@ -125,7 +125,10 @@ export const FileUploader = (props: FileUploaderProps) => {
   const hasRootErrors = rootErrors.length > 0;
   const showRequiredMarker = required;
 
+  const labelId = derivativeIdGenerator(uniqueId, 'label');
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
+  const buttonId = derivativeIdGenerator(uniqueId, 'button');
+  const inputId = derivativeIdGenerator(uniqueId, 'input');
 
   const fileListElements = stateFiles.map((stateFile, index) => (
     <File
@@ -146,7 +149,7 @@ export const FileUploader = (props: FileUploaderProps) => {
   const button = (
     <Button
       {...getButtonProps()}
-      id={uniqueId}
+      id={buttonId}
       size="medium"
       type="button"
       appearance="filled"
@@ -155,6 +158,7 @@ export const FileUploader = (props: FileUploaderProps) => {
       htmlProps={{
         'aria-invalid': hasRootErrors ? true : undefined,
         'aria-describedby': spaceSeparatedIdListGenerator([
+          hasLabel ? labelId : undefined,
           hasTip ? tipId : undefined,
           ...rootErrorsList.map(e => e.id),
         ]),
@@ -165,9 +169,9 @@ export const FileUploader = (props: FileUploaderProps) => {
   );
 
   return (
-    <Wrapper width={width}>
+    <Wrapper width={width} id={uniqueId}>
       {hasLabel && (
-        <Label showRequiredStyling={showRequiredMarker} htmlFor={uniqueId}>
+        <Label id={labelId} showRequiredStyling={showRequiredMarker}>
           {label}
         </Label>
       )}
@@ -180,6 +184,7 @@ export const FileUploader = (props: FileUploaderProps) => {
         >
           <FileUploaderInput
             {...getInputProps()}
+            id={inputId}
             data-testid="file-uploader-input"
           />
           Dra og slipp filer her eller{' '}
