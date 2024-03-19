@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 15.7.1
+
+### Patch Changes
+
+- 450eccf: Markerer alle komponenter som client components
+
 ## 15.7.0
 
 ### Minor Changes
