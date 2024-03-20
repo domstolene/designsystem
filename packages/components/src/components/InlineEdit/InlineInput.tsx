@@ -12,10 +12,10 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { renderInputMessage } from '../../utils/renderInputMessage';
 import { InputContainer, OuterInputContainer } from '../helpers';
 import { Icon } from '../Icon';
 import { EditIcon } from '../Icon/icons';
+import { renderInputMessage } from '../InputMessage';
 
 export type InlineInputProps = BaseInlineInputProps &
   InputHTMLAttributes<HTMLInputElement>;

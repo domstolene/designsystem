@@ -16,7 +16,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { Button } from '../Button';
-import { Paper, focusVisible } from '../helpers';
+import { Paper, focusVisibleInset } from '../helpers';
 import { CloseIcon } from '../Icon/icons';
 import { ScrollableContainer } from '../ScrollableContainer';
 import { Typography } from '../Typography';
@@ -89,7 +89,7 @@ const Container = styled(Paper).withConfig({
 
   &:focus-visible,
   &.focus-visible {
-    ${focusVisible}
+    ${focusVisibleInset}
   }
 `;
 

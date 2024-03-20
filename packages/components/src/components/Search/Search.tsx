@@ -18,7 +18,6 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { renderInputMessage } from '../../utils/renderInputMessage';
 import { Button } from '../Button';
 import {
   Input as BaseInput,
@@ -26,6 +25,7 @@ import {
 } from '../helpers';
 import { Icon, type IconSize } from '../Icon';
 import { CloseSmallIcon, SearchIcon } from '../Icon/icons';
+import { renderInputMessage } from '../InputMessage';
 import { Label, getFontStyling } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
 

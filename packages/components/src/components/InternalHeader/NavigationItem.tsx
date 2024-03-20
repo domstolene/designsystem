@@ -2,7 +2,7 @@ import { type AnchorHTMLAttributes, forwardRef } from 'react';
 import styled from 'styled-components';
 
 import { getNavTokens } from './NavigationItem.tokens';
-import { focusVisibleInset } from '../helpers';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { getFontStyling } from '../Typography';
 
 interface LinkProps {
@@ -32,11 +32,13 @@ export const Link = styled.a<LinkProps>`
   }
   &:focus-visible,
   &.focus-visible {
-    ${focusVisibleInset};
+    ${focusVisible};
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 0.2s;
+    transition:
+      background-color 0.2s,
+      ${focusVisibleTransitionValue};
   }
 `;
 

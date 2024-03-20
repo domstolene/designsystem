@@ -7,9 +7,10 @@ const tabList = {
 };
 const tab = {
   base: {
-    borderBottom: `${border.BordersDdsBorderStyleLightStrokeWeight} solid transparent`,
+    borderBottom: '2px solid transparent',
     color: colors.DdsColorNeutralsGray7,
     padding: spacing.SizesDdsSpacingX05,
+    background: colors.DdsColorNeutralsWhite,
   },
   row: {
     gap: spacing.SizesDdsSpacingX05,
@@ -20,12 +21,10 @@ const tab = {
   active: {
     backgroundColor: colors.DdsColorInteractiveLightest,
     color: colors.DdsColorInteractiveDarkest,
-    boxShadow: `inset 0 -2px 0 0 ${colors.DdsColorInteractiveDarker}`,
     borderColor: colors.DdsColorInteractiveDarker,
   },
   hover: {
     color: colors.DdsColorInteractiveDarkest,
-    boxShadow: `inset 0 -2px 0 0 ${colors.DdsColorInteractiveDarker}`,
     borderColor: colors.DdsColorInteractiveDarker,
   },
 };

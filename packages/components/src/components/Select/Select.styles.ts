@@ -7,6 +7,7 @@ import {
   type InputSize,
   dangerInputfield,
   focusInputfield,
+  focusVisibleInsetSelect,
   hoverDangerInputfield,
   hoverInputfield,
   selection,
@@ -281,8 +282,7 @@ export const getCustomStyles = <TOption>(
       backgroundColor: option.selected.backgroundColor,
     }),
     ...(state.isFocused && {
-      color: option.focus.color,
-      backgroundColor: option.focus.backgroundColor,
+      ...focusVisibleInsetSelect,
     }),
   }),
   noOptionsMessage: () => ({

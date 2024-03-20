@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { tableTokens } from './Table.tokens';
 import { type RowMode, type TableRowType } from './Table.types';
-import { focusVisibleInset } from '../../helpers';
+import { focusVisible } from '../../helpers';
 import { defaultTypographyType, getFontStyling } from '../../Typography';
 
 const { row } = tableTokens;
@@ -64,7 +64,7 @@ export const StyledRow = styled.tr<{
         }
       `}
       &:focus-visible, &.focus-visible {
-        ${focusVisibleInset}
+        ${focusVisible}
       }
     `}
 `;

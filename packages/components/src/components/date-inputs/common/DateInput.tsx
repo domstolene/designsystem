@@ -6,17 +6,20 @@ import {
   type Ref,
   type RefAttributes,
   forwardRef,
+  useContext,
 } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { cn } from '../../../utils';
 import {
   type InputProps,
   OuterInputContainer,
   StatefulInput,
+  focusVisible,
 } from '../../helpers';
 import { InputMessage } from '../../InputMessage';
 import { Label } from '../../Typography';
+import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
 import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
 export type DateInputProps = {
@@ -40,7 +43,11 @@ export type DateInputProps = {
     | 'readOnly'
   >;
 
-const InputDiv = styled(StatefulInput)`
+interface InputDivProps {
+  $calendarIsOpen: boolean;
+}
+
+const InputDiv = styled(StatefulInput)<InputDivProps>`
   display: inline-flex;
   flex-direction: row;
   gap: ${datePickerTokens.gap};
@@ -49,6 +56,15 @@ const InputDiv = styled(StatefulInput)`
     datePickerTokens.datefield[componentSize].paddingX};
   padding-right: ${({ componentSize = 'medium' }) =>
     datePickerTokens.datefield[componentSize].paddingX};
+
+  &:focus-within {
+    ${focusVisible}
+  }
+  ${({ $calendarIsOpen }) =>
+    $calendarIsOpen &&
+    css`
+      ${focusVisible}
+    `}
 `;
 
 const DateSegmentContainer = styled.div`
@@ -83,6 +99,8 @@ function _DateInput(
   const hasLabel = props.label != null;
   const hasMessage = hasErrorMessage || hasTip;
 
+  const { isOpen } = useContext(CalendarPopoverContext);
+
   return (
     <OuterInputContainer
       {...groupProps}
@@ -103,6 +121,7 @@ function _DateInput(
         componentSize={componentSize}
         ref={internalRef}
         hasErrorMessage={hasErrorMessage}
+        $calendarIsOpen={isOpen}
         className={cn(
           disabled && 'disabled',
           active && 'active',

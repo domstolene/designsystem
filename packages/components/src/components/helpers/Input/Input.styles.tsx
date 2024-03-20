@@ -5,8 +5,8 @@ import { inputTypographyTypes, inputTokens as tokens } from './Input.tokens';
 import { getFontStyling } from '../../Typography/Typography/Typography.utils';
 import {
   dangerInputfield,
-  focusDangerInputfield,
   focusInputfield,
+  focusVisibleTransitionValue,
   hoverDangerInputfield,
   hoverInputfield,
   selection,
@@ -32,7 +32,8 @@ export const Input = styled.input`
     transition:
       box-shadow 0.2s,
       border-color 0.2s,
-      background-color 0.2s;
+      background-color 0.2s,
+      ${focusVisibleTransitionValue};
   }
   &[type='text'],
   &[type='password'],
@@ -103,7 +104,7 @@ export const StatefulInput = styled(Input).withConfig({
       &:not(.disabled):focus-within,
       &:focus-within:enabled:read-write,
       &:active:enabled:read-write {
-        ${focusDangerInputfield}
+        border-color: ${input.base.borderColor};
       }
     `}
   &:not(.disabled).read-only,

@@ -9,7 +9,6 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { renderInputMessage } from '../../utils/renderInputMessage';
 import {
   OuterInputContainer,
   StatefulInput,
@@ -17,6 +16,7 @@ import {
   getDefaultText,
   inputTypographyTypes,
 } from '../helpers';
+import { renderInputMessage } from '../InputMessage';
 import { scrollbarStyling } from '../ScrollableContainer';
 import { Label, getFontStyling } from '../Typography';
 

@@ -14,10 +14,10 @@ import {
 } from './OverflowMenu.tokens';
 import { useCombinedRef } from '../../hooks';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { normalizeButton } from '../helpers';
+import { focusVisibleInset, normalizeButton } from '../helpers';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
-import { focusVisibleLink, getFontStyling } from '../Typography';
+import { getFontStyling } from '../Typography';
 
 const { element, link } = tokens;
 
@@ -56,7 +56,7 @@ export const Link = styled.a`
   }
   &:focus-visible,
   &.focus-visible {
-    ${focusVisibleLink}
+    ${focusVisibleInset}
   }
 `;
 

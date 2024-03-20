@@ -1,38 +1,25 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { border: Border, spacing } = ddsBaseTokens;
+const { spacing, colors } = ddsBaseTokens;
 
 export const outlineOffset = spacing.SizesDdsSpacingX0125;
+export const outlineInset = `-${spacing.SizesDdsSpacingX025}`;
 
 export const focusVisible = {
-  outline: `${Border.BordersDdsBorderFocusBaseStrokeWeight} ${Border.BordersDdsBorderFocusBaseStroke} solid`,
+  outline: `${colors.DdsColorInfoDarkest} 2px solid`,
   outlineOffset: outlineOffset,
-};
-export const focusVisibleCard = {
-  outline: `${Border.BordersDdsBorderFocusCardStrokeWeight} ${Border.BordersDdsBorderFocusCardStroke} solid`,
-  outlineOffset: outlineOffset,
-};
-
-export const focusVisibleOnDark = {
-  outline: `${Border.BordersDdsBorderFocusOndarkStrokeWeight} ${Border.BordersDdsBorderFocusOndarkStroke} solid`,
-  outlineOffset: outlineOffset,
+  boxShadow: `0 0 0 2px ${colors.DdsColorInfoLightest}`,
 };
 
 export const focusVisibleTransitionValue = 'outline-offset 0.2s';
 
-export const focusVisibleWithBorder = {
-  outline: 'none',
-  borderColor: Border.BordersDdsBorderFocusCardStroke,
-  boxShadow: `inset 0 0 0 1px ${Border.BordersDdsBorderFocusCardStroke}`,
-};
-
-export const focusVisibleThickWithBorderOnDark = {
-  outline: 'none',
-  borderColor: Border.BordersDdsBorderFocusOndarkStroke,
-  boxShadow: `inset 0 0 0 1px ${Border.BordersDdsBorderFocusOndarkStroke}`,
-};
-
 export const focusVisibleInset = {
-  outline: 'none',
-  boxShadow: `inset 0 0 0 2px ${Border.BordersDdsBorderFocusCardStroke}`,
+  outline: `${colors.DdsColorInfoDarkest} 2px solid`,
+  outlineOffset: outlineInset,
+};
+
+// egen stil siden react-select bruker focus-state og hover-styling samtidig; ikke nødvendig hvis de kan skilles.
+export const focusVisibleInsetSelect = {
+  outline: `${colors.DdsColorInteractiveBase} 2px solid`,
+  outlineOffset: outlineInset,
 };
