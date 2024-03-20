@@ -27,9 +27,9 @@ import {
   searchFilter,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { renderInputMessage } from '../../utils/renderInputMessage';
 import { type InputSize } from '../helpers';
 import { type SvgIcon } from '../Icon/utils';
+import { renderInputMessage } from '../InputMessage';
 import { Label } from '../Typography';
 
 export interface SelectOption<TValue = unknown> {

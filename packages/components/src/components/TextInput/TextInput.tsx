@@ -17,7 +17,6 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { getFormInputIconSize } from '../../utils/icon';
-import { renderInputMessage } from '../../utils/renderInputMessage';
 import {
   InputAffixContainer,
   InputContainer,
@@ -26,6 +25,7 @@ import {
   StatefulInput,
   getDefaultText,
 } from '../helpers';
+import { renderInputMessage } from '../InputMessage';
 import { Label } from '../Typography';
 
 const defaultWidth: Property.Width<string> = '320px';

@@ -1,14 +1,13 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { border } = ddsBaseTokens;
+import { focusVisible } from './focusVisible';
+
+const { colors } = ddsBaseTokens;
 
 export const focusInputfield = {
-  outline: 'none',
-  borderColor: border.BordersDdsBorderFocusInputfieldStroke,
-  boxShadow: `0 0 0 2px ${border.BordersDdsBorderFocusInputfieldStroke}`,
+  ...focusVisible,
 };
 
 export const focusDangerInputfield = {
-  borderColor: border.BordersDdsBorderFocusInputfieldStroke,
-  boxShadow: `0 0 0 2px ${border.BordersDdsBorderFocusInputfieldStroke}`,
+  borderColor: colors.DdsColorInteractiveBase,
 };

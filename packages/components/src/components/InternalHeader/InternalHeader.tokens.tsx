@@ -5,7 +5,7 @@ const { border, colors, spacing } = ddsBaseTokens;
 const bar = {
   backgroundColor: colors.DdsColorNeutralsWhite,
   itemGap: spacing.SizesDdsSpacingX15,
-  minHeight: '57px',
+  minHeight: '58px',
   borderBottom: `${border.BordersDdsBorderStyleLightStroke} solid ${border.BordersDdsBorderStyleLightStrokeWeight}`,
   paddingLeft: spacing.SizesDdsSpacingX15,
   paddingRight: spacing.SizesDdsSpacingX15,

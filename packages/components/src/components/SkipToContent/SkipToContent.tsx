@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { skipToContentTokens as tokens } from './SkipToContent.tokens';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
-import { focusVisibleOnDark, focusVisibleTransitionValue } from '../helpers';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { defaultTypographyType, getFontStyling } from '../Typography';
 
 const { wrapper, link } = tokens;
@@ -49,7 +49,7 @@ const Link = styled.a`
     transition: ${focusVisibleTransitionValue};
   }
   &:focus {
-    ${focusVisibleOnDark}
+    ${focusVisible}
   }
   &:hover {
     color: ${link.base.color};

@@ -18,8 +18,8 @@ import {
   getBaseHTMLProps,
 } from '../../../types';
 import { combineHandlers } from '../../../utils';
-import { renderInputMessage } from '../../../utils/renderInputMessage';
 import { RequiredMarker } from '../../helpers';
+import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
 import {
   GroupContainer,

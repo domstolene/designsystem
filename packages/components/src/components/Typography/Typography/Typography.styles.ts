@@ -1,4 +1,3 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type ElementType } from 'react';
 import { type CSSObject, css } from 'styled-components';
 
@@ -8,26 +7,8 @@ import {
   type TypographyType,
 } from './Typography.types';
 import { isHeading, isInlineElement, isLegend } from './Typography.utils';
+import { focusVisible, focusVisibleTransitionValue } from '../../helpers';
 import { typographyTokens as tokens } from '../Typography.tokens';
-
-const { border, colors } = ddsBaseTokens;
-
-export const focusVisibleLink = {
-  outline: 'none',
-  backgroundColor: border.BordersDdsBorderFocusBaseStroke,
-  color: colors.DdsColorNeutralsWhite,
-  textDecoration: 'none',
-};
-
-export const focusVisibleLinkOnDark = {
-  outline: 'none',
-  backgroundColor: border.BordersDdsBorderFocusOndarkStroke,
-  color: colors.DdsColorNeutralsGray9,
-  textDecoration: 'none',
-};
-
-export const focusVisibleLinkTransitionValue =
-  'background-color 0.2s, text-decoration 0.2s, color 0.2s';
 
 export const getAdditionalFontStyle = (
   bold?: boolean,
@@ -99,7 +80,7 @@ export const getAnchorStyling = (
   width: fit-content;
   text-decoration: underline;
   @media (prefers-reduced-motion: no-preference) {
-    transition: ${focusVisibleLinkTransitionValue};
+    transition: ${focusVisibleTransitionValue};
   }
   ${external &&
   css`
@@ -124,6 +105,6 @@ export const getAnchorStyling = (
     }
   `}
   &:focus-visible, &.focus-visible, &:focus-visible::selection, &.focus-visible::selection {
-    ${focusVisibleLink}
+    ${focusVisible}
   }
 `;

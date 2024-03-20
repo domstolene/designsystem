@@ -22,7 +22,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import {
-  focusVisible,
+  focusVisibleInset,
   focusVisibleTransitionValue,
   normalizeButton,
   removeButtonStyling,
@@ -46,6 +46,7 @@ const Button = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   border-bottom: ${tab.base.borderBottom};
+  background: ${tab.base.background};
   color: ${tab.base.color};
   padding: ${tab.base.padding};
   ${getFontStyling(defaultTypographyType)}
@@ -69,18 +70,15 @@ const Button = styled.button<ButtonProps>`
       background-color: ${tab.active.backgroundColor};
       border-color: ${tab.active.borderColor};
       color: ${tab.active.color};
-      box-shadow: ${tab.active.boxShadow};
     `}
 
   &:focus-visible {
-    ${focusVisible}
-    outline-offset: -1px;
+    ${focusVisibleInset}
   }
 
   &:hover {
     border-color: ${tab.hover.borderColor};
     color: ${tab.hover.color};
-    box-shadow: ${tab.hover.boxShadow};
   }
 `;
 

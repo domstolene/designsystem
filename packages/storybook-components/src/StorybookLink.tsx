@@ -5,7 +5,7 @@ import {
 import { type ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 
-const { border, colors } = ddsBaseTokens;
+const { border, colors, spacing } = ddsBaseTokens;
 const { textDefault } = ddsReferenceTokens;
 
 import {
@@ -46,10 +46,10 @@ export const hoverWithBorder = {
   boxShadow: `inset 0 0 0 1px ${border.BordersDdsBorderFocusInputfieldStroke}`,
 };
 
-export const focusVisibleWithBorder = {
-  outline: 'none',
-  borderColor: border.BordersDdsBorderFocusCardStroke,
-  boxShadow: `inset 0 0 0 1px ${border.BordersDdsBorderFocusCardStroke}`,
+export const focusVisible = {
+  outline: `${colors.DdsColorInfoDarkest} 2px solid`,
+  outlineOffset: spacing.SizesDdsSpacingX0125,
+  boxShadow: `0 0 0 2px ${colors.DdsColorInfoLightest}`,
 };
 
 const StyledCard = styled.a<{ size: Size }>`
@@ -66,7 +66,7 @@ const StyledCard = styled.a<{ size: Size }>`
     ${hoverWithBorder}
   }
   &:focus {
-    ${focusVisibleWithBorder}
+    ${focusVisible}
   }
 `;
 
