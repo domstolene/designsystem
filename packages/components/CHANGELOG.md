@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 15.8.0
+
+### Minor Changes
+
+- ecdbd99: Roten får `id` istedenfor `<input>` i `<FileUploader />`. Filopplasteren er en kompleks komponent, og det kan være relevant å lett få taket i alle barna. De får id som er id på rot + suffix: `<input>` har `id-input`, `<label>` har `id-label`, `<button>` har `id-button`.
+
+### Patch Changes
+
+- 6f46253: Oppdaterer og standariserer fokusmarkering på tvers av komponenter. Det blir en dobbel fokusring, en lys og en mørk, slik at den fungerer på både mørke og lyse bakgrunn. Da slipper man å reversere fargen for bedre kontrast.
+- ecdbd99: Mer støtte for skjermleser i `<FileUploader />`
+
 ## 15.7.1
 
 ### Patch Changes
