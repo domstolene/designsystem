@@ -54,3 +54,11 @@ export type {
   TableCellLayout,
   TableCellType,
 };
+
+export { TableWrapper };
+export { Head as TableHead };
+export { Body as TableBody };
+export { Cell as TableCell };
+export { SortCell as TableSortCell };
+export { Row as TableRow };
+export { Foot as TableFoot };

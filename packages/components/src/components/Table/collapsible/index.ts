@@ -11,3 +11,4 @@ const CollapsibleTable = BaseCollapsibleTable as CollapsibleTableCompoundProps;
 CollapsibleTable.Row = CollapsibleRow;
 
 export { CollapsibleTable, type CollapsibleTableProps };
+export { CollapsibleRow as CollapsibleTableRow };

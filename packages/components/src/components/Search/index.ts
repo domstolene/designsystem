@@ -34,3 +34,6 @@ export type {
   SearchAutocompleteWrapperProps,
   SearchSuggestionsProps,
 };
+
+export { SearchAutocompleteWrapper };
+export { SearchSuggestions };
