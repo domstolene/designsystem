@@ -1,6 +1,17 @@
-export { CollapsibleTable, type CollapsibleTableProps } from './collapsible';
+export {
+  CollapsibleTable,
+  CollapsibleTableRow,
+  type CollapsibleTableProps,
+} from './collapsible';
 export {
   Table,
+  TableBody,
+  TableCell,
+  TableFoot,
+  TableHead,
+  TableRow,
+  TableSortCell,
+  TableWrapper,
   type TableCellProps,
   type TableDensity,
   type TableProps,
