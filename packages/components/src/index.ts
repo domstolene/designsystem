@@ -9,6 +9,7 @@ export * from './components/AppShell';
 export * from './components/BackLink';
 export * from './components/Breadcrumbs';
 export * from './components/Button';
+export * from './components/ButtonGroup';
 export * from './components/Card';
 export * from './components/Chip';
 export * from './components/date-inputs';
