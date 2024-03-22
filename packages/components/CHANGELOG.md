@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 15.9.0
+
+### Minor Changes
+
+- bca6aeb: Ny komponent: `<ButtonGroup />`. Brukes til gruppering av flere relaterte `<Button />`.
+- a5d3917: Compound components i fungerer ikke i server components; disse er nå tilgjengelige som vanlige komponenter i tillegg til compound. Dette gjelder komponentene under `<Table />`, `<ProgressTracker />` og `<Search />`. Eksempel på syntaks: `<Table.Head />` => `<TableHead />`.
+
 ## 15.8.0
 
 ### Minor Changes
