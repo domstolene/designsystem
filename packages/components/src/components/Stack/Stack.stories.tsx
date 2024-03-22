@@ -5,7 +5,12 @@ import { HStack, VStack } from './Stack';
 
 export default {
   title: 'dds-components/Stack',
-  component: VStack,
+  component: HStack,
+  argTypes: {
+    htmlProps: { control: false },
+    align: { control: 'text' },
+    justify: { control: 'text' },
+  },
 };
 
 const ExampleElement = () => (
