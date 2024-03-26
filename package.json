@@ -61,7 +61,7 @@
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "7.6.17",
+    "storybook": "8.0.4",
     "styled-components": "^6.1.8",
     "tsup": "^8.0.2",
     "turbo": "^1.13.0"
