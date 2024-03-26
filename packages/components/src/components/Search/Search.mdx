@@ -20,12 +20,14 @@ import * as SearchStories from './Search.stories';
 
 Følgende komponenter er tilgjengelige:
 
-- **`<Search>`** - søkelfelt; tilsvarer `<input type="search">` og kan vise en søkeknapp hvis ønsket.
-- **`<Search.AutocompleteWrapper>`** - wrapper for `<Search>` som håndterer autofullføringsforslag hvis ønsket.
+- **`<Search />`** - søkelfelt; tilsvarer `<input type="search">` og kan vise en søkeknapp hvis ønsket.
+- **`<Search.AutocompleteWrapper />`** - wrapper for `<Search>` som håndterer autofullføringsforslag hvis ønsket.
   Den rendrer en liste med forslag under søkefeltet basert på brukerens input.
   Støtter en rekke custom props.
-- **`<Search.Suggestions>`** - selve listen med forslag.
-  Brukes under panseret i `<Search.AutocompleteWrapper>`, men kan brukes uten wrapper hvis konsumenten skal håndtere oppførselen selv.
+- **`<Search.Suggestions />`** - selve listen med forslag.
+  Brukes under panseret i `<Search.AutocompleteWrapper />`, men kan brukes uten wrapper hvis konsumenten skal håndtere oppførselen selv.
+
+Ikke-compound komponenter er også støttet: `<SearchAutocompleteWrapper />`, `<SearchSuggestions />`.
 
 ## Props
 

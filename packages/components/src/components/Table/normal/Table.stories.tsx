@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
 import {
@@ -18,7 +18,7 @@ import { Link, Paragraph } from '../../Typography';
 
 import { type SortOrder, Table } from '.';
 
-export default {
+const meta: Meta<typeof Table> = {
   title: 'dds-components/Table/Table',
   component: Table,
   argTypes: {
@@ -40,6 +40,8 @@ export default {
     },
   },
 };
+
+export default meta;
 
 type Story = StoryObj<typeof Table>;
 
