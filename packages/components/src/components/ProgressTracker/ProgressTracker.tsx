@@ -40,7 +40,7 @@ const ProgressTrackerConnector = styled.div`
     ${progressTrackerTokens.connector.color};
 `;
 
-type ProgressTrackerProps = BaseComponentPropsWithChildren<
+export type ProgressTrackerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
     /** Indeksen til det aktive steget. */

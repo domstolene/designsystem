@@ -1,4 +1,5 @@
 import { Canvas, Story, Meta, ArgTypes, Controls } from '@storybook/blocks';
+import { TableRow } from '.';
 import { Table, CollapsibleTable } from '../';
 import { Tag } from '../../Tag';
 import {
@@ -29,7 +30,9 @@ Tabeller bygges ved å bruke styled versjoner av native HTML elementer. Disse ko
 - **Subkomponenter:** `<Table.Head />`, `<Table.Body />`, `<Table.Foot />`, `<Table.Row />`, `<Table.Cell />`, `<Table.SortCell />`.
 - **`<CollapsibleTable />`** - variant av tabell som kan kollapses, med tilhørende rad-komponent: `<CollapsibleTable.Row>`.
 
-Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel, mens andre har kun native props, som forklart i API.
+Enkelte subkomponenter har props for å sørge for riktig styling og oppførsel, mens andre har kun native props.
+
+Ikke-compound komponenter er også støttet: `<TableWrapper />`, `<TableHead />`, `<TableBody />`, `<TableFoot />`, `<TableRow />`, `<TableCell />`, `<TableSortCell />`, `<CollapsibleTableRow>`.
 
 ## Varianter
 
@@ -80,7 +83,7 @@ Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTable
 
 Tilsvarer `<tr>`.
 
-<ArgTypes of={Table.Row} />
+<ArgTypes of={TableRow} />
 
 Støtter alle native HTML-attributter som er en del av `HTMLAttributes<HTMLTableSectionElement>`-interface.
 

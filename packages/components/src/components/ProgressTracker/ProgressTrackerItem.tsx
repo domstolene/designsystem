@@ -43,7 +43,7 @@ interface ItemStyleProps {
   $state: ItemState;
 }
 
-interface BaseItemProps {
+export interface BaseItemProps {
   /** Om steget er valgt eller ikke. Settes av konsument. */
   active?: boolean;
 
@@ -63,13 +63,19 @@ interface BaseItemProps {
 }
 
 export type ProgressTrackerItemProps =
-  | ({
-      /** Click-handler som gjør det mulig for bruker å klikke på steget for å navigere. Valgfri. */
-      onClick: (index: number) => void;
-    } & BaseComponentPropsWithChildren<HTMLButtonElement, BaseItemProps>)
-  | ({
-      onClick?: undefined;
-    } & BaseComponentPropsWithChildren<HTMLDivElement, BaseItemProps>);
+  | BaseComponentPropsWithChildren<
+      HTMLButtonElement,
+      BaseItemProps & {
+        /** Click-handler som gjør det mulig for bruker å klikke på steget for å navigere. Valgfri. */
+        onClick: (index: number) => void;
+      }
+    >
+  | BaseComponentPropsWithChildren<
+      HTMLDivElement,
+      BaseItemProps & {
+        onClick?: undefined;
+      }
+    >;
 
 const ItemWrapper = styled.li`
   flex: 1;
