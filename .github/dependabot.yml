@@ -21,3 +21,4 @@ updates:
       storybook:
         patterns:
           - '@storybook/*'
+          - 'storybook'
