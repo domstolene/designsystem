@@ -35,6 +35,7 @@ export const CustomSelectionControl = styled.span<{
     content: '';
     position: absolute;
     display: none;
+    box-sizing: border-box;
   }
 `;
 
