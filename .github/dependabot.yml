@@ -18,3 +18,6 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+      storybook:
+        patterns:
+          - '@storybook/*'
