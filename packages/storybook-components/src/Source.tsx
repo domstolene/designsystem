@@ -1,7 +1,20 @@
 import { Source as StorybookSource } from '@storybook/addon-docs';
 
+type SupportedLanguage =
+  | 'jsextra'
+  | 'jsx'
+  | 'json'
+  | 'yml'
+  | 'md'
+  | 'bash'
+  | 'css'
+  | 'html'
+  | 'tsx'
+  | 'typescript'
+  | 'graphql';
+
 interface SourceProps {
-  language?: string;
+  language?: SupportedLanguage;
   code?: string;
 }
 
