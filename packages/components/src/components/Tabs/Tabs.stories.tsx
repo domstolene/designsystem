@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { NotificationsIcon } from '../Icon/icons';
@@ -12,18 +12,12 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 export default {
   title: 'dds-components/Tabs',
   component: Tabs,
-  subcomponents: {
-    TabList: TabList,
-    Tab: Tab,
-    TabPanel: TabPanel,
-    TabPanels: TabPanels,
-  },
   argTypes: {
     width: { control: 'text' },
     htmlProps: { control: false },
     activeTab: { control: 'number' },
   },
-};
+} satisfies Meta<typeof Tabs>;
 
 type Story = StoryObj<typeof Tabs>;
 

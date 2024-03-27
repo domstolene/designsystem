@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { PlusCircledIcon } from '../Icon/icons';
@@ -22,7 +22,7 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-};
+} satisfies Meta<typeof ToggleBar>;
 
 type Story = StoryObj<typeof ToggleBar>;
 

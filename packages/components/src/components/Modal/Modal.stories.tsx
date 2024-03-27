@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
 import { Button } from '../Button';
@@ -23,7 +23,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof Modal>;
 
 type Story = StoryObj<typeof Modal>;
 

@@ -39,6 +39,30 @@ export const Default: Story = {
   ),
 };
 
+export const Overview: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate display="grid" $columnsAmount={2}>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <TimePicker {...args} />
+      <TimePicker {...args} isRequired />
+      <TimePicker {...args} isDisabled />
+      <TimePicker {...args} isReadOnly />
+      <TimePicker
+        {...args}
+        errorMessage={
+          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
+        }
+      />
+      <TimePicker {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+    </>
+  ),
+};
+
 export const Required: Story = {
   args: { label: 'Tidspunkt', isRequired: true },
   decorators: Story => (

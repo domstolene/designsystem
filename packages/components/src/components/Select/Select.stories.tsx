@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type Meta } from '@storybook/react';
 
 import { CourtIcon } from '../Icon/icons';
 
@@ -25,7 +26,7 @@ export default {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-};
+} satisfies Meta<typeof Select>;
 
 const options = createSelectOptions(
   'Alternativ 1',

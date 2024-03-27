@@ -3,7 +3,7 @@ import {
   ddsReferenceTokens,
 } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { type Placement } from '../../hooks';
@@ -32,7 +32,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof Popover>;
 
 type Story = StoryObj<typeof Popover>;
 

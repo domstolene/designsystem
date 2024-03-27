@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
 import { MenuIcon, PlusCircledIcon } from '../Icon/icons';
@@ -20,7 +20,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof OverflowMenu>;
 
 const items: Array<OverflowMenuContextItem> = [
   {

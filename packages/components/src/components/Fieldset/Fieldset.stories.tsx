@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Fieldset } from './Fieldset';
 import { TextInput } from '../TextInput';
@@ -17,7 +17,7 @@ export default {
       story: { inline: true },
     },
   },
-};
+} satisfies Meta<typeof Fieldset>;
 
 type Story = StoryObj<typeof Fieldset>;
 

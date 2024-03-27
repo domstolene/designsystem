@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { InlineButton } from './InlineButton';
@@ -17,7 +17,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof InlineButton>;
 
 type Story = StoryObj<typeof InlineButton>;
 

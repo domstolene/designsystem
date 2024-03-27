@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
@@ -22,7 +22,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof Tooltip>;
 
 type Story = StoryObj<typeof Tooltip>;
 

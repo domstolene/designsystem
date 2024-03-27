@@ -1,4 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type Meta } from '@storybook/react';
 import { useState } from 'react';
 
 import { type InlineEditTextAreaProps } from './InlineEdit.types';
@@ -20,7 +21,7 @@ export default {
       exclude: ['inputRef'],
     },
   },
-};
+} satisfies Meta<typeof InlineEditTextArea>;
 
 export const Overview = (args: InlineEditTextAreaProps) => {
   const [value, setValue] = useState('');

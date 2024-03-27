@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 
@@ -19,7 +19,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof Icon>;
 
 type Story = StoryObj<typeof Icon>;
 

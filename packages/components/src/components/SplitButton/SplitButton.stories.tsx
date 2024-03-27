@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { PlusCircledIcon } from '../Icon/icons';
 
@@ -15,11 +15,10 @@ export default {
     },
   },
   argTypes: {
-    htmlProps: { control: false },
     secondaryActions: { control: false },
     primaryAction: { control: false },
   },
-};
+} satisfies Meta<typeof SplitButton>;
 
 const items = [
   {
