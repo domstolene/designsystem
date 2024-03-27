@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { FileUploader } from './FileUploader';
@@ -28,7 +28,7 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-};
+} satisfies Meta<typeof FileUploader>;
 
 type Story = StoryObj<typeof FileUploader>;
 

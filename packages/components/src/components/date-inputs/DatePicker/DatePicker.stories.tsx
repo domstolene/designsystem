@@ -66,6 +66,30 @@ export const Default: Story = {
   ),
 };
 
+export const Overview: Story = {
+  args: { label: 'Label' },
+  decorators: Story => (
+    <StoryTemplate display="grid" $columnsAmount={2}>
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <>
+      <DatePicker {...args} />
+      <DatePicker {...args} isRequired />
+      <DatePicker {...args} isDisabled />
+      <DatePicker {...args} isReadOnly />
+      <DatePicker
+        {...args}
+        errorMessage={
+          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
+        }
+      />
+      <DatePicker {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+    </>
+  ),
+};
+
 export const Required: Story = {
   args: { label: 'Dato', isRequired: true },
   decorators: Story => (

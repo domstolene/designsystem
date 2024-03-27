@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { MailIcon } from '../Icon/icons';
 import { LocalMessage } from '../LocalMessage';
@@ -29,7 +29,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof TextInput>;
 
 type Story = StoryObj<typeof TextInput>;
 

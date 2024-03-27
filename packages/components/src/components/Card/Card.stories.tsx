@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import styled from 'styled-components';
 
@@ -27,7 +27,7 @@ export default {
     htmlProps: { control: false },
     cardRef: { control: false },
   },
-};
+} satisfies Meta<typeof Card>;
 
 type Story = StoryObj<typeof Card>;
 

@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { ScreenSize, useScreenSize } from '../../hooks';
 import { Button } from '../Button';
@@ -23,7 +23,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof Grid>;
 
 type Story = StoryObj<typeof Grid>;
 

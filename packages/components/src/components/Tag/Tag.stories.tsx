@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { HStack, VStack } from '../Stack';
 
@@ -15,7 +15,7 @@ export default {
     children: { control: 'text' },
     htmlProps: { control: false },
   },
-};
+} satisfies Meta<typeof Tag>;
 
 type Story = StoryObj<typeof Tag>;
 

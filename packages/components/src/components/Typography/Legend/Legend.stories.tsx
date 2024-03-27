@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Legend } from '..';
 
@@ -8,6 +8,7 @@ export default {
   component: Legend,
   argTypes: {
     withMargins: { control: { type: 'boolean' } },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {
@@ -15,7 +16,7 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-};
+} satisfies Meta<typeof Legend>;
 
 type Story = StoryObj<typeof Legend>;
 

@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Chip } from '.';
 
@@ -16,7 +16,7 @@ export default {
     text: { control: { type: 'text' } },
     htmlProps: { control: false },
   },
-};
+} satisfies Meta<typeof Chip>;
 
 type Story = StoryObj<typeof Chip>;
 

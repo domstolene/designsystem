@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 
@@ -18,7 +18,7 @@ export default {
     role: { control: 'text' },
     htmlProps: { control: false },
   },
-};
+} satisfies Meta<typeof ButtonGroup>;
 
 type Story = StoryObj<typeof ButtonGroup>;
 

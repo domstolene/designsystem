@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { HStack, VStack } from './Stack';
 
@@ -11,7 +11,7 @@ export default {
     align: { control: 'text' },
     justify: { control: 'text' },
   },
-};
+} satisfies Meta<typeof HStack>;
 
 const ExampleElement = () => (
   <div

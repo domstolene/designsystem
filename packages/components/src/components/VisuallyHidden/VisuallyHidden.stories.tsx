@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
 import { Table } from '../Table/normal';
@@ -19,7 +19,7 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-};
+} satisfies Meta<typeof VisuallyHidden>;
 
 type Story = StoryObj<typeof VisuallyHidden>;
 
@@ -73,8 +73,8 @@ export const TableButtons: Story = {
   ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: _args => (
-    <Table.Wrapper>
-      <Table density="compact">
+    <Table.Wrapper style={{ width: '100%' }}>
+      <Table density="compact" style={{ width: '100%' }}>
         <Table.Head>
           <Table.Row type="head">
             <Table.Cell type="head">Bruker</Table.Cell>
@@ -86,17 +86,18 @@ export const TableButtons: Story = {
         <Table.Body>
           <Table.Row type="body">
             <Table.Cell>Ane Bjerke</Table.Cell>
-            <Table.Cell>
+            <Table.Cell layout="right">
               <Button size="small" purpose="danger">
-                Slett
+                Slett <VisuallyHidden as="span">Ane Bjerke</VisuallyHidden>
               </Button>
             </Table.Cell>
           </Table.Row>
           <Table.Row type="body">
             <Table.Cell>Sandra Lovsetter</Table.Cell>
-            <Table.Cell>
+            <Table.Cell layout="right">
               <Button size="small" purpose="danger">
-                Slett
+                Slett{' '}
+                <VisuallyHidden as="span">Sandra Lovsetter</VisuallyHidden>
               </Button>
             </Table.Cell>
           </Table.Row>

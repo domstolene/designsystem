@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Paragraph } from '../Paragraph';
 
@@ -13,6 +13,7 @@ export default {
     typographyType: { control: { type: 'select' } },
     withMargins: { control: { type: 'boolean' } },
     href: { control: { type: 'text' } },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {
@@ -20,7 +21,7 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-};
+} satisfies Meta<typeof Link>;
 
 type Story = StoryObj<typeof Link>;
 

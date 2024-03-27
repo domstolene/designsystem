@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { EmptyContent } from './EmptyContent';
 
@@ -18,7 +18,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof EmptyContent>;
 
 type Story = StoryObj<typeof EmptyContent>;
 

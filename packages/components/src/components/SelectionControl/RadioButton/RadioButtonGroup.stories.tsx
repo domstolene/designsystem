@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { RadioButton, RadioButtonGroup } from '.';
@@ -21,7 +21,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof RadioButtonGroup>;
 
 type Story = StoryObj<typeof RadioButtonGroup>;
 

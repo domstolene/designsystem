@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
 import { Heading, Paragraph } from '../Typography';
@@ -22,7 +22,7 @@ export default {
     parentElement: { control: false },
     widthProps: { control: false },
   },
-};
+} satisfies Meta<typeof Drawer>;
 
 type Story = StoryObj<typeof Drawer>;
 

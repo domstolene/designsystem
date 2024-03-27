@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { type Property } from 'csstype';
 import { type CSSProperties, useRef } from 'react';
 
@@ -20,7 +20,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof ScrollableContainer>;
 
 type Story = StoryObj<typeof ScrollableContainer>;
 

@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Typography } from '../Typography';
 
@@ -22,7 +22,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof SkipToContent>;
 
 type Story = StoryObj<typeof SkipToContent>;
 

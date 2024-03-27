@@ -1,5 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { LocalMessage } from './LocalMessage';
 import { List, ListItem } from '../List';
@@ -24,7 +24,7 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-};
+} satisfies Meta<typeof LocalMessage>;
 
 type Story = StoryObj<typeof LocalMessage>;
 

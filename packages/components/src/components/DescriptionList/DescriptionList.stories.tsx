@@ -1,6 +1,6 @@
 import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { CallIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
@@ -24,7 +24,7 @@ export default {
   argTypes: {
     htmlProps: { control: false },
   },
-};
+} satisfies Meta<typeof DescriptionList>;
 
 type Story = StoryObj<typeof DescriptionList>;
 
