@@ -155,10 +155,10 @@ export const Container = styled.label<{
             border: solid ${checkmark.checkbox.borderColor};
 
             border-width: 0 1px 1px 0;
-            left: 35%;
-            top: 10%;
-            width: 30%;
-            height: 65%;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
             transform: rotate(45deg);
           }
           input[data-indeterminate='true'] ~ ${CustomSelectionControl}:after {
