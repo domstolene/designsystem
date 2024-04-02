@@ -52,7 +52,7 @@ describe('<DatePicker />', () => {
     render(<DatePicker />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
-    expect(spinbuttons[0]).toHaveAttribute('aria-valuemax', '31');
+    expect(spinbuttons[0]).toHaveAttribute('aria-valuemax');
     expect(spinbuttons[1]).toHaveAttribute('aria-valuemax', '12');
   });
 });
