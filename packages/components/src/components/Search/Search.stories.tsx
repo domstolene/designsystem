@@ -140,7 +140,7 @@ export const OverviewWithSuggestion: Story = {
     </StoryTemplate>
   ),
   render: args => (
-    <VStack gap="x1">
+    <VStack gap="x1" align="right">
       <Search.AutocompleteWrapper data={{ array }}>
         <Search {...args} componentSize="large" />
       </Search.AutocompleteWrapper>
@@ -174,8 +174,20 @@ export const WithSuggestions: Story = {
     </StoryTemplate>
   ),
   render: args => (
-    <Search.AutocompleteWrapper data={{ array }}>
-      <Search {...args} />
-    </Search.AutocompleteWrapper>
+    <>
+      <Search.AutocompleteWrapper data={{ array }}>
+        <Search {...args} />
+      </Search.AutocompleteWrapper>
+      <div>
+        Elementer i listen:{' '}
+        {array.map((item, index) => (
+          <span>
+            {item}
+            {index !== array.length - 1 && ', '}
+          </span>
+        ))}
+        .
+      </div>
+    </>
   ),
 };

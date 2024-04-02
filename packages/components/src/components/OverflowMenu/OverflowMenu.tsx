@@ -215,7 +215,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     };
 
     return (
-      <Container {...containerProps} aria-label="bruk piltaster for å navigere">
+      <Container {...containerProps}>
         {hasStaticUser && (
           <OverflowMenuItem title={username} icon={PersonIcon} />
         )}
