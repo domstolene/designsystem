@@ -31,6 +31,31 @@ const getAppearanceAndPurposeStyling = (
           .backgroundColor};
         border-color: ${appearances[appearance].purpose[purpose].base
           .borderColor};
+      `;
+    case 'ghost':
+      return css`
+        background-color: ${appearances.ghost.base.backgroundColor};
+        border-color: ${appearances.ghost.purpose[purpose].base.borderColor};
+      `;
+    case 'borderless':
+      return css`
+        background-color: ${appearances.borderless.base.backgroundColor};
+        border-color: ${appearances.borderless.base.borderColor};
+        text-decoration: ${appearances.borderless.base.textDecoration};
+        text-decoration-color: ${appearances.borderless.base
+          .textDecorationColor};
+      `;
+  }
+};
+
+const getAppearanceAndPurposeStateStyling = (
+  appearance: ButtonAppearance,
+  purpose: ButtonPurpose,
+) => {
+  switch (appearance) {
+    case 'filled':
+    case 'rounded':
+      return css`
         &:hover {
           background-color: ${appearances[appearance].purpose[purpose].hover
             .backgroundColor};
@@ -46,8 +71,6 @@ const getAppearanceAndPurposeStyling = (
       `;
     case 'ghost':
       return css`
-        background-color: ${appearances.ghost.base.backgroundColor};
-        border-color: ${appearances.ghost.purpose[purpose].base.borderColor};
         &:hover {
           color: ${appearances.ghost.purpose[purpose].hover.color};
           border-color: ${appearances.ghost.purpose[purpose].hover.borderColor};
@@ -62,11 +85,6 @@ const getAppearanceAndPurposeStyling = (
       `;
     case 'borderless':
       return css`
-        background-color: ${appearances.borderless.base.backgroundColor};
-        border-color: ${appearances.borderless.base.borderColor};
-        text-decoration: ${appearances.borderless.base.textDecoration};
-        text-decoration-color: ${appearances.borderless.base
-          .textDecorationColor};
         &:hover {
           color: ${appearances.borderless.purpose[purpose].hover.color};
           text-decoration-color: ${appearances.borderless.purpose[purpose].hover
@@ -136,10 +154,13 @@ export const ButtonWrapper = styled.button.withConfig({
     color: ${appearances[appearance].purpose[purpose].base.color};
     ${getAppearanceAndPurposeStyling(appearance, purpose)}
   `}
+  ${({ appearance, purpose, isLoading }) =>
+    !isLoading && getAppearanceAndPurposeStateStyling(appearance, purpose)}
 
-  ${({ hasIcon, hasLabel, appearance, purpose }) =>
+  ${({ hasIcon, hasLabel, appearance, purpose, isLoading }) =>
     hasIcon &&
     !hasLabel &&
+    !isLoading &&
     appearance === 'borderless' &&
     css`
       &:hover {
@@ -151,7 +172,7 @@ export const ButtonWrapper = styled.button.withConfig({
         box-shadow: ${appearances[appearance].purpose[purpose].icon.active.boxShadow};
       }
     `}
-    ${({ hasIcon, hasLabel, size }) =>
+  ${({ hasIcon, hasLabel, size }) =>
     hasIcon &&
     hasLabel &&
     css`
