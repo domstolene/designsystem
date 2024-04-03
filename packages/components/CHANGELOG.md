@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 15.9.1
+
+### Patch Changes
+
+- 3455fd9: Fjerner unødvendig `aria-label` fra enkelte komponenter
+- ca45b49: Fikser skjev markør i `<Checkbox />`
+
 ## 15.9.0
 
 ### Minor Changes
