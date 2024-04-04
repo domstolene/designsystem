@@ -71,7 +71,7 @@ export const Container = styled.label<{
     }
   }
 
-  &:focus-within {
+  input:enabled:focus-visible ~ ${CustomSelectionControl} {
     ${focusVisible}
     @media (prefers-reduced-motion: no-preference) {
       transition: ${focusVisibleTransitionValue};
@@ -105,17 +105,19 @@ export const Container = styled.label<{
   ${({ $error }) =>
     $error &&
     css`
-      &:hover input:enabled ~ ${CustomSelectionControl} {
+      &:hover
+        input:enabled:not(:focus-visible):not(:checked)
+        ~ ${CustomSelectionControl} {
         background-color: ${selectionControl.hover.danger.backgroundColor};
         box-shadow: ${selectionControl.hover.danger.boxShadow};
         border-color: ${selectionControl.hover.danger.borderColor};
       }
-      input
+      input:not(:focus-visible)
         ~ ${CustomSelectionControl},
-        input:checked:enabled
+        input:checked:enabled:not(:focus-visible)
         ~ ${CustomSelectionControl},
         &:hover
-        input:checked:enabled
+        input:checked:enabled:not(:focus-visible)
         ~ ${CustomSelectionControl} {
         box-shadow: ${selectionControl.danger.boxShadow};
         border-color: ${selectionControl.danger.borderColor};

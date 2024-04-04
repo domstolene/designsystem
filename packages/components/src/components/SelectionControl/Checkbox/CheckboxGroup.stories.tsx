@@ -44,12 +44,6 @@ export const Overview: Story = {
       <CheckboxGroup {...args} required />
       <CheckboxGroup {...args} tip="Dette er en hjelpetekst" />
       <CheckboxGroup {...args} errorMessage="Dette er en feilmelding" />
-
-      <CheckboxGroup
-        {...args}
-        tip="Dette er en hjelpetekst"
-        errorMessage="Dette er en feilmelding"
-      />
       <CheckboxGroup {...args} direction="column" />
     </>
   ),
