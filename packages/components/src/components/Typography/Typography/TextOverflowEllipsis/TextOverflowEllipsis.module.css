@@ -1,0 +1,9 @@
+.wrapper {
+  max-width: 100%;
+}
+
+.inner {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

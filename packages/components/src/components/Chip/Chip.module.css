@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  gap: var(--sizes-dds-spacing-x-0-25);
+  padding: var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-25)
+    var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-5);
+  border: 1px solid var(--dds-color-neutrals-gray-3);
+  border-radius: var(--radii-dds-border-radius-1-radius);
+  background-color: var(--dds-color-neutrals-gray-1);
+}
+
+.group {
+  display: flex;
+  gap: var(--sizes-dds-spacing-x-0-75);
+}
