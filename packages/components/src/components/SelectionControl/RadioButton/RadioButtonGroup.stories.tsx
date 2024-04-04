@@ -63,7 +63,6 @@ export const Overview: Story = {
       <>
         <RadioButtonGroup
           {...args}
-          direction="row"
           value={value}
           name="test"
           onChange={(_event, value) => {
@@ -77,7 +76,6 @@ export const Overview: Story = {
         <RadioButtonGroup
           {...args}
           tip="Dette er en hjelpetekst"
-          direction="row"
           value={value}
           name="test2"
           onChange={(_event, value) => {
@@ -91,24 +89,8 @@ export const Overview: Story = {
         <RadioButtonGroup
           {...args}
           errorMessage="Dette er en feilmelding"
-          direction="row"
           value={value}
           name="test4"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-        <RadioButtonGroup
-          {...args}
-          errorMessage="Dette er en feilmelding"
-          tip="Dette er en hjelpetekst"
-          direction="row"
-          value={value}
-          name="test6"
           onChange={(_event, value) => {
             setValue(value);
           }}
