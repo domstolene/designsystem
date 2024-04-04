@@ -1,5 +1,4 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -168,58 +167,56 @@ export const Overview = () => {
   );
 
   return (
-    <StoryTemplate title="Icons - overview" display="block">
-      <Container>
-        <Typography typographyType="bodySans03">
-          Klikk på ikonet for mer info.
-        </Typography>
-        <Typography typographyType="supportingStyleHelperText01">
-          Antall ikoner: {Object.keys(iconsObject).length}
-        </Typography>
-        <OverviewContainer>{iconOverview()}</OverviewContainer>
-        <Modal
-          isOpen={!closed}
-          onClose={close}
-          header={iconState?.name && trim(iconState.name)}
-        >
-          <ModalBody>
-            {iconState && (
-              <IconRow>
-                <Icon icon={iconState.icon} iconSize="small" />
-                <Icon icon={iconState.icon} iconSize="medium" />
-                <Icon icon={iconState.icon} iconSize="large" />
-                <Button icon={iconState.icon} />
-              </IconRow>
-            )}
-            <GroupHeader>
-              <Typography typographyType="headingSans02">Import</Typography>
-              <Button
-                icon={CopyIcon}
-                size="tiny"
-                appearance="borderless"
-                onClick={() => handleCopyImport(importCode)}
-              />
-              {copiedImport && copyConfirmation}
-            </GroupHeader>
-            <CodeBlock>
-              <code className="icon-code">{importCode}</code>
-            </CodeBlock>
-            <GroupHeader>
-              <Typography typographyType="headingSans02">Bruk</Typography>
-              <Button
-                icon={CopyIcon}
-                size="tiny"
-                appearance="borderless"
-                onClick={() => handleCopyUse(useCode)}
-              />
-              {copiedUse && copyConfirmation}
-            </GroupHeader>
-            <CodeBlock>
-              <code className="icon-code">{useCode}</code>
-            </CodeBlock>
-          </ModalBody>
-        </Modal>
-      </Container>
-    </StoryTemplate>
+    <Container>
+      <Typography typographyType="bodySans03">
+        Klikk på ikonet for mer info.
+      </Typography>
+      <Typography typographyType="supportingStyleHelperText01">
+        Antall ikoner: {Object.keys(iconsObject).length}
+      </Typography>
+      <OverviewContainer>{iconOverview()}</OverviewContainer>
+      <Modal
+        isOpen={!closed}
+        onClose={close}
+        header={iconState?.name && trim(iconState.name)}
+      >
+        <ModalBody>
+          {iconState && (
+            <IconRow>
+              <Icon icon={iconState.icon} iconSize="small" />
+              <Icon icon={iconState.icon} iconSize="medium" />
+              <Icon icon={iconState.icon} iconSize="large" />
+              <Button icon={iconState.icon} />
+            </IconRow>
+          )}
+          <GroupHeader>
+            <Typography typographyType="headingSans02">Import</Typography>
+            <Button
+              icon={CopyIcon}
+              size="tiny"
+              appearance="borderless"
+              onClick={() => handleCopyImport(importCode)}
+            />
+            {copiedImport && copyConfirmation}
+          </GroupHeader>
+          <CodeBlock>
+            <code className="icon-code">{importCode}</code>
+          </CodeBlock>
+          <GroupHeader>
+            <Typography typographyType="headingSans02">Bruk</Typography>
+            <Button
+              icon={CopyIcon}
+              size="tiny"
+              appearance="borderless"
+              onClick={() => handleCopyUse(useCode)}
+            />
+            {copiedUse && copyConfirmation}
+          </GroupHeader>
+          <CodeBlock>
+            <code className="icon-code">{useCode}</code>
+          </CodeBlock>
+        </ModalBody>
+      </Modal>
+    </Container>
   );
 };

@@ -86,6 +86,8 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   customSingleValueElement?: (
     props: SingleValueProps<Option, IsMulti, GroupBase<Option>>,
   ) => JSX.Element;
+  /** Testid. Legges på control-div med suffiks "control". */
+  'data-testid'?: string;
 } & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
   WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 
@@ -120,6 +122,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     placeholder,
     customOptionElement,
     customSingleValueElement,
+    'data-testid': dataTestId,
     ...rest
   } = props;
 
@@ -190,7 +193,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
       ClearIndicator: props => DDSClearIndicator(props, componentSize),
       DropdownIndicator: props => DDSDropdownIndicator(props, componentSize),
       MultiValueRemove: DDSMultiValueRemove,
-      Control: props => DDSControl(props, componentSize, icon),
+      Control: props => DDSControl(props, componentSize, icon, dataTestId),
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,

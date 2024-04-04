@@ -109,11 +109,19 @@ export const DDSControl = <TValue, IsMulti extends boolean>(
   props: ControlProps<TValue, IsMulti>,
   componentSize: InputSize,
   icon?: SvgIcon,
+  dataTestId?: string,
 ) => (
-  <Control {...props}>
-    {icon && (
-      <StyledIcon icon={icon} iconSize={getFormInputIconSize(componentSize)} />
-    )}
-    {props.children}
-  </Control>
+  <div
+    data-testid={dataTestId ? ((dataTestId + '-control') as string) : undefined}
+  >
+    <Control {...props}>
+      {icon && (
+        <StyledIcon
+          icon={icon}
+          iconSize={getFormInputIconSize(componentSize)}
+        />
+      )}
+      {props.children}
+    </Control>
+  </div>
 );
