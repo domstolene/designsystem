@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     '../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx)',
     '../packages/*/stories/**/*.mdx',
   ],
-  staticDirs: ['./images', '../packages/components/dist/assets/fonts'],
+  staticDirs: ['./images'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-a11y',
