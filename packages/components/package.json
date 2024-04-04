@@ -9,14 +9,20 @@
     "url": "https://github.com/domstolene/designsystem"
   },
   "sideEffects": [
-    "*.css"
+    "*.css",
+    "src/styles/index.ts"
   ],
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./index.css": "./dist/index.css"
+  },
   "homepage": "https://design.domstol.no",
   "scripts": {
     "test": "vitest run",
