@@ -43,7 +43,7 @@ type SingleSelectProps = SelectProps<SelectOption, false>;
 
 export const Example = (args: SingleSelectProps) => {
   return (
-    <StoryTemplate title="Select - custom element" display="block">
+    <StoryTemplate display="block">
       <Select
         {...args}
         label={args.label ?? 'Egendefinert styling'}

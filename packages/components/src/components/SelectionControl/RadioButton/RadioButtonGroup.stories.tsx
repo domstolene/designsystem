@@ -138,7 +138,7 @@ export const Overview: Story = {
 export const WithDefaultValue: Story = {
   args: { label: 'Label' },
   decorators: Story => (
-    <StoryTemplate title="RadioButtonGroup - with default value">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
