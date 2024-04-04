@@ -7,5 +7,6 @@ export default defineConfig({
   sourcemap: true,
   loader: {
     '.svg': 'dataurl',
+    '.css': 'local-css',
   },
 });
