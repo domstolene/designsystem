@@ -1,29 +1,11 @@
 import { forwardRef, useState } from 'react';
-import styled from 'styled-components';
 
-import { chipTokens as tokens, typographyType } from './Chip.tokens';
+import styles from './Chip.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils/dom';
 import { Button } from '../Button';
 import { CloseIcon } from '../Icon/icons';
-import {
-  TextOverflowEllipsisInner,
-  TextOverflowEllipsisWrapper,
-  getFontStyling,
-} from '../Typography';
-
-const { container } = tokens;
-
-const Container = styled(TextOverflowEllipsisWrapper)`
-  display: flex;
-  align-items: center;
-  max-width: 100%;
-  gap: ${container.gap};
-  padding: ${container.padding};
-  border: ${container.border};
-  border-radius: ${container.borderRadius};
-  background-color: ${container.backgroundColor};
-  ${getFontStyling(typographyType, true)};
-`;
+import { TextOverflowEllipsisInner, getFontStyling } from '../Typography';
 
 export type ChipProps = BaseComponentProps<
   HTMLDivElement,
@@ -48,12 +30,18 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
   };
 
   return isOpen ? (
-    <Container
-      {...getBaseHTMLProps(id, className, restHTMLprops, rest)}
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(className, styles.container),
+        restHTMLprops,
+        rest,
+      )}
       ref={ref}
-      as="div"
     >
-      <TextOverflowEllipsisInner>{text}</TextOverflowEllipsisInner>
+      <TextOverflowEllipsisInner style={getFontStyling('bodySans01', true)}>
+        {text}
+      </TextOverflowEllipsisInner>
       <Button
         size="tiny"
         icon={CloseIcon}
@@ -62,7 +50,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
         onClick={onClick}
         aria-label={ariaLabel ?? `Fjern ${text ? `chip ${text}` : 'chip'}`}
       />
-    </Container>
+    </div>
   ) : null;
 });
 

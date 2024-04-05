@@ -1,3 +1,5 @@
+import './styles';
+
 export * from './components/helpers';
 export * from './components/Icon/icons';
 export * as icons from './components/Icon/icons';

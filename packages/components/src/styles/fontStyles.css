@@ -6,8 +6,8 @@
   src:
     local('IBM Plex Sans'),
     local('IBMPlexSans'),
-    url('../assets/fonts/IBMPlexSans-Regular.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexSans-Regular.woff') format('woff');
+    url('./assets/fonts/IBMPlexSans-Regular.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexSans-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -18,8 +18,8 @@
   src:
     local('IBM Plex Sans Italic'),
     local('IBMPlexSans-Italic'),
-    url('../assets/fonts/IBMPlexSans-Italic.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexSans-Italic.woff') format('woff');
+    url('./assets/fonts/IBMPlexSans-Italic.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexSans-Italic.woff') format('woff');
 }
 
 @font-face {
@@ -30,8 +30,8 @@
   src:
     local('IBM Plex Sans Light'),
     local('IBMPlexSans-Light'),
-    url('../assets/fonts/IBMPlexSans-Light.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexSans-Light.woff') format('woff');
+    url('./assets/fonts/IBMPlexSans-Light.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexSans-Light.woff') format('woff');
 }
 
 @font-face {
@@ -42,8 +42,8 @@
   src:
     local('IBM Plex Sans Light Italic'),
     local('IBMPlexSans-LightItalic'),
-    url('../assets/fonts/IBMPlexSans-LightItalic.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexSans-LightItalic.woff') format('woff');
+    url('./assets/fonts/IBMPlexSans-LightItalic.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexSans-LightItalic.woff') format('woff');
 }
 
 @font-face {
@@ -54,8 +54,8 @@
   src:
     local('IBM Plex Sans SemiBold'),
     local('IBMPlexSans-SemiBold'),
-    url('../assets/fonts/IBMPlexSans-SemiBold.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexSans-SemiBold.woff') format('woff');
+    url('./assets/fonts/IBMPlexSans-SemiBold.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexSans-SemiBold.woff') format('woff');
 }
 
 @font-face {
@@ -66,8 +66,8 @@
   src:
     local('IBM Plex Sans SemiBold Italic'),
     local('IBMPlexSans-SemiBoldItalic'),
-    url('../assets/fonts/IBMPlexSans-SemiBoldItalic.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexSans-SemiBoldItalic.woff') format('woff');
+    url('./assets/fonts/IBMPlexSans-SemiBoldItalic.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexSans-SemiBoldItalic.woff') format('woff');
 }
 
 @font-face {
@@ -78,8 +78,8 @@
   src:
     local('IBM Plex Mono'),
     local('IBMPlexMono'),
-    url('../assets/fonts/IBMPlexMono-Regular.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexMono-Regular.woff') format('woff');
+    url('./assets/fonts/IBMPlexMono-Regular.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexMono-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -90,8 +90,8 @@
   src:
     local('IBM Plex Mono Light'),
     local('IBMPlexMono-Light'),
-    url('../assets/fonts/IBMPlexMono-Light.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexMono-Light.woff') format('woff');
+    url('./assets/fonts/IBMPlexMono-Light.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexMono-Light.woff') format('woff');
 }
 
 @font-face {
@@ -102,6 +102,6 @@
   src:
     local('IBM Plex Mono SemiBold'),
     local('IBMPlexMono-SemiBold'),
-    url('../assets/fonts/IBMPlexMono-SemiBold.woff2') format('woff2'),
-    url('../assets/fonts/IBMPlexMono-SemiBold.woff') format('woff');
+    url('./assets/fonts/IBMPlexMono-SemiBold.woff2') format('woff2'),
+    url('./assets/fonts/IBMPlexMono-SemiBold.woff') format('woff');
 }

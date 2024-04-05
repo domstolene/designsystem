@@ -1,11 +1,18 @@
-import styled from 'styled-components';
+import type { ComponentProps } from 'react';
 
-export const TextOverflowEllipsisWrapper = styled.span`
-  max-width: 100%;
-`;
+import styles from './TextOverflowEllipsis.module.css';
+import { cn } from '../../../../utils/dom';
 
-export const TextOverflowEllipsisInner = styled.span`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
+export function TextOverflowEllipsisWrapper({
+  className,
+  ...rest
+}: ComponentProps<'span'>) {
+  return <span {...rest} className={cn(className, styles.wrapper)} />;
+}
+
+export function TextOverflowEllipsisInner({
+  className,
+  ...rest
+}: ComponentProps<'span'>) {
+  return <span {...rest} className={cn(className, styles.inner)} />;
+}
