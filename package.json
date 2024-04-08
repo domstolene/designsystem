@@ -64,7 +64,7 @@
     "storybook": "7.6.17",
     "styled-components": "^6.1.8",
     "tsup": "^8.0.2",
-    "turbo": "^1.13.1"
+    "turbo": "^1.13.2"
   },
   "pnpm": {
     "overrides": {
