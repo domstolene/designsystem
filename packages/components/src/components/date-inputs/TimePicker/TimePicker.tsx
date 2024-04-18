@@ -1,37 +1,22 @@
 import { type Time } from '@internationalized/date';
 import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
-import type * as CSS from 'csstype';
 import { type Ref, forwardRef, useRef } from 'react';
-import styled from 'styled-components';
 
+import { cn } from '../../../utils';
 import { type InputProps } from '../../helpers/Input/Input.types';
 import { Icon } from '../../Icon';
 import { TimeIcon } from '../../Icon/icons';
 import { DateInput } from '../common/DateInput';
+import styles from '../common/DateInput.module.css';
 import { locale } from '../DatePicker/constants';
 import { DateSegment } from '../DatePicker/DateField/DateSegment';
-import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
-const TimePickerIcon = styled(Icon)<{
-  $componentSize: Exclude<TimePickerProps['componentSize'], undefined>;
-}>`
-  color: ${datePickerTokens.calendarButton.color};
-  width: ${({ $componentSize }) =>
-    datePickerTokens.calendarButton[$componentSize].size};
-  margin-left: -1px; // To align with TextInputs icons
-`;
-
-export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> & {
-  /**
-   * Navn på egne klasser.
-   */
-  className?: string;
-  /**
-   * Egendefinert bredde på komponenten.
-   */
-  width?: CSS.Properties['width'];
-} & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'style'>;
+export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> &
+  Pick<
+    InputProps,
+    'componentSize' | 'errorMessage' | 'tip' | 'style' | 'width' | 'className'
+  >;
 
 function _TimePicker(
   { componentSize = 'medium', width, ...props }: TimePickerProps,
@@ -48,6 +33,7 @@ function _TimePicker(
     ref,
   );
 
+  const iconSize = componentSize === 'medium' ? 'medium' : 'small';
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
   return (
@@ -64,11 +50,14 @@ function _TimePicker(
       fieldProps={fieldProps}
       prefix={
         !props.isReadOnly && (
-          <TimePickerIcon
-            $componentSize={componentSize}
-            icon={TimeIcon}
-            iconSize={componentSize == 'medium' ? 'medium' : 'small'}
-          />
+          <span
+            className={cn(
+              styles['icon-wrapper'],
+              styles[`icon-wrapper--${iconSize}`],
+            )}
+          >
+            <Icon icon={TimeIcon} iconSize={iconSize} />
+          </span>
         )
       }
     >

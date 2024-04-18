@@ -1,115 +1,50 @@
 import { type Property } from 'csstype';
 import { forwardRef, useState } from 'react';
-import styled, { css } from 'styled-components';
 
-import { localMessageTokens as tokens } from './LocalMessage.tokens';
+import styles from './LocalMessage.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
-import { selection } from '../helpers';
-import { Icon } from '../Icon';
-import { CloseIcon } from '../Icon/icons';
+import { Icon, type SvgIcon } from '../Icon';
 import {
-  Typography,
-  defaultTypographyType,
-  getFontStyling,
-} from '../Typography';
+  CheckCircledIcon,
+  CloseIcon,
+  ErrorIcon,
+  InfoIcon,
+  TipIcon,
+  WarningIcon,
+} from '../Icon/icons';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const { container, content, icon, purposeVariants } = tokens;
-
-type ContainerProps = Pick<
-  LocalMessageProps,
-  'purpose' | 'width' | 'layout' | 'closable'
->;
-
-const Container = styled.div.withConfig({
-  shouldForwardProp: prop => {
-    const styleOnlyProps: Array<keyof ContainerProps> = [
-      'layout',
-      'closable',
-      'purpose',
-      'width',
-    ];
-
-    return !styleOnlyProps.some(styleProp => styleProp === prop);
+const purposeVariants: {
+  [k in LocalMessagePurpose]: {
+    icon: SvgIcon;
+  };
+} = {
+  info: {
+    icon: InfoIcon,
   },
-})<ContainerProps>`
-  box-sizing: border-box;
-  display: grid;
-  grid-template-areas: ${({ layout, closable }) =>
-    getGridTemplateAreas(layout, closable)};
-  grid-template-columns: ${({ layout, closable }) =>
-    getGridTemplateColumns(layout, closable)};
-  box-shadow: ${container.base.boxShadow};
-  border: ${container.base.border};
-  border-radius: ${container.base.borderRadius};
-  padding: ${container.base.padding};
-  gap: ${container.base.gap};
-  align-items: center;
-  ${getFontStyling(defaultTypographyType, true)}
-
-  *::selection {
-    ${selection}
-  }
-  ${({ purpose }) =>
-    purpose &&
-    css`
-      border-color: ${container.purpose[purpose].borderColor};
-      background-color: ${container.purpose[purpose].backgroundColor};
-    `}
-  width: ${({ width }) => width};
-`;
-
-function getGridTemplateAreas(
-  layout: LocalMessageProps['layout'],
-  closeable: LocalMessageProps['closable'],
-) {
-  if (closeable) {
-    if (layout === 'horisontal') {
-      return '"icon text closeButton"';
-    }
-    return '"icon closeButton" "text text"';
-  } else {
-    if (layout === 'horisontal') {
-      return '"icon text"';
-    }
-    return '"icon icon" "text text"';
-  }
-}
-
-function getGridTemplateColumns(
-  layout: LocalMessageProps['layout'],
-  closable: LocalMessageProps['closable'],
-) {
-  if (closable) {
-    return layout === 'horisontal'
-      ? 'min-content 1fr min-content'
-      : '1fr min-content';
-  }
-  return layout === 'horisontal' ? 'min-content 1fr' : '1fr';
-}
-
-const MessageIconWrapper = styled(Icon)`
-  grid-area: icon;
-`;
-
-const TextContainer = styled.div`
-  grid-area: text;
-  padding-right: ${content.base.paddingRight};
-`;
-
-const CloseButton = styled(Button)<Pick<LocalMessageProps, 'layout'>>`
-  grid-area: closeButton;
-  margin: -${container.base.padding} 0;
-`;
+  danger: {
+    icon: ErrorIcon,
+  },
+  warning: {
+    icon: WarningIcon,
+  },
+  success: {
+    icon: CheckCircledIcon,
+  },
+  tips: {
+    icon: TipIcon,
+  },
+};
 
 export type LocalMessagePurpose =
   | 'info'
   | 'warning'
   | 'danger'
-  | 'confidential'
   | 'success'
   | 'tips';
 
@@ -129,7 +64,7 @@ export type LocalMessageProps = BaseComponentPropsWithChildren<
     /**Layoutet i komponenten. Ved kompleks innhold anbefales `layout='vertical'`. */
     layout?: LocalMessageLayout;
     /**Custom bredde ved behov. */
-    width?: Property.Width<string>;
+    width?: Property.Width;
   }
 >;
 
@@ -151,42 +86,49 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
 
     const [isClosed, setClosed] = useState(false);
 
-    const containerProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      purpose,
-      width,
-      layout,
-      closable,
-      ref,
-    };
-
     if (isClosed) {
       return <></>;
     }
 
     return (
-      <Container {...containerProps}>
-        <MessageIconWrapper
+      <div
+        ref={ref}
+        {...getBaseHTMLProps(
+          id,
+          cn(
+            className,
+            typographyStyles['body-sans-02'],
+            styles.container,
+            styles[`container--${layout}`],
+            closable && styles[`container--${layout}--closable`],
+            styles[`container--${purpose}`],
+          ),
+          htmlProps,
+          rest,
+        )}
+        style={{ ...htmlProps?.style, width }}
+      >
+        <Icon
           icon={purposeVariants[purpose].icon}
-          color={icon[purpose].color}
+          className={styles.container__icon}
         />
-        <TextContainer>
-          {children ?? <Typography as="span">{message}</Typography>}
-        </TextContainer>
+        <div className={styles.container__text}>
+          {children ?? <span>{message}</span>}
+        </div>
         {closable && (
-          <CloseButton
+          <Button
             icon={CloseIcon}
-            purpose={purposeVariants[purpose].closeButtonPurpose}
-            appearance="borderless"
+            purpose="tertiary"
             onClick={() => {
               setClosed(true);
               onClose && onClose();
             }}
             size="small"
             aria-label="Lukk melding"
+            className={styles.container__button}
           />
         )}
-      </Container>
+      </div>
     );
   },
 );

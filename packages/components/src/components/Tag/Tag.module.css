@@ -1,0 +1,95 @@
+.container {
+  border: 1px solid;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radii-dds-border-radius-1-radius);
+  padding: var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-5);
+}
+
+.container--with-icon {
+  padding: var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-5)
+    var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-25);
+  gap: var(--sizes-dds-spacing-x-0-25);
+}
+
+.container--default--default {
+  background-color: var(--dds-color-neutrals-gray-1);
+  border-color: var(--dds-color-neutrals-gray-3);
+}
+
+.container--default--strong {
+  background-color: var(--dds-color-neutrals-gray-3);
+  border-color: var(--dds-color-neutrals-gray-3);
+}
+
+.container--success--default {
+  background-color: var(--dds-color-success-lightest);
+  border-color: var(--dds-color-success-base);
+
+  svg {
+    color: var(--dds-color-success-darkest);
+  }
+}
+
+.container--success--strong {
+  background-color: var(--dds-color-success-light);
+  border-color: var(--dds-color-success-light);
+
+  svg {
+    color: var(--dds-color-neutrals-gray-9);
+  }
+}
+
+.container--danger--default {
+  background-color: var(--dds-color-danger-lightest);
+  border-color: var(--dds-color-danger-base);
+
+  svg {
+    color: var(--dds-color-danger-darkest);
+  }
+}
+
+.container--danger--strong {
+  background-color: var(--dds-color-danger-light);
+  border-color: var(--dds-color-danger-light);
+
+  svg {
+    color: var(--dds-color-neutrals-gray-9);
+  }
+}
+
+.container--warning--default {
+  background-color: var(--dds-color-warning-lightest);
+  border-color: var(--dds-color-warning-base);
+
+  svg {
+    color: var(--dds-color-warning-darkest);
+  }
+}
+
+.container--warning--strong {
+  background-color: var(--dds-color-warning-light);
+  border-color: var(--dds-color-warning-light);
+
+  svg {
+    color: var(--dds-color-neutrals-gray-9);
+  }
+}
+
+.container--info--default {
+  background-color: var(--dds-color-info-lightest);
+  border-color: var(--dds-color-info-base);
+
+  svg {
+    color: var(--dds-color-info-darkest);
+  }
+}
+
+.container--info--strong {
+  background-color: var(--dds-color-info-light);
+  border-color: var(--dds-color-info-light);
+
+  svg {
+    color: var(--dds-color-neutrals-gray-9);
+  }
+}

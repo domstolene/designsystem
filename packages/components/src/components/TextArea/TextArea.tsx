@@ -1,37 +1,24 @@
-import { type Property } from 'csstype';
 import { forwardRef, useEffect, useId, useRef, useState } from 'react';
-import styled from 'styled-components';
+import { type TextareaHTMLAttributes } from 'react';
 
-import { textAreaTokens } from './TextArea.tokens';
-import { type TextAreaProps } from './TextArea.types';
+import styles from './TextArea.module.css';
 import { useCombinedRef } from '../../hooks';
 import {
+  cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import {
-  OuterInputContainer,
-  StatefulInput,
-  type StyledInputProps,
-  getDefaultText,
-  inputTypographyTypes,
-} from '../helpers';
+import { getDefaultText, inputTypographyTypes } from '../helpers';
+import { type CommonInputProps } from '../helpers';
+import inputStyles from '../helpers/Input/Input.module.css';
+import { focusable } from '../helpers/styling/focus.module.css';
+import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
-import { scrollbarStyling } from '../ScrollableContainer';
-import { Label, getFontStyling } from '../Typography';
+import { Label, getTypographyCn } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const defaultWidth: Property.Width<string> = '320px';
-const { textarea } = textAreaTokens;
-
-export const StyledTextArea = styled(StatefulInput)<StyledInputProps>`
-  ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox}
-  height: auto;
-  resize: vertical;
-  vertical-align: bottom;
-  padding-bottom: ${textarea.paddingBottom};
-  ${getFontStyling(inputTypographyTypes.medium)}
-`;
+export type TextAreaProps = CommonInputProps &
+  TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props, ref) => {
@@ -49,7 +36,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       'aria-describedby': ariaDescribedby,
       className,
       style,
-      width = defaultWidth,
+      width,
       ...rest
     } = props;
 
@@ -87,12 +74,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
 
     const showRequiredStyling = required || !!ariaRequired;
 
-    const containerProps = {
-      $width: width,
-      className,
-      style,
-    };
-
     const textAreaProps = {
       ref: multiRef,
       onChange: onChangeHandler,
@@ -113,15 +94,28 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     };
 
     return (
-      <OuterInputContainer {...containerProps}>
+      <div
+        className={cn(className, inputStyles.container, styles.container)}
+        style={{ ...style, width }}
+      >
         {hasLabel && (
           <Label showRequiredStyling={showRequiredStyling} htmlFor={uniqueId}>
             {label}
           </Label>
         )}
-        <StyledTextArea {...textAreaProps} as="textarea" />
+        <textarea
+          {...textAreaProps}
+          className={cn(
+            inputStyles.input,
+            inputStyles['input--stateful'],
+            styles.textarea,
+            scrollbar,
+            typographyStyles[getTypographyCn(inputTypographyTypes['medium'])],
+            focusable,
+          )}
+        />
         {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-      </OuterInputContainer>
+      </div>
     );
   },
 );

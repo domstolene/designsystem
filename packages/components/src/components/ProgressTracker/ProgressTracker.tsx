@@ -11,34 +11,14 @@ import {
   useMemo,
   useState,
 } from 'react';
-import styled from 'styled-components';
 
 import { ProgressTrackerContext } from './ProgressTracker.context';
-import { progressTrackerTokens } from './ProgressTracker.tokens';
+import styles from './ProgressTracker.module.css';
 import { ProgressTrackerItem } from './ProgressTrackerItem';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-
-const ItemsWrapper = styled.ol`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: ${progressTrackerTokens.itemsWrapper.gap};
-  margin: 0;
-  padding: 0;
-`;
-
-const ProgressTrackerConnector = styled.div`
-  margin-left: calc(
-    (${progressTrackerTokens.itemNumber.size} / 2) -
-      (${progressTrackerTokens.connector.width} / 2)
-  );
-  height: ${progressTrackerTokens.connector.height};
-  border-right: ${progressTrackerTokens.connector.width} solid
-    ${progressTrackerTokens.connector.color};
-`;
 
 export type ProgressTrackerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -101,7 +81,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
         }}
       >
         <div role="group" aria-label="progress" {...containerProps}>
-          <ItemsWrapper>{steps}</ItemsWrapper>
+          <ol className={styles.list}>{steps}</ol>
         </div>
       </ProgressTrackerContext.Provider>
     );
@@ -134,7 +114,7 @@ const intersperseItemsWithConnector = (children: Array<ReactElement>) =>
     }
     return (
       <Fragment key={index}>
-        <ProgressTrackerConnector aria-hidden />
+        <div aria-hidden className={styles.connector} />
         {child}
       </Fragment>
     );

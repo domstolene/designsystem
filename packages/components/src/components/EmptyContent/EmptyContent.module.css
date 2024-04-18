@@ -1,0 +1,18 @@
+.containter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: var(--sizes-dds-spacing-x-10);
+  height: 100%;
+  width: 100%;
+  background-color: var(--dds-color-neutrals-gray-1);
+  padding: var(--sizes-dds-spacing-x-1-5);
+}
+
+.text {
+  max-width: 70ch;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sizes-dds-spacing-x-1);
+}

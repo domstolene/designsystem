@@ -1,11 +1,7 @@
 import { type Property } from 'csstype';
 
-import {
-  SvgChevron,
-  SvgChevronlGroup,
-  SvgChevronlLeft,
-  SvgChevronlRight,
-} from './AnimatedChevronUpDown.styles';
+import styles from './Chevron.module.css';
+import { cn } from '../../../utils';
 
 const svgChevronLeftPath =
   'M 1 0 L 5 4 C 5 4 5 4 5 4 L 4 5 C 4 5 4 5 4 5 C 4 5 4 5 4 5 L 0 1 C 0 1 0 1 0 1 L 1 0 C 1 0 1 0 1 0 C 1 0 1 0 1 0 L 1 0 Z';
@@ -14,8 +10,8 @@ const svgChevronRightPath =
 
 interface SvgChevronProps {
   isUp?: boolean;
-  height?: Property.Height<string>;
-  width?: Property.Width<string>;
+  height?: Property.Height;
+  width?: Property.Width;
 }
 
 export const AnimatedChevronUpDown = ({
@@ -23,17 +19,25 @@ export const AnimatedChevronUpDown = ({
   height = '5px',
   width = '8px',
 }: SvgChevronProps) => {
+  const stateCn = isUp ? 'up' : 'down';
   return (
-    <SvgChevron
+    <svg
       viewBox="0 0 8 5"
       width={width}
       height={height}
       fill="currentColor"
+      className={cn(styles.svg)}
     >
-      <SvgChevronlGroup $isUp={isUp}>
-        <SvgChevronlLeft d={svgChevronLeftPath} $isUp={isUp} />
-        <SvgChevronlRight d={svgChevronRightPath} $isUp={isUp} />
-      </SvgChevronlGroup>
-    </SvgChevron>
+      <g className={cn(styles.group, styles[`group--${stateCn}`])}>
+        <path
+          d={svgChevronLeftPath}
+          className={cn(styles.left, styles[`left--${stateCn}`])}
+        />
+        <path
+          d={svgChevronRightPath}
+          className={cn(styles.right, styles[`right--${stateCn}`])}
+        />
+      </g>
+    </svg>
   );
 };

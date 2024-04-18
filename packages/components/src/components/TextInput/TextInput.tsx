@@ -1,3 +1,4 @@
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import React, {
   forwardRef,
@@ -6,82 +7,21 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import styled, { css } from 'styled-components';
 
 import CharCounter from './CharCounter';
-import { MessageContainer, StyledIcon, StyledInput } from './TextInput.styles';
-import { textInputTokens } from './TextInput.tokens';
-import { type TextAffixProps, type TextInputProps } from './TextInput.types';
+import styles from './TextInput.module.css';
+import { type TextInputProps } from './TextInput.types';
 import {
+  cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { getFormInputIconSize } from '../../utils/icon';
-import {
-  InputAffixContainer,
-  InputContainer,
-  type InputSize,
-  OuterInputContainer,
-  StatefulInput,
-  getDefaultText,
-} from '../helpers';
+import { StatefulInput, getDefaultText } from '../helpers';
+import inputStyles from '../helpers/Input/Input.module.css';
+import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
 import { Label } from '../Typography';
-
-const defaultWidth: Property.Width<string> = '320px';
-const defaultTinyWidth: Property.Width<string> = '210px';
-
-const getWidth = (
-  size: InputSize,
-  width?: Property.Width<string>,
-): Property.Width<string> => {
-  if (width) return width;
-  if (size === 'tiny') {
-    return defaultTinyWidth;
-  }
-  return defaultWidth;
-};
-
-const Affix = styled.span<TextAffixProps>`
-  position: absolute;
-  height: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  pointer-events: none;
-  z-index: 1;
-`;
-
-const Prefix = styled(Affix)`
-  left: 0;
-  margin-left: 8px;
-  padding-right: 8px;
-  border-right: 1px solid ${textInputTokens.affix.border.color};
-
-  ${({ readOnly }) =>
-    readOnly &&
-    css`
-      margin-left: 0;
-      padding-right: 0.5ch;
-      border-right: none;
-    `};
-`;
-
-const Suffix = styled(Affix)`
-  right: 0;
-  margin-right: 8px;
-  padding-left: 8px;
-  border-left: 1px solid ${textInputTokens.affix.border.color};
-
-  ${({ readOnly }) =>
-    readOnly &&
-    css`
-      margin-right: 0;
-      padding-left: 0.5ch;
-      border-left: none;
-    `};
-`;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   (
@@ -148,6 +88,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasMessage = hasErrorMessage || hasTip || !!maxLength;
     const hasIcon = !!icon;
     const hasAffix = !!(prefix ?? suffix);
+    const hasCharCounter =
+      !!maxLength &&
+      Number.isInteger(maxLength) &&
+      maxLength > 0 &&
+      withCharacterCounter;
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -155,6 +100,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     );
     const tipId = derivativeIdGenerator(uniqueId, 'tip');
     const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+
+    const widthCn = componentSize === 'tiny' ? componentSize : 'medium';
 
     const generalInputProps = {
       id: uniqueId,
@@ -177,65 +124,102 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       ...rest,
     };
 
-    const outerInputContainerProps = {
-      className,
-      style,
-      $width: getWidth(componentSize, width),
-    };
-
     // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
     const showRequiredStyling = !!(required || ariaRequired);
+
+    const preffixPaddingInlineStart: Property.PaddingInlineStart | undefined =
+      readOnly && prefixLength
+        ? prefixLength + 'px'
+        : prefixLength
+          ? ddsBaseTokens.spacing.SizesDdsSpacingX1NumberPx +
+            prefixLength +
+            'px'
+          : undefined;
+
+    const suffixPaddingInlineEnd: Property.PaddingInlineEnd | undefined =
+      readOnly && suffixLength
+        ? suffixLength + 'px'
+        : suffixLength
+          ? ddsBaseTokens.spacing.SizesDdsSpacingX1NumberPx +
+            suffixLength +
+            'px'
+          : undefined;
 
     let extendedInput = null;
 
     if (hasIcon) {
       extendedInput = (
-        <InputContainer>
+        <div className={inputStyles['input-group']}>
           {
-            <StyledIcon
+            <Icon
               icon={icon}
               iconSize={getFormInputIconSize(componentSize)}
-              $size={componentSize}
+              className={cn(styles.icon, styles[`icon--${componentSize}`])}
             />
           }
-          <StyledInput
+          <StatefulInput
             ref={ref}
             onChange={onChangeHandler}
             type={type}
             componentSize={componentSize}
-            $hasIcon={hasIcon}
+            className={cn(styles.input, styles[`with-icon--${componentSize}`])}
             {...generalInputProps}
           />
-        </InputContainer>
+        </div>
       );
     } else if (hasAffix) {
       extendedInput = (
-        <InputAffixContainer>
+        <div className={styles['affix-container']}>
           {prefix && (
-            <Prefix readOnly={readOnly} ref={prefixRef} aria-hidden>
+            <span
+              ref={prefixRef}
+              aria-hidden
+              className={cn(
+                styles.affix,
+                styles.prefix,
+                readOnly && styles['prefix--readonly'],
+              )}
+            >
               {prefix}
-            </Prefix>
+            </span>
           )}
           <StatefulInput
             ref={ref}
             onChange={onChangeHandler}
             type={type}
             componentSize={componentSize}
-            prefixLength={prefixLength}
-            suffixLength={suffixLength}
             {...generalInputProps}
+            style={{
+              paddingInlineStart: preffixPaddingInlineStart,
+              paddingInlineEnd: suffixPaddingInlineEnd,
+            }}
           />
           {suffix && (
-            <Suffix readOnly={readOnly} ref={suffixRef} aria-hidden>
+            <span
+              ref={suffixRef}
+              aria-hidden
+              className={cn(
+                styles.affix,
+                styles.suffix,
+                readOnly && styles['suffix--readonly'],
+              )}
+            >
               {suffix}
-            </Suffix>
+            </span>
           )}
-        </InputAffixContainer>
+        </div>
       );
     }
 
     return (
-      <OuterInputContainer {...outerInputContainerProps}>
+      <div
+        className={cn(
+          className,
+          inputStyles.container,
+          styles[`container--${widthCn}`],
+        )}
+        style={{ ...style, width }}
+      >
         {hasLabel && (
           <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
             {label}
@@ -253,21 +237,18 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           />
         )}
         {hasMessage && (
-          <MessageContainer>
+          <div className={styles['message-container']}>
             {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-            {maxLength &&
-              Number.isInteger(maxLength) &&
-              maxLength > 0 &&
-              withCharacterCounter && (
-                <CharCounter
-                  id={characterCounterId}
-                  current={text.length}
-                  max={maxLength}
-                />
-              )}
-          </MessageContainer>
+            {hasCharCounter && (
+              <CharCounter
+                id={characterCounterId}
+                current={text.length}
+                max={maxLength}
+              />
+            )}
+          </div>
         )}
-      </OuterInputContainer>
+      </div>
     );
   },
 );

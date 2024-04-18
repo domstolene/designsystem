@@ -10,7 +10,6 @@ import {
 } from '@react-aria/datepicker';
 import { useLocale } from '@react-aria/i18n';
 import { useDateFieldState } from '@react-stately/datepicker';
-import type * as CSS from 'csstype';
 import {
   type ForwardRefExoticComponent,
   type Ref,
@@ -26,16 +25,17 @@ import { DateInput } from '../../common/DateInput';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
-    className?: string;
     buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
     groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
-    /**
-     * For å sette en egendefinert bredde på komponenten.
-     */
-    width?: CSS.Properties['width'];
   } & Pick<
       InputProps,
-      'componentSize' | 'errorMessage' | 'tip' | 'disabled' | 'style'
+      | 'componentSize'
+      | 'errorMessage'
+      | 'tip'
+      | 'disabled'
+      | 'style'
+      | 'width'
+      | 'className'
     >;
 
 function _DateField(

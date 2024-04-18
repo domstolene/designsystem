@@ -36,7 +36,7 @@ type Story = StoryObj<typeof SplitButton>;
 
 export const Default: Story = {
   args: {
-    primaryAction: { label: 'Tekst', fullWidth: true },
+    primaryAction: { children: 'Tekst', fullWidth: true },
     secondaryActions: items,
   },
   decorators: Story => (
@@ -63,7 +63,7 @@ export const Overview: Story = {
 
 export const FullWidth: Story = {
   args: {
-    primaryAction: { label: 'Tekst', fullWidth: true },
+    primaryAction: { children: 'Tekst', fullWidth: true },
     secondaryActions: items,
   },
   decorators: Story => (
@@ -82,84 +82,84 @@ const SplitButtonVariants = ({ args, purpose }: SplitButtonVariantsProps) => (
   <>
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst' }}
+      primaryAction={{ children: 'Tekst' }}
       secondaryActions={items}
       size="large"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', icon: PlusCircledIcon }}
+      primaryAction={{ children: 'Tekst', icon: PlusCircledIcon }}
       secondaryActions={items}
       size="large"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', loading: true }}
+      primaryAction={{ children: 'Tekst', loading: true }}
       secondaryActions={items}
       size="large"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst' }}
+      primaryAction={{ children: 'Tekst' }}
       secondaryActions={items}
       size="medium"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', icon: PlusCircledIcon }}
+      primaryAction={{ children: 'Tekst', icon: PlusCircledIcon }}
       secondaryActions={items}
       size="medium"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', loading: true }}
+      primaryAction={{ children: 'Tekst', loading: true }}
       secondaryActions={items}
       size="medium"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst' }}
+      primaryAction={{ children: 'Tekst' }}
       secondaryActions={items}
       size="small"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', icon: PlusCircledIcon }}
+      primaryAction={{ children: 'Tekst', icon: PlusCircledIcon }}
       secondaryActions={items}
       size="small"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', loading: true }}
+      primaryAction={{ children: 'Tekst', loading: true }}
       secondaryActions={items}
       size="small"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst' }}
+      primaryAction={{ children: 'Tekst' }}
       secondaryActions={items}
       size="tiny"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', icon: PlusCircledIcon }}
+      primaryAction={{ children: 'Tekst', icon: PlusCircledIcon }}
       secondaryActions={items}
       size="tiny"
       purpose={purpose}
     />
     <SplitButton
       {...args}
-      primaryAction={{ label: 'Tekst', loading: true }}
+      primaryAction={{ children: 'Tekst', loading: true }}
       secondaryActions={items}
       size="tiny"
       purpose={purpose}

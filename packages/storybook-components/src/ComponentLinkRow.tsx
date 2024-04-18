@@ -12,7 +12,7 @@ export const ComponentLinkRow = ({
   figmaHref,
   githubHref,
 }: props) => (
-  <StorybookLinkRow>
+  <StorybookLinkRow style={{ marginBottom: '16px' }}>
     <StorybookLink
       size="small"
       text="Docs"

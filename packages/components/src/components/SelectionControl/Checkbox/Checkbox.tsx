@@ -4,9 +4,10 @@ import { type CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
 import { getBaseHTMLProps } from '../../../types';
 import { cn, spaceSeparatedIdListGenerator } from '../../../utils';
-import { HiddenInput } from '../../helpers';
+import focusStyles from '../../helpers/styling/focus.module.css';
+import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Typography } from '../../Typography';
-import { Container, CustomSelectionControl } from '../SelectionControl.styles';
+import { Label, SelectionControl } from '../SelectionControl.styles';
 import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
@@ -40,17 +41,17 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     type AriaChecked = 'mixed' | boolean | undefined;
 
     return (
-      <Container
-        $error={error || checkboxGroup?.error}
+      <Label
+        hasError={error || checkboxGroup?.error}
         disabled={disabled || checkboxGroup?.disabled}
-        $readOnly={readOnly || checkboxGroup?.readOnly}
+        readOnly={readOnly || checkboxGroup?.readOnly}
         htmlFor={uniqueId}
-        $hasLabel={hasLabel}
-        $controlType="checkbox"
+        hasText={hasLabel}
+        controlType="checkbox"
         className={cn(className, htmlPropsClassName)}
         style={style}
       >
-        <HiddenInput
+        <input
           {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
           ref={ref}
           name={name}
@@ -71,12 +72,19 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           aria-readonly={readOnly}
           type="checkbox"
           data-indeterminate={indeterminate}
+          className={cn(
+            utilStyles['hide-input'],
+            focusStyles['focusable-sibling'],
+          )}
         />
-        <CustomSelectionControl $controlType="checkbox" />
+        <SelectionControl
+          controlType="checkbox"
+          className={focusStyles['focus-styled-sibling']}
+        />
         {hasLabel && (
           <Typography {...selectionControlTypographyProps}>{label}</Typography>
         )}
-      </Container>
+      </Label>
     );
   },
 );

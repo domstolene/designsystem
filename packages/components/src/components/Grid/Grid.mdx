@@ -1,4 +1,4 @@
-import { Meta, ArgTypes, Primary } from '@storybook/blocks';
+import { Canvas, Controls, Meta, ArgTypes, Primary } from '@storybook/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import { GridChild } from '.';
 import {
@@ -7,6 +7,7 @@ import {
 } from '@norges-domstoler/storybook-components';
 import { Link } from '../Typography';
 import * as GridStories from './Grid.stories';
+import * as GridChildStories from './GridChild.stories';
 
 <Meta of={GridStories} />
 
@@ -17,21 +18,13 @@ import * as GridStories from './Grid.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Grid"
 />
 
-## Demo
-
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/Grid" story="PageExample">Storybook</LinkTo>.
-
-## Oversikt
-
 `<Grid>` implementerer grid layout definert i Figma for alle brekkpunkter. Grid i Figma defineres som stiler og er dermed ikke egen komponent.
 Les mer om brekkepunkter, grid tokens og hvordan vi bruker det hele i <Link href="https://design.domstol.no/987b33f71/p/442cff-grid-og-layout/b/312b16" external>Grid og layout i dokumentasjonen</Link>.
 
 Grid består av to subkomponenter:
 
-- `<Grid>` - en container-komponent for grid children som tar i bruk CSS Grid og definerer antall kolonner og gutters (`gap` i CSS) basert på skjermstørrelse.
-- `<GridChild>` - en wrapper-komponent for innhold, brukes som barn i `<Grid>`. Den spesifiserer hvilke deler av grid innholdet skal ta, først og fremst hvilke kolonner.
+- **`<Grid>`** - en container-komponent for grid children som tar i bruk CSS Grid og definerer antall kolonner og gutters (`gap` i CSS) basert på skjermstørrelse.
+- **`<GridChild>`** - en wrapper-komponent for innhold, brukes som barn i `<Grid>`. Den spesifiserer hvilke deler av grid innholdet skal ta, først og fremst hvilke kolonner.
 
 ## Bruk i koden
 
@@ -66,19 +59,24 @@ Grid består av to subkomponenter:
 </Grid>
 `} />
 
-## API
-
-### Grid
+## Grid
 
 En container-komponent for `<GridChild>` barn. Den håndterer grid layout basert på skjermstørrelse med hensyn til brekkpunkter.
 
-<ArgTypes of={GridStories} />
+<Canvas of={GridStories.Default} sourceState="shown" />
+<Controls of={GridStories.Default} />
 
-### GridChild
+## GridChild
 
 En wrapper-component som håndterer hvor mange kolonner innhold skal ta, i tillegg til eventuelle andre CSS grid spesifikasjoner og styling.
 
-#### Bruk
+<Canvas of={GridChildStories.Default} sourceState="shown" />
+<Controls of={GridChildStories.Default} />
+
+I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+`style` støtte både på rotnivå og i `htmlProps`.
+
+### Bruk
 
 `<GridChild>` bruker prop `columnsOccupied` til å bestemme hvilke kolonner innholdet skal okkupere.
 Det tillates to typer verdi:
@@ -103,9 +101,14 @@ type ColumnsOccupied = RelativeColumnsOccupied | GridColumnPerScreenSize;
 `}
 />
 
-#### Props
+Når en verdi settes for et brekkpunkt bruker komponenten CSS `@media` query for skjermbredde definert i designsystemet.
 
-<ArgTypes of={GridChild} />
+## Eksempler
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
-`style` støtte både på rotnivå og i `htmlProps`.
+### Side med søk
+
+<Canvas of={GridStories.PageExample} />
+
+### Simpel skjema
+
+<Canvas of={GridStories.JustRelativeColumns} />

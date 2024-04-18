@@ -7,7 +7,7 @@ export interface CommonInputProps {
   /**Ledetekst for input. */
   label?: string;
   /**Bredde for inputfeltet. */
-  width?: Property.Width<string>;
+  width?: Property.Width;
   /**Hjelpetekst. */
   tip?: string;
   /**Feilmelding. Setter også error state. */
@@ -21,16 +21,9 @@ export type InputProps = CommonInputProps & {
   componentSize?: InputSize;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export type StyledCommonInputProps = Pick<
-  InputProps,
-  'readOnly' | 'disabled'
-> & {
+export type StatefulInputProps = {
   hasErrorMessage: boolean;
-};
-
-export type StyledInputProps = StyledCommonInputProps & {
-  prefixLength?: number;
-  suffixLength?: number;
-} & Pick<InputProps, 'componentSize'>;
+} & Pick<InputProps, 'componentSize'> &
+  InputHTMLAttributes<HTMLInputElement>;
 
 export type InputTypographyTypes = { [k in InputSize]: StaticTypographyType };

@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  gap: var(--sizes-dds-spacing-x-0-75);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.container--small-screen {
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  display: grid;
+  grid-auto-flow: column;
+  margin: 0;
+  padding: 0;
+  gap: var(--sizes-dds-spacing-x-0-75);
+}
+
+.list__item {
+  display: inline-grid;
+  align-content: center;
+}
+
+.list__item--hidden {
+  visibility: hidden;
+}
+
+.indicators {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: var(--sizes-dds-spacing-x-0-75);
+}
+
+.truncation-icon {
+  color: var(--dds-color-neutrals-gray-7);
+  min-width: calc(1ch + (2 * var(--sizes-dds-spacing-x-0-75)));
+}

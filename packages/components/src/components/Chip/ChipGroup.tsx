@@ -13,7 +13,11 @@ export const ChipGroup = forwardRef<HTMLUListElement, ChipGroupProps>(
     return (
       <ul
         {...rest}
-        className={cn(className, styles.group, utilStyles.removeListStyling)}
+        className={cn(
+          className,
+          styles.group,
+          utilStyles['remove-list-styling'],
+        )}
         ref={ref}
       >
         {childrenArray.map((item, index) => (

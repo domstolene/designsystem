@@ -1,14 +1,11 @@
 import { type Property } from 'csstype';
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
 import { ScrollableContainer } from '../ScrollableContainer';
-
-const Container = styled.div``;
 
 export type ModalBodyProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -31,13 +28,13 @@ export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
     };
 
     return scrollable ? (
-      <Container {...containerProps}>
+      <div {...containerProps}>
         <ScrollableContainer contentHeight={height}>
           {children}
         </ScrollableContainer>
-      </Container>
+      </div>
     ) : (
-      <Container {...containerProps}>{children}</Container>
+      <div {...containerProps}>{children}</div>
     );
   },
 );

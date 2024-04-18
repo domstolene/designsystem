@@ -1,8 +1,4 @@
-import {
-  Search as BaseSearch,
-  type SearchProps,
-  type SearchSize,
-} from './Search';
+import { Search as BaseSearch, type SearchProps } from './Search';
 import {
   SearchAutocompleteWrapper,
   type SearchAutocompleteWrapperProps,
@@ -28,7 +24,6 @@ export { Search };
 
 export type {
   SearchProps,
-  SearchSize,
   SearchData,
   WeightedSearchData,
   SearchAutocompleteWrapperProps,
@@ -37,3 +32,4 @@ export type {
 
 export { SearchAutocompleteWrapper };
 export { SearchSuggestions };
+export * from './Search.types';

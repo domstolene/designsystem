@@ -33,7 +33,6 @@ export const Default: Story = {
 };
 
 export const Overview: Story = {
-  args: {},
   decorators: Story => (
     <StoryTemplate display="grid" $columnsAmount={2}>
       <Story />
@@ -48,6 +47,13 @@ export const Overview: Story = {
         {...args}
         label={args.label ?? 'Disabled checked'}
         disabled
+        checked
+      />
+      <RadioButton {...args} label={args.label ?? 'ReadOnly'} readOnly />
+      <RadioButton
+        {...args}
+        label={args.label ?? 'ReadOnly checked'}
+        readOnly
         checked
       />
       <RadioButton {...args} label={args.label ?? 'Error'} error />

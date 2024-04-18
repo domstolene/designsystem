@@ -1,60 +1,31 @@
 import { forwardRef, useState } from 'react';
-import styled, { css } from 'styled-components';
 
-import {
-  purposeVariants,
-  globalMessageTokens as tokens,
-  typographyType,
-} from './GlobalMessage.tokens';
+import styles from './GlobalMessage.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
-import { Icon } from '../Icon';
-import { CloseIcon } from '../Icon/icons';
-import { Typography, getFontStyling } from '../Typography';
+import { Icon, type SvgIcon } from '../Icon';
+import { CloseIcon, ErrorIcon, InfoIcon, WarningIcon } from '../Icon/icons';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const { container, contentContainer, icon } = tokens;
-
-const Container = styled.div<{
-  $purpose: GlobalMessagePurpose;
-}>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  width: 100%;
-  padding: ${container.padding};
-  border-bottom: ${container.borderBottom};
-  ${getFontStyling(typographyType, true)}
-  ${({ $purpose }) => css`
-    border-color: ${container[$purpose].borderColor};
-    background-color: ${container[$purpose].backgroundColor};
-  `}
-`;
-
-const MessageIconWrapper = styled(Icon)`
-  margin-right: ${icon.marginRight};
-`;
-
-const ControlsContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const ContentContainer = styled.div<{
-  $closable: GlobalMessageProps['closable'];
-}>`
-  display: flex;
-  align-items: center;
-  padding-top: ${contentContainer.paddingTop};
-  padding-bottom: ${contentContainer.paddingBottom};
-  padding-right: ${({ $closable }) =>
-    $closable
-      ? contentContainer.withClosable.paddingRight
-      : contentContainer.paddingRight};
-`;
+export const purposeVariants: {
+  [k in GlobalMessagePurpose]: {
+    icon: SvgIcon;
+  };
+} = {
+  info: {
+    icon: InfoIcon,
+  },
+  danger: {
+    icon: ErrorIcon,
+  },
+  warning: {
+    icon: WarningIcon,
+  },
+};
 
 export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
 
@@ -89,34 +60,43 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
     const [isClosed, setClosed] = useState(false);
 
     return !isClosed ? (
-      <Container
+      <div
         ref={ref}
-        $purpose={purpose}
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        {...getBaseHTMLProps(
+          id,
+          cn(
+            className,
+            styles.container,
+            styles[`container--${purpose}`],
+            typographyStyles['body-sans-02'],
+          ),
+          htmlProps,
+          rest,
+        )}
       >
-        <ContentContainer $closable={closable}>
-          <MessageIconWrapper
-            icon={purposeVariants[purpose].icon}
-            color={icon[purpose].color}
-          />
-          {children ?? <Typography as="span">{message}</Typography>}
-        </ContentContainer>
-        <ControlsContainer>
-          {closable && (
-            <Button
-              icon={CloseIcon}
-              purpose={purposeVariants[purpose].closeButtonPurpose}
-              appearance="borderless"
-              onClick={() => {
-                setClosed(true);
-                onClose && onClose();
-              }}
-              size="small"
-              aria-label="Lukk melding"
-            />
+        <div
+          className={cn(
+            styles.content,
+            closable && styles['content--closable'],
           )}
-        </ControlsContainer>
-      </Container>
+        >
+          <Icon icon={purposeVariants[purpose].icon} className={styles.icon} />
+          {children ?? <span>{message}</span>}
+        </div>
+
+        {closable && (
+          <Button
+            icon={CloseIcon}
+            purpose="tertiary"
+            onClick={() => {
+              setClosed(true);
+              onClose && onClose();
+            }}
+            size="small"
+            aria-label="Lukk melding"
+          />
+        )}
+      </div>
     ) : null;
   },
 );

@@ -59,7 +59,7 @@ export const Overview: Story = {
         <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
         <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
       </DescriptionList>
-      <DescriptionList appearance="small">
+      <DescriptionList appearance="subtle">
         <DescriptionListTerm>Tittel</DescriptionListTerm>
         <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
 
@@ -79,7 +79,7 @@ export const Overview: Story = {
         </DescriptionListDesc>
       </DescriptionList>
 
-      <DescriptionList appearance="small">
+      <DescriptionList appearance="subtle">
         <DescriptionListTerm>Tittel</DescriptionListTerm>
         <DescriptionListDesc icon={CallIcon}>
           <Typography typographyType="a">+47 123 45 678</Typography>

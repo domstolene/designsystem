@@ -1,39 +1,11 @@
-import { type Property } from 'csstype';
 import { type ChangeEvent, useId, useState } from 'react';
-import styled, { css } from 'styled-components';
 
 import { ToggleBarContext } from './ToggleBar.context';
-import { toggleBarTokens as tokens } from './ToggleBar.tokens';
+import styles from './ToggleBar.module.css';
 import { type ToggleBarProps, type ToggleBarValue } from './ToggleBar.types';
 import { getBaseHTMLProps } from '../../types';
-import { combineHandlers } from '../../utils';
-import { selection } from '../helpers';
-import { Typography } from '../Typography';
-
-interface OuterContainerProps {
-  $width?: Property.Width;
-}
-
-const OuterContainer = styled.div<OuterContainerProps>`
-  display: flex;
-  flex-direction: column;
-  gap: ${tokens.outerContainer.gap};
-  &::selection,
-  *::selection {
-    ${selection}
-  }
-  ${({ $width }) =>
-    $width &&
-    css`
-      width: ${$width};
-    `}
-`;
-
-const Bar = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-`;
+import { cn, combineHandlers } from '../../utils';
+import { Label } from '../Typography';
 
 export const ToggleBar = <T extends string | number = string>(
   props: ToggleBarProps<T>,
@@ -73,19 +45,20 @@ export const ToggleBar = <T extends string | number = string>(
         value: groupValue,
       }}
     >
-      <OuterContainer
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      <div
+        {...getBaseHTMLProps(
+          id,
+          cn(className, styles.container),
+          htmlProps,
+          rest,
+        )}
+        style={{ ...htmlProps?.style, width }}
         role="radiogroup"
         aria-labelledby={labelId ?? htmlProps?.['aria-labelledby']}
-        $width={width}
       >
-        {label && (
-          <Typography typographyType="supportingStyleLabel01" id={labelId}>
-            {label}
-          </Typography>
-        )}
-        <Bar>{children}</Bar>
-      </OuterContainer>
+        {label && <Label id={labelId}>{label}</Label>}
+        <div className={styles.bar}>{children}</div>
+      </div>
     </ToggleBarContext.Provider>
   );
 };

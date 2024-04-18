@@ -1,0 +1,120 @@
+:root {
+  --dds-input-default-width: 320px;
+}
+
+.container {
+  position: relative;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input {
+  position: relative;
+  color: var(--dds-color-neutrals-gray-9);
+  border: 1px solid var(--dds-color-neutrals-gray-5);
+  background-color: var(--dds-color-neutrals-white);
+  padding: var(--sizes-dds-spacing-x-0-75) var(--sizes-dds-spacing-x-1)
+    var(--sizes-dds-spacing-x-0-75) var(--sizes-dds-spacing-x-0-75);
+  border-radius: var(--radii-dds-border-radius-1-radius);
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  box-shadow: none;
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      box-shadow 0.2s,
+      border-color 0.2s,
+      background-color 0.2s,
+      outline-offset 0.2s;
+  }
+  &[type='text'],
+  &[type='password'],
+  &[type='number'],
+  &[type='tel'],
+  &[type='date'],
+  &[type='url'],
+  &[type='email'],
+  &[type='search'],
+  &[type='datetime-local'] {
+    -webkit-appearance: none;
+  }
+
+  &:not(input):not(textarea):not(.disabled):not(.read-only):not(.active):hover,
+  &:hover:enabled:read-write:not(:focus-visible) {
+    border-color: var(--dds-color-interactive-base);
+    box-shadow: 0 0 0 1px var(--dds-color-interactive-base);
+  }
+
+  &.input--stateful {
+    -webkit-appearance: textfield;
+
+    &:not(.disabled).read-only,
+    &:enabled:read-only {
+      box-shadow: none;
+      border: none;
+      outline: none;
+      cursor: default;
+      background-color: transparent;
+      padding-left: 0;
+      padding-top: var(--sizes-dds-spacing-x-0-125);
+    }
+
+    &.disabled,
+    &:disabled {
+      cursor: not-allowed;
+      color: var(--dds-color-neutrals-gray-7);
+      background-color: var(--dds-color-neutrals-gray-1);
+    }
+  }
+}
+
+.input--hover:hover {
+  border-color: var(--dds-color-interactive-base);
+  box-shadow: 0 0 0 1px var(--dds-color-interactive-base);
+}
+
+.input--stateful-danger {
+  border-color: var(--dds-color-danger-base);
+  box-shadow: 0 0 0 1px var(--dds-color-danger-base);
+
+  &:not(.disabled):hover:not(:focus-within),
+  &:hover:enabled:read-write:not(:focus-within) {
+    border-color: var(--dds-color-danger-base);
+    box-shadow: 0 0 0 1px var(--dds-color-danger-base);
+  }
+
+  &:not(.disabled):focus-within,
+  &:focus-within:enabled:read-write,
+  &:hover:focus-within:enabled:read-write,
+  &:active:enabled:read-write {
+    border-color: 1px solid var(--dds-color-neutrals-gray-5);
+  }
+}
+
+/* .input--disabled {
+  color: var(--dds-color-neutrals-gray-7);
+  background-color: var(--dds-color-neutrals-gray-1);
+}
+
+.input--readonly {
+  background-color: transparent;
+  padding-top: var(--sizes-dds-spacing-x-0-125);
+} */
+
+.input--medium {
+  padding: var(--sizes-dds-spacing-x-0-75);
+}
+
+.input--small {
+  padding: var(--sizes-dds-spacing-x-0-5) var(--sizes-dds-spacing-x-0-75);
+}
+
+.input--tiny {
+  padding: var(--sizes-dds-spacing-x-0-25) var(--sizes-dds-spacing-x-0-5);
+}
+
+.input--with-affix {
+  gap: var(--sizes-dds-spacing-x-1);
+}

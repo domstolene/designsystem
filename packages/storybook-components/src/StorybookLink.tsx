@@ -1,12 +1,5 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens,
-} from '@norges-domstoler/dds-design-tokens';
-import { type ReactNode } from 'react';
-import styled, { css } from 'styled-components';
-
-const { border, colors, spacing } = ddsBaseTokens;
-const { textDefault } = ddsReferenceTokens;
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { type CSSProperties, type ComponentProps, type ReactNode } from 'react';
 
 import {
   FigmaSvg,
@@ -16,59 +9,31 @@ import {
   ZeroheightSvg,
 } from './assets/logos';
 
-const LinkBlockInner = styled.div<{ size: Size }>`
-  display: flex;
-  ${({ size }) => {
-    if (size === 'large') {
-      return css`
-        flex-direction: column;
-        gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
-        padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
-        align-items: center;
-        @media only screen and (max-width: 350px) {
-          & {
-            padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
-          }
-        }
-      `;
-    } else if (size === 'small') {
-      return css`
-        flex-direction: row;
-        gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
-        padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
-        align-items: center;
-      `;
-    }
-  }}
-`;
-export const hoverWithBorder = {
-  borderColor: border.BordersDdsBorderFocusInputfieldStroke,
-  boxShadow: `inset 0 0 0 1px ${border.BordersDdsBorderFocusInputfieldStroke}`,
+const Link = (props: ComponentProps<'a'>) => (
+  <a
+    {...props}
+    style={{
+      display: 'block',
+      backgroundColor: ddsBaseTokens.colors.DdsColorNeutralsWhite,
+      border: `1px solid ${ddsBaseTokens.colors.DdsColorNeutralsGray5}`,
+      color: ddsBaseTokens.colors.DdsColorNeutralsGray9,
+      textDecoration: 'none',
+      transition: '0.2s',
+    }}
+  />
+);
+
+const linkInnerSmallStyle: CSSProperties = {
+  flexDirection: 'row',
+  gap: ddsBaseTokens.spacing.SizesDdsSpacingX05,
+  padding: ddsBaseTokens.spacing.SizesDdsSpacingX05,
 };
 
-export const focusVisible = {
-  outline: `${colors.DdsColorInfoDarkest} 2px solid`,
-  outlineOffset: spacing.SizesDdsSpacingX0125,
-  boxShadow: `0 0 0 2px ${colors.DdsColorInfoLightest}`,
+const linkInnerLargeStyle: CSSProperties = {
+  flexDirection: 'column',
+  gap: ddsBaseTokens.spacing.SizesDdsSpacingX075,
+  padding: ddsBaseTokens.spacing.SizesDdsSpacingX075,
 };
-
-const StyledCard = styled.a<{ size: Size }>`
-  display: block;
-  background-color: ${colors.DdsColorNeutralsWhite};
-  border: ${border.BordersDdsBorderStyleLightStrokeWeight} solid;
-  border-color: ${border.BordersDdsBorderStyleLightStroke};
-  color: ${textDefault.textColor};
-  text-decoration: none;
-  width: ${({ size }) => (size === 'large' ? '210px' : 'fit-content')};
-  transition: 0.2s;
-
-  &:hover {
-    ${hoverWithBorder}
-  }
-  &:focus {
-    ${focusVisible}
-  }
-`;
 
 type LinkType = 'npm' | 'zeroheight' | 'figma' | 'slack' | 'github';
 
@@ -80,6 +45,7 @@ interface StorybookLinkProps {
   text: string;
   linkType: LinkType;
   size?: Size;
+  className?: string;
 }
 
 export const StorybookLink = ({
@@ -87,18 +53,31 @@ export const StorybookLink = ({
   href,
   linkType,
   size = 'large',
+  className,
 }: StorybookLinkProps) => {
   const iconSize = size === 'small' ? '1rem' : '50';
+
   return (
-    <StyledCard size={size} href={href} target="_blank" className="sb-unstyled">
-      <LinkBlockInner size={size}>
+    <Link
+      href={href}
+      target="_blank"
+      className={className}
+      style={{ width: size === 'large' ? '210px' : 'fit-content' }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          ...(size === 'large' ? linkInnerLargeStyle : linkInnerSmallStyle),
+        }}
+      >
         {linkType === 'npm' && <NpmSvg size={iconSize} />}
         {linkType === 'zeroheight' && <ZeroheightSvg size={iconSize} />}
         {linkType === 'figma' && <FigmaSvg size={iconSize} />}
         {linkType === 'slack' && <SlackSvg size={iconSize} />}
         {linkType === 'github' && <GithubSvg size={iconSize} />}
         <span>{text}</span>
-      </LinkBlockInner>
-    </StyledCard>
+      </div>
+    </Link>
   );
 };

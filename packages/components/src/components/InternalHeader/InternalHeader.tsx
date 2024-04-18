@@ -1,19 +1,15 @@
 import { useRef, useState } from 'react';
 
-import {
-  AppNameLink,
-  Bar,
-  BarSeparator,
-  ContextMenuGroup,
-  NavLi,
-  NavigationList,
-  StyledOverflowMenu,
-} from './InternalHeader.styles';
+import styles from './InternalHeader.module.css';
 import { type InternalHeaderProps } from './InternalHeader.types';
 import { NavigationItem } from './NavigationItem';
 import { getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
+import { focusable } from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { MenuIcon, MoreVerticalIcon } from '../Icon/icons';
+import { OverflowMenu } from '../OverflowMenu';
 import { Typography } from '../Typography';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
@@ -60,38 +56,56 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   const navigation =
     hasNavigationElements && !smallScreen ? (
       <nav aria-label="sidenavigasjon">
-        <NavigationList>
+        <ul
+          className={cn(
+            styles['nav-list'],
+            smallScreen && styles['nav-list--small-screen'],
+            utilStyles['remove-list-styling'],
+          )}
+        >
           {navigationElements.map((item, index) => {
             const { href, ...rest } = item;
             const isCurrent = href === currentPage;
             return (
-              <NavLi key={index}>
+              <li key={index} className={styles['nav-list__item']}>
                 <NavigationItem
                   href={href}
                   {...rest}
                   isCurrent={isCurrent}
                   onClick={() => handleCurrentPageChange(href)}
                 />
-              </NavLi>
+              </li>
             );
           })}
-        </NavigationList>
+        </ul>
       </nav>
     ) : null;
 
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
   return (
-    <Bar
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      $hasNavigation={!!navigation}
-      $smallScreen={smallScreen}
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.bar,
+          smallScreen && styles['bar--small-screen'],
+          !!navigation && styles['bar--with-nav'],
+        ),
+        htmlProps,
+        rest,
+      )}
     >
       <Typography typographyType="bodySans02" bold as="span">
         {applicationHref ? (
-          <AppNameLink href={applicationHref} rel="noopener noreferrer">
+          <a
+            href={applicationHref}
+            rel="noopener noreferrer"
+            className={cn(utilStyles['inherit-link-styling'], focusable)}
+          >
             {applicationName}
-          </AppNameLink>
+          </a>
         ) : (
           applicationName
         )}
@@ -99,31 +113,33 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       <Typography typographyType="bodySans02" as="span">
         {applicationDesc}
       </Typography>
-      {(hasContextMenu || navigation !== null) && <BarSeparator />}
+      {(hasContextMenu || navigation !== null) && (
+        <div className={styles['bar-separator']} />
+      )}
       {navigation}
       {hasContextMenu && (
-        <ContextMenuGroup>
+        <div className={styles['context-menu-group']}>
           <Button
             ref={buttonRef}
             icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
-            appearance="borderless"
-            purpose="secondary"
+            purpose="tertiary"
             onClick={handleContextMenuClick}
             aria-haspopup="menu"
             aria-expanded={!contextMenuIsClosed ? true : undefined}
             aria-label="åpne meny"
           />
-          <StyledOverflowMenu
+          <OverflowMenu
             isOpen={!contextMenuIsClosed}
             onClose={onOveflowMenuClose}
             anchorRef={buttonRef}
             navItems={hasNavInContextMenu ? navigationElements : undefined}
             items={hasContextMenuElements ? contextMenuElements : undefined}
             userProps={userProps}
+            className={styles['context-menu']}
           />
-        </ContextMenuGroup>
+        </div>
       )}
-    </Bar>
+    </div>
   );
 };
 

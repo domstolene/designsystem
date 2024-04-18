@@ -1,0 +1,195 @@
+.container--medium {
+  width: 160px;
+}
+
+.container--small {
+  width: 140px;
+}
+
+.container--tiny {
+  width: 125px;
+}
+
+.date-input {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sizes-dds-spacing-x-0-25);
+}
+
+.date-input--medium {
+  padding-inline: var(--sizes-dds-spacing-x-0-5) !important;
+}
+
+.date-input--small {
+  padding-inline: var(--sizes-dds-spacing-x-0-5) !important;
+}
+
+.date-input--tiny {
+  padding-inline: var(--sizes-dds-spacing-x-0-25) !important;
+}
+
+.date-segment-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.segment {
+  padding: 0 0.05rem;
+  display: block;
+  width: max-content;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+
+  &:focus:not([aria-readonly]) {
+    background-color: var(--dds-color-interactive-base);
+    color: var(--dds-color-neutrals-white);
+  }
+}
+
+.segment__placeholder {
+  display: block;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  .segment:focus:not([aria-readonly]) & {
+    color: var(--dds-color-neutrals-white);
+  }
+}
+
+.segment__placeholder--invisible {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+/**------------------------------------------------------------------------
+ * Ikon-wrapper ved siden av input
+ * Gjelder både dato og tid
+ *------------------------------------------------------------------------*/
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: -1px 0; /* Samme posisjon som TextInput sitt ikon */
+  padding: var(--sizes-dds-spacing-x-0-25);
+  color: var(--dds-color-neutrals-gray-9);
+}
+
+.icon-wrapper--small {
+  margin-block: calc(0px - var(--dds-iconsize-medium));
+}
+
+.icon-wrapper--medium {
+  margin-block: calc(0px - var(--dds-iconsize-small));
+}
+
+/**------------------------------------------------------------------------
+ * Klasser relaterte til kalender-popover
+ *------------------------------------------------------------------------*/
+
+.popover-button {
+  cursor: pointer;
+  border: 0;
+  transition: 0.2s;
+  background: transparent;
+  border-radius: var(--radii-dds-border-radius-1-radius);
+
+  &:not(:disabled):not(.disabled):hover,
+  &:not(:disabled):not(.disabled):active {
+    background-color: var(--dds-color-interactive-lightest);
+    color: var(--dds-color-interactive-base);
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    outline: none;
+    color: var(--dds-color-neutrals-gray-6);
+  }
+}
+
+.popover {
+  z-index: 100;
+  border-radius: var(--radii-dds-border-radius-1-radius);
+  background-color: var(--dds-color-neutrals-white);
+  border: 2px solid var(--dds-color-interactive-base);
+  padding: var(--sizes-dds-spacing-x-0-5);
+  box-shadow: var(--dds-shadow-2-onlight);
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.calendar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar__header__month {
+  text-transform: capitalize;
+}
+
+.calendar__month-button {
+  user-select: none;
+}
+
+.calendar__week-number {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar__cell-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid;
+  border-color: transparent;
+  border-radius: var(--radii-dds-border-radius-1-radius);
+  transition: 0.2s;
+}
+
+.calendar__cell-button--today {
+  text-decoration: underline;
+  border-color: var(--dds-color-neutrals-gray-5);
+}
+
+.calendar__cell-button--default {
+  background-color: transparent;
+  color: var(--dds-color-neutrals-gray-9);
+  &:hover {
+    background-color: var(--dds-color-interactive-lightest);
+    border-color: var(--dds-color-interactive-base);
+    color: var(--dds-color-neutrals-gray-9);
+  }
+}
+
+.calendar__cell-button--selected {
+  background-color: var(--dds-color-interactive-base);
+  border-color: var(--dds-color-interactive-base);
+  color: var(--dds-color-neutrals-white);
+}
+
+.calendar__cell-button--unavailable {
+  background-color: var(--dds-color-neutrals-gray-1);
+  border-color: var(--dds-color-neutrals-gray-1);
+  color: var(--dds-color-neutrals-gray-6);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.calendar__cell-button--unavailable--today {
+  border-color: var(--dds-color-neutrals-gray-5);
+  text-decoration: underline line-through;
+}

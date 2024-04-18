@@ -16,11 +16,11 @@ import * as TimePickerStories from './TimePicker.stories';
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/date-inputs/TimePicker"
 />
 
-## Demo
+`TimePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
+For mer utfyllende dokumentasjon av props referrerer vi deg til [`useTimeField` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/useTimeField.html).
 
-<Primary />
-
-Se stories med kontrollere i <LinkTo title="dds-components/TimePicker" story="Default">Storybook</LinkTo>.
+<Canvas of={TimePickerStories.Default} sourceState="shown" />
+<Controls of={TimePickerStories.Default} />
 
 ## Bruk i koden
 
@@ -36,11 +36,3 @@ new Time(12, 0, 0)
 
 <TimePicker label="Tidspunkt" value={value} onChange={setValue} />
 `} />
-
-## Props
-
-`TimePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
-For mer utfyllende dokumentasjon av props referrerer vi deg til [`useTimeField` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/useTimeField.html).
-
-<Canvas of={TimePickerStories.Default} sourceState="shown" />
-<Controls of={TimePickerStories.Default} />

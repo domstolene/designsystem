@@ -1,17 +1,11 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 
+import styles from './Fieldset.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-
-const StyledFieldset = styled.fieldset`
-  padding-block: 0;
-  padding-inline: 0;
-  margin-inline: 0;
-  border: none;
-`;
+import { cn } from '../../utils';
 
 export type FieldsetProps = BaseComponentPropsWithChildren<
   HTMLFieldSetElement,
@@ -25,9 +19,14 @@ export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(
   (props, ref) => {
     const { id, className, htmlProps, ...rest } = props;
     return (
-      <StyledFieldset
+      <fieldset
         ref={ref}
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        {...getBaseHTMLProps(
+          id,
+          cn(className, styles.container),
+          htmlProps,
+          rest,
+        )}
       />
     );
   },

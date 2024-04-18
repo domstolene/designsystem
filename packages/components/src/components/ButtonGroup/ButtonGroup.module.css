@@ -1,0 +1,71 @@
+.group button:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.group--column {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: 100%;
+    border: 1px solid;
+  }
+}
+
+.group--column button:first-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.group--column button:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  &:not(:active) {
+    border-top-color: transparent;
+  }
+}
+
+.group--column button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  &:not(:active) {
+    border-top-color: transparent;
+  }
+
+  &:active + button {
+    border-top-color: initial;
+  }
+}
+
+.group--column button:first-child:not(:last-child) {
+  &:active + button {
+    border-top-color: initial;
+  }
+}
+
+.group--row button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  &:not(:active) {
+    border-left-color: transparent;
+  }
+  &:active + button {
+    border-left-color: initial;
+  }
+}
+.group--row button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.group--row button:first-child:not(:last-child) {
+  &:active + button {
+    border-left-color: initial;
+  }
+}
+.group--row button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  &:not(:active) {
+    border-left-color: transparent;
+  }
+}

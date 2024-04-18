@@ -1,0 +1,47 @@
+.backdrop {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s;
+  }
+}
+
+.backdrop--visible {
+  opacity: 1;
+}
+
+.backdrop--hidden {
+  opacity: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  min-width: 200px;
+  padding: var(--sizes-dds-spacing-x-1) var(--sizes-dds-spacing-x-1)
+    var(--sizes-dds-spacing-x-1-5) var(--sizes-dds-spacing-x-1-5);
+}
+
+.content {
+  display: grid;
+  padding-right: var(--sizes-dds-spacing-x-1);
+  gap: var(--sizes-dds-spacing-x-1);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sizes-dds-spacing-x-1);
+}
+
+.close-button {
+  align-self: flex-end;
+}

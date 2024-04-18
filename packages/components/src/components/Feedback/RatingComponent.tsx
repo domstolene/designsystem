@@ -1,29 +1,12 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import styled, { css } from 'styled-components';
-
+import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
-import { Thumbdown, Thumbup } from '../Icon/icons';
+import { ThumbDownIcon, ThumbUpIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { HStack } from '../Stack';
 import { Tooltip } from '../Tooltip';
 import { Label } from '../Typography';
-
-const RatingContainer = styled.div<{
-  $layout: Layout;
-}>`
-  display: flex;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX1};
-  ${({ $layout }) => css`
-    flex-direction: ${$layout === 'horizontal' ? 'row' : 'column'};
-    align-items: ${$layout === 'horizontal' ? 'center' : 'start'};
-  `}
-`;
-
-const RatingButton = styled(Button)`
-  padding: 0px;
-  color: ${ddsBaseTokens.colors.DdsColorNeutralsGray7};
-`;
 
 interface RatingComponentType {
   layout: Layout;
@@ -42,35 +25,44 @@ export const RatingComponent = ({
   thumbDownTooltip,
   handleRatingChange,
 }: RatingComponentType) => {
+  const layoutCn = layout === 'vertical' ? 'column' : 'row';
+
   return (
-    <RatingContainer $layout={layout}>
+    <div
+      className={cn(
+        styles['rating-container'],
+        styles[`rating-container--${layoutCn}`],
+      )}
+    >
       <Label>{ratingLabel}</Label>
       {loading ? (
         <Spinner tooltip="Laster opp tilbakemelding ..." />
       ) : (
         <HStack gap="x1">
           <Tooltip text={thumbUpTooltip}>
-            <RatingButton
+            <Button
               htmlProps={{ 'aria-label': thumbUpTooltip }}
-              icon={Thumbup}
-              appearance="borderless"
+              icon={ThumbUpIcon}
+              purpose="tertiary"
               onClick={() => handleRatingChange('positive')}
               size="large"
+              className={styles.button}
             />
           </Tooltip>
           <Tooltip text={thumbDownTooltip}>
             <div>
-              <RatingButton
+              <Button
                 htmlProps={{ 'aria-label': thumbDownTooltip }}
-                icon={Thumbdown}
-                appearance="borderless"
+                icon={ThumbDownIcon}
+                purpose="tertiary"
                 onClick={() => handleRatingChange('negative')}
                 size="large"
+                className={styles.button}
               />
             </div>
           </Tooltip>
         </HStack>
       )}
-    </RatingContainer>
+    </div>
   );
 };

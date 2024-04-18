@@ -1,61 +1,14 @@
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { type Properties } from 'csstype';
 import { type HTMLAttributes } from 'react';
-import styled, { css } from 'styled-components';
 
-import { GridContext } from './Grid.context';
-import { gridTokens } from './Grid.tokens';
-import { type ScreenSize, useScreenSize } from '../../hooks';
+import styles from './Grid.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { type BreakpointBasedProps, getLiteralScreenSize } from '../helpers';
-
-interface StyledGridProps {
-  screenSize: ScreenSize;
-  maxWidth?: MaxWidthGrid;
-  rowGap?: RowGapGrid;
-}
-
-export const getHooksGridStyling = (
-  screenSize: ScreenSize,
-  maxWidth?: MaxWidthGrid,
-  rowGap?: RowGapGrid,
-) => {
-  const tokens = gridTokens[screenSize].grid;
-  return {
-    gridTemplateColumns: `repeat(${tokens.columns}, minmax(0, 1fr))`,
-    columnGap: tokens.columnGap,
-    marginLeft: tokens.marginLeft,
-    marginRight: tokens.marginRight,
-    rowGap:
-      rowGap && rowGap[getLiteralScreenSize(screenSize)]
-        ? rowGap[getLiteralScreenSize(screenSize)]
-        : tokens.columnGap,
-    maxWidth:
-      maxWidth &&
-      maxWidth[getLiteralScreenSize(screenSize)] &&
-      maxWidth[getLiteralScreenSize(screenSize)],
-  };
-};
-
-const StyledGrid = styled.div.withConfig({
-  shouldForwardProp: prop => {
-    const styleOnlyProps: Array<keyof StyledGridProps> = [
-      'maxWidth',
-      'rowGap',
-      'screenSize',
-    ];
-
-    return !styleOnlyProps.some(styleProp => styleProp === prop);
-  },
-})<StyledGridProps>`
-  display: grid;
-  ${({ maxWidth }) => css`
-    max-width: ${maxWidth};
-  `}
-  ${({ screenSize, maxWidth, rowGap }) =>
-    getHooksGridStyling(screenSize, maxWidth, rowGap)}
-`;
+import { cn } from '../../utils';
+import { type BreakpointBasedProps } from '../helpers';
 
 type RowGapGrid = BreakpointBasedProps<'rowGap'>;
 type MaxWidthGrid = BreakpointBasedProps<'maxWidth'>;
@@ -82,27 +35,52 @@ type GridFormProps = BaseComponentPropsWithChildren<
 export type GridProps = GridDivProps | GridFormProps;
 
 export const Grid = (props: GridProps) => {
-  const { id, className, children, htmlProps, as, ...rest } = props;
-  const screenSize = useScreenSize();
-  return (
-    <GridContext.Provider value={{ screenSize: screenSize }}>
-      {as === 'div' ? (
-        <StyledGrid
-          {...getBaseHTMLProps(id, className, htmlProps, rest)}
-          screenSize={screenSize}
-        >
-          {children}
-        </StyledGrid>
-      ) : (
-        <StyledGrid
-          {...getBaseHTMLProps(id, className, htmlProps, rest)}
-          screenSize={screenSize}
-          as={as}
-        >
-          {children}
-        </StyledGrid>
-      )}
-    </GridContext.Provider>
+  const { id, className, htmlProps, as, maxWidth, rowGap, style, ...rest } =
+    props;
+
+  const styleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-xs-max-width' as any]: maxWidth?.xs,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-xs-row-gap' as any]: rowGap?.xs
+      ? rowGap.xs
+      : ddsBaseTokens.grid.DdsGridXs0599GutterSize,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-sm-max-width' as any]: maxWidth?.sm,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-sm-row-gap' as any]: rowGap?.sm
+      ? rowGap.sm
+      : ddsBaseTokens.grid.DdsGridMd9601279GutterSize,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-md-max-width' as any]: maxWidth?.md,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-md-row-gap' as any]: rowGap?.md
+      ? rowGap.md
+      : ddsBaseTokens.grid.DdsGridMd9601279GutterSize,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-lg-max-width' as any]: maxWidth?.lg,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-lg-row-gap' as any]: rowGap?.lg
+      ? rowGap.lg
+      : ddsBaseTokens.grid.DdsGridLg12801919GutterSize,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-xl-max-width' as any]: maxWidth?.xl,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-xl-row-gap' as any]: rowGap?.xl
+      ? rowGap.xl
+      : ddsBaseTokens.grid.DdsGridXl1920GutterSize,
+  };
+
+  return as === 'div' ? (
+    <div
+      {...getBaseHTMLProps(id, cn(className, styles.grid), htmlProps, rest)}
+      style={{ ...htmlProps?.style, ...styleVariables }}
+    />
+  ) : (
+    <form
+      {...getBaseHTMLProps(id, cn(className, styles.grid), htmlProps, rest)}
+      style={{ ...style, ...htmlProps?.style, ...styleVariables }}
+    />
   );
 };
 

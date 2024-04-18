@@ -1,14 +1,9 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens,
-} from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
-import styled from 'styled-components';
 
 import { type Placement } from '../../hooks';
 import { Button } from '../Button';
-import { removeButtonStyling } from '../helpers';
+import { InlineButton } from '../InlineButton';
 import { VStack } from '../Stack';
 import { Typography } from '../Typography';
 
@@ -198,20 +193,6 @@ export const InlineExample: Story = {
     </StoryTemplate>
   ),
   render: args => {
-    const Trigger = styled.button`
-      ${removeButtonStyling}
-      user-select: text;
-      text-decoration: underline;
-      color: ${ddsBaseTokens.colors.DdsColorInteractiveBase};
-      &:hover {
-        color: ${ddsBaseTokens.colors.DdsColorInteractiveDark};
-      }
-      &:focus {
-        color: ${ddsBaseTokens.colors.DdsColorNeutralsWhite};
-        background-color: ${ddsReferenceTokens.focus.colorDefault};
-        text-decoration: none;
-      }
-    `;
     return (
       <Typography>
         Når du kommer til domstolen er det viktig at du finner rettssalen der
@@ -220,7 +201,7 @@ export const InlineExample: Story = {
         gang når du skal inn. Før du og andre vitner slipper til, skal retten få
         en redegjørelse fra{' '}
         <PopoverGroup>
-          <Trigger>advokatene</Trigger>
+          <InlineButton>advokatene</InlineButton>
           <Popover {...args} title="Advokat">
             <Typography withMargins>Dette er en definisjon</Typography>
           </Popover>

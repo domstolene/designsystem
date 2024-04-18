@@ -1,46 +1,9 @@
 import { type AnchorHTMLAttributes, forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { getNavTokens } from './NavigationItem.tokens';
-import { focusVisible, focusVisibleTransitionValue } from '../helpers';
-import { getFontStyling } from '../Typography';
-
-interface LinkProps {
-  $active: boolean;
-}
-
-export const Link = styled.a<LinkProps>`
-  ${getFontStyling('bodySans02')}
-  text-decoration: none;
-
-  color: ${({ $active }) => getNavTokens({ active: $active }).color};
-  background-color: ${({ $active }) =>
-    getNavTokens({ active: $active }).backgroundColor};
-  padding: ${({ $active }) => getNavTokens({ active: $active }).padding};
-  border-radius: ${({ $active }) =>
-    getNavTokens({ active: $active }).borderRadius};
-
-  &:hover {
-    color: ${({ $active }) => getNavTokens({ active: $active }).hover.color};
-    background-color: ${({ $active }) =>
-      getNavTokens({ active: $active }).hover.backgroundColor};
-  }
-
-  &:active {
-    color: ${getNavTokens({ active: true }).color};
-    background-color: ${getNavTokens({ active: true }).backgroundColor};
-  }
-  &:focus-visible,
-  &.focus-visible {
-    ${focusVisible};
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition:
-      background-color 0.2s,
-      ${focusVisibleTransitionValue};
-  }
-`;
+import styles from './InternalHeader.module.css';
+import { cn } from '../../utils';
+import { focusable } from '../helpers/styling/focus.module.css';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type NavigationItemProps = {
   title: string;
@@ -52,13 +15,18 @@ export const NavigationItem = forwardRef<
   NavigationItemProps
 >(({ title, isCurrent, ...rest }, ref) => {
   return (
-    <Link
+    <a
       {...rest}
       ref={ref}
       aria-current={isCurrent ? 'page' : undefined}
-      $active={isCurrent ?? false}
+      className={cn(
+        styles['nav-list__item__link'],
+        isCurrent && styles['nav-list__item__link--active'],
+        typographyStyles['body-sans-02'],
+        focusable,
+      )}
     >
       {title}
-    </Link>
+    </a>
   );
 });

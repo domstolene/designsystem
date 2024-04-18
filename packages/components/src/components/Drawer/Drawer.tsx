@@ -1,9 +1,8 @@
 import { type Property } from 'csstype';
 import { type ReactNode, type RefObject, forwardRef, useId } from 'react';
 import { createPortal } from 'react-dom';
-import styled, { css } from 'styled-components';
 
-import { drawerTokens as tokens } from './Drawer.tokens';
+import styles from './Drawer.module.css';
 import {
   useCombinedRef,
   useFocusTrap,
@@ -15,103 +14,20 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
-import { Paper, focusVisibleInset } from '../helpers';
+import { Paper } from '../helpers';
+import focusStyles from '../helpers/styling/focus.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { ScrollableContainer } from '../ScrollableContainer';
 import { Typography } from '../Typography';
 
-const { container, contentContainer } = tokens;
-
-const getMaxWidth = (size: DrawerSize): Property.MaxWidth => {
-  if (size === 'large') return '800px';
-  else if (size === 'medium') return '600px';
-  else return '400px';
-};
-
-interface ContainerProps {
-  placement: DrawerPlacement;
-  isOpen: boolean;
-  widthProps?: WidthProps;
-  size: DrawerSize;
-}
-
-const Container = styled(Paper).withConfig({
-  shouldForwardProp: prop => {
-    const styleOnlyProps: Array<keyof ContainerProps> = [
-      'placement',
-      'isOpen',
-      'widthProps',
-      'size',
-    ];
-
-    return !styleOnlyProps.some(styleProp => styleProp === prop);
-  },
-})<ContainerProps>`
-  position: fixed;
-  top: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  min-width: 300px;
-  z-index: 100;
-  padding: ${container.padding};
-
-  ${({ size }) => css`
-    max-width: ${getMaxWidth(size)};
-  `}
-
-  ${({ widthProps }) =>
-    widthProps &&
-    css`
-      min-width: ${widthProps.minWidth};
-      max-width: ${widthProps.maxWidth};
-      width: ${widthProps.width};
-    `}
-
-  ${({ placement, isOpen }) =>
-    placement === 'left'
-      ? css`
-          left: 0;
-          transform: ${isOpen ? 'translate(0px)' : 'translateX(-100%)'};
-        `
-      : placement === 'right'
-        ? css`
-            right: 0;
-            transform: ${isOpen ? 'translate(0px)' : 'translateX(100%)'};
-          `
-        : ''}
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: transform 0.5s;
-  }
-
-  &:focus-visible,
-  &.focus-visible {
-    ${focusVisibleInset}
-  }
-`;
-
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${contentContainer.gap};
-  padding: ${contentContainer.padding};
-`;
-
-const HeaderContainer = styled.div``;
-
-const StyledButton = styled(Button)`
-  align-self: flex-end;
-`;
-
 export type DrawerSize = 'small' | 'medium' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export interface WidthProps {
-  minWidth?: Property.MinWidth<string>;
-  maxWidth?: Property.MaxWidth<string>;
-  width?: Property.Width<string>;
+  minWidth?: Property.MinWidth;
+  maxWidth?: Property.MaxWidth;
+  width?: Property.Width;
 }
 
 export type DrawerProps = BaseComponentPropsWithChildren<
@@ -149,6 +65,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     id,
     className,
     htmlProps,
+    widthProps,
     ...rest
   } = props;
 
@@ -180,28 +97,36 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
 
   const hasTransitionedIn = useMountTransition(isOpen, 500);
 
+  const isOpenCn = hasTransitionedIn && isOpen ? 'opened' : 'closed';
+
   const containerProps = {
-    ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
-    placement,
+    ...getBaseHTMLProps(
+      uniqueId,
+      cn(
+        className,
+        styles.container,
+        styles[`container--${size}`],
+        styles[`container--${placement}`],
+        styles[`container--${placement}-${isOpenCn}`],
+        focusStyles['focusable--inset'],
+      ),
+      htmlProps,
+      rest,
+    ),
     ref: combinedRef,
-    isOpen: hasTransitionedIn && isOpen,
     tabIndex: -1,
     role: 'dialog',
     'aria-labelledby': headerId,
-    size,
-  };
-
-  const headerContainerProps = {
-    id: headerId,
+    style: { ...htmlProps?.style, ...widthProps },
   };
 
   return isOpen || hasTransitionedIn
     ? createPortal(
-        <Container {...containerProps} elevation={4}>
+        <Paper {...containerProps} elevation={4}>
           <ScrollableContainer>
-            <ContentContainer>
+            <div className={styles['content-container']}>
               {hasHeader && (
-                <HeaderContainer {...headerContainerProps}>
+                <div id={headerId}>
                   {typeof header === 'string' ? (
                     <Typography typographyType="headingSans03">
                       {header}
@@ -209,21 +134,21 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
                   ) : (
                     header
                   )}
-                </HeaderContainer>
+                </div>
               )}
               {children}
-            </ContentContainer>
+            </div>
           </ScrollableContainer>
-          <StyledButton
+          <Button
+            className={cn(styles['button--close'])}
             data-testid="drawer-close-btn"
             size="small"
-            purpose="secondary"
-            appearance="borderless"
+            purpose="tertiary"
             onClick={onClose}
             aria-label="Lukk"
             icon={CloseIcon}
           />
-        </Container>,
+        </Paper>,
         parentElement,
       )
     : null;

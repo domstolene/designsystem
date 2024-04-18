@@ -266,7 +266,7 @@ export const Hoverable: Story = {
 
 const adminIcon = <Icon icon={PersonIcon} />;
 const deleteButton = (
-  <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
+  <Button purpose="secondary" size="small" icon={TrashIcon} iconPosition="left">
     Fjern tilgang
   </Button>
 );

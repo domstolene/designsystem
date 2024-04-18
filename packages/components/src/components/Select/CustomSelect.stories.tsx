@@ -1,6 +1,5 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import React from 'react';
-import styled from 'styled-components';
 
 import {
   Select,
@@ -61,23 +60,6 @@ export const Example = (args: SingleSelectProps) => {
   );
 };
 
-const OptionIcon = styled.div<{ selected: boolean }>`
-  border-radius: 16px;
-  background: #bbdefb;
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
-  border: ${props => props.selected && '2px solid rgba(46, 120, 170, 1)'};
-`;
-
-const SingleIcon = styled.div`
-  border-radius: 12px;
-  background: #bbdefb;
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-`;
-
 const OptionElement = ({
   isSelected,
   children,
@@ -86,26 +68,40 @@ const OptionElement = ({
   children: React.ReactNode;
 }) => (
   <>
-    <OptionIcon selected={isSelected} />
+    <div
+      style={{
+        borderRadius: '16px',
+        background: '#bbdefb',
+        width: '32px',
+        height: '32px',
+        minWidth: '32px',
+        border: isSelected ? '2px solid rgba(46, 120, 170, 1)' : undefined,
+      }}
+    />
     {children}
   </>
 );
 
-const Container = styled.div`
-  display: flex;
-  gap: 8px;
-`;
-
-const TruncatedText = styled.div`
-  flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
 const SingleElement = ({ children }: { children: React.ReactNode }) => (
-  <Container>
-    <SingleIcon />
-    <TruncatedText>{children}</TruncatedText>
-  </Container>
+  <div style={{ display: 'flex', gap: '8px' }}>
+    <div
+      style={{
+        borderRadius: '12px',
+        background: '#bbdefb',
+        width: '24px',
+        height: '24px',
+        minWidth: '24px',
+      }}
+    />
+    <div
+      style={{
+        flex: '1',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      }}
+    >
+      {children}
+    </div>
+  </div>
 );

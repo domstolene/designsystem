@@ -1,60 +1,10 @@
 import { type Property } from 'csstype';
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { skipToContentTokens as tokens } from './SkipToContent.tokens';
+import styles from './SkipToContent.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
-import { focusVisible, focusVisibleTransitionValue } from '../helpers';
-import { defaultTypographyType, getFontStyling } from '../Typography';
-
-const { wrapper, link } = tokens;
-
-const Wrapper = styled.div<{
-  $top: Property.Top;
-}>`
-  box-sizing: border-box;
-  position: absolute;
-  top: ${({ $top: top }) => top};
-  text-align: center;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  width: 1px;
-  white-space: nowrap;
-  background-color: ${wrapper.backgroundColor};
-  padding: ${wrapper.padding};
-  opacity: 0;
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: opacity 0.2s;
-  }
-
-  &:focus-within {
-    clip: auto;
-    height: auto;
-    overflow: auto;
-    width: 100%;
-    z-index: 250;
-    opacity: 1;
-  }
-`;
-
-const Link = styled.a`
-  text-decoration: none;
-  color: ${link.base.color};
-  ${getFontStyling(defaultTypographyType)}
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition: ${focusVisibleTransitionValue};
-  }
-  &:focus {
-    ${focusVisible}
-  }
-  &:hover {
-    color: ${link.base.color};
-  }
-`;
+import { Link, defaultTypographyType } from '../Typography';
 
 export type SkipToContentProps = BaseComponentProps<
   HTMLAnchorElement,
@@ -86,15 +36,19 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
     } = htmlProps;
 
     return (
-      <Wrapper
-        $top={top}
-        className={cn(className, htmlPropsClassName)}
-        style={style}
+      <div
+        className={cn(className, htmlPropsClassName, styles.wrapper)}
+        style={{ ...style, top }}
       >
-        <Link {...getBaseHTMLProps(id, restHtmlProps, rest)} ref={ref}>
+        <Link
+          {...getBaseHTMLProps(id, restHtmlProps, rest)}
+          typographyType={defaultTypographyType}
+          ref={ref}
+          className={cn(styles.link)}
+        >
           {text}
         </Link>
-      </Wrapper>
+      </div>
     );
   },
 );

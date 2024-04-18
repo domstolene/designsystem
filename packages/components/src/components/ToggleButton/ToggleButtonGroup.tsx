@@ -1,31 +1,12 @@
 import { useId } from 'react';
-import styled, { css } from 'styled-components';
 
-import { toggleButtonTokens as tokens } from './ToggleButton.tokens';
+import styles from './ToggleButton.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { Typography } from '../Typography';
-
-interface GroupProps {
-  direction?: Direction;
-}
-
-const Group = styled.div<GroupProps>`
-  gap: ${tokens.group.gap};
-  display: flex;
-  flex-wrap: wrap;
-  ${({ direction }) => css`
-    flex-direction: ${direction};
-  `}
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${tokens.container.gap};
-`;
 
 type Direction = 'row' | 'column';
 
@@ -55,18 +36,18 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
 
   const generatedId = useId();
   const uniqueLabelId = labelId ?? `${generatedId}-ToggleButtonGroupLabel`;
-  const groupProps = {
-    direction,
-  };
-
-  const containerProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    role: 'group',
-    'aria-labelledby': label ? uniqueLabelId : undefined,
-  };
 
   return (
-    <Container {...containerProps}>
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(className, styles['group-container']),
+        htmlProps,
+        rest,
+      )}
+      role="group"
+      aria-labelledby={label ? uniqueLabelId : undefined}
+    >
       {!!label && (
         <Typography
           as="span"
@@ -76,8 +57,10 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
           {label}
         </Typography>
       )}
-      <Group {...groupProps}>{children}</Group>
-    </Container>
+      <div className={cn(styles.group, styles[`group--${direction}`])}>
+        {children}
+      </div>
+    </div>
   );
 };
 

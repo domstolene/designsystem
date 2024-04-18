@@ -1,0 +1,160 @@
+.list {
+  --dds-progress-tracker-connector-width: 1px;
+  --dds-progress-tracker-item-number-size: 1.75rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sizes-dds-spacing-x-0-125);
+  margin: 0;
+  padding: 0;
+}
+
+.connector {
+  border-right: var(--dds-progress-tracker-connector-width) solid
+    var(--dds-color-neutrals-gray-5);
+  width: 1px;
+  height: 18px;
+  margin-left: calc(
+    (var(--dds-progress-tracker-item-number-size) / 2) -
+      (var(--dds-progress-tracker-connector-width) / 2)
+  );
+}
+
+.item {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.item-button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: var(--dds-progress-tracker-item-number-size) 1fr;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: inherit;
+  gap: var(--sizes-dds-spacing-x-0-5);
+  cursor: pointer;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: all 0.2s;
+  }
+
+  &:hover > .item-number--active-incomplete {
+    background-color: var(--dds-color-interactive-base);
+    border-color: var(--dds-color-interactive-base);
+    color: var(--dds-color-neutrals-white);
+  }
+
+  &:hover .item-number--active-completed {
+    background-color: var(--dds-color-interactive-dark);
+    border-color: var(--dds-color-interactive-dark);
+    color: var(--dds-color-neutrals-white);
+  }
+
+  &:hover > .item-number--inactive-incomplete {
+    background-color: var(--dds-color-interactive-lightest);
+    border-color: var(--dds-color-interactive-base);
+    color: var(--dds-color-interactive-base);
+  }
+
+  &:hover > .item-number--inactive-completed {
+    background-color: var(--dds-color-interactive-dark);
+    border-color: var(--dds-color-interactive-dark);
+    color: var(--dds-color-neutrals-white);
+  }
+
+  &:hover > .item-text--active-completed,
+  &:hover > .item-text--active-incomplete {
+    color: var(--dds-color-interactive-base);
+    text-decoration-color: transparent;
+  }
+
+  &:hover > .item-text--inactive-completed,
+  &:hover > .item-text--inactive-incomplete {
+    color: var(--dds-color-interactive-base);
+    text-decoration-color: var(--dds-color-interactive-base);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.item-div {
+  cursor: default;
+}
+
+.item-number {
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-weight: 600 !important;
+  border: 2px solid;
+  height: var(--dds-progress-tracker-item-number-size);
+  width: var(--dds-progress-tracker-item-number-size);
+}
+
+.item-number--disabled {
+  background-color: var(--dds-color-neutrals-white);
+  border-color: var(--dds-color-neutrals-gray-5);
+  color: var(--dds-color-neutrals-gray-5) !important;
+}
+
+.item-number--active-incomplete {
+  background-color: var(--dds-color-interactive-base);
+  border-color: var(--dds-color-interactive-base);
+  color: var(--dds-color-neutrals-white) !important;
+}
+
+.item-number--active-completed {
+  background-color: var(--dds-color-interactive-base);
+  border-color: var(--dds-color-interactive-base);
+  color: var(--dds-color-neutrals-white) !important;
+}
+
+.item-number--inactive-incomplete {
+  background-color: var(--dds-color-neutrals-white);
+  border-color: var(--dds-color-interactive-base);
+  color: var(--dds-color-interactive-base) !important;
+}
+
+.item-number--inactive-completed {
+  background-color: var(--dds-color-interactive-base);
+  border-color: var(--dds-color-interactive-base);
+  color: var(--dds-color-neutrals-white) !important;
+}
+
+.item-text {
+  text-decoration: underline;
+  text-align: start;
+  transition: text-decoration-color 0.2s;
+}
+
+.item-text--disabled {
+  color: var(--dds-color-neutrals-gray-6);
+  text-decoration-color: transparent;
+}
+
+.item-text--active-completed,
+.item-text--active-incomplete {
+  color: var(--dds-color-interactive-base);
+  text-decoration-color: transparent;
+}
+
+.item-text--inactive-completed,
+.item-text--inactive-incomplete {
+  color: var(--dds-color-neutrals-gray-7);
+  text-decoration-color: var(--dds-color-neutrals-gray-7);
+}

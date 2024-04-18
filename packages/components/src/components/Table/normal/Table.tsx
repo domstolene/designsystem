@@ -1,82 +1,47 @@
 import { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
 
-import { tableTokens } from './Table.tokens';
+import styles from './Table.module.css';
 import { type TableDensity, type TableProps } from './Table.types';
-import { selection } from '../../helpers';
-import { scrollbarStyling } from '../../ScrollableContainer';
+import { cn } from '../../../utils';
+import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
 
-const { cell, row } = tableTokens;
-
-const StyledTable = styled.table<{
-  $density: TableDensity;
-  $stickyHeader?: boolean;
-  $withDividers?: boolean;
-}>`
-  border-spacing: 0;
-  border-collapse: collapse;
-  *::selection {
-    ${selection}
+function getDensityCn(value: TableDensity) {
+  switch (value) {
+    case 'normal':
+    case 'compact':
+      return value;
+    case 'extraCompact':
+      return 'extra-compact';
   }
-  ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox}
-  ${({ $density }) => css`
-    td,
-    th {
-      padding: ${cell.density[$density].padding};
-    }
-  `}
-  ${({ $density }) =>
-    $density === 'extraCompact' &&
-    css`
-      th {
-        background-color: ${row.head.extraCompact.backgroundColor};
-        font-size: ${row.head.extraCompact.fontSize};
-      }
-      tr[type='body'] {
-        &:nth-of-type(even) {
-          background-color: ${row.body.odd.backgroundColor};
-        }
-        &:nth-of-type(odd) {
-          background-color: ${row.body.even.backgroundColor};
-        }
-      }
-    `}
-  ${({ $stickyHeader }) =>
-    $stickyHeader &&
-    css`
-      tr[type='head'] {
-        th[type='head'] {
-          position: sticky;
-          top: 0;
-          z-index: 50;
-        }
-      }
-    `}
-  ${({ $withDividers }) =>
-    $withDividers &&
-    css`
-      tr[type='body'] {
-        border-bottom: ${row.body.withDividers.borderBottom};
-      }
-    `}
-`;
+}
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   (
-    { density = 'normal', stickyHeader, withDividers, children, ...rest },
+    {
+      density = 'normal',
+      stickyHeader,
+      withDividers,
+      className,
+      children,
+      ...rest
+    },
     ref,
   ) => {
     return (
-      <StyledTable
-        {...rest}
+      <table
         ref={ref}
-        $density={density}
-        $stickyHeader={stickyHeader}
-        $withDividers={withDividers}
+        {...rest}
+        className={cn(
+          className,
+          styles.table,
+          styles[`table--${getDensityCn(density)}`],
+          withDividers && styles['table--with-dividers'],
+          stickyHeader && styles['table--sticky-header'],
+          scrollbar,
+        )}
       >
         {children}
-      </StyledTable>
+      </table>
     );
   },
 );

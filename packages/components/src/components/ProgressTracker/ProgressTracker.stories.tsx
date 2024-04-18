@@ -1,11 +1,12 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import styled from 'styled-components';
 
 import { ProgressTracker } from './ProgressTracker';
+import styles from './ProgressTrackerStory.module.css';
 import { Button } from '../Button';
 import { Drawer } from '../Drawer';
+import { Fieldset } from '../Fieldset';
 import {
   ArrowRightIcon,
   AttachmentIcon,
@@ -296,33 +297,6 @@ export const SmallScreen: Story = {
   },
 };
 
-const Layout = styled.div`
-  display: flex;
-  gap: 4rem;
-`;
-
-const ProgressTrackerWrapper = styled.div`
-  margin-top: 6rem;
-  grid-area: progressTracker;
-`;
-
-const FormWrapper = styled.div`
-  width: 768px;
-`;
-
-const MobileOnly = styled.div`
-  @media (min-width: 768px) {
-    display: none;
-  }
-`;
-
-const DesktopOnly = styled.div`
-  display: none;
-  @media (min-width: 768px) {
-    display: block;
-  }
-`;
-
 export const RealWorldExample: Story = {
   args: {},
   decorators: Story => (
@@ -360,17 +334,31 @@ export const RealWorldExample: Story = {
       <RolleSaksnummerForm onSubmit={() => completeStep(0)} />,
       <Kontaktinformasjon onSubmit={() => completeStep(1)} />,
       <Fakturainformasjon onSubmit={() => completeStep(2)} />,
-      <Heading level={1}>Salærberegning</Heading>,
-      <Heading level={1}>Fravær</Heading>,
-      <Heading level={1}>Utlegg</Heading>,
-      <Heading level={1}>Oppsummering</Heading>,
+      <Heading level={2} typographyType="headingSans05" withMargins>
+        Salærberegning
+      </Heading>,
+      <Heading level={2} typographyType="headingSans05" withMargins>
+        Fravær
+      </Heading>,
+      <Heading level={2} typographyType="headingSans05" withMargins>
+        Utlegg
+      </Heading>,
+      <Heading level={2} typographyType="headingSans05" withMargins>
+        Oppsummering
+      </Heading>,
     ];
 
     return (
-      <Layout>
-        <FormWrapper>
-          <MobileOnly>
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '6rem',
+        }}
+      >
+        <div style={{ width: '415px' }}>
+          <div className={styles.mobile}>
+            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
               <Button
                 purpose="secondary"
                 onClick={() => setProgressTrackerDrawerOpen(true)}
@@ -380,11 +368,11 @@ export const RealWorldExample: Story = {
                 Steg {activeStep + 1} av {steps.length}
               </Button>
             </div>
-          </MobileOnly>
+          </div>
           {formSteps[activeStep]}
-        </FormWrapper>
-        <ProgressTrackerWrapper>
-          <MobileOnly>
+        </div>
+        <div style={{ marginTop: '5rem' }}>
+          <div className={styles.mobile}>
             <Drawer
               isOpen={progressTrackerDrawerOpen}
               onClose={() => setProgressTrackerDrawerOpen(false)}
@@ -397,8 +385,8 @@ export const RealWorldExample: Story = {
                 {stepItems}
               </ProgressTracker>
             </Drawer>
-          </MobileOnly>
-          <DesktopOnly>
+          </div>
+          <div className={styles.desktop}>
             <ProgressTracker
               {...args}
               activeStep={activeStep}
@@ -406,30 +394,20 @@ export const RealWorldExample: Story = {
             >
               {stepItems}
             </ProgressTracker>
-          </DesktopOnly>
-        </ProgressTrackerWrapper>
-      </Layout>
+          </div>
+        </div>
+      </div>
     );
   },
 };
 
-const Fieldset = styled.fieldset`
-  border: 0;
-  padding: 0;
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-`;
-
 const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack gap="x1" align="flex-start">
-      <Heading level={1} style={{ marginBottom: '1rem' }}>
+    <VStack align="flex-start">
+      <Heading level={2} typographyType="headingSans05" withMargins>
         Rolle- og saksnummer
       </Heading>
-      <Paragraph>
+      <Paragraph withMargins>
         Vi trenger å vite litt om deg og saken før vi logger deg inn på neste
         steg.
       </Paragraph>
@@ -438,15 +416,20 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
           event.preventDefault();
           onSubmit();
         }}
+        style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
       >
         <Fieldset>
           <Legend withMargins>Saksopplysninger</Legend>
-          <TextInput label="Rettens saksnummer" required />
-          <Select
-            label="Din rolle"
-            required
-            options={[{ value: 'advokat', label: 'Advokat' }]}
-          />
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
+          >
+            <TextInput label="Rettens saksnummer" required />
+            <Select
+              label="Din rolle"
+              required
+              options={[{ value: 'advokat', label: 'Advokat' }]}
+            />
+          </div>
         </Fieldset>
         <Button
           htmlProps={{ style: { marginTop: '2rem' } }}
@@ -462,8 +445,8 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
 
 const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack gap="x1" align="flex-start">
-      <Heading level={1} style={{ marginBottom: '1rem' }}>
+    <VStack align="flex-start">
+      <Heading level={2} typographyType="headingSans05" withMargins>
         Kontaktinformasjon
       </Heading>
       <form
@@ -471,14 +454,18 @@ const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
           event.preventDefault();
           onSubmit();
         }}
+        style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
       >
-        <Fieldset>
-          <Checkbox label="Jeg sender inn faktura på vegne av noen andre" />
-        </Fieldset>
+        <Checkbox label="Jeg sender inn faktura på vegne av noen andre" />
+
         <Fieldset>
           <Legend withMargins>Hvor jobber du?</Legend>
-          <TextInput label="Firmanavn" required />
-          <TextInput label="Organisasjonsnummer" required />
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
+          >
+            <TextInput label="Firmanavn" required />
+            <TextInput label="Organisasjonsnummer" required />
+          </div>
         </Fieldset>
         <Button
           htmlProps={{ style: { marginTop: '2rem' } }}
@@ -494,8 +481,8 @@ const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
 
 const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack gap="x1" align="flex-start">
-      <Heading level={1} style={{ marginBottom: '1rem' }}>
+    <VStack align="flex-start">
+      <Heading level={2} typographyType="headingSans05" withMargins>
         Fakturainformasjon
       </Heading>
       <form
@@ -503,18 +490,21 @@ const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
           event.preventDefault();
           onSubmit();
         }}
+        style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
       >
         <Fieldset>
-          <TextInput
-            label="Fakturanummer eller annen unik referanse"
-            required
-          />
-          <TextInput label="KID-nummer" />
-          <TextInput label="Kontonummer" required />
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
+          >
+            <TextInput
+              label="Fakturanummer eller annen unik referanse"
+              required
+            />
+            <TextInput label="KID-nummer" />
+            <TextInput label="Kontonummer" required />
+          </div>
         </Fieldset>
-        <Fieldset>
-          <Checkbox label="Ikke beregn 25% moms" />
-        </Fieldset>
+        <Checkbox label="Ikke beregn 25% moms" />
         <Button
           htmlProps={{ style: { marginTop: '2rem' } }}
           icon={ArrowRightIcon}

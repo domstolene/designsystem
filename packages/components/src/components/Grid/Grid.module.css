@@ -1,0 +1,145 @@
+.grid {
+  display: grid;
+
+  @media only screen and (min-width: 0px) {
+    grid-template-columns: repeat(
+      var(--dds-grid-xs-0-599-count),
+      minmax(0, 1fr)
+    );
+    column-gap: var(--dds-grid-xs-0-599-gutter-size);
+    margin-inline: var(--sizes-dds-spacing-x-1);
+    max-width: var(--dds-grid-xs-max-width);
+    row-gap: var(--dds-grid-xs-row-gap);
+  }
+
+  @media only screen and (min-width: 600px) {
+    grid-template-columns: repeat(
+      var(--dds-grid-sm-600-959-count),
+      minmax(0, 1fr)
+    );
+    column-gap: var(--dds-grid-sm-600-959-gutter-size);
+    margin-inline: var(--sizes-dds-spacing-x-2);
+    max-width: var(--dds-grid-sm-max-width);
+    row-gap: var(--dds-grid-sm-row-gap);
+  }
+
+  @media only screen and (min-width: 960px) {
+    grid-template-columns: repeat(
+      var(--dds-grid-md-960-1279-count),
+      minmax(0, 1fr)
+    );
+    column-gap: var(--dds-grid-md-960-1279-gutter-size);
+    margin-inline: var(--sizes-dds-spacing-x-4);
+    max-width: var(--dds-grid-md-max-width);
+    row-gap: var(--dds-grid-md-row-gap);
+  }
+
+  @media only screen and (min-width: 1280px) {
+    grid-template-columns: repeat(
+      var(--dds-grid-lg-1280-1919-count),
+      minmax(0, 1fr)
+    );
+    column-gap: var(--dds-grid-lg-1280-1919-gutter-size);
+    margin-inline: var(--sizes-dds-spacing-x-6);
+    max-width: var(--dds-grid-lg-max-width);
+    row-gap: var(--dds-grid-lg-row-gap);
+  }
+
+  @media only screen and (min-width: 1920px) {
+    grid-template-columns: repeat(
+      var(--dds-grid-xl-1920-count),
+      minmax(0, 1fr)
+    );
+    column-gap: var(--dds-grid-xl-1920-gutter-size);
+    margin-inline: var(--sizes-dds-spacing-x-10);
+    max-width: var(--dds-grid-xl-max-width);
+    row-gap: var(--dds-grid-xl-row-gap);
+  }
+}
+
+.grid-child {
+  --dds-grid-child-xs-half-column: calc(var(--dds-grid-xs-0-599-count) / 2 + 1);
+  --dds-grid-child-sm-half-column: calc(
+    var(--dds-grid-sm-600-959-count) / 2 + 1
+  );
+  --dds-grid-child-md-half-column: calc(
+    var(--dds-grid-md-960-1279-count) / 2 + 1
+  );
+  --dds-grid-child-lg-half-column: calc(
+    var(--dds-grid-lg-1280-1919-count) / 2 + 1
+  );
+  --dds-grid-child-xl-half-column: calc(var(--dds-grid-xl-1920-count) / 2 + 1);
+
+  grid-row: var(--dds-grid-child-grid-row);
+  justify-self: var(--dds-grid-child-justify-self);
+}
+
+.grid-child--all {
+  grid-column: 1 / -1;
+}
+
+.grid-child--first-half {
+  @media only screen and (min-width: 0px) {
+    grid-column: 1 / var(--dds-grid-child-xs-half-column);
+  }
+
+  @media only screen and (min-width: 600px) {
+    grid-column: 1 / var(--dds-grid-child-sm-half-column);
+  }
+
+  @media only screen and (min-width: 960px) {
+    grid-column: 1 / var(--dds-grid-child-md-half-column);
+  }
+
+  @media only screen and (min-width: 1280px) {
+    grid-column: 1 / var(--dds-grid-child-lg-half-column);
+  }
+
+  @media only screen and (min-width: 1920px) {
+    grid-column: 1 / var(--dds-grid-child-xl-half-column);
+  }
+}
+
+.grid-child--second-half {
+  @media only screen and (min-width: 0px) {
+    grid-column: var(--dds-grid-child-xs-half-column) / -1;
+  }
+
+  @media only screen and (min-width: 600px) {
+    grid-column: var(--dds-grid-child-sm-half-column) / -1;
+  }
+
+  @media only screen and (min-width: 960px) {
+    grid-column: var(--dds-grid-child-md-half-column) / -1;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    grid-column: var(--dds-grid-child-lg-half-column) / -1;
+  }
+
+  @media only screen and (min-width: 1920px) {
+    grid-column: var(--dds-grid-child-xl-half-column) / -1;
+  }
+}
+
+.grid-child--custom {
+  @media only screen and (min-width: 0px) {
+    grid-column: var(--dds-grid-child-xs-grid-column-custom);
+  }
+
+  @media only screen and (min-width: 600px) {
+    grid-column: var(--dds-grid-child-sm-grid-column-custom);
+  }
+
+  @media only screen and (min-width: 960px) {
+    grid-column: var(--dds-grid-child-md-grid-column-custom);
+  }
+
+  @media only screen and (min-width: 1280px) {
+    grid-column: var(--dds-grid-child-lg-grid-column-custom);
+  }
+
+  @media only screen and (min-width: 1920px) {
+    grid-column: var(--dds-grid-child-xl-grid-column-custom);
+  }
+}

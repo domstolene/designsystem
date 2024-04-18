@@ -30,13 +30,15 @@ export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
       ...rest
     } = props;
 
-    const paragraphProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      typographyType,
-      ref,
-    };
-
-    return <Typography {...paragraphProps}>{children}</Typography>;
+    return (
+      <Typography
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        typographyType={typographyType}
+        ref={ref}
+      >
+        {children}
+      </Typography>
+    );
   },
 );
 

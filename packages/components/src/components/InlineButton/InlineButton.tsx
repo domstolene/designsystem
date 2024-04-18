@@ -1,25 +1,29 @@
 import { type HTMLAttributes, forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { normalizeButton, removeButtonStyling } from '../helpers';
-import { getAnchorStyling } from '../Typography';
-
-const StyledInlineButton = styled.button`
-  ${normalizeButton}
-  ${removeButtonStyling}
-  display: inline;
-  ${getAnchorStyling()}
-`;
+import styles from './InlineButton.module.css';
+import { cn } from '../../utils';
+import focusStyles from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type InlineButtonProps = HTMLAttributes<HTMLButtonElement>;
 
 export const InlineButton = forwardRef<HTMLButtonElement, InlineButtonProps>(
   (props, ref) => {
-    const { children, ...rest } = props;
+    const { className, ...rest } = props;
     return (
-      <StyledInlineButton ref={ref} {...rest}>
-        {children}
-      </StyledInlineButton>
+      <button
+        ref={ref}
+        className={cn(
+          className,
+          utilStyles['normalize-button'],
+          utilStyles['remove-button-styling'],
+          focusStyles.focusable,
+          typographyStyles.a,
+          styles.button,
+        )}
+        {...rest}
+      />
     );
   },
 );

@@ -1,15 +1,10 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import { type BaseTypographyProps, Typography } from '../Typography';
-
-const StyledLegend = styled(Typography)`
-  padding-inline: 0;
-`;
 
 export type LegendProps = BaseComponentPropsWithChildren<
   HTMLLegendElement,
@@ -21,14 +16,14 @@ export const Legend = forwardRef<HTMLLegendElement, LegendProps>(
     const { id, className, htmlProps, children, ...rest } = props;
 
     return (
-      <StyledLegend
+      <Typography
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
         ref={ref}
-        forwardedAs="legend"
+        as="legend"
         typographyType="headingSans03"
       >
         {children}
-      </StyledLegend>
+      </Typography>
     );
   },
 );

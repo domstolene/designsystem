@@ -1,0 +1,42 @@
+.container {
+  grid-template: auto / 1fr 10px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  padding: var(--sizes-dds-spacing-x-0-25);
+}
+
+.content {
+  overflow: auto;
+  scrollbar-width: none;
+  padding-right: var(--sizes-dds-spacing-x-0-5);
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scrollbar {
+  display: block;
+  height: 100%;
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+
+.track {
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  background-color: transparent;
+  border-radius: 100px;
+  width: 10px;
+}
+
+.thumb {
+  position: absolute;
+  transition: background-color 0.2s;
+  background-color: var(--dds-color-neutrals-gray-4);
+  border-radius: 100px;
+  width: 10px;
+}
