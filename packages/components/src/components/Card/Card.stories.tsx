@@ -2,7 +2,6 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import styled from 'styled-components';
 
 import {
   DescriptionList,
@@ -43,9 +42,9 @@ const bodyOnDark = (
   </Typography>
 );
 
-const ContentContainer = styled.div`
-  padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
-`;
+const contentContainerStyle = {
+  padding: ddsBaseTokens.spacing.SizesDdsSpacingX075,
+};
 
 export const Overview: Story = {
   decorators: Story => (
@@ -57,56 +56,56 @@ export const Overview: Story = {
   render: (args: any) => (
     <>
       <Card {...args} cardType="info">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} cardType="info" color="filledDark">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography color="onDark" typographyType="headingSans03">
             Title
           </Typography>
           {bodyOnDark}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} cardType="info" color="strokeDark">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} cardType="info" color="strokeLight">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} cardType="navigation" href="#">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} color="filledDark" cardType="navigation" href="#">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography color="onDark" typographyType="headingSans03">
             Title
           </Typography>
           {bodyOnDark}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} color="strokeDark" cardType="navigation" href="#">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} color="strokeLight" cardType="navigation" href="#">
-        <ContentContainer>
+        <div style={contentContainerStyle}>
           <Typography typographyType="headingSans03">Title</Typography>
           {body}
-        </ContentContainer>
+        </div>
       </Card>
       <Card {...args} cardType="info" color="filledLight">
         <CardAccordion>
@@ -309,7 +308,7 @@ export const Examples: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args}>
-      <ContentContainer>
+      <div style={contentContainerStyle}>
         <DescriptionList>
           <DescriptionListTerm>Title</DescriptionListTerm>
           <DescriptionListDesc>Description</DescriptionListDesc>
@@ -319,7 +318,7 @@ export const Examples: Story = {
           <DescriptionListTerm>Title</DescriptionListTerm>
           <DescriptionListDesc>Description</DescriptionListDesc>
         </DescriptionList>
-      </ContentContainer>
+      </div>
     </Card>
   ),
 };

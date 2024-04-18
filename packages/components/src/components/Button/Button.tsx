@@ -1,25 +1,42 @@
-import { type ElementType, type MouseEvent, forwardRef } from 'react';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import {
+  type FocusEventHandler,
+  type ForwardedRef,
+  type HTMLAttributes,
+  type MouseEventHandler,
+  forwardRef,
+} from 'react';
 
-import { ButtonWrapper, Label, StyledIconWrapperSpan } from './Button.styles';
+import styles from './Button.module.css';
 import { buttonTokens as tokens } from './Button.tokens';
-import { type ButtonProps } from './Button.types';
+import { type ButtonProps, type ButtonSize } from './Button.types';
 import { getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils';
+import { focusable } from '../helpers/styling/focus.module.css';
+import { invisible } from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { Spinner } from '../Spinner';
+import { type StaticTypographyType, getTypographyCn } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const {
-  button: { sizes, appearances },
-} = tokens;
+const typographyTypes: {
+  [k in ButtonSize]: StaticTypographyType;
+} = {
+  large: 'bodySans04',
+  medium: 'bodySans02',
+  small: 'bodySans01',
+  tiny: 'supportingStyleTiny01',
+};
+
+const { button } = tokens;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
-      label,
       children,
       purpose = 'primary',
       size = 'medium',
       iconPosition = 'left',
-      appearance = 'filled',
       href,
       target,
       loading = false,
@@ -31,79 +48,113 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onBlur,
       id,
       className,
-      htmlProps,
+      htmlProps = {},
       ...rest
     } = props;
 
-    const as: ElementType = href ? 'a' : 'button';
-
-    const hasLabel = !!children || !!label;
+    const hasLabel = !!children;
     const hasIcon = !!icon;
-
-    const wrapperProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      href,
-      as,
-      rel: href ? 'noreferrer noopener' : undefined,
-      target: href && target ? target : undefined,
-      ref,
-      appearance,
-      purpose,
-      iconPosition,
-      fullWidth,
-      hasLabel: hasLabel,
-      hasIcon: hasIcon,
-      isLoading: loading,
-      size,
-      onClick: (
-        event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>,
-      ) => {
-        if (!loading && onClick) {
-          onClick(event);
-        }
-      },
-      onFocus,
-      onBlur,
-    };
-
+    const hasLabelAndIcon = hasIcon && hasLabel;
     const isIconButton = !hasLabel && hasIcon;
+    const isTextButton = hasLabel && !hasIcon;
+    const noContent = !hasLabel && !hasIcon;
 
-    const iconElement = icon && (
-      <StyledIconWrapperSpan
-        size={size}
-        isHidden={hasIcon && loading}
-        justIcon={isIconButton}
-      >
-        <Icon icon={icon} iconSize="inherit" />
-      </StyledIconWrapperSpan>
+    const buttonCn = cn(
+      className,
+      styles.button,
+      styles[`button--${purpose}`],
+      styles[`button--${size}`],
+      isTextButton && styles['just-text'],
+      ...(hasLabelAndIcon
+        ? [styles['with-text-and-icon'], styles[`with-icon-${iconPosition}`]]
+        : []),
+      isIconButton && styles['just-icon'],
+      noContent && styles['no-content'],
+      fullWidth && styles['button--full-width'],
+      loading && styles['button--is-loading'],
+      typographyStyles[getTypographyCn(typographyTypes[size])],
+      focusable,
     );
 
-    return (
-      <ButtonWrapper {...wrapperProps} aria-disabled={loading}>
-        {!isIconButton && (
+    const iconElement = hasIcon && (
+      <Icon
+        icon={icon}
+        iconSize="inherit"
+        className={cn(styles.icon, loading && invisible)}
+      />
+    );
+
+    const content = (
+      <>
+        {hasLabel && (
           <>
             {iconPosition === 'left' && iconElement}
-            <Label isHidden={loading} aria-hidden={loading}>
-              {children ?? label}
-            </Label>
+            <span aria-hidden={loading} className={cn(loading && invisible)}>
+              {children}
+            </span>
             {iconPosition === 'right' && iconElement}
           </>
         )}
         {isIconButton && iconElement}
         {loading && (
-          <StyledIconWrapperSpan
-            size={size}
-            absolutePosition={hasIcon || hasLabel}
+          <span
+            className={cn(!noContent && styles['spinner-wrapper--absolute'])}
           >
             <Spinner
-              color={appearances[appearance].purpose[purpose].base.color}
-              size={sizes[size].justIcon.icon.fontSize}
+              size={button[size].spinner.size}
+              color={
+                purpose === 'primary' || purpose === 'danger'
+                  ? ddsBaseTokens.colors.DdsColorNeutralsWhite
+                  : ddsBaseTokens.colors.DdsColorNeutralsGray9
+              }
               tooltip={loadingTooltip}
+              className={styles.icon}
             />
-          </StyledIconWrapperSpan>
+          </span>
         )}
-      </ButtonWrapper>
+      </>
     );
+
+    if (!href)
+      return (
+        <button
+          ref={ref}
+          {...getBaseHTMLProps(id, buttonCn, htmlProps, rest)}
+          onClick={loading ? undefined : onClick}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          aria-disabled={loading}
+        >
+          {content}
+        </button>
+      );
+    else if (href)
+      return (
+        <a
+          ref={ref as ForwardedRef<HTMLAnchorElement>}
+          {...getBaseHTMLProps(
+            id,
+            buttonCn,
+            //TODO: fikse types ordentlig
+            htmlProps as HTMLAttributes<HTMLAnchorElement>,
+            rest,
+          )}
+          onClick={
+            loading
+              ? undefined
+              : //TODO: fikse types ordentlig
+                (onClick as unknown as MouseEventHandler<HTMLAnchorElement>)
+          }
+          //TODO: fikse types ordentlig
+          onFocus={onFocus as unknown as FocusEventHandler<HTMLAnchorElement>}
+          onBlur={onBlur as unknown as FocusEventHandler<HTMLAnchorElement>}
+          href={href}
+          rel="noreferrer noopener"
+          target={target}
+        >
+          {content}
+        </a>
+      );
   },
 );
 

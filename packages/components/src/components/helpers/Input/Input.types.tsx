@@ -1,8 +1,6 @@
 import { type Property } from 'csstype';
 import { type InputHTMLAttributes } from 'react';
 
-import { type StaticTypographyType } from '../../Typography';
-
 export interface CommonInputProps {
   /**Ledetekst for input. */
   label?: string;
@@ -32,5 +30,3 @@ export type StyledInputProps = StyledCommonInputProps & {
   prefixLength?: number;
   suffixLength?: number;
 } & Pick<InputProps, 'componentSize'>;
-
-export type InputTypographyTypes = { [k in InputSize]: StaticTypographyType };

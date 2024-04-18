@@ -5,7 +5,8 @@ import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils/dom';
 import { Button } from '../Button';
 import { CloseIcon } from '../Icon/icons';
-import { TextOverflowEllipsisInner, getFontStyling } from '../Typography';
+import { TextOverflowEllipsisInner } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type ChipProps = BaseComponentProps<
   HTMLDivElement,
@@ -39,14 +40,15 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
       )}
       ref={ref}
     >
-      <TextOverflowEllipsisInner style={getFontStyling('bodySans01', true)}>
+      <TextOverflowEllipsisInner
+        className={cn(typographyStyles['body-sans-01'])}
+      >
         {text}
       </TextOverflowEllipsisInner>
       <Button
         size="tiny"
         icon={CloseIcon}
-        appearance="borderless"
-        purpose="secondary"
+        purpose="tertiary"
         onClick={onClick}
         aria-label={ariaLabel ?? `Fjern ${text ? `chip ${text}` : 'chip'}`}
       />

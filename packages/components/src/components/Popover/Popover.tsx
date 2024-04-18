@@ -1,9 +1,8 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import { type ReactNode, forwardRef } from 'react';
-import styled, { css } from 'styled-components';
 
-import { popoverTokens as tokens } from './Popover.tokens';
+import styles from './Popover.module.css';
 import {
   type Placement,
   useCombinedRef,
@@ -16,72 +15,15 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
-import {
-  Paper,
-  type PaperProps,
-  focusVisible,
-  visibilityTransition,
-} from '../helpers';
+import { Paper } from '../helpers';
+import focusStyles from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
 
 const { spacing: Spacing } = ddsBaseTokens;
-const { wrapper, content, closeButton, title } = tokens;
-
-interface WrapperProps extends PaperProps {
-  $sizeProps?: PopoverSizeProps;
-  $hasTransitionedIn?: boolean;
-  $isOpen: boolean;
-}
-
-const Wrapper = styled(Paper)<WrapperProps>`
-  opacity: 0;
-  ${({ $hasTransitionedIn, $isOpen }) =>
-    $hasTransitionedIn && visibilityTransition($hasTransitionedIn && $isOpen)}
-  position: absolute;
-  width: fit-content;
-  z-index: 100;
-  padding: ${wrapper.padding};
-
-  &:focus-visible {
-    ${focusVisible}
-  }
-  ${({ $sizeProps }) =>
-    $sizeProps &&
-    css`
-      width: ${$sizeProps.width};
-      height: ${$sizeProps.height};
-      min-width: ${$sizeProps.minWidth};
-      min-height: ${$sizeProps.minHeight};
-      max-width: ${$sizeProps.maxWidth};
-      max-height: ${$sizeProps.maxHeight};
-    `}
-`;
-
-const TitleContainer = styled.div`
-  margin-right: ${title.marginRight};
-`;
-
-interface ContentContainerProps {
-  $hasTitle: boolean;
-  $withCloseButton: boolean;
-}
-
-const ContentContainer = styled.div<ContentContainerProps>`
-  ${({ $withCloseButton, $hasTitle }) =>
-    $withCloseButton &&
-    !$hasTitle &&
-    css`
-      margin-top: ${content.noTitle.marginTop};
-    `}
-`;
-
-const StyledButton = styled(Button)`
-  position: absolute;
-  top: ${closeButton.top};
-  right: ${closeButton.right};
-`;
 
 export interface PopoverSizeProps {
   width?: Property.Width<string>;
@@ -131,6 +73,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       children,
       placement = 'bottom',
       offset = Spacing.SizesDdsSpacingX05NumberPx,
+      sizeProps,
       id,
       className,
       htmlProps = {},
@@ -138,7 +81,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     } = props;
     const hasTransitionedIn = useMountTransition(isOpen, 400);
 
-    const { refs, styles } = useFloatPosition(null, {
+    const { refs, styles: floatingStyles } = useFloatPosition(null, {
       placement,
       offset,
     });
@@ -159,48 +102,59 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     const elements: Array<HTMLElement | null> = [popoverRef.current!];
     if (anchorElement) elements.push(anchorElement);
 
+    const hasTitle = !!title;
+
     useOnClickOutside(elements, () => {
       if (isOpen) onClose && onClose();
     });
 
     return isOpen || hasTransitionedIn ? (
-      <Wrapper
+      <Paper
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
         ref={multiRef}
-        $isOpen={isOpen}
-        $hasTransitionedIn={hasTransitionedIn}
         tabIndex={-1}
-        style={{ ...htmlProps.style, ...styles.floating }}
+        style={{ ...htmlProps.style, ...floatingStyles.floating, ...sizeProps }}
         role="dialog"
         elevation={3}
         border="light"
+        className={cn(
+          styles.container,
+          utilStyles['visibility-transition'],
+          hasTransitionedIn && isOpen
+            ? utilStyles['visibility-transition--open']
+            : utilStyles['visibility-transition--closed'],
+          focusStyles.focusable,
+        )}
       >
         {title && (
-          <TitleContainer>
+          <div className={styles.title}>
             {typeof title === 'string' ? (
               <Typography typographyType="headingSans02">{title}</Typography>
             ) : (
               title
             )}
-          </TitleContainer>
+          </div>
         )}
-        <ContentContainer
-          $hasTitle={!!title}
-          $withCloseButton={withCloseButton}
+        <div
+          className={
+            !hasTitle && withCloseButton
+              ? styles['content--closable--no-title']
+              : ''
+          }
         >
           {children}
-        </ContentContainer>
+        </div>
         {withCloseButton && (
-          <StyledButton
+          <Button
             icon={CloseIcon}
-            appearance="borderless"
-            purpose="secondary"
+            purpose="tertiary"
             size="small"
             onClick={onCloseButtonClick}
             aria-label="Lukk"
+            className={styles['close-button']}
           />
         )}
-      </Wrapper>
+      </Paper>
     ) : null;
   },
 );

@@ -29,15 +29,6 @@ Hver stil har et default HTML element det blir rendered som. Den kan eventuelt o
 <Canvas of={TypographyStories.Default} />
 <Controls of={TypographyStories.Default} />
 
-### Types
-
-<Source
-  code={`type TypographyInteractionStyling = {
-  hover?: CSSProperties;
-  active?: CSSProperties;
-  };`}
-/>
-
 ### Med styled-components
 
 Hvis du bruker styled components til å style `<Typography />` videre og skal bruke `as` prop, bruk `forwardedAs` prop istedenfor:

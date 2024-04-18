@@ -1,47 +1,45 @@
 import { type ReactNode, forwardRef } from 'react';
-import styled, { css } from 'styled-components';
 
-import { tagTokens as tokens, typographyType } from './Tag.tokens';
+import styles from './Tag.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { Icon } from '../Icon';
+import { cn } from '../../utils';
+import { Icon, type SvgIcon } from '../Icon';
+import {
+  CheckCircledIcon,
+  ErrorIcon,
+  InfoIcon,
+  WarningIcon,
+} from '../Icon/icons';
 import {
   TextOverflowEllipsisInner,
   TextOverflowEllipsisWrapper,
-  getFontStyling,
 } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const { wrapper } = tokens;
-
-interface WrapperProps {
-  $purpose: TagPurpose;
-  $strong?: boolean;
-  $withIcon: boolean;
-}
-
-const Wrapper = styled(TextOverflowEllipsisWrapper)<WrapperProps>`
-  display: inline-flex;
-  align-items: center;
-  gap: ${tokens.wrapper.icon.gap};
-  border: ${wrapper.border};
-  border-radius: ${wrapper.borderRadius};
-  padding: ${({ $withIcon }) =>
-    $withIcon ? wrapper.icon.padding : wrapper.padding};
-  ${getFontStyling(typographyType)}
-  ${({ $purpose, $strong }) => css`
-    background-color: ${wrapper.purpose[$purpose][$strong ? 'strong' : 'base']
-      .backgroundColor};
-    border-color: ${wrapper.purpose[$purpose][$strong ? 'strong' : 'base']
-      .borderColor};
-  `}
-`;
-
-const StyledIcon = styled(Icon)<Pick<WrapperProps, '$purpose' | '$strong'>>`
-  color: ${({ $purpose, $strong }) =>
-    wrapper.purpose[$purpose][$strong ? 'strong' : 'base'].icon?.color};
-`;
+const purposeVariants: {
+  [k in TagPurpose]: {
+    icon: SvgIcon | undefined;
+  };
+} = {
+  info: {
+    icon: InfoIcon,
+  },
+  danger: {
+    icon: ErrorIcon,
+  },
+  warning: {
+    icon: WarningIcon,
+  },
+  success: {
+    icon: CheckCircledIcon,
+  },
+  default: {
+    icon: undefined,
+  },
+};
 
 export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
 
@@ -85,26 +83,27 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
     ...rest
   } = props;
 
-  const icon = tokens.wrapper.purpose[purpose].icon;
+  const icon = purposeVariants[purpose].icon;
 
   return (
-    <Wrapper
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      ref={ref}
-      $purpose={purpose}
-      $strong={strong}
-      $withIcon={Boolean(withIcon && icon)}
-    >
-      {withIcon && icon && (
-        <StyledIcon
-          $purpose={purpose}
-          $strong={strong}
-          icon={icon}
-          iconSize={tokens.wrapper.icon.size}
-        />
+    <TextOverflowEllipsisWrapper
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          typographyStyles['body-sans-01'],
+          styles.container,
+          withIcon && icon && styles['container--with-icon'],
+          styles[`container--${purpose}--${strong ? 'strong' : 'subtle'}`],
+        ),
+        htmlProps,
+        rest,
       )}
+      ref={ref}
+    >
+      {withIcon && icon && <Icon icon={icon} iconSize="small" />}
       <TextOverflowEllipsisInner>{children ?? text}</TextOverflowEllipsisInner>
-    </Wrapper>
+    </TextOverflowEllipsisWrapper>
   );
 });
 

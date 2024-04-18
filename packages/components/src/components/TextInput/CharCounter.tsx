@@ -1,12 +1,9 @@
 import { useId } from 'react';
-import styled from 'styled-components';
 
+import styles from './TextInput.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils';
 import { Typography } from '../Typography';
-
-const Wrapper = styled(Typography)`
-  margin-left: auto;
-`;
 
 type Props = BaseComponentProps<
   HTMLElement,
@@ -23,14 +20,19 @@ function CharCounter(props: Props) {
   const uniqueId = id ?? `${generatedId}-characterCounter`;
 
   return (
-    <Wrapper
-      {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
-      forwardedAs="div"
+    <Typography
+      {...getBaseHTMLProps(
+        uniqueId,
+        cn(className, styles['char-counter']),
+        htmlProps,
+        rest,
+      )}
+      as="div"
       typographyType="supportingStyleHelperText01"
       aria-label={`${current} av ${max} tegn skrevet`}
     >
       {current}/{max}
-    </Wrapper>
+    </Typography>
   );
 }
 

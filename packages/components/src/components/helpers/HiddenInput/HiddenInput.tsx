@@ -1,9 +1,20 @@
-import styled from 'styled-components';
+import { type InputHTMLAttributes, forwardRef } from 'react';
 
-export const HiddenInput = styled.input`
-  clip: rect(0 0 0 0);
-  position: absolute;
-  height: 1px;
-  width: 1px;
-  margin: 0;
-`;
+import { cn } from '../../../utils';
+import utilStyles from '../styling/utilStyles.module.css';
+
+type HiddenInputProps = InputHTMLAttributes<HTMLInputElement>;
+
+export const HiddenInput = forwardRef<HTMLInputElement, HiddenInputProps>(
+  (props, ref) => {
+    const { className, ...rest } = props;
+
+    return (
+      <input
+        ref={ref}
+        className={cn(className, utilStyles['hide-input'])}
+        {...rest}
+      />
+    );
+  },
+);

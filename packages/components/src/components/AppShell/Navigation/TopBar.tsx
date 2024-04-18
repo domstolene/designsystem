@@ -28,8 +28,7 @@ const ActionButtonGroup = styled.div`
 `;
 
 const IconButton = styled(Button).attrs({
-  appearance: 'borderless',
-  purpose: 'secondary',
+  purpose: 'tertiary',
 })`
   color: ${navTokens.topBar.buttonTextColor};
   > :first-child {
@@ -153,10 +152,9 @@ export const TopBar = ({
       </LogoBurgerGroup>
       <ActionButtonGroup>
         <OverflowMenuGroup>
-          <IconButton
-            icon={Icon}
-            label={<IconButtonText>{user.name}</IconButtonText>}
-          />
+          <IconButton icon={Icon}>
+            <IconButtonText>{user.name}</IconButtonText>
+          </IconButton>
           <OverflowMenu items={userMenuItems} />
         </OverflowMenuGroup>
       </ActionButtonGroup>

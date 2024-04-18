@@ -1,103 +1,99 @@
 import {
-  Table,
-  Typography,
-  Heading,
+  ArrowRightIcon,
+  Button,
+  Divider,
   Grid,
   GridChild,
-  Tag,
-  Divider,
-  Button,
+  Heading,
+  Link,
+  MoreVerticalIcon,
   OverflowMenu,
   OverflowMenuGroup,
-  MoreVerticalIcon,
-  ArrowRightIcon,
-} from "@norges-domstoler/dds-components";
+  Table,
+  Tag,
+} from '../../packages/components/src/index';
 
 export default {
-  title: "Playground",
+  title: 'Playground/Saksliste',
 };
 
 const dødsfallItems = [
   {
-    innkommet: "01.01.2000",
-    saksnummer: "12-34567/TRD",
-    status: "Påbegynt",
-    saksbehandler: "Ola Olavsen",
-    avdød: "Gunnar Gunnarsen",
-    fødselsdato: "01.01.1950",
-    dødsdato: "01.01.1999",
+    innkommet: '01.01.2000',
+    saksnummer: '12-34567/TRD',
+    status: 'Påbegynt',
+    saksbehandler: 'Ola Olavsen',
+    avdød: 'Gunnar Gunnarsen',
+    fødselsdato: '01.01.1950',
+    dødsdato: '01.01.1999',
   },
   {
-    innkommet: "02.02.2000",
-    saksnummer: "12-98765/TRD",
-    status: "Ikke påbegynt",
-    saksbehandler: "Kari Nordmann",
-    avdød: "Johanne Johansen",
-    fødselsdato: "01.01.1950",
-    dødsdato: "01.01.1999",
+    innkommet: '02.02.2000',
+    saksnummer: '12-98765/TRD',
+    status: 'Ikke påbegynt',
+    saksbehandler: 'Kari Nordmann',
+    avdød: 'Johanne Johansen',
+    fødselsdato: '01.01.1950',
+    dødsdato: '01.01.1999',
   },
   {
-    innkommet: "10.10.1990",
-    saksnummer: "12-24680/TRD",
-    status: "Ikke påbegynt",
-    saksbehandler: "Ola Olavsen",
-    avdød: "Pernille Pernillesen",
-    fødselsdato: "01.01.1950",
-    dødsdato: "01.01.1999",
+    innkommet: '10.10.1990',
+    saksnummer: '12-24680/TRD',
+    status: 'Ikke påbegynt',
+    saksbehandler: 'Ola Olavsen',
+    avdød: 'Pernille Pernillesen',
+    fødselsdato: '01.01.1950',
+    dødsdato: '01.01.1999',
   },
 ];
 
 const fengslingItems = [
   {
-    innkommet: "01.01.2000",
-    saksnummer: "12-34567/TRD",
-    status: "Påbegynt",
-    saksbehandler: "Ola Olavsen",
-    siktede: "Gunnar Gunnarsen",
-    utløpsfrist: "01.01.1950",
-    aktivitet: "Registrer parter",
+    innkommet: '01.01.2000',
+    saksnummer: '12-34567/TRD',
+    status: 'Påbegynt',
+    saksbehandler: 'Ola Olavsen',
+    siktede: 'Gunnar Gunnarsen',
+    utløpsfrist: '01.01.1950',
+    aktivitet: 'Registrer parter',
     dokumenter: 3,
   },
   {
-    innkommet: "02.02.2000",
-    saksnummer: "12-98765/TRD",
-    status: "Ikke påbegynt",
-    saksbehandler: "Kari Nordmann",
-    siktede: "Johanne Johansen",
-    utløpsfrist: "01.01.1950",
-    aktivitet: "Til registrering",
+    innkommet: '02.02.2000',
+    saksnummer: '12-98765/TRD',
+    status: 'Ikke påbegynt',
+    saksbehandler: 'Kari Nordmann',
+    siktede: 'Johanne Johansen',
+    utløpsfrist: '01.01.1950',
+    aktivitet: 'Til registrering',
     dokumenter: 1,
   },
   {
-    innkommet: "10.10.1990",
-    saksnummer: "12-24680/TRD",
-    status: "Ikke påbegynt",
-    saksbehandler: "Ola Olavsen",
-    siktede: "Pernille Pernillesen",
-    utløpsfrist: "01.01.1950",
-    aktivitet: "Til registrering",
+    innkommet: '10.10.1990',
+    saksnummer: '12-24680/TRD',
+    status: 'Ikke påbegynt',
+    saksbehandler: 'Ola Olavsen',
+    siktede: 'Pernille Pernillesen',
+    utløpsfrist: '01.01.1950',
+    aktivitet: 'Til registrering',
     dokumenter: 1,
   },
 ];
 
 const overflowItems = [
   {
-    title: "Vis sak",
+    title: 'Vis sak',
   },
   {
-    title: "Tildel sak til meg",
+    title: 'Tildel sak til meg',
   },
   {
-    title: "Avslutt sak",
+    title: 'Avslutt sak',
   },
 ];
 
 const wrapperStyle = {
-  width: "100%",
-};
-
-const linkStyle = {
-  cursor: "pointer",
+  width: '100%',
 };
 
 export const Saksliste = () => {
@@ -131,7 +127,7 @@ export const Saksliste = () => {
                   <Table.Cell>
                     <Tag
                       text={item.status}
-                      purpose={index === 0 ? "info" : "warning"}
+                      purpose={index === 0 ? 'info' : 'warning'}
                     ></Tag>
                   </Table.Cell>
                   <Table.Cell>{item.saksbehandler}</Table.Cell>
@@ -139,11 +135,7 @@ export const Saksliste = () => {
                   <Table.Cell>{item.fødselsdato}</Table.Cell>
                   <Table.Cell>{item.dødsdato}</Table.Cell>
                   <Table.Cell>
-                    <Button
-                      icon={ArrowRightIcon}
-                      purpose="primary"
-                      appearance="borderless"
-                    />
+                    <Button icon={ArrowRightIcon} purpose="tertiary" />
                   </Table.Cell>
                 </Table.Row>
               ))}
@@ -181,7 +173,7 @@ export const Saksliste = () => {
                   <Table.Cell>
                     <Tag
                       text={item.status}
-                      purpose={index === 0 ? "info" : "warning"}
+                      purpose={index === 0 ? 'info' : 'warning'}
                     ></Tag>
                   </Table.Cell>
                   <Table.Cell>{item.saksbehandler}</Table.Cell>
@@ -189,17 +181,13 @@ export const Saksliste = () => {
                   <Table.Cell>{item.utløpsfrist}</Table.Cell>
                   <Table.Cell>{item.aktivitet}</Table.Cell>
                   <Table.Cell>
-                    <Typography style={linkStyle} typographyType="a">
-                      {"Vis dokumenter(" + item.dokumenter + ")"}
-                    </Typography>
+                    <Link href="/">
+                      {'Vis dokumenter(' + item.dokumenter + ')'}
+                    </Link>
                   </Table.Cell>
                   <Table.Cell>
                     <OverflowMenuGroup>
-                      <Button
-                        icon={MoreVerticalIcon}
-                        purpose="secondary"
-                        appearance="borderless"
-                      />
+                      <Button icon={MoreVerticalIcon} purpose="tertiary" />
                       <OverflowMenu
                         items={overflowItems}
                         onClose={function noRefCheck() {}}

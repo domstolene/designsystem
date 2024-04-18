@@ -1,7 +1,7 @@
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { forwardRef, useEffect, useId } from 'react';
-import styled from 'styled-components';
 
-import { overflowMenuTokens as tokens } from './OverflowMenu.tokens';
+import styles from './OverflowMenu.module.css';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import {
   useCombinedRef,
@@ -11,54 +11,17 @@ import {
   useRoveFocus,
 } from '../../hooks';
 import { getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils';
 import { Divider } from '../Divider';
-import { selection, visibilityTransition } from '../helpers';
+import { Paper } from '../helpers';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { PersonIcon } from '../Icon/icons';
-import { scrollbarStyling } from '../ScrollableContainer';
 
 import {
   type OverflowMenuContextItem,
   type OverflowMenuNavItem,
   type OverflowMenuProps,
 } from '.';
-
-const { container, divider } = tokens;
-
-interface ContainerProps {
-  $isOpen: boolean;
-}
-
-export const Container = styled.div<ContainerProps>`
-  box-sizing: border-box;
-  z-index: 100;
-  overflow-y: auto;
-  min-width: 180px;
-  max-width: 300px;
-  ${({ $isOpen }) => visibilityTransition($isOpen)}
-  border: ${container.border};
-  background-color: ${container.backgroundColor};
-  border-radius: ${container.borderRadius};
-
-  ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox}
-
-  *::selection {
-    ${selection}
-  }
-`;
-
-export const OverflowMenuList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-`;
-
-const StyledDivider = styled(Divider)`
-  margin-left: ${divider.marginLeft};
-  margin-right: ${divider.marginRight};
-`;
 
 export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
   (props, ref) => {
@@ -72,13 +35,13 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       navItems,
       userProps,
       id,
-      offset = tokens.offset,
+      offset = ddsBaseTokens.spacing.SizesDdsSpacingX0125NumberPx,
       className,
       htmlProps = {},
       ...rest
     } = props;
 
-    const { refs, styles } = useFloatPosition(null, {
+    const { refs, styles: floatingStyles } = useFloatPosition(null, {
       placement,
       offset,
     });
@@ -173,28 +136,37 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         return (
           <>
             {hasInteractiveUser && (
-              <OverflowMenuList>{interactiveItemsList?.[0]}</OverflowMenuList>
+              <ul
+                className={cn(styles.list, utilStyles['remove-list-styling'])}
+              >
+                {interactiveItemsList?.[0]}
+              </ul>
             )}
             {hasNavItems && (
               <nav>
-                <OverflowMenuList>
+                <ul
+                  className={cn(styles.list, utilStyles['remove-list-styling'])}
+                >
                   {interactiveItemsList?.slice(
                     navItemsFirstPos,
                     navItemsLastPos + 1,
                   )}
-                </OverflowMenuList>
+                </ul>
               </nav>
             )}
             {hasNavItems && hasContextItems && (
-              <StyledDivider color="primaryLighter" />
+              <Divider color="primaryLighter" className={styles.divider} />
             )}
             {hasContextItems && (
-              <OverflowMenuList aria-label="kontekstmeny">
+              <ul
+                className={cn(styles.list, utilStyles['remove-list-styling'])}
+                aria-label="kontekstmeny"
+              >
                 {interactiveItemsList?.slice(
                   contextItemsFirstPos,
                   interactiveItemsList.length,
                 )}
-              </OverflowMenuList>
+              </ul>
             )}
           </>
         );
@@ -205,23 +177,53 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     const generatedId = useId();
 
     const containerProps = {
-      ...getBaseHTMLProps(id, className, restHTMLProps, rest),
+      ...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.container,
+          utilStyles.scrollbar,
+          utilStyles['visibility-transition'],
+          isOpen
+            ? utilStyles['visibility-transition--open']
+            : utilStyles['visibility-transition--closed'],
+        ),
+        restHTMLProps,
+        rest,
+      ),
       ref: combinedRef,
       id: id ?? `${generatedId}-overflowMenu`,
       $isOpen: isOpen,
-      style: { ...style, ...styles.floating },
+      style: { ...style, ...floatingStyles.floating },
       'aria-hidden': !isOpen,
       role: 'menu',
     };
 
     return (
-      <Container {...containerProps}>
+      <Paper
+        {...containerProps}
+        {...getBaseHTMLProps(
+          id,
+          cn(
+            className,
+            styles.container,
+            utilStyles.scrollbar,
+            utilStyles['visibility-transition'],
+            isOpen
+              ? utilStyles['visibility-transition--open']
+              : utilStyles['visibility-transition--closed'],
+          ),
+          restHTMLProps,
+          rest,
+        )}
+        border="light"
+      >
         {hasStaticUser && (
           <OverflowMenuItem title={username} icon={PersonIcon} />
         )}
 
         {interactiveContent()}
-      </Container>
+      </Paper>
     );
   },
 );

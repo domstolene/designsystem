@@ -1,0 +1,93 @@
+.container {
+  border: 1px solid;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  box-shadow: var(--dds-shadow-1-onlight);
+  border-radius: var(--radii-dds-border-radius-1-radius);
+  padding: var(--sizes-dds-spacing-x-0-75);
+  gap: var(--sizes-dds-spacing-x-0-5);
+}
+
+.container--info {
+  border-color: var(--dds-color-info-base);
+  background-color: var(--dds-color-info-lightest);
+
+  .icon {
+    color: var(--dds-color-info-darkest);
+  }
+}
+.container--warning {
+  border-color: var(--dds-color-warning-base);
+  background-color: var(--dds-color-warning-lightest);
+
+  .icon {
+    color: var(--dds-color-warning-darkest);
+  }
+}
+.container--danger {
+  border-color: var(--dds-color-danger-base);
+  background-color: var(--dds-color-danger-lightest);
+
+  .icon {
+    color: var(--dds-color-danger-darkest);
+  }
+}
+.container--success {
+  border-color: var(--dds-color-success-base);
+  background-color: var(--dds-color-success-lightest);
+
+  .icon {
+    color: var(--dds-color-success-darkest);
+  }
+}
+.container--tips {
+  border-color: var(--dds-color-primary-base);
+  background-color: var(--dds-color-primary-lightest);
+
+  .icon {
+    color: var(--dds-color-primary-darkest);
+  }
+}
+.container--confidential {
+  border-color: var(--dds-color-danger-base);
+  background-color: var(--dds-color-danger-lightest);
+
+  .icon {
+    color: var(--dds-color-danger-darkest);
+  }
+}
+
+.container--horisontal {
+  grid-template-areas: 'icon text';
+  grid-template-columns: min-content 1fr;
+}
+
+.container--horisontal--closable {
+  grid-template-areas: 'icon text closeButton';
+  grid-template-columns: min-content 1fr min-content;
+}
+
+.container--vertical {
+  grid-template-areas: 'icon icon' 'text text';
+  grid-template-columns: 1fr min-content;
+}
+
+.container--vertical--closable {
+  grid-template-areas: 'icon closeButton' 'text text';
+  grid-template-columns: 1fr;
+}
+
+.container__text {
+  grid-area: text;
+  padding-right: var(--sizes-dds-spacing-x-0-75);
+}
+
+.container__icon {
+  grid-area: icon;
+}
+
+.container__button {
+  grid-area: closeButton;
+  margin: calc(0px - var(--sizes-dds-spacing-x-0-75)) 0;
+}

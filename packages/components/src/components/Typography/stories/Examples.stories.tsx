@@ -1,5 +1,4 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import styled from 'styled-components';
 
 import { Heading, Paragraph } from '..';
 
@@ -7,15 +6,10 @@ export default {
   title: 'dds-components/Typography/Examples',
 };
 
-const ArticleContainer = styled.div`
-  max-width: 700px;
-  margin-top: -1rem;
-`;
-
 export const Article = () => {
   return (
     <StoryTemplate>
-      <ArticleContainer>
+      <div style={{ maxWidth: '700px', marginTop: '-1rem' }}>
         <Heading level={1} typographyType="headingSans06" withMargins>
           Vitne
         </Heading>
@@ -71,7 +65,7 @@ export const Article = () => {
           gjelder inntil du eventuelt har fått beskjed fra retten om at du er
           blitt fritatt for å møte.
         </Paragraph>
-      </ArticleContainer>
+      </div>
     </StoryTemplate>
   );
 };

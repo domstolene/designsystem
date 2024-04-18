@@ -1,60 +1,10 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import { useId, useRef } from 'react';
-import styled from 'styled-components';
 
+import styles from './Spinner.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { type TextColor, getTextColor } from '../../utils';
-
-const StyledSpinner = styled.svg<{
-  $size: SpinnerProps['size'];
-  $outerAnimationDelay: number;
-}>`
-  display: block;
-  width: ${({ $size }) => $size};
-  height: ${({ $size }) => $size};
-  stroke-dasharray: 90, 150;
-  animation: rotate 1.5s linear infinite;
-  animation-delay: ${({ $outerAnimationDelay }) => $outerAnimationDelay}ms;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: rotate 2s linear infinite;
-  }
-
-  @keyframes rotate {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-const Circle = styled.circle<{
-  $color: SpinnerProps['color'];
-  $innerAnimationDelay: number;
-}>`
-  stroke: ${({ $color }) => $color && getTextColor($color)};
-  stroke-linecap: round;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: dash 1.5s ease-in-out infinite;
-    animation-delay: ${({ $innerAnimationDelay }) => $innerAnimationDelay}ms;
-
-    @keyframes dash {
-      0% {
-        stroke-dasharray: 1, 150;
-        stroke-dashoffset: 0;
-      }
-      50% {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -35;
-      }
-      100% {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -124;
-      }
-    }
-  }
-`;
+import { type TextColor, cn, getTextColor } from '../../utils';
 
 export type SpinnerProps = BaseComponentProps<
   SVGElement,
@@ -86,30 +36,33 @@ export function Spinner(props: SpinnerProps) {
   const generatedId = useId();
   const uniqueId = `${generatedId}-spinnerTitle`;
 
-  const spinnerProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    $outerAnimationDelay: outerAnimationDelay,
-    $size: size,
-  };
-
   return (
-    <StyledSpinner
+    <svg
       viewBox="0 0 50 50"
       role="img"
       aria-labelledby={uniqueId}
-      {...spinnerProps}
+      {...getBaseHTMLProps(id, cn(className, styles.svg), htmlProps, rest)}
+      width={size}
+      height={size}
+      style={{
+        ...htmlProps?.style,
+        animationDelay: outerAnimationDelay + 'ms',
+      }}
     >
-      {tooltip && <title id={uniqueId}>{tooltip}</title>}
-      <Circle
-        $innerAnimationDelay={innerAnimationDelay}
-        $color={color}
+      <title id={uniqueId}>{tooltip}</title>
+      <circle
+        className={cn(styles.circle)}
+        style={{
+          animationDelay: innerAnimationDelay + 'ms',
+        }}
         cx="25"
         cy="25"
         r="20"
         fill="none"
+        stroke={getTextColor(color)}
         strokeWidth="4"
       />
-    </StyledSpinner>
+    </svg>
   );
 }
 

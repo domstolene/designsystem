@@ -1,0 +1,79 @@
+:root {
+  --dds-drawer-content-container-padding: var(--sizes-dds-spacing-x-0-25);
+  --dds-drawer-container-padding: calc(
+      var(--sizes-dds-spacing-x-1) - var(--dds-drawer-content-container-padding)
+    )
+    calc(
+      var(--sizes-dds-spacing-x-1) - var(--dds-drawer-content-container-padding)
+    )
+    calc(
+      var(--sizes-dds-spacing-x-1) - var(--dds-drawer-content-container-padding)
+    )
+    calc(
+      var(--sizes-dds-spacing-x-1-5) -
+        var(--dds-drawer-content-container-padding)
+    );
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  min-width: 300px;
+  z-index: 100;
+  padding: var(--dds-drawer-container-padding);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: transform 0.5s;
+  }
+}
+
+.container--small {
+  max-width: 400px;
+}
+
+.container--medium {
+  max-width: 600px;
+}
+
+.container--large {
+  max-width: 800px;
+}
+
+.container--left {
+  left: 0;
+}
+
+.container--left-opened {
+  transform: translate(0px);
+}
+
+.container--left-closed {
+  transform: translate(-100%);
+}
+
+.container--right {
+  right: 0;
+}
+
+.container--right-opened {
+  transform: translate(0px);
+}
+
+.container--right-closed {
+  transform: translate(100%);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sizes-dds-spacing-x-1);
+  padding: var(--dds-drawer-content-container-padding);
+}
+
+.button--close {
+  align-self: flex-end;
+}

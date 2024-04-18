@@ -1,8 +1,8 @@
-import { forwardRef, useState } from 'react';
-import styled from 'styled-components';
+import { type HTMLAttributes, forwardRef, useState } from 'react';
 
-import { tokens } from './SplitButton.tokens';
+import styles from './SplitButton.module.css';
 import { type ExtractStrict } from '../../types';
+import { cn } from '../../utils';
 import {
   Button,
   type ButtonProps,
@@ -16,60 +16,28 @@ import {
   OverflowMenuGroup,
 } from '../OverflowMenu';
 
-const Container = styled.div`
-  display: flex;
-`;
-
-const MainButton = styled(Button)`
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: none;
-  &:focus {
-    position: relative;
-    z-index: 0;
-  }
-`;
-
 export type SplitButtonPurpose = ExtractStrict<
   ButtonPurpose,
   'primary' | 'secondary'
 >;
 
-const OptionButton = styled(Button)<{
-  purpose: SplitButtonPurpose;
-}>`
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+export type SplitButtonPrimaryActionProps = Omit<
+  ButtonProps,
+  'size' | 'purpose'
+>;
+export type SplitButtonSecondaryActionsProps = Array<OverflowMenuButtonItem>;
 
-  ${props =>
-    props.purpose === 'primary' &&
-    `
-      border-left: ${tokens.mainButton.primary.borderLeft};
-      &:hover {
-        border-left: ${tokens.mainButton.primary.borderLeft};
-      }
-    `}
-
-  &:focus {
-    position: relative;
-    z-index: 0;
-
-    ${props =>
-      props.purpose === 'primary' &&
-      `border-left: ${tokens.mainButton.primary.borderLeft}`};
-  }
-`;
-
-export interface SplitButtonProps {
+export type SplitButtonProps = {
   /**Størrelse på komponenten. */
   size?: ButtonSize;
-  /**Props for primær handling. Samme props som for `<Button />` unntatt `size`, `purpose`, og `appearance`. */
-  primaryAction: Omit<ButtonProps, 'size' | 'apperance' | 'purpose'>;
+  /**Props for primær handling. Samme props som for `<Button />` unntatt `size` og `purpose`. */
+  primaryAction: SplitButtonPrimaryActionProps;
   /**Props for sekunære handlinger. */
-  secondaryActions: Array<OverflowMenuButtonItem>;
+  secondaryActions: SplitButtonSecondaryActionsProps;
   /**Formål med knappen */
   purpose?: SplitButtonPurpose;
-}
+} & HTMLAttributes<HTMLDivElement>;
+
 export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
   (props, ref) => {
     const {
@@ -77,32 +45,38 @@ export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
       primaryAction,
       secondaryActions,
       purpose = 'primary',
+      className,
+      ...rest
     } = props;
 
     const [isOpen, setIsOpen] = useState(false);
     const buttonStyleProps: ButtonProps = {
-      appearance: 'filled',
       purpose: purpose,
       size,
     };
 
     return (
-      <Container ref={ref}>
-        <MainButton
+      <div ref={ref} className={cn(className, styles.container)} {...rest}>
+        <Button
           {...buttonStyleProps}
           {...primaryAction}
           iconPosition="left"
+          className={styles.main}
         />
         <OverflowMenuGroup onToggle={() => setIsOpen(!isOpen)}>
-          <OptionButton
+          <Button
             {...buttonStyleProps}
             icon={isOpen ? ChevronUpIcon : ChevronDownIcon}
             aria-label="Åpne liste med flere valg"
             purpose={purpose}
+            className={cn(
+              styles.option,
+              purpose === 'primary' && styles['option--primary'],
+            )}
           />
           <OverflowMenu items={secondaryActions} placement="bottom-end" />
         </OverflowMenuGroup>
-      </Container>
+      </div>
     );
   },
 );

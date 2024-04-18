@@ -1,6 +1,6 @@
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import styled from 'styled-components';
 
+import styles from './Feedback.module.css';
 import { type Rating } from './Feedback.types';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
@@ -8,12 +8,6 @@ import { ThumbdownFilled, ThumbupFilled } from '../Icon/icons';
 import { VStack } from '../Stack';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
-
-const IconLabelSpan = styled.span`
-  display: inline-flex;
-  align-items: center;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
-`;
 
 interface CommentComponentType {
   rating: Rating | null;
@@ -38,13 +32,13 @@ export const CommentComponent = ({
 }: CommentComponentType) => {
   return (
     <VStack gap="x1" align="flex-start">
-      <IconLabelSpan>
+      <span className={styles['rating-submitted-title']}>
         <Icon
           icon={rating === 'positive' ? ThumbupFilled : ThumbdownFilled}
           color={ddsBaseTokens.colors.DdsColorInteractiveBase}
         />
         <Paragraph>{ratingSubmittedTitle} </Paragraph>
-      </IconLabelSpan>
+      </span>
       <TextArea
         value={feedbackText}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>

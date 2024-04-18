@@ -1,34 +1,11 @@
 import { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
 
-import { inputMessageTokens as tokens } from './InputMessage.tokens';
+import styles from './InputMessage.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils';
 import { Icon } from '../Icon';
 import { ErrorIcon } from '../Icon/icons';
 import { Typography } from '../Typography/Typography/Typography';
-
-interface WrapperProps {
-  messageType: InputMessageType;
-}
-
-const InputMessageWrapper = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'messageType',
-})<WrapperProps>`
-  display: flex;
-  width: fit-content;
-  word-break: break-word;
-  max-width: 100%;
-  ${({ messageType }) =>
-    messageType === 'error' &&
-    css`
-      background-color: ${tokens.message.error.backgroundColor};
-      padding: ${tokens.message.error.padding};
-      gap: ${tokens.message.error.gap};
-    `}
-  svg {
-    margin-top: ${tokens.icon.marginTop};
-  }
-`;
 
 export type InputMessageType = 'error' | 'tip';
 
@@ -46,22 +23,20 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
   (props, ref) => {
     const { message, messageType, id, className, htmlProps, ...rest } = props;
 
-    const wrapperProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref,
-      messageType,
-    };
-
     const isError = messageType === 'error';
 
     return (
-      <InputMessageWrapper {...wrapperProps}>
+      <div
+        {...getBaseHTMLProps(
+          id,
+          cn(className, styles.container, styles[`container--${messageType}`]),
+          htmlProps,
+          rest,
+        )}
+        ref={ref}
+      >
         {isError && (
-          <Icon
-            icon={ErrorIcon}
-            iconSize="small"
-            color={tokens.message.error.icon.color}
-          />
+          <Icon icon={ErrorIcon} iconSize="small" className={styles.icon} />
         )}
         <Typography
           typographyType={
@@ -71,7 +46,7 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
         >
           {message}
         </Typography>
-      </InputMessageWrapper>
+      </div>
     );
   },
 );

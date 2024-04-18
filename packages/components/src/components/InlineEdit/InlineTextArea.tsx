@@ -1,21 +1,21 @@
 import { type TextareaHTMLAttributes, forwardRef, useId, useRef } from 'react';
 
-import {
-  IconWrapper,
-  StyledInlineTextArea,
-  defaultWidth,
-} from './InlineEdit.styles';
+import styles from './InlineEdit.module.css';
 import { type BaseInlineInputProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
 import { useCombinedRef } from '../../hooks';
 import {
+  cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { InputContainer, OuterInputContainer } from '../helpers';
+import inputStyles from '../helpers/Input/Input.module.css';
+import { focusable } from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type InlineTextAreaProps = BaseInlineInputProps &
   TextareaHTMLAttributes<HTMLTextAreaElement>;
@@ -29,7 +29,7 @@ export const InlineTextArea = forwardRef<
     error,
     errorMessage,
     isEditing,
-    width = defaultWidth,
+    width = '140px',
     'aria-describedby': ariaDescribedby,
     emptiable,
     hideIcon,
@@ -40,40 +40,54 @@ export const InlineTextArea = forwardRef<
   const uniqueId = id ?? `${genereatedId}-InlineTextArea`;
   const hasErrorMessage = !!errorMessage;
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+  const hasError = !!error;
+  const hasErrorState = hasError || hasErrorMessage;
+
   const descId = derivativeIdGenerator(uniqueId, 'desc');
 
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const combinedRef = useCombinedRef(ref, inputRef);
 
   return (
-    <OuterInputContainer $width={width}>
-      <InputContainer>
+    <div className={styles.container} style={{ width }}>
+      <div className={inputStyles['input-group']}>
         {!isEditing && !hideIcon && (
-          <IconWrapper
+          <span
             onClick={() => {
               inputRef.current?.focus();
             }}
+            className={styles['icon-wrapper']}
           >
             <Icon icon={EditIcon} iconSize="small" />
-          </IconWrapper>
+          </span>
         )}
-        <StyledInlineTextArea
+        <textarea
           {...rest}
           id={uniqueId}
           ref={combinedRef}
-          hasErrorMessage={!!error || hasErrorMessage}
-          isEditing={isEditing}
-          hideIcon={hideIcon}
           aria-describedby={spaceSeparatedIdListGenerator([
             hasErrorMessage ? errorMessageId : undefined,
             descId,
             ariaDescribedby,
           ])}
+          className={cn(
+            styles['inline-input'],
+            !hideIcon && styles['inline-input--with-icon'],
+            !hideIcon &&
+              isEditing &&
+              styles['inline-input--with-icon--is-editing'],
+            styles['inline-textarea'],
+            inputStyles['input--stateful'],
+            hasErrorState && inputStyles['input--stateful-danger'],
+            typographyStyles['body-sans-02'],
+            utilStyles.scrollbar,
+            focusable,
+          )}
         />
-      </InputContainer>
+      </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
-    </OuterInputContainer>
+    </div>
   );
 });
 

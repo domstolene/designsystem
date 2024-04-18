@@ -1,8 +1,3 @@
-import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
-import styled from 'styled-components';
+import styles from './RequiredMarker.module.css';
 
-const MarkerWrapper = styled.span`
-  color: ${tokens.colors.DdsColorDangerBase};
-`;
-
-export const RequiredMarker = () => <MarkerWrapper>*</MarkerWrapper>;
+export const RequiredMarker = () => <span className={styles.wrapper}>*</span>;

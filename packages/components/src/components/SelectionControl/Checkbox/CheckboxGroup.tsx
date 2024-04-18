@@ -9,14 +9,11 @@ import {
   type Direction,
   getBaseHTMLProps,
 } from '../../../types';
-import { derivativeIdGenerator } from '../../../utils';
+import { cn, derivativeIdGenerator } from '../../../utils';
 import { RequiredMarker } from '../../helpers';
 import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
-import {
-  GroupContainer,
-  OuterGroupContainer,
-} from '../SelectionControl.styles';
+import styles from '../SelectionControl.module.css';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -77,10 +74,10 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
   };
 
   return (
-    <OuterGroupContainer
+    <div
       {...getBaseHTMLProps(
         id,
-        className,
+        cn(className, styles.container),
         { ...htmlProps, 'aria-required': ariaRequired },
         rest,
       )}
@@ -94,17 +91,17 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
       </Typography>
       {renderInputMessage(tip, tipId)}
       <CheckboxGroupContext.Provider value={{ ...contextProps }}>
-        <GroupContainer
+        <div
           role="group"
           aria-labelledby={uniqueGroupId}
           aria-describedby={tip ? tipId : undefined}
-          $direction={direction}
+          className={cn(styles.group, styles[`group--${direction}`])}
         >
           {children}
-        </GroupContainer>
+        </div>
       </CheckboxGroupContext.Provider>
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
-    </OuterGroupContainer>
+    </div>
   );
 };
 

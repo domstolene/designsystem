@@ -2,23 +2,32 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
-import { SplitButton } from '.';
+import {
+  SplitButton,
+  type SplitButtonPrimaryActionProps,
+  type SplitButtonSecondaryActionsProps,
+} from '.';
 
 const primaryText = 'primaryText';
-const primary = { label: primaryText, onClick: () => null };
+const primary: SplitButtonPrimaryActionProps = {
+  children: primaryText,
+  onClick: () => null,
+};
 const itemText = 'text';
-const item = { title: itemText, onClick: () => null };
+const item: SplitButtonSecondaryActionsProps = [
+  { title: itemText, onClick: () => null },
+];
 
 interface props {
-  primaryAction: { label: string; onClick?: () => void };
-  secondaryActions: { title: string; onClick?: () => void };
+  primaryAction: SplitButtonPrimaryActionProps;
+  secondaryActions: SplitButtonSecondaryActionsProps;
 }
 
 function TestComponent({ primaryAction, secondaryActions }: props) {
   return (
     <SplitButton
       primaryAction={primaryAction}
-      secondaryActions={[secondaryActions]}
+      secondaryActions={secondaryActions}
     />
   );
 }
@@ -41,7 +50,7 @@ describe('<OverflowMenu />', () => {
     render(
       <TestComponent
         secondaryActions={item}
-        primaryAction={{ label: primaryText, onClick: event }}
+        primaryAction={{ children: primaryText, onClick: event }}
       />,
     );
 
@@ -55,7 +64,7 @@ describe('<OverflowMenu />', () => {
     const event = vi.fn();
     render(
       <TestComponent
-        secondaryActions={{ title: itemText, onClick: event }}
+        secondaryActions={[{ title: itemText, onClick: event }]}
         primaryAction={primary}
       />,
     );

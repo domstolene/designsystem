@@ -1,17 +1,50 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-import { css, styled } from 'styled-components';
+import type { ComponentProps } from 'react';
 
-export const StorybookLinkRow = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'withSpacing',
-})<{ withSpacing?: boolean }>`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
-  ${({ withSpacing }) =>
-    withSpacing === true &&
-    css`
-      justify-content: center;
-      margin-top: ${ddsBaseTokens.spacing.SizesDdsSpacingX2};
-    `}
-`;
+import { StorybookLink } from './StorybookLink';
+
+export const StorybookLinkRow = (props: ComponentProps<'div'>) => (
+  <div
+    {...props}
+    style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: '12px',
+    }}
+  />
+);
+
+interface props {
+  docsHref: string;
+  figmaHref?: string;
+  githubHref: string;
+}
+
+export const ComponentLinkRow = ({
+  docsHref,
+  figmaHref,
+  githubHref,
+}: props) => (
+  <StorybookLinkRow>
+    <StorybookLink
+      size="small"
+      text="Docs"
+      href={docsHref}
+      linkType="zeroheight"
+    />
+    {figmaHref && (
+      <StorybookLink
+        size="small"
+        text="Figma"
+        href={figmaHref}
+        linkType="figma"
+      />
+    )}
+    <StorybookLink
+      size="small"
+      text="Github"
+      href={githubHref}
+      linkType="github"
+    />
+  </StorybookLinkRow>
+);

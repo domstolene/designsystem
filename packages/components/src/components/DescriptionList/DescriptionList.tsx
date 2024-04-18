@@ -1,53 +1,11 @@
 import { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
 
-import { descriptionListTokens as tokens } from './DescriptionList.tokens';
+import styles from './DescriptionList.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { selection } from '../helpers';
-
-const { term, desc, list } = tokens;
-
-type DListProps = Pick<DescriptionListProps, 'appearance' | 'direction'>;
-
-const DList = styled.dl.withConfig({
-  shouldForwardProp: prop => prop !== 'appearance' && prop !== 'direction',
-})<DListProps>`
-  margin: 0;
-  *::selection {
-    ${selection}
-  }
-  ${({ appearance }) =>
-    appearance &&
-    css`
-      dt {
-        color: ${term.appearance[appearance].color};
-        ${appearance === 'bold' &&
-        css`
-          font-weight: 600;
-        `}
-      }
-    `}
-  display: flex;
-  flex-direction: column;
-  &:not(:has(> dt):has(> dd)) {
-    flex-direction: ${({ direction = 'column' }) => direction};
-  }
-  flex-wrap: wrap;
-  column-gap: ${list.rowDirection.columnGap};
-  row-gap: 0;
-  & > dt:first-of-type {
-    margin-top: ${term.firstOfType.marginTop};
-  }
-  & > dd:last-child {
-    margin-bottom: ${desc.lastChild.marginBottom};
-  }
-  dd + dt {
-    margin-top: ${list.beforeNextTerm.marginTop};
-  }
-`;
+import { cn } from '../../utils';
 
 export type DescriptionListAppearance = 'small' | 'bold';
 
@@ -77,14 +35,24 @@ export const DescriptionList = forwardRef<
     ...rest
   } = props;
 
-  const dListProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    appearance,
-    direction,
-    ref,
-  };
-
-  return <DList {...dListProps}>{children}</DList>;
+  return (
+    <dl
+      ref={ref}
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.list,
+          styles[`list--${appearance}`],
+          styles[`list--${direction}`],
+        ),
+        htmlProps,
+        rest,
+      )}
+    >
+      {children}
+    </dl>
+  );
 });
 
 DescriptionList.displayName = 'DescriptionList';

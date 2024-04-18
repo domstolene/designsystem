@@ -1,36 +1,31 @@
 import {
-  type ButtonHTMLAttributes,
   type ChangeEvent,
   type InputHTMLAttributes,
-  type MouseEvent,
   forwardRef,
   useId,
   useState,
 } from 'react';
-import styled, { css } from 'styled-components';
 
 import { useAutocompleteSearch } from './AutocompleteSearch.context';
-import { searchTokens as tokens, typographyTypes } from './Search.tokens';
-import { createEmptyChangeEvent } from './Search.utils';
+import styles from './Search.module.css';
+import { type SearchButtonProps, type SearchSize } from './Search.types';
+import { createEmptyChangeEvent, typographyTypes } from './Search.utils';
 import { SearchSuggestions } from './SearchSuggestions';
 import { useCombinedRef } from '../../hooks';
 import {
+  cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Button } from '../Button';
-import {
-  Input as BaseInput,
-  type InputProps as BaseInputProps,
-} from '../helpers';
+import { type InputProps as BaseInputProps, Input } from '../helpers';
+import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
 import { CloseSmallIcon, SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
-import { Label, getFontStyling } from '../Typography';
+import { Label, getTypographyCn } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
-
-const { input, outerContainer, horisontalContainer, searchIcon, clearButton } =
-  tokens;
 
 const getIconSize = (size: SearchSize): IconSize => {
   switch (size) {
@@ -43,80 +38,11 @@ const getIconSize = (size: SearchSize): IconSize => {
   }
 };
 
-const Input = styled(BaseInput)<{
-  $componentSize: SearchSize;
-}>`
-  &[type='search']::-webkit-search-decoration,
-  &[type='search']::-webkit-search-cancel-button,
-  &[type='search']::-webkit-search-results-button,
-  &[type='search']::-webkit-search-results-decoration {
-    -webkit-appearance: none;
-  }
-  padding-right: ${input.base.paddingRight};
-
-  ${({ $componentSize }) => css`
-    padding-top: ${input.sizes[$componentSize].paddingTop};
-    padding-bottom: ${input.sizes[$componentSize].paddingBottom};
-    padding-left: ${input.sizes[$componentSize].paddingLeft};
-    ${getFontStyling(typographyTypes[$componentSize])}
-  `}
-`;
-
-const StyledSearchIcon = styled(Icon)<{
-  $size: SearchSize;
-}>`
-  position: absolute;
-  left: ${searchIcon.base.left};
-  color: ${searchIcon.base.color};
-  ${({ $size }) => css`
-    top: ${tokens.searchIcon[$size].top};
-  `}
-  z-index: 1;
-`;
-
-const StyledClearButton = styled(Button)`
-  position: absolute;
-  right: ${clearButton.right};
-  color: ${clearButton.color};
-  top: ${clearButton.top};
-`;
-
-const OuterContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${outerContainer.gap};
-`;
-
-const HorisontalContainer = styled.div<{
-  $hasSearchButton: boolean;
-}>`
-  ${props =>
-    props.$hasSearchButton &&
-    css`
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: ${horisontalContainer.gap};
-    `}
-`;
-
-const InputContainer = styled.div`
-  position: relative;
-  display: flex;
-`;
-
-export type SearchSize = 'small' | 'medium' | 'large';
-type ButtonProps = {
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
-  label?: string;
-  loading?: boolean;
-  purpose?: 'primary' | 'secondary';
-} & ButtonHTMLAttributes<HTMLButtonElement>;
-
 export type SearchProps = Pick<BaseInputProps, 'tip' | 'label'> & {
   /**Størrelsen på komponenten. */
   componentSize?: SearchSize;
   /**Props for søkeknappen. */
-  buttonProps?: ButtonProps;
+  buttonProps?: SearchButtonProps;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const Search = forwardRef<HTMLInputElement, SearchProps>(
@@ -177,24 +103,25 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     const showSearchButton = !!buttonProps && !!onClick;
 
     return (
-      <OuterContainer>
+      <div className={styles.container}>
         {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
         <div>
-          <HorisontalContainer
-            $hasSearchButton={showSearchButton}
-            className={className}
+          <div
+            className={cn(
+              className,
+              showSearchButton && styles['with-button-container'],
+            )}
             style={style}
           >
-            <InputContainer>
-              <StyledSearchIcon
+            <div className={styles['input-group']}>
+              <Icon
                 icon={SearchIcon}
-                $size={componentSize}
                 iconSize={getIconSize(componentSize)}
+                className={cn(styles['search-icon'])}
               />
               <Input
                 {...rest}
                 ref={combinedRef}
-                $componentSize={componentSize}
                 name={name}
                 type="search"
                 id={uniqueId}
@@ -210,6 +137,14 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 aria-controls={hasSuggestions ? suggestionsId : undefined}
                 aria-expanded={context.showSuggestions}
                 role={hasSuggestions ? 'combobox' : undefined}
+                className={cn(
+                  inputStyles.input,
+                  styles.input,
+                  styles[`input--${componentSize}`],
+                  typographyStyles[
+                    getTypographyCn(typographyTypes[componentSize])
+                  ],
+                )}
               />
               {hasSuggestions && (
                 <>
@@ -228,16 +163,17 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 </>
               )}
               {hasValue && (
-                <StyledClearButton
-                  icon={CloseSmallIcon}
-                  size="tiny"
-                  purpose="secondary"
-                  appearance="borderless"
-                  aria-label="Tøm"
-                  onClick={clearInput}
-                />
+                <span className={styles['clear-button-wrapper']}>
+                  <Button
+                    icon={CloseSmallIcon}
+                    size="tiny"
+                    purpose="tertiary"
+                    aria-label="Tøm"
+                    onClick={clearInput}
+                  />
+                </span>
               )}
-            </InputContainer>
+            </div>
             {showSearchButton && (
               <Button
                 size={componentSize}
@@ -247,10 +183,10 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 {buttonLabel ?? 'Søk'}
               </Button>
             )}
-          </HorisontalContainer>
+          </div>
           {renderInputMessage(tip, tipId)}
         </div>
-      </OuterContainer>
+      </div>
     );
   },
 );

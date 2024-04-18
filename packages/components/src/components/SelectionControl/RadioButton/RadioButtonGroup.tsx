@@ -17,14 +17,11 @@ import {
   type Direction,
   getBaseHTMLProps,
 } from '../../../types';
-import { combineHandlers } from '../../../utils';
+import { cn, combineHandlers } from '../../../utils';
 import { RequiredMarker } from '../../helpers';
 import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
-import {
-  GroupContainer,
-  OuterGroupContainer,
-} from '../SelectionControl.styles';
+import styles from '../SelectionControl.module.css';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<
@@ -114,10 +111,10 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   };
 
   return (
-    <OuterGroupContainer
+    <div
       {...getBaseHTMLProps(
         id,
-        className,
+        cn(className, styles.container),
         { ...htmlProps, 'aria-required': ariaRequired },
         rest,
       )}
@@ -132,18 +129,18 @@ const RadioButtonGroupInner = <T extends string | number = string>(
       </Typography>
       {renderInputMessage(tip, tipId)}
       <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
-        <GroupContainer
+        <div
           role="radiogroup"
-          $direction={direction}
           aria-labelledby={uniqueGroupId}
           aria-describedby={tipId}
           aria-errormessage={errorMessageId}
+          className={cn(styles.group, styles[`group--${direction}`])}
         >
           {children}
-        </GroupContainer>
+        </div>
       </RadioButtonGroupContext.Provider>
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
-    </OuterGroupContainer>
+    </div>
   );
 };
 

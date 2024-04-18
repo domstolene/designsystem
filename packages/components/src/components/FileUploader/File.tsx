@@ -1,9 +1,8 @@
-import styled from 'styled-components';
-
 import { ErrorList } from './ErrorList';
-import { fileTokens } from './FileUploader.tokens';
+import styles from './FileUploader.module.css';
 import { type FileUploaderFile } from './fileUploaderReducer';
 import {
+  cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
@@ -18,30 +17,6 @@ interface FileProps {
   removeFile: () => void;
 }
 
-const FileWrapper = styled.li``;
-
-const FileNameWrapper = styled.span`
-  word-break: break-all;
-`;
-
-const FileElement = styled.div<FileProps>`
-  border-width: 2px;
-  border-style: solid;
-  border-color: ${({ isValid }) =>
-    isValid ? fileTokens.backgroundColor : fileTokens.invalid.borderColor};
-  margin-top: ${fileTokens.marginTop};
-  padding: ${fileTokens.paddingLeftRight} ${fileTokens.paddingTopBottom};
-  background-color: ${fileTokens.backgroundColor};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: ${fileTokens.textToIconsGap};
-`;
-
-const RemoveFileButton = styled(Button)`
-  padding: 0;
-`;
-
 export const File = (props: FileProps) => {
   const { parentId, index, file: stateFile, removeFile, isValid } = props;
 
@@ -51,13 +26,15 @@ export const File = (props: FileProps) => {
   }));
 
   return (
-    <FileWrapper key={stateFile.file.name}>
-      <FileElement {...props}>
-        <FileNameWrapper>{stateFile.file.name}</FileNameWrapper>
-        <RemoveFileButton
+    <li key={stateFile.file.name}>
+      <div
+        {...props}
+        className={cn(styles.file, !isValid && styles['file--invalid'])}
+      >
+        <span className={styles.file__name}>{stateFile.file.name}</span>
+        <Button
           size="small"
-          appearance="borderless"
-          purpose="secondary"
+          purpose="tertiary"
           type="button"
           onClick={removeFile}
           icon={CloseIcon}
@@ -70,8 +47,8 @@ export const File = (props: FileProps) => {
             ),
           }}
         />
-      </FileElement>
+      </div>
       <ErrorList errors={errorsList} />
-    </FileWrapper>
+    </li>
   );
 };

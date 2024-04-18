@@ -1,26 +1,17 @@
 import { type Time } from '@internationalized/date';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
-import type * as CSS from 'csstype';
+import { type Properties } from 'csstype';
 import { type Ref, forwardRef, useRef } from 'react';
-import styled from 'styled-components';
 
 import { type InputProps } from '../../helpers/Input/Input.types';
 import { Icon } from '../../Icon';
 import { TimeIcon } from '../../Icon/icons';
 import { DateInput } from '../common/DateInput';
+import styles from '../common/DateInput.module.css';
 import { locale } from '../DatePicker/constants';
 import { DateSegment } from '../DatePicker/DateField/DateSegment';
-import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
-
-const TimePickerIcon = styled(Icon)<{
-  $componentSize: Exclude<TimePickerProps['componentSize'], undefined>;
-}>`
-  color: ${datePickerTokens.calendarButton.color};
-  width: ${({ $componentSize }) =>
-    datePickerTokens.calendarButton[$componentSize].size};
-  margin-left: -1px; // To align with TextInputs icons
-`;
 
 export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> & {
   /**
@@ -30,7 +21,7 @@ export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> & {
   /**
    * Egendefinert bredde på komponenten.
    */
-  width?: CSS.Properties['width'];
+  width?: Properties['width'];
 } & Pick<InputProps, 'componentSize' | 'errorMessage' | 'tip' | 'style'>;
 
 function _TimePicker(
@@ -48,6 +39,14 @@ function _TimePicker(
     ref,
   );
 
+  const iconSize: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-date-input-icon-size' as any]:
+      componentSize === 'medium'
+        ? ddsBaseTokens.iconSizes.DdsIconsizeMedium
+        : ddsBaseTokens.iconSizes.DdsIconsizeSmall,
+  };
+
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
   return (
@@ -64,11 +63,12 @@ function _TimePicker(
       fieldProps={fieldProps}
       prefix={
         !props.isReadOnly && (
-          <TimePickerIcon
-            $componentSize={componentSize}
-            icon={TimeIcon}
-            iconSize={componentSize == 'medium' ? 'medium' : 'small'}
-          />
+          <span className={styles['icon-wrapper']} style={iconSize}>
+            <Icon
+              icon={TimeIcon}
+              iconSize={componentSize == 'medium' ? 'medium' : 'small'}
+            />
+          </span>
         )
       }
     >

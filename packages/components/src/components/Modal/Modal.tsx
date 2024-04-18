@@ -1,3 +1,4 @@
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type ReactNode,
   type RefObject,
@@ -6,14 +7,12 @@ import {
   useId,
 } from 'react';
 import { createPortal } from 'react-dom';
-import styled from 'styled-components';
 
 import {
-  Backdrop,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from './Backdrop';
-import { modalTokens as tokens } from './Modal.tokens';
+import styles from './Modal.module.css';
 import {
   useCombinedRef,
   useFocusTrap,
@@ -25,37 +24,12 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { changeRGBAAlpha, cn } from '../../utils';
 import { Button } from '../Button';
-import { Paper, focusVisible, selection } from '../helpers';
+import { Paper } from '../helpers';
+import { focusable } from '../helpers/styling/focus.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
-
-const { container, contentContainer } = tokens;
-
-const Container = styled(Paper)`
-  display: flex;
-  flex-direction: column-reverse;
-  min-width: 200px;
-  padding: ${container.padding};
-  &::selection,
-  *::selection {
-    ${selection}
-  }
-  :focus-visible,
-  &.focus-visible {
-    ${focusVisible}
-  }
-`;
-const ContentContainer = styled.div`
-  display: grid;
-  padding-right: ${contentContainer.paddingRight};
-  gap: ${contentContainer.gap};
-`;
-const HeaderContainer = styled.div``;
-
-const StyledButton = styled(Button)`
-  align-self: flex-end;
-`;
 
 export type ModalProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -120,9 +94,27 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
   return isOpen || hasTransitionedIn
     ? createPortal(
-        <Backdrop isOpen={hasTransitionedIn && isOpen}>
-          <Container
-            {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        <div
+          className={cn(
+            styles.backdrop,
+            hasTransitionedIn && isOpen
+              ? styles['backdrop--visible']
+              : styles['backdrop--hidden'],
+          )}
+          style={{
+            backgroundColor: changeRGBAAlpha(
+              ddsBaseTokens.colors.DdsColorNeutralsGray9,
+              0.5,
+            ),
+          }}
+        >
+          <Paper
+            {...getBaseHTMLProps(
+              id,
+              cn(className, styles.container, focusable),
+              htmlProps,
+              rest,
+            )}
             ref={combinedRef}
             role="dialog"
             aria-modal
@@ -132,9 +124,9 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             id={modalId}
             elevation={4}
           >
-            <ContentContainer>
+            <div className={styles.content}>
               {header && (
-                <HeaderContainer id={headerId}>
+                <div id={headerId}>
                   {typeof header === 'string' ? (
                     <Typography typographyType="headingSans03">
                       {header}
@@ -142,22 +134,22 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
                   ) : (
                     header
                   )}
-                </HeaderContainer>
+                </div>
               )}
               {children}
-            </ContentContainer>
+            </div>
             {onClose && (
-              <StyledButton
+              <Button
                 size="small"
-                appearance="borderless"
-                purpose="secondary"
+                purpose="tertiary"
                 icon={CloseIcon}
                 onClick={handleClose}
                 aria-label="Lukk dialog"
+                className={styles['close-button']}
               />
             )}
-          </Container>
-        </Backdrop>,
+          </Paper>
+        </div>,
         parentElement,
       )
     : null;

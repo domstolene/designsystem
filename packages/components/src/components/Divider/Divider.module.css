@@ -1,0 +1,15 @@
+.divider {
+  border: 0;
+  background-color: transparent;
+  border-top: var(--borders-dds-border-style-light-stroke-weight) solid;
+  margin-top: var(--sizes-dds-spacing-x-1);
+  margin-bottom: var(--sizes-dds-spacing-x-1);
+}
+
+.divider--primary {
+  border-color: var(--borders-dds-border-style-dark-stroke);
+}
+
+.divider--light {
+  border-color: var(--borders-dds-border-style-light-stroke);
+}

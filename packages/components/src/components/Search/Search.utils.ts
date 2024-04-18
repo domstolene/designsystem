@@ -1,5 +1,14 @@
 import { type ChangeEvent } from 'react';
 
+import { type SearchSize } from './Search.types';
+import { type StaticTypographyType } from '../Typography';
+
+export const typographyTypes: { [k in SearchSize]: StaticTypographyType } = {
+  small: 'bodySans01',
+  medium: 'bodySans02',
+  large: 'bodySans04',
+};
+
 /**
  * Lager en change-event som kan resette verdien i et input-felt.
  * Dette vil resultere i en event som har: event.target.value = ''.

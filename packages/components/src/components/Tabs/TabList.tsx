@@ -9,53 +9,19 @@ import {
   isValidElement,
   useState,
 } from 'react';
-import styled, { css } from 'styled-components';
 
 import { useTabsContext } from './Tabs.context';
-import { tabsTokens as tokens } from './Tabs.tokens';
+import styles from './Tabs.module.css';
 import { TabWidthContextProvider } from './TabWidthContext';
 import { useCombinedRef, useRoveFocus } from '../../hooks';
-import { focusVisible, focusVisibleTransitionValue } from '../helpers';
-import { scrollbarStyling } from '../ScrollableContainer';
-
-const { tabList } = tokens;
-
-const autoFlow = css`
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
-`;
-
-const templateColumns = (templateColumns: string) => css`
-  grid-template-columns: ${templateColumns};
-`;
-
-const TabRow = styled.div<{ $gridTemplateColumns: string }>`
-  border-bottom: ${tabList.borderBottom};
-  display: grid;
-  ${({ $gridTemplateColumns }) =>
-    $gridTemplateColumns === ''
-      ? autoFlow
-      : templateColumns($gridTemplateColumns)}
-  overflow-x: auto;
-  ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox}
-  scroll-snap-type: x mandatory;
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
-    transition: ${focusVisibleTransitionValue};
-  }
-  &:focus-visible {
-    ${focusVisible}
-  }
-  &:focus-visible button {
-    outline: none;
-  }
-`;
+import { cn } from '../../utils';
+import { focusable } from '../helpers/styling/focus.module.css';
+import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 
 export type TabListProps = HTMLAttributes<HTMLDivElement>;
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
-  ({ children, id, onFocus, ...rest }, ref) => {
+  ({ children, id, style, onFocus, ...rest }, ref) => {
     const {
       activeTab,
       tabsId,
@@ -103,9 +69,14 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       }
     };
 
+    const customWidths: CSS.Properties = {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ['--dds-tab-widths' as any]: widths.join(' '),
+    };
+
     return (
       <TabWidthContextProvider onChangeWidths={setWidths}>
-        <TabRow
+        <div
           {...rest}
           ref={combinedRef}
           role="tablist"
@@ -113,10 +84,17 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           tabIndex={0}
           onFocus={handleOnFocus}
           onBlur={handleOnBlur}
-          $gridTemplateColumns={widths.join(' ')}
+          className={cn(
+            styles['tab-row'],
+            !widths && styles['tab-row--standard-widths'],
+            styles['tab-row--custom-widths'],
+            focusable,
+            scrollbar,
+          )}
+          style={{ ...style, ...customWidths }}
         >
           {tabListChildren}
-        </TabRow>
+        </div>
       </TabWidthContextProvider>
     );
   },

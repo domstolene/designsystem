@@ -8,19 +8,15 @@ import {
   forwardRef,
   useContext,
 } from 'react';
-import styled, { css } from 'styled-components';
 
+import styles from './DateInput.module.css';
 import { cn } from '../../../utils';
-import {
-  type InputProps,
-  OuterInputContainer,
-  StatefulInput,
-  focusVisible,
-} from '../../helpers';
+import { type InputProps } from '../../helpers';
+import inputStyles from '../../helpers/Input/Input.module.css';
+import focusStyles from '../../helpers/styling/focus.module.css';
 import { InputMessage } from '../../InputMessage';
 import { Label } from '../../Typography';
 import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
-import { datePickerTokens } from '../DatePicker/DatePicker.tokens';
 
 export type DateInputProps = {
   className?: string;
@@ -43,35 +39,6 @@ export type DateInputProps = {
     | 'readOnly'
   >;
 
-interface InputDivProps {
-  $calendarIsOpen: boolean;
-}
-
-const InputDiv = styled(StatefulInput)<InputDivProps>`
-  display: inline-flex;
-  flex-direction: row;
-  gap: ${datePickerTokens.gap};
-  align-items: center;
-  padding-left: ${({ componentSize = 'medium' }) =>
-    datePickerTokens.datefield[componentSize].paddingX};
-  padding-right: ${({ componentSize = 'medium' }) =>
-    datePickerTokens.datefield[componentSize].paddingX};
-
-  &:focus-within {
-    ${focusVisible}
-  }
-  ${({ $calendarIsOpen }) =>
-    $calendarIsOpen &&
-    css`
-      ${focusVisible}
-    `}
-`;
-
-const DateSegmentContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 function _DateInput(
   {
     errorMessage,
@@ -89,7 +56,7 @@ function _DateInput(
     labelProps,
     fieldProps,
     groupProps,
-    width = datePickerTokens.datefield[componentSize].width,
+    width,
     ...props
   }: DateInputProps,
   forwardedRef: Ref<HTMLDivElement>,
@@ -102,42 +69,51 @@ function _DateInput(
   const { isOpen } = useContext(CalendarPopoverContext);
 
   return (
-    <OuterInputContainer
+    <div
       {...groupProps}
-      $width={width}
-      className={className}
+      className={cn(
+        className,
+        inputStyles.container,
+        styles[`container--${componentSize}`],
+      )}
       ref={forwardedRef}
+      style={{ width }}
     >
       {hasLabel && (
         <Label {...labelProps} showRequiredStyling={required}>
           {props.label}
         </Label>
       )}
-      <InputDiv
+      <div
         {...fieldProps}
-        as="div"
         style={style}
-        disabled={disabled}
-        componentSize={componentSize}
         ref={internalRef}
-        hasErrorMessage={hasErrorMessage}
-        $calendarIsOpen={isOpen}
         className={cn(
+          inputStyles.input,
+          inputStyles['input--stateful'],
+          inputStyles[`input--${componentSize}`],
+          hasErrorMessage && inputStyles['input--stateful-danger'],
+          styles['date-input'],
+          styles[`date-input--${componentSize}`],
+          focusStyles['focusable-within'],
+          isOpen && focusStyles.focused,
           disabled && 'disabled',
+          disabled && inputStyles.disabled,
           active && 'active',
           readOnly && 'read-only',
+          readOnly && inputStyles['read-only'],
         )}
       >
         {button}
-        <DateSegmentContainer>{children}</DateSegmentContainer>
-      </InputDiv>
+        <div className={styles['date-segment-container']}>{children}</div>
+      </div>
       {hasMessage && (
         <InputMessage
           messageType={hasErrorMessage ? 'error' : 'tip'}
           message={errorMessage ?? tip ?? ''}
         />
       )}
-    </OuterInputContainer>
+    </div>
   );
 }
 

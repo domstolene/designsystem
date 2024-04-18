@@ -42,100 +42,40 @@ export const Overview: Story = {
   render: () => (
     <>
       <Tooltip placement="top" text="top">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="top-start" text="top-start">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="top-end" text="top-end">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="bottom" text="bottom">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="bottom-start" text="bottom-start">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="bottom-end" text="bottom-end">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="left" text="left">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="left-start" text="left-start">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="left-end" text="left-end">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="right" text="right">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="right-start" text="right-start">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
       <Tooltip placement="right-end" text="right-end">
-        <Button
-          size="large"
-          icon={HelpIcon}
-          appearance="rounded"
-          aria-label="Vis forklaring"
-        />
+        <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
     </>
   ),
@@ -157,11 +97,7 @@ export const Default: Story = {
   ),
   render: args => (
     <Tooltip {...args}>
-      <Button
-        icon={HelpIcon}
-        appearance="rounded"
-        aria-label="Vis forklaring"
-      />
+      <Button icon={HelpIcon} aria-label="Vis forklaring" />
     </Tooltip>
   ),
 };

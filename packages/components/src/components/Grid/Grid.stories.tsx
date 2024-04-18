@@ -5,6 +5,7 @@ import { ScreenSize, useScreenSize } from '../../hooks';
 import { Button } from '../Button';
 import { FilterIcon, PlusIcon } from '../Icon/icons';
 import { InternalHeader } from '../InternalHeader';
+import { LocalMessage } from '../LocalMessage';
 import { Pagination } from '../Pagination';
 import { Search } from '../Search';
 import { Table } from '../Table/normal';
@@ -26,6 +27,55 @@ export default {
 } satisfies Meta<typeof Grid>;
 
 type Story = StoryObj<typeof Grid>;
+
+export const Default: Story = {
+  render: args => {
+    const containerStyle = {
+      border: '1px dashed gray',
+      padding: '8px',
+    };
+
+    return (
+      <Grid {...args} style={containerStyle}>
+        <GridChild columnsOccupied="all">
+          <div style={containerStyle}>Alle kolonner</div>
+        </GridChild>
+        <GridChild columnsOccupied="firstHalf">
+          <div style={containerStyle}>Første halv</div>
+        </GridChild>
+        <GridChild columnsOccupied="secondHalf">
+          <div style={containerStyle}>Andre halv</div>
+        </GridChild>
+        <GridChild
+          columnsOccupied={{
+            xs: '1/-1',
+            sm: '1/7',
+            md: '1/11',
+            lg: '1/10',
+            xl: '1/8',
+          }}
+        >
+          <div style={containerStyle}>
+            Custom antall kolonner per brekkepunkt
+          </div>
+        </GridChild>
+        <GridChild
+          columnsOccupied={{
+            xs: '1/-1',
+            sm: '7/9',
+            md: '11/13',
+            lg: '10/13',
+            xl: '8/13',
+          }}
+        >
+          <div style={containerStyle}>
+            Custom antall kolonner per brekkepunkt
+          </div>
+        </GridChild>
+      </Grid>
+    );
+  },
+};
 
 export const PageExample: Story = {
   args: {},
@@ -65,12 +115,9 @@ export const PageExample: Story = {
               xl: '9/13',
             }}
           >
-            <Button
-              icon={FilterIcon}
-              label="Filter"
-              appearance="borderless"
-              purpose="secondary"
-            />
+            <Button icon={FilterIcon} purpose="tertiary">
+              Filter
+            </Button>
           </GridChild>
           <GridChild columnsOccupied="all">
             <Table.Wrapper>
@@ -122,23 +169,28 @@ export const JustRelativeColumns: Story = {
     </StoryTemplate>
   ),
   render: args => (
-    <Grid {...args}>
+    <Grid {...args} maxWidth={{ lg: '750px', xl: '750px' }}>
       <GridChild columnsOccupied="all">
         <Heading level={2} withMargins>
-          Opplysninger
+          Parter
         </Heading>
       </GridChild>
       <GridChild columnsOccupied="all">
-        <TextInput label="Label" width="100%" />
+        <LocalMessage>Info om skjema</LocalMessage>
       </GridChild>
       <GridChild columnsOccupied="firstHalf">
-        <TextInput label="Label" width="100%" />
+        <TextInput label="Fornavn" width="100%" />
       </GridChild>
       <GridChild columnsOccupied="secondHalf">
-        <TextInput label="Label" width="100%" />
+        <TextInput label="Etternavn" width="100%" />
+      </GridChild>
+      <GridChild columnsOccupied="all">
+        <TextInput label="Adresse" width="100%" />
       </GridChild>
       <GridChild columnsOccupied="all" justifySelf="right">
-        <Button label="Legg til" icon={PlusIcon} purpose="secondary" />
+        <Button icon={PlusIcon} purpose="secondary">
+          Legg til
+        </Button>
       </GridChild>
     </Grid>
   ),

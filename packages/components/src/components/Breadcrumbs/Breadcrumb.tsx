@@ -29,7 +29,7 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
     }
 
     return (
-      <Typography htmlProps={rest} ref={ref} as="span" color="interactive">
+      <Typography htmlProps={rest} ref={ref} as="span">
         {children}
       </Typography>
     );

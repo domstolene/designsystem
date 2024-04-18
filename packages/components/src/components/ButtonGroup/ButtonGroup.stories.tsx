@@ -16,6 +16,8 @@ export default {
   },
   argTypes: {
     role: { control: 'text' },
+    'aria-label': { control: 'text' },
+    'aria-labelledby': { control: 'text' },
     htmlProps: { control: false },
   },
 } satisfies Meta<typeof ButtonGroup>;

@@ -1,6 +1,4 @@
-import { type Property } from 'csstype';
 import { type GroupBase, type StylesConfig } from 'react-select';
-import styled, { css } from 'styled-components';
 
 import { selectTokens as tokens, typographyTypes } from './Select.tokens';
 import {
@@ -10,9 +8,7 @@ import {
   focusVisibleInsetSelect,
   hoverDangerInputfield,
   hoverInputfield,
-  selection,
 } from '../helpers';
-import { Icon } from '../Icon';
 import { scrollbarStyling } from '../ScrollableContainer';
 import { getFontStyling } from '../Typography';
 
@@ -28,8 +24,7 @@ const {
   multiValueLabel,
   multiValueRemove,
   noOptionsMessage,
-  placeholder,
-  icon,
+
   valueContainer,
 } = tokens;
 
@@ -44,124 +39,57 @@ function getContainerControlPadding(
     : control.sizes[componentSize].padding;
 }
 
-export const Container = styled.div<{
-  $errorMessage?: string;
-  $isDisabled?: boolean;
-  $readOnly?: boolean;
-  $width?: Property.Width;
-  $componentSize: InputSize;
-  $isMulti?: boolean;
-}>`
-  margin: 0;
-  width: ${({ $width }) => $width};
-  position: relative;
-
-  *::selection {
-    ${selection}
-  }
-
-  ${({ $componentSize, $isMulti }) => css`
-    .${prefix}__control {
-      padding: ${getContainerControlPadding($componentSize, $isMulti)};
-      ${getFontStyling(typographyTypes.control[$componentSize], true)}
-    }
-    .${prefix}__option {
-      ${getFontStyling(typographyTypes.option[$componentSize], true)}
-    }
-    .${prefix}__placeholder {
-      ${getFontStyling(typographyTypes.placeholder[$componentSize])}
-    }
-    .${prefix}__menu-notice--no-options {
-      ${getFontStyling(typographyTypes.noOptionsMessage[$componentSize])}
-    }
-  `}
-
-  ${({ $errorMessage }) =>
-    $errorMessage &&
-    css`
-      .${prefix}__control {
-        ${dangerInputfield}
-      }
-      .${prefix}__control:hover {
-        ${hoverDangerInputfield}
-      }
-      .${prefix}__control:focus-within {
-        ${focusInputfield}
-      }
-    `}
-
-  &:hover
-    .${prefix}__dropdown-indicator,
-    &:focus-within
-    .${prefix}__dropdown-indicator {
-    color: ${dropdownIndicator.hover.color};
-  }
-
-  ${({ $isDisabled, $readOnly }) =>
-    $readOnly
-      ? css`
-          .${prefix}__control {
-            border-color: ${control.readOnly.borderColor};
-            background-color: ${control.readOnly.backgroundColor};
-            padding-top: ${control.readOnly.paddingTop};
-            padding-left: 0;
-          }
-          .${prefix}__dropdown-indicator,
-            &:hover
-            .${prefix}__dropdown-indicator {
-            color: ${dropdownIndicator.readOnly.color};
-          }
-        `
-      : $isDisabled
-        ? css`
-            cursor: not-allowed;
-            .${prefix}__control {
-              border-color: ${control.disabled.borderColor};
-              background-color: ${control.disabled.backgroundColor};
-            }
-            &:hover .${prefix}__dropdown-indicator {
-              color: ${dropdownIndicator.base.color};
-            }
-          `
-        : ''}
-`;
-
-export const InnerSingleValue = styled.div`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  box-sizing: border-box;
-  max-width: 100%;
-`;
-
-export const StyledIcon = styled(Icon)`
-  margin-right: ${icon.marginRight};
-`;
-
 export const getCustomStyles = <TOption>(
   size: InputSize,
+  hasError: boolean,
+  isReadOnly?: boolean,
 ): Partial<StylesConfig<TOption, boolean, GroupBase<TOption>>> => ({
-  control: () => ({
+  control: (provided, state) => ({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'wrap',
+    cursor: 'pointer',
     borderRadius: control.borderRadius,
     border: control.border,
     borderColor: control.borderColor,
     backgroundColor: control.backgroundColor,
     transition: 'box-shadow 0.2s, border-color 0.2s',
+    padding: getContainerControlPadding(size, state.selectProps.isMulti),
+    ...(state.selectProps.isDisabled && {
+      borderColor: control.disabled.borderColor,
+      backgroundColor: control.disabled.backgroundColor,
+    }),
+    ...getFontStyling(typographyTypes.control[size], true),
 
     '&:hover': {
       ...hoverInputfield,
     },
+    ...(hasError && {
+      ...dangerInputfield,
+      '&:hover': {
+        ...hoverDangerInputfield,
+      },
+    }),
     '&:focus-within': {
       ...focusInputfield,
     },
+    ...(isReadOnly && {
+      borderColor: control.readOnly.borderColor,
+      backgroundColor: control.readOnly.backgroundColor,
+      paddingTop: control.readOnly.paddingTop,
+      paddingLeft: 0,
+      boxShadow: 'none',
+    }),
+    ...(state.selectProps.isDisabled && {
+      '&:hover .dds-select__dropdown-indicator': {
+        color: dropdownIndicator.base.color,
+      },
+    }),
   }),
   placeholder: provided => ({
     ...provided,
-    color: placeholder.color,
+    ...getFontStyling(typographyTypes.placeholder[size], true),
     margin: 0,
   }),
   input: provided => ({
@@ -178,6 +106,11 @@ export const getCustomStyles = <TOption>(
     },
     padding: 0,
     color: dropdownIndicator.base.color,
+    '&:hover': {
+      ...(state.selectProps.isDisabled && {
+        color: dropdownIndicator.base.color,
+      }),
+    },
   }),
 
   valueContainer: (provided, state) => ({
@@ -268,8 +201,8 @@ export const getCustomStyles = <TOption>(
     alignItems: 'center',
     gap: option.base.gap,
     padding: option.base.padding,
-    color: option.base.color,
     backgroundColor: option.base.backgroundColor,
+    ...getFontStyling(typographyTypes.option[size], true),
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',
     },
@@ -286,6 +219,7 @@ export const getCustomStyles = <TOption>(
     }),
   }),
   noOptionsMessage: () => ({
+    ...getFontStyling(typographyTypes.noOptionsMessage[size]),
     padding: noOptionsMessage.padding,
     color: noOptionsMessage.color,
   }),

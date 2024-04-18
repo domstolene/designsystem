@@ -1,9 +1,9 @@
 import { type HTMLAttributes, forwardRef, useState } from 'react';
-import styled, { css } from 'styled-components';
 
-import { paginationTokens as tokens } from './Pagination.tokens';
+import styles from './Pagination.module.css';
 import { PaginationGenerator } from './paginationGenerator';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import {
@@ -15,57 +15,6 @@ import {
 } from '../Icon/icons';
 import { Select } from '../Select';
 import { Typography } from '../Typography';
-
-const { outerContainer, indicatorsContainer, truncationIcon, list } = tokens;
-
-const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-`;
-
-const List = styled.ol`
-  display: grid;
-  grid-auto-flow: column;
-  gap: ${list.gap};
-  margin: 0;
-  padding: 0;
-`;
-
-interface ListItemProps {
-  $isHidden?: boolean;
-}
-
-const ListItem = styled.li<ListItemProps>`
-  display: inline-grid;
-  align-content: center;
-  ${({ $isHidden }) =>
-    $isHidden &&
-    css`
-      visibility: hidden;
-    `}
-`;
-
-const OuterContainer = styled.div<{ $smallScreen?: boolean }>`
-  display: flex;
-  gap: ${outerContainer.gap};
-  ${({ $smallScreen }) =>
-    $smallScreen
-      ? css`
-          flex-direction: column;
-          align-items: center;
-        `
-      : css`
-          justify-content: space-between;
-          flex-wrap: wrap;
-        `}
-`;
-
-const IndicatorsContainer = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  gap: ${indicatorsContainer.gap};
-`;
 
 export interface PaginationOption {
   label: string;
@@ -158,11 +107,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         ? items.map((item, i) => {
             const isActive = item === activePage;
             return (
-              <ListItem key={`pagination-item-${i}`}>
+              <li key={`pagination-item-${i}`} className={styles.list__item}>
                 {item !== 'truncator' ? (
                   <Button
                     purpose={isActive ? 'primary' : 'secondary'}
-                    appearance={isActive ? 'filled' : 'ghost'}
                     size="small"
                     onClick={event => {
                       onPageChange(event, item as number);
@@ -178,10 +126,10 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
                 ) : (
                   <Icon
                     icon={MoreHorizontalIcon}
-                    color={truncationIcon.color}
+                    className={styles['truncation-icon']}
                   />
                 )}
-              </ListItem>
+              </li>
             );
           })
         : undefined;
@@ -189,7 +137,6 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const previousPageButton = (
       <Button
         purpose="secondary"
-        appearance="ghost"
         size="small"
         icon={ChevronLeftIcon}
         onClick={event => {
@@ -202,7 +149,6 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const nextPageButton = (
       <Button
         purpose="secondary"
-        appearance="ghost"
         size="small"
         icon={ChevronRightIcon}
         onClick={event => {
@@ -212,40 +158,54 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       />
     );
 
-    const navProps = !withSelect &&
-      !withCounter && {
-        ...getBaseHTMLProps(id, className, htmlProps, rest),
-      };
-
-    const containerProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      $smallScreen: smallScreen,
-    };
+    const navProps =
+      !withSelect && !withCounter
+        ? {
+            ...getBaseHTMLProps(id, cn(className, styles.nav), htmlProps, rest),
+          }
+        : { className: styles.nav };
 
     const isOnFirstPage = activePage === 1;
     const isOnLastPage = activePage === pagesLength;
 
     const navigation = withPagination ? (
-      <Nav ref={ref} aria-label="paginering" {...navProps}>
-        <List>
-          <ListItem $isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+      <nav ref={ref} aria-label="paginering" {...navProps}>
+        <ol className={styles.list}>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnFirstPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnFirstPage}
+          >
             {previousPageButton}
-          </ListItem>
+          </li>
           {listItems}
-          <ListItem $isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnLastPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnLastPage}
+          >
             {nextPageButton}
-          </ListItem>
-        </List>
-      </Nav>
+          </li>
+        </ol>
+      </nav>
     ) : null;
 
     const smallScreenNavigation = withPagination ? (
-      <Nav ref={ref} aria-label="paginering" {...navProps}>
-        <List>
-          <ListItem $isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+      <nav ref={ref} aria-label="paginering" {...navProps}>
+        <ol className={styles.list}>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnFirstPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnFirstPage}
+          >
             <Button
               purpose="secondary"
-              appearance="ghost"
               size="small"
               icon={ChevronFirstIcon}
               onClick={event => {
@@ -253,11 +213,17 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               }}
               aria-label="Gå til første siden"
             />
-          </ListItem>
-          <ListItem $isHidden={isOnFirstPage} aria-hidden={isOnFirstPage}>
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnFirstPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnFirstPage}
+          >
             {previousPageButton}
-          </ListItem>
-          <ListItem>
+          </li>
+          <li className={styles.list__item}>
             <Button
               size="small"
               onClick={event => {
@@ -266,14 +232,25 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             >
               {activePage}
             </Button>
-          </ListItem>
-          <ListItem $isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnLastPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnLastPage}
+          >
             {nextPageButton}
-          </ListItem>
-          <ListItem $isHidden={isOnLastPage} aria-hidden={isOnLastPage}>
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnLastPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnLastPage}
+          >
             <Button
               purpose="secondary"
-              appearance="ghost"
               size="small"
               icon={ChevronLastIcon}
               onClick={event => {
@@ -281,9 +258,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               }}
               aria-label="Gå til siste siden"
             />
-          </ListItem>
-        </List>
-      </Nav>
+          </li>
+        </ol>
+      </nav>
     ) : null;
 
     const activePageFirstItem =
@@ -299,8 +276,19 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     return !withCounter && !withSelect ? (
       navigationToBeRendered
     ) : (
-      <OuterContainer {...containerProps}>
-        <IndicatorsContainer>
+      <div
+        {...getBaseHTMLProps(
+          id,
+          cn(
+            className,
+            styles.container,
+            smallScreen && styles['container--small-screen'],
+          ),
+          htmlProps,
+          rest,
+        )}
+      >
+        <div className={styles.indicators}>
           {withSelect && (
             <Select
               options={selectOptions}
@@ -320,9 +308,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
               Viser {activePageFirstItem}-{activePageLastItem} av {itemsAmount}
             </Typography>
           )}
-        </IndicatorsContainer>
+        </div>
         {navigationToBeRendered}
-      </OuterContainer>
+      </div>
     );
   },
 );

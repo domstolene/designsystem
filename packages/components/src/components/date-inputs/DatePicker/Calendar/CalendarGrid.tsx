@@ -8,43 +8,16 @@ import {
   type CalendarState,
   type RangeCalendarState,
 } from '@react-stately/calendar';
-import styled from 'styled-components';
 
-import { calendarTokens } from './Calendar.tokens';
 import { CalendarCell } from './CalendarCell';
+import { cn } from '../../../../utils';
+import typographyStyles from '../../../Typography/typographyStyles.module.css';
+import styles from '../../common/DateInput.module.css';
 import { getWeekNumber } from '../../utils/getWeekNumber';
-
-const { grid: gridTokens } = calendarTokens;
 
 interface CalendarGridProps extends AriaCalendarGridProps {
   state: CalendarState | RangeCalendarState;
 }
-
-const Th = styled.th`
-  font-family: ${gridTokens.headers.fontFamily};
-  font-size: ${gridTokens.headers.fontSize};
-  font-style: ${gridTokens.headers.fontStyle};
-  font-weight: ${gridTokens.headers.fontWeight};
-  letter-spacing: ${gridTokens.headers.letterSpacing};
-  line-height: ${gridTokens.headers.lineHeight};
-  color: ${gridTokens.headers.color};
-`;
-
-const WeekNumber = styled.td`
-  font-family: ${gridTokens.weekNumbers.fontFamily};
-  font-size: ${gridTokens.weekNumbers.fontSize};
-  font-style: ${gridTokens.weekNumbers.fontStyle};
-  font-weight: ${gridTokens.weekNumbers.fontWeight};
-  letter-spacing: ${gridTokens.weekNumbers.letterSpacing};
-  line-height: ${gridTokens.weekNumbers.lineHeight};
-  color: ${gridTokens.headers.color};
-  width: ${calendarTokens.cell.width};
-  height: ${calendarTokens.cell.height};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   const { locale } = useLocale();
@@ -57,6 +30,10 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
   const weekDays = ['Ma', 'Ti', 'On', 'To', 'Fr', 'Lø', 'Sø'];
 
+  const typographyCn = [
+    typographyStyles['supporting-style-tiny-02'],
+    typographyStyles['text-color--subtle'],
+  ];
   return (
     <table
       {...gridProps}
@@ -74,9 +51,11 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
     >
       <thead {...headerProps}>
         <tr>
-          <Th>#</Th>
+          <th className={cn(...typographyCn)}>#</th>
           {weekDays.map((day, index) => (
-            <Th key={index}>{day}</Th>
+            <th key={index} className={cn(...typographyCn)}>
+              {day}
+            </th>
           ))}
         </tr>
       </thead>
@@ -89,7 +68,11 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
             : '';
           return (
             <tr key={weekIndex}>
-              <WeekNumber>{weekNumber}</WeekNumber>
+              <td
+                className={cn(styles['calendar__week-number'], ...typographyCn)}
+              >
+                {weekNumber}
+              </td>
               {datesInWeek.map((date, i) =>
                 date ? (
                   <CalendarCell key={i} state={state} date={date} />

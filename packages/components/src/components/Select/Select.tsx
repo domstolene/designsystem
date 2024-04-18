@@ -9,7 +9,8 @@ import {
   type SingleValueProps,
 } from 'react-select';
 
-import { Container, getCustomStyles, prefix } from './Select.styles';
+import styles from './Select.module.css';
+import { getCustomStyles, prefix } from './Select.styles';
 import {
   CustomOption,
   CustomSingleValue,
@@ -23,6 +24,7 @@ import {
 } from './SelectComponents';
 import { type WithRequiredIf } from '../../types';
 import {
+  cn,
   derivativeIdGenerator,
   searchFilter,
   spaceSeparatedIdListGenerator,
@@ -137,17 +139,6 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
-  const containerProps = {
-    $width: width,
-    $componentSize: componentSize,
-    $errorMessage: errorMessage,
-    $isDisabled: isDisabled,
-    $readOnly: readOnly,
-    $isMulti: isMulti,
-    className,
-    style,
-  };
-
   const reactSelectProps: ReactSelectProps<
     Option,
     IsMulti,
@@ -168,7 +159,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     inputId: uniqueId,
     name: uniqueId,
     classNamePrefix: prefix,
-    styles: getCustomStyles<Option>(componentSize),
+    styles: getCustomStyles<Option>(componentSize, hasErrorMessage, readOnly),
     filterOption: (option, inputValue) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';
@@ -193,7 +184,8 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
       ClearIndicator: props => DDSClearIndicator(props, componentSize),
       DropdownIndicator: props => DDSDropdownIndicator(props, componentSize),
       MultiValueRemove: DDSMultiValueRemove,
-      Control: props => DDSControl(props, componentSize, icon, dataTestId),
+      Control: props =>
+        DDSControl(props, componentSize, readOnly, icon, dataTestId),
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,
@@ -202,7 +194,14 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   };
 
   return (
-    <Container {...containerProps}>
+    <div
+      className={cn(
+        className,
+        styles.container,
+        isDisabled && styles['container--disabled'],
+      )}
+      style={{ ...style, width }}
+    >
       {hasLabel && (
         <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
           {label}
@@ -210,7 +209,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
       )}
       <ReactSelect {...reactSelectProps} ref={ref} />
       {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-    </Container>
+    </div>
   );
 }
 

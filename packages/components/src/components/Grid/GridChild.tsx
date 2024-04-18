@@ -1,22 +1,13 @@
-import { type Property } from 'csstype';
+import { type Properties, type Property } from 'csstype';
 import { type HTMLAttributes } from 'react';
-import styled from 'styled-components';
 
-import { useGridContext } from './Grid.context';
-import { gridTokens as tokens } from './Grid.tokens';
-import { type ScreenSize } from '../../hooks';
+import styles from './Grid.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { type BreakpointBasedProps, getLiteralScreenSize } from '../helpers';
-
-interface StyledGridChildProps {
-  screenSize: ScreenSize;
-  columnsOccupied?: ColumnsOccupied;
-  justifySelf?: Property.JustifySelf;
-  gridRow?: Property.GridRow;
-}
+import { cn } from '../../utils';
+import { type BreakpointBasedProps } from '../helpers';
 
 export const isRelativeGridColumn = (
   type: ColumnsOccupied | undefined,
@@ -27,6 +18,7 @@ export const isRelativeGridColumn = (
 export const isGridColumn = (
   type: ColumnsOccupied | undefined,
 ): type is GridColumnPerScreenSize => {
+  if (type === undefined) return false;
   return (
     (type as GridColumnPerScreenSize).xs !== undefined ||
     (type as GridColumnPerScreenSize).sm !== undefined ||
@@ -36,32 +28,10 @@ export const isGridColumn = (
   );
 };
 
-const StyledGridChild = styled.div.withConfig({
-  shouldForwardProp: prop => {
-    const styleOnlyProps: Array<keyof StyledGridChildProps> = [
-      'columnsOccupied',
-      'justifySelf',
-      'gridRow',
-      'screenSize',
-    ];
-    return !styleOnlyProps.some(styleProp => styleProp === prop);
-  },
-})<StyledGridChildProps>`
-  grid-column: ${({ screenSize, columnsOccupied }) =>
-    columnsOccupied === 'all'
-      ? '1 / -1'
-      : isGridColumn(columnsOccupied)
-        ? columnsOccupied[getLiteralScreenSize(screenSize)]
-        : isRelativeGridColumn(columnsOccupied)
-          ? tokens[screenSize].columns[columnsOccupied].gridColumn
-          : ''};
-
-  justify-self: ${({ justifySelf }) => justifySelf && justifySelf};
-  grid-row: ${({ gridRow }) => gridRow && gridRow};
-`;
-
 type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 type GridColumnPerScreenSize = BreakpointBasedProps<'gridColumn'>;
+
+type RelativeColumnsOccupiedHyphen = 'all' | 'first-half' | 'second-half';
 
 export type ColumnsOccupied = RelativeColumnsOccupied | GridColumnPerScreenSize;
 export type GridChildProps = BaseComponentPropsWithChildren<
@@ -78,16 +48,82 @@ export type GridChildProps = BaseComponentPropsWithChildren<
   Pick<HTMLAttributes<HTMLElement>, 'style'>;
 
 export const GridChild = (props: GridChildProps) => {
-  const { id, className, htmlProps, children, ...rest } = props;
-  const { screenSize } = useGridContext();
+  const {
+    id,
+    className,
+    htmlProps,
+    style,
+    gridRow,
+    justifySelf,
+    columnsOccupied,
+    ...rest
+  } = props;
+
+  const styleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-child-grid-row' as any]: gridRow,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-child-justify-self' as any]: justifySelf,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-child-xs-grid-column-custom' as any]: isGridColumn(
+      columnsOccupied,
+    )
+      ? columnsOccupied?.xs
+      : undefined,
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-child-sm-grid-column-custom' as any]: isGridColumn(
+      columnsOccupied,
+    )
+      ? columnsOccupied?.sm
+      : undefined,
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-child-md-grid-column-custom' as any]: isGridColumn(
+      columnsOccupied,
+    )
+      ? columnsOccupied?.md
+      : undefined,
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-child-lg-grid-column-custom' as any]: isGridColumn(
+      columnsOccupied,
+    )
+      ? columnsOccupied?.lg
+      : undefined,
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-grid-child-xl-grid-column-custom' as any]: isGridColumn(
+      columnsOccupied,
+    )
+      ? columnsOccupied?.xl
+      : undefined,
+  };
+
+  const columnsCn: {
+    [k in RelativeColumnsOccupied]: RelativeColumnsOccupiedHyphen;
+  } = {
+    all: 'all',
+    firstHalf: 'first-half',
+    secondHalf: 'second-half',
+  };
 
   return (
-    <StyledGridChild
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      screenSize={screenSize}
-    >
-      {children}
-    </StyledGridChild>
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles['grid-child'],
+          isRelativeGridColumn(columnsOccupied) &&
+            styles[`grid-child--${columnsCn[columnsOccupied]}`],
+          isGridColumn(columnsOccupied) && styles['grid-child--custom'],
+        ),
+        htmlProps,
+        rest,
+      )}
+      style={{ ...htmlProps?.style, ...style, ...styleVariables }}
+    />
   );
 };
 

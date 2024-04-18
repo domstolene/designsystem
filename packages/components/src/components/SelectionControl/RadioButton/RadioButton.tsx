@@ -7,9 +7,10 @@ import {
 } from './RadioButtonGroupContext';
 import { type Nullable, getBaseHTMLProps } from '../../../types';
 import { cn } from '../../../utils';
-import { HiddenInput } from '../../helpers';
+import focusStyles from '../../helpers/styling/focus.module.css';
+import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Typography } from '../../Typography';
-import { Container, CustomSelectionControl } from '../SelectionControl.styles';
+import { Label, SelectionControl } from '../SelectionControl.styles';
 import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
 const isValueEqualToGroupValueOrFalsy = (
@@ -67,44 +68,53 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       describedByIds.push(radioButtonGroup?.errorMessageId);
     if (ariaDescribedby) describedByIds.push(ariaDescribedby);
 
-    const inputProps = {
-      ...getBaseHTMLProps(uniqueId, restHtmlProps, rest),
-      type: 'radio',
-      name: name ?? radioButtonGroup?.name,
-      disabled:
-        disabled ||
-        readOnly ||
-        !!radioButtonGroup?.disabled ||
-        !!radioButtonGroup?.readOnly,
-      required: required || !!radioButtonGroup?.required,
-      checked:
-        typeof checked !== 'undefined'
-          ? checked
-          : isValueEqualToGroupValueOrFalsy(value, radioButtonGroup),
-      onChange: handleChange,
-      value: value,
-      'aria-describedby':
-        describedByIds.length > 0 ? describedByIds.join(' ') : undefined,
-      'aria-invalid': error || radioButtonGroup?.error ? true : undefined,
-    };
-
     return (
-      <Container
-        $error={error || radioButtonGroup?.error}
+      <Label
+        hasError={error || radioButtonGroup?.error}
         disabled={disabled || radioButtonGroup?.disabled}
-        $readOnly={readOnly || radioButtonGroup?.readOnly}
+        readOnly={readOnly || radioButtonGroup?.readOnly}
         style={style}
         className={cn(className, htmlPropsClassName)}
-        $hasLabel={hasLabel}
+        hasText={hasLabel}
         htmlFor={uniqueId}
-        $controlType="radio"
+        controlType="radio"
       >
-        <HiddenInput {...inputProps} ref={ref} />
-        <CustomSelectionControl $controlType="radio" />
+        <input
+          {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
+          type="radio"
+          name={name ?? radioButtonGroup?.name}
+          disabled={
+            disabled ||
+            readOnly ||
+            !!radioButtonGroup?.disabled ||
+            !!radioButtonGroup?.readOnly
+          }
+          required={required || !!radioButtonGroup?.required}
+          checked={
+            typeof checked !== 'undefined'
+              ? checked
+              : isValueEqualToGroupValueOrFalsy(value, radioButtonGroup)
+          }
+          onChange={handleChange}
+          value={value}
+          aria-describedby={
+            describedByIds.length > 0 ? describedByIds.join(' ') : undefined
+          }
+          aria-invalid={error || radioButtonGroup?.error ? true : undefined}
+          className={cn(
+            utilStyles['hide-input'],
+            focusStyles['focusable-sibling'],
+          )}
+          ref={ref}
+        />
+        <SelectionControl
+          controlType="radio"
+          className={focusStyles['focus-styled-sibling']}
+        />
         <Typography {...selectionControlTypographyProps}>
           {children ?? label}
         </Typography>
-      </Container>
+      </Label>
     );
   },
 );

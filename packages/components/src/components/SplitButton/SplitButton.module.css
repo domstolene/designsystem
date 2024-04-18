@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+}
+
+.main {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.main:focus {
+  position: relative;
+  z-index: 0;
+}
+
+.option {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.option:focus {
+  position: relative;
+  z-index: 0;
+}
+
+.option--primary,
+.option--primary:hover {
+  border-left: 1px solid var(--dds-color-neutrals-white);
+}

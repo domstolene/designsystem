@@ -58,7 +58,7 @@ export const Overview: Story = {
     </StoryTemplate>
   ),
   render: args => (
-    <VStack gap="x1">
+    <VStack gap="x1" align="flex-start">
       <Search {...args} componentSize="medium" />
       <Search {...args} componentSize="medium" tip="Dette er en hjelpetekst" />
       <Search {...args} label={args.label ?? 'Label'} />

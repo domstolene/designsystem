@@ -8,78 +8,19 @@ import {
   type RangeCalendarState,
 } from '@react-stately/calendar';
 import { type KeyboardEvent, useContext, useRef } from 'react';
-import styled, { css } from 'styled-components';
 
-import { type CellVariant, calendarTokens } from './Calendar.tokens';
-import { focusVisible, normalizeButton } from '../../../helpers';
+import { cn } from '../../../../utils';
+import { focusable } from '../../../helpers/styling/focus.module.css';
+import typographyStyles from '../../../Typography/typographyStyles.module.css';
+import styles from '../../common/DateInput.module.css';
 import { CalendarPopoverContext } from '../CalendarPopover';
 import { timezone } from '../constants';
+
+export type CellVariant = 'default' | 'selected' | 'unavailable';
 
 interface CalendarCellProps extends AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
 }
-
-interface CellProps {
-  $variant: CellVariant;
-  $isToday: boolean;
-}
-
-const Cell = styled.button<CellProps>`
-  ${normalizeButton}
-  width: ${calendarTokens.cell.width};
-  height: ${calendarTokens.cell.height};
-
-  font-family: ${calendarTokens.cell.font.fontFamily};
-  font-size: ${calendarTokens.cell.font.fontSize};
-  font-style: ${calendarTokens.cell.font.fontStyle};
-  font-weight: ${calendarTokens.cell.font.fontWeight};
-  letter-spacing: ${calendarTokens.cell.font.letterSpacing};
-  line-height: ${calendarTokens.cell.font.lineHeight};
-
-  border: ${calendarTokens.cell.borderWidth} solid
-    ${({ $isToday }) =>
-      $isToday ? calendarTokens.cell.today.borderColor : 'transparent'};
-  border-radius: ${calendarTokens.cell.borderRadius};
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  &:focus-visible {
-    ${focusVisible}
-  }
-
-  ${({ $variant, $isToday }) => {
-    const variantStyles = calendarTokens.cell.variants[$variant];
-    return css`
-      background-color: ${variantStyles.bg};
-      color: ${variantStyles.color};
-      border-color: ${variantStyles.borderColor};
-      font-weight: ${variantStyles.fontWeight};
-      text-decoration: ${variantStyles.textDecoration};
-      cursor: ${variantStyles.cursor};
-
-      ${() =>
-        variantStyles.today &&
-        $isToday &&
-        css`
-          border-color: ${variantStyles.today.borderColor};
-          text-decoration: ${variantStyles.today.textDecoration};
-        `}
-
-      ${variantStyles.hover &&
-      css`
-        &:hover {
-          background-color: ${variantStyles.hover.bg};
-          color: ${variantStyles.hover.color};
-          border-color: ${variantStyles.hover.borderColor ??
-          calendarTokens.cell.today.borderColor};
-        }
-      `}
-    `;
-  }}
-`;
 
 export function CalendarCell({ date, state }: CalendarCellProps) {
   const ref = useRef<HTMLButtonElement>(null);
@@ -112,17 +53,22 @@ export function CalendarCell({ date, state }: CalendarCellProps) {
 
   return (
     <td {...cellProps}>
-      <Cell
+      <button
         {...buttonProps}
         type="button"
-        $isToday={isToday(date, timezone)}
-        $variant={variant}
         ref={ref}
         hidden={isOutsideVisibleRange}
         onKeyDown={closeOnKeyboardBlurForward}
+        className={cn(
+          styles['calendar__cell-button'],
+          isToday(date, timezone) && styles['calendar__cell-button--today'],
+          styles[`calendar__cell-button--${variant}`],
+          typographyStyles['body-sans-01'],
+          focusable,
+        )}
       >
         {formattedDate}
-      </Cell>
+      </button>
     </td>
   );
 }

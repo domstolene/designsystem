@@ -1,17 +1,14 @@
 import { type Ref, forwardRef, useId } from 'react';
-import styled, { css } from 'styled-components';
 
-import { favStarTokens } from './FavStar.tokens';
+import styles from './FavStar.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import {
-  HiddenInput,
-  focusVisible,
-  focusVisibleTransitionValue,
-} from '../helpers';
+import { cn } from '../../utils';
+import focusStyles from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { StarFilledIcon, StarIcon } from '../Icon/icons';
 
@@ -39,72 +36,6 @@ export interface FavStarProps
   size?: ComponentSize;
 }
 
-const TRANSITION_SPEED = '0.2s';
-
-const StyledIcon = styled(Icon)<{ $opacity?: number }>`
-  color: currentColor;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: ${({ $opacity = 1 }) => $opacity};
-  @media (prefers-reduced-motion: no-preference) {
-    transition:
-      opacity ${TRANSITION_SPEED},
-      transform ${TRANSITION_SPEED};
-  }
-`;
-
-const Container = styled.label<{ size: ComponentSize }>`
-  position: relative;
-  cursor: pointer;
-  width: ${({ size }) => favStarTokens(size).size};
-  height: ${({ size }) => favStarTokens(size).size};
-
-  &:has(${HiddenInput}:focus-visible) {
-    ${focusVisible}
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition:
-      ${TRANSITION_SPEED} color,
-      ${TRANSITION_SPEED} background-color,
-      ${TRANSITION_SPEED} transform,
-      ${focusVisibleTransitionValue};
-  }
-
-  ${({ size }) => getVariantStyle(size)}
-
-  &:hover {
-    ${({ size }) => getVariantStyle(size, 'hover')}
-  }
-
-  &:has(${HiddenInput}:checked) {
-    ${({ size }) => getVariantStyle(size, 'checked')}
-    &:hover {
-      ${({ size }) => getVariantStyle(size, 'checkedHover')}
-    }
-  }
-
-  &:active {
-    ${StyledIcon} {
-      transform: scale(0.75);
-    }
-  }
-`;
-
-function getVariantStyle(
-  size: ComponentSize,
-  variant?: Parameters<typeof favStarTokens>[1],
-) {
-  return css`
-    color: ${favStarTokens(size, variant).color};
-    background-color: ${favStarTokens(size, variant).backgroundColor};
-    border-radius: ${favStarTokens(size, variant).borderRadius};
-  `;
-}
-
 export const FavStar = forwardRef(
   (
     {
@@ -121,7 +52,7 @@ export const FavStar = forwardRef(
   ) => {
     const { style, ...props } = getBaseHTMLProps(
       id,
-      className,
+      cn(className),
       htmlProps,
       rest,
     );
@@ -132,13 +63,17 @@ export const FavStar = forwardRef(
       onChange,
     });
     return (
-      <Container
-        size={size}
-        className={className}
+      <label
+        className={cn(
+          className,
+          styles.container,
+          styles[`container--${size}`],
+          focusStyles['has-focusable-input'],
+        )}
         style={style}
         htmlFor={id ?? generatedId}
       >
-        <HiddenInput
+        <input
           {...props}
           id={id ?? generatedId}
           checked={checked}
@@ -146,14 +81,15 @@ export const FavStar = forwardRef(
           ref={ref}
           type="checkbox"
           aria-label={props['aria-label'] ?? 'Favoriser'}
+          className={utilStyles['hide-input']}
         />
-        <StyledIcon iconSize={size} icon={StarIcon} />
-        <StyledIcon
+        <Icon iconSize={size} icon={StarIcon} className={styles.icon} />
+        <Icon
           iconSize={size}
           icon={StarFilledIcon}
-          $opacity={checked ? 1 : 0}
+          className={cn(styles.icon, !checked && styles['icon--invisible'])}
         />
-      </Container>
+      </label>
     );
   },
 );

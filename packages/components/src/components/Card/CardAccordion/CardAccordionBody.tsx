@@ -1,4 +1,5 @@
-import { type Property } from 'csstype';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { type Properties, type Property } from 'csstype';
 import {
   forwardRef,
   useEffect,
@@ -6,12 +7,8 @@ import {
   useRef,
   useState,
 } from 'react';
-import styled, { css } from 'styled-components';
 
-import {
-  cardAccordionTokens as tokens,
-  typographyTypes,
-} from './CardAccordion.tokens';
+import styles from './CardAccordion.module.css';
 import { useCardAccordionContext } from './CardAccordionContext';
 import { useElementHeight } from './useElementHeight';
 import { useIsMounted } from '../../../hooks';
@@ -20,73 +17,8 @@ import {
   type Nullable,
   getBaseHTMLProps,
 } from '../../../types';
-import { getFontStyling } from '../../Typography';
-
-const expandingAnimation = css`
-  @media (prefers-reduced-motion: no-preference) {
-    transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-`;
-
-function getPadding(props: BodyContainerProps): string {
-  const { padding } = props;
-
-  return padding ?? tokens.body.padding;
-}
-
-interface BodyProps {
-  isExpanded?: boolean;
-  animate: boolean;
-  height: number;
-}
-
-const Body = styled.div.withConfig({
-  shouldForwardProp: prop => {
-    return prop !== 'animate' && prop !== 'height' && prop !== 'isExpanded';
-  },
-})<BodyProps>`
-  ${({ isExpanded }) =>
-    !isExpanded &&
-    css`
-      display: none;
-    `}
-  @media (prefers-reduced-motion: no-preference) {
-    ${({ animate }) => animate && expandingAnimation}
-  }
-  ${getFontStyling(typographyTypes.body)}
-  height: ${({ height, isExpanded }) => (isExpanded ? height : 0)}px;
-  overflow: hidden;
-`;
-
-interface BodyContainerProps {
-  isExpanded?: boolean;
-  maxHeight?: number;
-  animate: boolean;
-  paddingTop?: Property.PaddingTop<string>;
-  padding?: Property.Padding<string>;
-}
-
-const BodyContainer = styled.div.withConfig({
-  shouldForwardProp: prop => {
-    const styleOnlyProps: Array<keyof BodyContainerProps> = [
-      'isExpanded',
-      'maxHeight',
-      'animate',
-      'paddingTop',
-      'padding',
-    ];
-
-    return !styleOnlyProps.some(styleProp => styleProp === prop);
-  },
-})<BodyContainerProps>`
-  padding: ${getPadding};
-
-  ${({ paddingTop }) =>
-    paddingTop &&
-    css`
-      padding-top: ${paddingTop};
-    `}
-`;
+import { cn } from '../../../utils';
+import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type CardAccordionBodyProps = Omit<
   BaseComponentPropsWithChildren<
@@ -133,27 +65,52 @@ export const CardAccordionBody = forwardRef<
     }
   }, [isMounted]);
 
+  const styleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-card-accordion-body-height' as any]:
+      (height ?? initialExpandedHeight ?? 0) + 'px',
+  };
+
+  const contentStyleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-card-accordion-body-content-padding' as any]:
+      padding ??
+      `${ddsBaseTokens.spacing.SizesDdsSpacingX1} ${
+        ddsBaseTokens.spacing.SizesDdsSpacingX2NumberPx +
+        ddsBaseTokens.spacing.SizesDdsSpacingX075NumberPx
+      }px ${ddsBaseTokens.spacing.SizesDdsSpacingX2} ${ddsBaseTokens.spacing.SizesDdsSpacingX15}`,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-card-accordion-body-content-padding-top' as any]: paddingTop,
+  };
+
   return (
-    <Body
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.body,
+          !isExpanded && styles['body--hidden'],
+          animate && styles['body--animated'],
+          typographyStyles['body-sans-03'],
+        ),
+        htmlProps,
+        rest,
+      )}
       ref={ref}
-      isExpanded={isExpanded}
       role="region"
-      height={height ?? initialExpandedHeight ?? 0}
-      animate={animate}
       aria-labelledby={headerId}
       aria-hidden={!isExpanded}
+      style={{ ...htmlProps?.style, ...styleVariables }}
     >
-      <BodyContainer
+      <div
         ref={bodyRef}
-        isExpanded={isExpanded}
-        padding={padding}
-        paddingTop={paddingTop}
-        animate={animate}
+        className={styles.body__content}
+        style={contentStyleVariables}
       >
         {children}
-      </BodyContainer>
-    </Body>
+      </div>
+    </div>
   );
 });
 
