@@ -49,7 +49,7 @@
     "@react-types/datepicker": "^3.7.2",
     "@storybook/blocks": "7.6.17",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
+    "@testing-library/react": "^15.0.2",
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
