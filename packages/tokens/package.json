@@ -44,7 +44,7 @@
     "rollup": "^3.29.4",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-sass": "^1.12.21",
+    "rollup-plugin-sass": "^1.12.22",
     "rollup-plugin-typescript2": "^0.36.0",
     "style-dictionary": "^3.9.2",
     "typescript": "^5.4.5"
