@@ -69,6 +69,10 @@ export type FileUploaderProps = {
   id?: string;
   /**Ledetekst for filopplaster. */
   label?: string;
+  /**Ledetekst for slippsonen. */
+  dropAreaLabel?: string;
+  /**Ledetekst for opplastingsknappen. */
+  btnLabel?: string;
   /**Hjelpetekst. */
   tip?: string;
   /**Om det er påkrevd med minst en fil. */
@@ -87,6 +91,8 @@ export const FileUploader = (props: FileUploaderProps) => {
   const {
     id,
     label,
+    dropAreaLabel = 'Dra og slipp filer her eller',
+    btnLabel = 'Velg fil',
     tip,
     required = false,
     withDragAndDrop = true,
@@ -164,7 +170,7 @@ export const FileUploader = (props: FileUploaderProps) => {
         ]),
       }}
     >
-      Velg fil
+      {btnLabel}
     </Button>
   );
 
@@ -187,7 +193,7 @@ export const FileUploader = (props: FileUploaderProps) => {
             id={inputId}
             data-testid="file-uploader-input"
           />
-          Dra og slipp filer her eller{' '}
+          {dropAreaLabel}
           <VisuallyHidden as="span">
             velg fil med påfølgende knapp
           </VisuallyHidden>
