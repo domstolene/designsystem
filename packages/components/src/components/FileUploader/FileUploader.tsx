@@ -69,7 +69,7 @@ export type FileUploaderProps = {
   id?: string;
   /**Ledetekst for filopplaster. */
   label?: string;
-  /**Ledetekst for slippsonen. */
+  /**Ledetekst for slippsonen. Denne teksten skal, av UU-hensyn, henge sammen med den usynlige teksten: "velg fil med påfølgende knapp" */
   dropAreaLabel?: string;
   /**Ledetekst for opplastingsknappen. */
   btnLabel?: string;
