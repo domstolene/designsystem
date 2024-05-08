@@ -38,7 +38,7 @@
   }
 }
 
-.body-sans-01 {
+:where(.body-sans-01) {
   margin: 0;
   font: var(--dds-font-body-sans-01-font-style)
     var(--dds-font-body-sans-01-font-weight)
