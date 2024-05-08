@@ -22,11 +22,7 @@ export default {
       control: 'text',
     },
     ratingValue: {
-      options: {
-        null: null,
-        positive: 'positive',
-        negative: 'negative',
-      },
+      options: [null, 'positive', 'negative'],
       control: {
         type: 'radio',
       },
