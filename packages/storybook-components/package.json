@@ -15,10 +15,10 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/react": "^18.2.78",
-    "@types/react-dom": "^18.2.25",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   },
@@ -30,6 +30,6 @@
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@storybook/addon-docs": "8.0.10",
     "focus-visible": "^5.2.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.10"
   }
 }

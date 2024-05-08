@@ -51,25 +51,25 @@
     "@storybook/core-common": "8.0.10",
     "@storybook/react": "8.0.10",
     "@storybook/react-vite": "8.0.10",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
     "eslint": "^8.57.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-testing-library": "^6.2.2",
     "prettier": "^3.2.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "storybook": "8.0.10",
-    "styled-components": "^6.1.8",
+    "styled-components": "^6.1.10",
     "tsup": "^8.0.2",
-    "turbo": "^1.13.2"
+    "turbo": "^1.13.3"
   },
   "pnpm": {
     "overrides": {
-      "react": "18.2.0",
-      "react-dom": "18.2.0"
+      "react": "18.3.1",
+      "react-dom": "18.3.1"
     }
   },
   "volta": {
