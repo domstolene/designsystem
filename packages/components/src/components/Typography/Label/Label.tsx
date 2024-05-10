@@ -4,7 +4,7 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { RequiredMarker } from '../../helpers';
+// import { RequiredMarker } from '../../helpers';
 import { type BaseTypographyProps, Typography } from '../Typography';
 
 type PickedHTMLAttributes = Pick<
@@ -24,8 +24,14 @@ export type LabelProps = BaseComponentPropsWithChildren<
 >;
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
-  const { showRequiredStyling, id, className, htmlProps, children, ...rest } =
-    props;
+  const {
+    // showRequiredStyling,
+    id,
+    className,
+    htmlProps,
+    children,
+    ...rest
+  } = props;
 
   return (
     <Typography
@@ -33,7 +39,8 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
       ref={ref}
       typographyType="supportingStyleLabel01"
     >
-      {children} {showRequiredStyling && <RequiredMarker />}
+      {children}
+      {/* {showRequiredStyling && <RequiredMarker />} */}
     </Typography>
   );
 });

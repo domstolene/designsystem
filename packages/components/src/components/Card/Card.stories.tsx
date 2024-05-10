@@ -209,7 +209,7 @@ export const Accordions: Story = {
       <Card {...args} cardType="expandable">
         <CardAccordion>
           <CardAccordionHeader>Bli vitnestøtte?</CardAccordionHeader>
-          <CardAccordionBody paddingTop="4px">
+          <CardAccordionBody>
             <Typography typographyType="headingSans02" withMargins>
               Opplæringsfilm
             </Typography>
