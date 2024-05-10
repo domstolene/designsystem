@@ -9,26 +9,18 @@
     "type": "git",
     "url": "https://github.com/domstolene/designsystem"
   },
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "homepage": "https://design.domstol.no",
   "scripts": {
-    "build": "tsup --dts",
-    "build:fast": "tsup",
-    "dev": "pnpm build:fast -- --watch",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.23",
+    "@types/react": "^18.2.78",
+    "@types/react-dom": "^18.2.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",
@@ -36,7 +28,7 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-design-tokens": "workspace:*",
-    "@storybook/addon-docs": "7.6.17",
+    "@storybook/addon-docs": "8.0.10",
     "focus-visible": "^5.2.0",
     "styled-components": "^6.1.8"
   }

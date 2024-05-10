@@ -11,6 +11,8 @@ export default {
   component: FileUploader,
   argTypes: {
     label: { control: 'text' },
+    dropAreaLabel: { control: 'text' },
+    btnLabel: { control: 'text' },
     tip: { control: 'text' },
     maxFiles: { control: 'number' },
     withDragAndDrop: { control: 'boolean' },
@@ -33,7 +35,11 @@ export default {
 type Story = StoryObj<typeof FileUploader>;
 
 export const Default: Story = {
-  args: { label: 'Last opp fil' },
+  args: {
+    label: 'Last opp fil',
+    dropAreaLabel: 'Dra og slipp fil her eller',
+    btnLabel: 'Velg fil',
+  },
   decorators: Story => (
     <StoryTemplate>
       <Story />
