@@ -1,6 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type AriaButtonProps, useButton } from '@react-aria/button';
-import { type Properties } from 'csstype';
 import { useRef } from 'react';
 
 import type { DateFieldProps } from './DateField';
@@ -21,13 +19,7 @@ export function CalendarButton({
   const ref = useRef<HTMLButtonElement>(null);
   const { buttonProps } = useButton(props, ref);
 
-  const buttonSize: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-date-input-icon-size' as any]:
-      componentSize === 'medium'
-        ? ddsBaseTokens.iconSizes.DdsIconsizeMedium
-        : ddsBaseTokens.iconSizes.DdsIconsizeSmall,
-  };
+  const size = componentSize === 'medium' ? 'medium' : 'small';
 
   return (
     <button
@@ -39,19 +31,16 @@ export function CalendarButton({
           buttonProps.onClick?.(e);
         }
       }}
-      style={{ ...buttonProps.style, ...buttonSize }}
       className={cn(
         buttonProps.className,
         styles['icon-wrapper'],
+        styles[`icon-wrapper--${size}`],
         styles['popover-button'],
         !props.isDisabled && focusable,
         props.isDisabled && 'disabled',
       )}
     >
-      <Icon
-        icon={CalendarIcon}
-        iconSize={componentSize === 'medium' ? 'medium' : 'small'}
-      />
+      <Icon icon={CalendarIcon} iconSize={size} />
     </button>
   );
 }
