@@ -3,6 +3,7 @@
   --dds-focus-outline-offset: var(--sizes-dds-spacing-x-0-125);
   --dds-focus-outline-inset: calc(0px - var(--sizes-dds-spacing-x-0-25));
   --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-info-lightest);
+  --dds-focus-transition: outline-offset 0.2s;
 }
 
 .focusable:focus-visible {

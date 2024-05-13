@@ -64,7 +64,7 @@
   @media (prefers-reduced-motion: no-preference) {
     transition:
       background-color 0.2s,
-      outline-offset 0.2s;
+      var(--dds-focus-transition);
   }
 }
 

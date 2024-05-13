@@ -11,7 +11,7 @@
       0.2s color,
       0.2s background-color,
       0.2s transform,
-      0.2s outline-offset;
+      var(--dds-focus-transition);
   }
 
   &:hover {
