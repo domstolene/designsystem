@@ -9,19 +9,15 @@ import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-export type CardColor =
-  | 'filledDark'
-  | 'filledLight'
-  | 'strokeDark'
-  | 'strokeLight';
+export type CardAppearance = 'filled' | 'border';
 
 export type CardType = 'info' | 'navigation' | 'expandable';
 
 type BaseCardProps<T extends HTMLElement> = BaseComponentPropsWithChildren<
   T,
   {
-    /** Fargepalett i komponenten. */
-    color?: CardColor;
+    /** Utseende på komponenten. */
+    appearance?: CardAppearance;
 
     /** Referanse til komponenten. */
     cardRef?: RefObject<T>;
@@ -46,25 +42,11 @@ export type CardProps =
   | NavigationCardProps
   | ExpandableCardProps;
 
-type ColorsHyphen =
-  | 'filled-dark'
-  | 'filled-light'
-  | 'stroke-dark'
-  | 'stroke-light';
-
-const colorCns: { [k in CardColor]: ColorsHyphen } = {
-  filledDark: 'filled-dark',
-  strokeDark: 'stroke-dark',
-  filledLight: 'filled-light',
-  strokeLight: 'stroke-light',
-};
-
 export const Card = (props: CardProps) => {
   const {
-    color = 'filledLight',
+    appearance = 'filled',
     cardType,
     cardRef,
-    children,
     id,
     className,
     htmlProps,
@@ -75,7 +57,7 @@ export const Card = (props: CardProps) => {
     className,
     typographyStyles['body-sans-02'],
     styles.container,
-    styles[`container--${colorCns[color]}`],
+    styles[`container--${appearance}`],
     cardType !== 'info' && styles[`container--${cardType}`],
   );
 
@@ -93,16 +75,12 @@ export const Card = (props: CardProps) => {
         ref={cardRef}
         href={href}
         target={target}
-      >
-        {children}
-      </a>
+      />
     );
   }
 
   return (
-    <div {...getBaseHTMLProps(id, classNames, htmlProps, rest)} ref={cardRef}>
-      {children}
-    </div>
+    <div {...getBaseHTMLProps(id, classNames, htmlProps, rest)} ref={cardRef} />
   );
 };
 

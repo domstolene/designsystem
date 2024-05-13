@@ -9,7 +9,8 @@ import {
   DescriptionListTerm,
 } from '../DescriptionList';
 import { Divider } from '../Divider';
-import { Typography } from '../Typography';
+import { HStack, VStack } from '../Stack';
+import { Heading, Link, Paragraph, Typography } from '../Typography';
 
 import { Card, CardAccordion, CardAccordionBody, CardAccordionHeader } from '.';
 
@@ -31,15 +32,9 @@ export default {
 type Story = StoryObj<typeof Card>;
 
 const body = (
-  <Typography>
+  <Paragraph>
     Content Content Content Content Content Content Content Content
-  </Typography>
-);
-
-const bodyOnDark = (
-  <Typography color="onDark">
-    Content Content Content Content Content Content Content Content
-  </Typography>
+  </Paragraph>
 );
 
 const contentContainerStyle = {
@@ -48,90 +43,63 @@ const contentContainerStyle = {
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4}>
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
-    <>
-      <Card {...args} cardType="info">
-        <div style={contentContainerStyle}>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </div>
-      </Card>
-      <Card {...args} cardType="info" color="filledDark">
-        <div style={contentContainerStyle}>
-          <Typography color="onDark" typographyType="headingSans03">
-            Title
-          </Typography>
-          {bodyOnDark}
-        </div>
-      </Card>
-      <Card {...args} cardType="info" color="strokeDark">
-        <div style={contentContainerStyle}>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </div>
-      </Card>
-      <Card {...args} cardType="info" color="strokeLight">
-        <div style={contentContainerStyle}>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </div>
-      </Card>
-      <Card {...args} cardType="navigation" href="#">
-        <div style={contentContainerStyle}>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </div>
-      </Card>
-      <Card {...args} color="filledDark" cardType="navigation" href="#">
-        <div style={contentContainerStyle}>
-          <Typography color="onDark" typographyType="headingSans03">
-            Title
-          </Typography>
-          {bodyOnDark}
-        </div>
-      </Card>
-      <Card {...args} color="strokeDark" cardType="navigation" href="#">
-        <div style={contentContainerStyle}>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </div>
-      </Card>
-      <Card {...args} color="strokeLight" cardType="navigation" href="#">
-        <div style={contentContainerStyle}>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </div>
-      </Card>
-      <Card {...args} cardType="info" color="filledLight">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="info" color="filledDark">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="info" color="strokeDark">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="info" color="strokeLight">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-    </>
+    <HStack gap="x1.5" align="start">
+      <VStack gap="x1" align="start">
+        <Card {...args} cardType="info">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+        <Card {...args} cardType="navigation" href="#">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+        <Card {...args} cardType="expandable">
+          <CardAccordion>
+            <CardAccordionHeader> Title </CardAccordionHeader>
+            <CardAccordionBody>Content</CardAccordionBody>
+          </CardAccordion>
+        </Card>
+      </VStack>
+      <VStack gap="x1" align="start">
+        <Card {...args} cardType="info" appearance="border">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+        <Card {...args} appearance="border" cardType="navigation" href="#">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+
+        <Card {...args} cardType="expandable" appearance="border">
+          <CardAccordion>
+            <CardAccordionHeader> Title </CardAccordionHeader>
+            <CardAccordionBody>Content</CardAccordionBody>
+          </CardAccordion>
+        </Card>
+      </VStack>
+    </HStack>
   ),
 };
 
@@ -176,9 +144,9 @@ export const Accordions: Story = {
           <CardAccordionBody>
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
-            <Typography typographyType="a" href="#">
+            <Link href="#">
               særavtale om dekning av utgifter til reise og kost
-            </Typography>
+            </Link>
             ). Reisen skal foretas på raskeste og rimeligste måte for staten.
             Offentlig transport må benyttes der det er tilgjengelig.
             Godtgjørelse for bruk av egen bil godtas bare i den utstrekning det
@@ -199,10 +167,7 @@ export const Accordions: Story = {
             DA er behandlingsansvarlig for opplysningene som registreres i
             Aktørportalen og avdelingsdirektør for IT-avdelingen har det daglige
             ansvaret for Aktørportalen. Selskapet Bekk utvikler Aktørportalen
-            for oss.{' '}
-            <Typography typographyType="a" href="#">
-              Lenke
-            </Typography>
+            for oss. <Link href="#">Lenke</Link>
           </CardAccordionBody>
         </CardAccordion>
       </Card>
@@ -266,7 +231,7 @@ export const AccordionCustom: Story = {
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
-    <Card {...args} cardType="expandable" color="strokeLight">
+    <Card {...args} cardType="expandable" appearance="border">
       <CardAccordion>
         <CardAccordionHeader
           typographyType="bodySans01"
@@ -276,12 +241,12 @@ export const AccordionCustom: Story = {
           Dekning av reiseutgifter
         </CardAccordionHeader>
         <CardAccordionBody padding="16px 12px">
-          <Typography typographyType="bodySans01">
+          <Paragraph typographyType="bodySans01">
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
-            <Typography typographyType="a" href="#">
+            <Link href="#">
               særavtale om dekning av utgifter til reise og kost
-            </Typography>
+            </Link>
             ). Reisen skal foretas på raskeste og rimeligste måte for staten.
             Offentlig transport må benyttes der det er tilgjengelig.
             Godtgjørelse for bruk av egen bil godtas bare i den utstrekning det
@@ -292,7 +257,7 @@ export const AccordionCustom: Story = {
             dekkes utgifter til måltider etter satsene i særavtalen om dekning
             av utgifter til reise og kost. Dersom enkeltmåltider er dekket av
             andre enn deg selv, må du registrere måltidsfradrag.
-          </Typography>
+          </Paragraph>
         </CardAccordionBody>
       </CardAccordion>
     </Card>
