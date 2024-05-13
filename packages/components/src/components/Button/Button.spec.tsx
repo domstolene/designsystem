@@ -19,12 +19,12 @@ describe('<Button />', () => {
   });
 
   //TODO: fikse lenkeknapp, slik at denne testen funker
-  // it('renders an anchor element if href prop is provided', () => {
-  //   render(<Button href="/" />);
-  //   const button = screen.getByRole('link');
+  it('renders an anchor element if href prop is provided', () => {
+    render(<Button href="/" />);
+    const button = screen.getByRole('link');
 
-  //   expect(button).toBeInTheDocument();
-  // });
+    expect(button).toBeInTheDocument();
+  });
   it('calls onClick when button is clicked', async () => {
     const onClick = vi.fn();
     render(<Button onClick={onClick} />);
