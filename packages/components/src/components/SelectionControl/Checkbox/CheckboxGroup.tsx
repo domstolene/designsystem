@@ -9,8 +9,7 @@ import {
   type Direction,
   getBaseHTMLProps,
 } from '../../../types';
-import { cn, derivativeIdGenerator } from '../../../utils';
-import { RequiredMarker } from '../../helpers';
+import { RequiredMarker, cn, derivativeIdGenerator } from '../../../utils';
 import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
 import styles from '../SelectionControl.module.css';
