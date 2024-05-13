@@ -122,6 +122,8 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       : null;
 
     const interactiveContent = () => {
+      const ulCn = cn(styles.list, utilStyles['remove-list-styling']);
+
       if (hasInteractiveItems) {
         const userPropsPos = hasInteractiveUser ? 0 : -1;
         const navItemsFirstPos = hasNavItems ? userPropsPos + 1 : -1;
@@ -136,17 +138,11 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         return (
           <>
             {hasInteractiveUser && (
-              <ul
-                className={cn(styles.list, utilStyles['remove-list-styling'])}
-              >
-                {interactiveItemsList?.[0]}
-              </ul>
+              <ul className={ulCn}>{interactiveItemsList?.[0]}</ul>
             )}
             {hasNavItems && (
               <nav>
-                <ul
-                  className={cn(styles.list, utilStyles['remove-list-styling'])}
-                >
+                <ul className={ulCn}>
                   {interactiveItemsList?.slice(
                     navItemsFirstPos,
                     navItemsLastPos + 1,
@@ -158,10 +154,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
               <Divider color="primaryLighter" className={styles.divider} />
             )}
             {hasContextItems && (
-              <ul
-                className={cn(styles.list, utilStyles['remove-list-styling'])}
-                aria-label="kontekstmeny"
-              >
+              <ul className={ulCn} aria-label="kontekstmeny">
                 {interactiveItemsList?.slice(
                   contextItemsFirstPos,
                   interactiveItemsList.length,
@@ -176,34 +169,11 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
     const { style = {}, ...restHTMLProps } = htmlProps;
     const generatedId = useId();
 
-    const containerProps = {
-      ...getBaseHTMLProps(
-        id,
-        cn(
-          className,
-          styles.container,
-          utilStyles.scrollbar,
-          utilStyles['visibility-transition'],
-          isOpen
-            ? utilStyles['visibility-transition--open']
-            : utilStyles['visibility-transition--closed'],
-        ),
-        restHTMLProps,
-        rest,
-      ),
-      ref: combinedRef,
-      id: id ?? `${generatedId}-overflowMenu`,
-      $isOpen: isOpen,
-      style: { ...style, ...floatingStyles.floating },
-      'aria-hidden': !isOpen,
-      role: 'menu',
-    };
-
     return (
       <Paper
-        {...containerProps}
+        ref={combinedRef}
         {...getBaseHTMLProps(
-          id,
+          id ?? `${generatedId}-overflowMenu`,
           cn(
             className,
             styles.container,
@@ -216,7 +186,10 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
           restHTMLProps,
           rest,
         )}
+        role="menu"
+        aria-hidden={!isOpen}
         border="light"
+        style={{ ...style, ...floatingStyles.floating }}
       >
         {hasStaticUser && (
           <OverflowMenuItem title={username} icon={PersonIcon} />
