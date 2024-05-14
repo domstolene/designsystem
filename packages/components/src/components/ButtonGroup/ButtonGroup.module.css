@@ -1,4 +1,4 @@
-.group button:focus-visible {
+.group > *:focus-visible {
   position: relative;
   z-index: 1;
 }
@@ -7,18 +7,17 @@
   display: flex;
   flex-direction: column;
 
-  button {
+  > * {
     width: 100%;
-    border: 1px solid;
   }
 }
 
-.group--column button:first-child {
+.group--column > *:first-child {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.group--column button:last-child {
+.group--column > *:last-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   &:not(:active) {
@@ -26,43 +25,43 @@
   }
 }
 
-.group--column button:not(:first-child):not(:last-child) {
+.group--column > *:not(:first-child):not(:last-child) {
   border-radius: 0;
   &:not(:active) {
     border-top-color: transparent;
   }
 
-  &:active + button {
+  &:active + * {
     border-top-color: initial;
   }
 }
 
-.group--column button:first-child:not(:last-child) {
-  &:active + button {
+.group--column > *:first-child:not(:last-child) {
+  &:active + * {
     border-top-color: initial;
   }
 }
 
-.group--row button:not(:first-child):not(:last-child) {
+.group--row > *:not(:first-child):not(:last-child) {
   border-radius: 0;
   &:not(:active) {
     border-left-color: transparent;
   }
-  &:active + button {
+  &:active + * {
     border-left-color: initial;
   }
 }
-.group--row button:first-child {
+.group--row > *:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.group--row button:first-child:not(:last-child) {
-  &:active + button {
+.group--row > *:first-child:not(:last-child) {
+  &:active + * {
     border-left-color: initial;
   }
 }
-.group--row button:last-child {
+.group--row > *:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   &:not(:active) {

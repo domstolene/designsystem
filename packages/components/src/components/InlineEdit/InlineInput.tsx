@@ -61,7 +61,6 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
             {...rest}
             id={uniqueId}
             ref={combinedRef}
-            // hasErrorMessage={hasErrorState}
             aria-describedby={spaceSeparatedIdListGenerator([
               hasErrorMessage ? errorMessageId : undefined,
               descId,

@@ -26,11 +26,8 @@ export const File = (props: FileProps) => {
   }));
 
   return (
-    <li key={stateFile.file.name}>
-      <div
-        {...props}
-        className={cn(styles.file, !isValid && styles['file--invalid'])}
-      >
+    <li>
+      <div className={cn(styles.file, !isValid && styles['file--invalid'])}>
         <span className={styles.file__name}>{stateFile.file.name}</span>
         <Button
           size="small"

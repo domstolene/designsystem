@@ -18,7 +18,6 @@ describe('<Button />', () => {
     expect(button).toBeInTheDocument();
   });
 
-  //TODO: fikse lenkeknapp, slik at denne testen funker
   it('renders an anchor element if href prop is provided', () => {
     render(<Button href="/" />);
     const button = screen.getByRole('link');

@@ -49,10 +49,6 @@ const itemStateCn: { [k in ItemState]: StateHyphen } = {
   inactiveIncomplete: 'inactive-incomplete',
 };
 
-interface ItemStyleProps {
-  $state: ItemState;
-}
-
 export interface BaseItemProps {
   /** Om steget er valgt eller ikke. Settes av konsument. */
   active?: boolean;
@@ -109,10 +105,6 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const active = activeStep === index;
   const itemState = toItemState(active, completed, disabled);
 
-  const styleProps: ItemStyleProps = {
-    $state: itemState,
-  };
-
   const stepNumberContent = useMemo(() => {
     if (completed) {
       return <Icon icon={CheckIcon} iconSize="small" />;
@@ -128,7 +120,6 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const stepContent = (
     <>
       <div
-        {...styleProps}
         aria-hidden
         className={cn(
           styles['item-number'],
@@ -139,7 +130,6 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         {stepNumberContent}
       </div>
       <div
-        {...styleProps}
         className={cn(
           styles['item-text'],
           styles[`item-text--${itemStateCn[itemState]}`],

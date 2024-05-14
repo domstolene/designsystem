@@ -91,10 +91,6 @@
 }
 
 .item-number {
-  transition:
-    background-color 0.2s,
-    border-color 0.2s,
-    color 0.2s;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -104,6 +100,13 @@
   border: 2px solid;
   height: var(--dds-progress-tracker-item-number-size);
   width: var(--dds-progress-tracker-item-number-size);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 0.2s,
+      border-color 0.2s,
+      color 0.2s;
+  }
 }
 
 .item-number--disabled {

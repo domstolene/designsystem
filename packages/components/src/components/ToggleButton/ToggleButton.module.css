@@ -33,7 +33,6 @@
   border: 1px solid;
   border-radius: 100px;
   gap: var(--sizes-dds-spacing-x-0-5);
-  /* må sjekkes */
   padding: var(--sizes-dds-spacing-x-0-5) var(--sizes-dds-spacing-x-1);
   background-color: var(--dds-color-neutrals-white);
   color: var(--dds-color-neutrals-gray-7);

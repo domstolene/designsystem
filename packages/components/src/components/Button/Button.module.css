@@ -164,43 +164,43 @@
 .button--primary {
   background-color: var(--dds-color-interactive-base);
   border-color: var(--dds-color-interactive-base);
-  color: var(--dds-color-neutrals-white) !important;
+  color: var(--dds-color-neutrals-white);
   &:hover:not(.button--is-loading) {
     background-color: var(--dds-color-interactive-dark);
     border-color: var(--dds-color-interactive-dark);
-    color: var(--dds-color-neutrals-white) !important;
+    color: var(--dds-color-neutrals-white);
   }
 }
 
 .button--secondary {
   background-color: var(--dds-color-neutrals-white);
   border-color: var(--dds-color-neutrals-gray-5);
-  color: var(--dds-color-neutrals-gray-9) !important;
+  color: var(--dds-color-neutrals-gray-9);
   &:hover:not(.button--is-loading) {
     background-color: var(--dds-color-interactive-lightest);
     border-color: var(--dds-color-interactive-base);
-    color: var(--dds-color-neutrals-gray-9) !important;
+    color: var(--dds-color-neutrals-gray-9);
   }
 }
 
 .button--tertiary {
   background-color: transparent;
   border-color: transparent;
-  color: var(--dds-color-neutrals-gray-9) !important;
+  color: var(--dds-color-neutrals-gray-9);
   &:hover:not(.button--is-loading) {
     background-color: var(--dds-color-interactive-lightest);
     border-color: transparent;
-    color: var(--dds-color-neutrals-gray-9) !important;
+    color: var(--dds-color-neutrals-gray-9);
   }
 }
 
 .button--danger {
   background-color: var(--dds-color-danger-base);
   border-color: var(--dds-color-danger-base);
-  color: var(--dds-color-neutrals-white) !important;
+  color: var(--dds-color-neutrals-white);
   &:hover:not(.button--is-loading) {
     background-color: var(--dds-color-danger-dark);
     border-color: var(--dds-color-danger-dark);
-    color: var(--dds-color-neutrals-white) !important;
+    color: var(--dds-color-neutrals-white);
   }
 }

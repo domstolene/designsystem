@@ -1,10 +1,10 @@
-.remove-list-styling {
+:where(.remove-list-styling) {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.remove-button-styling {
+:where(.remove-button-styling) {
   background: none;
   border: none;
   padding: 0;
@@ -13,7 +13,7 @@
   outline: inherit;
 }
 
-.normalize-button {
+:where(.normalize-button) {
   margin: 0;
   text-transform: none;
 }
