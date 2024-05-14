@@ -3,13 +3,13 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { ScreenSize, useScreenSize } from '../../../hooks';
 import { Button } from '../../Button';
+import { FavStar } from '../../FavStar';
 import { Icon } from '../../Icon';
 import {
   AttachmentIcon,
   FileIcon,
   JordskifterettIcon,
   PersonIcon,
-  StarIcon,
   TrashIcon,
 } from '../../Icon/icons';
 import { Link } from '../../Typography';
@@ -266,7 +266,12 @@ export const WithButtonAndIcons: Story = {
       { content: 'Aksjoner', key: 'Aksjoner' },
     ];
     const deleteButton = (
-      <Button appearance="borderless" icon={TrashIcon} iconPosition="left">
+      <Button
+        purpose="secondary"
+        icon={TrashIcon}
+        iconPosition="left"
+        size="small"
+      >
         Fjern tilgang
       </Button>
     );
@@ -409,6 +414,7 @@ export const Example: Story = {
       <CollapsibleTable
         isCollapsed={isSmall}
         headerValues={headers}
+        density={isXSmall ? 'compact' : 'normal'}
         definingColumnIndex={[0, 1, 2, 3, 4]}
       >
         <Table.Head>
@@ -421,7 +427,7 @@ export const Example: Story = {
         <Table.Body>
           <CollapsibleTable.Row>
             <Table.Cell>
-              <Icon icon={StarIcon} iconSize={iconSize} />
+              <FavStar />
             </Table.Cell>
             <Table.Cell>
               <Icon icon={FileIcon} iconSize={iconSize} />
@@ -442,7 +448,7 @@ export const Example: Story = {
           </CollapsibleTable.Row>
           <CollapsibleTable.Row>
             <Table.Cell>
-              <Icon icon={StarIcon} iconSize={iconSize} />
+              <FavStar />
             </Table.Cell>
             <Table.Cell>
               <Icon icon={AttachmentIcon} iconSize={iconSize} />

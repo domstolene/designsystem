@@ -1,33 +1,16 @@
 import { type MouseEvent, forwardRef } from 'react';
-import styled from 'styled-components';
 
 import { Cell, type TableCellProps } from './Cell';
-import { tableTokens } from './Table.tokens';
-import {
-  focusVisible,
-  normalizeButton,
-  removeButtonStyling,
-} from '../../helpers';
+import styles from './Table.module.css';
+import { cn } from '../../../utils';
+import { focusable } from '../../helpers/styling/focus.module.css';
+import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import {
   ChevronDownIcon,
   ChevronUpIcon,
   UnfoldMoreIcon,
 } from '../../Icon/icons';
-
-const { cell } = tableTokens;
-
-const StyledButton = styled.button`
-  ${normalizeButton}
-  user-select: text;
-  ${removeButtonStyling}
-  display: flex;
-  align-items: center;
-  gap: ${cell.sort.gap};
-  &:focus-visible {
-    ${focusVisible}
-  }
-`;
 
 export type SortOrder = 'ascending' | 'descending';
 
@@ -60,12 +43,18 @@ export const SortCell = forwardRef<HTMLTableCellElement, TableSortCellProps>(
       aria-sort={isSorted && sortOrder ? sortOrder : undefined}
       {...rest}
     >
-      <StyledButton
+      <button
         onClick={onClick}
         aria-description="Aktiver for å endre sorteringsrekkefølge"
+        className={cn(
+          utilStyles['normalize-button'],
+          utilStyles['remove-button-styling'],
+          styles['sort-button'],
+          focusable,
+        )}
       >
         {children} {makeSortIcon(isSorted, sortOrder)}
-      </StyledButton>
+      </button>
     </Cell>
   ),
 );

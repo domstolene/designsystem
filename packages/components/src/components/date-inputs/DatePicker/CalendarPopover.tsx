@@ -7,17 +7,14 @@ import {
   useEffect,
   useRef,
 } from 'react';
-import styled from 'styled-components';
 
-import { calendarTokens } from './Calendar/Calendar.tokens';
 import {
   useCombinedRef,
   useFloatPosition,
   useOnClickOutside,
   useOnKeyDown,
 } from '../../../hooks';
-
-const { popover: popoverTokens } = calendarTokens;
+import styles from '../common/DateInput.module.css';
 
 /**------------------------------------------------------------------------
  * CalendarPopover
@@ -60,8 +57,6 @@ export const CalendarPopover = ({
  * CalendarPopoverAnchor
  *------------------------------------------------------------------------*/
 
-const Anchor = styled.div``;
-
 interface CalendarPopoverAnchorProps {
   children: ReactElement;
 }
@@ -70,20 +65,12 @@ export const CalendarPopoverAnchor = ({
   children,
 }: CalendarPopoverAnchorProps) => {
   const { anchorRef } = useContext(CalendarPopoverContext);
-  return <Anchor ref={anchorRef ?? undefined}>{children}</Anchor>;
+  return <div ref={anchorRef ?? undefined}>{children}</div>;
 };
 
 /**------------------------------------------------------------------------
  * CalendarPopoverContent
  *------------------------------------------------------------------------*/
-
-const PopoverContentContainer = styled.div`
-  background-color: ${popoverTokens.backgroundColor};
-  border: ${popoverTokens.border};
-  border-radius: ${popoverTokens.borderRadius};
-  padding: ${popoverTokens.padding};
-  z-index: ${popoverTokens.zIndex};
-`;
 
 interface CalendarPopoverContentProps {
   children: ReactNode;
@@ -93,7 +80,7 @@ export const CalendarPopoverContent = ({
   children,
 }: CalendarPopoverContentProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { refs, styles } = useFloatPosition(null, {
+  const { refs, styles: floatingStyles } = useFloatPosition(null, {
     placement: 'bottom-start',
   });
   const { isOpen, onClose, anchorRef } = useContext(CalendarPopoverContext);
@@ -108,8 +95,12 @@ export const CalendarPopoverContent = ({
   if (!isOpen) return null;
 
   return (
-    <PopoverContentContainer ref={combinedRef} style={styles.floating}>
+    <div
+      ref={combinedRef}
+      className={styles.popover}
+      style={floatingStyles.floating}
+    >
       {children}
-    </PopoverContentContainer>
+    </div>
   );
 };

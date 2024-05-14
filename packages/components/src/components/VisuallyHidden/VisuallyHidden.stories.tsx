@@ -11,7 +11,7 @@ export default {
   title: 'dds-components/VisuallyHidden',
   component: VisuallyHidden,
   argTypes: {
-    as: { control: { type: 'text' } },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

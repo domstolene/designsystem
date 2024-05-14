@@ -27,7 +27,7 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest watch",
-    "generate-css-types": "tcm src --camelCase",
+    "generate-css-types": "tcm src",
     "build": "pnpm run generate-css-types && tsup --dts",
     "dev": "pnpm run generate-css-types --watch",
     "typecheck": "tsc --noEmit"

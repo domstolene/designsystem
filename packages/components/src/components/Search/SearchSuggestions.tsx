@@ -1,53 +1,16 @@
 import { type MouseEvent, forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { type SearchProps, type SearchSize } from './Search';
-import { searchTokens as tokens, typographyTypes } from './Search.tokens';
+import { type SearchProps } from './Search';
+import styles from './Search.module.css';
+import { typographyTypes } from './Search.utils';
 import { useRoveFocus } from '../../hooks';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { derivativeIdGenerator } from '../../utils';
-import { Paper, removeListStyling, visibilityTransition } from '../helpers';
-import {
-  OverflowMenuItem,
-  type OverflowMenuItemProps,
-} from '../OverflowMenu/OverflowMenuItem';
-import { scrollbarStyling } from '../ScrollableContainer';
-import { Typography, getFontStyling } from '../Typography';
-
-const { suggestionsContainer, suggestionsHeader } = tokens;
-
-const SuggestionsContainer = styled(Paper)<{
-  $isHidden?: boolean;
-}>`
-  ${({ $isHidden }) => visibilityTransition(!$isHidden)};
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  max-height: 300px;
-  margin-top: ${suggestionsContainer.marginTop};
-  border: ${suggestionsContainer.border};
-  box-shadow: ${suggestionsContainer.boxShadow};
-  z-index: 80;
-  overflow-y: scroll;
-  ${scrollbarStyling.firefox}
-  ${scrollbarStyling.webkit}
-`;
-
-const MenuItem = styled(OverflowMenuItem)<
-  OverflowMenuItemProps & {
-    $size?: SearchSize;
-  }
->`
-  ${({ $size }) => $size && getFontStyling(typographyTypes[$size])}
-`;
-
-const SuggestionsList = styled.ul`
-  ${removeListStyling}
-`;
-
-const SuggestionsHeader = styled(Typography)`
-  padding-left: ${suggestionsHeader.paddingLeft};
-`;
+import { cn, derivativeIdGenerator } from '../../utils';
+import { Paper } from '../helpers';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { OverflowMenuItem } from '../OverflowMenu/OverflowMenuItem';
+import { getTypographyCn } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type SearchSuggestionsProps = BaseComponentProps<
   HTMLDivElement,
@@ -76,7 +39,7 @@ export const SearchSuggestions = forwardRef<
     htmlProps,
     suggestions = [],
     showSuggestions,
-    componentSize,
+    componentSize = 'medium',
     onSuggestionClick,
     maxSuggestions,
     ...rest
@@ -94,11 +57,15 @@ export const SearchSuggestions = forwardRef<
     : suggestions;
 
   const renderedSuggestions = (
-    <SuggestionsList role="listbox" aria-labelledby={suggestionsHeaderId}>
+    <ul
+      role="listbox"
+      aria-labelledby={suggestionsHeaderId}
+      className={utilStyles['remove-list-styling']}
+    >
       {suggestionsToRender.map((suggestion, index) => {
         return (
           <li key={index} role="option">
-            <MenuItem
+            <OverflowMenuItem
               index={index}
               focus={focus === index && showSuggestions}
               aria-label={`søk på ${suggestion}`}
@@ -106,32 +73,48 @@ export const SearchSuggestions = forwardRef<
               title={suggestion}
               aria-setsize={suggestionsToRender.length}
               aria-posinset={index}
-              $size={componentSize}
-            ></MenuItem>
+              className={
+                typographyStyles[
+                  getTypographyCn(typographyTypes[componentSize])
+                ]
+              }
+            ></OverflowMenuItem>
           </li>
         );
       })}
-    </SuggestionsList>
+    </ul>
   );
 
-  const isHidden = !showSuggestions;
-
   return (
-    <SuggestionsContainer
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+    <Paper
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.suggestions,
+          utilStyles.scrollbar,
+          utilStyles['visibility-transition'],
+          showSuggestions
+            ? utilStyles['visibility-transition--open']
+            : utilStyles['visibility-transition--closed'],
+        ),
+        htmlProps,
+        rest,
+      )}
       ref={ref}
-      $isHidden={isHidden}
-      aria-hidden={isHidden}
+      aria-hidden={!showSuggestions}
     >
-      <SuggestionsHeader
-        typographyType="supportingStyleTiny01"
-        forwardedAs="span"
+      <span
         id={suggestionsHeaderId}
+        className={cn(
+          styles.suggestions__header,
+          typographyStyles['supporting-style-tiny-01'],
+        )}
       >
         Søkeforslag
-      </SuggestionsHeader>
+      </span>
       {renderedSuggestions}
-    </SuggestionsContainer>
+    </Paper>
   );
 });
 

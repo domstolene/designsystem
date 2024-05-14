@@ -1,6 +1,5 @@
 import { type TextColor } from '@norges-domstoler/dds-components/src/utils';
 import {
-  type CSSProperties,
   type ElementType,
   type HTMLAttributes,
   type PropsWithChildren,
@@ -55,6 +54,33 @@ export type TypographyType =
   | OtherTypographyType;
 
 export type StaticTypographyType = OtherTypographyType | LabelTypographyType;
+
+export type HyphenTypographyType =
+  | 'body-sans-01'
+  | 'body-sans-02'
+  | 'body-sans-03'
+  | 'body-sans-04'
+  | 'heading-sans-01'
+  | 'heading-sans-02'
+  | 'heading-sans-03'
+  | 'heading-sans-04'
+  | 'heading-sans-05'
+  | 'heading-sans-06'
+  | 'heading-sans-07'
+  | 'heading-sans-08'
+  | 'lead-sans-01'
+  | 'lead-sans-02'
+  | 'lead-sans-03'
+  | 'lead-sans-04'
+  | 'lead-sans-05'
+  | 'supporting-style-helper-text-01'
+  | 'supporting-style-placeholder-text-01'
+  | 'supporting-style-placeholder-text-02'
+  | 'supporting-style-placeholder-text-03'
+  | 'supporting-style-tiny-01'
+  | 'supporting-style-tiny-02'
+  | 'a'
+  | 'supporting-style-label-01';
 
 export type InlineElement =
   | 'a'
@@ -111,11 +137,6 @@ export type InlineElement =
   | 'video'
   | 'wbr';
 
-export interface TypographyInteractionStyling {
-  hover?: CSSProperties;
-  active?: CSSProperties;
-}
-
 export type BaseTypographyProps = PropsWithChildren<{
   /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa. Brukes hovedsakelig i artikler og lignende. **OBS!** har forskjellig virkning på ulike typografityper. `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens `supportingStyles` får margin topp og bunn. */
   withMargins?: boolean;
@@ -133,6 +154,4 @@ export type TypographyComponentProps = BaseTypographyProps & {
   underline?: boolean;
   /**HTML tag som skal brukes istedenfor default definert via `typographyType`.  */
   as?: ElementType;
-  /**Støtte for å enkelt kunne endre på hover- og active-styling. Bruk `@dds-design-tokens` til farger osv. */
-  interactionProps?: TypographyInteractionStyling;
 };

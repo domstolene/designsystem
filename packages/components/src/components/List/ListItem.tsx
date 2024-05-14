@@ -1,21 +1,13 @@
 import { type HTMLAttributes, forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { listTokens as tokens } from './List.tokens';
-
-const StyledListItem = styled.li`
-  line-height: ${tokens.listItem.lineHeight};
-`;
+import styles from './List.module.css';
+import { cn } from '../../utils';
 
 export type ListItemProps = HTMLAttributes<HTMLLIElement>;
 
 export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
-  ({ children, ...rest }, ref) => {
-    return (
-      <StyledListItem ref={ref} {...rest}>
-        {children}
-      </StyledListItem>
-    );
+  ({ className, ...rest }, ref) => {
+    return <li ref={ref} {...rest} className={cn(className, styles.li)} />;
   },
 );
 

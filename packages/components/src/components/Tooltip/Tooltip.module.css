@@ -1,0 +1,19 @@
+.container {
+  width: fit-content;
+}
+
+.svg-arrow__border {
+  fill: var(--dds-color-primary-lighter);
+}
+
+.svg-arrow__background {
+  fill: var(--dds-color-neutrals-white);
+}
+
+.paper {
+  width: fit-content;
+  position: absolute;
+  z-index: 80;
+  text-align: center;
+  padding: var(--sizes-dds-spacing-x-0-75);
+}

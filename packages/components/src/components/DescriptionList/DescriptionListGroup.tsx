@@ -1,23 +1,12 @@
 import { type Property } from 'csstype';
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { descriptionListTokens as tokens } from './DescriptionList.tokens';
+import styles from './DescriptionList.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-
-type StyledGroupProps = Pick<
-  DescriptionListGroupProps,
-  'margin' | 'minWidth' | 'maxWidth'
->;
-
-const DListGroup = styled.div<StyledGroupProps>`
-  margin: ${({ margin }) => (margin ? margin : tokens.group.base.margin)};
-  ${({ minWidth }) => minWidth && `min-width: ${minWidth}`}
-  ${({ maxWidth }) => maxWidth && `max-width: ${maxWidth}`}
-`;
+import { cn } from '../../utils';
 
 export type DescriptionListGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -46,16 +35,15 @@ export const DescriptionListGroup = forwardRef<
     ...rest
   } = props;
 
-  const dListGroupProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    children,
-    ref,
-    margin,
-    minWidth,
-    maxWidth,
-  };
-
-  return <DListGroup {...dListGroupProps}>{children}</DListGroup>;
+  return (
+    <div
+      ref={ref}
+      {...getBaseHTMLProps(id, cn(className, styles.group), htmlProps, rest)}
+      style={{ ...htmlProps?.style, maxWidth, minWidth, margin }}
+    >
+      {children}
+    </div>
+  );
 });
 
 DescriptionListGroup.displayName = 'DescriptionListGroup';

@@ -1,0 +1,26 @@
+.container {
+  box-sizing: border-box;
+  background-color: var(--dds-color-neutrals-white);
+  border-radius: var(--radii-dds-border-radius-1-radius);
+  margin: 0;
+}
+
+.shadow--1 {
+  box-shadow: var(--dds-shadow-1-onlight);
+}
+.shadow--2 {
+  box-shadow: var(--dds-shadow-2-onlight);
+}
+.shadow--3 {
+  box-shadow: var(--dds-shadow-3-onlight);
+}
+.shadow--4 {
+  box-shadow: var(--dds-shadow-4-onlight);
+}
+
+.border--light {
+  border: 1px solid var(--dds-color-primary-lighter);
+}
+.border--dark {
+  border: 1px solid var(--dds-color-primary-base);
+}

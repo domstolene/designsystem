@@ -56,7 +56,6 @@ export const Overview: Story = {
           <LocalMessage {...args} purpose="success" />
           <LocalMessage {...args} purpose="warning" />
           <LocalMessage {...args} purpose="danger" />
-          <LocalMessage {...args} purpose="confidential" />
           <LocalMessage {...args} purpose="tips" />
           <LocalMessage {...args} layout="vertical" />
         </VStack>
@@ -65,7 +64,6 @@ export const Overview: Story = {
           <LocalMessage {...args} purpose="success" closable />
           <LocalMessage {...args} purpose="warning" closable />
           <LocalMessage {...args} purpose="danger" closable />
-          <LocalMessage {...args} purpose="confidential" closable />
           <LocalMessage {...args} purpose="tips" closable />
           <LocalMessage {...args} layout="vertical" closable />
         </VStack>

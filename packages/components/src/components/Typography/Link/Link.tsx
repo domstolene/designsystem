@@ -1,28 +1,19 @@
 import { type AnchorHTMLAttributes, forwardRef } from 'react';
-import styled from 'styled-components';
 
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import { cn } from '../../../utils';
+import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { OpenExternalIcon } from '../../Icon/icons';
 import {
   type BaseTypographyProps,
   type TypographyBodyType,
-  getAnchorStyling,
+  getTypographyCn,
 } from '../Typography';
-
-interface StyledLinkProps {
-  $typographyType?: TypographyBodyType;
-  $withMargins?: boolean;
-  $external?: boolean;
-}
-
-const StyledLink = styled.a<StyledLinkProps>`
-  ${({ $external, $typographyType, $withMargins }) =>
-    getAnchorStyling($external, undefined, $typographyType, $withMargins)}
-`;
+import typographyStyles from '../typographyStyles.module.css';
 
 type PickedHTMLAttributes = Pick<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -48,24 +39,37 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     htmlProps,
     children,
     typographyType,
+    withMargins,
     external,
     target,
     ...rest
   } = props;
 
   return (
-    <StyledLink
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+    <a
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          typographyStyles.a,
+          external && typographyStyles['a--external'],
+          typographyType && typographyStyles[getTypographyCn(typographyType)],
+          typographyType &&
+            withMargins &&
+            typographyStyles[`${getTypographyCn(typographyType)}--margins`],
+          focusable,
+        ),
+        htmlProps,
+        rest,
+      )}
       {...rest}
-      $typographyType={typographyType}
-      $external={external}
       ref={ref}
       rel="noopener noreferer"
       target={external ? '_blank' : target}
     >
       {children}
       {external && <Icon iconSize="inherit" icon={OpenExternalIcon} />}
-    </StyledLink>
+    </a>
   );
 });
 

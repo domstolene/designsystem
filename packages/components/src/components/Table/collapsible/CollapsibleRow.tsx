@@ -8,73 +8,59 @@ import {
   useEffect,
   useState,
 } from 'react';
-import styled from 'styled-components';
 
 import { useCollapsibleTableContext } from './Table.context';
 import {
+  cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
 import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
-import {
-  AnimatedChevronUpDown,
-  focusVisible,
-  focusVisibleTransitionValue,
-  removeButtonStyling,
-} from '../../helpers';
+import { AnimatedChevronUpDown } from '../../helpers';
+import { focusable } from '../../helpers/styling/focus.module.css';
+import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table, type TableRowProps } from '../normal';
 import { Cell } from '../normal/Cell';
 import { useIsInTableHead } from '../normal/Head';
-import { StyledRow } from '../normal/Table.styles';
-import { tableTokens } from '../normal/Table.tokens';
-
-const { collapseButton } = tableTokens;
-
-const CollapseButton = styled.button`
-  ${removeButtonStyling}
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: ${focusVisibleTransitionValue};
-  border-radius: ${collapseButton.borderRadius};
-  height: ${collapseButton.height};
-  width: ${collapseButton.width};
-  &:focus-visible {
-    ${focusVisible}
-  }
-`;
-
-const DescriptionListCell = styled(Cell)`
-  & > div {
-    display: block;
-  }
-`;
+import { Row } from '../normal/Row';
+import styles from '../normal/Table.module.css';
 
 export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
   (
-    { type: _type, mode = 'normal', selected, hoverable, children, ...rest },
+    {
+      type: _type,
+      className,
+      mode = 'normal',
+      selected,
+      hoverable,
+      children,
+      ...rest
+    },
     ref,
   ) => {
     const isInHead = useIsInTableHead();
     const type = _type ?? (isInHead ? 'head' : 'body');
-    const rowProps = {
-      $type: type,
-      $mode: mode,
-      $selected: selected,
-      $hoverable: hoverable,
-      ...rest,
-    };
     const { isCollapsed, headerValues, definingColumnIndex } =
       useCollapsibleTableContext();
-
     const [childrenCollapsed, setChildrenCollapsed] = useState(true);
 
     useEffect(() => {
       !isCollapsed && setChildrenCollapsed(true);
     }, [isCollapsed]);
+
+    const rowProps = (isOpenCollapsibleHeader?: boolean) => {
+      return {
+        mode,
+        selected,
+        hoverable,
+        className: cn(
+          className,
+          isOpenCollapsibleHeader && styles['row--colapsible-header--open'],
+        ),
+        ...rest,
+      };
+    };
 
     const collapsedHeaderValues = headerValues.filter(
       (column, index) => definingColumnIndex.indexOf(index) === -1,
@@ -110,11 +96,11 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
 
     const collapsedRows =
       collapsedRenderedChildren && collapsedRenderedChildren.length > 0 ? (
-        <StyledRow type={type}>
-          <DescriptionListCell colSpan={definingColumnIndex.length + 1}>
+        <Row {...rowProps()}>
+          <Cell colSpan={definingColumnIndex.length + 1}>
             <DescriptionList>{collapsedRenderedChildren}</DescriptionList>
-          </DescriptionListCell>
-        </StyledRow>
+          </Cell>
+        </Row>
       ) : null;
 
     const definingColumnCells = childrenArray
@@ -131,7 +117,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
       if (type !== 'head' || !isCollapsed) return null;
 
       return (
-        <StyledRow ref={ref} type={type} {...rowProps}>
+        <Row ref={ref} {...rowProps()}>
           <>
             {definingColumnCells}
             <Table.Cell type="head" layout="center">
@@ -139,7 +125,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
               <VisuallyHidden as="span">raden</VisuallyHidden>
             </Table.Cell>
           </>
-        </StyledRow>
+        </Row>
       );
     };
 
@@ -149,27 +135,28 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
       if (type !== 'body' || !isCollapsed) return null;
 
       return (
-        <StyledRow
-          ref={ref}
-          type={type}
-          {...rowProps}
-          data-isopencollapsibleheader={!childrenCollapsed && true}
-        >
+        <Row ref={ref} {...rowProps(!childrenCollapsed && true)}>
           {definingColumnCells}
           <Table.Cell>
-            <CollapseButton
+            <button
               onClick={() => setChildrenCollapsed(!childrenCollapsed)}
               aria-expanded={!childrenCollapsed}
               aria-controls={idList}
+              className={cn(
+                styles['collapse-button'],
+                utilStyles['normalize-button'],
+                utilStyles['remove-button-styling'],
+                focusable,
+              )}
             >
               <AnimatedChevronUpDown
                 isUp={childrenCollapsed ? false : true}
-                height="7.5px"
+                height="8px"
                 width="12px"
               />
-            </CollapseButton>
+            </button>
           </Table.Cell>
-        </StyledRow>
+        </Row>
       );
     };
 
@@ -186,9 +173,9 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
         )}
       </>
     ) : (
-      <StyledRow ref={ref} type={type} {...rowProps}>
+      <Row ref={ref} {...rowProps()}>
         {children}
-      </StyledRow>
+      </Row>
     );
   },
 );

@@ -1,0 +1,70 @@
+.group > *:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.group--column {
+  display: flex;
+  flex-direction: column;
+
+  > * {
+    width: 100%;
+  }
+}
+
+.group--column > *:first-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.group--column > *:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  &:not(:active) {
+    border-top-color: transparent;
+  }
+}
+
+.group--column > *:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  &:not(:active) {
+    border-top-color: transparent;
+  }
+
+  &:active + * {
+    border-top-color: initial;
+  }
+}
+
+.group--column > *:first-child:not(:last-child) {
+  &:active + * {
+    border-top-color: initial;
+  }
+}
+
+.group--row > *:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  &:not(:active) {
+    border-left-color: transparent;
+  }
+  &:active + * {
+    border-left-color: initial;
+  }
+}
+.group--row > *:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.group--row > *:first-child:not(:last-child) {
+  &:active + * {
+    border-left-color: initial;
+  }
+}
+.group--row > *:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  &:not(:active) {
+    border-left-color: transparent;
+  }
+}

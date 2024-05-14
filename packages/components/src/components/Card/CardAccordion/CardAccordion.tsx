@@ -1,13 +1,10 @@
 import { forwardRef, useCallback, useEffect, useId, useState } from 'react';
-import styled from 'styled-components';
 
 import { CardAccordionContextProvider } from './CardAccordionContext';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-
-const Wrapper = styled.div``;
 
 export type CardAccordionProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -53,7 +50,7 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
     }, [onChange]);
 
     return (
-      <Wrapper {...getBaseHTMLProps(id, className, htmlProps, rest)} ref={ref}>
+      <div {...getBaseHTMLProps(id, className, htmlProps, rest)} ref={ref}>
         <CardAccordionContextProvider
           headerId={`${accordionId}-header`}
           bodyId={`${accordionId}-body`}
@@ -62,7 +59,7 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
         >
           {children}
         </CardAccordionContextProvider>
-      </Wrapper>
+      </div>
     );
   },
 );

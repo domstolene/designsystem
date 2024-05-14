@@ -1,0 +1,32 @@
+.wrapper {
+  background-color: var(--dds-color-primary-base);
+  padding: var(--sizes-dds-spacing-x-0-25);
+  box-sizing: border-box;
+  position: absolute;
+  text-align: center;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  white-space: nowrap;
+  opacity: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s;
+  }
+}
+
+.wrapper:focus-within {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  width: 100%;
+  z-index: 250;
+  opacity: 1;
+}
+
+.link,
+.link:hover {
+  text-decoration: none;
+  color: var(--dds-color-neutrals-white);
+}

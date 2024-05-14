@@ -1,0 +1,59 @@
+.list {
+  color: var(--dds-color-neutrals-gray-9);
+  margin: var(--sizes-dds-spacing-x-1) 0;
+  ul,
+  ol {
+    margin: 0;
+  }
+}
+
+.list--inherit {
+  font: inherit;
+}
+
+.list--unordered {
+  --dds-list-ul-li-padding-left: 1em + var(--sizes-dds-spacing-x-0-25);
+  list-style: none;
+  padding-left: calc(
+    var(--sizes-dds-spacing-x-2) - (var(--dds-list-ul-li-padding-left))
+  );
+
+  li {
+    position: relative;
+
+    padding-left: calc(var(--dds-list-ul-li-padding-left));
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      position: absolute;
+      top: calc((2.5em / 2) - 0.5em);
+      left: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('./bullets/jordskifterett_bullet1.svg');
+    }
+    ul > li:before {
+      background-image: url('./bullets/lagmannsrett_bullet2.svg');
+    }
+    ul > li > ul > li:before {
+      background-image: url('./bullets/tingrett_bullet3.svg');
+    }
+  }
+}
+
+.list--ordered {
+  padding-left: var(--sizes-dds-spacing-x-2);
+  & > li > ol {
+    list-style-type: lower-alpha;
+  }
+  & > li > ol > li > ol {
+    list-style-type: lower-roman;
+  }
+}
+
+.li {
+  line-height: 2.5em;
+}

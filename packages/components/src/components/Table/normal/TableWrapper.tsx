@@ -1,21 +1,12 @@
 import { type HTMLAttributes, useEffect, useRef, useState } from 'react';
-import styled, { css } from 'styled-components';
 
-import { scrollbarStyling } from '../../ScrollableContainer';
-
-const Wrapper = styled.div<{ $overflowX: boolean }>`
-  ${({ $overflowX }) =>
-    $overflowX &&
-    css`
-      overflow-x: auto;
-    `}
-  ${scrollbarStyling.webkit}
-  ${scrollbarStyling.firefox}
-`;
+import styles from './Table.module.css';
+import { cn } from '../../../utils';
+import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
 
 export type TableWrapperProps = HTMLAttributes<HTMLDivElement>;
 
-export const TableWrapper = ({ children, ...rest }: TableWrapperProps) => {
+export const TableWrapper = ({ className, ...rest }: TableWrapperProps) => {
   const [overflowX, setOverflowX] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -42,9 +33,16 @@ export const TableWrapper = ({ children, ...rest }: TableWrapperProps) => {
   });
 
   return (
-    <Wrapper $overflowX={overflowX} ref={wrapperRef} {...rest}>
-      {children}
-    </Wrapper>
+    <div
+      ref={wrapperRef}
+      {...rest}
+      className={cn(
+        className,
+        scrollbar,
+        styles.wrapper,
+        overflowX && styles['wrapper--scrollable'],
+      )}
+    />
   );
 };
 

@@ -1,17 +1,14 @@
 import { useMemo } from 'react';
-import styled, { css } from 'styled-components';
 
 import { useProgressTrackerContext } from './ProgressTracker.context';
-import {
-  progressTrackerTokens,
-  typographyTypes,
-} from './ProgressTracker.tokens';
+import styles from './ProgressTracker.module.css';
 import { type BaseComponentPropsWithChildren } from '../../types';
-import { focusVisible, focusVisibleTransitionValue } from '../helpers';
+import { cn } from '../../utils';
+import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { CheckIcon } from '../Icon/icons';
 import { type SvgIcon } from '../Icon/utils';
-import { getFontStyling } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 type ItemState =
@@ -37,11 +34,20 @@ const toItemState = (
   }
 };
 
-const { itemNumber, itemText, itemContentWrapper } = progressTrackerTokens;
+type StateHyphen =
+  | 'disabled'
+  | 'active-incomplete'
+  | 'active-completed'
+  | 'inactive-incomplete'
+  | 'inactive-completed';
 
-interface ItemStyleProps {
-  $state: ItemState;
-}
+const itemStateCn: { [k in ItemState]: StateHyphen } = {
+  disabled: 'disabled',
+  activeCompleted: 'active-completed',
+  activeIncomplete: 'active-incomplete',
+  inactiveCompleted: 'inactive-completed',
+  inactiveIncomplete: 'inactive-incomplete',
+};
 
 export interface BaseItemProps {
   /** Om steget er valgt eller ikke. Settes av konsument. */
@@ -77,85 +83,6 @@ export type ProgressTrackerItemProps =
       }
     >;
 
-const ItemWrapper = styled.li`
-  flex: 1;
-  position: relative;
-  display: flex;
-  justify-content: center;
-`;
-
-const ItemNumber = styled.div<ItemStyleProps>`
-  transition:
-    background-color 0.2s,
-    border-color 0.2s,
-    color 0.2s;
-  border-radius: 50%;
-  border: ${itemNumber.borderWidth} solid;
-  width: ${itemNumber.size};
-  height: ${itemNumber.size};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  ${getFontStyling(typographyTypes.number)}
-  font-weight: 600;
-
-  ${({ $state: state }) =>
-    state &&
-    css`
-      border-color: ${itemNumber[state].borderColor};
-      color: ${itemNumber[state].color};
-      background-color: ${itemNumber[state].backgroundColor};
-    `}
-`;
-
-const ItemText = styled.div<ItemStyleProps>`
-  ${getFontStyling(typographyTypes.label)}
-  text-align: start;
-  text-decoration: ${itemText.textDecoration};
-  transition: text-decoration-color 0.2s;
-
-  ${({ $state: state }) =>
-    state &&
-    css`
-      color: ${itemText[state].color};
-      text-decoration-color: ${itemText[state].textDecorationColor};
-    `};
-`;
-
-const ItemContentWrapper = styled.button<ItemStyleProps>`
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: ${itemNumber.size} 1fr;
-  justify-content: flex-start;
-  align-items: center;
-  font-family: inherit;
-  gap: ${itemContentWrapper.gap};
-  transition: ${focusVisibleTransitionValue};
-
-  &:focus-visible,
-  &.focus-visible {
-    ${focusVisible}
-  }
-
-  ${({ $state: state }) =>
-    state !== 'disabled' &&
-    css`
-      cursor: pointer;
-      &:hover > ${ItemText} {
-        color: ${itemText[state].hover.color};
-        text-decoration-color: ${itemText[state].hover.textDecorationColor};
-      }
-      &:hover > ${ItemNumber} {
-        background-color: ${itemNumber[state].hover.backgroundColor};
-        border-color: ${itemNumber[state].hover.borderColor};
-      }
-    `}
-`;
-
 const getVisuallyHiddenText = (
   active: boolean,
   completed: boolean,
@@ -176,46 +103,67 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 
   const { activeStep, handleStepChange } = useProgressTrackerContext();
   const active = activeStep === index;
-
-  const styleProps: ItemStyleProps = {
-    $state: toItemState(active, completed, disabled),
-  };
+  const itemState = toItemState(active, completed, disabled);
 
   const stepNumberContent = useMemo(() => {
     if (completed) {
-      return <Icon icon={CheckIcon} iconSize={itemNumber.iconSize} />;
+      return <Icon icon={CheckIcon} iconSize="small" />;
     }
 
     if (icon !== undefined) {
-      return <Icon icon={icon} iconSize={itemNumber.iconSize} />;
+      return <Icon icon={icon} iconSize="small" />;
     }
 
     return index + 1;
   }, [completed, icon, index]);
 
-  return (
-    <ItemWrapper aria-current={active ? 'step' : undefined}>
-      <ItemContentWrapper
-        {...styleProps}
-        as={handleStepChange ? 'button' : 'div'}
-        onClick={
-          !disabled && handleStepChange
-            ? () => handleStepChange(index)
-            : undefined
-        }
-        disabled={disabled}
+  const stepContent = (
+    <>
+      <div
+        aria-hidden
+        className={cn(
+          styles['item-number'],
+          styles[`item-number--${itemStateCn[itemState]}`],
+          typographyStyles['body-sans-01'],
+        )}
       >
-        <ItemNumber {...styleProps} aria-hidden>
-          {stepNumberContent}
-        </ItemNumber>
-        <ItemText {...styleProps}>
-          <VisuallyHidden as="span">
-            {getVisuallyHiddenText(active, completed, index)}
-          </VisuallyHidden>
-          {children}
-        </ItemText>
-      </ItemContentWrapper>
-    </ItemWrapper>
+        {stepNumberContent}
+      </div>
+      <div
+        className={cn(
+          styles['item-text'],
+          styles[`item-text--${itemStateCn[itemState]}`],
+          typographyStyles['body-sans-03'],
+        )}
+      >
+        <VisuallyHidden as="span">
+          {getVisuallyHiddenText(active, completed, index)}
+        </VisuallyHidden>
+        {children}
+      </div>
+    </>
+  );
+
+  return (
+    <li aria-current={active ? 'step' : undefined} className={styles.item}>
+      {handleStepChange ? (
+        <button
+          onClick={
+            !disabled && handleStepChange
+              ? () => handleStepChange(index)
+              : undefined
+          }
+          disabled={disabled}
+          className={cn(styles['item-button'], focusable)}
+        >
+          {stepContent}
+        </button>
+      ) : (
+        <div className={cn(styles['item-button'], styles['item-div'])}>
+          {stepContent}
+        </div>
+      )}
+    </li>
   );
 };
 

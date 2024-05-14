@@ -9,11 +9,22 @@ import {
   type ToggleBarContextType,
   useToggleBarContext,
 } from './ToggleBar.context';
-import { Content, Label } from './ToggleRadio.styles';
+import styles from './ToggleBar.module.css';
+import { type ToggleBarSize } from './ToggleBar.types';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { HiddenInput } from '../helpers';
+import { cn } from '../../utils';
+import focusStyles from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
+import { type StaticTypographyType, Typography } from '../Typography';
+
+export const typographyTypes: { [k in ToggleBarSize]: StaticTypographyType } = {
+  large: 'bodySans04',
+  medium: 'bodySans02',
+  small: 'bodySans01',
+  tiny: 'supportingStyleTiny01',
+};
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
@@ -83,10 +94,21 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
       group?.onChange && group.onChange(event);
     };
 
+    const contentTypeCn = label ? 'with-text' : 'just-icon';
+
     return (
-      <Label size={group.size} htmlFor={uniqueId}>
-        <HiddenInput
-          {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
+      <label htmlFor={uniqueId} className={styles.label}>
+        <input
+          {...getBaseHTMLProps(
+            uniqueId,
+            cn(
+              className,
+              focusStyles['focusable-sibling'],
+              utilStyles['hide-input'],
+            ),
+            htmlProps,
+            rest,
+          )}
           type="radio"
           ref={ref}
           name={name ?? group.name}
@@ -96,11 +118,19 @@ export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
         />
-        <Content $size={group.size} $justIcon={!!icon && !label}>
+        <Typography
+          as="span"
+          typographyType={typographyTypes[group.size]}
+          className={cn(
+            styles.content,
+            styles[`content--${group.size}--${contentTypeCn}`],
+            focusStyles['focus-styled-sibling'],
+          )}
+        >
           {icon && <Icon icon={icon} iconSize="inherit" />}
           {label && <span>{label}</span>}
-        </Content>
-      </Label>
+        </Typography>
+      </label>
     );
   },
 );

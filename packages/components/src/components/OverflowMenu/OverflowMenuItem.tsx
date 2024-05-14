@@ -6,65 +6,16 @@ import {
   useEffect,
   useRef,
 } from 'react';
-import styled, { css } from 'styled-components';
 
-import {
-  overflowMenuTokens as tokens,
-  typographyType,
-} from './OverflowMenu.tokens';
+import styles from './OverflowMenu.module.css';
 import { useCombinedRef } from '../../hooks';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { focusVisibleInset, normalizeButton } from '../helpers';
+import { cn } from '../../utils';
+import focusStyles from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
-import { getFontStyling } from '../Typography';
-
-const { element, link } = tokens;
-
-const elementBaseCSS = css`
-  display: flex;
-  box-sizing: border-box;
-  color: ${element.base.color};
-  text-decoration: ${element.base.textDecoration};
-  background-color: ${element.base.backgroundColor};
-  padding: ${element.base.padding};
-  gap: ${element.base.gap};
-  ${getFontStyling(typographyType)}
-`;
-
-export const Span = styled.span`
-  ${elementBaseCSS}
-`;
-
-export const Link = styled.a`
-  ${normalizeButton}
-  text-align: left;
-  user-select: text;
-  border: none;
-  cursor: pointer;
-  outline: inherit;
-  width: 100%;
-  ${elementBaseCSS}
-  @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 0.2s;
-  }
-  &:hover {
-    background-color: ${link.hover.backgroundColor};
-  }
-  &:active {
-    background-color: ${link.active.backgroundColor};
-  }
-  &:focus-visible,
-  &.focus-visible {
-    ${focusVisibleInset}
-  }
-`;
-
-const IconWrapper = styled.span`
-  display: flex;
-  align-items: center;
-  height: ${link.iconWrapper.height};
-`;
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 interface BaseOverflowMenuItemProps {
   title: string;
@@ -139,39 +90,51 @@ export const OverflowMenuItem = forwardRef<
   };
   const iconElement = icon && <Icon iconSize="inherit" icon={icon} />;
 
+  const wrapperCn = [
+    className,
+    styles.list__item,
+    typographyStyles['body-sans-01'],
+  ];
+  const interactiveWrapperCn = [
+    ...wrapperCn,
+    styles['list__item--link'],
+    focusStyles['focusable--inset'],
+    utilStyles['normalize-button'],
+  ];
+
   if (!href && !onClick) {
     return (
-      <Span {...{ ...getBaseHTMLProps(id, className, htmlProps, rest), ref }}>
-        <IconWrapper>{iconElement}</IconWrapper>
+      <span
+        {...{ ...getBaseHTMLProps(id, cn(...wrapperCn), htmlProps, rest), ref }}
+      >
+        {iconElement}
         {title}
-      </Span>
+      </span>
     );
   }
 
   if (!href) {
     return (
-      <Link
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      <button
+        {...getBaseHTMLProps(id, cn(...interactiveWrapperCn), htmlProps, rest)}
         {...linkProps}
-        as="button"
         ref={combinedRef as ForwardedRef<HTMLButtonElement>}
       >
-        <IconWrapper>{iconElement}</IconWrapper>
+        {iconElement}
         {title}
-      </Link>
+      </button>
     );
   }
 
   return (
-    <Link
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+    <a
+      {...getBaseHTMLProps(id, cn(...interactiveWrapperCn), htmlProps, rest)}
       {...linkProps}
-      as="a"
       ref={combinedRef as ForwardedRef<HTMLAnchorElement>}
     >
-      <IconWrapper>{iconElement}</IconWrapper>
+      {iconElement}
       {title}
-    </Link>
+    </a>
   );
 });
 

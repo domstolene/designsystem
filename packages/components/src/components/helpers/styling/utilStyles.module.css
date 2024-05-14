@@ -1,5 +1,73 @@
-.remove-list-styling {
+:where(.remove-list-styling) {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+:where(.remove-button-styling) {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+:where(.normalize-button) {
+  margin: 0;
+  text-transform: none;
+}
+
+.hide-input {
+  clip-path: rect(0 0 0 0);
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  margin: 0;
+}
+
+.inherit-link-styling {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--dds-color-neutrals-gray-4) transparent;
+}
+
+.visibility-transition {
+  --dds-visiblity-transition: visibility 0.4s;
+  --dds-opacity-transition: opacity 0.2s;
+
+  opacity: 0;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: var(--dds-visiblity-transition), var(--dds-opacity-transition);
+  }
+}
+.visibility-transition--open {
+  opacity: 1;
+  visibility: visible;
+}
+.visibility-transition--closed {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0px;
+  padding: 0px;
+  top: 0px;
+  inset-inline-start: 0px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  border: 0px;
+}
+
+.invisible {
+  visibility: hidden;
 }

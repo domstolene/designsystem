@@ -1,29 +1,8 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type HTMLAttributes } from 'react';
-import styled from 'styled-components';
 
+import styles from './EmptyContent.module.css';
+import { cn } from '../../utils';
 import { Heading, type HeadingLevel, Paragraph } from '../Typography';
-
-const { colors, spacing } = ddsBaseTokens;
-
-const StyledEmptyContent = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: ${spacing.SizesDdsSpacingX10};
-  height: 100%;
-  width: 100%;
-  background-color: ${colors.DdsColorNeutralsGray1};
-  padding: ${spacing.SizesDdsSpacingX15};
-`;
-
-const StyledEmptyContentText = styled.div`
-  max-width: 70ch;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing.SizesDdsSpacingX1};
-`;
 
 export type EmptyContentProps = {
   /**Tittel - kort oppsummering. */
@@ -38,19 +17,20 @@ export function EmptyContent({
   title,
   message,
   titleHeadingLevel = 5,
+  className,
   ...rest
 }: EmptyContentProps) {
   return (
-    <StyledEmptyContent {...rest}>
-      <StyledEmptyContentText>
+    <div {...rest} className={cn(className, styles.containter)}>
+      <div className={styles.text}>
         {title && (
           <Heading level={titleHeadingLevel} typographyType="headingSans02">
             {title}
           </Heading>
         )}
         <Paragraph>{message}</Paragraph>
-      </StyledEmptyContentText>
-    </StyledEmptyContent>
+      </div>
+    </div>
   );
 }
 

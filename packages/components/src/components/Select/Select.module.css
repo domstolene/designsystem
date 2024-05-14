@@ -1,0 +1,35 @@
+.container {
+  margin: 0;
+  position: relative;
+  width: var(--dds-input-default-width);
+}
+
+.container--disabled {
+  cursor: not-allowed;
+}
+
+.inner-single-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.icon {
+  margin-right: var(--sizes-dds-spacing-x-0-5);
+}
+
+.control {
+  &:hover .dropdown-indicator,
+  &:focus-within .dropdown-indicator {
+    color: var(--dds-color-interactive-base);
+  }
+
+  &.control--readonly:hover .dropdown-indicator {
+    color: transparent;
+  }
+  &.control--disabled:hover .dropdown-indicator {
+    color: var(--dds-color-neutrals-gray-6);
+  }
+}

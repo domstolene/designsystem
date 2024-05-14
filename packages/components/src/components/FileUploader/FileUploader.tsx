@@ -1,68 +1,22 @@
 import { type Property } from 'csstype';
-import { useId } from 'react';
-import styled from 'styled-components';
+import { type ComponentProps, useId } from 'react';
 
 import { ErrorList } from './ErrorList';
 import { File } from './File';
-import { noZoneContainerTokens, rootTokens } from './FileUploader.tokens';
+import styles from './FileUploader.module.css';
 import { type FileList } from './types';
 import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
 import {
+  cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Button } from '../Button';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { UploadIcon } from '../Icon/icons';
 import { InputMessage } from '../InputMessage';
 import { Label } from '../Typography';
 import { VisuallyHidden } from '../VisuallyHidden';
-
-const defaultWidth: Property.Width<string> = '320px';
-
-const Wrapper = styled.div<{ width?: Property.Width<string> }>`
-  width: ${({ width }) => (width ? width : defaultWidth)};
-`;
-
-interface RootProps {
-  $isDragActive: boolean;
-  $hasRootErrors: boolean;
-}
-
-const Root = styled.div<RootProps>`
-  box-sizing: border-box;
-  border-width: ${({ $hasRootErrors: hasRootErrors }) =>
-    hasRootErrors ? '2px' : '1px'};
-  border-style: dashed;
-  border-color: ${({ $isDragActive, $hasRootErrors }) =>
-    $isDragActive
-      ? rootTokens.dragActive.borderColor
-      : $hasRootErrors
-        ? rootTokens.borderColorError
-        : rootTokens.borderColor};
-  padding: ${({ $hasRootErrors }) =>
-    $hasRootErrors
-      ? `calc(${rootTokens.paddingLeftRightTop} - 1px) calc(${rootTokens.paddingLeftRightTop} - 1px) ${rootTokens.paddingBottom}`
-      : `${rootTokens.paddingLeftRightTop} ${rootTokens.paddingLeftRightTop} ${rootTokens.paddingBottom}`};
-  display: flex;
-  flex-direction: column;
-  gap: ${rootTokens.gap};
-  background-color: ${({ $isDragActive }) =>
-    $isDragActive
-      ? rootTokens.dragActive.backgroundColor
-      : rootTokens.backgroundColor};
-`;
-
-const NoZoneContainer = styled.div`
-  padding: ${noZoneContainerTokens.padding};
-`;
-
-const FileUploaderInput = styled.input``;
-
-const FileListElement = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-`;
 
 export type FileUploaderProps = {
   /**Id til filopplasteren. */
@@ -80,12 +34,13 @@ export type FileUploaderProps = {
   /**Callback for når fil-listen endres. */
   onChange: (newFiles: FileList) => void;
   /**Bredde for filopplasteren. */
-  width?: Property.Width<string>;
+  width?: Property.Width;
   /**Om drag-and-drop zone skal vises. */
   withDragAndDrop?: boolean;
   /**Om listen med opplastede filer skal skjules. Brukes kun hvis listen blir vist på egen måte. */
   hideFileList?: boolean;
-} & Partial<FileUploaderHookProps>;
+} & Partial<FileUploaderHookProps> &
+  Omit<ComponentProps<'div'>, 'onChange' | 'id'>;
 
 export const FileUploader = (props: FileUploaderProps) => {
   const {
@@ -105,6 +60,9 @@ export const FileUploader = (props: FileUploaderProps) => {
     width,
     errorMessage,
     hideFileList,
+    style,
+    className,
+    ...rest
   } = props;
 
   const generatedId = useId();
@@ -158,7 +116,6 @@ export const FileUploader = (props: FileUploaderProps) => {
       id={buttonId}
       size="medium"
       type="button"
-      appearance="filled"
       purpose="secondary"
       icon={UploadIcon}
       htmlProps={{
@@ -175,7 +132,12 @@ export const FileUploader = (props: FileUploaderProps) => {
   );
 
   return (
-    <Wrapper width={width} id={uniqueId}>
+    <div
+      id={uniqueId}
+      className={cn(className, styles.container)}
+      style={{ ...style, width }}
+      {...rest}
+    >
       {hasLabel && (
         <Label id={labelId} showRequiredStyling={showRequiredMarker}>
           {label}
@@ -183,12 +145,15 @@ export const FileUploader = (props: FileUploaderProps) => {
       )}
       {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
       {withDragAndDrop ? (
-        <Root
+        <div
           {...getRootProps()}
-          $isDragActive={isDragActive}
-          $hasRootErrors={hasRootErrors}
+          className={cn(
+            styles['input-container'],
+            hasRootErrors && styles['input-container--with-errors'],
+            isDragActive && styles['input-container--drag-active'],
+          )}
         >
-          <FileUploaderInput
+          <input
             {...getInputProps()}
             id={inputId}
             data-testid="file-uploader-input"
@@ -198,16 +163,20 @@ export const FileUploader = (props: FileUploaderProps) => {
             velg fil med påfølgende knapp
           </VisuallyHidden>
           {button}
-        </Root>
+        </div>
       ) : (
-        <NoZoneContainer>
-          <FileUploaderInput {...getInputProps()} />
+        <div className={styles['input-container--no-drag-zone']}>
+          <input {...getInputProps()} id={inputId} />
           {button}
-        </NoZoneContainer>
+        </div>
       )}
       <ErrorList errors={rootErrorsList} />
-      {!hideFileList && <FileListElement>{fileListElements}</FileListElement>}
-    </Wrapper>
+      {!hideFileList && (
+        <ul className={utilStyles['remove-list-styling']}>
+          {fileListElements}
+        </ul>
+      )}
+    </div>
   );
 };
 

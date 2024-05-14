@@ -26,6 +26,6 @@ export type TableRowProps = {
   mode?: RowMode;
   /**Spesifiserer om raden har blitt valgt/markert. */
   selected?: boolean;
-  /**Spesifiserer om raden skal ha hover styling. Brukes hovedsakelig på klikkbare rader. */
+  /**Spesifiserer om raden skal ha hover styling. Brukes hovedsakelig på rader med klikkbar innhold. */
   hoverable?: boolean;
 } & HTMLAttributes<HTMLTableRowElement>;

@@ -1,0 +1,24 @@
+.rating-container {
+  display: flex;
+  gap: var(--sizes-dds-spacing-x-1);
+}
+
+.rating-container--row {
+  flex-direction: row;
+  align-items: center;
+}
+
+.rating-container--column {
+  flex-direction: column;
+  align-items: start;
+}
+
+.rating-submitted-title {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sizes-dds-spacing-x-0-5);
+}
+
+.button {
+  padding: 0 !important;
+}

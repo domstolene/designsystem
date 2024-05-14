@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-import { errorsTokens } from './FileUploader.tokens';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { InputMessage } from '../InputMessage';
 
 interface ErrorListProps {
@@ -10,12 +8,6 @@ interface ErrorListProps {
   }>;
 }
 
-export const MessageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${errorsTokens.gap};
-`;
-
 export const ErrorList = (props: ErrorListProps) => {
   const { errors } = props;
 
@@ -23,18 +15,30 @@ export const ErrorList = (props: ErrorListProps) => {
     return null;
   }
 
+  if (errors.length === 1) {
+    return (
+      <InputMessage
+        id={errors[0].id}
+        message={errors[0].message}
+        messageType="error"
+      />
+    );
+  }
+
   return (
-    <MessageContainer>
+    <ul className={utilStyles['remove-list-styling']}>
       {errors.map(({ id, message }) => {
         return (
-          <InputMessage
-            key={id}
-            id={id}
-            message={message}
-            messageType="error"
-          />
+          <li>
+            <InputMessage
+              key={id}
+              id={id}
+              message={message}
+              messageType="error"
+            />
+          </li>
         );
       })}
-    </MessageContainer>
+    </ul>
   );
 };

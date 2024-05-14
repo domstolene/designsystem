@@ -8,62 +8,15 @@ import {
   forwardRef,
   isValidElement,
 } from 'react';
-import styled, { css } from 'styled-components';
 
+import styles from './ButtonGroup.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { type ButtonSize } from '../Button/Button.types';
-
-interface StyledButtonGroupProps {
-  $direction: Direction;
-}
-
-const StyledButtonGroup = styled.div<StyledButtonGroupProps>`
-  button:focus-visible {
-    position: relative;
-    z-index: 1;
-  }
-  ${({ $direction }) =>
-    $direction === 'column'
-      ? css`
-          display: flex;
-          flex-direction: column;
-          button {
-            width: 100%;
-          }
-          button:first-child {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            border-bottom: transparent;
-          }
-          button:last-child {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-          }
-          button:not(:first-child):not(:last-child) {
-            border-radius: 0;
-            border-bottom: transparent;
-          }
-        `
-      : css`
-          button:first-child {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-            border-right: transparent;
-          }
-          button:last-child {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-          }
-          button:not(:first-child):not(:last-child) {
-            border-radius: 0;
-            border-right: transparent;
-          }
-        `}
-`;
 
 type PickedHTMLAttributes = Pick<
   HTMLAttributes<HTMLDivElement>,
@@ -104,20 +57,24 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
         isValidElement(child) &&
         cloneElement(child as ReactElement, {
           purpose: 'secondary',
-          appearance: 'filled',
           size: buttonSize,
         })
       );
     });
+
     return (
-      <StyledButtonGroup
+      <div
         ref={ref}
         role={role}
-        $direction={direction}
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        {...getBaseHTMLProps(
+          id,
+          cn(className, styles.group, styles[`group--${direction}`]),
+          htmlProps,
+          rest,
+        )}
       >
         {Children}
-      </StyledButtonGroup>
+      </div>
     );
   },
 );

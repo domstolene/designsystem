@@ -1,90 +1,19 @@
-import { type Property } from 'csstype';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { type Properties, type Property } from 'csstype';
 import { type ButtonHTMLAttributes, forwardRef } from 'react';
-import styled, { css } from 'styled-components';
 
-import {
-  cardAccordionTokens as tokens,
-  typographyTypes,
-} from './CardAccordion.tokens';
+import styles from './CardAccordion.module.css';
 import { useCardAccordionContext } from './CardAccordionContext';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import {
-  AnimatedChevronUpDown,
-  focusVisible,
-  normalizeButton,
-  removeButtonStyling,
-} from '../../helpers';
-import { type StaticTypographyType, getFontStyling } from '../../Typography';
-
-const { header, chevronWrapper } = tokens;
-
-const ContentWrapper = styled.div`
-  text-align: left;
-`;
-
-function getTypographyType(props: HeaderProps): StaticTypographyType {
-  const { typographyType } = props;
-
-  return typographyType ?? typographyTypes.header;
-}
-
-interface HeaderProps {
-  padding?: Property.Padding<string>;
-  typographyType?: StaticTypographyType;
-  bold?: boolean;
-}
-
-const HeaderContainer = styled.div.withConfig({
-  shouldForwardProp: prop =>
-    prop !== 'padding' && prop !== 'typographyType' && prop !== 'bold',
-})<HeaderProps>`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @media (prefers-reduced-motion: no-preference) {
-    transition: box-shadow 0.2s;
-  }
-  padding: ${({ padding }) => padding ?? header.padding};
-  ${props => getFontStyling(getTypographyType(props))}
-  ${props =>
-    props.bold &&
-    css`
-      font-weight: 600;
-    `}
-`;
-
-const HeaderWrapperButton = styled.button`
-  ${normalizeButton}
-  user-select: text;
-  position: relative;
-  cursor: pointer;
-  @media (prefers-reduced-motion: no-preference) {
-    transition: box-shadow 0.2s;
-  }
-  ${removeButtonStyling}
-  display: block;
-  width: 100%;
-  &:hover {
-    box-shadow: ${header.hover.boxShadow};
-  }
-
-  &:focus-visible,
-  &.focus-visible {
-    ${focusVisible}
-  }
-`;
-
-const ChevronWrapper = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: ${chevronWrapper.width};
-  height: ${chevronWrapper.height};
-  margin-left: ${chevronWrapper.marginLeft};
-`;
+import { cn } from '../../../utils';
+import { AnimatedChevronUpDown } from '../../helpers';
+import { focusable } from '../../helpers/styling/focus.module.css';
+import utilStyles from '../../helpers/styling/utilStyles.module.css';
+import { type StaticTypographyType, getTypographyCn } from '../../Typography';
+import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type CardAccordionHeaderProps = Omit<
   BaseComponentPropsWithChildren<
@@ -111,7 +40,7 @@ export const CardAccordionHeader = forwardRef<
     className,
     htmlProps,
     padding,
-    typographyType,
+    typographyType = 'headingSans03',
     bold,
     ...rest
   } = props;
@@ -123,33 +52,51 @@ export const CardAccordionHeader = forwardRef<
     isExpanded,
   } = useCardAccordionContext();
 
-  const headerWrapperProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    'aria-expanded': isExpanded,
-    'aria-controls': bodyId,
-    ref,
-    onClick: toggleExpanded,
-  };
-
-  const chevronProps = {
-    isUp: isExpanded,
-    width: tokens.chevron.width,
-    height: tokens.chevron.height,
+  const containerStyleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-card-accordion-header-container-padding' as any]:
+      padding ??
+      `${ddsBaseTokens.spacing.SizesDdsSpacingX1} ${ddsBaseTokens.spacing.SizesDdsSpacingX075} ${ddsBaseTokens.spacing.SizesDdsSpacingX1} ${ddsBaseTokens.spacing.SizesDdsSpacingX15}`,
   };
 
   return (
-    <HeaderWrapperButton {...headerWrapperProps} type="button">
-      <HeaderContainer
-        typographyType={typographyType}
-        padding={padding}
-        bold={bold}
+    <button
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles['header-button'],
+          utilStyles['normalize-button'],
+          utilStyles['remove-button-styling'],
+          focusable,
+        ),
+        htmlProps,
+        rest,
+      )}
+      onClick={toggleExpanded}
+      ref={ref}
+      aria-controls={bodyId}
+      aria-expanded={isExpanded}
+      type="button"
+    >
+      <div
+        style={containerStyleVariables}
+        className={cn(
+          styles['header-container'],
+          typographyStyles[getTypographyCn(typographyType)],
+          bold && typographyStyles.bold,
+        )}
       >
-        <ContentWrapper>{children}</ContentWrapper>
-        <ChevronWrapper>
-          <AnimatedChevronUpDown {...chevronProps} />
-        </ChevronWrapper>
-      </HeaderContainer>
-    </HeaderWrapperButton>
+        <div className={styles.header__content}>{children}</div>
+        <span className={styles.header__chevron}>
+          <AnimatedChevronUpDown
+            width={ddsBaseTokens.iconSizes.DdsIconsizeMedium}
+            height={ddsBaseTokens.spacing.SizesDdsSpacingX05}
+            isUp={isExpanded}
+          />
+        </span>
+      </div>
+    </button>
   );
 });
 

@@ -1,7 +1,7 @@
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { icons } from '../..';
+import { ArrowLeftIcon, HStack, VStack } from '../..';
 
 import { Button } from '.';
 
@@ -20,7 +20,6 @@ export default {
     href: { control: 'text' },
     children: { control: 'text' },
     loadingTooltip: { control: 'text' },
-    label: { table: { disable: true } },
     htmlProps: { control: false },
     target: { control: false },
     icon: { control: false },
@@ -40,186 +39,87 @@ export const Default: Story = {
 
 export const OverviewWithText: Story = {
   decorators: Story => (
-    <StoryTemplate display="grid">
+    <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
   ),
   render: args => (
-    <>
-      <Button {...args} purpose="primary" appearance="filled">
-        Primary
-      </Button>
-      <Button {...args} purpose="secondary" appearance="filled">
-        Secondary
-      </Button>
-      <Button {...args} purpose="danger" appearance="filled">
-        Danger
-      </Button>
-      <Button {...args} purpose="primary" appearance="ghost">
-        Primary
-      </Button>
-      <Button {...args} purpose="secondary" appearance="ghost">
-        Secondary
-      </Button>
-      <Button {...args} purpose="danger" appearance="ghost">
-        Danger
-      </Button>
-      <Button {...args} purpose="primary" appearance="borderless">
-        Primary
-      </Button>
-      <Button {...args} purpose="secondary" appearance="borderless">
-        Secondary
-      </Button>
-      <Button {...args} purpose="danger" appearance="borderless">
-        Danger
-      </Button>
-      <Button {...args} purpose="primary" appearance="rounded">
-        Primary
-      </Button>
-      <Button {...args} purpose="secondary" appearance="rounded">
-        Secondary
-      </Button>
-      <Button {...args} purpose="danger" appearance="rounded">
-        Danger
-      </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Primary
-      </Button>
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="filled"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Secondary
-      </Button>
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="filled"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Danger
-      </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="ghost"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Primary
-      </Button>
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="ghost"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Secondary
-      </Button>
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="ghost"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Danger
-      </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="borderless"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Primary
-      </Button>
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="borderless"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Secondary
-      </Button>
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="borderless"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Danger
-      </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="rounded"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Primary
-      </Button>
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="rounded"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Secondary
-      </Button>
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="rounded"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
-      >
-        Danger
-      </Button>
-    </>
+    <HStack gap="x1">
+      <VStack gap="x1" align="start">
+        <Button
+          {...args}
+          purpose="primary"
+          onClick={() => console.log('click')}
+        >
+          Primary
+        </Button>
+        <Button {...args} purpose="secondary">
+          Secondary
+        </Button>
+        <Button {...args} purpose="tertiary">
+          Tertiary
+        </Button>
+        <Button {...args} purpose="danger">
+          Danger
+        </Button>
+      </VStack>
+      <VStack gap="x1" align="start">
+        <Button
+          {...args}
+          purpose="primary"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Primary
+        </Button>
+        <Button
+          {...args}
+          purpose="secondary"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Secondary
+        </Button>
+        <Button
+          {...args}
+          purpose="tertiary"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Tertiary
+        </Button>
+        <Button
+          {...args}
+          purpose="danger"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Danger
+        </Button>
+      </VStack>
+    </HStack>
   ),
 };
 
 export const OverviewJustIcon: Story = {
-  args: { icon: icons.CloseIcon },
+  args: { icon: ArrowLeftIcon },
   decorators: Story => (
-    <StoryTemplate display="grid">
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   render: args => (
     <>
-      <Button {...args} purpose="primary" appearance="filled" />
-      <Button {...args} purpose="secondary" appearance="filled" />
-      <Button {...args} purpose="danger" appearance="filled" />
-      <Button {...args} purpose="primary" appearance="ghost" />
-      <Button {...args} purpose="secondary" appearance="ghost" />
-      <Button {...args} purpose="danger" appearance="ghost" />
-      <Button {...args} purpose="primary" appearance="borderless" />
-      <Button {...args} purpose="secondary" appearance="borderless" />
-      <Button {...args} purpose="danger" appearance="borderless" />
-      <Button {...args} purpose="primary" appearance="rounded" />
-      <Button {...args} purpose="secondary" appearance="rounded" />
-      <Button {...args} purpose="danger" appearance="rounded" />
+      <Button {...args} purpose="primary" />
+      <Button {...args} purpose="secondary" />
+      <Button {...args} purpose="tertiary" />
+      <Button {...args} purpose="danger" />
     </>
   ),
 };
 
 export const OverviewSizes: Story = {
+  args: { purpose: 'primary' },
   decorators: Story => (
     <StoryTemplate display="grid" $columnsAmount={4}>
       <Story />
@@ -227,86 +127,54 @@ export const OverviewSizes: Story = {
   ),
   render: args => (
     <>
-      <Button {...args} purpose="primary" appearance="filled" size="tiny">
+      <Button {...args} size="tiny">
         Primary
       </Button>
-      <Button {...args} purpose="primary" appearance="filled" size="small">
+      <Button {...args} size="small">
         Primary
       </Button>
-      <Button {...args} purpose="primary" appearance="filled" size="medium">
+      <Button {...args} size="medium">
         Primary
       </Button>
-      <Button {...args} purpose="primary" appearance="filled" size="large">
+      <Button {...args} size="large">
         Primary
       </Button>
       <Button
         {...args}
-        purpose="primary"
-        appearance="filled"
         size="tiny"
         iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
+        icon={ArrowLeftIcon}
       >
         Primary
       </Button>
       <Button
         {...args}
-        purpose="primary"
-        appearance="filled"
         size="small"
         iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
+        icon={ArrowLeftIcon}
       >
         Primary
       </Button>
       <Button
         {...args}
-        purpose="primary"
-        appearance="filled"
         size="medium"
         iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
+        icon={ArrowLeftIcon}
       >
         Primary
       </Button>
       <Button
         {...args}
-        purpose="primary"
-        appearance="filled"
         size="large"
         iconPosition={args.iconPosition ?? 'left'}
-        icon={icons.PlusCircledIcon}
+        icon={ArrowLeftIcon}
       >
         Primary
       </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="tiny"
-        icon={icons.CloseIcon}
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="small"
-        icon={icons.CloseIcon}
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="medium"
-        icon={icons.CloseIcon}
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="large"
-        icon={icons.CloseIcon}
-      />
+      <Button {...args} size="tiny" icon={ArrowLeftIcon} />
+      <Button {...args} size="small" icon={ArrowLeftIcon} />
+      <Button {...args} size="medium" icon={ArrowLeftIcon} />
+      <Button {...args} size="large" icon={ArrowLeftIcon} />
     </>
   ),
 };
@@ -319,174 +187,18 @@ export const OverviewLoading: Story = {
   ),
   render: args => (
     <>
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="tiny"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="small"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="medium"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="large"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="filled"
-        size="tiny"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="filled"
-        size="small"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="filled"
-        size="medium"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="filled"
-        size="large"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="filled"
-        size="tiny"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="filled"
-        size="small"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="filled"
-        size="medium"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="filled"
-        size="large"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="ghost"
-        size="tiny"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="ghost"
-        size="small"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="ghost"
-        size="medium"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="ghost"
-        size="large"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="ghost"
-        size="tiny"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="ghost"
-        size="small"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="ghost"
-        size="medium"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="secondary"
-        appearance="ghost"
-        size="large"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="ghost"
-        size="tiny"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="ghost"
-        size="small"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="ghost"
-        size="medium"
-        loading
-      />
-      <Button
-        {...args}
-        purpose="danger"
-        appearance="ghost"
-        size="large"
-        loading
-      />
+      <Button {...args} purpose="primary" size="tiny" loading />
+      <Button {...args} purpose="primary" size="small" loading />
+      <Button {...args} purpose="primary" size="medium" loading />
+      <Button {...args} purpose="primary" size="large" loading />
+      <Button {...args} purpose="secondary" size="tiny" loading />
+      <Button {...args} purpose="secondary" size="small" loading />
+      <Button {...args} purpose="secondary" size="medium" loading />
+      <Button {...args} purpose="secondary" size="large" loading />
+      <Button {...args} purpose="danger" size="tiny" loading />
+      <Button {...args} purpose="danger" size="small" loading />
+      <Button {...args} purpose="danger" size="medium" loading />
+      <Button {...args} purpose="danger" size="large" loading />
     </>
   ),
 };
@@ -500,43 +212,29 @@ export const OverviewFullWidth: Story = {
   ),
   render: args => (
     <>
-      <Button {...args} purpose="primary" appearance="filled" size="medium">
+      <Button {...args} purpose="primary" size="medium">
         {args.children ?? 'Primary'}
       </Button>
       <Button
         {...args}
         purpose="primary"
-        appearance="filled"
         size="medium"
         iconPosition="left"
-        icon={icons.PlusCircledIcon}
+        icon={ArrowLeftIcon}
       >
         {args.children ?? 'Primary'}
       </Button>
       <Button
         {...args}
         purpose="primary"
-        appearance="filled"
         size="medium"
         iconPosition="right"
-        icon={icons.PlusCircledIcon}
+        icon={ArrowLeftIcon}
       >
         {args.children ?? 'Primary'}
       </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="medium"
-        icon={icons.CloseIcon}
-      />
-      <Button
-        {...args}
-        purpose="primary"
-        appearance="filled"
-        size="medium"
-        loading
-      >
+      <Button {...args} purpose="primary" size="medium" icon={ArrowLeftIcon} />
+      <Button {...args} purpose="primary" size="medium" loading>
         label
       </Button>
     </>
@@ -546,7 +244,7 @@ export const OverviewFullWidth: Story = {
 export const TextWithIcon: Story = {
   args: {
     children: 'Tekst',
-    icon: icons.PlusCircledIcon,
+    icon: ArrowLeftIcon,
     iconPosition: 'left',
   },
   decorators: Story => (
@@ -557,7 +255,7 @@ export const TextWithIcon: Story = {
 };
 
 export const Icon: Story = {
-  args: { icon: icons.CloseIcon },
+  args: { icon: ArrowLeftIcon },
   decorators: Story => (
     <StoryTemplate>
       <Story />
@@ -565,8 +263,8 @@ export const Icon: Story = {
   ),
 };
 
-export const Ghost: Story = {
-  args: { children: 'Tekst' },
+export const Secondary: Story = {
+  args: { purpose: 'secondary' },
   decorators: Story => (
     <StoryTemplate>
       <Story />
@@ -574,21 +272,17 @@ export const Ghost: Story = {
   ),
   render: args => (
     <>
-      <Button {...args} purpose="primary" appearance="ghost">
-        {args.children ?? 'tekst'}
+      <Button {...args}>Tekst</Button>
+      <Button {...args} icon={ArrowLeftIcon}>
+        Tekst
       </Button>
-      <Button {...args} purpose="secondary" appearance="ghost">
-        {args.children ?? 'tekst'}
-      </Button>
-      <Button {...args} purpose="danger" appearance="ghost">
-        {args.children ?? 'tekst'}
-      </Button>
+      <Button {...args} icon={ArrowLeftIcon} />
     </>
   ),
 };
 
-export const Borderless: Story = {
-  args: { children: 'Tekst' },
+export const Tertiary: Story = {
+  args: { purpose: 'tertiary' },
   decorators: Story => (
     <StoryTemplate>
       <Story />
@@ -596,15 +290,17 @@ export const Borderless: Story = {
   ),
   render: args => (
     <>
-      <Button {...args} purpose="primary" appearance="borderless" />
-      <Button {...args} purpose="secondary" appearance="borderless" />
-      <Button {...args} purpose="danger" appearance="borderless" />
+      <Button {...args}>Tekst</Button>
+      <Button {...args} icon={ArrowLeftIcon}>
+        Tekst
+      </Button>
+      <Button {...args} icon={ArrowLeftIcon} />
     </>
   ),
 };
 
-export const Rounded: Story = {
-  args: { children: 'Tekst' },
+export const Danger: Story = {
+  args: { purpose: 'danger' },
   decorators: Story => (
     <StoryTemplate>
       <Story />
@@ -612,9 +308,11 @@ export const Rounded: Story = {
   ),
   render: args => (
     <>
-      <Button {...args} purpose="primary" appearance="rounded" />
-      <Button {...args} purpose="secondary" appearance="rounded" />
-      <Button {...args} purpose="danger" appearance="rounded" />
+      <Button {...args}>Tekst</Button>
+      <Button {...args} icon={ArrowLeftIcon}>
+        Tekst
+      </Button>
+      <Button {...args} icon={ArrowLeftIcon} />
     </>
   ),
 };

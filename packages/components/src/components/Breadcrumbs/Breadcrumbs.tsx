@@ -1,47 +1,17 @@
 import { Children, forwardRef, isValidElement } from 'react';
-import styled from 'styled-components';
 
-import { breadcrumbTokens, typographyType } from './Breadcrumb.tokens';
+import styles from './Breadcrumbs.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { Button } from '../Button';
-import { removeListStyling } from '../helpers';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, MoreHorizontalIcon } from '../Icon/icons';
 import { OverflowMenu, OverflowMenuGroup } from '../OverflowMenu';
 import { type OverflowMenuItemProps } from '../OverflowMenu/OverflowMenuItem';
-import { getFontStyling } from '../Typography';
-
-const { icon, list, listItem } = breadcrumbTokens;
-
-const List = styled.ol`
-  ${removeListStyling}
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: ${list.gap};
-`;
-List.displayName = 'List';
-
-type ListItemProps = Pick<BreadcrumbsProps, 'smallScreen'>;
-
-const ListItem = styled.li.withConfig({
-  shouldForwardProp: prop => prop !== 'smallScreen',
-})<ListItemProps>`
-  align-items: center;
-  display: flex;
-  gap: ${listItem.gap};
-  ${getFontStyling(typographyType)}
-  padding: ${({ smallScreen }) =>
-    smallScreen ? '0' : listItem.notSmallScreen.padding};
-`;
-ListItem.displayName = 'ListItem';
-
-const StyledIcon = styled(Icon)`
-  color: ${icon.color};
-`;
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -59,17 +29,25 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     const { children, smallScreen, id, className, htmlProps, ...rest } = props;
 
     const chevronIcon = (
-      <StyledIcon iconSize="inherit" icon={ChevronRightIcon} />
+      <Icon
+        className={cn(styles.icon)}
+        iconSize="inherit"
+        icon={ChevronRightIcon}
+      />
     );
 
     const childrenArray = Children.toArray(children);
+    const listItemCn = cn(
+      styles['list-item'],
+      !smallScreen && styles[`list-item--large-screen`],
+    );
 
     const breadcrumbChildren = childrenArray.map((item, index) => {
       return (
-        <ListItem key={`breadcrumb-${index}`} smallScreen={smallScreen}>
+        <li key={`breadcrumb-${index}`} className={listItemCn}>
           {index !== 0 && chevronIcon}
           {item}
-        </ListItem>
+        </li>
       );
     });
 
@@ -89,25 +67,25 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
 
     const breadcrumbChildrenSmallScreen = (
       <>
-        <ListItem smallScreen={smallScreen}>{childrenArray[0]}</ListItem>
+        <li className={listItemCn}>{childrenArray[0]}</li>
         {breadcrumbChildrenTruncated.length > 0 && (
-          <ListItem smallScreen={smallScreen}>
+          <li className={listItemCn}>
             {chevronIcon}
             <OverflowMenuGroup>
               <Button
                 size="tiny"
                 icon={MoreHorizontalIcon}
-                appearance="borderless"
+                purpose="tertiary"
                 aria-label={`Vis brødsmulesti brødsmule 2 ${breadcrumbChildrenTruncated.length > 1 && `til ${breadcrumbChildren.length - 1}`}`}
               />
               <OverflowMenu items={breadcrumbChildrenTruncated}></OverflowMenu>
             </OverflowMenuGroup>
-          </ListItem>
+          </li>
         )}
-        <ListItem smallScreen={smallScreen}>
+        <li className={listItemCn}>
           {chevronIcon}
           {childrenArray[childrenArray.length - 1]}
-        </ListItem>
+        </li>
       </>
     );
 
@@ -117,9 +95,9 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
         ref={ref}
         aria-label="brødsmulesti"
       >
-        <List>
+        <ul className={cn(styles.list, utilStyles['remove-list-styling'])}>
           {smallScreen ? breadcrumbChildrenSmallScreen : breadcrumbChildren}
-        </List>
+        </ul>
       </nav>
     );
   },

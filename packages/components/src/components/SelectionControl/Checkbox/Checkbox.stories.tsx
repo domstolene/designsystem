@@ -47,6 +47,19 @@ export const Overview: Story = {
         disabled
         indeterminate
       />
+      <Checkbox {...args} label={args.label ?? 'ReadOnly'} readOnly />
+      <Checkbox
+        {...args}
+        label={args.label ?? 'ReadOnly checked'}
+        readOnly
+        checked
+      />
+      <Checkbox
+        {...args}
+        label={args.label ?? 'ReadOnly indeterminate'}
+        readOnly
+        indeterminate
+      />
       <Checkbox {...args} label={args.label ?? 'Error'} error />
       <Checkbox {...args} label={args.label ?? 'Error checked'} error checked />
       <Checkbox {...args} />

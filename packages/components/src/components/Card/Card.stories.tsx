@@ -2,7 +2,6 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import styled from 'styled-components';
 
 import {
   DescriptionList,
@@ -10,7 +9,8 @@ import {
   DescriptionListTerm,
 } from '../DescriptionList';
 import { Divider } from '../Divider';
-import { Typography } from '../Typography';
+import { HStack, VStack } from '../Stack';
+import { Heading, Link, Paragraph, Typography } from '../Typography';
 
 import { Card, CardAccordion, CardAccordionBody, CardAccordionHeader } from '.';
 
@@ -32,107 +32,74 @@ export default {
 type Story = StoryObj<typeof Card>;
 
 const body = (
-  <Typography>
+  <Paragraph>
     Content Content Content Content Content Content Content Content
-  </Typography>
+  </Paragraph>
 );
 
-const bodyOnDark = (
-  <Typography color="onDark">
-    Content Content Content Content Content Content Content Content
-  </Typography>
-);
-
-const ContentContainer = styled.div`
-  padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
-`;
+const contentContainerStyle = {
+  padding: ddsBaseTokens.spacing.SizesDdsSpacingX075,
+};
 
 export const Overview: Story = {
   decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4}>
+    <StoryTemplate>
       <Story />
     </StoryTemplate>
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
-    <>
-      <Card {...args} cardType="info">
-        <ContentContainer>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </ContentContainer>
-      </Card>
-      <Card {...args} cardType="info" color="filledDark">
-        <ContentContainer>
-          <Typography color="onDark" typographyType="headingSans03">
-            Title
-          </Typography>
-          {bodyOnDark}
-        </ContentContainer>
-      </Card>
-      <Card {...args} cardType="info" color="strokeDark">
-        <ContentContainer>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </ContentContainer>
-      </Card>
-      <Card {...args} cardType="info" color="strokeLight">
-        <ContentContainer>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </ContentContainer>
-      </Card>
-      <Card {...args} cardType="navigation" href="#">
-        <ContentContainer>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </ContentContainer>
-      </Card>
-      <Card {...args} color="filledDark" cardType="navigation" href="#">
-        <ContentContainer>
-          <Typography color="onDark" typographyType="headingSans03">
-            Title
-          </Typography>
-          {bodyOnDark}
-        </ContentContainer>
-      </Card>
-      <Card {...args} color="strokeDark" cardType="navigation" href="#">
-        <ContentContainer>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </ContentContainer>
-      </Card>
-      <Card {...args} color="strokeLight" cardType="navigation" href="#">
-        <ContentContainer>
-          <Typography typographyType="headingSans03">Title</Typography>
-          {body}
-        </ContentContainer>
-      </Card>
-      <Card {...args} cardType="info" color="filledLight">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="info" color="filledDark">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="info" color="strokeDark">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="info" color="strokeLight">
-        <CardAccordion>
-          <CardAccordionHeader> Title </CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-    </>
+    <HStack gap="x1.5" align="start">
+      <VStack gap="x1" align="start">
+        <Card {...args} cardType="info">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+        <Card {...args} cardType="navigation" href="#">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+        <Card {...args} cardType="expandable">
+          <CardAccordion>
+            <CardAccordionHeader> Title </CardAccordionHeader>
+            <CardAccordionBody>Content</CardAccordionBody>
+          </CardAccordion>
+        </Card>
+      </VStack>
+      <VStack gap="x1" align="start">
+        <Card {...args} cardType="info" appearance="border">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+        <Card {...args} appearance="border" cardType="navigation" href="#">
+          <div style={contentContainerStyle}>
+            <Heading level={2} typographyType="headingSans03">
+              Title
+            </Heading>
+            {body}
+          </div>
+        </Card>
+
+        <Card {...args} cardType="expandable" appearance="border">
+          <CardAccordion>
+            <CardAccordionHeader> Title </CardAccordionHeader>
+            <CardAccordionBody>Content</CardAccordionBody>
+          </CardAccordion>
+        </Card>
+      </VStack>
+    </HStack>
   ),
 };
 
@@ -177,9 +144,9 @@ export const Accordions: Story = {
           <CardAccordionBody>
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
-            <Typography typographyType="a" href="#">
+            <Link href="#">
               særavtale om dekning av utgifter til reise og kost
-            </Typography>
+            </Link>
             ). Reisen skal foretas på raskeste og rimeligste måte for staten.
             Offentlig transport må benyttes der det er tilgjengelig.
             Godtgjørelse for bruk av egen bil godtas bare i den utstrekning det
@@ -200,17 +167,14 @@ export const Accordions: Story = {
             DA er behandlingsansvarlig for opplysningene som registreres i
             Aktørportalen og avdelingsdirektør for IT-avdelingen har det daglige
             ansvaret for Aktørportalen. Selskapet Bekk utvikler Aktørportalen
-            for oss.{' '}
-            <Typography typographyType="a" href="#">
-              Lenke
-            </Typography>
+            for oss. <Link href="#">Lenke</Link>
           </CardAccordionBody>
         </CardAccordion>
       </Card>
       <Card {...args} cardType="expandable">
         <CardAccordion>
           <CardAccordionHeader>Bli vitnestøtte?</CardAccordionHeader>
-          <CardAccordionBody paddingTop="4px">
+          <CardAccordionBody>
             <Typography typographyType="headingSans02" withMargins>
               Opplæringsfilm
             </Typography>
@@ -267,7 +231,7 @@ export const AccordionCustom: Story = {
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
-    <Card {...args} cardType="expandable" color="strokeLight">
+    <Card {...args} cardType="expandable" appearance="border">
       <CardAccordion>
         <CardAccordionHeader
           typographyType="bodySans01"
@@ -277,12 +241,12 @@ export const AccordionCustom: Story = {
           Dekning av reiseutgifter
         </CardAccordionHeader>
         <CardAccordionBody padding="16px 12px">
-          <Typography typographyType="bodySans01">
+          <Paragraph typographyType="bodySans01">
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
-            <Typography typographyType="a" href="#">
+            <Link href="#">
               særavtale om dekning av utgifter til reise og kost
-            </Typography>
+            </Link>
             ). Reisen skal foretas på raskeste og rimeligste måte for staten.
             Offentlig transport må benyttes der det er tilgjengelig.
             Godtgjørelse for bruk av egen bil godtas bare i den utstrekning det
@@ -293,7 +257,7 @@ export const AccordionCustom: Story = {
             dekkes utgifter til måltider etter satsene i særavtalen om dekning
             av utgifter til reise og kost. Dersom enkeltmåltider er dekket av
             andre enn deg selv, må du registrere måltidsfradrag.
-          </Typography>
+          </Paragraph>
         </CardAccordionBody>
       </CardAccordion>
     </Card>
@@ -309,7 +273,7 @@ export const Examples: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args}>
-      <ContentContainer>
+      <div style={contentContainerStyle}>
         <DescriptionList>
           <DescriptionListTerm>Title</DescriptionListTerm>
           <DescriptionListDesc>Description</DescriptionListDesc>
@@ -319,7 +283,7 @@ export const Examples: Story = {
           <DescriptionListTerm>Title</DescriptionListTerm>
           <DescriptionListDesc>Description</DescriptionListDesc>
         </DescriptionList>
-      </ContentContainer>
+      </div>
     </Card>
   ),
 };

@@ -7,3 +7,4 @@ export * from './icon';
 export * from './idGenerator';
 export * from './searchFilter';
 export * from './text';
+export * from './RequiredMarker';

@@ -1,4 +1,4 @@
-import { type Property } from 'csstype';
+import { type Properties, type Property } from 'csstype';
 import {
   type HTMLAttributes,
   forwardRef,
@@ -7,26 +7,15 @@ import {
   useRef,
   useState,
 } from 'react';
-import styled, { css } from 'styled-components';
 
 import { TabsContext } from './Tabs.context';
+import styles from './Tabs.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
   getBaseHTMLProps,
 } from '../../types';
-
-interface ContainerProps {
-  $width?: Property.Width;
-}
-
-const Container = styled.div<ContainerProps>`
-  ${({ $width }) =>
-    $width &&
-    css`
-      width: ${$width};
-    `};
-`;
+import { cn } from '../../utils';
 
 export type TabsProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -75,9 +64,9 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     }
   }, [activeTab, thisActiveTab]);
 
-  const containerProps = {
-    ...getBaseHTMLProps(uniqueId, className, htmlProps, rest),
-    ref,
+  const customWidth: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-tabs-width' as any]: width,
   };
 
   return (
@@ -93,9 +82,18 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
         tabContentDirection,
       }}
     >
-      <Container {...containerProps} $width={width}>
+      <div
+        ref={ref}
+        {...getBaseHTMLProps(
+          uniqueId,
+          cn(className, styles.tabs),
+          htmlProps,
+          rest,
+        )}
+        style={{ ...htmlProps?.style, ...customWidth }}
+      >
         {children}
-      </Container>
+      </div>
     </TabsContext.Provider>
   );
 });

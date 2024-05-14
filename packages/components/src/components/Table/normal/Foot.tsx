@@ -1,17 +1,10 @@
 import { type HTMLAttributes, forwardRef } from 'react';
-import styled from 'styled-components';
-
-const StyledFoot = styled.tfoot``;
 
 export type TableFootProps = HTMLAttributes<HTMLTableSectionElement>;
 
 export const Foot = forwardRef<HTMLTableSectionElement, TableFootProps>(
-  ({ children, ...rest }, ref) => {
-    return (
-      <StyledFoot ref={ref} {...rest}>
-        {children}
-      </StyledFoot>
-    );
+  (props, ref) => {
+    return <tfoot ref={ref} {...props} />;
   },
 );
 

@@ -1,16 +1,9 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { backLinkTokens } from './BackLink.tokens';
+import styles from './BackLink.module.css';
 import { Icon } from '../Icon';
 import * as icons from '../Icon/icons';
 import { Link } from '../Typography';
-
-const StyledLink = styled(Link)`
-  align-items: center;
-  display: flex;
-  gap: ${backLinkTokens.link.gap};
-`;
 
 export interface BackLinkProps {
   /**
@@ -26,10 +19,10 @@ export interface BackLinkProps {
 export const BackLink = forwardRef<HTMLElement, BackLinkProps>((props, ref) => {
   return (
     <nav ref={ref} aria-label="gå tilbake">
-      <StyledLink href={props.href}>
+      <Link href={props.href} className={styles.link}>
         <Icon icon={icons.ArrowLeftIcon} iconSize="small" />
         {props.label}
-      </StyledLink>
+      </Link>
     </nav>
   );
 });

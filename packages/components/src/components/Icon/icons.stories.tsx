@@ -1,100 +1,20 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
 
 import { Icon } from './Icon';
 import { CopyIcon } from './icons/copy';
+import styles from './IconStory.module.css';
 import { type SvgIcon, type SvgProps } from './utils';
-import { icons } from '../..';
+import { cn, icons } from '../..';
 import { Button } from '../Button';
+import { focusable } from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { LocalMessage } from '../LocalMessage';
 import { Modal, ModalBody } from '../Modal';
 import { Typography } from '../Typography';
 
-const { colors, spacing, borderRadius } = ddsBaseTokens;
-
 export default {
   title: 'Icons/Overview',
 };
-
-const IconContainer = styled.div`
-  padding: ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX025};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  gap: ${spacing.SizesDdsSpacingX075};
-  width: 80px;
-  @media only screen and (min-width: 1400px) {
-    width: 100px;
-  }
-  transition: background-color 0.2s;
-  &:hover {
-    background-color: ${colors.DdsColorInteractiveLightest};
-  }
-`;
-
-const OverviewContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: ${spacing.SizesDdsSpacingX05};
-`;
-
-const Container = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: ${spacing.SizesDdsSpacingX15};
-  max-width: 800px;
-  margin: auto;
-  @media only screen and (min-width: 1400px) {
-    max-width: 1150px;
-  }
-  @media only screen and (min-width: 1600px) {
-    max-width: 1350px;
-  }
-`;
-
-const Name = styled(Typography)`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-  text-align: center;
-`;
-
-const MessageWrapper = styled.div`
-  position: absolute;
-  right: 50%;
-`;
-
-const GroupHeader = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${spacing.SizesDdsSpacingX025};
-  position: relative;
-`;
-
-const CodeBlock = styled.div`
-  background-color: ${colors.DdsColorNeutralsGray8};
-  padding: ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX1};
-  margin: ${spacing.SizesDdsSpacingX1} 0;
-  border-radius: ${borderRadius.RadiiDdsBorderRadius1Radius};
-  code.icon-code {
-    color: white;
-  }
-`;
-
-const IconRow = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: ${spacing.SizesDdsSpacingX05};
-  margin-bottom: ${spacing.SizesDdsSpacingX1};
-`;
 
 export const Overview = () => {
   const [iconState, setIconState] = useState<
@@ -146,35 +66,49 @@ export const Overview = () => {
     return Object.entries(iconsObject).map(([key, value]) => {
       const trimmedName = trim(key);
       return (
-        <IconContainer
+        <button
           key={key}
           onClick={() => onIconClick(key, value)}
           title={trimmedName}
+          className={cn(
+            styles.card,
+            utilStyles['remove-button-styling'],
+            focusable,
+          )}
         >
           <Icon iconSize="large" icon={value} />
-          <Name typographyType="supportingStyleTiny01">{trimmedName}</Name>
-        </IconContainer>
+          <Typography
+            typographyType="supportingStyleTiny01"
+            className={styles.card__name}
+          >
+            {trimmedName}
+          </Typography>
+        </button>
       );
     });
   };
 
   const importCode = `import { ${iconState?.name} } from '@norges-domstoler/dds-components';`;
   const useCode = `<Icon icon={${iconState?.name}} />`;
-  const copyConfirmation = (
-    <MessageWrapper>
-      <LocalMessage width="fit-content" message="kopiert" purpose="success" />
-    </MessageWrapper>
+  const copyConfirmation = (type: string) => (
+    <div className={styles.message}>
+      <LocalMessage
+        width="fit-content"
+        message={`kopiert ${type}`}
+        purpose="success"
+      />
+    </div>
   );
 
   return (
-    <Container>
+    <div className={styles.page}>
       <Typography typographyType="bodySans03">
         Klikk på ikonet for mer info.
       </Typography>
       <Typography typographyType="supportingStyleHelperText01">
         Antall ikoner: {Object.keys(iconsObject).length}
       </Typography>
-      <OverviewContainer>{iconOverview()}</OverviewContainer>
+      <div className={styles.overview}>{iconOverview()}</div>
       <Modal
         isOpen={!closed}
         onClose={close}
@@ -182,41 +116,45 @@ export const Overview = () => {
       >
         <ModalBody>
           {iconState && (
-            <IconRow>
+            <div className={styles['icon-row']}>
               <Icon icon={iconState.icon} iconSize="small" />
               <Icon icon={iconState.icon} iconSize="medium" />
               <Icon icon={iconState.icon} iconSize="large" />
               <Button icon={iconState.icon} />
-            </IconRow>
+            </div>
           )}
-          <GroupHeader>
+          <div className={styles['group-header']}>
             <Typography typographyType="headingSans02">Import</Typography>
             <Button
               icon={CopyIcon}
               size="tiny"
-              appearance="borderless"
+              purpose="tertiary"
               onClick={() => handleCopyImport(importCode)}
             />
-            {copiedImport && copyConfirmation}
-          </GroupHeader>
-          <CodeBlock>
-            <code className="icon-code">{importCode}</code>
-          </CodeBlock>
-          <GroupHeader>
+            {copiedImport && copyConfirmation('import')}
+          </div>
+          <div className={styles['code-block']}>
+            <code className={cn(styles['icon-code'], 'icon-code')}>
+              {importCode}
+            </code>
+          </div>
+          <div className={styles['group-header']}>
             <Typography typographyType="headingSans02">Bruk</Typography>
             <Button
               icon={CopyIcon}
               size="tiny"
-              appearance="borderless"
+              purpose="tertiary"
               onClick={() => handleCopyUse(useCode)}
             />
-            {copiedUse && copyConfirmation}
-          </GroupHeader>
-          <CodeBlock>
-            <code className="icon-code">{useCode}</code>
-          </CodeBlock>
+            {copiedUse && copyConfirmation('bruk')}
+          </div>
+          <div className={styles['code-block']}>
+            <code className={cn(styles['icon-code'], 'icon-code')}>
+              {useCode}
+            </code>
+          </div>
         </ModalBody>
       </Modal>
-    </Container>
+    </div>
   );
 };

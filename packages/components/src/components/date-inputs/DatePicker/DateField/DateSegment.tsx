@@ -4,62 +4,36 @@ import type {
   DateSegment as DateSegmentType,
 } from '@react-stately/datepicker';
 import { useRef } from 'react';
-import styled, { css } from 'styled-components';
 
+import { cn } from '../../../../utils';
+import { type InputSize } from '../../../helpers';
+import {
+  type StaticTypographyType,
+  getTypographyCn,
+} from '../../../Typography';
+import typographyStyles from '../../../Typography/typographyStyles.module.css';
+import styles from '../../common/DateInput.module.css';
 import { type DatePickerProps } from '../DatePicker';
-import { datePickerTokens } from '../DatePicker.tokens';
-const {
-  datefield: { segment: segmentTokens },
-} = datePickerTokens;
+
+export const typographyTypes: { [k in InputSize]: StaticTypographyType } = {
+  medium: 'bodySans02',
+  small: 'bodySans01',
+  tiny: 'supportingStyleTiny01',
+};
+
+export const placeholderTypographyTypes: {
+  [k in InputSize]: StaticTypographyType;
+} = {
+  medium: 'supportingStylePlaceholderText01',
+  small: 'supportingStylePlaceholderText02',
+  tiny: 'supportingStylePlaceholderText03',
+};
 
 interface DateSegmentProps
   extends Pick<Required<DatePickerProps>, 'componentSize'> {
   segment: DateSegmentType;
   state: DateFieldState;
 }
-
-const Segment = styled.div<{
-  $componentSize: DateSegmentProps['componentSize'];
-}>`
-  display: block;
-  width: max-content;
-  font-variant-numeric: tabular-nums;
-  outline: none;
-  padding: ${segmentTokens.padding.y} ${segmentTokens.padding.x};
-  ${({ $componentSize }) => css`
-    font-family: ${segmentTokens[$componentSize].font.fontFamily};
-    font-size: ${segmentTokens[$componentSize].font.fontSize};
-    font-style: ${segmentTokens[$componentSize].font.fontStyle};
-    font-weight: ${segmentTokens[$componentSize].font.fontWeight};
-    line-height: ${segmentTokens[$componentSize].font.lineHeight};
-  `}
-
-  &:focus:not([aria-readonly]) {
-    background-color: ${segmentTokens.focus.backgroundColor};
-    color: ${segmentTokens.focus.textColor};
-  }
-`;
-
-const SegmentPlaceholder = styled.span<{
-  $componentSize: DateSegmentProps['componentSize'];
-}>`
-  display: block;
-  width: 100%;
-  font-variant-numeric: tabular-nums;
-
-  ${({ $componentSize }) => css`
-    font-family: ${segmentTokens[$componentSize].placeholder.fontFamily};
-    font-size: ${segmentTokens[$componentSize].placeholder.fontSize};
-    font-style: ${segmentTokens[$componentSize].placeholder.fontStyle};
-    font-weight: ${segmentTokens[$componentSize].placeholder.fontWeight};
-    line-height: ${segmentTokens[$componentSize].placeholder.lineHeight};
-    color: ${segmentTokens[$componentSize].placeholder.textColor};
-  `}
-
-  ${Segment}:focus & {
-    color: ${segmentTokens.focus.textColor};
-  }
-`;
 
 export function DateSegment({
   segment,
@@ -70,10 +44,14 @@ export function DateSegment({
   const { segmentProps } = useDateSegment(segment, state, ref);
 
   return (
-    <Segment
+    <div
       {...segmentProps}
-      $componentSize={componentSize}
       ref={ref}
+      className={cn(
+        segmentProps.className,
+        styles.segment,
+        typographyStyles[getTypographyCn(typographyTypes[componentSize])],
+      )}
       style={{
         ...segmentProps.style,
         minWidth:
@@ -82,22 +60,22 @@ export function DateSegment({
             : undefined,
       }}
     >
-      <SegmentPlaceholder
+      <span
         aria-hidden="true"
-        $componentSize={componentSize}
-        style={{
-          visibility: segment.isPlaceholder ? undefined : 'hidden',
-          height: segment.isPlaceholder ? undefined : 0,
-          width: segment.isPlaceholder ? undefined : 0,
-          pointerEvents: 'none',
-        }}
+        className={cn(
+          styles.segment__placeholder,
+          !segment.isPlaceholder && styles['segment__placeholder--invisible'],
+          typographyStyles[
+            getTypographyCn(placeholderTypographyTypes[componentSize])
+          ],
+        )}
       >
         {segment.placeholder}
-      </SegmentPlaceholder>
+      </span>
       {segment.isPlaceholder
         ? ''
         : segment.text.padStart(String(segment.maxValue ?? '').length, '0')}
-    </Segment>
+    </div>
   );
 }
 

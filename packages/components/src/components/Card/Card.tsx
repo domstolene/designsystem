@@ -1,74 +1,23 @@
 import { type AnchorHTMLAttributes, type RefObject } from 'react';
-import styled, { css } from 'styled-components';
 
-import { cardTokens as tokens } from './Card.tokens';
+import styles from './Card.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { focusVisible, hoverWithBorder, selection } from '../helpers';
-import { defaultTypographyType, getFontStyling } from '../Typography';
+import { cn } from '../../utils';
+import focusStyles from '../helpers/styling/focus.module.css';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
-interface ContainerProps {
-  color: CardColor;
-  cardType: CardType;
-}
-
-const Container = styled.div.withConfig({
-  shouldForwardProp: prop => prop !== 'color' && prop !== 'cardType',
-})<ContainerProps>`
-  border: ${tokens.base.border};
-  ${getFontStyling(defaultTypographyType)};
-  &::selection,
-  *::selection {
-    ${selection}
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    transition:
-      box-shadow 0.2s,
-      border-color 0.2s;
-  }
-  ${({ color }) =>
-    color &&
-    css`
-      color: ${tokens.colors[color].color};
-      background-color: ${tokens.colors[color].backgroundColor};
-      border-color: ${tokens.colors[color].borderColor};
-    `}
-  ${({ cardType }) =>
-    cardType === 'navigation'
-      ? css`
-          text-decoration: none;
-          &:hover {
-            ${hoverWithBorder}
-          }
-          &:focus-visible {
-            ${focusVisible}
-          }
-        `
-      : cardType === 'expandable'
-        ? css`
-            width: 100%;
-            box-sizing: border-box;
-            &:not(:first-of-type) {
-              border-top: none;
-            }
-          `
-        : ''}
-`;
-export type CardColor =
-  | 'filledDark'
-  | 'filledLight'
-  | 'strokeDark'
-  | 'strokeLight';
+export type CardAppearance = 'filled' | 'border';
 
 export type CardType = 'info' | 'navigation' | 'expandable';
 
 type BaseCardProps<T extends HTMLElement> = BaseComponentPropsWithChildren<
   T,
   {
-    /** Fargepalett i komponenten. */
-    color?: CardColor;
+    /** Utseende på komponenten. */
+    appearance?: CardAppearance;
 
     /** Referanse til komponenten. */
     cardRef?: RefObject<T>;
@@ -95,44 +44,43 @@ export type CardProps =
 
 export const Card = (props: CardProps) => {
   const {
-    color = 'filledLight',
+    appearance = 'filled',
     cardType,
     cardRef,
-    children,
     id,
     className,
     htmlProps,
     ...rest
   } = props;
 
+  const classNames = cn(
+    className,
+    typographyStyles['body-sans-02'],
+    styles.container,
+    styles[`container--${appearance}`],
+    cardType !== 'info' && styles[`container--${cardType}`],
+  );
+
   if (cardType === 'navigation') {
     const { href, target } = props;
 
     return (
-      <Container
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
-        cardType={cardType}
-        color={color}
-        as="a"
+      <a
+        {...getBaseHTMLProps(
+          id,
+          cn(classNames, focusStyles.focusable),
+          htmlProps,
+          rest,
+        )}
         ref={cardRef}
         href={href}
         target={target}
-      >
-        {children}
-      </Container>
+      />
     );
   }
 
   return (
-    <Container
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      cardType={cardType}
-      color={color}
-      as="div"
-      ref={cardRef}
-    >
-      {children}
-    </Container>
+    <div {...getBaseHTMLProps(id, classNames, htmlProps, rest)} ref={cardRef} />
   );
 };
 

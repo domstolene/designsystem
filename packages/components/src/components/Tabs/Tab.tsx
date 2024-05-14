@@ -10,77 +10,21 @@ import {
   useEffect,
   useRef,
 } from 'react';
-import styled, { css } from 'styled-components';
 
 import { useTabsContext } from './Tabs.context';
-import { tabsTokens as tokens } from './Tabs.tokens';
+import styles from './Tabs.module.css';
 import { useSetTabWidth } from './TabWidthContext';
 import { useCombinedRef } from '../../hooks';
 import {
   type BaseComponentPropsWithChildren,
-  type Direction,
   getBaseHTMLProps,
 } from '../../types';
-import {
-  focusVisibleInset,
-  focusVisibleTransitionValue,
-  normalizeButton,
-  removeButtonStyling,
-} from '../helpers';
+import { cn } from '../../utils';
+import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
-import { defaultTypographyType, getFontStyling } from '../Typography';
-
-const { tab } = tokens;
-
-interface ButtonProps {
-  $active: boolean;
-  $direction: Direction;
-}
-
-const Button = styled.button<ButtonProps>`
-  ${normalizeButton}
-  ${removeButtonStyling}
-  user-select: text;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: ${tab.base.borderBottom};
-  background: ${tab.base.background};
-  color: ${tab.base.color};
-  padding: ${tab.base.padding};
-  ${getFontStyling(defaultTypographyType)}
-
-  @media (prefers-reduced-motion: no-preference) {
-    transition:
-      box-shadow 0.2s,
-      border-bottom 0.2s,
-      color 0.2s,
-      ${focusVisibleTransitionValue};
-  }
-
-  ${({ $direction }) => css`
-    flex-direction: ${$direction};
-    gap: ${tab[$direction].gap};
-  `};
-
-  ${({ $active }) =>
-    $active &&
-    css`
-      background-color: ${tab.active.backgroundColor};
-      border-color: ${tab.active.borderColor};
-      color: ${tab.active.color};
-    `}
-
-  &:focus-visible {
-    ${focusVisibleInset}
-  }
-
-  &:hover {
-    border-color: ${tab.hover.borderColor};
-    color: ${tab.hover.color};
-  }
-`;
+import { defaultTypographyType, getTypographyCn } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type TabProps = BaseComponentPropsWithChildren<
   HTMLButtonElement,
@@ -151,20 +95,30 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
   };
 
   return (
-    <Button
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+    <button
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.tab,
+          active && styles['tab--active'],
+          styles[`tab--${tabContentDirection}`],
+          typographyStyles[getTypographyCn(defaultTypographyType)],
+          focusStyles['focusable--inset'],
+        ),
+        htmlProps,
+        rest,
+      )}
       ref={combinedRef}
       aria-selected={active}
       role="tab"
-      $active={active}
-      $direction={tabContentDirection}
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
       tabIndex={focus ? 0 : -1}
     >
       {icon && <Icon icon={icon} iconSize="inherit" />}
       <span>{children}</span>
-    </Button>
+    </button>
   );
 });
 

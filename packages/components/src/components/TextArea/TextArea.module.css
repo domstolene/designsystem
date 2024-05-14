@@ -1,0 +1,10 @@
+.container {
+  width: var(--dds-input-default-width);
+}
+
+.textarea {
+  height: auto;
+  resize: vertical;
+  vertical-align: bottom;
+  padding-bottom: var(--sizes-dds-spacing-x-0-5);
+}

@@ -1,21 +1,13 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
 
-import { descriptionListTokens as tokens } from './DescriptionList.tokens';
+import styles from './DescriptionList.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
-
-const DListDesc = styled.dd`
-  margin-inline-start: 0;
-  align-items: center;
-  display: flex;
-  color: ${tokens.desc.base.color};
-  gap: ${tokens.desc.base.gap};
-`;
 
 export type DescriptionListDescProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -31,16 +23,13 @@ export const DescriptionListDesc = forwardRef<
 >((props, ref) => {
   const { children, icon, id, className, htmlProps, ...rest } = props;
 
-  const dListDescProps = {
-    ...getBaseHTMLProps(id, className, htmlProps, rest),
-    children,
-    ref,
-  };
-
   return (
-    <DListDesc {...dListDescProps}>
+    <dd
+      ref={ref}
+      {...getBaseHTMLProps(id, cn(className, styles.desc), htmlProps, rest)}
+    >
       {icon && <Icon icon={icon} />} {children}
-    </DListDesc>
+    </dd>
   );
 });
 

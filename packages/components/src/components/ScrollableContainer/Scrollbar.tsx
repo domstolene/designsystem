@@ -6,42 +6,11 @@ import {
   useRef,
   useState,
 } from 'react';
-import styled from 'styled-components';
 
-import { scrollbarTokens as tokens } from './ScrollableContainer.tokens';
+import styles from './ScrollableContainer.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 
-const { track, thumb, minThumbHeightPx } = tokens;
-
-const ScrollbarOuterWrapper = styled.div``;
-
-const ScrollbarElements = styled.div`
-  display: block;
-  height: 100%;
-  position: relative;
-  display: grid;
-  justify-items: center;
-`;
-
-const Track = styled.div`
-  bottom: 0;
-  top: 0;
-  position: absolute;
-  background-color: ${track.backgroundColor};
-  border-radius: ${track.borderRadius};
-  width: ${track.width};
-`;
-
-const Thumb = styled.div`
-  position: absolute;
-  background-color: ${thumb.base.backgroundColor};
-  border-radius: ${thumb.base.borderRadius};
-  width: ${thumb.base.width};
-  transition: background-color 0.2s;
-  &:hover {
-    background-color: ${thumb.hover.backgroundColor};
-  }
-`;
+const minThumbHeightPx = 15;
 
 export type ScrollbarProps = BaseComponentProps<
   HTMLDivElement,
@@ -173,21 +142,24 @@ export const Scrollbar = (props: ScrollbarProps) => {
   }, [handleThumbMousemove, handleThumbMouseup]);
 
   return isScrollable ? (
-    <ScrollbarOuterWrapper
-      {...getBaseHTMLProps(id, className, htmlProps, rest)}
-    >
-      <ScrollbarElements>
-        <Track ref={trackRef} onClick={handleTrackClick} />
-        <Thumb
+    <div {...getBaseHTMLProps(id, className, htmlProps, rest)}>
+      <div className={styles.scrollbar}>
+        <div
+          ref={trackRef}
+          onClick={handleTrackClick}
+          className={styles.track}
+        />
+        <div
           style={{
             height: thumbHeight,
             top: thumbTop,
           }}
           ref={thumbRef}
           onMouseDown={handleThumbMousedown}
+          className={styles.thumb}
         />
-      </ScrollbarElements>
-    </ScrollbarOuterWrapper>
+      </div>
+    </div>
   ) : null;
 };
 

@@ -11,8 +11,8 @@ import {
   components,
 } from 'react-select';
 
-import { InnerSingleValue, StyledIcon } from './Select.styles';
-import { getFormInputIconSize } from '../../utils';
+import styles from './Select.module.css';
+import { cn, getFormInputIconSize } from '../../utils';
 import { type InputSize } from '../helpers';
 import { Icon, type SvgIcon } from '../Icon';
 import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../Icon/icons';
@@ -57,9 +57,9 @@ export const CustomSingleValue = <TOption, IsMulti extends boolean>(
   ) => JSX.Element,
 ) => (
   <SingleValue {...props}>
-    <InnerSingleValue id={id}>
+    <div id={id} className={styles['inner-single-value']}>
       {Element ? <Element {...props} /> : props.children}
-    </InnerSingleValue>
+    </div>
   </SingleValue>
 );
 
@@ -87,11 +87,17 @@ export const DDSMultiValueRemove = <TValue, IsMulti extends boolean>(
 export const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
   props: DropdownIndicatorProps<TValue, IsMulti>,
   size: InputSize,
-) => (
-  <DropdownIndicator {...props}>
-    <Icon icon={ChevronDownIcon} iconSize={getFormInputIconSize(size)} />
-  </DropdownIndicator>
-);
+) => {
+  const { className, ...rest } = props;
+  return (
+    <DropdownIndicator
+      {...rest}
+      className={cn(className, styles['dropdown-indicator'])}
+    >
+      <Icon icon={ChevronDownIcon} iconSize={getFormInputIconSize(size)} />
+    </DropdownIndicator>
+  );
+};
 
 export const DDSInput = <TOption, IsMulti extends boolean>(
   props: InputProps<TOption, IsMulti>,
@@ -108,20 +114,36 @@ export const DDSInput = <TOption, IsMulti extends boolean>(
 export const DDSControl = <TValue, IsMulti extends boolean>(
   props: ControlProps<TValue, IsMulti>,
   componentSize: InputSize,
+  readOnly?: boolean,
   icon?: SvgIcon,
   dataTestId?: string,
-) => (
-  <div
-    data-testid={dataTestId ? ((dataTestId + '-control') as string) : undefined}
-  >
-    <Control {...props}>
-      {icon && (
-        <StyledIcon
-          icon={icon}
-          iconSize={getFormInputIconSize(componentSize)}
-        />
-      )}
-      {props.children}
-    </Control>
-  </div>
-);
+) => {
+  const { className, ...rest } = props;
+
+  return (
+    <div
+      data-testid={
+        dataTestId ? ((dataTestId + '-control') as string) : undefined
+      }
+    >
+      <Control
+        {...rest}
+        className={cn(
+          className,
+          styles.control,
+          rest.isDisabled && styles['control--disabled'],
+          readOnly && styles['control--readonly'],
+        )}
+      >
+        {icon && (
+          <Icon
+            icon={icon}
+            iconSize={getFormInputIconSize(componentSize)}
+            className={styles.icon}
+          />
+        )}
+        {props.children}
+      </Control>
+    </div>
+  );
+};
