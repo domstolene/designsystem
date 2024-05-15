@@ -1,16 +1,15 @@
-import { type Meta, type StoryObj } from '@storybook/react';
-
 import {
   BarChartIcon,
   ChecklistIcon,
   FolderIcon,
   GavelIcon,
-} from '../Icon/icons';
+} from '@norges-domstoler/dds-components';
+import { type Meta, type StoryObj } from '@storybook/react';
 
 import { AppShell } from '.';
 
 export default {
-  title: 'dds-components/AppShell',
+  title: 'app-shell/AppShell',
   component: AppShell,
   argTypes: {
     title: { control: 'text' },
@@ -18,7 +17,7 @@ export default {
   },
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { inline: true, height: '100vh' },
       canvas: { sourseState: 'shown' },
     },
   },

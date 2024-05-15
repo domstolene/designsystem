@@ -1,7 +1,7 @@
 {
-  "name": "@norges-domstoler/development-utils",
-  "version": "1.2.2",
-  "description": "Development utilities for developing applications in Norges Domstoler",
+  "name": "@norges-domstoler/app-shell",
+  "version": "1.0.0",
+  "description": "Wrapper for Lovisa applications.",
   "author": "Elsa team",
   "license": "MIT",
   "repository": {
@@ -23,8 +23,7 @@
   },
   "keywords": [
     "dds",
-    "design",
-    "development-utils",
+    "app-shell",
     "design system",
     "domstolene",
     "norges domstoler",
@@ -32,8 +31,10 @@
   ],
   "devDependencies": {
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@norges-domstoler/dds-design-tokens": "workspace:*",
+    "@norges-domstoler/dds-components": "workspace:*",
+    "@norges-domstoler/development-utils": "workspace:*",
     "@storybook/blocks": "8.0.10",
+    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@types/react": "^18.2.78",
     "@types/react-dom": "^18.2.25",
@@ -46,6 +47,8 @@
     "vitest": "^1.5.0"
   },
   "peerDependencies": {
+    "@norges-domstoler/dds-components": ">=15",
+    "@norges-domstoler/development-utils": ">=1",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5 || ^6"
