@@ -44,6 +44,7 @@ const topBar = {
   height: `calc(${spacing.SizesDdsSpacingX3} + 2 * ${spacing.SizesDdsSpacingX025})`,
   buttonTextColor: colors.DdsColorNeutralsGray3,
   gap: spacing.SizesDdsSpacingX025,
+  marginTop: spacing.SizesDdsSpacingX025,
 };
 
 const navigation = {

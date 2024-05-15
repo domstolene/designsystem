@@ -1,10 +1,15 @@
+import {
+  type As,
+  ChevronRightIcon,
+  Icon,
+  OpenExternalIcon,
+  type PropsOf,
+  type SvgIcon,
+  focusVisible,
+} from '@norges-domstoler/dds-components';
 import { type MouseEventHandler } from 'react';
 import styled from 'styled-components';
 
-import { type As, type PropsOf } from '../../../types';
-import { Icon } from '../../Icon';
-import { ChevronRightIcon, OpenExternalIcon } from '../../Icon/icons';
-import { type SvgIcon } from '../../Icon/utils';
 import { appShellTokens } from '../AppShell.tokens';
 import { useAppShellContext } from '../AppShellContext';
 
@@ -62,6 +67,9 @@ const InternalNavItem = styled(BaseLink)`
   &.active ${ChevronContainer} {
     opacity: 1;
   }
+  &:focus-visible {
+    ${focusVisible}
+  }
 `;
 
 const ExternalNavItem = styled(BaseLink)`
@@ -75,6 +83,10 @@ const ExternalNavItem = styled(BaseLink)`
   font-weight: ${navItemTokens.external.fontWeight};
   line-height: ${navItemTokens.external.lineHeight};
   letter-spacing: ${navItemTokens.external.letterSpacing};
+
+  &:focus-visible {
+    ${focusVisible}
+  }
 `;
 
 type BaseNavigationItemProps = (

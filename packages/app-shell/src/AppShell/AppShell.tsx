@@ -1,3 +1,4 @@
+import { type OverflowMenuProps } from '@norges-domstoler/dds-components';
 import {
   ENVIRONMENT_BANNER_HEIGHT,
   type Environment,
@@ -10,7 +11,6 @@ import { appShellTokens } from './AppShell.tokens';
 import { AppShellContextProvider } from './AppShellContext';
 import { Navigation } from './Navigation/Navigation';
 import { type User } from './Navigation/TopBar';
-import { type OverflowMenuProps } from '../OverflowMenu';
 
 export type AppShellProps = PropsWithChildren<{
   /**
