@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/app-shell",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Wrapper for Lovisa applications.",
   "author": "Elsa team",
   "license": "MIT",
