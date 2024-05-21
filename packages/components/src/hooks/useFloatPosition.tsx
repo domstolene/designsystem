@@ -1,6 +1,7 @@
 import {
   type Coords,
   type Strategy,
+  type UseFloatingReturn,
   arrow,
   autoUpdate,
   flip,
@@ -47,10 +48,30 @@ interface UseFloatPositionOptions {
   placement?: Placement;
 }
 
+interface UseFloatPosition {
+  refs: UseFloatingReturn['refs'];
+  styles: {
+    floating: {
+      position: Strategy;
+      top: number;
+      left: number;
+    };
+    arrow:
+      | {
+          [x: string]: string | number;
+          position: Strategy;
+          top: string | number;
+          left: string | number;
+          transform: string;
+        }
+      | undefined;
+  };
+}
+
 export const useFloatPosition = (
   arrowRef: HTMLElement | null,
   options: UseFloatPositionOptions = {},
-) => {
+): UseFloatPosition => {
   const {
     animationFrame = true,
     offset = defaultOffset,
@@ -127,7 +148,9 @@ function getArrowStyling(
   };
 }
 
-function placementToArrowPlacement(placement: Placement) {
+type ArrowPlacement = 'top' | 'bottom' | 'left' | 'right';
+
+function placementToArrowPlacement(placement: Placement): ArrowPlacement {
   switch (placement) {
     case 'top':
     case 'top-start':

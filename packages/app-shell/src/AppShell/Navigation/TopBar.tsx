@@ -1,16 +1,17 @@
+import {
+  Button,
+  CloseIcon,
+  MenuIcon,
+  OverflowMenu,
+  OverflowMenuGroup,
+  type OverflowMenuProps,
+  type SvgProps,
+} from '@norges-domstoler/dds-components';
 import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
 import styled from 'styled-components';
 
 import { EmbeteIcon, type EmbeteType } from './EmbeteIcon';
 import { NavigationLogo } from './NavigationLogo';
-import { Button } from '../../Button';
-import { CloseIcon, MenuIcon } from '../../Icon/icons';
-import { type SvgProps } from '../../Icon/utils';
-import {
-  OverflowMenu,
-  OverflowMenuGroup,
-  type OverflowMenuProps,
-} from '../../OverflowMenu';
 import { appShellTokens } from '../AppShell.tokens';
 
 const { navigation: navTokens, floatingActionButtons } = appShellTokens;
@@ -25,6 +26,7 @@ const ActionButtonGroup = styled.div`
   display: flex;
   align-items: center;
   gap: ${navTokens.topBar.gap};
+  margin-top: ${navTokens.topBar.marginTop};
 `;
 
 const IconButton = styled(Button).attrs({
