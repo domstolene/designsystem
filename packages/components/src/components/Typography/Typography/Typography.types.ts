@@ -1,9 +1,10 @@
-import { type TextColor } from '@norges-domstoler/dds-components/src/utils';
 import {
   type ElementType,
   type HTMLAttributes,
   type PropsWithChildren,
 } from 'react';
+
+import { type TextColor } from '../../../utils/color';
 
 type TypographyBodySansType =
   | 'bodySans01'

@@ -30,8 +30,7 @@ const ActionButtonGroup = styled.div`
 `;
 
 const IconButton = styled(Button).attrs({
-  purpose: 'secondary',
-  appearance: 'borderless',
+  purpose: 'tertiary',
 })`
   color: ${navTokens.topBar.buttonTextColor};
   > :first-child {
