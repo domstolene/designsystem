@@ -34,7 +34,7 @@
     "@norges-domstoler/storybook-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@storybook/blocks": "8.1.1",
-    "@testing-library/react": "^14.2.2",
+    "@testing-library/react": "^15.0.7",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "react": "^18.3.1",
