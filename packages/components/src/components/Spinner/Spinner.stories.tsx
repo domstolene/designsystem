@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof Spinner>;
 
 export const Default: Story = {
   args: {
-    size: ddsBaseTokens.iconSizes.DdsIconsizeMedium,
+    size: ddsTokens.DdsIconSizeMedium,
     color: 'interactive',
   },
   decorators: Story => (

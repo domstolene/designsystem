@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Properties, type Property } from 'csstype';
 import { type ButtonHTMLAttributes, forwardRef } from 'react';
 
@@ -56,7 +56,7 @@ export const CardAccordionHeader = forwardRef<
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-card-accordion-header-container-padding' as any]:
       padding ??
-      `${ddsBaseTokens.spacing.SizesDdsSpacingX1} ${ddsBaseTokens.spacing.SizesDdsSpacingX075} ${ddsBaseTokens.spacing.SizesDdsSpacingX1} ${ddsBaseTokens.spacing.SizesDdsSpacingX15}`,
+      'var(--dds-spacing-x1) var(--dds-spacing-x0-75) var(--dds-spacing-x1) var(--dds-spacing-x1-5)',
   };
 
   return (
@@ -90,8 +90,8 @@ export const CardAccordionHeader = forwardRef<
         <div className={styles.header__content}>{children}</div>
         <span className={styles.header__chevron}>
           <AnimatedChevronUpDown
-            width={ddsBaseTokens.iconSizes.DdsIconsizeMedium}
-            height={ddsBaseTokens.spacing.SizesDdsSpacingX05}
+            width={ddsTokens.DdsIconSizeMedium}
+            height={ddsTokens.DdsSpacingX05}
             isUp={isExpanded}
           />
         </span>

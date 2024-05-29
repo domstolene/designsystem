@@ -1,8 +1,7 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 export const scrollbarWidthNumberPx = 10;
 const scrollbarWidth = `${scrollbarWidthNumberPx}px`;
-const { colors, spacing } = ddsBaseTokens;
 
 const track = {
   backgroundColor: 'transparent',
@@ -12,27 +11,17 @@ const track = {
 
 const thumb = {
   base: {
-    backgroundColor: colors.DdsColorPrimaryDarkest.slice(0, -2) + '0.35)',
+    backgroundColor: ddsTokens.DdsColorSurfaceScrollbar,
     borderRadius: '100px',
     width: scrollbarWidth,
   },
   hover: {
-    backgroundColor: colors.DdsColorPrimaryDarkest.slice(0, -2) + '0.5)',
+    backgroundColor: ddsTokens.DdsColorSurfaceScrollbar,
   },
-};
-
-const content = {
-  paddingRight: spacing.SizesDdsSpacingX05,
-};
-
-const outerContainer = {
-  padding: spacing.SizesDdsSpacingX025,
 };
 
 export const scrollbarTokens = {
   minThumbHeightPx: 15,
   track,
   thumb,
-  content,
-  outerContainer,
 };

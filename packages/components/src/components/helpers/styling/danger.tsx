@@ -1,8 +1,6 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-
-const { colors: Colors } = ddsBaseTokens;
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 export const dangerInputfield = {
-  borderColor: Colors.DdsColorDangerBase,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorDangerBase}`,
+  borderColor: ddsTokens.DdsColorBorderDanger,
+  boxShadow: `0 0 0 1px ${ddsTokens.DdsColorBorderDanger}`,
 };

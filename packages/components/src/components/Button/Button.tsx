@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type FocusEventHandler,
   type ForwardedRef,
@@ -104,8 +104,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               size={button[size].spinner.size}
               color={
                 purpose === 'primary' || purpose === 'danger'
-                  ? ddsBaseTokens.colors.DdsColorNeutralsWhite
-                  : ddsBaseTokens.colors.DdsColorNeutralsGray9
+                  ? ddsTokens.DdsColorIconOnAction
+                  : ddsTokens.DdsColorIconDefault
               }
               tooltip={loadingTooltip}
               className={styles.icon}

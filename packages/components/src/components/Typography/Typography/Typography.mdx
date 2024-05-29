@@ -35,10 +35,10 @@ Hvis du bruker styled components til å style `<Typography />` videre og skal br
 
 <Source
   code={`
-  import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+  import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
   import { Typography } from '@norges-domstoler/dds-components';
 
-const Label = styled(Typography)\` padding-left: \${ddsBaseTokens.spacing.SizesDdsSpacingX05};\`;
+const Label = styled(Typography)\` padding-left: \${ddsTokens.DdsSpacingX05};\`;
 
 export const StyledLabel = ({ label }) => {
 

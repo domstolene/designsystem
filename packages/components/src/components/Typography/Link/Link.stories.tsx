@@ -12,6 +12,7 @@ export default {
     external: { control: { type: 'boolean' } },
     typographyType: { control: { type: 'select' } },
     withMargins: { control: { type: 'boolean' } },
+    withVisited: { control: { type: 'boolean' } },
     href: { control: { type: 'text' } },
     htmlProps: { control: false },
   },
@@ -46,6 +47,15 @@ export const Overview: Story = {
       <Link {...args} />
       <Link {...args} external />
     </>
+  ),
+};
+
+export const WithVisited: Story = {
+  args: { children: 'Link', href: 'https://www.domstol.no', withVisited: true },
+  decorators: Story => (
+    <StoryTemplate>
+      <Story />
+    </StoryTemplate>
   ),
 };
 

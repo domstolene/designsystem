@@ -3,13 +3,13 @@
   overflow: hidden;
   position: relative;
   display: grid;
-  padding: var(--sizes-dds-spacing-x-0-25);
+  padding: var(--dds-spacing-x0-25);
 }
 
 .content {
   overflow: auto;
   scrollbar-width: none;
-  padding-right: var(--sizes-dds-spacing-x-0-5);
+  padding-right: var(--dds-spacing-x0-5);
 
   ::-webkit-scrollbar {
     display: none;
@@ -36,7 +36,7 @@
 .thumb {
   position: absolute;
   transition: background-color 0.2s;
-  background-color: var(--dds-color-neutrals-gray-4);
+  background-color: var(--dds-color-surface-scrollbar);
   border-radius: 100px;
   width: 10px;
 }

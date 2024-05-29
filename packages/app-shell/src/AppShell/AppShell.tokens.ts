@@ -1,15 +1,15 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-const { colors, spacing, fontPackages, borderRadius, breakpoints } =
-  ddsBaseTokens;
+import { ddsBaseTokens, ddsTokens } from '@norges-domstoler/dds-design-tokens';
+
+const { colors, spacing, fontPackages, breakpoints } = ddsBaseTokens;
 
 const navigationItems = {
-  gap: spacing.SizesDdsSpacingX05,
+  gap: spacing.DdsSpacingX05,
   item: {
     ...fontPackages.body_sans_02.base,
     color: colors.DdsColorNeutralsGray1,
-    borderRadius: borderRadius.RadiiDdsBorderRadius3Radius,
-    padding: spacing.SizesDdsSpacingX075,
-    gap: spacing.SizesDdsSpacingX05,
+    borderRadius: ddsTokens.DdsBorderRadius3,
+    padding: spacing.DdsSpacingX075,
+    gap: spacing.DdsSpacingX05,
     external: {
       ...fontPackages.body_sans_01.base,
     },
@@ -40,11 +40,11 @@ const logoAndVersion = {
 };
 
 const topBar = {
-  padding: spacing.SizesDdsSpacingX025,
-  height: `calc(${spacing.SizesDdsSpacingX3} + 2 * ${spacing.SizesDdsSpacingX025})`,
+  padding: spacing.DdsSpacingX025,
+  height: `calc(${spacing.DdsSpacingX3} + 2 * ${spacing.DdsSpacingX025})`,
   buttonTextColor: colors.DdsColorNeutralsGray3,
-  gap: spacing.SizesDdsSpacingX025,
-  marginTop: spacing.SizesDdsSpacingX025,
+  gap: spacing.DdsSpacingX025,
+  marginTop: spacing.DdsSpacingX025,
 };
 
 const navigation = {
@@ -54,9 +54,9 @@ const navigation = {
 
   color: colors.DdsColorNeutralsGray1,
   backgroundColor: colors.DdsColorPrimaryBase,
-  gap: spacing.SizesDdsSpacingX05,
+  gap: spacing.DdsSpacingX05,
   dividerColor: colors.DdsColorPrimaryLight,
-  padding: spacing.SizesDdsSpacingX1,
+  padding: spacing.DdsSpacingX1,
   width: '264px',
 
   mobile: {
@@ -66,10 +66,10 @@ const navigation = {
 };
 
 const floatingActionButtons = {
-  gap: spacing.SizesDdsSpacingX1,
+  gap: spacing.DdsSpacingX1,
   textColor: colors.DdsColorNeutralsGray7,
   backgroundColor: colors.DdsColorNeutralsWhite,
-  borderRadius: borderRadius.RadiiDdsBorderRadius3Radius,
+  borderRadius: ddsTokens.DdsBorderRadius3,
 };
 
 export const appShellTokens = { navigation, floatingActionButtons };

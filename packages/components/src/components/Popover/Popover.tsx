@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import { type ReactNode, forwardRef } from 'react';
 
@@ -22,8 +22,6 @@ import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Typography } from '../Typography';
-
-const { spacing: Spacing } = ddsBaseTokens;
 
 export interface PopoverSizeProps {
   width?: Property.Width;
@@ -72,7 +70,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement,
       children,
       placement = 'bottom',
-      offset = Spacing.SizesDdsSpacingX05NumberPx,
+      offset = ddsTokens.DdsSpacingX05NumberPx,
       sizeProps,
       id,
       className,
@@ -116,7 +114,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         style={{ ...htmlProps.style, ...floatingStyles.floating, ...sizeProps }}
         role="dialog"
         elevation={3}
-        border="light"
+        border="default"
         className={cn(
           styles.container,
           utilStyles['visibility-transition'],

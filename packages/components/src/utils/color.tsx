@@ -1,11 +1,7 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens,
-} from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens, ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 
 const { colors } = ddsBaseTokens;
-const { textDefault } = ddsReferenceTokens;
 
 export type ColorAlphaFormat = 'hex8' | 'decimal';
 
@@ -82,7 +78,7 @@ export const textColors = {
   danger: colors.DdsColorDangerBase,
   success: colors.DdsColorSuccessBase,
   warning: colors.DdsColorWarningBase,
-  onLight: textDefault.textColor,
+  onLight: ddsTokens.DdsColorTextDefault,
   onDark: colors.DdsColorNeutralsWhite,
   gray1: colors.DdsColorNeutralsGray1,
   gray2: colors.DdsColorNeutralsGray2,

@@ -25,6 +25,8 @@ export type LinkProps = BaseComponentPropsWithChildren<
   {
     /**Spesifiserer om lenken fører til et eksternt nettsted eller åpnes i nytt vindu. Påvirker styling og setter `target` prop. */
     external?: boolean;
+    /**Om lenken kan få `:visited`-styling. */
+    withVisited?: boolean;
     /**Spesifiserer typografistil basert på utvalget for brødtekst.  */
     typographyType?: TypographyBodyType;
   } & BaseTypographyProps &
@@ -40,6 +42,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     children,
     typographyType,
     withMargins,
+    withVisited,
     external,
     target,
     ...rest
@@ -53,6 +56,7 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
           className,
           typographyStyles.a,
           external && typographyStyles['a--external'],
+          withVisited && typographyStyles['a--visited'],
           typographyType && typographyStyles[getTypographyCn(typographyType)],
           typographyType &&
             withMargins &&

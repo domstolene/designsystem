@@ -1,7 +1,4 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens,
-} from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 import {
   type InputSize,
@@ -9,10 +6,6 @@ import {
   inputTypographyTypes,
 } from '../helpers';
 import { type StaticTypographyType } from '../Typography';
-
-const { colors, spacing, borderRadius, border } = ddsBaseTokens;
-
-const { textDefault } = ddsReferenceTokens;
 
 const placeholderTypographyTypes: { [k in InputSize]: StaticTypographyType } = {
   medium: 'supportingStylePlaceholderText01',
@@ -45,56 +38,53 @@ export const typographyTypes: {
 };
 
 const control = {
-  borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  border: `${border.BordersDdsBorderStyleLightStrokeWeight} solid`,
-  borderColor: colors.DdsColorNeutralsGray5,
-  backgroundColor: colors.DdsColorNeutralsWhite,
-  color: colors.DdsColorNeutralsGray9,
+  borderRadius: ddsTokens.DdsBorderRadius1,
+  border: '1px solid',
+  borderColor: ddsTokens.DdsColorBorderDefault,
+  backgroundColor: ddsTokens.DdsColorSurfaceDefault,
+  color: ddsTokens.DdsColorTextDefault,
   disabled: {
-    backgroundColor: colors.DdsColorNeutralsGray1,
-    borderColor: colors.DdsColorNeutralsGray5,
+    backgroundColor: ddsTokens.DdsColorSurfaceFieldDisabled,
+    borderColor: ddsTokens.DdsColorBorderDefault,
   },
   readOnly: {
     borderColor: 'transparent',
     backgroundColor: 'transparent',
-    paddingTop: spacing.SizesDdsSpacingX0125,
+    paddingTop: ddsTokens.DdsSpacingX0125,
   },
   isMulti: {
     sizes: {
       medium: {
-        padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX075}`,
+        padding: `${ddsTokens.DdsSpacingX075} ${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX075} ${ddsTokens.DdsSpacingX075}`,
       },
       small: {
-        padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075}`,
+        padding: `${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX075}`,
       },
       tiny: {
-        padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
+        padding: `${ddsTokens.DdsSpacingX025} ${ddsTokens.DdsSpacingX05}`,
       },
     },
   },
   sizes: {
     medium: {
-      padding: `${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX075}`,
+      padding: `${ddsTokens.DdsSpacingX075} ${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX075} ${ddsTokens.DdsSpacingX075}`,
     },
     small: {
-      padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX075}`,
+      padding: `${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX075}`,
     },
     tiny: {
-      padding: `${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX025} ${spacing.SizesDdsSpacingX05}`,
+      padding: `${ddsTokens.DdsSpacingX025} ${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX025} ${ddsTokens.DdsSpacingX05}`,
     },
   },
 };
 
 const placeholder = {
-  color: colors.DdsColorNeutralsGray6,
+  color: ddsTokens.DdsColorTextSubtle,
 };
 
 const dropdownIndicator = {
   base: {
-    color: colors.DdsColorNeutralsGray6,
-  },
-  hover: {
-    color: colors.DdsColorInteractiveBase,
+    color: ddsTokens.DdsColorIconDefault,
   },
   readOnly: {
     color: 'transparent',
@@ -103,87 +93,85 @@ const dropdownIndicator = {
 
 const clearIndicator = {
   base: {
-    color: colors.DdsColorNeutralsGray6,
+    color: ddsTokens.DdsColorIconDefault,
   },
-  hover: { color: colors.DdsColorInteractiveBase },
+  hover: { backgroundColor: ddsTokens.DdsColorSurfaceHoverDefault },
 };
 
 const loadingIndicator = {
-  color: colors.DdsColorNeutralsGray6,
+  color: ddsTokens.DdsColorIconDefault,
 };
 
 const menu = {
   border: '1px solid',
-  borderColor: colors.DdsColorInteractiveBase,
-  backgroundColor: colors.DdsColorNeutralsWhite,
-  borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  marginTop: spacing.SizesDdsSpacingX025,
-  marginBottom: spacing.SizesDdsSpacingX025,
+  borderColor: ddsTokens.DdsColorBorderActionDefault,
+  backgroundColor: ddsTokens.DdsColorSurfaceDefault,
+  borderRadius: ddsTokens.DdsBorderRadius1,
+  marginTop: ddsTokens.DdsSpacingX025,
+  marginBottom: ddsTokens.DdsSpacingX025,
 };
 
 const groupHeading = {
-  color: colors.DdsColorNeutralsGray7,
-  padding: `${spacing.SizesDdsSpacingX05}  ${spacing.SizesDdsSpacingX075} ${spacing.SizesDdsSpacingX0125} ${spacing.SizesDdsSpacingX075}`,
+  color: ddsTokens.DdsColorTextMedium,
+  padding: `${ddsTokens.DdsSpacingX05}  ${ddsTokens.DdsSpacingX075} ${ddsTokens.DdsSpacingX0125} ${ddsTokens.DdsSpacingX075}`,
 };
 
 const option = {
   base: {
-    color: textDefault.textColor,
-    gap: spacing.SizesDdsSpacingX05,
-    padding: `${spacing.SizesDdsSpacingX075}`,
-    backgroundColor: colors.DdsColorNeutralsWhite,
+    color: ddsTokens.DdsColorTextDefault,
+    gap: ddsTokens.DdsSpacingX05,
+    padding: `${ddsTokens.DdsSpacingX075}`,
+    backgroundColor: ddsTokens.DdsColorSurfaceDefault,
   },
   hover: {
-    color: textDefault.textColor,
-    backgroundColor: colors.DdsColorInteractiveLightest,
+    color: ddsTokens.DdsColorTextDefault,
+    backgroundColor: ddsTokens.DdsColorSurfaceHoverDefault,
   },
   focus: {
-    color: textDefault.textColor,
-    backgroundColor: colors.DdsColorInteractiveLightest,
+    color: ddsTokens.DdsColorTextDefault,
+    backgroundColor: ddsTokens.DdsColorSurfaceHoverDefault,
   },
   selected: {
-    color: textDefault.textColor,
-    backgroundColor: colors.DdsColorNeutralsWhite,
+    color: ddsTokens.DdsColorTextDefault,
+    backgroundColor: ddsTokens.DdsColorSurfaceDefault,
   },
 };
 
 const noOptionsMessage = {
-  padding: `${spacing.SizesDdsSpacingX05} ${spacing.SizesDdsSpacingX1}`,
-  color: colors.DdsColorNeutralsGray6,
+  padding: `${ddsTokens.DdsSpacingX05} ${ddsTokens.DdsSpacingX1}`,
+  color: ddsTokens.DdsColorTextMedium,
 };
 
 const multiValue = {
-  borderRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-  backgroundColor: colors.DdsColorNeutralsGray2,
+  borderRadius: ddsTokens.DdsBorderRadius1,
+  backgroundColor: ddsTokens.DdsColorSurfaceMedium,
 };
 
 const multiValueLabel = {
-  padding: `0 ${spacing.SizesDdsSpacingX025}`,
-  color: colors.DdsColorNeutralsGray9,
+  padding: `0 ${ddsTokens.DdsSpacingX025}`,
+  color: ddsTokens.DdsColorTextDefault,
 };
 
 const multiValueRemove = {
   base: {
-    color: colors.DdsColorNeutralsGray9,
-    padding: `0 ${spacing.SizesDdsSpacingX025}`,
-    borderTopRightRadius: borderRadius.RadiiDdsBorderRadius1Radius,
-    borderBottomRightRadius: borderRadius.RadiiDdsBorderRadius1Radius,
+    color: ddsTokens.DdsColorIconDefault,
+    padding: `0 ${ddsTokens.DdsSpacingX025}`,
+    borderTopRightRadius: ddsTokens.DdsBorderRadius1,
+    borderBottomRightRadius: ddsTokens.DdsBorderRadius1,
   },
   hover: {
-    color: colors.DdsColorNeutralsWhite,
-    backgroundColor: colors.DdsColorInteractiveBase,
-    boxShadow: `inset 0 0 0 1px ${colors.DdsColorNeutralsGray9}`,
+    color: ddsTokens.DdsColorSurfaceDefault,
   },
 };
 
 const valueContainer = {
   isMulti: {
-    gap: spacing.SizesDdsSpacingX025,
+    gap: ddsTokens.DdsSpacingX025,
   },
 };
 
 const icon = {
-  marginRight: spacing.SizesDdsSpacingX05,
+  marginRight: ddsTokens.DdsSpacingX05,
 };
 
 export const selectTokens = {

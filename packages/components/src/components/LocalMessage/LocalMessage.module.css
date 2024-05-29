@@ -4,49 +4,50 @@
   display: grid;
   align-items: center;
   box-shadow: var(--dds-shadow-1-onlight);
-  border-radius: var(--radii-dds-border-radius-1-radius);
-  padding: var(--sizes-dds-spacing-x-0-75);
-  gap: var(--sizes-dds-spacing-x-0-5);
+  border-radius: var(--dds-border-radius-1);
+  padding: var(--dds-spacing-x0-75);
+  gap: var(--dds-spacing-x0-5);
 }
 
 .container--info {
-  border-color: var(--dds-color-info-base);
-  background-color: var(--dds-color-info-lightest);
+  border-color: var(--dds-color-border-info);
+  background-color: var(--dds-color-surface-info-default);
 
   .icon {
-    color: var(--dds-color-info-darkest);
+    color: var(--dds-color-icon-on-info-default);
   }
 }
 .container--warning {
-  border-color: var(--dds-color-warning-base);
-  background-color: var(--dds-color-warning-lightest);
+  border-color: var(--dds-color-border-warning);
+  background-color: var(--dds-color-surface-warning-default);
 
   .icon {
-    color: var(--dds-color-warning-darkest);
+    color: var(--dds-color-icon-on-warning-default);
   }
 }
 .container--danger {
-  border-color: var(--dds-color-danger-base);
-  background-color: var(--dds-color-danger-lightest);
+  border-color: var(--dds-color-border-danger);
+  background-color: var(--dds-color-surface-danger-default);
 
   .icon {
-    color: var(--dds-color-danger-darkest);
+    color: var(--dds-color-icon-on-danger-default);
   }
 }
 .container--success {
-  border-color: var(--dds-color-success-base);
-  background-color: var(--dds-color-success-lightest);
+  border-color: var(--dds-color-border-success);
+  background-color: var(--dds-color-surface-success-default);
 
   .icon {
-    color: var(--dds-color-success-darkest);
+    color: var(--dds-color-icon-on-success-default);
   }
 }
+
 .container--tips {
-  border-color: var(--dds-color-primary-base);
-  background-color: var(--dds-color-primary-lightest);
+  border-color: var(--dds-color-border-info);
+  background-color: var(--dds-color-surface-info-default);
 
   .icon {
-    color: var(--dds-color-primary-darkest);
+    color: var(--dds-color-icon-on-info-default);
   }
 }
 
@@ -72,7 +73,7 @@
 
 .container__text {
   grid-area: text;
-  padding-right: var(--sizes-dds-spacing-x-0-75);
+  padding-right: var(--dds-spacing-x0-75);
 }
 
 .container__icon {
@@ -81,5 +82,5 @@
 
 .container__button {
   grid-area: closeButton;
-  margin: calc(0px - var(--sizes-dds-spacing-x-0-75)) 0;
+  margin: calc(0px - var(--dds-spacing-x0-75)) 0;
 }

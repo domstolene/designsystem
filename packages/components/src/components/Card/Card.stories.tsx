@@ -1,4 +1,3 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
@@ -38,7 +37,7 @@ const body = (
 );
 
 const contentContainerStyle = {
-  padding: ddsBaseTokens.spacing.SizesDdsSpacingX075,
+  padding: 'var(--dds-spacing-x0-75)',
 };
 
 export const Overview: Story = {

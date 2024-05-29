@@ -41,11 +41,9 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { colors: Colors, spacing: Spacing } = ddsBaseTokens;
-
 const style = {
-  backgroundColor: Colors.DdsColorPrimaryBase,
-  padding: Spacing.SizesDdsSpacingX075,
+  backgroundColor: ddsBaseTokens.DdsColorPrimaryBase,
+  padding: ddsBaseTokens.DdsSpacingX075,
 };
 
 const App = () => <div style={style}>Tekst</div>;
@@ -75,27 +73,26 @@ body {
 
 ## ⌨️ For bidragsytere
 
-Bilioteket ligger under `/tokens`.
+Bilioteket ligger under `packages/tokens`.
 
 ### Installasjon
 
-Klon repoet og installer style-dictionary i `/tokens/dds`:
+Installer style-dictionary:
 
 ```
-cd tokens/dds
-pnpm add -D style-dictionary
+pnpm --filter "@norges-domstoler/dds-design-tokens" add -D style-dictionary
 ```
 
 ### Generere design tokens i kode
 
-Biblioteket bruker [Style-dictionary](https://amzn.github.io/style-dictionary) for å generere design tokens som JS-konstanter, CSS-variabler og SCSS-variabler fra en eller flere JSON-filer. JSON-filen(e) ligger i `/dds/properties`. For å generere variabler fra JSON kjør følgende kommando fra `/dds`:
+Biblioteket bruker [Style-dictionary](https://amzn.github.io/style-dictionary) for å generere design tokens som JS-konstanter, CSS-variabler og SCSS-variabler fra en eller flere JSON-filer. JSON-filen(e) ligger i `packages/tokens/dds/properties`. For å generere variabler fra JSON kjør følgende kommando fra `/dds`:
 
 ```
-pnpm build-tokens
+node build.js
 ```
 
-Genererte variabler ligger i `/dds/build` organisert etter plattform.
+Genererte variabler ligger i `packages/tokens/dds/build` organisert etter plattform.
 
 ### Build
 
-Det brukes custom build for generering av variabler, den ligger i `/dds/build.js`. I tillegg spesifiserer `/dds/config.json` hva output skal være og mappestruktur for den etter `pnpm build-tokens` kjøres.
+Det brukes custom build for generering av variabler, den ligger i `/dds/build.js`. I tillegg spesifiserer `/dds/config.json` hva output skal være og mappestruktur for den etter `node build.js` kjøres.

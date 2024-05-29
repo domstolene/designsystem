@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: var(--sizes-dds-spacing-x-0-125);
+  gap: var(--dds-spacing-x0-125);
 }
 
 .group {
@@ -10,12 +10,12 @@
 
 .group--row {
   flex-direction: row;
-  gap: var(--sizes-dds-spacing-x-0-75);
+  gap: var(--dds-spacing-x0-75);
 }
 
 .group--column {
   flex-direction: column;
-  gap: var(--sizes-dds-spacing-x-0-5);
+  gap: var(--dds-spacing-x0-5);
 }
 
 .label {
@@ -25,7 +25,7 @@
   cursor: pointer;
   user-select: none;
   width: fit-content;
-  padding-left: calc(18px + var(--sizes-dds-spacing-x-0-5));
+  padding-left: calc(18px + var(--dds-spacing-x0-5));
 
   input ~ .selection-control {
     @media (prefers-reduced-motion: no-preference) {
@@ -38,22 +38,21 @@
   }
 
   &:hover input:enabled ~ .selection-control {
-    background-color: var(--dds-color-interactive-lightest);
-    box-shadow: inset 0 0 0 1px var(--dds-color-interactive-base);
-    border-color: var(--dds-color-interactive-base);
+    background-color: var(--dds-color-surface-hover-default);
+    box-shadow: inset 0 0 0 1px var(--dds-color-border-action-hover);
+    border-color: var(--dds-color-border-action-hover);
   }
 
   input:checked:enabled ~ .selection-control,
   input:enabled[data-indeterminate='true'] ~ .selection-control {
-    border-color: var(--dds-color-interactive-base);
-    background-color: var(--dds-color-interactive-base);
+    border-color: var(--dds-color-surface-action-selected);
+    background-color: var(--dds-color-surface-action-selected);
   }
 
   &:hover input:checked:enabled ~ .selection-control,
-  input:enabled[data-indeterminate='true'] ~ .selection-control {
-    background-color: var(--dds-color-interactive-dark);
-    box-shadow: inset 0 0 0 1px var(--dds-color-interactive-dark);
-    border-color: var(--dds-color-interactive-dark);
+  &:hover input:enabled[data-indeterminate='true'] ~ .selection-control {
+    background-color: var(--dds-color-surface-action-hover);
+    border-color: var(--dds-color-surface-action-hover);
   }
 
   input:checked ~ .selection-control:after,
@@ -64,7 +63,7 @@
 
 .label--checkbox {
   .selection-control:after {
-    border: solid var(--dds-color-neutrals-white);
+    border: solid var(--dds-color-icon-on-action);
     border-width: 0 1px 1px 0;
     left: 35%;
     top: 10%;
@@ -86,7 +85,7 @@
 .label--radio {
   .selection-control:after {
     border-radius: 50%;
-    background-color: var(--dds-color-neutrals-white);
+    background-color: var(--dds-color-icon-on-action);
     height: 8px;
     width: 8px;
     left: 50%;
@@ -98,43 +97,44 @@
 .label--disabled {
   cursor: not-allowed;
   input:disabled ~ .selection-control {
-    border-color: var(--dds-color-neutrals-gray-5);
+    border-color: var(--dds-color-border-default);
   }
   input:checked:disabled ~ .selection-control,
   input:disabled[data-indeterminate='true'] ~ .selection-control {
-    border-color: var(--dds-color-neutrals-gray-6);
-    background-color: var(--dds-color-neutrals-gray-6);
+    border-color: var(--dds-color-surface-action-selected-disabled);
+    background-color: var(--dds-color-surface-action-selected-disabled);
   }
 }
 
 .label--readonly {
   cursor: default;
   input ~ .selection-control {
-    border-color: var(--dds-color-neutrals-gray-5);
-    background-color: transparent;
+    border-color: var(--dds-color-border-default);
+    background-color: var(--dds-color-surface-field-disabled);
   }
   input:checked ~ .selection-control,
   input[data-indeterminate='true'] ~ .selection-control {
-    border-color: var(--dds-color-neutrals-gray-6);
-    background-color: var(--dds-color-neutrals-gray-6);
+    border-color: var(--dds-color-surface-action-selected-disabled);
+    background-color: var(--dds-color-surface-action-selected-disabled);
   }
 }
 
 .label--error {
   &:hover input:enabled:not(:focus-visible):not(:checked) ~ .selection-control {
-    background-color: var(--dds-color-danger-lightest);
-    border-color: var(--dds-color-danger-base);
-    box-shadow: 0 0 0 1px var(--dds-color-danger-base);
+    background-color: var(--dds-color-surface-danger-default);
+    border-color: var(--dds-color-border-danger);
+    box-shadow: 0 0 0 1px var(--dds-c-tic-border-danger);
   }
 
-  input:not(:focus-visible) ~ .selection-control,
-  input:checked:enabled:not(:focus-visible)
+  input:not(:focus-visible)
+    ~ .selectio-
+    input:checked:enabled:not(:focus-visible)
     .selection-control
     &:hover
     input:checked:enabled:not(:focus-visible)
     .selection-control {
-    border-color: var(--dds-color-danger-base);
-    box-shadow: 0 0 0 1px var(--dds-color-danger-base);
+    border-color: var(--dds-color-border-danger);
+    box-shadow: 0 0 0 1px var(--dds-color-border-danger);
   }
 }
 
@@ -147,9 +147,9 @@
   left: 0;
   box-sizing: border-box;
   border: 1px solid;
-  border-color: var(--dds-color-neutrals-gray-5);
-  background-color: var(--dds-color-neutrals-white);
-  border-radius: var(--radii-dds-border-radius-1-radius);
+  border-color: var(--dds-color-border-default);
+  background-color: var(--dds-color-surface-field-default);
+  border-radius: var(--dds-border-radius-1);
   height: 18px;
   width: 18px;
   &:after {

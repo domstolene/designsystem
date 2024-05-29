@@ -1,19 +1,12 @@
-import {
-  ddsBaseTokens,
-  ddsReferenceTokens,
-} from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import type { CSSProperties, HTMLAttributes } from 'react';
 import { css, styled } from 'styled-components';
 import 'focus-visible';
 
-const { fontPackages } = ddsBaseTokens;
-const { textDefault } = ddsReferenceTokens;
-
 const StoryContainer = styled.div``;
 
 const H1 = styled.h1`
-  color: ${textDefault.textColor};
-  font: ${fontPackages.heading_sans_03.base};
+  color: ${ddsTokens.DdsColorTextDefault};
 `;
 
 interface ContainerProps {
@@ -27,7 +20,7 @@ const Container = styled.div<ContainerProps>`
   ${({ $hasTitle: hasTitle }) =>
     hasTitle &&
     css`
-      padding-top: ${ddsBaseTokens.spacing.SizesDdsSpacingX1};
+      padding-top: ${ddsTokens.DdsSpacingX1};
     `}
   ${({ $display: display, $gap: gap, $columnsAmount, $hasTitle: hasTitle }) =>
     gap &&

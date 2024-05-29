@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Properties, type Property } from 'csstype';
 import {
   forwardRef,
@@ -72,10 +72,9 @@ export const CardAccordionBody = forwardRef<
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-card-accordion-body-content-padding' as any]:
       padding ??
-      `${ddsBaseTokens.spacing.SizesDdsSpacingX1} ${
-        ddsBaseTokens.spacing.SizesDdsSpacingX2NumberPx +
-        ddsBaseTokens.spacing.SizesDdsSpacingX075NumberPx
-      }px ${ddsBaseTokens.spacing.SizesDdsSpacingX2} ${ddsBaseTokens.spacing.SizesDdsSpacingX15}`,
+      `${ddsTokens.DdsSpacingX1} ${
+        ddsTokens.DdsSpacingX2NumberPx + ddsTokens.DdsSpacingX075NumberPx
+      }px ${ddsTokens.DdsSpacingX2} ${ddsTokens.DdsSpacingX15}`,
   };
 
   return (

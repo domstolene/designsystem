@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  gap: var(--sizes-dds-spacing-x-0-75);
+  gap: var(--dds-spacing-x0-75);
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -20,7 +20,7 @@
   grid-auto-flow: column;
   margin: 0;
   padding: 0;
-  gap: var(--sizes-dds-spacing-x-0-75);
+  gap: var(--dds-spacing-x0-75);
 }
 
 .list__item {
@@ -36,10 +36,10 @@
   display: grid;
   grid-auto-flow: column;
   align-items: center;
-  gap: var(--sizes-dds-spacing-x-0-75);
+  gap: var(--dds-spacing-x0-75);
 }
 
 .truncation-icon {
-  color: var(--dds-color-neutrals-gray-7);
-  min-width: calc(1ch + (2 * var(--sizes-dds-spacing-x-0-75)));
+  color: var(--dds-color-icon-medium);
+  min-width: calc(1ch + (2 * var(--dds-spacing-x0-75)));
 }

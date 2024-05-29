@@ -3,7 +3,7 @@
 
   grid-template-columns: repeat(var(--dds-grid-xs-0-599-count), minmax(0, 1fr));
   column-gap: var(--dds-grid-xs-0-599-gutter-size);
-  margin-inline: var(--sizes-dds-spacing-x-1);
+  margin-inline: var(--dds-spacing-x1);
   max-width: var(--dds-grid-xs-max-width);
   row-gap: var(--dds-grid-xs-row-gap);
 
@@ -13,7 +13,7 @@
       minmax(0, 1fr)
     );
     column-gap: var(--dds-grid-sm-600-959-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-2);
+    margin-inline: var(--dds-spacing-x2);
     max-width: var(--dds-grid-sm-max-width);
     row-gap: var(--dds-grid-sm-row-gap);
   }
@@ -24,7 +24,7 @@
       minmax(0, 1fr)
     );
     column-gap: var(--dds-grid-md-960-1279-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-4);
+    margin-inline: var(--dds-spacing-x4);
     max-width: var(--dds-grid-md-max-width);
     row-gap: var(--dds-grid-md-row-gap);
   }
@@ -35,7 +35,7 @@
       minmax(0, 1fr)
     );
     column-gap: var(--dds-grid-lg-1280-1919-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-6);
+    margin-inline: var(--dds-spacing-x6);
     max-width: var(--dds-grid-lg-max-width);
     row-gap: var(--dds-grid-lg-row-gap);
   }
@@ -46,7 +46,7 @@
       minmax(0, 1fr)
     );
     column-gap: var(--dds-grid-xl-1920-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-10);
+    margin-inline: var(--dds-spacing-x10);
     max-width: var(--dds-grid-xl-max-width);
     row-gap: var(--dds-grid-xl-row-gap);
   }

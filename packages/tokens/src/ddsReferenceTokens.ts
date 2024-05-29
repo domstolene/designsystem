@@ -4,7 +4,6 @@ const {
   colors: Colors,
   fontPackages: FontPackages,
   borderRadius: BorderRadius,
-  border: Border,
 } = ddsBaseTokens;
 
 const textDefault = {
@@ -13,11 +12,11 @@ const textDefault = {
 };
 
 const focus = {
-  colorDefault: Border.BordersDdsBorderFocusBaseStroke,
-  outlineWidth: Border.BordersDdsBorderFocusBaseStrokeWeight,
+  colorDefault: Colors.DdsColorFocusOutside,
+  outlineWidth: '2px',
   color__TextInput: Colors.DdsColorInteractiveBase,
   textColor__TextInput: Colors.DdsColorInteractiveDark,
-  borderWidth__TextInput: Border.BordersDdsBorderFocusInputfieldStrokeWeight,
+  borderWidth__TextInput: '1px',
 };
 
 export const ddsReferenceTokens = {
@@ -25,8 +24,8 @@ export const ddsReferenceTokens = {
   textDefault: textDefault,
   textInput: {
     input: {
-      borderRadius: BorderRadius.RadiiDdsBorderRadius1Radius,
-      borderWidth: Border.BordersDdsBorderStyleLightStrokeWeight,
+      borderRadius: BorderRadius.DdsBorderRadius1,
+      borderWidth: '1px',
       borderColor: Colors.DdsColorNeutralsGray5,
       textColor: textDefault.textColor,
       hover: {

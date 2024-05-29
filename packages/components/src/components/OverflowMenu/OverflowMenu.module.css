@@ -4,6 +4,10 @@
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;
+
+  .divider {
+    margin-block: var(--dds-spacing-x0-75);
+  }
 }
 
 .list {
@@ -15,11 +19,11 @@
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  color: var(--dds-color-neutrals-gray-9);
-  background-color: var(--dds-color-neutrals-white);
+  color: var(--dds-color-text-default);
+  background-color: var(--dds-color-surface-default);
   text-decoration: none;
-  padding: var(--sizes-dds-spacing-x-0-75) var(--sizes-dds-spacing-x-1);
-  gap: var(--sizes-dds-spacing-x-0-25);
+  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
+  gap: var(--dds-spacing-x0-25);
 }
 
 .list__item--link {
@@ -35,7 +39,7 @@
 
   &:hover,
   &:active {
-    background-color: var(--dds-color-interactive-lightest);
+    background-color: var(--dds-color-surface-hover-default);
   }
 }
 
@@ -46,5 +50,5 @@
 }
 
 .divider {
-  margin-inline: var(--sizes-dds-spacing-x-1);
+  margin-inline: var(--dds-spacing-x1);
 }

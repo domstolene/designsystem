@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { forwardRef, useEffect, useId } from 'react';
 
 import styles from './OverflowMenu.module.css';
@@ -35,7 +35,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       navItems,
       userProps,
       id,
-      offset = ddsBaseTokens.spacing.SizesDdsSpacingX0125NumberPx,
+      offset = ddsTokens.DdsSpacingX0125NumberPx,
       className,
       htmlProps = {},
       ...rest
@@ -151,7 +151,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
               </nav>
             )}
             {hasNavItems && hasContextItems && (
-              <Divider color="primaryLighter" className={styles.divider} />
+              <Divider color="subtle" className={styles.divider} />
             )}
             {hasContextItems && (
               <ul className={ulCn} aria-label="kontekstmeny">
@@ -188,7 +188,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         )}
         role="menu"
         aria-hidden={!isOpen}
-        border="light"
+        border="default"
         style={{ ...style, ...floatingStyles.floating }}
       >
         {hasStaticUser && (

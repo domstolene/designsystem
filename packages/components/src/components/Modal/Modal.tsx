@@ -1,4 +1,3 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type ReactNode,
   type RefObject,
@@ -24,7 +23,7 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { changeRGBAAlpha, cn } from '../../utils';
+import { cn } from '../../utils';
 import { Button } from '../Button';
 import { Paper } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -101,12 +100,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
               ? styles['backdrop--visible']
               : styles['backdrop--hidden'],
           )}
-          style={{
-            backgroundColor: changeRGBAAlpha(
-              ddsBaseTokens.colors.DdsColorNeutralsGray9,
-              0.5,
-            ),
-          }}
         >
           <Paper
             {...getBaseHTMLProps(

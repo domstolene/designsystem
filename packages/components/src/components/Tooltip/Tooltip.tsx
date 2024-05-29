@@ -163,7 +163,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         <Paper
           {...wrapperProps}
           elevation={1}
-          border="light"
+          border="default"
           className={cn(
             styles.paper,
             typographyStyles['body-sans-02'],

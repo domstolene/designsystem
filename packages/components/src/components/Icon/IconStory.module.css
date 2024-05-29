@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--sizes-dds-spacing-x-1-5);
+  gap: var(--dds-spacing-x1-5);
   max-width: 800px;
   margin: auto;
 
@@ -20,7 +20,7 @@
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
-  gap: var(--sizes-dds-spacing-x-0-5);
+  gap: var(--dds-spacing-x0-5);
 }
 
 .card {
@@ -30,7 +30,7 @@
   align-items: center;
   cursor: pointer;
   transition: background-color 0.2s;
-  gap: var(--sizes-dds-spacing-x-0-75);
+  gap: var(--dds-spacing-x0-75);
   width: 80px;
   height: 96px;
 
@@ -43,12 +43,12 @@
   }
 
   &:hover {
-    background-color: var(--dds-color-interactive-lightest);
+    background-color: var(--dds-color-surface-hover-default);
   }
 }
 
 .card__name {
-  padding-inline: var(--sizes-dds-spacing-x-0-25);
+  padding-inline: var(--dds-spacing-x0-25);
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -58,7 +58,7 @@
 .group-header {
   display: flex;
   align-items: center;
-  gap: var(--sizes-dds-spacing-x-0-25);
+  gap: var(--dds-spacing-x0-25);
   position: relative;
 }
 
@@ -72,16 +72,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: var(--sizes-dds-spacing-x-0-5);
-  margin-bottom: var(--sizes-dds-spacing-x-1);
+  gap: var(--dds-spacing-x0-5);
+  margin-bottom: var(--dds-spacing-x1);
 }
 
 .code-block {
-  background-color: var(--dds-color-neutrals-gray-8);
-  padding: var(--sizes-dds-spacing-x-0-5) var(--sizes-dds-spacing-x-1);
-  margin: var(--sizes-dds-spacing-x-1) 0;
-  border-radius: var(--radii-dds-border-radius-1-radius);
+  background-color: var(--dds-color-surface-inverse-default);
+  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
+  margin: var(--dds-spacing-x1) 0;
+  border-radius: var(--dds-border-radius-1);
   code.icon-code {
-    color: var(--dds-color-neutrals-white);
+    color: var(--dds-text-color--on-inverse);
   }
 }

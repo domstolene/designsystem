@@ -1,4 +1,4 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import React, {
   forwardRef,
@@ -131,18 +131,14 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       readOnly && prefixLength
         ? prefixLength + 'px'
         : prefixLength
-          ? ddsBaseTokens.spacing.SizesDdsSpacingX1NumberPx +
-            prefixLength +
-            'px'
+          ? ddsTokens.DdsSpacingX1NumberPx + prefixLength + 'px'
           : undefined;
 
     const suffixPaddingInlineEnd: Property.PaddingInlineEnd | undefined =
       readOnly && suffixLength
         ? suffixLength + 'px'
         : suffixLength
-          ? ddsBaseTokens.spacing.SizesDdsSpacingX1NumberPx +
-            suffixLength +
-            'px'
+          ? ddsTokens.DdsSpacingX1NumberPx + suffixLength + 'px'
           : undefined;
 
     let extendedInput = null;

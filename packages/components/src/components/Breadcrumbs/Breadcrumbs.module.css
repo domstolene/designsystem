@@ -2,20 +2,20 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--sizes-dds-spacing-x-0-5);
+  gap: var(--dds-spacing-x0-5);
 }
 
 .list-item {
   align-items: center;
   display: flex;
-  gap: var(--sizes-dds-spacing-x-0-5);
+  gap: var(--dds-spacing-x0-5);
   padding: 0;
 }
 
 .list-item--large-screen {
-  padding: var(--sizes-dds-spacing-x-0-125) 0;
+  padding: var(--dds-spacing-x0-125) 0;
 }
 
 .icon {
-  color: var(--dds-color-interactive-base);
+  color: var(--dds-color-icon-action-resting);
 }

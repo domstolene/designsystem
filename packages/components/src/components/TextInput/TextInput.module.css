@@ -15,20 +15,20 @@
 .input {
   &.with-icon--medium {
     padding-left: calc(
-      var(--sizes-dds-spacing-x-0-75) + var(--dds-iconsize-medium) +
-        var(--sizes-dds-spacing-x-0-5)
+      var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+        var(--dds-spacing-x0-5)
     );
   }
   &.with-icon--small {
     padding-left: calc(
-      var(--sizes-dds-spacing-x-0-75) + var(--dds-iconsize-small) +
-        var(--sizes-dds-spacing-x-0-5)
+      var(--dds-spacing-x0-75) + var(--dds-icon-size-small) +
+        var(--dds-spacing-x0-5)
     );
   }
   &.with-icon--tiny {
     padding-left: calc(
-      var(--sizes-dds-spacing-x-0-5) + var(--dds-iconsize-medium) +
-        var(--sizes-dds-spacing-x-0-25)
+      var(--dds-spacing-x0-5) + var(--dds-icon-size-medium) +
+        var(--dds-spacing-x0-25)
     );
   }
 }
@@ -36,22 +36,22 @@
 .icon {
   position: absolute;
   z-index: 1;
-  color: var(--dds-color-neutrals-gray-9);
+  color: var(--dds-color-icon-default);
 }
 
 .icon--medium {
-  left: var(--sizes-dds-spacing-x-0-75);
-  top: calc(50% - (var(--dds-iconsize-medium) / 2));
+  left: var(--dds-spacing-x0-75);
+  top: calc(50% - (var(--dds-icon-size-medium) / 2));
 }
 
 .icon--small {
-  left: var(--sizes-dds-spacing-x-0-75);
-  top: calc(50% - (var(--dds-iconsize-small) / 2));
+  left: var(--dds-spacing-x0-75);
+  top: calc(50% - (var(--dds-icon-size-small) / 2));
 }
 
 .icon--tiny {
-  left: var(--sizes-dds-spacing-x-0-5);
-  top: calc(50% - (var(--dds-iconsize-small) / 2));
+  left: var(--dds-spacing-x0-5);
+  top: calc(50% - (var(--dds-icon-size-small) / 2));
 }
 
 .affix {
@@ -68,14 +68,14 @@
     left: 0;
     margin-left: 8px;
     padding-right: 8px;
-    border-right: 1px solid var(--dds-color-neutrals-gray-5);
+    border-right: 1px solid var(--dds-color-border-default);
   }
 
   &.suffix {
     right: 0;
     margin-right: 8px;
     padding-left: 8px;
-    border-left: 1px solid var(--dds-color-neutrals-gray-5);
+    border-left: 1px solid var(--dds-color-border-default);
   }
 
   &.prefix--readonly {

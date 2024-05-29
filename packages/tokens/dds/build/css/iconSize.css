@@ -1,10 +1,10 @@
 /**
  * Do not edit directly
- * Generated on Mon, 22 Jan 2024 11:05:28 GMT
+ * Generated on Tue, 28 May 2024 12:42:55 GMT
  */
 
 :root {
-  --dds-iconsize-medium: 24px;
-  --dds-iconsize-large: 40px;
-  --dds-iconsize-small: 16px;
+  --dds-icon-size-large: 40px;
+  --dds-icon-size-medium: 24px;
+  --dds-icon-size-small: 16px;
 }

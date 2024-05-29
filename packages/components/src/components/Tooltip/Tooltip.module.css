@@ -3,11 +3,11 @@
 }
 
 .svg-arrow__border {
-  fill: var(--dds-color-primary-lighter);
+  fill: var(--dds-color-border-default);
 }
 
 .svg-arrow__background {
-  fill: var(--dds-color-neutrals-white);
+  fill: var(--dds-color-surface-default);
 }
 
 .paper {
@@ -15,5 +15,5 @@
   position: absolute;
   z-index: 80;
   text-align: center;
-  padding: var(--sizes-dds-spacing-x-0-75);
+  padding: var(--dds-spacing-x0-75);
 }

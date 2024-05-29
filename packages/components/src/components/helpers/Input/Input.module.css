@@ -12,12 +12,12 @@
 
 .input {
   position: relative;
-  color: var(--dds-color-neutrals-gray-9);
-  border: 1px solid var(--dds-color-neutrals-gray-5);
-  background-color: var(--dds-color-neutrals-white);
-  padding: var(--sizes-dds-spacing-x-0-75) var(--sizes-dds-spacing-x-1)
-    var(--sizes-dds-spacing-x-0-75) var(--sizes-dds-spacing-x-0-75);
-  border-radius: var(--radii-dds-border-radius-1-radius);
+  color: var(--dds-text-color--default);
+  border: 1px solid var(--dds-color-border-default);
+  background-color: var(--dds-color-surface-default);
+  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
+    var(--dds-spacing-x0-75) var(--dds-spacing-x0-75);
+  border-radius: var(--dds-border-radius-1);
   width: 100%;
   margin: 0;
   box-sizing: border-box;
@@ -43,8 +43,8 @@
 
   &:not(input):not(textarea):not(.disabled):not(.read-only):not(.active):hover,
   &:hover:enabled:read-write:not(:focus-visible) {
-    border-color: var(--dds-color-interactive-base);
-    box-shadow: 0 0 0 1px var(--dds-color-interactive-base);
+    border-color: var(--dds-color-border-action-hover);
+    box-shadow: 0 0 0 1px var(--dds-color-border-action-hover);
   }
 
   &.input--stateful {
@@ -58,63 +58,53 @@
       cursor: default;
       background-color: transparent;
       padding-left: 0;
-      padding-top: var(--sizes-dds-spacing-x-0-125);
+      padding-top: var(--dds-spacing-x0-125);
     }
 
     &.disabled,
     &:disabled {
       cursor: not-allowed;
-      color: var(--dds-color-neutrals-gray-7);
-      background-color: var(--dds-color-neutrals-gray-1);
+      color: var(--dds-color-text-medium);
+      background-color: var(--dds-color-surface-field-disabled);
     }
   }
 }
 
 .input--hover:hover {
-  border-color: var(--dds-color-interactive-base);
-  box-shadow: 0 0 0 1px var(--dds-color-interactive-base);
+  border-color: var(--dds-color-border-action-hover);
+  box-shadow: 0 0 0 1px var(--dds-color-border-action-hover);
 }
 
 .input--stateful-danger {
-  border-color: var(--dds-color-danger-base);
-  box-shadow: 0 0 0 1px var(--dds-color-danger-base);
+  border-color: var(--dds-color-border-danger);
+  box-shadow: 0 0 0 1px var(--dds-color-border-danger);
 
   &:not(.disabled):hover:not(:focus-within),
   &:hover:enabled:read-write:not(:focus-within) {
-    border-color: var(--dds-color-danger-base);
-    box-shadow: 0 0 0 1px var(--dds-color-danger-base);
+    border-color: var(--dds-color-border-danger);
+    box-shadow: 0 0 0 1px var(--dds-color-border-danger);
   }
 
   &:not(.disabled):focus-within,
   &:focus-within:enabled:read-write,
   &:hover:focus-within:enabled:read-write,
   &:active:enabled:read-write {
-    border-color: 1px solid var(--dds-color-neutrals-gray-5);
+    border-color: 1px solid var(--dds-color-border-default);
   }
 }
 
-/* .input--disabled {
-  color: var(--dds-color-neutrals-gray-7);
-  background-color: var(--dds-color-neutrals-gray-1);
-}
-
-.input--readonly {
-  background-color: transparent;
-  padding-top: var(--sizes-dds-spacing-x-0-125);
-} */
-
 .input--medium {
-  padding: var(--sizes-dds-spacing-x-0-75);
+  padding: var(--dds-spacing-x0-75);
 }
 
 .input--small {
-  padding: var(--sizes-dds-spacing-x-0-5) var(--sizes-dds-spacing-x-0-75);
+  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
 }
 
 .input--tiny {
-  padding: var(--sizes-dds-spacing-x-0-25) var(--sizes-dds-spacing-x-0-5);
+  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
 }
 
 .input--with-affix {
-  gap: var(--sizes-dds-spacing-x-1);
+  gap: var(--dds-spacing-x1);
 }
