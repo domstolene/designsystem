@@ -12,6 +12,7 @@ export const Feedback = ({
   negativeFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
   ratingSubmittedTitle = 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
   submittedTitle = 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+  textAreaTip = 'Ikke send inn personopplysninger eller annen sensitiv informasjon',
   ratingValue: ratingProp,
   feedbackTextValue: feedbackTextProp,
   thumbUpTooltip = 'Bra',
@@ -79,6 +80,7 @@ export const Feedback = ({
         positiveFeedbackLabel={positiveFeedbackLabel}
         negativeFeedbackLabel={negativeFeedbackLabel}
         ratingSubmittedTitle={ratingSubmittedTitle}
+        textAreaTip={textAreaTip}
         loading={loading}
         handleSubmit={handleSubmit}
         handleFeedbackTextChange={handleFeedbackTextChange}
