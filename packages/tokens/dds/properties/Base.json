@@ -383,7 +383,7 @@
       "heading": {
         "value": "0.7em",
         "type": "spacing",
-        "description": "Ekstra spacing over dds-header"
+        "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
       }
     }
   },
@@ -915,6 +915,80 @@
     },
     "small": {
       "value": "16px",
+      "type": "sizing"
+    }
+  },
+  "dds-grid": {
+    "xs": {
+      "count": {
+        "value": "4",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "16px",
+        "type": "spacing"
+      }
+    },
+    "sm": {
+      "count": {
+        "value": "8",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "16px",
+        "type": "spacing"
+      }
+    },
+    "lg": {
+      "count": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "24px",
+        "type": "spacing"
+      }
+    },
+    "md": {
+      "count": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "24px",
+        "type": "spacing"
+      }
+    },
+    "xl": {
+      "count": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "24px",
+        "type": "spacing"
+      }
+    }
+  },
+  "dds-breakpoint": {
+    "xs": {
+      "value": "1px",
+      "type": "sizing"
+    },
+    "sm": {
+      "value": "600px",
+      "type": "sizing"
+    },
+    "md": {
+      "value": "960px",
+      "type": "sizing"
+    },
+    "lg": {
+      "value": "1280px",
+      "type": "sizing"
+    },
+    "xl": {
+      "value": "1920px",
       "type": "sizing"
     }
   }

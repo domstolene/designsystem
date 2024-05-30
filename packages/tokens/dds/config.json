@@ -44,7 +44,7 @@
           "format": "scss/variables",
           "filter": {
             "attributes": {
-              "category": "$dds-grid"
+              "category": "dds-grid"
             }
           }
         },
@@ -107,7 +107,7 @@
           "format": "css/variables",
           "filter": {
             "attributes": {
-              "category": "$dds-grid"
+              "category": "dds-grid"
             }
           }
         },
@@ -179,7 +179,7 @@
           "format": "custom/javascript/es6",
           "filter": {
             "attributes": {
-              "category": "$dds-grid"
+              "category": "dds-grid"
             }
           }
         },

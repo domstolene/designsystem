@@ -1,32 +1,17 @@
 /**
  * Do not edit directly
- * Generated on Tue, 28 May 2024 12:42:56 GMT
+ * Generated on Thu, 30 May 2024 09:06:06 GMT
  */
 
 :root {
-  --dds-grid-xs-0-599-pattern: columns;
-  --dds-grid-xs-0-599-gutter-size: 16px;
-  --dds-grid-xs-0-599-alignment: stretch;
-  --dds-grid-xs-0-599-count: 4;
-  --dds-grid-xs-0-599-offset: 16px;
-  --dds-grid-sm-600-959-pattern: columns;
-  --dds-grid-sm-600-959-gutter-size: 16px;
-  --dds-grid-sm-600-959-alignment: stretch;
-  --dds-grid-sm-600-959-count: 8;
-  --dds-grid-sm-600-959-offset: 16px;
-  --dds-grid-md-960-1279-pattern: columns;
-  --dds-grid-md-960-1279-gutter-size: 24px;
-  --dds-grid-md-960-1279-alignment: stretch;
-  --dds-grid-md-960-1279-count: 12;
-  --dds-grid-md-960-1279-offset: 24px;
-  --dds-grid-lg-1280-1919-pattern: columns;
-  --dds-grid-lg-1280-1919-gutter-size: 24px;
-  --dds-grid-lg-1280-1919-alignment: stretch;
-  --dds-grid-lg-1280-1919-count: 12;
-  --dds-grid-lg-1280-1919-offset: 24px;
-  --dds-grid-xl-1920-pattern: columns;
-  --dds-grid-xl-1920-gutter-size: 24px;
-  --dds-grid-xl-1920-alignment: stretch;
-  --dds-grid-xl-1920-count: 12;
-  --dds-grid-xl-1920-offset: 24px;
+  --dds-grid-xs-count: 4;
+  --dds-grid-xs-gutter-size: 16px;
+  --dds-grid-sm-count: 8;
+  --dds-grid-sm-gutter-size: 16px;
+  --dds-grid-lg-count: 12;
+  --dds-grid-lg-gutter-size: 24px;
+  --dds-grid-md-count: 12;
+  --dds-grid-md-gutter-size: 24px;
+  --dds-grid-xl-count: 12;
+  --dds-grid-xl-gutter-size: 24px;
 }

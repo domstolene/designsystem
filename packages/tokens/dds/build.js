@@ -98,10 +98,7 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'custom/js',
-  transforms: StyleDictionary.transformGroup['js'].concat([
-    '%/em',
-    'object/shadow',
-  ]),
+  transforms: StyleDictionary.transformGroup['js'].concat(['%/em']),
 });
 
 StyleDictionary.registerTransformGroup({
@@ -110,7 +107,6 @@ StyleDictionary.registerTransformGroup({
     'pixel/px',
     '%/em',
     'fontFamily/string',
-    'object/shadow',
   ]),
 });
 
@@ -120,7 +116,6 @@ StyleDictionary.registerTransformGroup({
     'pixel/px',
     '%/em',
     'fontFamily/string',
-    'object/shadow',
   ]),
 });
 
@@ -196,7 +191,7 @@ const isFontToken = token =>
 const isSpacingToken = token => token.attributes.category === 'dds-spacing';
 
 const isBreakpointToken = token =>
-  token.attributes.category === '$dds-breakpoint';
+  token.attributes.category === 'dds-breakpoint';
 
 StyleDictionary.registerFilter({
   name: 'colorFilter',
@@ -242,7 +237,7 @@ StyleDictionary.registerFilter({
         isBreakpointToken(token) ||
         isSpacingToken(token) ||
         isColorToken(token) ||
-        token.attributes.category === '$dds-grid' ||
+        token.attributes.category === 'dds-grid' ||
         token.attributes.category === 'dds-icon-size' ||
         token.attributes.category === '$dds-shadow')
     );

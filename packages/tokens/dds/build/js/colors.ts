@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 28 May 2024 12:42:56 GMT
+ * Generated on Thu, 30 May 2024 09:06:06 GMT
  */
 
 export const DdsColorPrimaryLightest = "#eaeff4";

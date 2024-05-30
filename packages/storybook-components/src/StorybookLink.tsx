@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type CSSProperties, type ComponentProps, type ReactNode } from 'react';
 
 import {
@@ -25,14 +24,14 @@ const Link = (props: ComponentProps<'a'>) => (
 
 const linkInnerSmallStyle: CSSProperties = {
   flexDirection: 'row',
-  gap: ddsTokens.DdsSpacingX05,
-  padding: ddsTokens.DdsSpacingX05,
+  gap: 'var(--dds-spacing-x0-5)',
+  padding: 'var(--dds-spacing-x0-5)',
 };
 
 const linkInnerLargeStyle: CSSProperties = {
   flexDirection: 'column',
-  gap: ddsTokens.DdsSpacingX075,
-  padding: ddsTokens.DdsSpacingX075,
+  gap: 'var(--dds-spacing-x0-75)',
+  padding: 'var(--dds-spacing-x0-75)',
 };
 
 type LinkType = 'npm' | 'zeroheight' | 'figma' | 'slack' | 'github';

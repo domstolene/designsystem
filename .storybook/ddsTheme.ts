@@ -10,7 +10,7 @@ export default create({
   brandImage: elsaLogoHigh,
 
   // Interaction color
-  colorSecondary: ddsTokens.DdsColorSurfaceSelectedDefault,
+  colorSecondary: ddsTokens.DdsColorSurfaceActionSelected,
 
   // Typography
   fontBase: `${ddsTokens.DdsFontBodySans02FontFamily}, 'Trebuchet MS', sans-serif`,
