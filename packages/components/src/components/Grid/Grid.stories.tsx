@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { ScreenSize, useScreenSize } from '../../hooks';
@@ -32,12 +31,12 @@ export const Default: Story = {
   render: args => {
     const containerStyle = {
       border: '1px dashed gray',
-      padding: '8px',
+      padding: 'var(--dds-spacing-x0-5)',
     };
 
     const childStyle = {
       ...containerStyle,
-      background: 'rgba(231, 241, 247, 1)',
+      background: 'var(--dds-color-surface-subtle)',
     };
 
     return (
@@ -79,7 +78,6 @@ export const Default: Story = {
 };
 
 export const PageExample: Story = {
-  args: {},
   render: args => {
     const screenSize = useScreenSize();
     const isXSmall = screenSize === ScreenSize.XSmall;
@@ -163,12 +161,6 @@ export const PageExample: Story = {
 };
 
 export const JustRelativeColumns: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Grid {...args} maxWidth={{ lg: '750px', xl: '750px' }}>
       <GridChild columnsOccupied="all">

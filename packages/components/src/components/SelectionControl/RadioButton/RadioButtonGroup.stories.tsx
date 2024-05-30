@@ -1,6 +1,7 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
+
+import { StoryVStack } from '../../Stack/utils';
 
 import { RadioButton, RadioButtonGroup } from '.';
 
@@ -27,11 +28,6 @@ type Story = StoryObj<typeof RadioButtonGroup>;
 
 export const Default: Story = {
   args: { label: 'Label' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [value, setValue] = useState<number | undefined>();
     return (
@@ -52,15 +48,10 @@ export const Default: Story = {
 
 export const Overview: Story = {
   args: { label: 'Label' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [value, setValue] = useState<number | undefined>();
     return (
-      <>
+      <StoryVStack>
         <RadioButtonGroup
           {...args}
           value={value}
@@ -112,18 +103,13 @@ export const Overview: Story = {
           <RadioButton label="Option 2" value={2} />
           <RadioButton label="Option 3" value={3} />
         </RadioButtonGroup>
-      </>
+      </StoryVStack>
     );
   },
 };
 
 export const WithDefaultValue: Story = {
   args: { label: 'Label' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [value, setValue] = useState<number | undefined>(2);
     return (

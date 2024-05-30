@@ -6,13 +6,12 @@ import {
   toCalendarDateTime,
   today,
 } from '@internationalized/date';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import type { Meta, StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
 import { Button } from '../../Button';
 import { Modal } from '../../Modal';
-import { HStack, VStack } from '../../Stack';
+import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { Paragraph } from '../../Typography';
 import { TimePicker } from '../TimePicker';
 import {
@@ -59,99 +58,68 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Default: Story = {
   args: { label: 'Dato' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
   args: { label: 'Label' },
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={2}>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <DatePicker {...args} />
-      <DatePicker {...args} isRequired />
-      <DatePicker {...args} isDisabled />
-      <DatePicker {...args} isReadOnly />
-      <DatePicker
-        {...args}
-        errorMessage={
-          args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
-        }
-      />
-      <DatePicker {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
-    </>
+    <StoryHStack>
+      <StoryVStack>
+        <DatePicker {...args} />
+        <DatePicker {...args} isRequired />
+        <DatePicker
+          {...args}
+          errorMessage={
+            args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
+          }
+        />
+      </StoryVStack>
+      <StoryVStack>
+        <DatePicker {...args} isDisabled />
+        <DatePicker {...args} isReadOnly />
+        <DatePicker {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
 export const Required: Story = {
   args: { label: 'Dato', isRequired: true },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Controlled: Story = {
   args: { label: 'Dato' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [value, setValue] = useState<CalendarDate | null>(
       new CalendarDate(2023, 8, 28),
     );
 
     return (
-      <>
+      <StoryVStack>
         <DatePicker label="Dato" {...args} value={value} onChange={setValue} />
         <Button onClick={() => setValue(today('Europe/Oslo'))}>
           Set today
         </Button>
-      </>
+      </StoryVStack>
     );
   },
 };
 
 export const WeekendsUnavailable: Story = {
   args: { label: 'Dato', isDateUnavailable: date => isWeekend(date, 'no-NO') },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Error: Story = {
   args: { label: 'Dato', errorMessage: 'Her er noe veldig galt! 😨' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const OverviewSizes: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <DatePicker {...args} componentSize="medium" label="Medium" />
       <DatePicker {...args} componentSize="small" label="Small" />
       <DatePicker {...args} componentSize="tiny" label="Tiny" />
-    </>
+    </StoryVStack>
   ),
 };
 
@@ -160,11 +128,6 @@ export const Tip: Story = {
     label: 'Dato',
     tip: 'Visste du at denne komponenten også kan ha en tip?',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const ReadOnly: Story = {
@@ -173,11 +136,6 @@ export const ReadOnly: Story = {
     isReadOnly: true,
     value: new CalendarDate(2023, 12, 24),
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Disabled: Story = {
@@ -186,47 +144,27 @@ export const Disabled: Story = {
     isDisabled: true,
     value: new CalendarDate(2023, 12, 24),
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const CustomWidth: Story = {
   args: { label: 'Dato', width: '1337px' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const ControlFocus: Story = {
   args: { label: 'Dato' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const ref = useRef<HTMLElement>(null);
     return (
-      <VStack gap="x1">
+      <StoryVStack>
         <DatePicker label="Dato" {...args} ref={ref} />
         <Button onClick={() => ref.current?.focus()}>Fokuser DatePicker</Button>
-      </VStack>
+      </StoryVStack>
     );
   },
 };
 
 export const InsideModal: Story = {
   args: { label: 'Dato' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [isOpen, setOpen] = useState(true);
     return (
@@ -242,11 +180,6 @@ export const InsideModal: Story = {
 
 export const DateAndTime: Story = {
   args: { label: 'Dato' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const norwegianDateFormatter = new DateFormatter('no-NO', {
       dateStyle: 'full',
@@ -256,8 +189,8 @@ export const DateAndTime: Story = {
     const [time, setTime] = useState<Time>(new Time(12, 0, 0));
     const dateTime = toCalendarDateTime(date, time);
     return (
-      <VStack gap="x1">
-        <HStack gap="x1">
+      <StoryVStack>
+        <StoryHStack>
           <DatePicker
             {...args}
             value={date}
@@ -268,23 +201,18 @@ export const DateAndTime: Story = {
             value={time}
             onChange={newTime => setTime(newTime)}
           />
-        </HStack>
+        </StoryHStack>
         <Paragraph>
           Valg dato og tid:{' '}
           {norwegianDateFormatter.format(dateTime.toDate('Europe/Oslo'))}
         </Paragraph>
-      </VStack>
+      </StoryVStack>
     );
   },
 };
 
 export const NativeDate: Story = {
   args: { label: 'Dato' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [date, setDate] = useState<Date>(new Date());
     return (

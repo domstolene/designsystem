@@ -9,7 +9,7 @@ export const StorybookLinkRow = (props: ComponentProps<'div'>) => (
       display: 'flex',
       flexWrap: 'wrap',
       alignItems: 'center',
-      gap: '12px',
+      gap: 'var(--dds-spacing-x0-75)',
     }}
   />
 );

@@ -1,9 +1,8 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { NotificationsIcon } from '../Icon/icons';
-import { VStack } from '../Stack';
+import { StoryVStack } from '../Stack/utils';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 
@@ -22,11 +21,6 @@ export default {
 type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Tabs {...args}>
       <TabList>
@@ -44,14 +38,9 @@ export const Default: Story = {
 };
 
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => (
-    <>
+    <StoryVStack>
       <Tabs>
         <TabList>
           <Tab>Restriksjoner</Tab>
@@ -73,16 +62,11 @@ export const Overview: Story = {
           <Tab icon={NotificationsIcon}>Logg</Tab>
         </TabList>
       </Tabs>
-    </>
+    </StoryVStack>
   ),
 };
 
 export const WithIcon: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Tabs {...args}>
       <TabList>
@@ -100,11 +84,6 @@ export const WithIcon: Story = {
 };
 
 export const ActiveTab: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [activeTab, setActiveTab] = useState(1);
     return (
@@ -128,11 +107,6 @@ export const ActiveTab: Story = {
 };
 
 export const WithWidth: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Tabs {...args} width="500px">
       <TabList>
@@ -150,11 +124,6 @@ export const WithWidth: Story = {
 };
 
 export const TabLongNames: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Tabs {...args}>
       <TabList>
@@ -172,11 +141,6 @@ export const TabLongNames: Story = {
 };
 
 export const ManyTabs: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
       <TabList>
@@ -208,31 +172,24 @@ export const ManyTabs: Story = {
 };
 
 export const MaxContentWidth: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <>
-      <VStack align="flex-start" gap="x1">
-        <Paragraph>
-          Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
-          Her er alle tabs satt til å ha bredde "<code>max-content</code>".
-        </Paragraph>
-        <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
-          <TabList>
-            <Tab width="max-content">Aktører</Tab>
-            <Tab width="max-content">Restriksjoner</Tab>
-            <Tab width="max-content">Vedlegg</Tab>
-          </TabList>
-          <TabPanels>
-            <TabPanel>Innhold 1</TabPanel>
-            <TabPanel>Innhold 2</TabPanel>
-            <TabPanel>Innhold 3</TabPanel>
-          </TabPanels>
-        </Tabs>
-      </VStack>
+      <Paragraph withMargins>
+        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
+        Her er alle tabs satt til å ha bredde "<code>max-content</code>".
+      </Paragraph>
+      <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
+        <TabList>
+          <Tab width="max-content">Aktører</Tab>
+          <Tab width="max-content">Restriksjoner</Tab>
+          <Tab width="max-content">Vedlegg</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Innhold 1</TabPanel>
+          <TabPanel>Innhold 2</TabPanel>
+          <TabPanel>Innhold 3</TabPanel>
+        </TabPanels>
+      </Tabs>
     </>
   ),
 };

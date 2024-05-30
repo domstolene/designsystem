@@ -44,7 +44,7 @@
 
 .content--large--with-text {
   padding: var(--dds-spacing-x1) var(--dds-spacing-x2);
-  gap: var(--dds-spacing-x1);
+  gap: var(--dds-spacing-x0-5);
 }
 
 .content--medium--just-icon {
@@ -57,7 +57,7 @@
 
 .content--medium--with-text {
   padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1-5);
-  gap: var(--dds-spacing-x0-5);
+  gap: var(--dds-spacing-x0-75);
 }
 
 .content--small--just-icon {

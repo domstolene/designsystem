@@ -1,7 +1,8 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
+import { StoryHStack } from '../Stack/utils';
+import { Paragraph } from '../Typography';
 
 import { Icon } from '.';
 
@@ -26,32 +27,18 @@ type Story = StoryObj<typeof Icon>;
 const icon = OpenExternal;
 
 export const Default: Story = {
-  args: {
-    icon,
-  },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
+  args: { icon },
 };
 
-export const Overview: Story = {
-  args: {
-    icon,
-  },
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4}>
-      <Story />
-    </StoryTemplate>
-  ),
+export const Sizes: Story = {
+  args: { icon },
   render: args => (
-    <>
+    <StoryHStack>
       <Icon {...args} iconSize="inherit" />
       <Icon {...args} iconSize="small" />
       <Icon {...args} iconSize="medium" />
       <Icon {...args} iconSize="large" />
-    </>
+    </StoryHStack>
   ),
 };
 
@@ -60,22 +47,9 @@ export const Inherit: Story = {
     icon,
     iconSize: 'inherit',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <p
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '4px',
-        fontSize: '20px',
-      }}
-    >
-      <Icon {...args} />
-      Tekst
-    </p>
+    <Paragraph typographyType="bodySans04">
+      <Icon {...args} /> Tekst
+    </Paragraph>
   ),
 };

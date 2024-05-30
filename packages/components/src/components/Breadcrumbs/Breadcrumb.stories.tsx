@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryVStack } from '../Stack/utils';
 
 import { Breadcrumb } from '.';
 
@@ -18,28 +19,18 @@ export default {
 type Story = StoryObj<typeof Breadcrumb>;
 
 export const BreadcrumbDefault: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   args: {
     children: 'Side',
   },
 };
 
 export const BreadcrumbOverview: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <Breadcrumb {...args} href="#">
         Forrige nivå
       </Breadcrumb>
       <Breadcrumb {...args}>Siden du er på</Breadcrumb>
-    </>
+    </StoryVStack>
   ),
 };

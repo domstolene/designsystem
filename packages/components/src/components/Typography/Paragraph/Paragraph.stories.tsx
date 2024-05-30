@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryVStack } from '../../Stack/utils';
 
 import { Paragraph } from '.';
 
@@ -21,14 +22,13 @@ export default {
 
 type Story = StoryObj<typeof Paragraph>;
 
+export const Default: Story = {
+  args: { children: 'Paragraph' },
+};
+
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <Paragraph {...args} typographyType="bodySans01">
         {args.children || 'bodySans01'}
       </Paragraph>
@@ -56,15 +56,6 @@ export const Overview: Story = {
       <Paragraph {...args} typographyType="leadSans05">
         {args.children || 'leadSans05'}
       </Paragraph>
-    </>
-  ),
-};
-
-export const Default: Story = {
-  args: { children: 'Paragraph' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
+    </StoryVStack>
   ),
 };

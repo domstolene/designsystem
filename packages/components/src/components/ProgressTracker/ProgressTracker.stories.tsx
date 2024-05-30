@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
@@ -17,7 +16,7 @@ import {
 } from '../Icon/icons';
 import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
-import { VStack } from '../Stack';
+import { HStack, VStack } from '../Stack';
 import { TextInput } from '../TextInput';
 import { Heading, Legend, Paragraph } from '../Typography';
 
@@ -39,12 +38,6 @@ export default {
 type Story = StoryObj<typeof ProgressTracker>;
 
 export const Overview: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const numSteps = 3;
 
@@ -96,12 +89,6 @@ export const Overview: Story = {
 };
 
 export const WithIcons: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const numSteps = 3;
 
@@ -166,12 +153,6 @@ export const WithIcons: Story = {
 };
 
 export const FutureStepsDisabled: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const numSteps = 3;
 
@@ -215,28 +196,23 @@ export const FutureStepsDisabled: Story = {
             Vedlegg
           </ProgressTracker.Item>
         </ProgressTracker>
-        <div style={{ margin: '10px' }}>
+        <div style={{ margin: 'var(--dds-spacing-x1)' }}>
           {activeStep === 0 && <div>Steg 1</div>}
           {activeStep === 1 && <div>Steg 2</div>}
           {activeStep === 2 && <div>Steg 3</div>}
         </div>
-
-        <Button onClick={() => activeStep > 0 && setActiveStep(s => s - 1)}>
-          Forrige steg
-        </Button>
-        <Button onClick={handleSetFinishedButtonClick}>Neste steg</Button>
+        <HStack gap="x0.75">
+          <Button onClick={() => activeStep > 0 && setActiveStep(s => s - 1)}>
+            Forrige steg
+          </Button>
+          <Button onClick={handleSetFinishedButtonClick}>Neste steg</Button>
+        </HStack>
       </>
     );
   },
 };
 
 export const SmallScreen: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const numSteps = 3;
 
@@ -297,13 +273,7 @@ export const SmallScreen: Story = {
   },
 };
 
-export const RealWorldExample: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
+export const RealWorldRosponsiveExample: Story = {
   render: args => {
     const [activeStep, setActiveStep] = useState(0);
     const [completedSteps, setCompletedSteps] = useState(new Set<number>());
@@ -353,7 +323,7 @@ export const RealWorldExample: Story = {
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: '6rem',
+          gap: 'var(--dds-spacing-x6)',
         }}
       >
         <div style={{ width: '415px' }}>

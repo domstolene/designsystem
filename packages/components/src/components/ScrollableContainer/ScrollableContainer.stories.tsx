@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { type Property } from 'csstype';
 import { type CSSProperties, useRef } from 'react';
@@ -26,11 +25,6 @@ type Story = StoryObj<typeof ScrollableContainer>;
 
 export const Default: Story = {
   args: { contentHeight: '300px' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <ScrollableContainer {...args}>
       <p>
@@ -122,12 +116,6 @@ export const Default: Story = {
 };
 
 export const JustScrollbar: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {
     const contentRef = useRef<HTMLDivElement>(null);

@@ -126,9 +126,8 @@
     box-shadow: 0 0 0 1px var(--dds-c-tic-border-danger);
   }
 
-  input:not(:focus-visible)
-    ~ .selectio-
-    input:checked:enabled:not(:focus-visible)
+  input:not(:focus-visible) ~ .selection-control,
+  input:checked:enabled:not(:focus-visible)
     .selection-control
     &:hover
     input:checked:enabled:not(:focus-visible)

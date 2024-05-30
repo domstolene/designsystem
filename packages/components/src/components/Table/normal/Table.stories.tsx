@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { type ChangeEvent, useEffect, useState } from 'react';
 
@@ -54,11 +53,6 @@ const mappedHeaderCells = headerCells.map(headerCell => {
 });
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -82,11 +76,6 @@ export const Default: Story = {
 };
 
 export const WithDividers: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args} withDividers>
@@ -110,11 +99,6 @@ export const WithDividers: Story = {
 };
 
 export const Focusable: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -144,11 +128,6 @@ export const Focusable: Story = {
 };
 
 export const Compact: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args} density="compact">
@@ -172,11 +151,6 @@ export const Compact: Story = {
 };
 
 export const ExtraCompact: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args} density="extraCompact">
@@ -200,11 +174,6 @@ export const ExtraCompact: Story = {
 };
 
 export const StickyHeader: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args} stickyHeader>
@@ -237,11 +206,6 @@ export const StickyHeader: Story = {
 };
 
 export const Hoverable: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -271,11 +235,6 @@ const deleteButton = (
   </Button>
 );
 export const WithButtonAndIcons: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -326,11 +285,6 @@ const sumData = [
 ];
 
 export const WithSum: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -362,11 +316,6 @@ export const WithSum: Story = {
 };
 
 export const WithCheckbox: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     type chechboxRow = {
       id: string;
@@ -472,11 +421,6 @@ export const WithCheckbox: Story = {
 };
 
 export const Complex: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args} stickyHeader>
@@ -552,11 +496,6 @@ export const Complex: Story = {
 };
 
 export const Sortable: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [headerSortCells, setHeaderSortCells] =
       useState<Array<HeaderCellToSort>>(headerCells);
@@ -655,11 +594,6 @@ export const Sortable: Story = {
 };
 
 export const ColumnAndRowHeaders: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
@@ -695,11 +629,6 @@ export const ColumnAndRowHeaders: Story = {
 };
 
 export const WithScroll: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <>
       <Paragraph>
@@ -744,11 +673,6 @@ export const WithScroll: Story = {
 };
 
 export const InteractiveContent: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper>
       <Table {...args}>

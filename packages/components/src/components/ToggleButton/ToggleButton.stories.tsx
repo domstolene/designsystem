@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { NotificationsIcon } from '../Icon/icons';
@@ -10,6 +9,8 @@ export default {
   component: ToggleButton,
   argTypes: {
     label: { control: 'text' },
+    htmlProps: { control: false },
+    icon: { control: false },
   },
   parameters: {
     docs: {
@@ -23,18 +24,8 @@ type Story = StoryObj<typeof ToggleButton>;
 
 export const Default: Story = {
   args: { label: 'Tekst' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const WithIcon: Story = {
   args: { label: 'Tekst', icon: NotificationsIcon },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };

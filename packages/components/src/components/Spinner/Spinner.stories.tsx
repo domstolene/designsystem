@@ -1,6 +1,6 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryHStack } from '../Stack/utils';
 
 import { Spinner } from '.';
 
@@ -23,45 +23,21 @@ export default {
 
 type Story = StoryObj<typeof Spinner>;
 
-export const Default: Story = {
-  args: {
-    size: ddsTokens.DdsIconSizeMedium,
-    color: 'interactive',
-  },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
-};
+export const Default: Story = {};
 
 export const Overview: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4} gap="30px">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryHStack>
       <Spinner {...args} />
       <Spinner {...args} color="gray4" />
       <Spinner {...args} color="success" />
       <Spinner {...args} size="60px" />
-    </>
+    </StoryHStack>
   ),
 };
 
 export const CustomTooltip: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4} gap="30px">
-      <Story />
-    </StoryTemplate>
-  ),
-  render: args => (
-    <>
-      <Spinner {...args} size="60px" tooltip="Egendefinert melding" />
-    </>
-  ),
+  args: {
+    tooltip: 'Egendefinert melding',
+  },
 };

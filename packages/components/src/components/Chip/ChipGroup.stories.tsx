@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type StoryObj } from '@storybook/react';
 
 import { Chip, ChipGroup } from '.';
@@ -20,11 +19,6 @@ export default {
 type Story = StoryObj<typeof ChipGroup>;
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <ChipGroup {...args}>
       <Chip text="Chip 1" />

@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
@@ -8,7 +7,7 @@ import {
   DescriptionListTerm,
 } from '../DescriptionList';
 import { Divider } from '../Divider';
-import { HStack, VStack } from '../Stack';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Heading, Link, Paragraph, Typography } from '../Typography';
 
 import { Card, CardAccordion, CardAccordionBody, CardAccordionHeader } from '.';
@@ -40,16 +39,15 @@ const contentContainerStyle = {
   padding: 'var(--dds-spacing-x0-75)',
 };
 
+export const Default: Story = {
+  args: { children: <div style={contentContainerStyle}>Content</div> },
+};
+
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
-    <HStack gap="x1.5" align="start">
-      <VStack gap="x1" align="start">
+    <StoryHStack>
+      <StoryVStack>
         <Card {...args} cardType="info">
           <div style={contentContainerStyle}>
             <Heading level={2} typographyType="headingSans03">
@@ -72,8 +70,8 @@ export const Overview: Story = {
             <CardAccordionBody>Content</CardAccordionBody>
           </CardAccordion>
         </Card>
-      </VStack>
-      <VStack gap="x1" align="start">
+      </StoryVStack>
+      <StoryVStack>
         <Card {...args} cardType="info" appearance="border">
           <div style={contentContainerStyle}>
             <Heading level={2} typographyType="headingSans03">
@@ -97,26 +95,12 @@ export const Overview: Story = {
             <CardAccordionBody>Content</CardAccordionBody>
           </CardAccordion>
         </Card>
-      </VStack>
-    </HStack>
-  ),
-};
-
-export const Default: Story = {
-  args: { children: 'Content' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
 export const Accordion: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args} cardType="expandable">
@@ -129,11 +113,6 @@ export const Accordion: Story = {
 };
 
 export const Accordions: Story = {
-  decorators: Story => (
-    <StoryTemplate gap="0">
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <>
@@ -199,11 +178,6 @@ export const Accordions: Story = {
 };
 
 export const AccordionControlled: Story = {
-  decorators: Story => (
-    <StoryTemplate gap="0">
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => {
     const [isExpanded, setIsExpanded] = useState(true);
@@ -223,11 +197,6 @@ export const AccordionControlled: Story = {
 };
 
 export const AccordionCustom: Story = {
-  decorators: Story => (
-    <StoryTemplate gap="0">
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args} cardType="expandable" appearance="border">
@@ -264,11 +233,6 @@ export const AccordionCustom: Story = {
 };
 
 export const Examples: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args}>

@@ -1,9 +1,8 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { FileUploader } from './FileUploader';
-import { VStack } from '../Stack';
+import { StoryVStack } from '../Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
 export default {
@@ -40,11 +39,6 @@ export const Default: Story = {
     dropAreaLabel: 'Dra og slipp fil her eller',
     btnLabel: 'Velg fil',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 const SingleFileUploader = () => {
@@ -102,26 +96,16 @@ const WithErrorMessage = () => {
 
 export const Overview: Story = {
   args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: () => (
-    <VStack gap="x1">
+    <StoryVStack>
       <SingleFileUploader />
       <NoZoneUploader />
       <WithErrorMessage />
-    </VStack>
+    </StoryVStack>
   ),
 };
 export const NoZone: Story = {
   args: { label: 'Last opp fil' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     return <FileUploader {...args} withDragAndDrop={false} />;
   },
@@ -129,11 +113,6 @@ export const NoZone: Story = {
 
 export const Pdf: Story = {
   args: { label: 'Last opp fil', tip: 'Kun PDF-filer' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [files, setFiles] = useState<Array<File>>([]);
     return (
@@ -151,11 +130,6 @@ export const Pdf: Story = {
 
 export const CustomFileList: Story = {
   args: { label: 'Last opp fil' },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [files, setFiles] = useState<Array<File>>([]);
     return (

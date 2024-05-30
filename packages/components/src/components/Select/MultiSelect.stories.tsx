@@ -1,11 +1,12 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type Meta, type StoryObj } from '@storybook/react';
 
-import { Select as DDSSelect, type SelectProps } from './Select';
+import { Select } from './Select';
 import { CourtIcon } from '../Icon/icons';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 export default {
   title: 'dds-components/Select/MultiSelect',
-  component: DDSSelect,
+  component: Select,
   argTypes: {
     label: { control: { type: 'text' } },
     tip: { control: { type: 'text' } },
@@ -23,7 +24,9 @@ export default {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-};
+} satisfies Meta<typeof Select<Option, true>>;
+
+type Story = StoryObj<typeof Select<Option, true>>;
 
 interface Option {
   label: string;
@@ -38,149 +41,72 @@ const options: Array<Option> = [
   'Alternativ 4',
 ].map(s => ({ label: s, value: s }));
 
-type MultiSelectProps = SelectProps<Option, true>;
-
-export const Overview = (args: MultiSelectProps) => {
-  return (
-    <StoryTemplate gap="25px" display="grid" $columnsAmount={2}>
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        required
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        isDisabled
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        isDisabled
-        value={options[0]}
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        readOnly
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        readOnly
-        value={options[0]}
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        errorMessage="Dette er en feilmelding"
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        tip="Dette er en hjelpetekst"
-        options={options}
-        isMulti
-      />
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        placeholder="Annerledes placeholder"
-        options={options}
-        isMulti
-      />
-      <DDSSelect {...args} options={options} isMulti />
-    </StoryTemplate>
-  );
+export const Default: Story = {
+  args: { label: 'Label', options: options, isMulti: true },
 };
 
-export const OverviewSizes = (args: MultiSelectProps) => {
-  return (
-    <StoryTemplate display="grid" $columnsAmount={2}>
-      <DDSSelect {...args} options={options} isMulti />
-      <DDSSelect {...args} options={options} isMulti icon={CourtIcon} />
-      <DDSSelect {...args} options={options} isMulti componentSize="small" />
-      <DDSSelect
-        {...args}
-        options={options}
-        isMulti
-        componentSize="small"
-        icon={CourtIcon}
-      />
-    </StoryTemplate>
-  );
+export const Overview: Story = {
+  args: { label: 'Label', options: options, isMulti: true },
+  render: args => (
+    <StoryHStack>
+      <StoryVStack>
+        <Select {...args} />
+        <Select {...args} isDisabled value={options[0]} />
+        <Select {...args} icon={CourtIcon} />
+        <Select {...args} tip="Dette er en hjelpetekst" />
+      </StoryVStack>
+      <StoryVStack>
+        <Select {...args} required />
+        <Select {...args} readOnly value={options[0]} />
+        <Select {...args} errorMessage="Dette er en feilmelding" />
+        <Select {...args} placeholder="Annerledes placeholder" />
+      </StoryVStack>
+    </StoryHStack>
+  ),
 };
 
-export const Default = (args: MultiSelectProps) => {
-  return (
-    <StoryTemplate>
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        options={options}
-        isMulti
-      />
-    </StoryTemplate>
-  );
+export const OverviewSizes: Story = {
+  args: { label: 'Label', options: options, isMulti: true },
+  render: args => {
+    return (
+      <StoryHStack>
+        <StoryVStack>
+          <Select {...args} />
+          <Select {...args} componentSize="small" />
+        </StoryVStack>
+        <StoryVStack>
+          <Select {...args} icon={CourtIcon} />
+          <Select {...args} componentSize="small" icon={CourtIcon} />
+        </StoryVStack>
+      </StoryHStack>
+    );
+  },
 };
 
-export const WithDefaultValue = (args: MultiSelectProps) => {
-  return (
-    <StoryTemplate>
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        options={options}
-        isMulti
-        defaultValue={options[0]}
-      />
-    </StoryTemplate>
-  );
+export const WithDefaultValue: Story = {
+  args: {
+    label: 'Label',
+    options: options,
+    isMulti: true,
+    defaultValue: options[0],
+  },
 };
 
-export const WithValue = (args: MultiSelectProps) => {
-  return (
-    <StoryTemplate>
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        options={options}
-        isMulti
-        value={options[0]}
-      />
-    </StoryTemplate>
-  );
+export const WithValue: Story = {
+  args: {
+    label: 'Label',
+    options: options,
+    isMulti: true,
+    value: options[0],
+  },
 };
 
-export const WithFitContent = (args: MultiSelectProps) => {
-  return (
-    <StoryTemplate>
-      <DDSSelect
-        {...args}
-        label={args.label ?? 'Label'}
-        options={options}
-        isMulti
-        width="fit-content"
-        style={{ minWidth: '320px' }}
-      />
-    </StoryTemplate>
-  );
+export const WithFitContent: Story = {
+  args: {
+    label: 'Label',
+    options: options,
+    isMulti: true,
+    width: 'fit-content',
+    style: { minWidth: 'var(--dds-input-default-width)' },
+  },
 };

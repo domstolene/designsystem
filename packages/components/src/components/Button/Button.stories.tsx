@@ -1,7 +1,7 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { ArrowLeftIcon, HStack, VStack } from '../..';
+import { ArrowLeftIcon } from '../..';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 import { Button } from '.';
 
@@ -30,22 +30,12 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: { children: 'Tekst' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
-export const OverviewWithText: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
+export const OverviewPurposes: Story = {
   render: args => (
-    <HStack gap="x1">
-      <VStack gap="x1" align="start">
+    <StoryHStack>
+      <StoryVStack>
         <Button
           {...args}
           purpose="primary"
@@ -62,8 +52,8 @@ export const OverviewWithText: Story = {
         <Button {...args} purpose="danger">
           Danger
         </Button>
-      </VStack>
-      <VStack gap="x1" align="start">
+      </StoryVStack>
+      <StoryVStack>
         <Button
           {...args}
           purpose="primary"
@@ -96,148 +86,116 @@ export const OverviewWithText: Story = {
         >
           Danger
         </Button>
-      </VStack>
-    </HStack>
-  ),
-};
-
-export const OverviewJustIcon: Story = {
-  args: { icon: ArrowLeftIcon },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
-  render: args => (
-    <>
-      <Button {...args} purpose="primary" />
-      <Button {...args} purpose="secondary" />
-      <Button {...args} purpose="tertiary" />
-      <Button {...args} purpose="danger" />
-    </>
+      </StoryVStack>
+      <StoryVStack>
+        <Button {...args} icon={ArrowLeftIcon} purpose="primary" />
+        <Button {...args} icon={ArrowLeftIcon} purpose="secondary" />
+        <Button {...args} icon={ArrowLeftIcon} purpose="tertiary" />
+        <Button {...args} icon={ArrowLeftIcon} purpose="danger" />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
 export const OverviewSizes: Story = {
   args: { purpose: 'primary' },
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4}>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <Button {...args} size="tiny">
-        Primary
-      </Button>
-      <Button {...args} size="small">
-        Primary
-      </Button>
-      <Button {...args} size="medium">
-        Primary
-      </Button>
-      <Button {...args} size="large">
-        Primary
-      </Button>
-      <Button
-        {...args}
-        size="tiny"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={ArrowLeftIcon}
-      >
-        Primary
-      </Button>
-      <Button
-        {...args}
-        size="small"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={ArrowLeftIcon}
-      >
-        Primary
-      </Button>
-      <Button
-        {...args}
-        size="medium"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={ArrowLeftIcon}
-      >
-        Primary
-      </Button>
-      <Button
-        {...args}
-        size="large"
-        iconPosition={args.iconPosition ?? 'left'}
-        icon={ArrowLeftIcon}
-      >
-        Primary
-      </Button>
-      <Button {...args} size="tiny" icon={ArrowLeftIcon} />
-      <Button {...args} size="small" icon={ArrowLeftIcon} />
-      <Button {...args} size="medium" icon={ArrowLeftIcon} />
-      <Button {...args} size="large" icon={ArrowLeftIcon} />
-    </>
+    <StoryHStack>
+      <StoryVStack>
+        <Button {...args} size="tiny">
+          Primary
+        </Button>
+        <Button {...args} size="small">
+          Primary
+        </Button>
+        <Button {...args} size="medium">
+          Primary
+        </Button>
+        <Button {...args} size="large">
+          Primary
+        </Button>
+      </StoryVStack>
+      <StoryVStack>
+        <Button
+          {...args}
+          size="tiny"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Primary
+        </Button>
+        <Button
+          {...args}
+          size="small"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Primary
+        </Button>
+        <Button
+          {...args}
+          size="medium"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Primary
+        </Button>
+        <Button
+          {...args}
+          size="large"
+          iconPosition={args.iconPosition ?? 'left'}
+          icon={ArrowLeftIcon}
+        >
+          Primary
+        </Button>
+      </StoryVStack>
+      <StoryVStack>
+        <Button {...args} size="tiny" icon={ArrowLeftIcon} />
+        <Button {...args} size="small" icon={ArrowLeftIcon} />
+        <Button {...args} size="medium" icon={ArrowLeftIcon} />
+        <Button {...args} size="large" icon={ArrowLeftIcon} />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
 export const OverviewLoading: Story = {
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4}>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <Button {...args} purpose="primary" size="tiny" loading />
-      <Button {...args} purpose="primary" size="small" loading />
-      <Button {...args} purpose="primary" size="medium" loading />
-      <Button {...args} purpose="primary" size="large" loading />
-      <Button {...args} purpose="secondary" size="tiny" loading />
-      <Button {...args} purpose="secondary" size="small" loading />
-      <Button {...args} purpose="secondary" size="medium" loading />
-      <Button {...args} purpose="secondary" size="large" loading />
-      <Button {...args} purpose="danger" size="tiny" loading />
-      <Button {...args} purpose="danger" size="small" loading />
-      <Button {...args} purpose="danger" size="medium" loading />
-      <Button {...args} purpose="danger" size="large" loading />
-    </>
+    <StoryHStack>
+      <StoryVStack>
+        <Button {...args} purpose="primary" size="tiny" loading />
+        <Button {...args} purpose="primary" size="small" loading />
+        <Button {...args} purpose="primary" size="medium" loading />
+        <Button {...args} purpose="primary" size="large" loading />
+      </StoryVStack>
+      <StoryVStack>
+        <Button {...args} purpose="secondary" size="tiny" loading />
+        <Button {...args} purpose="secondary" size="small" loading />
+        <Button {...args} purpose="secondary" size="medium" loading />
+        <Button {...args} purpose="secondary" size="large" loading />
+      </StoryVStack>
+      <StoryVStack>
+        <Button {...args} purpose="danger" size="tiny" loading />
+        <Button {...args} purpose="danger" size="small" loading />
+        <Button {...args} purpose="danger" size="medium" loading />
+        <Button {...args} purpose="danger" size="large" loading />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
 export const OverviewFullWidth: Story = {
-  args: { fullWidth: true },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
+  args: { fullWidth: true, children: 'Tekst' },
   render: args => (
-    <>
-      <Button {...args} purpose="primary" size="medium">
-        {args.children ?? 'Primary'}
-      </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        size="medium"
-        iconPosition="left"
-        icon={ArrowLeftIcon}
-      >
-        {args.children ?? 'Primary'}
-      </Button>
-      <Button
-        {...args}
-        purpose="primary"
-        size="medium"
-        iconPosition="right"
-        icon={ArrowLeftIcon}
-      >
-        {args.children ?? 'Primary'}
-      </Button>
-      <Button {...args} purpose="primary" size="medium" icon={ArrowLeftIcon} />
-      <Button {...args} purpose="primary" size="medium" loading>
+    <StoryVStack>
+      <Button {...args}></Button>
+      <Button {...args} iconPosition="left" icon={ArrowLeftIcon}></Button>
+      <Button {...args} iconPosition="right" icon={ArrowLeftIcon}></Button>
+      <Button {...args} children={undefined} icon={ArrowLeftIcon} />
+      <Button {...args} loading>
         label
       </Button>
-    </>
+    </StoryVStack>
   ),
 };
 
@@ -247,72 +205,47 @@ export const TextWithIcon: Story = {
     icon: ArrowLeftIcon,
     iconPosition: 'left',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Icon: Story = {
   args: { icon: ArrowLeftIcon },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Secondary: Story = {
   args: { purpose: 'secondary' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryHStack>
       <Button {...args}>Tekst</Button>
       <Button {...args} icon={ArrowLeftIcon}>
         Tekst
       </Button>
       <Button {...args} icon={ArrowLeftIcon} />
-    </>
+    </StoryHStack>
   ),
 };
 
 export const Tertiary: Story = {
   args: { purpose: 'tertiary' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryHStack>
       <Button {...args}>Tekst</Button>
       <Button {...args} icon={ArrowLeftIcon}>
         Tekst
       </Button>
       <Button {...args} icon={ArrowLeftIcon} />
-    </>
+    </StoryHStack>
   ),
 };
 
 export const Danger: Story = {
   args: { purpose: 'danger' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryHStack>
       <Button {...args}>Tekst</Button>
       <Button {...args} icon={ArrowLeftIcon}>
         Tekst
       </Button>
       <Button {...args} icon={ArrowLeftIcon} />
-    </>
+    </StoryHStack>
   ),
 };

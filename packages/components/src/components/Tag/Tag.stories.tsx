@@ -1,7 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { HStack, VStack } from '../Stack';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 import { Tag } from '.';
 
@@ -20,86 +19,74 @@ type Story = StoryObj<typeof Tag>;
 
 export const Default: Story = {
   args: { children: 'default' },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
   args: { children: 'default' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <HStack align="flex-start" gap="x2">
-        <VStack align="flex-start" gap="x1">
-          <Tag {...args} purpose="success">
-            success
-          </Tag>
-          <Tag {...args} purpose="info">
-            info
-          </Tag>
-          <Tag {...args} purpose="danger">
-            danger
-          </Tag>
-          <Tag {...args} purpose="warning">
-            warning
-          </Tag>
-          <Tag {...args}>default</Tag>
-        </VStack>
+    <StoryHStack>
+      <StoryVStack>
+        <Tag {...args} purpose="success">
+          success
+        </Tag>
+        <Tag {...args} purpose="info">
+          info
+        </Tag>
+        <Tag {...args} purpose="danger">
+          danger
+        </Tag>
+        <Tag {...args} purpose="warning">
+          warning
+        </Tag>
+        <Tag {...args}>default</Tag>
+      </StoryVStack>
 
-        <VStack align="flex-start" gap="x1">
-          <Tag {...args} withIcon purpose="success">
-            success
-          </Tag>
-          <Tag {...args} withIcon purpose="info">
-            info
-          </Tag>
-          <Tag {...args} withIcon purpose="danger">
-            danger
-          </Tag>
-          <Tag {...args} withIcon purpose="warning">
-            warning
-          </Tag>
-        </VStack>
+      <StoryVStack>
+        <Tag {...args} withIcon purpose="success">
+          success
+        </Tag>
+        <Tag {...args} withIcon purpose="info">
+          info
+        </Tag>
+        <Tag {...args} withIcon purpose="danger">
+          danger
+        </Tag>
+        <Tag {...args} withIcon purpose="warning">
+          warning
+        </Tag>
+      </StoryVStack>
 
-        <VStack align="flex-start" gap="x1">
-          <Tag {...args} appearance="strong" purpose="success">
-            success
-          </Tag>
-          <Tag {...args} appearance="strong" purpose="info">
-            info
-          </Tag>
-          <Tag {...args} appearance="strong" purpose="danger">
-            danger
-          </Tag>
-          <Tag {...args} appearance="strong" purpose="warning">
-            warning
-          </Tag>
-          <Tag {...args} appearance="strong">
-            default
-          </Tag>
-        </VStack>
-        <VStack align="flex-start" gap="x1">
-          <Tag {...args} appearance="strong" withIcon purpose="success">
-            success
-          </Tag>
-          <Tag {...args} appearance="strong" withIcon purpose="info">
-            info
-          </Tag>
-          <Tag {...args} appearance="strong" withIcon purpose="danger">
-            danger
-          </Tag>
-          <Tag {...args} appearance="strong" withIcon purpose="warning">
-            warning
-          </Tag>
-        </VStack>
-      </HStack>
-    </>
+      <StoryVStack>
+        <Tag {...args} appearance="strong" purpose="success">
+          success
+        </Tag>
+        <Tag {...args} appearance="strong" purpose="info">
+          info
+        </Tag>
+        <Tag {...args} appearance="strong" purpose="danger">
+          danger
+        </Tag>
+        <Tag {...args} appearance="strong" purpose="warning">
+          warning
+        </Tag>
+        <Tag {...args} appearance="strong">
+          default
+        </Tag>
+      </StoryVStack>
+      <StoryVStack>
+        <Tag {...args} appearance="strong" withIcon purpose="success">
+          success
+        </Tag>
+        <Tag {...args} appearance="strong" withIcon purpose="info">
+          info
+        </Tag>
+        <Tag {...args} appearance="strong" withIcon purpose="danger">
+          danger
+        </Tag>
+        <Tag {...args} appearance="strong" withIcon purpose="warning">
+          warning
+        </Tag>
+      </StoryVStack>
+    </StoryHStack>
   ),
 };

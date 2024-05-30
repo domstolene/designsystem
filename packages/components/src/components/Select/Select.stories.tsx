@@ -1,12 +1,16 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type Meta } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
+import { Button } from '../Button';
+import { Drawer, DrawerGroup } from '../Drawer';
 import { CourtIcon } from '../Icon/icons';
+import { Modal, ModalBody } from '../Modal';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 import { Select, type SelectProps, createSelectOptions } from '.';
 
 export default {
-  title: 'dds-components/Select/SingleValue',
+  title: 'dds-components/Select/Select',
   component: Select,
   argTypes: {
     label: { control: 'text' },
@@ -28,6 +32,8 @@ export default {
   },
 } satisfies Meta<typeof Select>;
 
+type Story = StoryObj<typeof Select>;
+
 const options = createSelectOptions(
   'Alternativ 1',
   'Alternativ 2',
@@ -47,137 +53,91 @@ const optionsLong = createSelectOptions(
   'Alternativ 7',
 );
 
-export const Overview = (args: SelectProps) => {
-  return (
-    <StoryTemplate gap="25px" display="grid" $columnsAmount={2}>
-      <Select {...args} label={args.label ?? 'Label'} options={options} />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        required
-        options={options}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        isDisabled
-        options={options}
-        value={options[3]}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        readOnly
-        options={options}
-        value={options[3]}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        icon={CourtIcon}
-        options={options}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        errorMessage="Dette er en feilmelding"
-        options={options}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        tip="Dette er en hjelpetekst"
-        options={options}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        placeholder="Annerledes placeholder"
-        options={options}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        defaultValue={options[0]}
-        options={options}
-      />
-      <Select
-        {...args}
-        label={args.label ?? 'Label'}
-        value={options[3]}
-        options={options}
-      />
-      <Select {...args} options={options} />
-    </StoryTemplate>
-  );
+const groupedOptions = [
+  {
+    label: 'Gruppe 1',
+    options: [
+      { label: 'Alternativ 1', value: 'Alternativ 1' },
+      { label: 'Alternativ 2', value: 'Alternativ 2' },
+    ],
+  },
+  {
+    label: 'Gruppe 2',
+    options: [
+      { label: 'Alternativ 3', value: 'Alternativ 3' },
+      { label: 'Alternativ 4', value: 'Alternativ 4' },
+    ],
+  },
+];
+
+export const Default: Story = {
+  args: { label: 'Label', options: options },
 };
 
-export const OverviewSizes = (args: SelectProps) => {
-  return (
-    <StoryTemplate display="grid" $columnsAmount={2}>
-      <Select {...args} componentSize="medium" options={options} />
-      <Select
-        {...args}
-        componentSize="medium"
-        icon={CourtIcon}
-        options={options}
-      />
-      <Select {...args} componentSize="small" options={options} />
-      <Select
-        {...args}
-        componentSize="small"
-        icon={CourtIcon}
-        options={options}
-      />
-      <Select {...args} componentSize="tiny" options={options} />
-      <Select
-        {...args}
-        componentSize="tiny"
-        icon={CourtIcon}
-        options={options}
-      />
-    </StoryTemplate>
-  );
+export const Overview: Story = {
+  args: { label: 'Label', options: options },
+  render: args => {
+    return (
+      <StoryHStack>
+        <StoryVStack>
+          <Select {...args} />
+          <Select {...args} isDisabled value={options[3]} />
+          <Select {...args} icon={CourtIcon} />
+          <Select {...args} tip="Dette er en hjelpetekst" />
+        </StoryVStack>
+        <StoryVStack>
+          <Select {...args} required />
+          <Select {...args} readOnly value={options[3]} />
+          <Select {...args} errorMessage="Dette er en feilmelding" />
+          <Select {...args} placeholder="Annerledes placeholder" />
+        </StoryVStack>
+      </StoryHStack>
+    );
+  },
 };
 
-export const Default = (args: SelectProps) => {
-  return (
-    <StoryTemplate>
-      <Select {...args} options={options} label={args.label ?? 'Label'} />
-    </StoryTemplate>
-  );
+export const OverviewSizes: Story = {
+  args: { options: options },
+  render: args => {
+    return (
+      <StoryHStack>
+        <StoryVStack>
+          <Select {...args} componentSize="medium" />
+          <Select {...args} componentSize="small" />
+          <Select {...args} componentSize="tiny" />
+        </StoryVStack>
+        <StoryVStack>
+          <Select {...args} componentSize="medium" icon={CourtIcon} />
+          <Select {...args} componentSize="small" icon={CourtIcon} />
+          <Select {...args} componentSize="tiny" icon={CourtIcon} />
+        </StoryVStack>
+      </StoryHStack>
+    );
+  },
 };
 
-export const WithGroups = (args: SelectProps) => {
-  const groupedOptions = [
-    {
-      label: 'Gruppe 1',
-      options: [
-        { label: 'Alternativ 1', value: 'Alternativ 1' },
-        { label: 'Alternativ 2', value: 'Alternativ 2' },
-      ],
-    },
-    {
-      label: 'Gruppe 2',
-      options: [
-        { label: 'Alternativ 3', value: 'Alternativ 3' },
-        { label: 'Alternativ 4', value: 'Alternativ 4' },
-      ],
-    },
-  ];
-  return (
-    <StoryTemplate>
-      <Select {...args} options={groupedOptions} />
-    </StoryTemplate>
-  );
+export const WithGroups: Story = {
+  args: { label: 'Label', options: groupedOptions },
 };
 
-export const ManyItems = (args: SelectProps) => {
-  return (
-    <StoryTemplate>
-      <Select {...args} label={args.label ?? 'Label'} options={optionsLong} />
-    </StoryTemplate>
-  );
+export const ManyItems: Story = {
+  args: { label: 'Label', options: optionsLong },
+};
+
+export const WithDefaultValue: Story = {
+  args: {
+    label: 'Label',
+    options: options,
+    defaultValue: options[0],
+  },
+};
+
+export const WithValue: Story = {
+  args: {
+    label: 'Label',
+    options: options,
+    value: options[0],
+  },
 };
 
 export const CustomData = (
@@ -189,39 +149,104 @@ export const CustomData = (
     { name: 'Endre', employeeId: 789 },
   ];
   return (
-    <StoryTemplate>
-      <Select
-        {...args}
-        label={args.label ?? 'Saksbehandler'}
-        options={employees}
-        getOptionLabel={option => option.name}
-        getOptionValue={option => option.employeeId.toString()}
-      />
-    </StoryTemplate>
+    <Select
+      {...args}
+      label={args.label ?? 'Saksbehandler'}
+      options={employees}
+      getOptionLabel={option => option.name}
+      getOptionValue={option => option.employeeId.toString()}
+    />
   );
 };
 
-// export const InDrawer = () => {
-//   return (
-//     <DrawerGroup>
-//       <Button>Åpne skuff</Button>
-//       <Drawer>
-//         <Select label="Velg" options={options} />
-//       </Drawer>
-//     </DrawerGroup>
-//   );
-// };
+export const CustomElement: Story = {
+  args: {
+    label: 'Label',
+    options: options,
+    customOptionElement: props => (
+      <OptionElement isSelected={props.isSelected}>
+        {props.children}
+      </OptionElement>
+    ),
+    customSingleValueElement: props => (
+      <SingleElement>{props.children}</SingleElement>
+    ),
+  },
+};
 
-// export const InModal = () => {
-//   const [isOpen, setOpen] = useState(true);
-//   return (
-//     <>
-//       <Button onClick={() => setOpen(true)}>Åpne</Button>
-//       <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
-//         <ModalBody>
-//           <Select label="Velg" options={options} />
-//         </ModalBody>
-//       </Modal>
-//     </>
-//   );
-// };
+export const InDrawer: Story = {
+  args: { label: 'Velg', options: options },
+  render: args => {
+    return (
+      <DrawerGroup>
+        <Button>Åpne skuff</Button>
+        <Drawer>
+          <Select {...args} />
+        </Drawer>
+      </DrawerGroup>
+    );
+  },
+};
+
+export const InModal: Story = {
+  args: { label: 'Velg', options: options },
+  render: args => {
+    const [isOpen, setOpen] = useState(false);
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Åpne modal</Button>
+        <Modal isOpen={isOpen} onClose={() => setOpen(false)}>
+          <ModalBody>
+            <Select {...args} />
+          </ModalBody>
+        </Modal>
+      </>
+    );
+  },
+};
+
+const OptionElement = ({
+  isSelected,
+  children,
+}: {
+  isSelected: boolean;
+  children: React.ReactNode;
+}) => (
+  <>
+    <div
+      style={{
+        borderRadius: '16px',
+        background: '#bbdefb',
+        width: '32px',
+        height: '32px',
+        minWidth: '32px',
+        border: isSelected ? '2px solid rgba(46, 120, 170, 1)' : undefined,
+      }}
+    />
+    {children}
+  </>
+);
+
+const SingleElement = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ display: 'flex', gap: '8px' }}>
+    <div
+      style={{
+        borderRadius: '12px',
+        background: '#bbdefb',
+        width: '24px',
+        height: '24px',
+        minWidth: '24px',
+      }}
+    />
+    <div
+      style={{
+        flex: '1',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+      }}
+    >
+      {children}
+    </div>
+  </div>
+);

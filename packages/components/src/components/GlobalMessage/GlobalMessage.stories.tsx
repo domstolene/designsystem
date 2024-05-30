@@ -1,8 +1,7 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { GlobalMessage } from './GlobalMessage';
-import { VStack } from '../Stack';
+import { StoryVStack } from '../Stack/utils';
 
 export default {
   title: 'dds-components/GlobalMessage',
@@ -27,22 +26,12 @@ export const Default: Story = {
     purpose: 'info',
     message: 'En tilfeldig melding',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
   args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <VStack gap="x1">
+    <StoryVStack>
       <GlobalMessage {...args} purpose="info" message="En tilfeldig melding" />
       <GlobalMessage
         {...args}
@@ -72,7 +61,7 @@ export const Overview: Story = {
         message="En tilfeldig melding"
         closable
       />
-    </VStack>
+    </StoryVStack>
   ),
 };
 
@@ -82,9 +71,4 @@ export const Closable: Story = {
     message: 'En tilfeldig melding',
     closable: true,
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
