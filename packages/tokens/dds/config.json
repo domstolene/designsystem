@@ -1,5 +1,5 @@
 {
-  "source": ["properties/**/*.json"],
+  "source": ["properties/**/*.json", "properties/*.json"],
   "platforms": {
     "scss": {
       "transformGroup": "custom/scss",
@@ -13,11 +13,7 @@
         {
           "destination": "_colors.scss",
           "format": "scss/variables",
-          "filter": {
-            "attributes": {
-              "category": "$dds-color"
-            }
-          }
+          "filter": "colorFilter"
         },
         {
           "destination": "_font.scss",
@@ -34,14 +30,9 @@
           "format": "scss/variables",
           "filter": {
             "attributes": {
-              "category": "$dds-iconsize"
+              "category": "dds-icon-size"
             }
           }
-        },
-        {
-          "destination": "_border.scss",
-          "format": "scss/variables",
-          "filter": "bordersFilter"
         },
         {
           "destination": "_borderRadius.scss",
@@ -53,16 +44,7 @@
           "format": "scss/variables",
           "filter": {
             "attributes": {
-              "category": "$dds-grid"
-            }
-          }
-        },
-        {
-          "destination": "_innershadow.scss",
-          "format": "scss/variables",
-          "filter": {
-            "attributes": {
-              "category": "$dds-innershadow"
+              "category": "dds-grid"
             }
           }
         },
@@ -94,11 +76,7 @@
         {
           "destination": "colors.css",
           "format": "css/variables",
-          "filter": {
-            "attributes": {
-              "category": "$dds-color"
-            }
-          }
+          "filter": "colorFilter"
         },
         {
           "destination": "font.css",
@@ -115,14 +93,9 @@
           "format": "css/variables",
           "filter": {
             "attributes": {
-              "category": "$dds-iconsize"
+              "category": "dds-icon-size"
             }
           }
-        },
-        {
-          "destination": "border.css",
-          "format": "css/variables",
-          "filter": "bordersFilter"
         },
         {
           "destination": "borderRadius.css",
@@ -134,16 +107,7 @@
           "format": "css/variables",
           "filter": {
             "attributes": {
-              "category": "$dds-grid"
-            }
-          }
-        },
-        {
-          "destination": "innershadow.css",
-          "format": "css/variables",
-          "filter": {
-            "attributes": {
-              "category": "$dds-innershadow"
+              "category": "dds-grid"
             }
           }
         },
@@ -175,11 +139,7 @@
         {
           "destination": "colors.ts",
           "format": "javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "$dds-color"
-            }
-          }
+          "filter": "colorFilter"
         },
         {
           "destination": "font.ts",
@@ -205,14 +165,9 @@
           "format": "custom/javascript/es6",
           "filter": {
             "attributes": {
-              "category": "$dds-iconsize"
+              "category": "dds-icon-size"
             }
           }
-        },
-        {
-          "destination": "border.ts",
-          "format": "custom/javascript/es6",
-          "filter": "bordersFilter"
         },
         {
           "destination": "borderRadius.ts",
@@ -224,16 +179,7 @@
           "format": "custom/javascript/es6",
           "filter": {
             "attributes": {
-              "category": "$dds-grid"
-            }
-          }
-        },
-        {
-          "destination": "innershadow.ts",
-          "format": "javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "$dds-innershadow"
+              "category": "dds-grid"
             }
           }
         },

@@ -1,13 +1,11 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-
-const { border: Border, colors: Colors } = ddsBaseTokens;
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 export const hoverInputfield = {
-  borderColor: Border.BordersDdsBorderFocusInputfieldStroke,
-  boxShadow: `0 0 0 1px ${Border.BordersDdsBorderFocusInputfieldStroke}`,
+  borderColor: ddsTokens.DdsColorBorderActionHover,
+  boxShadow: `0 0 0 1px ${ddsTokens.DdsColorBorderActionHover}`,
 };
 
 export const hoverDangerInputfield = {
-  borderColor: Colors.DdsColorDangerBase,
-  boxShadow: `0 0 0 1px ${Colors.DdsColorDangerBase}`,
+  borderColor: ddsTokens.DdsColorBorderDanger,
+  boxShadow: `0 0 0 1px ${ddsTokens.DdsColorBorderDanger}`,
 };

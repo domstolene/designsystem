@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 import { StorybookLink } from '@norges-domstoler/storybook-components';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 <Meta title="Introduction" />
 
@@ -10,24 +10,20 @@ import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
     text-align: center;
   }
   .quote {
-     border-left: 4px solid ${ddsBaseTokens.colors.DdsColorInteractiveBase};
-  padding: ${ddsBaseTokens.spacing.SizesDdsSpacingX05};
+     border-left: 4px solid ${ddsTokens.DdsColorBorderInfo};
+  padding: ${ddsTokens.DdsSpacingX05};
   text-align: left;
   }
   .links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: ${ddsBaseTokens.spacing.SizesDdsSpacingX075};
+  gap: ${ddsTokens.DdsSpacingX075};
   justify-content: center;
-  margin-top: ${ddsBaseTokens.spacing.SizesDdsSpacingX2};
+  margin-top: ${ddsTokens.DdsSpacingX2};
   }
   .link {
   width: 210px;
-  &:hover {
-    border-color: ${ddsBaseTokens.colors.DdsColorInteractiveBase};
-    box-shadow: inset 0 0 0 1px ${ddsBaseTokens.colors.DdsColorInteractiveBase};
-  }
   }
 `}</style>
 

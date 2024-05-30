@@ -2,94 +2,95 @@
   border: 1px solid;
   display: inline-flex;
   align-items: center;
-  border-radius: var(--radii-dds-border-radius-1-radius);
-  padding: var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-5);
+  border-radius: var(--dds-border-radius-1);
+  padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-5);
 }
 
 .container--with-icon {
-  padding: var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-5)
-    var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-25);
-  gap: var(--sizes-dds-spacing-x-0-25);
+  padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-5)
+    var(--dds-spacing-x0-125) var(--dds-spacing-x0-25);
+  gap: var(--dds-spacing-x0-25);
 }
 
 .container--default--default {
-  background-color: var(--dds-color-neutrals-gray-1);
-  border-color: var(--dds-color-neutrals-gray-3);
+  background-color: var(--dds-color-surface-subtle);
+  border-color: var(--dds-color-border-subtle);
 }
 
 .container--default--strong {
-  background-color: var(--dds-color-neutrals-gray-3);
-  border-color: var(--dds-color-neutrals-gray-3);
+  background-color: var(--dds-color-surface-inverse-default);
+  border-color: var(--dds-color-surface-inverse-default);
+  color: var(--dds-color-text-on-inverse);
 }
 
 .container--success--default {
-  background-color: var(--dds-color-success-lightest);
-  border-color: var(--dds-color-success-base);
+  background-color: var(--dds-color-surface-success-default);
+  border-color: var(--dds-color-border-success);
 
   svg {
-    color: var(--dds-color-success-darkest);
+    color: var(--dds-color-icon-on-success-default);
   }
 }
 
 .container--success--strong {
-  background-color: var(--dds-color-success-light);
-  border-color: var(--dds-color-success-light);
+  background-color: var(--dds-color-surface-success-strong);
+  border-color: var(--dds-color-surface-success-strong);
 
   svg {
-    color: var(--dds-color-neutrals-gray-9);
+    color: var(--dds-color-icon-on-success-strong);
   }
 }
 
 .container--danger--default {
-  background-color: var(--dds-color-danger-lightest);
-  border-color: var(--dds-color-danger-base);
+  background-color: var(--dds-color-surface-danger-default);
+  border-color: var(--dds-color-border-danger);
 
   svg {
-    color: var(--dds-color-danger-darkest);
+    color: var(--dds-color-icon-on-danger-default);
   }
 }
 
 .container--danger--strong {
-  background-color: var(--dds-color-danger-light);
-  border-color: var(--dds-color-danger-light);
+  background-color: var(--dds-color-surface-danger-strong);
+  border-color: var(--dds-color-surface-danger-strong);
 
   svg {
-    color: var(--dds-color-neutrals-gray-9);
+    color: var(--dds-color-icon-on-danger-strong);
   }
 }
 
 .container--warning--default {
-  background-color: var(--dds-color-warning-lightest);
-  border-color: var(--dds-color-warning-base);
+  background-color: var(--dds-color-surface-warning-default);
+  border-color: var(--dds-color-border-warning);
 
   svg {
-    color: var(--dds-color-warning-darkest);
+    color: var(--dds-color-icon-on-warning-default);
   }
 }
 
 .container--warning--strong {
-  background-color: var(--dds-color-warning-light);
+  background-color: var(--dds-color-surface-warning-strong);
   border-color: var(--dds-color-warning-light);
 
   svg {
-    color: var(--dds-color-neutrals-gray-9);
+    color: var(--dds-color-icon-on-warning-strong);
   }
 }
 
 .container--info--default {
-  background-color: var(--dds-color-info-lightest);
-  border-color: var(--dds-color-info-base);
+  background-color: var(--dds-color-surface-info-default);
+  border-color: var(--dds-color-border-info);
 
   svg {
-    color: var(--dds-color-info-darkest);
+    color: var(--dds-color-icon-on-info-default);
   }
 }
 
 .container--info--strong {
-  background-color: var(--dds-color-info-light);
-  border-color: var(--dds-color-info-light);
+  background-color: var(--dds-color-surface-info-strong);
+  border-color: var(--dds-color-surface-info-strong);
 
   svg {
-    color: var(--dds-color-neutrals-gray-9);
+    color: var(--dds-color-icon-on-info-strong);
   }
 }

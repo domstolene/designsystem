@@ -1,4 +1,3 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Properties } from 'csstype';
 import { type HTMLAttributes } from 'react';
 
@@ -44,31 +43,31 @@ export const Grid = (props: GridProps) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-xs-row-gap' as any]: rowGap?.xs
       ? rowGap.xs
-      : ddsBaseTokens.grid.DdsGridXs0599GutterSize,
+      : 'var(--dds-grid-xs-gutter-size)',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-sm-max-width' as any]: maxWidth?.sm,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-sm-row-gap' as any]: rowGap?.sm
       ? rowGap.sm
-      : ddsBaseTokens.grid.DdsGridMd9601279GutterSize,
+      : 'var(--dds-grid-sm-gutter-size)',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-md-max-width' as any]: maxWidth?.md,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-md-row-gap' as any]: rowGap?.md
       ? rowGap.md
-      : ddsBaseTokens.grid.DdsGridMd9601279GutterSize,
+      : 'var(--dds-grid-md-gutter-size)',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-lg-max-width' as any]: maxWidth?.lg,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-lg-row-gap' as any]: rowGap?.lg
       ? rowGap.lg
-      : ddsBaseTokens.grid.DdsGridLg12801919GutterSize,
+      : 'var(--dds-grid-lg-gutter-size)',
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-xl-max-width' as any]: maxWidth?.xl,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-grid-xl-row-gap' as any]: rowGap?.xl
       ? rowGap.xl
-      : ddsBaseTokens.grid.DdsGridXl1920GutterSize,
+      : 'var(--dds-grid-xl-gutter-size)',
   };
 
   return as === 'div' ? (

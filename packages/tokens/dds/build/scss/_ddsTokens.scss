@@ -1,112 +1,7 @@
-// Do not edit directly
-// Generated on Mon, 22 Jan 2024 11:05:28 GMT
 
-$dds-breakpoint-xs: 1px;
-$dds-breakpoint-sm: 600px;
-$dds-breakpoint-md: 960px;
-$dds-breakpoint-lg: 1280px;
-$dds-breakpoint-xl: 1920px;
-$dds-color-primary-lightest: rgba(234, 239, 244, 1);
-$dds-color-primary-lighter: rgba(172, 187, 198, 1);
-$dds-color-primary-light: rgba(79, 106, 126, 1);
-$dds-color-primary-base: rgba(
-  53,
-  71,
-  84,
-  1
-); // Primary er hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge og i komponenter.
-$dds-color-primary-dark: rgba(49, 61, 69, 1);
-$dds-color-primary-darker: rgba(32, 43, 50, 1);
-$dds-color-primary-darkest: rgba(21, 28, 34, 1);
-$dds-color-neutrals-white: rgba(255, 255, 255, 1);
-$dds-color-neutrals-gray-1: rgba(248, 249, 249, 1);
-$dds-color-neutrals-gray-2: rgba(235, 236, 238, 1);
-$dds-color-neutrals-gray-3: rgba(207, 212, 215, 1);
-$dds-color-neutrals-gray-4: rgba(173, 181, 186, 1);
-$dds-color-neutrals-gray-5: rgba(119, 131, 140, 1);
-$dds-color-neutrals-gray-6: rgba(84, 92, 98, 1);
-$dds-color-neutrals-gray-7: rgba(58, 65, 70, 1);
-$dds-color-neutrals-gray-8: rgba(34, 39, 42, 1);
-$dds-color-neutrals-gray-9: rgba(11, 13, 14, 1);
-$dds-color-interactive-lightest: rgba(231, 241, 247, 1);
-$dds-color-interactive-lighter: rgba(159, 197, 222, 1);
-$dds-color-interactive-light: rgba(88, 154, 198, 1);
-$dds-color-interactive-base: rgba(
-  16,
-  110,
-  173,
-  1
-); // Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den
-$dds-color-interactive-dark: rgba(13, 88, 138, 1);
-$dds-color-interactive-darker: rgba(10, 66, 104, 1);
-$dds-color-interactive-darkest: rgba(6, 44, 69, 1);
-$dds-color-secondary-lightest: rgba(230, 237, 237, 1); // --l80
-$dds-color-secondary-lighter: rgba(205, 219, 219, 1);
-$dds-color-secondary-light: rgba(184, 205, 205, 1);
-$dds-color-secondary-base: rgba(
-  154,
-  184,
-  183,
-  1
-); // Secondary er den andre hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge og i komponenter.
-$dds-color-secondary-dark: rgba(123, 147, 146, 1);
-$dds-color-secondary-darker: rgba(77, 100, 99, 1);
-$dds-color-secondary-darkest: rgba(62, 74, 73, 1);
-$dds-color-tertiary-lightest: rgba(255, 230, 223, 1);
-$dds-color-tertiary-lighter: rgba(255, 214, 202, 1);
-$dds-color-tertiary-light: rgba(246, 193, 177, 1);
-$dds-color-tertiary-base: rgba(
-  242,
-  166,
-  143,
-  1
-); // Tertiary er er den tredje profilfargen til Domstolene. Denne brukes gjerne som støttefarge
-$dds-color-tertiary-dark: rgba(245, 152, 119, 1);
-$dds-color-tertiary-darker: rgba(242, 126, 85, 1);
-$dds-color-tertiary-darkest: rgba(194, 101, 68, 1);
-$dds-color-success-lightest: rgba(240, 249, 240, 1);
-$dds-color-success-lighter: rgba(193, 229, 194, 1);
-$dds-color-success-light: rgba(147, 210, 148, 1);
-$dds-color-success-base: rgba(
-  101,
-  190,
-  102,
-  1
-); // Brukes for å kommunisere suksess eller noe som er riktig.
-$dds-color-success-dark: rgba(81, 152, 82, 1);
-$dds-color-success-darker: rgba(61, 114, 61, 1);
-$dds-color-success-darkest: rgba(40, 76, 41, 1);
-$dds-color-danger-lightest: rgba(251, 235, 235, 1);
-$dds-color-danger-lighter: rgba(239, 175, 175, 1);
-$dds-color-danger-light: rgba(228, 115, 115, 1);
-$dds-color-danger-base: rgba(
-  216,
-  55,
-  55,
-  1
-); // Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.
-$dds-color-danger-dark: rgba(173, 44, 44, 1);
-$dds-color-danger-darker: rgba(130, 33, 33, 1);
-$dds-color-danger-darkest: rgba(86, 22, 22, 1);
-$dds-color-warning-lightest: rgba(254, 252, 237, 1);
-$dds-color-warning-lighter: rgba(251, 243, 184, 1);
-$dds-color-warning-light: rgba(247, 233, 130, 1);
-$dds-color-warning-base: rgba(
-  244,
-  224,
-  77,
-  1
-); // Brukes for å kommunisere varsler.
-$dds-color-warning-dark: rgba(195, 179, 62, 1);
-$dds-color-warning-darker: rgba(146, 134, 46, 1);
-$dds-color-warning-darkest: rgba(98, 90, 31, 1);
-$dds-color-info-lightest: rgba(241, 248, 253, 1);
-$dds-color-info-lighter: rgba(200, 227, 245, 1);
-$dds-color-info-light: rgba(158, 206, 238, 1);
-$dds-color-info-base: rgba(117, 185, 230, 1);
-$dds-color-info-dark: rgba(94, 148, 184, 1);
-$dds-color-info-darker: rgba(70, 111, 138, 1);
-$dds-color-info-darkest: rgba(47, 74, 92, 1);
+// Do not edit directly
+// Generated on Thu, 30 May 2024 09:06:05 GMT
+
 $dds-font-heading-sans-01-font-size: 16px;
 $dds-font-heading-sans-01-text-decoration: none;
 $dds-font-heading-sans-01-font-family: 'IBM Plex Sans';
@@ -382,94 +277,195 @@ $dds-font-code-monospace-02-line-height: 1.5em;
 $dds-font-code-monospace-02-paragraph-indent: 0px;
 $dds-font-code-monospace-02-paragraph-spacing: 9px;
 $dds-font-code-monospace-02-text-case: none;
-$borders-dds-border-focus-base-stroke-align: inside;
-$borders-dds-border-focus-base-stroke-miter-limit: 4;
-$borders-dds-border-focus-base-stroke-weight: 1px;
-$borders-dds-border-focus-base-stroke: rgba(98, 90, 31, 1);
-$borders-dds-border-focus-ondark-stroke-align: inside;
-$borders-dds-border-focus-ondark-stroke-miter-limit: 4;
-$borders-dds-border-focus-ondark-stroke-weight: 1px;
-$borders-dds-border-focus-ondark-stroke: rgba(251, 243, 184, 1);
-$borders-dds-border-focus-inputfield-stroke-align: inside;
-$borders-dds-border-focus-inputfield-stroke-miter-limit: 4;
-$borders-dds-border-focus-inputfield-stroke-weight: 2px;
-$borders-dds-border-focus-inputfield-stroke: rgba(16, 110, 173, 1);
-$borders-dds-border-focus-card-stroke-align: outside;
-$borders-dds-border-focus-card-stroke-miter-limit: 4;
-$borders-dds-border-focus-card-stroke-weight: 2px;
-$borders-dds-border-focus-card-stroke: rgba(98, 90, 31, 1);
-$borders-dds-border-style-light-stroke-align: inside;
-$borders-dds-border-style-light-stroke-miter-limit: 4;
-$borders-dds-border-style-light-stroke-weight: 1px;
-$borders-dds-border-style-light-stroke: rgba(172, 187, 198, 1);
-$borders-dds-border-style-dark-stroke-align: inside;
-$borders-dds-border-style-dark-stroke-miter-limit: 4;
-$borders-dds-border-style-dark-stroke-weight: 1px;
-$borders-dds-border-style-dark-stroke: rgba(53, 71, 84, 1);
-$radii-dds-border-radius-1-radius: 2px;
-$radii-dds-border-radius-1-radii-top-left: 2px;
-$radii-dds-border-radius-1-radii-top-right: 2px;
-$radii-dds-border-radius-1-radii-bottom-right: 2px;
-$radii-dds-border-radius-1-radii-bottom-left: 2px;
-$radii-dds-border-radius-2-radius: 4px;
-$radii-dds-border-radius-2-radii-top-left: 4px;
-$radii-dds-border-radius-2-radii-top-right: 4px;
-$radii-dds-border-radius-2-radii-bottom-right: 4px;
-$radii-dds-border-radius-2-radii-bottom-left: 4px;
-$radii-dds-border-radius-3-radius: 8px;
-$radii-dds-border-radius-3-radii-top-left: 8px;
-$radii-dds-border-radius-3-radii-top-right: 8px;
-$radii-dds-border-radius-3-radii-bottom-right: 8px;
-$radii-dds-border-radius-3-radii-bottom-left: 8px;
-$dds-innershadow-1-ondark: 1px 2px 4px 0px rgba(0, 0, 0, 0.5) inset;
-$dds-innershadow-1-onlight: 1px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
-$dds-innershadow-2-ondark: 2px 4px 8px 0px rgba(0, 0, 0, 0.5) inset;
-$dds-innershadow-2-onlight: 2px 4px 8px 0px rgba(0, 0, 0, 0.1) inset;
-$dds-shadow-1-ondark: 1px 2px 4px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-1-onlight: 1px 2px 4px 0px rgba(0, 0, 0, 0.1);
-$dds-shadow-2-ondark: 2px 4px 8px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-2-onlight: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
-$dds-shadow-3-ondark: 4px 8px 16px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-3-onlight: 4px 8px 16px 0px rgba(0, 0, 0, 0.1);
-$dds-shadow-4-ondark: 8px 16px 32px 0px rgba(0, 0, 0, 0.5);
-$dds-shadow-4-onlight: 8px 16px 32px 0px rgba(0, 0, 0, 0.1);
-$dds-grid-xs-0-599-pattern: columns;
-$dds-grid-xs-0-599-gutter-size: 16px;
-$dds-grid-xs-0-599-alignment: stretch;
-$dds-grid-xs-0-599-count: 4;
-$dds-grid-xs-0-599-offset: 16px;
-$dds-grid-sm-600-959-pattern: columns;
-$dds-grid-sm-600-959-gutter-size: 16px;
-$dds-grid-sm-600-959-alignment: stretch;
-$dds-grid-sm-600-959-count: 8;
-$dds-grid-sm-600-959-offset: 16px;
-$dds-grid-md-960-1279-pattern: columns;
-$dds-grid-md-960-1279-gutter-size: 24px;
-$dds-grid-md-960-1279-alignment: stretch;
-$dds-grid-md-960-1279-count: 12;
-$dds-grid-md-960-1279-offset: 24px;
-$dds-grid-lg-1280-1919-pattern: columns;
-$dds-grid-lg-1280-1919-gutter-size: 24px;
-$dds-grid-lg-1280-1919-alignment: stretch;
-$dds-grid-lg-1280-1919-count: 12;
-$dds-grid-lg-1280-1919-offset: 24px;
-$dds-grid-xl-1920-pattern: columns;
-$dds-grid-xl-1920-gutter-size: 24px;
-$dds-grid-xl-1920-alignment: stretch;
-$dds-grid-xl-1920-count: 12;
-$dds-grid-xl-1920-offset: 24px;
-$dds-iconsize-medium: 24px;
-$dds-iconsize-large: 40px;
-$dds-iconsize-small: 16px;
-$sizes-dds-spacing-x-3: 48px; // 48px
-$sizes-dds-spacing-x-2-5: 40px; // 40px
-$sizes-dds-spacing-x-2: 32px; // 32px
-$sizes-dds-spacing-x-10: 160px; // 160px
-$sizes-dds-spacing-x-1-5: 24px; // 24px
-$sizes-dds-spacing-x-6: 96px; // 96px
-$sizes-dds-spacing-x-1: 16px; // 16px
-$sizes-dds-spacing-x-4: 64px; // 64px
-$sizes-dds-spacing-x-0-75: 12px; // 12px
-$sizes-dds-spacing-x-0-5: 8px; // 8px
-$sizes-dds-spacing-x-0-25: 4px; // 4px
-$sizes-dds-spacing-x-0-125: 2px; // 2px
+$dds-shadow-1-ondark:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-1-onlight:  1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.1);
+$dds-shadow-2-ondark:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-2-onlight:  2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.1);
+$dds-shadow-3-ondark:  4.0px 8.0px 16.0px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-3-onlight:  4.0px 8.0px 16.0px 0px rgba(0, 0, 0, 0.1);
+$dds-shadow-4-ondark:  8.0px 16.0px 32.0px 0px rgba(0, 0, 0, 0.5);
+$dds-shadow-4-onlight:  8.0px 16.0px 32.0px 0px rgba(0, 0, 0, 0.1);
+$dds-color-primary-lightest: #eaeff4;
+$dds-color-primary-lighter: #acbbc6;
+$dds-color-primary-light: #4f6a7e;
+$dds-color-primary-base: #354754;
+$dds-color-primary-dark: #313d45;
+$dds-color-primary-darker: #202b32;
+$dds-color-primary-darkest: #151c22;
+$dds-color-neutrals-white: #ffffff;
+$dds-color-neutrals-gray1: #f8f9f9;
+$dds-color-neutrals-gray2: #ebecee;
+$dds-color-neutrals-gray3: #cfd4d7;
+$dds-color-neutrals-gray4: #adb5ba;
+$dds-color-neutrals-gray5: #77838c;
+$dds-color-neutrals-gray6: #545c62;
+$dds-color-neutrals-gray7: #3a4146;
+$dds-color-neutrals-gray8: #22272a;
+$dds-color-neutrals-gray9: #0b0d0e;
+$dds-color-interactive-lightest: #e7f1f7;
+$dds-color-interactive-lighter: #9fc5de;
+$dds-color-interactive-light: #589ac6;
+$dds-color-interactive-base: #106ead;
+$dds-color-interactive-dark: #0d588a;
+$dds-color-interactive-darker: #0a4268;
+$dds-color-interactive-darkest: #062c45;
+$dds-color-secondary-lightest: #e6eded;
+$dds-color-secondary-lighter: #cddbdb;
+$dds-color-secondary-light: #b8cdcd;
+$dds-color-secondary-base: #9ab8b7;
+$dds-color-secondary-dark: #7b9392;
+$dds-color-secondary-darker: #4d6463;
+$dds-color-secondary-darkest: #3e4a49;
+$dds-color-tertiary-lightest: #ffe6df;
+$dds-color-tertiary-lighter: #ffd6ca;
+$dds-color-tertiary-light: #f6c1b1;
+$dds-color-tertiary-base: #f2a68f;
+$dds-color-tertiary-dark: #f59877;
+$dds-color-tertiary-darker: #f27e55;
+$dds-color-tertiary-darkest: #c26544;
+$dds-color-success-lightest: #f0f9f0;
+$dds-color-success-lighter: #c1e5c2;
+$dds-color-success-light: #93d294;
+$dds-color-success-base: #65be66;
+$dds-color-success-dark: #519852;
+$dds-color-success-darker: #3d723d;
+$dds-color-success-darkest: #284c29;
+$dds-color-danger-lightest: #fbebeb;
+$dds-color-danger-lighter: #efafaf;
+$dds-color-danger-light: #e47373;
+$dds-color-danger-base: #d83737;
+$dds-color-danger-dark: #ad2c2c;
+$dds-color-danger-darker: #822121;
+$dds-color-danger-darkest: #561616;
+$dds-color-warning-lightest: #fefced;
+$dds-color-warning-lighter: #fbf3b8;
+$dds-color-warning-light: #f7e982;
+$dds-color-warning-base: #f4e04d;
+$dds-color-warning-dark: #c3b33e;
+$dds-color-warning-darker: #92862e;
+$dds-color-warning-darkest: #625a1f;
+$dds-color-info-lightest: #f1f8fd;
+$dds-color-info-lighter: #c8e3f5;
+$dds-color-info-light: #9eceee;
+$dds-color-info-base: #75b9e6;
+$dds-color-info-dark: #5e94b8;
+$dds-color-info-darker: #466f8a;
+$dds-color-info-darkest: #2f4a5c;
+$dds-color-visited-base: #7F29B4;
+$dds-color-visited-lighter: #CCA9E1;
+$dds-color-bg-default: #ffffff;
+$dds-color-bg-subtle: #f8f9f9;
+$dds-color-surface-default: #ffffff;
+$dds-color-surface-subtle: #f8f9f9;
+$dds-color-surface-medium: #ebecee;
+$dds-color-surface-hover-default: #e7f1f7;
+$dds-color-surface-hover-subtle: #f8f9f9;
+$dds-color-surface-selected-default: #e7f1f7;
+$dds-color-surface-inverse-default: #354754;
+$dds-color-surface-inverse-hover: #313d45;
+$dds-color-surface-inverse-selected: #202b32;
+$dds-color-surface-action-resting: #106ead;
+$dds-color-surface-action-hover: #0d588a;
+$dds-color-surface-action-selected: #106ead;
+$dds-color-surface-action-danger-resting: #d83737;
+$dds-color-surface-action-danger-hover: #ad2c2c;
+$dds-color-surface-action-selected-disabled: #77838c;
+$dds-color-surface-danger-default: #fbebeb;
+$dds-color-surface-danger-strong: #e47373;
+$dds-color-surface-success-default: #f0f9f0;
+$dds-color-surface-success-strong: #93d294;
+$dds-color-surface-warning-default: #fefced;
+$dds-color-surface-warning-strong: #f7e982;
+$dds-color-surface-info-default: #f1f8fd;
+$dds-color-surface-info-strong: #9eceee;
+$dds-color-surface-paper-default: #ffffff;
+$dds-color-surface-backdrop-default: #0b0d0e80;
+$dds-color-surface-field-default: #ffffff;
+$dds-color-surface-field-disabled: #f8f9f9;
+$dds-color-surface-highlighted-default: #ffe6df;
+$dds-color-surface-scrollbar: #adb5ba;
+$dds-color-border-default: #77838c;
+$dds-color-border-subtle: #cfd4d7;
+$dds-color-border-inverse: #acbbc6;
+$dds-color-border-action-default: #106ead;
+$dds-color-border-action-hover: #0d588a;
+$dds-color-border-success: #65be66;
+$dds-color-border-warning: #f4e04d;
+$dds-color-border-danger: #d83737;
+$dds-color-border-info: #75b9e6;
+$dds-color-border-on-action: #ffffff;
+$dds-color-text-default: #0b0d0e;
+$dds-color-text-medium: #3a4146;
+$dds-color-text-subtle: #545c62;
+$dds-color-text-on-inverse: #ffffff;
+$dds-color-text-on-action: #ffffff;
+$dds-color-text-on-status-default: #0b0d0e;
+$dds-color-text-on-status-strong: #0b0d0e;
+$dds-color-text-action-resting: #106ead;
+$dds-color-text-action-hover: #0d588a;
+$dds-color-text-requiredfield: #d83737;
+$dds-color-text-action-visited: #7F29B4;
+$dds-color-icon-default: #0b0d0e;
+$dds-color-icon-medium: #3a4146;
+$dds-color-icon-subtle: #545c62;
+$dds-color-icon-on-inverse: #ffffff;
+$dds-color-icon-on-action: #ffffff;
+$dds-color-icon-action-resting: #106ead;
+$dds-color-icon-action-hover: #0d588a;
+$dds-color-icon-on-success-default: #3d723d;
+$dds-color-icon-on-success-strong: #0b0d0e;
+$dds-color-icon-on-warning-default: #92862e;
+$dds-color-icon-on-warning-strong: #0b0d0e;
+$dds-color-icon-on-danger-default: #ad2c2c;
+$dds-color-icon-on-danger-strong: #0b0d0e;
+$dds-color-icon-on-info-default: #466f8a;
+$dds-color-icon-notification: #d83737;
+$dds-color-icon-on-info-strong: #0b0d0e;
+$dds-color-brand-primary-default: #354754;
+$dds-color-brand-primary-subtle: #eaeff4;
+$dds-color-brand-primary-medium: #acbbc6;
+$dds-color-brand-secondary-default: #9ab8b7;
+$dds-color-brand-secondary-subtle: #e6eded;
+$dds-color-brand-secondary-medium: #b8cdcd;
+$dds-color-brand-tertiary-default: #f2a68f;
+$dds-color-brand-tertiary-subtle: #ffe6df;
+$dds-color-brand-tertiary-medium: #f6c1b1;
+$dds-color-focus-outside: #2f4a5c;
+$dds-color-focus-inside: #f1f8fd;
+$dds-border-radius-0: 0px;
+$dds-border-radius-1: 2px;
+$dds-border-radius-2: 4px;
+$dds-border-radius-3: 8px;
+$dds-border-radius-100: 9999px;
+$dds-spacing-x0: 0px;
+$dds-spacing-x0-125: 2px;
+$dds-spacing-x0-25: 4px;
+$dds-spacing-x0-5: 8px;
+$dds-spacing-x0-75: 12px;
+$dds-spacing-x1: 16px;
+$dds-spacing-x1-5: 24px;
+$dds-spacing-x2: 32px;
+$dds-spacing-x2-5: 40px;
+$dds-spacing-x3: 48px;
+$dds-spacing-x4: 64px;
+$dds-spacing-x6: 96px;
+$dds-spacing-x10: 160px;
+$dds-spacing-padding-top-heading: 0.7em;
+$dds-icon-size-large: 40px;
+$dds-icon-size-medium: 24px;
+$dds-icon-size-small: 16px;
+$dds-grid-xs-count: 4;
+$dds-grid-xs-gutter-size: 16px;
+$dds-grid-sm-count: 8;
+$dds-grid-sm-gutter-size: 16px;
+$dds-grid-lg-count: 12;
+$dds-grid-lg-gutter-size: 24px;
+$dds-grid-md-count: 12;
+$dds-grid-md-gutter-size: 24px;
+$dds-grid-xl-count: 12;
+$dds-grid-xl-gutter-size: 24px;
+$dds-breakpoint-xs: 1px;
+$dds-breakpoint-sm: 600px;
+$dds-breakpoint-md: 960px;
+$dds-breakpoint-lg: 1280px;
+$dds-breakpoint-xl: 1920px;

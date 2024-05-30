@@ -33,7 +33,7 @@
 
 .scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--dds-color-neutrals-gray-4) transparent;
+  scrollbar-color: var(--dds-color-surface-scrollbar) transparent;
 }
 
 .visibility-transition {

@@ -21,7 +21,7 @@
   .docblock-argstable td {
     font-family: var(--dds-font-body-sans-02-font-family), 'Trebuchet MS',
       sans-serif !important;
-    color: var(--dds-color-neutrals-gray-9) !important;
+    color: var(--dds-color-text-default) !important;
     font-size: var(--dds-font-body-sans-02-font-size);
     letter-spacing: var(--dds-font-body-sans-02-letter-spacing);
     line-height: var(--dds-font-body-sans-02-line-height);
@@ -34,20 +34,20 @@
   }
 
   code {
-    font-family: var(--dds-font-code-monospace-02-font-family);
+    font-family: var(--dds-font-code-monospace-02-font-family) !important;
 
     &.icon-code {
       font-size: var(--dds-font-body-sans-01-font-size);
     }
 
     &:not(#error-stack):not(.icon-code) {
-      color: var(--dds-color-neutrals-gray-9);
+      color: var(--dds-color-text-default);
     }
   }
 
   .docblock-argstable td div code {
-    background-color: var(--dds-color-neutrals-gray-1);
-    border: 1px solid var(--dds-color-neutrals-gray-2);
+    background-color: var(--dds-color-surface-subtle);
+    border: 1px solid var(--dds-color-border-subtle);
   }
 
   .docblock-argstable td div code,
@@ -58,23 +58,23 @@
   .docblock-argstable td div:nth-of-type(2) span,
   .docblock-argstable tbody td:nth-of-type(3) > div:first-of-type span {
     font-family: var(--dds-font-code-monospace-02-font-family) !important ;
-    color: var(--dds-color-neutrals-gray-9);
-    background-color: var(--dds-color-neutrals-gray-1);
-    border: 1px solid var(--dds-color-neutrals-gray-2);
+    color: var(--dds-color-text-default);
+    background-color: var(--dds-color-surface-subtle);
+    border: 1px solid var(--dds-color-border-subtle);
   }
 
   .docblock-argstable tbody td:nth-of-type(2) > div:first-of-type {
-    margin-bottom: var(--sizes-dds-spacing-x-2);
+    margin-bottom: var(--dds-spacing-x2);
   }
 
-  p code,
-  li code {
-    background-color: var(--dds-color-neutrals-gray-1);
-    border: 1px solid var(--dds-color-neutrals-gray-2);
-    padding: 1px;
-    margin-left: var(--sizes-dds-spacing-x-0-125);
-    margin-right: var(--sizes-dds-spacing-x-0-125);
-    border-radius: var(--radii-dds-border-radius-1-radius);
+  .sbdocs p code,
+  .sbdocs li code {
+    background-color: var(--dds-color-surface-subtle);
+    border: 1px solid var(--dds-color-border-subtle);
+    padding: 3px 4px;
+    margin-left: var(--dds-spacing-x0-125);
+    margin-right: var(--dds-spacing-x0-125);
+    border-radius: var(--dds-border-radius-1);
     font-size: var(--dds-font-body-sans-01-font-size);
   }
 
@@ -107,13 +107,13 @@
 
   .sbdocs p a:not(.docs-story *),
   .sbdocs li a:not(.docs-story *) {
-    color: var(--dds-color-interactive-base);
+    color: var(--dds-color-text-action-resting);
     text-decoration: underline;
   }
 
   .sbdocs p a:hover:not(.docs-story *),
   .sbdocs li a:hover:not(.docs-story *) {
-    color: var(--dds-color-interactive-dark);
+    color: var(--dds-color-text-action-hover);
   }
 
   .sbdocs h1:not(.docs-story *) {
@@ -122,7 +122,7 @@
     letter-spacing: var(--dds-font-heading-sans-06-letter-spacing);
     line-height: var(--dds-font-heading-sans-06-line-height);
     margin-bottom: var(--dds-font-heading-sans-06-paragraph-spacing);
-    padding-top: var(--spacing-dds-spacing-padding-top-heading-sans-06-top);
+    padding-top: var(--dds-spacing-padding-top-heading);
   }
 
   .sbdocs h2:not(.docs-story *) {
@@ -131,7 +131,7 @@
     letter-spacing: var(--dds-font-heading-sans-05-letter-spacing);
     line-height: var(--dds-font-heading-sans-05-line-height);
     margin-bottom: var(--dds-font-heading-sans-05-paragraph-spacing);
-    padding-top: var(--spacing-dds-spacing-padding-top-heading-sans-05-top);
+    padding-top: var(--dds-spacing-padding-top-heading);
     border-bottom: 1px solid var(--borders-dds-border-style-light-stroke);
   }
 
@@ -141,7 +141,7 @@
     letter-spacing: var(--dds-font-heading-sans-04-letter-spacing);
     line-height: var(--dds-font-heading-sans-04-line-height);
     margin-bottom: var(--dds-font-heading-sans-04-paragraph-spacing);
-    padding-top: var(--spacing-dds-spacing-padding-top-heading-sans-04-top);
+    padding-top: var(--dds-spacing-padding-top-heading);
   }
 
   .sbdocs h4:not(.docs-story *) {
@@ -150,12 +150,12 @@
     letter-spacing: var(--dds-font-heading-sans-03-letter-spacing);
     line-height: var(--dds-font-heading-sans-03-line-height);
     margin-bottom: var(--dds-font-heading-sans-03-paragraph-spacing);
-    padding-top: var(--spacing-dds-spacing-padding-top-heading-sans-03-top);
+    padding-top: var(--dds-spacing-padding-top-heading);
   }
 
   .sbdocs a:focus-visible {
-    outline: var(--dds-color-info-darkest) 2px solid;
-    outline-offset: var(--sizes-dds-spacing-x-0-125);
-    box-shadow: 0 0 0 2px var(--dds-color-info-lightest);
+    outline: var(--dds-color-focus-oustide) 2px solid;
+    outline-offset: var(--dds-spacing-x0-125);
+    box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
   }
 </style>

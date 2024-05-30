@@ -1,25 +1,23 @@
-import { create } from "@storybook/theming";
-import elsaLogoHigh from "./images/Elsa-logo-hoy.png";
-import { ddsBaseTokens } from "@norges-domstoler/dds-design-tokens";
-
-const { colors, borderRadius, font } = ddsBaseTokens;
+import { create } from '@storybook/theming';
+import elsaLogoHigh from './images/Elsa-logo-hoy.png';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 export default create({
-  base: "light",
+  base: 'light',
 
-  brandTitle: "Elsa - Domstolenes Designsystem",
-  brandUrl: "https://design.domstol.no",
+  brandTitle: 'Elsa - Domstolenes Designsystem',
+  brandUrl: 'https://design.domstol.no',
   brandImage: elsaLogoHigh,
 
   // Interaction color
-  colorSecondary: colors.DdsColorInteractiveBase,
+  colorSecondary: ddsTokens.DdsColorSurfaceActionSelected,
 
   // Typography
-  fontBase: `${font.DdsFontBodySans02FontFamily}, 'Trebuchet MS', sans-serif`,
-  fontCode: `${font.DdsFontCodeMonospace02FontFamily}, monospace`,
-  textMutedColor: colors.DdsColorNeutralsGray7,
-  textColor: colors.DdsColorNeutralsGray9,
+  fontBase: `${ddsTokens.DdsFontBodySans02FontFamily}, 'Trebuchet MS', sans-serif`,
+  fontCode: `${ddsTokens.DdsFontCodeMonospace02FontFamily}, monospace`,
+  textMutedColor: ddsTokens.DdsColorTextMedium,
+  textColor: ddsTokens.DdsColorTextDefault,
 
   //UI
-  appBorderRadius: borderRadius.RadiiDdsBorderRadius1RadiusNumberPx,
+  appBorderRadius: ddsTokens.DdsBorderRadius1NumberPx,
 });

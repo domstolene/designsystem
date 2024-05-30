@@ -201,8 +201,8 @@ export const RealWorld: Story = {
                     <Tooltip text="Ulest">
                       <div
                         style={{
-                          backgroundColor: 'var(--dds-color-interactive-light)',
-                          border: '1px solid var(--dds-color-interactive-base)',
+                          backgroundColor:
+                            'var(--dds-color-icon-action-resting)',
                           width: '10px',
                           height: '10px',
                           borderRadius: '10px',

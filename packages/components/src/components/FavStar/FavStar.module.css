@@ -2,9 +2,9 @@
   position: relative;
   cursor: pointer;
   display: inline-block;
-  color: var(--dds-color-neutrals-gray-6);
+  color: var(--dds-color-icon-medium);
   background-color: transparent;
-  border-radius: var(--radii-dds-border-radius-1-radius);
+  border-radius: var(--dds-border-radius-1);
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
@@ -15,16 +15,16 @@
   }
 
   &:hover {
-    color: var(--dds-color-interactive-dark);
-    background-color: var(--dds-color-interactive-lightest);
+    color: var(--dds-color-icon-action-hover);
+    background-color: var(--dds-color-surface-hover-default);
   }
 
   &:has(input:checked) {
-    color: var(--dds-color-interactive-base);
+    color: var(--dds-color-icon-action-resting);
   }
 
   &:hover:has(input:checked) {
-    color: var(--dds-color-interactive-dark);
+    color: var(--dds-color-icon-action-hover);
   }
 
   &:active {
@@ -35,13 +35,13 @@
 }
 
 .container--medium {
-  width: var(--dds-iconsize-medium);
-  height: var(--dds-iconsize-medium);
+  width: var(--dds-icon-size-medium);
+  height: var(--dds-icon-size-medium);
 }
 
 .container--large {
-  width: var(--dds-iconsize-large);
-  height: var(--dds-iconsize-large);
+  width: var(--dds-icon-size-large);
+  height: var(--dds-icon-size-large);
 }
 
 .icon {

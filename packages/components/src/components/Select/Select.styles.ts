@@ -81,11 +81,6 @@ export const getCustomStyles = <TOption>(
       paddingLeft: 0,
       boxShadow: 'none',
     }),
-    ...(state.selectProps.isDisabled && {
-      '&:hover .dds-select__dropdown-indicator': {
-        color: dropdownIndicator.base.color,
-      },
-    }),
   }),
   placeholder: provided => ({
     ...provided,
@@ -156,9 +151,6 @@ export const getCustomStyles = <TOption>(
           borderTopRightRadius: multiValueRemove.base.borderTopRightRadius,
           borderBottomRightRadius:
             multiValueRemove.base.borderBottomRightRadius,
-          '&:hover': {
-            boxShadow: multiValueRemove.hover.boxShadow,
-          },
         },
   menu: provided => ({
     ...provided,
@@ -227,10 +219,10 @@ export const getCustomStyles = <TOption>(
     display: 'inline-flex',
     color: clearIndicator.base.color,
     '@media (prefers-reduced-motion: no-preference)': {
-      transition: 'color 0.2s',
+      transition: 'background-color 0.2s',
     },
     '&:hover': {
-      color: clearIndicator.hover.color,
+      backgroundColor: clearIndicator.hover.backgroundColor,
     },
   }),
   loadingIndicator: provided => ({

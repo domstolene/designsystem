@@ -4,7 +4,7 @@ import styles from './Divider.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 
-export type DividerColor = 'primary' | 'primaryLighter';
+export type DividerColor = 'default' | 'subtle' | 'onInverse';
 
 export type DividerProps = BaseComponentProps<
   HTMLHRElement,
@@ -15,8 +15,9 @@ export type DividerProps = BaseComponentProps<
 >;
 
 export const Divider = forwardRef<HTMLHRElement, DividerProps>((props, ref) => {
-  const { color = 'primary', id, className, htmlProps, ...rest } = props;
-  const colorCn = color === 'primary' ? color : 'light';
+  const { color = 'default', id, className, htmlProps, ...rest } = props;
+  const colorCn =
+    color === 'default' || color === 'subtle' ? color : 'on-inverse';
 
   const lineProps = {
     ...getBaseHTMLProps(

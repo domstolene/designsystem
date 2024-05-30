@@ -123,16 +123,16 @@ export const WithIcons: Story = {
             Partopplysninger
           </ProgressTracker.Item>
           <ProgressTracker.Item
-            icon={AttachmentIcon}
+            icon={GavelIcon}
             completed={completedSteps.has(1)}
           >
-            Vedlegg
+            Slutning
           </ProgressTracker.Item>
           <ProgressTracker.Item
-            icon={GavelIcon}
+            icon={AttachmentIcon}
             completed={completedSteps.has(2)}
           >
-            Slutning
+            Vedlegg
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={ChecklistIcon}

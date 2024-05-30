@@ -1,8 +1,8 @@
 :root {
-  --dds-focus-outline: var(--dds-color-info-darkest) 2px solid;
-  --dds-focus-outline-offset: var(--sizes-dds-spacing-x-0-125);
-  --dds-focus-outline-inset: calc(0px - var(--sizes-dds-spacing-x-0-25));
-  --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-info-lightest);
+  --dds-focus-outline: var(--dds-color-focus-outside) 2px solid;
+  --dds-focus-outline-offset: var(--dds-spacing-x0-125);
+  --dds-focus-outline-inset: calc(0px - var(--dds-spacing-x0-25));
+  --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
   --dds-focus-transition: outline-offset 0.2s;
 }
 

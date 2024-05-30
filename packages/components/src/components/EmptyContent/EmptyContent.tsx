@@ -28,7 +28,7 @@ export function EmptyContent({
             {title}
           </Heading>
         )}
-        <Paragraph>{message}</Paragraph>
+        <Paragraph className={styles.message}>{message}</Paragraph>
       </div>
     </div>
   );

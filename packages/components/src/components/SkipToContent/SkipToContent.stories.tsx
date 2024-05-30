@@ -1,12 +1,10 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Typography } from '../Typography';
 
 import { SkipToContent } from '.';
-
-const { colors: Colors } = ddsBaseTokens;
 
 export default {
   title: 'dds-components/SkipToContent',
@@ -77,7 +75,7 @@ export const Example: Story = {
       <div
         style={{
           height: '1000px',
-          backgroundColor: Colors.DdsColorPrimaryLightest,
+          backgroundColor: ddsTokens.DdsColorBrandPrimarySubtle,
         }}
       >
         Placeholder

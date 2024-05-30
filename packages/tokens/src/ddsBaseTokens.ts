@@ -1,5 +1,4 @@
 import {
-  border,
   borderRadius,
   breakpoints,
   colors,
@@ -7,21 +6,21 @@ import {
   fontPackages,
   grid,
   iconSizes,
-  innerShadow,
   outerShadow,
   spacing,
+  ddsTokens as tokens,
 } from '../dds';
 
 export const ddsBaseTokens = {
   colors,
   font,
   breakpoints,
-  border,
   borderRadius,
   spacing,
   iconSizes,
   grid,
-  innerShadow,
   outerShadow,
   fontPackages,
 };
+
+export const ddsTokens = { ...tokens };

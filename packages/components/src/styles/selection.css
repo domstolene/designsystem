@@ -1,4 +1,4 @@
 *::selection {
   background-color: var(--dds-color-tertiary-lightest);
-  color: var(--dds-color-neutrals-gray-9);
+  color: var(--dds-color-text-default);
 }

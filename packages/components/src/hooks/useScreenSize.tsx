@@ -1,7 +1,5 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { useEffect, useState } from 'react';
-
-const { breakpoints } = ddsBaseTokens;
 
 export enum ScreenSize {
   XSmall = 0,
@@ -14,23 +12,23 @@ export enum ScreenSize {
 const screenSizesAndMediaQueries: Array<[ScreenSize, string]> = [
   [
     ScreenSize.XLarge,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointXl})`,
+    `only screen and (min-width: ${ddsTokens.DdsBreakpointXl})`,
   ],
   [
     ScreenSize.Large,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointLg})`,
+    `only screen and (min-width: ${ddsTokens.DdsBreakpointLg})`,
   ],
   [
     ScreenSize.Medium,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointMd})`,
+    `only screen and (min-width: ${ddsTokens.DdsBreakpointMd})`,
   ],
   [
     ScreenSize.Small,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointSm})`,
+    `only screen and (min-width: ${ddsTokens.DdsBreakpointSm})`,
   ],
   [
     ScreenSize.XSmall,
-    `only screen and (min-width: ${breakpoints.DdsBreakpointXs})`,
+    `only screen and (min-width: ${ddsTokens.DdsBreakpointXs})`,
   ],
 ];
 

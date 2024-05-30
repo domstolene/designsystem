@@ -9,20 +9,20 @@
 }
 
 .container--filled {
-  background-color: var(--dds-color-primary-lightest);
-  border-color: var(--dds-color-primary-lightest);
+  background-color: var(--dds-color-brand-primary-subtle);
+  border-color: var(--dds-color-brand-primary-subtle);
 }
 
 .container--border {
-  background-color: var(--dds-color-neutrals-white);
-  border-color: var(--dds-color-primary-lighter);
+  background-color: var(--dds-color-surface-default);
+  border-color: var(--dds-color-border-default);
 }
 
 .container--navigation {
   text-decoration: none;
   &:hover {
-    border-color: var(--dds-color-interactive-base);
-    box-shadow: inset 0 0 0 1px var(--dds-color-interactive-base);
+    border-color: var(--dds-color-border-action-hover);
+    box-shadow: inset 0 0 0 1px var(--dds-color-border-action-hover);
   }
 }
 

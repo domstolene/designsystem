@@ -9,9 +9,9 @@ import {
   shift,
   useFloating,
 } from '@floating-ui/react-dom';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
-const defaultOffset = ddsBaseTokens.spacing.SizesDdsSpacingX05NumberPx;
+const defaultOffset = ddsTokens.DdsSpacingX05NumberPx;
 
 export type Placement =
   | 'top'

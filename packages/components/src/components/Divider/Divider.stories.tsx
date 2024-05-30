@@ -30,7 +30,8 @@ export const Overview: Story = {
   render: args => (
     <div>
       <Divider {...args} />
-      <Divider {...args} color="primaryLighter" />
+      <Divider {...args} color="subtle" />
+      <Divider {...args} color="onInverse" />
     </div>
   ),
 };
@@ -40,6 +41,25 @@ export const Default: Story = {
     <StoryTemplate display="block">
       <Story />
     </StoryTemplate>
+  ),
+};
+
+export const OnInverse: Story = {
+  args: { color: 'onInverse' },
+  decorators: Story => (
+    <StoryTemplate display="block">
+      <Story />
+    </StoryTemplate>
+  ),
+  render: args => (
+    <div
+      style={{
+        background: 'var(--dds-color-surface-inverse-default',
+        padding: 'var(--dds-spacing-x1',
+      }}
+    >
+      <Divider {...args} />
+    </div>
   ),
 };
 

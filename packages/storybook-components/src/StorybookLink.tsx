@@ -1,4 +1,3 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 import { type CSSProperties, type ComponentProps, type ReactNode } from 'react';
 
 import {
@@ -14,9 +13,9 @@ const Link = (props: ComponentProps<'a'>) => (
     {...props}
     style={{
       display: 'block',
-      backgroundColor: ddsBaseTokens.colors.DdsColorNeutralsWhite,
-      border: `1px solid ${ddsBaseTokens.colors.DdsColorNeutralsGray5}`,
-      color: ddsBaseTokens.colors.DdsColorNeutralsGray9,
+      backgroundColor: 'var(--dds-color-surface-default)',
+      border: '1px solid var(--dds-color-border-default)',
+      color: 'var(--dds-color-text-default)',
       textDecoration: 'none',
       transition: '0.2s',
     }}
@@ -25,14 +24,14 @@ const Link = (props: ComponentProps<'a'>) => (
 
 const linkInnerSmallStyle: CSSProperties = {
   flexDirection: 'row',
-  gap: ddsBaseTokens.spacing.SizesDdsSpacingX05,
-  padding: ddsBaseTokens.spacing.SizesDdsSpacingX05,
+  gap: 'var(--dds-spacing-x0-5)',
+  padding: 'var(--dds-spacing-x0-5)',
 };
 
 const linkInnerLargeStyle: CSSProperties = {
   flexDirection: 'column',
-  gap: ddsBaseTokens.spacing.SizesDdsSpacingX075,
-  padding: ddsBaseTokens.spacing.SizesDdsSpacingX075,
+  gap: 'var(--dds-spacing-x0-75)',
+  padding: 'var(--dds-spacing-x0-75)',
 };
 
 type LinkType = 'npm' | 'zeroheight' | 'figma' | 'slack' | 'github';

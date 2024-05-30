@@ -14,19 +14,19 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--sizes-dds-spacing-x-0-25);
+  gap: var(--dds-spacing-x0-25);
 }
 
 .date-input--medium {
-  padding-inline: var(--sizes-dds-spacing-x-0-5) !important;
+  padding-inline: var(--dds-spacing-x0-5) !important;
 }
 
 .date-input--small {
-  padding-inline: var(--sizes-dds-spacing-x-0-5) !important;
+  padding-inline: var(--dds-spacing-x0-5) !important;
 }
 
 .date-input--tiny {
-  padding-inline: var(--sizes-dds-spacing-x-0-25) !important;
+  padding-inline: var(--dds-spacing-x0-25) !important;
 }
 
 .date-segment-container {
@@ -42,8 +42,8 @@
   outline: none;
 
   &:focus:not([aria-readonly]) {
-    background-color: var(--dds-color-interactive-base);
-    color: var(--dds-color-neutrals-white);
+    background-color: var(--dds-color-surface-action-selected);
+    color: var(--dds-color-text-on-action);
   }
 }
 
@@ -53,7 +53,7 @@
   font-variant-numeric: tabular-nums;
   pointer-events: none;
   .segment:focus:not([aria-readonly]) & {
-    color: var(--dds-color-neutrals-white);
+    color: var(--dds-color-text-on-action);
   }
 }
 
@@ -73,16 +73,16 @@
   align-items: center;
   justify-content: center;
   margin-inline: -1px 0; /* Samme posisjon som TextInput sitt ikon */
-  padding: var(--sizes-dds-spacing-x-0-25);
-  color: var(--dds-color-neutrals-gray-9);
+  padding: var(--dds-spacing-x0-25);
+  color: var(--dds-color-text-default);
 }
 
 .icon-wrapper--small {
-  margin-block: calc(0px - var(--dds-iconsize-medium));
+  margin-block: calc(0px - var(--dds-icon-size-medium));
 }
 
 .icon-wrapper--medium {
-  margin-block: calc(0px - var(--dds-iconsize-small));
+  margin-block: calc(0px - var(--dds-icon-size-small));
 }
 
 /**------------------------------------------------------------------------
@@ -94,28 +94,29 @@
   border: 0;
   transition: 0.2s;
   background: transparent;
-  border-radius: var(--radii-dds-border-radius-1-radius);
+  border-radius: var(--dds-border-radius-1);
+  color: var(--dds-color-icon-default);
 
   &:not(:disabled):not(.disabled):hover,
   &:not(:disabled):not(.disabled):active {
-    background-color: var(--dds-color-interactive-lightest);
-    color: var(--dds-color-interactive-base);
+    background-color: var(--dds-color-surface-hover-default);
+    color: var(--dds-color-icon-action-hover);
   }
 
   &:disabled,
   &.disabled {
     cursor: not-allowed;
     outline: none;
-    color: var(--dds-color-neutrals-gray-6);
+    color: var(--dds-color-text-subtle);
   }
 }
 
 .popover {
   z-index: 100;
-  border-radius: var(--radii-dds-border-radius-1-radius);
-  background-color: var(--dds-color-neutrals-white);
-  border: 2px solid var(--dds-color-interactive-base);
-  padding: var(--sizes-dds-spacing-x-0-5);
+  border-radius: var(--dds-border-radius-1);
+  background-color: var(--dds-color-surface-default);
+  border: 1px solid var(--dds-color-border-default);
+  padding: var(--dds-spacing-x0-5);
   box-shadow: var(--dds-shadow-2-onlight);
 }
 
@@ -156,40 +157,40 @@
   cursor: pointer;
   border: 1px solid;
   border-color: transparent;
-  border-radius: var(--radii-dds-border-radius-1-radius);
+  border-radius: var(--dds-border-radius-1);
   transition: 0.2s;
 }
 
 .calendar__cell-button--today {
   text-decoration: underline;
-  border-color: var(--dds-color-neutrals-gray-5);
+  border-color: var(--dds-color-border-default);
 }
 
 .calendar__cell-button--default {
   background-color: transparent;
-  color: var(--dds-color-neutrals-gray-9);
+  color: var(--dds-text-color--default);
   &:hover {
-    background-color: var(--dds-color-interactive-lightest);
-    border-color: var(--dds-color-interactive-base);
-    color: var(--dds-color-neutrals-gray-9);
+    background-color: var(--dds-color-surface-hover-default);
+    border-color: var(--dds-color-border-action-hover);
+    color: var(--dds-text-color--default);
   }
 }
 
 .calendar__cell-button--selected {
-  background-color: var(--dds-color-interactive-base);
-  border-color: var(--dds-color-interactive-base);
-  color: var(--dds-color-neutrals-white);
+  background-color: var(--dds-color-surface-action-selected);
+  border-color: var(--dds-color-surface-action-selected);
+  color: var(--dds-color-text-on-action);
 }
 
 .calendar__cell-button--unavailable {
-  background-color: var(--dds-color-neutrals-gray-1);
-  border-color: var(--dds-color-neutrals-gray-1);
-  color: var(--dds-color-neutrals-gray-6);
+  background-color: var(--dds-color-surface-field-disabled);
+  border-color: var(--dds-color-surface-field-disabled);
+  color: var(--dds-color-text-subtle);
   cursor: not-allowed;
   text-decoration: line-through;
 }
 
 .calendar__cell-button--unavailable--today {
-  border-color: var(--dds-color-neutrals-gray-5);
+  border-color: var(--dds-color-surface-field-disabled);
   text-decoration: underline line-through;
 }

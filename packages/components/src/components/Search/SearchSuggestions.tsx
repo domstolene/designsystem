@@ -103,6 +103,7 @@ export const SearchSuggestions = forwardRef<
       )}
       ref={ref}
       aria-hidden={!showSuggestions}
+      border="default"
     >
       <span
         id={suggestionsHeaderId}

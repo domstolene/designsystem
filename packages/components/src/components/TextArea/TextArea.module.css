@@ -6,5 +6,5 @@
   height: auto;
   resize: vertical;
   vertical-align: bottom;
-  padding-bottom: var(--sizes-dds-spacing-x-0-5);
+  padding-bottom: var(--dds-spacing-x0-5);
 }

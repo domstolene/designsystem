@@ -2,15 +2,15 @@
   display: flex;
   align-items: center;
   max-width: 100%;
-  gap: var(--sizes-dds-spacing-x-0-25);
-  padding: var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-25)
-    var(--sizes-dds-spacing-x-0-125) var(--sizes-dds-spacing-x-0-5);
-  border: 1px solid var(--dds-color-neutrals-gray-3);
-  border-radius: var(--radii-dds-border-radius-1-radius);
-  background-color: var(--dds-color-neutrals-gray-1);
+  gap: var(--dds-spacing-x0-25);
+  padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-25)
+    var(--dds-spacing-x0-125) var(--dds-spacing-x0-5);
+  border: 1px solid var(--dds-color-border-subtle);
+  border-radius: var(--dds-border-radius-1);
+  background-color: var(--dds-color-surface-subtle);
 }
 
 .group {
   display: flex;
-  gap: var(--sizes-dds-spacing-x-0-75);
+  gap: var(--dds-spacing-x0-75);
 }

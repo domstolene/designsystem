@@ -1,18 +1,4 @@
 {
-  "$dds-innershadow": {
-    "1-ondark": {
-      "value": " 1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5) inset"
-    },
-    "1-onlight": {
-      "value": " 1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.1) inset"
-    },
-    "2-ondark": {
-      "value": " 2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.5) inset"
-    },
-    "2-onlight": {
-      "value": " 2.0px 4.0px 8.0px 0px rgba(0, 0, 0, 0.1) inset"
-    }
-  },
   "$dds-shadow": {
     "1-ondark": {
       "value": " 1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5)"

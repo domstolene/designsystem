@@ -1,4 +1,3 @@
-import { ddsBaseTokens as tokens } from '@norges-domstoler/dds-design-tokens';
 import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
@@ -140,7 +139,7 @@ export const WithIcon: Story = {
   ),
 };
 
-const margin = tokens.spacing.SizesDdsSpacingX1;
+const margin = 'var(--dds-spacing-x1)';
 export const RowDirectionExample: Story = {
   decorators: Story => (
     <StoryTemplate>

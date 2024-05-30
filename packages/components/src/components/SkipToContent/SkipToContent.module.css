@@ -1,6 +1,6 @@
 .wrapper {
-  background-color: var(--dds-color-primary-base);
-  padding: var(--sizes-dds-spacing-x-0-25);
+  background-color: var(--dds-color-surface-inverse-default);
+  padding: var(--dds-spacing-x0-25);
   box-sizing: border-box;
   position: absolute;
   text-align: center;
@@ -28,5 +28,5 @@
 .link,
 .link:hover {
   text-decoration: none;
-  color: var(--dds-color-neutrals-white);
+  color: var(--dds-color-text-on-inverse);
 }

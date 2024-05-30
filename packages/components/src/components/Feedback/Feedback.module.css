@@ -1,6 +1,6 @@
 .rating-container {
   display: flex;
-  gap: var(--sizes-dds-spacing-x-1);
+  gap: var(--dds-spacing-x1);
 }
 
 .rating-container--row {
@@ -16,7 +16,7 @@
 .rating-submitted-title {
   display: inline-flex;
   align-items: center;
-  gap: var(--sizes-dds-spacing-x-0-5);
+  gap: var(--dds-spacing-x0-5);
 }
 
 .button {

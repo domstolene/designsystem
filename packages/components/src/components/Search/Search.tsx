@@ -163,15 +163,14 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 </>
               )}
               {hasValue && (
-                <span className={styles['clear-button-wrapper']}>
-                  <Button
-                    icon={CloseSmallIcon}
-                    size="tiny"
-                    purpose="tertiary"
-                    aria-label="Tøm"
-                    onClick={clearInput}
-                  />
-                </span>
+                <Button
+                  icon={CloseSmallIcon}
+                  size={componentSize === 'large' ? 'medium' : 'small'}
+                  purpose="tertiary"
+                  aria-label="Tøm"
+                  onClick={clearInput}
+                  className={styles['clear-button']}
+                />
               )}
             </div>
             {showSearchButton && (

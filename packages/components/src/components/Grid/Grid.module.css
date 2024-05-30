@@ -1,71 +1,59 @@
 .grid {
   display: grid;
 
-  grid-template-columns: repeat(var(--dds-grid-xs-0-599-count), minmax(0, 1fr));
-  column-gap: var(--dds-grid-xs-0-599-gutter-size);
-  margin-inline: var(--sizes-dds-spacing-x-1);
+  grid-template-columns: repeat(var(--dds-grid-xs-count), minmax(0, 1fr));
+  column-gap: var(--dds-grid-xs-gutter-size);
+  margin-inline: var(--dds-spacing-x1);
   max-width: var(--dds-grid-xs-max-width);
   row-gap: var(--dds-grid-xs-row-gap);
 
   @media only screen and (min-width: 600px) {
-    grid-template-columns: repeat(
-      var(--dds-grid-sm-600-959-count),
-      minmax(0, 1fr)
-    );
-    column-gap: var(--dds-grid-sm-600-959-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-2);
+    grid-template-columns: repeat(var(--dds-grid-sm-count), minmax(0, 1fr));
+    column-gap: var(--dds-grid-sm-gutter-size);
+    margin-inline: var(--dds-spacing-x2);
     max-width: var(--dds-grid-sm-max-width);
     row-gap: var(--dds-grid-sm-row-gap);
   }
 
   @media only screen and (min-width: 960px) {
-    grid-template-columns: repeat(
-      var(--dds-grid-md-960-1279-count),
-      minmax(0, 1fr)
-    );
-    column-gap: var(--dds-grid-md-960-1279-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-4);
+    grid-template-columns: repeat(var(--dds-grid-md-count), minmax(0, 1fr));
+    column-gap: var(--dds-grid-md-gutter-size);
+    margin-inline: var(--dds-spacing-x4);
     max-width: var(--dds-grid-md-max-width);
     row-gap: var(--dds-grid-md-row-gap);
   }
 
   @media only screen and (min-width: 1280px) {
-    grid-template-columns: repeat(
-      var(--dds-grid-lg-1280-1919-count),
-      minmax(0, 1fr)
-    );
-    column-gap: var(--dds-grid-lg-1280-1919-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-6);
+    grid-template-columns: repeat(var(--dds-grid-lg-count), minmax(0, 1fr));
+    column-gap: var(--dds-grid-lg-gutter-size);
+    margin-inline: var(--dds-spacing-x6);
     max-width: var(--dds-grid-lg-max-width);
     row-gap: var(--dds-grid-lg-row-gap);
   }
 
   @media only screen and (min-width: 1920px) {
-    grid-template-columns: repeat(
-      var(--dds-grid-xl-1920-count),
-      minmax(0, 1fr)
-    );
-    column-gap: var(--dds-grid-xl-1920-gutter-size);
-    margin-inline: var(--sizes-dds-spacing-x-10);
+    grid-template-columns: repeat(var(--dds-grid-xl-count), minmax(0, 1fr));
+    column-gap: var(--dds-grid-xl-gutter-size);
+    margin-inline: var(--dds-spacing-x10);
     max-width: var(--dds-grid-xl-max-width);
     row-gap: var(--dds-grid-xl-row-gap);
   }
 }
 
 .grid-child {
-  --dds-grid-half-col-count: var(--dds-grid-xs-0-599-count);
+  --dds-grid-half-col-count: var(--dds-grid-xs-count);
 
   @media only screen and (min-width: 600px) {
-    --dds-grid-half-col-count: var(--dds-grid-sm-600-959-count);
+    --dds-grid-half-col-count: var(--dds-grid-sm-count);
   }
   @media only screen and (min-width: 960px) {
-    --dds-grid-half-col-count: var(--dds-grid-md-960-1279-count);
+    --dds-grid-half-col-count: var(--dds-grid-md-count);
   }
   @media only screen and (min-width: 1280px) {
-    --dds-grid-half-col-count: var(--dds-grid-lg-1280-1919-count);
+    --dds-grid-half-col-count: var(--dds-grid-lg-count);
   }
   @media only screen and (min-width: 1920px) {
-    --dds-grid-half-col-count: var(--dds-grid-xl-1920-count);
+    --dds-grid-half-col-count: var(--dds-grid-xl-count);
   }
 
   grid-row: var(--dds-grid-child-grid-row);

@@ -2,20 +2,20 @@
   position: absolute;
   width: fit-content;
   z-index: 100;
-  padding: var(--sizes-dds-spacing-x-0-75) var(--sizes-dds-spacing-x-1)
-    var(--sizes-dds-spacing-x-1-5) var(--sizes-dds-spacing-x-1);
+  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
+    var(--dds-spacing-x1-5) var(--dds-spacing-x1);
 }
 
 .content--closable--no-title {
-  margin-top: var(--sizes-dds-spacing-x-2);
+  margin-top: var(--dds-spacing-x2);
 }
 
 .title {
-  margin-right: var(--sizes-dds-spacing-x-2);
+  margin-right: var(--dds-spacing-x2);
 }
 
 .close-button {
   position: absolute;
-  top: var(--sizes-dds-spacing-x-0-25);
-  right: var(--sizes-dds-spacing-x-0-25);
+  top: var(--dds-spacing-x0-25);
+  right: var(--dds-spacing-x0-25);
 }

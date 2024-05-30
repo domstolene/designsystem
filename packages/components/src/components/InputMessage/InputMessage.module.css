@@ -6,19 +6,19 @@
 }
 
 .container--error {
-  padding: var(--sizes-dds-spacing-x-0-25) var(--sizes-dds-spacing-x-0-5);
-  background-color: var(--dds-color-danger-lightest);
-  gap: var(--sizes-dds-spacing-x-0-25);
+  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
+  background-color: var(--dds-color-surface-danger-default);
+  gap: var(--dds-spacing-x0-25);
 
   .icon {
-    color: var(--dds-color-danger-dark);
+    color: var(--dds-color-icon-on-danger-default);
   }
 }
 
 .container--tip {
-  background-color: var(--dds-color-neutrals-white);
+  background-color: var(--dds-color-surface-default);
 }
 
 .icon {
-  margin-top: var(--sizes-dds-spacing-x-0-125);
+  margin-top: var(--dds-spacing-x0-125);
 }

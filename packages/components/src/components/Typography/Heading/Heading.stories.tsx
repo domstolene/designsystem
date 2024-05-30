@@ -96,7 +96,7 @@ export const OverviewStyles: Story = {
 };
 
 export const WithMargins: Story = {
-  args: { children: 'Heading', level: 1 },
+  args: { children: 'Heading with margins', level: 1 },
   decorators: Story => (
     <StoryTemplate>
       <Story />
@@ -106,9 +106,7 @@ export const WithMargins: Story = {
     <div
       style={{ borderTop: '1px solid black', borderBottom: '1px solid black' }}
     >
-      <Heading {...args} withMargins>
-        Heading with margins
-      </Heading>
+      <Heading {...args} withMargins />
     </div>
   ),
 };

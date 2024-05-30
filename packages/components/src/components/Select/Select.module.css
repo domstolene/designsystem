@@ -17,19 +17,19 @@
 }
 
 .icon {
-  margin-right: var(--sizes-dds-spacing-x-0-5);
+  margin-right: var(--dds-spacing-x0-5);
 }
 
 .control {
   &:hover .dropdown-indicator,
   &:focus-within .dropdown-indicator {
-    color: var(--dds-color-interactive-base);
+    color: var(--dds-color-icon-action-hover);
   }
 
-  &.control--readonly:hover .dropdown-indicator {
+  &.control--readonly .dropdown-indicator {
     color: transparent;
   }
-  &.control--disabled:hover .dropdown-indicator {
-    color: var(--dds-color-neutrals-gray-6);
+  &.control--disabled .dropdown-indicator {
+    color: transparent;
   }
 }
