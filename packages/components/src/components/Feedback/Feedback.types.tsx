@@ -11,6 +11,8 @@ export interface FeedbackProps {
   ratingSubmittedTitle?: string;
   /**Tittel som vises når bruker har gitt feedback (inkl. eventuell kommentar) */
   submittedTitle?: string;
+  /**Tip som vises under tekstfeltet når bruker skal sende inn kommentar  */
+  textAreaTip?: string;
   /**Om tommel opp eller ned er valgt. Brukes når komponenten skal være styrt utenfra. */
   ratingValue?: Rating | null;
   /**Verdien til fritekstfeltet. Brukes når komponenten skal være styrt utenfra. */

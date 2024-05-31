@@ -15,6 +15,7 @@ interface CommentComponentType {
   positiveFeedbackLabel: string;
   negativeFeedbackLabel: string;
   ratingSubmittedTitle: string;
+  textAreaTip: string;
   loading: boolean;
   handleSubmit: () => void;
   handleFeedbackTextChange: (newText: string) => void;
@@ -26,6 +27,7 @@ export const CommentComponent = ({
   positiveFeedbackLabel,
   negativeFeedbackLabel,
   ratingSubmittedTitle,
+  textAreaTip,
   loading,
   handleSubmit,
   handleFeedbackTextChange,
@@ -47,7 +49,7 @@ export const CommentComponent = ({
         label={
           rating === 'positive' ? positiveFeedbackLabel : negativeFeedbackLabel
         }
-        tip="Ikke send inn personopplysninger eller annen sensitiv informasjon"
+        tip={textAreaTip}
       />
 
       <Button

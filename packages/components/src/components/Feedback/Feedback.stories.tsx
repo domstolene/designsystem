@@ -48,6 +48,9 @@ export default {
     submittedTitle: {
       control: 'text',
     },
+    textAreaTip: {
+      control: 'text',
+    },
     feedbackTextAreaExcluded: {
       control: 'boolean',
     },
