@@ -37,7 +37,7 @@
     "build:tokens": "node ./dds/build.js"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/node": "^20.12.12",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
