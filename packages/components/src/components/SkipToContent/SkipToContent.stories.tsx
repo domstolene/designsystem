@@ -1,5 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Typography } from '../Typography';
@@ -26,11 +24,6 @@ type Story = StoryObj<typeof SkipToContent>;
 
 export const Default: Story = {
   args: { href: '#innhold' },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} />
@@ -42,11 +35,6 @@ export const Default: Story = {
 
 export const Overview: Story = {
   args: { href: '#innhold' },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} />
@@ -59,11 +47,6 @@ export const Overview: Story = {
 
 export const Example: Story = {
   args: { href: '#innhold' },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} />
@@ -75,7 +58,7 @@ export const Example: Story = {
       <div
         style={{
           height: '1000px',
-          backgroundColor: ddsTokens.DdsColorBrandPrimarySubtle,
+          backgroundColor: 'var(--dds-color-brand-primary-subtle)',
         }}
       >
         Placeholder

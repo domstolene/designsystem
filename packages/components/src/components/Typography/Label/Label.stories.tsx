@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Label } from '.';
@@ -22,9 +21,4 @@ type Story = StoryObj<typeof Label>;
 
 export const Default: Story = {
   args: { children: 'Label' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };

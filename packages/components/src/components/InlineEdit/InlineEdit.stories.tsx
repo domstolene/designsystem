@@ -1,8 +1,9 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { InlineEditInput } from './InlineEditInput';
 import { InlineEditTextArea } from './InlineEditTextArea';
+import { StoryVStack } from '../Stack/utils';
 
 export default {
   title: 'dds-components/InlineEdit',
@@ -27,16 +28,21 @@ export default {
       ],
     },
   },
-};
+} satisfies Meta<typeof InlineEditInput>;
 
-export const OverviewInputTypes = () => {
-  const [value, setValue] = useState('');
-  const [value2, setValue2] = useState('');
+type Story = StoryObj<typeof InlineEditInput>;
 
-  return (
-    <StoryTemplate>
-      <InlineEditInput value={value} onSetValue={setValue} />
-      <InlineEditTextArea value={value2} onSetValue={setValue2} />
-    </StoryTemplate>
-  );
+export const OverviewInputTypes: Story = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: args => {
+    const [value, setValue] = useState('');
+    const [value2, setValue2] = useState('');
+
+    return (
+      <StoryVStack>
+        <InlineEditInput value={value} onSetValue={setValue} />
+        <InlineEditTextArea value={value2} onSetValue={setValue2} />
+      </StoryVStack>
+    );
+  },
 };

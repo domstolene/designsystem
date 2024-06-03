@@ -1,11 +1,11 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { type Placement } from '../../hooks';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
 import { VStack } from '../Stack';
-import { Typography } from '../Typography';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { Paragraph } from '../Typography';
 
 import { Popover, PopoverGroup } from '.';
 
@@ -32,52 +32,37 @@ export default {
 type Story = StoryObj<typeof Popover>;
 
 export const Default: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <PopoverGroup>
-      <Button>Åpne</Button>
-      <Popover {...args}>
-        <VStack align="flex-start">
-          <Typography withMargins>
-            Dette er en popover med tekst og knapp
-          </Typography>
-          <Button>Klikk</Button>
-        </VStack>
-      </Popover>
-    </PopoverGroup>
+    <VStack>
+      <PopoverGroup>
+        <Button>Åpne</Button>
+        <Popover {...args}>
+          <VStack align="start">
+            <Paragraph withMargins>
+              Dette er en popover med tekst og knapp
+            </Paragraph>
+            <Button>Klikk</Button>
+          </VStack>
+        </Popover>
+      </PopoverGroup>
+    </VStack>
   ),
 };
 
 export const ContentOverview: Story = {
   args: {},
-  decorators: Story => (
-    <StoryTemplate display="grid">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryHStack justify="center">
       <div>
         <PopoverGroup>
           <Button>Åpne</Button>
           <Popover {...args} title="Tittel">
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                paddingTop: '16px',
-              }}
-            >
-              <Typography withMargins>
+            <VStack align="start">
+              <Paragraph withMargins>
                 Dette er en popover med tittel, innhold og lukkeknapp
-              </Typography>
+              </Paragraph>
               <Button>Klikk</Button>
-            </div>
+            </VStack>
           </Popover>
         </PopoverGroup>
       </div>
@@ -85,12 +70,12 @@ export const ContentOverview: Story = {
         <PopoverGroup>
           <Button>Åpne</Button>
           <Popover {...args} title="Tittel" withCloseButton={false}>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Typography withMargins>
+            <VStack align="start">
+              <Paragraph withMargins>
                 Dette er en popover med tittel og innhold
-              </Typography>
+              </Paragraph>
               <Button>Klikk</Button>
-            </div>
+            </VStack>
           </Popover>
         </PopoverGroup>
       </div>
@@ -98,34 +83,20 @@ export const ContentOverview: Story = {
         <PopoverGroup>
           <Button>Åpne</Button>
           <Popover {...args}>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <Typography withMargins>
+            <VStack align="start">
+              <Paragraph withMargins>
                 Dette er en popover med innhold og lukkeknapp
-              </Typography>
+              </Paragraph>
               <Button>Klikk</Button>
-            </div>
+            </VStack>
           </Popover>
         </PopoverGroup>
       </div>
-    </>
+    </StoryHStack>
   ),
 };
 
 export const PlacementOverview: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate
-      display="grid"
-      $columnsAmount={4}
-      containerStyle={{
-        alignContent: 'center',
-        justifyContent: 'center',
-        padding: '150px 40px 200px 40px',
-      }}
-    >
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const popover = (placement: Placement) => (
       <div>
@@ -138,37 +109,40 @@ export const PlacementOverview: Story = {
       </div>
     );
     return (
-      <>
-        {popover('top-start')}
-        {popover('bottom-start')}
-        {popover('left-start')}
-        {popover('right-start')}
-        {popover('top')}
-        {popover('bottom')}
-        {popover('right')}
-        {popover('left')}
-        {popover('top-end')}
-        {popover('bottom-end')}
-        {popover('right-end')}
-        {popover('left-end')}
-      </>
+      <StoryHStack
+        justify="center"
+        htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}
+      >
+        <StoryVStack>
+          {popover('top-start')}
+          {popover('bottom-start')}
+          {popover('left-start')}
+          {popover('right-start')}
+        </StoryVStack>
+        <StoryVStack>
+          {popover('top')}
+          {popover('bottom')}
+          {popover('right')}
+          {popover('left')}
+        </StoryVStack>
+        <StoryVStack>
+          {popover('top-end')}
+          {popover('bottom-end')}
+          {popover('right-end')}
+          {popover('left-end')}
+        </StoryVStack>
+      </StoryHStack>
     );
   },
 };
 
 export const Overflow: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <PopoverGroup>
       <Button>Åpne</Button>
       <Popover {...args} sizeProps={{ maxWidth: '150px', maxHeight: '200px' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography
+          <Paragraph
             withMargins
             style={{
               textOverflow: 'ellipsis',
@@ -177,7 +151,7 @@ export const Overflow: Story = {
             }}
           >
             Dette er en popover med tekst og knapp
-          </Typography>
+          </Paragraph>
           <Button>Klikk</Button>
         </div>
       </Popover>
@@ -186,15 +160,9 @@ export const Overflow: Story = {
 };
 
 export const InlineExample: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     return (
-      <Typography>
+      <Paragraph>
         Når du kommer til domstolen er det viktig at du finner rettssalen der
         innkallingen sier du skal møte. Vent utenfor salen, du blir hentet når
         det er din tur. Vær forberedt på å vente, siden rettssaken allerede er i
@@ -203,7 +171,7 @@ export const InlineExample: Story = {
         <PopoverGroup>
           <InlineButton>advokatene</InlineButton>
           <Popover {...args} title="Advokat">
-            <Typography withMargins>Dette er en definisjon</Typography>
+            <Paragraph withMargins>Dette er en definisjon</Paragraph>
           </Popover>
         </PopoverGroup>{' '}
         (eller fra aktor i straffesaker) om hva saken gjelder og hva man er
@@ -213,7 +181,7 @@ export const InlineExample: Story = {
         vanskelig å beregne hvor lang tid dette tar. Hvis spesielle årsaker gjør
         det vanskelig for deg å vente, så ta det opp på forhånd med den som har
         innkalt deg.
-      </Typography>
+      </Paragraph>
     );
   },
 };

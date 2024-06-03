@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Fieldset } from './Fieldset';
@@ -22,11 +21,6 @@ export default {
 type Story = StoryObj<typeof Fieldset>;
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Fieldset {...args}>
       <Legend withMargins>Telefon og epost</Legend>
@@ -34,7 +28,7 @@ export const Default: Story = {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '24px',
+          gap: 'var(--dds-spacing-x1-5)',
         }}
       >
         <TextInput label="Telefon" />

@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryHStack, StoryVStack } from '../../Stack/utils';
 
 import { Checkbox } from '.';
 
@@ -23,55 +24,41 @@ export default {
 
 type Story = StoryObj<typeof Checkbox>;
 
-export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate display="grid">
-      <Story />
-    </StoryTemplate>
-  ),
-  render: args => (
-    <>
-      <Checkbox {...args} label={args.label ?? 'Default'} />
-      <Checkbox {...args} label={args.label ?? 'Checked'} checked />
-      <Checkbox {...args} label={args.label ?? 'Indeterminate'} indeterminate />
-      <Checkbox {...args} label={args.label ?? 'Disabled'} disabled />
-      <Checkbox
-        {...args}
-        label={args.label ?? 'Disabled checked'}
-        disabled
-        checked
-      />
-      <Checkbox
-        {...args}
-        label={args.label ?? 'Disabled indeterminate'}
-        disabled
-        indeterminate
-      />
-      <Checkbox {...args} label={args.label ?? 'ReadOnly'} readOnly />
-      <Checkbox
-        {...args}
-        label={args.label ?? 'ReadOnly checked'}
-        readOnly
-        checked
-      />
-      <Checkbox
-        {...args}
-        label={args.label ?? 'ReadOnly indeterminate'}
-        readOnly
-        indeterminate
-      />
-      <Checkbox {...args} label={args.label ?? 'Error'} error />
-      <Checkbox {...args} label={args.label ?? 'Error checked'} error checked />
-      <Checkbox {...args} />
-    </>
-  ),
-};
-
 export const Default: Story = {
   args: { label: 'Label' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
+};
+
+export const Overview: Story = {
+  render: args => (
+    <StoryHStack>
+      <StoryVStack>
+        <Checkbox {...args} label="Default" />
+        <Checkbox {...args} label="Disabled" disabled />
+        <Checkbox {...args} label="ReadOnly" readOnly />
+        <Checkbox {...args} label="Error" error />
+      </StoryVStack>
+      <StoryVStack>
+        <Checkbox {...args} label="Checked" checked />
+        <Checkbox {...args} label="Disabled checked" disabled checked />
+        <Checkbox {...args} label="ReadOnly checked" readOnly checked />
+        <Checkbox {...args} label="Error checked" error checked />
+      </StoryVStack>
+      <StoryVStack>
+        <Checkbox {...args} label="Indeterminate" indeterminate />
+        <Checkbox
+          {...args}
+          label="Disabled indeterminate"
+          disabled
+          indeterminate
+        />
+        <Checkbox
+          {...args}
+          label="ReadOnly indeterminate"
+          readOnly
+          indeterminate
+        />
+        <Checkbox {...args} />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };

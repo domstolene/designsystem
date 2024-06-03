@@ -1,7 +1,7 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button/Button';
+import { StoryVStack } from '../Stack/utils';
 
 import { ButtonGroup } from '.';
 
@@ -25,11 +25,6 @@ export default {
 type Story = StoryObj<typeof ButtonGroup>;
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <ButtonGroup {...args}>
       <Button>Første</Button>
@@ -40,13 +35,8 @@ export const Default: Story = {
 };
 
 export const Sizes: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <ButtonGroup {...args} buttonSize="large">
         <Button>Første</Button>
         <Button>Andre</Button>
@@ -67,16 +57,11 @@ export const Sizes: Story = {
         <Button>Andre</Button>
         <Button>Tredje</Button>
       </ButtonGroup>
-    </>
+    </StoryVStack>
   ),
 };
 
 export const Vertical: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <ButtonGroup {...args} direction="column">
       <Button>Første</Button>

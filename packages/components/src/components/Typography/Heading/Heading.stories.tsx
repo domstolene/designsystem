@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryVStack } from '../../Stack/utils';
 
 import { Heading } from '.';
 
@@ -22,21 +23,11 @@ type Story = StoryObj<typeof Heading>;
 
 export const Default: Story = {
   args: { children: 'Heading', level: 1 },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <Heading {...args} level={1}>
         Heading 1
       </Heading>
@@ -55,18 +46,13 @@ export const Overview: Story = {
       <Heading {...args} level={6}>
         Heading 6
       </Heading>
-    </>
+    </StoryVStack>
   ),
 };
 
 export const OverviewStyles: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <Heading {...args} level={1} typographyType="headingSans08">
         headingSans08
       </Heading>
@@ -91,17 +77,12 @@ export const OverviewStyles: Story = {
       <Heading {...args} level={1} typographyType="headingSans01">
         headingSans01
       </Heading>
-    </>
+    </StoryVStack>
   ),
 };
 
 export const WithMargins: Story = {
   args: { children: 'Heading with margins', level: 1 },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <div
       style={{ borderTop: '1px solid black', borderBottom: '1px solid black' }}

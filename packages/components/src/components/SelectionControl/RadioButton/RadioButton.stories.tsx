@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryHStack, StoryVStack } from '../../Stack/utils';
 
 import { RadioButton } from '.';
 
@@ -25,38 +26,22 @@ type Story = StoryObj<typeof RadioButton>;
 
 export const Default: Story = {
   args: { label: 'Label' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={2}>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <RadioButton {...args} label={args.label ?? 'Default'} />
-      <RadioButton {...args} label={args.label ?? 'Checked'} checked />
-      <RadioButton {...args} label={args.label ?? 'Disabled'} disabled />
-      <RadioButton
-        {...args}
-        label={args.label ?? 'Disabled checked'}
-        disabled
-        checked
-      />
-      <RadioButton {...args} label={args.label ?? 'ReadOnly'} readOnly />
-      <RadioButton
-        {...args}
-        label={args.label ?? 'ReadOnly checked'}
-        readOnly
-        checked
-      />
-      <RadioButton {...args} label={args.label ?? 'Error'} error />
-    </>
+    <StoryHStack>
+      <StoryVStack>
+        <RadioButton {...args} label="Default" />
+        <RadioButton {...args} label="Disabled" disabled />
+        <RadioButton {...args} label="ReadOnly" readOnly />
+        <RadioButton {...args} label="Error" error />
+      </StoryVStack>
+      <StoryVStack>
+        <RadioButton {...args} label="Checked" checked />
+        <RadioButton {...args} label="Disabled checked" disabled checked />
+        <RadioButton {...args} label="ReadOnly checked" readOnly checked />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };

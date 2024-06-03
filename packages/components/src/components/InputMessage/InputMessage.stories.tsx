@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryHStack } from '../Stack/utils';
 
 import { InputMessage } from '.';
 
@@ -25,23 +26,13 @@ export const Default: Story = {
     messageType: 'error',
     message: 'Feilmelding',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryHStack>
       <InputMessage {...args} messageType="error" message="Feilmelding" />
       <InputMessage {...args} messageType="tip" message="Hjelpetekst" />
-    </>
+    </StoryHStack>
   ),
 };

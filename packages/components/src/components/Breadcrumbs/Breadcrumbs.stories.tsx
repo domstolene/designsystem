@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryVStack } from '../Stack/utils';
 
 import { Breadcrumb, Breadcrumbs } from '.';
 
@@ -25,39 +26,24 @@ const children = [
 ];
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   args: {
     children,
   },
 };
 
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   args: {
     children,
   },
   render: args => (
-    <>
+    <StoryVStack>
       <Breadcrumbs {...args} />
       <Breadcrumbs {...args} smallScreen />
-    </>
+    </StoryVStack>
   ),
 };
 
 export const SmallScreen: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   args: {
     children,
     smallScreen: true,

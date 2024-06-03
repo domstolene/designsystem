@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
@@ -24,11 +23,6 @@ export default {
 type Story = StoryObj<typeof VisuallyHidden>;
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <>
       <Paragraph>Teksten under er usynlig.</Paragraph>
@@ -38,13 +32,7 @@ export const Default: Story = {
 };
 
 export const WithLink: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: _args => (
+  render: args => (
     <>
       <Paragraph>
         I foreldretvister kan du søke fri rettshjelp hvis du har lav inntekt og
@@ -54,7 +42,7 @@ export const WithLink: Story = {
         På sivilrett.no finner du{' '}
         <Link href="/">
           mer informasjon og søknadsskjema
-          <VisuallyHidden as="span">
+          <VisuallyHidden {...args} as="span">
             {' '}
             i forbindelse med foreldretvister
           </VisuallyHidden>
@@ -66,15 +54,10 @@ export const WithLink: Story = {
 };
 
 export const TableButtons: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: _args => (
-    <Table.Wrapper style={{ width: '100%' }}>
-      <Table density="compact" style={{ width: '100%' }}>
+  render: args => (
+    <Table.Wrapper>
+      <Table density="compact">
         <Table.Head>
           <Table.Row type="head">
             <Table.Cell type="head">Bruker</Table.Cell>

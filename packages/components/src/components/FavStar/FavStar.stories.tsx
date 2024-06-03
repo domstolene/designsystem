@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
@@ -7,10 +6,10 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { AttachmentIcon } from '../Icon/icons';
 import { Checkbox } from '../SelectionControl/Checkbox';
-import { VStack } from '../Stack';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
-import { Caption, Heading, Link } from '../Typography';
+import { Caption, Link, Typography } from '../Typography';
 
 const meta: Meta<typeof FavStar> = {
   title: 'dds-components/FavStar',
@@ -32,47 +31,28 @@ export default meta;
 
 type Story = StoryObj<typeof FavStar>;
 
-export const Default: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
-};
+export const Default: Story = {};
 
 export const OverviewSizes: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <VStack gap="x3" align="flex-start">
-      <VStack gap="x1" align="flex-start">
-        <Heading level={2} typographyType="headingSans03">
+    <StoryHStack>
+      <StoryVStack>
+        <Typography as="span" typographyType="supportingStyleLabel01">
           Medium
-        </Heading>
+        </Typography>
         <FavStar {...args} size="medium" />
-      </VStack>
-      <VStack gap="x1" align="flex-start">
-        <Heading level={2} typographyType="headingSans03">
+      </StoryVStack>
+      <StoryVStack>
+        <Typography as="span" typographyType="supportingStyleLabel01">
           Large
-        </Heading>
+        </Typography>
         <FavStar {...args} size="large" />
-      </VStack>
-    </VStack>
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
 export const Controlled: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [checked, setChecked] = useState(false);
     return (
@@ -89,12 +69,6 @@ export const Controlled: Story = {
 };
 
 export const UsingRef: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const favstarRef = useRef<HTMLInputElement>(null);
     return (
@@ -107,12 +81,6 @@ export const UsingRef: Story = {
 };
 
 export const RealWorld: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const documents = [
       {

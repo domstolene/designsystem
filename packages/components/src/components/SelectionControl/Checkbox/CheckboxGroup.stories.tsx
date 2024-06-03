@@ -1,5 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
+
+import { StoryVStack } from '../../Stack/utils';
 
 import { Checkbox, CheckboxGroup } from '.';
 
@@ -24,31 +25,6 @@ export default {
 
 type Story = StoryObj<typeof CheckboxGroup>;
 
-export const Overview: Story = {
-  args: {
-    label: 'Label',
-    children: [
-      <Checkbox key={0} label="Option 1" />,
-      <Checkbox key={1} label="Option 2" />,
-      <Checkbox key={2} label="Option 3" />,
-    ],
-  },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
-  render: args => (
-    <>
-      <CheckboxGroup {...args} />
-      <CheckboxGroup {...args} required />
-      <CheckboxGroup {...args} tip="Dette er en hjelpetekst" />
-      <CheckboxGroup {...args} errorMessage="Dette er en feilmelding" />
-      <CheckboxGroup {...args} direction="column" />
-    </>
-  ),
-};
-
 export const Default: Story = {
   args: {
     label: 'Label',
@@ -58,9 +34,24 @@ export const Default: Story = {
       <Checkbox key={2} label="Option 3" />,
     ],
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
+};
+
+export const Overview: Story = {
+  args: {
+    label: 'Label',
+    children: [
+      <Checkbox key={0} label="Option 1" />,
+      <Checkbox key={1} label="Option 2" />,
+      <Checkbox key={2} label="Option 3" />,
+    ],
+  },
+  render: args => (
+    <StoryVStack>
+      <CheckboxGroup {...args} />
+      <CheckboxGroup {...args} required />
+      <CheckboxGroup {...args} tip="Dette er en hjelpetekst" />
+      <CheckboxGroup {...args} errorMessage="Dette er en feilmelding" />
+      <CheckboxGroup {...args} direction="column" />
+    </StoryVStack>
   ),
 };

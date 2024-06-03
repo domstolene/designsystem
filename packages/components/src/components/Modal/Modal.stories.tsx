@@ -1,9 +1,9 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
 import { Button } from '../Button';
 import { Search } from '../Search';
+import { StoryHStack } from '../Stack/utils';
 
 import { Modal, ModalActions, ModalBody } from '.';
 
@@ -28,12 +28,6 @@ export default {
 type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [closed, setClosed] = useState(true);
     const show = () => setClosed(false);
@@ -67,11 +61,6 @@ export const Default: Story = {
 
 export const Overview: Story = {
   args: { header: 'Tittel', onClose: undefined },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [closed, setClosed] = useState(true);
     const show = () => setClosed(false);
@@ -85,7 +74,7 @@ export const Overview: Story = {
     const buttonRef2 = useRef<HTMLButtonElement>(null);
 
     return (
-      <>
+      <StoryHStack>
         <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
           Åpne lukkbar
         </Button>
@@ -116,18 +105,13 @@ export const Overview: Story = {
             </Button>
           </ModalActions>
         </Modal>
-      </>
+      </StoryHStack>
     );
   },
 };
 
 export const NoActionButtons: Story = {
   args: { header: 'Info' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [closed, setClosed] = useState(true);
     const show = () => setClosed(false);
@@ -155,11 +139,6 @@ export const NoActionButtons: Story = {
 
 export const Scrollable: Story = {
   args: { header: 'Fritt valg av forsvarer' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [closed, setClosed] = useState(true);
     const show = () => setClosed(false);
@@ -201,11 +180,6 @@ export const Scrollable: Story = {
 
 export const WithInitialFocus: Story = {
   args: { header: 'Søk etter sak' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const [closed, setClosed] = useState(true);
     const show = () => setClosed(false);

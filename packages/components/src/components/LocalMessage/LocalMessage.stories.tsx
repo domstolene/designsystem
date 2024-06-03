@@ -1,9 +1,8 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { LocalMessage } from './LocalMessage';
 import { List, ListItem } from '../List';
-import { HStack, VStack } from '../Stack';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Typography } from '../Typography';
 
 export default {
@@ -32,43 +31,31 @@ export const Default: Story = {
   args: {
     children: 'Dette er en lokal melding',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
   args: {
     children: 'Dette er en lokal melding',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <HStack gap="x1">
-        <VStack gap="x0.75" align="start">
-          <LocalMessage {...args} purpose="info" />
-          <LocalMessage {...args} purpose="success" />
-          <LocalMessage {...args} purpose="warning" />
-          <LocalMessage {...args} purpose="danger" />
-          <LocalMessage {...args} purpose="tips" />
-          <LocalMessage {...args} layout="vertical" />
-        </VStack>
-        <VStack gap="x0.75" align="start">
-          <LocalMessage {...args} purpose="info" closable />
-          <LocalMessage {...args} purpose="success" closable />
-          <LocalMessage {...args} purpose="warning" closable />
-          <LocalMessage {...args} purpose="danger" closable />
-          <LocalMessage {...args} purpose="tips" closable />
-          <LocalMessage {...args} layout="vertical" closable />
-        </VStack>
-      </HStack>
-    </>
+    <StoryHStack>
+      <StoryVStack>
+        <LocalMessage {...args} purpose="info" />
+        <LocalMessage {...args} purpose="success" />
+        <LocalMessage {...args} purpose="warning" />
+        <LocalMessage {...args} purpose="danger" />
+        <LocalMessage {...args} purpose="tips" />
+        <LocalMessage {...args} layout="vertical" />
+      </StoryVStack>
+      <StoryVStack>
+        <LocalMessage {...args} purpose="info" closable />
+        <LocalMessage {...args} purpose="success" closable />
+        <LocalMessage {...args} purpose="warning" closable />
+        <LocalMessage {...args} purpose="danger" closable />
+        <LocalMessage {...args} purpose="tips" closable />
+        <LocalMessage {...args} layout="vertical" closable />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
@@ -77,20 +64,10 @@ export const Closable: Story = {
     children: 'Dette er en lokal melding',
     closable: true,
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const ComplexContent: Story = {
   args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
       <Typography typographyType="headingSans03" withMargins>

@@ -1,7 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { VStack } from '../Stack';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 import { Search } from '.';
 
@@ -41,24 +40,11 @@ const array = [
 
 type Story = StoryObj<typeof Search>;
 
-export const Default: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
-};
+export const Default: Story = {};
 
 export const Overview: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <VStack gap="x1" align="flex-start">
+    <StoryVStack>
       <Search {...args} componentSize="medium" />
       <Search {...args} componentSize="medium" tip="Dette er en hjelpetekst" />
       <Search {...args} label={args.label ?? 'Label'} />
@@ -72,7 +58,6 @@ export const Overview: Story = {
         componentSize="medium"
         buttonProps={{
           onClick: () => null,
-          label: 'Secondary',
           purpose: 'secondary',
         }}
       />
@@ -84,63 +69,44 @@ export const Overview: Story = {
       <Search
         {...args}
         componentSize="medium"
-        tip="Dette er en hjelpetekst"
-        buttonProps={{ onClick: () => null }}
-      />
-      <Search
-        {...args}
-        label={args.label ?? 'Label'}
-        buttonProps={{ onClick: () => null }}
-      />
-      <Search
-        {...args}
-        componentSize="medium"
         buttonProps={{ onClick: () => null, loading: true }}
       />
-    </VStack>
+    </StoryVStack>
   ),
 };
 
 export const OverviewSizes: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={2}>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <Search {...args} componentSize="small" />
-      <Search
-        {...args}
-        componentSize="small"
-        buttonProps={{ onClick: () => null, label: 'Søk' }}
-      />
-      <Search {...args} componentSize="medium" />
-      <Search
-        {...args}
-        componentSize="medium"
-        buttonProps={{ onClick: () => null, label: 'Søk' }}
-      />
-      <Search {...args} componentSize="large" />
-      <Search
-        {...args}
-        componentSize="large"
-        buttonProps={{ onClick: () => null, label: 'Søk' }}
-      />
-    </>
+    <StoryHStack>
+      <StoryVStack>
+        <Search {...args} componentSize="small" />
+        <Search {...args} componentSize="medium" />
+        <Search {...args} componentSize="large" />
+      </StoryVStack>
+      <StoryVStack>
+        <Search
+          {...args}
+          componentSize="small"
+          buttonProps={{ onClick: () => null, label: 'Søk' }}
+        />
+        <Search
+          {...args}
+          componentSize="medium"
+          buttonProps={{ onClick: () => null, label: 'Søk' }}
+        />
+        <Search
+          {...args}
+          componentSize="large"
+          buttonProps={{ onClick: () => null, label: 'Søk' }}
+        />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };
 
 export const OverviewWithSuggestion: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <VStack gap="x1" align="right">
+    <StoryVStack>
       <Search.AutocompleteWrapper data={{ array }}>
         <Search {...args} componentSize="large" />
       </Search.AutocompleteWrapper>
@@ -150,29 +116,17 @@ export const OverviewWithSuggestion: Story = {
       <Search.AutocompleteWrapper data={{ array }}>
         <Search {...args} componentSize="small" />
       </Search.AutocompleteWrapper>
-    </VStack>
+    </StoryVStack>
   ),
 };
 
 export const WithButton: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Search {...args} buttonProps={{ onClick: () => null, label: 'Søk' }} />
   ),
 };
 
 export const WithSuggestions: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <>
       <Search.AutocompleteWrapper data={{ array }}>

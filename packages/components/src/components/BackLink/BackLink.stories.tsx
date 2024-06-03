@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type StoryObj } from '@storybook/react';
 
 import { BackLink } from '.';
@@ -26,9 +25,4 @@ type Story = StoryObj<typeof BackLink>;
 
 export const Default: Story = {
   args: { label: 'Forrige nivå', href: '?' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };

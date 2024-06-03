@@ -1,7 +1,7 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { EditIcon } from '../Icon/icons';
+import { StoryVStack } from '../Stack/utils';
 
 import { InternalHeader } from '.';
 
@@ -73,11 +73,6 @@ export const Default: Story = {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
@@ -85,13 +80,8 @@ export const Overview: Story = {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
   },
-  decorators: Story => (
-    <StoryTemplate gap="40px" containerStyle={{ alignItems: 'stretch' }}>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack align="stretch">
       <InternalHeader {...args} />
       <InternalHeader
         {...args}
@@ -135,7 +125,7 @@ export const Overview: Story = {
         userProps={user}
         smallScreen
       />
-    </>
+    </StoryVStack>
   ),
 };
 
@@ -147,11 +137,6 @@ export const WithNavigationAndContextMenu: Story = {
     contextMenuElements: menuElements,
     userProps: user,
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const WithCurrentPage: Story = {
@@ -163,11 +148,6 @@ export const WithCurrentPage: Story = {
     userProps: user,
     currentPageHref: '#',
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const SmallScreenWithNavigation: Story = {
@@ -177,11 +157,6 @@ export const SmallScreenWithNavigation: Story = {
     navigationElements: navigationLinks,
     smallScreen: true,
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const SmallScreenWithContextMenu: Story = {
@@ -191,11 +166,6 @@ export const SmallScreenWithContextMenu: Story = {
     contextMenuElements: menuElements,
     smallScreen: true,
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const SmallScreenWithNavigationAndContextMenu: Story = {
@@ -207,23 +177,14 @@ export const SmallScreenWithNavigationAndContextMenu: Story = {
     userProps: user,
     smallScreen: true,
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
+
 export const WithNavigationLongLink: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
     navigationElements: navigationLinksWithLong,
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const NonInteractiveUserOnly: Story = {
@@ -232,11 +193,6 @@ export const NonInteractiveUserOnly: Story = {
     applicationDesc: 'Produktnavn',
     userProps: user,
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const WithHomeLink: Story = {
@@ -245,9 +201,4 @@ export const WithHomeLink: Story = {
     applicationDesc: 'Produktnavn',
     applicationHref: '#',
   },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
 };

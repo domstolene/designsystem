@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { ScreenSize, useScreenSize } from '../../../hooks';
@@ -60,11 +59,6 @@ const headerValues = headerCells.map(cell => {
 });
 
 export const SingleDefiningColumn: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <CollapsibleTable
       {...args}
@@ -88,11 +82,6 @@ export const SingleDefiningColumn: Story = {
 };
 
 export const MultipleDefiningColumns: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper style={{ width: '100%' }}>
       <CollapsibleTable
@@ -122,11 +111,6 @@ export const MultipleDefiningColumns: Story = {
 };
 
 export const PrioritizedDefiningColumns: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Table.Wrapper style={{ width: '100%' }}>
       <CollapsibleTable
@@ -156,11 +140,6 @@ export const PrioritizedDefiningColumns: Story = {
 };
 
 export const WithDividers: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <CollapsibleTable
       {...args}
@@ -185,11 +164,6 @@ export const WithDividers: Story = {
 };
 
 export const Compact: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <CollapsibleTable
       {...args}
@@ -214,11 +188,6 @@ export const Compact: Story = {
 };
 
 export const StickyHeader: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <CollapsibleTable
       {...args}
@@ -253,11 +222,6 @@ export const StickyHeader: Story = {
 const adminIcon = <Icon icon={PersonIcon} />;
 
 export const WithButtonAndIcons: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const headerValues = [
       { content: 'Navn til venstre', key: 'Navn til venstre' },
@@ -308,11 +272,6 @@ export const WithButtonAndIcons: Story = {
 };
 
 export const Responsive: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const screenSize = useScreenSize();
     return (
@@ -343,11 +302,6 @@ export const Responsive: Story = {
 };
 
 export const ResposiveMultipleBreakpoints: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => {
     const screenSize = useScreenSize();
     return (
@@ -399,11 +353,6 @@ const headers = [
   { key: 'Sendt', content: 'Sendt' },
 ];
 export const Example: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {
     const screenSize = useScreenSize();

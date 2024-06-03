@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type StoryObj } from '@storybook/react';
 
 import { ToggleButton, ToggleButtonGroup } from '.';
@@ -23,19 +22,12 @@ type Story = StoryObj<typeof ToggleButtonGroup>;
 
 export const Default: Story = {
   args: { label: 'Label' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
-      <ToggleButtonGroup {...args}>
-        <ToggleButton label="Tekst" />
-        <ToggleButton label="Tekst" />
-        <ToggleButton label="Tekst" />
-        <ToggleButton label="Tekst" />
-      </ToggleButtonGroup>
-    </>
+    <ToggleButtonGroup {...args}>
+      <ToggleButton label="Tekst" />
+      <ToggleButton label="Tekst" />
+      <ToggleButton label="Tekst" />
+      <ToggleButton label="Tekst" />
+    </ToggleButtonGroup>
   ),
 };

@@ -1,5 +1,5 @@
 .container {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   max-width: 100%;
   gap: var(--dds-spacing-x0-25);

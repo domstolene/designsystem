@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Divider } from '../Divider';
@@ -73,20 +72,10 @@ type Story = StoryObj<typeof Feedback>;
 
 export const Default: Story = {
   args: { ratingLabel: 'Hva syns du om tjenesten?' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const HorizontalLayout: Story = {
   args: { ratingLabel: 'Hva syns du om tjenesten?', layout: 'horizontal' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const WithoutTextArea: Story = {
@@ -94,11 +83,6 @@ export const WithoutTextArea: Story = {
     ratingLabel: 'Hva syns du om tjenesten?',
     feedbackTextAreaExcluded: true,
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const CustomLabels: Story = {
@@ -107,11 +91,7 @@ export const CustomLabels: Story = {
     positiveFeedbackLabel: 'Min egen positive label',
     negativeFeedbackLabel: 'Min egen negative label',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
+
   render: args => (
     <>
       <Feedback {...args} />
@@ -129,22 +109,12 @@ export const CustomButtonTooltip: Story = {
     thumbUpTooltip: 'Liker',
     thumbDownTooltip: 'Liker ikke',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const LoadingState: Story = {
   args: {
     ratingLabel: 'Hva synes du om tjenesten?',
   },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <>
       <Feedback {...args} loading />

@@ -32,8 +32,8 @@ export const Default: Story = {
     const containerStyle = {
       width: '100%',
       border: '1px dashed gray',
-      padding: '8px',
-      background: 'rgba(231, 241, 247, 1)',
+      padding: ' var(--dds-spacing-x0-5)',
+      background: 'var(--dds-color-surface-subtle)',
     };
 
     return (

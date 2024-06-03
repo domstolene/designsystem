@@ -1,7 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { VStack } from '../Stack';
+import { StoryVStack } from '../Stack/utils';
 
 import { Pagination } from '.';
 
@@ -36,79 +35,36 @@ type Story = StoryObj<typeof Pagination>;
 
 export const Default: Story = {
   args: { itemsAmount: 100 },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
+  args: { itemsAmount: 100 },
   render: args => (
-    <VStack gap="x3" align="start">
-      <Pagination {...args} itemsAmount={100} />
-
-      <Pagination {...args} withCounter itemsAmount={100} />
-      <Pagination {...args} withSelect itemsAmount={100} />
-      <Pagination {...args} withCounter withSelect itemsAmount={100} />
-      <Pagination
-        {...args}
-        withCounter
-        withSelect
-        withPagination={false}
-        itemsAmount={100}
-      />
-      <Pagination
-        {...args}
-        withPagination={false}
-        withCounter
-        itemsAmount={100}
-      />
-    </VStack>
+    <StoryVStack gap="x3">
+      <Pagination {...args} />
+      <Pagination {...args} withCounter />
+      <Pagination {...args} withSelect />
+      <Pagination {...args} withCounter withSelect />
+      <Pagination {...args} withCounter withSelect withPagination={false} />
+      <Pagination {...args} withPagination={false} withCounter />
+    </StoryVStack>
   ),
 };
 
 export const OverviewMobile: Story = {
-  args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
+  args: { itemsAmount: 100 },
   render: args => (
-    <VStack gap="x3">
-      <Pagination {...args} smallScreen itemsAmount={100} />
-      <Pagination {...args} smallScreen withCounter itemsAmount={100} />
-      <Pagination
-        {...args}
-        smallScreen
-        withSelect
-        itemsAmount={args.itemsAmount || 100}
-      />
-      <Pagination
-        {...args}
-        smallScreen
-        withCounter
-        withSelect
-        itemsAmount={args.itemsAmount || 100}
-      />
-    </VStack>
+    <StoryVStack gap="x3">
+      <Pagination {...args} smallScreen />
+      <Pagination {...args} smallScreen withCounter />
+      <Pagination {...args} smallScreen withSelect />
+      <Pagination {...args} smallScreen withCounter withSelect />
+    </StoryVStack>
   ),
 };
 
 export const CustomOptions: Story = {
   args: { itemsAmount: 100 },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Pagination
       {...args}
@@ -123,20 +79,10 @@ export const CustomOptions: Story = {
 
 export const DefaultActivePage: Story = {
   args: { itemsAmount: 100 },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => <Pagination {...args} defaultActivePage={6} />,
 };
 
 export const DefaultItemsPerPage: Story = {
   args: { itemsAmount: 100 },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => <Pagination {...args} withCounter defaultItemsPerPage={48} />,
 };

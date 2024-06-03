@@ -1,7 +1,7 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { EmptyContent } from './EmptyContent';
+import { StoryVStack } from '../Stack/utils';
 
 export default {
   title: 'dds-components/EmptyContent',
@@ -24,22 +24,12 @@ type Story = StoryObj<typeof EmptyContent>;
 
 export const Default: Story = {
   args: { title: 'Tittel', message: 'Dette er en tekst.' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
   args: {},
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <EmptyContent {...args} title="Tittel" message="Dette er en tekst." />
 
       <EmptyContent {...args} message="Kort melding." />
@@ -57,12 +47,12 @@ export const Overview: Story = {
         Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.`}
       />
 
-      <div style={{ height: '25rem', width: '100%' }}>
+      <div style={{ height: '25rem', width: '500px' }}>
         <EmptyContent
           {...args}
           message="Ligger inne i et element med definert høyde og bredde."
         />
       </div>
-    </>
+    </StoryVStack>
   ),
 };

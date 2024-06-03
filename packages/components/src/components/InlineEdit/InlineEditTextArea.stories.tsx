@@ -1,9 +1,8 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
-import { type Meta } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { type InlineEditTextAreaProps } from './InlineEdit.types';
 import { InlineEditTextArea } from './InlineEditTextArea';
+import { StoryVStack } from '../Stack/utils';
 import { Table } from '../Table/normal';
 
 export default {
@@ -23,59 +22,61 @@ export default {
   },
 } satisfies Meta<typeof InlineEditTextArea>;
 
-export const Overview = (args: InlineEditTextAreaProps) => {
-  const [value, setValue] = useState('');
-  const [value2, setValue2] = useState('tekst');
-  const [value3, setValue3] = useState('');
-  const [value4, setValue4] = useState('');
-  const [value5, setValue5] = useState('tømbar');
-  const [value6, setValue6] = useState('uten ikon');
-  return (
-    <StoryTemplate>
-      <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
-      <InlineEditTextArea {...args} onSetValue={setValue2} value={value2} />
-      <InlineEditTextArea
-        {...args}
-        onSetValue={setValue3}
-        value={value3}
-        error
-      />
-      <InlineEditTextArea
-        {...args}
-        onSetValue={setValue4}
-        value={value4}
-        errorMessage="Feilmelding"
-      />
-      <InlineEditTextArea
-        {...args}
-        onSetValue={setValue5}
-        value={value5}
-        emptiable
-      />
-      <InlineEditTextArea
-        {...args}
-        onSetValue={setValue6}
-        value={value6}
-        hideIcon
-      />
-    </StoryTemplate>
-  );
+type Story = StoryObj<typeof InlineEditTextArea>;
+
+export const Default: Story = {
+  render: args => {
+    const [value, setValue] = useState('');
+    return <InlineEditTextArea {...args} value={value} onSetValue={setValue} />;
+  },
 };
 
-export const Default = (args: InlineEditTextAreaProps) => {
-  const [value, setValue] = useState('');
-  return (
-    <StoryTemplate display="block">
-      <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
-    </StoryTemplate>
-  );
+export const Overview: Story = {
+  render: args => {
+    const [value, setValue] = useState('');
+    const [value2, setValue2] = useState('tekst');
+    const [value3, setValue3] = useState('');
+    const [value4, setValue4] = useState('');
+    const [value5, setValue5] = useState('tømbar');
+    const [value6, setValue6] = useState('uten ikon');
+    return (
+      <StoryVStack>
+        <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
+        <InlineEditTextArea {...args} onSetValue={setValue2} value={value2} />
+        <InlineEditTextArea
+          {...args}
+          onSetValue={setValue3}
+          value={value3}
+          error
+        />
+        <InlineEditTextArea
+          {...args}
+          onSetValue={setValue4}
+          value={value4}
+          errorMessage="Feilmelding"
+        />
+        <InlineEditTextArea
+          {...args}
+          onSetValue={setValue5}
+          value={value5}
+          emptiable
+        />
+        <InlineEditTextArea
+          {...args}
+          onSetValue={setValue6}
+          value={value6}
+          hideIcon
+        />
+      </StoryVStack>
+    );
+  },
 };
 
-export const InTable = () => {
-  const [value, setValue] = useState();
-  const [value2, setValue2] = useState();
-  return (
-    <StoryTemplate display="block">
+export const InTable: Story = {
+  render: args => {
+    const [value, setValue] = useState();
+    const [value2, setValue2] = useState();
+    return (
       <Table.Wrapper>
         <Table>
           <Table.Head>
@@ -88,14 +89,20 @@ export const InTable = () => {
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <InlineEditTextArea onSetValue={() => setValue(value)} />
+                <InlineEditTextArea
+                  {...args}
+                  onSetValue={() => setValue(value)}
+                />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
               <Table.Cell>innhold</Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <InlineEditTextArea onSetValue={() => setValue2(value2)} />
+                <InlineEditTextArea
+                  {...args}
+                  onSetValue={() => setValue2(value2)}
+                />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
               <Table.Cell>innhold</Table.Cell>
@@ -103,6 +110,6 @@ export const InTable = () => {
           </Table.Body>
         </Table>
       </Table.Wrapper>
-    </StoryTemplate>
-  );
+    );
+  },
 };

@@ -1,6 +1,6 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { StoryVStack } from '../../Stack/utils';
 import { Paragraph } from '../Paragraph';
 
 import { Link } from '.';
@@ -28,44 +28,24 @@ type Story = StoryObj<typeof Link>;
 
 export const Default: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const Overview: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <>
+    <StoryVStack>
       <Link {...args} />
       <Link {...args} external />
-    </>
+    </StoryVStack>
   ),
 };
 
 export const WithVisited: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no', withVisited: true },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
 };
 
 export const InText: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
@@ -28,11 +27,6 @@ type Story = StoryObj<typeof Drawer>;
 
 export const Default: Story = {
   args: { header: 'Tittel' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <DrawerGroup>
       <Button>Åpne</Button>
@@ -52,11 +46,6 @@ export const Default: Story = {
 
 export const OverviewPlacement: Story = {
   args: { header: 'Tittel' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <>
       <DrawerGroup>
@@ -79,11 +68,6 @@ export const OverviewPlacement: Story = {
 
 export const OverviewSizes: Story = {
   args: { header: 'Rettsmekling' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <>
       <DrawerGroup>
@@ -164,11 +148,6 @@ export const OverviewSizes: Story = {
 
 export const LongContent: Story = {
   args: { header: 'Rettsmekling' },
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <DrawerGroup>
       <Button>Åpne lang</Button>

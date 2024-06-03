@@ -1,4 +1,3 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Typography } from '../Typography';
@@ -22,40 +21,24 @@ export default {
 type Story = StoryObj<typeof Divider>;
 
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <div>
+    <>
       <Divider {...args} />
       <Divider {...args} color="subtle" />
       <Divider {...args} color="onInverse" />
-    </div>
+    </>
   ),
 };
 
-export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
-};
+export const Default: Story = {};
 
 export const OnInverse: Story = {
   args: { color: 'onInverse' },
-  decorators: Story => (
-    <StoryTemplate display="block">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <div
       style={{
-        background: 'var(--dds-color-surface-inverse-default',
-        padding: 'var(--dds-spacing-x1',
+        background: 'var(--dds-color-surface-inverse-default)',
+        padding: 'var(--dds-spacing-x1)',
       }}
     >
       <Divider {...args} />
@@ -64,11 +47,6 @@ export const OnInverse: Story = {
 };
 
 export const Example: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <div>
       <Typography withMargins>

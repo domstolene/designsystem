@@ -1,9 +1,9 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { StoryHStack } from '../Stack/utils';
 import { Typography } from '../Typography';
 
-import { List, ListItem } from '.';
+import { List, ListItem, type ListProps } from '.';
 
 export default {
   title: 'dds-components/List',
@@ -22,11 +22,6 @@ export default {
 type Story = StoryObj<typeof List>;
 
 export const Default: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <List {...args}>
       <ListItem>Item</ListItem>
@@ -37,166 +32,62 @@ export const Default: Story = {
 };
 
 export const Overview: Story = {
-  decorators: Story => (
-    <StoryTemplate display="grid" $columnsAmount={4}>
-      <Story />
-    </StoryTemplate>
-  ),
-  render: args => (
-    <>
-      <List {...args} typographyType="bodySans01">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List typographyType="bodySans01">
+  render: args => {
+    interface Props {
+      typographyType: ListProps['typographyType'];
+      listType: ListProps['listType'];
+    }
+    const ListVariant = ({ typographyType, listType }: Props) => {
+      return (
+        <div>
+          <Typography
+            as="div"
+            typographyType="supportingStyleLabel01"
+            style={{ maxWidth: '100px' }}
+          >
+            {typographyType} {listType}
+          </Typography>
+          <List {...args} typographyType={typographyType} listType={listType}>
+            <ListItem>Item</ListItem>
             <ListItem>Item</ListItem>
             <ListItem>
               Item
               <List>
                 <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
+                <ListItem>
+                  Item
+                  <List>
+                    <ListItem>Item</ListItem>
+                    <ListItem>Item</ListItem>
+                  </List>
+                </ListItem>
               </List>
             </ListItem>
           </List>
-        </ListItem>
-      </List>
+        </div>
+      );
+    };
+    return (
+      <>
+        <StoryHStack gap={undefined}>
+          {ListVariant({ typographyType: 'bodySans01', listType: 'unordered' })}
+          {ListVariant({ typographyType: 'bodySans02', listType: 'unordered' })}
+          {ListVariant({ typographyType: 'bodySans03', listType: 'unordered' })}
+          {ListVariant({ typographyType: 'bodySans04', listType: 'unordered' })}
+        </StoryHStack>
 
-      <List {...args} listType="ordered" typographyType="bodySans01">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered" typographyType="bodySans01">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args}>
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List>
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} listType="ordered">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} typographyType="bodySans03">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List>
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} listType="ordered" typographyType="bodySans03">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} typographyType="bodySans04">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List>
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List>
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-
-      <List {...args} listType="ordered" typographyType="bodySans04">
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>
-          Item
-          <List listType="ordered">
-            <ListItem>Item</ListItem>
-            <ListItem>
-              Item
-              <List listType="ordered">
-                <ListItem>Item</ListItem>
-                <ListItem>Item</ListItem>
-              </List>
-            </ListItem>
-          </List>
-        </ListItem>
-      </List>
-    </>
-  ),
+        <StoryHStack>
+          {ListVariant({ typographyType: 'bodySans01', listType: 'ordered' })}
+          {ListVariant({ typographyType: 'bodySans02', listType: 'ordered' })}
+          {ListVariant({ typographyType: 'bodySans03', listType: 'ordered' })}
+          {ListVariant({ typographyType: 'bodySans04', listType: 'ordered' })}
+        </StoryHStack>
+      </>
+    );
+  },
 };
 
 export const Nested: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <List {...args}>
       <ListItem>Item</ListItem>
@@ -219,11 +110,6 @@ export const Nested: Story = {
 };
 
 export const Example: Story = {
-  decorators: Story => (
-    <StoryTemplate>
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
     <div style={{ maxWidth: '700px' }}>
       <Typography withMargins>

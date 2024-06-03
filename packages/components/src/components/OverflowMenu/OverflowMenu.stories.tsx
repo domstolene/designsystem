@@ -1,8 +1,8 @@
-import { StoryTemplate } from '@norges-domstoler/storybook-components';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
 import { MenuIcon, PlusCircledIcon } from '../Icon/icons';
+import { VStack } from '../Stack';
 
 import {
   OverflowMenu,
@@ -55,16 +55,13 @@ export const Default: Story = {
   args: {
     items,
   },
-  decorators: Story => (
-    <StoryTemplate display="flex-centered">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <OverflowMenuGroup>
-      <Button icon={MenuIcon} aria-label="Åpne meny" />
-      <OverflowMenu {...args} />
-    </OverflowMenuGroup>
+    <VStack>
+      <OverflowMenuGroup>
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
+        <OverflowMenu {...args} />
+      </OverflowMenuGroup>
+    </VStack>
   ),
 };
 
@@ -73,16 +70,13 @@ export const WithStaticUser: Story = {
     items,
     userProps: { name: 'Brukernavn' },
   },
-  decorators: Story => (
-    <StoryTemplate display="flex-centered">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <OverflowMenuGroup>
-      <Button icon={MenuIcon} aria-label="Åpne meny" />
-      <OverflowMenu {...args} />
-    </OverflowMenuGroup>
+    <VStack>
+      <OverflowMenuGroup>
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
+        <OverflowMenu {...args} />
+      </OverflowMenuGroup>
+    </VStack>
   ),
 };
 
@@ -91,16 +85,13 @@ export const WithInteractiveUser: Story = {
     items,
     userProps: { name: 'Brukernavn', onClick: () => null },
   },
-  decorators: Story => (
-    <StoryTemplate display="flex-centered">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <OverflowMenuGroup>
-      <Button icon={MenuIcon} aria-label="Åpne meny" />
-      <OverflowMenu {...args} />
-    </OverflowMenuGroup>
+    <VStack>
+      <OverflowMenuGroup>
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
+        <OverflowMenu {...args} />
+      </OverflowMenuGroup>
+    </VStack>
   ),
 };
 
@@ -109,16 +100,13 @@ export const WithNavigation: Story = {
     items,
     navItems,
   },
-  decorators: Story => (
-    <StoryTemplate display="flex-centered">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <OverflowMenuGroup>
-      <Button icon={MenuIcon} aria-label="Åpne meny" />
-      <OverflowMenu {...args} />
-    </OverflowMenuGroup>
+    <VStack>
+      <OverflowMenuGroup>
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
+        <OverflowMenu {...args} />
+      </OverflowMenuGroup>
+    </VStack>
   ),
 };
 
@@ -128,15 +116,12 @@ export const WithNavigationAndInteractiveUser: Story = {
     navItems,
     userProps: { name: 'Brukernavn', onClick: () => null },
   },
-  decorators: Story => (
-    <StoryTemplate display="flex-centered">
-      <Story />
-    </StoryTemplate>
-  ),
   render: args => (
-    <OverflowMenuGroup>
-      <Button icon={MenuIcon} aria-label="Åpne meny" />
-      <OverflowMenu {...args} />
-    </OverflowMenuGroup>
+    <VStack>
+      <OverflowMenuGroup>
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
+        <OverflowMenu {...args} />
+      </OverflowMenuGroup>
+    </VStack>
   ),
 };
