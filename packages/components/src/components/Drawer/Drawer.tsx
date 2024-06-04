@@ -18,10 +18,9 @@ import { cn } from '../../utils';
 import { Button } from '../Button';
 import { Paper } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { ScrollableContainer } from '../ScrollableContainer';
 import { Typography } from '../Typography';
-
 export type DrawerSize = 'small' | 'medium' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export interface WidthProps {
@@ -123,22 +122,27 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   return isOpen || hasTransitionedIn
     ? createPortal(
         <Paper {...containerProps} elevation={4}>
-          <ScrollableContainer>
-            <div className={styles['content-container']}>
-              {hasHeader && (
-                <div id={headerId}>
-                  {typeof header === 'string' ? (
-                    <Typography typographyType="headingSans03">
-                      {header}
-                    </Typography>
-                  ) : (
-                    header
-                  )}
-                </div>
-              )}
-              {children}
-            </div>
-          </ScrollableContainer>
+          <div
+            className={cn(
+              styles['content-container'],
+              utilStyles.scrollbar,
+              utilStyles['scrollable-y'],
+            )}
+          >
+            {hasHeader && (
+              <div id={headerId}>
+                {typeof header === 'string' ? (
+                  <Typography typographyType="headingSans03">
+                    {header}
+                  </Typography>
+                ) : (
+                  header
+                )}
+              </div>
+            )}
+            {children}
+          </div>
+
           <Button
             className={cn(styles['button--close'])}
             data-testid="drawer-close-btn"

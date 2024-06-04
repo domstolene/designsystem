@@ -1,40 +1,47 @@
 import { type Property } from 'csstype';
 import { forwardRef } from 'react';
 
+import styles from './Modal.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { ScrollableContainer } from '../ScrollableContainer';
+import { cn } from '../../utils';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 
 export type ModalBodyProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
     /**Gjør at innholdet kan scrolles. Det må eventuelt settes (max)bredde og (max)høyde styling på både denne subkomponenten og `<Modal />`.  */
     scrollable?: boolean;
-    /**Høyde på container. */
+    /**Høyde på container. Kan resultere i scrolling. */
     height?: Property.Height;
   }
 >;
 
 export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
   (props, ref) => {
-    const { children, scrollable, id, className, htmlProps, height, ...rest } =
+    const { children, id, className, scrollable, htmlProps, height, ...rest } =
       props;
 
-    const containerProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref,
-    };
-
-    return scrollable ? (
-      <div {...containerProps}>
-        <ScrollableContainer contentHeight={height}>
-          {children}
-        </ScrollableContainer>
+    return (
+      <div
+        ref={ref}
+        {...getBaseHTMLProps(
+          id,
+          cn(
+            className,
+            utilStyles.scrollbar,
+            scrollable && utilStyles['scrollable-y'],
+            styles.body,
+          ),
+          htmlProps,
+          rest,
+        )}
+        style={{ ...htmlProps?.style, height: height }}
+      >
+        {children}
       </div>
-    ) : (
-      <div {...containerProps}>{children}</div>
     );
   },
 );

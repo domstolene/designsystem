@@ -119,7 +119,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
           >
             <div className={styles.content}>
               {header && (
-                <div id={headerId}>
+                <div id={headerId} className={styles.header}>
                   {typeof header === 'string' ? (
                     <Typography typographyType="headingSans03">
                       {header}

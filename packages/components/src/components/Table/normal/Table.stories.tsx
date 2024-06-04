@@ -11,7 +11,6 @@ import {
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
 import { PersonIcon, TrashIcon } from '../../Icon/icons';
-import { ScrollableContainer } from '../../ScrollableContainer';
 import { Checkbox } from '../../SelectionControl/Checkbox';
 import { Link, Paragraph } from '../../Typography';
 
@@ -631,43 +630,41 @@ export const ColumnAndRowHeaders: Story = {
 export const WithScroll: Story = {
   render: args => (
     <>
-      <Paragraph>
-        Her brukes komponenten ScrollableContainer for å gjøre det mulig å
-        scrolle i tabellen når den blir bredere enn vinduets bredde. Du kan
-        teste ut dette ved å gjøre nettleservinduet ditt mindre.
+      <Paragraph withMargins>
+        Denne tabellen kan scrolles horisontalt når den blir bredere enn
+        vinduets bredde. Du kan teste ut dette ved å gjøre nettleservinduet ditt
+        mindre.
       </Paragraph>
-      <ScrollableContainer>
-        <Table.Wrapper>
-          <Table {...args}>
-            <Table.Body>
-              <Table.Row>
-                <Table.Cell></Table.Cell>
-                {headerCells.map(headerCell => (
-                  <Table.Cell
-                    key={`head-${headerCell.dataName}`}
-                    type="head"
-                    scope="col"
-                  >
-                    {headerCell.name}
-                  </Table.Cell>
-                ))}
-              </Table.Row>
-              {data.map(item => (
-                <Table.Row key={item.name}>
-                  <Table.Cell type="head" scope="row">
-                    Header
-                  </Table.Cell>
-                  <Table.Cell> {item.name} </Table.Cell>
-                  <Table.Cell> {item.fnumber} </Table.Cell>
-                  <Table.Cell> {item.employer} </Table.Cell>
-                  <Table.Cell> {item.orgnumber} </Table.Cell>
-                  <Table.Cell> {item.percentage} </Table.Cell>
-                </Table.Row>
+      <Table.Wrapper>
+        <Table {...args}>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell></Table.Cell>
+              {headerCells.map(headerCell => (
+                <Table.Cell
+                  key={`head-${headerCell.dataName}`}
+                  type="head"
+                  scope="col"
+                >
+                  {headerCell.name}
+                </Table.Cell>
               ))}
-            </Table.Body>
-          </Table>
-        </Table.Wrapper>
-      </ScrollableContainer>
+            </Table.Row>
+            {data.map(item => (
+              <Table.Row key={item.name}>
+                <Table.Cell type="head" scope="row">
+                  Header
+                </Table.Cell>
+                <Table.Cell> {item.name} </Table.Cell>
+                <Table.Cell> {item.fnumber} </Table.Cell>
+                <Table.Cell> {item.employer} </Table.Cell>
+                <Table.Cell> {item.orgnumber} </Table.Cell>
+                <Table.Cell> {item.percentage} </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table.Body>
+        </Table>
+      </Table.Wrapper>
     </>
   ),
 };
