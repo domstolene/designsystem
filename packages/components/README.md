@@ -40,7 +40,6 @@ Sjekk [komponentstatus](https://design.domstol.no/987b33f71/p/438035-komponenter
 
 Tilgjengelige komponenter:
 
-- AppShell
 - Breadcrumbs
 - Button
 - Card (inkludert CardAccordion)
@@ -67,7 +66,6 @@ Tilgjengelige komponenter:
 - Popover
 - ProgressTracker
 - RadioButton
-- Scrollbar
 - Search
 - Select
 - SkipToContent

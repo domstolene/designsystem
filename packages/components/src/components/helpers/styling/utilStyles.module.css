@@ -34,6 +34,24 @@
 .scrollbar {
   scrollbar-width: thin;
   scrollbar-color: var(--dds-color-surface-scrollbar) transparent;
+
+  /* Safari styling. TODO: fjernes når scrollbar styling blir standardisert */
+  &::-webkit-scrollbar {
+    width: var(--dds-spacing-x0-5);
+    height: var(--dds-spacing-x0-5);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--dds-color-surface-scrollbar);
+  }
+}
+
+.scrollable-y {
+  overflow-y: auto;
 }
 
 .visibility-transition {

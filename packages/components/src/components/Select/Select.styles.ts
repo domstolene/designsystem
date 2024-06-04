@@ -9,7 +9,7 @@ import {
   hoverDangerInputfield,
   hoverInputfield,
 } from '../helpers';
-import { scrollbarStyling } from '../ScrollableContainer';
+import { scrollbarStyling } from '../helpers';
 import { getFontStyling } from '../Typography';
 
 const {
@@ -183,8 +183,7 @@ export const getCustomStyles = <TOption>(
     overflowY: 'auto',
     position: 'relative',
     boxSizing: 'border-box',
-    ...scrollbarStyling.webkit,
-    ...scrollbarStyling.firefox,
+    ...scrollbarStyling,
   }),
   option: (provided, state) => ({
     ...provided,
