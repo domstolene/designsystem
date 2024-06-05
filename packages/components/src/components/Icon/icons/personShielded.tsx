@@ -1,5 +1,4 @@
-import { type SvgProps } from '../utils';
-import { SvgWrapper } from '../utils/SvgWrapper';
+import { type SvgProps, SvgWrapper } from '../utils';
 
 export function PersonShieldedIcon(props: SvgProps) {
   return (

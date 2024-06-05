@@ -1,7 +1,4 @@
-import { ddsBaseTokens, ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
-
-const { colors } = ddsBaseTokens;
 
 export type ColorAlphaFormat = 'hex8' | 'decimal';
 
@@ -73,59 +70,91 @@ export const changeRGBAAlpha = (value: string, alpha: number): string => {
 };
 
 export const textColors = {
-  interactive: colors.DdsColorInteractiveBase,
-  primary: colors.DdsColorPrimaryBase,
-  danger: colors.DdsColorDangerBase,
-  success: colors.DdsColorSuccessBase,
-  warning: colors.DdsColorWarningBase,
-  onLight: ddsTokens.DdsColorTextDefault,
-  onDark: colors.DdsColorNeutralsWhite,
-  gray1: colors.DdsColorNeutralsGray1,
-  gray2: colors.DdsColorNeutralsGray2,
-  gray3: colors.DdsColorNeutralsGray3,
-  gray4: colors.DdsColorNeutralsGray4,
-  gray5: colors.DdsColorNeutralsGray5,
-  gray6: colors.DdsColorNeutralsGray6,
-  gray7: colors.DdsColorNeutralsGray7,
-  gray8: colors.DdsColorNeutralsGray8,
-  gray9: colors.DdsColorNeutralsGray9,
+  textOnAction: 'var(--dds-color-text-on-action)',
+  textOnInverse: 'var(--dds-color-text-on-inverse)',
+  textOnStatusDefault: 'var(--dds-color-text-on-status-default)',
+  textOnStatusStrong: 'var(--dds-color-text-on-status-strong)',
+  textActionResting: 'var(--dds-color-text-action-resting)',
+  textActionHover: 'var(--dds-color-text-action-hover)',
+  textActionVisited: 'var(--dds-color-text-action-visited)',
+  textDefault: 'var(--dds-color-text-default)',
+  textRequiredfield: 'var(--dds-color-text-requiredfield)',
+  textSubtle: 'var(--dds-color-text-subtle)',
+  textMedium: 'var(--dds-color-text-medium)',
+
+  iconOnAction: 'var(--dds-color-icon-on-action)',
+  iconOnInfoDefault: 'var(--dds-color-icon-on-info-default)',
+  iconOnSuccessDefault: 'var(--dds-color-icon-on-success-default)',
+  iconOnDangerDefault: 'var(--dds-color-icon-on-danger-default)',
+  iconOnWarningDefault: 'var(--dds-color-icon-on-warning-default)',
+  iconOnInfoStrong: 'var(--dds-color-icon-on-info-strong)',
+  iconOnSuccessStrong: 'var(--dds-color-icon-on-success-strong)',
+  iconOnDangerStrong: 'var(--dds-color-icon-on-danger-strong)',
+  iconOnWarningStrong: 'var(--dds-color-icon-on-warning-strong)',
+  iconOnInverse: 'var(--dds-color-icon-on-inverse)',
+  iconActionResting: 'var(--dds-color-icon-action-resting)',
+  iconActionHover: 'var(--dds-color-icon-action-hover)',
+  iconDefault: 'var(--dds-color-icon-default)',
+  iconSubtle: 'var(--dds-color-icon-subtle)',
+  iconMedium: 'var(--dds-color-icon-medium)',
 };
 
 export type DDSTextColor =
-  | 'interactive'
-  | 'primary'
-  | 'danger'
-  | 'warning'
-  | 'success'
-  | 'onLight'
-  | 'onDark'
-  | 'gray1'
-  | 'gray2'
-  | 'gray3'
-  | 'gray4'
-  | 'gray5'
-  | 'gray6'
-  | 'gray7'
-  | 'gray8'
-  | 'gray9';
+  | 'textOnAction'
+  | 'textOnInverse'
+  | 'textOnStatusDefault'
+  | 'textOnStatusStrong'
+  | 'textActionResting'
+  | 'textActionHover'
+  | 'textActionVisited'
+  | 'textDefault'
+  | 'textRequiredfield'
+  | 'textSubtle'
+  | 'textMedium'
+  | 'iconOnAction'
+  | 'iconOnInfoDefault'
+  | 'iconOnSuccessDefault'
+  | 'iconOnDangerDefault'
+  | 'iconOnWarningDefault'
+  | 'iconOnInfoStrong'
+  | 'iconOnSuccessStrong'
+  | 'iconOnDangerStrong'
+  | 'iconOnWarningStrong'
+  | 'iconOnInverse'
+  | 'iconActionResting'
+  | 'iconActionHover'
+  | 'iconDefault'
+  | 'iconSubtle'
+  | 'iconMedium';
 
 export const textColorsArray = [
-  'interactive',
-  'primary',
-  'danger',
-  'success',
-  'warning',
-  'onLight',
-  'onDark',
-  'gray1',
-  'gray2',
-  'gray3',
-  'gray4',
-  'gray5',
-  'gray6',
-  'gray7',
-  'gray8',
-  'gray9',
+  'textOnAction',
+  'textOnInverse',
+  'textOnStatusDefault',
+  'textOnStatusStrong',
+  'textActionResting',
+  'textActionHover',
+  'textActionVisited',
+  'textDefault',
+  'textRequiredfield',
+  'textSubtle',
+  'textMedium',
+
+  'iconOnAction',
+  'iconOnInfoDefault',
+  'iconOnSuccessDefault',
+  'iconOnDangerDefault',
+  'iconOnWarningDefault',
+  'iconOnInfoStrong',
+  'iconOnSuccessStrong',
+  'iconOnDangerStrong',
+  'iconOnWarningStrong',
+  'iconOnInverse',
+  'iconActionResting',
+  'iconActionHover',
+  'iconDefault',
+  'iconSubtle',
+  'iconMedium',
 ];
 
 export type TextColor = DDSTextColor | Property.Color;

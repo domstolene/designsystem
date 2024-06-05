@@ -9,7 +9,7 @@ export type SpinnerProps = BaseComponentProps<
   SVGElement,
   {
     /**Farge på spinneren. */
-    color?: TextColor | (string & NonNullable<unknown>);
+    color?: TextColor;
     /**Størrelse; Setter høyde og bredde på spinneren. */
     size?: Property.Width;
     /**Tekst som vises ved hover. */
@@ -20,7 +20,7 @@ export type SpinnerProps = BaseComponentProps<
 export function Spinner(props: SpinnerProps) {
   const {
     size = 'var(--dds-icon-size-medium)',
-    color = 'interactive',
+    color = 'iconActionResting',
     tooltip = 'Innlasting pågår',
     id,
     className,

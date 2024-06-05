@@ -7,6 +7,7 @@ export default {
   title: 'dds-components/Typography/Typography',
   component: Typography,
   argTypes: {
+    children: { control: { type: 'text' } },
     typographyType: { control: { type: 'select' } },
     bold: { control: { type: 'boolean' } },
     italic: { control: { type: 'boolean' } },
@@ -161,4 +162,8 @@ export const OverviewLink: Story = {
       </Typography>
     </StoryVStack>
   ),
+};
+
+export const CustomColor: Story = {
+  args: { children: 'Typography', color: 'textActionResting' },
 };

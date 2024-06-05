@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type FocusEventHandler,
   type ForwardedRef,
@@ -104,8 +103,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               size={button[size].spinner.size}
               color={
                 purpose === 'primary' || purpose === 'danger'
-                  ? ddsTokens.DdsColorIconOnAction
-                  : ddsTokens.DdsColorIconDefault
+                  ? 'iconOnAction'
+                  : 'iconDefault'
               }
               tooltip={loadingTooltip}
               className={styles.icon}

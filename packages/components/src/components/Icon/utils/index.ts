@@ -1,2 +1,3 @@
 export * from './StyledSvg';
-export * from './propTypes';
+export * from './SvgWrapper';
+export * from './types';
