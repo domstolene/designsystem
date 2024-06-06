@@ -4,7 +4,7 @@ import styles from './Chip.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils/dom';
 import { Button } from '../Button';
-import { CloseIcon } from '../Icon/icons';
+import { CloseSmallIcon } from '../Icon/icons';
 import { TextOverflowEllipsisInner } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -47,7 +47,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
       </TextOverflowEllipsisInner>
       <Button
         size="tiny"
-        icon={CloseIcon}
+        icon={CloseSmallIcon}
         purpose="tertiary"
         onClick={onClick}
         aria-label={ariaLabel ?? `Fjern ${text ? `chip ${text}` : 'chip'}`}

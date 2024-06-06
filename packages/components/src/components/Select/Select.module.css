@@ -18,6 +18,8 @@
 
 .icon {
   margin-right: var(--dds-spacing-x0-5);
+  /* Ikon har samme plassering som i TextInput */
+  margin-left: -1px;
 }
 
 .control {

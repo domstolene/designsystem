@@ -293,13 +293,14 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             <Select
               options={selectOptions}
               isSearchable={false}
-              width="88px"
+              width="74px"
               defaultValue={{
                 label: itemsPerPage.toString(),
                 value: itemsPerPage,
               }}
               isClearable={false}
               onChange={handleSelectChange}
+              componentSize="small"
               aria-label="Antall elementer per side"
             />
           )}

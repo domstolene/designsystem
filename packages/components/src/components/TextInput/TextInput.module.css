@@ -46,7 +46,7 @@
 
 .icon--small {
   left: var(--dds-spacing-x0-75);
-  top: calc(50% - (var(--dds-icon-size-small) / 2));
+  top: calc(50% - (var(--dds-icon-size-medium) / 2));
 }
 
 .icon--tiny {
