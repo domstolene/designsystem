@@ -81,6 +81,7 @@ export const textColors = {
   textRequiredfield: 'var(--dds-color-text-requiredfield)',
   textSubtle: 'var(--dds-color-text-subtle)',
   textMedium: 'var(--dds-color-text-medium)',
+  textOnNotification: 'var(--dds-color-text-on-notification)',
 
   iconOnAction: 'var(--dds-color-icon-on-action)',
   iconOnInfoDefault: 'var(--dds-color-icon-on-info-default)',
@@ -111,6 +112,7 @@ export type DDSTextColor =
   | 'textRequiredfield'
   | 'textSubtle'
   | 'textMedium'
+  | 'textOnNotification'
   | 'iconOnAction'
   | 'iconOnInfoDefault'
   | 'iconOnSuccessDefault'
@@ -139,6 +141,7 @@ export const textColorsArray = [
   'textRequiredfield',
   'textSubtle',
   'textMedium',
+  'textOnNotification',
 
   'iconOnAction',
   'iconOnInfoDefault',
