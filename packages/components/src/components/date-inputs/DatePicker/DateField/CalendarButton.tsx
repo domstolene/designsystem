@@ -19,7 +19,7 @@ export function CalendarButton({
   const ref = useRef<HTMLButtonElement>(null);
   const { buttonProps } = useButton(props, ref);
 
-  const size = componentSize === 'medium' ? 'medium' : 'small';
+  const size = componentSize === 'tiny' ? 'small' : 'medium';
 
   return (
     <button

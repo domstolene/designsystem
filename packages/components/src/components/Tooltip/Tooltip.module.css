@@ -3,7 +3,7 @@
 }
 
 .svg-arrow__border {
-  fill: var(--dds-color-border-default);
+  fill: var(--dds-color-border-subtle);
 }
 
 .svg-arrow__background {

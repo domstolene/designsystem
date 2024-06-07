@@ -20,5 +20,28 @@
 }
 
 .button {
-  padding: 0 !important;
+  border-radius: var(--dds-border-radius-1);
+  color: var(--dds-color-text-default);
+
+  &:hover {
+    background-color: var(--dds-color-surface-hover-default);
+    color: var(--dds-color-icon-action-hover);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      var(--dds-focus-transition);
+  }
+}
+
+.button--horizontal {
+  width: var(--dds-icon-size-medium);
+  height: var(--dds-icon-size-medium);
+}
+
+.button--vertical {
+  width: var(--dds-icon-size-large);
+  height: var(--dds-icon-size-large);
 }

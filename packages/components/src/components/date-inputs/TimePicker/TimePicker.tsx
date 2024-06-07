@@ -33,7 +33,7 @@ function _TimePicker(
     ref,
   );
 
-  const iconSize = componentSize === 'medium' ? 'medium' : 'small';
+  const iconSize = componentSize === 'tiny' ? 'small' : 'medium';
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
   return (

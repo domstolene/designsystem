@@ -110,7 +110,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
       >
         <Icon
           icon={purposeVariants[purpose].icon}
-          className={styles.container__icon}
+          className={cn(styles.icon, styles.container__icon)}
         />
         <div className={styles.container__text}>
           {children ?? <span>{message}</span>}

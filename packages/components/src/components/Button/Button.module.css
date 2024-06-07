@@ -73,7 +73,7 @@
   }
 
   &.with-text-and-icon {
-    gap: var(--dds-spacing-x0-5);
+    gap: var(--dds-spacing-x0-25);
 
     &.with-icon-left {
       padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)

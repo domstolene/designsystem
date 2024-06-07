@@ -114,7 +114,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         style={{ ...htmlProps.style, ...floatingStyles.floating, ...sizeProps }}
         role="dialog"
         elevation={3}
-        border="default"
+        border="subtle"
         className={cn(
           styles.container,
           utilStyles['visibility-transition'],

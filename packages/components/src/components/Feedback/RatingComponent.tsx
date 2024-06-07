@@ -1,7 +1,9 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
 import { cn } from '../../utils';
-import { Button } from '../Button';
+import { focusable } from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { Icon } from '../Icon';
 import { ThumbDownIcon, ThumbUpIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { HStack } from '../Stack';
@@ -26,6 +28,27 @@ export const RatingComponent = ({
   handleRatingChange,
 }: RatingComponentType) => {
   const layoutCn = layout === 'vertical' ? 'column' : 'row';
+  type Purpose = 'up' | 'down';
+
+  const button = (purpose: Purpose, layout: Layout) => (
+    <button
+      aria-label={purpose === 'up' ? thumbUpTooltip : thumbDownTooltip}
+      onClick={() =>
+        handleRatingChange(purpose === 'up' ? 'positive' : 'negative')
+      }
+      className={cn(
+        utilStyles['remove-button-styling'],
+        styles.button,
+        styles[`button--${layout}`],
+        focusable,
+      )}
+    >
+      <Icon
+        icon={purpose === 'up' ? ThumbUpIcon : ThumbDownIcon}
+        iconSize={layout === 'vertical' ? 'large' : 'medium'}
+      />
+    </button>
+  );
 
   return (
     <div
@@ -39,27 +62,9 @@ export const RatingComponent = ({
         <Spinner tooltip="Laster opp tilbakemelding ..." />
       ) : (
         <HStack gap="x1">
-          <Tooltip text={thumbUpTooltip}>
-            <Button
-              htmlProps={{ 'aria-label': thumbUpTooltip }}
-              icon={ThumbUpIcon}
-              purpose="tertiary"
-              onClick={() => handleRatingChange('positive')}
-              size="large"
-              className={styles.button}
-            />
-          </Tooltip>
+          <Tooltip text={thumbUpTooltip}>{button('up', layout)}</Tooltip>
           <Tooltip text={thumbDownTooltip}>
-            <div>
-              <Button
-                htmlProps={{ 'aria-label': thumbDownTooltip }}
-                icon={ThumbDownIcon}
-                purpose="tertiary"
-                onClick={() => handleRatingChange('negative')}
-                size="large"
-                className={styles.button}
-              />
-            </div>
+            <div>{button('down', layout)}</div>
           </Tooltip>
         </HStack>
       )}

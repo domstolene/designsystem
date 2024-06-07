@@ -16,7 +16,7 @@ export type EmptyContentProps = {
 export function EmptyContent({
   title,
   message,
-  titleHeadingLevel = 5,
+  titleHeadingLevel = 2,
   className,
   ...rest
 }: EmptyContentProps) {
