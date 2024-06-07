@@ -157,6 +157,11 @@
         "value": "{dds-color.neutrals.gray4}",
         "type": "color",
         "description": "Used for scrollbar"
+      },
+      "notification": {
+        "value": "{dds-color.danger.base}",
+        "type": "color",
+        "description": "bg on a notification"
       }
     },
     "border": {
@@ -266,6 +271,11 @@
         "value": "{dds-color.visited.base}",
         "type": "color",
         "description": "Used for visited links"
+      },
+      "on-notification": {
+        "value": "{dds-color.neutrals.white}",
+        "type": "color",
+        "description": "Used on surface.notification"
       }
     },
     "icon": {
@@ -338,11 +348,6 @@
         "value": "{dds-color.info.darker}",
         "type": "color",
         "description": "On surface.info-default"
-      },
-      "notification": {
-        "value": "{dds-color.danger.base}",
-        "type": "color",
-        "description": "Indicate new notification, unread, unopened"
       },
       "on-info-strong": {
         "value": "{dds-color.neutrals.gray9}",

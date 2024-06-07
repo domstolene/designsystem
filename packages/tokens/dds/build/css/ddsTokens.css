@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 30 May 2024 09:06:06 GMT
+ * Generated on Fri, 07 Jun 2024 10:30:37 GMT
  */
 
 :root {
@@ -386,6 +386,7 @@
   --dds-color-surface-field-disabled: #f8f9f9;
   --dds-color-surface-highlighted-default: #ffe6df;
   --dds-color-surface-scrollbar: #adb5ba;
+  --dds-color-surface-notification: #d83737;
   --dds-color-border-default: #77838c;
   --dds-color-border-subtle: #cfd4d7;
   --dds-color-border-inverse: #acbbc6;
@@ -407,6 +408,7 @@
   --dds-color-text-action-hover: #0d588a;
   --dds-color-text-requiredfield: #d83737;
   --dds-color-text-action-visited: #7F29B4;
+  --dds-color-text-on-notification: #ffffff;
   --dds-color-icon-default: #0b0d0e;
   --dds-color-icon-medium: #3a4146;
   --dds-color-icon-subtle: #545c62;
@@ -421,7 +423,6 @@
   --dds-color-icon-on-danger-default: #ad2c2c;
   --dds-color-icon-on-danger-strong: #0b0d0e;
   --dds-color-icon-on-info-default: #466f8a;
-  --dds-color-icon-notification: #d83737;
   --dds-color-icon-on-info-strong: #0b0d0e;
   --dds-color-brand-primary-default: #354754;
   --dds-color-brand-primary-subtle: #eaeff4;

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 30 May 2024 09:06:06 GMT
+ * Generated on Fri, 07 Jun 2024 10:30:37 GMT
  */
 
 export const DdsShadow1Ondark = " 1.0px 2.0px 4.0px 0px rgba(0, 0, 0, 0.5)";
