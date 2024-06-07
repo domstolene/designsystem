@@ -1,3 +1,4 @@
+import { type Properties } from 'csstype';
 import {
   type AnchorHTMLAttributes,
   type HTMLAttributes,
@@ -88,6 +89,10 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     const as = propAs ? propAs : getElementType(typographyType as string);
     const typographyCn = getTypographyCn(typographyType);
+    const styleVariables: Properties = {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ['--dds-typography-color' as any]: color && getTextColor(color),
+    };
 
     let relProp;
     let targetProp;
@@ -129,7 +134,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
         style={{
           ...htmlPropsStyle,
           ...style,
-          color: color && getTextColor(color),
+          ...styleVariables,
         }}
         rel={relProp}
       >

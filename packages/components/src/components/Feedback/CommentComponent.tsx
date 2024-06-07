@@ -1,5 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
-
 import styles from './Feedback.module.css';
 import { type Rating } from './Feedback.types';
 import { Button } from '../Button';
@@ -37,7 +35,7 @@ export const CommentComponent = ({
       <span className={styles['rating-submitted-title']}>
         <Icon
           icon={rating === 'positive' ? ThumbUpFilledIcon : ThumbDownFilledIcon}
-          color={ddsTokens.DdsColorIconActionResting}
+          color="iconActionResting"
         />
         <Paragraph>{ratingSubmittedTitle} </Paragraph>
       </span>

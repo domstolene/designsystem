@@ -1,5 +1,4 @@
-import { type SvgProps } from '../utils/propTypes';
-import { SvgWrapper } from '../utils/SvgWrapper';
+import { type SvgProps, SvgWrapper } from '../utils';
 export function LinkOffIcon(props: SvgProps) {
   return (
     <SvgWrapper {...props}>
