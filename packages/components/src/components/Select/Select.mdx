@@ -22,11 +22,10 @@ import * as MultiSelectStories from './MultiSelect.stories';
 
 ## Oversikt
 
-Komponenten har tre varianter:
+Komponenten har to varianter:
 
 - **`<Select />`** - nedtrekksliste
 - **`<Select isMulti />`** - nedtrekksliste med multivalg
-- **Custom `<Select />`** - nedtrekksliste med custom visuelle elementer for både det valgte elemetet og alternativer i lista
 
 ## API
 
@@ -36,7 +35,7 @@ Komponenten bruker <Link href="https://react-select.com/home" external>React-sel
 
 ### Elsa props
 
-Tabellen inkluderer native props som brukes til styling.
+Tabellen inkluderer native HTML props som brukes til styling.
 
 <Controls of={SelectStories.Default} />
 
@@ -45,7 +44,7 @@ Tabellen inkluderer native props som brukes til styling.
 Full liste over props er tilgjengelig i <Link href="https://react-select.com/props" external>react-select API</Link>. Ofte brukt native props:
 
 <Table.Wrapper>
-  <Table density="compact" style={{ width: '100%' }}>
+  <Table density="compact">
     <Table.Head>
       <Table.Row type="head">
         <Table.Cell type="head">Property</Table.Cell>
@@ -114,11 +113,35 @@ Full liste over props er tilgjengelig i <Link href="https://react-select.com/pro
 
 
       <Table.Row>
+        <Table.Cell> `getOptionValue` </Table.Cell>
+        <Table.Cell> `(...) => string` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Funksjon for å hente custom value fra custom data i `options`. Se custom data.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `getOptionLabel` </Table.Cell>
+        <Table.Cell> `(...) => string` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>-</Table.Cell>
+        <Table.Cell>Funksjon for å hente custom label fra custom data i `options`. Se custom data.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
         <Table.Cell> `isSearchable` </Table.Cell>
         <Table.Cell> `boolean` </Table.Cell>
         <Table.Cell>nei </Table.Cell>
         <Table.Cell>`true`</Table.Cell>
         <Table.Cell>Spesifiserer om brukeren kan søke på alternativene.</Table.Cell>
+      </Table.Row>
+
+      <Table.Row>
+        <Table.Cell> `menuPortalTarget` </Table.Cell>
+        <Table.Cell> `domNode | null` </Table.Cell>
+        <Table.Cell>nei </Table.Cell>
+        <Table.Cell>`document.body`</Table.Cell>
+        <Table.Cell>Tillater å rendre nedtrekksmenyen et annet sted i DOM.</Table.Cell>
       </Table.Row>
     </Table.Body>
 
@@ -132,6 +155,35 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 ### Filtrering
 
 Brukeren kan filtrere alternativer ved å gi tekstlig input. Det brukes en custom filtreringsfunksjon der søkeordet er enten først i teksten, eller så har det mellomrom, bindestrek eller start-parentes før seg.
+
+### Custom data
+
+Du kan bruke `options` i custom format, og sette label og value basert på option som du vil.
+
+<Canvas of={SelectStories.CustomData} />
+
+<Source
+  code={`const employees = [
+    { name: 'Petter', employeeId: 123 },
+    { name: 'Marianne', employeeId: 456 },
+    { name: 'Endre', employeeId: 789 },
+  ];
+  return (
+    <Select
+      {...args}
+      label={args.label ?? 'Saksbehandler'}
+      options={employees}
+      getOptionLabel={option => option.name}
+      getOptionValue={option => option.employeeId.toString()}
+    />
+  );`}
+/>
+
+### Custom Element
+
+Du kan customisere visuelle elementer for både det valgte elemetet og alternativer i lista.
+
+<Canvas of={SelectStories.CustomElement} />
 
 ### Multiselect
 
@@ -155,3 +207,9 @@ Komponenten har default bredde. Dette gjør at valgte alternativer ved `isMulti`
 ## Retningslinjer
 
 - Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.
+
+## Kjente problemstillinger
+
+Komponenten bruker [React portal](https://react.dev/reference/react-dom/createPortal) slik at nedtrekksmenyen har riktig z-index og ikke blir dekt av andre elementer. Vår default er `document.body`. Ikke alle løsninger tåler dette. Da kan du sette `menuPortalTarget` til `null`:
+
+<Source code={` <Select menuPortalTarget={null} />`} />
