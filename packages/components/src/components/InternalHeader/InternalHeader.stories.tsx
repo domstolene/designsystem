@@ -21,7 +21,7 @@ export default {
   },
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { inline: true, height: '550px' },
       canvas: { sourceState: 'hidden' },
     },
   },

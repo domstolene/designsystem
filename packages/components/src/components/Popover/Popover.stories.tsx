@@ -23,7 +23,7 @@ export default {
   },
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { inline: true, height: '300px' },
       canvas: { sourceState: 'hidden' },
     },
   },
@@ -142,8 +142,7 @@ export const Overflow: Story = {
       <Button>Åpne</Button>
       <Popover {...args} sizeProps={{ maxWidth: '150px', maxHeight: '200px' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Paragraph
-            withMargins
+          <p
             style={{
               textOverflow: 'ellipsis',
               overflow: 'hidden',
@@ -151,7 +150,7 @@ export const Overflow: Story = {
             }}
           >
             Dette er en popover med tekst og knapp
-          </Paragraph>
+          </p>
           <Button>Klikk</Button>
         </div>
       </Popover>

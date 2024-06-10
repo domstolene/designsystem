@@ -24,5 +24,5 @@ export default {
 type Story = StoryObj<typeof BackLink>;
 
 export const Default: Story = {
-  args: { label: 'Forrige nivå', href: '?' },
+  args: { label: 'Forrige nivå', href: '#' },
 };

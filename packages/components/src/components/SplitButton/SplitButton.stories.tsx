@@ -14,7 +14,7 @@ export default {
   component: SplitButton,
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { inline: true, height: '200px' },
       canvas: { sourceState: 'hidden' },
     },
   },
@@ -40,7 +40,7 @@ type Story = StoryObj<typeof SplitButton>;
 
 export const Default: Story = {
   args: {
-    primaryAction: { children: 'Tekst', fullWidth: true },
+    primaryAction: { children: 'Tekst' },
     secondaryActions: items,
   },
 };

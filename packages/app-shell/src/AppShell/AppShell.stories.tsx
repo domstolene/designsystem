@@ -17,7 +17,7 @@ export default {
   },
   parameters: {
     docs: {
-      story: { inline: true, height: '100vh' },
+      story: { inline: true, height: '700px' },
       canvas: { sourseState: 'shown' },
     },
   },
