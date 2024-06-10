@@ -16,7 +16,7 @@ export default {
   component: OverflowMenu,
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { height: '350px', inline: true },
       canvas: { sourceState: 'hidden' },
     },
   },
