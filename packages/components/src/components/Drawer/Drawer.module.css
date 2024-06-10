@@ -19,7 +19,7 @@
   padding: var(--dds-drawer-container-padding);
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: transform 0.5s;
+    transition: transform var(--dds-transition-duration-surface-move);
   }
 }
 

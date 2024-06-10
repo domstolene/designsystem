@@ -1,31 +1,31 @@
-import { ddsBaseTokens, ddsTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
 
-const { colors, spacing, fontPackages, breakpoints } = ddsBaseTokens;
+const { fontPackages } = ddsBaseTokens;
 
 const navigationItems = {
-  gap: spacing.DdsSpacingX05,
+  gap: 'var(--dds-spacing-x0-5)',
   item: {
     ...fontPackages.body_sans_02.base,
-    color: colors.DdsColorNeutralsGray1,
-    borderRadius: ddsTokens.DdsBorderRadius3,
-    padding: spacing.DdsSpacingX075,
-    gap: spacing.DdsSpacingX05,
+    color: 'var(--dds-color-text-on-inverse)',
+    borderRadius: 'var(--dds-border-radius-3)',
+    padding: 'var(--dds-spacing-x0-75)',
+    gap: 'var(--dds-spacing-x0-5)',
     external: {
       ...fontPackages.body_sans_01.base,
     },
     hover: {
-      backgroundColor: colors.DdsColorPrimaryDark,
+      backgroundColor: 'var(--dds-color-surface-inverse-hover)',
     },
     active: {
-      color: colors.DdsColorNeutralsWhite,
-      backgroundColor: colors.DdsColorPrimaryDarker,
+      color: 'var(--dds-color-text-on-inverse)',
+      backgroundColor: 'var(--dds-color-surface-inverse-selected)',
     },
   },
 };
 
 const logoAndVersion = {
-  padding: '36px 24px',
-  color: colors.DdsColorNeutralsWhite,
+  padding: '36px var(--dds-spacing-x1-5)',
+  color: 'var(--dds-color-text-on-inverse)',
   logo: {
     ...fontPackages.heading_sans_05.base,
     fontWeight: 700,
@@ -40,11 +40,16 @@ const logoAndVersion = {
 };
 
 const topBar = {
-  padding: spacing.DdsSpacingX025,
-  height: `calc(${spacing.DdsSpacingX3} + 2 * ${spacing.DdsSpacingX025})`,
-  buttonTextColor: colors.DdsColorNeutralsGray3,
-  gap: spacing.DdsSpacingX025,
-  marginTop: spacing.DdsSpacingX025,
+  padding: 'var(--dds-spacing-x0-25)',
+  height: `calc(var(--dds-spacing-x3) + 2 * var(--dds-spacing-x0-25))`,
+  buttonTextColor: 'var(--dds-color-text-on-inverse)',
+  gap: 'var(--dds-spacing-x0-25)',
+  marginTop: 'var(--dds-spacing-x0-25)',
+  button: {
+    hover: {
+      backgroundColor: 'var(--dds-color-surface-inverse-hover)',
+    },
+  },
 };
 
 const navigation = {
@@ -52,24 +57,24 @@ const navigation = {
   logoAndVersion,
   topBar,
 
-  color: colors.DdsColorNeutralsGray1,
-  backgroundColor: colors.DdsColorPrimaryBase,
-  gap: spacing.DdsSpacingX05,
-  dividerColor: colors.DdsColorPrimaryLight,
-  padding: spacing.DdsSpacingX1,
+  color: 'var(--dds-color-text-on-inverse)',
+  backgroundColor: 'var(--dds-color-surface-inverse-default)',
+  gap: 'var(--dds-spacing-x0-5)',
+  dividerColor: 'var(--dds-color-border-inverse)',
+  padding: 'var(--dds-spacing-x1)',
   width: '264px',
 
   mobile: {
-    breakpoint: breakpoints.DdsBreakpointSm,
-    iconColors: colors.DdsColorNeutralsGray3,
+    breakpoint: ddsBaseTokens.breakpoints.DdsBreakpointSm,
+    iconColors: 'var(--dds-color-icon-on-inverse)',
   },
 };
 
 const floatingActionButtons = {
-  gap: spacing.DdsSpacingX1,
-  textColor: colors.DdsColorNeutralsGray7,
-  backgroundColor: colors.DdsColorNeutralsWhite,
-  borderRadius: ddsTokens.DdsBorderRadius3,
+  gap: 'var(--dds-spacing-x1)',
+  textColor: 'var(--dds-color-text-medium)',
+  backgroundColor: 'var(--dds-color-surface-default)',
+  borderRadius: 'var(--dds-border-radius-3)',
 };
 
 export const appShellTokens = { navigation, floatingActionButtons };
