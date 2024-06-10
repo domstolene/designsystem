@@ -41,8 +41,8 @@ const Sidebar = styled.div.withConfig({
   z-index: 100;
 
   transition:
-    transform 0.2s ease-in-out,
-    opacity 0.2s ease-in-out;
+    transform var(--dds-transition-duration-surface-move) ease-in-out,
+    opacity var(--dds-transition-duration-surface-move) ease-in-out;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
   opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
 

@@ -39,14 +39,15 @@ const IconButton = styled(Button).attrs({
   @media (max-width: ${navTokens.mobile.breakpoint}) {
     border: 0;
     box-shadow: none;
-    padding: 12px;
+    padding: 12px !important;
     &:hover,
     &:active {
-      color: ${navTokens.topBar.buttonTextColor};
+      color: ${navTokens.topBar.buttonTextColor} !important;
       text-decoration-color: ${navTokens.topBar.buttonTextColor};
-      box-shadow: none;
+      background-color: ${navTokens.topBar.button.hover
+        .backgroundColor} !important;
     }
-    gap: 0;
+    gap: 0 !important;
   }
 `;
 
