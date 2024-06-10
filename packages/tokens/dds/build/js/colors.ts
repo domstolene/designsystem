@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 07 Jun 2024 10:30:37 GMT
+ * Generated on Mon, 10 Jun 2024 11:27:50 GMT
  */
 
 export const DdsColorPrimaryLightest = "#eaeff4";
@@ -143,11 +143,14 @@ export const DdsColorIconOnInfoStrong = "#0b0d0e";
 export const DdsColorBrandPrimaryDefault = "#354754";
 export const DdsColorBrandPrimarySubtle = "#eaeff4";
 export const DdsColorBrandPrimaryMedium = "#acbbc6";
+export const DdsColorBrandPrimaryStrong = "#202b32";
 export const DdsColorBrandSecondaryDefault = "#9ab8b7";
 export const DdsColorBrandSecondarySubtle = "#e6eded";
 export const DdsColorBrandSecondaryMedium = "#b8cdcd";
+export const DdsColorBrandSecondaryStrong = "#4d6463";
 export const DdsColorBrandTertiaryDefault = "#f2a68f";
 export const DdsColorBrandTertiarySubtle = "#ffe6df";
 export const DdsColorBrandTertiaryMedium = "#f6c1b1";
+export const DdsColorBrandTertiaryStrong = "#f27e55";
 export const DdsColorFocusOutside = "#2f4a5c";
 export const DdsColorFocusInside = "#f1f8fd";
