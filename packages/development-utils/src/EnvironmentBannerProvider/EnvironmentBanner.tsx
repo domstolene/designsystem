@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 
-export const environments = ['LOKAL', 'TEST', 'AT', 'KURS', 'PROD'] as const;
+export const environments = [
+  'LOKAL',
+  'TEST',
+  'AT',
+  'KURS',
+  'PROD',
+  'PROTOTYPE',
+] as const;
 export type Environment = (typeof environments)[number];
 type NonProdEnvironment = Exclude<Environment, 'PROD'>;
 
@@ -31,6 +38,8 @@ function getBannerColor(environment: NonProdEnvironment): {
       return { background: '#7AB73D', text: '#2B4116' };
     case 'LOKAL':
       return { background: '#F2D32C', text: '#695B07' };
+    case 'PROTOTYPE':
+      return { background: '#E9E1FB', text: '#5E032F' };
   }
 }
 
