@@ -39,7 +39,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/node": "^20.14.1",
+    "@types/node": "^20.14.2",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.4",
     "rollup-plugin-copy": "^3.5.0",

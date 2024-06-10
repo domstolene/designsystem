@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "@norges-domstoler/dds-design-tokens": "workspace:*",
-    "@storybook/addon-docs": "8.1.5"
+    "@storybook/addon-docs": "8.1.6"
   }
 }
