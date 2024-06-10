@@ -371,6 +371,10 @@
         "type": "color",
         "description": "Primary brand color"
       },
+      "primary-strong": {
+        "value": "{dds-color.primary.darker}",
+        "type": "color"
+      },
       "secondary-default": {
         "value": "{dds-color.secondary.base}",
         "type": "color",
@@ -386,6 +390,10 @@
         "type": "color",
         "description": "Secondary brand color"
       },
+      "secondary-strong": {
+        "value": "{dds-color.secondary.darker}",
+        "type": "color"
+      },
       "tertiary-default": {
         "value": "{dds-color.tertiary.base}",
         "type": "color",
@@ -400,6 +408,10 @@
         "value": "{dds-color.tertiary.light}",
         "type": "color",
         "description": "Tertiary brand color"
+      },
+      "tertiary-strong": {
+        "value": "{dds-color.tertiary.darker}",
+        "type": "color"
       }
     },
     "focus": {
