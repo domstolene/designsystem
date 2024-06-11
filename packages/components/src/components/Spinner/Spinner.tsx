@@ -1,3 +1,4 @@
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import { useId, useRef } from 'react';
 
@@ -19,7 +20,7 @@ export type SpinnerProps = BaseComponentProps<
 
 export function Spinner(props: SpinnerProps) {
   const {
-    size = 'var(--dds-icon-size-medium)',
+    size = ddsTokens.DdsIconSizeMedium,
     color = 'iconActionResting',
     tooltip = 'Innlasting pågår',
     id,
