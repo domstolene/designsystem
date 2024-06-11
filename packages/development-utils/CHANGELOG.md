@@ -1,5 +1,15 @@
 # @norges-domstoler/development-utils
 
+## 1.3.0
+
+### Minor Changes
+
+- 1746e27: Environment banner now supports PROTOTYPE env
+
+### Patch Changes
+
+- ab09bec: Leverer komponenter som klientkomponenter. Dette skal gjøre det enklere å bruke pakken sammen med RSC.
+
 ## 1.2.2
 
 ### Patch Changes

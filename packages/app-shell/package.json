@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/app-shell",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Wrapper for Lovisa applications.",
   "author": "Elsa team",
   "license": "MIT",
@@ -48,8 +48,8 @@
     "vitest": "^1.6.0"
   },
   "peerDependencies": {
-    "@norges-domstoler/dds-components": ">=15",
-    "@norges-domstoler/development-utils": ">=1",
+    "@norges-domstoler/dds-components": ">=16.0.0",
+    "@norges-domstoler/development-utils": ">=1.3.0",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18",
     "styled-components": "^5 || ^6"
