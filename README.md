@@ -47,6 +47,14 @@ Start opp storybook
 pnpm storybook
 ```
 
+#### Finner ikke @norges-domstol\dds-token
+
+Skal ikke egentlig være nødvendig, men hvis du får en feilmeldinger om at den ikke finner @norges-domstol\dds-token kan du prøve:
+
+```bash
+pnpm build
+```
+
 #### Legge til change notes
 
 Når du er ferdig med PR, legg til [changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md):
