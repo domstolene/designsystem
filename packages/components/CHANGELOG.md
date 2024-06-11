@@ -1,5 +1,92 @@
 # @norges-domstoler/dds-components
 
+## 16.0.0
+
+### Major Changes
+
+- 78d01ed: > **TLDR;** Fjern bruk av `/dist/styles/fontStyles.css` og `/dist/styles/selection.css` og erstatt med `/index.css`.
+
+  Samler alle CSS exports inn i én fil, `index.css`.
+  Denne filen vil inneholde alle stiler som er nødvendige for å bruke komponentene i designsystemet.
+
+  Hvis du tidligere har importert CSS-filer fra `@norges-domstoler/dds-components`, f.eks. `@norges-domstoler/dds-components/dist/styles/fontStyles.css` eller `@norges-domstoler/dds-components/dist/styles/selection.css` må du nå fjerne disse og i stedet importere `@norges-domstoler/dds-components/index.css`.
+
+  ```diff
+  - @norges-domstoler/dds-components/dist/styles/fontStyles.css
+  - @norges-domstoler/dds-components/dist/styles/selection.css
+  + @norges-domstoler/dds-components/index.css
+  ```
+
+  Vi inkluderer nå også automatisk `@norges-domstoler/dds-design-tokens/dist/css/dds-tokens.css` gjennom `index.css`, så du kan også fjerne imports av den hvis du har det.
+
+  Bakgrunnen til denne endringen er at vi vil migrere designsystemet bort fra `styled-components`.
+  `styled-components` genererer CSS ved run-time.
+  Dette har en del negative konsekvenser som
+
+  - dårligere ytelse,
+  - kompliserer SSR oppsett, og,
+  - setter en [begrensning på bruk av moderne React-funksjonalitet som Streaming SSR](https://github.com/styled-components/styled-components/issues/3658).
+
+- 85a18f0: Type `TextColor` for prop `color` i `<Typography>` og `<Spinner>` støtter ikke verdier for base fargetokens som `'interactive'` og `'gray9'` lenger. Istedet bruker vi semantiske fargetokens for tekst og ikon. Se [migreringsguiden](https://design.domstol.no/987b33f71/p/97ffbb-v15-til-v16) for detaljer. Standard verdier for `color` CSS property er støttet som før.
+- b6a2b23: Flytter `<AppShell>`-komponent ut fra dds-components til egen pakke.
+- 62882b4: Endrer variantene for color i `<Divider>` fra `'primary'` og `'primaryLighter'` til `'default'`, `'subtle'` og `'onInverse'`, slik at de følger navngiving på semantiske tokens.
+- 23bffd9: - Oppdaterer alle komponenter til å bruke CSS modules istedenfor styled-components. Det vil gi oss bl.a. bedre performance, lettere styling override, og kompatibilitet med server components. Denne oppgraderingen betyr at det ikke brukes en CSS-in-JS-løsning lenger, og det kan påvirke hvordan komponentene oppleves hos konsumenter.
+
+  - `<Button>` støtter ikke `label`-prop lenger, da den er deprecated. Bruk `children` i stedet.
+  - `<Button>` ble redesignet og simplifisert, da det ikke trengs så mange varianter. Den støtter ikke `appearance`-prop lenger. Det støttes kun `purpose`-prop med følgende verdier: `'primary'`, `'secondary'`, `'tertiary'`, `'danger'`. Hvordan koden skal oppdateres avhenger av kontekst; for eksempel, en gammel lukkeknapp brukte `<Button purpose="secondary" appearance="borderless">`, den byttes til `<Button purpose="tertiary">`.
+  - `<Typography>` støtter ikke `interactionProps`-prop lenger. Du kan overskrive styling for `:hover` og `:active` med egen CSS-kode i stedet.
+  - `<LocalMessage>` støtter ikke `purpose="confidential"` lenger, da den ikke ble brukt.
+  - `<Card>` endrer navn på `color`-prop til `appearance` for standardisering på tvers av komponenter. Endrer også navn på typen brukt av propen fra `CardColor` til `CardAppearance` Fjerner variantene `color="filledDark"` og `color="strokeDark"`, og begrenser til kun verdier `"filled"` og `"border"`. Dette for å fjerne lite brukte/unødvendige varianter.
+  - `<CardAccordionBody>` støtter ikke `paddingTop`-prop lenger. Bruk `padding`-prop eller egen CSS-kode i stedet.
+  - Byttet navn på ikoner: `Thumbdown`, `Thumbup`, `ThumbdownFilled`, `ThumbupFilled`, `HourglassBottom`, `HourglassTop`, `HourglassEmpty`, `HourglassDisabled`, `HourglassFull` til: `ThumbDownIcon`, `ThumbUpIcon`, `ThumbDownFilledIcon`, `ThumbUpFilledIcon`, `HourglassBottomIcon`, `HourglassTopIcon`, `HourglassEmptyIcon`, `HourglassDisabledIcon`, `HourglassFullIcon`. Dette slik at navngivning følger samme mønster som andre ikoner. For å migrere legg på 'Icon' på slutten av importert ikon.
+  - `<Tag>` støtter ikke `strong`-prop lenger. I stedet brukes `appearance`-prop for å standardisere propnavn på tvers av komponenter. Støttede verdier er `'default'` eller `'strong'`, for å standardisere navngivning av visuelt uttrykk.
+  - `<DescriptionList>` sin `appearance`-prop støtter ikke verdiene `'bold'` og `'small'` lenger. I stedet brukes `'default'` eller `'subtle'`, for å bedre beskrive utseende og standardisere navngivning av visuelt uttrykk.
+
+- 7b0ffd8: `<ScrollableContainer>`-komponenten og `<Scrollbar>` blir fjernet, da de ikke brukes og er problematiske med tanke på UU. Istedenfor bruk CSS med fargetoken for scrollbar eller `scrollbarStyling.tsx` til styling.
+
+### Minor Changes
+
+- 23bffd9: - Støtte for alle HTML-attributter for `<div>` i `<FileUploader>`.
+
+  - Støtte for alle HTML-attributter for `<div>` i `<SplitButton>`.
+  - Eksporterer `type SearchButtonProps` fra `<Search>`, slik at den er lett tilgjengelig for konsumenter.
+
+- 85a18f0: Utvider type for `color`-prop i `<Icon>` til å støtte semantiske fargetokens via type `TextColor`, i tillegg til standard verdier for `color` CSS property. Se [migreringsguiden](https://design.domstol.no/987b33f71/p/97ffbb-v15-til-v16) for detaljer.
+- d8caa5a: Legger til prop, `textAreaTip`, i `<Feedback>`-komponenten som kan brukes for å sette tip-teksten på tekstfeltet på kommenteringssteget.
+- 6efecde: Ny farge å velge mellom via `color`-prop i `<Icon>`, `<Typography>` og `<Spinner>`: `'textOnNotification'`.
+- 62882b4: Ny prop `withVisited` i `<Link>`. Den kan settes til `true` hvis styling for besøkt lenke skal vises.
+- 0eb9d94: Legger til manglende props for labels i FileUploader
+- 8c24388: Fjerner `styled-components` dependency fra `dds-components`. Den kan fjernes hos konsumentene. `app-shell` og `development-utils` bruker den fortsatt foreløpig.
+
+### Patch Changes
+
+- 1ad72df: Støtte for `data-testid` i `<Select />` for lettere testing. Legger `data-testid` + suffiks `'control'` på control-div.
+- 23bffd9: - Oppdaterer border styling i `<FileUploader>`.
+
+  - Oppdaterer spacing i `<OverflowMenu>`.
+  - Legger til skygge i `<DatePicker>` popover.
+  - Endrer `:active` styling i `<Button>` til at knapper ser ut til å bli trykt på.
+
+- c91f9e1: Bruker `<h2>` istedenfor `<h5>` som default for tittel i `<EmptyContent>`. På denne måten vil den ikke bryte UU uansett oversiktshierarki.
+- c91f9e1: Mindre justeringer på spacing, farger og ikonstørrelser i en rekke komponenter.
+- b769743: Endrer fokusmarkering i `<Checkbox />` og `<RadioButton />` til å markere kun inputelementet, ikke ledetekst. Fokusmarkeringen settes ikke ved museklikk, kun tastaturfokus.
+- 3e86ffc: Layout justteringer: spacing i `<ToggleBar>` og `display: inline-flex;` i `<Chip>`
+- fcaba07: Fjerner hover og active-styling i `<Button />` ved `loading`.
+- Updated dependencies [ab09bec]
+- Updated dependencies [62882b4]
+- Updated dependencies [62882b4]
+- Updated dependencies [0eceeea]
+- Updated dependencies [62882b4]
+- Updated dependencies [62882b4]
+- Updated dependencies [1746e27]
+- Updated dependencies [62882b4]
+- Updated dependencies [62882b4]
+- Updated dependencies [62882b4]
+- Updated dependencies [6efecde]
+- Updated dependencies [62882b4]
+  - @norges-domstoler/development-utils@1.3.0
+  - @norges-domstoler/dds-design-tokens@5.0.0
+
 ## 15.9.1
 
 ### Patch Changes
