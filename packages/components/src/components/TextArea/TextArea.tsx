@@ -1,3 +1,4 @@
+import { type Properties } from 'csstype';
 import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import { type TextareaHTMLAttributes } from 'react';
 
@@ -93,13 +94,23 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       ...rest,
     };
 
+    const styleVariables: Properties = {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ['--dds-text-area-width' as any]:
+        width ?? 'var(--dds-input-default-width)',
+    };
+
     return (
       <div
-        className={cn(className, inputStyles.container, styles.container)}
-        style={{ ...style, width }}
+        className={cn(className, inputStyles.container)}
+        style={{ ...style }}
       >
         {hasLabel && (
-          <Label showRequiredStyling={showRequiredStyling} htmlFor={uniqueId}>
+          <Label
+            showRequiredStyling={showRequiredStyling}
+            htmlFor={uniqueId}
+            className={inputStyles.label}
+          >
             {label}
           </Label>
         )}
@@ -113,6 +124,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             typographyStyles[getTypographyCn(inputTypographyTypes['medium'])],
             focusable,
           )}
+          style={styleVariables}
         />
         {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
       </div>

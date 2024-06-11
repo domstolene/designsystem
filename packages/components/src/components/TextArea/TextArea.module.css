@@ -1,8 +1,5 @@
-.container {
-  width: var(--dds-input-default-width);
-}
-
 .textarea {
+  width: var(--dds-text-area-width);
   height: auto;
   resize: vertical;
   vertical-align: bottom;
