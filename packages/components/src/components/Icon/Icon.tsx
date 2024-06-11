@@ -1,3 +1,5 @@
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
+
 import { type SvgIcon } from './utils';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { type TextColor } from '../../utils';
@@ -5,15 +7,15 @@ import { type TextColor } from '../../utils';
 const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
     case 'small':
-      return 'var(--dds-icon-size-small)';
+      return ddsTokens.DdsIconSizeSmall;
     case 'medium':
-      return 'var(--dds-icon-size-medium)';
+      return ddsTokens.DdsIconSizeMedium;
     case 'large':
-      return 'var(--dds-icon-size-large)';
+      return ddsTokens.DdsIconSizeLarge;
     case 'inherit':
       return '1em';
     default:
-      return 'var(--dds-icon-size-medium)';
+      return ddsTokens.DdsIconSizeMedium;
   }
 };
 
