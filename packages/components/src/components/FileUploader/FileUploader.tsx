@@ -16,6 +16,7 @@ import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { UploadIcon } from '../Icon/icons';
 import { InputMessage } from '../InputMessage';
 import { Label } from '../Typography';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export type FileUploaderProps = {
@@ -134,7 +135,11 @@ export const FileUploader = (props: FileUploaderProps) => {
   return (
     <div
       id={uniqueId}
-      className={cn(className, styles.container)}
+      className={cn(
+        className,
+        styles.container,
+        typographyStyles['body-sans-02'],
+      )}
       style={{ ...style, width }}
       {...rest}
     >
