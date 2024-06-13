@@ -1,5 +1,5 @@
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
-import { type Property } from 'csstype';
+import { type Properties, type Property } from 'csstype';
 import React, {
   forwardRef,
   useId,
@@ -103,6 +103,15 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     const widthCn = componentSize === 'tiny' ? componentSize : 'medium';
 
+    const styleVariables: Properties = {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ['--dds-textinput-width' as any]: width
+        ? width
+        : componentSize === 'tiny'
+          ? '210px'
+          : 'var(--dds-input-default-width)',
+    };
+
     const generalInputProps = {
       id: uniqueId,
       hasErrorMessage,
@@ -145,7 +154,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 
     if (hasIcon) {
       extendedInput = (
-        <div className={inputStyles['input-group']}>
+        <div
+          className={cn(styles['input-width'], inputStyles['input-group'])}
+          style={styleVariables}
+        >
           {
             <Icon
               icon={icon}
@@ -165,7 +177,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       );
     } else if (hasAffix) {
       extendedInput = (
-        <div className={styles['affix-container']}>
+        <div
+          className={cn(styles['affix-container'], styles['input-width'])}
+          style={styleVariables}
+        >
           {prefix && (
             <span
               ref={prefixRef}
@@ -214,10 +229,14 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           inputStyles.container,
           styles[`container--${widthCn}`],
         )}
-        style={{ ...style, width }}
+        style={style}
       >
         {hasLabel && (
-          <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
+          <Label
+            htmlFor={uniqueId}
+            showRequiredStyling={showRequiredStyling}
+            className={styles.label}
+          >
             {label}
           </Label>
         )}
@@ -230,6 +249,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             type={type}
             componentSize={componentSize}
             {...generalInputProps}
+            style={styleVariables}
+            className={styles['input-width']}
           />
         )}
         {hasMessage && (

@@ -1,4 +1,5 @@
 import { type useDateField, type useDatePicker } from '@react-aria/datepicker';
+import { type Properties } from 'csstype';
 import {
   type ForwardRefExoticComponent,
   type ReactNode,
@@ -67,25 +68,35 @@ function _DateInput(
 
   const { isOpen } = useContext(CalendarPopoverContext);
 
+  const styleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-date-input-width' as any]: width
+      ? width
+      : componentSize === 'small'
+        ? '148px'
+        : componentSize === 'tiny'
+          ? '125px'
+          : '160px',
+  };
+
   return (
     <div
       {...groupProps}
-      className={cn(
-        className,
-        inputStyles.container,
-        styles[`container--${componentSize}`],
-      )}
+      className={cn(className, inputStyles.container)}
       ref={forwardedRef}
-      style={{ width }}
     >
       {hasLabel && (
-        <Label {...labelProps} showRequiredStyling={required}>
+        <Label
+          {...labelProps}
+          showRequiredStyling={required}
+          className={inputStyles.label}
+        >
           {props.label}
         </Label>
       )}
       <div
         {...fieldProps}
-        style={style}
+        style={{ ...style, ...styleVariables }}
         ref={internalRef}
         className={cn(
           inputStyles.input,

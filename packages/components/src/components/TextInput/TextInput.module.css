@@ -1,5 +1,4 @@
 .container--medium {
-  width: var(--dds-input-default-width);
 }
 
 .container--tiny {
@@ -10,6 +9,10 @@
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.input-width {
+  width: var(--dds-textinput-width);
 }
 
 .input {
@@ -54,6 +57,10 @@
   top: calc(50% - (var(--dds-icon-size-small) / 2));
 }
 
+.label {
+  display: block;
+}
+
 .affix {
   position: absolute;
   height: 100%;
@@ -94,6 +101,7 @@
 .message-container {
   display: flex;
   justify-content: space-between;
+  gap: var(--dds-spacing-x0-5);
 }
 
 .char-counter {
