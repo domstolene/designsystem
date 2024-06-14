@@ -103,7 +103,3 @@
   justify-content: space-between;
   gap: var(--dds-spacing-x0-5);
 }
-
-.char-counter {
-  margin-left: auto;
-}

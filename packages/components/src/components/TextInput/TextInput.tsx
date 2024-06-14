@@ -8,7 +8,6 @@ import React, {
   useState,
 } from 'react';
 
-import CharCounter from './CharCounter';
 import styles from './TextInput.module.css';
 import { type TextInputProps } from './TextInput.types';
 import {
@@ -17,7 +16,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { getFormInputIconSize } from '../../utils/icon';
-import { StatefulInput, getDefaultText } from '../helpers';
+import { StatefulInput, getDefaultText, renderCharCounter } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
@@ -88,11 +87,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const hasMessage = hasErrorMessage || hasTip || !!maxLength;
     const hasIcon = !!icon;
     const hasAffix = !!(prefix ?? suffix);
-    const hasCharCounter =
-      !!maxLength &&
-      Number.isInteger(maxLength) &&
-      maxLength > 0 &&
-      withCharacterCounter;
 
     const characterCounterId = derivativeIdGenerator(
       uniqueId,
@@ -256,12 +250,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         {hasMessage && (
           <div className={styles['message-container']}>
             {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-            {hasCharCounter && (
-              <CharCounter
-                id={characterCounterId}
-                current={text.length}
-                max={maxLength}
-              />
+            {renderCharCounter(
+              characterCounterId,
+              withCharacterCounter,
+              text.length,
+              maxLength,
             )}
           </div>
         )}

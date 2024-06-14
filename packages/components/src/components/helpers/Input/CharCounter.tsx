@@ -1,9 +1,9 @@
 import { useId } from 'react';
 
-import styles from './TextInput.module.css';
-import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
-import { cn } from '../../utils';
-import { Typography } from '../Typography';
+import styles from './Input.module.css';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
+import { cn } from '../../../utils';
+import { Typography } from '../../Typography';
 
 type Props = BaseComponentProps<
   HTMLElement,
@@ -13,7 +13,7 @@ type Props = BaseComponentProps<
   }
 >;
 
-function CharCounter(props: Props) {
+export function CharCounter(props: Props) {
   const { current, max, id, className, htmlProps, ...rest } = props;
 
   const generatedId = useId();
@@ -36,4 +36,12 @@ function CharCounter(props: Props) {
   );
 }
 
-export default CharCounter;
+export const renderCharCounter = (
+  id: string,
+  isShown: boolean,
+  textLength: number,
+  maxLength?: number,
+) => {
+  if (!!maxLength && Number.isInteger(maxLength) && maxLength > 0 && isShown)
+    return <CharCounter id={id} max={maxLength} current={textLength} />;
+};
