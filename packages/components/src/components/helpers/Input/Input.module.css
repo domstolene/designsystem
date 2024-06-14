@@ -111,3 +111,7 @@
 .label {
   display: block;
 }
+
+.char-counter {
+  margin-left: auto;
+}

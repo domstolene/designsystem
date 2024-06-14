@@ -9,7 +9,11 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { getDefaultText, inputTypographyTypes } from '../helpers';
+import {
+  getDefaultText,
+  inputTypographyTypes,
+  renderCharCounter,
+} from '../helpers';
 import { type CommonInputProps } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -18,8 +22,10 @@ import { renderInputMessage } from '../InputMessage';
 import { Label, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-export type TextAreaProps = CommonInputProps &
-  TextareaHTMLAttributes<HTMLTextAreaElement>;
+export type TextAreaProps = CommonInputProps & {
+  /** Spesifiserer om tegntelleren skal vises ved bruk av `maxLength` attributt. */
+  withCharacterCounter?: boolean;
+} & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props, ref) => {
@@ -35,6 +41,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       label,
       'aria-required': ariaRequired = false,
       'aria-describedby': ariaDescribedby,
+      maxLength,
+      withCharacterCounter = true,
       className,
       style,
       width,
@@ -72,27 +80,12 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const hasLabel = !!label;
     const tipId = derivativeIdGenerator(uniqueId, 'tip');
     const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+    const characterCounterId = derivativeIdGenerator(
+      uniqueId,
+      'characterCounter',
+    );
 
     const showRequiredStyling = required || !!ariaRequired;
-
-    const textAreaProps = {
-      ref: multiRef,
-      onChange: onChangeHandler,
-      value,
-      defaultValue,
-      id: uniqueId,
-      disabled,
-      hasErrorMessage,
-      required,
-      'aria-required': ariaRequired,
-      'aria-describedby': spaceSeparatedIdListGenerator([
-        tip ? tipId : undefined,
-        errorMessage ? errorMessageId : undefined,
-        ariaDescribedby,
-      ]),
-      'aria-invalid': hasErrorMessage ? true : undefined,
-      ...rest,
-    };
 
     const styleVariables: Properties = {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -115,18 +108,43 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           </Label>
         )}
         <textarea
-          {...textAreaProps}
+          ref={multiRef}
+          id={uniqueId}
+          onChange={onChangeHandler}
+          value={value}
+          defaultValue={defaultValue}
+          disabled={disabled}
+          maxLength={maxLength}
+          required={required}
+          aria-required={ariaRequired}
+          aria-describedby={spaceSeparatedIdListGenerator([
+            tip ? tipId : undefined,
+            errorMessage ? errorMessageId : undefined,
+            maxLength && withCharacterCounter ? characterCounterId : undefined,
+            ariaDescribedby,
+          ])}
+          aria-invalid={hasErrorMessage ? true : undefined}
           className={cn(
             inputStyles.input,
             inputStyles['input--stateful'],
+            hasErrorMessage && inputStyles['input--stateful-danger'],
             styles.textarea,
             scrollbar,
             typographyStyles[getTypographyCn(inputTypographyTypes['medium'])],
             focusable,
           )}
           style={styleVariables}
+          {...rest}
         />
-        {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+        <div className={styles['message-container']}>
+          {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+          {renderCharCounter(
+            characterCounterId,
+            withCharacterCounter,
+            text.length,
+            maxLength,
+          )}
+        </div>
       </div>
     );
   },

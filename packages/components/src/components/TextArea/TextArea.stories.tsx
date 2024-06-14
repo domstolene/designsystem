@@ -11,6 +11,7 @@ export default {
     tip: { control: 'text' },
     errorMessage: { control: 'text' },
     width: { control: 'text' },
+    maxLength: { control: 'number' },
     required: { control: 'boolean' },
     disabled: { control: 'boolean' },
     readOnly: { control: 'boolean' },
@@ -42,12 +43,21 @@ export const Overview: Story = {
             args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
           }
         />
+        <TextArea
+          {...args}
+          maxLength={200}
+          tip={'Dette er en hjelpetekst med tegnteller'}
+        />
       </StoryVStack>
       <StoryVStack>
         <TextArea {...args} required value="Påkrevd" />
         <TextArea {...args} readOnly value="Readonly" />
-        <TextArea {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
+        <TextArea {...args} tip={'Dette er en hjelpetekst'} />
       </StoryVStack>
     </StoryHStack>
   ),
+};
+
+export const WithCharacterCount: Story = {
+  args: { label: 'Label', maxLength: 200 },
 };
