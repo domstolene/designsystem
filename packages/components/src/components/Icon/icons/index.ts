@@ -145,6 +145,7 @@ export * from './upload';
 export * from './visibilityOff';
 export * from './visibilityOn';
 export * from './warning';
+export * from './webex';
 export * from './x';
 export * from './zoomIn';
 export * from './zoomOut';

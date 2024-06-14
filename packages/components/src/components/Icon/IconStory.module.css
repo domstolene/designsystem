@@ -82,6 +82,6 @@
   margin: var(--dds-spacing-x1) 0;
   border-radius: var(--dds-border-radius-1);
   code.icon-code {
-    color: var(--dds-text-color-on-inverse);
+    color: var(--dds-color-text-on-inverse);
   }
 }
