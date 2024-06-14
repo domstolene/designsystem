@@ -64,3 +64,9 @@ pnpm changeset
 ```
 
 Velg pakke(r) som ble endret, velg riktig semver bump type, og skriv changelog entry for neste release.
+
+#### Publisering
+
+Ny versjon av alle pakker i repoet publiseres samtidig ved å merge "Version Packages" PR.
+
+**OBS!** Publisering blir gjort av Elsa teamet.
