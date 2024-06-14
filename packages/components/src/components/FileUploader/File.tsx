@@ -7,7 +7,9 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Button } from '../Button';
-import { CloseIcon } from '../Icon/icons';
+import { Icon } from '../Icon';
+import { CheckCircledIcon, CloseIcon, ErrorIcon } from '../Icon/icons';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 interface FileProps {
   parentId: string;
@@ -28,7 +30,15 @@ export const File = (props: FileProps) => {
   return (
     <li>
       <div className={cn(styles.file, !isValid && styles['file--invalid'])}>
-        <span className={styles.file__name}>{stateFile.file.name}</span>
+        <span
+          className={cn(styles.file__name, typographyStyles['body-sans-02'])}
+        >
+          {stateFile.file.name}
+        </span>
+        <Icon
+          icon={isValid ? CheckCircledIcon : ErrorIcon}
+          className={styles[`file__icon--${isValid ? 'valid' : 'invalid'}`]}
+        />
         <Button
           size="small"
           purpose="tertiary"
@@ -36,7 +46,7 @@ export const File = (props: FileProps) => {
           onClick={removeFile}
           icon={CloseIcon}
           htmlProps={{
-            'aria-label': `Fjern fil, ${stateFile.file.name}`,
+            'aria-label': `Fjern fil ${stateFile.file.name}`,
             'aria-invalid': !isValid ? true : undefined,
             'aria-errormessage': !isValid ? 'Ugyldig fil' : undefined,
             'aria-describedby': spaceSeparatedIdListGenerator(

@@ -11,7 +11,8 @@
   gap: var(--dds-spacing-x1);
   border-color: var(--dds-color-border-default);
   background-color: var(--dds-color-surface-default);
-  padding: var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x1)
+  border-radius: var(--dds-border-radius-1);
+  padding: var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x2)
     var(--dds-spacing-x1-5);
 
   @media (prefers-reduced-motion: no-preference) {
@@ -42,12 +43,24 @@
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
   margin-top: var(--dds-spacing-x0-5);
   background-color: var(--dds-color-surface-subtle);
+  border-radius: var(--dds-border-radius-1);
+  border: 1px solid var(--dds-color-border-default);
 }
 
 .file--invalid {
-  box-shadow: inset 0 0 0 2px var(--dds-color-border-danger);
+  border: 1px solid var(--dds-color-border-danger);
+  box-shadow: inset 0 0 0 1px var(--dds-color-border-danger);
+}
+
+.file__icon--invalid {
+  color: var(--dds-color-icon-on-danger-default);
+}
+
+.file__icon--valid {
+  color: var(--dds-color-icon-on-success-default);
 }
 
 .file__name {
   word-break: break-all;
+  width: 100%;
 }
