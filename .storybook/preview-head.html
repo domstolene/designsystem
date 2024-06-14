@@ -113,7 +113,11 @@
 
   .sbdocs p a:hover:not(.docs-story *),
   .sbdocs li a:hover:not(.docs-story *) {
-    color: var(--dds-color-text-action-hover);
+    text-decoration-color: transparent;
+  }
+
+  .sbdocs a:hover:not(.docs-story *):has(div) {
+    box-shadow: 0 0 0 1px var(--dds-color-border-action-hover);
   }
 
   .sbdocs h1:not(.docs-story *) {

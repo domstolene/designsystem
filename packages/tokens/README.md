@@ -6,13 +6,12 @@ Biblioteket inneholder design tokens brukt i [Domstolenes designsystem Elsa](htt
 
 ## 🔍 Oversikt
 
-Design tokens består av base-tokens og referanse-tokens. Base-tokens er variabler genererte fra Figma styles og tilsvarer identiteten til domstolene definert i designprofilen.
+Design tokens består av base-tokens og semantiske tokens. Base-tokens er variabler genererte fra Figma styles og tilsvarer identiteten til domstolene definert i designprofilen.
 
-Referanse-tokens (OBS! under arbeid) bruker base-tokens til å definere logikk for hvordan base-tokens skal brukes videre i komponenter og andre elementer. F.eks., referanse-tokens kan spesifisere hva fokusfargen skal være, eller font og farge for label i skjemakomponenter. Tanken med referanse-tokens er å gjøre det enklere å gjenbruke koden og eventuelt endre på styling i komponenter ved å endre kun på tokens, uten å røre CSS inni komponentene.
+Semantiske tokens (OBS! under arbeid) bruker base-tokens til å definere logikk for hvordan base-tokens skal brukes videre i komponenter og andre elementer. F.eks., semantiske tokens kan spesifisere hva fokusfargen skal være, eller font og farger for knapper. Tanken med semantiske tokens er å innbake i navnet hva token brukes til og kunne benytte seg av themes.
 
 ### 📃 Tilgjengelige base-tokens
 
-- border
 - borderRadius
 - breakpoints
 - colors
@@ -20,7 +19,6 @@ Referanse-tokens (OBS! under arbeid) bruker base-tokens til å definere logikk f
 - fontPackages (kun JS)
 - grid
 - iconSizes
-- innerShadow
 - outerShadow
 - spacing
 
@@ -39,11 +37,11 @@ Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. 
 ```js
 import * as React from 'react';
 import { render } from 'react-dom';
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 const style = {
-  backgroundColor: ddsBaseTokens.DdsColorPrimaryBase,
-  padding: ddsBaseTokens.DdsSpacingX075,
+  backgroundColor: ddsTokens.DdsColorBgDefault,
+  padding: ddsTokens.DdsSpacingX075,
 };
 
 const App = () => <div style={style}>Tekst</div>;
@@ -54,20 +52,20 @@ render(<App />, document.getElementById('root'));
 ### CSS
 
 ```css
-@import '@norges-domstoler/dds-design-tokens/dist/css/colors.css';
+@import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens.css';
 
 body {
-  background-color: var(--dds-color-primary-base);
+  background-color: var(--dds-color-bg-default);
 }
 ```
 
 ### SCSS
 
 ```scss
-@use '@norges-domstoler/dds-design-tokens/dist/scss/colors' as colors;
+@use '@norges-domstoler/dds-design-tokens/dist/scss/ddsTokens' as ddsTokens;
 
 body {
-  background-color: colors.$dds-color-primary-base;
+  background-color: ddsTokens.$dds-color-bg-default;
 }
 ```
 
