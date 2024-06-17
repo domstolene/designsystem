@@ -7,15 +7,15 @@
 }
 
 .date-input--medium {
-  padding-inline: var(--dds-spacing-x0-5) !important;
+  padding-inline: var(--dds-spacing-x0-5);
 }
 
 .date-input--small {
-  padding-inline: var(--dds-spacing-x0-5) !important;
+  padding-inline: var(--dds-spacing-x0-5);
 }
 
 .date-input--tiny {
-  padding-inline: var(--dds-spacing-x0-25) !important;
+  padding-inline: var(--dds-spacing-x0-25);
 }
 
 .date-segment-container {
