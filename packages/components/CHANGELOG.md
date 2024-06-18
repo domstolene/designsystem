@@ -1,5 +1,21 @@
 # @norges-domstoler/dds-components
 
+## 16.1.0
+
+### Minor Changes
+
+- a9b8e0a: Støtte for å vise tegnteller i `<TextArea>` ved bruk av `maxLength` prop. Inkluderer støtte for `withCharacterCounter` prop for å kunne slå av visning av tegnteller.
+- fe7207c: Legger til nytt ikon: Webex
+- efb396e: Ny komponent: `<NativeSelect />`. Brukes når det trengs nativ `<select>` istedenfor komponenten `<Select>` som er custom bygd.
+
+### Patch Changes
+
+- 46bb2e6: `width`-prop i `<TextInput>`, `<TextArea>`, `<TimePicker>` og `<DatePicker>` påvirker nå kun selve inputfeltet. Det betyr at hele komponenten tar den bredden den får tilgjengelig. Ledetekst, feilmeding og hjelpetekst kan bli bredere enn inputfeltet.
+- dd399a5: Fikser spacing i `<Search>` og at den tar 100% bredde.
+- 58ca006: Fikser bug som satt feil bredde i `<TextInput>` ved bruk av ikon og suffiks.
+- e28a096: Styling-justeringer i `<FileUploader>` (border-radius, ikon, typografi, spacing, border).
+- 9eaa27c: Legger til skygge i `<OverflowMenu>`
+
 ## 16.0.0
 
 ### Major Changes
