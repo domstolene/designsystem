@@ -16,7 +16,11 @@
 }
 
 .input {
-  padding-right: var(--dds-spacing-x0-25);
+  width: 100%;
+  padding-right: calc(
+    var(--dds-spacing-x1) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-x0-25)
+  );
 
   &[type='search']::-webkit-search-decoration,
   &[type='search']::-webkit-search-cancel-button,
@@ -27,8 +31,7 @@
 }
 
 .input--small {
-  padding-top: var(--dds-spacing-x0-5);
-  padding-bottom: var(--dds-spacing-x0-5);
+  padding-block: var(--dds-spacing-x0-5);
   padding-left: calc(
     var(--dds-spacing-x0-75) + var(--dds-icon-size-small) +
       var(--dds-spacing-x0-5)
@@ -36,8 +39,7 @@
 }
 
 .input--medium {
-  padding-top: var(--dds-spacing-x0-75);
-  padding-bottom: var(--dds-spacing-x0-75);
+  padding-block: var(--dds-spacing-x0-75);
   padding-left: calc(
     var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
       var(--dds-spacing-x0-5)
@@ -45,8 +47,7 @@
 }
 
 .input--large {
-  padding-top: var(--dds-spacing-x1);
-  padding-bottom: var(--dds-spacing-x1);
+  padding-block: var(--dds-spacing-x1);
   padding-left: calc(
     var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
       var(--dds-spacing-x0-5)
@@ -66,7 +67,7 @@
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
-  right: var(--dds-spacing-x0-75);
+  right: var(--dds-spacing-x1);
 
   width: var(--dds-icon-size-medium);
   height: var(--dds-icon-size-medium);
