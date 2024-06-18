@@ -30,6 +30,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { type InputSize } from '../helpers';
+import inputStyles from '../helpers/Input/Input.module.css';
 import { type SvgIcon } from '../Icon/utils';
 import { renderInputMessage } from '../InputMessage';
 import { Label } from '../Typography';
@@ -201,7 +202,11 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
       style={{ ...style, width }}
     >
       {hasLabel && (
-        <Label htmlFor={uniqueId} showRequiredStyling={showRequiredStyling}>
+        <Label
+          htmlFor={uniqueId}
+          showRequiredStyling={showRequiredStyling}
+          className={inputStyles.label}
+        >
           {label}
         </Label>
       )}

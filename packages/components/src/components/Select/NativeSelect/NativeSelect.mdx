@@ -1,0 +1,41 @@
+import { Story, Canvas, Meta, Controls, ArgTypes } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+
+} from '@norges-domstoler/storybook-components';
+
+import * as NativeSelectStories from './NativeSelect.stories';
+import { NativeSelectPlaceholder } from '.';
+
+<Meta title="dds-components/Select/NativeSelect" />
+
+# NativeSelect
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/19970c-select/b/98ef83"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Select/NativeSelect"
+/>
+
+## Oversikt
+
+`<NativeSelect>` er nativ variant av `<Select>`. Den har begrenset funksjonalitet, men er ikke bygd med custom elementer som begrenser f.eks. testbarhet. Komponenten kan brukes bl.a. når det ikke trengs søk.
+
+Siden `<select>` automatisk velger første alternativ, tilbyr vi også `<NativeSelectPlaceholder>` med tom verdi.
+
+## Props
+
+### NativeSelect
+
+Returnerer `<select>`. Bruk native HTML-elementer `<option>` og `<optgroup>` som barn.
+
+<Canvas of={NativeSelectStories.Default} sourceState="shown" />
+<Controls of={NativeSelectStories.Default} />
+
+### NativeSelectPlaceholder
+
+En nativ `<option>`. Skal brukes som første barn i `<NativeSelect>`. Verdien er i utgangspunktet tom, og den har default placeholer-tekst.
+
+## Retningslinjer
+
+- Bruk `<NativeSelectPlaceholder>` som første barn, slik at en verdi ikke blir valgt automatisk og komponenten er tømbar.

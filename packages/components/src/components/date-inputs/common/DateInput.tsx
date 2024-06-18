@@ -101,6 +101,7 @@ function _DateInput(
         className={cn(
           inputStyles.input,
           inputStyles['input--stateful'],
+          inputStyles['input--hover'],
           inputStyles[`input--${componentSize}`],
           hasErrorMessage && inputStyles['input--stateful-danger'],
           styles['date-input'],

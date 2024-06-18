@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.input {
+:where(.input) {
   position: relative;
   color: var(--dds-text-color--default);
   border: 1px solid var(--dds-color-border-default);
@@ -40,41 +40,42 @@
     -webkit-appearance: none;
   }
 
-  &:not(input):not(textarea):not(.disabled):not(.read-only):not(.active):hover,
-  &:hover:enabled:read-write:not(:focus-visible) {
+  &:hover:enabled:read-write:not(:focus-visible):not(.disabled):not(
+      .read-only
+    ) {
     border-color: var(--dds-color-border-action-hover);
     box-shadow: 0 0 0 1px var(--dds-color-border-action-hover);
   }
+}
 
-  &.input--stateful {
-    -webkit-appearance: textfield;
+:where(.input--stateful) {
+  -webkit-appearance: textfield;
 
-    &:not(.disabled).read-only,
-    &:enabled:read-only {
-      box-shadow: none;
-      border: none;
-      outline: none;
-      cursor: default;
-      background-color: transparent;
-      padding-left: 0;
-      padding-top: var(--dds-spacing-x0-125);
-    }
+  &:not(.disabled).read-only,
+  &:enabled:read-only {
+    box-shadow: none;
+    border: none;
+    outline: none;
+    cursor: default;
+    background-color: transparent;
+    padding-left: 0;
+    padding-top: var(--dds-spacing-x0-125);
+  }
 
-    &.disabled,
-    &:disabled {
-      cursor: not-allowed;
-      color: var(--dds-color-text-medium);
-      background-color: var(--dds-color-surface-field-disabled);
-    }
+  &.disabled,
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--dds-color-text-medium);
+    background-color: var(--dds-color-surface-field-disabled);
   }
 }
 
-.input--hover:hover {
+:where(.input--hover:hover) {
   border-color: var(--dds-color-border-action-hover);
   box-shadow: 0 0 0 1px var(--dds-color-border-action-hover);
 }
 
-.input--stateful-danger {
+:where(.input--stateful-danger) {
   border-color: var(--dds-color-border-danger);
   box-shadow: 0 0 0 1px var(--dds-color-border-danger);
 
@@ -92,26 +93,26 @@
   }
 }
 
-.input--medium {
+:where(.input--medium) {
   padding: var(--dds-spacing-x0-75);
 }
 
-.input--small {
+:where(.input--small) {
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
 }
 
-.input--tiny {
+:where(.input--tiny) {
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
 }
 
-.input--with-affix {
+:where(.input--with-affix) {
   gap: var(--dds-spacing-x1);
 }
 
-.label {
+:where(.label) {
   display: block;
 }
 
-.char-counter {
+:where(.char-counter) {
   margin-left: auto;
 }
