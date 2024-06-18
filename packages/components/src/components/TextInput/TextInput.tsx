@@ -164,7 +164,11 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             onChange={onChangeHandler}
             type={type}
             componentSize={componentSize}
-            className={cn(styles.input, styles[`with-icon--${componentSize}`])}
+            className={cn(
+              styles.input,
+              styles[`with-icon--${componentSize}`],
+              styles['input--extended'],
+            )}
             {...generalInputProps}
           />
         </div>
@@ -198,6 +202,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
               paddingInlineStart: preffixPaddingInlineStart,
               paddingInlineEnd: suffixPaddingInlineEnd,
             }}
+            className={styles['input--extended']}
           />
           {suffix && (
             <span

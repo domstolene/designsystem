@@ -36,6 +36,10 @@
   }
 }
 
+.input--extended {
+  width: 100%;
+}
+
 .icon {
   position: absolute;
   z-index: 1;
