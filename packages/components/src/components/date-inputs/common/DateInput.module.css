@@ -157,11 +157,11 @@
 
 .calendar__cell-button--default {
   background-color: transparent;
-  color: var(--dds-text-color--default);
+  color: var(--dds-color-text-default);
   &:hover {
     background-color: var(--dds-color-surface-hover-default);
     border-color: var(--dds-color-border-action-hover);
-    color: var(--dds-text-color--default);
+    color: var(--dds-color-text-default);
   }
 }
 
