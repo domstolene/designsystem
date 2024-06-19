@@ -12,7 +12,7 @@
 
 :where(.input) {
   position: relative;
-  color: var(--dds-text-color--default);
+  color: var(--dds-color-text-default);
   border: 1px solid var(--dds-color-border-default);
   background-color: var(--dds-color-surface-default);
   padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
