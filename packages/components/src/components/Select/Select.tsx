@@ -29,6 +29,7 @@ import {
   searchFilter,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
 import { type InputSize } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { type SvgIcon } from '../Icon/utils';
@@ -67,7 +68,7 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   componentSize?: InputSize;
   /**Ikonet som vises i komponenten. */
   icon?: SvgIcon;
-  /**Nedtrekkslisten blir disabled og får readOnly styling. */
+  /**Nedtrekkslisten blir `readonly` og får readOnly styling. */
   readOnly?: boolean;
   /**Meldingen som vises ved valideringsfeil. */
   errorMessage?: string;
@@ -146,7 +147,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     options,
     value,
     defaultValue,
-    isDisabled: !!isDisabled || readOnly,
+    isDisabled: !!isDisabled,
     isClearable,
     placeholder: getPlaceholder(placeholder, isMulti),
     closeMenuOnSelect: closeMenuOnSelect
@@ -170,7 +171,11 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
       NoOptionsMessage: DDSNoOptionsMessage,
       Input: props =>
         DDSInput(
-          { ...props, 'aria-required': ariaRequired },
+          {
+            ...props,
+            readOnly,
+            'aria-required': ariaRequired,
+          },
           hasErrorMessage,
           spaceSeparatedIdListGenerator([
             singleValueId,
@@ -189,6 +194,12 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,
     menuPortalTarget: document?.body,
+    onKeyDown: readOnlyKeyDownHandler('select', readOnly, props.onKeyDown),
+    openMenuOnClick: readOnly
+      ? false
+      : props.openMenuOnClick
+        ? props.openMenuOnClick
+        : undefined,
     ...rest,
   };
 
@@ -198,6 +209,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
         className,
         styles.container,
         isDisabled && styles['container--disabled'],
+        readOnly && styles['container--readonly'],
       )}
       style={{ ...style, width }}
     >
@@ -206,6 +218,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
           htmlFor={uniqueId}
           showRequiredStyling={showRequiredStyling}
           className={inputStyles.label}
+          readOnly={readOnly}
         >
           {label}
         </Label>

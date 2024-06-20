@@ -49,16 +49,16 @@ function _TimePicker(
       labelProps={labelProps}
       fieldProps={fieldProps}
       prefix={
-        !props.isReadOnly && (
-          <span
-            className={cn(
-              styles['icon-wrapper'],
-              styles[`icon-wrapper--${iconSize}`],
-            )}
-          >
-            <Icon icon={TimeIcon} iconSize={iconSize} />
-          </span>
-        )
+        <span
+          className={cn(
+            styles['icon-wrapper'],
+            disabled && styles['icon-wrapper--disabled'],
+            props.isReadOnly && styles['icon-wrapper--readonly'],
+            styles[`icon-wrapper--${iconSize}`],
+          )}
+        >
+          <Icon icon={TimeIcon} iconSize={iconSize} />
+        </span>
       }
     >
       {state.segments.map((segment, i) => (

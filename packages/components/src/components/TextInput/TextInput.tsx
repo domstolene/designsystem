@@ -95,8 +95,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const tipId = derivativeIdGenerator(uniqueId, 'tip');
     const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
-    const widthCn = componentSize === 'tiny' ? componentSize : 'medium';
-
     const styleVariables: Properties = {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ['--dds-textinput-width' as any]: width
@@ -112,7 +110,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       required,
       disabled,
       readOnly,
-      tabIndex: readOnly ? -1 : 0,
       maxLength,
       value,
       defaultValue,
@@ -186,7 +183,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
               className={cn(
                 styles.affix,
                 styles.prefix,
-                readOnly && styles['prefix--readonly'],
+                disabled && styles['affix--disabled'],
               )}
             >
               {prefix}
@@ -211,7 +208,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
               className={cn(
                 styles.affix,
                 styles.suffix,
-                readOnly && styles['suffix--readonly'],
+                disabled && styles['affix--disabled'],
               )}
             >
               {suffix}
@@ -226,7 +223,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         className={cn(
           className,
           inputStyles.container,
-          styles[`container--${widthCn}`],
+          styles.container,
+          readOnly && styles['container--readonly'],
+          disabled && styles['container--disabled'],
         )}
         style={style}
       >
@@ -234,7 +233,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           <Label
             htmlFor={uniqueId}
             showRequiredStyling={showRequiredStyling}
-            className={styles.label}
+            className={inputStyles.label}
+            readOnly={readOnly}
           >
             {label}
           </Label>

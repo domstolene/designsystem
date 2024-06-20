@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { StoryVStack } from '../../Stack/utils';
+import { StoryHStack, StoryVStack } from '../../Stack/utils';
 
 import { Checkbox, CheckboxGroup } from '.';
 
@@ -46,12 +46,18 @@ export const Overview: Story = {
     ],
   },
   render: args => (
-    <StoryVStack>
-      <CheckboxGroup {...args} />
-      <CheckboxGroup {...args} required />
-      <CheckboxGroup {...args} tip="Dette er en hjelpetekst" />
-      <CheckboxGroup {...args} errorMessage="Dette er en feilmelding" />
-      <CheckboxGroup {...args} direction="column" />
-    </StoryVStack>
+    <StoryHStack>
+      <StoryVStack>
+        <CheckboxGroup {...args} />
+        <CheckboxGroup {...args} disabled />
+        <CheckboxGroup {...args} errorMessage="Dette er en feilmelding" />
+        <CheckboxGroup {...args} direction="column" />
+      </StoryVStack>
+      <StoryVStack>
+        <CheckboxGroup {...args} required />
+        <CheckboxGroup {...args} readOnly />
+        <CheckboxGroup {...args} tip="Dette er en hjelpetekst" />
+      </StoryVStack>
+    </StoryHStack>
   ),
 };

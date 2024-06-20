@@ -6,7 +6,12 @@ import {
   useRadioButtonGroup,
 } from './RadioButtonGroupContext';
 import { type Nullable, getBaseHTMLProps } from '../../../types';
-import { cn } from '../../../utils';
+import {
+  cn,
+  readOnlyChangeHandler,
+  readOnlyClickHandler,
+  readOnlyKeyDownHandler,
+} from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Typography } from '../../Typography';
@@ -68,11 +73,15 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
       describedByIds.push(radioButtonGroup?.errorMessageId);
     if (ariaDescribedby) describedByIds.push(ariaDescribedby);
 
+    const isReadOnly = readOnly || radioButtonGroup?.readOnly;
+    const isDisabled = disabled || radioButtonGroup?.disabled;
+    const hasError = error || radioButtonGroup?.error;
+
     return (
       <Label
-        hasError={error || radioButtonGroup?.error}
-        disabled={disabled || radioButtonGroup?.disabled}
-        readOnly={readOnly || radioButtonGroup?.readOnly}
+        hasError={hasError}
+        disabled={isDisabled}
+        readOnly={isReadOnly}
         style={style}
         className={cn(className, htmlPropsClassName)}
         hasText={hasLabel}
@@ -83,29 +92,30 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
           type="radio"
           name={name ?? radioButtonGroup?.name}
-          disabled={
-            disabled ||
-            readOnly ||
-            !!radioButtonGroup?.disabled ||
-            !!radioButtonGroup?.readOnly
-          }
+          disabled={isDisabled}
           required={required || !!radioButtonGroup?.required}
           checked={
             typeof checked !== 'undefined'
               ? checked
               : isValueEqualToGroupValueOrFalsy(value, radioButtonGroup)
           }
-          onChange={handleChange}
+          onChange={readOnlyChangeHandler(isReadOnly, handleChange)}
           value={value}
           aria-describedby={
             describedByIds.length > 0 ? describedByIds.join(' ') : undefined
           }
-          aria-invalid={error || radioButtonGroup?.error ? true : undefined}
+          aria-invalid={hasError ? true : undefined}
           className={cn(
             utilStyles['hide-input'],
             focusStyles['focusable-sibling'],
           )}
           ref={ref}
+          onKeyDown={readOnlyKeyDownHandler(
+            'selectionControl',
+            isReadOnly,
+            htmlProps.onKeyDown,
+          )}
+          onClick={readOnlyClickHandler(isReadOnly, htmlProps.onClick)}
         />
         <SelectionControl
           controlType="radio"

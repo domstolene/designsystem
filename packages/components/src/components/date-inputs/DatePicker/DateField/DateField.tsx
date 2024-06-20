@@ -71,19 +71,19 @@ function _DateField(
       internalRef={ref}
       readOnly={props.isReadOnly}
       prefix={
-        !props.isReadOnly && (
-          <CalendarButton
-            componentSize={componentSize}
-            {...buttonProps}
-            isDisabled={disabled}
-          />
-        )
+        <CalendarButton
+          componentSize={componentSize}
+          {...buttonProps}
+          isReadOnly={props.isReadOnly}
+          isDisabled={disabled || props.isReadOnly}
+        />
       }
       labelProps={labelProps}
       fieldProps={fieldProps}
     >
       {state.segments.map((segment, i) => (
         <DateSegment
+          aria-readonly={props.isReadOnly}
           componentSize={componentSize}
           key={i}
           segment={segment}

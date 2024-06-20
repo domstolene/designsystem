@@ -8,6 +8,10 @@
   cursor: not-allowed;
 }
 
+.container--readonly {
+  cursor: default;
+}
+
 .inner-single-value {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -23,15 +27,16 @@
 }
 
 .control {
-  &:hover .dropdown-indicator,
+  &:hover:not(.control--readonly) .dropdown-indicator,
   &:focus-within .dropdown-indicator {
     color: var(--dds-color-icon-action-hover);
   }
+}
 
-  &.control--readonly .dropdown-indicator {
-    color: transparent;
-  }
-  &.control--disabled .dropdown-indicator {
-    color: transparent;
-  }
+.control--readonly .dropdown-indicator {
+  pointer-events: none;
+}
+
+.control--disabled .dropdown-indicator {
+  pointer-events: none;
 }

@@ -3,7 +3,12 @@ import { forwardRef, useId } from 'react';
 import { type CheckboxProps } from './Checkbox.types';
 import { useCheckboxGroup } from './CheckboxGroupContext';
 import { getBaseHTMLProps } from '../../../types';
-import { cn, spaceSeparatedIdListGenerator } from '../../../utils';
+import {
+  cn,
+  readOnlyClickHandler,
+  readOnlyKeyDownHandler,
+  spaceSeparatedIdListGenerator,
+} from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Typography } from '../../Typography';
@@ -40,11 +45,15 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     type AriaChecked = 'mixed' | boolean | undefined;
 
+    const isReadOnly = readOnly || checkboxGroup?.readOnly;
+    const hasError = error || checkboxGroup?.error;
+    const isDisabled = disabled || checkboxGroup?.disabled;
+
     return (
       <Label
-        hasError={error || checkboxGroup?.error}
-        disabled={disabled || checkboxGroup?.disabled}
-        readOnly={readOnly || checkboxGroup?.readOnly}
+        hasError={hasError}
+        disabled={isDisabled}
+        readOnly={isReadOnly}
         htmlFor={uniqueId}
         hasText={hasLabel}
         controlType="checkbox"
@@ -55,27 +64,28 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           {...getBaseHTMLProps(uniqueId, restHtmlProps, rest)}
           ref={ref}
           name={name}
-          disabled={
-            disabled ||
-            readOnly ||
-            !!checkboxGroup?.disabled ||
-            !!checkboxGroup?.readOnly
-          }
+          disabled={isDisabled}
           aria-describedby={spaceSeparatedIdListGenerator([
             checkboxGroup?.tipId,
             checkboxGroup?.errorMessageId,
             ariaDescribedby,
           ])}
-          aria-invalid={error || checkboxGroup?.error ? true : undefined}
+          aria-invalid={hasError ? true : undefined}
           aria-labelledby={checkboxGroup?.uniqueGroupId}
           aria-checked={indeterminate ? ('mixed' as AriaChecked) : undefined}
-          aria-readonly={readOnly}
+          aria-readonly={isReadOnly}
           type="checkbox"
           data-indeterminate={indeterminate}
           className={cn(
             utilStyles['hide-input'],
             focusStyles['focusable-sibling'],
           )}
+          onKeyDown={readOnlyKeyDownHandler(
+            'selectionControl',
+            isReadOnly,
+            htmlProps.onKeyDown,
+          )}
+          onClick={readOnlyClickHandler(isReadOnly, htmlProps.onClick)}
         />
         <SelectionControl
           controlType="checkbox"
