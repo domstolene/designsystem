@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { StoryVStack } from '../../Stack/utils';
+import { StoryHStack, StoryVStack } from '../../Stack/utils';
 
 import { RadioButton, RadioButtonGroup } from '.';
 
@@ -50,60 +50,106 @@ export const Overview: Story = {
   args: { label: 'Label' },
   render: args => {
     const [value, setValue] = useState<number | undefined>();
+    let counter = 0;
+    const name = () => `test${counter++}`;
     return (
-      <StoryVStack>
-        <RadioButtonGroup
-          {...args}
-          value={value}
-          name="test"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-        <RadioButtonGroup
-          {...args}
-          tip="Dette er en hjelpetekst"
-          value={value}
-          name="test2"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-        <RadioButtonGroup
-          {...args}
-          errorMessage="Dette er en feilmelding"
-          value={value}
-          name="test4"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-        <RadioButtonGroup
-          {...args}
-          direction="column"
-          value={value}
-          name="test1"
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-        >
-          <RadioButton label="Option 1" value={1} />
-          <RadioButton label="Option 2" value={2} />
-          <RadioButton label="Option 3" value={3} />
-        </RadioButtonGroup>
-      </StoryVStack>
+      <StoryHStack>
+        <StoryVStack>
+          <RadioButtonGroup
+            {...args}
+            value={value}
+            name={name()}
+            onChange={(_event, value) => {
+              setValue(value);
+            }}
+          >
+            <RadioButton label="Option 1" value={1} />
+            <RadioButton label="Option 2" value={2} />
+            <RadioButton label="Option 3" value={3} />
+          </RadioButtonGroup>
+          <RadioButtonGroup
+            {...args}
+            value={value}
+            name={name()}
+            disabled
+            onChange={(_event, value) => {
+              setValue(value);
+            }}
+          >
+            <RadioButton label="Option 1" value={1} />
+            <RadioButton label="Option 2" value={2} />
+            <RadioButton label="Option 3" value={3} />
+          </RadioButtonGroup>
+          <RadioButtonGroup
+            {...args}
+            tip="Dette er en hjelpetekst"
+            value={value}
+            name={name()}
+            onChange={(_event, value) => {
+              setValue(value);
+            }}
+          >
+            <RadioButton label="Option 1" value={1} />
+            <RadioButton label="Option 2" value={2} />
+            <RadioButton label="Option 3" value={3} />
+          </RadioButtonGroup>
+          <RadioButtonGroup
+            {...args}
+            direction="column"
+            value={value}
+            name={name()}
+            onChange={(_event, value) => {
+              setValue(value);
+            }}
+          >
+            <RadioButton label="Option 1" value={1} />
+            <RadioButton label="Option 2" value={2} />
+            <RadioButton label="Option 3" value={3} />
+          </RadioButtonGroup>
+        </StoryVStack>
+        <StoryVStack>
+          <RadioButtonGroup
+            {...args}
+            required
+            value={value}
+            name={name()}
+            onChange={(_event, value) => {
+              setValue(value);
+            }}
+          >
+            <RadioButton label="Option 1" value={1} />
+            <RadioButton label="Option 2" value={2} />
+            <RadioButton label="Option 3" value={3} />
+          </RadioButtonGroup>
+
+          <RadioButtonGroup
+            {...args}
+            readOnly
+            value={value}
+            name={name()}
+            onChange={(_event, value) => {
+              setValue(value);
+            }}
+          >
+            <RadioButton label="Option 1" value={1} />
+            <RadioButton label="Option 2" value={2} />
+            <RadioButton label="Option 3" value={3} />
+          </RadioButtonGroup>
+          <RadioButtonGroup
+            {...args}
+            errorMessage="Dette er en feilmelding"
+            value={value}
+            name={name()}
+            onChange={(_event, value) => {
+              setValue(value);
+            }}
+          >
+            <RadioButton label="Option 1" value={1} />
+            <RadioButton label="Option 2" value={2} />
+            <RadioButton label="Option 3" value={3} />
+          </RadioButtonGroup>
+        </StoryVStack>
+      </StoryHStack>
     );
   },
 };

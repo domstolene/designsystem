@@ -30,7 +30,7 @@
   font-variant-numeric: tabular-nums;
   outline: none;
 
-  &:focus:not([aria-readonly]) {
+  &:focus {
     background-color: var(--dds-color-surface-action-selected);
     color: var(--dds-color-text-on-action);
   }
@@ -41,7 +41,7 @@
   width: 100%;
   font-variant-numeric: tabular-nums;
   pointer-events: none;
-  .segment:focus:not([aria-readonly]) & {
+  .segment:focus & {
     color: var(--dds-color-text-on-action);
   }
 }
@@ -63,7 +63,15 @@
   justify-content: center;
   margin-inline: -1px 0; /* Samme posisjon som TextInput sitt ikon */
   padding: var(--dds-spacing-x0-25);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-icon-default);
+}
+
+.icon-wrapper--disabled {
+  color: var(--dds-color-icon-subtle);
+}
+
+.icon-wrapper--readonly {
+  color: var(--dds-color-icon-medium);
 }
 
 .icon-wrapper--small {
@@ -98,6 +106,10 @@
     outline: none;
     color: var(--dds-color-text-subtle);
   }
+}
+
+.popover-button--readonly:disabled {
+  color: var(--dds-color-text-medium);
 }
 
 .popover {

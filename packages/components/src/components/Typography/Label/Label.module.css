@@ -1,0 +1,11 @@
+.read-only {
+  display: flex;
+}
+
+.read-only__icon {
+  align-self: center;
+  flex-shrink: 0;
+  margin-inline-end: var(--dds-spacing-x0-125);
+  width: 1.25em;
+  height: 1.25em;
+}

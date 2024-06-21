@@ -10,8 +10,11 @@ import {
   getBaseHTMLProps,
 } from '../../../types';
 import { RequiredMarker, cn, derivativeIdGenerator } from '../../../utils';
+import { Icon } from '../../Icon';
+import { LockIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
+import labelStyles from '../../Typography/Label/Label.module.css';
 import styles from '../SelectionControl.module.css';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
@@ -85,7 +88,11 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
+        className={readOnly ? labelStyles['read-only'] : undefined}
       >
+        {readOnly && (
+          <Icon icon={LockIcon} className={labelStyles['read-only__icon']} />
+        )}
         {label} {showRequiredMarker && <RequiredMarker />}
       </Typography>
       {renderInputMessage(tip, tipId)}

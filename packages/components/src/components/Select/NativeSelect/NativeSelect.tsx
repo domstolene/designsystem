@@ -6,6 +6,8 @@ import styles from './NativeSelect.module.css';
 import {
   cn,
   derivativeIdGenerator,
+  readOnlyKeyDownHandler,
+  readOnlyMouseDownHandler,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
 import { type InputProps, inputTypographyTypes } from '../../helpers';
@@ -68,6 +70,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             className={inputStyles.label}
             htmlFor={uniqueId}
             showRequiredStyling={showRequiredStyling}
+            readOnly={readOnly}
           >
             {label}
           </Label>
@@ -90,8 +93,8 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                 getTypographyCn(inputTypographyTypes[componentSize])
               ],
               hasErrorMessage && inputStyles['input--stateful-danger'],
+              multiple && styles['select--multiple'],
             )}
-            tabIndex={readOnly ? -1 : 0}
             style={{ ...style, ...styleVariables }}
             aria-readonly={readOnly}
             aria-invalid={hasErrorMessage}
@@ -101,6 +104,12 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
               ariaDescribedby,
             ])}
             required={required}
+            onKeyDown={readOnlyKeyDownHandler(
+              'select',
+              readOnly,
+              props.onKeyDown,
+            )}
+            onMouseDown={readOnlyMouseDownHandler(readOnly, props.onMouseDown)}
             {...rest}
           >
             {children}
@@ -118,8 +127,6 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     );
   },
 );
-
-NativeSelect.displayName = 'NativeSelect';
 
 export type NativeSelectPlaceholderProps = ComponentProps<'option'>;
 

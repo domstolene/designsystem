@@ -18,8 +18,11 @@ import {
   getBaseHTMLProps,
 } from '../../../types';
 import { RequiredMarker, cn, combineHandlers } from '../../../utils';
+import { Icon } from '../../Icon';
+import { LockIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
+import labelStyles from '../../Typography/Label/Label.module.css';
 import styles from '../SelectionControl.module.css';
 
 export type RadioButtonGroupProps<T extends string | number> =
@@ -123,7 +126,11 @@ const RadioButtonGroupInner = <T extends string | number = string>(
         as="span"
         typographyType="supportingStyleLabel01"
         id={uniqueGroupId}
+        className={readOnly ? labelStyles['read-only'] : undefined}
       >
+        {readOnly && (
+          <Icon icon={LockIcon} className={labelStyles['read-only__icon']} />
+        )}
         {label} {showRequiredMarker && <RequiredMarker />}
       </Typography>
       {renderInputMessage(tip, tipId)}

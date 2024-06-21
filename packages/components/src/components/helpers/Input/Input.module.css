@@ -54,19 +54,19 @@
   &:not(.disabled).read-only,
   &:enabled:read-only {
     box-shadow: none;
-    border: none;
-    outline: none;
+    border: 1px solid var(--dds-color-border-default);
+    background-color: var(--dds-color-surface-field-disabled);
+    color: var(--dds-color-text-medium);
     cursor: default;
-    background-color: transparent;
-    padding-left: 0;
-    padding-top: var(--dds-spacing-x0-125);
   }
 
   &.disabled,
   &:disabled {
-    cursor: not-allowed;
-    color: var(--dds-color-text-medium);
+    box-shadow: none;
+    border: 1px solid var(--dds-color-border-subtle);
     background-color: var(--dds-color-surface-field-disabled);
+    color: var(--dds-color-text-subtle);
+    cursor: not-allowed;
   }
 }
 

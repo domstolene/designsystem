@@ -36,9 +36,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       onChange,
       errorMessage,
       required = false,
-      disabled,
       tip,
       label,
+      readOnly,
       'aria-required': ariaRequired = false,
       'aria-describedby': ariaDescribedby,
       maxLength,
@@ -103,6 +103,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             showRequiredStyling={showRequiredStyling}
             htmlFor={uniqueId}
             className={inputStyles.label}
+            readOnly={readOnly}
           >
             {label}
           </Label>
@@ -113,9 +114,9 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           onChange={onChangeHandler}
           value={value}
           defaultValue={defaultValue}
-          disabled={disabled}
           maxLength={maxLength}
           required={required}
+          readOnly={readOnly}
           aria-required={ariaRequired}
           aria-describedby={spaceSeparatedIdListGenerator([
             tip ? tipId : undefined,

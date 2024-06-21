@@ -18,13 +18,21 @@
   }
   &:disabled {
     cursor: not-allowed;
-    color: var(--dds-color-text-medium);
+    color: var(--dds-color-text-subtle);
     background-color: var(--dds-color-surface-field-disabled);
+    border-color: var(--dds-color-border-subtle);
+
+    + svg {
+      color: var(--dds-color-icon-subtle);
+    }
   }
   option {
     background-color: var(--dds-color-surface-default);
     &:hover {
       background-color: var(--dds-color-surface-hover-default);
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color 0.2s;
     }
   }
   optgroup {
@@ -35,13 +43,14 @@
 
 .select--readonly {
   box-shadow: none;
-  pointer-events: none;
-  border: none;
   outline: none;
   cursor: default;
-  background-color: transparent;
-  padding-left: 0;
-  padding-top: var(--dds-spacing-x0-125);
+  color: var(--dds-color-text-subtle);
+  background-color: var(--dds-color-surface-field-disabled);
+
+  + svg {
+    color: var(--dds-color-icon-subtle);
+  }
 }
 
 .select--medium {
@@ -61,6 +70,14 @@
     1.5em + var(--dds-spacing-x0-25) + var(--dds-spacing-x0-25) + 2px
   );
   padding-right: var(--dds-spacing-x1);
+}
+
+.select--multiple {
+  padding-right: 0;
+
+  &.select--readonly option {
+    background-color: var(--dds-color-surface-field-disabled);
+  }
 }
 
 .icon {

@@ -90,6 +90,7 @@ function _DateInput(
           {...labelProps}
           showRequiredStyling={required}
           className={inputStyles.label}
+          readOnly={readOnly}
         >
           {props.label}
         </Label>
