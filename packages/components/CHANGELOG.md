@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 16.2.0
+
+### Minor Changes
+
+- 18eff04: Endringer i oppførsel og utseende i input-komponenter ved `readOnly`. Tidligere var `readOnly` komponenter som ikke støttet nativ `readonly` satt til `disabled`. I tillegg gjorde styling ved `readOnly` at feltet så ut som statisk tekst. Dette stemmer ikke med hvordan nativ `readonly` input skal oppføre seg og se ut, spesielt da deaktiverte felt ikke får sendt sin verdi sammen med skjema. Komponentene `<TextInput>` og `<TextArea>` får ny styling ved `readOnly`; komponentene `<Select>`, `<NativeSelect>`, `<RadioButton>`, `<Checkbox>`, `<DatePicker>` og `<TimePicker>` får ny styling OG ny oppørsel. De blir ikke satt til `disabled`, istedet er det umulig for brukeren å endre verdien mens de kan fortsatt få fokus.
+
+### Patch Changes
+
+- 18eff04: Visuelle endringer i ikonene `LockIcon` og `LockOpenIcon`.
+- 4709a71: Sett riktig DOM property clipRule og fillRule for GuardianIcon
+- 18eff04: Oppdaterer styling ved `disabled` i input-komponenter.
+- d40990f: Fix typo in text-color variable name for Input and DateInput components
+
 ## 16.1.0
 
 ### Minor Changes
