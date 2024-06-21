@@ -11,12 +11,10 @@ function fileHeader(options, commentStyle) {
     if (commentStyle === 'short') {
       to_ret += '\n';
       to_ret += '// Do not edit directly\n';
-      to_ret += '// Generated on ' + new Date().toUTCString() + '\n';
       to_ret += '\n';
     } else {
       to_ret += '/**\n';
       to_ret += ' * Do not edit directly\n';
-      to_ret += ' * Generated on ' + new Date().toUTCString() + '\n';
       to_ret += ' */\n\n';
     }
   }

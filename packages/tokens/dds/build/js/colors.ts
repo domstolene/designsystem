@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 10 Jun 2024 11:27:50 GMT
+ * Generated on Wed, 03 Jul 2024 11:46:41 GMT
  */
 
 export const DdsColorPrimaryLightest = "#eaeff4";
@@ -103,6 +103,7 @@ export const DdsColorSurfaceFieldDisabled = "#f8f9f9";
 export const DdsColorSurfaceHighlightedDefault = "#ffe6df";
 export const DdsColorSurfaceScrollbar = "#adb5ba";
 export const DdsColorSurfaceNotification = "#d83737";
+export const DdsColorSurfaceSkeleton = "#cfd4d7";
 export const DdsColorBorderDefault = "#77838c";
 export const DdsColorBorderSubtle = "#cfd4d7";
 export const DdsColorBorderInverse = "#acbbc6";
