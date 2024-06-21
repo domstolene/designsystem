@@ -162,6 +162,11 @@
         "value": "{dds-color.danger.base}",
         "type": "color",
         "description": "bg on a notification"
+      },
+      "skeleton": {
+        "value": "{dds-color.neutrals.gray3}",
+        "type": "color",
+        "description": "Used for skeleton"
       }
     },
     "border": {
