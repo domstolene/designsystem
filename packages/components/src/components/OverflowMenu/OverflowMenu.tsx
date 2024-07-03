@@ -1,6 +1,7 @@
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { forwardRef, useEffect, useId } from 'react';
 
+import { OverflowMenuContextProvider } from './OverflowMenu.context';
 import styles from './OverflowMenu.module.css';
 import { OverflowMenuItem } from './OverflowMenuItem';
 import {
@@ -191,11 +192,23 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         border="default"
         style={{ ...style, ...floatingStyles.floating }}
       >
-        {hasStaticUser && (
-          <OverflowMenuItem title={username} icon={PersonIcon} />
-        )}
+        {items || navItems || userProps ? (
+          <>
+            {hasStaticUser && (
+              <OverflowMenuItem title={username} icon={PersonIcon} />
+            )}
 
-        {interactiveContent()}
+            {interactiveContent()}
+          </>
+        ) : (
+          <OverflowMenuContextProvider
+            isOpen={isOpen}
+            onToggle={onToggle}
+            onClose={onClose}
+          >
+            {props.children}
+          </OverflowMenuContextProvider>
+        )}
       </Paper>
     );
   },

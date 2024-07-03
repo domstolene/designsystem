@@ -8,8 +8,17 @@ import { cn } from '../../utils';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { MenuIcon, MoreVerticalIcon } from '../Icon/icons';
-import { OverflowMenu } from '../OverflowMenu';
+import { MenuIcon, MoreVerticalIcon, PersonIcon } from '../Icon/icons';
+import {
+  OverflowMenu,
+  OverflowMenuButton,
+  type OverflowMenuButtonProps,
+  OverflowMenuDivider,
+  OverflowMenuLink,
+  type OverflowMenuLinkProps,
+  OverflowMenuList,
+  OverflowMenuSpan,
+} from '../OverflowMenu';
 import { Typography } from '../Typography';
 
 export const InternalHeader = (props: InternalHeaderProps) => {
@@ -83,6 +92,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
+
   return (
     <div
       {...getBaseHTMLProps(
@@ -132,11 +142,51 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             isOpen={!contextMenuIsClosed}
             onClose={onOveflowMenuClose}
             anchorRef={buttonRef}
-            navItems={hasNavInContextMenu ? navigationElements : undefined}
-            items={hasContextMenuElements ? contextMenuElements : undefined}
-            userProps={userProps}
             className={styles['context-menu']}
-          />
+          >
+            {userProps && (
+              <OverflowMenuList>
+                {userProps.href ? (
+                  <OverflowMenuLink icon={PersonIcon} href={userProps.href}>
+                    {userProps.name}
+                  </OverflowMenuLink>
+                ) : (
+                  <OverflowMenuSpan icon={PersonIcon}>
+                    {userProps.name}
+                  </OverflowMenuSpan>
+                )}
+              </OverflowMenuList>
+            )}
+            {hasNavInContextMenu && (
+              <nav>
+                <OverflowMenuList>
+                  {navigationElements.map(item => (
+                    <OverflowMenuLink {...item}>{item.title}</OverflowMenuLink>
+                  ))}
+                </OverflowMenuList>
+              </nav>
+            )}
+            {hasNavInContextMenu && hasContextMenuElements && (
+              <OverflowMenuDivider />
+            )}
+            {hasContextMenuElements && (
+              <OverflowMenuList>
+                {contextMenuElements.map(item => {
+                  const { title } = item;
+
+                  return item.href ? (
+                    <OverflowMenuLink {...(item as OverflowMenuLinkProps)}>
+                      {title}
+                    </OverflowMenuLink>
+                  ) : (
+                    <OverflowMenuButton {...(item as OverflowMenuButtonProps)}>
+                      {title}
+                    </OverflowMenuButton>
+                  );
+                })}
+              </OverflowMenuList>
+            )}
+          </OverflowMenu>
         </div>
       )}
     </div>

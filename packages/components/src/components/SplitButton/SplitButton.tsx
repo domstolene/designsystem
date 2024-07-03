@@ -12,8 +12,10 @@ import {
 import { ChevronDownIcon, ChevronUpIcon } from '../Icon/icons';
 import {
   OverflowMenu,
+  OverflowMenuButton,
   type OverflowMenuButtonItem,
   OverflowMenuGroup,
+  OverflowMenuList,
 } from '../OverflowMenu';
 
 export type SplitButtonPurpose = ExtractStrict<
@@ -74,7 +76,13 @@ export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
               purpose === 'primary' && styles['option--primary'],
             )}
           />
-          <OverflowMenu items={secondaryActions} placement="bottom-end" />
+          <OverflowMenu placement="bottom-end">
+            <OverflowMenuList>
+              {secondaryActions.map(item => (
+                <OverflowMenuButton {...item}>{item.title}</OverflowMenuButton>
+              ))}
+            </OverflowMenuList>
+          </OverflowMenu>
         </OverflowMenuGroup>
       </div>
     );

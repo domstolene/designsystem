@@ -1,5 +1,13 @@
 import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
-import { OverflowMenuGroup } from '.';
+import {
+  OverflowMenuGroup,
+  OverflowMenuButton,
+  OverflowMenuDivider,
+  OverflowMenuLink,
+  OverflowMenuList,
+  OverflowMenuSpan,
+  OverflowMenuListHeader,
+} from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -18,11 +26,20 @@ import * as OverflowMenuStories from './OverflowMenu.stories';
 
 ## Oversikt
 
-OverflowMenu er en komponent som viser og skjuler en meny med handlinger og/eller lenker når brukeren trykker på en knapp - anchor-elementet. Den består av tre elementer:
+OverflowMenu er en komponent som viser og skjuler en meny med handlinger og/eller lenker når brukeren trykker på en knapp - anchor-elementet. Den består følgende elementer:
 
-- **`<OverflowMenu />`** - selve menyen.
-- **Anchor-element** - valgfritt element som åpner menyen. `<OverflowMenu />` posisjoneres i forhold til anchor-elementet.
-- **`<OverflowMenuGroup />`** - wrapper som håndterer åpning, lukking, refs og universell utforming. Den skal ha `<OverflowMenu />` og anchor-element som barn. Ikke obligatorisk å bruke, men overnevnt må isåfall håndteres på eget ansvar.
+- **`<OverflowMenu>`** - selve menyen.
+- **Anchor-element** - valgfritt element som åpner menyen. `<OverflowMenu>` posisjoneres i forhold til anchor-elementet.
+- **`<OverflowMenuGroup>`** - wrapper som håndterer åpning, lukking, refs og universell utforming. Den skal ha `<OverflowMenu>` og anchor-element som barn. Ikke obligatorisk å bruke, men overnevnt må isåfall håndteres på eget ansvar.
+
+Og følgende subkomponenter som kan være barn i `<OverflowMenu>`:
+
+- **`<OverflowMenuList>`** - en liste med elementer.
+- **`<OverflowMenuButton>`** - knapp. Brukes som barn i `<OverflowMenuList>`.
+- **`<OverflowMenuLink>`** - lenke. Brukes som barn i `<OverflowMenuList>`.
+- **`<OverflowMenuSpan>`** - statisk element. Brukes som barn i `<OverflowMenuList>`.
+- **`<OverflowMenuListHeader>`** - overskift for en liste. Brukes som barn i `<OverflowMenuList>`.
+- **`<OverflowMenuDivider>`** - divider som kan brukes som skille mellom lister.
 
 ## Bruk i koden
 
@@ -35,7 +52,19 @@ const items = [
 
 <OverflowMenuGroup>
   <Button>Åpne meny</Button>
-  <OverflowMenu items={items} />
+  <OverflowMenu>
+    <OverflowMenuList>
+      <OverflowMenuListHeader>Overskrift</OverflowMenuListHeader>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+      <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
+    </OverflowMenuList>
+    <OverflowMenuDivider />
+    <OverflowMenuList>
+      <OverflowMenuListHeader>Overskrift</OverflowMenuListHeader>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+      <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
+    </OverflowMenuList>
+  </OverflowMenu>
 </OverflowMenuGroup>
 `} />
 
@@ -70,7 +99,12 @@ const items = [
   anchorRef={buttonRef}
   items={items}
   id={id}
-/>
+>
+  <OverflowMenuList>
+    <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+    <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
+  </OverflowMenuList>
+</OverflowMenu>
 `} />
 
 ## Props
@@ -84,9 +118,51 @@ Hovedkomponenten `<OverflowMenu/>`.
 </Canvas>
 <Controls of={OverflowMenuStories.Default} />
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface i `htmlProps`.
+### OverflowMenuGroup
 
-#### Types
+En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<OverflowMenu />` ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu />` som andre barn. Ikke obligatorisk, men da må oppførsel osv. håndteres utenfor komponenten.
+
+<ArgTypes of={OverflowMenuGroup} />
+
+### OverflowMenuList
+
+Liste med elementer. Returnerer `<ul>`.
+
+### OverflowMenuListHeader
+
+Overskrift for en liste ved behov. Returnerer `<h2>` inni `<li>` for å opprettholde overskriftshierarki på siden. Brukes som barn i `<OverflowMenuList>`.
+
+### OverflowMenuDivider
+
+Skillelinje. Brukes mellom lister.
+
+<ArgTypes of={OverflowMenuDivider} />
+
+### OverflowMenuButton
+
+Knapp. Returnerer `<button>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
+
+<ArgTypes of={OverflowMenuButton} />
+
+Støtter også alle native props.
+
+### OverflowMenuLink
+
+Lenke. Returnerer `<a>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
+
+<ArgTypes of={OverflowMenuLink} />
+Støtter også alle native props.
+
+### OverflowMenuSpan
+
+Statisk element. Returnerer `<span>` inni `<li>`. Brukes som barn i `<OverflowMenuList>`.
+
+<ArgTypes of={OverflowMenuSpan} />
+Støtter også alle native props.
+
+### Types
+
+Typer for depracated props `items`, `navItems` og `userProps`.
 
 <Source
   code={`
@@ -124,28 +200,25 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 `}
 />
 
-### OverflowMenuGroup
-
-En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<OverflowMenu />` ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu />` som andre barn. Ikke obligatorisk, men da må oppførsel osv. håndteres utenfor komponenten.
-
-<ArgTypes of={OverflowMenuGroup} />
-
 ## Eksempler
 
-### Med interaktiv bruker
-
-<Canvas>
-  <Story of={OverflowMenuStories.WithInteractiveUser} />
-</Canvas>
 ### Med navigasjon
-<Canvas>
-  <Story of={OverflowMenuStories.WithNavigation} />
-</Canvas>
-### Med statisk bruker
-<Canvas>
-  <Story of={OverflowMenuStories.WithStaticUser} />
-</Canvas>
-### Med navigasjon og interaktiv bruker
-<Canvas>
-  <Story of={OverflowMenuStories.WithNavigationAndInteractiveUser} />
-</Canvas>
+
+<Canvas of={OverflowMenuStories.WithNavigation} />
+
+### Med navigasjon prop (deprecated)
+
+<Canvas of={OverflowMenuStories.WithNavItemsProp} />
+
+### Med interaktiv bruker prop (deprecated)
+
+<Canvas of={OverflowMenuStories.WithInteractiveUserProp} />
+
+### Med statisk bruker prop (deprecated)
+
+<Canvas of={OverflowMenuStories.WithStaticUserProp} />
+
+## Retningslinjer
+
+- Elementer skal wrappes i minst én `<OverflowMenuList>`, da de returnerer `<li>`.
+- Hvis lenker i menyen brukes til navigasjon, wrap listen i `<nav>`, og gi den gjerne `aria-label` for tilgjengelig navn.
