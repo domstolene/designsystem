@@ -1,4 +1,4 @@
-import { type HTMLAttributes } from 'react';
+import { type HTMLAttributes, type ReactNode } from 'react';
 
 import styles from './EmptyContent.module.css';
 import { cn } from '../../utils';
@@ -9,8 +9,8 @@ export type EmptyContentProps = {
   title?: string;
   /**Nivå på overskriften. Sørg for at den følger hierarkiet på siden. */
   titleHeadingLevel?: HeadingLevel;
-  /**Melding - beskrivelse og forklaring på hvordan brukeren kan få innhold. */
-  message: string;
+  /**Melding - beskrivelse og forklaring på hvordan brukeren kan få innhold. Kan inneholde lenker og andre interaktive elementer. */
+  message: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
 export function EmptyContent({
