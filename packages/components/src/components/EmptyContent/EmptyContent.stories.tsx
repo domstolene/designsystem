@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { EmptyContent } from './EmptyContent';
 import { StoryVStack } from '../Stack/utils';
+import { Link } from '../Typography';
 
 export default {
   title: 'dds-components/EmptyContent',
@@ -37,14 +38,14 @@ export const Overview: Story = {
       <EmptyContent
         {...args}
         message={`Dette er en lang tekst. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
-        Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
-        Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
-        Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.`}
+          Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
+          Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
+          Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Donec tempus imperdiet leo, eget tempus nulla suscipit vel. 
+          Curabitur accumsan dapibus elit, eu semper massa pulvinar vitae.`}
       />
 
       <div style={{ height: '25rem', width: '500px' }}>
@@ -55,4 +56,16 @@ export const Overview: Story = {
       </div>
     </StoryVStack>
   ),
+};
+
+export const ComplexContent: Story = {
+  args: {
+    title: 'Tittel',
+    message: (
+      <>
+        Dette er en forklaring. Du kan <Link href="/">registrere en aktør</Link>
+        .
+      </>
+    ),
+  },
 };

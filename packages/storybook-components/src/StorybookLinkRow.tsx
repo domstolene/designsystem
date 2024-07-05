@@ -2,7 +2,9 @@ import type { ComponentProps } from 'react';
 
 import { StorybookLink } from './StorybookLink';
 
-export const StorybookLinkRow = (props: ComponentProps<'div'>) => (
+export const StorybookLinkRow = (
+  props: ComponentProps<'div'> & { withBottomSpacing?: boolean },
+) => (
   <div
     {...props}
     style={{
@@ -10,6 +12,9 @@ export const StorybookLinkRow = (props: ComponentProps<'div'>) => (
       flexWrap: 'wrap',
       alignItems: 'center',
       gap: 'var(--dds-spacing-x0-75)',
+      marginBottom: props.withBottomSpacing
+        ? 'var(--dds-spacing-x2)'
+        : undefined,
     }}
   />
 );
@@ -18,14 +23,16 @@ interface props {
   docsHref: string;
   figmaHref?: string;
   githubHref: string;
+  withBottomSpacing?: boolean;
 }
 
 export const ComponentLinkRow = ({
   docsHref,
   figmaHref,
   githubHref,
+  withBottomSpacing,
 }: props) => (
-  <StorybookLinkRow>
+  <StorybookLinkRow withBottomSpacing={withBottomSpacing}>
     <StorybookLink
       size="small"
       text="Docs"
