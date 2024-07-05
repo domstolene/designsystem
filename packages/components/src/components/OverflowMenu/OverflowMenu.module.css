@@ -5,10 +5,6 @@
   min-width: 180px;
   max-width: 300px;
   box-shadow: var(--dds-shadow-1-onlight);
-
-  .divider {
-    margin-block: var(--dds-spacing-x0-75);
-  }
 }
 
 .list {
@@ -23,7 +19,7 @@
   color: var(--dds-color-text-default);
   background-color: var(--dds-color-surface-default);
   text-decoration: none;
-  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
+  padding: var(--dds-spacing-x0-75);
   gap: var(--dds-spacing-x0-25);
 }
 
@@ -51,5 +47,11 @@
 }
 
 .divider {
-  margin-inline: var(--dds-spacing-x1);
+  margin-inline: var(--dds-spacing-x0-5);
+  margin-block: var(--dds-spacing-x0);
+}
+
+.group-header {
+  padding-inline: var(--dds-spacing-x0-75);
+  padding-block-start: var(--dds-spacing-x0-75);
 }

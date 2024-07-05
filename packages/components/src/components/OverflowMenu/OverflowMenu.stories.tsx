@@ -1,9 +1,23 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
-import { MenuIcon, PlusCircledIcon } from '../Icon/icons';
+import {
+  EditIcon,
+  MenuIcon,
+  PersonIcon,
+  PlusCircledIcon,
+  TrashIcon,
+} from '../Icon/icons';
 import { VStack } from '../Stack';
 
+import {
+  OverflowMenuButton,
+  OverflowMenuDivider,
+  OverflowMenuLink,
+  OverflowMenuList,
+  OverflowMenuListHeader,
+  OverflowMenuSpan,
+} from '.';
 import {
   OverflowMenu,
   type OverflowMenuContextItem,
@@ -52,53 +66,138 @@ const navItems: Array<OverflowMenuNavItem> = [
 type Story = StoryObj<typeof OverflowMenu>;
 
 export const Default: Story = {
-  args: {
-    items,
+  parameters: { docs: { story: { height: '450px' } } },
+  render: args => {
+    return (
+      <VStack>
+        <OverflowMenuGroup>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuSpan icon={PersonIcon}>
+                Navn Navnesen
+              </OverflowMenuSpan>
+            </OverflowMenuList>
+            <OverflowMenuList>
+              <OverflowMenuListHeader>Header</OverflowMenuListHeader>
+
+              <OverflowMenuLink href="/">Link</OverflowMenuLink>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+              >
+                Handling
+              </OverflowMenuButton>
+            </OverflowMenuList>
+            <OverflowMenuDivider />
+            <OverflowMenuList>
+              <OverflowMenuListHeader>Header</OverflowMenuListHeader>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+              >
+                Handling
+              </OverflowMenuButton>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+                icon={EditIcon}
+              >
+                Rediger
+              </OverflowMenuButton>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+                icon={TrashIcon}
+              >
+                Slett
+              </OverflowMenuButton>
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
   },
-  render: args => (
-    <VStack>
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu {...args} />
-      </OverflowMenuGroup>
-    </VStack>
-  ),
 };
 
-export const WithStaticUser: Story = {
-  args: {
-    items,
-    userProps: { name: 'Brukernavn' },
+export const WithButtons: Story = {
+  render: args => {
+    return (
+      <VStack>
+        <OverflowMenuGroup>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+              >
+                Handling
+              </OverflowMenuButton>
+            </OverflowMenuList>
+            <OverflowMenuDivider />
+            <OverflowMenuList>
+              <OverflowMenuListHeader>Header</OverflowMenuListHeader>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+              >
+                Handling
+              </OverflowMenuButton>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+                icon={EditIcon}
+              >
+                Rediger
+              </OverflowMenuButton>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+                icon={TrashIcon}
+              >
+                Slett
+              </OverflowMenuButton>
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
   },
-  render: args => (
-    <VStack>
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu {...args} />
-      </OverflowMenuGroup>
-    </VStack>
-  ),
-};
-
-export const WithInteractiveUser: Story = {
-  args: {
-    items,
-    userProps: { name: 'Brukernavn', onClick: () => null },
-  },
-  render: args => (
-    <VStack>
-      <OverflowMenuGroup>
-        <Button icon={MenuIcon} aria-label="Åpne meny" />
-        <OverflowMenu {...args} />
-      </OverflowMenuGroup>
-    </VStack>
-  ),
 };
 
 export const WithNavigation: Story = {
+  render: args => {
+    return (
+      <VStack>
+        <OverflowMenuGroup>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <nav>
+              <OverflowMenuList>
+                <OverflowMenuLink href="/">Link</OverflowMenuLink>
+                <OverflowMenuLink href="/">Link</OverflowMenuLink>
+                <OverflowMenuLink href="/">Link</OverflowMenuLink>
+              </OverflowMenuList>
+            </nav>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
+  },
+};
+
+export const WithItemsProp: Story = {
   args: {
     items,
-    navItems,
   },
   render: args => (
     <VStack>
@@ -110,11 +209,40 @@ export const WithNavigation: Story = {
   ),
 };
 
-export const WithNavigationAndInteractiveUser: Story = {
+export const WithStaticUserProp: Story = {
+  args: {
+    userProps: { name: 'Brukernavn' },
+  },
+  parameters: { docs: { story: { height: '100px' } } },
+  render: args => (
+    <VStack>
+      <OverflowMenuGroup>
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
+        <OverflowMenu {...args} />
+      </OverflowMenuGroup>
+    </VStack>
+  ),
+};
+
+export const WithInteractiveUserProp: Story = {
+  parameters: { docs: { story: { height: '100px' } } },
+  args: {
+    userProps: { name: 'Brukernavn', onClick: () => null },
+  },
+  render: args => (
+    <VStack>
+      <OverflowMenuGroup>
+        <Button icon={MenuIcon} aria-label="Åpne meny" />
+        <OverflowMenu {...args} />
+      </OverflowMenuGroup>
+    </VStack>
+  ),
+};
+
+export const WithNavItemsProp: Story = {
   args: {
     items,
     navItems,
-    userProps: { name: 'Brukernavn', onClick: () => null },
   },
   render: args => (
     <VStack>

@@ -1,4 +1,4 @@
-.divider {
+:where(.divider) {
   border: 0;
   background-color: transparent;
   border-top: 1px solid;

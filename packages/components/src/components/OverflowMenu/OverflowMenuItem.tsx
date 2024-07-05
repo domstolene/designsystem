@@ -102,13 +102,19 @@ export const OverflowMenuItem = forwardRef<
     utilStyles['normalize-button'],
   ];
 
+  const content = (
+    <>
+      {iconElement}
+      {title}
+    </>
+  );
+
   if (!href && !onClick) {
     return (
       <span
         {...{ ...getBaseHTMLProps(id, cn(...wrapperCn), htmlProps, rest), ref }}
       >
-        {iconElement}
-        {title}
+        {content}
       </span>
     );
   }
@@ -120,8 +126,7 @@ export const OverflowMenuItem = forwardRef<
         {...linkProps}
         ref={combinedRef as ForwardedRef<HTMLButtonElement>}
       >
-        {iconElement}
-        {title}
+        {content}
       </button>
     );
   }
@@ -132,8 +137,7 @@ export const OverflowMenuItem = forwardRef<
       {...linkProps}
       ref={combinedRef as ForwardedRef<HTMLAnchorElement>}
     >
-      {iconElement}
-      {title}
+      {content}
     </a>
   );
 });

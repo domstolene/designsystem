@@ -10,8 +10,12 @@ import { Button } from '../Button';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, MoreHorizontalIcon } from '../Icon/icons';
-import { OverflowMenu, OverflowMenuGroup } from '../OverflowMenu';
-import { type OverflowMenuItemProps } from '../OverflowMenu/OverflowMenuItem';
+import {
+  OverflowMenu,
+  OverflowMenuGroup,
+  OverflowMenuLink,
+  OverflowMenuList,
+} from '../OverflowMenu';
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -51,18 +55,17 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
       );
     });
 
-    const breadcrumbChildrenTruncated: Array<OverflowMenuItemProps> =
+    const breadcrumbChildrenTruncated =
       childrenArray.length > 2
-        ? (childrenArray
-            .slice(1, childrenArray.length - 1)
-            .map(item => {
-              if (isValidElement(item))
-                return {
-                  title: item.props.children as string,
-                  href: item.props.href as string,
-                };
-            })
-            .filter(item => item) as Array<OverflowMenuItemProps>)
+        ? childrenArray.slice(1, childrenArray.length - 1).map(item => {
+            if (isValidElement(item)) {
+              return (
+                <OverflowMenuLink href={item.props.href}>
+                  {item.props.children}
+                </OverflowMenuLink>
+              );
+            }
+          })
         : [];
 
     const breadcrumbChildrenSmallScreen = (
@@ -78,7 +81,11 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
                 purpose="tertiary"
                 aria-label={`Vis brødsmulesti brødsmule 2 ${breadcrumbChildrenTruncated.length > 1 && `til ${breadcrumbChildren.length - 1}`}`}
               />
-              <OverflowMenu items={breadcrumbChildrenTruncated}></OverflowMenu>
+              <OverflowMenu>
+                <OverflowMenuList>
+                  {breadcrumbChildrenTruncated}
+                </OverflowMenuList>
+              </OverflowMenu>
             </OverflowMenuGroup>
           </li>
         )}
