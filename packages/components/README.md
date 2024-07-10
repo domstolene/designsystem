@@ -12,6 +12,12 @@ Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [ Elsa
 pnpm add @norges-domstoler/dds-components
 ```
 
+Importer styling av komponentene i CSS:
+
+```css
+@import '@norges-domstoler/dds-components/index.css';
+```
+
 ## 🔨 Bruk
 
 ```js
@@ -42,6 +48,7 @@ Tilgjengelige komponenter:
 
 - Breadcrumbs
 - Button
+- ButtonGroup
 - Card (inkludert CardAccordion)
 - Checkbox
 - Chip
@@ -56,6 +63,7 @@ Tilgjengelige komponenter:
 - GlobalMessage
 - Grid
 - Icon
+- InlineButton
 - InputMessage
 - InternaHeader
 - List
@@ -91,7 +99,3 @@ Tilgjengelige komponenter:
   - Paragraph
   - Typography
 - VisuallyHidden
-
-## ⌨️ For bidragsytere
-
-Sjekk ut [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).

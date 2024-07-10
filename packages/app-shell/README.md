@@ -10,6 +10,32 @@ AppShell for bruk i utvikling av applikasjoner til Norges Domstoler. Dette er en
 pnpm add @norges-domstoler/app-shell
 ```
 
-## ⌨️ For bidragsytere
+## 🔨 Bruk
 
-Sjekk ut [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).
+```tsx
+import { Link } from 'react-router-dom';
+import {
+  AppShell,
+  FolderIcon,
+  ChecklistIcon,
+} from '@norges-domstoler/dds-components';
+
+<AppShell
+  version="1.0.0"
+  navigation={{
+    internal: [
+      {
+        as: Link,
+        to: '/saker',
+        icon: FolderIcon,
+        label: 'Saker',
+        active: true,
+      },
+      { as: Link, to: '/oppgaver', icon: ChecklistIcon, label: 'Oppgaver' },
+    ],
+    external: [{ href: '...', external: true, label: 'Registeroppslag' }],
+  }}
+>
+  Applikasjonskoden din her...
+</AppShell>;
+```
