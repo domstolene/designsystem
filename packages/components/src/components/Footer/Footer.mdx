@@ -1,0 +1,59 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as FooterStories from './Footer.stories';
+
+<Meta of={FooterStories} />
+
+# Footer
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=17100-91741"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Footer"
+  withBottomSpacing
+/>
+
+`<Footer>` er en fleksibel komponent som tillatter å bygge en footer fra bunn av.
+Komponenter inneholder en rekke subkomponenter som sørger for fritt struktur og gjennomgående layout på tvers av implementasjoner:
+
+- `<Footer>` - selve `<footer>`. Bruker mørk bagrunn og sørger for at alle tekster og ikoner har kontrasterende farge.
+- `<FooterLogo>` - logo til domstolene.
+- `<FooterList>` - liste med elementer, sørger for riktig spacing og layout.
+- `<FooterSocialsList>` - egen komponent for liste med lenker til sosiale medier; til bruk under Logo. Sørger for riktig spacing og layout.
+- `<FooterListHeader>` - overskrift for en liste; kan brukes for alle lister.
+- `<FooterListGroup>` - layout-komponent for `<FooterListHeader>` og `<FooterList>`.
+- `<FooterSocialsListGroup>` - layout-komponent for `<FooterListHeader>` og `<FooterSocialsList>`.
+
+## Demo
+
+<Canvas of={FooterStories.Default} />
+<Controls of={FooterStories.Default} />
+
+## Subkomponenter
+
+### FooterLogo
+
+Logo. Kan overskrives til egen logo ved behov.
+
+<Canvas of={FooterStories.Logo} />
+
+### FooterList
+
+Liste med elementer.
+
+<Canvas of={FooterStories.FooterListExample} />
+
+### FooterSocialsGroup, FooterSocialsList
+
+Gruppering for seksjon med lenker til sosiale medier.
+
+<Canvas of={FooterStories.FooterSocials} />
+
+## Eksempler
+
+### Med logo, sosiale medier, adresse og lenker
+
+<Canvas of={FooterStories.Complex} />
