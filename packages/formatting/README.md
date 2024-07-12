@@ -22,7 +22,3 @@ const riktigFormatertFoedselsnummer = formatFoedselsnummer(
   mittUformaterteFoedselsnummer,
 );
 ```
-
-## ⌨️ For bidragsytere
-
-Sjekk ut [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).
