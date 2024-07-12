@@ -2,24 +2,32 @@
 
 [![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-design-tokens)](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens)
 
-Biblioteket inneholder design tokens brukt i [Domstolenes designsystem Elsa](https://design.domstol.no/): farger, typografi, avstander skygger og størrelser. Design tokens kan brukes i domstolenes tjenester i bl.a. global styling og custom elementer. Ellers er det obligatorisk å bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components).
+Biblioteket inneholder design tokens brukt i [Domstolenes designsystem Elsa](https://design.domstol.no/): farger, typografi, avstander, grid, brekkpunker og skygger. Design tokens kan brukes i domstolenes tjenester i bl.a. global styling og custom elementer. Ellers er det obligatorisk å bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components).
+
+Les mer om [design tokens i dokumentasjonen](https://design.domstol.no/987b33f71/p/50f2cd-design-tokens).
 
 ## 🔍 Oversikt
 
 Design tokens består av base-tokens og semantiske tokens. Base-tokens er variabler genererte fra Figma styles og tilsvarer identiteten til domstolene definert i designprofilen.
 
-Semantiske tokens (OBS! under arbeid) bruker base-tokens til å definere logikk for hvordan base-tokens skal brukes videre i komponenter og andre elementer. F.eks., semantiske tokens kan spesifisere hva fokusfargen skal være, eller font og farger for knapper. Tanken med semantiske tokens er å innbake i navnet hva token brukes til og kunne benytte seg av themes.
+Tanken med semantiske tokens er å innbake i navnet hva token brukes til og kunne benytte seg av themes. Semantiske tokens bruker base-tokens til å definere logikk for hvordan base-tokens skal brukes videre i komponenter og andre elementer. F.eks., semantiske tokens kan spesifisere hva fokusfargen skal være, eller font og farger for knapper.
+
+### 📃 Tilgjengelige samantiske tokens
+
+> [!NOTE]
+> Semantiske tokens er under arbeid. Flere typer tokens blir tilgjengelige over tid.
+
+- color
 
 ### 📃 Tilgjengelige base-tokens
 
 - borderRadius
-- breakpoints
-- colors
+- breakpoint
 - font
 - fontPackages (kun JS)
 - grid
-- iconSizes
-- outerShadow
+- iconSize
+- shadow
 - spacing
 
 ## 📦 Installasjon
@@ -30,7 +38,7 @@ pnpm add @norges-domstoler/dds-design-tokens
 
 ## 🔨 Bruk
 
-Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. Les mer under [Kom i gang](https://design.domstol.no/987b33f71/p/956e78-kom-i-gang/b/0174a7) og [Design tokens](https://design.domstol.no/987b33f71/p/18bd6f-design-tokens/b/499a2c) i dokumentasjonen.
+Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler.
 
 ### JS
 
@@ -50,6 +58,9 @@ render(<App />, document.getElementById('root'));
 ```
 
 ### CSS
+
+> [!TIP]
+> Vi anbefaler VS Code plugin [CSS Variable Autocomplete](https://marketplace.visualstudio.com/items?itemName=vunguyentuan.vscode-css-variables) for sømløs bruk av tokens i CSS.
 
 ```css
 @import '@norges-domstoler/dds-design-tokens/dist/css/ddsTokens.css';

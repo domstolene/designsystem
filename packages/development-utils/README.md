@@ -12,10 +12,6 @@ Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [Elsa 
 pnpm add @norges-domstoler/development-utils
 ```
 
-## Komponenter
+## 📃 Komponenter
 
 - EnvironmentBannerProvider
-
-## ⌨️ For bidragsytere
-
-Sjekk ut [guiden for bidragsytere](https://design.domstol.no/987b33f71/p/34c962-bidra/b/3611d5).
