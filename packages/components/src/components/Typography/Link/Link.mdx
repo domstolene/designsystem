@@ -14,11 +14,10 @@ import * as LinkStories from './Link.stories';
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211814&mode=design&t=XBHlNDhFak7JkOlt-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Link"
+  withBottomSpacing
 />
 
-## Oversikt
-
-`<Link />` er en komponent som tilsvarer `<a>` HTML tag. Den arver font-relatert styling. Når arvet styling skal overskrives brukes oversikten over typografistiler definert i <Link external href="https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f">Typografi | Stiler og bruk</Link> (se API).
+`<Link>` er en komponent som tilsvarer `<a>` HTML tag. Den arver font-relatert styling. Arvet styling kan overskrives (se [props](#props)).
 
 ## Props
 
@@ -34,7 +33,7 @@ import * as LinkStories from './Link.stories';
 
 ## Med `react-router`
 
-Bruk hooks tilgjengelige i `react-router` for å returnere Elsa `<Link />` som custom lenke:
+Bruk hooks tilgjengelige i `react-router` for å returnere Elsa `<Link>` som custom lenke:
 
 <Source code={`
 

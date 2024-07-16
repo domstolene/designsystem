@@ -28,7 +28,7 @@ export const Default: Story = {
     <div style={{ position: 'relative' }}>
       <SkipToContent {...args} />
       'Tab' når du er i frame for å se komponenten
-      <Typography id="innhold">Innhold</Typography>
+      <main id="innhold">Innhold</main>
     </div>
   ),
 };
@@ -40,7 +40,7 @@ export const Overview: Story = {
       <SkipToContent {...args} />
       <SkipToContent {...args} top={'30px'} text="Alternativ tekst" />
       'Tab' når du er i frame for å se varianter av komponenten
-      <Typography id="innhold">Innhold</Typography>
+      <main id="innhold">Innhold</main>
     </div>
   ),
 };
@@ -63,9 +63,7 @@ export const Example: Story = {
       >
         Placeholder
       </div>
-      <Typography id="innhold" withMargins>
-        Innhold
-      </Typography>
+      <main id="innhold">Innhold</main>
     </div>
   ),
 };

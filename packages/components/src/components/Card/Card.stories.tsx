@@ -100,16 +100,24 @@ export const Overview: Story = {
   ),
 };
 
+export const Navigation: Story = {
+  args: {
+    children: <div style={contentContainerStyle}>Content</div>,
+    cardType: 'navigation',
+    href: '#',
+  },
+};
+
 export const Accordion: Story = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  render: (args: any) => (
-    <Card {...args} cardType="expandable">
+  args: {
+    children: (
       <CardAccordion>
         <CardAccordionHeader>Header</CardAccordionHeader>
         <CardAccordionBody>Content</CardAccordionBody>
       </CardAccordion>
-    </Card>
-  ),
+    ),
+    cardType: 'expandable',
+  },
 };
 
 export const Accordions: Story = {

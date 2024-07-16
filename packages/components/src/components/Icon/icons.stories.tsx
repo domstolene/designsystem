@@ -10,7 +10,7 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { LocalMessage } from '../LocalMessage';
 import { Modal, ModalBody } from '../Modal';
-import { Typography } from '../Typography';
+import { Heading, Typography } from '../Typography';
 
 export default {
   title: 'Icons/Overview',
@@ -102,9 +102,7 @@ export const Overview = () => {
 
   return (
     <div className={styles.page}>
-      <Typography typographyType="bodySans03">
-        Klikk på ikonet for mer info.
-      </Typography>
+      <LocalMessage message="Klikk på ikonet for mer info."></LocalMessage>
       <Typography typographyType="supportingStyleHelperText01">
         Antall ikoner: {Object.keys(iconsObject).length}
       </Typography>
@@ -124,7 +122,9 @@ export const Overview = () => {
             </div>
           )}
           <div className={styles['group-header']}>
-            <Typography typographyType="headingSans02">Import</Typography>
+            <Heading level={3} typographyType="headingSans02">
+              Import
+            </Heading>
             <Button
               icon={CopyIcon}
               size="tiny"
@@ -139,7 +139,9 @@ export const Overview = () => {
             </code>
           </div>
           <div className={styles['group-header']}>
-            <Typography typographyType="headingSans02">Bruk</Typography>
+            <Heading level={3} typographyType="headingSans02">
+              Bruk
+            </Heading>
             <Button
               icon={CopyIcon}
               size="tiny"

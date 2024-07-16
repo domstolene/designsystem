@@ -14,23 +14,22 @@ import * as TabsStories from './Tabs.stories';
   docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7003%3A143267"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Tabs"
+  withBottomSpacing
 />
-
-## Oversikt
 
 Komponenten består av flere subkomponenter:
 
-- `<Tabs />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har `<TabList />` og `<TabPanels />` som barn.
-- `<Tab />` - en fane.
-- `<TabList />` - liste med faner. Håndterer ARIA-attributter og `id` for barna.
-- `<TabPanel />` - panel med innhold som hører til en spesifikk fane.
-- `<TabPanels />` - liste med paneler. Håndterer ARIA-attributter og `id` for barna.
+- `<Tabs>` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har `<TabList>` og `<TabPanels>` som barn.
+- `<Tab>` - en fane.
+- `<TabList>` - liste med faner. Håndterer ARIA-attributter og `id` for barna.
+- `<TabPanel>` - panel med innhold som hører til en spesifikk fane.
+- `<TabPanels>` - liste med paneler. Håndterer ARIA-attributter og `id` for barna.
 
-## API
+## Props
 
 ### Tabs
 
-Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList />` og `<TabPanels />` som barn.
+Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList>` og `<TabPanels>` som barn.
 
 <Canvas of={TabsStories.Default} sourceState="shown" />
 
@@ -38,7 +37,7 @@ Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList
 
 ### Tab
 
-En fane. Tilhørende `<TabPanel />` vises ved museklikk.
+En fane. Tilhørende `<TabPanel>` vises ved museklikk.
 
 <ArgTypes of={Tab} />
 
@@ -66,19 +65,19 @@ For å endre på bredden til tabs kan du bruke `width`-attributtet. Her støttes
 
 ### TabList
 
-En liste med `<Tab />`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList />` skal ha `<Tab />` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels />`.
+En liste med `<Tab>`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList>` skal ha `<Tab>` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels>`.
 
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
 ### TabPanel
 
-Panel med innhold. Vises ved museklikk på tilhørende `<Tab />`.
+Panel med innhold. Vises ved museklikk på tilhørende `<Tab>`.
 
 <ArgTypes of={TabPanel} />
 
 ### TabPanels
 
-En liste med `<TabPanel />`. Setter attributter som `aria-labelledby` for barna. `<TabPanels />` skal ha `<TabPanel />` som barn i samme rekkefølge som tilhørende paneler i `<TabList />`.
+En liste med `<TabPanel>`. Setter attributter som `aria-labelledby` for barna. `<TabPanels>` skal ha `<TabPanel>` som barn i samme rekkefølge som tilhørende paneler i `<TabList>`.
 
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 

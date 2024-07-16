@@ -120,7 +120,7 @@ export const PageExample: Story = {
           </GridChild>
           <GridChild columnsOccupied="all">
             <Table.Wrapper>
-              <Table style={{ width: '100%' }}>
+              <Table>
                 <Table.Head>
                   <Table.Row type="head">
                     <Table.Cell type="head">Navn</Table.Cell>

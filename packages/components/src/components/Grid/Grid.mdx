@@ -14,8 +14,9 @@ import * as GridChildStories from './GridChild.stories';
 # Grid
 
 <ComponentLinkRow
-  docsHref=""
+  docsHref="https://design.domstol.no/987b33f71/p/219dd1-grid"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Grid"
+  withBottomSpacing
 />
 
 `<Grid>` implementerer grid layout definert i Figma for alle brekkpunkter. Grid i Figma defineres som stiler og er dermed ikke egen komponent.
@@ -26,7 +27,7 @@ Grid består av to subkomponenter:
 - **`<Grid>`** - en container-komponent for grid children som tar i bruk CSS Grid og definerer antall kolonner og gutters (`gap` i CSS) basert på skjermstørrelse.
 - **`<GridChild>`** - en wrapper-komponent for innhold, brukes som barn i `<Grid>`. Den spesifiserer hvilke deler av grid innholdet skal ta, først og fremst hvilke kolonner.
 
-## Bruk i koden
+## Bruk
 
 <Source
   code={`

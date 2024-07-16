@@ -130,6 +130,7 @@ export const Overview: Story = {
 };
 
 export const WithNavigationAndContextMenu: Story = {
+  parameters: { docs: { story: { height: '265px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
@@ -169,6 +170,7 @@ export const SmallScreenWithContextMenu: Story = {
 };
 
 export const SmallScreenWithNavigationAndContextMenu: Story = {
+  parameters: { docs: { story: { height: '365px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
