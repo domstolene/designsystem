@@ -22,7 +22,7 @@ const ExampleElement = () => (
   />
 );
 
-type Story = StoryObj<typeof VStack>;
+type Story = StoryObj<typeof HStack>;
 
 const children = (
   <>
@@ -34,10 +34,12 @@ const children = (
 );
 
 export const VStackDefault: Story = {
+  name: 'VStack',
   args: { children },
   render: args => <VStack {...args} />,
 };
 
 export const HStackDefault: Story = {
+  name: 'HStack',
   args: { children },
 };

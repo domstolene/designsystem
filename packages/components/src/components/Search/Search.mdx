@@ -14,20 +14,19 @@ import * as SearchStories from './Search.stories';
   docsHref="https://design.domstol.no/987b33f71/p/207165-search/b/875fab"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=1461%3A0"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Search"
+  withBottomSpacing
 />
-
-## Oversikt
 
 Følgende komponenter er tilgjengelige:
 
-- **`<Search />`** - søkelfelt; tilsvarer `<input type="search">` og kan vise en søkeknapp hvis ønsket.
-- **`<Search.AutocompleteWrapper />`** - wrapper for `<Search>` som håndterer autofullføringsforslag hvis ønsket.
+- **`<Search>`** - søkelfelt; tilsvarer `<input type="search">` og kan vise en søkeknapp hvis ønsket.
+- **`<Search.AutocompleteWrapper>`** - wrapper for `<Search>` som håndterer autofullføringsforslag hvis ønsket.
   Den rendrer en liste med forslag under søkefeltet basert på brukerens input.
   Støtter en rekke custom props.
-- **`<Search.Suggestions />`** - selve listen med forslag.
-  Brukes under panseret i `<Search.AutocompleteWrapper />`, men kan brukes uten wrapper hvis konsumenten skal håndtere oppførselen selv.
+- **`<Search.Suggestions>`** - selve listen med forslag.
+  Brukes under panseret i `<Search.AutocompleteWrapper>`, men kan brukes uten wrapper hvis konsumenten skal håndtere oppførselen selv.
 
-Ikke-compound komponenter er også støttet: `<SearchAutocompleteWrapper />`, `<SearchSuggestions />`.
+Ikke-compound komponenter er også støttet: `<SearchAutocompleteWrapper>`, `<SearchSuggestions>`.
 
 ## Props
 
@@ -80,7 +79,7 @@ Liste med forslag. Brukes ved custom autofullføring uten `<Search.AutocompleteW
 
 <ArgTypes of={Search.Suggestions} />
 
-## Bruk i koden
+## Bruk
 
 <Source
   code={`import { Search } from '@norges-domstoler/dds-components';
@@ -117,4 +116,4 @@ handleSearch();
 
 ## Retningslinjer
 
-- Mens resultater lastes inn bør det indikeres til brukeren. Hvis det brukes en søkeknapp gjøres det via `loading` i `buttonProps`. Hvis søkeknappen ikke brukes bør det gjøres med `<Spinner />` i resultatlista.
+- Mens resultater lastes inn bør det indikeres til brukeren. Hvis det brukes en søkeknapp gjøres det via `loading` i `buttonProps`. Hvis søkeknappen ikke brukes bør det gjøres med `<Spinner>` i resultatlista.

@@ -11,11 +11,10 @@ import * as HeadingStories from './Heading.stories';
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211812&mode=design&t=gx7RPj9DH45EpNDL-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Heading"
+  withBottomSpacing
 />
 
-## Oversikt
-
-`<Heading />` er en komponent som tilsvarer `<h1>`-`<h6>` HTML tag. Den bruker oversikten over typografistiler definert i <Link external href="https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f">Typografi | Stiler og bruk</Link> til å gi tekst riktig styling.
+`<Heading>` er en komponent som tilsvarer `<h1>`-`<h6>` HTML tag. Den bruker typografistiler definert i Figma til å gi tekst riktig styling.
 
 ## Props
 
@@ -24,6 +23,6 @@ import * as HeadingStories from './Heading.stories';
 
 ## Med spacing
 
-`<Heading />` har en variant med margin og padding som er tilpasset bruk i artikler o.l., der overskriften plasseres over en `<Paragraph />`. Den sørger for at avstanden fra tekst over er større enn fra tekst under.
+`<Heading>` har en variant med margin og padding som er tilpasset bruk i artikler o.l., der overskriften plasseres over en `<Paragraph>`. Den sørger for at avstanden fra tekst over er større enn fra tekst under.
 
 <Canvas of={HeadingStories.WithMargins} />

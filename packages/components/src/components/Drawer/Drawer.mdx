@@ -14,34 +14,43 @@ import * as DrawerStories from './Drawer.stories';
   docsHref="https://design.domstol.no/987b33f71/p/79af30-drawer/b/15dc45"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=5023%3A128351"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Drawer"
+  withBottomSpacing
 />
-
-## Oversikt
 
 Drawer bygges med følgende elementer:
 
 - **Trigger-element**: styrer en drawer, er typisk en knapp.
-- **`<Drawer />`**: er en komponent som vises når et trigger-element interageres med, vanligvis en knapp. `<Drawer />` kan ha valgfritt innhold.
-- **`<DrawerGroup />`**: håndterer lukking og åpning og gir både `<Drawer />` og trigger-elementet ARIA-attributter. Den skal ha trigger-elementet som første barn og `<Drawer />` som andre barn. Subkomponenten er valgfri å bruke. Hvis den ikke brukes må oppførsel, referanser og ARIA-attributter håndteres utenfor komponentene på eget ansvar.
+- **`<Drawer>`**: er en komponent som vises når et trigger-element interageres med, vanligvis en knapp. `<Drawer>` kan ha valgfritt innhold.
+- **`<DrawerGroup>`**: håndterer lukking og åpning og gir både `<Drawer>` og trigger-elementet ARIA-attributter. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn. Subkomponenten er valgfri å bruke. Hvis den ikke brukes må oppførsel, referanser og ARIA-attributter håndteres utenfor komponentene på eget ansvar.
 
-## API
+## Props
 
 ### Drawer
 
-Hovedkomponenten `<Drawer/>`.
+Hovedkomponenten.
 
 <Canvas of={DrawerStories.Default} sourceState="shown" />
 <Controls of={DrawerStories.Default} />
 
 ### DrawerGroup
 
-En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<Drawer />` ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer />` som andre barn. Valgfri å bruke.
+En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<Drawer>` ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn. Valgfri å bruke.
 
 <ArgTypes of={DrawerGroup} />
 
-## Bruk i koden
+## Bruk
 
-### Uten `<DrawerGroup />`
+<Source
+  code={`
+import { Drawer, DrawerGroup, Button } from '@norges-domstoler/dds-components';
+
+<DrawerGroup>
+  <Button>Åpne</Button>
+  <Drawer header="Tittel">Innhold</Drawer>
+</DrawerGroup>
+`} />
+
+### Uten `<DrawerGroup>`
 
 <Source
   code={`

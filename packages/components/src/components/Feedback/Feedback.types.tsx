@@ -1,25 +1,25 @@
 export interface FeedbackProps {
   /**Om knappene skal være plassert under eller ved siden av teksten. */
   layout?: Layout;
-  /**Label som er plassert over tommel opp/ned knappene */
+  /**Label som er plassert over tommel opp/ned knappene. */
   ratingLabel: string;
-  /**Label til fritekstfeltet når bruker har gitt tommel opp */
+  /**Label til fritekstfeltet når bruker har gitt tommel opp. */
   positiveFeedbackLabel?: string;
-  /**Label til fritekstfeltet når bruker har gitt tommel ned */
+  /**Label til fritekstfeltet når bruker har gitt tommel ned. */
   negativeFeedbackLabel?: string;
-  /**Tittel som vises når bruker har gitt tommel opp/ned, og enda ikke sendt inn kommentar */
+  /**Tittel som vises når bruker har gitt tommel opp/ned, og enda ikke sendt inn kommentar. */
   ratingSubmittedTitle?: string;
-  /**Tittel som vises når bruker har gitt feedback (inkl. eventuell kommentar) */
+  /**Tittel som vises når bruker har gitt feedback (inkl. eventuell kommentar). */
   submittedTitle?: string;
-  /**Tip som vises under tekstfeltet når bruker skal sende inn kommentar  */
+  /**Tip som vises under tekstfeltet når bruker skal sende inn kommentar.  */
   textAreaTip?: string;
   /**Om tommel opp eller ned er valgt. Brukes når komponenten skal være styrt utenfra. */
   ratingValue?: Rating | null;
   /**Verdien til fritekstfeltet. Brukes når komponenten skal være styrt utenfra. */
   feedbackTextValue?: string;
-  /**Tooltip-teksten til tommel-opp-knappen*/
+  /**Tooltip-teksten til tommel-opp-knappen.*/
   thumbUpTooltip?: string;
-  /**Tooltip-teksten til tommel-ned-knappen*/
+  /**Tooltip-teksten til tommel-ned-knappen.*/
   thumbDownTooltip?: string;
   /**Om tilbakemeldingskomponenten skal ekskludere fritekstfeltet (i.e. kun ha tommel opp/ned).*/
   feedbackTextAreaExcluded?: boolean;
@@ -27,11 +27,11 @@ export interface FeedbackProps {
   loading?: boolean;
   /**Om tilbakemelding er sendt inn. Brukes når komponenten skal være styrt utenfra. */
   isSubmitted?: boolean;
-  /**Callback når bruker har gitt tommelrating */
+  /**Callback når bruker har gitt tommel-rating. */
   onRating?: (rating: Rating) => void;
-  /**Callback når bruker skriver noe i fritekstfeltet */
+  /**Callback når bruker skriver noe i fritekstfeltet. */
   onFeedbackTextChange?: (feedbackText: string) => void;
-  /**Callback når bruker sender inn feedback */
+  /**Callback når bruker sender inn feedback. */
   onSubmit?: (rating: Rating, feedbackText: string) => void;
 }
 

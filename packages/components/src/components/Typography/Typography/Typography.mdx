@@ -13,16 +13,15 @@ import * as TypographyStories from './Typography.stories';
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography"
+  withBottomSpacing
 />
 
-## Oversikt
-
-`<Typography />` er en code-only komponent som ikke har en tilsvarende Figma komponent.
-Den bruker oversikten over typografistiler definert i [Typografi | Stiler og bruk](https://design.domstol.no/987b33f71/p/63b944-typografi/b/21516f) til å gi tekst riktig styling.
+`<Typography>` er en code-only komponent som ikke har en tilsvarende Figma komponent.
+Den bruker Elsa typografistiler til å gi tekst riktig styling.
 Hver stil har et default HTML element det blir rendered som. Den kan eventuelt overskrives med en annen HTML tag hvis default ikke passer.
 
 **OBS!** I de fleste tilfeller bør du bruke en av våre deterministiske typografikomponenter, som returnerer en spesifikk HTML tag: [Caption](https://design.domstol.no/987b33f71/p/473d57-caption/b/52a7b4), [Heading](https://design.domstol.no/987b33f71/p/76b220-heading/b/30ecca), [Label](https://design.domstol.no/987b33f71/p/49dc3f-label/b/102e70), [Legend](https://design.domstol.no/987b33f71/p/829771-legend/b/15b037), [Link](https://design.domstol.no/987b33f71/p/411e45-link/b/674f25), [Paragraph](https://design.domstol.no/987b33f71/p/883067-paragraph/b/70f5e1).
-`<Typography />` bør brukes kun når disse komponentene ikke er tilstrekkelige.
+`<Typography>` bør brukes kun når disse komponentene ikke er tilstrekkelige.
 
 ## Props
 
@@ -32,6 +31,6 @@ Hver stil har et default HTML element det blir rendered som. Den kan eventuelt o
 ### Bruk av typografi-tokens
 
 Det er også mulig å bruke typografi-tokens direkte.
-**OBS!** dette bør gjøres kun hvis det er umulig å bruke `<Typography />`-komponenten eller andre typografikomponenter.
-Se [Typografi tokens i kode](https://design.domstol.no/987b33f71/p/63b944-typografi/b/34fc66) for bruk.
-Husk å sette deg inn i retningslinjer for spacing under [Bruk av tokens i artikler](https://design.domstol.no/987b33f71/p/63b944-typografi/t/page-63b944-62038258-31).
+**OBS!** dette bør gjøres kun hvis det er umulig å bruke `<Typography>`-komponenten eller andre typografikomponenter.
+Se [Typografi tokens i kode](https://design.domstol.no/987b33f71/p/76bce9-typography/b/54caa2) for bruk.
+Husk å sette deg inn i retningslinjer for spacing under [bruk av tokens i artikler](https://design.domstol.no/987b33f71/p/76bce9-typography/t/page-63b944-62038258-31).

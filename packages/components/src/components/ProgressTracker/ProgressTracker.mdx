@@ -1,6 +1,6 @@
 import { ArgTypes, Meta, Canvas, Controls } from '@storybook/blocks';
 import * as ProgressTrackerStories from './ProgressTracker.stories';
-import { ProgressTracker } from '.';
+import { ProgressTracker, ProgressTrackerItem } from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -14,20 +14,19 @@ import {
   docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=10018%3A211463"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ProgressTracker"
+  withBottomSpacing
 />
-
-## Oversikt
 
 Komponenten består av:
 
-- `<ProgressTracker />` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har to eller flere `<ProgressTracker.Item />` som barn.
-- `<ProgressTracker.Item />` - et steg. Ikke-compound variant er også støttet: `<ProgressTrackerItem />`.
+- `<ProgressTracker>` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har to eller flere `<ProgressTracker.Item>` som barn.
+- `<ProgressTracker.Item>` - et steg. Ikke-compound variant er også støttet: `<ProgressTrackerItem>`.
 
-## API
+## Props
 
 ### ProgressTracker
 
-Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item />` som barn.
+Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item>` som barn.
 
 <Canvas of={ProgressTrackerStories.Overview} sourceState="shown" />
 <Controls of={ProgressTrackerStories.Overview} />
@@ -38,9 +37,9 @@ I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes
 
 Et steg.
 
-<ArgTypes of={ProgressTracker.Item} />
+<ArgTypes of={ProgressTrackerItem} />
 
-## Bruk i koden
+## Bruk
 
 <Source
   code={`import { ProgressTracker } from '.';
