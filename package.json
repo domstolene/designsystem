@@ -8,10 +8,10 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "turbo run dev --cache-dir=.turbo",
-    "build": "turbo run build --cache-dir=.turbo",
-    "typecheck": "turbo run typecheck --cache-dir=.turbo",
-    "test": "turbo run test --cache-dir=.turbo",
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
     "lint": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs",
     "lint:fix": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs --fix",
     "lint:ci": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --config .eslintrc.ci.cjs",
@@ -65,7 +65,7 @@
     "storybook": "8.1.11",
     "styled-components": "^6.1.11",
     "tsup": "^8.1.0",
-    "turbo": "^1.13.3"
+    "turbo": "^2.0.6"
   },
   "pnpm": {
     "overrides": {
@@ -79,5 +79,6 @@
   },
   "dependencies": {
     "@storybook/test": "8.1.11"
-  }
+  },
+  "packageManager": "pnpm@8.12.1"
 }
