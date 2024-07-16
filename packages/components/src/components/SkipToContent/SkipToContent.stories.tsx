@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { Typography } from '../Typography';
+import { Heading } from '../Typography';
 
 import { SkipToContent } from '.';
 
@@ -52,9 +52,9 @@ export const Example: Story = {
       <SkipToContent {...args} />
       'Tab' når du er i frame for å se komponenten; 'Enter' for å åpne i ny side
       og teste
-      <Typography typographyType="headingSans08" withMargins>
+      <Heading level={2} typographyType="headingSans08" withMargins>
         Placeholder
-      </Typography>
+      </Heading>
       <div
         style={{
           height: '1000px',

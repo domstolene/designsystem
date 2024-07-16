@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { LocalMessage } from './LocalMessage';
 import { List, ListItem } from '../List';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
-import { Typography } from '../Typography';
+import { Heading, Paragraph } from '../Typography';
 
 export default {
   title: 'dds-components/LocalMessage',
@@ -70,10 +70,10 @@ export const ComplexContent: Story = {
   args: {},
   render: args => (
     <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
-      <Typography typographyType="headingSans03" withMargins>
+      <Heading level={2} typographyType="headingSans03" withMargins>
         Dette er en viktig melding
-      </Typography>
-      <Typography withMargins>Meldingen har en liste i seg:</Typography>
+      </Heading>
+      <Paragraph withMargins>Meldingen har en liste i seg:</Paragraph>
       <List>
         <ListItem>Noe her</ListItem>
         <ListItem>Og også her</ListItem>

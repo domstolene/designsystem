@@ -28,7 +28,7 @@ import { Button } from '../Button';
 import { Paper } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { Typography } from '../Typography';
+import { Heading } from '../Typography';
 
 export type ModalProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -121,9 +121,9 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
               {header && (
                 <div id={headerId} className={styles.header}>
                   {typeof header === 'string' ? (
-                    <Typography typographyType="headingSans03">
+                    <Heading level={2} typographyType="headingSans03">
                       {header}
-                    </Typography>
+                    </Heading>
                   ) : (
                     header
                   )}

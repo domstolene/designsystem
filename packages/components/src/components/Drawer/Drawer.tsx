@@ -20,7 +20,7 @@ import { Paper } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { Typography } from '../Typography';
+import { Heading } from '../Typography';
 export type DrawerSize = 'small' | 'medium' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export interface WidthProps {
@@ -132,9 +132,9 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
             {hasHeader && (
               <div id={headerId}>
                 {typeof header === 'string' ? (
-                  <Typography typographyType="headingSans03">
+                  <Heading level={2} typographyType="headingSans03">
                     {header}
-                  </Typography>
+                  </Heading>
                 ) : (
                   header
                 )}
