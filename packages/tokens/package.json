@@ -46,7 +46,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-sass": "^1.13.1",
     "rollup-plugin-typescript2": "^0.36.0",
-    "style-dictionary": "^3.9.2",
+    "style-dictionary": "^4.0.0",
     "typescript": "^5.5.3"
   },
   "publishConfig": {
