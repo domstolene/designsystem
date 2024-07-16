@@ -21,7 +21,7 @@ import { Paper } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { Typography } from '../Typography';
+import { Heading } from '../Typography';
 
 export interface PopoverSizeProps {
   width?: Property.Width;
@@ -127,7 +127,9 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         {title && (
           <div className={styles.title}>
             {typeof title === 'string' ? (
-              <Typography typographyType="headingSans02">{title}</Typography>
+              <Heading level={2} typographyType="headingSans02">
+                {title}
+              </Heading>
             ) : (
               title
             )}
