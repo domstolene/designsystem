@@ -11,7 +11,7 @@ export const StorybookLinkRow = (
       display: 'flex',
       flexWrap: 'wrap',
       alignItems: 'center',
-      gap: 'var(--dds-spacing-x0-75)',
+      gap: 'var(--dds-spacing-x0-5)',
       marginBottom: props.withBottomSpacing
         ? 'var(--dds-spacing-x2)'
         : undefined,
@@ -21,6 +21,7 @@ export const StorybookLinkRow = (
 
 interface props {
   docsHref: string;
+  storybookHref: string;
   figmaHref?: string;
   githubHref: string;
   withBottomSpacing?: boolean;
@@ -30,6 +31,7 @@ export const ComponentLinkRow = ({
   docsHref,
   figmaHref,
   githubHref,
+  storybookHref,
   withBottomSpacing,
 }: props) => (
   <StorybookLinkRow withBottomSpacing={withBottomSpacing}>
@@ -38,6 +40,12 @@ export const ComponentLinkRow = ({
       text="Docs"
       href={docsHref}
       linkType="zeroheight"
+    />
+    <StorybookLink
+      size="small"
+      text="Storybook"
+      href={storybookHref}
+      linkType="storybook"
     />
     {figmaHref && (
       <StorybookLink

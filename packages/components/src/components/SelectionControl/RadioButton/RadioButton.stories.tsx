@@ -5,7 +5,7 @@ import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { RadioButton } from '.';
 
 export default {
-  title: 'dds-components/RadioButton/RadioButton',
+  title: 'dds-components/RadioButton',
   component: RadioButton,
   argTypes: {
     label: { control: { type: 'text' } },
