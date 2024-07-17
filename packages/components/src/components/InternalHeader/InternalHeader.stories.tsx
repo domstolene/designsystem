@@ -68,10 +68,25 @@ const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
 type Story = StoryObj<typeof InternalHeader>;
 
-export const Default: Story = {
+export const WithNavigationAndContextMenu: Story = {
+  parameters: { docs: { story: { height: '265px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
+    navigationElements: navigationLinks,
+    contextMenuElements: menuElements,
+    userProps: user,
+  },
+};
+
+export const WithCurrentPage: Story = {
+  args: {
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
+    navigationElements: [navigationLink, uniqueNavigationLink],
+    contextMenuElements: menuElements,
+    userProps: user,
+    currentPageHref: '#',
   },
 };
 
@@ -127,28 +142,6 @@ export const Overview: Story = {
       />
     </StoryVStack>
   ),
-};
-
-export const WithNavigationAndContextMenu: Story = {
-  parameters: { docs: { story: { height: '265px' } } },
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navigationElements: navigationLinks,
-    contextMenuElements: menuElements,
-    userProps: user,
-  },
-};
-
-export const WithCurrentPage: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navigationElements: [navigationLink, uniqueNavigationLink],
-    contextMenuElements: menuElements,
-    userProps: user,
-    currentPageHref: '#',
-  },
 };
 
 export const SmallScreenWithNavigation: Story = {

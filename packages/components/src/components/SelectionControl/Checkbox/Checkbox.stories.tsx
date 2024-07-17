@@ -5,7 +5,7 @@ import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { Checkbox } from '.';
 
 export default {
-  title: 'dds-components/Checkbox/Checkbox',
+  title: 'dds-components/Checkbox',
   component: Checkbox,
   argTypes: {
     label: { control: { type: 'text' } },

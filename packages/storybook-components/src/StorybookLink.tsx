@@ -1,31 +1,47 @@
-import { type CSSProperties, type ComponentProps, type ReactNode } from 'react';
+import {
+  type CSSProperties,
+  type ComponentProps,
+  type ElementType,
+  type ReactNode,
+} from 'react';
 
 import {
   FigmaSvg,
   GithubSvg,
   NpmSvg,
   SlackSvg,
+  StorybookSvg,
   ZeroheightSvg,
 } from './assets/logos';
 
-const Link = (props: ComponentProps<'a'>) => (
-  <a
-    {...props}
-    style={{
-      display: 'block',
-      backgroundColor: 'var(--dds-color-surface-default)',
-      border: '1px solid var(--dds-color-border-default)',
-      color: 'var(--dds-color-text-default)',
-      textDecoration: 'none',
-      transition: '0.2s',
-    }}
-  />
-);
+type Size = 'small' | 'large';
 
+const Link = (props: ComponentProps<'a'> & { size?: Size }) => {
+  const { size, ...rest } = props;
+  const style =
+    size === 'large'
+      ? {
+          display: 'block',
+          backgroundColor: 'var(--dds-color-surface-default)',
+          border: '1px solid var(--dds-color-border-default)',
+          textDecoration: 'none',
+        }
+      : undefined;
+  return (
+    <a
+      {...rest}
+      style={{
+        color: 'var(--dds-color-text-default)',
+        transition: '0.2s',
+        ...style,
+      }}
+    />
+  );
+};
 const linkInnerSmallStyle: CSSProperties = {
   flexDirection: 'row',
   gap: 'var(--dds-spacing-x0-5)',
-  padding: 'var(--dds-spacing-x0-5)',
+  padding: 'var(--dds-spacing-x0-25)',
 };
 
 const linkInnerLargeStyle: CSSProperties = {
@@ -34,9 +50,13 @@ const linkInnerLargeStyle: CSSProperties = {
   padding: 'var(--dds-spacing-x0-75)',
 };
 
-type LinkType = 'npm' | 'zeroheight' | 'figma' | 'slack' | 'github';
-
-type Size = 'small' | 'large';
+type LinkType =
+  | 'npm'
+  | 'zeroheight'
+  | 'figma'
+  | 'slack'
+  | 'github'
+  | 'storybook';
 
 interface StorybookLinkProps {
   href: string;
@@ -54,16 +74,19 @@ export const StorybookLink = ({
   size = 'large',
   className,
 }: StorybookLinkProps) => {
-  const iconSize = size === 'small' ? '1rem' : '50';
+  const iconSize = size === 'small' ? '1.25rem' : '50';
+
+  const InnerAs: ElementType = size === 'small' ? 'span' : 'div';
 
   return (
     <Link
       href={href}
       target="_blank"
       className={className}
+      size={size}
       style={{ width: size === 'large' ? '210px' : 'fit-content' }}
     >
-      <div
+      <InnerAs
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -75,8 +98,9 @@ export const StorybookLink = ({
         {linkType === 'figma' && <FigmaSvg size={iconSize} />}
         {linkType === 'slack' && <SlackSvg size={iconSize} />}
         {linkType === 'github' && <GithubSvg size={iconSize} />}
+        {linkType === 'storybook' && <StorybookSvg size={iconSize} />}
         <span>{text}</span>
-      </div>
+      </InnerAs>
     </Link>
   );
 };

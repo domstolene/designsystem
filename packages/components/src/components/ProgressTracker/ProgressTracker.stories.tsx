@@ -37,7 +37,7 @@ export default {
 
 type Story = StoryObj<typeof ProgressTracker>;
 
-export const Overview: Story = {
+export const Default: Story = {
   render: args => {
     const numSteps = 3;
 
