@@ -1,8 +1,8 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { Heading } from '../Typography';
+import { Heading, type HeadingProps } from '../Typography';
 
-export type FooterListHeaderProps = ComponentProps<'h2'>;
+export type FooterListHeaderProps = Omit<HeadingProps, 'level' | 'withMargins'>;
 
 export const FooterListHeader = forwardRef<
   HTMLHeadingElement,

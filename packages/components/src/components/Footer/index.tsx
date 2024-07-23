@@ -4,6 +4,5 @@ export * from './FooterLogo';
 export * from './FooterList';
 export * from './FooterSocialsList';
 export * from './FooterSocialsGroup';
-export * from './FooterListsGroup';
 export * from './FooterListGroup';
 export * from './FooterLeft';

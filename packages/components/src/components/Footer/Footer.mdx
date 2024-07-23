@@ -1,9 +1,10 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { Canvas, Controls, Meta, ArgTypes } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as FooterStories from './Footer.stories';
+import { FooterListHeader, FooterLogo } from '.';
 
 <Meta of={FooterStories} />
 
@@ -17,7 +18,9 @@ import * as FooterStories from './Footer.stories';
 />
 
 `<Footer>` er en fleksibel komponent som tillatter å bygge en footer fra bunn av.
-Komponenter inneholder en rekke subkomponenter som sørger for fritt struktur og gjennomgående layout på tvers av implementasjoner:
+For å bygge layout brukes komponentene `<Grid>` og `<GridChild>` sammen med Footer-subkomponenter, som sørger for fritt struktur og gjennomgående design på tvers av implementasjoner.
+
+Følgende subkomponenter er tilgjengelige:
 
 - `<Footer>` - selve `<footer>`. Bruker mørk bagrunn og sørger for at alle tekster og ikoner har kontrasterende farge.
 - `<FooterLogo>` - logo til domstolene.
@@ -39,21 +42,29 @@ Komponenter inneholder en rekke subkomponenter som sørger for fritt struktur og
 Logo. Kan overskrives til egen logo ved behov.
 
 <Canvas of={FooterStories.Logo} />
+<ArgTypes of={FooterLogo} />
 
-### FooterList
+### FooterListHeader
 
-Liste med elementer.
+Overskrift for en liste. Returnerer `<h2>`, slik at overskriftshierarkiet opprettholdes uansett innhold ellers på siden.
 
-<Canvas of={FooterStories.FooterListExample} />
+<Canvas of={FooterStories.ListHeader} />
+<ArgTypes of={FooterListHeader} />
+
+### FooterList, FooterListGroup
+
+Liste med elementer. `<FooterListGroup>` er en container som grupperer sammen liste og overskrift.
+
+<Canvas of={FooterStories.ListExample} />
 
 ### FooterSocialsGroup, FooterSocialsList
 
 Gruppering for seksjon med lenker til sosiale medier.
 
-<Canvas of={FooterStories.FooterSocials} />
+<Canvas of={FooterStories.Socials} />
 
 ## Eksempler
 
 ### Med logo, sosiale medier, adresse og lenker
 
-<Canvas of={FooterStories.Complex} />
+<Canvas of={FooterStories.FourColumns} />
