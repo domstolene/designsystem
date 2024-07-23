@@ -184,6 +184,8 @@ const isRadiusToken = token =>
 
 const isFontToken = token =>
   token.attributes.category === '$dds-font' &&
+  token.path[token.path.length - 1] !== 'category' &&
+  token.path[token.path.length - 1] !== 'exportKey' &&
   token.path[token.path.length - 1] !== '_fontStyleOld';
 
 const isSpacingToken = token => token.attributes.category === 'dds-spacing';

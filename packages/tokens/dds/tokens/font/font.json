@@ -2,8 +2,14 @@
   "$dds-font": {
     "heading": {
       "sans-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 16,
           "type": "number",
@@ -59,8 +65,14 @@
         }
       },
       "sans-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 18,
           "type": "number",
@@ -116,8 +128,14 @@
         }
       },
       "sans-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 24,
           "type": "number",
@@ -173,8 +191,14 @@
         }
       },
       "sans-04": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 32,
           "type": "number",
@@ -230,8 +254,14 @@
         }
       },
       "sans-05": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 40,
           "type": "number",
@@ -287,8 +317,14 @@
         }
       },
       "sans-06": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 48,
           "type": "number",
@@ -344,8 +380,14 @@
         }
       },
       "sans-07": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 64,
           "type": "number",
@@ -401,8 +443,14 @@
         }
       },
       "sans-08": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 80,
           "type": "number",
@@ -460,8 +508,14 @@
     },
     "body": {
       "sans-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 14,
           "type": "number",
@@ -517,8 +571,14 @@
         }
       },
       "sans-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 16,
           "type": "number",
@@ -574,8 +634,14 @@
         }
       },
       "sans-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 18,
           "type": "number",
@@ -631,8 +697,14 @@
         }
       },
       "sans-04": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 20,
           "type": "number",
@@ -690,8 +762,14 @@
     },
     "lead": {
       "sans-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 18,
           "type": "number",
@@ -747,8 +825,14 @@
         }
       },
       "sans-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 24,
           "type": "number",
@@ -804,8 +888,14 @@
         }
       },
       "sans-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 24,
           "type": "number",
@@ -861,8 +951,14 @@
         }
       },
       "sans-04": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 32,
           "type": "number",
@@ -918,8 +1014,14 @@
         }
       },
       "sans-05": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 40,
           "type": "number",
@@ -977,8 +1079,14 @@
     },
     "supporting-style": {
       "label-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 14,
           "type": "number",
@@ -1034,8 +1142,14 @@
         }
       },
       "helpertext-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -1091,8 +1205,14 @@
         }
       },
       "placeholdertext-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 16,
           "type": "number",
@@ -1148,8 +1268,14 @@
         }
       },
       "tiny-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -1205,8 +1331,14 @@
         }
       },
       "tiny-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -1262,8 +1394,14 @@
         }
       },
       "placeholdertext-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 14,
           "type": "number",
@@ -1319,8 +1457,14 @@
         }
       },
       "placeholdertext-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -1378,8 +1522,14 @@
     },
     "code": {
       "monospace-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
           "value": 16,
           "type": "number",
