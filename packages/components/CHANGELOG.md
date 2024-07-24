@@ -1,5 +1,56 @@
 # @norges-domstoler/dds-components
 
+## 16.3.0
+
+### Minor Changes
+
+- a9dcfbd: Utvider typen til `message` i `EmptyContent` til `ReactNode`, slik at den kan støtte variert innhold og ikke kun `string`.
+- ea9ecd7: Legger til støtte for å bygge `<OverflowMenu>` med subkomponenter (lenke, knapp, divider, header) som barn. Dette gjør `<OverflowMenu>` sitt bruksområde mer generelt.
+
+  Før:
+
+  ```jsx
+  <OverflowMenu
+    userProps={{
+      name: 'Agata',
+      href: '/min-profil',
+    }}
+    navItems={[
+      {
+        title: 'Saker',
+        href: '/saker',
+      }
+      {
+        title: 'Oppgaver',
+        href: '/oppgaver',
+      }
+    ]}
+  />
+  ```
+
+  Nå:
+
+  ```jsx
+  <OverflowMenu>
+    <nav>
+      <OverflowMenuList>
+        <OverflowMenuLink href="/min-profil" icon={PersonIcon}>
+          Agata
+        </OverflowMenuLink>
+        <OverflowMenuLink href="/saker">Saker</OverflowMenuLink>
+        <OverflowMenuLink href="/oppgaver">Oppgaver</OverflowMenuLink>
+      </OverflowMenuList>
+    </nav>
+  </OverflowMenu>
+  ```
+
+### Patch Changes
+
+- bd1edde: Oppdaterer svg-koden til Webex-ikonet.
+- 3fc7f94: Default tittel/header i `<Drawer>`, `<Modal>` og `<Popover>` returnerer nå `<h2>`, slik at overskriftshierarkiet opprettholdes uansett kontekst. På denne måten unngår vi problemer rundt universell utforming.
+- ed4cde1: Setter `display: block;` i CSS for `<Card cardType="navigation">`, da den returnerer `<a>` og er i utganspunktet et inline-element.
+  - @norges-domstoler/development-utils@1.3.0
+
 ## 16.2.0
 
 ### Minor Changes
