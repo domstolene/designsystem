@@ -158,6 +158,7 @@
       "dds-color.surface.highlighted-default": "84f55a718f4d5127c4aaf6ecfe24d2f98a953360",
       "dds-color.surface.scrollbar": "e4ed130d81ac2cd980637b80066b7ce1f9c2c428",
       "dds-color.surface.notification": "1622ac0204bd423ce30c1aa7ce8acaf975ffd1e7",
+      "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17",
       "dds-color.border.default": "12ef49cdf66278ac95a3f9ea10e04e0277adae21",
       "dds-color.border.subtle": "09469d6f06b54a89ccd02f903b5732a5aeb489e7",
       "dds-color.border.inverse": "feaf3a4ca0ee4f068f6c18508fee0546e1eb074f",
@@ -209,7 +210,11 @@
       "dds-color.brand.tertiary-strong": "846ca822a368c5174fcdd024cf4e3815ce80b16d",
       "dds-color.focus.outside": "54ce3afeb09f32e4f35925093510798fca711caf",
       "dds-color.focus.inside": "abacb84a3d4299cf77481e6963052c1951fd1190",
-      "dds-color.surface.skeleton": "3685d91952f46056c3c2c199ec58b0adba4b0c17"
+      "dds-border-radius.button": "7d33566407bfecef1c36f6b388086eba3daadf12",
+      "dds-border-radius.surface": "65ee36c08ec9ce3aed4342295f31203ed9f69c39",
+      "dds-border-radius.input": "7416146879f1aca6229c79dbdaea72a209955885",
+      "dds-border-radius.chip": "4a08e0eda7ae6662a49197b72b510887da40fb71",
+      "dds-border-radius.rounded": "ee1ebff1d878086b510eb036d6c3a69e5f83fbaf"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "9567:3",
