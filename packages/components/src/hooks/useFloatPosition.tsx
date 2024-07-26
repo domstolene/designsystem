@@ -11,7 +11,7 @@ import {
 } from '@floating-ui/react-dom';
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
-const defaultOffset = ddsTokens.DdsSpacingX05NumberPx;
+const defaultOffset = ddsTokens.ddsSpacingX05NumberPx;
 
 export type Placement =
   | 'top'

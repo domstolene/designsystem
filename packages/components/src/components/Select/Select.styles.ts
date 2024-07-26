@@ -2,64 +2,100 @@ import { type GroupBase, type StylesConfig } from 'react-select';
 
 import {
   type InputSize,
-  type InputTypographyTypes,
   dangerInputfield,
   focusInputfield,
   focusVisibleInsetSelect,
   hoverDangerInputfield,
   hoverInputfield,
-  inputTypographyTypes,
 } from '../helpers';
 import { scrollbarStyling } from '../helpers';
-import { getFontStyling } from '../Typography';
-import { type StaticTypographyType } from '../Typography';
 
-const placeholderTypographyTypes: { [k in InputSize]: StaticTypographyType } = {
-  medium: 'supportingStylePlaceholderText01',
-  small: 'supportingStylePlaceholderText02',
-  tiny: 'supportingStylePlaceholderText03',
+type SelectTypography = {
+  [k in InputSize]: { font: string; letterSpacing: string; fontStyle?: string };
 };
 
-const multiValueLabelTypographyTypes: {
-  [k in InputSize]: StaticTypographyType;
-} = {
-  medium: 'bodySans01',
-  small: 'bodySans01',
-  tiny: 'supportingStyleTiny01',
+const placeholderTypography: SelectTypography = {
+  medium: {
+    font: 'var(--dds-font-supporting-style-placeholdertext-01)',
+    letterSpacing:
+      'var(--dds-font-supporting-style-placeholdertext-01-letter-spacing)',
+    fontStyle: 'var(--dds-font-supporting-style-placeholdertext-01-font-style)',
+  },
+  small: {
+    font: 'var(--dds-font-supporting-style-placeholdertext-02)',
+    letterSpacing:
+      'var(--dds-font-supporting-style-placeholdertext-02-letter-spacing)',
+    fontStyle: 'var(--dds-font-supporting-style-placeholdertext-02-font-style)',
+  },
+  tiny: {
+    font: 'var(--dds-font-supporting-style-placeholdertext-03)',
+    letterSpacing:
+      'var(--dds-font-supporting-style-placeholdertext-03-letter-spacing)',
+    fontStyle: 'var(--dds-font-supporting-style-placeholdertext-03-font-style)',
+  },
 };
 
-const typographyTypes: {
-  control: InputTypographyTypes;
-  option: InputTypographyTypes;
-  placeholder: { [k in InputSize]: StaticTypographyType };
-  noOptionsMessage: { [k in InputSize]: StaticTypographyType };
-  groupHeading: StaticTypographyType;
-  multiValueLabel: { [k in InputSize]: StaticTypographyType };
-} = {
-  control: inputTypographyTypes,
-  option: inputTypographyTypes,
-  placeholder: placeholderTypographyTypes,
-  noOptionsMessage: placeholderTypographyTypes,
-  groupHeading: 'supportingStyleHelperText01',
-  multiValueLabel: multiValueLabelTypographyTypes,
+const optionTypography: SelectTypography = {
+  medium: {
+    font: 'var(--dds-font-body-sans-02)',
+    letterSpacing: 'var(--dds-font-body-sans-02-letter-spacing)',
+  },
+  small: {
+    font: 'var(--dds-font-body-sans-01)',
+    letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
+  },
+  tiny: {
+    font: 'var(--dds-font-supporting-style-tiny-01)',
+    letterSpacing: 'var(--dds-font-supporting-style-tiny-01-letter-spacing)',
+  },
+};
+
+const multiValueLabelTypography: SelectTypography = {
+  medium: {
+    font: 'var(--dds-font-body-sans-01)',
+    letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
+  },
+  small: {
+    font: 'var(--dds-font-body-sans-01)',
+    letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
+  },
+  tiny: {
+    font: 'var(--dds-font-supporting-style-tiny-01)',
+    letterSpacing: 'var(--dds-font-supporting-style-tiny-01-letter-spacing)',
+  },
+};
+
+const groupHeadingTypography = {
+  font: 'var(--dds-font-supporting-style-helpertext-01)',
+  letterSpacing:
+    'var(--dds-font-supporting-style-helpertext-01-letter-spacing)',
+};
+
+const typography = {
+  placeholder: placeholderTypography,
+  noOptionsMessage: placeholderTypography,
+  option: optionTypography,
+  multiValueLabel: multiValueLabelTypography,
+  groupHeading: groupHeadingTypography,
 };
 
 export const prefix = 'dds-select';
 
 const control = {
-  sizes: {
-    medium: {
-      paddingBlock: 'var(--dds-spacing-x0-75)',
-      paddingInline: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
-    },
-    small: {
-      paddingBlock: 'var(--dds-spacing-x0-5)',
-      paddingInline: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
-    },
-    tiny: {
-      paddingBlock: 'var(--dds-spacing-x0-25)',
-      paddingInline: 'var(--dds-spacing-x0-5) ',
-    },
+  medium: {
+    paddingBlock: 'var(--dds-spacing-x0-75)',
+    paddingInline: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
+    ...optionTypography.medium,
+  },
+  small: {
+    paddingBlock: 'var(--dds-spacing-x0-5)',
+    paddingInline: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
+    ...optionTypography.small,
+  },
+  tiny: {
+    paddingBlock: 'var(--dds-spacing-x0-25)',
+    paddingInline: 'var(--dds-spacing-x0-5) ',
+    ...optionTypography.tiny,
   },
 };
 
@@ -79,8 +115,7 @@ export const getCustomStyles = <TOption>(
     borderColor: 'var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
     transition: 'box-shadow 0.2s, border-color 0.2s',
-    ...control.sizes[size],
-    ...getFontStyling(typographyTypes.control[size]),
+    ...control[size],
     '&:hover': {
       ...(!isReadOnly && hoverInputfield),
     },
@@ -109,7 +144,8 @@ export const getCustomStyles = <TOption>(
   }),
   placeholder: provided => ({
     ...provided,
-    ...getFontStyling(typographyTypes.placeholder[size], true),
+    ...typography.placeholder[size],
+    color: 'var(--dds-color-text-subtle)',
     margin: 0,
   }),
   input: provided => ({
@@ -155,7 +191,7 @@ export const getCustomStyles = <TOption>(
   multiValueLabel: (provided, state) => ({
     ...provided,
     padding: '0 var(--dds-spacing-x0-25)',
-    ...getFontStyling(typographyTypes.multiValueLabel[size]),
+    ...typography.multiValueLabel[size],
     color: 'var(--dds-color-text-default)',
     ...(state.selectProps.isDisabled && {
       color: 'var(--dds-color-text-subtle)',
@@ -184,7 +220,7 @@ export const getCustomStyles = <TOption>(
     boxSizing: 'border-box',
     position: 'absolute',
     width: '100%',
-    boxShadow: 'var(--dds-shadow-2-onlight)',
+    boxShadow: 'var(--dds-shadow-2)',
     zIndex: 100,
     transition: '0.2s',
     border: '1px solid var(--dds-color-border-default)',
@@ -200,8 +236,7 @@ export const getCustomStyles = <TOption>(
     boxSizing: 'border-box',
   }),
   groupHeading: () => ({
-    ...getFontStyling(typographyTypes.groupHeading),
-
+    ...typography.groupHeading,
     color: 'var(--dds-color-text-medium)',
     paddingInline: 'var(--dds-spacing-x0-75)',
     paddingBlock: 'var(--dds-spacing-x0-125) var(--dds-spacing-x0-5)',
@@ -221,7 +256,8 @@ export const getCustomStyles = <TOption>(
     gap: 'var(--dds-spacing-x0-5)',
     padding: 'var(--dds-spacing-x0-75)',
     backgroundColor: 'var(--dds-color-surface-default)',
-    ...getFontStyling(typographyTypes.option[size], true),
+    ...typography.option[size],
+    color: 'var(--dds-color-text-default)',
     '@media (prefers-reduced-motion: no-preference)': {
       transition: 'color 0.2s, background-color 0.2s',
     },
@@ -234,7 +270,7 @@ export const getCustomStyles = <TOption>(
     }),
   }),
   noOptionsMessage: () => ({
-    ...getFontStyling(typographyTypes.noOptionsMessage[size]),
+    ...typography.noOptionsMessage[size],
     padding: 'var(--dds-spacing-x0-5) var(--dds-spacing-x1)',
     color: 'var(--dds-color-text-medium)',
   }),

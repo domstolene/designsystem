@@ -48,8 +48,8 @@ import { render } from 'react-dom';
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 const style = {
-  backgroundColor: ddsTokens.DdsColorBgDefault,
-  padding: ddsTokens.DdsSpacingX075,
+  backgroundColor: ddsTokens.ddsColorBgDefault,
+  padding: ddsTokens.ddsSpacingX075,
 };
 
 const App = () => <div style={style}>Tekst</div>;

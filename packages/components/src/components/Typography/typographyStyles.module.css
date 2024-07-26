@@ -40,11 +40,7 @@
 
 :where(.body-sans-01) {
   margin: 0;
-  font: var(--dds-font-body-sans-01-font-style)
-    var(--dds-font-body-sans-01-font-weight)
-    var(--dds-font-body-sans-01-font-size) /
-    var(--dds-font-body-sans-01-line-height)
-    var(--dds-font-body-sans-01-font-family);
+  font: var(--dds-font-body-sans-01);
   letter-spacing: var(--dds-font-body-sans-01-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -57,11 +53,7 @@
 
 :where(.body-sans-02) {
   margin: 0;
-  font: var(--dds-font-body-sans-02-font-style)
-    var(--dds-font-body-sans-02-font-weight)
-    var(--dds-font-body-sans-02-font-size) /
-    var(--dds-font-body-sans-02-line-height)
-    var(--dds-font-body-sans-02-font-family);
+  font: var(--dds-font-body-sans-02);
   letter-spacing: var(--dds-font-body-sans-02-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -74,11 +66,7 @@
 
 :where(.body-sans-03) {
   margin: 0;
-  font: var(--dds-font-body-sans-03-font-style)
-    var(--dds-font-body-sans-03-font-weight)
-    var(--dds-font-body-sans-03-font-size) /
-    var(--dds-font-body-sans-03-line-height)
-    var(--dds-font-body-sans-03-font-family);
+  font: var(--dds-font-body-sans-03);
   letter-spacing: var(--dds-font-body-sans-03-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -91,11 +79,7 @@
 
 :where(.body-sans-04) {
   margin: 0;
-  font: var(--dds-font-body-sans-04-font-style)
-    var(--dds-font-body-sans-04-font-weight)
-    var(--dds-font-body-sans-04-font-size) /
-    var(--dds-font-body-sans-04-line-height)
-    var(--dds-font-body-sans-04-font-family);
+  font: var(--dds-font-body-sans-04);
   letter-spacing: var(--dds-font-body-sans-04-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -108,12 +92,7 @@
 
 :where(.lead-sans-01) {
   margin: 0;
-  font: var(--dds-font-lead-sans-01-font-style)
-    var(--dds-font-lead-sans-01-font-weight)
-    var(--dds-font-lead-sans-01-font-size) /
-    var(--dds-font-lead-sans-01-line-height)
-    var(--dds-font-lead-sans-01-font-family);
-  letter-spacing: var(--dds-font-lead-sans-01-letter-spacing);
+  font: var(--dds-font-lead-sans-01);
   color: var(--dds-color-text-default);
 }
 
@@ -125,11 +104,7 @@
 
 :where(.lead-sans-02) {
   margin: 0;
-  font: var(--dds-font-lead-sans-02-font-style)
-    var(--dds-font-lead-sans-02-font-weight)
-    var(--dds-font-lead-sans-02-font-size) /
-    var(--dds-font-lead-sans-02-line-height)
-    var(--dds-font-lead-sans-02-font-family);
+  font: var(--dds-font-lead-sans-02);
   letter-spacing: var(--dds-font-lead-sans-02-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -142,11 +117,7 @@
 
 :where(.lead-sans-03) {
   margin: 0;
-  font: var(--dds-font-lead-sans-03-font-style)
-    var(--dds-font-lead-sans-03-font-weight)
-    var(--dds-font-lead-sans-03-font-size) /
-    var(--dds-font-lead-sans-03-line-height)
-    var(--dds-font-lead-sans-03-font-family);
+  font: var(--dds-font-lead-sans-03);
   letter-spacing: var(--dds-font-lead-sans-03-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -159,11 +130,7 @@
 
 :where(.lead-sans-04) {
   margin: 0;
-  font: var(--dds-font-lead-sans-04-font-style)
-    var(--dds-font-lead-sans-04-font-weight)
-    var(--dds-font-lead-sans-04-font-size) /
-    var(--dds-font-lead-sans-04-line-height)
-    var(--dds-font-lead-sans-04-font-family);
+  font: var(--dds-font-lead-sans-04);
   letter-spacing: var(--dds-font-lead-sans-04-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -176,12 +143,7 @@
 
 :where(.lead-sans-05) {
   margin: 0;
-  font: var(--dds-font-lead-sans-05-font-style)
-    var(--dds-font-lead-sans-05-font-weight)
-    var(--dds-font-lead-sans-05-font-size) /
-    var(--dds-font-lead-sans-05-line-height)
-    var(--dds-font-lead-sans-05-font-family);
-  letter-spacing: var(--dds-font-lead-sans-05-letter-spacing);
+  font: var(--dds-font-lead-sans-05);
   color: var(--dds-color-text-default);
 }
 
@@ -193,11 +155,7 @@
 
 :where(.heading-sans-01) {
   margin: 0;
-  font: var(--dds-font-heading-sans-01-font-style)
-    var(--dds-font-heading-sans-01-font-weight)
-    var(--dds-font-heading-sans-01-font-size) /
-    var(--dds-font-heading-sans-01-line-height)
-    var(--dds-font-heading-sans-01-font-family);
+  font: var(--dds-font-heading-sans-01);
   letter-spacing: var(--dds-font-heading-sans-01-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -211,11 +169,7 @@
 
 :where(.heading-sans-02) {
   margin: 0;
-  font: var(--dds-font-heading-sans-02-font-style)
-    var(--dds-font-heading-sans-02-font-weight)
-    var(--dds-font-heading-sans-02-font-size) /
-    var(--dds-font-heading-sans-02-line-height)
-    var(--dds-font-heading-sans-02-font-family);
+  font: var(--dds-font-heading-sans-02);
   letter-spacing: var(--dds-font-heading-sans-02-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -229,11 +183,7 @@
 
 :where(.heading-sans-03) {
   margin: 0;
-  font: var(--dds-font-heading-sans-03-font-style)
-    var(--dds-font-heading-sans-03-font-weight)
-    var(--dds-font-heading-sans-03-font-size) /
-    var(--dds-font-heading-sans-03-line-height)
-    var(--dds-font-heading-sans-03-font-family);
+  font: var(--dds-font-heading-sans-03);
   letter-spacing: var(--dds-font-heading-sans-03-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -247,11 +197,7 @@
 
 :where(.heading-sans-04) {
   margin: 0;
-  font: var(--dds-font-heading-sans-04-font-style)
-    var(--dds-font-heading-sans-04-font-weight)
-    var(--dds-font-heading-sans-04-font-size) /
-    var(--dds-font-heading-sans-04-line-height)
-    var(--dds-font-heading-sans-04-font-family);
+  font: var(--dds-font-heading-sans-04);
   letter-spacing: var(--dds-font-heading-sans-04-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -265,11 +211,7 @@
 
 :where(.heading-sans-05) {
   margin: 0;
-  font: var(--dds-font-heading-sans-05-font-style)
-    var(--dds-font-heading-sans-05-font-weight)
-    var(--dds-font-heading-sans-05-font-size) /
-    var(--dds-font-heading-sans-05-line-height)
-    var(--dds-font-heading-sans-05-font-family);
+  font: var(--dds-font-heading-sans-05);
   letter-spacing: var(--dds-font-heading-sans-05-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -283,11 +225,7 @@
 
 :where(.heading-sans-06) {
   margin: 0;
-  font: var(--dds-font-heading-sans-06-font-style)
-    var(--dds-font-heading-sans-06-font-weight)
-    var(--dds-font-heading-sans-06-font-size) /
-    var(--dds-font-heading-sans-06-line-height)
-    var(--dds-font-heading-sans-06-font-family);
+  font: var(--dds-font-heading-sans-06);
   letter-spacing: var(--dds-font-heading-sans-06-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -301,11 +239,7 @@
 
 :where(.heading-sans-07) {
   margin: 0;
-  font: var(--dds-font-heading-sans-07-font-style)
-    var(--dds-font-heading-sans-07-font-weight)
-    var(--dds-font-heading-sans-07-font-size) /
-    var(--dds-font-heading-sans-07-line-height)
-    var(--dds-font-heading-sans-07-font-family);
+  font: var(--dds-font-heading-sans-07);
   letter-spacing: var(--dds-font-heading-sans-07-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -319,11 +253,7 @@
 
 :where(.heading-sans-08) {
   margin: 0;
-  font: var(--dds-font-heading-sans-08-font-style)
-    var(--dds-font-heading-sans-08-font-weight)
-    var(--dds-font-heading-sans-08-font-size) /
-    var(--dds-font-heading-sans-08-line-height)
-    var(--dds-font-heading-sans-08-font-family);
+  font: var(--dds-font-heading-sans-08);
   letter-spacing: var(--dds-font-heading-sans-08-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -337,11 +267,7 @@
 
 :where(.supporting-style-label-01) {
   margin: 0;
-  font: var(--dds-font-supporting-style-label-01-font-style)
-    var(--dds-font-supporting-style-label-01-font-weight)
-    var(--dds-font-supporting-style-label-01-font-size) /
-    var(--dds-font-supporting-style-label-01-line-height)
-    var(--dds-font-supporting-style-label-01-font-family);
+  font: var(--dds-font-supporting-style-label-01);
   letter-spacing: var(--dds-font-supporting-style-label-01-letter-spacing);
   color: var(--dds-color-text-medium);
 }
@@ -354,11 +280,7 @@
 
 :where(.supporting-style-helper-text-01) {
   margin: 0;
-  font: var(--dds-font-supporting-style-helpertext-01-font-style)
-    var(--dds-font-supporting-style-helpertext-01-font-weight)
-    var(--dds-font-supporting-style-helpertext-01-font-size) /
-    var(--dds-font-supporting-style-helpertext-01-line-height)
-    var(--dds-font-supporting-style-helpertext-01-font-family);
+  font: var(--dds-font-supporting-style-helper-text-01);
   letter-spacing: var(--dds-font-supporting-style-helpertext-01-letter-spacing);
   color: var(--dds-color-text-subtle);
 }
@@ -373,11 +295,7 @@
 
 :where(.supporting-style-placeholder-text-01) {
   margin: 0;
-  font: var(--dds-font-supporting-style-placeholdertext-01-font-style)
-    var(--dds-font-supporting-style-placeholdertext-01-font-weight)
-    var(--dds-font-supporting-style-placeholdertext-01-font-size) /
-    var(--dds-font-supporting-style-placeholdertext-01-line-height)
-    var(--dds-font-supporting-style-placeholdertext-01-font-family);
+  font: var(--dds-font-supporting-style-placeholder-text-01);
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-01-letter-spacing
   );
@@ -396,11 +314,7 @@
 
 :where(.supporting-style-placeholder-text-02) {
   margin: 0;
-  font: var(--dds-font-supporting-style-placeholdertext-02-font-style)
-    var(--dds-font-supporting-style-placeholdertext-02-font-weight)
-    var(--dds-font-supporting-style-placeholdertext-02-font-size) /
-    var(--dds-font-supporting-style-placeholdertext-02-line-height)
-    var(--dds-font-supporting-style-placeholdertext-02-font-family);
+  font: var(--dds-font-supporting-style-placeholder-text-02);
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-02-letter-spacing
   );
@@ -419,11 +333,7 @@
 
 :where(.supporting-style-placeholder-text-03) {
   margin: 0;
-  font: var(--dds-font-supporting-style-placeholdertext-03-font-style)
-    var(--dds-font-supporting-style-placeholdertext-03-font-weight)
-    var(--dds-font-supporting-style-placeholdertext-03-font-size) /
-    var(--dds-font-supporting-style-placeholdertext-03-line-height)
-    var(--dds-font-supporting-style-placeholdertext-03-font-family);
+  font: var(--dds-font-supporting-style-placeholder-text-03);
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-03-letter-spacing
   );
@@ -442,11 +352,7 @@
 
 :where(.supporting-style-tiny-01) {
   margin: 0;
-  font: var(--dds-font-supporting-style-tiny-01-font-style)
-    var(--dds-font-supporting-style-tiny-01-font-weight)
-    var(--dds-font-supporting-style-tiny-01-font-size) /
-    var(--dds-font-supporting-style-tiny-01-line-height)
-    var(--dds-font-supporting-style-tiny-01-font-family);
+  font: var(--dds-font-supporting-style-tiny-01);
   letter-spacing: var(--dds-font-supporting-style-tiny-01-letter-spacing);
   color: var(--dds-color-text-default);
 }
@@ -459,11 +365,7 @@
 
 :where(.supporting-style-tiny-02) {
   margin: 0;
-  font: var(--dds-font-supporting-style-tiny-02-font-style)
-    var(--dds-font-supporting-style-tiny-02-font-weight)
-    var(--dds-font-supporting-style-tiny-02-font-size) /
-    var(--dds-font-supporting-style-tiny-02-line-height)
-    var(--dds-font-supporting-style-tiny-02-font-family);
+  font: var(--dds-font-supporting-style-tiny-02);
   letter-spacing: var(--dds-font-supporting-style-tiny-02-letter-spacing);
   color: var(--dds-color-text-default);
 }

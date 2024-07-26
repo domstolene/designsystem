@@ -118,7 +118,7 @@
   background-color: var(--dds-color-surface-default);
   border: 1px solid var(--dds-color-border-default);
   padding: var(--dds-spacing-x0-5);
-  box-shadow: var(--dds-shadow-2-onlight);
+  box-shadow: var(--dds-shadow-2);
 }
 
 .calendar {

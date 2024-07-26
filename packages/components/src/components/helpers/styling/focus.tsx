@@ -7,5 +7,5 @@ export const focusInputfield = {
 };
 
 export const focusDangerInputfield = {
-  borderColor: ddsTokens.DdsColorBorderDefault,
+  borderColor: ddsTokens.ddsColorBorderDefault,
 };

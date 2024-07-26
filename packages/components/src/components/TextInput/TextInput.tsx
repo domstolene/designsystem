@@ -131,14 +131,14 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       readOnly && prefixLength
         ? prefixLength + 'px'
         : prefixLength
-          ? ddsTokens.DdsSpacingX1NumberPx + prefixLength + 'px'
+          ? ddsTokens.ddsSpacingX1NumberPx + prefixLength + 'px'
           : undefined;
 
     const suffixPaddingInlineEnd: Property.PaddingInlineEnd | undefined =
       readOnly && suffixLength
         ? suffixLength + 'px'
         : suffixLength
-          ? ddsTokens.DdsSpacingX1NumberPx + suffixLength + 'px'
+          ? ddsTokens.ddsSpacingX1NumberPx + suffixLength + 'px'
           : undefined;
 
     let extendedInput = null;
