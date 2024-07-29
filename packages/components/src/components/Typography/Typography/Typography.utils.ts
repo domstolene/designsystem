@@ -3,13 +3,11 @@ import { type ElementType } from 'react';
 import {
   type HyphenTypographyType,
   type InlineElement,
-  type StaticTypographyType,
   type TypographyBodyType,
   type TypographyHeadingType,
   type TypographyType,
 } from './Typography.types';
 import { convertCamelToHyphen } from '../../../utils';
-import { typographyTokens } from '../Typography.tokens';
 
 export const defaultTypographyType: TypographyBodyType = 'bodySans02';
 export const defaultTypographyTypeClassName = 'body-sans-02';
@@ -122,18 +120,6 @@ export const inlineElements: Array<ElementType> = [
 
 export const isInlineElement = (as: ElementType): as is InlineElement =>
   inlineElements.indexOf(as) !== -1;
-
-export const getFontStyling = (
-  type: StaticTypographyType,
-  withColor?: boolean,
-) => {
-  return {
-    color: withColor
-      ? typographyTokens.typographyType[type].base.color
-      : undefined,
-    ...typographyTokens.typographyType[type].base.font,
-  };
-};
 
 export function getTypographyCn(value: TypographyType): HyphenTypographyType {
   return convertCamelToHyphen(value) as HyphenTypographyType;

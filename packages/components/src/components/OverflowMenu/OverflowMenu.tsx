@@ -36,7 +36,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       navItems,
       userProps,
       id,
-      offset = ddsTokens.DdsSpacingX0125NumberPx,
+      offset = ddsTokens.ddsSpacingX0125NumberPx,
       className,
       htmlProps = {},
       ...rest
@@ -190,6 +190,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         role="menu"
         aria-hidden={!isOpen}
         border="default"
+        elevation={1}
         style={{ ...style, ...floatingStyles.floating }}
       >
         {items || navItems || userProps ? (

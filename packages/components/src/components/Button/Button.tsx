@@ -1,3 +1,4 @@
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type FocusEventHandler,
   type ForwardedRef,
@@ -7,7 +8,6 @@ import {
 } from 'react';
 
 import styles from './Button.module.css';
-import { buttonTokens as tokens } from './Button.tokens';
 import { type ButtonProps, type ButtonSize } from './Button.types';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
@@ -26,8 +26,6 @@ const typographyTypes: {
   small: 'bodySans01',
   tiny: 'supportingStyleTiny01',
 };
-
-const { button } = tokens;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
@@ -100,7 +98,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             className={cn(!noContent && styles['spinner-wrapper--absolute'])}
           >
             <Spinner
-              size={button[size].spinner.size}
+              /*TODO: bytte til icon size token for button når den er på plass*/
+              size={ddsTokens.ddsFontLineheightX1 + 'em'}
               color={
                 purpose === 'primary' || purpose === 'danger'
                   ? 'iconOnAction'
