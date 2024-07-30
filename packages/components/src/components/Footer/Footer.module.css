@@ -32,7 +32,12 @@
   gap: var(--dds-spacing-x4);
 }
 
-.list,
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dds-spacing-x1-5);
+}
+
 .list-group {
   display: flex;
   flex-direction: column;

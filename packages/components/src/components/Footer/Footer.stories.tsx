@@ -265,6 +265,36 @@ export const ListHeader: Story = {
     </Footer>
   ),
 };
+
+export const Left: Story = {
+  render: args => (
+    <Footer {...args} style={exampleStyle}>
+      <FooterLeft>
+        <FooterLogo />
+        <FooterSocialsGroup>
+          <FooterListHeader>Følg oss</FooterListHeader>
+          <FooterSocialsList>
+            <li>
+              <Link href="/" htmlProps={{ title: 'Facebook' }}>
+                <Icon icon={FacebookIcon} />
+              </Link>
+            </li>
+            <li>
+              <Link href="/" htmlProps={{ title: 'Instagram' }}>
+                <Icon icon={InstagramIcon} />
+              </Link>
+            </li>
+            <li>
+              <Link href="/" htmlProps={{ title: 'LinkedIn' }}>
+                <Icon icon={LinkedInIcon} />
+              </Link>
+            </li>
+          </FooterSocialsList>
+        </FooterSocialsGroup>
+      </FooterLeft>
+    </Footer>
+  ),
+};
 export const ListExample: Story = {
   name: 'List',
   render: args => (
