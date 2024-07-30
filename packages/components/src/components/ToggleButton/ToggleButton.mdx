@@ -3,7 +3,7 @@ import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ToggleButtonStories from './ToggleButton.stories';
 import * as ToggleButtonGroupStories from './ToggleButtonGroup.stories';
 
-<Meta title="dds-components/ToggleButton/Docs" />
+<Meta of={ToggleButtonStories} />
 
 # ToggleButton
 
@@ -11,14 +11,14 @@ import * as ToggleButtonGroupStories from './ToggleButtonGroup.stories';
   docsHref="https://design.domstol.no/987b33f71/p/93162b-togglebutton/b/5004f4"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=6990%3A142094"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ToggleButton"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-togglebutton--default"
+  withBottomSpacing
 />
-
-## Oversikt
 
 Følgende subkomponenter er tilgjengelige:
 
-- **`<ToggleButton />`**: en toggleknapp som er funksjonelt sett `<input type="checkbox" />` og brukes dermed som en avkryssingsboks.
-- **`<ToggleButtonGroup />`**: en gruppe med `<ToggleButton />`.
+- **`<ToggleButton>`**: en toggleknapp som er funksjonelt sett `<input type="checkbox">` og brukes dermed som en avkryssingsboks.
+- **`<ToggleButtonGroup>`**: en gruppe med `<ToggleButton>`.
 
 ## Props
 
@@ -29,7 +29,7 @@ Følgende subkomponenter er tilgjengelige:
 
 ### ToggleButtonGroup
 
-Gruppen for `<ToggleButton />`.
+Gruppen for `<ToggleButton>`.
 
 <Canvas of={ToggleButtonGroupStories.Default} sourceState="shown" />
 <Controls of={ToggleButtonGroupStories.Default} />

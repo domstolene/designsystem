@@ -78,9 +78,8 @@ export const Default: Story = {
                 Navn Navnesen
               </OverflowMenuSpan>
             </OverflowMenuList>
+            <OverflowMenuListHeader>Header</OverflowMenuListHeader>
             <OverflowMenuList>
-              <OverflowMenuListHeader>Header</OverflowMenuListHeader>
-
               <OverflowMenuLink href="/">Link</OverflowMenuLink>
               <OverflowMenuButton
                 onClick={() => {
@@ -91,8 +90,8 @@ export const Default: Story = {
               </OverflowMenuButton>
             </OverflowMenuList>
             <OverflowMenuDivider />
+            <OverflowMenuListHeader>Header</OverflowMenuListHeader>
             <OverflowMenuList>
-              <OverflowMenuListHeader>Header</OverflowMenuListHeader>
               <OverflowMenuButton
                 onClick={() => {
                   null;
@@ -141,8 +140,8 @@ export const WithButtons: Story = {
               </OverflowMenuButton>
             </OverflowMenuList>
             <OverflowMenuDivider />
+            <OverflowMenuListHeader>Header</OverflowMenuListHeader>
             <OverflowMenuList>
-              <OverflowMenuListHeader>Header</OverflowMenuListHeader>
               <OverflowMenuButton
                 onClick={() => {
                   null;

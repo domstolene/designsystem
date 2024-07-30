@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-design-tokens
 
+## 5.1.0
+
+### Minor Changes
+
+- 2cdc84f: Ny token for "skeleton" bakgrunn: `dds-color-surface-skeleton`.
+
+### Patch Changes
+
+- 25b1306: Endrer farge for `dds-color-primary-brand-medium` til en som er mørkere.
+
 ## 5.0.0
 
 ### Major Changes

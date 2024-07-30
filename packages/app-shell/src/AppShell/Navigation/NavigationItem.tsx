@@ -41,11 +41,7 @@ const BaseLink = styled.a`
 
   text-decoration: none;
   color: ${navItemTokens.color};
-  font-size: ${navItemTokens.fontSize};
-  font-style: ${navItemTokens.fontStyle};
-  font-family: ${navItemTokens.fontFamily};
-  font-weight: ${navItemTokens.fontWeight};
-  line-height: ${navItemTokens.lineHeight};
+  font: ${navItemTokens.font};
   letter-spacing: ${navItemTokens.letterSpacing};
 
   &:hover:not(.active) {
@@ -77,11 +73,7 @@ const ExternalNavItem = styled(BaseLink)`
   flex-direction: row;
   align-items: center;
 
-  font-size: ${navItemTokens.external.fontSize};
-  font-style: ${navItemTokens.external.fontStyle};
-  font-family: ${navItemTokens.external.fontFamily};
-  font-weight: ${navItemTokens.external.fontWeight};
-  line-height: ${navItemTokens.external.lineHeight};
+  font: ${navItemTokens.external.font};
   letter-spacing: ${navItemTokens.external.letterSpacing};
 
   &:focus-visible {

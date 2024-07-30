@@ -1,17 +1,17 @@
-import { ddsBaseTokens } from '@norges-domstoler/dds-design-tokens';
-
-const { fontPackages } = ddsBaseTokens;
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 const navigationItems = {
   gap: 'var(--dds-spacing-x0-5)',
   item: {
-    ...fontPackages.body_sans_02.base,
+    font: 'var(--dds-font-body-sans-02)',
+    letterSpacing: 'var(--dds-font-body-sans-02-letter-spacing)',
     color: 'var(--dds-color-text-on-inverse)',
     borderRadius: 'var(--dds-border-radius-3)',
     padding: 'var(--dds-spacing-x0-75)',
     gap: 'var(--dds-spacing-x0-5)',
     external: {
-      ...fontPackages.body_sans_01.base,
+      font: 'var(--dds-font-body-sans-01)',
+      letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
     },
     hover: {
       backgroundColor: 'var(--dds-color-surface-inverse-hover)',
@@ -27,15 +27,18 @@ const logoAndVersion = {
   padding: '36px var(--dds-spacing-x1-5)',
   color: 'var(--dds-color-text-on-inverse)',
   logo: {
-    ...fontPackages.heading_sans_05.base,
-    fontWeight: 700,
+    font: 'var(--dds-font-heading-sans-05)',
+    letterSpacing: 'var(--dds-font-heading-sans-05-letter-spacing)',
+    fontWeight: 'var(--dds-font-weight-bold)',
     small: {
-      ...fontPackages.heading_sans_03.base,
-      fontWeight: 600,
+      font: 'var(--dds-font-heading-sans-03)',
+      letterSpacing: 'var(--dds-font-heading-sans-03-letter-spacing)',
+      fontWeight: 'var(--dds-font-weight-bold)',
     },
   },
   version: {
-    ...fontPackages.supportingStyle_tiny_01.base,
+    font: 'var(--dds-font-supporting-style-tiny-01)',
+    letterSpacing: 'var(--dds-font-supporting-style-tiny-01-letter-spacing)',
   },
 };
 
@@ -65,7 +68,7 @@ const navigation = {
   width: '264px',
 
   mobile: {
-    breakpoint: ddsBaseTokens.breakpoints.DdsBreakpointSm,
+    breakpoint: ddsTokens.ddsBreakpointSm,
     iconColors: 'var(--dds-color-icon-on-inverse)',
   },
 };

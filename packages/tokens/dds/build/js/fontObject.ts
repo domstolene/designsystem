@@ -2,6 +2,52 @@
   "$dds-font": {
     "heading": {
       "sans-01": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans01Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-01",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-01",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans01ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-01",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-01",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 16,
           "type": "number",
@@ -290,6 +336,52 @@
         }
       },
       "sans-02": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans02Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-02",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-02",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans02ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-02",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-02",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 18,
           "type": "number",
@@ -578,6 +670,52 @@
         }
       },
       "sans-03": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans03Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-03",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-03",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans03ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-03",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-03",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 24,
           "type": "number",
@@ -866,6 +1004,52 @@
         }
       },
       "sans-04": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans04Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-04",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-04",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans04ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-04",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-04",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 32,
           "type": "number",
@@ -1154,6 +1338,52 @@
         }
       },
       "sans-05": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans05Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-05",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-05",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans05ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-05",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-05",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 40,
           "type": "number",
@@ -1442,6 +1672,52 @@
         }
       },
       "sans-06": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans06Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-06",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-06",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans06ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-06",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-06",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 48,
           "type": "number",
@@ -1730,6 +2006,52 @@
         }
       },
       "sans-07": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans07Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-07",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-07",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans07ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-07",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-07",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 64,
           "type": "number",
@@ -2018,6 +2340,52 @@
         }
       },
       "sans-08": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans08Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-08",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-08",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontHeadingSans08ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "heading",
+            "item": "sans-08",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "heading",
+            "sans-08",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 80,
           "type": "number",
@@ -2308,6 +2676,52 @@
     },
     "body": {
       "sans-01": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans01Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-01",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-01",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans01ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-01",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-01",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 14,
           "type": "number",
@@ -2596,6 +3010,52 @@
         }
       },
       "sans-02": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans02Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-02",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-02",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans02ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-02",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-02",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 16,
           "type": "number",
@@ -2884,6 +3344,52 @@
         }
       },
       "sans-03": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans03Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-03",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-03",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans03ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-03",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-03",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 18,
           "type": "number",
@@ -3172,6 +3678,52 @@
         }
       },
       "sans-04": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans04Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-04",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-04",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontBodySans04ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "body",
+            "item": "sans-04",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "body",
+            "sans-04",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 20,
           "type": "number",
@@ -3462,6 +4014,52 @@
     },
     "lead": {
       "sans-01": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans01Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-01",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-01",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans01ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-01",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-01",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 18,
           "type": "number",
@@ -3750,6 +4348,52 @@
         }
       },
       "sans-02": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans02Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-02",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-02",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans02ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-02",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-02",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 24,
           "type": "number",
@@ -4038,6 +4682,52 @@
         }
       },
       "sans-03": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans03Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-03",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-03",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans03ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-03",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-03",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 24,
           "type": "number",
@@ -4326,6 +5016,52 @@
         }
       },
       "sans-04": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans04Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-04",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-04",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans04ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-04",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-04",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 32,
           "type": "number",
@@ -4614,6 +5350,52 @@
         }
       },
       "sans-05": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans05Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-05",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-05",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontLeadSans05ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "lead",
+            "item": "sans-05",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "lead",
+            "sans-05",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 40,
           "type": "number",
@@ -4904,6 +5686,52 @@
     },
     "supporting-style": {
       "label-01": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleLabel01Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "label-01",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "label-01",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleLabel01ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "label-01",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "label-01",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 14,
           "type": "number",
@@ -5192,6 +6020,52 @@
         }
       },
       "helpertext-01": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleHelpertext01Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "helpertext-01",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "helpertext-01",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleHelpertext01ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "helpertext-01",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "helpertext-01",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -5480,6 +6354,52 @@
         }
       },
       "placeholdertext-01": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext01Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-01",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-01",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext01ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-01",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-01",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 16,
           "type": "number",
@@ -5768,6 +6688,52 @@
         }
       },
       "tiny-01": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleTiny01Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-01",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-01",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleTiny01ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-01",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-01",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -6056,6 +7022,52 @@
         }
       },
       "tiny-02": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleTiny02Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStyleTiny02ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "tiny-02",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "tiny-02",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -6344,6 +7356,52 @@
         }
       },
       "placeholdertext-02": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext02ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-02",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-02",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 14,
           "type": "number",
@@ -6632,6 +7690,52 @@
         }
       },
       "placeholdertext-03": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontSupportingStylePlaceholdertext03ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "supporting-style",
+            "item": "placeholdertext-03",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "supporting-style",
+            "placeholdertext-03",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 12,
           "type": "number",
@@ -6922,6 +8026,52 @@
     },
     "code": {
       "monospace-02": {
+        "category": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontCodeMonospace02Category",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "code",
+            "item": "monospace-02",
+            "subitem": "category"
+          },
+          "path": [
+            "$dds-font",
+            "code",
+            "monospace-02",
+            "category"
+          ]
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other",
+          "filePath": "tokens/font/font.json",
+          "isSource": true,
+          "original": {
+            "value": "font",
+            "type": "other"
+          },
+          "name": "DdsFontCodeMonospace02ExportKey",
+          "attributes": {
+            "category": "$dds-font",
+            "type": "code",
+            "item": "monospace-02",
+            "subitem": "exportKey"
+          },
+          "path": [
+            "$dds-font",
+            "code",
+            "monospace-02",
+            "exportKey"
+          ]
+        },
         "fontSize": {
           "value": 16,
           "type": "number",

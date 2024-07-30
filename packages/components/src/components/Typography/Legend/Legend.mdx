@@ -13,12 +13,12 @@ import * as LegendStories from './Legend.stories';
   docsHref="https://design.domstol.no/987b33f71/p/3718e2-typography"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=9982-211792&mode=design&t=XBHlNDhFak7JkOlt-4"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Typography/Legend"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-typography-legend--default"
+  withBottomSpacing
 />
 
-## Oversikt
-
-`<Legend />` er en komponent som tilsvarer `<legend>` HTML taggen. `<legend>`, sammen med `<Fieldset />`, brukes for å knytte relaterte skjemaelementer sammen.
-Hvis du skal ha overskrifter for grupper av skjemaelementer skal du alltid bruke `<Fieldset />` og `<Legend />` for å markere disse gruppene.
+`<Legend>` er en komponent som tilsvarer `<legend>` HTML taggen. `<legend>`, sammen med `<Fieldset>`, brukes for å knytte relaterte skjemaelementer sammen.
+Hvis du skal ha overskrifter for grupper av skjemaelementer skal du alltid bruke `<Fieldset>` og `<Legend>` for å markere disse gruppene.
 Dette gjør brukeropplevelsen til skjermleserbrukere bedre.
 Skjermleseren vil da kunne lese opp overskriften når en bruker får et skjemaelement i fokus.
 Dette gjør det mulig for skjermleserbrukere å kunne tabbe gjennom skjemaer, uten å miste konteksten.
@@ -30,7 +30,7 @@ For eksempler og mer utfyllende informasjon om bruk av `<fieldset>` og `<legend>
 <Canvas of={LegendStories.Default} />
 <Controls of={LegendStories.Default} />
 
-## Bruk i koden
+## Bruk
 
 <Source
   code={`import { Fieldset, Legend, TextInput } from '@norges-domstoler/dds-components';

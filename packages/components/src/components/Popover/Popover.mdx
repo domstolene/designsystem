@@ -14,21 +14,21 @@ import * as PopoverStories from './Popover.stories';
   docsHref="https://design.domstol.no/987b33f71/p/185219-popover/b/656a67"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=4988%3A128366"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Popover"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-popover--default"
+  withBottomSpacing
 />
-
-## Oversikt
 
 Komponenten består av tre elementer:
 
-- **`<Popover />`** - en komponent som dukker opp via museklikk på anchor-elementet.
-- **Anchor-element**, som er også et trigger-element. Et valgfritt interaktivt element, typisk en knapp, som åpner og lukker popover. Elementet får attributtene `onClick`, `ref`, `aria-haspopup` og `aria-controls` fra `<PopoverGroup />`.
-- **`<PopoverGroup />`** - wrapper for to barn: anchor-element `<Popover />`. Den håndterer oppførsel og universell utforming.
+- **`<Popover>`** - en komponent som dukker opp via museklikk på anchor-elementet.
+- **Anchor-element**, som er også et trigger-element. Et valgfritt interaktivt element, typisk en knapp, som åpner og lukker popover. Elementet får attributtene `onClick`, `ref`, `aria-haspopup` og `aria-controls` fra `<PopoverGroup>`.
+- **`<PopoverGroup>`** - wrapper for to barn: anchor-element `<Popover>`. Den håndterer oppførsel og universell utforming.
 
 ## Props
 
 ### Popover
 
-Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og onBlur.
+Selve popover-elementet. Den åpnes når anchor-elementet trykkes. Den kan lukkes på fire måter: ved å trykke på anchor-elementet igjen, Esc-tast, lukkeknapptrykk og via `onBlur`-effekt.
 
 <Canvas>
   <Story of={PopoverStories.Default} />
@@ -54,12 +54,10 @@ Selve popover-elementet. Den åpnes når anchor-elementet trykkes, og den lukkes
 
 Det kan være relevant å begrense størrelsen på Popover slik at ikke hele teksten vises ved overflow. Da bør den synlige teksten avsluttes med en ellipse:
 
-<Canvas>
-  <Story of={PopoverStories.Overflow} />
-</Canvas>
+<Canvas of={PopoverStories.Overflow} />
 
 For å oppnå det kan du sette sizeProps til ønskede verdier og gi tekstelementet som
-er barnet i `<Popover />` følgende CSS:
+er barnet i `<Popover>` følgende CSS:
 
 <Source
   language="css"
@@ -72,18 +70,18 @@ white-space: nowrap;
 
 ### PopoverGroup
 
-Wrapper der anchor-elementet skal være første barnet og `<Popover />` skal være andre barnet. `<PopoverGroup />` har to funksjoner:
+Wrapper der anchor-elementet skal være første barnet og `<Popover>` skal være andre barnet. `<PopoverGroup>` har to funksjoner:
 
 - Håndtering av barnas oppførsel: åpning og lukking av popover, eventuelle ekstra callbacks.
 - Automatisk forplanting av enkelte props hos barna: referanse til anchor-elementet og aria-attributter for universell utofrming.
 
-`<PopoverGroup />` returnerer kun barna uten en HTML-tag rundt dem.
+`<PopoverGroup>` returnerer kun barna uten en HTML-tag rundt dem.
 
-**OBS!** all kontroll av `<Popover />` som onClick events implementeres i `<PopoverGroup />`, ikke direkte i `<Popover />`.
+**OBS!** all kontroll av `<Popover>` som onClick events implementeres i `<PopoverGroup>`, ikke direkte i `<Popover>`.
 
 <ArgTypes of={PopoverGroup} />
 
-## Bruk i koden
+## Bruk
 
 <Source
   code={`import { Button, Popover, PopoverGroup } from '@norges-domstoler/dds-components';
@@ -96,6 +94,6 @@ Wrapper der anchor-elementet skal være første barnet og `<Popover />` skal væ
 
 ## Retningslinjer
 
-- `<Popover />` skal dukke opp kun via eksplisitt interaksjon fra brukeren; Den skal for eksempel ikke vises når siden lastes inn - den kan bli plassert feil eller være i veien.
-- `<Popover />` skal brukes på en måte som ikke forstyrrer brukeren.
+- `<Popover>` skal dukke opp kun via eksplisitt interaksjon fra brukeren; Den skal for eksempel ikke vises når siden lastes inn - den kan bli plassert feil eller være i veien.
+- `<Popover>` skal brukes på en måte som ikke forstyrrer brukeren.
 - Hvis anchor-elementet ikke er en knapp bør det settes `role='button'` på den i de fleste tilfeller.

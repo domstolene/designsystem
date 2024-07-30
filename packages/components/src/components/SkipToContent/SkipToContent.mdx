@@ -13,6 +13,7 @@ import * as SkipToContentStories from './SkipToContent.stories';
   docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=4695%3A96825"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/SkipToContent"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-skiptocontent--default"
 />
 
 ## Props
@@ -20,7 +21,7 @@ import * as SkipToContentStories from './SkipToContent.stories';
 <Canvas of={SkipToContentStories.Default} sourceState="shown" />
 <Controls of={SkipToContentStories.Default} />
 
-## Bruk i koden
+## Bruk
 
 <Source
   code={`import { SkipToContent } from '@norges-domstoler/dds-components';
@@ -28,13 +29,13 @@ import * as SkipToContentStories from './SkipToContent.stories';
 <body>
   <SkipToContent {...args} href="#innhold" />
   {/* navigasjon o.l. */}
-  <Typography id="innhold">Innhold</Typography>
+  <main id="innhold">Innhold</main>
 </body>
 `} />
 
 ## Retningslinjer
 
 - Komponenten skal brukes i alle løsninger som har navigasjon og annet sekunært innhold som kan hopper over.
-- Legg `<SkipToContent />` inn som første fokuserbart element i koden.
+- Legg `<SkipToContent>` inn som første fokuserbart element i koden.
 - Komponenten bruker CSS-reglene `position: absolute`, `top: 0` (som default) og `width: 100%`, og det er i utgangspunktet meningen at den skal dekke hele bredden på siden. Sørg for at komponenten har riktig plass i hierarkiet med tanke på posisjonering.
-- Hvis nettsiden er kompleks og består av mange seksjoner kan det være relevant å bruke flere `<SkipToContent />` komponenter. Det er som regel ikke nødvendig, men det bør tas en individuell vurdering.
+- Hvis nettsiden er kompleks og består av mange seksjoner kan det være relevant å bruke flere `<SkipToContent>` komponenter. Det er som regel ikke nødvendig, men det bør tas en individuell vurdering.

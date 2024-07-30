@@ -2,10 +2,16 @@
   "$dds-font": {
     "heading": {
       "sans-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -18,7 +24,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 600,
+          "value": "600",
           "type": "number"
         },
         "fontStyle": {
@@ -34,22 +40,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 6.400000095367432,
+          "value": "6.400000095367432",
           "type": "number",
           "unit": "pixel"
         },
@@ -59,10 +65,16 @@
         }
       },
       "sans-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 18,
+          "value": "18",
           "type": "number",
           "unit": "pixel"
         },
@@ -75,7 +87,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 600,
+          "value": "600",
           "type": "number"
         },
         "fontStyle": {
@@ -91,22 +103,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 7.199999809265137,
+          "value": "7.199999809265137",
           "type": "number",
           "unit": "pixel"
         },
@@ -116,10 +128,16 @@
         }
       },
       "sans-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 24,
+          "value": "24",
           "type": "number",
           "unit": "pixel"
         },
@@ -132,7 +150,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -148,22 +166,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 135,
+          "value": "135",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 9.600000381469727,
+          "value": "9.600000381469727",
           "type": "number",
           "unit": "pixel"
         },
@@ -173,10 +191,16 @@
         }
       },
       "sans-04": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 32,
+          "value": "32",
           "type": "number",
           "unit": "pixel"
         },
@@ -189,7 +213,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -205,22 +229,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 135,
+          "value": "135",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 12.800000190734863,
+          "value": "12.800000190734863",
           "type": "number",
           "unit": "pixel"
         },
@@ -230,10 +254,16 @@
         }
       },
       "sans-05": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 40,
+          "value": "40",
           "type": "number",
           "unit": "pixel"
         },
@@ -246,7 +276,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -262,22 +292,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": -1,
+          "value": "-1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 135,
+          "value": "135",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -287,10 +317,16 @@
         }
       },
       "sans-06": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 48,
+          "value": "48",
           "type": "number",
           "unit": "pixel"
         },
@@ -303,7 +339,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -319,22 +355,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": -1,
+          "value": "-1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 120,
+          "value": "120",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 19.200000762939453,
+          "value": "19.200000762939453",
           "type": "number",
           "unit": "pixel"
         },
@@ -344,10 +380,16 @@
         }
       },
       "sans-07": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 64,
+          "value": "64",
           "type": "number",
           "unit": "pixel"
         },
@@ -360,7 +402,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -376,22 +418,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": -1,
+          "value": "-1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 120,
+          "value": "120",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 25.600000381469727,
+          "value": "25.600000381469727",
           "type": "number",
           "unit": "pixel"
         },
@@ -401,10 +443,16 @@
         }
       },
       "sans-08": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 80,
+          "value": "80",
           "type": "number",
           "unit": "pixel"
         },
@@ -417,7 +465,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -433,22 +481,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": -1,
+          "value": "-1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 120,
+          "value": "120",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 32,
+          "value": "32",
           "type": "number",
           "unit": "pixel"
         },
@@ -460,10 +508,16 @@
     },
     "body": {
       "sans-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 14,
+          "value": "14",
           "type": "number",
           "unit": "pixel"
         },
@@ -476,7 +530,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -492,22 +546,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 1,
+          "value": "1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 14,
+          "value": "14",
           "type": "number",
           "unit": "pixel"
         },
@@ -517,10 +571,16 @@
         }
       },
       "sans-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -533,7 +593,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -549,22 +609,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -574,10 +634,16 @@
         }
       },
       "sans-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 18,
+          "value": "18",
           "type": "number",
           "unit": "pixel"
         },
@@ -590,7 +656,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -606,22 +672,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 18,
+          "value": "18",
           "type": "number",
           "unit": "pixel"
         },
@@ -631,10 +697,16 @@
         }
       },
       "sans-04": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 20,
+          "value": "20",
           "type": "number",
           "unit": "pixel"
         },
@@ -647,7 +719,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -663,22 +735,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 20,
+          "value": "20",
           "type": "number",
           "unit": "pixel"
         },
@@ -690,10 +762,16 @@
     },
     "lead": {
       "sans-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 18,
+          "value": "18",
           "type": "number",
           "unit": "pixel"
         },
@@ -706,7 +784,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 600,
+          "value": "600",
           "type": "number"
         },
         "fontStyle": {
@@ -722,22 +800,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 18,
+          "value": "18",
           "type": "number",
           "unit": "pixel"
         },
@@ -747,10 +825,16 @@
         }
       },
       "sans-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 24,
+          "value": "24",
           "type": "number",
           "unit": "pixel"
         },
@@ -763,7 +847,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 600,
+          "value": "600",
           "type": "number"
         },
         "fontStyle": {
@@ -779,22 +863,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 135,
+          "value": "135",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -804,10 +888,16 @@
         }
       },
       "sans-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 24,
+          "value": "24",
           "type": "number",
           "unit": "pixel"
         },
@@ -820,7 +910,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -836,22 +926,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 135,
+          "value": "135",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -861,10 +951,16 @@
         }
       },
       "sans-04": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 32,
+          "value": "32",
           "type": "number",
           "unit": "pixel"
         },
@@ -877,7 +973,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -893,22 +989,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 135,
+          "value": "135",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 21,
+          "value": "21",
           "type": "number",
           "unit": "pixel"
         },
@@ -918,10 +1014,16 @@
         }
       },
       "sans-05": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 40,
+          "value": "40",
           "type": "number",
           "unit": "pixel"
         },
@@ -934,7 +1036,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -950,22 +1052,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": -1,
+          "value": "-1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 135,
+          "value": "135",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 26,
+          "value": "26",
           "type": "number",
           "unit": "pixel"
         },
@@ -977,10 +1079,16 @@
     },
     "supporting-style": {
       "label-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 14,
+          "value": "14",
           "type": "number",
           "unit": "pixel"
         },
@@ -993,7 +1101,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 600,
+          "value": "600",
           "type": "number"
         },
         "fontStyle": {
@@ -1009,22 +1117,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 1,
+          "value": "1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 14,
+          "value": "14",
           "type": "number",
           "unit": "pixel"
         },
@@ -1034,10 +1142,16 @@
         }
       },
       "helpertext-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1050,7 +1164,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -1066,22 +1180,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 1,
+          "value": "1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1091,10 +1205,16 @@
         }
       },
       "placeholdertext-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -1107,7 +1227,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -1123,22 +1243,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -1148,10 +1268,16 @@
         }
       },
       "tiny-01": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1164,7 +1290,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -1180,22 +1306,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 1,
+          "value": "1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1205,10 +1331,16 @@
         }
       },
       "tiny-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1221,7 +1353,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 300,
+          "value": "300",
           "type": "number"
         },
         "fontStyle": {
@@ -1237,22 +1369,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 1,
+          "value": "1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1262,10 +1394,16 @@
         }
       },
       "placeholdertext-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 14,
+          "value": "14",
           "type": "number",
           "unit": "pixel"
         },
@@ -1278,7 +1416,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -1294,22 +1432,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 1,
+          "value": "1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 14,
+          "value": "14",
           "type": "number",
           "unit": "pixel"
         },
@@ -1319,10 +1457,16 @@
         }
       },
       "placeholdertext-03": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1335,7 +1479,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -1351,22 +1495,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 1,
+          "value": "1",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 12,
+          "value": "12",
           "type": "number",
           "unit": "pixel"
         },
@@ -1378,10 +1522,16 @@
     },
     "code": {
       "monospace-02": {
-        "category": "font",
-        "exportKey": "font",
+        "category": {
+          "value": "font",
+          "type": "other"
+        },
+        "exportKey": {
+          "value": "font",
+          "type": "other"
+        },
         "fontSize": {
-          "value": 16,
+          "value": "16",
           "type": "number",
           "unit": "pixel"
         },
@@ -1394,7 +1544,7 @@
           "type": "string"
         },
         "fontWeight": {
-          "value": 400,
+          "value": "400",
           "type": "number"
         },
         "fontStyle": {
@@ -1410,22 +1560,22 @@
           "type": "string"
         },
         "letterSpacing": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "percent"
         },
         "lineHeight": {
-          "value": 150,
+          "value": "150",
           "type": "number",
           "unit": "percent"
         },
         "paragraphIndent": {
-          "value": 0,
+          "value": "0",
           "type": "number",
           "unit": "pixel"
         },
         "paragraphSpacing": {
-          "value": 9,
+          "value": "9",
           "type": "number",
           "unit": "pixel"
         },

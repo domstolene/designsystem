@@ -68,10 +68,25 @@ const menuElements = [menuElement, menuElementWithIcon, menuElement];
 
 type Story = StoryObj<typeof InternalHeader>;
 
-export const Default: Story = {
+export const WithNavigationAndContextMenu: Story = {
+  parameters: { docs: { story: { height: '265px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
+    navigationElements: navigationLinks,
+    contextMenuElements: menuElements,
+    userProps: user,
+  },
+};
+
+export const WithCurrentPage: Story = {
+  args: {
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
+    navigationElements: [navigationLink, uniqueNavigationLink],
+    contextMenuElements: menuElements,
+    userProps: user,
+    currentPageHref: '#',
   },
 };
 
@@ -129,27 +144,6 @@ export const Overview: Story = {
   ),
 };
 
-export const WithNavigationAndContextMenu: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navigationElements: navigationLinks,
-    contextMenuElements: menuElements,
-    userProps: user,
-  },
-};
-
-export const WithCurrentPage: Story = {
-  args: {
-    applicationName: 'Lovisa',
-    applicationDesc: 'Produktnavn',
-    navigationElements: [navigationLink, uniqueNavigationLink],
-    contextMenuElements: menuElements,
-    userProps: user,
-    currentPageHref: '#',
-  },
-};
-
 export const SmallScreenWithNavigation: Story = {
   args: {
     applicationName: 'Lovisa',
@@ -169,6 +163,7 @@ export const SmallScreenWithContextMenu: Story = {
 };
 
 export const SmallScreenWithNavigationAndContextMenu: Story = {
+  parameters: { docs: { story: { height: '365px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',

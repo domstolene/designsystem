@@ -13,6 +13,7 @@ import * as DatePickerStories from './DatePicker.stories';
   docsHref="https://design.domstol.no/987b33f71/p/73c4d3-datepicker/b/369590"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=417%3A16&mode=design&t=yAZzSopZv7pOdHLa-1"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/date-inputs/DatePicker"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-datepicker--default"
 />
 
 ## Props
@@ -25,7 +26,7 @@ For mer utfyllende dokumentasjon av props referrerer vi deg til [`DatePicker` do
 </Canvas>
 <Controls of={DatePickerStories.Default} />
 
-## Bruk i koden
+## Bruk
 
 <Source
   code={`
@@ -40,7 +41,7 @@ new CalendarDate(2023, 8, 28)
 <DatePicker label="Velg dato" value={value} onChange={setValue} />
 `} />
 
-### Bruke native JS Date i stedet for @internationalized/date
+### Med native JS Date i stedet for @internationalized/date
 
 Vi anbefaler å bruke `@internationalized/date` for å representere datoer, da den ikke er avhengig av brukers locale og tidssone.
 Om du derimot allikevel skulle ha behov for å bruke native JS Date, så har vi laget funksjoner for å oversette mellom native JS Date og `@internationalized/date`:

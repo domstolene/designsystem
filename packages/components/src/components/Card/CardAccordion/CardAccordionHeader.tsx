@@ -90,8 +90,8 @@ export const CardAccordionHeader = forwardRef<
         <div className={styles.header__content}>{children}</div>
         <span className={styles.header__chevron}>
           <AnimatedChevronUpDown
-            width={ddsTokens.DdsIconSizeMedium}
-            height={ddsTokens.DdsSpacingX05}
+            width={ddsTokens.ddsIconSizeMedium}
+            height={ddsTokens.ddsSpacingX05}
             isUp={isExpanded}
           />
         </span>

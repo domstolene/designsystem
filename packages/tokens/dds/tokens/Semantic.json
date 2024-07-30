@@ -372,7 +372,7 @@
         "description": "Primary brand color"
       },
       "primary-medium": {
-        "value": "{dds-color.primary.lighter}",
+        "value": "{dds-color.primary.light}",
         "type": "color",
         "description": "Primary brand color"
       },

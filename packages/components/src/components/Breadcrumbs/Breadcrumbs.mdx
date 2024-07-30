@@ -11,16 +11,16 @@ import * as BreadcrumbStories from './Breadcrumb.stories';
   docsHref="https://design.domstol.no/987b33f71/p/376bad-breadcrumbs/b/719cb3"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=1676%3A0"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Breadcrumbs"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-breadcrumbs--default"
+  withBottomSpacing
 />
-
-## Oversikt
 
 Komponenten består av to subkomponenter:
 
-- **`<Breadcrumbs />`** som er selve brødsmulestien
-- **`<Breadcrumb />`** som er barna i brødsmulestien
+- **`<Breadcrumbs>`** som er selve brødsmulestien
+- **`<Breadcrumb>`** som er barna i brødsmulestien
 
-Siste `<Breadcrumb />` skal være den siden brukeren er på, uten oppgitt URL.
+Siste `<Breadcrumb>` skal være den siden brukeren er på, uten oppgitt URL.
 
 ## Props
 
@@ -29,7 +29,7 @@ Siste `<Breadcrumb />` skal være den siden brukeren er på, uten oppgitt URL.
 <Canvas of={BreadcrumbsStories.Default} />
 <Controls of={BreadcrumbsStories.Default} />
 
-Selve brødsmulestien. Skal ha `<Breadcrumb />` som barn.
+Selve brødsmulestien. Skal ha `<Breadcrumb>` som barn.
 
 I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
 

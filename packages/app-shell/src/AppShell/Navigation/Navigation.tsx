@@ -73,11 +73,7 @@ const LogoAndVersionContainer = styled.div`
 `;
 
 const Version = styled.span`
-  font-size: ${navTokens.logoAndVersion.version.fontSize};
-  font-style: ${navTokens.logoAndVersion.version.fontStyle};
-  font-family: ${navTokens.logoAndVersion.version.fontFamily};
-  font-weight: ${navTokens.logoAndVersion.version.fontWeight};
-  line-height: ${navTokens.logoAndVersion.version.lineHeight};
+  font: ${navTokens.logoAndVersion.version.font};
   letter-spacing: ${navTokens.logoAndVersion.version.letterSpacing};
 `;
 

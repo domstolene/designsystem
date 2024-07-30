@@ -5,7 +5,7 @@ import { NotificationsIcon } from '../Icon/icons';
 import { ToggleButton } from '.';
 
 export default {
-  title: 'dds-components/ToggleButton/ToggleButton',
+  title: 'dds-components/ToggleButton',
   component: ToggleButton,
   argTypes: {
     label: { control: 'text' },

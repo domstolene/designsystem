@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Chip } from '.';
 
 export default {
-  title: 'dds-components/Chip/Chip',
+  title: 'dds-components/Chip',
   component: Chip,
   parameters: {
     docs: {

@@ -10,14 +10,14 @@ export default create({
   brandImage: elsaLogoHigh,
 
   // Interaction color
-  colorSecondary: ddsTokens.DdsColorSurfaceActionSelected,
+  colorSecondary: ddsTokens.ddsColorSurfaceActionSelected,
 
   // Typography
-  fontBase: `${ddsTokens.DdsFontBodySans02FontFamily}, 'Trebuchet MS', sans-serif`,
-  fontCode: `${ddsTokens.DdsFontCodeMonospace02FontFamily}, monospace`,
-  textMutedColor: ddsTokens.DdsColorTextMedium,
-  textColor: ddsTokens.DdsColorTextDefault,
+  fontBase: `${ddsTokens.ddsFontFamilySans}, 'Trebuchet MS', sans-serif`,
+  fontCode: `${ddsTokens.ddsFontFamilyMonospace}, monospace`,
+  textMutedColor: ddsTokens.ddsColorTextMedium,
+  textColor: ddsTokens.ddsColorTextDefault,
 
   //UI
-  appBorderRadius: ddsTokens.DdsBorderRadius1NumberPx,
+  appBorderRadius: ddsTokens.ddsBorderRadius1NumberPx,
 });
