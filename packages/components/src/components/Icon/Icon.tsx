@@ -7,15 +7,15 @@ import { type TextColor } from '../../utils';
 const getSize = (iconSize: IconSize): string => {
   switch (iconSize) {
     case 'small':
-      return ddsTokens.DdsIconSizeSmall;
+      return ddsTokens.ddsIconSizeSmall;
     case 'medium':
-      return ddsTokens.DdsIconSizeMedium;
+      return ddsTokens.ddsIconSizeMedium;
     case 'large':
-      return ddsTokens.DdsIconSizeLarge;
+      return ddsTokens.ddsIconSizeLarge;
     case 'inherit':
       return '1em';
     default:
-      return ddsTokens.DdsIconSizeMedium;
+      return ddsTokens.ddsIconSizeMedium;
   }
 };
 

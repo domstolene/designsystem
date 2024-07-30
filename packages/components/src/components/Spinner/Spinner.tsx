@@ -20,7 +20,7 @@ export type SpinnerProps = BaseComponentProps<
 
 export function Spinner(props: SpinnerProps) {
   const {
-    size = ddsTokens.DdsIconSizeMedium,
+    size = ddsTokens.ddsIconSizeMedium,
     color = 'iconActionResting',
     tooltip = 'Innlasting pågår',
     id,

@@ -63,7 +63,8 @@
   }
 
   .icon {
-    font-size: var(--dds-font-supporting-style-tiny-01-line-height);
+    /*TODO: bytte til icon size token for button når den er på plass*/
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 
@@ -91,7 +92,8 @@
   }
 
   .icon {
-    font-size: var(--dds-font-body-sans-01-line-height);
+    /*TODO: bytte til icon size token for button når den er på plass*/
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 
@@ -119,7 +121,8 @@
   }
 
   .icon {
-    font-size: var(--dds-font-body-sans-02-line-height);
+    /*TODO: bytte til icon size token for button når den er på plass*/
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 
@@ -147,7 +150,8 @@
   }
 
   .icon {
-    font-size: var(--dds-font-body-sans-04-line-height);
+    /*TODO: bytte til icon size token for button når den er på plass*/
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 

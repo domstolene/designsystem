@@ -1,0 +1,80 @@
+import { Canvas, Controls, Meta, ArgTypes } from '@storybook/blocks';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as FooterStories from './Footer.stories';
+import { FooterListHeader, FooterLogo } from '.';
+
+<Meta of={FooterStories} />
+
+# Footer
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/802ff0-button/b/32e1a2"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=17100-91741"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Footer"
+  withBottomSpacing
+/>
+
+`<Footer>` er en fleksibel komponent som tillatter å bygge en footer fra bunn av.
+For å bygge layout brukes komponentene `<Grid>` og `<GridChild>` sammen med Footer-subkomponenter, som sørger for fritt struktur og gjennomgående design på tvers av implementasjoner.
+Via bruk av `<Grid>` kan du enkelt sette brekkpunkter for innholdet.
+
+Følgende subkomponenter er tilgjengelige:
+
+- `<Footer>` - selve `<footer>`. Bruker mørk bagrunn og sørger for at alle tekster og ikoner brukt via Elsa-komponenter har kontrasterende farge.
+- `<FooterLogo>` - logo til domstolene. plasseres til venstre.
+- `<FooterList>` - liste med elementer, sørger for riktig spacing og layout.
+- `<FooterSocialsList>` - egen komponent for liste med lenker til sosiale medier; til bruk under Logo. Sørger for riktig spacing og layout.
+- `<FooterListHeader>` - overskrift for en liste; kan brukes for alle lister.
+- `<FooterLeft>` - venstre seksjonen i footer; Kan brukes som container for logo og liste med sosiale medier. Sørger for riktig layout.
+- `<FooterListGroup>` - layout-komponent for `<FooterListHeader>` og `<FooterList>`.
+- `<FooterSocialsListGroup>` - layout-komponent for `<FooterListHeader>` og `<FooterSocialsList>`.
+
+## Demo
+
+Du kan åpne (alenestående demo)[https://domstolene.github.io/designsystem/?path=/story/dds-components-footer--default] og endre bredden til nettleservinduet for å se implementasjonen av brekkpunktene.
+
+<Canvas of={FooterStories.Default} />
+<Controls of={FooterStories.Default} />
+
+## Subkomponenter
+
+### FooterLogo
+
+Logo. Kan overskrives til egen logo ved behov.
+
+<Canvas of={FooterStories.Logo} />
+<ArgTypes of={FooterLogo} />
+
+### FooterListHeader
+
+Overskrift for en liste. Returnerer `<h2>`, slik at overskriftshierarkiet opprettholdes uansett innhold ellers på siden.
+
+<Canvas of={FooterStories.ListHeader} />
+<ArgTypes of={FooterListHeader} />
+
+### FooterList, FooterListGroup
+
+Liste med elementer. `<FooterListGroup>` er en container som grupperer sammen liste og overskrift.
+
+<Canvas of={FooterStories.ListExample} />
+
+### FooterSocialsGroup, FooterSocialsList
+
+Gruppering for seksjon med lenker til sosiale medier.
+
+<Canvas of={FooterStories.Socials} />
+
+### FooterLeft
+
+Venstre seksjonen i footer. Kan brukes som container for logo og liste med sosiale medier.
+
+<Canvas of={FooterStories.Left} />
+
+## Eksempler
+
+### Med logo, sosiale medier, adresse og lenker
+
+<Canvas of={FooterStories.FourColumns} />

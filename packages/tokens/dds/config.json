@@ -1,201 +1,37 @@
 {
-  "source": ["tokens/**/*.json", "tokens/*.json"],
+  "source": ["tokens/Base.json", "tokens/Semantic.json"],
+  "preprocessors": ["tokens-studio"],
   "platforms": {
-    "scss": {
-      "transformGroup": "custom/scss",
-      "buildPath": "build/scss/",
-      "files": [
-        {
-          "destination": "_ddsTokens.scss",
-          "format": "scss/variables",
-          "filter": "tokenFilter"
-        },
-        {
-          "destination": "_colors.scss",
-          "format": "scss/variables",
-          "filter": "colorFilter"
-        },
-        {
-          "destination": "_font.scss",
-          "format": "scss/variables",
-          "filter": "fontFilter"
-        },
-        {
-          "destination": "_spacing.scss",
-          "format": "scss/variables",
-          "filter": "spacingFilter"
-        },
-        {
-          "destination": "_iconSize.scss",
-          "format": "scss/variables",
-          "filter": {
-            "attributes": {
-              "category": "dds-icon-size"
-            }
-          }
-        },
-        {
-          "destination": "_borderRadius.scss",
-          "format": "scss/variables",
-          "filter": "radiiFilter"
-        },
-        {
-          "destination": "_grid.scss",
-          "format": "scss/variables",
-          "filter": {
-            "attributes": {
-              "category": "dds-grid"
-            }
-          }
-        },
-        {
-          "destination": "_outershadow.scss",
-          "format": "scss/variables",
-          "filter": {
-            "attributes": {
-              "category": "$dds-shadow"
-            }
-          }
-        },
-        {
-          "destination": "_breakpoints.scss",
-          "format": "scss/variables",
-          "filter": "breakpointFilter"
-        }
-      ]
-    },
     "css": {
-      "transformGroup": "custom/css",
       "buildPath": "build/css/",
+      "transformGroup": "tokens-studio",
+      "transforms": ["name/kebab"],
       "files": [
         {
           "destination": "ddsTokens.css",
-          "format": "css/variables",
-          "filter": "tokenFilter"
-        },
-        {
-          "destination": "colors.css",
-          "format": "css/variables",
-          "filter": "colorFilter"
-        },
-        {
-          "destination": "font.css",
-          "format": "css/variables",
-          "filter": "fontFilter"
-        },
-        {
-          "destination": "spacing.css",
-          "format": "css/variables",
-          "filter": "spacingFilter"
-        },
-        {
-          "destination": "iconSize.css",
-          "format": "css/variables",
-          "filter": {
-            "attributes": {
-              "category": "dds-icon-size"
-            }
-          }
-        },
-        {
-          "destination": "borderRadius.css",
-          "format": "css/variables",
-          "filter": "radiiFilter"
-        },
-        {
-          "destination": "grid.css",
-          "format": "css/variables",
-          "filter": {
-            "attributes": {
-              "category": "dds-grid"
-            }
-          }
-        },
-        {
-          "destination": "outershadow.css",
-          "format": "css/variables",
-          "filter": {
-            "attributes": {
-              "category": "$dds-shadow"
-            }
-          }
-        },
-        {
-          "destination": "breakpoints.css",
-          "format": "css/variables",
-          "filter": "breakpointFilter"
+          "format": "css/variables"
         }
       ]
     },
     "js": {
-      "transformGroup": "custom/js",
       "buildPath": "build/js/",
+      "transformGroup": "tokens-studio",
       "files": [
         {
           "destination": "ddsTokens.ts",
-          "format": "custom/javascript/es6",
-          "filter": "tokenFilter"
-        },
+          "format": "custom/javascript/es6"
+        }
+      ]
+    },
+    "scss": {
+      "buildPath": "build/scss/",
+      "prefix": "",
+      "transformGroup": "tokens-studio",
+      "transforms": ["name/kebab"],
+      "files": [
         {
-          "destination": "colors.ts",
-          "format": "javascript/es6",
-          "filter": "colorFilter"
-        },
-        {
-          "destination": "font.ts",
-          "format": "custom/javascript/es6",
-          "filter": "fontFilter"
-        },
-        {
-          "destination": "fontObject.ts",
-          "format": "javascript/objectExported",
-          "filter": {
-            "attributes": {
-              "category": "$dds-font"
-            }
-          }
-        },
-        {
-          "destination": "spacing.ts",
-          "format": "custom/javascript/es6",
-          "filter": "spacingFilter"
-        },
-        {
-          "destination": "iconSize.ts",
-          "format": "custom/javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "dds-icon-size"
-            }
-          }
-        },
-        {
-          "destination": "borderRadius.ts",
-          "format": "custom/javascript/es6",
-          "filter": "radiiFilter"
-        },
-        {
-          "destination": "grid.ts",
-          "format": "custom/javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "dds-grid"
-            }
-          }
-        },
-        {
-          "destination": "outershadow.ts",
-          "format": "javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "$dds-shadow"
-            }
-          }
-        },
-        {
-          "destination": "breakpoints.ts",
-          "format": "custom/javascript/es6",
-          "filter": "breakpointFilter"
+          "destination": "_ddsTokens.scss",
+          "format": "scss/variables"
         }
       ]
     }

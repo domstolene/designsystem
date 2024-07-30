@@ -70,7 +70,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement,
       children,
       placement = 'bottom',
-      offset = ddsTokens.DdsSpacingX05NumberPx,
+      offset = ddsTokens.ddsSpacingX05NumberPx,
       sizeProps,
       id,
       className,

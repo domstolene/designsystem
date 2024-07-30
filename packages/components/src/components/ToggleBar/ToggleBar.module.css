@@ -38,7 +38,8 @@
   padding: var(--dds-spacing-x1);
 
   svg {
-    font-size: var(--dds-font-body-sans-04-line-height);
+    /*TODO: bytte til icon size token for button når den er på plass*/
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 
@@ -51,7 +52,7 @@
   padding: var(--dds-spacing-x0-75);
 
   svg {
-    font-size: var(--dds-font-body-sans-02-line-height);
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 
@@ -64,7 +65,7 @@
   padding: var(--dds-spacing-x0-5);
 
   svg {
-    font-size: var(--dds-font-body-sans-01-line-height);
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 
@@ -77,7 +78,7 @@
   padding: var(--dds-spacing-x0-25);
 
   svg {
-    font-size: var(--dds-font-supporting-style-tiny-01-line-height);
+    font-size: calc(var(--dds-font-lineheight-x1) * 1em);
   }
 }
 

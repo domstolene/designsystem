@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-design-tokens",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Design tokens used in Domstolenes designsystem",
   "author": "DDS team",
   "license": "MIT",
@@ -15,6 +15,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",
   "types": "dist/src/index.d.ts",
+  "type": "module",
   "files": [
     "dist"
   ],
@@ -40,14 +41,15 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/node": "^20.14.11",
+    "@tokens-studio/sd-transforms": "^1.2.1",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.4",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-sass": "^1.13.1",
     "rollup-plugin-typescript2": "^0.36.0",
-    "style-dictionary": "^3.9.2",
-    "typescript": "^5.5.3"
+    "style-dictionary": "^4.0.1",
+    "typescript": "^5.5.4"
   },
   "publishConfig": {
     "provenance": true

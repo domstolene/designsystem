@@ -4,7 +4,6 @@
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;
-  box-shadow: var(--dds-shadow-1-onlight);
 }
 
 .list {
@@ -43,7 +42,8 @@
 .icon {
   display: flex;
   align-items: center;
-  font-size: var(--dds-font-body-sans-01-line-height);
+  /*TODO: bytte til icon size token for button når den er på plass*/
+  font-size: calc(var(--dds-font-lineheight-x1) * 1em);
 }
 
 .divider {

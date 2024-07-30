@@ -3,7 +3,7 @@
   box-sizing: border-box;
   display: grid;
   align-items: center;
-  box-shadow: var(--dds-shadow-1-onlight);
+  box-shadow: var(--dds-shadow-1);
   border-radius: var(--dds-border-radius-1);
   padding: var(--dds-spacing-x0-75);
   gap: var(--dds-spacing-x0-5);
