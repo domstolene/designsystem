@@ -22,6 +22,7 @@ export * from './components/FavStar';
 export * from './components/Feedback';
 export * from './components/Fieldset';
 export * from './components/FileUploader';
+export * from './components/Footer';
 export * from './components/GlobalMessage';
 export * from './components/Grid';
 export * from './components/Icon';

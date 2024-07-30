@@ -1,6 +1,25 @@
+:root {
+  --dds-color-text-body: var(--dds-color-text-default);
+  --dds-color-text-link: var(--dds-color-text-action-resting);
+  --dds-color-text-link-visited: var(--dds-color-text-action-visited);
+  --dds-color-text-label: var(--dds-color-text-medium);
+  --dds-color-text-placeholder: var(--dds-color-text-subtle);
+  --dds-color-text-helper: var(--dds-color-text-subtle);
+}
+
+.contrast {
+  --dds-color-text-body: var(--dds-color-text-on-inverse);
+  --dds-color-text-link: var(--dds-color-text-on-inverse);
+  /* TODO: semantic når den er på plass */
+  --dds-color-text-link-visited: var(--dds-color-visited-lighter);
+  --dds-color-text-label: var(--dds-color-text-on-inverse);
+  --dds-color-text-helper: var(--dds-color-text-on-inverse);
+  --dds-color-text-placeholder: var(--dds-color-text-subtle);
+}
+
 :where(.a) {
   font: inherit;
-  color: var(--dds-color-text-action-resting);
+  color: var(--dds-color-text-link);
   width: fit-content;
   text-decoration: underline;
   margin: 0;
@@ -42,7 +61,7 @@
   margin: 0;
   font: var(--dds-font-body-sans-01);
   letter-spacing: var(--dds-font-body-sans-01-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.body-sans-01--margins) {
@@ -55,7 +74,7 @@
   margin: 0;
   font: var(--dds-font-body-sans-02);
   letter-spacing: var(--dds-font-body-sans-02-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.body-sans-02--margins) {
@@ -68,7 +87,7 @@
   margin: 0;
   font: var(--dds-font-body-sans-03);
   letter-spacing: var(--dds-font-body-sans-03-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.body-sans-03--margins) {
@@ -81,7 +100,7 @@
   margin: 0;
   font: var(--dds-font-body-sans-04);
   letter-spacing: var(--dds-font-body-sans-04-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.body-sans-04--margins) {
@@ -93,7 +112,8 @@
 :where(.lead-sans-01) {
   margin: 0;
   font: var(--dds-font-lead-sans-01);
-  color: var(--dds-color-text-default);
+  letter-spacing: var(--dds-font-lead-sans-01-letter-spacing);
+  color: var(--dds-color-text-body);
 }
 
 :where(.lead-sans-01--margins) {
@@ -106,7 +126,7 @@
   margin: 0;
   font: var(--dds-font-lead-sans-02);
   letter-spacing: var(--dds-font-lead-sans-02-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.lead-sans-02--margins) {
@@ -119,7 +139,7 @@
   margin: 0;
   font: var(--dds-font-lead-sans-03);
   letter-spacing: var(--dds-font-lead-sans-03-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.lead-sans-03--margins) {
@@ -132,7 +152,7 @@
   margin: 0;
   font: var(--dds-font-lead-sans-04);
   letter-spacing: var(--dds-font-lead-sans-04-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.lead-sans-04--margins) {
@@ -144,7 +164,8 @@
 :where(.lead-sans-05) {
   margin: 0;
   font: var(--dds-font-lead-sans-05);
-  color: var(--dds-color-text-default);
+  letter-spacing: var(--dds-font-lead-sans-05-letter-spacing);
+  color: var(--dds-color-text-body);
 }
 
 :where(.lead-sans-05--margins) {
@@ -157,7 +178,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-01);
   letter-spacing: var(--dds-font-heading-sans-01-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-01--margins) {
@@ -171,7 +192,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-02);
   letter-spacing: var(--dds-font-heading-sans-02-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-02--margins) {
@@ -185,7 +206,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-03);
   letter-spacing: var(--dds-font-heading-sans-03-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-03--margins) {
@@ -199,7 +220,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-04);
   letter-spacing: var(--dds-font-heading-sans-04-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-04--margins) {
@@ -213,7 +234,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-05);
   letter-spacing: var(--dds-font-heading-sans-05-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-05--margins) {
@@ -227,7 +248,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-06);
   letter-spacing: var(--dds-font-heading-sans-06-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-06--margins) {
@@ -241,7 +262,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-07);
   letter-spacing: var(--dds-font-heading-sans-07-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-07--margins) {
@@ -255,7 +276,7 @@
   margin: 0;
   font: var(--dds-font-heading-sans-08);
   letter-spacing: var(--dds-font-heading-sans-08-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.heading-sans-08--margins) {
@@ -269,7 +290,7 @@
   margin: 0;
   font: var(--dds-font-supporting-style-label-01);
   letter-spacing: var(--dds-font-supporting-style-label-01-letter-spacing);
-  color: var(--dds-color-text-medium);
+  color: var(--dds-color-text-label);
 }
 
 :where(.supporting-style-label-01--margins) {
@@ -282,7 +303,7 @@
   margin: 0;
   font: var(--dds-font-supporting-style-helper-text-01);
   letter-spacing: var(--dds-font-supporting-style-helpertext-01-letter-spacing);
-  color: var(--dds-color-text-subtle);
+  color: var(--dds-color-text-helper);
 }
 
 :where(.supporting-style-helper-text-01--margins) {
@@ -299,7 +320,7 @@
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-01-letter-spacing
   );
-  color: var(--dds-color-text-subtle);
+  color: var(--dds-color-text-placeholder);
 }
 
 :where(.supporting-style-placeholder-text-01--margins) {
@@ -318,7 +339,7 @@
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-02-letter-spacing
   );
-  color: var(--dds-color-text-subtle);
+  color: var(--dds-color-text-placeholder);
 }
 
 :where(.supporting-style-placeholder-text-02--margins) {
@@ -337,7 +358,7 @@
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-03-letter-spacing
   );
-  color: var(--dds-color-text-subtle);
+  color: var(--dds-color-text-placeholder);
 }
 
 :where(.supporting-style-placeholder-text-03--margins) {
@@ -354,7 +375,7 @@
   margin: 0;
   font: var(--dds-font-supporting-style-tiny-01);
   letter-spacing: var(--dds-font-supporting-style-tiny-01-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.supporting-style-tiny-01--margins) {
@@ -367,7 +388,7 @@
   margin: 0;
   font: var(--dds-font-supporting-style-tiny-02);
   letter-spacing: var(--dds-font-supporting-style-tiny-02-letter-spacing);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 :where(.supporting-style-tiny-02--margins) {
@@ -397,7 +418,7 @@
 }
 
 :where(.a) {
-  color: var(--dds-color-text-action-resting);
+  color: var(--dds-color-text-link);
 }
 
 .text-color--default {
