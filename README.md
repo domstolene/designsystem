@@ -10,6 +10,8 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 
 🎨 [Design tokens](packages/tokens/README.md)
 
+🐚 [App shell](packages/app-shell/README.md)
+
 📕 [Formatering](packages/formatting/README.md)
 
 🔧 [Dev utils](packages/development-utils/README.md)
@@ -69,4 +71,4 @@ Velg pakke(r) som ble endret, velg riktig semver bump type, og skriv changelog e
 
 Ny versjon av alle pakker i repoet publiseres samtidig ved å merge "Version Packages" PR.
 
-**OBS!** Publisering blir gjort av Elsa teamet.
+**OBS!** Publisering blir gjort av Elsa-teamet.
