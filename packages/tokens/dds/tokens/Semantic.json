@@ -277,6 +277,11 @@
         "type": "color",
         "description": "Used for visited links"
       },
+      "action-visited-on-inverse": {
+        "value": "{dds-color.visited.lighter}",
+        "type": "color",
+        "description": "Used for visited links on inverse surfaces"
+      },
       "on-notification": {
         "value": "{dds-color.neutrals.white}",
         "type": "color",

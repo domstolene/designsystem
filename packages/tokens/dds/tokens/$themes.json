@@ -180,6 +180,7 @@
       "dds-color.text.action-hover": "e2fae8abf3904cc5c4df352e61049b67f7223426",
       "dds-color.text.requiredfield": "e039a4d4e667c5a3648dc6e75bed585f945b941b",
       "dds-color.text.action-visited": "434b25248f789c0fdff2fe1a40639d0ec0f4fbda",
+      "dds-color.text.action-visited-on-inverse": "57bd0ab04e141092ae1dd7002a6a1634d2f6cdde",
       "dds-color.text.on-notification": "40ca689666c028164df2b67ef09f4f9d173f4472",
       "dds-color.icon.default": "a1d8dcf8cd7be5507402759648908367715e2228",
       "dds-color.icon.medium": "3336d3d42da18e4374ee7f22941fe7f5a569a618",
@@ -213,7 +214,7 @@
       "dds-border-radius.button": "7d33566407bfecef1c36f6b388086eba3daadf12",
       "dds-border-radius.surface": "65ee36c08ec9ce3aed4342295f31203ed9f69c39",
       "dds-border-radius.input": "7416146879f1aca6229c79dbdaea72a209955885",
-      "dds-border-radius.chip": "4a08e0eda7ae6662a49197b72b510887da40fb71",
+      "dds-border-radius.chip": "8905dff02121dee79124e635bc199a7111f6a007",
       "dds-border-radius.rounded": "ee1ebff1d878086b510eb036d6c3a69e5f83fbaf"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
