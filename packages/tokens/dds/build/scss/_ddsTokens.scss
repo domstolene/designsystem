@@ -162,6 +162,11 @@ $dds-border-radius-1: 2px;
 $dds-border-radius-2: 4px;
 $dds-border-radius-3: 8px;
 $dds-border-radius-100: 9999px; // Rounded buttons, round shapes etc
+$dds-border-radius-button: 2px; // For use in button component and togglebutton
+$dds-border-radius-surface: 2px; // Most surfaces, for example cards, papers, messages, backgrounds in GUI
+$dds-border-radius-input: 2px; // All input fields, and check boxes
+$dds-border-radius-chip: 2px; // chips and tags
+$dds-border-radius-rounded: 9999px; // rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker
 $dds-spacing-x0: 0px;
 $dds-spacing-x0-125: 2px;
 $dds-spacing-x0-25: 4px;

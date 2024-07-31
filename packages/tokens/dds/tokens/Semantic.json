@@ -431,5 +431,32 @@
         "description": "Contrast to .outside"
       }
     }
+  },
+  "dds-border-radius": {
+    "button": {
+      "value": "{dds-border-radius.1}",
+      "type": "dimension",
+      "description": "For use in button component and togglebutton"
+    },
+    "surface": {
+      "value": "{dds-border-radius.1}",
+      "type": "dimension",
+      "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
+    },
+    "input": {
+      "value": "{dds-border-radius.1}",
+      "type": "dimension",
+      "description": "All input fields, and check boxes"
+    },
+    "chip": {
+      "value": "{dds-border-radius.1}",
+      "type": "dimension",
+      "description": "chips and tags"
+    },
+    "rounded": {
+      "value": "{dds-border-radius.100}",
+      "type": "dimension",
+      "description": "rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
+    }
   }
 }
