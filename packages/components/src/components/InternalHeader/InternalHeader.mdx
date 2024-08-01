@@ -22,6 +22,8 @@ webapplikasjoner.
 
 Komponenten støtter horisontal navigasjon med lenker, og den kan også ha en kontekstmeny på høyresiden. Denne menyen kan inneholde enten en lenke eller statisk tekst som viser brukernavnet, i tillegg til en liste med lenker eller knapper. Du finner detaljene i Props-seksjonen.
 
+`<InternalHeader>` kan være responsiv og legger navigasjonen i kontekstmenyen hvis et brekkepunkt er spesifisert.
+
 Ettersom Lovisa Next kommer på plass
 vil `<InternalHeader>` også bli videreutviklet til å bli et felles
 navigasjonspunkt mellom ulike tjenester og applikasjoner. Lenker ti andre
@@ -75,19 +77,15 @@ applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn p�
 
 ### Navigasjon og kontekstmeny
 
-{' '}
-
 <Canvas of={InternalHeaderStories.WithNavigationAndContextMenu} />
 
-### Navigasjon og kontekstmeny - liten skjerm
+### Navigasjon og kontekstmeny - responsiv
 
-{' '}
-
-<Canvas of={InternalHeaderStories.SmallScreenWithNavigationAndContextMenu} />
+<Canvas of={InternalHeaderStories.ResponsiveWithNavigationAndContextMenu} />
 
 ## Retningslinjer
 
 - Bruk `<SkipToContent>`-komponenten over `<InternalHeader>` slik at brukeren kan hoppe rett til innholdet.
-- Ikke bruk `smallScreen`-prop på store skjermer og så lenge alle navigasjonselementer vises på én linje - navigasjonen skal ikke skjules hvis det er nok plass til å vise den.
+- Ikke bruk `smallScreenBreapoint`-prop for store skjermer og så lenge alle navigasjonselementer vises på én linje - navigasjonen skal ikke skjules hvis det er nok plass til å vise den.
 - Sørg for at hvert klikkbart element har størrelse på minst 1cmx1cm.
 - Bruk `currentPageHref` prop til å markere i navigasjonen hvilken side brukeren er på for å ha en visuell indikator.

@@ -13,7 +13,6 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-  argTypes: { smallScreen: { control: { type: 'boolean' } } },
 } satisfies Meta<typeof Breadcrumbs>;
 
 type Story = StoryObj<typeof Breadcrumbs>;
@@ -38,7 +37,7 @@ export const Overview: Story = {
   render: args => (
     <StoryVStack>
       <Breadcrumbs {...args} />
-      <Breadcrumbs {...args} smallScreen />
+      <Breadcrumbs {...args} smallScreenBreakpoint="xl" />
     </StoryVStack>
   ),
 };
@@ -46,6 +45,13 @@ export const Overview: Story = {
 export const SmallScreen: Story = {
   args: {
     children,
-    smallScreen: true,
+    smallScreenBreakpoint: 'xl',
+  },
+};
+
+export const responsive: Story = {
+  args: {
+    children,
+    smallScreenBreakpoint: 'sm',
   },
 };

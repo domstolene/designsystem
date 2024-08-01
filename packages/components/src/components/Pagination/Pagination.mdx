@@ -14,7 +14,10 @@ import * as PaginationStories from './Pagination.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=2576%3A78023"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Pagination"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-pagination--default"
+  withBottomSpacing
 />
+
+`<Pagination>` brukes i kombinasjon med tabell eller lignende innhold som kan deles opp i lister med elementer. Komponenten er responsiv.
 
 ## Props
 
@@ -44,10 +47,14 @@ Det brukes 1-indeksering slik at sidenummeret blir brukt som label i knappene.
 
 <Canvas of={PaginationStories.CustomOptions} />
 
-### Default aktiv side
+### Custom aktiv side
 
 <Canvas of={PaginationStories.DefaultActivePage} />
 
-### Default antall elementer per side
+### Custom antall elementer per side
 
 <Canvas of={PaginationStories.DefaultItemsPerPage} />
+
+### Responsiv
+
+<Canvas of={PaginationStories.Responsive} />

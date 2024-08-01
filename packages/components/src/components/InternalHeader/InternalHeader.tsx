@@ -26,7 +26,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     applicationDesc,
     applicationName,
     applicationHref,
-    smallScreen,
+    smallScreenBreakpoint,
     navigationElements,
     contextMenuElements,
     currentPageHref,
@@ -60,38 +60,40 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     !!navigationElements && navigationElements.length > 0;
   const hasContextMenuElements =
     !!contextMenuElements && contextMenuElements.length > 0;
-  const hasNavInContextMenu = smallScreen && hasNavigationElements;
+  const hasSmallScreenBreakpoint = !!smallScreenBreakpoint;
+  const hasNavInContextMenu = hasSmallScreenBreakpoint && hasNavigationElements;
 
-  const navigation =
-    hasNavigationElements && !smallScreen ? (
-      <nav aria-label="sidenavigasjon">
-        <ul
-          className={cn(
-            styles['nav-list'],
-            smallScreen && styles['nav-list--small-screen'],
-            utilStyles['remove-list-styling'],
-          )}
-        >
-          {navigationElements.map((item, index) => {
-            const { href, ...rest } = item;
-            const isCurrent = href === currentPage;
-            return (
-              <li key={index} className={styles['nav-list__item']}>
-                <NavigationItem
-                  href={href}
-                  {...rest}
-                  isCurrent={isCurrent}
-                  onClick={() => handleCurrentPageChange(href)}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    ) : null;
+  const navigation = hasNavigationElements ? (
+    <nav aria-label="sidenavigasjon">
+      <ul
+        className={cn(
+          styles['nav-list'],
+          hasSmallScreenBreakpoint &&
+            styles[`nav-list--small-screen-${smallScreenBreakpoint}`],
+          utilStyles['remove-list-styling'],
+        )}
+      >
+        {navigationElements.map((item, index) => {
+          const { href, ...rest } = item;
+          const isCurrent = href === currentPage;
+          return (
+            <li key={index} className={styles['nav-list__item']}>
+              <NavigationItem
+                href={href}
+                {...rest}
+                isCurrent={isCurrent}
+                onClick={() => handleCurrentPageChange(href)}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  ) : null;
 
   const hasContextMenu =
     hasContextMenuElements || !!userProps || hasNavInContextMenu;
+  const hasContextMenuLargeScreen = hasContextMenuElements || !!userProps;
 
   return (
     <div
@@ -100,7 +102,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
         cn(
           className,
           styles.bar,
-          smallScreen && styles['bar--small-screen'],
+          hasSmallScreenBreakpoint &&
+            styles[`bar--small-screen-${smallScreenBreakpoint}`],
           !!navigation && styles['bar--with-nav'],
         ),
         htmlProps,
@@ -128,7 +131,18 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       )}
       {navigation}
       {hasContextMenu && (
-        <div className={styles['context-menu-group']}>
+        <div
+          className={cn(
+            styles['context-menu-group'],
+            !hasContextMenuLargeScreen &&
+              styles['context-menu-group--small-screen-only'],
+            !hasContextMenuLargeScreen &&
+              hasSmallScreenBreakpoint &&
+              styles[
+                `context-menu-group--small-screen-only-${smallScreenBreakpoint}`
+              ],
+          )}
+        >
           <Button
             ref={buttonRef}
             icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
@@ -158,7 +172,13 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               </OverflowMenuList>
             )}
             {hasNavInContextMenu && (
-              <nav>
+              <nav
+                aria-label="sidenavigasjon"
+                className={cn(
+                  styles['nav--in-menu--small-screen'],
+                  styles[`nav--in-menu--small-screen-${smallScreenBreakpoint}`],
+                )}
+              >
                 <OverflowMenuList>
                   {navigationElements.map(item => (
                     <OverflowMenuLink {...item}>{item.title}</OverflowMenuLink>
@@ -167,7 +187,12 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               </nav>
             )}
             {hasNavInContextMenu && hasContextMenuElements && (
-              <OverflowMenuDivider />
+              <OverflowMenuDivider
+                className={cn(
+                  styles['menu-divider'],
+                  styles[`menu-divider--small-screen-${smallScreenBreakpoint}`],
+                )}
+              />
             )}
             {hasContextMenuElements && (
               <OverflowMenuList>

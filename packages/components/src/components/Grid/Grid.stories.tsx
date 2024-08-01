@@ -81,7 +81,6 @@ export const PageExample: Story = {
   render: args => {
     const screenSize = useScreenSize();
     const isXSmall = screenSize === ScreenSize.XSmall;
-    const smallScreenVersion = isXSmall ? true : undefined;
     return (
       <>
         <InternalHeader
@@ -91,9 +90,16 @@ export const PageExample: Story = {
             { title: 'Advokater', href: '/' },
             { title: 'Saker', href: '/' },
           ]}
-          smallScreen={smallScreenVersion}
+          smallScreenBreakpoint="xs"
         />
-        <Grid {...args} style={{ marginTop: isXSmall ? '16px' : '32px' }}>
+        <Grid
+          {...args}
+          style={{
+            marginTop: isXSmall
+              ? 'var(--dds-spacing-x1)'
+              : 'var(--dds-spacing-x2)',
+          }}
+        >
           <GridChild
             columnsOccupied={{
               xs: '1/-1',
@@ -151,7 +157,7 @@ export const PageExample: Story = {
             <Pagination
               itemsAmount={20}
               withCounter
-              smallScreen={smallScreenVersion}
+              smallScreenBreakpoint="xs"
             />
           </GridChild>
         </Grid>

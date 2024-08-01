@@ -22,42 +22,77 @@ describe('<Pagination />', () => {
     ).toHaveAttribute('aria-label', 'Nåværende side (side 3)');
   });
   it('should render correct number of pages', () => {
+    const itemsAmount = 6;
     render(
       <Pagination
-        itemsAmount={6}
+        itemsAmount={itemsAmount}
         defaultItemsPerPage={1}
         defaultActivePage={2}
       />,
     );
-    expect(screen.getAllByRole('listitem')).toHaveLength(8); // itemsAmount + < > buttons)
+    expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 2); // itemsAmount + < > buttons)
   });
   it('should not render previous page-button while on first page', () => {
-    render(<Pagination itemsAmount={6} defaultItemsPerPage={1} />);
-    expect(screen.getAllByRole('listitem')).toHaveLength(7); // itemsAmount +  > button
+    const itemsAmount = 6;
+    render(<Pagination itemsAmount={itemsAmount} defaultItemsPerPage={1} />);
+    expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 1); // itemsAmount +  > button
   });
   it('should not render next page-button while on last page', () => {
+    const itemsAmount = 6;
     render(
       <Pagination
-        itemsAmount={6}
+        itemsAmount={itemsAmount}
         defaultItemsPerPage={1}
         defaultActivePage={6}
       />,
     );
-    expect(screen.getAllByRole('listitem')).toHaveLength(7); // itemsAmount +  < button
+    expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 1); // itemsAmount +  < button
   });
-  it('should render smallScreen version with three items while on first page', () => {
-    render(<Pagination itemsAmount={6} defaultItemsPerPage={1} smallScreen />);
-    expect(screen.getAllByRole('listitem')).toHaveLength(3); // active page +  > >| buttons
-  });
-  it('should render smallScreen version with five items while neither on first or last page', () => {
-    render(
-      <Pagination
-        itemsAmount={6}
-        defaultItemsPerPage={1}
-        defaultActivePage={2}
-        smallScreen
-      />,
-    );
-    expect(screen.getAllByRole('listitem')).toHaveLength(5); // active page + |< <  > >| buttons
+  describe('pagination with small screen variant', () => {
+    it('has aria label', () => {
+      render(<Pagination itemsAmount={10} smallScreenBreakpoint="sm" />);
+      const paginations = screen.getAllByRole('navigation');
+      expect(paginations[0]).toHaveAttribute('aria-label', 'paginering');
+      expect(paginations[1]).toHaveAttribute('aria-label', 'paginering');
+    });
+    it('should render correct number of pages', () => {
+      const itemsAmount = 6;
+      render(
+        <Pagination
+          itemsAmount={itemsAmount}
+          defaultItemsPerPage={1}
+          defaultActivePage={2}
+          smallScreenBreakpoint="sm"
+        />,
+      );
+
+      // itemsAmount + < > buttons for large screen, active item + |< >| < > buttons for small screen
+      expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 7);
+    });
+    it('should not render previous page-button while on first page', () => {
+      const itemsAmount = 6;
+      render(
+        <Pagination
+          itemsAmount={itemsAmount}
+          defaultItemsPerPage={1}
+          smallScreenBreakpoint="sm"
+        />,
+      );
+      // itemsAmount +  > button for large screen, active item + >| > buttons for small screen
+      expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 4);
+    });
+    it('should not render next page-button while on last page', () => {
+      const itemsAmount = 6;
+      render(
+        <Pagination
+          itemsAmount={itemsAmount}
+          defaultItemsPerPage={1}
+          defaultActivePage={6}
+          smallScreenBreakpoint="sm"
+        />,
+      );
+      // itemsAmount +  < button for large screen, active item + |< < buttons for small screen
+      expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 4);
+    });
   });
 });

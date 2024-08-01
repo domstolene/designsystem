@@ -7,6 +7,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
+import { type ScreenSizeLiteral } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, MoreHorizontalIcon } from '../Icon/icons';
@@ -21,16 +22,23 @@ export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
   {
     /**
-     * Om variant for mindre skjerm skal vises.
-     * Trunkerer barn unntatt første og siste; trunkerte barn er tigjengelige ved å trykke på trukeringsknappen.
+     * Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises.
+     * Trunkerer barn unntatt første og siste; trunkerte barn er tilgjengelige ved å trykke på trunkeringsknappen.
      */
-    smallScreen?: boolean;
+    smallScreenBreakpoint?: ScreenSizeLiteral;
   }
 >;
 
 export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
   (props, ref) => {
-    const { children, smallScreen, id, className, htmlProps, ...rest } = props;
+    const {
+      children,
+      smallScreenBreakpoint,
+      id,
+      className,
+      htmlProps,
+      ...rest
+    } = props;
 
     const chevronIcon = (
       <Icon
@@ -41,14 +49,13 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
     );
 
     const childrenArray = Children.toArray(children);
-    const listItemCn = cn(
-      styles['list-item'],
-      !smallScreen && styles[`list-item--large-screen`],
-    );
 
     const breadcrumbChildren = childrenArray.map((item, index) => {
       return (
-        <li key={`breadcrumb-${index}`} className={listItemCn}>
+        <li
+          key={`breadcrumb-${index}`}
+          className={cn(styles['list-item'], styles[`list-item--large-screen`])}
+        >
           {index !== 0 && chevronIcon}
           {item}
         </li>
@@ -70,9 +77,9 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
 
     const breadcrumbChildrenSmallScreen = (
       <>
-        <li className={listItemCn}>{childrenArray[0]}</li>
+        <li className={styles['list-item']}>{childrenArray[0]}</li>
         {breadcrumbChildrenTruncated.length > 0 && (
-          <li className={listItemCn}>
+          <li className={styles['list-item']}>
             {chevronIcon}
             <OverflowMenuGroup>
               <Button
@@ -89,12 +96,14 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
             </OverflowMenuGroup>
           </li>
         )}
-        <li className={listItemCn}>
+        <li className={styles['list-item']}>
           {chevronIcon}
           {childrenArray[childrenArray.length - 1]}
         </li>
       </>
     );
+
+    const hasSmallScreenBreakpoint = !!smallScreenBreakpoint;
 
     return (
       <nav
@@ -102,9 +111,28 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
         ref={ref}
         aria-label="brødsmulesti"
       >
-        <ul className={cn(styles.list, utilStyles['remove-list-styling'])}>
-          {smallScreen ? breadcrumbChildrenSmallScreen : breadcrumbChildren}
+        <ul
+          className={cn(
+            styles.list,
+            utilStyles['remove-list-styling'],
+            hasSmallScreenBreakpoint &&
+              styles[`list--large-screen-hide-${smallScreenBreakpoint}`],
+          )}
+        >
+          {breadcrumbChildren}
         </ul>
+        {hasSmallScreenBreakpoint && (
+          <ul
+            className={cn(
+              styles.list,
+              utilStyles['remove-list-styling'],
+              styles['list--small-screen'],
+              styles[`list--small-screen-show-${smallScreenBreakpoint}`],
+            )}
+          >
+            {breadcrumbChildrenSmallScreen}
+          </ul>
+        )}
       </nav>
     );
   },

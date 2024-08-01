@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { InternalHeader } from '.';
 
-describe('<InternalHeader />', () => {
+describe('<InternalHeader>', () => {
   it('should display application name', () => {
     const appName = 'appName';
     render(<InternalHeader applicationName={appName} />);
@@ -73,7 +73,12 @@ describe('<InternalHeader />', () => {
       title: title,
       href: href,
     };
-    render(<InternalHeader navigationElements={[element]} smallScreen />);
+    render(
+      <InternalHeader
+        navigationElements={[element]}
+        smallScreenBreakpoint="xl"
+      />,
+    );
     const burgerButton = screen.getByRole('button');
     await userEvent.click(burgerButton);
     const navigationLink = screen.getByRole('menuitem', {

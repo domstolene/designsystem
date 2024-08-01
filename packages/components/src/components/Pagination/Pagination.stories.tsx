@@ -11,7 +11,6 @@ export default {
     withCounter: { control: 'boolean' },
     withPagination: { control: 'boolean' },
     withSelect: { control: 'boolean' },
-    smallScreen: { control: 'boolean' },
     defaultItemsPerPage: { control: 'number' },
     defaultActivePage: { control: 'number' },
     selectOptions: { control: false },
@@ -55,10 +54,10 @@ export const OverviewMobile: Story = {
   args: { itemsAmount: 100 },
   render: args => (
     <StoryVStack gap="x3">
-      <Pagination {...args} smallScreen />
-      <Pagination {...args} smallScreen withCounter />
-      <Pagination {...args} smallScreen withSelect />
-      <Pagination {...args} smallScreen withCounter withSelect />
+      <Pagination {...args} smallScreenBreakpoint="xl" />
+      <Pagination {...args} smallScreenBreakpoint="xl" withCounter />
+      <Pagination {...args} smallScreenBreakpoint="xl" withSelect />
+      <Pagination {...args} smallScreenBreakpoint="xl" withCounter withSelect />
     </StoryVStack>
   ),
 };
@@ -75,6 +74,11 @@ export const CustomOptions: Story = {
       itemsAmount={customOptionsItemsAmount}
     />
   ),
+};
+
+export const Responsive: Story = {
+  args: { smallScreenBreakpoint: 'sm', itemsAmount: 100 },
+  render: args => <Pagination {...args} withCounter withSelect />,
 };
 
 export const DefaultActivePage: Story = {
