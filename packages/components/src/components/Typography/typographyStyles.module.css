@@ -23,6 +23,8 @@
   color: var(--dds-color-text-link);
   width: fit-content;
   text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+  text-underline-offset: max(4px, 0.25rem);
   margin: 0;
 
   &:hover {
