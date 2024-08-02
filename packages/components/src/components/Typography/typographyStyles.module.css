@@ -300,14 +300,14 @@
   margin-bottom: var(--dds-font-supporting-style-label-01-paragraph-spacing);
 }
 
-:where(.supporting-style-helper-text-01) {
+:where(.supporting-style-helpertext-01) {
   margin: 0;
-  font: var(--dds-font-supporting-style-helper-text-01);
+  font: var(--dds-font-supporting-style-helpertext-01);
   letter-spacing: var(--dds-font-supporting-style-helpertext-01-letter-spacing);
   color: var(--dds-color-text-helper);
 }
 
-:where(.supporting-style-helper-text-01--margins) {
+:where(.supporting-style-helpertext-01--margins) {
   display: block;
   margin-top: var(--dds-font-supporting-style-helpertext-01-paragraph-spacing);
   margin-bottom: var(
@@ -315,16 +315,16 @@
   );
 }
 
-:where(.supporting-style-placeholder-text-01) {
+:where(.supporting-style-placeholdertext-01) {
   margin: 0;
-  font: var(--dds-font-supporting-style-placeholder-text-01);
+  font: var(--dds-font-supporting-style-placeholdertext-01);
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-01-letter-spacing
   );
   color: var(--dds-color-text-placeholder);
 }
 
-:where(.supporting-style-placeholder-text-01--margins) {
+:where(.supporting-style-placeholdertext-01--margins) {
   display: block;
   margin-top: var(
     --dds-font-supporting-style-placeholdertext-01-paragraph-spacing
@@ -334,16 +334,16 @@
   );
 }
 
-:where(.supporting-style-placeholder-text-02) {
+:where(.supporting-style-placeholdertext-02) {
   margin: 0;
-  font: var(--dds-font-supporting-style-placeholder-text-02);
+  font: var(--dds-font-supporting-style-placeholdertext-02);
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-02-letter-spacing
   );
   color: var(--dds-color-text-placeholder);
 }
 
-:where(.supporting-style-placeholder-text-02--margins) {
+:where(.supporting-style-placeholdertext-02--margins) {
   display: block;
   margin-top: var(
     --dds-font-supporting-style-placeholdertext-02-paragraph-spacing
@@ -353,16 +353,16 @@
   );
 }
 
-:where(.supporting-style-placeholder-text-03) {
+:where(.supporting-style-placeholdertext-03) {
   margin: 0;
-  font: var(--dds-font-supporting-style-placeholder-text-03);
+  font: var(--dds-font-supporting-style-placeholdertext-03);
   letter-spacing: var(
     --dds-font-supporting-style-placeholdertext-03-letter-spacing
   );
   color: var(--dds-color-text-placeholder);
 }
 
-:where(.supporting-style-placeholder-text-03--margins) {
+:where(.supporting-style-placeholdertext-03--margins) {
   display: block;
   margin-top: var(
     --dds-font-supporting-style-placeholdertext-03-paragraph-spacing
