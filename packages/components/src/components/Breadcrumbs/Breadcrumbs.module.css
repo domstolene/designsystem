@@ -5,6 +5,66 @@
   gap: var(--dds-spacing-x0-5);
 }
 
+.list--large-screen-hide-xs {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.list--large-screen-hide-sm {
+  @media only screen and (max-width: 960px) {
+    display: none;
+  }
+}
+
+.list--large-screen-hide-md {
+  @media only screen and (max-width: 1280px) {
+    display: none;
+  }
+}
+
+.list--large-screen-hide-lg {
+  @media only screen and (max-width: 1920px) {
+    display: none;
+  }
+}
+
+.list--large-screen-hide-xl {
+  display: none;
+}
+
+.list--small-screen {
+  display: none;
+}
+
+.list--small-screen-show-xs {
+  @media only screen and (max-width: 600px) {
+    display: flex;
+  }
+}
+
+.list--small-screen-show-sm {
+  @media only screen and (max-width: 960px) {
+    display: flex;
+  }
+}
+
+.list--small-screen-show-md {
+  @media only screen and (max-width: 1280px) {
+    display: flex;
+  }
+}
+
+.list--small-screen-show-lg {
+  @media only screen and (max-width: 1920px) {
+    display: flex;
+  }
+}
+
+.list--small-screen-show-xl {
+  display: flex;
+}
+
 .list-item {
   align-items: center;
   display: flex;

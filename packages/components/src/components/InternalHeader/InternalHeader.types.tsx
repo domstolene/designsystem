@@ -1,6 +1,7 @@
 import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
 
 import { type BaseComponentProps } from '../../types';
+import { type ScreenSizeLiteral } from '../helpers';
 import { type SvgIcon } from '../Icon/utils';
 
 type NavigationLinkProps = {
@@ -32,8 +33,8 @@ export type InternalHeaderProps = BaseComponentProps<
     applicationDesc?: string;
     /**URL til hovedsiden. */
     applicationHref?: string;
-    /**Indikerer om versjonen for små skjermer skal vises. */
-    smallScreen?: boolean;
+    /**Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den justerer på spacing og legger navigasjonen i kontekstmenyen. */
+    smallScreenBreakpoint?: ScreenSizeLiteral;
     /**Info om brukeren. Dukker opp som punkt på toppen av kontekstmenyen med tekst oppgitt i name. Blir en lenke hvis href er oppgitt. */
     userProps?: InternaHeaderUserProps;
     /**Lenker som skal vises i navigasjonsmenyen. */

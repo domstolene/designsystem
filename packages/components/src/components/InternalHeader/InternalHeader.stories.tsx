@@ -13,7 +13,6 @@ export default {
     applicationDesc: { control: 'text' },
     currentPageHref: { control: 'text' },
     applicationHref: { control: 'text' },
-    smallScreen: { control: 'boolean' },
     navigationElements: { control: false },
     contextMenuElements: { control: false },
     userProps: { control: false },
@@ -79,6 +78,17 @@ export const WithNavigationAndContextMenu: Story = {
   },
 };
 
+export const Responsive: Story = {
+  parameters: { docs: { story: { height: '265px' } } },
+  args: {
+    applicationName: 'Lovisa',
+    applicationDesc: 'Produktnavn',
+    navigationElements: navigationLinks,
+    contextMenuElements: menuElements,
+    userProps: user,
+  },
+};
+
 export const WithCurrentPage: Story = {
   args: {
     applicationName: 'Lovisa',
@@ -132,37 +142,37 @@ export const Overview: Story = {
         navigationElements={navigationLinks}
         contextMenuElements={menuElements}
         userProps={user}
-        smallScreen
+        smallScreenBreakpoint="xs"
       />
       <InternalHeader
         {...args}
         navigationElements={navigationLinks}
         userProps={user}
-        smallScreen
+        smallScreenBreakpoint="xs"
       />
     </StoryVStack>
   ),
 };
 
-export const SmallScreenWithNavigation: Story = {
+export const ResponsiveWithNavigation: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
     navigationElements: navigationLinks,
-    smallScreen: true,
+    smallScreenBreakpoint: 'sm',
   },
 };
 
-export const SmallScreenWithContextMenu: Story = {
+export const ResponsiveWithContextMenu: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
     contextMenuElements: menuElements,
-    smallScreen: true,
+    smallScreenBreakpoint: 'sm',
   },
 };
 
-export const SmallScreenWithNavigationAndContextMenu: Story = {
+export const ResponsiveWithNavigationAndContextMenu: Story = {
   parameters: { docs: { story: { height: '365px' } } },
   args: {
     applicationName: 'Lovisa',
@@ -170,7 +180,7 @@ export const SmallScreenWithNavigationAndContextMenu: Story = {
     contextMenuElements: menuElements,
     navigationElements: navigationLinks,
     userProps: user,
-    smallScreen: true,
+    smallScreenBreakpoint: 'sm',
   },
 };
 

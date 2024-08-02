@@ -5,6 +5,7 @@ import { PaginationGenerator } from './paginationGenerator';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
+import { type ScreenSizeLiteral } from '../helpers';
 import { Icon } from '../Icon';
 import {
   ChevronFirstIcon,
@@ -45,8 +46,8 @@ export type PaginationProps = BaseComponentProps<
     ) => void;
     /**Brukes til å hente `selectedOption` og eventuelt kjøre annen logikk når `withSelect=true` ved endring av alternativ. */
     onSelectOptionChange?: (option: PaginationOption | null) => void;
-    /**Spesifiserer om versjonen for små skjermer skal vises; den viser færre sideknapper og stacker subkomponentene. */
-    smallScreen?: boolean;
+    /**Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den viser færre sideknapper og stacker subkomponentene. */
+    smallScreenBreakpoint?: ScreenSizeLiteral;
   },
   Omit<HTMLAttributes<HTMLElement>, 'onChange'>
 >;
@@ -66,7 +67,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         { label: '50', value: 50 },
         { label: 'Alle', value: itemsAmount },
       ],
-      smallScreen,
+      smallScreenBreakpoint,
       onChange,
       onSelectOptionChange,
       id,
@@ -158,18 +159,29 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       />
     );
 
-    const navProps =
-      !withSelect && !withCounter
+    const navProps = (smallScreenVariant?: boolean) => {
+      const cns = [
+        styles.nav,
+        smallScreenVariant && styles['nav--small-screen'],
+        smallScreenVariant &&
+          smallScreenBreakpoint &&
+          styles[`nav--small-screen-show-${smallScreenBreakpoint}`],
+        !smallScreenVariant &&
+          smallScreenBreakpoint &&
+          styles[`nav--large-screen-hide-${smallScreenBreakpoint}`],
+      ];
+      return !withSelect && !withCounter
         ? {
-            ...getBaseHTMLProps(id, cn(className, styles.nav), htmlProps, rest),
+            ...getBaseHTMLProps(id, cn(className, ...cns), htmlProps, rest),
           }
-        : { className: styles.nav };
+        : { className: cn(...cns) };
+    };
 
     const isOnFirstPage = activePage === 1;
     const isOnLastPage = activePage === pagesLength;
 
-    const navigation = withPagination ? (
-      <nav ref={ref} aria-label="paginering" {...navProps}>
+    const largeScreenNavigation = withPagination ? (
+      <nav ref={ref} aria-label="paginering" {...navProps()}>
         <ol className={styles.list}>
           <li
             className={cn(
@@ -195,7 +207,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     ) : null;
 
     const smallScreenNavigation = withPagination ? (
-      <nav ref={ref} aria-label="paginering" {...navProps}>
+      <nav ref={ref} aria-label="paginering" {...navProps(true)}>
         <ol className={styles.list}>
           <li
             className={cn(
@@ -269,12 +281,11 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
     const activePageLastItem =
       activePage === pagesLength ? itemsAmount : activePage * itemsPerPage;
 
-    const navigationToBeRendered = smallScreen
-      ? smallScreenNavigation
-      : navigation;
-
     return !withCounter && !withSelect ? (
-      navigationToBeRendered
+      <>
+        {largeScreenNavigation}
+        {smallScreenBreakpoint && smallScreenNavigation}
+      </>
     ) : (
       <div
         {...getBaseHTMLProps(
@@ -282,7 +293,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
           cn(
             className,
             styles.container,
-            smallScreen && styles['container--small-screen'],
+            smallScreenBreakpoint &&
+              styles[`container--small-screen-${smallScreenBreakpoint}`],
           ),
           htmlProps,
           rest,
@@ -310,7 +322,8 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             </Typography>
           )}
         </div>
-        {navigationToBeRendered}
+        {largeScreenNavigation}
+        {smallScreenBreakpoint && smallScreenNavigation}
       </div>
     );
   },
