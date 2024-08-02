@@ -10,8 +10,9 @@
 .contrast {
   --dds-color-text-body: var(--dds-color-text-on-inverse);
   --dds-color-text-link: var(--dds-color-text-on-inverse);
-  /* TODO: semantic når den er på plass */
-  --dds-color-text-link-visited: var(--dds-color-visited-lighter);
+  --dds-color-text-link-visited: var(
+    --dds-color-text-action-visited-on-inverse
+  );
   --dds-color-text-label: var(--dds-color-text-on-inverse);
   --dds-color-text-helper: var(--dds-color-text-on-inverse);
   --dds-color-text-placeholder: var(--dds-color-text-subtle);

@@ -125,6 +125,7 @@ export const ddsColorTextActionResting = "#106ead"; // Link, number in progress 
 export const ddsColorTextActionHover = "#0d588a"; // Hover on text.action
 export const ddsColorTextRequiredfield = "#d83737"; // Asterix to indicate required field
 export const ddsColorTextActionVisited = "#7f29b4"; // Used for visited links
+export const ddsColorTextActionVisitedOnInverse = "#cca9e1"; // Used for visited links on inverse surfaces
 export const ddsColorTextOnNotification = "#ffffff"; // Used on surface.notification
 export const ddsColorIconDefault = "#0b0d0e"; // Often used with text.default
 export const ddsColorIconMedium = "#3a4146"; // Often used with text.medium
