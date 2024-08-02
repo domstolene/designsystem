@@ -1,10 +1,1 @@
-export * as colors from './build/js/colors';
-export * as font from './build/js/font';
-export * as breakpoints from './build/js/breakpoints';
-export * as borderRadius from './build/js/borderRadius';
-export * as spacing from './build/js/spacing';
-export * as iconSizes from './build/js/iconSize';
-export * as grid from './build/js/grid';
-export * as outerShadow from './build/js/outershadow';
 export * as ddsTokens from './build/js/ddsTokens';
-export * from './formattedStyles/fontPackages';
