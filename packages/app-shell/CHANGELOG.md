@@ -1,5 +1,11 @@
 # @norges-domstoler/app-shell
 
+## 1.0.1
+
+### Patch Changes
+
+- d9663cb: Oppdaterer `<AppShell>` til å bruke nye tokens fra @norges-domstoler/dds-design-tokens.
+
 ## 1.0.0
 
 ### Major Changes
