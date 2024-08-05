@@ -40,7 +40,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/node": "^20.14.11",
+    "@types/node": "^22.1.0",
     "@tokens-studio/sd-transforms": "^1.2.1",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.4",
