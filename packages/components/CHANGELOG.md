@@ -1,5 +1,23 @@
 # @norges-domstoler/dds-components
 
+## 17.0.0
+
+### Major Changes
+
+- 4b6b7f1: Prop `smallScreen` i komponentene `<Breadcrumbs>`, `<InternalHeader>` og `<Pagination>` gjøres om til `smallScreenBreakpoint`; den tar inn navn på et brekkpunkt og gjør komponenten responsiv, slik at versjonen for liten skjerm vises ved oppgitte brekkpunket og nedover vha kun CSS.
+- d9663cb: Oppdaterer alle komponenter til å bruke nye tokens fra @norges-domstoler/dds-design-tokens.
+
+### Minor Changes
+
+- 706a4c8: Ny komponent: `<Footer>`. Den kommer med en rekke subkomponenter for fleksibilitet og konsekvent layout på tvers av løsninger. Les detaljer i dokumentasjon.
+- 9a6d70e: Ny prop i `<Grid>`: `columnGap`. Tillater å sette CSS `column-gap` per brekkepunkt.
+
+### Patch Changes
+
+- 211a754: Fikser typos i navn på typografiklasser og variabler.
+- b5cdfe6: Justerer på offset og tykkelse på underlinje i `<Link>`
+  - @norges-domstoler/development-utils@1.3.0
+
 ## 16.3.0
 
 ### Minor Changes
