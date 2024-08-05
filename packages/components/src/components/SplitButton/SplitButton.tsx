@@ -13,7 +13,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '../Icon/icons';
 import {
   OverflowMenu,
   OverflowMenuButton,
-  type OverflowMenuButtonItem,
+  type OverflowMenuButtonProps,
   OverflowMenuGroup,
   OverflowMenuList,
 } from '../OverflowMenu';
@@ -27,7 +27,7 @@ export type SplitButtonPrimaryActionProps = Omit<
   ButtonProps,
   'size' | 'purpose'
 >;
-export type SplitButtonSecondaryActionsProps = Array<OverflowMenuButtonItem>;
+export type SplitButtonSecondaryActionsProps = Array<OverflowMenuButtonProps>;
 
 export type SplitButtonProps = {
   /**Størrelse på komponenten. */
@@ -79,7 +79,9 @@ export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
           <OverflowMenu placement="bottom-end">
             <OverflowMenuList>
               {secondaryActions.map(item => (
-                <OverflowMenuButton {...item}>{item.title}</OverflowMenuButton>
+                <OverflowMenuButton {...item}>
+                  {item.children}
+                </OverflowMenuButton>
               ))}
             </OverflowMenuList>
           </OverflowMenu>

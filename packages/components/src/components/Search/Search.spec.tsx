@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { Search } from '.';
 
-describe('<Search />', () => {
+describe('<Search>', () => {
   it('should render a searchbox', () => {
     render(<Search />);
     const search = screen.getByRole('searchbox');
@@ -62,7 +62,6 @@ describe('<Search />', () => {
     const option = screen.getByRole('option');
     expect(option).toBeInTheDocument();
     expect(screen.getByText(text)).toBeInTheDocument();
-    expect(screen.getByRole('menuitem')).toBeInTheDocument();
   });
 
   it('should not render search suggestion when query is too short', async () => {
@@ -104,7 +103,7 @@ describe('<Search />', () => {
 
     const input = screen.getByRole('combobox');
     await userEvent.type(input, `${text}`);
-    const menuitem = screen.getByRole('menuitem');
+    const menuitem = screen.getByText(text);
     expect(menuitem).not.toHaveFocus();
     await userEvent.keyboard('{ArrowDown}');
     expect(menuitem).toHaveFocus();

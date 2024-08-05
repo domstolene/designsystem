@@ -15,7 +15,7 @@ const primary: SplitButtonPrimaryActionProps = {
 };
 const itemText = 'text';
 const item: SplitButtonSecondaryActionsProps = [
-  { title: itemText, onClick: () => null },
+  { children: itemText, onClick: () => null },
 ];
 
 interface props {
@@ -32,7 +32,7 @@ function TestComponent({ primaryAction, secondaryActions }: props) {
   );
 }
 
-describe('<OverflowMenu />', () => {
+describe('<SplitButton>', () => {
   it('should show OverflowMenu on menu button click', async () => {
     render(<TestComponent secondaryActions={item} primaryAction={primary} />);
     const menu = screen.queryByRole('menu');
@@ -64,7 +64,7 @@ describe('<OverflowMenu />', () => {
     const event = vi.fn();
     render(
       <TestComponent
-        secondaryActions={[{ title: itemText, onClick: event }]}
+        secondaryActions={[{ children: itemText, onClick: event }]}
         primaryAction={primary}
       />,
     );

@@ -3,12 +3,12 @@ import { type MouseEvent, forwardRef } from 'react';
 import { type SearchProps } from './Search';
 import styles from './Search.module.css';
 import { typographyTypes } from './Search.utils';
+import { SearchSuggestionItem } from './SearchSuggestionItem';
 import { useRoveFocus } from '../../hooks';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, derivativeIdGenerator } from '../../utils';
 import { Paper } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { OverflowMenuItem } from '../OverflowMenu/OverflowMenuItem';
 import { getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -56,35 +56,6 @@ export const SearchSuggestions = forwardRef<
     ? suggestions?.slice(maxSuggestions)
     : suggestions;
 
-  const renderedSuggestions = (
-    <ul
-      role="listbox"
-      aria-labelledby={suggestionsHeaderId}
-      className={utilStyles['remove-list-styling']}
-    >
-      {suggestionsToRender.map((suggestion, index) => {
-        return (
-          <li key={index} role="option">
-            <OverflowMenuItem
-              index={index}
-              focus={focus === index && showSuggestions}
-              aria-label={`søk på ${suggestion}`}
-              onClick={onSuggestionClick}
-              title={suggestion}
-              aria-setsize={suggestionsToRender.length}
-              aria-posinset={index}
-              className={
-                typographyStyles[
-                  getTypographyCn(typographyTypes[componentSize])
-                ]
-              }
-            ></OverflowMenuItem>
-          </li>
-        );
-      })}
-    </ul>
-  );
-
   return (
     <Paper
       {...getBaseHTMLProps(
@@ -114,7 +85,33 @@ export const SearchSuggestions = forwardRef<
       >
         Søkeforslag
       </span>
-      {renderedSuggestions}
+      <ul
+        role="listbox"
+        aria-labelledby={suggestionsHeaderId}
+        className={utilStyles['remove-list-styling']}
+      >
+        {suggestionsToRender.map((suggestion, index) => {
+          return (
+            <li key={index} role="option">
+              <SearchSuggestionItem
+                index={index}
+                focus={focus === index && showSuggestions}
+                aria-label={`søk på ${suggestion}`}
+                onClick={onSuggestionClick}
+                aria-setsize={suggestionsToRender.length}
+                aria-posinset={index}
+                className={
+                  typographyStyles[
+                    getTypographyCn(typographyTypes[componentSize])
+                  ]
+                }
+              >
+                {suggestion}
+              </SearchSuggestionItem>
+            </li>
+          );
+        })}
+      </ul>
     </Paper>
   );
 });

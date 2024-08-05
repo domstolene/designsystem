@@ -4,61 +4,56 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { Button } from '../Button';
 
-import { OverflowMenu, OverflowMenuGroup } from '.';
+import {
+  OverflowMenu,
+  OverflowMenuButton,
+  OverflowMenuGroup,
+  OverflowMenuLink,
+  OverflowMenuList,
+  OverflowMenuSpan,
+} from '.';
 
 const text = 'text';
 const href = '#';
-
+const item = { children: text, onClick: () => null };
+const link = { children: text, href: href };
 interface props {
-  navItem?: { title: string; href: string };
-  item?: { title: string; onClick?: () => void; href?: string };
-  user?: { name: string; href?: string };
+  link?: { children: string; href: string };
+  item?: { children: string; onClick?: () => void };
+  span?: { children: string };
 }
 
-function TestComponent({ navItem, item, user }: props) {
+function TestComponent({ link, item, span }: props) {
   return (
     <OverflowMenuGroup>
       <Button />
-      <OverflowMenu
-        items={item ? [item] : undefined}
-        navItems={navItem ? [navItem] : undefined}
-        userProps={user ? user : undefined}
-      />
+      <OverflowMenu>
+        <OverflowMenuList>
+          {link && <OverflowMenuLink {...link} />}
+          {item && <OverflowMenuButton {...item} />}
+          {span && <OverflowMenuSpan {...span} />}
+        </OverflowMenuList>
+      </OverflowMenu>
     </OverflowMenuGroup>
   );
 }
 
 describe('<OverflowMenu />', () => {
   it('should display context menu item as button', () => {
-    const item = { title: text, onClick: () => null };
     render(<TestComponent item={item} />);
     const buttonElement = screen.getByRole('button');
     expect(buttonElement).toBeInTheDocument();
   });
   it('should display context menu item as link', () => {
-    const item = { title: text, href: href };
-    render(<TestComponent item={item} />);
-    const aElement = screen.getByText(text);
-    expect(aElement).toBeInTheDocument();
-    expect(aElement).toHaveAttribute('href', href);
-  });
-  it('should display nav menu item as link', () => {
-    const navItem = { title: text, href: href };
-    render(<TestComponent navItem={navItem} />);
+    render(<TestComponent link={link} />);
     const aElement = screen.getByText(text);
     expect(aElement).toBeInTheDocument();
     expect(aElement).toHaveAttribute('href', href);
   });
   it('should display static username', () => {
-    render(<TestComponent user={{ name: text }} />);
+    render(<TestComponent span={{ children: text }} />);
     const element = screen.getByText(text);
     expect(element).toBeInTheDocument();
-  });
-  it('should display username as link', () => {
-    render(<TestComponent user={{ name: text, href: href }} />);
-    const element = screen.getByText(text);
-    expect(element).toBeInTheDocument();
-    expect(element).toHaveAttribute('href', href);
   });
   it('should show OverflowMenu on button click', async () => {
     render(<TestComponent />);
@@ -104,13 +99,13 @@ describe('<OverflowMenu />', () => {
 
   it('should run onClick event from context menu', async () => {
     const event = vi.fn();
-    const item = { title: text, onClick: event };
+    const item = { children: text, onClick: event };
     render(<TestComponent item={item} />);
 
     const menuButton = screen.getByRole('button');
     await userEvent.click(menuButton);
 
-    await userEvent.click(screen.getByRole('menuitem', { name: item.title }));
+    await userEvent.click(screen.getByRole('menuitem', { name: text }));
 
     expect(event).toHaveBeenCalled();
   });
