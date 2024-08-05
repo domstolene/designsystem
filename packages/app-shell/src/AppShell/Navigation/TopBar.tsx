@@ -3,8 +3,11 @@ import {
   CloseIcon,
   MenuIcon,
   OverflowMenu,
+  OverflowMenuButton,
+  type OverflowMenuButtonProps,
   OverflowMenuGroup,
-  type OverflowMenuProps,
+  OverflowMenuLink,
+  type OverflowMenuLinkProps,
   type SvgProps,
 } from '@norges-domstoler/dds-components';
 import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
@@ -12,6 +15,7 @@ import styled from 'styled-components';
 
 import { EmbeteIcon, type EmbeteType } from './EmbeteIcon';
 import { NavigationLogo } from './NavigationLogo';
+import { type UserMenuItem } from '../AppShell';
 import { appShellTokens } from '../AppShell.tokens';
 
 const { navigation: navTokens, floatingActionButtons } = appShellTokens;
@@ -111,7 +115,7 @@ const Bar = styled.div.withConfig({
 
 interface TopBarProps {
   user: User;
-  userMenuItems?: OverflowMenuProps['items'];
+  userMenuItems?: Array<UserMenuItem>;
   isNavigationOpen: boolean;
   onNavigationOpenChange: (isOpen: boolean) => void;
   environmentBannerActive: boolean;
@@ -158,7 +162,29 @@ export const TopBar = ({
           <IconButton icon={Icon}>
             <IconButtonText>{user.name}</IconButtonText>
           </IconButton>
-          <OverflowMenu items={userMenuItems} />
+          <OverflowMenu>
+            {userMenuItems?.map((item, index) => {
+              const { children, ...rest } = item;
+              if (rest.href) {
+                return (
+                  <OverflowMenuLink
+                    {...(rest as OverflowMenuLinkProps)}
+                    key={index}
+                  >
+                    {children}
+                  </OverflowMenuLink>
+                );
+              }
+              return (
+                <OverflowMenuButton
+                  {...(rest as OverflowMenuButtonProps)}
+                  key={index}
+                >
+                  {children}
+                </OverflowMenuButton>
+              );
+            })}
+          </OverflowMenu>
         </OverflowMenuGroup>
       </ActionButtonGroup>
     </Bar>
