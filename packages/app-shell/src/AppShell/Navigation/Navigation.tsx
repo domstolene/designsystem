@@ -1,7 +1,4 @@
-import {
-  Divider,
-  type OverflowMenuProps,
-} from '@norges-domstoler/dds-components';
+import { Divider } from '@norges-domstoler/dds-components';
 import { ENVIRONMENT_BANNER_HEIGHT } from '@norges-domstoler/development-utils';
 import { Children, type ReactElement, useEffect } from 'react';
 import styled from 'styled-components';
@@ -9,6 +6,7 @@ import styled from 'styled-components';
 import { NavigationItem } from './NavigationItem';
 import { NavigationLogo } from './NavigationLogo';
 import { TopBar, type User } from './TopBar';
+import { type UserMenuItem } from '../AppShell';
 import { appShellTokens } from '../AppShell.tokens';
 import { useAppShellContext } from '../AppShellContext';
 
@@ -96,7 +94,7 @@ export interface NavigationProps {
   internal: Array<ReactElement>;
   external: Array<ReactElement>;
   user: User;
-  userMenuItems?: OverflowMenuProps['items'];
+  userMenuItems?: Array<UserMenuItem>;
   environmentBannerActive: boolean;
   title: string;
 }

@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 
-import { getBaseHTMLProps } from '../../../types';
 import { cn } from '../../../utils';
 import { Icon } from '../../Icon';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
@@ -11,18 +10,18 @@ export const OverflowMenuSpan = forwardRef<
   HTMLButtonElement,
   OverflowMenuSpanProps
 >((props, ref) => {
-  const { id, icon, children, className, htmlProps, ...rest } = props;
+  const { icon, children, className, ...rest } = props;
 
   return (
     <li>
       <span
         ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(className, styles.list__item, typographyStyles['body-sans-01']),
-          htmlProps,
-          rest,
+        className={cn(
+          className,
+          styles.list__item,
+          typographyStyles['body-sans-01'],
         )}
+        {...rest}
       >
         {icon && <Icon iconSize="inherit" icon={icon} />}
         {children}

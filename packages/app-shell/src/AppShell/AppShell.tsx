@@ -1,16 +1,31 @@
-import { type OverflowMenuProps } from '@norges-domstoler/dds-components';
+import { type SvgIcon } from '@norges-domstoler/dds-components';
 import {
   ENVIRONMENT_BANNER_HEIGHT,
   type Environment,
   EnvironmentBanner,
 } from '@norges-domstoler/development-utils';
-import { type PropsWithChildren, type ReactElement } from 'react';
+import {
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type PropsWithChildren,
+  type ReactElement,
+} from 'react';
 import styled from 'styled-components';
 
 import { appShellTokens } from './AppShell.tokens';
 import { AppShellContextProvider } from './AppShellContext';
 import { Navigation } from './Navigation/Navigation';
 import { type User } from './Navigation/TopBar';
+
+export type UserMenuItem = {
+  children: string;
+  href?: string;
+  icon?: SvgIcon;
+  onClick?: () => void;
+} & (
+  | ButtonHTMLAttributes<HTMLButtonElement>
+  | AnchorHTMLAttributes<HTMLAnchorElement>
+);
 
 export type AppShellProps = PropsWithChildren<{
   /**
@@ -25,7 +40,7 @@ export type AppShellProps = PropsWithChildren<{
   /**
    * Menyvalg som skal vises i OverflowMenu knyttet til "bruker"-knappen.
    */
-  userMenuItems?: OverflowMenuProps['items'];
+  userMenuItems?: Array<UserMenuItem>;
   /**
    * `environment` brukes for å  vise en banner øverst i appen som viser hvilket miljø du er i.
    * Når environment er undefined eller `"PROD"` så vises ikke banneret.
