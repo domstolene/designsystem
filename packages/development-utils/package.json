@@ -33,14 +33,14 @@
   "devDependencies": {
     "@norges-domstoler/storybook-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
-    "@storybook/blocks": "8.2.6",
+    "@storybook/blocks": "8.2.7",
     "@testing-library/react": "^16.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "styled-components": "^6.1.12",
-    "tsup": "^8.2.3",
+    "tsup": "^8.2.4",
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "vitest": "^1.6.0"
