@@ -29,7 +29,11 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
       <div
         {...getBaseHTMLProps(
           id,
-          cn(className, styles.container, styles[`container--${messageType}`]),
+          cn(
+            className,
+            styles.container,
+            messageType === 'error' && styles['container--error'],
+          ),
           htmlProps,
           rest,
         )}

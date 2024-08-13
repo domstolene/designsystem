@@ -15,10 +15,6 @@
   }
 }
 
-.container--tip {
-  background-color: var(--dds-color-surface-default);
-}
-
 .icon {
   margin-top: var(--dds-spacing-x0-125);
 }
