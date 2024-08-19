@@ -46,10 +46,6 @@ Menyen bygges med dedikerte subkomponenter. Følgende subkomponenter brukes som 
 <Source
   code={`import { OverflowMenu, OverflowMenuGroup, Button } from '@norges-domstoler/dds-components';
 
-const items = [
-{ title: 'handling', onClick: () => {} }
-];
-
 <OverflowMenuGroup>
   <Button>Åpne meny</Button>
   <OverflowMenu>
@@ -81,10 +77,6 @@ const close = () => setIsClosed(true);
 const buttonRef = userRef(null);
 const id = 'id';
 
-const items = [
-{ title: 'handling', onClick: () => {} }
-];
-
 <Button
   ref={buttonRef}
   aria-haspopup="menu"
@@ -93,13 +85,7 @@ const items = [
 >
   Åpne meny
 </Button>
-<OverflowMenu
-  isOpen={!isClosed}
-  onClose={close}
-  anchorRef={buttonRef}
-  items={items}
-  id={id}
->
+<OverflowMenu isOpen={!isClosed} onClose={close} anchorRef={buttonRef} id={id}>
   <OverflowMenuList>
     <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
     <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
@@ -111,7 +97,7 @@ const items = [
 
 ### OverflowMenu
 
-Hovedkomponenten `<OverflowMen>`.
+Hovedkomponenten `<OverflowMenu>`.
 
 <Canvas>
   <Story of={OverflowMenuStories.Default} />
@@ -160,63 +146,17 @@ Statisk element. Returnerer `<span>` inni `<li>`. Brukes som barn i `<OverflowMe
 <ArgTypes of={OverflowMenuSpan} />
 Støtter også alle native props.
 
-### Types
-
-Typer for depracated props `items`, `navItems` og `userProps`.
-
-<Source
-  code={`
-  export type OverflowMenuContextItem = {
-  title: string,
-  icon?: SvgIcon,
-  } & (
-  | AnchorHTMLAttributes<HTMLAnchorElement>
-  | ButtonHTMLAttributes<HTMLButtonElement>
-  );
-
-`}
-/>
-
-<Source
-  code={`
-  export type OverflowMenuNavItem = {
-  title: string,
-  icon?: SvgIcon
-  } & AnchorHTMLAttributes<HTMLAnchorElement>;
-
-`}
-/>
-
-<Source
-  code={`
-  export type UserProps = {
-  name: string,
-  href?: string
-  } & (
-  | AnchorHTMLAttributes<HTMLAnchorElement>
-  | ButtonHTMLAttributes<HTMLButtonElement>
-  );
-
-`}
-/>
-
 ## Eksempler
 
 ### Med navigasjon
 
+Husk å bruke `<nav>` som wrapper for navigasjon.
+
 <Canvas of={OverflowMenuStories.WithNavigation} />
 
-### Med navigasjon prop (deprecated)
+### Med kun brukernavn
 
-<Canvas of={OverflowMenuStories.WithNavItemsProp} />
-
-### Med interaktiv bruker prop (deprecated)
-
-<Canvas of={OverflowMenuStories.WithInteractiveUserProp} />
-
-### Med statisk bruker prop (deprecated)
-
-<Canvas of={OverflowMenuStories.WithStaticUserProp} />
+<Canvas of={OverflowMenuStories.WithStaticUserOnly} />
 
 ## Retningslinjer
 

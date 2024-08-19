@@ -34,7 +34,7 @@ export const Default: Story = {
       name: 'Kari Nordmann',
     },
     environment: 'PROD',
-    userMenuItems: [{ title: 'Bytt embete' }, { title: 'Logg ut' }],
+    userMenuItems: [{ children: 'Bytt embete' }, { children: 'Logg ut' }],
     navigation: {
       internal: [
         <AppShell.NavItem active href="#" icon={FolderIcon}>
