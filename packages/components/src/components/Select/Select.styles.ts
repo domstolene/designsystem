@@ -10,9 +10,10 @@ import {
 } from '../helpers';
 import { scrollbarStyling } from '../helpers';
 
-type SelectTypography = {
-  [k in InputSize]: { font: string; letterSpacing: string; fontStyle?: string };
-};
+type SelectTypography = Record<
+  InputSize,
+  { font: string; letterSpacing: string; fontStyle?: string }
+>;
 
 const placeholderTypography: SelectTypography = {
   medium: {

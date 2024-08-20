@@ -15,15 +15,16 @@ import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
 import { type DatePickerProps } from '../DatePicker';
 
-export const typographyTypes: { [k in InputSize]: StaticTypographyType } = {
+export const typographyTypes: Record<InputSize, StaticTypographyType> = {
   medium: 'bodySans02',
   small: 'bodySans01',
   tiny: 'supportingStyleTiny01',
 };
 
-export const placeholderTypographyTypes: {
-  [k in InputSize]: StaticTypographyType;
-} = {
+export const placeholderTypographyTypes: Record<
+  InputSize,
+  StaticTypographyType
+> = {
   medium: 'supportingStylePlaceholderText01',
   small: 'supportingStylePlaceholderText02',
   tiny: 'supportingStylePlaceholderText03',

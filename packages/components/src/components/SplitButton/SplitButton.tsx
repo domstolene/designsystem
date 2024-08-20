@@ -3,12 +3,7 @@ import { type HTMLAttributes, forwardRef, useState } from 'react';
 import styles from './SplitButton.module.css';
 import { type ExtractStrict } from '../../types';
 import { cn } from '../../utils';
-import {
-  Button,
-  type ButtonProps,
-  type ButtonPurpose,
-  type ButtonSize,
-} from '../Button';
+import { Button, type ButtonProps, type ButtonPurpose } from '../Button';
 import { ChevronDownIcon, ChevronUpIcon } from '../Icon/icons';
 import {
   OverflowMenu,
@@ -29,14 +24,14 @@ export type SplitButtonPrimaryActionProps = Omit<
 >;
 export type SplitButtonSecondaryActionsProps = Array<OverflowMenuButtonProps>;
 
-export type SplitButtonProps = {
-  /**Størrelse på komponenten. */
-  size?: ButtonSize;
-  /**Props for primær handling. Samme props som for `<Button />` unntatt `size` og `purpose`. */
+export type SplitButtonProps = Pick<ButtonProps, 'size'> & {
+  /**Props for primær handling. Samme props som for `<Button>` unntatt `size` og `purpose`. */
   primaryAction: SplitButtonPrimaryActionProps;
   /**Props for sekunære handlinger. */
   secondaryActions: SplitButtonSecondaryActionsProps;
-  /**Formål med knappen */
+  /**Formål med knappen.
+   * @default "primary"
+   */
   purpose?: SplitButtonPurpose;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -53,7 +48,7 @@ export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
 
     const [isOpen, setIsOpen] = useState(false);
     const buttonStyleProps: ButtonProps = {
-      purpose: purpose,
+      purpose,
       size,
     };
 

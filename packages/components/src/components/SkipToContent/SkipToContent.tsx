@@ -9,11 +9,15 @@ import { Link, defaultTypographyType } from '../Typography';
 export type SkipToContentProps = BaseComponentProps<
   HTMLAnchorElement,
   {
-    /** Teksten som vises i lenka. */
+    /** Teksten som vises i lenka.
+     * @default "Til hovedinnhold"
+     */
     text?: string;
     /**Spesifiserer hvor det skal hoppes til via `id`-attributtet til innholdet. */
     href: string;
-    /**Avstand fra top i nærmeste posisjonert container. */
+    /**Avstand fra top i nærmeste posisjonert container.
+     * @default 0
+     */
     top?: Property.Top;
   }
 >;

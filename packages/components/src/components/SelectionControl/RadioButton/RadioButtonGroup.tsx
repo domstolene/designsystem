@@ -14,7 +14,6 @@ import {
 } from './RadioButtonGroupContext';
 import {
   type BaseComponentPropsWithChildren,
-  type Direction,
   getBaseHTMLProps,
 } from '../../../types';
 import { RequiredMarker, cn, combineHandlers } from '../../../utils';
@@ -23,37 +22,24 @@ import { LockIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
 import labelStyles from '../../Typography/Label/Label.module.css';
+import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<
     HTMLDivElement,
-    {
+    SelectionControlGroupCommonProps & {
       /** Gir alle barna `name` prop.*/
       name?: string;
-      /**Ledetekst for hele gruppen. */
-      label?: string;
       /**Funksjonen for onChange-event for barna. */
       onChange?: (
         event: ChangeEvent<HTMLInputElement>,
         value: T | undefined,
       ) => void;
-      /**Legger en markør (*) bak label som indikerer at input er påkrevd. Gjør alle barna påkrevd ved å gi dem `required` prop. */
+      /** Gjør alle barna påkrevd ved å gi dem `required` prop. Legger en markør (*) bak ledeteksten. */
       required?: boolean;
-      /**Meldingen som vises ved valideringsfeil. Gir alle barna error prop. */
-      errorMessage?: string;
-      /**Hjelpetekst for gruppen. */
-      tip?: string;
-      /**Gir alle barna `disabled` prop. */
-      disabled?: boolean;
-      /**Gir alle barna `readOnly` prop */
-      readOnly?: boolean;
-      /**Retningen radioknappene skal gjengis i. */
-      direction?: Direction;
       /**Default verdi - en `<RadioButton />` blir forhåndsvalgt. **OBS!** brukes kun når brukeren ikke skal fylle ut selv. */
       value?: T | undefined;
-      /**custom id for for gruppen, knytter `label` til gruppen via `aria-label`. */
-      groupId?: string;
     },
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
   >;

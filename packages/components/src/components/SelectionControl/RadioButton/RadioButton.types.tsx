@@ -1,6 +1,7 @@
 import { type InputHTMLAttributes } from 'react';
 
 import { type BaseComponentPropsWithChildren } from '../../../types';
+import { type SelectionControlCommonProps } from '../common/SelectionControl.types';
 
 type PickedInputHTMLAttributes = Pick<
   InputHTMLAttributes<HTMLInputElement>,
@@ -15,13 +16,6 @@ type PickedInputHTMLAttributes = Pick<
 
 export type RadioButtonProps = BaseComponentPropsWithChildren<
   HTMLInputElement,
-  {
-    /**Ledetekst for alternativet. */
-    label?: string;
-    /**Spesifiserer om input er disabled. */
-    disabled?: boolean;
-    /**Indikerer valideringsfeil. Påvirker styling. */
-    error?: boolean;
-  } & PickedInputHTMLAttributes,
+  SelectionControlCommonProps & PickedInputHTMLAttributes,
   Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedInputHTMLAttributes>
 >;

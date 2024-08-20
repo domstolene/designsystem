@@ -15,9 +15,13 @@ export type ListTypographyType = TypographyBodyType | 'inherit';
 export type ListProps = BaseComponentPropsWithChildren<
   HTMLUListElement | HTMLOListElement,
   {
-    /**Spesifiserer om komponenten skal returnere `<ul />` (punktliste) eller `<ol />` (nummerert liste). */
+    /**Spesifiserer om komponenten skal returnere `<ul />` (punktliste) eller `<ol />` (nummerert liste).
+     * @default "unordered"
+     */
     listType?: ListType;
-    /**Spesifiserer typografi for listen. Komponenten arver i utgangspunktet fra forelder, men hvis forelder stiller ikke med relevant styling  må det velges `TypographyBodyType` som brukes i `<body>` ellers på siden. */
+    /**Spesifiserer typografi for listen. Komponenten arver i utgangspunktet fra forelder, men hvis forelder stiller ikke med relevant styling  må det velges `TypographyBodyType` som brukes i `<body>` ellers på siden.
+     *  @default "inherit"
+     */
     typographyType?: ListTypographyType;
   }
 >;

@@ -26,9 +26,13 @@ export type IconProps = BaseComponentProps<
   {
     /**Ikonet importert fra `@norges-domstoler/dds-components`. */
     icon: SvgIcon;
-    /**Størrelsen på ikonet. */
+    /**Størrelsen på ikonet.
+     * @default "medium"
+     */
     iconSize?: IconSize;
-    /**Fargen på ikonet. */
+    /**Fargen på ikonet.
+     * @default "currentcolor"
+     */
     color?: TextColor;
   }
 >;

@@ -11,20 +11,10 @@ import { Icon, type SvgIcon } from '../Icon';
 import { CloseIcon, ErrorIcon, InfoIcon, WarningIcon } from '../Icon/icons';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-export const purposeVariants: {
-  [k in GlobalMessagePurpose]: {
-    icon: SvgIcon;
-  };
-} = {
-  info: {
-    icon: InfoIcon,
-  },
-  danger: {
-    icon: ErrorIcon,
-  },
-  warning: {
-    icon: WarningIcon,
-  },
+export const icons: Record<GlobalMessagePurpose, SvgIcon> = {
+  info: InfoIcon,
+  danger: ErrorIcon,
+  warning: WarningIcon,
 };
 
 export type GlobalMessagePurpose = 'info' | 'warning' | 'danger';
@@ -34,7 +24,9 @@ export type GlobalMessageProps = BaseComponentPropsWithChildren<
   {
     /**Meldingen som vises til brukeren. Brukes kun når meldingen er en `string`. */
     message?: string;
-    /**Formålet med meldingen. Påvirker styling. */
+    /**Formålet med meldingen. Påvirker styling.
+     * @default "info"
+     */
     purpose?: GlobalMessagePurpose;
     /**Indikerer om meldingen skal være lukkbar. */
     closable?: boolean;
@@ -80,7 +72,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
             closable && styles['content--closable'],
           )}
         >
-          <Icon icon={purposeVariants[purpose].icon} className={styles.icon} />
+          <Icon icon={icons[purpose]} className={styles.icon} />
           {children ?? <span>{message}</span>}
         </div>
 

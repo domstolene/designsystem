@@ -23,7 +23,9 @@ import { Label, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type TextAreaProps = CommonInputProps & {
-  /** Spesifiserer om tegntelleren skal vises ved bruk av `maxLength` attributt. */
+  /** Spesifiserer om tegntelleren skal vises ved bruk av `maxLength` attributt.
+   * @default true
+   */
   withCharacterCounter?: boolean;
 } & TextareaHTMLAttributes<HTMLTextAreaElement>;
 

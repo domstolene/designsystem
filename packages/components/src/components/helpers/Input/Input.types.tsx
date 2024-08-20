@@ -17,7 +17,9 @@ export interface CommonInputProps {
 export type InputSize = 'medium' | 'small' | 'tiny';
 
 export type InputProps = CommonInputProps & {
-  /**Størrelse på inputfeltet. */
+  /**Størrelse på inputfeltet.
+   * @default "medium"
+   */
   componentSize?: InputSize;
 } & InputHTMLAttributes<HTMLInputElement>;
 
@@ -26,4 +28,4 @@ export type StatefulInputProps = {
 } & Pick<InputProps, 'componentSize'> &
   InputHTMLAttributes<HTMLInputElement>;
 
-export type InputTypographyTypes = { [k in InputSize]: StaticTypographyType };
+export type InputTypographyTypes = Record<InputSize, StaticTypographyType>;

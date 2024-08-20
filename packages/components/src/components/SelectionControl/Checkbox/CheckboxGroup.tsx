@@ -6,7 +6,6 @@ import {
 } from './CheckboxGroupContext';
 import {
   type BaseComponentPropsWithChildren,
-  type Direction,
   getBaseHTMLProps,
 } from '../../../types';
 import { RequiredMarker, cn, derivativeIdGenerator } from '../../../utils';
@@ -15,27 +14,14 @@ import { LockIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Typography } from '../../Typography';
 import labelStyles from '../../Typography/Label/Label.module.css';
+import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
-  {
-    /**Ledetekst for gruppen. */
-    label?: string;
-    /**Retningen barna gjengis i. */
-    direction?: Direction;
-    /**Custom id for for gruppen, knytter ledetekst til gruppen via `aria-label`. */
-    groupId?: string;
-    /**Meldingen som vises ved valideringsfeil. Sender error-tilstand til barna når det finnes  og setter `aria-describedby` for barna. */
-    errorMessage?: string;
-    /**Hjelpetekst for gruppen. */
-    tip?: string;
-    /**Indikerer at det er påkrevd å velge minst ett alternativ. Innebærer visuell endring. **OBS!** `required` må i tillegg gis til `<Checkbox />` manuelt. */
+  SelectionControlGroupCommonProps & {
+    /**Indikerer at det er påkrevd å velge minst ett alternativ. Legger en markør bak ledeteksten. **OBS!** `required` må i tillegg gis til `<Checkbox>`-barna manuelt. */
     required?: boolean;
-    /**Gir alle barna `disabled` prop. */
-    disabled?: boolean;
-    /**Gir alle barna `readOnly` prop. */
-    readOnly?: boolean;
   }
 >;
 

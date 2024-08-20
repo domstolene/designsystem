@@ -3,7 +3,7 @@ import { type ChangeEvent } from 'react';
 import { type SearchSize } from './Search.types';
 import { type StaticTypographyType } from '../Typography';
 
-export const typographyTypes: { [k in SearchSize]: StaticTypographyType } = {
+export const typographyTypes: Record<SearchSize, StaticTypographyType> = {
   small: 'bodySans01',
   medium: 'bodySans02',
   large: 'bodySans04',

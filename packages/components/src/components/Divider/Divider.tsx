@@ -9,7 +9,9 @@ export type DividerColor = 'default' | 'subtle' | 'onInverse';
 export type DividerProps = BaseComponentProps<
   HTMLHRElement,
   {
-    /** Farge på horisontal linje. */
+    /** Farge på horisontal linje.
+     * @default "default"
+     */
     color?: DividerColor;
   }
 >;

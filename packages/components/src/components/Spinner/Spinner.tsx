@@ -9,11 +9,17 @@ import { type TextColor, cn, getTextColor } from '../../utils';
 export type SpinnerProps = BaseComponentProps<
   SVGElement,
   {
-    /**Farge på spinneren. */
+    /**Farge på spinneren.
+     * @default "iconActionResting"
+     */
     color?: TextColor;
-    /**Størrelse; Setter høyde og bredde på spinneren. */
+    /**Størrelse; Setter høyde og bredde på spinneren.
+     * @default ddsTokens.ddsIconSizeMedium
+     */
     size?: Property.Width;
-    /**Tekst som vises ved hover. */
+    /**Tekst som vises ved hover.
+     * @default "Innlasting pågår"
+     */
     tooltip?: string;
   }
 >;

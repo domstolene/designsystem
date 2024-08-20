@@ -26,15 +26,21 @@ type PickedHTMLAttributes = Pick<
 export type ButtonGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /**Retning for gruppen. */
+    /**Retning for gruppen.
+     * @default "row"
+     */
     direction?: Direction;
-    /**Størrelse på knappene. */
+    /**Størrelse på knappene.
+     * @default "medium"
+     */
     buttonSize?: ButtonSize;
     /**Nativ `aria-label` ved behov. */
     'aria-label'?: string;
     /**Nativ `aria-labelledby` ved behov. */
     'aria-labelledby'?: string;
-    /**Nativ `role` ved behov. */
+    /**Nativ `role` ved behov.
+     * @default "group"
+     */
     role?: AriaRole;
   } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof PickedHTMLAttributes>
 >;

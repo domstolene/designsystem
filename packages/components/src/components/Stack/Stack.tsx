@@ -28,12 +28,12 @@ export interface StackStyleProps {
   direction: 'horizontal' | 'vertical';
   /**
    * CSS `align-items`.
-   * @default 'center'
+   * @default "center"
    */
   align?: StandardProperties['alignItems'];
   /**
    * CSS `justify-content`.
-   * @default 'flex-start'
+   * @default "flex-start"
    */
   justify?: StandardProperties['justifyContent'];
   /**

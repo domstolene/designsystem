@@ -21,7 +21,7 @@ export interface FavStarProps
    */
   checked?: boolean;
   /**
-   * Hvis du skal bruke `<FavStar>` uncontrolled så kan denne brukes til å sette den initielle "favortitt"-statusen.
+   * Hvis du skal bruke `<FavStar>` uncontrolled så kan denne brukes til å sette den initielle "favoritt"-statusen.
    * @default false
    */
   defaultChecked?: boolean;
@@ -31,7 +31,7 @@ export interface FavStarProps
   onChange?: (checked: boolean) => void;
   /**
    * Størrelse på `<FavStar>`. `'medium'` er den mest vanlige størrelsen.
-   * @default 'medium'
+   * @default "medium"
    */
   size?: ComponentSize;
 }

@@ -127,6 +127,7 @@ export const WithButton: Story = {
 };
 
 export const WithSuggestions: Story = {
+  parameters: { docs: { story: { height: '450px' } } },
   render: args => (
     <>
       <Search.AutocompleteWrapper data={{ array }}>

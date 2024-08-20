@@ -19,26 +19,12 @@ import {
 } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const purposeVariants: {
-  [k in TagPurpose]: {
-    icon: SvgIcon | undefined;
-  };
-} = {
-  info: {
-    icon: InfoIcon,
-  },
-  danger: {
-    icon: ErrorIcon,
-  },
-  warning: {
-    icon: WarningIcon,
-  },
-  success: {
-    icon: CheckCircledIcon,
-  },
-  default: {
-    icon: undefined,
-  },
+const icons: Record<TagPurpose, SvgIcon | undefined> = {
+  info: InfoIcon,
+  danger: ErrorIcon,
+  warning: WarningIcon,
+  success: CheckCircledIcon,
+  default: undefined,
 };
 
 export type TagPurpose = 'success' | 'info' | 'danger' | 'warning' | 'default';
@@ -57,10 +43,12 @@ export type TagProps = BaseComponentPropsWithChildren<
     text?: string;
     /**
      * Formål med status eller kategorisering. Påvirker styling.
-     * */
+     * @default "default"
+     */
     purpose?: TagPurpose;
     /**
      * Det visuelle uttrykket til komponenten.
+     * @default "default"
      */
     appearance?: TagAppearance;
     /**
@@ -84,7 +72,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
     ...rest
   } = props;
 
-  const icon = purposeVariants[purpose].icon;
+  const icon = icons[purpose];
 
   return (
     <TextOverflowEllipsisWrapper

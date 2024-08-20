@@ -11,7 +11,9 @@ export interface BaseInlineInputProps {
   error?: boolean;
   /**Feilmelding. Setter også error state. */
   errorMessage?: string;
-  /** Bredde på komponenten. */
+  /** Bredde på komponenten.
+   * @default "140px"
+   */
   width?: Property.Width;
   /**Om redigeringsikonet skal vises. */
   hideIcon?: boolean;

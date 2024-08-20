@@ -7,7 +7,9 @@ import { Heading, type HeadingLevel, Paragraph } from '../Typography';
 export type EmptyContentProps = {
   /**Tittel - kort oppsummering. */
   title?: string;
-  /**Nivå på overskriften. Sørg for at den følger hierarkiet på siden. */
+  /**Nivå på overskriften. Sørg for at den følger hierarkiet på siden.
+   * @default 2
+   */
   titleHeadingLevel?: HeadingLevel;
   /**Melding - beskrivelse og forklaring på hvordan brukeren kan få innhold. Kan inneholde lenker og andre interaktive elementer. */
   message: ReactNode;

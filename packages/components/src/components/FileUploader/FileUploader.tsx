@@ -24,19 +24,25 @@ export type FileUploaderProps = {
   id?: string;
   /**Ledetekst for filopplaster. */
   label?: string;
-  /**Ledetekst for slippsonen. Denne teksten skal, av UU-hensyn, henge sammen med den usynlige teksten: "velg fil med påfølgende knapp" */
+  /**Ledetekst for slippsonen. Denne teksten skal, av UU-hensyn, henge sammen med den usynlige teksten: "velg fil med påfølgende knapp"
+   * @default "Dra og slipp filer her eller"
+   */
   dropAreaLabel?: string;
-  /**Ledetekst for opplastingsknappen. */
+  /**Ledetekst for opplastingsknappen.
+   * @default "Velg fil"
+   */
   btnLabel?: string;
   /**Hjelpetekst. */
   tip?: string;
-  /**Om det er påkrevd med minst en fil. */
+  /**Om det er påkrevd med minst én fil. */
   required?: boolean;
   /**Callback for når fil-listen endres. */
   onChange: (newFiles: FileList) => void;
   /**Bredde for filopplasteren. */
   width?: Property.Width;
-  /**Om drag-and-drop zone skal vises. */
+  /**Om drag-and-drop zone skal vises.
+   * @default true
+   */
   withDragAndDrop?: boolean;
   /**Om listen med opplastede filer skal skjules. Brukes kun hvis listen blir vist på egen måte. */
   hideFileList?: boolean;

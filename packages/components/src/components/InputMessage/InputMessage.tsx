@@ -14,7 +14,9 @@ export type InputMessageProps = BaseComponentProps<
   {
     /** Meldingen som vises til brukeren. */
     message: string;
-    /** Formålet med meldingen. Påvirker styling. */
+    /** Formålet med meldingen. Påvirker styling.
+     * @default "error"
+     */
     messageType: InputMessageType;
   }
 >;

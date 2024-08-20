@@ -37,15 +37,23 @@ export type PopoverProps = BaseComponentPropsWithChildren<
   {
     /**Tittel. */
     title?: string | ReactNode;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Spesifiserer om `<Popover />` skal vises. */
+    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Spesifiserer om `<Popover />` skal vises.
+     * @default false
+     */
     isOpen?: boolean;
-    /**Om lukkeknapp skal vises. */
+    /**Om lukkeknapp skal vises.
+     * @default true
+     */
     withCloseButton?: boolean;
     /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Anchor-elementet. */
     anchorElement?: HTMLElement;
-    /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet. */
+    /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet.
+     * @default "bottom"
+     */
     placement?: Placement;
-    /**Avstand fra anchor-elementet i px. */
+    /**Avstand fra anchor-elementet i px.
+     * @default 8
+     */
     offset?: number;
     /** Ekstra logikk kjørt når lukkeknappen trykkes. */
     onCloseButtonClick?: () => void;

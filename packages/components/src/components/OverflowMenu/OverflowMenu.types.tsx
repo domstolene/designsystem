@@ -26,11 +26,17 @@ export type OverflowMenuSpanProps = OverflowMenuListItemBaseProps &
 export type OverflowMenuProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /**Plassering av menyen i forhold til anchor-elementet. */
+    /**Plassering av menyen i forhold til anchor-elementet.
+     * @default "bottom-end"
+     */
     placement?: Placement;
-    /**Avstand fra anchor-elementet i px. */
+    /**Avstand fra anchor-elementet i px.
+     * @default 2
+     */
     offset?: number;
-    /**Spesifiserer om menyen skal vises. **OBS!** nødvendig kun hvis `<OverflowMenuGroup />` ikke brukes.  */
+    /**Spesifiserer om menyen skal vises. **OBS!** nødvendig kun hvis `<OverflowMenuGroup />` ikke brukes.
+     * @default false
+     */
     isOpen?: boolean;
     /**Callback for å lukke menyen. **OBS!** nødvendig kun hvis `<OverflowMenuGroup />` ikke brukes.  */
     onClose?: () => void;

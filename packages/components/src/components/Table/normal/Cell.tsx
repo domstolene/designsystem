@@ -18,10 +18,12 @@ export interface CollapsibleProps {
 export type TableCellProps = {
   /**
    * Type celle. Returnerer enten `<td>` eller `<th>`.
-   * @default 'data' hvis den er brukt i `<Table.Body>` eller `<Table.Foot>`, 'head' hvis den er i `<Table.Head>`.
+   * @default "data" hvis den er brukt i `<Table.Body>` eller `<Table.Foot>`, 'head' hvis den er i `<Table.Head>`.
    */
   type?: TableCellType;
-  /**Layout av innholdet i cellen; legger en flex `<div>` i cellen, unntatt 'none' som ikke legger inn noe. 'tekst and icon' legger `gap` mellom barna og andre barnet i cellen.  */
+  /**Layout av innholdet i cellen; legger en flex `<div>` i cellen, unntatt 'none' som ikke legger inn noe. 'tekst and icon' legger `gap` mellom barna og andre barnet i cellen.
+   * @default "left"
+   */
   layout?: TableCellLayout;
   /** Props ved bruk av `<CollapsibleRow>`. **OBS!** settes automatisk av forelder. */
   collapsibleProps?: CollapsibleProps;

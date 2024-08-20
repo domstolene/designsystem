@@ -100,9 +100,10 @@ export const GridChild = (props: GridChildProps) => {
       : undefined,
   };
 
-  const columnsCn: {
-    [k in RelativeColumnsOccupied]: RelativeColumnsOccupiedHyphen;
-  } = {
+  const columnsCn: Record<
+    RelativeColumnsOccupied,
+    RelativeColumnsOccupiedHyphen
+  > = {
     all: 'all',
     firstHalf: 'first-half',
     secondHalf: 'second-half',
