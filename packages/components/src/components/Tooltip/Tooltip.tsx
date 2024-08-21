@@ -31,11 +31,15 @@ export type TooltipProps = BaseComponentProps<
   {
     /**Innhold i tooltip. */
     text: string;
-    /**Plassering i forhold til anchor-elementet. */
+    /**Plassering i forhold til anchor-elementet.
+     * @default "bottom"
+     */
     placement?: Placement;
     /**Anchor-elementet. */
     children: AnchorElement;
-    /**Forsinkelse for når tooltip skal dukke opp. Oppgis i millisekunder.  */
+    /**Forsinkelse for når tooltip skal dukke opp. Oppgis i millisekunder.
+     * @default 100
+     */
     delay?: number;
     /**`id` for tooltip. */
     tooltipId?: string;

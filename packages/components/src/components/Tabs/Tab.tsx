@@ -29,17 +29,21 @@ import typographyStyles from '../Typography/typographyStyles.module.css';
 export type TabProps = BaseComponentPropsWithChildren<
   HTMLButtonElement,
   {
-    /**Spesifiserer om fanen er aktiv. */
+    /**Spesifiserer om fanen er aktiv.
+     * @default false
+     */
     active?: boolean;
     /** Ikon. */
     icon?: SvgIcon;
-    /** Spesifiserer om `<Tab />` skal ha fokus. **OBS!** settes automatisk av forelder.*/
+    /** Spesifiserer om `<Tab>` skal ha fokus. **OBS!** settes automatisk av forelder.*/
     focus?: boolean;
     /**  Callback som setter fokus. **OBS!** settes automatisk av forelder.*/
     setFocus?: Dispatch<SetStateAction<number>>;
-    /** Indeksen til `<Tab />`. **OBS!** settes automatisk av forelder.*/
+    /** Indeksen til `<Tab>`. **OBS!** settes automatisk av forelder.*/
     index?: number;
-    /** Bredden til `<Tab />`. Her er det støtte for de samme enhetene som du kan bruke i `grid-template-columns`. */
+    /** Bredden til `<Tab>`. Her er det støtte for de samme enhetene som du kan bruke i `grid-template-columns`.
+     * @default "1fr"
+     */
     width?: CSS.Properties['width'];
   } & Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>,
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>

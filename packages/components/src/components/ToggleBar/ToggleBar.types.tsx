@@ -10,7 +10,9 @@ export type ToggleBarProps<T extends string | number> =
   BaseComponentPropsWithChildren<
     HTMLDivElement,
     {
-      /**Størrelse på komponenten. */
+      /**Størrelse på komponenten.
+       * @default "medium"
+       */
       size?: ToggleBarSize;
       /**Ledetekst for hele gruppen. */
       label?: string;

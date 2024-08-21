@@ -16,7 +16,9 @@ export type CardType = 'info' | 'navigation' | 'expandable';
 type BaseCardProps<T extends HTMLElement> = BaseComponentPropsWithChildren<
   T,
   {
-    /** Utseende på komponenten. */
+    /** Utseende på komponenten.
+     * @default "filled"
+     */
     appearance?: CardAppearance;
 
     /** Referanse til komponenten. */

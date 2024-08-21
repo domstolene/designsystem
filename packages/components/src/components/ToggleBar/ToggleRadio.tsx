@@ -19,7 +19,7 @@ import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
 import { type StaticTypographyType, Typography } from '../Typography';
 
-export const typographyTypes: { [k in ToggleBarSize]: StaticTypographyType } = {
+export const typographyTypes: Record<ToggleBarSize, StaticTypographyType> = {
   large: 'bodySans04',
   medium: 'bodySans02',
   small: 'bodySans01',

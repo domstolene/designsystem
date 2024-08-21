@@ -23,7 +23,9 @@ import {
 export type ProgressTrackerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /** Indeksen til det aktive steget. */
+    /** Indeksen til det aktive steget.
+     * @default 0
+     */
     activeStep?: number;
     /** Ekstra logikk ved klikking på et steg. */
     onStepChange?: (step: number) => void;

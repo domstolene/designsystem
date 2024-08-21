@@ -37,7 +37,9 @@ export type ModalProps = BaseComponentPropsWithChildren<
     isOpen?: boolean;
     /**Funksjon kjørt ved lukking; Settes hvis modal skal være lukkbar. Legger en lukkeknapp i hjørnet og kjøres ved Esc-trykk, lukkeknappklikk og museklikk utenfor. */
     onClose?: () => void;
-    /**Spesifiserer hvilken DOM node `<Modal />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
+    /**Spesifiserer hvilken DOM node `<Modal />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node).
+     * @default document.body
+     */
     parentElement?: HTMLElement;
     /**Tittel/header i modal. Setter `aria-labelledby`. */
     header?: string | ReactNode;

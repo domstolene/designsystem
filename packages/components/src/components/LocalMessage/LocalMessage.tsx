@@ -19,26 +19,12 @@ import {
 } from '../Icon/icons';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const purposeVariants: {
-  [k in LocalMessagePurpose]: {
-    icon: SvgIcon;
-  };
-} = {
-  info: {
-    icon: InfoIcon,
-  },
-  danger: {
-    icon: ErrorIcon,
-  },
-  warning: {
-    icon: WarningIcon,
-  },
-  success: {
-    icon: CheckCircledIcon,
-  },
-  tips: {
-    icon: TipIcon,
-  },
+const icons: Record<LocalMessagePurpose, SvgIcon> = {
+  info: InfoIcon,
+  danger: ErrorIcon,
+  warning: WarningIcon,
+  success: CheckCircledIcon,
+  tips: TipIcon,
 };
 
 export type LocalMessagePurpose =
@@ -55,13 +41,17 @@ export type LocalMessageProps = BaseComponentPropsWithChildren<
   {
     /**Meldingen som vises til brukeren. Brukes kun når meldingen er string. */
     message?: string;
-    /**Formålet med meldingen. Påvirker styling. */
+    /**Formålet med meldingen. Påvirker styling.
+     * @default "info"
+     */
     purpose?: LocalMessagePurpose;
     /** Indikerer om meldingen skal være lukkbar.*/
     closable?: boolean;
     /**Ekstra logikk å kjøre når meldingen lukkes. */
     onClose?: () => void;
-    /**Layoutet i komponenten. Ved kompleks innhold anbefales `layout='vertical'`. */
+    /**Layoutet i komponenten. Ved kompleks innhold anbefales `layout='vertical'`.
+     * @default "horisontal"
+     */
     layout?: LocalMessageLayout;
     /**Custom bredde ved behov. */
     width?: Property.Width;
@@ -109,7 +99,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
         style={{ ...htmlProps?.style, width }}
       >
         <Icon
-          icon={purposeVariants[purpose].icon}
+          icon={icons[purpose]}
           className={cn(styles.icon, styles.container__icon)}
         />
         <div className={styles.container__text}>

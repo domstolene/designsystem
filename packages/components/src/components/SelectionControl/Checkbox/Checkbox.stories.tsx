@@ -13,6 +13,7 @@ export default {
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     indeterminate: { control: { type: 'boolean' } },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

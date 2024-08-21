@@ -64,7 +64,9 @@ type WrappedReactSelectProps<
 export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   /**Ledetekst for nedtrekkslisten. */
   label?: string;
-  /**Størrelsen på komponenten. */
+  /**Størrelsen på komponenten.
+   * @default "medium"
+   */
   componentSize?: InputSize;
   /**Ikonet som vises i komponenten. */
   icon?: SvgIcon;

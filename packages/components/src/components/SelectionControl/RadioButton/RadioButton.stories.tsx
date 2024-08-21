@@ -12,7 +12,7 @@ export default {
     error: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    className: { control: { type: 'text' } },
+    htmlProps: { control: false },
   },
   parameters: {
     docs: {

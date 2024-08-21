@@ -27,17 +27,30 @@ export type PaginationProps = BaseComponentProps<
   {
     /**Totalt antall elementer å paginere. */
     itemsAmount: number;
-    /**Antall elementer per side ved innlastning av komponenten. */
+    /**Antall elementer per side ved innlastning av komponenten.
+     * @default 10
+     */
     defaultItemsPerPage?: number;
-    /**Den aktive siden ved innlastning av komponenten. */
+    /**Den aktive siden ved innlastning av komponenten.
+     * @default 1
+     */
     defaultActivePage?: number;
-    /**Spesifiserer om selve pagineringen skal vises. */
+    /**Spesifiserer om selve pagineringen skal vises.
+     * @default true
+     */
     withPagination?: boolean;
     /**Spesifiserer om teksten `'Vis x-y av z'` skal vises. */
     withCounter?: boolean;
     /**Spesifiserer om `<Select />` til å velge antall resultater per side skal vises. */
     withSelect?: boolean;
-    /**Custom options for `<Select />`. **OBS!** hvis det settes custom `selectOptions` bør "alle"-alternativet inkluderes der det er relevant, da brukere ofte liker å ha muligheten. */
+    /**Custom options for `<Select />`. **OBS!** hvis det settes custom `selectOptions` bør "alle"-alternativet inkluderes der det er relevant, da brukere ofte liker å ha muligheten.
+     * @default [
+        { label: '10', value: 10 },
+        { label: '25', value: 25 },
+        { label: '50', value: 50 },
+        { label: 'Alle', value: itemsAmount },
+      ]
+     */
     selectOptions?: Array<PaginationOption>;
     /**Brukes til å hente side og eventuelt annen logikk ved endring av side. */
     onChange?: (

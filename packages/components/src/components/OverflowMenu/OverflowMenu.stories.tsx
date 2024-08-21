@@ -18,6 +18,11 @@ import {
 export default {
   title: 'dds-components/OverflowMenu',
   component: OverflowMenu,
+  argTypes: {
+    offset: { control: 'number' },
+    anchorRef: { control: false },
+    htmlProps: { control: false },
+  },
   parameters: {
     docs: {
       story: { height: '350px', inline: true },

@@ -41,7 +41,7 @@ type StateHyphen =
   | 'inactive-incomplete'
   | 'inactive-completed';
 
-const itemStateCn: { [k in ItemState]: StateHyphen } = {
+const itemStateCn: Record<ItemState, StateHyphen> = {
   disabled: 'disabled',
   activeCompleted: 'active-completed',
   activeIncomplete: 'active-incomplete',
@@ -52,19 +52,17 @@ const itemStateCn: { [k in ItemState]: StateHyphen } = {
 export interface BaseItemProps {
   /** Om steget er valgt eller ikke. Settes av konsument. */
   active?: boolean;
-
-  /** Om steget er ferdig eller ikke. Settes av konsument. */
+  /** Om steget er ferdig eller ikke. Settes av konsument.
+   * @default false
+   */
   completed?: boolean;
-
   /** Om steget skal være disabled. Settes av konsument.
    * @default false
    */
   disabled?: boolean;
-
   /** Ikon som skal vises istedenfor stegnummeret. Settes av konument. */
   icon?: SvgIcon;
-
-  /** Indeksen til steget. NB! Denne settes automatisk av `<ProgressTracker />` og skal ikke settes manuelt. */
+  /** Indeksen til steget. NB! Denne settes automatisk av forelder og skal ikke settes manuelt. */
   index?: number;
 }
 

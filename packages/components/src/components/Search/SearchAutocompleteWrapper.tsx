@@ -38,9 +38,11 @@ export interface SearchAutocompleteWrapperProps {
   onSuggestionSelection?: () => void;
   /** Custom filter for forslag. */
   filter?: (sugestion: string, query: string) => boolean;
-  /**Minst lengde på query når forslag skal vises. */
+  /**Minst lengde på query når forslag skal vises.
+   * @default 2
+   */
   queryLength?: number;
-  /** Barnet til komponenten (`<Search />`). */
+  /** Barnet til subkomponenten - `<Search>`. */
   children?: ReactNode;
   /**Initielle `value` i `<Search>`. */
   value?: string;

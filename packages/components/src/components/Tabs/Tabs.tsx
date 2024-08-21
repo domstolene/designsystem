@@ -24,7 +24,9 @@ export type TabsProps = BaseComponentPropsWithChildren<
     activeTab?: number;
     /** Ekstra logikk ved endring av aktiv fane. */
     onChange?: (index: number) => void;
-    /** Retningen ikon og tekst vises i `<Tab />`-elementer. */
+    /** Retningen ikon og tekst vises i `<Tab>`-elementer.
+     * @default "row"
+     */
     tabContentDirection?: Direction;
     /**Bredde for hele komponenten. */
     width?: Property.Width;

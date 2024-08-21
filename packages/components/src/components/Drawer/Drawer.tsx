@@ -32,9 +32,13 @@ export interface WidthProps {
 export type DrawerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /**Størrelsen på `<Drawer />`. */
+    /**Størrelsen på `<Drawer>`.
+     * @default "small"
+     */
     size?: DrawerSize;
-    /** Plasseringen til `<Drawer />`. */
+    /** Plasseringen til `<Drawer>`.
+     * @default "right"
+     */
     placement?: DrawerPlacement;
     /**Header for `<Drawer />`. Har default styling hvis verdien er en string. */
     header?: string | ReactNode;
@@ -42,7 +46,9 @@ export type DrawerProps = BaseComponentPropsWithChildren<
     isOpen?: boolean;
     /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
     onClose?: () => void;
-    /**Spesifiserer hvilken DOM node `<Drawer />` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node). */
+    /**Spesifiserer hvilken DOM node `<Drawer>` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node).
+     * @default document.body
+     */
     parentElement?: HTMLElement;
     /**Custom props for breddehåndtering ved behov. */
     widthProps?: WidthProps;

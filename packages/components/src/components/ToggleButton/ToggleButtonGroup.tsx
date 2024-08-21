@@ -15,7 +15,9 @@ export type ToggleButtonGroupProps = BaseComponentPropsWithChildren<
   {
     /** Ledetekst for gruppen. */
     label?: string;
-    /**Retningen barna legger seg i. */
+    /**Retningen barna legger seg i.
+     * @default "row"
+     */
     direction?: Direction;
     /** Custom `id` for ledetekst. Blir generert som default for å knytte ledetekst til gruppen.  */
     labelId?: string;

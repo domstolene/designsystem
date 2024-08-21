@@ -18,9 +18,7 @@ import { Spinner } from '../Spinner';
 import { type StaticTypographyType, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-const typographyTypes: {
-  [k in ButtonSize]: StaticTypographyType;
-} = {
+const typographyTypes: Record<ButtonSize, StaticTypographyType> = {
   large: 'bodySans04',
   medium: 'bodySans02',
   small: 'bodySans01',

@@ -15,17 +15,25 @@ type PickedHTMLAttributes = Pick<
 export type ButtonProps = BaseComponentProps<
   HTMLButtonElement,
   {
-    /**Størrelsen på knappen. */
+    /** Størrelsen på knappen.
+     *  @default "medium"
+     */
     size?: ButtonSize;
     /**Innhold i knappen (unntatt ikon). */
     children?: ReactNode;
-    /**Bestemmer farger basert på formål. */
+    /**Bestemmer farger basert på formål.
+     * @default "primary"
+     */
     purpose?: ButtonPurpose;
-    /**	Posisjonen til ikonet i forhold til teksten.*/
+    /**	Posisjonen til ikonet i forhold til teksten.
+     *  @default "left"
+     */
     iconPosition?: IconPosition;
     /**Indikerer en loading-knapp. */
     loading?: boolean;
-    /**Tooltip som vises ved loading. */
+    /** Tooltip som vises ved loading.
+     *  @default "Lagring pågår"
+     */
     loadingTooltip?: string;
     /**Ikonet som ligger i knappen.  */
     icon?: SvgIcon;
