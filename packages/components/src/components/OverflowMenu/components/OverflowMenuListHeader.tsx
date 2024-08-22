@@ -15,7 +15,7 @@ export const OverflowMenuListHeader = forwardRef<
       ref={ref}
       {...props}
       className={cn(
-        typographyStyles['supporting-style-helpertext-01'],
+        typographyStyles['supporting-style-helper-text-01'],
         typographyStyles['text-color--default'],
         styles['group-header'],
       )}
