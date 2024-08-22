@@ -86,7 +86,7 @@
 }
 
 .item-number {
-  border-radius: 50%;
+  border-radius: var(--dds-border-radius-rounded);
   display: flex;
   align-items: center;
   justify-content: center;

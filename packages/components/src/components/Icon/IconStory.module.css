@@ -80,7 +80,7 @@
   background-color: var(--dds-color-surface-inverse-default);
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
   margin: var(--dds-spacing-x1) 0;
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-surface);
   code.icon-code {
     color: var(--dds-color-text-on-inverse);
   }

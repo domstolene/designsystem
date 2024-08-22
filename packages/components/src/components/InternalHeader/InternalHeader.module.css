@@ -167,7 +167,7 @@
 .nav-list__item__link {
   text-decoration: none;
   padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1);
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-surface);
   background-color: transparent;
   color: var(--dds-color-text-subtle);
 

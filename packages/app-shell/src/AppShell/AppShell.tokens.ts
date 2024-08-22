@@ -6,7 +6,7 @@ const navigationItems = {
     font: 'var(--dds-font-body-sans-02)',
     letterSpacing: 'var(--dds-font-body-sans-02-letter-spacing)',
     color: 'var(--dds-color-text-on-inverse)',
-    borderRadius: 'var(--dds-border-radius-3)',
+    borderRadius: 'var(--dds-border-radius-button)',
     padding: 'var(--dds-spacing-x0-75)',
     gap: 'var(--dds-spacing-x0-5)',
     external: {
@@ -77,7 +77,7 @@ const floatingActionButtons = {
   gap: 'var(--dds-spacing-x1)',
   textColor: 'var(--dds-color-text-medium)',
   backgroundColor: 'var(--dds-color-surface-default)',
-  borderRadius: 'var(--dds-border-radius-3)',
+  borderRadius: 'var(--dds-border-radius-button)',
 };
 
 export const appShellTokens = { navigation, floatingActionButtons };

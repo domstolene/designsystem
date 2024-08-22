@@ -1,7 +1,7 @@
 .container {
   box-sizing: border-box;
   background-color: var(--dds-color-surface-default);
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-surface);
   margin: 0;
 }
 

@@ -38,8 +38,8 @@
   color: var(--dds-color-text-medium);
   padding: var(--dds-spacing-x0-5);
   background: var(--dds-color-surface-default);
-  border-top-left-radius: var(--dds-border-radius-2);
-  border-top-right-radius: var(--dds-border-radius-2);
+  border-top-left-radius: var(--dds-border-radius-button);
+  border-top-right-radius: var(--dds-border-radius-button);
 
   @media (prefers-reduced-motion: no-preference) {
     transition:

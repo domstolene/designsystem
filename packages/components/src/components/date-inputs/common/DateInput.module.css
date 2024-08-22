@@ -91,7 +91,7 @@
   border: 0;
   transition: 0.2s;
   background: transparent;
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-button);
   color: var(--dds-color-icon-default);
 
   &:not(:disabled):not(.disabled):hover,
@@ -114,7 +114,7 @@
 
 .popover {
   z-index: 100;
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-surface);
   background-color: var(--dds-color-surface-default);
   border: 1px solid var(--dds-color-border-default);
   padding: var(--dds-spacing-x0-5);
@@ -158,7 +158,7 @@
   cursor: pointer;
   border: 1px solid;
   border-color: transparent;
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-button);
   transition: 0.2s;
 }
 

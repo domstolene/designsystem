@@ -111,7 +111,7 @@ export const getCustomStyles = <TOption>(
     alignItems: 'center',
     flexWrap: 'wrap',
     cursor: 'pointer',
-    borderRadius: 'var(--dds-border-radius-1)',
+    borderRadius: 'var(--dds-border-radius-input)',
     border: '1px solid',
     borderColor: 'var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
@@ -186,7 +186,7 @@ export const getCustomStyles = <TOption>(
     boxSizing: 'border-box',
     minWidth: 0,
     display: 'flex',
-    borderRadius: 'var(--dds-border-radius-1)',
+    borderRadius: 'var(--dds-border-radius-surface)',
     backgroundColor: 'var(--dds-color-surface-medium)',
   }),
   multiValueLabel: (provided, state) => ({
@@ -226,7 +226,7 @@ export const getCustomStyles = <TOption>(
     transition: '0.2s',
     border: '1px solid var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
-    borderRadius: 'var(--dds-border-radius-1)',
+    borderRadius: 'var(--dds-border-radius-surface)',
     marginBlock: 'var(--dds-spacing-x0-25)',
   }),
   menuPortal: provided => ({
@@ -281,6 +281,7 @@ export const getCustomStyles = <TOption>(
       : {
           display: 'inline-flex',
           color: 'var(--dds-color-icon-default)',
+          borderRadius: 'var(--dds-border-radius-button)',
 
           '@media (prefers-reduced-motion: no-preference)': {
             transition: 'background-color 0.2s',
