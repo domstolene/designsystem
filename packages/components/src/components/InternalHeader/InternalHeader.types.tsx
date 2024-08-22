@@ -1,16 +1,20 @@
-import { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
+import {
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type ReactNode,
+} from 'react';
 
 import { type BaseComponentProps } from '../../types';
 import { type ScreenSizeLiteral } from '../helpers';
 import { type SvgIcon } from '../Icon/utils';
 
 type NavigationLinkProps = {
+  children: ReactNode;
   href: string;
-  title: string;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 type ContextMenuElementProps = {
-  title: string;
+  children: ReactNode;
   href?: string;
   icon?: SvgIcon;
   onClick?: () => void;
@@ -20,7 +24,7 @@ type ContextMenuElementProps = {
 );
 
 interface InternaHeaderUserProps {
-  name: string;
+  children: ReactNode;
   href?: string;
 }
 
@@ -36,12 +40,12 @@ export type InternalHeaderProps = BaseComponentProps<
     /**Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den justerer på spacing og legger navigasjonen i kontekstmenyen. */
     smallScreenBreakpoint?: ScreenSizeLiteral;
     /**Info om brukeren. Dukker opp som punkt på toppen av kontekstmenyen med tekst oppgitt i name. Blir en lenke hvis href er oppgitt. */
-    userProps?: InternaHeaderUserProps;
+    user?: InternaHeaderUserProps;
     /**Lenker som skal vises i navigasjonsmenyen. */
-    navigationElements?: Array<NavigationLinkProps>;
+    navItems?: Array<NavigationLinkProps>;
     /**Lenker eller knapper som skal vises i kontekstmenyen. Støtter ikon i tillegg til tekst. */
-    contextMenuElements?: Array<ContextMenuElementProps>;
-    /**URL til siden i navigasjonen brukeren er på. Gir highlight til navigasjonselementet i navigationElements med samme URL. */
+    contextMenuItems?: Array<ContextMenuElementProps>;
+    /**URL til siden i navigasjonen brukeren er på. Gir highlight til navigasjonselementet i navItems med samme URL. */
     currentPageHref?: string;
     /**Ekstra logikk som kjøres når currentPage endres. */
     onCurrentPageChange?: () => void;

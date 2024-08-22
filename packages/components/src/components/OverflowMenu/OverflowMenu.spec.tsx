@@ -7,10 +7,13 @@ import { Button } from '../Button';
 import {
   OverflowMenu,
   OverflowMenuButton,
+  type OverflowMenuButtonProps,
   OverflowMenuGroup,
   OverflowMenuLink,
+  type OverflowMenuLinkProps,
   OverflowMenuList,
   OverflowMenuSpan,
+  type OverflowMenuSpanProps,
 } from '.';
 
 const text = 'text';
@@ -18,9 +21,9 @@ const href = '#';
 const item = { children: text, onClick: () => null };
 const link = { children: text, href: href };
 interface props {
-  link?: { children: string; href: string };
-  item?: { children: string; onClick?: () => void };
-  span?: { children: string };
+  link?: OverflowMenuLinkProps;
+  item?: OverflowMenuButtonProps;
+  span?: OverflowMenuSpanProps;
 }
 
 function TestComponent({ link, item, span }: props) {

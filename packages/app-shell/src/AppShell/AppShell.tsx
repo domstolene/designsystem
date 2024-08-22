@@ -9,6 +9,7 @@ import {
   type ButtonHTMLAttributes,
   type PropsWithChildren,
   type ReactElement,
+  type ReactNode,
 } from 'react';
 import styled from 'styled-components';
 
@@ -18,7 +19,7 @@ import { Navigation } from './Navigation/Navigation';
 import { type User } from './Navigation/TopBar';
 
 export type UserMenuItem = {
-  children: string;
+  children: ReactNode;
   href?: string;
   icon?: SvgIcon;
   onClick?: () => void;

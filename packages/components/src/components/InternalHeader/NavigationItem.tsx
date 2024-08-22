@@ -6,14 +6,13 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type NavigationItemProps = {
-  title: string;
   isCurrent?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const NavigationItem = forwardRef<
   HTMLAnchorElement,
   NavigationItemProps
->(({ title, isCurrent, ...rest }, ref) => {
+>(({ isCurrent, ...rest }, ref) => {
   return (
     <a
       {...rest}
@@ -25,8 +24,6 @@ export const NavigationItem = forwardRef<
         typographyStyles['body-sans-02'],
         focusable,
       )}
-    >
-      {title}
-    </a>
+    />
   );
 });

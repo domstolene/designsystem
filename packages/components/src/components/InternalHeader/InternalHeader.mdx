@@ -42,8 +42,8 @@ applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn p�
 <Source
   code={`
   type NavigationLinkProps = {
+  children: ReactNode;
   href: string;
-  title: string;
   } & AnchorHTMLAttributes<HTMLAnchorElement>;
   `}
 />
@@ -51,8 +51,9 @@ applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn p�
 <Source
   code={`
   type ContextMenuElementProps = {
-  title: string;
+  children: ReactNode;
   href?: string;
+  /* OBS! ikon settes i tillegg til children for riktig layout. */
   icon?: SvgIcon;
   onClick?: () => void;
   } & (
@@ -66,7 +67,7 @@ applikasjoner vil være tilgjengelige ved å trykke på det som i dag er navn p�
 <Source
   code={`
   type InternaHeaderUserProps = {
-  name: string;
+  children: ReactNode;
   href?: string;
   };
 
