@@ -128,7 +128,7 @@
 .collapse-button {
   height: var(--dds-icon-size-medium);
   width: var(--dds-icon-size-medium);
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-button);
   margin-left: auto;
   margin-right: auto;
   display: flex;

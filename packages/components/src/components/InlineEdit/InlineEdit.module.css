@@ -7,7 +7,7 @@
   padding: var(--dds-spacing-x0-25);
   border-color: transparent;
   background-color: transparent;
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-input);
 
   @media (prefers-reduced-motion: no-preference) {
     transition:

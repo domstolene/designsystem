@@ -8,7 +8,7 @@
   cursor: pointer;
   box-shadow: none;
   text-decoration: none;
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-button);
   border: 1px solid;
 
   @media (prefers-reduced-motion: no-preference) {

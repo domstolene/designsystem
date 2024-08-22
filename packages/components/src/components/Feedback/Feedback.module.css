@@ -20,7 +20,7 @@
 }
 
 .button {
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-button);
   color: var(--dds-color-text-default);
 
   &:hover {

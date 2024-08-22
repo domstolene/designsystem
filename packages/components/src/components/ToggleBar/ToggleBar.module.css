@@ -94,12 +94,12 @@
 
   &:first-child .content {
     border-left: 1px solid var(--dds-color-border-default);
-    border-top-left-radius: var(--dds-border-radius-1);
-    border-bottom-left-radius: var(--dds-border-radius-1);
+    border-top-left-radius: var(--dds-border-radius-button);
+    border-bottom-left-radius: var(--dds-border-radius-button);
   }
   &:last-child .content {
-    border-top-right-radius: var(--dds-border-radius-1);
-    border-bottom-right-radius: var(--dds-border-radius-1);
+    border-top-right-radius: var(--dds-border-radius-button);
+    border-bottom-right-radius: var(--dds-border-radius-button);
   }
 
   input:checked + .content {

@@ -11,7 +11,7 @@
   gap: var(--dds-spacing-x1);
   border-color: var(--dds-color-border-default);
   background-color: var(--dds-color-surface-default);
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-surface);
   padding: var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x2)
     var(--dds-spacing-x1-5);
 
@@ -43,7 +43,7 @@
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
   margin-top: var(--dds-spacing-x0-5);
   background-color: var(--dds-color-surface-subtle);
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-surface);
   border: 1px solid var(--dds-color-border-default);
 }
 

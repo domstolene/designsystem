@@ -31,7 +31,7 @@
   cursor: pointer;
   width: fit-content;
   border: 1px solid;
-  border-radius: 100px;
+  border-radius: var(--dds-border-radius-rounded);
   gap: var(--dds-spacing-x0-5);
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
   background-color: var(--dds-color-surface-default);

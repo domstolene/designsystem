@@ -98,7 +98,7 @@
 
 .label--radio {
   .selection-control:after {
-    border-radius: 50%;
+    border-radius: var(--dds-border-radius-rounded);
     background-color: var(--dds-color-icon-on-action);
     height: 8px;
     width: 8px;
@@ -163,7 +163,7 @@
   border: 1px solid;
   border-color: var(--dds-color-border-default);
   background-color: var(--dds-color-surface-field-default);
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-input);
   height: 18px;
   width: 18px;
   &:after {
@@ -175,5 +175,5 @@
 }
 
 .selection-control--radio {
-  border-radius: 50%;
+  border-radius: var(--dds-border-radius-rounded);
 }

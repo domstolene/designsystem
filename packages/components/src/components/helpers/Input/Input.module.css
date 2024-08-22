@@ -17,7 +17,7 @@
   background-color: var(--dds-color-surface-default);
   padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
     var(--dds-spacing-x0-75) var(--dds-spacing-x0-75);
-  border-radius: var(--dds-border-radius-1);
+  border-radius: var(--dds-border-radius-input);
   margin: 0;
   box-sizing: border-box;
   box-shadow: none;
