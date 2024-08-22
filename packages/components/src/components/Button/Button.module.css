@@ -41,19 +41,19 @@
 
 .button--tiny {
   &.just-text {
-    padding: var(--dds-spacing-x0-25);
+    padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
   }
 
   &.with-text-and-icon {
     gap: var(--dds-spacing-x0-125);
 
     &.with-icon-left {
-      padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-25)
-        var(--dds-spacing-x0-25) var(--dds-spacing-x0-125);
+      padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5)
+        var(--dds-spacing-x0-25) var(--dds-spacing-x0-25);
     }
     &.with-icon-right {
-      padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-125)
-        var(--dds-spacing-x0-25) var(--dds-spacing-x0-25);
+      padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-25)
+        var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
     }
   }
 
