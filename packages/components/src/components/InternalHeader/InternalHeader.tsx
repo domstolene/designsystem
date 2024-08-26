@@ -27,10 +27,10 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     applicationName,
     applicationHref,
     smallScreenBreakpoint,
-    navigationElements,
-    contextMenuElements,
+    navItems,
+    contextMenuItems,
     currentPageHref,
-    userProps,
+    user,
     onCurrentPageChange,
     id,
     className,
@@ -56,10 +56,9 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 
   const onOveflowMenuClose = () => setContextMenuIsClosed(true);
 
-  const hasNavigationElements =
-    !!navigationElements && navigationElements.length > 0;
+  const hasNavigationElements = !!navItems && navItems.length > 0;
   const hasContextMenuElements =
-    !!contextMenuElements && contextMenuElements.length > 0;
+    !!contextMenuItems && contextMenuItems.length > 0;
   const hasSmallScreenBreakpoint = !!smallScreenBreakpoint;
   const hasNavInContextMenu = hasSmallScreenBreakpoint && hasNavigationElements;
 
@@ -73,7 +72,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
           utilStyles['remove-list-styling'],
         )}
       >
-        {navigationElements.map((item, index) => {
+        {navItems.map((item, index) => {
           const { href, ...rest } = item;
           const isCurrent = href === currentPage;
           return (
@@ -92,8 +91,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   ) : null;
 
   const hasContextMenu =
-    hasContextMenuElements || !!userProps || hasNavInContextMenu;
-  const hasContextMenuLargeScreen = hasContextMenuElements || !!userProps;
+    hasContextMenuElements || !!user || hasNavInContextMenu;
+  const hasContextMenuLargeScreen = hasContextMenuElements || !!user;
 
   return (
     <div
@@ -158,16 +157,12 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             anchorRef={buttonRef}
             className={styles['context-menu']}
           >
-            {userProps && (
+            {user && (
               <OverflowMenuList>
-                {userProps.href ? (
-                  <OverflowMenuLink icon={PersonIcon} href={userProps.href}>
-                    {userProps.name}
-                  </OverflowMenuLink>
+                {user.href ? (
+                  <OverflowMenuLink icon={PersonIcon} {...user} />
                 ) : (
-                  <OverflowMenuSpan icon={PersonIcon}>
-                    {userProps.name}
-                  </OverflowMenuSpan>
+                  <OverflowMenuSpan icon={PersonIcon} {...user} />
                 )}
               </OverflowMenuList>
             )}
@@ -180,8 +175,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
                 )}
               >
                 <OverflowMenuList>
-                  {navigationElements.map(item => (
-                    <OverflowMenuLink {...item}>{item.title}</OverflowMenuLink>
+                  {navItems.map(item => (
+                    <OverflowMenuLink {...item} />
                   ))}
                 </OverflowMenuList>
               </nav>
@@ -196,17 +191,13 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             )}
             {hasContextMenuElements && (
               <OverflowMenuList>
-                {contextMenuElements.map(item => {
-                  const { title } = item;
-
+                {contextMenuItems.map(item => {
                   return item.href ? (
-                    <OverflowMenuLink {...(item as OverflowMenuLinkProps)}>
-                      {title}
-                    </OverflowMenuLink>
+                    <OverflowMenuLink {...(item as OverflowMenuLinkProps)} />
                   ) : (
-                    <OverflowMenuButton {...(item as OverflowMenuButtonProps)}>
-                      {title}
-                    </OverflowMenuButton>
+                    <OverflowMenuButton
+                      {...(item as OverflowMenuButtonProps)}
+                    />
                   );
                 })}
               </OverflowMenuList>

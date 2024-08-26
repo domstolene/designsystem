@@ -4,6 +4,13 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { InternalHeader } from '.';
 
+const href = '#';
+const children = 'link';
+const link = {
+  children,
+  href,
+};
+
 describe('<InternalHeader>', () => {
   it('should display application name', () => {
     const appName = 'appName';
@@ -15,10 +22,10 @@ describe('<InternalHeader>', () => {
   it('should run onclick event from context menu', async () => {
     const event = vi.fn();
     const element = {
-      title: 'action',
+      children: 'action',
       onClick: event,
     };
-    render(<InternalHeader contextMenuElements={[element]} />);
+    render(<InternalHeader contextMenuItems={[element]} />);
     const contextMenuButton = screen.getByRole('button');
     await userEvent.click(contextMenuButton!);
     const contextMenuLink = screen.getByRole('menuitem');
@@ -27,37 +34,24 @@ describe('<InternalHeader>', () => {
   });
 
   it('should have a link in navigation', () => {
-    const href = '#';
-    const element = {
-      title: 'link',
-      href: href,
-    };
-    render(<InternalHeader navigationElements={[element]} />);
+    render(<InternalHeader navItems={[link]} />);
     const navigationLink = screen.getByRole('link');
     expect(navigationLink).toHaveAttribute('href', href);
   });
 
   it('should have a link in navigation with target attribute', () => {
-    const href = '#';
     const target = '_blank';
     const element = {
-      title: 'link',
-      href: href,
+      ...link,
       target: target,
     };
-    render(<InternalHeader navigationElements={[element]} />);
+    render(<InternalHeader navItems={[element]} />);
     const navigationLink = screen.getByRole('link');
     expect(navigationLink).toHaveAttribute('target', target);
   });
 
   it('should have a link in context menu', async () => {
-    const href = '#';
-    const title = 'title';
-    const element = {
-      title: title,
-      href: href,
-    };
-    render(<InternalHeader contextMenuElements={[element]} />);
+    render(<InternalHeader contextMenuItems={[link]} />);
 
     const contextMenuButton = screen.getByRole('button');
     await userEvent.click(contextMenuButton);
@@ -67,22 +61,11 @@ describe('<InternalHeader>', () => {
   });
 
   it('should have a nav link in context menu', async () => {
-    const href = '#';
-    const title = 'title';
-    const element = {
-      title: title,
-      href: href,
-    };
-    render(
-      <InternalHeader
-        navigationElements={[element]}
-        smallScreenBreakpoint="xl"
-      />,
-    );
+    render(<InternalHeader navItems={[link]} smallScreenBreakpoint="xl" />);
     const burgerButton = screen.getByRole('button');
     await userEvent.click(burgerButton);
     const navigationLink = screen.getByRole('menuitem', {
-      name: element.title,
+      name: children,
     });
     expect(navigationLink).toHaveAttribute('href', href);
   });
@@ -90,10 +73,10 @@ describe('<InternalHeader>', () => {
   it('should have a static username in context menu', () => {
     const name = 'name';
     const user = {
-      name: name,
+      children: name,
     };
 
-    render(<InternalHeader userProps={user} />);
+    render(<InternalHeader user={user} />);
     const element = screen.getByText(name);
     expect(element).toBeInTheDocument();
   });
@@ -102,11 +85,11 @@ describe('<InternalHeader>', () => {
     const name = 'name';
     const href = '#';
     const user = {
-      name: name,
+      children: name,
       href: href,
     };
 
-    render(<InternalHeader userProps={user} />);
+    render(<InternalHeader user={user} />);
     const element = screen.getByText(name);
     expect(element).toHaveAttribute('href', href);
   });

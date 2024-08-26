@@ -86,9 +86,9 @@ export const PageExample: Story = {
         <InternalHeader
           applicationName="Applikasjon"
           applicationDesc="Beskrivelse"
-          navigationElements={[
-            { title: 'Advokater', href: '/' },
-            { title: 'Saker', href: '/' },
+          navItems={[
+            { children: 'Advokater', href: '/' },
+            { children: 'Saker', href: '/' },
           ]}
           smallScreenBreakpoint="xs"
         />

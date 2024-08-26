@@ -10,7 +10,7 @@ import { type BaseComponentPropsWithChildren } from '../../types';
 import { type SvgIcon } from '../Icon/utils';
 
 export interface OverflowMenuListItemBaseProps {
-  /**Ikon som vises ved teksten. */
+  /**Ikon som vises ved teksten. **OBS!** Settes i tillegg til `children` for riktig layout. */
   icon?: SvgIcon;
 }
 

@@ -13,9 +13,9 @@ export default {
     applicationDesc: { control: 'text' },
     currentPageHref: { control: 'text' },
     applicationHref: { control: 'text' },
-    navigationElements: { control: false },
-    contextMenuElements: { control: false },
-    userProps: { control: false },
+    navItems: { control: false },
+    contextMenuItems: { control: false },
+    user: { control: false },
     htmlProps: { control: false },
   },
   parameters: {
@@ -28,24 +28,24 @@ export default {
 
 const navigationLink = {
   href: '#',
-  title: 'navlenke',
+  children: 'navlenke',
 };
 
 const uniqueNavigationLink = {
   href: '#/',
-  title: 'unik navlenke',
+  children: 'unik navlenke',
 };
 
 const longNavigationLink = {
   href: '#',
-  title: 'Veldig veldig veldig velidg lang lenke her',
+  children: 'Veldig veldig veldig velidg lang lenke her',
 };
 
 const navigationLinks = [navigationLink, navigationLink];
 const navigationLinksWithLong = [...navigationLinks, longNavigationLink];
 
 const user = {
-  name: 'Navn Navnesen',
+  children: 'Navn Navnesen',
 };
 
 const userWithHref = {
@@ -54,12 +54,12 @@ const userWithHref = {
 };
 
 const menuElementWithIcon = {
-  title: 'handling',
+  children: 'handling',
   icon: EditIcon,
   onClick: () => null,
 };
 const menuElement = {
-  title: 'kontekstmenypunkt',
+  children: 'kontekstmenypunkt',
   href: '#',
 };
 
@@ -72,9 +72,9 @@ export const WithNavigationAndContextMenu: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    navigationElements: navigationLinks,
-    contextMenuElements: menuElements,
-    userProps: user,
+    navItems: navigationLinks,
+    contextMenuItems: menuElements,
+    user,
   },
 };
 
@@ -83,9 +83,10 @@ export const Responsive: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    navigationElements: navigationLinks,
-    contextMenuElements: menuElements,
-    userProps: user,
+    navItems: navigationLinks,
+    contextMenuItems: menuElements,
+    user,
+    smallScreenBreakpoint: 'xs',
   },
 };
 
@@ -93,9 +94,9 @@ export const WithCurrentPage: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    navigationElements: [navigationLink, uniqueNavigationLink],
-    contextMenuElements: menuElements,
-    userProps: user,
+    navItems: [navigationLink, uniqueNavigationLink],
+    contextMenuItems: menuElements,
+    user,
     currentPageHref: '#',
   },
 };
@@ -110,44 +111,40 @@ export const Overview: Story = {
       <InternalHeader {...args} />
       <InternalHeader
         {...args}
-        navigationElements={navigationLinks}
-        contextMenuElements={menuElements}
-        userProps={user}
+        navItems={navigationLinks}
+        contextMenuItems={menuElements}
+        user={user}
       />
       <InternalHeader
         {...args}
-        navigationElements={[navigationLink, uniqueNavigationLink]}
-        contextMenuElements={menuElements}
-        userProps={user}
+        navItems={[navigationLink, uniqueNavigationLink]}
+        contextMenuItems={menuElements}
+        user={user}
         currentPageHref="#"
       />
       <InternalHeader
         {...args}
-        navigationElements={navigationLinks}
-        userProps={userWithHref}
+        navItems={navigationLinks}
+        user={userWithHref}
       />
       <InternalHeader
         {...args}
-        navigationElements={navigationLinks}
-        contextMenuElements={menuElements}
-        userProps={userWithHref}
+        navItems={navigationLinks}
+        contextMenuItems={menuElements}
+        user={userWithHref}
       />
+      <InternalHeader {...args} contextMenuItems={menuElements} user={user} />
       <InternalHeader
         {...args}
-        contextMenuElements={menuElements}
-        userProps={user}
-      />
-      <InternalHeader
-        {...args}
-        navigationElements={navigationLinks}
-        contextMenuElements={menuElements}
-        userProps={user}
+        navItems={navigationLinks}
+        contextMenuItems={menuElements}
+        user={user}
         smallScreenBreakpoint="xs"
       />
       <InternalHeader
         {...args}
-        navigationElements={navigationLinks}
-        userProps={user}
+        navItems={navigationLinks}
+        user={user}
         smallScreenBreakpoint="xs"
       />
     </StoryVStack>
@@ -158,7 +155,7 @@ export const ResponsiveWithNavigation: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    navigationElements: navigationLinks,
+    navItems: navigationLinks,
     smallScreenBreakpoint: 'sm',
   },
 };
@@ -167,7 +164,7 @@ export const ResponsiveWithContextMenu: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    contextMenuElements: menuElements,
+    contextMenuItems: menuElements,
     smallScreenBreakpoint: 'sm',
   },
 };
@@ -177,9 +174,9 @@ export const ResponsiveWithNavigationAndContextMenu: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    contextMenuElements: menuElements,
-    navigationElements: navigationLinks,
-    userProps: user,
+    contextMenuItems: menuElements,
+    navItems: navigationLinks,
+    user: user,
     smallScreenBreakpoint: 'sm',
   },
 };
@@ -188,7 +185,7 @@ export const WithNavigationLongLink: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    navigationElements: navigationLinksWithLong,
+    navItems: navigationLinksWithLong,
   },
 };
 
@@ -196,7 +193,7 @@ export const NonInteractiveUserOnly: Story = {
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
-    userProps: user,
+    user: user,
   },
 };
 
