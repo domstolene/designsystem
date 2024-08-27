@@ -3,10 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "description": "Monorepo for pakker og applikasjoner tilknyttet designsystemet til Norges domstoler",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
@@ -75,10 +71,10 @@
   },
   "volta": {
     "node": "20.8.1",
-    "pnpm": "8.12.1"
+    "pnpm": "9.8.0"
   },
   "dependencies": {
     "@storybook/test": "8.2.9"
   },
-  "packageManager": "pnpm@8.12.1"
+  "packageManager": "pnpm@9.8.0"
 }
