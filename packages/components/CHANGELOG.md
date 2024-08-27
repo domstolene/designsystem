@@ -1,5 +1,84 @@
 # @norges-domstoler/dds-components
 
+## 17.0.0
+
+### Major Changes
+
+- 2a6d1aa: Endrer navn på props i `<InternalHeader>`: `userProps` til `user`, `navigationElements` til `navItems` og `contextMenuElements` til `contextMenuItems`. Dette standardiserer navngiginv på tvers av komponenter.
+
+  I tillegg endrer vi de samme props; de tar inn `children` istedenfor `title` eller `name` for å vise tekst i elementer i menyen og lenker. På denne måten følger props samme standard som andre komponenter.
+
+  ```jsx
+  //Før
+  const items = [
+    {
+      title: 'Sekundær handling',
+      onClick: () => null,
+    },
+  ];
+
+  const user = [
+    {
+      name: 'Navn Navnesen',
+      href: '/',
+    },
+  ];
+
+  //Etter
+  const items = [
+    {
+      children: 'Sekundær handling',
+      onClick: () => null,
+    },
+  ];
+  const user = [
+    {
+      children: 'Navn Navnesen',
+      href: '/',
+    },
+  ];
+  ```
+
+- 4b6b7f1: Prop `smallScreen` i komponentene `<Breadcrumbs>`, `<InternalHeader>` og `<Pagination>` gjøres om til `smallScreenBreakpoint`; den tar inn navn på et brekkpunkt og gjør komponenten responsiv, slik at versjonen for liten skjerm vises ved oppgitte brekkpunket og nedover vha kun CSS.
+- 5b9d734: `secondaryOptions` prop i `<SplitButton>` tar inn `children` istedenfor `title` for å vise tekst i knapper i menyen med sekundære handlinger. På denne måten følger propen samme standard som `primaryAction` prop, samt andre komponenter.
+
+  ```jsx
+  //Før
+  const items = [
+    {
+      title: 'Sekundær handling',
+      onClick: () => null,
+    },
+  ];
+
+  //Etter
+  const items = [
+    {
+      children: 'Sekundær handling',
+      onClick: () => null,
+    },
+  ];
+  ```
+
+- 5b9d734: Fjerner deprecated props `items`, `navItems` og `userProps` i `<OverflowMenu>`. Menyen kan bygges kun med dedikerte subkomponenter.
+- d9663cb: Oppdaterer alle komponenter til å bruke nye tokens fra @norges-domstoler/dds-design-tokens.
+
+### Minor Changes
+
+- 706a4c8: Ny komponent: `<Footer>`. Den kommer med en rekke subkomponenter for fleksibilitet og konsekvent layout på tvers av løsninger. Les detaljer i dokumentasjon.
+- 9a6d70e: Ny prop i `<Grid>`: `columnGap`. Tillater å sette CSS `column-gap` per brekkepunkt.
+
+### Patch Changes
+
+- 211a754: Fikser typos i navn på typografiklasser og variabler.
+- 7bfc734: Oppdaterer `border-radius` i komponenter til semantisk.
+- 191b79e: Fikser en bug der `helper-text-01`, `placeholder-text-01`, `placeholder-text-02` og `placeholder-text-03` ikke fikk riktig styling.
+- b5cdfe6: Justerer på offset og tykkelse på underlinje i `<Link>`
+- cd557e0: Fjerner skygge i `<LocalMessage>`
+- efa62bd: Justerer på spacing i `<Button size="tiny">`
+- 784c27c: Fjernet bakgrunnsfarge på tip
+  - @norges-domstoler/development-utils@1.3.0
+
 ## 16.3.0
 
 ### Minor Changes

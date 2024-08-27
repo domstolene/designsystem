@@ -1,5 +1,31 @@
 # @norges-domstoler/dds-design-tokens
 
+## 6.0.0
+
+### Major Changes
+
+- d9663cb: Navn på tokens i ddsTokens.ts begynner nå med liten forbokstav, altså `dds` istedenfor `Dds`. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/36dbb9-v5-til-v6).
+- d9663cb: Fjerner typografi-tokens irrelevante for utvikling: `text-case`, `text-decoration`, `paragraph-indent` og `font-stretch`. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/36dbb9-v5-til-v6).
+- d9663cb: Skygge-tokens har ikke `onlight` suffiks i navnet lenger. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/36dbb9-v5-til-v6).
+- 04b222c: Fjerner `fontPackages.js`, `ddsBaseTokens.js`, `ddsReferenceTokens.js`, `colors.css`, `borderRadius.css`, `breakpoints.css`, `font.css`, `grid.css`, `iconSize.css`, `outershadow.css`, `spacing.css`, `colors.scss`, `borderRadius.scss`, `breakpoints.scss`, `font.scss`, `grid.scss`, `iconSize.scss`, `outershadow.scss`, `spacing.scss` fra eksporterte tokens; beholder kun `ddsTokens.js`, `ddsTokens.css`,og `ddsTokens.scss`. På denne måten er strukturen lettere å vedlikeholde, og konsumenter slipper å forholde seg til flere filer og implementasjoner. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/36dbb9-v5-til-v6).
+- d9663cb: Vi endrer hvordan vi bruker og bygger typografi-tokens. Før var alle fontrelaterte egenskaper som fontstørrelse og vekt tilgjengelige som individuelle tokens. Nå følger vi CSS font shorthand property og setter sammen tokens per typografistil. I samme slengen går vi fra størrelser i `px` til `rem`. Tokens som ikke inngår shorthand, som letter-spacing, er uforandret. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/36dbb9-v5-til-v6).
+
+  ```css
+  /* Før */
+  --dds-font-heading-sans-01-font-size: 16px;
+  --dds-font-heading-sans-01-font-weight: 600;
+  --dds-font-heading-sans-01-font-family: 'IBM Plex Sans';
+  --dds-font-heading-sans-01-line-height: 1.5em;
+
+  /* Etter */
+  --dds-font-heading-sans-01: 600 1rem/1.5 'IBM Plex Sans';
+  ```
+
+### Minor Changes
+
+- 303055e: Legger til semantiske border-radius tokens. Se detaljer i migreringsguiden.
+- 24dd134: Ny semantisk fargetoken: `dds-color-text-action-visited-on-inverse`. Brukes til besøkte lenker på reversert bakgrunn.
+
 ## 5.1.0
 
 ### Minor Changes
