@@ -1,5 +1,16 @@
 # @norges-domstoler/app-shell
 
+## 2.0.0
+
+### Major Changes
+
+- 5b9d734: Prop `userMenuItems` tar inn `children` istedenfor `title` for tekst i knapper i menyen. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/923508-v16-til-v17).
+
+### Patch Changes
+
+- d9663cb: Oppdaterer `<AppShell>` til å bruke nye tokens fra @norges-domstoler/dds-design-tokens.
+- 7bfc734: Oppdaterer `border-radius` til semantisk i `<AppShell>`.
+
 ## 1.0.0
 
 ### Major Changes
