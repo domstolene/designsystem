@@ -40,10 +40,10 @@ Ikke-compound komponenter er også støttet: `<SearchAutocompleteWrapper>`, `<Se
 
 <Source
   code={`type ButtonProps = {
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   label?: string;
-  loading?: boolean;
-  } & ButtonHTMLAttributes<HTMLButtonElement>;`}
+  purpose?: ExtractStrict<ButtonPurpose, 'primary' | 'secondary'>;
+} & Pick<ButtonProps, 'loading' | 'loadingTooltip'> &
+  ComponentProps<'button'>;`}
 />
 
 ### Search.AutocompleteWrapper

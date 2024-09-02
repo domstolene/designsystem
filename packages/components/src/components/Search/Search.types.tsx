@@ -1,9 +1,12 @@
-import { type ButtonHTMLAttributes, type MouseEvent } from 'react';
+import { type ComponentProps } from 'react';
+
+import { type ExtractStrict } from '../../types';
+import { type ButtonProps, type ButtonPurpose } from '../Button';
 
 export type SearchSize = 'small' | 'medium' | 'large';
+
 export type SearchButtonProps = {
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   label?: string;
-  loading?: boolean;
-  purpose?: 'primary' | 'secondary';
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  purpose?: ExtractStrict<ButtonPurpose, 'primary' | 'secondary'>;
+} & Pick<ButtonProps, 'loading' | 'loadingTooltip'> &
+  ComponentProps<'button'>;
