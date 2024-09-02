@@ -40,7 +40,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/node": "^22.5.0",
+    "@types/node": "^22.5.2",
     "@tokens-studio/sd-transforms": "^1.2.3",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.4",
@@ -48,7 +48,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-sass": "^1.13.2",
     "rollup-plugin-typescript2": "^0.36.0",
-    "style-dictionary": "^4.0.1",
+    "style-dictionary": "^4.1.0",
     "typescript": "^5.5.4"
   },
   "publishConfig": {
