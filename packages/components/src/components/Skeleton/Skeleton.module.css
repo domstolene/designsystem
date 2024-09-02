@@ -1,0 +1,13 @@
+@keyframes ddsSkeletonAnimation {
+  0% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.container {
+  animation: ddsSkeletonAnimation 0.75s ease-out infinite alternate;
+  background-color: var(--dds-color-surface-skeleton);
+}
