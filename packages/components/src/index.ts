@@ -41,6 +41,7 @@ export * from './components/Search';
 export * from './components/Select';
 export * from './components/SelectionControl/Checkbox';
 export * from './components/SelectionControl/RadioButton';
+export * from './components/Skeleton';
 export * from './components/SkipToContent';
 export * from './components/Spinner';
 export * from './components/SplitButton';
