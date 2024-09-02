@@ -54,6 +54,16 @@
     font: var(--dds-font-body-sans-01);
     font-weight: var(--dds-font-weight-bold);
   }
+
+  .row--body {
+    &:nth-of-type(odd) {
+      background-color: var(--dds-color-surface-subtle);
+    }
+
+    &:nth-of-type(even) {
+      background-color: var(--dds-color-surface-default);
+    }
+  }
 }
 
 .row {
@@ -86,10 +96,10 @@
   &.row--selected:nth-of-type(odd) {
     background-color: var(--dds-color-surface-selected-default);
   }
-}
 
-.row--hoverable:hover {
-  background-color: var(--dds-color-surface-hover-default);
+  &.row--hoverable:hover {
+    background-color: var(--dds-color-surface-hover-default);
+  }
 }
 
 .cell--head {
