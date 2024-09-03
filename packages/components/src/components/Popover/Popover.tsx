@@ -116,21 +116,26 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
 
     return isOpen || hasTransitionedIn ? (
       <Paper
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        {...getBaseHTMLProps(
+          id,
+          cn(
+            className,
+            styles.container,
+            utilStyles['visibility-transition'],
+            hasTransitionedIn && isOpen
+              ? utilStyles['visibility-transition--open']
+              : utilStyles['visibility-transition--closed'],
+            focusStyles.focusable,
+          ),
+          htmlProps,
+          rest,
+        )}
         ref={multiRef}
         tabIndex={-1}
         style={{ ...htmlProps.style, ...floatingStyles.floating, ...sizeProps }}
         role="dialog"
         elevation={3}
         border="subtle"
-        className={cn(
-          styles.container,
-          utilStyles['visibility-transition'],
-          hasTransitionedIn && isOpen
-            ? utilStyles['visibility-transition--open']
-            : utilStyles['visibility-transition--closed'],
-          focusStyles.focusable,
-        )}
       >
         {title && (
           <div className={styles.title}>
