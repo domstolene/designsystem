@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 17.1.0
+
+### Minor Changes
+
+- d0ec42b: Ny komponent: `<Skeleton>`. Brukes ved innlastning av innhold.
+- 489de56: Utvider type for `buttonProps`-prop i `<Search>`. Nå kan den også ta inn `icon` og `loadingTooltip`.
+
+### Patch Changes
+
+- 32afd9e: Fikser bakgrunnsfarge i rader i `<Table density="extraCompact">`.
+- 48e90c4: Standardiserer ikonplassering på tvers av input-komponenter via absolutt posisjonering, slik at den ikke påvirker høyden på komponenten.
+- 48e90c4: Fikser feil høyde i `<Select componentSize="small">` og gjør indikator-ikonene mindre.
+
 ## 17.0.0
 
 ### Major Changes
