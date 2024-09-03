@@ -55,12 +55,7 @@
 }
 
 .search-icon {
-  position: absolute;
   left: var(--dds-spacing-x0-75);
-  top: 50%;
-  transform: translate(0, -50%);
-  z-index: 1;
-  color: var(--dds-color-icon-default);
 }
 
 .clear-button {

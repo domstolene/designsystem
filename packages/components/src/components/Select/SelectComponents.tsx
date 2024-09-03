@@ -14,7 +14,8 @@ import {
 import styles from './Select.module.css';
 import { cn, getFormInputIconSize } from '../../utils';
 import { type InputSize } from '../helpers';
-import { Icon, type SvgIcon } from '../Icon';
+import inputStyles from '../helpers/Input/Input.module.css';
+import { Icon, type IconSize, type SvgIcon } from '../Icon';
 import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../Icon/icons';
 
 const {
@@ -27,6 +28,17 @@ const {
   MultiValueRemove,
   Control,
 } = components;
+
+export const getIndicatorIconSize = (componentSize: InputSize): IconSize => {
+  switch (componentSize) {
+    case 'medium':
+      return 'medium';
+    case 'small':
+      return 'small';
+    case 'tiny':
+      return 'small';
+  }
+};
 
 export const DDSOption = <TValue, IsMulti extends boolean>(
   props: OptionProps<TValue, IsMulti>,
@@ -72,7 +84,7 @@ export const DDSClearIndicator = <TValue, IsMulti extends boolean>(
   size: InputSize,
 ) => (
   <ClearIndicator {...props}>
-    <Icon icon={CloseSmallIcon} iconSize={getFormInputIconSize(size)} />
+    <Icon icon={CloseSmallIcon} iconSize={getIndicatorIconSize(size)} />
   </ClearIndicator>
 );
 
@@ -94,7 +106,7 @@ export const DDSDropdownIndicator = <TValue, IsMulti extends boolean>(
       {...rest}
       className={cn(className, styles['dropdown-indicator'])}
     >
-      <Icon icon={ChevronDownIcon} iconSize={getFormInputIconSize(size)} />
+      <Icon icon={ChevronDownIcon} iconSize={getIndicatorIconSize(size)} />
     </DropdownIndicator>
   );
 };
@@ -139,7 +151,7 @@ export const DDSControl = <TValue, IsMulti extends boolean>(
           <Icon
             icon={icon}
             iconSize={getFormInputIconSize(componentSize)}
-            className={styles.icon}
+            className={cn(inputStyles.icon, styles[`icon--${componentSize}`])}
           />
         )}
         {props.children}

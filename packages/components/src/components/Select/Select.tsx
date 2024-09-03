@@ -136,6 +136,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
   const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
+  const hasIcon = !!icon;
   const showRequiredStyling = !!(required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
@@ -161,7 +162,12 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     inputId: uniqueId,
     name: uniqueId,
     classNamePrefix: prefix,
-    styles: getCustomStyles<Option>(componentSize, hasErrorMessage, readOnly),
+    styles: getCustomStyles<Option>(
+      componentSize,
+      hasErrorMessage,
+      hasIcon,
+      readOnly,
+    ),
     filterOption: (option, inputValue) => {
       const { label } = option;
       return searchFilter(label, inputValue) || inputValue === '';

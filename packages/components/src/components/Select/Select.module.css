@@ -20,10 +20,16 @@
   max-width: 100%;
 }
 
-.icon {
-  margin-right: var(--dds-spacing-x0-5);
-  /* Ikon har samme plassering som i TextInput */
-  margin-left: -1px;
+.icon--medium {
+  left: var(--dds-spacing-x0-75);
+}
+
+.icon--small {
+  left: var(--dds-spacing-x0-75);
+}
+
+.icon--tiny {
+  left: var(--dds-spacing-x0-5);
 }
 
 .control {

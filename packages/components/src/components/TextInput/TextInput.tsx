@@ -153,7 +153,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             <Icon
               icon={icon}
               iconSize={getFormInputIconSize(componentSize)}
-              className={cn(styles.icon, styles[`icon--${componentSize}`])}
+              className={cn(inputStyles.icon, styles[`icon--${componentSize}`])}
             />
           }
           <StatefulInput
