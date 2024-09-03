@@ -84,25 +84,44 @@ export const prefix = 'dds-select';
 
 const control = {
   medium: {
-    paddingBlock: 'var(--dds-spacing-x0-75)',
-    paddingInline: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
-    ...optionTypography.medium,
+    base: {
+      paddingBlock: 'var(--dds-spacing-x0-75)',
+      paddingLeft: 'var(--dds-spacing-x0-75)',
+      ...optionTypography.medium,
+    },
+    hasIcon: {
+      paddingLeft:
+        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-x0-5))',
+    },
   },
   small: {
-    paddingBlock: 'var(--dds-spacing-x0-5)',
-    paddingInline: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
-    ...optionTypography.small,
+    base: {
+      paddingBlock: 'var(--dds-spacing-x0-5)',
+      paddingLeft: 'var(--dds-spacing-x0-75)',
+      ...optionTypography.small,
+    },
+    hasIcon: {
+      paddingLeft:
+        'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-x0-5))',
+    },
   },
   tiny: {
-    paddingBlock: 'var(--dds-spacing-x0-25)',
-    paddingInline: 'var(--dds-spacing-x0-5) ',
-    ...optionTypography.tiny,
+    base: {
+      paddingBlock: 'var(--dds-spacing-x0-25)',
+      paddingLeft: 'var(--dds-spacing-x0-5)',
+      ...optionTypography.tiny,
+    },
+    hasIcon: {
+      paddingLeft:
+        'calc(var(--dds-spacing-x0-5) + var(--dds-icon-size-small) + var(--dds-spacing-x0-5))',
+    },
   },
 };
 
 export const getCustomStyles = <TOption>(
   size: InputSize,
   hasError: boolean,
+  hasIcon: boolean,
   isReadOnly?: boolean,
 ): Partial<StylesConfig<TOption, boolean, GroupBase<TOption>>> => ({
   control: (provided, state) => ({
@@ -116,7 +135,9 @@ export const getCustomStyles = <TOption>(
     borderColor: 'var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
     transition: 'box-shadow 0.2s, border-color 0.2s',
-    ...control[size],
+    paddingRight: 'var(--dds-spacing-x0-5)',
+    ...control[size].base,
+    ...(hasIcon && control[size].hasIcon),
     '&:hover': {
       ...(!isReadOnly && hoverInputfield),
     },

@@ -116,3 +116,11 @@
 :where(.char-counter) {
   margin-left: auto;
 }
+
+:where(.icon) {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+  color: var(--dds-color-icon-default);
+}

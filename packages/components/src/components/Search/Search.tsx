@@ -117,7 +117,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
               <Icon
                 icon={SearchIcon}
                 iconSize={getIconSize(componentSize)}
-                className={cn(styles['search-icon'])}
+                className={cn(inputStyles.icon, styles['search-icon'])}
               />
               <Input
                 {...rest}
@@ -138,7 +138,6 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
                 aria-expanded={context.showSuggestions}
                 role={hasSuggestions ? 'combobox' : undefined}
                 className={cn(
-                  inputStyles.input,
                   styles.input,
                   styles[`input--${componentSize}`],
                   typographyStyles[
