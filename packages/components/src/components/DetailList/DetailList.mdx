@@ -1,0 +1,56 @@
+import { Meta, ArgTypes, Canvas, Controls } from '@storybook/blocks';
+import { DetailListDesc, DetailListRow } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as DetailListStories from './DetailList.stories';
+
+<Meta of={DetailListStories} />
+
+# DetailList
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/90ac92-detaillist"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=18211-10410"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/DetailList"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-detaillist--default"
+  withBottomSpacing
+/>
+
+Detaljert liste er en beskrivelsesliste formatert som en tabell. Den bygges med følgende subkomponenter:
+
+- **`<DetailList>`**: tilsvarer `<dl>`, hele listen.
+- **`<DetailListRow>`**: en rad. Oppfører seg som en tabellrad.
+- **`<DetailListTerm>`**: tilsvarer `<dt>`, uttrykk eller ledetekst. Oppfører seg som en tabellcelle.
+- **`<DetailListDesc>`**: tilsvarer `<dd>`, verdi, beskrivelse, knapp eller lenke relatert til `<DetailListTerm>`. Oppfører seg som en tabellcelle.
+
+## Props
+
+### DetailList
+
+Tilsvarer `<dl>`.
+
+<Canvas of={DetailListStories.Default} sourceState="shown" />
+<Controls of={DetailListStories.Default} />
+
+### DetailListTerm
+
+Tilsvarer `<dt>`. Oppfører seg som en tabellcelle. Støtter native props.
+
+### DetailListDesc
+
+Tilsvarer `<dd>`. Oppfører seg som en tabellcelle. Støtter native props.
+
+### DetailListRow
+
+Subkomponent som grupperer `<DetailListTerm>` og `<DetailListDesc>` i en rad. Oppfører seg som en tabellrad. Støtter native props.
+
+## Retningslinjer
+
+### Layout
+
+Bruk gjerne egen CSS for layout etter behov:
+
+- `table-layout` på `<DetailList>`
+- `width`, `text-align` på individuelle celler (`<DetailListTerm>` og `<DetailListDesc>`)

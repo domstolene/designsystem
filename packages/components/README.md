@@ -54,6 +54,7 @@ Tilgjengelige komponenter:
 - Chip
 - DatePicker
 - DescriptionList
+- DetailList
 - Divider
 - Drawer
 - EmptyContent
@@ -76,6 +77,7 @@ Tilgjengelige komponenter:
 - RadioButton
 - Search
 - Select
+- Skeleton
 - SkipToContent
 - Spinner
 - Stack

@@ -1,3 +1,4 @@
+export * from './Density';
 export * from './Direction';
 export * from './BaseComponentProps';
 export * from './polymorphic';
