@@ -15,6 +15,7 @@ export * from './components/Card';
 export * from './components/Chip';
 export * from './components/date-inputs';
 export * from './components/DescriptionList';
+export * from './components/DetailList';
 export * from './components/Divider';
 export * from './components/Drawer';
 export * from './components/EmptyContent';
