@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 17.2.0
+
+### Minor Changes
+
+- ec8e454: Ny komponent: `<DetailList>` med tilhørende subkomponenter. Den returnerer `<dl>`, `<dt>` og `<dd>`. Komponenten brukes til å vise informasjon på en ryddig måte, der den første cellen i raden er et uttrykk eller ledetekst (term). Resterende celler i raden innheholder detaljer om dette utrykket, eller relevante lenker og knapper.
+
+### Patch Changes
+
+- ed199bc: Fikser bug som gjorde at `<Popover>` ikke fikk klassenavn satt via `className` prop.
+- e090f1e: Fikser bug der `<ProgressTrackerItem>` ikke støttet `onClick` eller native HTML attributter.
+
 ## 17.1.0
 
 ### Minor Changes
