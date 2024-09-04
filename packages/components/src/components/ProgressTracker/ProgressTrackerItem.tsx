@@ -1,8 +1,11 @@
-import { useMemo } from 'react';
+import { type ComponentPropsWithRef, useMemo } from 'react';
 
 import { useProgressTrackerContext } from './ProgressTracker.context';
 import styles from './ProgressTracker.module.css';
-import { type BaseComponentPropsWithChildren } from '../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../types';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
@@ -92,16 +95,28 @@ const getVisuallyHiddenText = (
 
 export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const {
+    id,
+    className,
+    htmlProps,
     index = 0,
     completed = false,
     disabled = false,
+    onClick,
     icon,
     children,
+    ...rest
   } = props;
 
   const { activeStep, handleStepChange } = useProgressTrackerContext();
   const active = activeStep === index;
   const itemState = toItemState(active, completed, disabled);
+
+  const handleClick = () => {
+    if (!disabled) {
+      onClick && onClick(index);
+      handleStepChange && handleStepChange(index);
+    }
+  };
 
   const stepNumberContent = useMemo(() => {
     if (completed) {
@@ -146,18 +161,26 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     <li aria-current={active ? 'step' : undefined} className={styles.item}>
       {handleStepChange ? (
         <button
-          onClick={
-            !disabled && handleStepChange
-              ? () => handleStepChange(index)
-              : undefined
-          }
+          {...getBaseHTMLProps(
+            id,
+            cn(className, styles['item-button'], focusable),
+            htmlProps as ComponentPropsWithRef<'button'>,
+            rest,
+          )}
+          onClick={() => handleClick()}
           disabled={disabled}
-          className={cn(styles['item-button'], focusable)}
         >
           {stepContent}
         </button>
       ) : (
-        <div className={cn(styles['item-button'], styles['item-div'])}>
+        <div
+          {...getBaseHTMLProps(
+            id,
+            cn(className, cn(styles['item-button'], styles['item-div'])),
+            htmlProps as ComponentPropsWithRef<'div'>,
+            rest,
+          )}
+        >
           {stepContent}
         </div>
       )}
