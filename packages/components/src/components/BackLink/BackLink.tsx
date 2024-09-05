@@ -19,8 +19,12 @@ export interface BackLinkProps {
 export const BackLink = forwardRef<HTMLElement, BackLinkProps>((props, ref) => {
   return (
     <nav ref={ref} aria-label="gå tilbake">
-      <Link href={props.href} className={styles.link}>
-        <Icon icon={icons.ArrowLeftIcon} iconSize="small" />
+      <Link href={props.href}>
+        <Icon
+          icon={icons.ArrowLeftIcon}
+          iconSize="small"
+          className={styles.icon}
+        />
         {props.label}
       </Link>
     </nav>
