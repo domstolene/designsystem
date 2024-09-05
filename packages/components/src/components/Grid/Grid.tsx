@@ -105,7 +105,7 @@ export const Grid = (props: GridProps) => {
   return as === 'div' ? (
     <div
       {...getBaseHTMLProps(id, cn(className, styles.grid), htmlProps, rest)}
-      style={{ ...htmlProps?.style, ...styleVariables }}
+      style={{ ...style, ...htmlProps?.style, ...styleVariables }}
     />
   ) : (
     <form
