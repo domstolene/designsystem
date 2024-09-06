@@ -7,6 +7,7 @@ export * from './hooks';
 export * from './types';
 export { cn } from './utils/dom';
 
+export * from './components/Accordion';
 export * from './components/BackLink';
 export * from './components/Breadcrumbs';
 export * from './components/Button';

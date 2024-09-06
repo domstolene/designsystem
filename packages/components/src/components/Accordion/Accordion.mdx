@@ -1,0 +1,103 @@
+import { ArgTypes, Canvas, Controls, Meta } from '@storybook/blocks';
+import { Accordion, AccordionBody, AccordionHeader } from '.';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/648734-accordion-"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=17381-2896"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Accordion"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-accordion--default"
+  withBottomSpacing
+/>
+
+`<Accordion>` er en komponent som kan utvide og trekke sammen innhold.
+
+Det finnes følgene subkomponenter:
+
+- **`<Accordion>`** - forelder,
+- **`<AccordionHeader>`** - header som utvider og trekker sammen innhold,
+- **`<AccordionBody>`** - innhold som kan utvides og trekkes sammen.
+
+## Props
+
+### Accordion
+
+En container for Accordion-subkomponenter som håndterer oppførsel og universell utforming for subkomponentene. Den skal ha:
+
+- `<AccordionHeader>` som første barn,
+- `<AccordionBody>` som andre barn.
+
+En gruppe med `<Accordion>` legges i en `<div>` container.
+
+<Canvas of={AccordionStories.Default} />
+
+<Controls of={AccordionStories.Default} />
+
+### AccordionHeader
+
+Header i `<Accordion>`. Skal brukes som første barn og den får automatisk riktig id fra `<Accordion>`. Komponenten har default typografi som kan bli overskrevet ved å bruke typografikomponenter som barn.
+
+<ArgTypes of={AccordionHeader} />
+
+### AccordionBody
+
+Body i `<Accordion>`. Skal brukes som andre barn og den får automatisk riktig `id` fra `<Accordion>`. Komponenten har default typografi som kan bli overskrevet ved å bruke typografikomponenter som barn.
+
+<ArgTypes of={AccordionBody} />
+
+## Custom
+
+Du kan bygge egen accordion ved hjelp av `useAccordion` hook. Da bruker du egne elementer for header og innhold, mens hooken håndterer oppførsel og universell uftorming.
+
+Du trenger å sette følgende props fra `useAccordion`:
+
+- `height` fra `bodyProps`som `height` i `style` eller tilsvarende, samt resten av `bodyProps` på din innhold-wrapper. `bodyProps` inneholder også `className`, kombiner den med din CSS.
+- `headerProps` på din header. Den bør være en knapp for riktig semantikk.
+- `bodyContentRef` på container inni din innhold-wrapper. Den sørger for animasjon.
+
+<Canvas of={AccordionStories.Custom} />
+
+### Types
+
+<Source code={`
+export interface AccordionHeaderProps {
+  onClick: () => void;
+  'aria-expanded': boolean;
+  'aria-controls': string;
+  id: string;
+}
+
+export interface AccordionBodyProps {
+  id: string;
+  role: string;
+  'aria-labelledby': string;
+  'aria-hidden': boolean;
+  height?: number;
+  className?: string;
+}
+
+export interface AccordionState {
+  id: string;
+  isExpanded: boolean;
+  setIsExpanded: Dispatch<SetStateAction<boolean>>;
+  openAccordion: () => void;
+  closeAccordion: () => void;
+  toggleExpanded: () => void;
+  headerProps: AccordionHeaderProps;
+  bodyProps: AccordionBodyProps;
+  bodyContentRef: RefObject<HTMLDivElement>;
+}
+`} />
+
+## Retningslinjer
+
+- Ikke legg interaktive elementer (knapp, radio, inputfelt...) inni `<AccordionHeader>`. Den er allerede en knapp og kan ikke ha nøstet interaksjon.
+- Ikke bruk `<AccordionHeader>` til å kontrollere andre elementer, som å åpne `<OverflowMenu>` eller en modal.

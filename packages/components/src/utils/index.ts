@@ -9,3 +9,4 @@ export * from './readonlyEventHandlers';
 export * from './searchFilter';
 export * from './text';
 export * from './RequiredMarker';
+export * from './useElementHeight';

@@ -1,0 +1,30 @@
+:where(.container) {
+  border-bottom: 1px solid var(--dds-color-border-default);
+}
+
+:where(.header-button) {
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 0.2s,
+      var(--dds-focus-transition);
+  }
+
+  &:hover {
+    background-color: var(--dds-color-surface-hover-default);
+    color: var(--dds-color-text-action-hover);
+  }
+}
+
+.header-container {
+  padding: var(--dds-spacing-x1) var(--dds-spacing-x1-5) var(--dds-spacing-x1)
+    var(--dds-spacing-x1);
+}
+
+.body {
+  height: var(--dds-card-accordion-body-height);
+}
+
+.body__content {
+  padding: var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x2)
+    var(--dds-spacing-x1);
+}

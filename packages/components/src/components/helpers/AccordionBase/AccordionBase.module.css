@@ -1,0 +1,40 @@
+:where(.header-button) {
+  user-select: text;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__content {
+  text-align: left;
+}
+
+.header__chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--dds-icon-size-medium);
+  width: var(--dds-icon-size-medium);
+  margin-left: var(--dds-spacing-x0-5);
+}
+
+.body {
+  overflow: hidden;
+}
+
+.body--animated {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.body--hidden {
+  display: none;
+}
