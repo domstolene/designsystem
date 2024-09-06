@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 17.2.1
+
+### Patch Changes
+
+- 764add5: Fikser bug som gjorde at `style` ikke var støttet for `<Grid as="div">`.
+- 17e32b9: Fikser bug der `onClick` i `ProgressTrackerItem` ikke var valgfri.
+- 198fa2b: Fikser bug der `<BackLink>` ikke fikk `text-decoration-color: transparent;` på hover i Safari.
+
 ## 17.2.0
 
 ### Minor Changes
