@@ -74,7 +74,7 @@ export type ProgressTrackerItemProps =
       HTMLButtonElement,
       BaseItemProps & {
         /** Click-handler som gjør det mulig for bruker å klikke på steget for å navigere. Valgfri. */
-        onClick: (index: number) => void;
+        onClick?: (index: number) => void;
       }
     >
   | BaseComponentPropsWithChildren<
