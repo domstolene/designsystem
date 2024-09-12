@@ -73,8 +73,8 @@ export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
           />
           <OverflowMenu placement="bottom-end">
             <OverflowMenuList>
-              {secondaryActions.map(item => (
-                <OverflowMenuButton {...item}>
+              {secondaryActions.map((item, index) => (
+                <OverflowMenuButton key={index} {...item}>
                   {item.children}
                 </OverflowMenuButton>
               ))}
