@@ -408,6 +408,10 @@
   margin-bottom: var(--dds-spacing-x1-5);
 }
 
+:where(.caption--withMargins) {
+  display: table-caption;
+}
+
 :where(.bold) {
   font-weight: 600;
 }
