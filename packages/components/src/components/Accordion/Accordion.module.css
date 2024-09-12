@@ -2,6 +2,10 @@
   border-bottom: 1px solid var(--dds-color-border-default);
 }
 
+:where(.container:first-child) {
+  border-top: 1px solid var(--dds-color-border-default);
+}
+
 :where(.header-button) {
   @media (prefers-reduced-motion: no-preference) {
     transition:
@@ -25,6 +29,6 @@
 }
 
 .body__content {
-  padding: var(--dds-spacing-x1-5) var(--dds-spacing-x1-5) var(--dds-spacing-x2)
+  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1-5) var(--dds-spacing-x2)
     var(--dds-spacing-x1);
 }
