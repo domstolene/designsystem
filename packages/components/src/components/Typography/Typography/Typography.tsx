@@ -11,7 +11,12 @@ import {
   type OtherTypographyType,
   type TypographyComponentProps,
 } from './Typography.types';
-import { getElementType, getTypographyCn, isLegend } from './Typography.utils';
+import {
+  getElementType,
+  getTypographyCn,
+  isCaption,
+  isLegend,
+} from './Typography.utils';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
 import { cn } from '../../../utils';
 import { getTextColor } from '../../../utils/color';
@@ -117,6 +122,9 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
             withMargins && typographyStyles[`${typographyCn}--margins`],
             isLegend(as) && typographyStyles.legend,
             isLegend(as) && withMargins && typographyStyles['legend--margins'],
+            isCaption(as) &&
+              withMargins &&
+              typographyStyles['caption--withMargins'],
             bold && typographyStyles.bold,
             underline && typographyStyles.underline,
             italic && typographyStyles.italic,

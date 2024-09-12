@@ -62,6 +62,10 @@ export const isLegend = (as: ElementType): boolean => {
   return as === 'legend';
 };
 
+export const isCaption = (as: ElementType): boolean => {
+  return as === 'caption';
+};
+
 export const inlineElements: Array<ElementType> = [
   'a',
   'abbr',
