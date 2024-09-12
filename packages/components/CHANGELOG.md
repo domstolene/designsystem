@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 17.2.2
+
+### Patch Changes
+
+- 3b29379: Fikser bug der `<Caption withMargins="true">` la seg inni tabellen istedenfor over.
+- a98e44e: Sett unik key på SecondaryActions i SplitButton
+
 ## 17.2.1
 
 ### Patch Changes
