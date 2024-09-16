@@ -19,14 +19,14 @@
 
 .list--default {
   dt {
-    color: var(--dds-color-text-default);
+    color: var(--dds-color-text-body);
     font-weight: 600;
   }
 }
 
 .list--subtle {
   dt {
-    color: var(--dds-color-text-subtle);
+    color: var(--dds-color-text-body-subtle);
   }
 }
 
@@ -47,7 +47,7 @@
   align-items: center;
   display: flex;
   gap: var(--dds-spacing-x0-25);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
 }
 
 .group {

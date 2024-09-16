@@ -1,0 +1,3 @@
+:where(.container) {
+  background-color: var(--dds-color-surface-inverse-default);
+}

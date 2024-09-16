@@ -1,5 +1,5 @@
 .list {
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-text-body);
   margin: var(--dds-spacing-x1) 0;
   ul,
   ol {
@@ -31,15 +31,16 @@
       position: absolute;
       top: calc((2.5em / 2) - 0.5em);
       left: 0;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-image: url('./bullets/jordskifterett_bullet1.svg');
+      background: var(--dds-color-text-body);
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      mask-image: url('./bullets/jordskifterett_bullet1.svg');
     }
     ul > li:before {
-      background-image: url('./bullets/lagmannsrett_bullet2.svg');
+      mask-image: url('./bullets/lagmannsrett_bullet2.svg');
     }
     ul > li > ul > li:before {
-      background-image: url('./bullets/tingrett_bullet3.svg');
+      mask-image: url('./bullets/tingrett_bullet3.svg');
     }
   }
 }
