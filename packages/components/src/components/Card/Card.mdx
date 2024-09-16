@@ -44,7 +44,7 @@ En container for CardAccordion-subkomponenter som håndterer oppførsel og unive
 
 En gruppe med `<Card cardType='expandable'>` skal legges i en `<div>` container.
 
-<Canvas of={CardStories.Accordion} sourceState="shown" />
+<Canvas of={CardStories.Expandable} sourceState="shown" />
 
 <ArgTypes of={CardAccordion} />
 
@@ -62,5 +62,6 @@ Body i `<CardAccordion>`. Skal brukes som andre barn og den får automatisk rikt
 
 ## Retningslinjer
 
+- Ikke bruk `<Card type="expandable">` i en gruppe. Bruk heller `<Accordion>`-komponent.
 - Ikke legg interaktive elementer (knapp, radio, inputfelt...) inni `<CardAccordionHeader>`. Den er allerede en knapp og kan ikke ha nøstet interaksjon.
 - Ikke bruk `<CardAcconrdionHeader>` til å kontrollere andre elementer, som å åpne `<OverflowMenu>` eller en modal.

@@ -1,10 +1,4 @@
 .header-button {
-  user-select: text;
-  position: relative;
-  cursor: pointer;
-  display: block;
-  width: 100%;
-
   @media (prefers-reduced-motion: no-preference) {
     transition:
       box-shadow 0.2s,
@@ -17,9 +11,6 @@
 }
 
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: var(--dds-card-accordion-header-container-padding);
 
   @media (prefers-reduced-motion: no-preference) {
@@ -27,34 +18,10 @@
   }
 }
 
-.header__content {
-  text-align: left;
-}
-
-.header__chevron {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--dds-icon-size-medium);
-  width: var(--dds-icon-size-medium);
-  margin-left: var(--dds-spacing-x0-5);
-}
-
 .body {
-  overflow: hidden;
   height: var(--dds-card-accordion-body-height);
 }
 
 .body__content {
   padding: var(--dds-card-accordion-body-content-padding);
-}
-
-.body--animated {
-  @media (prefers-reduced-motion: no-preference) {
-    transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-.body--hidden {
-  display: none;
 }

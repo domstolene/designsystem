@@ -1,15 +1,17 @@
 import { forwardRef } from 'react';
 
+import styles from './Accordion.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
-} from '../../../types';
+} from '../../types';
+import { cn } from '../../utils';
 import {
   AccordionContextProvider,
   useAccordion,
-} from '../../helpers/AccordionBase';
+} from '../helpers/AccordionBase';
 
-export type CardAccordionProps = BaseComponentPropsWithChildren<
+export type AccordionProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
     /**Spesifiserer om body skal være utvidet ved innlastning. */
@@ -19,7 +21,7 @@ export type CardAccordionProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
+export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   (props, ref) => {
     const {
       isExpanded = false,
@@ -42,7 +44,12 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
 
     return (
       <div
-        {...getBaseHTMLProps(accordionId, className, htmlProps, rest)}
+        {...getBaseHTMLProps(
+          accordionId,
+          cn(className, styles.container),
+          htmlProps,
+          rest,
+        )}
         ref={ref}
       >
         <AccordionContextProvider
@@ -59,4 +66,4 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
   },
 );
 
-CardAccordion.displayName = 'CardAccordion';
+Accordion.displayName = 'Accordion';

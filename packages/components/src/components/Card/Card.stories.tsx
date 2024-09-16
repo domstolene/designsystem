@@ -8,7 +8,7 @@ import {
 } from '../DescriptionList';
 import { Divider } from '../Divider';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
-import { Heading, Link, Paragraph, Typography } from '../Typography';
+import { Heading, Link, Paragraph } from '../Typography';
 
 import { Card, CardAccordion, CardAccordionBody, CardAccordionHeader } from '.';
 
@@ -108,7 +108,7 @@ export const Navigation: Story = {
   },
 };
 
-export const Accordion: Story = {
+export const Expandable: Story = {
   args: {
     children: (
       <CardAccordion>
@@ -120,72 +120,7 @@ export const Accordion: Story = {
   },
 };
 
-export const Accordions: Story = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  render: (args: any) => (
-    <>
-      <Card {...args} cardType="expandable">
-        <CardAccordion>
-          <CardAccordionHeader>Dekning av reiseutgifter</CardAccordionHeader>
-          <CardAccordionBody>
-            I sivile saker avtales dekning av utgifter med den part som innkalte
-            deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
-            <Link href="#">
-              særavtale om dekning av utgifter til reise og kost
-            </Link>
-            ). Reisen skal foretas på raskeste og rimeligste måte for staten.
-            Offentlig transport må benyttes der det er tilgjengelig.
-            Godtgjørelse for bruk av egen bil godtas bare i den utstrekning det
-            er rimeligst for det offentlige, med mindre særlige grunner tilsier
-            at du må bruke bil.Reiseutgiftene må dokumenteres med kvitteringer,
-            unntatt for rimeligste offentlig transport, for eksempel buss, tog
-            og så videre. For reiser over 15 km og som varer utover 6 timer,
-            dekkes utgifter til måltider etter satsene i særavtalen om dekning
-            av utgifter til reise og kost. Dersom enkeltmåltider er dekket av
-            andre enn deg selv, må du registrere måltidsfradrag.
-          </CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="expandable">
-        <CardAccordion>
-          <CardAccordionHeader>Ansvar for behandlingen</CardAccordionHeader>
-          <CardAccordionBody>
-            DA er behandlingsansvarlig for opplysningene som registreres i
-            Aktørportalen og avdelingsdirektør for IT-avdelingen har det daglige
-            ansvaret for Aktørportalen. Selskapet Bekk utvikler Aktørportalen
-            for oss. <Link href="#">Lenke</Link>
-          </CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="expandable">
-        <CardAccordion>
-          <CardAccordionHeader>Bli vitnestøtte?</CardAccordionHeader>
-          <CardAccordionBody>
-            <Typography typographyType="headingSans02" withMargins>
-              Opplæringsfilm
-            </Typography>
-            <Typography withMargins>
-              Film «Vitnestøtte» viser fire problemstillinger for hvordan man
-              møter vitner med ulike behov. Den viser både gode og mindre gode
-              løsninger, vitnestøtter kan diskutere.
-            </Typography>
-            <Typography>
-              Filmen viser altså ikke «beste praksis», men er en opplæringsfilm.
-            </Typography>
-          </CardAccordionBody>
-        </CardAccordion>
-      </Card>
-      <Card {...args} cardType="expandable">
-        <CardAccordion>
-          <CardAccordionHeader>Header</CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
-      </Card>
-    </>
-  ),
-};
-
-export const AccordionControlled: Story = {
+export const ExpandableControlled: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => {
     const [isExpanded, setIsExpanded] = useState(true);
@@ -204,7 +139,7 @@ export const AccordionControlled: Story = {
   },
 };
 
-export const AccordionCustom: Story = {
+export const ExpandableCustom: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args} cardType="expandable" appearance="border">

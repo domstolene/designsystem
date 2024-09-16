@@ -1,22 +1,14 @@
 import { type Properties, type Property } from 'csstype';
-import {
-  forwardRef,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { forwardRef } from 'react';
 
 import styles from './CardAccordion.module.css';
-import { useCardAccordionContext } from './CardAccordionContext';
-import { useElementHeight } from './useElementHeight';
-import { useIsMounted } from '../../../hooks';
 import {
   type BaseComponentPropsWithChildren,
-  type Nullable,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
+import { useAccordionContext } from '../../helpers/AccordionBase';
+import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type CardAccordionBodyProps = Omit<
@@ -36,35 +28,13 @@ export const CardAccordionBody = forwardRef<
 >((props, ref) => {
   const { children, className, htmlProps, padding, ...rest } = props;
 
-  const { headerId, isExpanded, bodyId: id } = useCardAccordionContext();
+  const { bodyContentRef, bodyProps } = useAccordionContext();
 
-  const bodyRef = useRef<HTMLDivElement>(null);
-
-  const [animate, setAnimate] = useState(false);
-
-  const isMounted = useIsMounted();
-  const height = useElementHeight(bodyRef.current);
-
-  const [initialExpandedHeight, setIntialExpandedHeight] =
-    useState<Nullable<number>>(null);
-
-  useLayoutEffect(() => {
-    // For å unngå initiell animasjon dersom Accordion er satt til å være åpen som default.
-    if (bodyRef.current && isExpanded) {
-      setIntialExpandedHeight(bodyRef.current.scrollHeight);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isMounted()) {
-      setAnimate(true);
-    }
-  }, [isMounted]);
+  const { className: bodyContextCn, id, height, ...restBodyProps } = bodyProps;
 
   const styleVariables: Properties = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-card-accordion-body-height' as any]:
-      (height ?? initialExpandedHeight ?? 0) + 'px',
+    ['--dds-card-accordion-body-height' as any]: height + 'px',
   };
 
   const contentStyleVariables: Properties = {
@@ -80,22 +50,20 @@ export const CardAccordionBody = forwardRef<
         id,
         cn(
           className,
+          baseStyles.body,
           styles.body,
-          !isExpanded && styles['body--hidden'],
-          animate && styles['body--animated'],
+          bodyContextCn,
           typographyStyles['body-sans-03'],
         ),
         htmlProps,
         rest,
       )}
       ref={ref}
-      role="region"
-      aria-labelledby={headerId}
-      aria-hidden={!isExpanded}
+      {...restBodyProps}
       style={{ ...htmlProps?.style, ...styleVariables }}
     >
       <div
-        ref={bodyRef}
+        ref={bodyContentRef}
         className={styles.body__content}
         style={contentStyleVariables}
       >

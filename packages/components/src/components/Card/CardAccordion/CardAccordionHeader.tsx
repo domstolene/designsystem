@@ -3,13 +3,14 @@ import { type Properties, type Property } from 'csstype';
 import { type ButtonHTMLAttributes, forwardRef } from 'react';
 
 import styles from './CardAccordion.module.css';
-import { useCardAccordionContext } from './CardAccordionContext';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
 import { AnimatedChevronUpDown } from '../../helpers';
+import { useAccordionContext } from '../../helpers/AccordionBase';
+import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { type StaticTypographyType, getTypographyCn } from '../../Typography';
@@ -45,12 +46,7 @@ export const CardAccordionHeader = forwardRef<
     ...rest
   } = props;
 
-  const {
-    headerId: id,
-    bodyId,
-    toggleExpanded,
-    isExpanded,
-  } = useCardAccordionContext();
+  const { isExpanded, headerProps } = useAccordionContext();
 
   const containerStyleVariables: Properties = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -59,6 +55,8 @@ export const CardAccordionHeader = forwardRef<
       'var(--dds-spacing-x1) var(--dds-spacing-x0-75) var(--dds-spacing-x1) var(--dds-spacing-x1-5)',
   };
 
+  const { id, ...restHeaderProps } = headerProps;
+
   return (
     <button
       {...getBaseHTMLProps(
@@ -66,6 +64,7 @@ export const CardAccordionHeader = forwardRef<
         cn(
           className,
           styles['header-button'],
+          baseStyles['header-button'],
           utilStyles['normalize-button'],
           utilStyles['remove-button-styling'],
           focusable,
@@ -73,22 +72,21 @@ export const CardAccordionHeader = forwardRef<
         htmlProps,
         rest,
       )}
-      onClick={toggleExpanded}
       ref={ref}
-      aria-controls={bodyId}
-      aria-expanded={isExpanded}
+      {...restHeaderProps}
       type="button"
     >
       <div
         style={containerStyleVariables}
         className={cn(
+          baseStyles['header-container'],
           styles['header-container'],
           typographyStyles[getTypographyCn(typographyType)],
           bold && typographyStyles.bold,
         )}
       >
-        <div className={styles.header__content}>{children}</div>
-        <span className={styles.header__chevron}>
+        <div className={baseStyles.header__content}>{children}</div>
+        <span className={baseStyles.header__chevron}>
           <AnimatedChevronUpDown
             width={ddsTokens.ddsIconSizeMedium}
             height={ddsTokens.ddsSpacingX05}
