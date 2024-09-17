@@ -2,7 +2,7 @@ import { type ComponentProps, forwardRef } from 'react';
 
 import styles from './Footer.module.css';
 import { cn } from '../../utils';
-import { Contrast } from '../helpers';
+import { Contrast } from '../Contrast';
 
 export type FooterProps = ComponentProps<'footer'>;
 

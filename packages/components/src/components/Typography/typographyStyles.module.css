@@ -1,14 +1,17 @@
 :root {
   --dds-color-text-body: var(--dds-color-text-default);
+  --dds-color-text-body-subtle: var(--dds-color-text-subtle);
   --dds-color-text-link: var(--dds-color-text-action-resting);
   --dds-color-text-link-visited: var(--dds-color-text-action-visited);
   --dds-color-text-label: var(--dds-color-text-medium);
   --dds-color-text-placeholder: var(--dds-color-text-subtle);
   --dds-color-text-helper: var(--dds-color-text-subtle);
+  --dds-color-icon-link: var(--dds-color-text-action-resting);
 }
 
 .contrast {
   --dds-color-text-body: var(--dds-color-text-on-inverse);
+  --dds-color-text-body-subtle: var(--dds-color-text-on-inverse);
   --dds-color-text-link: var(--dds-color-text-on-inverse);
   --dds-color-text-link-visited: var(
     --dds-color-text-action-visited-on-inverse
@@ -16,6 +19,8 @@
   --dds-color-text-label: var(--dds-color-text-on-inverse);
   --dds-color-text-helper: var(--dds-color-text-on-inverse);
   --dds-color-text-placeholder: var(--dds-color-text-subtle);
+  --dds-color-icon-link: var(--dds-color-text-on-inverse);
+  color: var(--dds-color-text-on-inverse);
 }
 
 :where(.a) {

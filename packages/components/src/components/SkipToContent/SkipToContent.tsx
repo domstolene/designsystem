@@ -4,7 +4,8 @@ import { forwardRef } from 'react';
 import styles from './SkipToContent.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
-import { Link, defaultTypographyType } from '../Typography';
+import { Contrast } from '../Contrast';
+import { Link } from '../Typography';
 
 export type SkipToContentProps = BaseComponentProps<
   HTMLAnchorElement,
@@ -40,19 +41,14 @@ export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
     } = htmlProps;
 
     return (
-      <div
+      <Contrast
         className={cn(className, htmlPropsClassName, styles.wrapper)}
         style={{ ...style, top }}
       >
-        <Link
-          {...getBaseHTMLProps(id, restHtmlProps, rest)}
-          typographyType={defaultTypographyType}
-          ref={ref}
-          className={cn(styles.link)}
-        >
+        <Link {...getBaseHTMLProps(id, restHtmlProps, rest)} ref={ref}>
           {text}
         </Link>
-      </div>
+      </Contrast>
     );
   },
 );

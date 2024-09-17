@@ -1,5 +1,4 @@
 .wrapper {
-  background-color: var(--dds-color-surface-inverse-default);
   padding: var(--dds-spacing-x0-25);
   box-sizing: border-box;
   position: absolute;
@@ -23,10 +22,4 @@
   width: 100%;
   z-index: 250;
   opacity: 1;
-}
-
-.link,
-.link:hover {
-  text-decoration: none;
-  color: var(--dds-color-text-on-inverse);
 }

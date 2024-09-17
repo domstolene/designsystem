@@ -1,5 +1,4 @@
 .container {
-  background-color: var(--dds-color-brand-primary-default);
   padding-block-start: var(--dds-spacing-x3);
   padding-block-end: var(--dds-spacing-x6);
 
