@@ -1,5 +1,6 @@
 .container {
   border: 1px solid;
+  border-radius: var(--dds-border-radius-surface);
 
   @media (prefers-reduced-motion: no-preference) {
     transition:
