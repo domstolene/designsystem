@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { Contrast } from '../Contrast';
 import { Typography } from '../Typography';
 
 import { Divider } from '.';
@@ -33,16 +34,25 @@ export const Overview: Story = {
 export const Default: Story = {};
 
 export const OnInverse: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+      .story-container {
+        padding: var(--dds-spacing-x1);
+        }
+        `}
+        </style>
+      </>
+    ),
+  ],
   args: { color: 'onInverse' },
   render: args => (
-    <div
-      style={{
-        background: 'var(--dds-color-surface-inverse-default)',
-        padding: 'var(--dds-spacing-x1)',
-      }}
-    >
+    <Contrast className="story-container">
       <Divider {...args} />
-    </div>
+    </Contrast>
   ),
 };
 

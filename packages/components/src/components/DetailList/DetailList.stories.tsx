@@ -22,12 +22,26 @@ export default {
 type Story = StoryObj<typeof DetailList>;
 
 export const Default: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+          .story-text-right {
+          text-align: right;
+          }
+        `}
+        </style>
+      </>
+    ),
+  ],
   render: args => (
     <DetailList {...args}>
       <DetailListRow>
         <DetailListTerm>Term</DetailListTerm>
         <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc style={{ textAlign: 'right' }}>
+        <DetailListDesc className="story-text-right">
           <InlineButton
             onClick={() => {
               null;
@@ -40,7 +54,7 @@ export const Default: Story = {
       <DetailListRow>
         <DetailListTerm>Term</DetailListTerm>
         <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc style={{ textAlign: 'right' }}>
+        <DetailListDesc className="story-text-right">
           <InlineButton
             onClick={() => {
               null;
@@ -53,7 +67,7 @@ export const Default: Story = {
       <DetailListRow>
         <DetailListTerm>Term</DetailListTerm>
         <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc style={{ textAlign: 'right' }}>
+        <DetailListDesc className="story-text-right">
           <InlineButton
             onClick={() => {
               null;
@@ -66,7 +80,7 @@ export const Default: Story = {
       <DetailListRow>
         <DetailListTerm>Term</DetailListTerm>
         <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc style={{ textAlign: 'right' }}>
+        <DetailListDesc className="story-text-right">
           <InlineButton
             onClick={() => {
               null;

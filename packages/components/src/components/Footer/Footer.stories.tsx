@@ -233,11 +233,27 @@ export const FourColumns: Story = {
   ),
 };
 
-const exampleStyle = { padding: 'var(--dds-spacing-x2)' };
+const exampleStyle = (
+  <style>
+    {`
+  .story-padding {
+    padding: var(--dds-spacing-x2);
+  }
+  `}
+  </style>
+);
 
 export const Address: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {exampleStyle}
+      </>
+    ),
+  ],
   render: args => (
-    <Footer {...args} style={exampleStyle}>
+    <Footer {...args} className="story-padding">
       <FooterListGroup>
         <FooterListHeader>Domstoladministrasjonen</FooterListHeader>
         <div>
@@ -251,24 +267,48 @@ export const Address: Story = {
 };
 
 export const Logo: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {exampleStyle}
+      </>
+    ),
+  ],
   render: args => (
-    <Footer {...args} style={exampleStyle}>
+    <Footer {...args} className="story-padding">
       <FooterLogo />
     </Footer>
   ),
 };
 
 export const ListHeader: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {exampleStyle}
+      </>
+    ),
+  ],
   render: args => (
-    <Footer {...args} style={exampleStyle}>
+    <Footer {...args} className="story-padding">
       <FooterListHeader>Om nettstedet</FooterListHeader>
     </Footer>
   ),
 };
 
 export const Left: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {exampleStyle}
+      </>
+    ),
+  ],
   render: args => (
-    <Footer {...args} style={exampleStyle}>
+    <Footer {...args} className="story-padding">
       <FooterLeft>
         <FooterLogo />
         <FooterSocialsGroup>
@@ -296,9 +336,17 @@ export const Left: Story = {
   ),
 };
 export const ListExample: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {exampleStyle}
+      </>
+    ),
+  ],
   name: 'List',
   render: args => (
-    <Footer {...args} style={exampleStyle}>
+    <Footer {...args} className="story-padding">
       <FooterListGroup>
         <FooterListHeader>Om nettstedet</FooterListHeader>
         <FooterList>
@@ -318,8 +366,16 @@ export const ListExample: Story = {
 };
 
 export const Socials: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {exampleStyle}
+      </>
+    ),
+  ],
   render: args => (
-    <Footer {...args} style={exampleStyle}>
+    <Footer {...args} className="story-padding">
       <FooterSocialsGroup>
         <FooterListHeader>Følg oss</FooterListHeader>
         <FooterSocialsList>

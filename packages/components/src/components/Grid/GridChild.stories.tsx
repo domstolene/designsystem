@@ -27,19 +27,32 @@ export default {
 type Story = StoryObj<typeof GridChild>;
 
 export const Default: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+          .story-grid, .story-grid__child {
+            width: 100%;
+            border: 1px dashed gray;
+            padding:  var(--dds-spacing-x0-5);
+            }
+            
+          .story-grid__child {
+            background: var(--dds-color-surface-subtle);
+          }
+        `}
+        </style>
+      </>
+    ),
+  ],
   args: { columnsOccupied: 'all' },
   render: args => {
-    const containerStyle = {
-      width: '100%',
-      border: '1px dashed gray',
-      padding: ' var(--dds-spacing-x0-5)',
-      background: 'var(--dds-color-surface-subtle)',
-    };
-
     return (
-      <Grid as="div" style={containerStyle}>
+      <Grid as="div" className="story-grid">
         <GridChild {...args}>
-          <div style={containerStyle}>GridChild</div>
+          <div className="story-grid__child">GridChild</div>
         </GridChild>
       </Grid>
     );

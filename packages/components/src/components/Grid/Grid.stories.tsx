@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { ScreenSize, useScreenSize } from '../../hooks';
 import { Button } from '../Button';
 import { FilterIcon, PlusIcon } from '../Icon/icons';
 import { InternalHeader } from '../InternalHeader';
@@ -28,27 +27,35 @@ export default {
 type Story = StoryObj<typeof Grid>;
 
 export const Default: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+          .story-grid, .story-grid__child {
+            border:1px dashed gray;
+            padding:var(--dds-spacing-x0-5);
+          }
+          .story-grid__child {
+           background: var(--dds-color-surface-subtle);
+          }
+      `}
+        </style>
+      </>
+    ),
+  ],
   render: args => {
-    const containerStyle = {
-      border: '1px dashed gray',
-      padding: 'var(--dds-spacing-x0-5)',
-    };
-
-    const childStyle = {
-      ...containerStyle,
-      background: 'var(--dds-color-surface-subtle)',
-    };
-
     return (
-      <Grid {...args} style={containerStyle}>
+      <Grid {...args} className="story-grid">
         <GridChild columnsOccupied="all">
-          <div style={childStyle}>Alle kolonner</div>
+          <div className="story-grid__child">Alle kolonner</div>
         </GridChild>
         <GridChild columnsOccupied="firstHalf">
-          <div style={childStyle}>Første halv</div>
+          <div className="story-grid__child">Første halv</div>
         </GridChild>
         <GridChild columnsOccupied="secondHalf">
-          <div style={childStyle}>Andre halv</div>
+          <div className="story-grid__child">Andre halv</div>
         </GridChild>
         <GridChild
           columnsOccupied={{
@@ -59,7 +66,9 @@ export const Default: Story = {
             xl: '1/8',
           }}
         >
-          <div style={childStyle}>Custom antall kolonner per brekkepunkt</div>
+          <div className="story-grid__child">
+            Custom antall kolonner per brekkepunkt
+          </div>
         </GridChild>
         <GridChild
           columnsOccupied={{
@@ -70,7 +79,9 @@ export const Default: Story = {
             xl: '8/13',
           }}
         >
-          <div style={childStyle}>Custom antall kolonner per brekkepunkt</div>
+          <div className="story-grid__child">
+            Custom antall kolonner per brekkepunkt
+          </div>
         </GridChild>
       </Grid>
     );
@@ -78,9 +89,25 @@ export const Default: Story = {
 };
 
 export const PageExample: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+          .story-grid {
+            margin-top: var(--dds-spacing-x1);
+
+            @media (min-width: 768px) {
+              margin-top: var(--dds-spacing-x2);
+            }
+          }
+      `}
+        </style>
+      </>
+    ),
+  ],
   render: args => {
-    const screenSize = useScreenSize();
-    const isXSmall = screenSize === ScreenSize.XSmall;
     return (
       <>
         <InternalHeader
@@ -92,14 +119,7 @@ export const PageExample: Story = {
           ]}
           smallScreenBreakpoint="xs"
         />
-        <Grid
-          {...args}
-          style={{
-            marginTop: isXSmall
-              ? 'var(--dds-spacing-x1)'
-              : 'var(--dds-spacing-x2)',
-          }}
-        >
+        <Grid {...args} className="story-grid">
           <GridChild
             columnsOccupied={{
               xs: '1/-1',
