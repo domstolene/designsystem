@@ -69,7 +69,7 @@
   height: calc(
     1.5em + var(--dds-spacing-x0-25) + var(--dds-spacing-x0-25) + 2px
   );
-  padding-right: var(--dds-spacing-x1);
+  padding-right: var(--dds-spacing-x1-5);
 }
 
 .select--multiple {
