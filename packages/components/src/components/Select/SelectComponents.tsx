@@ -151,7 +151,10 @@ export const DDSControl = <TValue, IsMulti extends boolean>(
           <Icon
             icon={icon}
             iconSize={getFormInputIconSize(componentSize)}
-            className={cn(inputStyles.icon, styles[`icon--${componentSize}`])}
+            className={cn(
+              inputStyles['input-group__absolute-element'],
+              styles[`icon--${componentSize}`],
+            )}
           />
         )}
         {props.children}

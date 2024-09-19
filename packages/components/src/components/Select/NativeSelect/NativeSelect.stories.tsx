@@ -18,7 +18,6 @@ export default {
     tip: { control: 'text' },
     errorMessage: { control: 'text' },
     width: { control: 'text' },
-    placeholder: { control: 'text' },
     disabled: { control: 'boolean' },
     required: { control: 'boolean' },
     readOnly: { control: 'boolean' },
