@@ -6,7 +6,7 @@ export default {
 
 export const Article = () => {
   return (
-    <div style={{ maxWidth: '700px', marginTop: '-1rem' }}>
+    <div className="story-article">
       <Heading level={1} typographyType="headingSans06" withMargins>
         Vitne
       </Heading>
@@ -61,6 +61,14 @@ export const Article = () => {
         inntil du eventuelt har fått beskjed fra retten om at du er blitt
         fritatt for å møte.
       </Paragraph>
+      <style>
+        {`
+        .story-article {
+          max-width: 700px;
+          margin-top: -1rem; 
+        }
+        `}
+      </style>
     </div>
   );
 };

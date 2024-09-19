@@ -160,6 +160,39 @@ export const CustomData = (
 };
 
 export const CustomElement: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+          .story-custom-value {
+            display: flex;
+            gap: var(--dds-spacing-x0-5);
+          }
+        
+          .story-custom-value__text {
+              flex: 1;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            
+          .story-custom-option__icon, .story-custom-value__icon {
+            border-radius: var(--dds-border-radius-rounded);
+            background: #bbdefb;
+            width: var(--dds-icon-size-medium);
+            height: var(--dds-icon-size-medium);
+            min-width: var(--dds-icon-size-medium);
+            }
+          .story-custom-option__icon--selected {
+            border: 2px solid var(--dds-color-border-action-default);
+          }
+          `}
+        </style>
+      </>
+    ),
+  ],
   args: {
     label: 'Label',
     options: options,
@@ -172,6 +205,7 @@ export const CustomElement: Story = {
       <SingleElement>{props.children}</SingleElement>
     ),
   },
+  render: args => <Select {...args} />,
 };
 
 export const InDrawer: Story = {
@@ -214,39 +248,15 @@ const OptionElement = ({
 }) => (
   <>
     <div
-      style={{
-        borderRadius: '16px',
-        background: '#bbdefb',
-        width: '32px',
-        height: '32px',
-        minWidth: '32px',
-        border: isSelected ? '2px solid rgba(46, 120, 170, 1)' : undefined,
-      }}
+      className={`story-custom-option__icon ${isSelected && 'story-custom-option__icon--selected'} `}
     />
     {children}
   </>
 );
 
 const SingleElement = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ display: 'flex', gap: '8px' }}>
-    <div
-      style={{
-        borderRadius: '12px',
-        background: '#bbdefb',
-        width: '24px',
-        height: '24px',
-        minWidth: '24px',
-      }}
-    />
-    <div
-      style={{
-        flex: '1',
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-      }}
-    >
-      {children}
-    </div>
+  <div className="story-custom-value">
+    <div className="story-custom-value__icon" />
+    <div className="story-custom-value__text">{children}</div>
   </div>
 );

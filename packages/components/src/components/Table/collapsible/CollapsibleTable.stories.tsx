@@ -83,10 +83,9 @@ export const SingleDefiningColumn: Story = {
 
 export const MultipleDefiningColumns: Story = {
   render: args => (
-    <Table.Wrapper style={{ width: '100%' }}>
+    <Table.Wrapper>
       <CollapsibleTable
         {...args}
-        style={{ width: '100%' }}
         isCollapsed={args.isCollapsed !== false && true}
         headerValues={headerValues}
         definingColumnIndex={[0, 2]}
@@ -112,10 +111,9 @@ export const MultipleDefiningColumns: Story = {
 
 export const PrioritizedDefiningColumns: Story = {
   render: args => (
-    <Table.Wrapper style={{ width: '100%' }}>
+    <Table.Wrapper>
       <CollapsibleTable
         {...args}
-        style={{ width: '100%' }}
         isCollapsed={args.isCollapsed !== false && true}
         headerValues={headerValues}
         definingColumnIndex={[2, 0]}
@@ -275,7 +273,7 @@ export const Responsive: Story = {
   render: args => {
     const screenSize = useScreenSize();
     return (
-      <Table.Wrapper style={{ width: '100%' }}>
+      <Table.Wrapper>
         <CollapsibleTable
           {...args}
           isCollapsed={screenSize <= ScreenSize.Small}
@@ -305,10 +303,9 @@ export const ResposiveMultipleBreakpoints: Story = {
   render: args => {
     const screenSize = useScreenSize();
     return (
-      <Table.Wrapper style={{ width: '100%' }}>
+      <Table.Wrapper>
         <CollapsibleTable
           {...args}
-          style={{ width: '100%' }}
           isCollapsed={screenSize <= ScreenSize.Small}
           headerValues={headerValues}
           definingColumnIndex={screenSize === ScreenSize.XSmall ? [2] : [2, 0]}

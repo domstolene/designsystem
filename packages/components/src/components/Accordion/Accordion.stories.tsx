@@ -121,26 +121,34 @@ export const Controlled: Story = {
 };
 
 export const Styled: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+        .custom-header {
+          padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
+        }
+
+        .custom-panel {
+          padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
+        }
+          `}
+        </style>
+      </>
+    ),
+  ],
   render: args => (
     <Accordion {...args}>
       <AccordionHeader
         typographyType="bodySans01"
-        htmlProps={{
-          style: {
-            padding: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
-          },
-        }}
+        className="custom-header"
         bold
       >
         Dekning av reiseutgifter
       </AccordionHeader>
-      <AccordionBody
-        htmlProps={{
-          style: {
-            padding: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-75)',
-          },
-        }}
-      >
+      <AccordionBody className="custom-panel">
         <Paragraph typographyType="bodySans01">
           I sivile saker avtales dekning av utgifter med den part som innkalte
           deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
@@ -164,6 +172,20 @@ export const Styled: Story = {
 };
 
 export const Custom: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+          .story-align-right {
+            text-align: right;
+          }
+          `}
+        </style>
+      </>
+    ),
+  ],
   render: () => {
     const { isExpanded, bodyContentRef, headerProps, bodyProps } = useAccordion(
       {
@@ -194,7 +216,7 @@ export const Custom: Story = {
               <DetailListRow>
                 <DetailListTerm>Dokument id</DetailListTerm>
                 <DetailListDesc>Dokumentnavn</DetailListDesc>
-                <DetailListDesc style={{ textAlign: 'right' }}>
+                <DetailListDesc className="story-align-right">
                   <InlineButton
                     onClick={() => {
                       null;
@@ -207,7 +229,7 @@ export const Custom: Story = {
               <DetailListRow>
                 <DetailListTerm>Dokument id</DetailListTerm>
                 <DetailListDesc>Dokumentnavn</DetailListDesc>
-                <DetailListDesc style={{ textAlign: 'right' }}>
+                <DetailListDesc className="story-align-right">
                   <InlineButton
                     onClick={() => {
                       null;

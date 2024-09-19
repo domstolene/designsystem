@@ -2,7 +2,6 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
-import styles from './ProgressTrackerStory.module.css';
 import { Button } from '../Button';
 import { Drawer } from '../Drawer';
 import { Fieldset } from '../Fieldset';
@@ -45,7 +44,7 @@ export const Default: Story = {
     const [completedSteps, setCompletedSteps] = useState(new Set());
 
     return (
-      <>
+      <VStack align="left" gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -66,7 +65,7 @@ export const Default: Story = {
           </ProgressTracker.Item>
         </ProgressTracker>
 
-        <div style={{ margin: '10px' }}>
+        <div>
           {activeStep === 0 && <div>Steg 1</div>}
           {activeStep === 1 && <div>Steg 2</div>}
           {activeStep === 2 && <div>Steg 3</div>}
@@ -83,7 +82,7 @@ export const Default: Story = {
         >
           Sett som ferdig
         </Button>
-      </>
+      </VStack>
     );
   },
 };
@@ -96,11 +95,10 @@ export const WithIcons: Story = {
     const [completedSteps, setCompletedSteps] = useState(new Set());
 
     return (
-      <>
+      <VStack align="left" gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
-          htmlProps={{ style: { maxWidth: '800px' } }}
           onStepChange={step => setActiveStep(step)}
         >
           <ProgressTracker.Item
@@ -130,12 +128,10 @@ export const WithIcons: Story = {
           </ProgressTracker.Item>
         </ProgressTracker>
 
-        <div style={{ margin: '10px' }}>
-          {activeStep === 0 && <div>Steg 1</div>}
-          {activeStep === 1 && <div>Steg 2</div>}
-          {activeStep === 2 && <div>Steg 3</div>}
-          {activeStep === 3 && <div>Steg 4</div>}
-        </div>
+        {activeStep === 0 && <div>Steg 1</div>}
+        {activeStep === 1 && <div>Steg 2</div>}
+        {activeStep === 2 && <div>Steg 3</div>}
+        {activeStep === 3 && <div>Steg 4</div>}
 
         <Button
           onClick={() => {
@@ -147,7 +143,7 @@ export const WithIcons: Story = {
         >
           Sett som ferdig
         </Button>
-      </>
+      </VStack>
     );
   },
 };
@@ -170,7 +166,7 @@ export const FutureStepsDisabled: Story = {
     const isDisabled = (index: number) => index > highestCompletedStep + 1;
 
     return (
-      <>
+      <VStack align="left" gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -196,7 +192,7 @@ export const FutureStepsDisabled: Story = {
             Vedlegg
           </ProgressTracker.Item>
         </ProgressTracker>
-        <div style={{ margin: 'var(--dds-spacing-x1)' }}>
+        <div>
           {activeStep === 0 && <div>Steg 1</div>}
           {activeStep === 1 && <div>Steg 2</div>}
           {activeStep === 2 && <div>Steg 3</div>}
@@ -207,7 +203,7 @@ export const FutureStepsDisabled: Story = {
           </Button>
           <Button onClick={handleSetFinishedButtonClick}>Neste steg</Button>
         </HStack>
-      </>
+      </VStack>
     );
   },
 };
@@ -222,7 +218,7 @@ export const SmallScreen: Story = {
 
     return (
       <>
-        <div>
+        <VStack align="left" gap="x1.5">
           <Button
             purpose="secondary"
             onClick={() => setDrawerOpen(true)}
@@ -231,20 +227,18 @@ export const SmallScreen: Story = {
           >
             Steg {activeStep + 1} av 4
           </Button>
-          <div style={{ marginTop: '1rem' }}>
-            {activeStep >= 0 && <div>Steg {activeStep + 1}</div>}
-            <Button
-              onClick={() => {
-                setCompletedSteps(s => new Set([...s, activeStep]));
-                if (activeStep < numSteps - 1) {
-                  setActiveStep(s => s + 1);
-                }
-              }}
-            >
-              Sett steg ferdig
-            </Button>
-          </div>
-        </div>
+          {activeStep >= 0 && <div>Steg {activeStep + 1}</div>}
+          <Button
+            onClick={() => {
+              setCompletedSteps(s => new Set([...s, activeStep]));
+              if (activeStep < numSteps - 1) {
+                setActiveStep(s => s + 1);
+              }
+            }}
+          >
+            Sett steg ferdig
+          </Button>
+        </VStack>
         <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
           <ProgressTracker
             {...args}
@@ -274,6 +268,46 @@ export const SmallScreen: Story = {
 };
 
 export const RealWorldRosponsiveExample: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+          .story-grid {
+              display: grid;
+              grid-template-columns: 26rem 1fr;
+              gap: var(--dds-spacing-x6);
+          }
+
+          .story-form-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--dds-spacing-x1-5);
+          }
+
+          .story-step-button {
+            margin-top: var(--dds-spacing-x2);
+          }
+
+          .story-mobile {
+            @media (min-width: 768px) {
+              display: none;
+            }
+          }
+
+          .story-desktop {
+            display: none;
+            margin-top: var(--dds-spacing-x3);
+            @media (min-width: 768px) {
+              display: block;
+            }
+          }
+          `}
+        </style>
+      </>
+    ),
+  ],
   render: args => {
     const [activeStep, setActiveStep] = useState(0);
     const [completedSteps, setCompletedSteps] = useState(new Set<number>());
@@ -319,44 +353,26 @@ export const RealWorldRosponsiveExample: Story = {
     ];
 
     return (
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 'var(--dds-spacing-x6)',
-        }}
-      >
-        <div style={{ width: '415px' }}>
-          <div className={styles.mobile}>
-            <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-              <Button
-                purpose="secondary"
-                onClick={() => setProgressTrackerDrawerOpen(true)}
-                iconPosition="right"
-                icon={ChevronRightIcon}
-              >
-                Steg {activeStep + 1} av {steps.length}
-              </Button>
-            </div>
+      <div className="story-grid">
+        <div>
+          <div className="story-mobile">
+            <Button
+              purpose="secondary"
+              onClick={() => setProgressTrackerDrawerOpen(true)}
+              iconPosition="right"
+              icon={ChevronRightIcon}
+            >
+              Steg {activeStep + 1} av {steps.length}
+            </Button>
           </div>
           {formSteps[activeStep]}
         </div>
-        <div style={{ marginTop: '5rem' }}>
-          <div className={styles.mobile}>
-            <Drawer
-              isOpen={progressTrackerDrawerOpen}
-              onClose={() => setProgressTrackerDrawerOpen(false)}
-            >
-              <ProgressTracker
-                {...args}
-                activeStep={activeStep}
-                onStepChange={newStep => setActiveStep(newStep)}
-              >
-                {stepItems}
-              </ProgressTracker>
-            </Drawer>
-          </div>
-          <div className={styles.desktop}>
+
+        <div className="story-mobile">
+          <Drawer
+            isOpen={progressTrackerDrawerOpen}
+            onClose={() => setProgressTrackerDrawerOpen(false)}
+          >
             <ProgressTracker
               {...args}
               activeStep={activeStep}
@@ -364,7 +380,16 @@ export const RealWorldRosponsiveExample: Story = {
             >
               {stepItems}
             </ProgressTracker>
-          </div>
+          </Drawer>
+        </div>
+        <div className="story-desktop">
+          <ProgressTracker
+            {...args}
+            activeStep={activeStep}
+            onStepChange={newStep => setActiveStep(newStep)}
+          >
+            {stepItems}
+          </ProgressTracker>
         </div>
       </div>
     );
@@ -386,13 +411,11 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
           event.preventDefault();
           onSubmit();
         }}
-        style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
+        className="story-form-wrapper"
       >
         <Fieldset>
           <Legend withMargins>Saksopplysninger</Legend>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
-          >
+          <div className="story-form-wrapper">
             <TextInput label="Rettens saksnummer" required />
             <Select
               label="Din rolle"
@@ -424,15 +447,13 @@ const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
           event.preventDefault();
           onSubmit();
         }}
-        style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
+        className="story-form-wrapper"
       >
         <Checkbox label="Jeg sender inn faktura på vegne av noen andre" />
 
         <Fieldset>
           <Legend withMargins>Hvor jobber du?</Legend>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
-          >
+          <div className="story-form-wrapper">
             <TextInput label="Firmanavn" required />
             <TextInput label="Organisasjonsnummer" required />
           </div>
@@ -460,12 +481,10 @@ const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
           event.preventDefault();
           onSubmit();
         }}
-        style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
+        className="story-form-wrapper"
       >
         <Fieldset>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
-          >
+          <div className="story-form-wrapper">
             <TextInput
               label="Fakturanummer eller annen unik referanse"
               required
@@ -476,7 +495,7 @@ const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
         </Fieldset>
         <Checkbox label="Ikke beregn 25% moms" />
         <Button
-          htmlProps={{ style: { marginTop: '2rem' } }}
+          className="story-step-button"
           icon={ArrowRightIcon}
           iconPosition="right"
         >

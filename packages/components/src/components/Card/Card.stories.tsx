@@ -35,21 +35,45 @@ const body = (
   </Paragraph>
 );
 
-const contentContainerStyle = {
-  padding: 'var(--dds-spacing-x0-75)',
-};
+const contentContainerStyle = (
+  <style>
+    {`
+.story-container-padding {
+  padding: var(--dds-spacing-x0-75);
+}
+  `}
+  </style>
+);
 
 export const Default: Story = {
-  args: { children: <div style={contentContainerStyle}>Content</div> },
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {contentContainerStyle}
+      </>
+    ),
+  ],
+  args: {
+    children: <div className="story-container-padding">Content</div>,
+  },
 };
 
 export const Overview: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {contentContainerStyle}
+      </>
+    ),
+  ],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <StoryHStack>
       <StoryVStack>
         <Card {...args} cardType="info">
-          <div style={contentContainerStyle}>
+          <div className="story-container-padding">
             <Heading level={2} typographyType="headingSans03">
               Title
             </Heading>
@@ -57,7 +81,7 @@ export const Overview: Story = {
           </div>
         </Card>
         <Card {...args} cardType="navigation" href="#">
-          <div style={contentContainerStyle}>
+          <div className="story-container-padding">
             <Heading level={2} typographyType="headingSans03">
               Title
             </Heading>
@@ -73,7 +97,7 @@ export const Overview: Story = {
       </StoryVStack>
       <StoryVStack>
         <Card {...args} cardType="info" appearance="border">
-          <div style={contentContainerStyle}>
+          <div className="story-container-padding">
             <Heading level={2} typographyType="headingSans03">
               Title
             </Heading>
@@ -81,7 +105,7 @@ export const Overview: Story = {
           </div>
         </Card>
         <Card {...args} appearance="border" cardType="navigation" href="#">
-          <div style={contentContainerStyle}>
+          <div className="story-container-padding">
             <Heading level={2} typographyType="headingSans03">
               Title
             </Heading>
@@ -101,8 +125,16 @@ export const Overview: Story = {
 };
 
 export const Navigation: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {contentContainerStyle}
+      </>
+    ),
+  ],
   args: {
-    children: <div style={contentContainerStyle}>Content</div>,
+    children: <div className="story-container-padding">Content</div>,
     cardType: 'navigation',
     href: '#',
   },
@@ -140,6 +172,20 @@ export const ExpandableControlled: Story = {
 };
 
 export const ExpandableCustom: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>
+          {`
+        .custom-header {
+          background-color: var(--dds-color-surface-info-default);
+        }
+          `}
+        </style>
+      </>
+    ),
+  ],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args} cardType="expandable" appearance="border">
@@ -148,6 +194,7 @@ export const ExpandableCustom: Story = {
           typographyType="bodySans01"
           padding="4px 12px"
           bold
+          className="custom-header"
         >
           Dekning av reiseutgifter
         </CardAccordionHeader>
@@ -176,10 +223,18 @@ export const ExpandableCustom: Story = {
 };
 
 export const Examples: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        {contentContainerStyle}
+      </>
+    ),
+  ],
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args}>
-      <div style={contentContainerStyle}>
+      <div className="story-container-padding">
         <DescriptionList>
           <DescriptionListTerm>Title</DescriptionListTerm>
           <DescriptionListDesc>Description</DescriptionListDesc>
