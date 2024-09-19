@@ -21,10 +21,10 @@ import { useCallback } from 'react';
  */
 
 export function useCombinedRef<T>(
-  ...refs: Array<React.Ref<T>>
+  ...refs: Array<React.Ref<T> | undefined>
 ): RefCallback<T> {
   return useCallback((element: T) => {
-    refs.forEach(ref => {
+    refs.filter(Boolean).forEach(ref => {
       if (typeof ref === 'function') ref(element);
       else if (ref && typeof ref === 'object')
         (ref as MutableRefObject<T>).current = element;
