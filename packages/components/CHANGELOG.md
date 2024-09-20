@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 17.3.0
+
+### Minor Changes
+
+- cbced1e: Ny komponent: Accordion. I motsetning til `<CardAccordion>` (som skal bytte navn), brukes den i grupper og andre kontekster der man ikke skal ha `<Card>`.
+- 9089c9c: Ny komponent: `<Contrast>`. Den har en invertert bakgrunnsfarge som default og setter invertert farge på tekst ut av boksen(i Elsa-komponenter og unstyled tekst).
+- cbced1e: Ny hook: `useAccordion`. Den kan brukes når man vil ha accordion-oppførsel, men ikke den faktiske `<Accordion>`-komponenten. Hooken håndterer oppførsel og universell utforming.
+
+### Patch Changes
+
+- 2aa7a10: Endrer CSS `border-radius` i `<Card>` til `--dds-border-radius-surface`.
+
 ## 17.2.2
 
 ### Patch Changes
