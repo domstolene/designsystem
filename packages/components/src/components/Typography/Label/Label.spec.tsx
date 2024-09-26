@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Label } from './Label';
 
-describe('<Label />', () => {
+describe('<Label>', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Label>{text}</Label>);

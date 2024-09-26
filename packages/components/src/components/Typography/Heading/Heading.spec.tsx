@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Heading } from './Heading';
 
-describe('<Heading />', () => {
+describe('<Heading>', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Heading level={1}>{text}</Heading>);

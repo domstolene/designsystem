@@ -26,9 +26,9 @@ const bodyCellContent = ['content 1', 'content 2'];
 const table = (
   <CollapsibleTable headerValues={headers} isCollapsed>
     <Table.Head>
-      <CollapsibleTable.Row type="head">
-        <Table.Cell type="head">{headers[0].content}</Table.Cell>
-        <Table.Cell type="head">{headers[1].content}</Table.Cell>
+      <CollapsibleTable.Row>
+        <Table.Cell>{headers[0].content}</Table.Cell>
+        <Table.Cell>{headers[1].content}</Table.Cell>
       </CollapsibleTable.Row>
     </Table.Head>
     <Table.Body>
@@ -51,9 +51,9 @@ const ControlledTable = () => {
       </Button>
       <CollapsibleTable headerValues={headers} isCollapsed={collapse}>
         <Table.Head>
-          <CollapsibleTable.Row type="head">
-            <Table.Cell type="head">{headers[0].content}</Table.Cell>
-            <Table.Cell type="head">{headers[1].content}</Table.Cell>
+          <CollapsibleTable.Row>
+            <Table.Cell>{headers[0].content}</Table.Cell>
+            <Table.Cell>{headers[1].content}</Table.Cell>
           </CollapsibleTable.Row>
         </Table.Head>
         <Table.Body>
@@ -69,7 +69,7 @@ const ControlledTable = () => {
 
 const collapsingColumnHeaderText = 'Utvid';
 
-describe('<CollapsibleTable />', () => {
+describe('<CollapsibleTable>', () => {
   it('should hide second column when collapsed', () => {
     render(table);
 
@@ -115,9 +115,9 @@ describe('<CollapsibleTable />', () => {
     render(
       <CollapsibleTable headerValues={[]} isCollapsed>
         <Table.Head>
-          <CollapsibleTable.Row type="head">
-            <Table.Cell type="head">{headers[0].content}</Table.Cell>
-            <Table.Cell type="head">{headers[1].content}</Table.Cell>
+          <CollapsibleTable.Row>
+            <Table.Cell>{headers[0].content}</Table.Cell>
+            <Table.Cell>{headers[1].content}</Table.Cell>
           </CollapsibleTable.Row>
         </Table.Head>
         <Table.Body>

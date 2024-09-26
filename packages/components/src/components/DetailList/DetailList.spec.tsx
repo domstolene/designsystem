@@ -1,16 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { DescriptionList, DescriptionListDesc, DescriptionListTerm } from '.';
+import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
 
-describe('<DescriptionList>', () => {
+describe('<DetailList>', () => {
   it('should render description term', () => {
     const termText = 'term';
     render(
-      <DescriptionList>
-        <DescriptionListTerm>{termText}</DescriptionListTerm>
-        <DescriptionListDesc />
-      </DescriptionList>,
+      <DetailList>
+        <DetailListRow>
+          <DetailListTerm>{termText}</DetailListTerm>
+          <DetailListDesc />
+        </DetailListRow>
+      </DetailList>,
     );
     const term = screen.getByRole('term');
     expect(term).toBeInTheDocument();
@@ -19,10 +21,12 @@ describe('<DescriptionList>', () => {
   it('should render description', () => {
     const descText = 'desc';
     render(
-      <DescriptionList>
-        <DescriptionListTerm />
-        <DescriptionListDesc>{descText}</DescriptionListDesc>
-      </DescriptionList>,
+      <DetailList>
+        <DetailListRow>
+          <DetailListTerm />
+          <DetailListDesc>{descText}</DetailListDesc>
+        </DetailListRow>
+      </DetailList>,
     );
     const desc = screen.getByRole('definition');
     expect(desc).toBeInTheDocument();

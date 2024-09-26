@@ -32,10 +32,10 @@ const TestComponentSmallScreen = () => {
 };
 
 describe('<Breadcrumbs>', () => {
-  it('has aria-label', () => {
-    render(<TestComponent />);
-    const breadcrumbs = screen.getByLabelText('brødsmulesti');
-    expect(breadcrumbs).toHaveAttribute('aria-label', 'brødsmulesti');
+  it('should have nav with accessible name', () => {
+    render(<Breadcrumbs />);
+    const breadcrumbs = screen.getByRole('navigation');
+    expect(breadcrumbs).toHaveAccessibleName('brødsmulesti');
   });
   it('should render 4 breadcrumbs', () => {
     render(<TestComponent />);

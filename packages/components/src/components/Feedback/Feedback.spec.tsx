@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { Feedback } from './Feedback';
 
-describe('<Feedback />', () => {
+describe('<Feedback>', () => {
   it('should show thumb buttons on first render', () => {
     render(<Feedback ratingLabel="Hva syns du om tjenesten?" />);
 

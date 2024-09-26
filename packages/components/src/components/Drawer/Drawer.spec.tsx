@@ -18,7 +18,7 @@ const TestComponent = () => {
   );
 };
 
-describe('<Drawer />', () => {
+describe('<Drawer>', () => {
   it('should be hidden by default', () => {
     render(<TestComponent />);
     const element = screen.queryByText(content);

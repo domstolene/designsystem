@@ -25,11 +25,23 @@ const TestComponent = () => {
   );
 };
 
-describe('<RadioButton />', () => {
+describe('<RadioButton>', () => {
+  it('should render radiobutton', () => {
+    render(<RadioButton />);
+    const radio = screen.getByRole('radio');
+    expect(radio).toBeInTheDocument();
+  });
   it('should set default checked state', () => {
     render(<TestComponent />);
-    const input = screen.getAllByRole('radio')[0];
-    expect(input).toBeChecked();
+    const radio = screen.getAllByRole('radio')[0];
+    expect(radio).toBeChecked();
+  });
+  it('should get focus on click', async () => {
+    render(<TestComponent />);
+    const radio = screen.getAllByRole('radio')[1];
+    await userEvent.click(radio);
+
+    expect(radio).toHaveFocus();
   });
 
   it('should update checked state when selecting a radio button', async () => {
@@ -49,22 +61,23 @@ describe('<RadioButton />', () => {
     expect(radioGroup).toBeInTheDocument();
   });
 
-  it('RadioButtonGroup should have aria-describedby as tip id when tip provided', () => {
+  it('RadioButtonGroup should have accessible description when tip provided', () => {
     const groupId = 'groupId';
+    const tip = 'tip';
     render(
-      <RadioButtonGroup groupId={groupId} tip="tip">
-        <RadioButton label="test" />
+      <RadioButtonGroup groupId={groupId} tip={tip}>
+        <RadioButton />
       </RadioButtonGroup>,
     );
     const radioGroup = screen.getByRole('radiogroup');
-    expect(radioGroup).toHaveAttribute('aria-describedby', `${groupId}-tip`);
+    expect(radioGroup).toHaveAccessibleDescription(tip);
   });
 
   it('children of RadioButtonGroup should have aria-describedby as errorMessage id and aria-invalid when errorMessage provided', () => {
     const groupId = 'groupId';
     render(
       <RadioButtonGroup groupId={groupId} errorMessage="errorMessage">
-        <RadioButton label="Test" />
+        <RadioButton />
       </RadioButtonGroup>,
     );
     const radio = screen.getByRole('radio');

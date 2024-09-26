@@ -22,18 +22,14 @@ export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
       <div
         {...getBaseHTMLProps(
           id,
-          cn(
-            className,
-            styles['tab-panel'],
-            !active && styles['tab-panel--inactive'],
-            focusable,
-          ),
+          cn(className, styles['tab-panel'], focusable),
           htmlProps,
           rest,
         )}
         ref={ref}
         tabIndex={0}
         role="tabpanel"
+        hidden={!active}
       >
         {children}
       </div>

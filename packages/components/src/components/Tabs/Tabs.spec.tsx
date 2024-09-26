@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { useEffect, useRef } from 'react';
 import { describe, expect, it } from 'vitest';
 
@@ -20,68 +21,87 @@ const WithRefs = () => {
   return (
     <Tabs>
       <TabList>
-        <Tab ref={activeRef}>Tab 1</Tab>
-        <Tab ref={inactiveRef}>Tab 2</Tab>
+        <Tab ref={activeRef} />
+        <Tab ref={inactiveRef} />
         <Tab>Tab 3</Tab>
       </TabList>
     </Tabs>
   );
 };
 
-describe('<Tabs />', () => {
-  it('renders elements with correct tab related roles', () => {
+describe('<Tabs>', () => {
+  it('renders tablist', () => {
+    render(
+      <Tabs>
+        <TabList />
+      </Tabs>,
+    );
+    expect(screen.getByRole('tablist')).toBeInTheDocument();
+  });
+  it('renders tab', () => {
     render(
       <Tabs>
         <TabList>
-          <Tab>Tab 1</Tab>
+          <Tab />
         </TabList>
-        <TabPanels>
-          <TabPanel>Panel 1</TabPanel>
-        </TabPanels>
       </Tabs>,
     );
     expect(screen.getByRole('tab')).toBeInTheDocument();
-    expect(screen.getByRole('tablist')).toBeInTheDocument();
-    expect(screen.getByRole('tabpanel')).toBeInTheDocument();
   });
-
-  it('renders 3 tabs in a tablist', () => {
+  it('renders tabpanel', () => {
     render(
       <Tabs>
-        <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
-          <Tab>Tab 3</Tab>
-        </TabList>
-      </Tabs>,
-    );
-    expect(screen.getByRole('tablist')).toBeInTheDocument();
-    expect(screen.queryAllByRole('tab')).toHaveLength(3);
-  });
-
-  it('set aria-expanded=true for open panel and false for closed panels onChange', () => {
-    const tabText2 = 'Tab 2';
-    const tabPanelText = 'Panel';
-
-    render(
-      <Tabs>
-        <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>{tabText2}</Tab>
-        </TabList>
         <TabPanels>
-          <TabPanel>{tabPanelText}</TabPanel>
-          <TabPanel>{tabPanelText}</TabPanel>
+          <TabPanel />
         </TabPanels>
       </Tabs>,
     );
 
-    const tab2 = screen.getByText(tabText2);
-    const [tabPanel1, tabPanel2] = screen.getAllByText(tabPanelText);
+    expect(screen.getByRole('tabpanel')).toBeInTheDocument();
+  });
 
+  it('renders 3 tabs', () => {
+    render(
+      <Tabs>
+        <TabList>
+          <Tab />
+          <Tab />
+          <Tab />
+        </TabList>
+      </Tabs>,
+    );
+    expect(screen.queryAllByRole('tab')).toHaveLength(3);
+  });
+
+  it('open panel should visible and closed panels invisible onChange', async () => {
+    const panelText1 = 'panelText1';
+    const panelText2 = 'panelText2';
+    render(
+      <Tabs>
+        <TabList>
+          <Tab />
+          <Tab />
+        </TabList>
+        <TabPanels>
+          <TabPanel>{panelText1}</TabPanel>
+          <TabPanel>{panelText2}</TabPanel>
+        </TabPanels>
+      </Tabs>,
+    );
+
+    const [, tab2] = screen.getAllByRole('tab');
+    const tabPanel1 = screen.getByText(panelText1);
+    const tabPanel2 = screen.getByText(panelText2);
+
+    expect(tabPanel1).toBeInTheDocument();
+    expect(tabPanel1).toBeVisible();
+    expect(tabPanel2).not.toBeVisible();
     expect(tabPanel1).toHaveAttribute('aria-expanded', 'true');
     expect(tabPanel2).toHaveAttribute('aria-expanded', 'false');
-    fireEvent.click(tab2);
+
+    await userEvent.click(tab2);
+    expect(tabPanel1).not.toBeVisible();
+    expect(tabPanel2).toBeVisible();
     expect(tabPanel1).toHaveAttribute('aria-expanded', 'false');
     expect(tabPanel2).toHaveAttribute('aria-expanded', 'true');
   });
@@ -90,12 +110,12 @@ describe('<Tabs />', () => {
     render(
       <Tabs>
         <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
+          <Tab />
+          <Tab />
         </TabList>
         <TabPanels>
-          <TabPanel>Panel 1</TabPanel>
-          <TabPanel>Panel 2</TabPanel>
+          <TabPanel />
+          <TabPanel />
         </TabPanels>
       </Tabs>,
     );
@@ -104,56 +124,48 @@ describe('<Tabs />', () => {
     expect(tab2).toHaveAttribute('aria-selected', 'false');
   });
 
-  it('tab should get aria-selected onClick', () => {
+  it('tab should get aria-selected onClick', async () => {
     render(
       <Tabs>
         <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
+          <Tab />
+          <Tab />
         </TabList>
         <TabPanels>
-          <TabPanel>Panel 1</TabPanel>
-          <TabPanel>Panel 2</TabPanel>
+          <TabPanel />
+          <TabPanel />
         </TabPanels>
       </Tabs>,
     );
 
     const [tab1, tab2] = screen.getAllByRole('tab');
 
-    fireEvent.click(tab2);
+    await userEvent.click(tab2);
     expect(tab1).toHaveAttribute('aria-selected', 'false');
     expect(tab2).toHaveAttribute('aria-selected', 'true');
   });
 
-  it('tabs should be connected to panels via aria-controls and aria-labelledby', () => {
-    const tabPanelText = 'Panel';
+  it('tabs should be connected to panels via aria-controls accessible name', () => {
     const id = 'id';
+    const tab1Text = 'tab1';
 
     render(
       <Tabs id={id}>
         <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
+          <Tab>{tab1Text}</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{tabPanelText}</TabPanel>
-          <TabPanel>{tabPanelText}</TabPanel>
+          <TabPanel />
         </TabPanels>
       </Tabs>,
     );
 
-    const [tab1, tab2] = screen.getAllByRole('tab');
-    const [tabPanel1, tabPanel2] = screen.getAllByText(tabPanelText);
-
-    expect(tab1).toHaveAttribute('id', `${id}-tab-0`);
-    expect(tab2).toHaveAttribute('id', `${id}-tab-1`);
-    expect(tabPanel1).toHaveAttribute('id', `${id}-panel-0`);
-    expect(tabPanel2).toHaveAttribute('id', `${id}-panel-1`);
+    const tab1 = screen.getByRole('tab');
+    const tabPanel1 = screen.getByRole('tabpanel');
 
     expect(tab1).toHaveAttribute('aria-controls', `${id}-panel-0`);
-    expect(tab2).toHaveAttribute('aria-controls', `${id}-panel-1`);
-    expect(tabPanel1).toHaveAttribute('aria-labelledby', `${id}-tab-0`);
-    expect(tabPanel2).toHaveAttribute('aria-labelledby', `${id}-tab-1`);
+    expect(tabPanel1).toHaveAttribute('id', `${id}-panel-0`);
+    expect(tabPanel1).toHaveAccessibleName(tab1Text);
   });
 
   it('renders tabs when no children provided', () => {
@@ -168,49 +180,50 @@ describe('<Tabs />', () => {
   });
 
   it('listens for activeTab prop and renders tabPanels accordingly', () => {
-    const id = 'id';
-    const tabPanelText = 'tabPanel';
-
+    const panelText1 = 'panelText1';
+    const panelText2 = 'panelText2';
     const { rerender } = render(
-      <Tabs id={id} activeTab={0}>
+      <Tabs activeTab={0}>
         <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
+          <Tab />
+          <Tab />
         </TabList>
         <TabPanels>
-          <TabPanel>{tabPanelText}</TabPanel>
-          <TabPanel>{tabPanelText}</TabPanel>
+          <TabPanel>{panelText1}</TabPanel>
+          <TabPanel>{panelText2}</TabPanel>
         </TabPanels>
       </Tabs>,
     );
 
     let [tab1, tab2] = screen.getAllByRole('tab');
-    let [tabPanel1, tabPanel2] = screen.getAllByText(tabPanelText);
+    let tabPanel1 = screen.getByText(panelText1);
+    let tabPanel2 = screen.getByText(panelText2);
 
     expect(tab1).toHaveAttribute('aria-selected', 'true');
     expect(tab2).toHaveAttribute('aria-selected', 'false');
-    expect(tabPanel1).toHaveAttribute('aria-expanded', 'true');
-    expect(tabPanel2).toHaveAttribute('aria-expanded', 'false');
+    expect(tabPanel1).toBeVisible();
+    expect(tabPanel2).not.toBeVisible();
 
     rerender(
-      <Tabs id={id} activeTab={1}>
+      <Tabs activeTab={1}>
         <TabList>
-          <Tab>Tab 1</Tab>
-          <Tab>Tab 2</Tab>
+          <Tab />
+          <Tab />
         </TabList>
         <TabPanels>
-          <TabPanel>{tabPanelText}</TabPanel>
-          <TabPanel>{tabPanelText}</TabPanel>
+          <TabPanel>{panelText1}</TabPanel>
+          <TabPanel>{panelText2}</TabPanel>
         </TabPanels>
       </Tabs>,
     );
 
     [tab1, tab2] = screen.getAllByRole('tab');
-    [tabPanel1, tabPanel2] = screen.getAllByText(tabPanelText);
+    tabPanel1 = screen.getByText(panelText1);
+    tabPanel2 = screen.getByText(panelText2);
 
     expect(tab1).toHaveAttribute('aria-selected', 'false');
     expect(tab2).toHaveAttribute('aria-selected', 'true');
-    expect(tabPanel1).toHaveAttribute('aria-expanded', 'false');
-    expect(tabPanel2).toHaveAttribute('aria-expanded', 'true');
+    expect(tabPanel1).not.toBeVisible();
+    expect(tabPanel2).toBeVisible();
   });
 });

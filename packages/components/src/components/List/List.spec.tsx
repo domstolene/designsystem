@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest';
 
 import { List, ListItem } from '.';
 
-describe('<List />', () => {
+describe('<List>', () => {
   it('should be an unordered list by default', () => {
     render(
       <List>
-        <ListItem>Item</ListItem>
+        <ListItem />
       </List>,
     );
     const list = screen.getByRole('list');
@@ -16,7 +16,7 @@ describe('<List />', () => {
   it('should be an ordered list', () => {
     render(
       <List listType="ordered">
-        <ListItem>Item</ListItem>
+        <ListItem />
       </List>,
     );
     const list = screen.getByRole('list');
@@ -25,9 +25,9 @@ describe('<List />', () => {
   it('should render three list items', () => {
     render(
       <List>
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
-        <ListItem>Item</ListItem>
+        <ListItem />
+        <ListItem />
+        <ListItem />
       </List>,
     );
     const listItems = screen.getAllByRole('listitem');

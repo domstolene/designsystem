@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Paragraph } from './Paragraph';
 
-describe('<Paragraph />', () => {
+describe('<Paragraph>', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Paragraph>{text}</Paragraph>);

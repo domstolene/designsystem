@@ -1,5 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as SpinnerStories from './Spinner.stories';
 
 <Meta of={SpinnerStories} />
@@ -19,3 +22,17 @@ import * as SpinnerStories from './Spinner.stories';
 
 <Canvas of={SpinnerStories.Default} sourceState="shown" />
 <Controls of={SpinnerStories.Default} />
+
+## Retningslinjer
+
+### Innlasting av en region
+
+Når `<Spinner>` brukes for å indikere at en del av siden lastes inn, bruk `aria-busy="true"` og `aria-describedby` på regionen så lenge `<Spinner>` vises:
+
+<Source
+  code={`
+<div aria-busy="true" aria-describedby="spinner-id">
+  <Spinner id="spinner-id" />
+</div>
+`}
+/>

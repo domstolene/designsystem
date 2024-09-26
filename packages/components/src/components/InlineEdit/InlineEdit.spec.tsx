@@ -27,12 +27,12 @@ const TestComponentInput = (props: InlineEditInputProps) => {
   return <InlineEditInput value={value} onSetValue={setValue} {...rest} />;
 };
 
-describe('<InlineEdit />', () => {
-  it('should render element with role textbox when using <input>', () => {
+describe('<InlineEdit>', () => {
+  it('should render textbox when using <input>', () => {
     render(<TestComponentInput />);
     expect(screen.getByRole('textbox')).toBeInTheDocument;
   });
-  it('should render element with role textbox when using <textarea>', () => {
+  it('should render textbox when using <textarea>', () => {
     render(<TestComponentTextArea />);
     expect(screen.getByRole('textbox')).toBeInTheDocument;
   });

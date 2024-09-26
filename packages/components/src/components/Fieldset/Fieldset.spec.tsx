@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Fieldset } from './Fieldset';
 
-describe('<Fieldset />', () => {
+describe('<Fieldset>', () => {
   it('should render group', () => {
     render(<Fieldset />);
     expect(screen.getByRole('group')).toBeInTheDocument;

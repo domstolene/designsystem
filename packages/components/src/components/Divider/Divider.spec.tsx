@@ -3,10 +3,10 @@ import { describe, expect, it } from 'vitest';
 
 import { Divider } from '.';
 
-describe('<Divider />', () => {
+describe('<Divider>', () => {
   it('should render a horisontal line', () => {
     render(<Divider />);
-    const hr = screen.getByRole('separator');
-    expect(hr).toBeInTheDocument;
+
+    expect(screen.getByRole('separator')).toBeInTheDocument;
   });
 });
