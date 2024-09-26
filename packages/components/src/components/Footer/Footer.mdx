@@ -78,3 +78,34 @@ Venstre seksjonen i footer. Kan brukes som container for logo og liste med sosia
 ### Med logo, sosiale medier, adresse og lenker
 
 <Canvas of={FooterStories.FourColumns} />
+
+## Retningslinjer
+
+### `row-gap` i `<Grid>` for liten skjerm
+
+Default `row-gap` i `<Grid>` vil være for liten når `<GridChild>` tar hele bredden, aka versjon for liten skjerm.
+For disse brekkpunktene bør du ha `row-gap` satt til `dds-spacing-x2-5`.
+
+<Source
+  code={`
+<Grid
+  rowGap={{
+      xs: 'var(--dds-spacing-x2-5)', // liten skjerm
+      sm: 'var(--dds-spacing-x2-5)' // liten skjerm
+    }}
+ >
+  <GridChild
+  columnsOccupied={{
+        xs: '1/-1' // liten skjerm
+        sm: '1/-1', // liten skjerm
+        md: '1/4',
+        lg: '1/4',
+        xl: '1/4',
+      }}
+  >
+   {...innhold}
+  </GridChild>
+   {...mer innhold}
+</Grid>
+`}
+/>
