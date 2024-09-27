@@ -4,7 +4,7 @@ import { type InputHTMLAttributes } from 'react';
 import { type StaticTypographyType } from '../../Typography';
 
 export interface CommonInputProps {
-  /**Ledetekst for input. */
+  /**Ledetekst. */
   label?: string;
   /**Bredde for inputfeltet. */
   width?: Property.Width;
