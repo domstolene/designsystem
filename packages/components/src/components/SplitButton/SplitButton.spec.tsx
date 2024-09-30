@@ -18,23 +18,14 @@ const item: SplitButtonSecondaryActionsProps = [
   { children: itemText, onClick: () => null },
 ];
 
-interface props {
-  primaryAction: SplitButtonPrimaryActionProps;
-  secondaryActions: SplitButtonSecondaryActionsProps;
-}
-
-function TestComponent({ primaryAction, secondaryActions }: props) {
-  return (
-    <SplitButton
-      primaryAction={primaryAction}
-      secondaryActions={secondaryActions}
-    />
-  );
-}
-
 describe('<SplitButton>', () => {
+  it('should render two buttons', () => {
+    render(<SplitButton primaryAction={primary} secondaryActions={item} />);
+    const button = screen.getAllByRole('button');
+    expect(button).toHaveLength(2);
+  });
   it('should show OverflowMenu on menu button click', async () => {
-    render(<TestComponent secondaryActions={item} primaryAction={primary} />);
+    render(<SplitButton primaryAction={primary} secondaryActions={item} />);
     const menu = screen.queryByRole('menu');
     expect(menu).not.toBeInTheDocument();
     const menuButton = screen.getByLabelText('Åpne liste med flere valg');
@@ -48,9 +39,9 @@ describe('<SplitButton>', () => {
   it('should run onclick event from primary action button', async () => {
     const event = vi.fn();
     render(
-      <TestComponent
-        secondaryActions={item}
+      <SplitButton
         primaryAction={{ children: primaryText, onClick: event }}
+        secondaryActions={item}
       />,
     );
 
@@ -63,9 +54,9 @@ describe('<SplitButton>', () => {
   it('should run onclick event from context menu', async () => {
     const event = vi.fn();
     render(
-      <TestComponent
-        secondaryActions={[{ children: itemText, onClick: event }]}
+      <SplitButton
         primaryAction={primary}
+        secondaryActions={[{ children: itemText, onClick: event }]}
       />,
     );
 
@@ -76,7 +67,7 @@ describe('<SplitButton>', () => {
   });
 
   it('should hide menu after Esc keydown', async () => {
-    render(<TestComponent secondaryActions={item} primaryAction={primary} />);
+    render(<SplitButton secondaryActions={item} primaryAction={primary} />);
     const menuButton = screen.getByLabelText('Åpne liste med flere valg');
     fireEvent.click(menuButton!);
     const menuOpened = screen.getByRole('menu');

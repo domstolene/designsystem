@@ -45,7 +45,7 @@ export function Spinner(props: SpinnerProps) {
   return (
     <svg
       viewBox="0 0 50 50"
-      role="img"
+      role="progressbar"
       aria-labelledby={uniqueId}
       {...getBaseHTMLProps(id, cn(className, styles.svg), htmlProps, rest)}
       width={size}

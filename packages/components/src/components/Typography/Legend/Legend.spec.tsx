@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Legend } from './Legend';
 
-describe('<Legend />', () => {
+describe('<Legend>', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Legend>{text}</Legend>);

@@ -4,7 +4,20 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { Table } from '.';
 
-describe('<SortCell />', () => {
+describe('<SortCell>', () => {
+  it('should render columnheader and button', () => {
+    render(
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.SortCell onClick={() => null}></Table.SortCell>
+          </Table.Row>
+        </Table.Head>
+      </Table>,
+    );
+    expect(screen.getByRole('columnheader')).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
   it('should run onclick event', async () => {
     const event = vi.fn();
     render(

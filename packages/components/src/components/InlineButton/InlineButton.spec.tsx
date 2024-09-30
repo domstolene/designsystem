@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
 
 import { InlineButton } from './InlineButton';
 
-describe('<InlineButton />', () => {
+describe('<InlineButton>', () => {
   it('should render button', () => {
     render(<InlineButton />);
     expect(screen.getByRole('button')).toBeInTheDocument;
@@ -12,5 +13,13 @@ describe('<InlineButton />', () => {
     const text = 'text';
     render(<InlineButton>{text}</InlineButton>);
     expect(screen.getByText(text)).toBeInTheDocument;
+  });
+  it('calls onClick when button is clicked', async () => {
+    const onClick = vi.fn();
+    render(<InlineButton onClick={onClick} />);
+    const button = screen.getByRole('button');
+    await userEvent.click(button);
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

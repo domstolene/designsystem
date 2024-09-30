@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { Link } from './Link';
 
-describe('<Link />', () => {
+describe('<Link>', () => {
   it('should have text', () => {
     const text = 'text';
     render(<Link>{text}</Link>);

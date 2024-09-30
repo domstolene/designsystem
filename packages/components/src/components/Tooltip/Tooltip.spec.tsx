@@ -13,7 +13,7 @@ window.IntersectionObserver = vi.fn().mockImplementation(() => ({
   disconnect: vi.fn(),
 }));
 
-describe('<Tooltip />', () => {
+describe('<Tooltip>', () => {
   it('should render tooltip', async () => {
     const text = 'text';
     render(

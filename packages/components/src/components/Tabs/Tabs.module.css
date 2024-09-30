@@ -75,7 +75,3 @@
 .tab-panel {
   padding: var(--dds-spacing-x0-25);
 }
-
-.tab-panel--inactive {
-  display: none;
-}

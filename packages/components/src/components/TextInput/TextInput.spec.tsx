@@ -1,50 +1,77 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
 import { TextInput } from '.';
 
-describe('<TextInput />', () => {
+describe('<TextInput>', () => {
+  it('should render textbox', () => {
+    render(<TextInput />);
+
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  });
   it('should have a label', () => {
     const label = 'button label';
     render(<TextInput label={label} />);
     expect(screen.getByText(label)).toBeInTheDocument();
+  });
+  it('should be disabled', () => {
+    render(<TextInput disabled />);
+
+    expect(screen.getByRole('textbox')).toBeDisabled();
+  });
+  it('should be required', () => {
+    render(<TextInput required />);
+
+    expect(screen.getByRole('textbox')).toBeRequired();
+  });
+  it('should be readonly', () => {
+    render(<TextInput readOnly />);
+
+    expect(screen.getByRole('textbox')).toHaveAttribute('readonly', '');
+  });
+  it('should get value on input', async () => {
+    const value = 'text';
+    render(<TextInput />);
+    const input = screen.getByRole('textbox');
+    await userEvent.type(input, value);
+
+    expect(input).toHaveFocus();
+    expect(input).toHaveValue(value);
+  });
+  it('should get focus on click', async () => {
+    render(<TextInput />);
+    const input = screen.getByRole('textbox');
+    await userEvent.click(input);
+
+    expect(input).toHaveFocus();
   });
   it('renders provided error message', () => {
     const errorMessage = 'this is an error';
     render(<TextInput errorMessage={errorMessage} />);
     expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
-  it('renders provided tip', () => {
+
+  it('should have accessible description when tip provided', () => {
     const tip = 'this is a tip';
     render(<TextInput tip={tip} />);
-    expect(screen.getByText(tip)).toBeInTheDocument();
+    const textbox = screen.getByRole('textbox');
+    expect(textbox).toHaveAccessibleDescription(tip);
   });
-  it('should have aria-describedby when tip provided', () => {
-    const id = 'id';
-    const tip = 'this is a tip';
-    render(<TextInput id={id} tip={tip} />);
-    expect(screen.getByRole('textbox')).toHaveAttribute(
-      'aria-describedby',
-      `${id}-tip`,
-    );
-  });
-  it('should have aria-describedby when errorMessage provided', () => {
+  it('should have accessible description and aria-invalid when errorMessage provided', () => {
     const id = 'id';
     const errorMessage = 'this is an errorMessage';
     render(<TextInput id={id} errorMessage={errorMessage} />);
-    expect(screen.getByRole('textbox')).toHaveAttribute(
-      'aria-describedby',
-      `${id}-errorMessage`,
-    );
-    expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+    const textbox = screen.getByRole('textbox');
+    expect(textbox).toHaveAccessibleDescription(errorMessage);
+    expect(textbox).toHaveAttribute('aria-invalid', 'true');
   });
   it('should have character counter and aria-describedby when maxLength provided', () => {
     const id = 'id';
     const length = 5;
     render(<TextInput id={id} maxLength={length} />);
-    expect(screen.getByRole('textbox')).toHaveAttribute(
-      'aria-describedby',
-      `${id}-characterCounter`,
+    expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+      `0/${length}`,
     );
     expect(screen.getByText(`0/${length}`)).toBeInTheDocument();
   });
@@ -54,9 +81,8 @@ describe('<TextInput />', () => {
     render(
       <TextInput id={id} maxLength={length} withCharacterCounter={false} />,
     );
-    expect(screen.getByRole('textbox')).not.toHaveAttribute(
-      'aria-describedby',
-      `${id}-characterCounter`,
+    expect(screen.getByRole('textbox')).not.toHaveAccessibleDescription(
+      `0/${length}`,
     );
     expect(screen.queryByText(`0/${length}`)).not.toBeInTheDocument();
   });

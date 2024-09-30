@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import { SkipToContent } from '.';
 
-describe('<SkipToContent />', () => {
+describe('<SkipToContent>', () => {
   it('should have a link in navigation', () => {
     const href = '#';
     render(<SkipToContent href={href} />);

@@ -5,7 +5,7 @@ import { Link } from '../Typography';
 
 import { EmptyContent } from '.';
 
-describe('<EmptyContent />', () => {
+describe('<EmptyContent>', () => {
   it('should render message text', () => {
     const message = 'message';
     render(<EmptyContent message={message} />);
