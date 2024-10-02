@@ -59,7 +59,7 @@ export const Overview: Story = {
         />
       </StoryVStack>
       <StoryVStack>
-        <SplitButtonVariants args={args} loading />
+        <SplitButtonVariants args={args} children="Tekst" loading />
       </StoryVStack>
     </StoryHStack>
   ),
