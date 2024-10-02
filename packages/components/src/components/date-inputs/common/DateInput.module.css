@@ -119,6 +119,7 @@
   border: 1px solid var(--dds-color-border-default);
   padding: var(--dds-spacing-x0-5);
   box-shadow: var(--dds-shadow-2);
+  height: 347px;
 }
 
 .calendar {
