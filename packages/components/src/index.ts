@@ -38,6 +38,7 @@ export * from './components/LocalMessage';
 export * from './components/Modal';
 export * from './components/OverflowMenu';
 export * from './components/Pagination';
+export * from './components/PhoneInput';
 export * from './components/Popover';
 export * from './components/ProgressTracker';
 export * from './components/Search';
