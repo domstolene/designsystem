@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 17.3.1
+
+### Patch Changes
+
+- a15ab26: Setter fast høyde på kalender-popover i `<DatePicker>`. På denne måten har den forutsigbar størrelse, og innholdet hopper ikke når antall uker i måneden forandrer seg.
+- 322a3c1: Setter `role="progressbar"` i `<Spinner>` for bedre bruk med assisterende teknologi.
+- 675ddd0: Fikser bug der border i trykt inn knapp i `<ButtonGroup>` hadde feil farge.
+
 ## 17.3.0
 
 ### Minor Changes
