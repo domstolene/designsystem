@@ -82,7 +82,7 @@
     "@react-aria/i18n": "^3.12.3",
     "@react-stately/calendar": "^3.5.5",
     "@react-stately/datepicker": "^3.10.3",
-    "file-selector": "^0.9.0",
+    "file-selector": "^1.1.0",
     "react-select": "^5.8.1"
   },
   "publishConfig": {
