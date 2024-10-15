@@ -40,6 +40,7 @@ export * from './components/OverflowMenu';
 export * from './components/Pagination';
 export * from './components/Popover';
 export * from './components/ProgressTracker';
+export * from './components/ProgressBar';
 export * from './components/Search';
 export * from './components/Select';
 export * from './components/SelectionControl/Checkbox';
