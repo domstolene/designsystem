@@ -1,0 +1,25 @@
+.backdrop {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  background-color: var(--dds-color-surface-backdrop-default);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s;
+  }
+}
+
+.backdrop--visible {
+  opacity: 1;
+}
+
+.backdrop--hidden {
+  opacity: 0;
+}

@@ -7,10 +7,6 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import {
-  handleElementWithBackdropMount,
-  handleElementWithBackdropUnmount,
-} from './Backdrop';
 import styles from './Modal.module.css';
 import {
   useCombinedRef,
@@ -25,7 +21,12 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
-import { Paper } from '../helpers';
+import {
+  Backdrop,
+  Paper,
+  handleElementWithBackdropMount,
+  handleElementWithBackdropUnmount,
+} from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
@@ -41,7 +42,7 @@ export type ModalProps = BaseComponentPropsWithChildren<
      * @default document.body
      */
     parentElement?: HTMLElement;
-    /**Tittel/header i modal. Setter `aria-labelledby`. */
+    /**Tittel/header i modal. Setter også `aria-labelledby`. */
     header?: string | ReactNode;
     /**Ref som brukes til returnering av fokus. */
     triggerRef?: RefObject<HTMLElement>;
@@ -95,14 +96,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
   return isOpen || hasTransitionedIn
     ? createPortal(
-        <div
-          className={cn(
-            styles.backdrop,
-            hasTransitionedIn && isOpen
-              ? styles['backdrop--visible']
-              : styles['backdrop--hidden'],
-          )}
-        >
+        <Backdrop isMounted={isOpen && hasTransitionedIn}>
           <Paper
             {...getBaseHTMLProps(
               id,
@@ -120,7 +114,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             elevation={4}
           >
             <div className={styles.content}>
-              {header && (
+              {!!header && (
                 <div id={headerId} className={styles.header}>
                   {typeof header === 'string' ? (
                     <Heading level={2} typographyType="headingSans03">
@@ -144,7 +138,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
               />
             )}
           </Paper>
-        </div>,
+        </Backdrop>,
         parentElement,
       )
     : null;
