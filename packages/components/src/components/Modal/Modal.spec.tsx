@@ -20,7 +20,7 @@ const TestComponent = ({
 
   return (
     <>
-      <Button onClick={show} data-testid="open-button" />
+      <Button onClick={show} />
       <Modal isOpen={open} onClose={close}>
         {children}
       </Modal>
@@ -28,16 +28,16 @@ const TestComponent = ({
   );
 };
 
-describe('<Modal />', () => {
-  it('should have header with title', () => {
+describe('<Modal>', () => {
+  it('should have header', () => {
     const header = 'title';
-    render(<Modal isOpen={true} header={header}></Modal>);
+    render(<Modal isOpen={true} header={header} />);
     const el = screen.getByText(header);
     expect(el).toBeInTheDocument();
   });
 
   it('should have role="dialog"', () => {
-    render(<Modal isOpen={true}></Modal>);
+    render(<Modal isOpen={true} />);
     const el = screen.getByRole('dialog');
 
     expect(el).toBeInTheDocument();
@@ -49,15 +49,12 @@ describe('<Modal />', () => {
     expect(el).not.toBeInTheDocument();
   });
 
-  it('should have aria-labelledby set to header id', () => {
+  it('should be labelled by header', () => {
     const header = 'title';
-    const id = 'id';
-    render(<Modal id={id} isOpen={true} header={header}></Modal>);
+    render(<Modal isOpen={true} header={header} />);
     const el = screen.getByRole('dialog');
 
-    expect(el).toHaveAttribute('aria-labelledby', `${id}-header`);
-    const label = screen.getByLabelText(header);
-    expect(label).toBeInTheDocument();
+    expect(el).toHaveAccessibleName(header);
   });
 
   it('should have body content', () => {
@@ -93,6 +90,17 @@ describe('<Modal />', () => {
 
     const elQuery = screen.queryByRole('dialog');
     expect(elQuery).not.toBeInTheDocument();
+  });
+
+  it('should not hide after Esc keydown if not closable', async () => {
+    render(<Modal isOpen={true} />);
+
+    const el = await screen.findByRole('dialog');
+    expect(el).toBeInTheDocument();
+
+    await userEvent.keyboard('[Escape]');
+
+    expect(el).toBeInTheDocument();
   });
 
   it('should prevent scroll when open', async () => {

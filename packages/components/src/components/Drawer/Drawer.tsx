@@ -1,5 +1,11 @@
 import { type Property } from 'csstype';
-import { type ReactNode, type RefObject, forwardRef, useId } from 'react';
+import {
+  type ReactNode,
+  type RefObject,
+  forwardRef,
+  useEffect,
+  useId,
+} from 'react';
 import { createPortal } from 'react-dom';
 
 import styles from './Drawer.module.css';
@@ -16,11 +22,17 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
-import { Paper } from '../helpers';
+import {
+  Backdrop,
+  Paper,
+  handleElementWithBackdropMount,
+  handleElementWithBackdropUnmount,
+} from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
+
 export type DrawerSize = 'small' | 'medium' | 'large';
 export type DrawerPlacement = 'left' | 'right';
 export interface WidthProps {
@@ -54,6 +66,10 @@ export type DrawerProps = BaseComponentPropsWithChildren<
     widthProps?: WidthProps;
     /**Ref til elementet som åpner `<Drawer />`.  **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
     triggerRef?: RefObject<HTMLElement>;
+    /**
+     * Om `<Drawer>` skal vises med backdrop som gråer ut bakgrunnen.
+     */
+    withBackdrop?: boolean;
   }
 >;
 
@@ -71,6 +87,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     className,
     htmlProps,
     widthProps,
+    withBackdrop,
     ...rest
   } = props;
 
@@ -89,6 +106,18 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     }
   });
 
+  useEffect(() => {
+    if (withBackdrop) {
+      if (isOpen) {
+        handleElementWithBackdropMount(document.body);
+      } else {
+        handleElementWithBackdropUnmount(document.body);
+      }
+
+      return () => handleElementWithBackdropUnmount(document.body);
+    }
+  }, [isOpen]);
+
   const elements: Array<HTMLElement | null> = [
     drawerRef.current as HTMLElement,
   ];
@@ -101,66 +130,73 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   });
 
   const hasTransitionedIn = useMountTransition(isOpen, 500);
+  const isMounted = hasTransitionedIn && isOpen;
 
-  const isOpenCn = hasTransitionedIn && isOpen ? 'opened' : 'closed';
+  const isOpenCn = isMounted ? 'opened' : 'closed';
 
-  const containerProps = {
-    ...getBaseHTMLProps(
-      uniqueId,
-      cn(
-        className,
-        styles.container,
-        styles[`container--${size}`],
-        styles[`container--${placement}`],
-        styles[`container--${placement}-${isOpenCn}`],
-        focusStyles['focusable--inset'],
-      ),
-      htmlProps,
-      rest,
-    ),
-    ref: combinedRef,
-    tabIndex: -1,
-    role: 'dialog',
-    'aria-labelledby': headerId,
-    style: { ...htmlProps?.style, ...widthProps },
-  };
+  const drawer = (
+    <Paper
+      ref={combinedRef}
+      role="dialog"
+      tabIndex={-1}
+      {...getBaseHTMLProps(
+        uniqueId,
+        cn(
+          className,
+          styles.container,
+          styles[`container--${size}`],
+          styles[`container--${placement}`],
+          styles[`container--${placement}-${isOpenCn}`],
+          focusStyles['focusable--inset'],
+        ),
+        htmlProps,
+        rest,
+      )}
+      elevation={4}
+      style={{ ...htmlProps?.style, ...widthProps }}
+      aria-labelledby={headerId}
+    >
+      <div
+        className={cn(
+          styles['content-container'],
+          utilStyles.scrollbar,
+          utilStyles['scrollable-y'],
+        )}
+      >
+        {hasHeader && (
+          <div id={headerId}>
+            {typeof header === 'string' ? (
+              <Heading level={2} typographyType="headingSans03">
+                {header}
+              </Heading>
+            ) : (
+              header
+            )}
+          </div>
+        )}
+        {children}
+      </div>
+
+      <Button
+        className={cn(styles['button--close'])}
+        data-testid="drawer-close-btn"
+        size="small"
+        purpose="tertiary"
+        onClick={onClose}
+        aria-label="Lukk"
+        icon={CloseIcon}
+      />
+    </Paper>
+  );
+
+  const component = withBackdrop ? (
+    <Backdrop isMounted={isMounted}>{drawer}</Backdrop>
+  ) : (
+    drawer
+  );
 
   return isOpen || hasTransitionedIn
-    ? createPortal(
-        <Paper {...containerProps} elevation={4}>
-          <div
-            className={cn(
-              styles['content-container'],
-              utilStyles.scrollbar,
-              utilStyles['scrollable-y'],
-            )}
-          >
-            {hasHeader && (
-              <div id={headerId}>
-                {typeof header === 'string' ? (
-                  <Heading level={2} typographyType="headingSans03">
-                    {header}
-                  </Heading>
-                ) : (
-                  header
-                )}
-              </div>
-            )}
-            {children}
-          </div>
-
-          <Button
-            className={cn(styles['button--close'])}
-            data-testid="drawer-close-btn"
-            size="small"
-            purpose="tertiary"
-            onClick={onClose}
-            aria-label="Lukk"
-            icon={CloseIcon}
-          />
-        </Paper>,
-        parentElement,
-      )
+    ? createPortal(component, parentElement)
     : null;
 });
 
