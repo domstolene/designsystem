@@ -1,8 +1,6 @@
 {
   "tokenSetOrder": [
     "Base",
-    "Semantic",
-    "font/font",
-    "form/shadow"
+    "Semantic"
   ]
 }
