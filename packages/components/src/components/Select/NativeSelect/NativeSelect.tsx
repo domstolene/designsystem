@@ -10,7 +10,11 @@ import {
   readOnlyMouseDownHandler,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
-import { type InputProps, inputTypographyTypes } from '../../helpers';
+import {
+  type CommonInputProps,
+  type InputProps,
+  inputTypographyTypes,
+} from '../../helpers';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
@@ -20,7 +24,9 @@ import { renderInputMessage } from '../../InputMessage';
 import { Label, getTypographyCn } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
-export type NativeSelectProps = InputProps & ComponentProps<'select'>;
+export type NativeSelectProps = CommonInputProps &
+  Pick<InputProps, 'componentSize' | 'readOnly'> &
+  ComponentProps<'select'>;
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   (props, ref) => {
