@@ -56,5 +56,5 @@
 }
 
 .li {
-  line-height: 2.5em;
+  line-height: var(--dds-font-lineheight-list);
 }
