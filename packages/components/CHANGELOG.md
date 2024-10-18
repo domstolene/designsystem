@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 17.4.0
+
+### Minor Changes
+
+- 71b89d8: Ny komponent: `<ProgressBar>`. Den kan brukes til å vise progresjon av en prosess,rendering, nedlasting eller opplasting.
+- 247261c: Legger til støtte for `withBackdrop` prop i `<Drawer>`. Den returnerer variant med backdrop.
+
+### Patch Changes
+
+- c8a936b: Fikser farge på ikon i knappene i `<Feedback>`.
+- 056feeb: Setter farge på border i `<ToggleButton>` til `--dds-color-border-default`.
+- 3461f4a: Utbedrer spacing i `<ToggleButton>`.
+- 15a3922: Setter linjehøyde for `<ListItem>` til `--dds-font-lineheight-list` (istedenfor hardkodet verdi).
+
 ## 17.3.1
 
 ### Patch Changes
