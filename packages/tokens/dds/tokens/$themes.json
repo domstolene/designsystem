@@ -3,7 +3,8 @@
     "id": "156a716921b10e24a326ddfaecd5cd7d56bd7600",
     "name": "Elsa",
     "selectedTokenSets": {
-      "Base": "enabled"
+      "Base": "enabled",
+      "Core": "disabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {
@@ -119,10 +120,10 @@
   },
   {
     "id": "b6e658fce797f535939d0292abbeaa2718b84cd3",
-    "name": "Light",
+    "name": "Core",
     "selectedTokenSets": {
       "Base": "source",
-      "Semantic": "enabled"
+      "Core": "enabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {
@@ -219,6 +220,16 @@
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "9567:3",
+    "group": "Mode"
+  },
+  {
+    "id": "fd480e5b6bb83ef12c22bc32685b9039a5e4cd75",
+    "name": "Public",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "Base": "source",
+      "Core": "disabled"
+    },
     "group": "Mode"
   }
 ]
