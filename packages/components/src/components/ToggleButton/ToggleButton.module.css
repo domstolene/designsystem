@@ -32,7 +32,7 @@
   width: fit-content;
   border: 1px solid;
   border-radius: var(--dds-border-radius-rounded);
-  gap: var(--dds-spacing-x0-5);
+  gap: var(--dds-spacing-x0-25);
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
   background-color: var(--dds-color-surface-default);
   color: var(--dds-color-text-default);
@@ -48,6 +48,10 @@
     border-color: var(--dds-color-border-action-hover);
     background-color: var(--dds-color-surface-hover-default);
   }
+}
+
+.content--with-icon {
+  padding-inline-start: var(--dds-spacing-x0-75);
 }
 
 input:checked + .content {
