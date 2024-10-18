@@ -30,7 +30,7 @@
   box-sizing: border-box;
   cursor: pointer;
   width: fit-content;
-  border: 1px solid;
+  border: 1px solid var(--dds-color-border-default);
   border-radius: var(--dds-border-radius-rounded);
   gap: var(--dds-spacing-x0-25);
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
