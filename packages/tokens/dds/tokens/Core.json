@@ -463,5 +463,204 @@
       "type": "dimension",
       "description": "rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
     }
+  },
+  "dds-font": {
+    "label": {
+      "medium": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.bold}",
+          "fontSize": "{dds-font-size.x0_875}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Label for form components"
+      }
+    },
+    "body": {
+      "xsmall": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x0_75}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": " used with xsmall button and input fields"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x0_875}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": " used with small button and input fields"
+      },
+      "medium": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "standard body text, used with medium button and input fields"
+      },
+      "large": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1_125}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Used for large button and large search"
+      }
+    },
+    "heading": {
+      "sans-01": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.bold}",
+          "fontSize": "{dds-font-size.x1}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      },
+      "sans-02": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.bold}",
+          "fontSize": "{dds-font-size.x1_125}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      },
+      "sans-03": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1_5}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      },
+      "sans-04": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x2}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.tight}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      },
+      "sans-05": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.light}",
+          "fontSize": "{dds-font-size.x2_5}",
+          "lineHeight": "{dds-font-lineheight.x2}",
+          "letterSpacing": "{dds-font-letter-spacing.tight}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      },
+      "sans-06": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.light}",
+          "fontSize": "{dds-font-size.x3}",
+          "lineHeight": "{dds-font-lineheight.x3}",
+          "letterSpacing": "{dds-font-letter-spacing.tight}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      },
+      "sans-07": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.light}",
+          "fontSize": "{dds-font-size.x4}",
+          "lineHeight": "{dds-font-lineheight.x3}",
+          "letterSpacing": "{dds-font-letter-spacing.tight}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      },
+      "sans-08": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.light}",
+          "fontSize": "{dds-font-size.x5}",
+          "lineHeight": "{dds-font-lineheight.x3}",
+          "letterSpacing": "{dds-font-letter-spacing.tight}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography"
+      }
+    },
+    "lead": {
+      "medium": {
+        "value": {
+          "fontFamily": "{dds-font-family.sans}",
+          "fontWeight": "{dds-font-weight.bold}",
+          "fontSize": "{dds-font-size.x1_125}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Lead brukes som ingress når man skriver artikler etc"
+      }
+    },
+    "code": {
+      "medium": {
+        "value": {
+          "fontFamily": "{dds-font-family.monospace}",
+          "fontWeight": "{dds-font-weight.normal}",
+          "fontSize": "{dds-font-size.x1}",
+          "lineHeight": "{dds-font-lineheight.x1}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "textDecoration": "{dds-font-style.normal}"
+        },
+        "type": "typography",
+        "description": "Brukes for kodesnutter etc"
+      }
+    }
   }
 }
