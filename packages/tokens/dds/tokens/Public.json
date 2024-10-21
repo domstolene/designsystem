@@ -437,40 +437,13 @@
       }
     }
   },
-  "dds-border-radius": {
-    "button": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "For use in button component and togglebutton"
-    },
-    "surface": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
-    },
-    "input": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "All input fields, and check boxes"
-    },
-    "chip": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "chips and tags"
-    },
-    "rounded": {
-      "value": "{dds-border-radius.100}",
-      "type": "dimension",
-      "description": "rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
-    }
-  },
   "dds-font": {
     "label": {
       "medium": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x0_875}",
+          "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -485,7 +458,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x0_75}",
+          "fontSize": "{dds-font-size.x0_875}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -498,9 +471,9 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x0_875}",
+          "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x1}",
-          "letterSpacing": "{dds-font-letter-spacing.loose}",
+          "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
           "textDecoration": "{dds-font-style.normal}"
         },
@@ -511,7 +484,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1}",
+          "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -524,7 +497,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1_125}",
+          "fontSize": "{dds-font-size.x1_25}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -539,7 +512,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x0_75}",
+          "fontSize": "{dds-font-size.x0_875}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -552,7 +525,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x0_875}",
+          "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -564,8 +537,8 @@
       "small": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1}",
+          "fontWeight": "{dds-font-weight.bold}",
+          "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -578,8 +551,8 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x1_125}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "fontSize": "{dds-font-size.x1_5}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
@@ -591,7 +564,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1_5}",
+          "fontSize": "{dds-font-size.x2}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -603,10 +576,10 @@
       "xlarge": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x2}",
-          "lineHeight": "{dds-font-lineheight.x2}",
-          "letterSpacing": "{dds-font-letter-spacing.normal}",
+          "fontWeight": "{dds-font-weight.light}",
+          "fontSize": "{dds-font-size.x3}",
+          "lineHeight": "{dds-font-lineheight.x3}",
+          "letterSpacing": "{dds-font-letter-spacing.tight}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}"
         },
@@ -617,7 +590,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
-          "fontSize": "{dds-font-size.x3}",
+          "fontSize": "{dds-font-size.x4}",
           "lineHeight": "{dds-font-lineheight.x3}",
           "letterSpacing": "{dds-font-letter-spacing.tight}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -631,11 +604,11 @@
       "medium": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x1_125}",
-          "lineHeight": "{dds-font-lineheight.x1}",
+          "fontWeight": "{dds-font-weight.light}",
+          "fontSize": "{dds-font-size.x1_5}",
+          "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
-          "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
+          "paragraphSpacing": "{dds-font-paragraph-spacing.medium}",
           "textDecoration": "{dds-font-style.normal}"
         },
         "type": "typography",
@@ -647,7 +620,7 @@
         "value": {
           "fontFamily": "{dds-font-family.monospace}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1}",
+          "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -656,6 +629,33 @@
         "type": "typography",
         "description": "Brukes for kodesnutter etc"
       }
+    }
+  },
+  "dds-border-radius": {
+    "button": {
+      "value": "{dds-border-radius.1}",
+      "type": "borderRadius",
+      "description": "For use in button component and togglebutton"
+    },
+    "surface": {
+      "value": "{dds-border-radius.0}",
+      "type": "borderRadius",
+      "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
+    },
+    "input": {
+      "value": "{dds-border-radius.1}",
+      "type": "borderRadius",
+      "description": "All input fields, and check boxes"
+    },
+    "chip": {
+      "value": "{dds-border-radius.1}",
+      "type": "borderRadius",
+      "description": "Chips and tags"
+    },
+    "rounded": {
+      "value": "{dds-border-radius.100}",
+      "type": "borderRadius",
+      "description": "Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
     }
   }
 }

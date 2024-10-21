@@ -437,33 +437,6 @@
       }
     }
   },
-  "dds-border-radius": {
-    "button": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "For use in button component and togglebutton"
-    },
-    "surface": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
-    },
-    "input": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "All input fields, and check boxes"
-    },
-    "chip": {
-      "value": "{dds-border-radius.1}",
-      "type": "dimension",
-      "description": "chips and tags"
-    },
-    "rounded": {
-      "value": "{dds-border-radius.100}",
-      "type": "dimension",
-      "description": "rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
-    }
-  },
   "dds-font": {
     "label": {
       "medium": {
@@ -564,7 +537,7 @@
       "small": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontWeight": "{dds-font-weight.bold}",
           "fontSize": "{dds-font-size.x1}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -631,7 +604,7 @@
       "medium": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.bold}",
+          "fontWeight": "{dds-font-weight.light}",
           "fontSize": "{dds-font-size.x1_125}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
@@ -656,6 +629,33 @@
         "type": "typography",
         "description": "Brukes for kodesnutter etc"
       }
+    }
+  },
+  "dds-border-radius": {
+    "button": {
+      "value": "{dds-border-radius.1}",
+      "type": "borderRadius",
+      "description": "For use in button component and togglebutton"
+    },
+    "surface": {
+      "value": "{dds-border-radius.2}",
+      "type": "borderRadius",
+      "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
+    },
+    "input": {
+      "value": "{dds-border-radius.1}",
+      "type": "borderRadius",
+      "description": "All input fields, and check boxes"
+    },
+    "chip": {
+      "value": "{dds-border-radius.2}",
+      "type": "borderRadius",
+      "description": "Chips and tags"
+    },
+    "rounded": {
+      "value": "{dds-border-radius.100}",
+      "type": "borderRadius",
+      "description": "Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
     }
   }
 }
