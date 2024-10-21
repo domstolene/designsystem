@@ -4,7 +4,7 @@
     "name": "Elsa",
     "selectedTokenSets": {
       "Base": "enabled",
-      "Core": "disabled"
+      "Public": "disabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {
@@ -123,7 +123,8 @@
     "name": "Core",
     "selectedTokenSets": {
       "Base": "source",
-      "Core": "enabled"
+      "Core": "enabled",
+      "Public": "disabled"
     },
     "$figmaStyleReferences": {},
     "$figmaVariableReferences": {
@@ -228,7 +229,7 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base": "source",
-      "Core": "disabled"
+      "Public": "enabled"
     },
     "group": "Mode"
   }

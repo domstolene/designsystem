@@ -1,6 +1,7 @@
 {
   "tokenSetOrder": [
     "Base",
-    "Core"
+    "Core",
+    "Public"
   ]
 }
