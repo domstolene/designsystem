@@ -114,18 +114,22 @@
 
 .popover {
   z-index: 100;
-  border-radius: var(--dds-border-radius-surface);
-  background-color: var(--dds-color-surface-default);
-  border: 1px solid var(--dds-color-border-default);
-  padding: var(--dds-spacing-x0-5);
-  box-shadow: var(--dds-shadow-2);
-  height: 347px;
+  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x0-5)
+    var(--dds-spacing-x0-75) var(--dds-spacing-x0-5);
+}
+
+.modal {
+  padding-left: var(--dds-spacing-x0-75);
+  & > div {
+    padding-right: 0;
+  }
 }
 
 .calendar {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 327px;
 }
 
 .calendar__header {
