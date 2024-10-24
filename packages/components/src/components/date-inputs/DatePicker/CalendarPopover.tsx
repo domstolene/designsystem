@@ -14,6 +14,7 @@ import {
   useOnClickOutside,
   useOnKeyDown,
 } from '../../../hooks';
+import { Paper } from '../../helpers';
 import styles from '../common/DateInput.module.css';
 
 /**------------------------------------------------------------------------
@@ -95,12 +96,14 @@ export const CalendarPopoverContent = ({
   if (!isOpen) return null;
 
   return (
-    <div
+    <Paper
       ref={combinedRef}
       className={styles.popover}
       style={floatingStyles.floating}
+      elevation={2}
+      border="default"
     >
       {children}
-    </div>
+    </Paper>
   );
 };

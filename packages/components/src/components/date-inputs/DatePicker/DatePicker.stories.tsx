@@ -60,6 +60,10 @@ export const Default: Story = {
   args: { label: 'Dato' },
 };
 
+export const SmallScreen: Story = {
+  args: { label: 'Dato', smallScreen: true },
+};
+
 export const Overview: Story = {
   args: { label: 'Label' },
   render: args => (
