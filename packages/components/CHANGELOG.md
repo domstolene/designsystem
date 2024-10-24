@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 17.5.0
+
+### Minor Changes
+
+- d4efe6b: Ny komponent: `<PhoneInput>`. Består av en nedtrekksliste med landkoder og `<input type="tel">`. Brukes når det kan forventes numre fra andre land.
+
+### Patch Changes
+
+- d4efe6b: Fjerner støtte for native HTML `<input>`-attributter i `type NativeSelectProps`. Oppførselen er den samme, men det var problemer med typings i props som `onChange`, da slik prop var både av type `ChangeEventHandler<HTMLInputElement>` og `ChangeEventHandler<HTMLSelectElement>`.
+
 ## 17.4.0
 
 ### Minor Changes
