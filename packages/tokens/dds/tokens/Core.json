@@ -443,7 +443,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x0_875}",
+          "fontSize": "{dds-font-size.xxsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -458,7 +458,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x0_75}",
+          "fontSize": "{dds-font-size.xxxsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -471,7 +471,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x0_875}",
+          "fontSize": "{dds-font-size.xxsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -484,7 +484,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1}",
+          "fontSize": "{dds-font-size.xsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -497,7 +497,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1_125}",
+          "fontSize": "{dds-font-size.small}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -512,7 +512,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x0_75}",
+          "fontSize": "{dds-font-size.xxxsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.loose}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -525,7 +525,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x0_875}",
+          "fontSize": "{dds-font-size.xxsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -538,7 +538,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x1}",
+          "fontSize": "{dds-font-size.xsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -551,7 +551,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.x1_125}",
+          "fontSize": "{dds-font-size.small}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -564,7 +564,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1_5}",
+          "fontSize": "{dds-font-size.large}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -577,7 +577,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x2}",
+          "fontSize": "{dds-font-size.xlarge}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -590,7 +590,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
-          "fontSize": "{dds-font-size.x3}",
+          "fontSize": "{dds-font-size.xxlarge}",
           "lineHeight": "{dds-font-lineheight.x3}",
           "letterSpacing": "{dds-font-letter-spacing.tight}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -605,7 +605,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
-          "fontSize": "{dds-font-size.x1_125}",
+          "fontSize": "{dds-font-size.small}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -620,7 +620,7 @@
         "value": {
           "fontFamily": "{dds-font-family.monospace}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.x1}",
+          "fontSize": "{dds-font-size.xsmall}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.small}",
@@ -656,6 +656,235 @@
       "value": "{dds-border-radius.100}",
       "type": "borderRadius",
       "description": "Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
+    }
+  },
+  "dds-shadow": {
+    "1": {
+      "value": {
+        "x": "1px",
+        "y": "2px",
+        "blur": "4px",
+        "spread": "0px",
+        "color": "rgba( {dds-color.neutrals.gray9}, 10%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow"
+    },
+    "2": {
+      "value": {
+        "x": "2px",
+        "y": "4px",
+        "blur": "8px",
+        "spread": "0px",
+        "color": "rgba( {dds-color.neutrals.gray9}, 10%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow"
+    },
+    "3": {
+      "value": {
+        "x": "4px",
+        "y": "8px",
+        "blur": "16px",
+        "spread": "0px",
+        "color": "rgba( {dds-color.neutrals.gray9}, 10%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow"
+    },
+    "4": {
+      "value": {
+        "x": "8px",
+        "y": "16px",
+        "blur": "32px",
+        "spread": "0px",
+        "color": "rgba( {dds-color.neutrals.gray9}, 10%)",
+        "type": "dropShadow"
+      },
+      "type": "boxShadow"
+    }
+  },
+  "dds-grid": {
+    "xs": {
+      "count": {
+        "value": "4",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "16px",
+        "type": "dimension"
+      }
+    },
+    "sm": {
+      "count": {
+        "value": "8",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "16px",
+        "type": "dimension"
+      }
+    },
+    "lg": {
+      "count": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "24px",
+        "type": "dimension"
+      }
+    },
+    "md": {
+      "count": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "24px",
+        "type": "dimension"
+      }
+    },
+    "xl": {
+      "count": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter-size": {
+        "value": "24px",
+        "type": "dimension"
+      }
+    }
+  },
+  "dds-icon-size": {
+    "large": {
+      "value": "40px",
+      "type": "dimension"
+    },
+    "medium": {
+      "value": "24px",
+      "type": "dimension"
+    },
+    "small": {
+      "value": "16px",
+      "type": "dimension"
+    }
+  },
+  "dds-breakpoint": {
+    "xs": {
+      "value": "1px",
+      "type": "dimension"
+    },
+    "sm": {
+      "value": "600px",
+      "type": "dimension"
+    },
+    "md": {
+      "value": "960px",
+      "type": "dimension"
+    },
+    "lg": {
+      "value": "1280px",
+      "type": "dimension"
+    },
+    "xl": {
+      "value": "1920px",
+      "type": "dimension"
+    }
+  },
+  "dds-spacing": {
+    "x0": {
+      "value": "0px",
+      "type": "dimension"
+    },
+    "x0_125": {
+      "value": "2px",
+      "type": "dimension"
+    },
+    "x0_25": {
+      "value": "4px",
+      "type": "dimension"
+    },
+    "x0_5": {
+      "value": "8px",
+      "type": "dimension"
+    },
+    "x0_75": {
+      "value": "12px",
+      "type": "dimension"
+    },
+    "x1": {
+      "value": "16px",
+      "type": "dimension"
+    },
+    "x1_5": {
+      "value": "24px",
+      "type": "dimension"
+    },
+    "x2": {
+      "value": "32px",
+      "type": "dimension"
+    },
+    "x2_5": {
+      "value": "40px",
+      "type": "dimension"
+    },
+    "x3": {
+      "value": "48px",
+      "type": "dimension"
+    },
+    "x4": {
+      "value": "64px",
+      "type": "dimension"
+    },
+    "x6": {
+      "value": "96px",
+      "type": "dimension"
+    },
+    "x10": {
+      "value": "160px",
+      "type": "dimension"
+    },
+    "padding-top": {
+      "heading": {
+        "value": "0.7rem",
+        "type": "dimension",
+        "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
+      }
+    }
+  },
+  "dds-font-size": {
+    "xxlarge": {
+      "value": "{dds-font-size.x3}",
+      "type": "fontSizes"
+    },
+    "xlarge": {
+      "value": "{dds-font-size.x2}",
+      "type": "fontSizes"
+    },
+    "large": {
+      "value": "{dds-font-size.x1_5}",
+      "type": "fontSizes"
+    },
+    "medium": {
+      "value": "{dds-font-size.x1_25}",
+      "type": "fontSizes"
+    },
+    "small": {
+      "value": "{dds-font-size.x1_125}",
+      "type": "fontSizes"
+    },
+    "xsmall": {
+      "value": "{dds-font-size.x1}",
+      "type": "fontSizes"
+    },
+    "xxsmall": {
+      "value": "{dds-font-size.x0_875}",
+      "type": "fontSizes"
+    },
+    "xxxsmall": {
+      "value": "{dds-font-size.x0_75}",
+      "type": "fontSizes"
     }
   }
 }
