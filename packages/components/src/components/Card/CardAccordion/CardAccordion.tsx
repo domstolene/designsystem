@@ -1,9 +1,11 @@
 import { forwardRef } from 'react';
 
+import styles from './CardAccordion.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import { cn } from '../../../utils';
 import {
   AccordionContextProvider,
   useAccordion,
@@ -42,7 +44,12 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
 
     return (
       <div
-        {...getBaseHTMLProps(accordionId, className, htmlProps, rest)}
+        {...getBaseHTMLProps(
+          accordionId,
+          cn(className, styles['container']),
+          htmlProps,
+          rest,
+        )}
         ref={ref}
       >
         <AccordionContextProvider
