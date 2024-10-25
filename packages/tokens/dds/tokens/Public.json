@@ -444,7 +444,7 @@
       "description": "For use in button component and togglebutton"
     },
     "surface": {
-      "value": "{dds-border-radius.0}",
+      "value": "{dds-border-radius.1}",
       "type": "borderRadius",
       "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
     },
@@ -885,6 +885,156 @@
     "xxxsmall": {
       "value": "{dds-font-size.x0_875}",
       "type": "fontSizes"
+    }
+  },
+  "dds-font-heading": {
+    "xxlarge": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.tight}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.heading}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "xlarge": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.tight}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.heading}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "large": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.heading}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "medium": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.heading}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "small": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.heading}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "xsmall": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.heading}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "xxsmall": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.loose}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.heading}",
+        "type": "paragraphSpacing"
+      }
+    }
+  },
+  "dds-font-body": {
+    "large": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "medium": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "small": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    },
+    "xsmall": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.loose}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    }
+  },
+  "dds-font-lead": {
+    "medium": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.medium}",
+        "type": "paragraphSpacing"
+      }
+    }
+  },
+  "dds-font-code": {
+    "medium": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.normal}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
+    }
+  },
+  "dds-font-label": {
+    "medium": {
+      "letter-spacing": {
+        "value": "{dds-font-letter-spacing.loose}",
+        "type": "letterSpacing"
+      },
+      "paragraph-spacing": {
+        "value": "{dds-font-paragraph-spacing.small}",
+        "type": "paragraphSpacing"
+      }
     }
   }
 }
