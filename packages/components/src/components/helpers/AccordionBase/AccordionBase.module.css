@@ -4,6 +4,7 @@
   cursor: pointer;
   display: block;
   width: 100%;
+  border-radius: inherit;
 }
 
 .header-container {
