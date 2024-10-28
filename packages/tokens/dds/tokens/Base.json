@@ -332,7 +332,7 @@
       "type": "fontFamilies"
     },
     "monospace": {
-      "value": "IBM Plex Mono, Courier New, mono-space",
+      "value": "IBM Plex Mono, Courier New, monospace",
       "type": "fontFamilies",
       "description": "For kode"
     }
