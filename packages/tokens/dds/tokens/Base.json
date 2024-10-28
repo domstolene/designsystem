@@ -328,11 +328,11 @@
   },
   "dds-font-family": {
     "sans": {
-      "value": "IBM Plex Sans, Arial",
+      "value": "IBM Plex Sans, Arial, sans-serif",
       "type": "fontFamilies"
     },
     "monospace": {
-      "value": "IBM Plex Mono, Courier New",
+      "value": "IBM Plex Mono, Courier New, mono-space",
       "type": "fontFamilies",
       "description": "For kode"
     }
