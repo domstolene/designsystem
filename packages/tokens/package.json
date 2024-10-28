@@ -12,9 +12,14 @@
     "*.css",
     "*.scss"
   ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./*": "./*"
+  },
   "type": "module",
   "files": [
     "dist"
