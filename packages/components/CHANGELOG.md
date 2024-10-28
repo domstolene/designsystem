@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 17.5.1
+
+### Patch Changes
+
+- e49d4a5: Fikser `border-radius` i `<Card cardType="expandable">` ved hover.
+- b08087d: Fikser bug der `border-radius` prop var påkrevd i `<Skeleton>`.
+
 ## 17.5.0
 
 ### Minor Changes
