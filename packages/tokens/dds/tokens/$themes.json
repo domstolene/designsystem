@@ -12,11 +12,6 @@
       "dds-shadow.4": "S:b4edca369a01a597171a6043dbcb0f069055ef50,"
     },
     "$figmaVariableReferences": {
-      "dds-border-radius.0": "55c4f646a122d0e9c9e88c1e60fe096f2e2c88fb",
-      "dds-border-radius.1": "340a87b85bde805c754e4eb3fdd987179cda9eca",
-      "dds-border-radius.2": "9f04598a79bfadaa5a6c01c2ba46a822b6fb61b8",
-      "dds-border-radius.3": "06867aef0726edd5ea6fba08f72c06771de68292",
-      "dds-border-radius.100": "4d8b17213ad04cea768d89629f195303e551a63a",
       "dds-font-family.sans": "681a174d542610cfe67aed6617c5746397a53804",
       "dds-font-family.monospace": "07cf4bb78d7e7617269ab6526a32b908da2b8b46",
       "dds-font-size.x5": "993d82d4a019a15cd76590f70b2e60b0f1b60b23",
@@ -107,7 +102,12 @@
       "dds-color-base.info.darker": "c9094f164bdf280529c3c524dc8a13de90e3e308",
       "dds-color-base.info.darkest": "7714bfa96d3bdf9bd26fe6375afaf48049bd3a51",
       "dds-color-base.visited.base": "cd1a640e6d6cb8816cfa7cb416a67fca05b07ffc",
-      "dds-color-base.visited.lighter": "8ac8c4a83d55c47040df718d719d9573dd5afcda"
+      "dds-color-base.visited.lighter": "8ac8c4a83d55c47040df718d719d9573dd5afcda",
+      "dds-border-radius-base.0": "55c4f646a122d0e9c9e88c1e60fe096f2e2c88fb",
+      "dds-border-radius-base.1": "340a87b85bde805c754e4eb3fdd987179cda9eca",
+      "dds-border-radius-base.2": "9f04598a79bfadaa5a6c01c2ba46a822b6fb61b8",
+      "dds-border-radius-base.3": "06867aef0726edd5ea6fba08f72c06771de68292",
+      "dds-border-radius-base.100": "4d8b17213ad04cea768d89629f195303e551a63a"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:849",
     "$figmaModeId": "9567:2",

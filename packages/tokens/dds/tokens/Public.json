@@ -439,163 +439,29 @@
   },
   "dds-border-radius": {
     "button": {
-      "value": "{dds-border-radius.1}",
+      "value": "{dds-border-radius-base.1}",
       "type": "borderRadius",
       "description": "For use in button component and togglebutton"
     },
     "surface": {
-      "value": "{dds-border-radius.1}",
+      "value": "{dds-border-radius-base.1}",
       "type": "borderRadius",
       "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
     },
     "input": {
-      "value": "{dds-border-radius.1}",
+      "value": "{dds-border-radius-base.1}",
       "type": "borderRadius",
       "description": "All input fields, and check boxes"
     },
     "chip": {
-      "value": "{dds-border-radius.1}",
+      "value": "{dds-border-radius-base.1}",
       "type": "borderRadius",
       "description": "Chips and tags"
     },
     "rounded": {
-      "value": "{dds-border-radius.100}",
+      "value": "{dds-border-radius-base.100}",
       "type": "borderRadius",
       "description": "Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
-    }
-  },
-  "dds-shadow": {
-    "1": {
-      "value": {
-        "x": "1px",
-        "y": "2px",
-        "blur": "4px",
-        "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
-        "type": "dropShadow"
-      },
-      "type": "boxShadow"
-    },
-    "2": {
-      "value": {
-        "x": "2px",
-        "y": "4px",
-        "blur": "8px",
-        "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
-        "type": "dropShadow"
-      },
-      "type": "boxShadow"
-    },
-    "3": {
-      "value": {
-        "x": "4px",
-        "y": "8px",
-        "blur": "16px",
-        "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
-        "type": "dropShadow"
-      },
-      "type": "boxShadow"
-    },
-    "4": {
-      "value": {
-        "x": "8px",
-        "y": "16px",
-        "blur": "32px",
-        "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
-        "type": "dropShadow"
-      },
-      "type": "boxShadow"
-    }
-  },
-  "dds-grid": {
-    "xs": {
-      "count": {
-        "value": "4",
-        "type": "number"
-      },
-      "gutter-size": {
-        "value": "16px",
-        "type": "dimension"
-      }
-    },
-    "sm": {
-      "count": {
-        "value": "8",
-        "type": "number"
-      },
-      "gutter-size": {
-        "value": "16px",
-        "type": "dimension"
-      }
-    },
-    "lg": {
-      "count": {
-        "value": "12",
-        "type": "number"
-      },
-      "gutter-size": {
-        "value": "24px",
-        "type": "dimension"
-      }
-    },
-    "md": {
-      "count": {
-        "value": "12",
-        "type": "number"
-      },
-      "gutter-size": {
-        "value": "24px",
-        "type": "dimension"
-      }
-    },
-    "xl": {
-      "count": {
-        "value": "12",
-        "type": "number"
-      },
-      "gutter-size": {
-        "value": "24px",
-        "type": "dimension"
-      }
-    }
-  },
-  "dds-icon-size": {
-    "large": {
-      "value": "40px",
-      "type": "dimension"
-    },
-    "medium": {
-      "value": "24px",
-      "type": "dimension"
-    },
-    "small": {
-      "value": "16px",
-      "type": "dimension"
-    }
-  },
-  "dds-breakpoint": {
-    "xs": {
-      "value": "1px",
-      "type": "dimension"
-    },
-    "sm": {
-      "value": "600px",
-      "type": "dimension"
-    },
-    "md": {
-      "value": "960px",
-      "type": "dimension"
-    },
-    "lg": {
-      "value": "1280px",
-      "type": "dimension"
-    },
-    "xl": {
-      "value": "1920px",
-      "type": "dimension"
     }
   },
   "dds-font": {
@@ -974,67 +840,6 @@
         "value": "{dds-font-paragraph-spacing.small}",
         "type": "paragraphSpacing"
       }
-    }
-  },
-  "dds-spacing": {
-    "padding-top": {
-      "heading": {
-        "value": "0.7em",
-        "type": "spacing",
-        "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
-      }
-    },
-    "x0": {
-      "value": "0rem",
-      "type": "dimension"
-    },
-    "x0_125": {
-      "value": "0.125rem",
-      "type": "dimension"
-    },
-    "x0_25": {
-      "value": "0.25rem",
-      "type": "dimension"
-    },
-    "x0_5": {
-      "value": "0.5rem",
-      "type": "dimension"
-    },
-    "x0_75": {
-      "value": "0.75rem",
-      "type": "dimension"
-    },
-    "x1": {
-      "value": "1rem",
-      "type": "dimension"
-    },
-    "x1_5": {
-      "value": "1.5rem",
-      "type": "dimension"
-    },
-    "x2": {
-      "value": "2rem",
-      "type": "dimension"
-    },
-    "x2_5": {
-      "value": "2.5rem",
-      "type": "dimension"
-    },
-    "x3": {
-      "value": "3rem",
-      "type": "dimension"
-    },
-    "x4": {
-      "value": "4rem",
-      "type": "dimension"
-    },
-    "x6": {
-      "value": "6rem",
-      "type": "dimension"
-    },
-    "x10": {
-      "value": "10rem",
-      "type": "dimension"
     }
   }
 }
