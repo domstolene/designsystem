@@ -847,8 +847,8 @@
     },
     "padding-top": {
       "heading": {
-        "value": "0.7rem",
-        "type": "dimension",
+        "value": "0.7em",
+        "type": "spacing",
         "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
       }
     }
