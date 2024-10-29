@@ -598,67 +598,6 @@
       "type": "dimension"
     }
   },
-  "dds-spacing": {
-    "x0": {
-      "value": "0px",
-      "type": "dimension"
-    },
-    "x0_125": {
-      "value": "2px",
-      "type": "dimension"
-    },
-    "x0_25": {
-      "value": "4px",
-      "type": "dimension"
-    },
-    "x0_5": {
-      "value": "8px",
-      "type": "dimension"
-    },
-    "x0_75": {
-      "value": "12px",
-      "type": "dimension"
-    },
-    "x1": {
-      "value": "16px",
-      "type": "dimension"
-    },
-    "x1_5": {
-      "value": "24px",
-      "type": "dimension"
-    },
-    "x2": {
-      "value": "32px",
-      "type": "dimension"
-    },
-    "x2_5": {
-      "value": "40px",
-      "type": "dimension"
-    },
-    "x3": {
-      "value": "48px",
-      "type": "dimension"
-    },
-    "x4": {
-      "value": "64px",
-      "type": "dimension"
-    },
-    "x6": {
-      "value": "96px",
-      "type": "dimension"
-    },
-    "x10": {
-      "value": "160px",
-      "type": "dimension"
-    },
-    "padding-top": {
-      "heading": {
-        "value": "0.7rem",
-        "type": "dimension",
-        "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
-      }
-    }
-  },
   "dds-font": {
     "label": {
       "medium": {
@@ -1035,6 +974,67 @@
         "value": "{dds-font-paragraph-spacing.small}",
         "type": "paragraphSpacing"
       }
+    }
+  },
+  "dds-spacing": {
+    "padding-top": {
+      "heading": {
+        "value": "0.7em",
+        "type": "spacing",
+        "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
+      }
+    },
+    "x0": {
+      "value": "0rem",
+      "type": "dimension"
+    },
+    "x0_125": {
+      "value": "0.125rem",
+      "type": "dimension"
+    },
+    "x0_25": {
+      "value": "0.25rem",
+      "type": "dimension"
+    },
+    "x0_5": {
+      "value": "0.5rem",
+      "type": "dimension"
+    },
+    "x0_75": {
+      "value": "0.75rem",
+      "type": "dimension"
+    },
+    "x1": {
+      "value": "1rem",
+      "type": "dimension"
+    },
+    "x1_5": {
+      "value": "1.5rem",
+      "type": "dimension"
+    },
+    "x2": {
+      "value": "2rem",
+      "type": "dimension"
+    },
+    "x2_5": {
+      "value": "2.5rem",
+      "type": "dimension"
+    },
+    "x3": {
+      "value": "3rem",
+      "type": "dimension"
+    },
+    "x4": {
+      "value": "4rem",
+      "type": "dimension"
+    },
+    "x6": {
+      "value": "6rem",
+      "type": "dimension"
+    },
+    "x10": {
+      "value": "10rem",
+      "type": "dimension"
     }
   }
 }
