@@ -96,7 +96,7 @@
       "danger-strong": {
         "value": "{dds-color.danger.light}",
         "type": "color",
-        "description": "tag strong value\n"
+        "description": "tag strong value"
       },
       "success-default": {
         "value": "{dds-color.success.lightest}",
@@ -198,7 +198,7 @@
       "success": {
         "value": "{dds-color.success.base}",
         "type": "color",
-        "description": "Tag-default\n"
+        "description": "Used with tag-default"
       },
       "warning": {
         "value": "{dds-color.warning.base}",
