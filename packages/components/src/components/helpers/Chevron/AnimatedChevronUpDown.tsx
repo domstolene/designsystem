@@ -23,10 +23,9 @@ export const AnimatedChevronUpDown = ({
   return (
     <svg
       viewBox="0 0 8 5"
-      width={width}
-      height={height}
       fill="currentColor"
       className={cn(styles.svg)}
+      style={{ height, width }}
     >
       <g className={cn(styles.group, styles[`group--${stateCn}`])}>
         <path

@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Properties, type Property } from 'csstype';
 import { type ButtonHTMLAttributes, forwardRef } from 'react';
 
@@ -88,8 +87,8 @@ export const CardAccordionHeader = forwardRef<
         <div className={baseStyles.header__content}>{children}</div>
         <span className={baseStyles.header__chevron}>
           <AnimatedChevronUpDown
-            width={ddsTokens.ddsIconSizeMedium}
-            height={ddsTokens.ddsSpacingX05}
+            width="var(--dds-icon-size-medium)"
+            height="var(--dds-spacing-x0-5)"
             isUp={isExpanded}
           />
         </span>

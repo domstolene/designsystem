@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import { type ReactNode, forwardRef } from 'react';
 
@@ -78,7 +77,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement,
       children,
       placement = 'bottom',
-      offset = ddsTokens.ddsSpacingX05NumberPx,
+      offset = 8,
       sizeProps,
       id,
       className,

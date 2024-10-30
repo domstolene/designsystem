@@ -68,7 +68,7 @@ const navigation = {
   width: '264px',
 
   mobile: {
-    breakpoint: ddsTokens.ddsBreakpointSm,
+    breakpoint: ddsTokens.core.ddsBreakpointSm,
     iconColors: 'var(--dds-color-icon-on-inverse)',
   },
 };
