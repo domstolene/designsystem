@@ -2,6 +2,8 @@ import { create } from '@storybook/theming';
 import elsaLogoHigh from './images/Elsa-logo-hoy.png';
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
+const theme = ddsTokens.core;
+
 export default create({
   base: 'light',
 
@@ -10,14 +12,14 @@ export default create({
   brandImage: elsaLogoHigh,
 
   // Interaction color
-  colorSecondary: ddsTokens.ddsColorSurfaceActionSelected,
+  colorSecondary: theme.ddsColorSurfaceActionSelected,
 
   // Typography
-  fontBase: `${ddsTokens.ddsFontFamilySans}, 'Trebuchet MS', sans-serif`,
-  fontCode: `${ddsTokens.ddsFontFamilyMonospace}, monospace`,
-  textMutedColor: ddsTokens.ddsColorTextMedium,
-  textColor: ddsTokens.ddsColorTextDefault,
+  fontBase: theme.ddsFontFamilySans,
+  fontCode: theme.ddsFontFamilyMonospace,
+  textMutedColor: theme.ddsColorTextMedium,
+  textColor: theme.ddsColorTextDefault,
 
   //UI
-  appBorderRadius: ddsTokens.ddsBorderRadius1NumberPx,
+  appBorderRadius: theme.ddsBorderRadius1NumberPx,
 });

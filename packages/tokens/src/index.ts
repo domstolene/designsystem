@@ -1,3 +1,6 @@
-import { ddsTokens as tokens } from '../dds';
+import { ddsTokensCore, ddsTokensPublic } from '../dds';
 
-export const ddsTokens = { ...tokens };
+export const ddsTokens = {
+  core: { ...ddsTokensCore },
+  public: { ...ddsTokensPublic },
+};

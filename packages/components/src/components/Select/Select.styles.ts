@@ -1,13 +1,6 @@
 import { type GroupBase, type StylesConfig } from 'react-select';
 
-import {
-  type InputSize,
-  dangerInputfield,
-  focusInputfield,
-  focusVisibleInsetSelect,
-  hoverDangerInputfield,
-  hoverInputfield,
-} from '../helpers';
+import { type InputSize, focusVisible } from '../helpers';
 import { scrollbarStyling } from '../helpers';
 
 type SelectTypography = Record<
@@ -139,16 +132,21 @@ export const getCustomStyles = <TOption>(
     ...control[size].base,
     ...(hasIcon && control[size].hasIcon),
     '&:hover': {
-      ...(!isReadOnly && hoverInputfield),
+      ...(!isReadOnly && {
+        borderColor: 'var(--dds-color-border-action-hover)',
+        boxShadow: '0 0 0 1px var(--dds-color-border-action-hover)',
+      }),
     },
     ...(hasError && {
-      ...dangerInputfield,
+      borderColor: 'var(--dds-color-border-danger)',
+      boxShadow: '0 0 0 1px var(--dds-color-border-danger)',
       '&:hover': {
-        ...hoverDangerInputfield,
+        borderColor: 'var(--dds-color-border-danger)',
+        boxShadow: '0 0 0 1px var(--dds-color-border-danger)',
       },
     }),
     '&:focus-within': {
-      ...focusInputfield,
+      ...focusVisible,
     },
     ...(state.selectProps.isDisabled && {
       borderColor: 'var(--dds-color-border-subtle)',
@@ -287,8 +285,10 @@ export const getCustomStyles = <TOption>(
       color: 'var(--dds-color-text-default)',
       backgroundColor: 'var(--dds-color-surface-hover-default)',
     },
+    // egen stil siden react-select bruker focus-state og hover-styling samtidig; ikke nødvendig hvis de kan skilles.
     ...(state.isFocused && {
-      ...focusVisibleInsetSelect,
+      outline: 'var(--dds-color-border-action-hover) 2px solid',
+      outlineOffset: 'calc(var(--dds-spacing-x0-125) * -1)',
     }),
   }),
   noOptionsMessage: () => ({

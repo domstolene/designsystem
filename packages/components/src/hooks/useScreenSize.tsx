@@ -12,23 +12,23 @@ export enum ScreenSize {
 const screenSizesAndMediaQueries: Array<[ScreenSize, string]> = [
   [
     ScreenSize.XLarge,
-    `only screen and (min-width: ${ddsTokens.ddsBreakpointXl})`,
+    `only screen and (min-width: ${ddsTokens.core.ddsBreakpointXl})`,
   ],
   [
     ScreenSize.Large,
-    `only screen and (min-width: ${ddsTokens.ddsBreakpointLg})`,
+    `only screen and (min-width: ${ddsTokens.core.ddsBreakpointLg})`,
   ],
   [
     ScreenSize.Medium,
-    `only screen and (min-width: ${ddsTokens.ddsBreakpointMd})`,
+    `only screen and (min-width: ${ddsTokens.core.ddsBreakpointMd})`,
   ],
   [
     ScreenSize.Small,
-    `only screen and (min-width: ${ddsTokens.ddsBreakpointSm})`,
+    `only screen and (min-width: ${ddsTokens.core.ddsBreakpointSm})`,
   ],
   [
     ScreenSize.XSmall,
-    `only screen and (min-width: ${ddsTokens.ddsBreakpointXs})`,
+    `only screen and (min-width: ${ddsTokens.core.ddsBreakpointXs})`,
   ],
 ];
 

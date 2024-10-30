@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type FocusEventHandler,
   type ForwardedRef,
@@ -97,7 +96,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           >
             <Spinner
               /*TODO: bytte til icon size token for button når den er på plass*/
-              size={ddsTokens.ddsFontLineheightX1 + 'em'}
+              size="calc(var(--dds-font-lineheight-x1) * 1em)"
               color={
                 purpose === 'primary' || purpose === 'danger'
                   ? 'iconOnAction'
