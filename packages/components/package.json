@@ -69,8 +69,8 @@
   "peerDependencies": {
     "@internationalized/date": "^3",
     "@norges-domstoler/dds-design-tokens": ">=5.0.0",
-    "react": "^16 || ^17 || ^18",
-    "react-dom": "^16 || ^17 || ^18"
+    "react": "^16 || ^17 || ^18 || ^19",
+    "react-dom": "^16 || ^17 || ^18 || ^19"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
