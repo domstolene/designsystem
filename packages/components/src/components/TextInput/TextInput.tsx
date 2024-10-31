@@ -65,7 +65,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       if (suffixRef.current) {
         setSuffixLength(suffixRef.current.offsetWidth);
       }
-    }, [prefix, suffix, readOnly]);
+    }, [prefix, suffix]);
 
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
       event: React.ChangeEvent<HTMLInputElement>,
