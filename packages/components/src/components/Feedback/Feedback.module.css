@@ -21,7 +21,7 @@
 
 .button {
   border-radius: var(--dds-border-radius-button);
-  color: var(--dds-color-text-default);
+  color: var(--dds-color-icon-medium);
 
   &:hover {
     background-color: var(--dds-color-surface-hover-default);

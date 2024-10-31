@@ -29,6 +29,56 @@ export default {
 
 type Story = StoryObj<typeof Footer>;
 
+const socials = (
+  <FooterSocialsGroup>
+    <FooterListHeader>Følg oss</FooterListHeader>
+    <FooterSocialsList>
+      <li>
+        <Link
+          href="/"
+          htmlProps={{
+            style: { display: 'block' },
+          }}
+        >
+          <Icon
+            icon={FacebookIcon}
+            htmlProps={{ style: { display: 'block' } }}
+          />
+        </Link>
+        <VisuallyHidden as="span">Facebook</VisuallyHidden>
+      </li>
+      <li>
+        <Link
+          href="/"
+          htmlProps={{
+            style: { display: 'block' },
+          }}
+        >
+          <Icon
+            icon={InstagramIcon}
+            htmlProps={{ style: { display: 'block' } }}
+          />
+          <VisuallyHidden as="span">Instagram</VisuallyHidden>
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/"
+          htmlProps={{
+            style: { display: 'block' },
+          }}
+        >
+          <Icon
+            icon={LinkedInIcon}
+            htmlProps={{ style: { display: 'block' } }}
+          />
+          <VisuallyHidden as="span">LinkedIn</VisuallyHidden>
+        </Link>
+      </li>
+    </FooterSocialsList>
+  </FooterSocialsGroup>
+);
+
 export const Default: Story = {
   render: args => (
     <Footer {...args}>
@@ -50,26 +100,7 @@ export const Default: Story = {
         >
           <FooterLeft>
             <FooterLogo hideBreakpoint="xs" />
-            <FooterSocialsGroup>
-              <FooterListHeader>Følg oss</FooterListHeader>
-              <FooterSocialsList>
-                <li>
-                  <Link href="/" htmlProps={{ title: 'Facebook' }}>
-                    <Icon icon={FacebookIcon} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" htmlProps={{ title: 'Instagram' }}>
-                    <Icon icon={InstagramIcon} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" htmlProps={{ title: 'LinkedIn' }}>
-                    <Icon icon={LinkedInIcon} />
-                  </Link>
-                </li>
-              </FooterSocialsList>
-            </FooterSocialsGroup>
+            {socials}
           </FooterLeft>
         </GridChild>
         <GridChild
@@ -311,26 +342,7 @@ export const Left: Story = {
     <Footer {...args} className="story-padding">
       <FooterLeft>
         <FooterLogo />
-        <FooterSocialsGroup>
-          <FooterListHeader>Følg oss</FooterListHeader>
-          <FooterSocialsList>
-            <li>
-              <Link href="/" htmlProps={{ title: 'Facebook' }}>
-                <Icon icon={FacebookIcon} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/" htmlProps={{ title: 'Instagram' }}>
-                <Icon icon={InstagramIcon} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/" htmlProps={{ title: 'LinkedIn' }}>
-                <Icon icon={LinkedInIcon} />
-              </Link>
-            </li>
-          </FooterSocialsList>
-        </FooterSocialsGroup>
+        {socials}
       </FooterLeft>
     </Footer>
   ),
@@ -376,29 +388,7 @@ export const Socials: Story = {
   ],
   render: args => (
     <Footer {...args} className="story-padding">
-      <FooterSocialsGroup>
-        <FooterListHeader>Følg oss</FooterListHeader>
-        <FooterSocialsList>
-          <li>
-            <Link href="/">
-              <Icon icon={FacebookIcon} />
-              <VisuallyHidden as="span">Facebook</VisuallyHidden>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <Icon icon={InstagramIcon} />
-              <VisuallyHidden as="span">Instagram</VisuallyHidden>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <Icon icon={LinkedInIcon} />
-              <VisuallyHidden as="span">LinkedIn</VisuallyHidden>
-            </Link>
-          </li>
-        </FooterSocialsList>
-      </FooterSocialsGroup>
+      {socials}
     </Footer>
   ),
 };

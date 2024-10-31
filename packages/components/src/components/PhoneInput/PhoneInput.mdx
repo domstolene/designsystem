@@ -1,0 +1,40 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import * as PhoneInputStories from './PhoneInput.stories';
+
+<Meta of={PhoneInputStories} />
+
+# PhoneInput
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/300a24-phoneinput"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=18345-10843&t=qIJadQG5X5w9yCml-4"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/PhoneInput"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-phoneinput--default"
+  withBottomSpacing
+/>
+
+`<PhoneInput>` er en komponent bestående av to input-elementer:
+
+- `<NativeSelect>` for valg av landskode,
+- `<input type="tel">` for telefonnummer.
+
+`value` returnert i `<NativeSelect>` er en [ISO Alfa-2 landskode](https://no.wikipedia.org/wiki/ISO_3166-1).
+
+## Props
+
+<Canvas of={PhoneInputStories.Default} />
+<Controls of={PhoneInputStories.Default} />
+
+## Eksempler
+
+### Kontrollert
+
+<Canvas of={PhoneInputStories.Controlled} />
+
+## Retningslinjer
+
+### Ledetekster
+
+Komponenter har default usynlige ledetekster for gruppen og landskodevelgeren.
+Sett gjerne egne ledetekster med props `groupLabel` og `selectLabel` for å være mer beskrivende.

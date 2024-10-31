@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.5.0
+
+### Minor Changes
+
+- ffa1795: Legger til funksjon for formattering av bankkontonummer: `formatBankAccountNumber()`.
+
 ## 1.4.2
 
 ### Patch Changes

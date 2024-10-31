@@ -14,7 +14,7 @@ export type SkeletonProps = {
   /**CSS border radius.
    * @default "var(--dds-border-radius-surface)"
    */
-  borderRadius: Property.BorderRadius;
+  borderRadius?: Property.BorderRadius;
 } & ComponentPropsWithRef<'div'>;
 
 export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(

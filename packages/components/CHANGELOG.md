@@ -1,5 +1,36 @@
 # @norges-domstoler/dds-components
 
+## 17.5.1
+
+### Patch Changes
+
+- e49d4a5: Fikser `border-radius` i `<Card cardType="expandable">` ved hover.
+- b08087d: Fikser bug der `border-radius` prop var påkrevd i `<Skeleton>`.
+
+## 17.5.0
+
+### Minor Changes
+
+- d4efe6b: Ny komponent: `<PhoneInput>`. Består av en nedtrekksliste med landkoder og `<input type="tel">`. Brukes når det kan forventes numre fra andre land.
+
+### Patch Changes
+
+- d4efe6b: Fjerner støtte for native HTML `<input>`-attributter i `type NativeSelectProps`. Oppførselen er den samme, men det var problemer med typings i props som `onChange`, da slik prop var både av type `ChangeEventHandler<HTMLInputElement>` og `ChangeEventHandler<HTMLSelectElement>`.
+
+## 17.4.0
+
+### Minor Changes
+
+- 71b89d8: Ny komponent: `<ProgressBar>`. Den kan brukes til å vise progresjon av en prosess,rendering, nedlasting eller opplasting.
+- 247261c: Legger til støtte for `withBackdrop` prop i `<Drawer>`. Den returnerer variant med backdrop.
+
+### Patch Changes
+
+- c8a936b: Fikser farge på ikon i knappene i `<Feedback>`.
+- 056feeb: Setter farge på border i `<ToggleButton>` til `--dds-color-border-default`.
+- 3461f4a: Utbedrer spacing i `<ToggleButton>`.
+- 15a3922: Setter linjehøyde for `<ListItem>` til `--dds-font-lineheight-list` (istedenfor hardkodet verdi).
+
 ## 17.3.1
 
 ### Patch Changes

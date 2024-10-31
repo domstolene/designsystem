@@ -117,7 +117,10 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
               <Icon
                 icon={SearchIcon}
                 iconSize={getIconSize(componentSize)}
-                className={cn(inputStyles.icon, styles['search-icon'])}
+                className={cn(
+                  inputStyles['input-group__absolute-element'],
+                  styles['search-icon'],
+                )}
               />
               <Input
                 {...rest}

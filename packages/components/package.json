@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-components",
-  "version": "17.3.1",
+  "version": "17.5.1",
   "description": "React components used in Elsa - domstolenes designsystem",
   "author": "Elsa team",
   "license": "MIT",
@@ -17,9 +17,9 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.js"
     },
     "./index.css": "./dist/index.css"
   },
@@ -47,9 +47,9 @@
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
     "@react-types/datepicker": "^3.8.3",
-    "@storybook/blocks": "8.3.5",
+    "@storybook/blocks": "8.3.6",
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/jest-dom": "^6.6.2",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/react": "^18.3.11",
@@ -75,10 +75,10 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",
     "@norges-domstoler/development-utils": "workspace:*",
-    "@react-aria/button": "^3.10.0",
-    "@react-aria/calendar": "^3.5.12",
-    "@react-aria/datepicker": "^3.11.3",
-    "@react-aria/focus": "^3.18.3",
+    "@react-aria/button": "^3.10.1",
+    "@react-aria/calendar": "^3.5.13",
+    "@react-aria/datepicker": "^3.11.4",
+    "@react-aria/focus": "^3.18.4",
     "@react-aria/i18n": "^3.12.3",
     "@react-stately/calendar": "^3.5.5",
     "@react-stately/datepicker": "^3.10.3",

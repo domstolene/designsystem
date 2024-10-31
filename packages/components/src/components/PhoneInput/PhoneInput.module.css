@@ -1,0 +1,125 @@
+.inputs-container {
+  display: flex;
+  flex-direction: row;
+  .input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: var(--dds-phone-input-width);
+  }
+
+  .select {
+    width: 8rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: -1px;
+  }
+
+  .select--tiny {
+    width: 5rem;
+  }
+}
+
+.inputs-container--small-screen-xs {
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    width: var(--dds-phone-input-width);
+    .input {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      width: 100%;
+    }
+
+    .select {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 100%;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.inputs-container--small-screen-sm {
+  @media only screen and (max-width: 960px) {
+    flex-direction: column;
+    width: var(--dds-phone-input-width);
+    .input {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      width: 100%;
+    }
+
+    .select {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 100%;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.inputs-container--small-screen-md {
+  @media only screen and (max-width: 1280px) {
+    flex-direction: column;
+    width: var(--dds-phone-input-width);
+    .input {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      width: 100%;
+    }
+
+    .select {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 100%;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.inputs-container--small-screen-lg {
+  @media only screen and (max-width: 1920px) {
+    flex-direction: column;
+    width: var(--dds-phone-input-width);
+    .input {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      width: 100%;
+    }
+
+    .select {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      width: 100%;
+      margin-bottom: -1px;
+    }
+  }
+}
+
+.inputs-container--small-screen-xl {
+  flex-direction: column;
+  width: var(--dds-phone-input-width);
+  .input {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    width: 100%;
+  }
+
+  .select {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    margin-bottom: -1px;
+  }
+}
+
+.select:focus-visible,
+.select:hover {
+  z-index: 1;
+  & ~ svg {
+    z-index: 1;
+  }
+}
+
+.calling-code {
+  left: var(--dds-spacing-x0-5);
+}

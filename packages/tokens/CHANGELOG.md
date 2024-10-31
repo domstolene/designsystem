@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-design-tokens
 
+## 6.0.1
+
+### Patch Changes
+
+- 6da57b7: Fikser et problem hvor CommonJS-filer ble brukt ved ESModule-import.
+
 ## 6.0.0
 
 ### Major Changes
