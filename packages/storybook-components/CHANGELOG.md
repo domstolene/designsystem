@@ -1,5 +1,11 @@
 # @norges-domstoler/storybook-components
 
+## 0.0.11
+
+### Patch Changes
+
+- 59fdd0e: Tillat react v19 i peer dependency range.
+
 ## 0.0.10
 
 ### Patch Changes

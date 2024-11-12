@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 17.5.2
+
+### Patch Changes
+
+- 59fdd0e: Tillat react v19 i peer dependency range.
+- Updated dependencies [59fdd0e]
+  - @norges-domstoler/development-utils@1.3.1
+
 ## 17.5.1
 
 ### Patch Changes

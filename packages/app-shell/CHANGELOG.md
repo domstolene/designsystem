@@ -1,5 +1,11 @@
 # @norges-domstoler/app-shell
 
+## 2.0.1
+
+### Patch Changes
+
+- 59fdd0e: Tillat react v19 i peer dependency range.
+
 ## 2.0.0
 
 ### Major Changes
