@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 1.3.1
+
+### Patch Changes
+
+- 59fdd0e: Tillat react v19 i peer dependency range.
+
 ## 1.3.0
 
 ### Minor Changes
