@@ -1,7 +1,3 @@
-:root {
-  --dds-transition-duration-surface-move: 0.5s;
-}
-
 :where(.remove-list-styling) {
   list-style: none;
   padding: 0;

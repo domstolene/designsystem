@@ -5,6 +5,6 @@ export const selectionControlSize = `${selectionControlSizeNumberPx}px`;
 
 export const selectionControlTypographyProps: TypographyProps = {
   color: 'inherit',
-  typographyType: 'bodySans02',
+  typographyType: 'bodyMedium',
   as: 'span',
 };

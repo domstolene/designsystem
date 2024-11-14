@@ -22,7 +22,7 @@ export const BackLink = forwardRef<HTMLElement, BackLinkProps>((props, ref) => {
       <Link href={props.href}>
         <Icon
           icon={icons.ArrowLeftIcon}
-          iconSize="small"
+          iconSize="inherit"
           className={styles.icon}
         />
         {props.label}

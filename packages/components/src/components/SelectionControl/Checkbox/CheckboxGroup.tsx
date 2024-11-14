@@ -72,7 +72,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     >
       <Typography
         as="span"
-        typographyType="supportingStyleLabel01"
+        typographyType="labelMedium"
         id={uniqueGroupId}
         className={readOnly ? labelStyles['read-only'] : undefined}
       >

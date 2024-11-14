@@ -40,9 +40,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
       )}
       ref={ref}
     >
-      <TextOverflowEllipsisInner
-        className={cn(typographyStyles['body-sans-01'])}
-      >
+      <TextOverflowEllipsisInner className={cn(typographyStyles['body-small'])}>
         {text}
       </TextOverflowEllipsisInner>
       <Button

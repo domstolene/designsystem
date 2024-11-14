@@ -35,7 +35,7 @@ export const OverflowMenuLink = forwardRef<
         className={cn(
           className,
           styles.list__item,
-          typographyStyles['body-sans-01'],
+          typographyStyles['body-small'],
           styles['list__item--link'],
           focusStyles['focusable--inset'],
         )}

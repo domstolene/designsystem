@@ -53,29 +53,26 @@ export const Overview: Story = {
 export const OverviewStyles: Story = {
   render: args => (
     <StoryVStack>
-      <Heading {...args} level={1} typographyType="headingSans08">
-        headingSans08
+      <Heading {...args} level={1} typographyType="headingXxlarge">
+        headingXxlarge
       </Heading>
-      <Heading {...args} level={1} typographyType="headingSans07">
-        headingSans07
+      <Heading {...args} level={1} typographyType="headingXlarge">
+        headingXlarge
       </Heading>
-      <Heading {...args} level={1} typographyType="headingSans06">
-        headingSans06
+      <Heading {...args} level={1} typographyType="headingLarge">
+        headingLarge
       </Heading>
-      <Heading {...args} level={1} typographyType="headingSans05">
-        headingSans05
+      <Heading {...args} level={1} typographyType="headingMedium">
+        headingMedium
       </Heading>
-      <Heading {...args} level={1} typographyType="headingSans04">
-        headingSans04
+      <Heading {...args} level={1} typographyType="headingSmall">
+        headingSmall
       </Heading>
-      <Heading {...args} level={1} typographyType="headingSans03">
-        headingSans03
+      <Heading {...args} level={1} typographyType="headingXsmall">
+        headingXsmall
       </Heading>
-      <Heading {...args} level={1} typographyType="headingSans02">
-        headingSans02
-      </Heading>
-      <Heading {...args} level={1} typographyType="headingSans01">
-        headingSans01
+      <Heading {...args} level={1} typographyType="headingXxsmall">
+        headingXxsmall
       </Heading>
     </StoryVStack>
   ),

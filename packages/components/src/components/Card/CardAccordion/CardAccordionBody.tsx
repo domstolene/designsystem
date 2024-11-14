@@ -9,7 +9,6 @@ import {
 import { cn } from '../../../utils';
 import { useAccordionContext } from '../../helpers/AccordionBase';
 import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
-import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type CardAccordionBodyProps = Omit<
   BaseComponentPropsWithChildren<
@@ -48,13 +47,7 @@ export const CardAccordionBody = forwardRef<
     <div
       {...getBaseHTMLProps(
         id,
-        cn(
-          className,
-          baseStyles.body,
-          styles.body,
-          bodyContextCn,
-          typographyStyles['body-sans-03'],
-        ),
+        cn(className, baseStyles.body, styles.body, bodyContextCn),
         htmlProps,
         rest,
       )}

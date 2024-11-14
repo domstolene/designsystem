@@ -99,7 +99,7 @@ export const OverviewSizes: Story = {
               en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
               raskere, mer effektiv og billigere måte å løse konflikten på.
             </Paragraph>
-            <Heading level={5} typographyType="headingSans02" withMargins>
+            <Heading level={2} typographyType="headingLarge" withMargins>
               Hva er rettsmekling?
             </Heading>
             <Paragraph>
@@ -123,7 +123,7 @@ export const OverviewSizes: Story = {
               en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
               raskere, mer effektiv og billigere måte å løse konflikten på.
             </Paragraph>
-            <Heading level={5} typographyType="headingSans02" withMargins>
+            <Heading level={2} typographyType="headingLarge" withMargins>
               Hva er rettsmekling?
             </Heading>
             <Paragraph>
@@ -147,7 +147,7 @@ export const OverviewSizes: Story = {
               en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
               raskere, mer effektiv og billigere måte å løse konflikten på.
             </Paragraph>
-            <Heading level={5} typographyType="headingSans02" withMargins>
+            <Heading level={2} typographyType="headingLarge" withMargins>
               Hva er rettsmekling?
             </Heading>
             <Paragraph>
@@ -178,7 +178,7 @@ export const LongContent: Story = {
             avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
             raskere, mer effektiv og billigere måte å løse konflikten på.
           </Paragraph>
-          <Heading level={5} typographyType="headingSans02" withMargins>
+          <Heading level={2} typographyType="headingLarge" withMargins>
             Hva er rettsmekling?
           </Heading>
           <Paragraph withMargins>
@@ -188,7 +188,7 @@ export const LongContent: Story = {
             på lik linje med en dom. Rettsmekling kan bare brukes i sivile
             saker, ikke i straffesaker.
           </Paragraph>
-          <Heading level={5} typographyType="headingSans02" withMargins>
+          <Heading level={2} typographyType="headingLarge" withMargins>
             Hva er fordelene med rettsmekling?
           </Heading>
           <Paragraph withMargins>

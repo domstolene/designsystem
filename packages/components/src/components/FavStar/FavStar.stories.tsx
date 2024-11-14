@@ -37,13 +37,13 @@ export const OverviewSizes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Typography as="span" typographyType="supportingStyleLabel01">
+        <Typography as="span" typographyType="labelMedium">
           Medium
         </Typography>
         <FavStar {...args} size="medium" />
       </StoryVStack>
       <StoryVStack>
-        <Typography as="span" typographyType="supportingStyleLabel01">
+        <Typography as="span" typographyType="labelMedium">
           Large
         </Typography>
         <FavStar {...args} size="large" />

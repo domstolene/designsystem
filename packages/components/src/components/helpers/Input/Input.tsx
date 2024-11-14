@@ -11,9 +11,9 @@ import typographtStyles from '../../Typography/typographyStyles.module.css';
 import { focusable } from '../styling/focus.module.css';
 
 export const inputTypographyTypes: InputTypographyTypes = {
-  medium: 'bodySans02',
-  small: 'bodySans01',
-  tiny: 'supportingStyleTiny01',
+  medium: 'bodyMedium',
+  small: 'bodySmall',
+  tiny: 'bodyXsmall',
 };
 
 export const Input = forwardRef<

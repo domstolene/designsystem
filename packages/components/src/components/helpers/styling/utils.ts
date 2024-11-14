@@ -24,11 +24,6 @@ export const focusVisibleInset = {
   outlineOffset: outlineInset,
 };
 
-export const selection = {
-  color: 'var(--dds-color-text-default)',
-  backgroundColor: 'var(--dds-color-surface-highlighted-default)',
-};
-
 const scrollbarWidth: Property.ScrollbarWidth = 'thin';
 
 export const scrollbarStyling = {

@@ -139,7 +139,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         {title && (
           <div className={styles.title}>
             {typeof title === 'string' ? (
-              <Heading level={2} typographyType="headingSans02">
+              <Heading level={2} typographyType="headingMedium">
                 {title}
               </Heading>
             ) : (

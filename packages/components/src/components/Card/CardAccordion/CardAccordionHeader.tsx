@@ -40,7 +40,7 @@ export const CardAccordionHeader = forwardRef<
     className,
     htmlProps,
     padding,
-    typographyType = 'headingSans03',
+    typographyType = 'headingLarge',
     bold,
     ...rest
   } = props;

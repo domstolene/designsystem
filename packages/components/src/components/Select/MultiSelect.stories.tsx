@@ -20,6 +20,9 @@ export default {
     isLoading: { control: { type: 'boolean' } },
   },
   parameters: {
+    docs: {
+      story: { inline: true, height: '450px' },
+    },
     controls: {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },

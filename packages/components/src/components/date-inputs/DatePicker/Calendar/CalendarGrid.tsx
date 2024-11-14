@@ -31,7 +31,7 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   const weekDays = ['Ma', 'Ti', 'On', 'To', 'Fr', 'Lø', 'Sø'];
 
   const typographyCn = [
-    typographyStyles['supporting-style-tiny-02'],
+    typographyStyles['body-xsmall'],
     typographyStyles['text-color--subtle'],
   ];
   return (

@@ -18,10 +18,10 @@ import { type StaticTypographyType, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 const typographyTypes: Record<ButtonSize, StaticTypographyType> = {
-  large: 'bodySans04',
-  medium: 'bodySans02',
-  small: 'bodySans01',
-  tiny: 'supportingStyleTiny01',
+  large: 'bodyLarge',
+  medium: 'bodyMedium',
+  small: 'bodySmall',
+  tiny: 'bodyXsmall',
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

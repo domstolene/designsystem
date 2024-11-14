@@ -16,19 +16,19 @@ const getHeadingElement = (level: HeadingLevel): ElementType => `h${level}`;
 const getDefaultTypographyType = (h: ElementType): TypographyHeadingType => {
   switch (h) {
     case 'h1':
-      return 'headingSans06';
+      return 'headingXlarge';
     case 'h2':
-      return 'headingSans04';
+      return 'headingLarge';
     case 'h3':
-      return 'headingSans03';
+      return 'headingMedium';
     case 'h4':
-      return 'headingSans02';
+      return 'headingSmall';
     case 'h5':
-      return 'headingSans01';
+      return 'headingXsmall';
     case 'h6':
-      return 'headingSans01';
+      return 'headingXxsmall';
     default:
-      return 'headingSans06';
+      return 'headingXlarge';
   }
 };
 
@@ -36,16 +36,15 @@ const scaledTypographyType = (
   type: TypographyHeadingType,
 ): TypographyHeadingType => {
   switch (type) {
-    case 'headingSans08':
-      return 'headingSans07';
-    case 'headingSans07':
-      return 'headingSans06';
-    case 'headingSans06':
-      return 'headingSans05';
-    case 'headingSans05':
-      return 'headingSans04';
-    case 'headingSans04':
-      return 'headingSans03';
+    case 'headingXxlarge':
+      return 'headingXlarge';
+    case 'headingXlarge':
+      return 'headingLarge';
+    case 'headingLarge':
+      return 'headingMedium';
+    case 'headingMedium':
+      return 'headingSmall';
+
     default:
       return type;
   }

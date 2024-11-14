@@ -6,82 +6,54 @@ import {
 
 import { type TextColor } from '../../../utils/color';
 
-type TypographyBodySansType =
-  | 'bodySans01'
-  | 'bodySans02'
-  | 'bodySans03'
-  | 'bodySans04';
-
-export type TypographyBodyType = TypographyBodySansType;
+export type TypographyBodyType =
+  | 'bodyXsmall'
+  | 'bodySmall'
+  | 'bodyMedium'
+  | 'bodyLarge';
 
 export type TypographyHeadingType =
-  | 'headingSans01'
-  | 'headingSans02'
-  | 'headingSans03'
-  | 'headingSans04'
-  | 'headingSans05'
-  | 'headingSans06'
-  | 'headingSans07'
-  | 'headingSans08';
+  | 'headingXxsmall'
+  | 'headingXsmall'
+  | 'headingSmall'
+  | 'headingMedium'
+  | 'headingLarge'
+  | 'headingXlarge'
+  | 'headingXxlarge';
 
-export type TypographyLeadType =
-  | 'leadSans01'
-  | 'leadSans02'
-  | 'leadSans03'
-  | 'leadSans04'
-  | 'leadSans05';
+export type TypographyLeadType = 'leadMedium';
 
-type TypographySupportingType =
-  | 'supportingStyleHelperText01'
-  | 'supportingStylePlaceholderText01'
-  | 'supportingStylePlaceholderText02'
-  | 'supportingStylePlaceholderText03'
-  | 'supportingStyleTiny01'
-  | 'supportingStyleTiny02';
+export type TypographyAnchorType = 'a';
 
-export type AnchorTypographyType = 'a';
-
-export type LabelTypographyType = 'supportingStyleLabel01';
+export type TypographyLabelType = 'labelMedium';
 
 export type OtherTypographyType =
   | TypographyHeadingType
   | TypographyBodyType
-  | TypographyLeadType
-  | TypographySupportingType;
+  | TypographyLeadType;
 
 export type TypographyType =
-  | AnchorTypographyType
-  | LabelTypographyType
+  | TypographyAnchorType
+  | TypographyLabelType
   | OtherTypographyType;
 
-export type StaticTypographyType = OtherTypographyType | LabelTypographyType;
+export type StaticTypographyType = OtherTypographyType | TypographyLabelType;
 
 export type HyphenTypographyType =
-  | 'body-sans-01'
-  | 'body-sans-02'
-  | 'body-sans-03'
-  | 'body-sans-04'
-  | 'heading-sans-01'
-  | 'heading-sans-02'
-  | 'heading-sans-03'
-  | 'heading-sans-04'
-  | 'heading-sans-05'
-  | 'heading-sans-06'
-  | 'heading-sans-07'
-  | 'heading-sans-08'
-  | 'lead-sans-01'
-  | 'lead-sans-02'
-  | 'lead-sans-03'
-  | 'lead-sans-04'
-  | 'lead-sans-05'
-  | 'supporting-style-helper-text-01'
-  | 'supporting-style-placeholder-text-01'
-  | 'supporting-style-placeholder-text-02'
-  | 'supporting-style-placeholder-text-03'
-  | 'supporting-style-tiny-01'
-  | 'supporting-style-tiny-02'
+  | 'body-xsmall'
+  | 'body-small'
+  | 'body-medium'
+  | 'body-large'
+  | 'heading-xxsmall'
+  | 'heading-xsmall'
+  | 'heading-small'
+  | 'heading-medium'
+  | 'heading-large'
+  | 'heading-xlarge'
+  | 'heading-xxlarge'
+  | 'lead-medium'
   | 'a'
-  | 'supporting-style-label-01';
+  | 'label-medium';
 
 export type InlineElement =
   | 'a'
@@ -139,7 +111,11 @@ export type InlineElement =
   | 'wbr';
 
 export type BaseTypographyProps = PropsWithChildren<{
-  /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa. Brukes hovedsakelig i artikler og lignende. **OBS!** har forskjellig virkning på ulike typografityper. `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens `supportingStyles` får margin topp og bunn. */
+  /**Spesifiserer om tekstelementet skal ha spacing definert i Elsa.
+   * Brukes hovedsakelig i artikler og lignende.
+   * **OBS!** har forskjellig virkning på ulike typografityper.
+   * `body` og `lead`-typer får margin på bunnen, `heading`-typer får margin på bunnen og padding på toppen mens label får margin topp og bunn.
+   * */
   withMargins?: boolean;
 }> &
   Pick<HTMLAttributes<HTMLElement>, 'style'>;

@@ -2,6 +2,7 @@ import { create } from '@storybook/theming';
 import elsaLogoHigh from './images/Elsa-logo-hoy.png';
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
+/** Storybook bruker core som tema */
 const theme = ddsTokens.core;
 
 export default create({
@@ -21,5 +22,5 @@ export default create({
   textColor: theme.ddsColorTextDefault,
 
   //UI
-  appBorderRadius: theme.ddsBorderRadius1NumberPx,
+  appBorderRadius: theme.ddsBorderRadiusSurfaceNumberPx,
 });

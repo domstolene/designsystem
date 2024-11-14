@@ -42,7 +42,7 @@ export const Overview: Story = {
         <div>
           <Typography
             as="div"
-            typographyType="supportingStyleLabel01"
+            typographyType="labelMedium"
             style={{ maxWidth: '100px' }}
           >
             {typographyType} {listType}
@@ -70,17 +70,17 @@ export const Overview: Story = {
     return (
       <>
         <StoryHStack gap={undefined}>
-          {ListVariant({ typographyType: 'bodySans01', listType: 'unordered' })}
-          {ListVariant({ typographyType: 'bodySans02', listType: 'unordered' })}
-          {ListVariant({ typographyType: 'bodySans03', listType: 'unordered' })}
-          {ListVariant({ typographyType: 'bodySans04', listType: 'unordered' })}
+          {ListVariant({ typographyType: 'bodyXsmall', listType: 'unordered' })}
+          {ListVariant({ typographyType: 'bodySmall', listType: 'unordered' })}
+          {ListVariant({ typographyType: 'bodyMedium', listType: 'unordered' })}
+          {ListVariant({ typographyType: 'bodyLarge', listType: 'unordered' })}
         </StoryHStack>
 
         <StoryHStack>
-          {ListVariant({ typographyType: 'bodySans01', listType: 'ordered' })}
-          {ListVariant({ typographyType: 'bodySans02', listType: 'ordered' })}
-          {ListVariant({ typographyType: 'bodySans03', listType: 'ordered' })}
-          {ListVariant({ typographyType: 'bodySans04', listType: 'ordered' })}
+          {ListVariant({ typographyType: 'bodyXsmall', listType: 'ordered' })}
+          {ListVariant({ typographyType: 'bodySmall', listType: 'ordered' })}
+          {ListVariant({ typographyType: 'bodyMedium', listType: 'ordered' })}
+          {ListVariant({ typographyType: 'bodyLarge', listType: 'ordered' })}
         </StoryHStack>
       </>
     );

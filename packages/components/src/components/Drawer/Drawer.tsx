@@ -166,7 +166,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
         {hasHeader && (
           <div id={headerId}>
             {typeof header === 'string' ? (
-              <Heading level={2} typographyType="headingSans03">
+              <Heading level={2} typographyType="headingLarge">
                 {header}
               </Heading>
             ) : (

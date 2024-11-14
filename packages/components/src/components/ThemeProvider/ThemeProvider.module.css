@@ -1,0 +1,28 @@
+.global-variables {
+  /*Default text colors*/
+  --dds-color-text-body: var(--dds-color-text-default);
+  --dds-color-text-body-subtle: var(--dds-color-text-subtle);
+  --dds-color-text-link: var(--dds-color-text-action-resting);
+  --dds-color-text-link-visited: var(--dds-color-text-action-visited);
+  --dds-color-text-label: var(--dds-color-text-medium);
+  --dds-color-text-placeholder: var(--dds-color-text-subtle);
+  --dds-color-text-helper: var(--dds-color-text-subtle);
+  --dds-color-icon-link: var(--dds-color-text-action-resting);
+
+  /*Focus*/
+  --dds-focus-outline: var(--dds-color-focus-outside) 2px solid;
+  --dds-focus-outline-offset: var(--dds-spacing-x0-125);
+  --dds-focus-outline-inset: calc(0px - var(--dds-spacing-x0-25));
+  --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
+  --dds-focus-transition: outline-offset 0.2s;
+
+  /*Other*/
+  --dds-input-default-width: 320px;
+  --dds-transition-duration-surface-move: 0.5s;
+}
+
+.global-styles {
+  font: var(--dds-font-body-medium);
+  letter-spacing: var(--dds-font-body-medium-letter-spacing);
+  color: var(--dds-color-text-default);
+}

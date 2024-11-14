@@ -7,15 +7,18 @@
 }
 
 .date-input--medium {
-  padding-inline: var(--dds-spacing-x0-5);
+  padding-inline-start: var(--dds-spacing-x0-5);
+  padding-inline-end: var(--dds-spacing-x1);
 }
 
 .date-input--small {
-  padding-inline: var(--dds-spacing-x0-5);
+  padding-inline-start: var(--dds-spacing-x0-5);
+  padding-inline-end: var(--dds-spacing-x0-75);
 }
 
 .date-input--tiny {
-  padding-inline: var(--dds-spacing-x0-25);
+  padding-inline-start: var(--dds-spacing-x0-25);
+  padding-inline-end: var(--dds-spacing-x0-5);
 }
 
 .date-segment-container {
@@ -61,7 +64,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-inline: -1px 0; /* Samme posisjon som TextInput sitt ikon */
   padding: var(--dds-spacing-x0-25);
   color: var(--dds-color-icon-default);
 }

@@ -190,7 +190,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
 
     const callingCodeInlineStart: Property.PaddingInlineStart | undefined =
       callingCodeWidth
-        ? `calc(var(--dds-spacing-x1) + ${callingCode}px)`
+        ? `calc(var(--dds-spacing-x1) + ${callingCodeWidth}px)`
         : undefined;
 
     const styleVariables: Properties = {

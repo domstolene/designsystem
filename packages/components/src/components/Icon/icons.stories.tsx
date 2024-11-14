@@ -77,10 +77,7 @@ export const Overview = () => {
           )}
         >
           <Icon iconSize="large" icon={value} />
-          <Typography
-            typographyType="supportingStyleTiny01"
-            className={styles.card__name}
-          >
+          <Typography typographyType="bodyXsmall" className={styles.card__name}>
             {trimmedName}
           </Typography>
         </button>
@@ -103,7 +100,7 @@ export const Overview = () => {
   return (
     <div className={styles.page}>
       <LocalMessage message="Klikk på ikonet for mer info."></LocalMessage>
-      <Typography typographyType="supportingStyleHelperText01">
+      <Typography typographyType="bodySmall">
         Antall ikoner: {Object.keys(iconsObject).length}
       </Typography>
       <div className={styles.overview}>{iconOverview()}</div>
@@ -122,7 +119,7 @@ export const Overview = () => {
             </div>
           )}
           <div className={styles['group-header']}>
-            <Heading level={3} typographyType="headingSans02">
+            <Heading level={3} typographyType="headingSmall">
               Import
             </Heading>
             <Button
@@ -139,7 +136,7 @@ export const Overview = () => {
             </code>
           </div>
           <div className={styles['group-header']}>
-            <Heading level={3} typographyType="headingSans02">
+            <Heading level={3} typographyType="headingSmall">
               Bruk
             </Heading>
             <Button

@@ -36,7 +36,7 @@ export const AccordionHeader = forwardRef<
     children,
     className,
     htmlProps,
-    typographyType = 'headingSans02',
+    typographyType = 'headingMedium',
     bold,
     ...rest
   } = props;

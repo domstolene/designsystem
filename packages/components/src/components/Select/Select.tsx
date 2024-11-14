@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { type HTMLAttributes, type ReactNode, forwardRef, useId } from 'react';
+import { type HTMLAttributes, forwardRef, useId } from 'react';
 import {
   type GroupBase,
   type OptionProps,
@@ -40,16 +40,6 @@ export interface SelectOption<TValue = unknown> {
   label: string | number;
   value: TValue;
 }
-
-const getPlaceholder = (
-  placeholder?: ReactNode,
-  isMulti?: boolean,
-): ReactNode =>
-  placeholder
-    ? placeholder
-    : isMulti
-      ? '-- Velg en eller flere --'
-      : '-- Velg fra listen --';
 
 type WrappedReactSelectProps<
   Option,
@@ -152,7 +142,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     defaultValue,
     isDisabled: !!isDisabled,
     isClearable,
-    placeholder: getPlaceholder(placeholder, isMulti),
+    placeholder: placeholder ? placeholder : '',
     closeMenuOnSelect: closeMenuOnSelect
       ? closeMenuOnSelect
       : isMulti
@@ -201,7 +191,6 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,
-    menuPortalTarget: document?.body,
     onKeyDown: readOnlyKeyDownHandler('select', readOnly, props.onKeyDown),
     openMenuOnClick: readOnly
       ? false

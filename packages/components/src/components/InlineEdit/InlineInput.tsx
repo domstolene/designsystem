@@ -73,7 +73,7 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
               !hideIcon &&
                 isEditing &&
                 styles['inline-input--with-icon--is-editing'],
-              typographyStyles['body-sans-02'],
+              typographyStyles['body-medium'],
               hasErrorState && inputStyles['input--stateful-danger'],
               focusable,
             )}

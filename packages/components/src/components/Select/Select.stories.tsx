@@ -26,6 +26,9 @@ export default {
     icon: { control: false },
   },
   parameters: {
+    docs: {
+      story: { inline: true, height: '450px' },
+    },
     controls: {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
@@ -89,7 +92,7 @@ export const Overview: Story = {
           <Select {...args} required />
           <Select {...args} readOnly value={options[3]} />
           <Select {...args} errorMessage="Dette er en feilmelding" />
-          <Select {...args} placeholder="Annerledes placeholder" />
+          <Select {...args} placeholder="-- placeholder --" />
         </StoryVStack>
       </StoryHStack>
     );
