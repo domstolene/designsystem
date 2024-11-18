@@ -37,16 +37,16 @@
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@storybook/addon-a11y": "8.4.2",
-    "@storybook/addon-docs": "8.4.2",
-    "@storybook/addon-essentials": "8.4.2",
-    "@storybook/addon-links": "8.4.2",
-    "@storybook/addon-mdx-gfm": "8.4.2",
-    "@storybook/addon-storysource": "8.4.2",
-    "@storybook/blocks": "8.4.2",
-    "@storybook/core-common": "8.4.2",
-    "@storybook/react": "8.4.2",
-    "@storybook/react-vite": "8.4.2",
+    "@storybook/addon-a11y": "8.4.4",
+    "@storybook/addon-docs": "8.4.4",
+    "@storybook/addon-essentials": "8.4.4",
+    "@storybook/addon-links": "8.4.4",
+    "@storybook/addon-mdx-gfm": "8.4.4",
+    "@storybook/addon-storysource": "8.4.4",
+    "@storybook/blocks": "8.4.4",
+    "@storybook/core-common": "8.4.4",
+    "@storybook/react": "8.4.4",
+    "@storybook/react-vite": "8.4.4",
     "@testing-library/dom": "^10.4.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -58,10 +58,10 @@
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "storybook": "8.4.2",
+    "storybook": "8.4.4",
     "styled-components": "^6.1.13",
     "tsup": "^8.3.5",
-    "turbo": "^2.2.3"
+    "turbo": "^2.3.0"
   },
   "pnpm": {
     "overrides": {
@@ -74,7 +74,7 @@
     "pnpm": "9.8.0"
   },
   "dependencies": {
-    "@storybook/test": "8.4.2"
+    "@storybook/test": "8.4.4"
   },
   "packageManager": "pnpm@9.8.0"
 }
