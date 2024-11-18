@@ -41,7 +41,7 @@ const preview: Preview = {
           <div className="theme-toggle-bar-wrapper">
             <ToggleBar
               size="tiny"
-              name="test"
+              name="theme"
               value={theme}
               htmlProps={{ 'aria-label': 'Tema' }}
               onChange={(_event, theme) => {
