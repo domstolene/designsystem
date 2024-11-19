@@ -578,7 +578,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.bold}",
-          "fontSize": "{dds-font-size.medium}",
+          "fontSize": "{dds-font-size.small}",
           "lineHeight": "{dds-font-lineheight.x1}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
