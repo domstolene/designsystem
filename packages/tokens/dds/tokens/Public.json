@@ -603,7 +603,7 @@
       "xlarge": {
         "value": {
           "fontFamily": "{dds-font-family.sans}",
-          "fontWeight": "{dds-font-weight.normal}",
+          "fontWeight": "{dds-font-weight.light}",
           "fontSize": "{dds-font-size.xlarge}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
