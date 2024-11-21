@@ -568,7 +568,7 @@
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}",
-          "fontSize": "clamp(1.5rem, 0.667rem + 2.222vw, 2rem)"
+          "fontSize": "clamp(1.25rem, 0.833rem + 1.111vw, 1.5rem)"
         },
         "type": "typography",
         "description": "Default h2"
