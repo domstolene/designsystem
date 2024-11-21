@@ -5,6 +5,7 @@ import {
   forwardRef,
   useEffect,
   useId,
+  useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -13,7 +14,7 @@ import {
   useCombinedRef,
   useFocusTrap,
   useMountTransition,
-  useOnClickOutside,
+  useOnElementClick,
   useOnKeyDown,
 } from '../../hooks';
 import {
@@ -118,12 +119,8 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     }
   }, [isOpen]);
 
-  const elements: Array<HTMLElement | null> = [
-    drawerRef.current as HTMLElement,
-  ];
-  if (triggerRef) elements.push(triggerRef.current);
-
-  useOnClickOutside(elements, () => {
+  const backdropRef = useRef<HTMLDivElement>(null);
+  useOnElementClick(backdropRef.current, () => {
     if (isOpen) {
       onClose?.();
     }
@@ -190,7 +187,9 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   );
 
   const component = withBackdrop ? (
-    <Backdrop isMounted={isMounted}>{drawer}</Backdrop>
+    <Backdrop isMounted={isMounted} ref={backdropRef}>
+      {drawer}
+    </Backdrop>
   ) : (
     drawer
   );
