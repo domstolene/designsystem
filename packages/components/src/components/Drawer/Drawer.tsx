@@ -3,6 +3,7 @@ import {
   type ReactNode,
   type RefObject,
   forwardRef,
+  useContext,
   useEffect,
   useId,
 } from 'react';
@@ -31,6 +32,7 @@ import {
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 
 export type DrawerSize = 'small' | 'medium' | 'large';
@@ -80,7 +82,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     header,
     isOpen = false,
     placement = 'right',
-    parentElement = document.body,
+    parentElement,
     size = 'small',
     triggerRef,
     id,
@@ -122,6 +124,14 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     drawerRef.current as HTMLElement,
   ];
   if (triggerRef) elements.push(triggerRef.current);
+
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) {
+    throw new Error('Drawer must be used within a ThemeProvider');
+  }
+
+  const portalTarget = parentElement ?? themeContext?.el;
 
   useOnClickOutside(elements, () => {
     if (isOpen) {
@@ -195,8 +205,8 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     drawer
   );
 
-  return isOpen || hasTransitionedIn
-    ? createPortal(component, parentElement)
+  return (isOpen || hasTransitionedIn) && portalTarget
+    ? createPortal(component, portalTarget)
     : null;
 });
 

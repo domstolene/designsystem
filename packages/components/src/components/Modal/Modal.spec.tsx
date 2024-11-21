@@ -4,9 +4,18 @@ import { type ReactNode, useEffect, useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Button } from '../Button';
+import { ThemeProvider } from '../ThemeProvider';
 
-import { Modal, ModalBody } from '.';
+import { Modal, ModalBody, type ModalProps } from '.';
 
+// Modal skal wrappes i ThemeProvider for React Portal
+const WrappedModal = (props: ModalProps) => (
+  <ThemeProvider>
+    <Modal {...props} />
+  </ThemeProvider>
+);
+
+// Test komponent med full funksjonalitet
 const TestComponent = ({
   children,
   defaultOpen = false,
@@ -19,25 +28,25 @@ const TestComponent = ({
   const close = () => setOpen(false);
 
   return (
-    <>
+    <ThemeProvider>
       <Button onClick={show} />
       <Modal isOpen={open} onClose={close}>
         {children}
       </Modal>
-    </>
+    </ThemeProvider>
   );
 };
 
 describe('<Modal>', () => {
   it('should have header', () => {
     const header = 'title';
-    render(<Modal isOpen={true} header={header} />);
+    render(<WrappedModal isOpen={true} header={header} />);
     const el = screen.getByText(header);
     expect(el).toBeInTheDocument();
   });
 
   it('should have role="dialog"', () => {
-    render(<Modal isOpen={true} />);
+    render(<WrappedModal isOpen={true} />);
     const el = screen.getByRole('dialog');
 
     expect(el).toBeInTheDocument();
@@ -51,7 +60,7 @@ describe('<Modal>', () => {
 
   it('should be labelled by header', () => {
     const header = 'title';
-    render(<Modal isOpen={true} header={header} />);
+    render(<WrappedModal isOpen={true} header={header} />);
     const el = screen.getByRole('dialog');
 
     expect(el).toHaveAccessibleName(header);
@@ -60,9 +69,9 @@ describe('<Modal>', () => {
   it('should have body content', () => {
     const content = 'content';
     render(
-      <Modal isOpen={true}>
+      <WrappedModal isOpen={true}>
         <ModalBody>{content}</ModalBody>
-      </Modal>,
+      </WrappedModal>,
     );
     const el = screen.getByText(content);
     expect(el).toBeInTheDocument();
@@ -93,7 +102,7 @@ describe('<Modal>', () => {
   });
 
   it('should not hide after Esc keydown if not closable', async () => {
-    render(<Modal isOpen={true} />);
+    render(<WrappedModal isOpen={true} />);
 
     const el = await screen.findByRole('dialog');
     expect(el).toBeInTheDocument();
@@ -107,7 +116,7 @@ describe('<Modal>', () => {
     // so that scroll is triggered
     window.innerHeight = -1;
 
-    render(<Modal isOpen />);
+    render(<WrappedModal isOpen />);
 
     expect(document.body.style.position).toBe('fixed');
   });
@@ -118,7 +127,7 @@ describe('<Modal>', () => {
       return (
         <>
           <button onClick={() => setShowModal(false)}>Close modal</button>
-          {showModal && <Modal isOpen></Modal>}
+          {showModal && <WrappedModal isOpen />}
         </>
       );
     };

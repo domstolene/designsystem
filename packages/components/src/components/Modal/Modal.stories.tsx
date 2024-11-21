@@ -4,12 +4,20 @@ import { useRef, useState } from 'react';
 import { Button } from '../Button';
 import { Search } from '../Search';
 import { StoryHStack } from '../Stack/utils';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Modal, ModalActions, ModalBody } from '.';
 
 export default {
   title: 'dds-components/Modal',
   component: Modal,
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
   argTypes: {
     header: { control: 'text' },
     parentElement: { control: false },
@@ -19,7 +27,7 @@ export default {
   },
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { height: '350px', inline: true },
       canvas: { sourceState: 'hidden' },
     },
   },

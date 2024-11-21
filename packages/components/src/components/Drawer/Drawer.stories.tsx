@@ -1,6 +1,8 @@
+import { type Story } from '@storybook/blocks';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Paragraph } from '../Typography';
 
 import { Drawer, DrawerGroup } from '.';
@@ -10,7 +12,7 @@ export default {
   component: Drawer,
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { height: '500px', inline: true, scrollbar: false },
       canvas: { sourceState: 'hidden' },
     },
   },
@@ -21,6 +23,13 @@ export default {
     parentElement: { control: false },
     widthProps: { control: false },
   },
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
 } satisfies Meta<typeof Drawer>;
 
 type Story = StoryObj<typeof Drawer>;
