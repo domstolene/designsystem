@@ -89,8 +89,8 @@ export const customCSSFormat = async ({ dictionary, file }) => {
 
 /**
  * Custom format for SCSS
- * Variablene skal referere til CSS-variabler, og ikke verdierne direkte.
- * Det tillater å bruke theming ut av boksen med ThemeProvider, da riktig
+ * Variablene skal referere til CSS-variabler, og ikke direkte til token-verdiene.
+ * Det tillater å bruke theming ut av boksen med ThemeProvider i dds-components, da riktig
  * sett med tokens settes med CSS-variabler.
  * Det blir også mulig å verifisere at riktig token brukes
  * når koden blir inpsisert i nettleseren.

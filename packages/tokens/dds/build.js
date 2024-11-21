@@ -56,13 +56,14 @@ function getStyleDictionaryConfig(theme) {
           },
         ],
       },
+      // Returnerer bare 1 fil da SCSS-variabler refererer til CSS-variabler
       scss: {
-        buildPath: `build/scss/${theme}/`,
+        buildPath: `build/scss/`,
         transformGroup: 'tokens-studio',
         transforms: ['name/kebab'],
         files: [
           {
-            destination: `_ddsTokens-${theme.toLowerCase()}.scss`,
+            destination: `_ddsTokens.scss`,
             format: 'custom/scss/variables',
             filter: token => filterOutBase(token),
           },
