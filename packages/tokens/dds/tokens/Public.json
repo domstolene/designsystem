@@ -591,7 +591,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "{dds-font-size.large}",
+          "fontSize": "clamp(1.5rem, 0.667rem + 2.222vw, 2rem)",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
@@ -604,11 +604,11 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
-          "fontSize": "{dds-font-size.xlarge}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
-          "textDecoration": "{dds-font-style.normal}"
+          "textDecoration": "{dds-font-style.normal}",
+          "fontSize": "clamp(2.5rem, 1.667rem + 2.222vw, 3rem)"
         },
         "type": "typography",
         "description": "Default H1"
@@ -617,7 +617,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.light}",
-          "fontSize": "{dds-font-size.xxlarge}",
+          "fontSize": "clamp(3rem, 1.333rem + 4.444vw, 4rem)",
           "lineHeight": "{dds-font-lineheight.x3}",
           "letterSpacing": "{dds-font-letter-spacing.tight}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
