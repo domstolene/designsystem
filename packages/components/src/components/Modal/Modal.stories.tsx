@@ -8,7 +8,7 @@ import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Modal, ModalActions, ModalBody } from '.';
 
-export default {
+const meta: Meta<typeof Modal> = {
   title: 'dds-components/Modal',
   component: Modal,
   decorators: [
@@ -31,7 +31,8 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-} satisfies Meta<typeof Modal>;
+};
+export default meta;
 
 type Story = StoryObj<typeof Modal>;
 

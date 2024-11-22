@@ -7,7 +7,7 @@ import { Heading, Paragraph } from '../Typography';
 
 import { Drawer, DrawerGroup } from '.';
 
-export default {
+const meta: Meta<typeof Drawer> = {
   title: 'dds-components/Drawer',
   component: Drawer,
   parameters: {
@@ -30,7 +30,9 @@ export default {
       </StoryThemeProvider>
     ),
   ],
-} satisfies Meta<typeof Drawer>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Drawer>;
 
