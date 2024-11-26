@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 17.5.3
+
+### Patch Changes
+
+- e17356f: Setter animasjonstiden i `<Drawer>` til 200ms.
+- be2cacb: Legger til støtte for åpning av modal fra drawer med backdrop.
+
 ## 17.5.2
 
 ### Patch Changes
