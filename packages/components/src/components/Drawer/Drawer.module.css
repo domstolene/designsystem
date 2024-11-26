@@ -16,6 +16,7 @@
   justify-content: flex-end;
   min-width: 300px;
   z-index: 100;
+  border-radius: 0;
   padding: var(--dds-drawer-container-padding);
 
   @media (prefers-reduced-motion: no-preference) {
