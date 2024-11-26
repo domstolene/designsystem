@@ -4,6 +4,7 @@ import {
   forwardRef,
   useEffect,
   useId,
+  useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -12,7 +13,6 @@ import {
   useCombinedRef,
   useFocusTrap,
   useMountTransition,
-  useOnClickOutside,
   useOnKeyDown,
 } from '../../hooks';
 import {
@@ -88,7 +88,12 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     return () => handleElementWithBackdropUnmount(document.body);
   }, [isOpen]);
 
-  useOnClickOutside(modalRef.current, () => handleClose());
+  const backdropRef = useRef<HTMLDivElement>(null);
+  const onBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (event.target === backdropRef.current && isOpen) {
+      handleClose();
+    }
+  };
 
   useOnKeyDown(['Escape', 'Esc'], () => handleClose());
 
@@ -96,7 +101,11 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
   return isOpen || hasTransitionedIn
     ? createPortal(
-        <Backdrop isMounted={isOpen && hasTransitionedIn}>
+        <Backdrop
+          isMounted={isOpen && hasTransitionedIn}
+          ref={backdropRef}
+          onClick={onBackdropClick}
+        >
           <Paper
             {...getBaseHTMLProps(
               id,
