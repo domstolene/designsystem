@@ -11,6 +11,8 @@ import {
 } from '@norges-domstoler/dds-components';
 import { useState } from 'storybook/internal/preview-api';
 
+let nameCounter = 0;
+
 const preview: Preview = {
   parameters: {
     options: {
@@ -35,13 +37,14 @@ const preview: Preview = {
     /** Styring av theme med toggle bar i hver story */
     Story => {
       const [theme, setTheme] = useState<DdsTheme>('core');
+      nameCounter++;
 
       return (
         <ThemeProvider theme={theme}>
           <div className="theme-toggle-bar-wrapper">
             <ToggleBar
               size="tiny"
-              name="theme"
+              name={`theme-${nameCounter}`}
               value={theme}
               htmlProps={{ 'aria-label': 'Tema' }}
               onChange={(_event, theme) => {
