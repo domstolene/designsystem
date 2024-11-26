@@ -21,30 +21,40 @@ export default {
 
 type Story = StoryObj<typeof Divider>;
 
+export const Default: Story = {};
+
+const contrastStyling = `
+  .story-container {
+    padding: 1px;
+    }
+    `;
+
 export const Overview: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>{contrastStyling}</style>
+      </>
+    ),
+  ],
   render: args => (
     <>
       <Divider {...args} />
       <Divider {...args} color="subtle" />
-      <Divider {...args} color="onInverse" />
+      <Contrast className="story-container">
+        <Divider {...args} color="onInverse" />
+      </Contrast>
     </>
   ),
 };
-
-export const Default: Story = {};
 
 export const OnInverse: Story = {
   decorators: [
     Story => (
       <>
         <Story />
-        <style>
-          {`
-      .story-container {
-        padding: var(--dds-spacing-x1);
-        }
-        `}
-        </style>
+        <style>{contrastStyling}</style>
       </>
     ),
   ],
