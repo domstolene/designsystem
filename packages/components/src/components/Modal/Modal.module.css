@@ -13,6 +13,11 @@
   padding: var(--dds-modal-container-padding);
 }
 
+.container-scrollable {
+  max-height: calc(100vh - var(--dds-spacing-x1));
+  overflow: auto;
+}
+
 .content {
   display: grid;
   padding-right: calc(var(--dds-spacing-x1) - var(--dds-modal-content-padding));

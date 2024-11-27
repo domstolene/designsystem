@@ -28,6 +28,7 @@ import {
   handleElementWithBackdropUnmount,
 } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
 
@@ -48,6 +49,8 @@ export type ModalProps = BaseComponentPropsWithChildren<
     triggerRef?: RefObject<HTMLElement>;
     /**Ref som skal motta fokus når Modal åpnes. Hvis utelatt blir Modal fokusert. */
     initialFocusRef?: RefObject<HTMLElement>;
+    /** Gjør at innholdet kan scrolles */
+    scrollable?: boolean;
   }
 >;
 
@@ -61,6 +64,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     id,
     triggerRef,
     initialFocusRef,
+    scrollable,
     className,
     htmlProps,
     ...rest
@@ -109,7 +113,13 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
           <Paper
             {...getBaseHTMLProps(
               id,
-              cn(className, styles.container, focusable),
+              cn(
+                className,
+                styles.container,
+                focusable,
+                scrollable && styles['container-scrollable'],
+                utilStyles.scrollbar,
+              ),
               htmlProps,
               rest,
             )}
