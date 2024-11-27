@@ -8,7 +8,7 @@
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding));
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   min-width: 200px;
   padding: var(--dds-modal-container-padding);
 }

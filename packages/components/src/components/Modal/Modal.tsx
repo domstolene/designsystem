@@ -132,6 +132,18 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             id={modalId}
             elevation={4}
           >
+            {onClose && (
+              <Button
+                size="small"
+                purpose="tertiary"
+                icon={CloseIcon}
+                onClick={handleClose}
+                aria-label="Lukk dialog"
+                className={styles['close-button']}
+                htmlProps={{ tabIndex: -1 }}
+              />
+            )}
+
             <div className={styles.content}>
               {!!header && (
                 <div id={headerId} className={styles.header}>
@@ -146,16 +158,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
               )}
               {children}
             </div>
-            {onClose && (
-              <Button
-                size="small"
-                purpose="tertiary"
-                icon={CloseIcon}
-                onClick={handleClose}
-                aria-label="Lukk dialog"
-                className={styles['close-button']}
-              />
-            )}
           </Paper>
         </Backdrop>,
         parentElement,
