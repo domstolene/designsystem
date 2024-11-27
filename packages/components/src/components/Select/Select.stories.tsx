@@ -6,10 +6,11 @@ import { Drawer, DrawerGroup } from '../Drawer';
 import { CourtIcon } from '../Icon/icons';
 import { Modal, ModalBody } from '../Modal';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Select, type SelectProps, createSelectOptions } from '.';
 
-export default {
+const meta: Meta<typeof Select> = {
   title: 'dds-components/Select/Select',
   component: Select,
   argTypes: {
@@ -33,7 +34,16 @@ export default {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-} satisfies Meta<typeof Select>;
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Select>;
 

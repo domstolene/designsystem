@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { type HTMLAttributes, forwardRef, useId } from 'react';
+import { type HTMLAttributes, forwardRef, useContext, useId } from 'react';
 import {
   type GroupBase,
   type OptionProps,
@@ -34,6 +34,7 @@ import { type InputSize } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { type SvgIcon } from '../Icon/utils';
 import { renderInputMessage } from '../InputMessage';
+import { ThemeContext } from '../ThemeProvider';
 import { Label } from '../Typography';
 
 export interface SelectOption<TValue = unknown> {
@@ -114,11 +115,20 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     isDisabled,
     isClearable = true,
     placeholder,
+    menuPortalTarget,
     customOptionElement,
     customSingleValueElement,
     'data-testid': dataTestId,
     ...rest
   } = props;
+
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) {
+    throw new Error('Select must be used within a ThemeProvider');
+  }
+
+  const portalTarget = menuPortalTarget ?? themeContext?.el;
 
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-select`;
@@ -151,6 +161,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     isMulti,
     inputId: uniqueId,
     name: uniqueId,
+    menuPortalTarget: portalTarget,
     classNamePrefix: prefix,
     styles: getCustomStyles<Option>(
       componentSize,
