@@ -41,17 +41,16 @@ import { ThemeProvider } from '@norges-domstoler/dds-components';
 
 <Source code={`
 import { ThemeProvider, useTheme } from '@norges-domstoler/dds-components';
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 
 <ThemeProvider>
   <Panel />
 </ThemeProvider>
 
 function Panel(props) {
-const theme = useTheme();
+const { theme } = useTheme();
 
 const style = {
-borderRadius: ddsTokens[theme].ddsBorderRadiusSurface,
+borderRadius: theme.ddsBorderRadiusSurface,
 };
 
 return (

@@ -46,7 +46,7 @@ Design tokens er eksportert som JS-konstanter, CSS-variabler og SCSS-variabler. 
 
 ```css
 /* styles.css */
-@import '@norges-domstoler/dds-components/dist/css/index.css';
+@import '@norges-domstoler/dds-components/index.css';
 
 .panel {
   background-color: var(--dds-color-bg-default);
@@ -73,11 +73,11 @@ import * as React from 'react';
 import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { ThemeProvider, useTheme } from '@norges-domstoler/dds-components';
 
-const theme = useTheme();
+const { theme } = useTheme();
 
 const style = {
-  backgroundColor: ddsTokens[theme].ddsColorBgDefault,
-  padding: ddsTokens[theme].ddsSpacingX075,
+  backgroundColor: theme.ddsColorBgDefault,
+  padding: theme.ddsSpacingX075,
 };
 
 const App = () => (

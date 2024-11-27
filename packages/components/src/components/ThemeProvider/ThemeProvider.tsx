@@ -1,3 +1,4 @@
+import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type ReactNode,
   createContext,
@@ -63,10 +64,19 @@ export function ThemeProvider({
 }
 
 /**
- * Hook for å hente gjeldende tema.
+ * Hook for å hente gjeldende tema og temanavn. Brukes inni ThemeProvider.
  *
- * @returns DdsTheme
+ * @returns tema med JS-konstanter og navnet på temaet.
  */
-export function useTheme(): DdsTheme | undefined {
-  return useContext(ThemeContext)?.theme;
+
+export function useTheme() {
+  const themeName = useContext(ThemeContext)?.theme;
+
+  if (!themeName) {
+    throw new Error('useTheme must be used inside a ThemeProvider');
+  }
+
+  const theme = ddsTokens[themeName];
+
+  return { theme, themeName };
 }
