@@ -1,4 +1,4 @@
-import { type Property } from 'csstype';
+import { type Properties, type Property } from 'csstype';
 import { type HTMLAttributes, type ReactNode, forwardRef, useId } from 'react';
 import {
   type GroupBase,
@@ -142,6 +142,15 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
+  const styleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-select-width' as any]: width
+      ? width
+      : componentSize === 'tiny'
+        ? '210px'
+        : 'var(--dds-input-default-width)',
+  };
+
   const reactSelectProps: ReactSelectProps<
     Option,
     IsMulti,
@@ -219,7 +228,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
         isDisabled && styles['container--disabled'],
         readOnly && styles['container--readonly'],
       )}
-      style={{ ...style, width }}
+      style={{ ...style, ...styleVariables }}
     >
       {hasLabel && (
         <Label
