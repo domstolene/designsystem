@@ -8,6 +8,8 @@
 .container--error {
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
   background-color: var(--dds-color-surface-danger-default);
+  border-bottom-left-radius: var(--dds-border-radius-surface);
+  border-bottom-right-radius: var(--dds-border-radius-surface);
   gap: var(--dds-spacing-x0-25);
 
   .icon {
