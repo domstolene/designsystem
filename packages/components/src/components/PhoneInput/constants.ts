@@ -284,7 +284,7 @@ export const COUNTRIES: Countries = {
   BH: { name: 'Bahrain (‫البحرين‬‎)', id: 'BH', dialCode: '+973' },
   BD: { name: 'Bangladesh (বাংলাদেশ)', id: 'BD', dialCode: '+880' },
   BB: { name: 'Barbados', id: 'BB', dialCode: '+1246' },
-  BY: { name: 'Hviterussland (Беларусь)', id: 'BY', dialCode: '+375' },
+  BY: { name: 'Belarus (Беларусь)', id: 'BY', dialCode: '+375' },
   BE: { name: 'Belgium (België)', id: 'BE', dialCode: '+32' },
   BZ: { name: 'Belize', id: 'BZ', dialCode: '+501' },
   BJ: { name: 'Benin (Bénin)', id: 'BJ', dialCode: '+229' },

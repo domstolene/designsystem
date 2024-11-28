@@ -61,7 +61,15 @@ const prioritizedCountryOptions: Array<PhoneInputCountryOption> =
 const sortedCountryOptions: Array<PhoneInputCountryOption> = Object.values(
   COUNTRIES,
 )
-  .sort((a, b) => +a.name - +b.name)
+  .sort((a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  })
   .map(country => ({
     countryCode: country.id,
     label: `${country.name} ${country.dialCode}`,
