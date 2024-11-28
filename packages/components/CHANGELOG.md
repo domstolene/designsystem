@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 17.5.4
+
+### Patch Changes
+
+- 349bca7: Fikser høyde i `<NativeSelect>`.
+- 75ff95f: Setter makshøyde for Modal
+- 1cbc7bb: Setter default bredde på minste varianten av `<Select>` til å følge `<TextInput>`.
+- c629974: Fikser alfabetisk sortering i `<PhoneInput>`
+- 5e5445f: Setter `border-radius` i `<Drawer>` til 0, da flata tar hele viewport-høyden.
+- 422c64a: Oversetter landsnavn i `<PhoneInput>` til norsk
+- 40dc145: Legger `--dds-border-radius-surface` på nedre hjørner i `<InputMessage>`.
+
 ## 17.5.3
 
 ### Patch Changes
