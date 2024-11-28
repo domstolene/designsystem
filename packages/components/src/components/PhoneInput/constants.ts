@@ -292,7 +292,7 @@ export const COUNTRIES: Countries = {
   BT: { name: 'Bhutan (འབྲུག)', id: 'BT', dialCode: '+975' },
   BO: { name: 'Bolivia', id: 'BO', dialCode: '+591' },
   BA: {
-    name: 'Bosnia og Hercegovina (Босна и Херцеговина)',
+    name: 'Bosnia-Hercegovina (Босна и Херцеговина)',
     id: 'BA',
     dialCode: '+387',
   },
