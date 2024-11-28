@@ -299,7 +299,7 @@ export const COUNTRIES: Countries = {
   BW: { name: 'Botswana', id: 'BW', dialCode: '+267' },
   BR: { name: 'Brasil', id: 'BR', dialCode: '+55' },
   IO: {
-    name: 'Britiske Indiske Oceanterritorium (British Indian Ocean Territory)',
+    name: 'Det britiske territoriet i Indiahavet (British Indian Ocean Territory)',
     id: 'IO',
     dialCode: '+246',
   },
