@@ -8,9 +8,14 @@
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding));
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   min-width: 200px;
   padding: var(--dds-modal-container-padding);
+}
+
+.container-scrollable {
+  max-height: calc(100vh - var(--dds-spacing-x1));
+  overflow: auto;
 }
 
 .content {

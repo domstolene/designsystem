@@ -28,6 +28,7 @@ import {
   handleElementWithBackdropUnmount,
 } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
 
@@ -48,6 +49,8 @@ export type ModalProps = BaseComponentPropsWithChildren<
     triggerRef?: RefObject<HTMLElement>;
     /**Ref som skal motta fokus når Modal åpnes. Hvis utelatt blir Modal fokusert. */
     initialFocusRef?: RefObject<HTMLElement>;
+    /** Gjør at innholdet kan scrolles */
+    scrollable?: boolean;
   }
 >;
 
@@ -61,6 +64,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     id,
     triggerRef,
     initialFocusRef,
+    scrollable,
     className,
     htmlProps,
     ...rest
@@ -109,7 +113,13 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
           <Paper
             {...getBaseHTMLProps(
               id,
-              cn(className, styles.container, focusable),
+              cn(
+                className,
+                styles.container,
+                focusable,
+                scrollable && styles['container-scrollable'],
+                utilStyles.scrollbar,
+              ),
               htmlProps,
               rest,
             )}
@@ -122,6 +132,18 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             id={modalId}
             elevation={4}
           >
+            {onClose && (
+              <Button
+                size="small"
+                purpose="tertiary"
+                icon={CloseIcon}
+                onClick={handleClose}
+                aria-label="Lukk dialog"
+                className={styles['close-button']}
+                htmlProps={{ tabIndex: -1 }}
+              />
+            )}
+
             <div className={styles.content}>
               {!!header && (
                 <div id={headerId} className={styles.header}>
@@ -136,16 +158,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
               )}
               {children}
             </div>
-            {onClose && (
-              <Button
-                size="small"
-                purpose="tertiary"
-                icon={CloseIcon}
-                onClick={handleClose}
-                aria-label="Lukk dialog"
-                className={styles['close-button']}
-              />
-            )}
           </Paper>
         </Backdrop>,
         parentElement,
