@@ -54,21 +54,14 @@
 }
 
 .select--medium {
-  height: calc(
-    1.5em + var(--dds-spacing-x0-75) + var(--dds-spacing-x0-75) + 2px
-  );
   padding-right: var(--dds-spacing-x2);
 }
 
 .select--small {
-  height: calc(1.5em + var(--dds-spacing-x0-5) + var(--dds-spacing-x0-5) + 2px);
   padding-right: var(--dds-spacing-x2);
 }
 
 .select--tiny {
-  height: calc(
-    1.5em + var(--dds-spacing-x0-25) + var(--dds-spacing-x0-25) + 2px
-  );
   padding-right: var(--dds-spacing-x1-5);
 }
 

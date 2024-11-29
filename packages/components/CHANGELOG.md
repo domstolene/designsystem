@@ -1,5 +1,32 @@
 # @norges-domstoler/dds-components
 
+## 17.5.4
+
+### Patch Changes
+
+- 349bca7: Fikser høyde i `<NativeSelect>`.
+- 75ff95f: Setter makshøyde for Modal
+- 1cbc7bb: Setter default bredde på minste varianten av `<Select>` til å følge `<TextInput>`.
+- c629974: Fikser alfabetisk sortering i `<PhoneInput>`
+- 5e5445f: Setter `border-radius` i `<Drawer>` til 0, da flata tar hele viewport-høyden.
+- 422c64a: Oversetter landsnavn i `<PhoneInput>` til norsk
+- 40dc145: Legger `--dds-border-radius-surface` på nedre hjørner i `<InputMessage>`.
+
+## 17.5.3
+
+### Patch Changes
+
+- e17356f: Setter animasjonstiden i `<Drawer>` til 200ms.
+- be2cacb: Legger til støtte for åpning av modal fra drawer med backdrop.
+
+## 17.5.2
+
+### Patch Changes
+
+- 59fdd0e: Tillat react v19 i peer dependency range.
+- Updated dependencies [59fdd0e]
+  - @norges-domstoler/development-utils@1.3.1
+
 ## 17.5.1
 
 ### Patch Changes

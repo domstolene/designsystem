@@ -1,11 +1,13 @@
 import { type Property } from 'csstype';
 import {
+  type MouseEvent,
   type ReactNode,
   type RefObject,
   forwardRef,
   useContext,
   useEffect,
   useId,
+  useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -134,10 +136,17 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   const portalTarget = parentElement ?? themeContext?.el;
 
   useOnClickOutside(elements, () => {
-    if (isOpen) {
+    if (isOpen && !withBackdrop) {
       onClose?.();
     }
   });
+
+  const backdropRef = useRef<HTMLDivElement>(null);
+  const onBackdropClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target === backdropRef.current && isOpen && withBackdrop) {
+      onClose?.();
+    }
+  };
 
   const hasTransitionedIn = useMountTransition(isOpen, 500);
   const isMounted = hasTransitionedIn && isOpen;
@@ -200,7 +209,9 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   );
 
   const component = withBackdrop ? (
-    <Backdrop isMounted={isMounted}>{drawer}</Backdrop>
+    <Backdrop isMounted={isMounted} ref={backdropRef} onClick={onBackdropClick}>
+      {drawer}
+    </Backdrop>
   ) : (
     drawer
   );

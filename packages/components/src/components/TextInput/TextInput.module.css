@@ -10,10 +10,6 @@
   color: var(--dds-color-text-subtle);
 }
 
-.container--tiny {
-  width: 210px;
-}
-
 .affix-container {
   position: relative;
   display: flex;
