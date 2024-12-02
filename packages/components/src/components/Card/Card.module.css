@@ -16,7 +16,7 @@
 
 .container--border {
   background-color: var(--dds-color-surface-default);
-  border-color: var(--dds-color-border-default);
+  border-color: var(--dds-color-border-subtle);
 }
 
 .container--navigation {
