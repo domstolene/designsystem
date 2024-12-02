@@ -16,10 +16,15 @@
 
 .header-container {
   padding: var(--dds-card-accordion-header-container-padding);
+  justify-content: space-between;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 0.2s;
   }
+}
+
+.header-container__chevron {
+  margin-left: var(--dds-spacing-x0-5);
 }
 
 .body {

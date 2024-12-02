@@ -86,7 +86,12 @@ export const CardAccordionHeader = forwardRef<
         )}
       >
         <div className={baseStyles.header__content}>{children}</div>
-        <span className={baseStyles.header__chevron}>
+        <span
+          className={cn(
+            baseStyles.header__chevron,
+            styles['header-container__chevron'],
+          )}
+        >
           <AnimatedChevronUpDown
             width={ddsTokens.ddsIconSizeMedium}
             height={ddsTokens.ddsSpacingX05}
