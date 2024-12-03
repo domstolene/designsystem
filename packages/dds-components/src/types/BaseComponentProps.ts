@@ -1,6 +1,6 @@
 import { type HTMLAttributes, type PropsWithChildren } from 'react';
 
-import { cn } from '../../../components/src/utils/dom';
+import { cn } from '../../../dds-components/src/utils/dom';
 
 /**
  * Basetype for props som eksponeres til konsumenter av designsystemet.
