@@ -43,6 +43,9 @@ const meta: Meta<typeof DatePicker> = {
     width: {
       control: 'text',
     },
+    showWeekNumbers: {
+      control: 'boolean',
+    },
     isDisabled: {
       control: 'boolean',
     },
