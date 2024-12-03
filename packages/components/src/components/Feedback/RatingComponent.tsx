@@ -3,12 +3,11 @@ import { type Layout, type Rating } from './Feedback.types';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { Icon } from '../Icon';
-import { ThumbDownIcon, ThumbUpIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { HStack } from '../Stack';
 import { Tooltip } from '../Tooltip';
 import { Label } from '../Typography';
+import { ThumbIcon } from './utils';
 
 interface RatingComponentType {
   layout: Layout;
@@ -27,15 +26,10 @@ export const RatingComponent = ({
   thumbDownTooltip,
   handleRatingChange,
 }: RatingComponentType) => {
-  const layoutCn = layout === 'vertical' ? 'column' : 'row';
-  type Purpose = 'up' | 'down';
-
-  const button = (purpose: Purpose, layout: Layout) => (
+  const button = (rating: Rating, layout: Layout, tooltip: string) => (
     <button
-      aria-label={purpose === 'up' ? thumbUpTooltip : thumbDownTooltip}
-      onClick={() =>
-        handleRatingChange(purpose === 'up' ? 'positive' : 'negative')
-      }
+      aria-label={tooltip}
+      onClick={() => handleRatingChange(rating)}
       className={cn(
         utilStyles['remove-button-styling'],
         styles.button,
@@ -43,10 +37,7 @@ export const RatingComponent = ({
         focusable,
       )}
     >
-      <Icon
-        icon={purpose === 'up' ? ThumbUpIcon : ThumbDownIcon}
-        iconSize={layout === 'vertical' ? 'large' : 'medium'}
-      />
+      {ThumbIcon({ rating, layout, type: 'rating' })}
     </button>
   );
 
@@ -54,7 +45,7 @@ export const RatingComponent = ({
     <div
       className={cn(
         styles['rating-container'],
-        styles[`rating-container--${layoutCn}`],
+        styles[`rating-container--${layout}`],
       )}
     >
       <Label>{ratingLabel}</Label>
@@ -62,9 +53,11 @@ export const RatingComponent = ({
         <Spinner tooltip="Laster opp tilbakemelding ..." />
       ) : (
         <HStack gap="x1">
-          <Tooltip text={thumbUpTooltip}>{button('up', layout)}</Tooltip>
+          <Tooltip text={thumbUpTooltip}>
+            {button('positive', layout, thumbUpTooltip)}
+          </Tooltip>
           <Tooltip text={thumbDownTooltip}>
-            <div>{button('down', layout)}</div>
+            <div>{button('negative', layout, thumbDownTooltip)}</div>
           </Tooltip>
         </HStack>
       )}

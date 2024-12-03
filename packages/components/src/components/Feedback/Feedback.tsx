@@ -75,6 +75,7 @@ export const Feedback = ({
   if (!feedbackTextAreaExcluded && !isFeedbackSubmitted) {
     return (
       <CommentComponent
+        layout={layout}
         rating={rating}
         feedbackText={feedbackText}
         positiveFeedbackLabel={positiveFeedbackLabel}
