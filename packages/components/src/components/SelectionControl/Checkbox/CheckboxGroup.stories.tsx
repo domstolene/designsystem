@@ -1,6 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { Fieldset } from '../../Fieldset';
 import { StoryHStack, StoryVStack } from '../../Stack/utils';
+import { Legend } from '../../Typography';
 
 import { Checkbox, CheckboxGroup } from '.';
 
@@ -34,6 +36,42 @@ export const Default: Story = {
       <Checkbox key={2} label="Option 3" />,
     ],
   },
+};
+
+const fieldsetStyling = `
+.fieldset-story-container div[role="group"] {
+  flex-wrap: wrap;
+  max-height: 100px;
+  max-width: 500px; 
+}
+`;
+
+export const WithFieldset: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>{fieldsetStyling}</style>
+      </>
+    ),
+  ],
+  args: {
+    direction: 'column',
+    children: [
+      <Checkbox key={0} label="Strpl §171.1: Unndragelsesfare" />,
+      <Checkbox key={1} label="Strpl §171.2:Bevisforspillelsesfare" />,
+      <Checkbox key={2} label="Strpl §171.3: Gjentakelsesfare" />,
+      <Checkbox key={4} label="Arrestordreloven § 13" />,
+      <Checkbox key={5} label="Arrestordreloven § 13" />,
+      <Checkbox key={6} label="Arrestordreloven § 13" />,
+    ],
+  },
+  render: args => (
+    <Fieldset>
+      <Legend withMargins>Vilkår</Legend>
+      <CheckboxGroup {...args} className="fieldset-story-container" />
+    </Fieldset>
+  ),
 };
 
 export const Overview: Story = {

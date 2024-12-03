@@ -70,17 +70,19 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         rest,
       )}
     >
-      <Typography
-        as="span"
-        typographyType="supportingStyleLabel01"
-        id={uniqueGroupId}
-        className={readOnly ? labelStyles['read-only'] : undefined}
-      >
-        {readOnly && (
-          <Icon icon={LockIcon} className={labelStyles['read-only__icon']} />
-        )}
-        {label} {showRequiredMarker && <RequiredMarker />}
-      </Typography>
+      {label !== undefined ? (
+        <Typography
+          as="span"
+          typographyType="supportingStyleLabel01"
+          id={uniqueGroupId}
+          className={readOnly ? labelStyles['read-only'] : undefined}
+        >
+          {readOnly && (
+            <Icon icon={LockIcon} className={labelStyles['read-only__icon']} />
+          )}
+          {label} {showRequiredMarker && <RequiredMarker />}
+        </Typography>
+      ) : null}
       {renderInputMessage(tip, tipId)}
       <CheckboxGroupContext.Provider value={{ ...contextProps }}>
         <div
