@@ -67,6 +67,18 @@ export const AccordionHeader = forwardRef<
       {...restHeaderProps}
       type="button"
     >
+      <span
+        className={cn(
+          baseStyles.header__chevron,
+          styles['header-container__chevron'],
+        )}
+      >
+        <AnimatedChevronUpDown
+          width={ddsTokens.ddsIconSizeMedium}
+          height={ddsTokens.ddsSpacingX05}
+          isUp={isExpanded}
+        />
+      </span>
       <div
         className={cn(
           baseStyles.header__content,
@@ -76,13 +88,6 @@ export const AccordionHeader = forwardRef<
       >
         {children}
       </div>
-      <span className={baseStyles.header__chevron}>
-        <AnimatedChevronUpDown
-          width={ddsTokens.ddsIconSizeMedium}
-          height={ddsTokens.ddsSpacingX05}
-          isUp={isExpanded}
-        />
-      </span>
     </button>
   );
 });

@@ -9,7 +9,6 @@
 
 .header-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -23,7 +22,6 @@
   justify-content: center;
   height: var(--dds-icon-size-medium);
   width: var(--dds-icon-size-medium);
-  margin-left: var(--dds-spacing-x0-5);
 }
 
 .body {

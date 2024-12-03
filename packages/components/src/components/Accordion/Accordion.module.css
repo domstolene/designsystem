@@ -24,6 +24,10 @@
     var(--dds-spacing-x1);
 }
 
+.header-container__chevron {
+  margin-right: var(--dds-spacing-x0-5);
+}
+
 .body {
   height: var(--dds-card-accordion-body-height);
 }
