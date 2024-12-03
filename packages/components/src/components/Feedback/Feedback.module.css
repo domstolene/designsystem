@@ -3,12 +3,12 @@
   gap: var(--dds-spacing-x1);
 }
 
-.rating-container--row {
+.rating-container--horizontal {
   flex-direction: row;
   align-items: center;
 }
 
-.rating-container--column {
+.rating-container--vertical {
   flex-direction: column;
   align-items: start;
 }
