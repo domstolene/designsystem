@@ -29,7 +29,7 @@ For hvert element du skal emulere bygger du en individuell `<Skeleton>` med `hei
 
 ## Retningslinjer
 
-### Form
+### Utforming
 
 Bruk tokens for å definere form der mulig, spesielt `borderRadius`. På denne måten blir skjelettet alltid konsekvent ved endringer.
 
@@ -38,4 +38,20 @@ Bruk tokens for å definere form der mulig, spesielt `borderRadius`. På denne m
     borderRadius="var(--dds-border-radius-rounded)"
     height="var(--dds-spacing-x2)"
      />`}
+/>
+
+### Innlasting av en region
+
+Hvis du dynamisk laster inn deler av innhold som kan ta lengre tid, bruk [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+Indiker til assisterende verktøy at innlastning pågår med `aria-live`, `aria-busy="true"` og `aria-describedby` med f.eks. `<VisuallyHidden>`, så lenge innhold lastes inn og `<Skeleton>` vises:
+
+<Source
+  code={`
+<div aria-live="polite" aria-busy="true" aria-describedby="busy-text-id">
+  <VisuallyHidden id="busy-text-id"> Laster inn skjema </VisuallyHidden>
+  <Skeleton />
+  <Skeleton />
+  <Skeleton />
+</div>
+`}
 />

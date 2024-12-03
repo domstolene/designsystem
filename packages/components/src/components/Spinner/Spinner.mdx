@@ -27,11 +27,12 @@ import * as SpinnerStories from './Spinner.stories';
 
 ### Innlasting av en region
 
-Når `<Spinner>` brukes for å indikere at en del av siden lastes inn, bruk `aria-busy="true"` og `aria-describedby` på regionen så lenge `<Spinner>` vises:
+Hvis du dynamisk laster inn deler av innhold som kan ta lengre tid, bruk [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+Indiker til assisterende verktøy at innlastning pågår med `aria-live`, `aria-busy="true"` og `aria-describedby`, så lenge innhold lastes inn og `<Spinner>` vises:
 
 <Source
   code={`
-<div aria-busy="true" aria-describedby="spinner-id">
+<div aria-live="polite" aria-busy="true" aria-describedby="spinner-id">
   <Spinner id="spinner-id" />
 </div>
 `}
