@@ -1,6 +1,6 @@
 import { type RefObject, useEffect, useRef } from 'react';
 
-import { getFocusableElements } from '../../../components/src/utils';
+import { getFocusableElements } from '../../../dds-components/src/utils';
 
 /**
  * Returnerer fokus til et element når første eller siste barn i en container mister fokus ved tastaturnavigasjon. Typisk bruk:
