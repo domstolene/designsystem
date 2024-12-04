@@ -31,6 +31,10 @@ export interface DatePickerProps
    * Feilmelding.
    */
   errorMessage?: string;
+  /**Om ukenummer skal vises.
+   * @default true
+   */
+  showWeekNumbers?: boolean;
   /**
    * Egendefinert bredde på komponenten.
    */
@@ -42,7 +46,15 @@ const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
 };
 
 export function _DatePicker(
-  { errorMessage, componentSize, tip, style, width, ...props }: DatePickerProps,
+  {
+    errorMessage,
+    componentSize,
+    tip,
+    style,
+    width,
+    showWeekNumbers = true,
+    ...props
+  }: DatePickerProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
   const state = useDatePickerState(props);
@@ -59,7 +71,11 @@ export function _DatePicker(
 
   return (
     <I18nProvider locale={locale}>
-      <CalendarPopover isOpen={state.isOpen} onClose={state.close}>
+      <CalendarPopover
+        isOpen={state.isOpen}
+        onClose={state.close}
+        showWeekNumbers={showWeekNumbers}
+      >
         <CalendarPopoverAnchor>
           <DateField
             {...fieldProps}
