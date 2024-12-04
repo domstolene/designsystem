@@ -8,12 +8,15 @@ import {
   type CalendarState,
   type RangeCalendarState,
 } from '@react-stately/calendar';
+import { useContext } from 'react';
 
 import { CalendarCell } from './CalendarCell';
 import { cn } from '../../../../utils';
 import typographyStyles from '../../../Typography/typographyStyles.module.css';
+import { VisuallyHidden } from '../../../VisuallyHidden';
 import styles from '../../common/DateInput.module.css';
 import { getWeekNumber } from '../../utils/getWeekNumber';
+import { CalendarPopoverContext } from '../CalendarPopover';
 
 interface CalendarGridProps extends AriaCalendarGridProps {
   state: CalendarState | RangeCalendarState;
@@ -29,6 +32,8 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   // Get the number of weeks in the month so we can render the proper number of rows.
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
   const weekDays = ['Ma', 'Ti', 'On', 'To', 'Fr', 'Lø', 'Sø'];
+
+  const { showWeekNumbers } = useContext(CalendarPopoverContext);
 
   const typographyCn = [
     typographyStyles['supporting-style-tiny-02'],
@@ -51,7 +56,11 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
     >
       <thead {...headerProps}>
         <tr>
-          <th className={cn(...typographyCn)}>#</th>
+          {showWeekNumbers && (
+            <th className={cn(...typographyCn)}>
+              # <VisuallyHidden as="span">Ukenummer</VisuallyHidden>
+            </th>
+          )}
           {weekDays.map((day, index) => (
             <th key={index} className={cn(...typographyCn)}>
               {day}
@@ -68,11 +77,16 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
             : '';
           return (
             <tr key={weekIndex}>
-              <td
-                className={cn(styles['calendar__week-number'], ...typographyCn)}
-              >
-                {weekNumber}
-              </td>
+              {showWeekNumbers && (
+                <td
+                  className={cn(
+                    styles['calendar__week-number'],
+                    ...typographyCn,
+                  )}
+                >
+                  {weekNumber}
+                </td>
+              )}
               {datesInWeek.map((date, i) =>
                 date ? (
                   <CalendarCell key={i} state={state} date={date} />

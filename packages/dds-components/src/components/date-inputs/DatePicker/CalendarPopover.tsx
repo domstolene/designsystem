@@ -24,6 +24,7 @@ interface CalendarPopoverContextValue {
   anchorRef: RefObject<HTMLDivElement> | null;
   isOpen: boolean;
   onClose: () => void;
+  showWeekNumbers: boolean;
 }
 
 export const CalendarPopoverContext =
@@ -31,23 +32,25 @@ export const CalendarPopoverContext =
     anchorRef: null,
     isOpen: false,
     onClose: () => null,
+    showWeekNumbers: true,
   });
 
 interface CalendarPopoverProps {
   children: ReactNode;
   isOpen: boolean;
   onClose: () => void;
+  showWeekNumbers: boolean;
 }
 
 export const CalendarPopover = ({
   children,
-  isOpen,
   onClose,
+  ...props
 }: CalendarPopoverProps) => {
   const anchorRef = useRef<HTMLDivElement>(null);
   useOnKeyDown('Escape', onClose);
   return (
-    <CalendarPopoverContext.Provider value={{ anchorRef, isOpen, onClose }}>
+    <CalendarPopoverContext.Provider value={{ anchorRef, onClose, ...props }}>
       {children}
     </CalendarPopoverContext.Provider>
   );
