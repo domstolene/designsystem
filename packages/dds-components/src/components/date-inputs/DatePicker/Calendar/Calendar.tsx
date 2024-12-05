@@ -69,7 +69,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
         />
         <Heading
           level={2}
-          typographyType="headingSans02"
+          typographyType="headingXsmall"
           className={styles.calendar__header__month}
         >
           {title}

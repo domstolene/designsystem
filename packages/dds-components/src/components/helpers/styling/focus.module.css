@@ -1,42 +1,7 @@
-:root {
-  --dds-focus-outline: var(--dds-color-focus-outside) 2px solid;
-  --dds-focus-outline-offset: var(--dds-spacing-x0-125);
-  --dds-focus-outline-inset: calc(0px - var(--dds-spacing-x0-25));
-  --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
-  --dds-focus-transition: outline-offset 0.2s;
-}
-
-.focusable:focus-visible {
-  outline: var(--dds-focus-outline);
-  outline-offset: var(--dds-focus-outline-offset);
-  box-shadow: var(--dds-focus-box-shadow);
-}
-
-.focused {
-  outline: var(--dds-focus-outline);
-  outline-offset: var(--dds-focus-outline-offset);
-  box-shadow: var(--dds-focus-box-shadow);
-}
-
-.focusable-within:focus-within {
-  outline: var(--dds-focus-outline);
-  outline-offset: var(--dds-focus-outline-offset);
-  box-shadow: var(--dds-focus-box-shadow);
-}
-
-.focusable-textual:focus-visible,
-.focusable-textual:focus-visible::selection {
-  outline: var(--dds-focus-outline);
-  outline-offset: var(--dds-focus-outline-offset);
-  box-shadow: var(--dds-focus-box-shadow);
-}
-
-.has-focusable-input:has(input:focus-visible) {
-  outline: var(--dds-focus-outline);
-  outline-offset: var(--dds-focus-outline-offset);
-  box-shadow: var(--dds-focus-box-shadow);
-}
-
+.focused,
+.focusable:focus-visible,
+.focusable-within:focus-within,
+.has-focusable-input:has(input:focus-visible),
 .focusable-sibling:focus-visible + .focus-styled-sibling {
   outline: var(--dds-focus-outline);
   outline-offset: var(--dds-focus-outline-offset);

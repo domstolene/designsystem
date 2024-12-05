@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 import { useId, useRef } from 'react';
 
@@ -14,7 +13,7 @@ export type SpinnerProps = BaseComponentProps<
      */
     color?: TextColor;
     /**Størrelse; Setter høyde og bredde på spinneren.
-     * @default ddsTokens.ddsIconSizeMedium
+     * @default "var(--dds-icon-size-medium)"
      */
     size?: Property.Width;
     /**Tekst som vises ved hover.
@@ -26,7 +25,7 @@ export type SpinnerProps = BaseComponentProps<
 
 export function Spinner(props: SpinnerProps) {
   const {
-    size = ddsTokens.ddsIconSizeMedium,
+    size = 'var(--dds-icon-size-medium)',
     color = 'iconActionResting',
     tooltip = 'Innlasting pågår',
     id,
@@ -48,11 +47,11 @@ export function Spinner(props: SpinnerProps) {
       role="progressbar"
       aria-labelledby={uniqueId}
       {...getBaseHTMLProps(id, cn(className, styles.svg), htmlProps, rest)}
-      width={size}
-      height={size}
       style={{
         ...htmlProps?.style,
         animationDelay: outerAnimationDelay + 'ms',
+        width: size,
+        height: size,
       }}
     >
       <title id={uniqueId}>{tooltip}</title>

@@ -137,7 +137,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         className={cn(
           styles['item-number'],
           styles[`item-number--${itemStateCn[itemState]}`],
-          typographyStyles['body-sans-01'],
+          typographyStyles['body-small'],
         )}
       >
         {stepNumberContent}
@@ -146,7 +146,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         className={cn(
           styles['item-text'],
           styles[`item-text--${itemStateCn[itemState]}`],
-          typographyStyles['body-sans-03'],
+          typographyStyles['body-medium'],
         )}
       >
         <VisuallyHidden as="span">

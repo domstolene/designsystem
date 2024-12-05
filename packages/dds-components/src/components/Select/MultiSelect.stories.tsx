@@ -3,8 +3,9 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Select } from './Select';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
-export default {
+const meta: Meta<typeof Select<Option, true>> = {
   title: 'dds-components/Select/MultiSelect',
   component: Select,
   argTypes: {
@@ -20,11 +21,23 @@ export default {
     isLoading: { control: { type: 'boolean' } },
   },
   parameters: {
+    docs: {
+      story: { inline: true, height: '450px' },
+    },
     controls: {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-} satisfies Meta<typeof Select<Option, true>>;
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Select<Option, true>>;
 

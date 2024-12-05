@@ -80,7 +80,7 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
         id,
         cn(
           className,
-          typographyStyles['body-sans-01'],
+          typographyStyles['body-small'],
           styles.container,
           withIcon && icon && styles['container--with-icon'],
           styles[`container--${purpose}--${appearance}`],

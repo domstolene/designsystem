@@ -20,7 +20,7 @@ export default {
   },
   parameters: {
     docs: {
-      story: { inline: true, height: '550px' },
+      story: { inline: true, height: '320px' },
       canvas: { sourceState: 'hidden' },
     },
   },
@@ -68,7 +68,6 @@ const menuElements = [menuElement, menuElementWithIcon, menuElement];
 type Story = StoryObj<typeof InternalHeader>;
 
 export const WithNavigationAndContextMenu: Story = {
-  parameters: { docs: { story: { height: '265px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
@@ -79,7 +78,7 @@ export const WithNavigationAndContextMenu: Story = {
 };
 
 export const Responsive: Story = {
-  parameters: { docs: { story: { height: '265px' } } },
+  parameters: { docs: { story: { height: '520px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
@@ -152,6 +151,7 @@ export const Overview: Story = {
 };
 
 export const ResponsiveWithNavigation: Story = {
+  parameters: { docs: { story: { height: '220px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',
@@ -170,7 +170,7 @@ export const ResponsiveWithContextMenu: Story = {
 };
 
 export const ResponsiveWithNavigationAndContextMenu: Story = {
-  parameters: { docs: { story: { height: '365px' } } },
+  parameters: { docs: { story: { height: '420px' } } },
   args: {
     applicationName: 'Lovisa',
     applicationDesc: 'Produktnavn',

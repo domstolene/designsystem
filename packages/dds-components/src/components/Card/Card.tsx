@@ -7,7 +7,6 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
-import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type CardAppearance = 'filled' | 'border';
 
@@ -57,7 +56,6 @@ export const Card = (props: CardProps) => {
 
   const classNames = cn(
     className,
-    typographyStyles['body-sans-02'],
     styles.container,
     styles[`container--${appearance}`],
     cardType !== 'info' && styles[`container--${cardType}`],

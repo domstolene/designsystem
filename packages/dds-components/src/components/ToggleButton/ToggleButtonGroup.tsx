@@ -51,11 +51,7 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
       aria-labelledby={label ? uniqueLabelId : undefined}
     >
       {!!label && (
-        <Typography
-          as="span"
-          typographyType="supportingStyleLabel01"
-          id={uniqueLabelId}
-        >
+        <Typography as="span" typographyType="labelMedium" id={uniqueLabelId}>
           {label}
         </Typography>
       )}

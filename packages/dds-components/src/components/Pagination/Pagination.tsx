@@ -15,7 +15,7 @@ import {
   MoreHorizontalIcon,
 } from '../Icon/icons';
 import { Select } from '../Select';
-import { Typography } from '../Typography';
+import { Paragraph } from '../Typography';
 
 export interface PaginationOption {
   label: string;
@@ -330,9 +330,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
             />
           )}
           {withCounter && (
-            <Typography typographyType="supportingStyleLabel01" as="p">
+            <Paragraph>
               Viser {activePageFirstItem}-{activePageLastItem} av {itemsAmount}
-            </Typography>
+            </Paragraph>
           )}
         </div>
         {largeScreenNavigation}

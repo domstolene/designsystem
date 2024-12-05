@@ -26,7 +26,7 @@ export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
       className,
       htmlProps,
       children,
-      typographyType = 'bodySans02',
+      typographyType = 'bodyMedium',
       ...rest
     } = props;
 

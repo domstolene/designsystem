@@ -109,7 +109,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
         rest,
       )}
     >
-      <Typography typographyType="bodySans02" bold as="span">
+      <Typography typographyType="headingSmall" bold as="span">
         {applicationHref ? (
           <a
             href={applicationHref}
@@ -122,7 +122,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
           applicationName
         )}
       </Typography>
-      <Typography typographyType="bodySans02" as="span">
+      <Typography typographyType="bodyMedium" as="span">
         {applicationDesc}
       </Typography>
       {(hasContextMenu || navigation !== null) && (

@@ -74,7 +74,7 @@ export const Overview: Story = {
       <StoryVStack>
         <Card {...args} cardType="info">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingSans03">
+            <Heading level={2} typographyType="headingLarge">
               Title
             </Heading>
             {body}
@@ -82,7 +82,7 @@ export const Overview: Story = {
         </Card>
         <Card {...args} cardType="navigation" href="#">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingSans03">
+            <Heading level={2} typographyType="headingLarge">
               Title
             </Heading>
             {body}
@@ -98,7 +98,7 @@ export const Overview: Story = {
       <StoryVStack>
         <Card {...args} cardType="info" appearance="border">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingSans03">
+            <Heading level={2} typographyType="headingLarge">
               Title
             </Heading>
             {body}
@@ -106,7 +106,7 @@ export const Overview: Story = {
         </Card>
         <Card {...args} appearance="border" cardType="navigation" href="#">
           <div className="story-container-padding">
-            <Heading level={2} typographyType="headingSans03">
+            <Heading level={2} typographyType="headingLarge">
               Title
             </Heading>
             {body}
@@ -191,7 +191,7 @@ export const ExpandableCustom: Story = {
     <Card {...args} cardType="expandable" appearance="border">
       <CardAccordion>
         <CardAccordionHeader
-          typographyType="bodySans01"
+          typographyType="bodySmall"
           padding="4px 12px"
           bold
           className="custom-header"
@@ -199,7 +199,7 @@ export const ExpandableCustom: Story = {
           Dekning av reiseutgifter
         </CardAccordionHeader>
         <CardAccordionBody padding="16px 12px">
-          <Paragraph typographyType="bodySans01">
+          <Paragraph typographyType="bodySmall">
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
             <Link href="#">

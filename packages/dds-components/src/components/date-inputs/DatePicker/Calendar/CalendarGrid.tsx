@@ -36,7 +36,7 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   const { showWeekNumbers } = useContext(CalendarPopoverContext);
 
   const typographyCn = [
-    typographyStyles['supporting-style-tiny-02'],
+    typographyStyles['body-xsmall'],
     typographyStyles['text-color--subtle'],
   ];
   return (

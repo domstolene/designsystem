@@ -31,7 +31,7 @@ export const File = (props: FileProps) => {
     <li>
       <div className={cn(styles.file, !isValid && styles['file--invalid'])}>
         <span
-          className={cn(styles.file__name, typographyStyles['body-sans-02'])}
+          className={cn(styles.file__name, typographyStyles['body-medium'])}
         >
           {stateFile.file.name}
         </span>

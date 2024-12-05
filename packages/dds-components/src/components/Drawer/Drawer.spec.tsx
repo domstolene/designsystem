@@ -3,18 +3,22 @@ import { userEvent } from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Button } from '../Button';
+import { ThemeProvider } from '../ThemeProvider';
 
-import { Drawer, DrawerGroup } from '.';
+import { Drawer, DrawerGroup, type DrawerGroupProps } from '.';
 
 const buttonLabel = 'label';
 const content = 'content';
 
-const TestComponent = () => {
+// Drawer skal wrappes i ThemeProvider for React Portal
+const TestComponent = (props: Omit<DrawerGroupProps, 'children'>) => {
   return (
-    <DrawerGroup>
-      <Button>{buttonLabel}</Button>
-      <Drawer>{content}</Drawer>
-    </DrawerGroup>
+    <ThemeProvider>
+      <DrawerGroup {...props}>
+        <Button>{buttonLabel}</Button>
+        <Drawer>{content}</Drawer>
+      </DrawerGroup>
+    </ThemeProvider>
   );
 };
 
@@ -81,17 +85,12 @@ describe('<Drawer>', () => {
 
   it('should call additional onClose event on click', async () => {
     const event = vi.fn();
-    render(
-      <DrawerGroup onClose={event}>
-        <Button>{buttonLabel}</Button>
-        <Drawer>{content}</Drawer>
-      </DrawerGroup>,
-    );
+    render(<TestComponent onClose={event} />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
 
-    const closeButton = await screen.findByTestId('drawer-close-btn');
+    const closeButton = screen.getByLabelText('Lukk');
 
     await userEvent.click(closeButton!);
 
@@ -99,12 +98,7 @@ describe('<Drawer>', () => {
   });
   it('should call additional onClose event on Esc keydown', async () => {
     const event = vi.fn();
-    render(
-      <DrawerGroup onClose={event}>
-        <Button>{buttonLabel}</Button>
-        <Drawer>{content}</Drawer>
-      </DrawerGroup>,
-    );
+    render(<TestComponent onClose={event} />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
@@ -118,12 +112,7 @@ describe('<Drawer>', () => {
   });
   it('should call additional onOpen event on click', async () => {
     const event = vi.fn();
-    render(
-      <DrawerGroup onOpen={event}>
-        <Button>{buttonLabel}</Button>
-        <Drawer>{content}</Drawer>
-      </DrawerGroup>,
-    );
+    render(<TestComponent onOpen={event} />);
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);

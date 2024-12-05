@@ -48,7 +48,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
         rest,
       )}
       ref={ref}
-      typographyType="supportingStyleLabel01"
+      typographyType="labelMedium"
     >
       {readOnly && (
         <Icon

@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Properties, type Property } from 'csstype';
 import {
   type ChangeEvent,
@@ -199,7 +198,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
 
     const callingCodeInlineStart: Property.PaddingInlineStart | undefined =
       callingCodeWidth
-        ? ddsTokens.ddsSpacingX1NumberPx + callingCodeWidth + 'px'
+        ? `calc(var(--dds-spacing-x1) + ${callingCodeWidth}px)`
         : undefined;
 
     const styleVariables: Properties = {

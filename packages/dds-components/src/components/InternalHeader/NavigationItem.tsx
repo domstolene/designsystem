@@ -21,7 +21,7 @@ export const NavigationItem = forwardRef<
       className={cn(
         styles['nav-list__item__link'],
         isCurrent && styles['nav-list__item__link--active'],
-        typographyStyles['body-sans-02'],
+        typographyStyles['body-medium'],
         focusable,
       )}
     />

@@ -29,9 +29,9 @@ export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
     }
 
     return (
-      <Typography htmlProps={rest} ref={ref} as="span">
+      <span {...rest} ref={ref}>
         {children}
-      </Typography>
+      </span>
     );
   },
 );

@@ -79,7 +79,7 @@ export const InlineTextArea = forwardRef<
             styles['inline-textarea'],
             inputStyles['input--stateful'],
             hasErrorState && inputStyles['input--stateful-danger'],
-            typographyStyles['body-sans-02'],
+            typographyStyles['body-medium'],
             utilStyles.scrollbar,
             focusable,
           )}

@@ -45,9 +45,8 @@ export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
           <Icon icon={ErrorIcon} iconSize="small" className={styles.icon} />
         )}
         <Typography
-          typographyType={
-            isError ? 'bodySans01' : 'supportingStyleHelperText01'
-          }
+          typographyType={isError ? 'bodySmall' : 'bodyXsmall'}
+          color={isError ? 'textDefault' : 'textSubtle'}
           as="span"
         >
           {message}

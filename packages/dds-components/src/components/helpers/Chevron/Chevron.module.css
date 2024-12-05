@@ -1,13 +1,10 @@
-:root {
-  --dds-chevron-transition: transform 0.2s linear;
-}
-
 .svg {
   display: inline-block;
   flex-shrink: 0;
   position: relative;
   text-align: center;
   vertical-align: middle;
+  --dds-chevron-transition: transform 0.2s linear;
 }
 
 .group {

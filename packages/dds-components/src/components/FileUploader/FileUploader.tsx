@@ -144,7 +144,7 @@ export const FileUploader = (props: FileUploaderProps) => {
       className={cn(
         className,
         styles.container,
-        typographyStyles['body-sans-02'],
+        typographyStyles['body-medium'],
       )}
       style={{ ...style, width }}
       {...rest}

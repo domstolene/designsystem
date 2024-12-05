@@ -4,7 +4,7 @@
 
 React UI komponenter til bruk i domstolenes tjenester.
 
-Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [ Elsa Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
+Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [Elsa Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
 
 ## 📦 Installasjon
 
@@ -20,19 +20,25 @@ Importer styling av komponentene i CSS:
 
 ## 🔨 Bruk
 
+Wrapp applikasjonen din i `<ThemeProvider>`.
+
 ```js
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Button, TextInput } from '@norges-domstoler/dds-components';
+import {
+  Button,
+  TextInput,
+  ThemeProvider,
+} from '@norges-domstoler/dds-components';
 
 const App = () => (
-  <>
+  <ThemeProvider>
     <TextInput label="Input" />
     <Button>Primary</Button>
     <Button purpose="secondary" size="small">
       Secondary
     </Button>
-  </>
+  </ThemeProvider>
 );
 
 const root = createRoot(document.getElementById('root'));
@@ -42,62 +48,4 @@ root.render(<App />);
 
 ## 📃 Komponenter
 
-Sjekk [komponentstatus](https://design.domstol.no/987b33f71/p/438035-komponenter/b/160db9) for oppdatert status.
-
-Tilgjengelige komponenter:
-
-- Breadcrumbs
-- Button
-- ButtonGroup
-- Card (inkludert CardAccordion)
-- Checkbox
-- Chip
-- DatePicker
-- DescriptionList
-- DetailList
-- Divider
-- Drawer
-- EmptyContent
-- FavStar
-- Feedback
-- FileUploader
-- GlobalMessage
-- Grid
-- Icon
-- InlineButton
-- InputMessage
-- InternaHeader
-- List
-- LocalMessage
-- Modal
-- OverflowMenu
-- Pagination
-- Popover
-- ProgressTracker
-- RadioButton
-- Search
-- Select
-- Skeleton
-- SkipToContent
-- Spinner
-- Stack
-  - VStack
-  - HStack
-- Table
-- Tabs
-- Tag
-- TextInput
-- TextArea
-- TimePicker
-- ToggleBar
-- ToggleButton
-- Tooltip
-- Typografikomponenter:
-  - Caption
-  - Heading
-  - Label
-  - Legend
-  - Link
-  - Paragraph
-  - Typography
-- VisuallyHidden
+Sjekk [Komponenter](https://design.domstol.no/987b33f71/p/438035-komponenter) for oversikt over alle komponenter, og [nyheter](https://design.domstol.no/987b33f71/p/438035-komponenter/t/page-438035-50469210-4) for status på nye komponenter.

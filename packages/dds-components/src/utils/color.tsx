@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Property } from 'csstype';
 
 export type ColorAlphaFormat = 'hex8' | 'decimal';
@@ -101,37 +100,6 @@ export const textColors = {
   iconMedium: 'var(--dds-color-icon-medium)',
 };
 
-export const textColorsJS = {
-  textOnAction: ddsTokens.ddsColorTextOnAction,
-  textOnInverse: ddsTokens.ddsColorTextOnInverse,
-  textOnStatusDefault: ddsTokens.ddsColorTextOnStatusDefault,
-  textOnStatusStrong: ddsTokens.ddsColorTextOnStatusStrong,
-  textActionResting: ddsTokens.ddsColorTextActionResting,
-  textActionHover: ddsTokens.ddsColorTextActionHover,
-  textActionVisited: ddsTokens.ddsColorTextActionVisited,
-  textDefault: ddsTokens.ddsColorTextDefault,
-  textRequiredfield: ddsTokens.ddsColorTextRequiredfield,
-  textSubtle: ddsTokens.ddsColorTextSubtle,
-  textMedium: ddsTokens.ddsColorTextMedium,
-  textOnNotification: ddsTokens.ddsColorTextOnNotification,
-
-  iconOnAction: ddsTokens.ddsColorIconOnAction,
-  iconOnInfoDefault: ddsTokens.ddsColorIconOnInfoDefault,
-  iconOnSuccessDefault: ddsTokens.ddsColorIconOnSuccessDefault,
-  iconOnDangerDefault: ddsTokens.ddsColorIconOnDangerDefault,
-  iconOnWarningDefault: ddsTokens.ddsColorIconOnWarningDefault,
-  iconOnInfoStrong: ddsTokens.ddsColorIconOnInfoStrong,
-  iconOnSuccessStrong: ddsTokens.ddsColorIconOnSuccessStrong,
-  iconOnDangerStrong: ddsTokens.ddsColorIconOnDangerStrong,
-  iconOnWarningStrong: ddsTokens.ddsColorIconOnWarningStrong,
-  iconOnInverse: ddsTokens.ddsColorIconOnInverse,
-  iconActionResting: ddsTokens.ddsColorIconActionResting,
-  iconActionHover: ddsTokens.ddsColorIconActionHover,
-  iconDefault: ddsTokens.ddsColorIconDefault,
-  iconSubtle: ddsTokens.ddsColorIconSubtle,
-  iconMedium: ddsTokens.ddsColorIconMedium,
-};
-
 export type DDSTextColor =
   | 'textOnAction'
   | 'textOnInverse'
@@ -200,10 +168,5 @@ export function isTextColor(color: string): color is DDSTextColor {
 
 export const getTextColor = (color: TextColor): TextColor => {
   if (isTextColor(color)) return textColors[color];
-  return color;
-};
-
-export const getJSTextColor = (color: TextColor): TextColor => {
-  if (isTextColor(color)) return textColorsJS[color];
   return color;
 };

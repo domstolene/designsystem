@@ -6,10 +6,10 @@ import {
 
 import styles from './Typography.module.css';
 import {
-  type AnchorTypographyType,
-  type LabelTypographyType,
   type OtherTypographyType,
+  type TypographyAnchorType,
   type TypographyComponentProps,
+  type TypographyLabelType,
 } from './Typography.types';
 import {
   getElementType,
@@ -56,11 +56,11 @@ type OtherTypographyProps = BaseComponentProps<
 export type TypographyProps =
   | ({
       /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
-      typographyType?: AnchorTypographyType;
+      typographyType?: TypographyAnchorType;
     } & AnchorTypographyProps)
   | ({
       /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
-      typographyType?: LabelTypographyType;
+      typographyType?: TypographyLabelType;
     } & LabelTypographyProps)
   | ({
       /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
@@ -74,7 +74,7 @@ const isAnchorProps = (
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
   (props, ref) => {
     const {
-      typographyType = 'bodySans02',
+      typographyType = 'bodyMedium',
       as: propAs,
       children,
       bold,
@@ -91,7 +91,7 @@ export const Typography = forwardRef<HTMLElement, TypographyProps>(
 
     const { style: htmlPropsStyle, ...restHtmlProps } = htmlProps;
 
-    const as = propAs ? propAs : getElementType(typographyType as string);
+    const as = propAs ? propAs : getElementType(typographyType);
     const typographyCn = getTypographyCn(typographyType);
 
     let relProp;

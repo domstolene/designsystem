@@ -34,7 +34,7 @@ export default {
 type Story = StoryObj<typeof OverflowMenu>;
 
 export const Default: Story = {
-  parameters: { docs: { story: { height: '450px' } } },
+  parameters: { docs: { story: { height: '480px' } } },
   render: args => {
     return (
       <VStack>
@@ -142,7 +142,7 @@ export const WithButtons: Story = {
 };
 
 export const WithNavigation: Story = {
-  parameters: { docs: { story: { height: '200px' } } },
+  parameters: { docs: { story: { height: '250px' } } },
   render: args => {
     return (
       <VStack>
@@ -164,7 +164,7 @@ export const WithNavigation: Story = {
 };
 
 export const WithStaticUserOnly: Story = {
-  parameters: { docs: { story: { height: '100px' } } },
+  parameters: { docs: { story: { height: '160px' } } },
   render: args => {
     return (
       <VStack>

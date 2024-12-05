@@ -26,7 +26,7 @@ export function EmptyContent({
     <div {...rest} className={cn(className, styles.containter)}>
       <div className={styles.text}>
         {title && (
-          <Heading level={titleHeadingLevel} typographyType="headingSans02">
+          <Heading level={titleHeadingLevel} typographyType="headingMedium">
             {title}
           </Heading>
         )}

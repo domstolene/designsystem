@@ -19,7 +19,7 @@ export const Caption = forwardRef<HTMLTableCaptionElement, CaptionProps>(
       <Typography
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
         ref={ref}
-        typographyType="headingSans03"
+        typographyType="headingLarge"
         as="caption"
       >
         {children}

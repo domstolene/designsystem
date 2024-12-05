@@ -1,17 +1,15 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
-
 const navigationItems = {
   gap: 'var(--dds-spacing-x0-5)',
   item: {
-    font: 'var(--dds-font-body-sans-02)',
-    letterSpacing: 'var(--dds-font-body-sans-02-letter-spacing)',
+    font: 'var(--dds-font-body-medium)',
+    letterSpacing: 'var(--dds-font-body-medium-letter-spacing)',
     color: 'var(--dds-color-text-on-inverse)',
     borderRadius: 'var(--dds-border-radius-button)',
     padding: 'var(--dds-spacing-x0-75)',
     gap: 'var(--dds-spacing-x0-5)',
     external: {
-      font: 'var(--dds-font-body-sans-01)',
-      letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
+      font: 'var(--dds-font-body-small)',
+      letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
     },
     hover: {
       backgroundColor: 'var(--dds-color-surface-inverse-hover)',
@@ -27,18 +25,18 @@ const logoAndVersion = {
   padding: '36px var(--dds-spacing-x1-5)',
   color: 'var(--dds-color-text-on-inverse)',
   logo: {
-    font: 'var(--dds-font-heading-sans-05)',
-    letterSpacing: 'var(--dds-font-heading-sans-05-letter-spacing)',
+    font: 'var(--dds-font-heading-xlarge)',
+    letterSpacing: 'var(--dds-font-heading-xlarge-letter-spacing)',
     fontWeight: 'var(--dds-font-weight-bold)',
     small: {
-      font: 'var(--dds-font-heading-sans-03)',
-      letterSpacing: 'var(--dds-font-heading-sans-03-letter-spacing)',
+      font: 'var(--dds-font-heading-large)',
+      letterSpacing: 'var(--dds-font-heading-large-letter-spacing)',
       fontWeight: 'var(--dds-font-weight-bold)',
     },
   },
   version: {
-    font: 'var(--dds-font-supporting-style-tiny-01)',
-    letterSpacing: 'var(--dds-font-supporting-style-tiny-01-letter-spacing)',
+    font: 'var(--dds-font-body-xsmall)',
+    letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
   },
 };
 
@@ -68,7 +66,8 @@ const navigation = {
   width: '264px',
 
   mobile: {
-    breakpoint: ddsTokens.ddsBreakpointSm,
+    //var(--dds-breakpoint-sm)
+    breakpoint: '600px',
     iconColors: 'var(--dds-color-icon-on-inverse)',
   },
 };

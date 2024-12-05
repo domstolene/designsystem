@@ -29,32 +29,20 @@ export const Default: Story = {
 export const Overview: Story = {
   render: args => (
     <StoryVStack>
-      <Paragraph {...args} typographyType="bodySans01">
-        {args.children || 'bodySans01'}
+      <Paragraph {...args} typographyType="bodyXsmall">
+        {args.children || 'bodyXsmall'}
       </Paragraph>
-      <Paragraph {...args} typographyType="bodySans02">
-        {args.children || 'bodySans02'}
+      <Paragraph {...args} typographyType="bodySmall">
+        {args.children || 'bodySmall'}
       </Paragraph>
-      <Paragraph {...args} typographyType="bodySans03">
-        {args.children || 'bodySans03'}
+      <Paragraph {...args} typographyType="bodyMedium">
+        {args.children || 'bodyMedium'}
       </Paragraph>
-      <Paragraph {...args} typographyType="bodySans04">
-        {args.children || 'bodySans04'}
+      <Paragraph {...args} typographyType="bodyLarge">
+        {args.children || 'bodyLarge'}
       </Paragraph>
-      <Paragraph {...args} typographyType="leadSans01">
-        {args.children || 'leadSans01'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="leadSans02">
-        {args.children || 'leadSans02'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="leadSans03">
-        {args.children || 'leadSans03'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="leadSans04">
-        {args.children || 'leadSans04'}
-      </Paragraph>
-      <Paragraph {...args} typographyType="leadSans05">
-        {args.children || 'leadSans05'}
+      <Paragraph {...args} typographyType="leadMedium">
+        {args.children || 'leadMedium'}
       </Paragraph>
     </StoryVStack>
   ),

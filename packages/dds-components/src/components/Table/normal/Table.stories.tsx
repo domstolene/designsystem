@@ -408,7 +408,6 @@ export const WithCheckbox: Story = {
                   <Table.Cell>{row.fnumber}</Table.Cell>
                   <Table.Cell>{row.employer}</Table.Cell>
                   <Table.Cell>{row.orgnumber}</Table.Cell>
-                  <Table.Cell>{row.percentage}</Table.Cell>
                 </Table.Row>
               );
             })}
@@ -618,7 +617,6 @@ export const ColumnAndRowHeaders: Story = {
               <Table.Cell> {item.fnumber} </Table.Cell>
               <Table.Cell> {item.employer} </Table.Cell>
               <Table.Cell> {item.orgnumber} </Table.Cell>
-              <Table.Cell> {item.percentage} </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
@@ -659,7 +657,6 @@ export const WithScroll: Story = {
                 <Table.Cell> {item.fnumber} </Table.Cell>
                 <Table.Cell> {item.employer} </Table.Cell>
                 <Table.Cell> {item.orgnumber} </Table.Cell>
-                <Table.Cell> {item.percentage} </Table.Cell>
               </Table.Row>
             ))}
           </Table.Body>

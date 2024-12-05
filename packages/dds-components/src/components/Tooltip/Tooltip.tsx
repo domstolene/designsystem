@@ -170,7 +170,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           border="subtle"
           className={cn(
             styles.paper,
-            typographyStyles['body-sans-02'],
+            typographyStyles['body-medium'],
             utilStyles['visibility-transition'],
             utilStyles[`visibility-transition--${openCn}`],
           )}

@@ -27,7 +27,7 @@ export type LinkProps = BaseComponentPropsWithChildren<
     external?: boolean;
     /**Om lenken kan få `:visited`-styling. */
     withVisited?: boolean;
-    /**Spesifiserer typografistil basert på utvalget for brødtekst.  */
+    /**Spesifiserer typografistil basert på utvalget for brødtekst. Arver hvis ikke oppgitt. */
     typographyType?: TypographyBodyType;
   } & BaseTypographyProps &
     PickedHTMLAttributes,

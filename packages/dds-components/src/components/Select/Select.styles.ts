@@ -2,11 +2,8 @@ import { type GroupBase, type StylesConfig } from 'react-select';
 
 import {
   type InputSize,
-  dangerInputfield,
-  focusInputfield,
-  focusVisibleInsetSelect,
-  hoverDangerInputfield,
-  hoverInputfield,
+  focusVisible,
+  focusVisibleTransitionValue,
 } from '../helpers';
 import { scrollbarStyling } from '../helpers';
 
@@ -15,66 +12,42 @@ type SelectTypography = Record<
   { font: string; letterSpacing: string; fontStyle?: string }
 >;
 
-const placeholderTypography: SelectTypography = {
-  medium: {
-    font: 'var(--dds-font-supporting-style-placeholdertext-01)',
-    letterSpacing:
-      'var(--dds-font-supporting-style-placeholdertext-01-letter-spacing)',
-    fontStyle: 'var(--dds-font-supporting-style-placeholdertext-01-font-style)',
-  },
-  small: {
-    font: 'var(--dds-font-supporting-style-placeholdertext-02)',
-    letterSpacing:
-      'var(--dds-font-supporting-style-placeholdertext-02-letter-spacing)',
-    fontStyle: 'var(--dds-font-supporting-style-placeholdertext-02-font-style)',
-  },
-  tiny: {
-    font: 'var(--dds-font-supporting-style-placeholdertext-03)',
-    letterSpacing:
-      'var(--dds-font-supporting-style-placeholdertext-03-letter-spacing)',
-    fontStyle: 'var(--dds-font-supporting-style-placeholdertext-03-font-style)',
-  },
-};
-
 const optionTypography: SelectTypography = {
   medium: {
-    font: 'var(--dds-font-body-sans-02)',
-    letterSpacing: 'var(--dds-font-body-sans-02-letter-spacing)',
+    font: 'var(--dds-font-body-medium)',
+    letterSpacing: 'var(--dds-font-body-medium-letter-spacing)',
   },
   small: {
-    font: 'var(--dds-font-body-sans-01)',
-    letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
+    font: 'var(--dds-font-body-small)',
+    letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
   },
   tiny: {
-    font: 'var(--dds-font-supporting-style-tiny-01)',
-    letterSpacing: 'var(--dds-font-supporting-style-tiny-01-letter-spacing)',
+    font: 'var(--dds-font-body-xsmall)',
+    letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
   },
 };
 
 const multiValueLabelTypography: SelectTypography = {
   medium: {
-    font: 'var(--dds-font-body-sans-01)',
-    letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
+    font: 'var(--dds-font-body-small)',
+    letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
   },
   small: {
-    font: 'var(--dds-font-body-sans-01)',
-    letterSpacing: 'var(--dds-font-body-sans-01-letter-spacing)',
+    font: 'var(--dds-font-body-small)',
+    letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
   },
   tiny: {
-    font: 'var(--dds-font-supporting-style-tiny-01)',
-    letterSpacing: 'var(--dds-font-supporting-style-tiny-01-letter-spacing)',
+    font: 'var(--dds-font-body-xsmall)',
+    letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
   },
 };
 
 const groupHeadingTypography = {
-  font: 'var(--dds-font-supporting-style-helpertext-01)',
-  letterSpacing:
-    'var(--dds-font-supporting-style-helpertext-01-letter-spacing)',
+  font: 'var(--dds-font-body-xsmall)',
+  letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
 };
 
 const typography = {
-  placeholder: placeholderTypography,
-  noOptionsMessage: placeholderTypography,
   option: optionTypography,
   multiValueLabel: multiValueLabelTypography,
   groupHeading: groupHeadingTypography,
@@ -134,21 +107,26 @@ export const getCustomStyles = <TOption>(
     border: '1px solid',
     borderColor: 'var(--dds-color-border-default)',
     backgroundColor: 'var(--dds-color-surface-default)',
-    transition: 'box-shadow 0.2s, border-color 0.2s',
+    transition: `box-shadow 0.2s, border-color 0.2s, ${focusVisibleTransitionValue}`,
     paddingRight: 'var(--dds-spacing-x0-5)',
     ...control[size].base,
     ...(hasIcon && control[size].hasIcon),
     '&:hover': {
-      ...(!isReadOnly && hoverInputfield),
+      ...(!isReadOnly && {
+        borderColor: 'var(--dds-color-border-action-hover)',
+        boxShadow: '0 0 0 1px var(--dds-color-border-action-hover)',
+      }),
     },
     ...(hasError && {
-      ...dangerInputfield,
+      borderColor: 'var(--dds-color-border-danger)',
+      boxShadow: '0 0 0 1px var(--dds-color-border-danger)',
       '&:hover': {
-        ...hoverDangerInputfield,
+        borderColor: 'var(--dds-color-border-danger)',
+        boxShadow: '0 0 0 1px var(--dds-color-border-danger)',
       },
     }),
     '&:focus-within': {
-      ...focusInputfield,
+      ...focusVisible,
     },
     ...(state.selectProps.isDisabled && {
       borderColor: 'var(--dds-color-border-subtle)',
@@ -166,7 +144,6 @@ export const getCustomStyles = <TOption>(
   }),
   placeholder: provided => ({
     ...provided,
-    ...typography.placeholder[size],
     color: 'var(--dds-color-text-subtle)',
     margin: 0,
   }),
@@ -261,7 +238,7 @@ export const getCustomStyles = <TOption>(
     ...typography.groupHeading,
     color: 'var(--dds-color-text-medium)',
     paddingInline: 'var(--dds-spacing-x0-75)',
-    paddingBlock: 'var(--dds-spacing-x0-125) var(--dds-spacing-x0-5)',
+    paddingBlock: 'var(--dds-spacing-x0-5) var(--dds-spacing-x0-125)',
   }),
   menuList: () => ({
     maxHeight: '300px',
@@ -287,12 +264,14 @@ export const getCustomStyles = <TOption>(
       color: 'var(--dds-color-text-default)',
       backgroundColor: 'var(--dds-color-surface-hover-default)',
     },
+    // egen stil siden react-select bruker focus-state og hover-styling samtidig; ikke nødvendig hvis de kan skilles.
     ...(state.isFocused && {
-      ...focusVisibleInsetSelect,
+      outline: 'var(--dds-color-border-action-hover) 2px solid',
+      outlineOffset: 'calc(var(--dds-spacing-x0-125) * -1)',
     }),
   }),
   noOptionsMessage: () => ({
-    ...typography.noOptionsMessage[size],
+    ...typography.option[size],
     padding: 'var(--dds-spacing-x0-5) var(--dds-spacing-x1)',
     color: 'var(--dds-color-text-medium)',
   }),

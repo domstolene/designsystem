@@ -7,7 +7,6 @@
 
   body {
     width: 100%;
-    font-family: var(--dds-font-family-sans), 'Trebuchet MS', sans-serif;
   }
 
   #storybook-docs .sbdocs-wrapper {
@@ -16,18 +15,20 @@
     max-width: 52rem;
   }
 
-  body,
   .docblock-argstable,
   .docblock-argstable-head th,
   .docblock-argstable td {
-    font: var(--dds-font-body-sans-02);
+    font: var(--dds-font-body-small);
     color: var(--dds-color-text-default) !important;
-    letter-spacing: var(--dds-font-body-sans-02-letter-spacing);
+    letter-spacing: var(--dds-font-body-small-letter-spacing);
   }
 
-  .sbdocs-preview .docblock-code-toggle,
-  .sbdocs-preview button {
-    font-family: var(--dds-font-family-sans), 'Trebuchet MS', sans-serif;
+  .docblock-argstable-head th {
+    font-weight: var(--dds-font-weight-bold);
+  }
+
+  .sbdocs-preview .docblock-code-toggle {
+    font-family: var(--dds-font-family-sans);
   }
 
   code {
@@ -64,9 +65,18 @@
 
   .docblock-argstable td div code,
   code span,
-  pre span.token {
+  pre.prismjs span {
     font-family: var(--dds-font-family-monospace) !important ;
   }
+
+  .docblock-argstable button {
+    font-family: inherit;
+  }
+
+  .docblock-argstable td div code {
+    padding: var(--dds-spacing-x0-125) var(--dds-spacing-x0-25);
+  }
+
   .docblock-argstable td div:nth-of-type(2) span,
   .docblock-argstable tbody td:nth-of-type(3) > div:first-of-type span {
     font-family: var(--dds-font-family-monospace) !important ;
@@ -102,9 +112,9 @@
   .sbdocs p:not(.docs-story *),
   .sbdocs ul:not(.docs-story *),
   .sbdocs li:not(.docs-story *) {
-    font: var(--dds-font-body-sans-02);
-    letter-spacing: var(--dds-font-body-sans-02-letter-spacing);
-    margin-bottom: var(--dds-font-body-sans-02-paragraph-spacing);
+    font: var(--dds-font-body-medium);
+    letter-spacing: var(--dds-font-body-medium-letter-spacing);
+    margin-bottom: var(--dds-font-body-medium-paragraph-spacing);
     margin-top: 0;
   }
 
@@ -136,30 +146,30 @@
   }
 
   .sbdocs h1:not(.docs-story *) {
-    font: var(--dds-font-heading-sans-06);
-    letter-spacing: var(--dds-font-heading-sans-06-letter-spacing);
-    margin-bottom: var(--dds-font-heading-sans-06-paragraph-spacing);
+    font: var(--dds-font-heading-xxlarge);
+    letter-spacing: var(--dds-font-heading-xxlarge-letter-spacing);
+    margin-bottom: var(--dds-font-heading-xxlarge-paragraph-spacing);
     padding-top: var(--dds-spacing-padding-top-heading);
   }
 
   .sbdocs h2:not(.docs-story *) {
-    font: var(--dds-font-heading-sans-05);
-    letter-spacing: var(--dds-font-heading-sans-05-letter-spacing);
-    margin-bottom: var(--dds-font-heading-sans-05-paragraph-spacing);
+    font: var(--dds-font-heading-xlarge);
+    letter-spacing: var(--dds-font-heading-xlarge-letter-spacing);
+    margin-bottom: var(--dds-font-heading-xlarge-paragraph-spacing);
     padding-top: var(--dds-spacing-padding-top-heading);
   }
 
   .sbdocs h3:not(.docs-story *) {
-    font: var(--dds-font-heading-sans-04);
-    letter-spacing: var(--dds-font-heading-sans-04-letter-spacing);
-    margin-bottom: var(--dds-font-heading-sans-04-paragraph-spacing);
+    font: var(--dds-font-heading-large);
+    letter-spacing: var(--dds-font-heading-large-letter-spacing);
+    margin-bottom: var(--dds-font-heading-large-paragraph-spacing);
     padding-top: var(--dds-spacing-padding-top-heading);
   }
 
   .sbdocs h4:not(.docs-story *) {
-    font: var(--dds-font-heading-sans-03);
-    letter-spacing: var(--dds-font-heading-sans-03-letter-spacing);
-    margin-bottom: var(--dds-font-heading-sans-03-paragraph-spacing);
+    font: var(--dds-font-heading-medium);
+    letter-spacing: var(--dds-font-heading-medium-letter-spacing);
+    margin-bottom: var(--dds-font-heading-medium-paragraph-spacing);
     padding-top: var(--dds-spacing-padding-top-heading);
   }
 
@@ -167,5 +177,11 @@
     outline: var(--dds-color-focus-outside) 2px solid;
     outline-offset: var(--dds-spacing-x0-125);
     box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
+  }
+
+  .theme-toggle-bar-wrapper {
+    width: fit-content;
+    margin-inline-start: auto;
+    margin-block-end: var(--dds-spacing-x1);
   }
 </style>

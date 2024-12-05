@@ -70,7 +70,7 @@ export const ComplexContent: Story = {
   args: {},
   render: args => (
     <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
-      <Heading level={2} typographyType="headingSans03" withMargins>
+      <Heading level={2} typographyType="headingLarge" withMargins>
         Dette er en viktig melding
       </Heading>
       <Paragraph withMargins>Meldingen har en liste i seg:</Paragraph>

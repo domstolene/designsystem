@@ -9,44 +9,34 @@ import {
 } from './Typography.types';
 import { convertCamelToHyphen } from '../../../utils';
 
-export const defaultTypographyType: TypographyBodyType = 'bodySans02';
-export const defaultTypographyTypeClassName = 'body-sans-02';
+export const defaultTypographyType: TypographyBodyType = 'bodyMedium';
+export const defaultTypographyTypeClassName: HyphenTypographyType =
+  'body-medium';
 
-export const getElementType = (element: string): ElementType => {
+export const getElementType = (element: TypographyType): ElementType => {
   switch (element) {
     case 'a':
       return 'a';
-    case 'headingSans01':
+    case 'headingXxsmall':
       return 'h6';
-    case 'headingSans02':
+    case 'headingXsmall':
       return 'h5';
-    case 'headingSans03':
+    case 'headingSmall':
       return 'h4';
-    case 'headingSans04':
+    case 'headingMedium':
       return 'h3';
-    case 'headingSans05':
+    case 'headingLarge':
       return 'h2';
-    case 'headingSans06':
-    case 'headingSans07':
-    case 'headingSans08':
+    case 'headingXlarge':
+    case 'headingXxlarge':
       return 'h1';
-    case 'supportingStyleLabel01':
+    case 'labelMedium':
       return 'label';
-    case 'bodySans01':
-    case 'bodySans02':
-    case 'bodySans03':
-    case 'bodySans04':
-    case 'leadSans01':
-    case 'leadSans02':
-    case 'leadSans03':
-    case 'leadSans04':
-    case 'leadSans05':
-    case 'supportingStyleHelperText01':
-    case 'supportingStylePlaceholderText01':
-    case 'supportingStylePlaceholderText02':
-    case 'supportingStylePlaceholderText03':
-    case 'supportingStyleTiny01':
-    case 'supportingStyleTiny02':
+    case 'bodyXsmall':
+    case 'bodySmall':
+    case 'bodyMedium':
+    case 'bodyLarge':
+    case 'leadMedium':
     default:
       return 'p';
   }
