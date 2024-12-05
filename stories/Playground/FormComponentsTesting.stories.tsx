@@ -7,7 +7,7 @@ import {
   TextInput,
   TimePicker,
   VStack,
-} from '../../packages/components/src/index';
+} from '../../packages/dds-components/src/index';
 
 export default {
   title: 'Playground/Testing',

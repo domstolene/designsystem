@@ -1,0 +1,91 @@
+{
+  "name": "@norges-domstoler/dds-components",
+  "version": "17.5.4",
+  "description": "React components used in Elsa - domstolenes designsystem",
+  "author": "Elsa team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domstolene/designsystem"
+  },
+  "sideEffects": [
+    "*.css",
+    "src/styles/index.ts"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./index.css": "./dist/index.css"
+  },
+  "homepage": "https://design.domstol.no",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "generate-css-types": "tcm src",
+    "build": "pnpm run generate-css-types && tsup --dts",
+    "dev": "pnpm run generate-css-types --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "dds",
+    "design",
+    "tokens",
+    "design tokens",
+    "design system",
+    "domstolene",
+    "norges domstoler",
+    "elsa"
+  ],
+  "devDependencies": {
+    "@internationalized/date": "^3.5.6",
+    "@norges-domstoler/dds-design-tokens": "workspace:*",
+    "@norges-domstoler/storybook-components": "workspace:*",
+    "@react-types/datepicker": "^3.8.3",
+    "@storybook/blocks": "8.4.4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
+    "csstype": "3.1.2",
+    "jsdom": "^25.0.1",
+    "postcss": "^8.4.49",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.3.5",
+    "typed-css-modules": "^0.9.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5"
+  },
+  "peerDependencies": {
+    "@internationalized/date": "^3",
+    "@norges-domstoler/dds-design-tokens": ">=5.0.0",
+    "react": "^16 || ^17 || ^18 || ^19",
+    "react-dom": "^16 || ^17 || ^18 || ^19"
+  },
+  "dependencies": {
+    "@floating-ui/react-dom": "^2.1.2",
+    "@norges-domstoler/development-utils": "workspace:*",
+    "@react-aria/button": "^3.10.1",
+    "@react-aria/calendar": "^3.5.13",
+    "@react-aria/datepicker": "^3.11.4",
+    "@react-aria/focus": "^3.18.4",
+    "@react-aria/i18n": "^3.12.3",
+    "@react-stately/calendar": "^3.5.5",
+    "@react-stately/datepicker": "^3.10.3",
+    "file-selector": "^2.1.1",
+    "react-select": "^5.8.3"
+  },
+  "publishConfig": {
+    "provenance": true
+  }
+}

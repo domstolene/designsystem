@@ -1,0 +1,62 @@
+{
+  "name": "@norges-domstoler/dds-design-tokens",
+  "version": "6.0.1",
+  "description": "Design tokens used in Domstolenes designsystem",
+  "author": "DDS team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domstolene/designsystem"
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./*": "./*"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://design.domstol.no",
+  "keywords": [
+    "dds",
+    "design",
+    "tokens",
+    "design tokens",
+    "design system",
+    "domstolene",
+    "norges domstoler",
+    "elsa"
+  ],
+  "scripts": {
+    "clean": "rm -r dist dds/build || :",
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "build:clean": "pnpm clean && pnpm build",
+    "build:tokens": "node ./dds/build.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@types/node": "^22.9.0",
+    "@tokens-studio/sd-transforms": "^1.2.8",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "rollup": "^3.29.5",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-sass": "^1.14.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "style-dictionary": "^4.2.0",
+    "typescript": "^5.6.3"
+  },
+  "publishConfig": {
+    "provenance": true
+  }
+}

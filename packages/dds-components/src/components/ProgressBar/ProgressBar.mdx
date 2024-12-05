@@ -1,0 +1,44 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as ProgressBarStories from './ProgressBar.stories';
+
+<Meta of={ProgressBarStories} />
+
+# ProgressBar
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/57aa58-divider/b/587136"
+  figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3209%3A94239"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/ProgressBar"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-divider--default"
+  withBottomSpacing
+/>
+
+`<ProgressBar>` brukes til å indikere framgang på en prosess.
+
+## Props
+
+<Canvas of={ProgressBarStories.Default} sourceState="shown" />
+<Controls of={ProgressBarStories.Default} />
+
+## Retningslinjer
+
+### Innlasting av en region
+
+Hvis du dynamisk laster inn deler av innhold som kan ta lengre tid, bruk [live region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions).
+Indiker til assisterende verktøy at innlastning pågår med `aria-live`, `aria-busy="true"` og `aria-describedby`, så lenge innhold lastes inn og `<ProgressBar>` vises:
+
+<Source
+  code={`
+<div aria-live="polite" aria-busy="true" aria-describedby="progress-id">
+  <ProgressBar id="progress-id" />
+</div>
+`}
+/>
+
+### Ledetekst
+
+Hvis det ikke passer med synlig ledetekst bruk `aria-label` eller `<VisuallyHidden>`-komponenten.
