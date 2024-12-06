@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 17.6.1
+
+### Patch Changes
+
+- 74fbd84: Fikser border i `<SplitButton>`slik at den ikke blir gjennomsiktig på en side ved `:active` state.
+
 ## 17.6.0
 
 ### Minor Changes
