@@ -63,6 +63,7 @@ export type PopoverProps = BaseComponentPropsWithChildren<
     sizeProps?: PopoverSizeProps;
     /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Funksjon kjørt ved lukking. */
     onClose?: () => void;
+    withoutFocusOnBlur?: boolean;
   }
 >;
 
@@ -83,6 +84,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       id,
       className,
       htmlProps = {},
+      withoutFocusOnBlur = false,
       ...rest
     } = props;
     const hasTransitionedIn = useMountTransition(isOpen, 400);
@@ -95,7 +97,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     refs.setReference(anchorElement || null);
 
     const popoverRef = useReturnFocusOnBlur(
-      isOpen && hasTransitionedIn,
+      isOpen && hasTransitionedIn && !withoutFocusOnBlur,
       () => {
         onClose && onClose();
         onBlur && onBlur();
