@@ -63,6 +63,10 @@ export type PopoverProps = BaseComponentPropsWithChildren<
     sizeProps?: PopoverSizeProps;
     /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Funksjon kjørt ved lukking. */
     onClose?: () => void;
+    /** Om focus skal returneres ved `blur`
+     * @default true
+     */
+    returnFocusOnBlur?: boolean;
   }
 >;
 
@@ -80,6 +84,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       placement = 'bottom',
       offset = ddsTokens.ddsSpacingX05NumberPx,
       sizeProps,
+      returnFocusOnBlur = true,
       id,
       className,
       htmlProps = {},
@@ -95,7 +100,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     refs.setReference(anchorElement || null);
 
     const popoverRef = useReturnFocusOnBlur(
-      isOpen && hasTransitionedIn,
+      isOpen && hasTransitionedIn && returnFocusOnBlur,
       () => {
         onClose && onClose();
         onBlur && onBlur();
