@@ -1,5 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as BackLinkStories from './BackLink.stories';
 
 <Meta of={BackLinkStories} />
@@ -17,3 +20,29 @@ import * as BackLinkStories from './BackLink.stories';
 
 <Canvas of={BackLinkStories.Default} />
 <Controls of={BackLinkStories.Default} />
+
+I tillegg støttes native props `href` og `onClick`.
+
+## Med `react-router`
+
+Bruk hooks tilgjengelige i `react-router` for å returnere Elsa `<BackLink>` som custom lenke:
+
+<Source code={`
+
+import { useHref, useLinkClickHandler } from 'react-router-dom';
+
+import { BackLink } from '@norges-domstoler/dds-components';
+import type { BackLinkProps } from '@norges-domstoler/dds-components';
+
+type RouterConnectedBackLinkProps = Omit<BackLinkProps, 'onClick'>;
+
+export default function RouterConnectedBackLink(
+  props: RouterConnectedBackLinkProps,
+): JSX.Element {
+  const { href, ...rest } = props;
+  const routerHref = href ? useHref(href) : undefined;
+  const linkClickHandler = href ? useLinkClickHandler(href) : () => {};
+
+return <BackLink {...rest} href={routerHref} onClick={linkClickHandler} />;
+}
+`} />
