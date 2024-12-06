@@ -1,4 +1,4 @@
-.button {
+:where(.button) {
   user-select: text;
   display: inline-flex;
   align-items: center;
@@ -15,7 +15,7 @@
     transition: all 0.2s;
   }
 
-  &:active:not(.button--is-loading) {
+  &:active:not([aria-disabled='true']) {
     scale: 0.95;
   }
 }
