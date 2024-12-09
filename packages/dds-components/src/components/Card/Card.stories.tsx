@@ -10,7 +10,12 @@ import { Divider } from '../Divider';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Heading, Link, Paragraph } from '../Typography';
 
-import { Card, CardAccordion, CardAccordionBody, CardAccordionHeader } from '.';
+import {
+  Card,
+  CardExpandable,
+  CardExpandableBody,
+  CardExpandableHeader,
+} from '.';
 
 export default {
   title: 'dds-components/Card',
@@ -89,10 +94,10 @@ export const Overview: Story = {
           </div>
         </Card>
         <Card {...args} cardType="expandable">
-          <CardAccordion>
-            <CardAccordionHeader> Title </CardAccordionHeader>
-            <CardAccordionBody>Content</CardAccordionBody>
-          </CardAccordion>
+          <CardExpandable>
+            <CardExpandableHeader> Title </CardExpandableHeader>
+            <CardExpandableBody>Content</CardExpandableBody>
+          </CardExpandable>
         </Card>
       </StoryVStack>
       <StoryVStack>
@@ -114,10 +119,10 @@ export const Overview: Story = {
         </Card>
 
         <Card {...args} cardType="expandable" appearance="border">
-          <CardAccordion>
-            <CardAccordionHeader> Title </CardAccordionHeader>
-            <CardAccordionBody>Content</CardAccordionBody>
-          </CardAccordion>
+          <CardExpandable>
+            <CardExpandableHeader> Title </CardExpandableHeader>
+            <CardExpandableBody>Content</CardExpandableBody>
+          </CardExpandable>
         </Card>
       </StoryVStack>
     </StoryHStack>
@@ -143,10 +148,10 @@ export const Navigation: Story = {
 export const Expandable: Story = {
   args: {
     children: (
-      <CardAccordion>
-        <CardAccordionHeader>Header</CardAccordionHeader>
-        <CardAccordionBody>Content</CardAccordionBody>
-      </CardAccordion>
+      <CardExpandable>
+        <CardExpandableHeader>Header</CardExpandableHeader>
+        <CardExpandableBody>Content</CardExpandableBody>
+      </CardExpandable>
     ),
     cardType: 'expandable',
   },
@@ -159,13 +164,13 @@ export const ExpandableControlled: Story = {
 
     return (
       <Card {...args} cardType="expandable">
-        <CardAccordion
+        <CardExpandable
           isExpanded={isExpanded}
           onChange={() => setIsExpanded(!isExpanded)}
         >
-          <CardAccordionHeader>Header</CardAccordionHeader>
-          <CardAccordionBody>Content</CardAccordionBody>
-        </CardAccordion>
+          <CardExpandableHeader>Header</CardExpandableHeader>
+          <CardExpandableBody>Content</CardExpandableBody>
+        </CardExpandable>
       </Card>
     );
   },
@@ -189,16 +194,16 @@ export const ExpandableCustom: Story = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (args: any) => (
     <Card {...args} cardType="expandable" appearance="border">
-      <CardAccordion>
-        <CardAccordionHeader
+      <CardExpandable>
+        <CardExpandableHeader
           typographyType="bodySmall"
           padding="4px 12px"
           bold
           className="custom-header"
         >
           Dekning av reiseutgifter
-        </CardAccordionHeader>
-        <CardAccordionBody padding="16px 12px">
+        </CardExpandableHeader>
+        <CardExpandableBody padding="16px 12px">
           <Paragraph typographyType="bodySmall">
             I sivile saker avtales dekning av utgifter med den part som innkalte
             deg. I straffesaker har du krav på reise- og kostgodtgjørelse (
@@ -216,8 +221,8 @@ export const ExpandableCustom: Story = {
             av utgifter til reise og kost. Dersom enkeltmåltider er dekket av
             andre enn deg selv, må du registrere måltidsfradrag.
           </Paragraph>
-        </CardAccordionBody>
-      </CardAccordion>
+        </CardExpandableBody>
+      </CardExpandable>
     </Card>
   ),
 };
