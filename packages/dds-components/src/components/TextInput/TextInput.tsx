@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type Properties, type Property } from 'csstype';
 import React, {
   forwardRef,
@@ -66,7 +65,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       if (suffixRef.current) {
         setSuffixLength(suffixRef.current.offsetWidth);
       }
-    }, [prefix, suffix, readOnly]);
+    }, [prefix, suffix]);
 
     const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
       event: React.ChangeEvent<HTMLInputElement>,
@@ -128,18 +127,14 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     const showRequiredStyling = !!(required || ariaRequired);
 
     const preffixPaddingInlineStart: Property.PaddingInlineStart | undefined =
-      readOnly && prefixLength
-        ? prefixLength + 'px'
-        : prefixLength
-          ? ddsTokens.ddsSpacingX1NumberPx + prefixLength + 'px'
-          : undefined;
+      prefixLength
+        ? `calc(var(--dds-spacing-x1) + ${prefixLength}px)`
+        : undefined;
 
     const suffixPaddingInlineEnd: Property.PaddingInlineEnd | undefined =
-      readOnly && suffixLength
-        ? suffixLength + 'px'
-        : suffixLength
-          ? ddsTokens.ddsSpacingX1NumberPx + suffixLength + 'px'
-          : undefined;
+      suffixLength
+        ? `calc(var(--dds-spacing-x1) + ${suffixLength}px)`
+        : undefined;
 
     let extendedInput = null;
 

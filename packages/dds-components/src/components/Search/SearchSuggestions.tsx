@@ -80,7 +80,7 @@ export const SearchSuggestions = forwardRef<
         id={suggestionsHeaderId}
         className={cn(
           styles.suggestions__header,
-          typographyStyles['supporting-style-tiny-01'],
+          typographyStyles['body-xsmall'],
         )}
       >
         Søkeforslag

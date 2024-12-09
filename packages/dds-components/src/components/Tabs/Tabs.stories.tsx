@@ -127,7 +127,7 @@ export const TabLongNames: Story = {
   render: args => (
     <Tabs {...args}>
       <TabList>
-        <Tab>Partsopplysninger</Tab>
+        <Tab>Parter</Tab>
         <Tab>Restriksjoner</Tab>
         <Tab>Vedlegg</Tab>
       </TabList>

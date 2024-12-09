@@ -9,6 +9,6 @@ export const FooterListHeader = forwardRef<
   FooterListHeaderProps
 >((props, ref) => {
   return (
-    <Heading level={2} typographyType="headingSans02" ref={ref} {...props} />
+    <Heading level={2} typographyType="headingSmall" ref={ref} {...props} />
   );
 });

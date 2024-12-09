@@ -95,12 +95,20 @@ export const WithAffixes: Story = {
         <strong>OBS!</strong> Skjermleser leser ikke opp affixes. Husk derfor å
         inkludere en tilstrekkelig beskrivende label i tillegg.
       </LocalMessage>
-      <TextInput {...args} prefix="Prefix" label="Med prefix" />
-      <TextInput {...args} suffix="Suffix" label="Med suffix" />
       <TextInput
         {...args}
-        prefix="Prefix"
-        suffix="Suffix"
+        prefix={args.prefix ?? 'Prefix'}
+        label="Med prefix"
+      />
+      <TextInput
+        {...args}
+        suffix={args.suffix ?? 'Suffix'}
+        label="Med suffix"
+      />
+      <TextInput
+        {...args}
+        prefix={args.prefix ?? 'Prefix'}
+        suffix={args.suffix ?? 'Suffix'}
         label="Med prefix og suffix"
       />
     </StoryVStack>

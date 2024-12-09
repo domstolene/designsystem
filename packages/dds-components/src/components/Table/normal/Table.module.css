@@ -51,7 +51,7 @@
   }
   th {
     background-color: var(--dds-color-surface-default);
-    font: var(--dds-font-body-sans-01);
+    font: var(--dds-font-body-small);
     font-weight: var(--dds-font-weight-bold);
   }
 

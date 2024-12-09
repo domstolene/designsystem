@@ -20,10 +20,10 @@ import { type SvgIcon } from '../Icon/utils';
 import { type StaticTypographyType, Typography } from '../Typography';
 
 export const typographyTypes: Record<ToggleBarSize, StaticTypographyType> = {
-  large: 'bodySans04',
-  medium: 'bodySans02',
-  small: 'bodySans01',
-  tiny: 'supportingStyleTiny01',
+  large: 'bodyLarge',
+  medium: 'bodyMedium',
+  small: 'bodySmall',
+  tiny: 'bodyXsmall',
 };
 
 type PickedInputHTMLAttributes = Pick<

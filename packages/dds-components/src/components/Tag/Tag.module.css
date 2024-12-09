@@ -70,7 +70,7 @@
 
 .container--warning--strong {
   background-color: var(--dds-color-surface-warning-strong);
-  border-color: var(--dds-color-warning-light);
+  border-color: var(--dds-color-surface-warning-strong);
 
   svg {
     color: var(--dds-color-icon-on-warning-strong);

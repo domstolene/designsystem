@@ -52,7 +52,7 @@ export const Example: Story = {
       <SkipToContent {...args} />
       'Tab' når du er i frame for å se komponenten; 'Enter' for å åpne i ny side
       og teste
-      <Heading level={2} typographyType="headingSans08" withMargins>
+      <Heading level={2} typographyType="headingXxlarge" withMargins>
         Placeholder
       </Heading>
       <div

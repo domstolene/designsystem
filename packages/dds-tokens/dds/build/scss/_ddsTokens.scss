@@ -1,314 +1,209 @@
 
 // Do not edit directly, this file was auto-generated.
 
-$dds-color-primary-lightest: #eaeff4;
-$dds-color-primary-lighter: #acbbc6;
-$dds-color-primary-light: #4f6a7e;
-$dds-color-primary-base: #354754; // Primary er hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge
-$dds-color-primary-dark: #313d45;
-$dds-color-primary-darker: #202b32;
-$dds-color-primary-darkest: #151c22;
-$dds-color-neutrals-white: #ffffff;
-$dds-color-neutrals-gray1: #f8f9f9;
-$dds-color-neutrals-gray2: #ebecee;
-$dds-color-neutrals-gray3: #cfd4d7;
-$dds-color-neutrals-gray4: #adb5ba;
-$dds-color-neutrals-gray5: #77838c;
-$dds-color-neutrals-gray6: #545c62;
-$dds-color-neutrals-gray7: #3a4146;
-$dds-color-neutrals-gray8: #22272a;
-$dds-color-neutrals-gray9: #0b0d0e;
-$dds-color-interactive-lightest: #e7f1f7;
-$dds-color-interactive-lighter: #9fc5de;
-$dds-color-interactive-light: #589ac6;
-$dds-color-interactive-base: #106ead; // Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den
-$dds-color-interactive-dark: #0d588a;
-$dds-color-interactive-darker: #0a4268;
-$dds-color-interactive-darkest: #062c45;
-$dds-color-secondary-lightest: #e6eded; // --l80
-$dds-color-secondary-lighter: #cddbdb;
-$dds-color-secondary-light: #b8cdcd;
-$dds-color-secondary-base: #9ab8b7; // Secondary er den andre hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge.
-$dds-color-secondary-dark: #7b9392;
-$dds-color-secondary-darker: #4d6463;
-$dds-color-secondary-darkest: #3e4a49;
-$dds-color-tertiary-lightest: #ffe6df;
-$dds-color-tertiary-lighter: #ffd6ca;
-$dds-color-tertiary-light: #f6c1b1;
-$dds-color-tertiary-base: #f2a68f; // Tertiary er er den tredje profilfargen til Domstolene. Denne brukes gjerne som støttefarge
-$dds-color-tertiary-dark: #f59877;
-$dds-color-tertiary-darker: #f27e55;
-$dds-color-tertiary-darkest: #c26544;
-$dds-color-success-lightest: #f0f9f0;
-$dds-color-success-lighter: #c1e5c2;
-$dds-color-success-light: #93d294;
-$dds-color-success-base: #65be66; // Brukes for å kommunisere suksess eller noe som er riktig.
-$dds-color-success-dark: #519852;
-$dds-color-success-darker: #3d723d;
-$dds-color-success-darkest: #284c29;
-$dds-color-danger-lightest: #fbebeb;
-$dds-color-danger-lighter: #efafaf;
-$dds-color-danger-light: #e47373;
-$dds-color-danger-base: #d83737; // Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett.
-$dds-color-danger-dark: #ad2c2c;
-$dds-color-danger-darker: #822121;
-$dds-color-danger-darkest: #561616;
-$dds-color-warning-lightest: #fefced;
-$dds-color-warning-lighter: #fbf3b8;
-$dds-color-warning-light: #f7e982;
-$dds-color-warning-base: #f4e04d; // Brukes for å kommunisere varsler.
-$dds-color-warning-dark: #c3b33e;
-$dds-color-warning-darker: #92862e;
-$dds-color-warning-darkest: #625a1f;
-$dds-color-info-lightest: #f1f8fd;
-$dds-color-info-lighter: #c8e3f5;
-$dds-color-info-light: #9eceee;
-$dds-color-info-base: #75b9e6;
-$dds-color-info-dark: #5e94b8;
-$dds-color-info-darker: #466f8a;
-$dds-color-info-darkest: #2f4a5c;
-$dds-color-visited-base: #7f29b4; // Used for visited links
-$dds-color-visited-lighter: #cca9e1; // Used for visited links
-$dds-color-bg-default: #ffffff; // UI shell base color
-$dds-color-bg-subtle: #f8f9f9; // Alternative UI shell base color
-$dds-color-surface-default: #ffffff; // Default bg
-$dds-color-surface-subtle: #f8f9f9; // Subtle surface color
-$dds-color-surface-medium: #ebecee; // Medium surface color
-$dds-color-surface-hover-default: #e7f1f7; // Hover on surface (default, subtle, medium)
-$dds-color-surface-hover-subtle: #f8f9f9; // Subtle hover on surface (default, medium)
-$dds-color-surface-selected-default: #e7f1f7; // Selected state for surface (default, subtle, medium)
-$dds-color-surface-inverse-default: #354754; // Can be used as a surface for menu, navigation, footer etc
-$dds-color-surface-inverse-hover: #313d45; // Hover on surface.inverse
-$dds-color-surface-inverse-selected: #202b32; // selected on surface.inverse
-$dds-color-surface-action-resting: #106ead; // Primary button bg
-$dds-color-surface-action-hover: #0d588a; // Hover on surface.action/selected
-$dds-color-surface-action-selected: #106ead; // Selected state for components such as togglebutton, togglebar, progress tracker, checkbox etc
-$dds-color-surface-action-danger-resting: #d83737; // Danger button
-$dds-color-surface-action-danger-hover: #ad2c2c; // Hover on surface.action-danger
-$dds-color-surface-action-selected-disabled: #77838c; // bg on a selected disabled checkbox, radio etc
-$dds-color-surface-danger-default: #fbebeb; // tag, message, errormessage
-// tag strong value
-// 
-$dds-color-surface-danger-strong: #e47373;
-$dds-color-surface-success-default: #f0f9f0; // tag, message
-$dds-color-surface-success-strong: #93d294; // tag with strong value
-$dds-color-surface-warning-default: #fefced; // tag, message
-$dds-color-surface-warning-strong: #f7e982; // tag strong value
-$dds-color-surface-info-default: #f1f8fd; // tag, message
-$dds-color-surface-info-strong: #9eceee; // tag strong value
-$dds-color-surface-paper-default: #ffffff; // modal, drawer, popover etc
-$dds-color-surface-backdrop-default: #0b0d0e80; // background overlay for modals (50%)
-$dds-color-surface-field-default: #ffffff; // Form elements (textinput, datepicker etc)
-$dds-color-surface-field-disabled: #f8f9f9; // disabled state on surface.field
-$dds-color-surface-highlighted-default: #ffe6df; // bg for highlighted text on text.default. Use with $Text
-$dds-color-surface-scrollbar: #adb5ba; // Used for scrollbar
-$dds-color-surface-notification: #d83737; // bg on a notification
-$dds-color-surface-skeleton: #cfd4d7; // Used for skeleton
-$dds-color-border-default: #77838c; // Form components, togglebutton, secondary button, checkbox etc
-$dds-color-border-subtle: #cfd4d7; // Dropdown, tooltip, overflow etc
-$dds-color-border-inverse: #acbbc6; // Border or divider on surface.inverse
-$dds-color-border-action-default: #106ead; // Used in progress tracker
-$dds-color-border-action-hover: #0d588a; // Hover on secondary button etc
-// Tag-default
-// 
-$dds-color-border-success: #65be66;
-$dds-color-border-warning: #f4e04d; // Tag.default
-$dds-color-border-danger: #d83737; // Tag.default, error message field
-$dds-color-border-info: #75b9e6; // Tag.default
-$dds-color-border-on-action: #ffffff; // Used on primary split button
-$dds-color-text-default: #0b0d0e; // default text, heading, body. on surface.hover
-$dds-color-text-medium: #3a4146; // Label, etc
-$dds-color-text-subtle: #545c62; // Disabled or less important text
-$dds-color-text-on-inverse: #ffffff; // On surface.inverse
-$dds-color-text-on-action: #ffffff; // On surface.action (primary and danger button)
-$dds-color-text-on-status-default: #0b0d0e; // On default status surfaces
-$dds-color-text-on-status-strong: #0b0d0e; // On status surfaces with strong prop
-$dds-color-text-action-resting: #106ead; // Link, number in progress tracker
-$dds-color-text-action-hover: #0d588a; // Hover on text.action
-$dds-color-text-requiredfield: #d83737; // Asterix to indicate required field
-$dds-color-text-action-visited: #7f29b4; // Used for visited links
-$dds-color-text-action-visited-on-inverse: #cca9e1; // Used for visited links on inverse surfaces
-$dds-color-text-on-notification: #ffffff; // Used on surface.notification
-$dds-color-icon-default: #0b0d0e; // Often used with text.default
-$dds-color-icon-medium: #3a4146; // Often used with text.medium
-$dds-color-icon-subtle: #545c62; // Often used with text.subtle
-$dds-color-icon-on-inverse: #ffffff; // On surface.inverse
-$dds-color-icon-on-action: #ffffff; // On surface.action (primary and danger button)
-$dds-color-icon-action-resting: #106ead; // Often used with Text.action
-$dds-color-icon-action-hover: #0d588a; // hover on icon-action, used on secondary buttons etc
-$dds-color-icon-on-success-default: #3d723d; // On surface.success-default
-$dds-color-icon-on-success-strong: #0b0d0e; // On surface-success-strong
-$dds-color-icon-on-warning-default: #92862e; // On surface.warning-default
-$dds-color-icon-on-warning-strong: #0b0d0e; // On surface.warning-strong
-$dds-color-icon-on-danger-default: #ad2c2c; // On surface.danger-default
-$dds-color-icon-on-danger-strong: #0b0d0e; // On surface.danger-strong
-$dds-color-icon-on-info-default: #466f8a; // On surface.info-default
-$dds-color-icon-on-info-strong: #0b0d0e; // On surface.info-strong
-$dds-color-brand-primary-default: #354754; // Primary brand color
-$dds-color-brand-primary-subtle: #eaeff4; // Primary brand color
-$dds-color-brand-primary-medium: #4f6a7e; // Primary brand color
-$dds-color-brand-primary-strong: #202b32;
-$dds-color-brand-secondary-default: #9ab8b7; // Secondary brand color
-$dds-color-brand-secondary-subtle: #e6eded; // Secondary brand color
-$dds-color-brand-secondary-medium: #b8cdcd; // Secondary brand color
-$dds-color-brand-secondary-strong: #4d6463;
-$dds-color-brand-tertiary-default: #f2a68f; // Tertiary brand color
-$dds-color-brand-tertiary-subtle: #ffe6df; // Tertiary brand color
-$dds-color-brand-tertiary-medium: #f6c1b1; // Tertiary brand color
-$dds-color-brand-tertiary-strong: #f27e55;
-$dds-color-focus-outside: #2f4a5c; // Contrast to .inside
-$dds-color-focus-inside: #f1f8fd; // Contrast to .outside
-$dds-border-radius-0: 0px;
-$dds-border-radius-1: 2px;
-$dds-border-radius-2: 4px;
-$dds-border-radius-3: 8px;
-$dds-border-radius-100: 9999px; // Rounded buttons, round shapes etc
-$dds-border-radius-button: 2px; // For use in button component and togglebutton
-$dds-border-radius-surface: 2px; // Most surfaces, for example cards, papers, messages, backgrounds in GUI
-$dds-border-radius-input: 2px; // All input fields, and check boxes
-$dds-border-radius-chip: 2px; // chips and tags
-$dds-border-radius-rounded: 9999px; // rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker
-$dds-spacing-x0: 0px;
-$dds-spacing-x0-125: 2px;
-$dds-spacing-x0-25: 4px;
-$dds-spacing-x0-5: 8px;
-$dds-spacing-x0-75: 12px;
-$dds-spacing-x1: 16px;
-$dds-spacing-x1-5: 24px;
-$dds-spacing-x2: 32px;
-$dds-spacing-x2-5: 40px;
-$dds-spacing-x3: 48px;
-$dds-spacing-x4: 64px;
-$dds-spacing-x6: 96px;
-$dds-spacing-x10: 160px;
-$dds-spacing-padding-top-heading: 0.7em; // Ekstra spacing over dds-header. 70% av størrelsen på headeren
-$dds-shadow-1: 1px 2px 4px 0px rgba(11, 13, 14, 10%);
-$dds-shadow-2: 2px 4px 8px 0px rgba(11, 13, 14, 10%);
-$dds-shadow-3: 4px 8px 16px 0px rgba(11, 13, 14, 10%);
-$dds-shadow-4: 8px 16px 32px 0px rgba(11, 13, 14, 10%);
-$dds-font-family-sans: 'IBM Plex Sans';
-$dds-font-family-monospace: 'IBM Plex Mono'; // For kode
-$dds-font-size-x5: 5rem;
-$dds-font-size-x4: 4rem;
-$dds-font-size-x3: 3rem;
-$dds-font-size-x2-5: 2.5rem;
-$dds-font-size-x2: 2rem;
-$dds-font-size-x1-5: 1.5rem;
-$dds-font-size-x1-25: 1.25rem;
-$dds-font-size-x1-125: 1.125rem;
-$dds-font-size-x1: 1rem;
-$dds-font-size-x0-875: 0.875rem;
-$dds-font-size-x0-75: 0.75rem;
-$dds-font-weight-light: 300;
-$dds-font-weight-normal: 400;
-$dds-font-weight-bold: 600;
-$dds-font-lineheight-x1: 1.5; // Brukes på str ×1_25 og mindre 
-$dds-font-lineheight-x2: 1.35; // Brukes på str x1.5, ×2 og ×3 
-$dds-font-lineheight-x3: 1.2; // Brukes på str ×3 og større
-$dds-font-lineheight-list: 2.5; // Brukes på lister
-$dds-font-letter-spacing-tight: -0.01em; // Brukes på str ×2.5 og større
-$dds-font-letter-spacing-normal: 0em; // Brukes på str ×1 og opp til og med ×2
-$dds-font-letter-spacing-loose: 0.01em; // Brukes på størrelser under ×1
-$dds-font-paragraph-spacing-small: 1em; // Brukes på str ×1_25 og mindre 
-$dds-font-paragraph-spacing-medium: 0.66em; // Brukes på str x1.5, ×2 og ×3 
-$dds-font-paragraph-spacing-large: 0.5em; // Brukes på str ×3 og større
-$dds-font-paragraph-spacing-heading: 0.4em; // Brukes på på alle headere (bottom)
-$dds-font-supporting-style-label-01: 600 0.875rem/1.5 'IBM Plex Sans'; // Label for form components
-$dds-font-supporting-style-helpertext-01: 400 0.75rem/1.5 'IBM Plex Sans'; // Helper text for form components
-$dds-font-supporting-style-placeholdertext-01: 400 1rem/1.5 'IBM Plex Sans'; // placeholder for form components (select)
-$dds-font-supporting-style-placeholdertext-02: 400 0.875rem/1.5 'IBM Plex Sans'; // placeholder for form components (select)
-$dds-font-supporting-style-placeholdertext-03: 400 0.75rem/1.5 'IBM Plex Sans'; // placeholder for form components (select)
-$dds-font-supporting-style-tiny-01: 400 0.75rem/1.5 'IBM Plex Sans'; // Veldig liten font-størrelse, bruk sparsomt
-$dds-font-supporting-style-tiny-02: 300 0.75rem/1.5 'IBM Plex Sans'; // Veldig liten font-størrelse, bruk sparsomt
-$dds-font-body-sans-01: 400 0.875rem/1.5 'IBM Plex Sans';
-$dds-font-body-sans-02: 400 1rem/1.5 'IBM Plex Sans';
-$dds-font-body-sans-03: 400 1.125rem/1.5 'IBM Plex Sans';
-$dds-font-body-sans-04: 400 1.25rem/1.5 'IBM Plex Sans';
-$dds-font-heading-sans-01: 600 1rem/1.5 'IBM Plex Sans';
-$dds-font-heading-sans-02: 600 1.125rem/1.35 'IBM Plex Sans';
-$dds-font-heading-sans-03: 400 1.5rem/1.35 'IBM Plex Sans';
-$dds-font-heading-sans-04: 400 2rem/1.35 'IBM Plex Sans';
-$dds-font-heading-sans-05: 300 2.5rem/1.35 'IBM Plex Sans';
-$dds-font-heading-sans-06: 300 3rem/1.2 'IBM Plex Sans';
-$dds-font-heading-sans-07: 300 4rem/1.2 'IBM Plex Sans';
-$dds-font-heading-sans-08: 300 5rem/1.2 'IBM Plex Sans';
-$dds-font-lead-sans-01: 600 1.125rem/1.5 'IBM Plex Sans'; // Lead brukes som ingress når man skriver artikler etc
-$dds-font-lead-sans-02: 600 1.5rem/1.35 'IBM Plex Sans'; // Lead brukes som ingress når man skriver artikler etc
-$dds-font-lead-sans-03: 300 1.5rem/1.35 'IBM Plex Sans'; // Lead brukes som ingress når man skriver artikler etc
-$dds-font-lead-sans-04: 300 2rem/1.35 'IBM Plex Sans'; // Lead brukes som ingress når man skriver artikler etc
-$dds-font-lead-sans-05: 300 2.5rem/1.35 'IBM Plex Sans'; // Lead brukes som ingress når man skriver artikler etc
-$dds-font-code-monospace-02: 400 1rem/1.5 'IBM Plex Mono'; // Brukes for kodesnutter etc
-$dds-font-style-underline: underline;
-$dds-font-style-normal: none;
-$dds-font-style-italic: italic;
-$dds-icon-size-large: 40px;
-$dds-icon-size-medium: 24px;
-$dds-icon-size-small: 16px;
-$dds-grid-xs-count: 4;
-$dds-grid-xs-gutter-size: 16px;
-$dds-grid-sm-count: 8;
-$dds-grid-sm-gutter-size: 16px;
-$dds-grid-lg-count: 12;
-$dds-grid-lg-gutter-size: 24px;
-$dds-grid-md-count: 12;
-$dds-grid-md-gutter-size: 24px;
-$dds-grid-xl-count: 12;
-$dds-grid-xl-gutter-size: 24px;
-$dds-breakpoint-xs: 1px;
-$dds-breakpoint-sm: 600px;
-$dds-breakpoint-md: 960px;
-$dds-breakpoint-lg: 1280px;
-$dds-breakpoint-xl: 1920px;
-$dds-font-supporting-style-label-01-letter-spacing: 0.01em;
-$dds-font-supporting-style-label-01-paragraph-spacing: 1em;
-$dds-font-supporting-style-helpertext-01-letter-spacing: 0.01em;
-$dds-font-supporting-style-helpertext-01-paragraph-spacing: 1em;
-$dds-font-supporting-style-placeholdertext-01-letter-spacing: 0em;
-$dds-font-supporting-style-placeholdertext-01-paragraph-spacing: 1em;
-$dds-font-supporting-style-placeholdertext-01-font-style: italic;
-$dds-font-supporting-style-placeholdertext-02-letter-spacing: 0.01em;
-$dds-font-supporting-style-placeholdertext-02-paragraph-spacing: 1em;
-$dds-font-supporting-style-placeholdertext-02-font-style: italic;
-$dds-font-supporting-style-placeholdertext-03-letter-spacing: 0.01em;
-$dds-font-supporting-style-placeholdertext-03-paragraph-spacing: 1em;
-$dds-font-supporting-style-placeholdertext-03-font-style: italic;
-$dds-font-supporting-style-tiny-01-letter-spacing: 0.01em;
-$dds-font-supporting-style-tiny-01-paragraph-spacing: 1em;
-$dds-font-supporting-style-tiny-02-letter-spacing: 0.01em;
-$dds-font-supporting-style-tiny-02-paragraph-spacing: 1em;
-$dds-font-body-sans-01-letter-spacing: 0.01em;
-$dds-font-body-sans-01-paragraph-spacing: 1em;
-$dds-font-body-sans-02-letter-spacing: 0em;
-$dds-font-body-sans-02-paragraph-spacing: 1em;
-$dds-font-body-sans-03-letter-spacing: 0em;
-$dds-font-body-sans-03-paragraph-spacing: 1em;
-$dds-font-body-sans-04-letter-spacing: 0em;
-$dds-font-body-sans-04-paragraph-spacing: 1em;
-$dds-font-heading-sans-01-letter-spacing: 0em;
-$dds-font-heading-sans-01-paragraph-spacing: 0.4em;
-$dds-font-heading-sans-02-letter-spacing: 0em;
-$dds-font-heading-sans-02-paragraph-spacing: 0.4em;
-$dds-font-heading-sans-03-letter-spacing: 0em;
-$dds-font-heading-sans-03-paragraph-spacing: 0.4em;
-$dds-font-heading-sans-04-letter-spacing: 0em;
-$dds-font-heading-sans-04-paragraph-spacing: 0.4em;
-$dds-font-heading-sans-05-letter-spacing: -0.01em;
-$dds-font-heading-sans-05-paragraph-spacing: 0.4em;
-$dds-font-heading-sans-06-letter-spacing: -0.01em;
-$dds-font-heading-sans-06-paragraph-spacing: 0.4em;
-$dds-font-heading-sans-07-letter-spacing: -0.01em;
-$dds-font-heading-sans-07-paragraph-spacing: 0.4em;
-$dds-font-heading-sans-08-letter-spacing: -0.01em;
-$dds-font-heading-sans-08-paragraph-spacing: 0.4em;
-$dds-font-lead-sans-01-letter-spacing: 0em;
-$dds-font-lead-sans-01-paragraph-spacing: 1em;
-$dds-font-lead-sans-02-letter-spacing: 0em;
-$dds-font-lead-sans-02-paragraph-spacing: 0.66em;
-$dds-font-lead-sans-03-letter-spacing: 0em;
-$dds-font-lead-sans-03-paragraph-spacing: 0.66em;
-$dds-font-lead-sans-04-letter-spacing: 0em;
-$dds-font-lead-sans-04-paragraph-spacing: 0.66em;
-$dds-font-lead-sans-05-letter-spacing: -0.01em;
-$dds-font-lead-sans-05-paragraph-spacing: 0.66em;
-$dds-font-code-monospace-02-letter-spacing: 0em;
-$dds-font-code-monospace-02-paragraph-spacing: 1em;
+  $dds-font-family-sans: var(--dds-font-family-sans);
+  $dds-font-family-monospace: var(--dds-font-family-monospace); /* For kode */
+  $dds-font-size-x5: var(--dds-font-size-x5);
+  $dds-font-size-x4: var(--dds-font-size-x4);
+  $dds-font-size-x3: var(--dds-font-size-x3);
+  $dds-font-size-x2-5: var(--dds-font-size-x2-5);
+  $dds-font-size-x2: var(--dds-font-size-x2);
+  $dds-font-size-x1-5: var(--dds-font-size-x1-5);
+  $dds-font-size-x1-25: var(--dds-font-size-x1-25);
+  $dds-font-size-x1-125: var(--dds-font-size-x1-125);
+  $dds-font-size-x1: var(--dds-font-size-x1);
+  $dds-font-size-x0-875: var(--dds-font-size-x0-875);
+  $dds-font-size-x0-75: var(--dds-font-size-x0-75);
+  $dds-font-size-xxlarge: var(--dds-font-size-xxlarge);
+  $dds-font-size-xlarge: var(--dds-font-size-xlarge);
+  $dds-font-size-large: var(--dds-font-size-large);
+  $dds-font-size-medium: var(--dds-font-size-medium);
+  $dds-font-size-small: var(--dds-font-size-small);
+  $dds-font-size-xsmall: var(--dds-font-size-xsmall);
+  $dds-font-size-xxsmall: var(--dds-font-size-xxsmall);
+  $dds-font-size-xxxsmall: var(--dds-font-size-xxxsmall);
+  $dds-font-weight-light: var(--dds-font-weight-light);
+  $dds-font-weight-normal: var(--dds-font-weight-normal);
+  $dds-font-weight-bold: var(--dds-font-weight-bold);
+  $dds-font-lineheight-x1: var(--dds-font-lineheight-x1); /* Brukes på str ×1_25 og mindre  */
+  $dds-font-lineheight-x2: var(--dds-font-lineheight-x2); /* Brukes på str x1.5, ×2 og ×3  */
+  $dds-font-lineheight-x3: var(--dds-font-lineheight-x3); /* Brukes på str ×3 og større */
+  $dds-font-lineheight-list: var(--dds-font-lineheight-list); /* Brukes på lister */
+  $dds-font-letter-spacing-tight: var(--dds-font-letter-spacing-tight); /* Brukes på str ×2.5 og større */
+  $dds-font-letter-spacing-normal: var(--dds-font-letter-spacing-normal); /* Brukes på str ×1 og opp til og med ×2 */
+  $dds-font-letter-spacing-loose: var(--dds-font-letter-spacing-loose); /* Brukes på størrelser under ×1 */
+  $dds-font-paragraph-spacing-small: var(--dds-font-paragraph-spacing-small); /* Brukes på str ×1_25 og mindre  */
+  $dds-font-paragraph-spacing-medium: var(--dds-font-paragraph-spacing-medium); /* Brukes på str x1.5, ×2 og ×3  */
+  $dds-font-paragraph-spacing-large: var(--dds-font-paragraph-spacing-large); /* Brukes på str ×3 og større */
+  $dds-font-paragraph-spacing-heading: var(--dds-font-paragraph-spacing-heading); /* Brukes på på alle headere (bottom) */
+  $dds-font-style-underline: var(--dds-font-style-underline);
+  $dds-font-style-normal: var(--dds-font-style-normal);
+  $dds-font-style-italic: var(--dds-font-style-italic);
+  $dds-spacing-padding-top-heading: var(--dds-spacing-padding-top-heading); /* Ekstra spacing over dds-header. 70% av størrelsen på headeren */
+  $dds-spacing-x0: var(--dds-spacing-x0);
+  $dds-spacing-x0-125: var(--dds-spacing-x0-125);
+  $dds-spacing-x0-25: var(--dds-spacing-x0-25);
+  $dds-spacing-x0-5: var(--dds-spacing-x0-5);
+  $dds-spacing-x0-75: var(--dds-spacing-x0-75);
+  $dds-spacing-x1: var(--dds-spacing-x1);
+  $dds-spacing-x1-5: var(--dds-spacing-x1-5);
+  $dds-spacing-x2: var(--dds-spacing-x2);
+  $dds-spacing-x2-5: var(--dds-spacing-x2-5);
+  $dds-spacing-x3: var(--dds-spacing-x3);
+  $dds-spacing-x4: var(--dds-spacing-x4);
+  $dds-spacing-x6: var(--dds-spacing-x6);
+  $dds-spacing-x10: var(--dds-spacing-x10);
+  $dds-shadow-1: var(--dds-shadow-1);
+  $dds-shadow-2: var(--dds-shadow-2);
+  $dds-shadow-3: var(--dds-shadow-3);
+  $dds-shadow-4: var(--dds-shadow-4);
+  $dds-grid-xs-gutter-size: var(--dds-grid-xs-gutter-size);
+  $dds-grid-xs-count: var(--dds-grid-xs-count);
+  $dds-grid-sm-gutter-size: var(--dds-grid-sm-gutter-size);
+  $dds-grid-sm-count: var(--dds-grid-sm-count);
+  $dds-grid-lg-gutter-size: var(--dds-grid-lg-gutter-size);
+  $dds-grid-lg-count: var(--dds-grid-lg-count);
+  $dds-grid-md-gutter-size: var(--dds-grid-md-gutter-size);
+  $dds-grid-md-count: var(--dds-grid-md-count);
+  $dds-grid-xl-gutter-size: var(--dds-grid-xl-gutter-size);
+  $dds-grid-xl-count: var(--dds-grid-xl-count);
+  $dds-icon-size-large: var(--dds-icon-size-large);
+  $dds-icon-size-medium: var(--dds-icon-size-medium);
+  $dds-icon-size-small: var(--dds-icon-size-small);
+  $dds-breakpoint-xs: var(--dds-breakpoint-xs);
+  $dds-breakpoint-sm: var(--dds-breakpoint-sm);
+  $dds-breakpoint-md: var(--dds-breakpoint-md);
+  $dds-breakpoint-lg: var(--dds-breakpoint-lg);
+  $dds-breakpoint-xl: var(--dds-breakpoint-xl);
+  $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
+  $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
+  $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */
+  $dds-color-surface-subtle: var(--dds-color-surface-subtle); /* Subtle surface color */
+  $dds-color-surface-medium: var(--dds-color-surface-medium); /* Medium surface color */
+  $dds-color-surface-hover-default: var(--dds-color-surface-hover-default); /* Hover on surface (default, subtle, medium) */
+  $dds-color-surface-hover-subtle: var(--dds-color-surface-hover-subtle); /* Subtle hover on surface (default, medium) */
+  $dds-color-surface-selected-default: var(--dds-color-surface-selected-default); /* Selected state for surface (default, subtle, medium) */
+  $dds-color-surface-inverse-default: var(--dds-color-surface-inverse-default); /* Can be used as a surface for menu, navigation, footer etc */
+  $dds-color-surface-inverse-hover: var(--dds-color-surface-inverse-hover); /* Hover on surface.inverse */
+  $dds-color-surface-inverse-selected: var(--dds-color-surface-inverse-selected); /* selected on surface.inverse */
+  $dds-color-surface-action-resting: var(--dds-color-surface-action-resting); /* Primary button bg */
+  $dds-color-surface-action-hover: var(--dds-color-surface-action-hover); /* Hover on surface.action/selected */
+  $dds-color-surface-action-selected: var(--dds-color-surface-action-selected); /* Selected state for components such as togglebutton, togglebar, progress tracker, checkbox etc */
+  $dds-color-surface-action-danger-resting: var(--dds-color-surface-action-danger-resting); /* Danger button */
+  $dds-color-surface-action-danger-hover: var(--dds-color-surface-action-danger-hover); /* Hover on surface.action-danger */
+  $dds-color-surface-action-selected-disabled: var(--dds-color-surface-action-selected-disabled); /* bg on a selected disabled checkbox, radio etc */
+  $dds-color-surface-danger-default: var(--dds-color-surface-danger-default); /* tag, message, errormessage */
+  $dds-color-surface-danger-strong: var(--dds-color-surface-danger-strong); /* tag strong value */
+  $dds-color-surface-success-default: var(--dds-color-surface-success-default); /* tag, message */
+  $dds-color-surface-success-strong: var(--dds-color-surface-success-strong); /* tag with strong value */
+  $dds-color-surface-warning-default: var(--dds-color-surface-warning-default); /* tag, message */
+  $dds-color-surface-warning-strong: var(--dds-color-surface-warning-strong); /* tag strong value */
+  $dds-color-surface-info-default: var(--dds-color-surface-info-default); /* tag, message */
+  $dds-color-surface-info-strong: var(--dds-color-surface-info-strong); /* tag strong value */
+  $dds-color-surface-paper-default: var(--dds-color-surface-paper-default); /* modal, drawer, popover etc */
+  $dds-color-surface-backdrop-default: var(--dds-color-surface-backdrop-default); /* background overlay for modals (50%) */
+  $dds-color-surface-field-default: var(--dds-color-surface-field-default); /* Form elements (textinput, datepicker etc) */
+  $dds-color-surface-field-disabled: var(--dds-color-surface-field-disabled); /* disabled state on surface.field */
+  $dds-color-surface-highlighted-default: var(--dds-color-surface-highlighted-default); /* bg for highlighted text on text.default. Use with $Text */
+  $dds-color-surface-scrollbar: var(--dds-color-surface-scrollbar); /* Used for scrollbar */
+  $dds-color-surface-notification: var(--dds-color-surface-notification); /* bg on a notification */
+  $dds-color-surface-skeleton: var(--dds-color-surface-skeleton); /* Used for skeleton */
+  $dds-color-border-default: var(--dds-color-border-default); /* Form components, togglebutton, secondary button, checkbox etc */
+  $dds-color-border-subtle: var(--dds-color-border-subtle); /* Dropdown, tooltip, overflow etc */
+  $dds-color-border-inverse: var(--dds-color-border-inverse); /* Border or divider on surface.inverse */
+  $dds-color-border-action-default: var(--dds-color-border-action-default); /* Used in progress tracker */
+  $dds-color-border-action-hover: var(--dds-color-border-action-hover); /* Hover on secondary button etc */
+  $dds-color-border-success: var(--dds-color-border-success); /* Used with tag-default */
+  $dds-color-border-warning: var(--dds-color-border-warning); /* Tag.default */
+  $dds-color-border-danger: var(--dds-color-border-danger); /* Tag.default, error message field */
+  $dds-color-border-info: var(--dds-color-border-info); /* Tag.default */
+  $dds-color-border-on-action: var(--dds-color-border-on-action); /* Used on primary split button */
+  $dds-color-text-default: var(--dds-color-text-default); /* default text, heading, body. on surface.hover */
+  $dds-color-text-medium: var(--dds-color-text-medium); /* Label, etc */
+  $dds-color-text-subtle: var(--dds-color-text-subtle); /* Disabled or less important text */
+  $dds-color-text-on-inverse: var(--dds-color-text-on-inverse); /* On surface.inverse */
+  $dds-color-text-on-action: var(--dds-color-text-on-action); /* On surface.action (primary and danger button) */
+  $dds-color-text-on-status-default: var(--dds-color-text-on-status-default); /* On default status surfaces */
+  $dds-color-text-on-status-strong: var(--dds-color-text-on-status-strong); /* On status surfaces with strong prop */
+  $dds-color-text-action-resting: var(--dds-color-text-action-resting); /* Link, number in progress tracker */
+  $dds-color-text-action-hover: var(--dds-color-text-action-hover); /* Hover on text.action */
+  $dds-color-text-requiredfield: var(--dds-color-text-requiredfield); /* Asterix to indicate required field */
+  $dds-color-text-action-visited: var(--dds-color-text-action-visited); /* Used for visited links */
+  $dds-color-text-action-visited-on-inverse: var(--dds-color-text-action-visited-on-inverse); /* Used for visited links on inverse surfaces */
+  $dds-color-text-on-notification: var(--dds-color-text-on-notification); /* Used on surface.notification */
+  $dds-color-icon-default: var(--dds-color-icon-default); /* Often used with text.default */
+  $dds-color-icon-medium: var(--dds-color-icon-medium); /* Often used with text.medium */
+  $dds-color-icon-subtle: var(--dds-color-icon-subtle); /* Often used with text.subtle */
+  $dds-color-icon-on-inverse: var(--dds-color-icon-on-inverse); /* On surface.inverse */
+  $dds-color-icon-on-action: var(--dds-color-icon-on-action); /* On surface.action (primary and danger button) */
+  $dds-color-icon-action-resting: var(--dds-color-icon-action-resting); /* Often used with Text.action */
+  $dds-color-icon-action-hover: var(--dds-color-icon-action-hover); /* hover on icon-action, used on secondary buttons etc */
+  $dds-color-icon-on-success-default: var(--dds-color-icon-on-success-default); /* On surface.success-default */
+  $dds-color-icon-on-success-strong: var(--dds-color-icon-on-success-strong); /* On surface-success-strong */
+  $dds-color-icon-on-warning-default: var(--dds-color-icon-on-warning-default); /* On surface.warning-default */
+  $dds-color-icon-on-warning-strong: var(--dds-color-icon-on-warning-strong); /* On surface.warning-strong */
+  $dds-color-icon-on-danger-default: var(--dds-color-icon-on-danger-default); /* On surface.danger-default */
+  $dds-color-icon-on-danger-strong: var(--dds-color-icon-on-danger-strong); /* On surface.danger-strong */
+  $dds-color-icon-on-info-default: var(--dds-color-icon-on-info-default); /* On surface.info-default */
+  $dds-color-icon-on-info-strong: var(--dds-color-icon-on-info-strong); /* On surface.info-strong */
+  $dds-color-brand-primary-default: var(--dds-color-brand-primary-default); /* Primary brand color */
+  $dds-color-brand-primary-subtle: var(--dds-color-brand-primary-subtle); /* Primary brand color */
+  $dds-color-brand-primary-medium: var(--dds-color-brand-primary-medium); /* Primary brand color */
+  $dds-color-brand-primary-strong: var(--dds-color-brand-primary-strong);
+  $dds-color-brand-secondary-default: var(--dds-color-brand-secondary-default); /* Secondary brand color */
+  $dds-color-brand-secondary-subtle: var(--dds-color-brand-secondary-subtle); /* Secondary brand color */
+  $dds-color-brand-secondary-medium: var(--dds-color-brand-secondary-medium); /* Secondary brand color */
+  $dds-color-brand-secondary-strong: var(--dds-color-brand-secondary-strong);
+  $dds-color-brand-tertiary-default: var(--dds-color-brand-tertiary-default); /* Tertiary brand color */
+  $dds-color-brand-tertiary-subtle: var(--dds-color-brand-tertiary-subtle); /* Tertiary brand color */
+  $dds-color-brand-tertiary-medium: var(--dds-color-brand-tertiary-medium); /* Tertiary brand color */
+  $dds-color-brand-tertiary-strong: var(--dds-color-brand-tertiary-strong);
+  $dds-color-focus-outside: var(--dds-color-focus-outside); /* Contrast to .inside */
+  $dds-color-focus-inside: var(--dds-color-focus-inside); /* Contrast to .outside */
+  $dds-border-radius-button: var(--dds-border-radius-button); /* For use in button component and togglebutton */
+  $dds-border-radius-surface: var(--dds-border-radius-surface); /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
+  $dds-border-radius-input: var(--dds-border-radius-input); /* All input fields, and check boxes */
+  $dds-border-radius-chip: var(--dds-border-radius-chip); /* Chips and tags */
+  $dds-border-radius-rounded: var(--dds-border-radius-rounded); /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
+  $dds-font-label-medium: var(--dds-font-label-medium); /* Label for form components */
+  $dds-font-body-xsmall: var(--dds-font-body-xsmall); /*  used with xsmall button and input fields */
+  $dds-font-body-small: var(--dds-font-body-small); /*  used with small button and input fields */
+  $dds-font-body-medium: var(--dds-font-body-medium); /* standard body text, used with medium button and input fields */
+  $dds-font-body-large: var(--dds-font-body-large); /* Used for large button and large search */
+  $dds-font-heading-xxsmall: var(--dds-font-heading-xxsmall); /* Default h6 */
+  $dds-font-heading-xsmall: var(--dds-font-heading-xsmall); /* Default h5 */
+  $dds-font-heading-small: var(--dds-font-heading-small); /* Default h4 */
+  $dds-font-heading-medium: var(--dds-font-heading-medium); /* Default h3 */
+  $dds-font-heading-large: var(--dds-font-heading-large); /* Default h2 */
+  $dds-font-heading-xlarge: var(--dds-font-heading-xlarge); /* Default H1 */
+  $dds-font-heading-xxlarge: var(--dds-font-heading-xxlarge); /* Display or extra large page title (h1) */
+  $dds-font-lead-medium: var(--dds-font-lead-medium); /* Lead brukes som ingress når man skriver artikler etc */
+  $dds-font-code-medium: var(--dds-font-code-medium); /* Brukes for kodesnutter etc */
+  $dds-font-heading-xxlarge-letter-spacing: var(--dds-font-heading-xxlarge-letter-spacing);
+  $dds-font-heading-xxlarge-paragraph-spacing: var(--dds-font-heading-xxlarge-paragraph-spacing);
+  $dds-font-heading-xlarge-letter-spacing: var(--dds-font-heading-xlarge-letter-spacing);
+  $dds-font-heading-xlarge-paragraph-spacing: var(--dds-font-heading-xlarge-paragraph-spacing);
+  $dds-font-heading-large-letter-spacing: var(--dds-font-heading-large-letter-spacing);
+  $dds-font-heading-large-paragraph-spacing: var(--dds-font-heading-large-paragraph-spacing);
+  $dds-font-heading-medium-letter-spacing: var(--dds-font-heading-medium-letter-spacing);
+  $dds-font-heading-medium-paragraph-spacing: var(--dds-font-heading-medium-paragraph-spacing);
+  $dds-font-heading-small-letter-spacing: var(--dds-font-heading-small-letter-spacing);
+  $dds-font-heading-small-paragraph-spacing: var(--dds-font-heading-small-paragraph-spacing);
+  $dds-font-heading-xsmall-letter-spacing: var(--dds-font-heading-xsmall-letter-spacing);
+  $dds-font-heading-xsmall-paragraph-spacing: var(--dds-font-heading-xsmall-paragraph-spacing);
+  $dds-font-heading-xxsmall-letter-spacing: var(--dds-font-heading-xxsmall-letter-spacing);
+  $dds-font-heading-xxsmall-paragraph-spacing: var(--dds-font-heading-xxsmall-paragraph-spacing);
+  $dds-font-body-large-letter-spacing: var(--dds-font-body-large-letter-spacing);
+  $dds-font-body-large-paragraph-spacing: var(--dds-font-body-large-paragraph-spacing);
+  $dds-font-body-medium-letter-spacing: var(--dds-font-body-medium-letter-spacing);
+  $dds-font-body-medium-paragraph-spacing: var(--dds-font-body-medium-paragraph-spacing);
+  $dds-font-body-small-letter-spacing: var(--dds-font-body-small-letter-spacing);
+  $dds-font-body-small-paragraph-spacing: var(--dds-font-body-small-paragraph-spacing);
+  $dds-font-body-xsmall-letter-spacing: var(--dds-font-body-xsmall-letter-spacing);
+  $dds-font-body-xsmall-paragraph-spacing: var(--dds-font-body-xsmall-paragraph-spacing);
+  $dds-font-lead-medium-letter-spacing: var(--dds-font-lead-medium-letter-spacing);
+  $dds-font-lead-medium-paragraph-spacing: var(--dds-font-lead-medium-paragraph-spacing);
+  $dds-font-code-medium-letter-spacing: var(--dds-font-code-medium-letter-spacing);
+  $dds-font-code-medium-paragraph-spacing: var(--dds-font-code-medium-paragraph-spacing);
+  $dds-font-label-medium-letter-spacing: var(--dds-font-label-medium-letter-spacing);
+  $dds-font-label-medium-paragraph-spacing: var(--dds-font-label-medium-paragraph-spacing);

@@ -5,6 +5,7 @@ import {
   Search,
   Select,
   TextInput,
+  TimePicker,
   VStack,
 } from '../../packages/dds-components/src/index';
 
@@ -25,10 +26,12 @@ export const FormComponents = () => {
           <TextInput icon={MailIcon} />
           <Search />
           <DatePicker componentSize="medium" />
+          <TimePicker componentSize="medium" />
           <Select icon={MailIcon} options={[{ label: 'a', value: 'a' }]} />
           <TextInput componentSize="small" icon={MailIcon} />
           <Search componentSize="small" />
           <DatePicker componentSize="small" />
+          <TimePicker componentSize="small" />
           <Select
             icon={MailIcon}
             options={[{ label: 'a', value: 'a' }]}
@@ -36,6 +39,7 @@ export const FormComponents = () => {
           />
           <TextInput componentSize="tiny" icon={MailIcon} />
           <DatePicker componentSize="tiny" />
+          <TimePicker componentSize="tiny" />
           <Select
             icon={MailIcon}
             options={[{ label: 'a', value: 'a' }]}
@@ -52,6 +56,12 @@ export const FormComponents = () => {
           options={[{ label: 'a', value: 'a' }]}
           componentSize="medium"
         />
+        <Select
+          icon={MailIcon}
+          options={[{ label: 'a', value: 'a' }]}
+          componentSize="medium"
+          isMulti
+        />
       </HStack>
       <HStack align="start" gap={0}>
         <TextInput componentSize="small" icon={MailIcon} />
@@ -62,6 +72,12 @@ export const FormComponents = () => {
           options={[{ label: 'a', value: 'a' }]}
           componentSize="small"
         />
+        <Select
+          icon={MailIcon}
+          options={[{ label: 'a', value: 'a' }]}
+          componentSize="small"
+          isMulti
+        />
       </HStack>
       <HStack align="start" gap={0}>
         <TextInput componentSize="tiny" icon={MailIcon} />
@@ -70,6 +86,12 @@ export const FormComponents = () => {
           icon={MailIcon}
           options={[{ label: 'a', value: 'a' }]}
           componentSize="tiny"
+        />
+        <Select
+          icon={MailIcon}
+          options={[{ label: 'a', value: 'a' }]}
+          componentSize="tiny"
+          isMulti
         />
       </HStack>
     </VStack>

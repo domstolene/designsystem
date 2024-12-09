@@ -60,7 +60,7 @@ export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
             className,
             styles.container,
             styles[`container--${purpose}`],
-            typographyStyles['body-sans-02'],
+            typographyStyles['body-medium'],
           ),
           htmlProps,
           rest,

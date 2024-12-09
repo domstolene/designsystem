@@ -20,7 +20,7 @@ export const Legend = forwardRef<HTMLLegendElement, LegendProps>(
         {...getBaseHTMLProps(id, className, htmlProps, rest)}
         ref={ref}
         as="legend"
-        typographyType="headingSans03"
+        typographyType="headingLarge"
       >
         {children}
       </Typography>

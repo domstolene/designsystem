@@ -23,7 +23,7 @@ export default {
   },
   parameters: {
     docs: {
-      story: { inline: true, height: '250px' },
+      story: { inline: true, height: '300px' },
       canvas: { sourceState: 'hidden' },
     },
   },

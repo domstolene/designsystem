@@ -70,13 +70,7 @@ function _DateInput(
 
   const styleVariables: Properties = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-date-input-width' as any]: width
-      ? width
-      : componentSize === 'small'
-        ? '148px'
-        : componentSize === 'tiny'
-          ? '125px'
-          : '160px',
+    ['--dds-date-input-width' as any]: width ? width : 'fit-content',
   };
 
   return (

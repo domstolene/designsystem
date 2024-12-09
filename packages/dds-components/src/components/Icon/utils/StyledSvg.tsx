@@ -4,7 +4,7 @@ import { cn, getTextColor } from '../../../utils';
 import styles from '../Icon.module.css';
 
 const size = 24;
-const sizePx = `${size}px`;
+const sizeCSS = 'var(--dds-icon-size-medium)';
 
 type StyledSvgProps = SVGAttributes<SVGSVGElement>;
 
@@ -18,12 +18,14 @@ export function StyledSvg({
   return (
     <svg
       {...props}
-      height={height ? height : sizePx}
-      width={width ? width : sizePx}
       fill={getTextColor(fill)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox={`0 0 ${size} ${size}`}
       className={cn(className, styles.svg)}
+      style={{
+        height: height ? height : sizeCSS,
+        width: width ? width : sizeCSS,
+      }}
     />
   );
 }

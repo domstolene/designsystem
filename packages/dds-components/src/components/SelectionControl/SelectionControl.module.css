@@ -79,10 +79,10 @@
   .selection-control:after {
     border: solid var(--dds-color-icon-on-action);
     border-width: 0 1px 1px 0;
-    left: 35%;
-    top: 10%;
-    width: 30%;
-    height: 65%;
+    left: 6px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
     transform: rotate(45deg);
   }
 

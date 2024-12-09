@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { forwardRef, useEffect, useId } from 'react';
 
 import { OverflowMenuContextProvider } from './OverflowMenu.context';
@@ -25,7 +24,7 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
       isOpen = false,
       placement = 'bottom-end',
       id,
-      offset = ddsTokens.ddsSpacingX0125NumberPx,
+      offset = 2,
       className,
       htmlProps = {},
       ...rest

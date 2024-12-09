@@ -52,7 +52,7 @@ export const Default: Story = {
           htmlProps={{ style: { maxWidth: '800px' } }}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
-            Partopplysninger
+            Parter
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(1)}>
             Slutning
@@ -105,7 +105,7 @@ export const WithIcons: Story = {
             icon={PersonIcon}
             completed={completedSteps.has(0)}
           >
-            Partopplysninger
+            Parter
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={GavelIcon}
@@ -177,7 +177,7 @@ export const FutureStepsDisabled: Story = {
             disabled={isDisabled(0)}
             completed={completedSteps.has(0)}
           >
-            Partopplysninger
+            Parter
           </ProgressTracker.Item>
           <ProgressTracker.Item
             disabled={isDisabled(1)}
@@ -249,7 +249,7 @@ export const SmallScreen: Story = {
             }}
           >
             <ProgressTracker.Item completed={completedSteps.has(0)}>
-              Partopplysninger med lang tekst
+              Parter med lang tekst
             </ProgressTracker.Item>
             <ProgressTracker.Item completed={completedSteps.has(1)}>
               Slutning
@@ -338,16 +338,16 @@ export const RealWorldRosponsiveExample: Story = {
       <RolleSaksnummerForm onSubmit={() => completeStep(0)} />,
       <Kontaktinformasjon onSubmit={() => completeStep(1)} />,
       <Fakturainformasjon onSubmit={() => completeStep(2)} />,
-      <Heading level={2} typographyType="headingSans05" withMargins>
+      <Heading level={2} typographyType="headingXlarge" withMargins>
         Salærberegning
       </Heading>,
-      <Heading level={2} typographyType="headingSans05" withMargins>
+      <Heading level={2} typographyType="headingXlarge" withMargins>
         Fravær
       </Heading>,
-      <Heading level={2} typographyType="headingSans05" withMargins>
+      <Heading level={2} typographyType="headingXlarge" withMargins>
         Utlegg
       </Heading>,
-      <Heading level={2} typographyType="headingSans05" withMargins>
+      <Heading level={2} typographyType="headingXlarge" withMargins>
         Oppsummering
       </Heading>,
     ];
@@ -399,7 +399,7 @@ export const RealWorldRosponsiveExample: Story = {
 const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
     <VStack align="flex-start">
-      <Heading level={2} typographyType="headingSans05" withMargins>
+      <Heading level={2} typographyType="headingXlarge" withMargins>
         Rolle- og saksnummer
       </Heading>
       <Paragraph withMargins>
@@ -439,7 +439,7 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
 const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
     <VStack align="flex-start">
-      <Heading level={2} typographyType="headingSans05" withMargins>
+      <Heading level={2} typographyType="headingXlarge" withMargins>
         Kontaktinformasjon
       </Heading>
       <form
@@ -473,7 +473,7 @@ const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
 const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
     <VStack align="flex-start">
-      <Heading level={2} typographyType="headingSans05" withMargins>
+      <Heading level={2} typographyType="headingXlarge" withMargins>
         Fakturainformasjon
       </Heading>
       <form

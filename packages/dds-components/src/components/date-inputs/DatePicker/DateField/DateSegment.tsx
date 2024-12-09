@@ -16,18 +16,9 @@ import styles from '../../common/DateInput.module.css';
 import { type DatePickerProps } from '../DatePicker';
 
 export const typographyTypes: Record<InputSize, StaticTypographyType> = {
-  medium: 'bodySans02',
-  small: 'bodySans01',
-  tiny: 'supportingStyleTiny01',
-};
-
-export const placeholderTypographyTypes: Record<
-  InputSize,
-  StaticTypographyType
-> = {
-  medium: 'supportingStylePlaceholderText01',
-  small: 'supportingStylePlaceholderText02',
-  tiny: 'supportingStylePlaceholderText03',
+  medium: 'bodyMedium',
+  small: 'bodySmall',
+  tiny: 'bodyXsmall',
 };
 
 interface DateSegmentProps
@@ -66,9 +57,7 @@ export function DateSegment({
         className={cn(
           styles.segment__placeholder,
           !segment.isPlaceholder && styles['segment__placeholder--invisible'],
-          typographyStyles[
-            getTypographyCn(placeholderTypographyTypes[componentSize])
-          ],
+          typographyStyles[getTypographyCn(typographyTypes[componentSize])],
         )}
       >
         {segment.placeholder}

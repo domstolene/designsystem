@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import { type ButtonHTMLAttributes, forwardRef } from 'react';
 
 import styles from './Accordion.module.css';
@@ -37,7 +36,7 @@ export const AccordionHeader = forwardRef<
     children,
     className,
     htmlProps,
-    typographyType = 'headingSans02',
+    typographyType = 'headingMedium',
     bold,
     ...rest
   } = props;
@@ -74,8 +73,8 @@ export const AccordionHeader = forwardRef<
         )}
       >
         <AnimatedChevronUpDown
-          width={ddsTokens.ddsIconSizeMedium}
-          height={ddsTokens.ddsSpacingX05}
+          width="var(--dds-icon-size-medium)"
+          height="var(--dds-spacing-x0-5)"
           isUp={isExpanded}
         />
       </span>

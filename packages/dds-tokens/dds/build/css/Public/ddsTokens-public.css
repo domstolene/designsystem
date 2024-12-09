@@ -1,0 +1,212 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+.dds-public {
+  --dds-font-family-sans: 'IBM Plex Sans', Arial, sans-serif;
+  --dds-font-family-monospace: 'IBM Plex Mono', 'Courier New', monospace; /* For kode */
+  --dds-font-size-x5: 5rem;
+  --dds-font-size-x4: 4rem;
+  --dds-font-size-x3: 3rem;
+  --dds-font-size-x2-5: 2.5rem;
+  --dds-font-size-x2: 2rem;
+  --dds-font-size-x1-5: 1.5rem;
+  --dds-font-size-x1-25: 1.25rem;
+  --dds-font-size-x1-125: 1.125rem;
+  --dds-font-size-x1: 1rem;
+  --dds-font-size-x0-875: 0.875rem;
+  --dds-font-size-x0-75: 0.75rem;
+  --dds-font-size-xxlarge: 4rem;
+  --dds-font-size-xlarge: 3rem;
+  --dds-font-size-large: 2rem;
+  --dds-font-size-medium: 1.5rem;
+  --dds-font-size-small: 1.25rem;
+  --dds-font-size-xsmall: 1.125rem;
+  --dds-font-size-xxsmall: 1rem;
+  --dds-font-size-xxxsmall: 0.875rem;
+  --dds-font-weight-light: 300;
+  --dds-font-weight-normal: 400;
+  --dds-font-weight-bold: 600;
+  --dds-font-lineheight-x1: 1.5; /* Brukes på str ×1_25 og mindre  */
+  --dds-font-lineheight-x2: 1.35; /* Brukes på str x1.5, ×2 og ×3  */
+  --dds-font-lineheight-x3: 1.2; /* Brukes på str ×3 og større */
+  --dds-font-lineheight-list: 2.5; /* Brukes på lister */
+  --dds-font-letter-spacing-tight: -0.01em; /* Brukes på str ×2.5 og større */
+  --dds-font-letter-spacing-normal: 0em; /* Brukes på str ×1 og opp til og med ×2 */
+  --dds-font-letter-spacing-loose: 0.01em; /* Brukes på størrelser under ×1 */
+  --dds-font-paragraph-spacing-small: 1em; /* Brukes på str ×1_25 og mindre  */
+  --dds-font-paragraph-spacing-medium: 0.66em; /* Brukes på str x1.5, ×2 og ×3  */
+  --dds-font-paragraph-spacing-large: 0.5em; /* Brukes på str ×3 og større */
+  --dds-font-paragraph-spacing-heading: 0.4em; /* Brukes på på alle headere (bottom) */
+  --dds-font-style-underline: underline;
+  --dds-font-style-normal: none;
+  --dds-font-style-italic: italic;
+  --dds-spacing-padding-top-heading: 0.7em; /* Ekstra spacing over dds-header. 70% av størrelsen på headeren */
+  --dds-spacing-x0: 0rem;
+  --dds-spacing-x0-125: 0.125rem;
+  --dds-spacing-x0-25: 0.25rem;
+  --dds-spacing-x0-5: 0.5rem;
+  --dds-spacing-x0-75: 0.75rem;
+  --dds-spacing-x1: 1rem;
+  --dds-spacing-x1-5: 1.5rem;
+  --dds-spacing-x2: 2rem;
+  --dds-spacing-x2-5: 2.5rem;
+  --dds-spacing-x3: 3rem;
+  --dds-spacing-x4: 4rem;
+  --dds-spacing-x6: 6rem;
+  --dds-spacing-x10: 10rem;
+  --dds-shadow-1: 1px 2px 4px 0px rgba(11, 13, 14, 10%);
+  --dds-shadow-2: 2px 4px 8px 0px rgba(11, 13, 14, 10%);
+  --dds-shadow-3: 4px 8px 16px 0px rgba(11, 13, 14, 10%);
+  --dds-shadow-4: 8px 16px 32px 0px rgba(11, 13, 14, 10%);
+  --dds-grid-xs-gutter-size: 16px;
+  --dds-grid-xs-count: 4;
+  --dds-grid-sm-gutter-size: 16px;
+  --dds-grid-sm-count: 8;
+  --dds-grid-lg-gutter-size: 24px;
+  --dds-grid-lg-count: 12;
+  --dds-grid-md-gutter-size: 24px;
+  --dds-grid-md-count: 12;
+  --dds-grid-xl-gutter-size: 24px;
+  --dds-grid-xl-count: 12;
+  --dds-icon-size-large: 40px;
+  --dds-icon-size-medium: 24px;
+  --dds-icon-size-small: 16px;
+  --dds-breakpoint-xs: 1px;
+  --dds-breakpoint-sm: 600px;
+  --dds-breakpoint-md: 960px;
+  --dds-breakpoint-lg: 1280px;
+  --dds-breakpoint-xl: 1920px;
+  --dds-color-bg-default: #ffffff; /* UI shell base color */
+  --dds-color-bg-subtle: #f8f9f9; /* Alternative UI shell base color */
+  --dds-color-surface-default: #ffffff; /* Default bg */
+  --dds-color-surface-subtle: #f8f9f9; /* Subtle surface color */
+  --dds-color-surface-medium: #ebecee; /* Medium surface color */
+  --dds-color-surface-hover-default: #e7f1f7; /* Hover on surface (default, subtle, medium) */
+  --dds-color-surface-hover-subtle: #f8f9f9; /* Subtle hover on surface (default, medium) */
+  --dds-color-surface-selected-default: #e7f1f7; /* Selected state for surface (default, subtle, medium) */
+  --dds-color-surface-inverse-default: #354754; /* Can be used as a surface for menu, navigation, footer etc */
+  --dds-color-surface-inverse-hover: #313d45; /* Hover on surface.inverse */
+  --dds-color-surface-inverse-selected: #202b32; /* selected on surface.inverse */
+  --dds-color-surface-action-resting: #106ead; /* Primary button bg */
+  --dds-color-surface-action-hover: #0d588a; /* Hover on surface.action/selected */
+  --dds-color-surface-action-selected: #106ead; /* Selected state for components such as togglebutton, togglebar, progress tracker, checkbox etc */
+  --dds-color-surface-action-danger-resting: #d83737; /* Danger button */
+  --dds-color-surface-action-danger-hover: #ad2c2c; /* Hover on surface.action-danger */
+  --dds-color-surface-action-selected-disabled: #77838c; /* bg on a selected disabled checkbox, radio etc */
+  --dds-color-surface-danger-default: #fbebeb; /* tag, message, errormessage */
+  --dds-color-surface-danger-strong: #e47373; /* tag strong value */
+  --dds-color-surface-success-default: #f0f9f0; /* tag, message */
+  --dds-color-surface-success-strong: #93d294; /* tag with strong value */
+  --dds-color-surface-warning-default: #fefced; /* tag, message */
+  --dds-color-surface-warning-strong: #f7e982; /* tag strong value */
+  --dds-color-surface-info-default: #f1f8fd; /* tag, message */
+  --dds-color-surface-info-strong: #9eceee; /* tag strong value */
+  --dds-color-surface-paper-default: #ffffff; /* modal, drawer, popover etc */
+  --dds-color-surface-backdrop-default: #0b0d0e80; /* background overlay for modals (50%) */
+  --dds-color-surface-field-default: #ffffff; /* Form elements (textinput, datepicker etc) */
+  --dds-color-surface-field-disabled: #f8f9f9; /* disabled state on surface.field */
+  --dds-color-surface-highlighted-default: #ffe6df; /* bg for highlighted text on text.default. Use with $Text */
+  --dds-color-surface-scrollbar: #adb5ba; /* Used for scrollbar */
+  --dds-color-surface-notification: #d83737; /* bg on a notification */
+  --dds-color-surface-skeleton: #cfd4d7; /* Used for skeleton */
+  --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
+  --dds-color-border-subtle: #cfd4d7; /* Dropdown, tooltip, overflow etc */
+  --dds-color-border-inverse: #acbbc6; /* Border or divider on surface.inverse */
+  --dds-color-border-action-default: #106ead; /* Used in progress tracker */
+  --dds-color-border-action-hover: #0d588a; /* Hover on secondary button etc */
+  --dds-color-border-success: #65be66; /* Used with tag-default */
+  --dds-color-border-warning: #f4e04d; /* Tag.default */
+  --dds-color-border-danger: #d83737; /* Tag.default, error message field */
+  --dds-color-border-info: #75b9e6; /* Tag.default */
+  --dds-color-border-on-action: #ffffff; /* Used on primary split button */
+  --dds-color-text-default: #0b0d0e; /* default text, heading, body. on surface.hover */
+  --dds-color-text-medium: #3a4146; /* Label, etc */
+  --dds-color-text-subtle: #545c62; /* Disabled or less important text */
+  --dds-color-text-on-inverse: #ffffff; /* On surface.inverse */
+  --dds-color-text-on-action: #ffffff; /* On surface.action (primary and danger button) */
+  --dds-color-text-on-status-default: #0b0d0e; /* On default status surfaces */
+  --dds-color-text-on-status-strong: #0b0d0e; /* On status surfaces with strong prop */
+  --dds-color-text-action-resting: #106ead; /* Link, number in progress tracker */
+  --dds-color-text-action-hover: #0d588a; /* Hover on text.action */
+  --dds-color-text-requiredfield: #d83737; /* Asterix to indicate required field */
+  --dds-color-text-action-visited: #7f29b4; /* Used for visited links */
+  --dds-color-text-action-visited-on-inverse: #cca9e1; /* Used for visited links on inverse surfaces */
+  --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
+  --dds-color-icon-default: #0b0d0e; /* Often used with text.default */
+  --dds-color-icon-medium: #3a4146; /* Often used with text.medium */
+  --dds-color-icon-subtle: #545c62; /* Often used with text.subtle */
+  --dds-color-icon-on-inverse: #ffffff; /* On surface.inverse */
+  --dds-color-icon-on-action: #ffffff; /* On surface.action (primary and danger button) */
+  --dds-color-icon-action-resting: #106ead; /* Often used with Text.action */
+  --dds-color-icon-action-hover: #0d588a; /* hover on icon-action, used on secondary buttons etc */
+  --dds-color-icon-on-success-default: #3d723d; /* On surface.success-default */
+  --dds-color-icon-on-success-strong: #0b0d0e; /* On surface-success-strong */
+  --dds-color-icon-on-warning-default: #92862e; /* On surface.warning-default */
+  --dds-color-icon-on-warning-strong: #0b0d0e; /* On surface.warning-strong */
+  --dds-color-icon-on-danger-default: #ad2c2c; /* On surface.danger-default */
+  --dds-color-icon-on-danger-strong: #0b0d0e; /* On surface.danger-strong */
+  --dds-color-icon-on-info-default: #466f8a; /* On surface.info-default */
+  --dds-color-icon-on-info-strong: #0b0d0e; /* On surface.info-strong */
+  --dds-color-brand-primary-default: #354754; /* Primary brand color */
+  --dds-color-brand-primary-subtle: #eaeff4; /* Primary brand color */
+  --dds-color-brand-primary-medium: #4f6a7e; /* Primary brand color */
+  --dds-color-brand-primary-strong: #202b32;
+  --dds-color-brand-secondary-default: #9ab8b7; /* Secondary brand color */
+  --dds-color-brand-secondary-subtle: #e6eded; /* Secondary brand color */
+  --dds-color-brand-secondary-medium: #b8cdcd; /* Secondary brand color */
+  --dds-color-brand-secondary-strong: #4d6463;
+  --dds-color-brand-tertiary-default: #f2a68f; /* Tertiary brand color */
+  --dds-color-brand-tertiary-subtle: #ffe6df; /* Tertiary brand color */
+  --dds-color-brand-tertiary-medium: #f6c1b1; /* Tertiary brand color */
+  --dds-color-brand-tertiary-strong: #f27e55;
+  --dds-color-focus-outside: #2f4a5c; /* Contrast to .inside */
+  --dds-color-focus-inside: #f1f8fd; /* Contrast to .outside */
+  --dds-border-radius-button: 2px; /* For use in button component and togglebutton */
+  --dds-border-radius-surface: 2px; /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
+  --dds-border-radius-input: 2px; /* All input fields, and check boxes */
+  --dds-border-radius-chip: 2px; /* Chips and tags */
+  --dds-border-radius-rounded: 9999px; /* Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker */
+  --dds-font-label-medium: 600 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Label for form components */
+  --dds-font-body-xsmall: 400 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with xsmall button and input fields */
+  --dds-font-body-small: 400 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with small button and input fields */
+  --dds-font-body-medium: 400 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* standard body text, used with medium button and input fields */
+  --dds-font-body-large: 400 1.25rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Used for large button and large search */
+  --dds-font-heading-xxsmall: 600 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h6 */
+  --dds-font-heading-xsmall: 600 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h5 */
+  --dds-font-heading-small: 600 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h4 */
+  --dds-font-heading-medium: 600 1.25rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h3 */
+  --dds-font-heading-large: 400 clamp(1.5rem, 0.667rem + 2.222vw, 2rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default h2 */
+  --dds-font-heading-xlarge: 300 clamp(2.5rem, 1.667rem + 2.222vw, 3rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default H1 */
+  --dds-font-heading-xxlarge: 300 clamp(3rem, 1.333rem + 4.444vw, 4rem)/1.2 'IBM Plex Sans', Arial, sans-serif; /* Display or extra large page title (h1) */
+  --dds-font-lead-medium: 300 1.5rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Lead brukes som ingress når man skriver artikler etc */
+  --dds-font-code-medium: 400 1.125rem/1.5 'IBM Plex Mono', 'Courier New', monospace; /* Brukes for kodesnutter etc */
+  --dds-font-heading-xxlarge-letter-spacing: -0.01em;
+  --dds-font-heading-xxlarge-paragraph-spacing: 0.4em;
+  --dds-font-heading-xlarge-letter-spacing: -0.01em;
+  --dds-font-heading-xlarge-paragraph-spacing: 0.4em;
+  --dds-font-heading-large-letter-spacing: 0em;
+  --dds-font-heading-large-paragraph-spacing: 0.4em;
+  --dds-font-heading-medium-letter-spacing: 0em;
+  --dds-font-heading-medium-paragraph-spacing: 0.4em;
+  --dds-font-heading-small-letter-spacing: 0em;
+  --dds-font-heading-small-paragraph-spacing: 0.4em;
+  --dds-font-heading-xsmall-letter-spacing: 0em;
+  --dds-font-heading-xsmall-paragraph-spacing: 0.4em;
+  --dds-font-heading-xxsmall-letter-spacing: 0.01em;
+  --dds-font-heading-xxsmall-paragraph-spacing: 0.4em;
+  --dds-font-body-large-letter-spacing: 0em;
+  --dds-font-body-large-paragraph-spacing: 1em;
+  --dds-font-body-medium-letter-spacing: 0em;
+  --dds-font-body-medium-paragraph-spacing: 1em;
+  --dds-font-body-small-letter-spacing: 0em;
+  --dds-font-body-small-paragraph-spacing: 1em;
+  --dds-font-body-xsmall-letter-spacing: 0.01em;
+  --dds-font-body-xsmall-paragraph-spacing: 1em;
+  --dds-font-lead-medium-letter-spacing: 0em;
+  --dds-font-lead-medium-paragraph-spacing: 0.66em;
+  --dds-font-code-medium-letter-spacing: 0em;
+  --dds-font-code-medium-paragraph-spacing: 1em;
+  --dds-font-label-medium-letter-spacing: 0.01em;
+  --dds-font-label-medium-paragraph-spacing: 1em;
+}

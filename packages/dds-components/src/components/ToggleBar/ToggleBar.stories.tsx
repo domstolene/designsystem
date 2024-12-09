@@ -235,7 +235,7 @@ export const WithLongWords: Story = {
             setValue(value);
           }}
         >
-          <ToggleRadio value="alt1" label="Partsopplysninger" />
+          <ToggleRadio value="alt1" label="Parter" />
           <ToggleRadio value="alt2" label="Slutning" />
           <ToggleRadio value="alt3" label="Vedlegg" />
         </ToggleBar>

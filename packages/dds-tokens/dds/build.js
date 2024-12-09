@@ -1,68 +1,90 @@
 import { register } from '@tokens-studio/sd-transforms';
 import StyleDictionary from 'style-dictionary';
-import { fileHeader } from 'style-dictionary/utils';
+
+import {
+  customCSSFormat,
+  customJSFormat,
+  customSCSSFormat,
+  filterOutBase,
+} from './utils.js';
 
 console.log('Tokens build started...');
 console.log('\n==============================================');
 
 register(StyleDictionary);
 
-const sd = new StyleDictionary('config.json');
-
-const last3 = token => {
-  if (token.value !== undefined) return token.value.toString().slice(-3);
-};
-
-const last2 = token => {
-  if (token.value !== undefined) return token.value.toString().slice(-2);
-};
-
-const hasRem = token => {
-  return last3(token) === 'rem';
-};
-
-const hasPxOrEm = token => {
-  return last2(token) === 'px' || last2(token) === 'em';
-};
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-/**
- * Hvis en token er en størrelse (1px, 2rem osv),
- * returnerer vi ekstra token med kun tall i JS.
- * Den har "Number" og måleenhet som suffiks i navnet.
- * Slike tokens kan brukes f.eks. til offset i floating-ui.
- */
-
-sd.registerFormat({
-  name: 'custom/javascript/es6',
-  format: async ({ dictionary, file }) => {
-    const header = await fileHeader({ file, commentStyle: 'short' });
-    return (
-      header +
-      dictionary.allTokens
-        .map(token => {
-          let output = `export const ${token.name} = ${JSON.stringify(
-            token.value,
-          )};`;
-          if (hasRem(token)) {
-            output = `export const ${token.name} = "${token.value}";\nexport const ${token.name}Number${capitalizeFirstLetter(last3(token))} = ${token.value.slice(0, -3)};`;
-          } else if (hasPxOrEm(token)) {
-            output = `export const ${token.name} = "${token.value}";\nexport const ${token.name}Number${capitalizeFirstLetter(last2(token))} = ${token.value.slice(0, -2)};`;
-          }
-          if (token.comment) {
-            output += ` // ${token.comment}`;
-          }
-          return output;
-        })
-        .join('\n')
-    );
-  },
+StyleDictionary.registerFormat({
+  name: 'custom/css/variables',
+  format: customCSSFormat,
 });
 
-await sd.cleanAllPlatforms();
-await sd.buildAllPlatforms();
+StyleDictionary.registerFormat({
+  name: 'custom/javascript/es6',
+  format: customJSFormat,
+});
+
+StyleDictionary.registerFormat({
+  name: 'custom/scss/variables',
+  format: customSCSSFormat,
+});
+
+function getStyleDictionaryConfig(theme) {
+  return {
+    source: ['tokens/Base.json', `tokens/${theme}.json`],
+    preprocessors: ['tokens-studio'],
+    platforms: {
+      css: {
+        buildPath: `build/css/${theme}/`,
+        transformGroup: 'tokens-studio',
+        transforms: ['name/kebab'],
+        files: [
+          {
+            destination: `ddsTokens-${theme.toLowerCase()}.css`,
+            format: 'custom/css/variables',
+            filter: token => filterOutBase(token),
+          },
+        ],
+      },
+      js: {
+        buildPath: `build/js/${theme}/`,
+        transformGroup: 'tokens-studio',
+        files: [
+          {
+            destination: 'ddsTokens.ts',
+            format: 'custom/javascript/es6',
+            filter: token => filterOutBase(token),
+          },
+        ],
+      },
+      // Returnerer bare 1 fil da SCSS-variabler refererer til CSS-variabler
+      scss: {
+        buildPath: `build/scss/`,
+        transformGroup: 'tokens-studio',
+        transforms: ['name/kebab'],
+        files: [
+          {
+            destination: `_ddsTokens.scss`,
+            format: 'custom/scss/variables',
+            filter: token => filterOutBase(token),
+          },
+        ],
+      },
+    },
+  };
+}
+
+['Core', 'Public'].map(function (theme) {
+  ['css', 'js', 'scss'].map(function (platform) {
+    console.log('\n==============================================');
+    console.log(`\nProcessing: [${theme}] [${platform}]`);
+
+    const sd = new StyleDictionary(getStyleDictionaryConfig(theme), {
+      verbosity: 'verbose',
+    });
+
+    sd.buildPlatform(platform);
+  });
+});
+
 console.log('\n==============================================');
 console.log('\nTokens build completed!');

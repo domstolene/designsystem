@@ -34,7 +34,6 @@ export const Default: Story = {
         <style>
           {`
           .story-grid, .story-grid__child {
-            width: 100%;
             border: 1px dashed gray;
             padding:  var(--dds-spacing-x0-5);
             }

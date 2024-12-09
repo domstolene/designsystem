@@ -12,3 +12,6 @@ export function convertCamelToHyphen(value: string) {
     .replace(/([a-z])([0-9])/g, '$1-$2')
     .toLowerCase();
 }
+
+export const defaultPortalTarget = () =>
+  document.getElementsByClassName('dds-themed')[0] as HTMLElement;

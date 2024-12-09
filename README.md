@@ -2,7 +2,7 @@
 
 Elsa er Domstolenes offisielle designsystem. Det består av design i Figma, [dokumentasjon](https://design.domstol.no/) og dette monorepoet.
 
-I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med designsystemet.
+I koden brukes prefikset `dds` for å spesifisere assosiasjon med designsystemet.
 
 ## 📚 Innhold i monorepo
 
@@ -10,11 +10,11 @@ I koden brukes prefikset `dds` eller `DDS` for å spesifisere assosiasjon med de
 
 🎨 [Design tokens](packages/tokens/README.md)
 
-🐚 [App shell](packages/app-shell/README.md)
-
 📕 [Formatering](packages/formatting/README.md)
 
 🔧 [Dev utils](packages/development-utils/README.md)
+
+🐚 [App shell](packages/app-shell/README.md) (deprecated)
 
 ## 🏬 Storefront
 
@@ -28,7 +28,7 @@ Team Elsa setter pris på all bidrag. Les hvordan bidra i [guiden for bidragsyte
 
 > Vi anbefaler å installere [Volta](https://volta.sh/) for versjonshåndtering av Node.js og pnpm.
 > Volta vil automatisk installere riktig versjon av Node.js og pnpm når du jobber med designsystemet.
-> Siden Volta kun har eksperimentell støtte for pnpm må du legge til `VOLTA_FEATURE_PNPM=1` i .bashrc, .zshrc eller tilsvarende.
+> Siden Volta kun har eksperimentell støtte for pnpm må du legge til `VOLTA_FEATURE_PNPM=1` i miljøvariabler (Windows), eller `.bashrc`, `.zshrc` eller tilsvarende (Linux/Mac).
 > Se [https://docs.volta.sh/advanced/pnpm](https://docs.volta.sh/advanced/pnpm) for mer informasjon.
 
 Installer avhengigheter
@@ -49,9 +49,20 @@ Start opp storybook
 pnpm storybook
 ```
 
-#### Finner ikke @norges-domstol\dds-token
+#### Linking
 
-Skal ikke egentlig være nødvendig, men hvis du får en feilmeldinger om at den ikke finner @norges-domstol\dds-token kan du prøve:
+Hvis du vil teste endringer i Elsa live i applikasjonen din kan du bruke `npm link`.
+
+```bash
+cd ~/designsystem/packages/pakke # velg pakke
+npm link
+cd ~/din-app
+npm link pakke
+```
+
+#### Finner ikke `@norges-domstoler\dds-design-tokens`
+
+Skal ikke egentlig være nødvendig, men hvis du får en feilmeldinger om at den ikke finner `@norges-domstoler\dds-design-tokens` kan du prøve:
 
 ```bash
 pnpm build
@@ -65,7 +76,7 @@ Når du er ferdig med PR, legg til [changeset](https://github.com/changesets/cha
 pnpm changeset
 ```
 
-Velg pakke(r) som ble endret, velg riktig semver bump type, og skriv changelog entry for neste release.
+Velg pakke(r) som ble endret, velg riktig semver bump type, og skriv changelog entry for neste release. Skriv gjerne flere entries ved behov.
 
 #### Publisering
 

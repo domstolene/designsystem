@@ -14,7 +14,11 @@ describe('<Typography>', () => {
     expect(screen.getByRole('link')).toBeInTheDocument();
   });
   it('should render heading', () => {
-    render(<Typography typographyType="headingSans01" />);
+    render(<Typography typographyType="headingSmall" />);
     expect(screen.getByRole('heading')).toBeInTheDocument();
+  });
+  it('should render paragraph', () => {
+    render(<Typography typographyType="bodySmall" />);
+    expect(screen.getByRole('paragraph')).toBeInTheDocument();
   });
 });

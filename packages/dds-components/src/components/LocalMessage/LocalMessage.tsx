@@ -87,7 +87,7 @@ export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
           id,
           cn(
             className,
-            typographyStyles['body-sans-02'],
+            typographyStyles['body-medium'],
             styles.container,
             styles[`container--${layout}`],
             closable && styles[`container--${layout}--closable`],

@@ -35,7 +35,7 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
           className={cn(
             styles.content,
             hasIcon && styles['content--with-icon'],
-            typographyStyles['body-sans-01'],
+            typographyStyles['body-small'],
             focusStyles['focus-styled-sibling'],
           )}
         >

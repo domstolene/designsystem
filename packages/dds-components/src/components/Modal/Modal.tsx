@@ -2,6 +2,7 @@ import {
   type ReactNode,
   type RefObject,
   forwardRef,
+  useContext,
   useEffect,
   useId,
   useRef,
@@ -30,6 +31,7 @@ import {
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 
 export type ModalProps = BaseComponentPropsWithChildren<
@@ -57,7 +59,7 @@ export type ModalProps = BaseComponentPropsWithChildren<
 export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const {
     isOpen = false,
-    parentElement = document.body,
+    parentElement,
     children,
     header,
     onClose,
@@ -82,6 +84,14 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
     }
   };
 
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) {
+    throw new Error('Modal must be used within a ThemeProvider');
+  }
+
+  const portalTarget = parentElement ?? themeContext?.el;
+
   useEffect(() => {
     if (isOpen) {
       handleElementWithBackdropMount(document.body);
@@ -103,7 +113,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
 
   const hasTransitionedIn = useMountTransition(isOpen, 200);
 
-  return isOpen || hasTransitionedIn
+  return (isOpen || hasTransitionedIn) && portalTarget
     ? createPortal(
         <Backdrop
           isMounted={isOpen && hasTransitionedIn}
@@ -148,7 +158,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
               {!!header && (
                 <div id={headerId} className={styles.header}>
                   {typeof header === 'string' ? (
-                    <Heading level={2} typographyType="headingSans03">
+                    <Heading level={2} typographyType="headingLarge">
                       {header}
                     </Heading>
                   ) : (
@@ -160,7 +170,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
             </div>
           </Paper>
         </Backdrop>,
-        parentElement,
+        portalTarget,
       )
     : null;
 });

@@ -26,7 +26,7 @@ const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
   parameters: {
     docs: {
-      story: { inline: true, height: '435px' },
+      story: { inline: true, height: '500px' },
       canvas: { sourceState: 'hidden' },
     },
   },

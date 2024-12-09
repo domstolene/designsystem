@@ -24,7 +24,7 @@ export const Row = forwardRef<HTMLTableRowElement, TableRowProps>(
           mode === 'sum' && styles['row--sum'],
           selected && styles['row--selected'],
           hoverable && styles['row--hoverable'],
-          typographyStyles['body-sans-02'],
+          typographyStyles['body-medium'],
           (type === 'head' || mode === 'sum') && typographyStyles.bold,
           focusable,
         )}

@@ -1,4 +1,3 @@
-import { ddsTokens } from '@norges-domstoler/dds-design-tokens';
 import {
   type FocusEventHandler,
   type ForwardedRef,
@@ -19,10 +18,10 @@ import { type StaticTypographyType, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 const typographyTypes: Record<ButtonSize, StaticTypographyType> = {
-  large: 'bodySans04',
-  medium: 'bodySans02',
-  small: 'bodySans01',
-  tiny: 'supportingStyleTiny01',
+  large: 'bodyLarge',
+  medium: 'bodyMedium',
+  small: 'bodySmall',
+  tiny: 'bodyXsmall',
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -97,7 +96,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           >
             <Spinner
               /*TODO: bytte til icon size token for button når den er på plass*/
-              size={ddsTokens.ddsFontLineheightX1 + 'em'}
+              size="calc(var(--dds-font-lineheight-x1) * 1em)"
               color={
                 purpose === 'primary' || purpose === 'danger'
                   ? 'iconOnAction'

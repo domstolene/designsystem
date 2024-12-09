@@ -52,7 +52,7 @@ export const Inherit: Story = {
     iconSize: 'inherit',
   },
   render: args => (
-    <Paragraph typographyType="bodySans04">
+    <Paragraph typographyType="bodyLarge">
       <Icon {...args} /> Tekst
     </Paragraph>
   ),

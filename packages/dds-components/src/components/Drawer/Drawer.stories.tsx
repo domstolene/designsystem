@@ -1,16 +1,18 @@
+import { type Story } from '@storybook/blocks';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../Button';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Paragraph } from '../Typography';
 
 import { Drawer, DrawerGroup } from '.';
 
-export default {
+const meta: Meta<typeof Drawer> = {
   title: 'dds-components/Drawer',
   component: Drawer,
   parameters: {
     docs: {
-      story: { inline: true },
+      story: { height: '500px', inline: true, scrollbar: false },
       canvas: { sourceState: 'hidden' },
     },
   },
@@ -21,7 +23,16 @@ export default {
     parentElement: { control: false },
     widthProps: { control: false },
   },
-} satisfies Meta<typeof Drawer>;
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Drawer>;
 
@@ -99,7 +110,7 @@ export const OverviewSizes: Story = {
               en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
               raskere, mer effektiv og billigere måte å løse konflikten på.
             </Paragraph>
-            <Heading level={5} typographyType="headingSans02" withMargins>
+            <Heading level={2} typographyType="headingLarge" withMargins>
               Hva er rettsmekling?
             </Heading>
             <Paragraph>
@@ -123,7 +134,7 @@ export const OverviewSizes: Story = {
               en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
               raskere, mer effektiv og billigere måte å løse konflikten på.
             </Paragraph>
-            <Heading level={5} typographyType="headingSans02" withMargins>
+            <Heading level={2} typographyType="headingLarge" withMargins>
               Hva er rettsmekling?
             </Heading>
             <Paragraph>
@@ -147,7 +158,7 @@ export const OverviewSizes: Story = {
               en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
               raskere, mer effektiv og billigere måte å løse konflikten på.
             </Paragraph>
-            <Heading level={5} typographyType="headingSans02" withMargins>
+            <Heading level={2} typographyType="headingLarge" withMargins>
               Hva er rettsmekling?
             </Heading>
             <Paragraph>
@@ -178,7 +189,7 @@ export const LongContent: Story = {
             avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
             raskere, mer effektiv og billigere måte å løse konflikten på.
           </Paragraph>
-          <Heading level={5} typographyType="headingSans02" withMargins>
+          <Heading level={2} typographyType="headingLarge" withMargins>
             Hva er rettsmekling?
           </Heading>
           <Paragraph withMargins>
@@ -188,7 +199,7 @@ export const LongContent: Story = {
             på lik linje med en dom. Rettsmekling kan bare brukes i sivile
             saker, ikke i straffesaker.
           </Paragraph>
-          <Heading level={5} typographyType="headingSans02" withMargins>
+          <Heading level={2} typographyType="headingLarge" withMargins>
             Hva er fordelene med rettsmekling?
           </Heading>
           <Paragraph withMargins>
