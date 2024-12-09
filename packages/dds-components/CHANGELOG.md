@@ -1,5 +1,29 @@
 # @norges-domstoler/dds-components
 
+## 17.7.0
+
+### Minor Changes
+
+- 6d12eaa: Støtte for `onClick` prop på `BackLink` for lettere bruk i Next.js. `href` skal brukes samtidig slik at komponenten er fortsatt en semantisk lenke.
+
+### Patch Changes
+
+- 3c8fa95: Popover - legger til prop `returnFocusOnBlur` med standard verdi `true` for å angi om fokus skal returnes ved blur
+- 74fbd84: Fikser border i `<SplitButton>`slik at den ikke blir gjennomsiktig på en side ved `:active` state.
+
+## 17.6.0
+
+### Minor Changes
+
+- 06f249d: Støtte for `showWeekNumbers` prop i `<DatePicker>` som styrer visning av ukenumre. `true` som default.
+
+### Patch Changes
+
+- 6cc2ccc: Endrer farge på border i `<Card>` til `var(--dds-color-border-subtle)`.
+- 35f5917: Fikser størrelse på ikoner i `<Feedback>`.
+- 9c61c3d: Flytter chevron i `<AccordionHeader>` til venstre for teksten. Dette sørger for at brukeren forstår at hele headeren er klikkbar, samt vet hva tilstanden på komponenten er ved zoom og o.l.
+- a364ae0: Hvis prop `label` ikke settes i `<CheckboxGroup>`, blir dens `<span>` ikke rendret.
+
 ## 17.5.4
 
 ### Patch Changes
