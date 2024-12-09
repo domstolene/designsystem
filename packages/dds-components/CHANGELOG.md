@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 17.7.0
+
+### Minor Changes
+
+- 6d12eaa: Støtte for `onClick` prop på `BackLink` for lettere bruk i Next.js. `href` skal brukes samtidig slik at komponenten er fortsatt en semantisk lenke.
+
+### Patch Changes
+
+- 3c8fa95: Popover - legger til prop `returnFocusOnBlur` med standard verdi `true` for å angi om fokus skal returnes ved blur
+- 74fbd84: Fikser border i `<SplitButton>`slik at den ikke blir gjennomsiktig på en side ved `:active` state.
+
 ## 17.6.0
 
 ### Minor Changes
