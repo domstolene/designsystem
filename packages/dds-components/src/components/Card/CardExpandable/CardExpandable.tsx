@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import styles from './CardAccordion.module.css';
+import styles from './CardExpandable.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -11,7 +11,7 @@ import {
   useAccordion,
 } from '../../helpers/AccordionBase';
 
-export type CardAccordionProps = BaseComponentPropsWithChildren<
+export type CardExpandableProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
     /**Spesifiserer om body skal være utvidet ved innlastning. */
@@ -21,7 +21,7 @@ export type CardAccordionProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
+export const CardExpandable = forwardRef<HTMLDivElement, CardExpandableProps>(
   (props, ref) => {
     const {
       isExpanded = false,
@@ -66,4 +66,4 @@ export const CardAccordion = forwardRef<HTMLDivElement, CardAccordionProps>(
   },
 );
 
-CardAccordion.displayName = 'CardAccordion';
+CardExpandable.displayName = 'CardExpandable';

@@ -1,7 +1,7 @@
 import { type Properties, type Property } from 'csstype';
 import { type ButtonHTMLAttributes, forwardRef } from 'react';
 
-import styles from './CardAccordion.module.css';
+import styles from './CardExpandable.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -15,7 +15,7 @@ import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { type StaticTypographyType, getTypographyCn } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
-export type CardAccordionHeaderProps = Omit<
+export type CardExpandableHeaderProps = Omit<
   BaseComponentPropsWithChildren<
     HTMLButtonElement,
     {
@@ -31,9 +31,9 @@ export type CardAccordionHeaderProps = Omit<
   'id'
 >;
 
-export const CardAccordionHeader = forwardRef<
+export const CardExpandableHeader = forwardRef<
   HTMLButtonElement,
-  CardAccordionHeaderProps
+  CardExpandableHeaderProps
 >((props, ref) => {
   const {
     children,
@@ -102,4 +102,4 @@ export const CardAccordionHeader = forwardRef<
   );
 });
 
-CardAccordionHeader.displayName = 'CardAccordionHeader';
+CardExpandableHeader.displayName = 'CardExpandableHeader';

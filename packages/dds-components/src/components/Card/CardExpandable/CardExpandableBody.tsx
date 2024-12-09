@@ -1,7 +1,7 @@
 import { type Properties, type Property } from 'csstype';
 import { forwardRef } from 'react';
 
-import styles from './CardAccordion.module.css';
+import styles from './CardExpandable.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -10,7 +10,7 @@ import { cn } from '../../../utils';
 import { useAccordionContext } from '../../helpers/AccordionBase';
 import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
 
-export type CardAccordionBodyProps = Omit<
+export type CardExpandableBodyProps = Omit<
   BaseComponentPropsWithChildren<
     HTMLDivElement,
     {
@@ -21,9 +21,9 @@ export type CardAccordionBodyProps = Omit<
   'id'
 >;
 
-export const CardAccordionBody = forwardRef<
+export const CardExpandableBody = forwardRef<
   HTMLDivElement,
-  CardAccordionBodyProps
+  CardExpandableBodyProps
 >((props, ref) => {
   const { children, className, htmlProps, padding, ...rest } = props;
 
@@ -66,4 +66,4 @@ export const CardAccordionBody = forwardRef<
   );
 });
 
-CardAccordionBody.displayName = 'CardAccordionBody';
+CardExpandableBody.displayName = 'CardExpandableBody';
