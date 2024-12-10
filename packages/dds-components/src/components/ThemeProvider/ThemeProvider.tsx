@@ -11,8 +11,8 @@ import {
 import styles from './ThemeProvider.module.css';
 import { cn } from '../../utils';
 
-export type DdsTheme = 'core' | 'public';
-const defaultTheme = 'core';
+export type DdsTheme = keyof typeof ddsTokens;
+const defaultTheme: DdsTheme = 'core';
 
 interface ThemeContextProps {
   theme: DdsTheme;
