@@ -1,13 +1,13 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
+import { ThumbIcon } from './utils';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Spinner } from '../Spinner';
 import { HStack } from '../Stack';
 import { Tooltip } from '../Tooltip';
-import { Label } from '../Typography';
-import { ThumbIcon } from './utils';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 
 interface RatingComponentType {
   layout: Layout;
@@ -48,7 +48,7 @@ export const RatingComponent = ({
         styles[`rating-container--${layout}`],
       )}
     >
-      <Label>{ratingLabel}</Label>
+      <h2 className={typographyStyles['label-medium']}>{ratingLabel}</h2>
       {loading ? (
         <Spinner tooltip="Laster opp tilbakemelding ..." />
       ) : (

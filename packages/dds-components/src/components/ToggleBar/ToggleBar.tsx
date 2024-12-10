@@ -5,7 +5,7 @@ import styles from './ToggleBar.module.css';
 import { type ToggleBarProps, type ToggleBarValue } from './ToggleBar.types';
 import { getBaseHTMLProps } from '../../types';
 import { cn, combineHandlers } from '../../utils';
-import { Label } from '../Typography';
+import { Typography } from '../Typography';
 
 export const ToggleBar = <T extends string | number = string>(
   props: ToggleBarProps<T>,
@@ -56,7 +56,11 @@ export const ToggleBar = <T extends string | number = string>(
         role="radiogroup"
         aria-labelledby={labelId ?? htmlProps?.['aria-labelledby']}
       >
-        {label && <Label id={labelId}>{label}</Label>}
+        {label && (
+          <Typography id={labelId} as="span" typographyType="labelMedium">
+            {label}
+          </Typography>
+        )}
         <div className={styles.bar}>{children}</div>
       </div>
     </ToggleBarContext.Provider>
