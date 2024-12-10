@@ -42,10 +42,12 @@ export const customJSFormat = async ({ dictionary, file }) => {
         let output = `export const ${token.name} = ${JSON.stringify(
           token.value,
         )};`;
-        if (hasRem(token)) {
-          output = numberTokenOutput(token, 3);
-        } else if (hasPxOrEm(token)) {
-          output = numberTokenOutput(token, 2);
+        if (!token.name.includes('LetterSpacing')) {
+          if (hasRem(token)) {
+            output = numberTokenOutput(token, 3);
+          } else if (hasPxOrEm(token)) {
+            output = numberTokenOutput(token, 2);
+          }
         }
         if (token.comment) {
           output += ` // ${token.comment}`;
