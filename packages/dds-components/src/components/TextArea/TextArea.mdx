@@ -22,7 +22,16 @@ I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAt
 
 ## Retningslinjer
 
+### Maks antall tegn
+
+Maks antall tegn i input bør ta utgangspunkt i konteksten til applikasjonen, så ta gjerne en vurdering. Som default kan det maksimale antallet være så mange tegn som applikasjonen støtter; for eksempel, hvis databasen støtter opptil 255 tegn for dette feltet, kan du sette maks lengde på input til 255 tegn.
+
+### Placholder
+
+Unngå å bruke `placeholder` attributtet. Hvis du bruker den istedenfor semantisk ledetekst ser brukeren ikke hva feltet ber om etter det blir fylt ut. I tillegg kan inputfeltet se ferdig fylt ut.
+
+### Generelt
+
 - Bruk gjerne `autofocus` for å indikere hvor brukeren skal starte.
-- Unngå å bruke `placeholder` - inputfeltet kan se ferdig fylt ut.
 - Bruk `onChange` slik at brukeren kan få umiddelbar tilbakemelding på deres input baser på validering.
 - Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.
