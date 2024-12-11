@@ -115,4 +115,10 @@ handleSearch();
 
 ## Retningslinjer
 
-- Mens resultater lastes inn bør det indikeres til brukeren. Hvis det brukes en søkeknapp gjøres det via `loading` i `buttonProps`. Hvis søkeknappen ikke brukes bør det gjøres med `<Spinner>` i resultatlista.
+### Maks antall tegn
+
+Maks antall tegn på input bør ta utgangspunkt i konteksten til applikasjonen, så ta gjerne en vurdering. Som default kan det maksimale antallet være så mange tegn som applikasjonen støtter; for eksempel, hvis søkemotoren støtter opptil 255 tegn, sett maks lengde på input til 255 tegn.
+
+### Innlasting
+
+Mens resultater lastes inn bør det indikeres til brukeren. Hvis det brukes en søkeknapp gjøres det via `loading` i `buttonProps`. Hvis søkeknappen ikke brukes bør det gjøres med `<Spinner>` i resultatlista.
