@@ -17,6 +17,7 @@ import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { HStack, VStack } from '../Stack';
 import { TextInput } from '../TextInput';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Legend, Paragraph } from '../Typography';
 
 export default {
@@ -209,6 +210,13 @@ export const FutureStepsDisabled: Story = {
 };
 
 export const SmallScreen: Story = {
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
   render: args => {
     const numSteps = 3;
 
@@ -270,7 +278,7 @@ export const SmallScreen: Story = {
 export const RealWorldRosponsiveExample: Story = {
   decorators: [
     Story => (
-      <>
+      <StoryThemeProvider>
         <Story />
         <style>
           {`
@@ -305,7 +313,7 @@ export const RealWorldRosponsiveExample: Story = {
           }
           `}
         </style>
-      </>
+      </StoryThemeProvider>
     ),
   ],
   render: args => {
