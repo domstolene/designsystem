@@ -3,19 +3,21 @@ import { forwardRef } from 'react';
 import styles from './DetailList.module.css';
 import {
   type BaseComponentPropsWithChildren,
+  type Size,
   getBaseHTMLProps,
 } from '../../types';
-import { type Density, getDensityCn } from '../../types/Density';
 import { cn } from '../../utils';
+
+export type DetailListSize = Extract<Size, 'large' | 'medium' | 'small'>;
 
 export type DetailListProps = BaseComponentPropsWithChildren<
   HTMLDListElement,
   {
     /**
-     * Spesifiserer hvor romslige celler skal være.
-     * @default "normal"
+     * Størrelse på tabellen. Påvirker tetthet i cellene og font.
+     * @default "medium"
      */
-    density?: Density;
+    size?: DetailListSize;
     /**
      * Om rader skal ha skillelinje.
      * @default true
@@ -37,7 +39,7 @@ export const DetailList = forwardRef<HTMLDListElement, DetailListProps>(
       htmlProps,
       withDividers = true,
       striped = true,
-      density = 'normal',
+      size = 'medium',
       ...rest
     } = props;
 
@@ -49,7 +51,7 @@ export const DetailList = forwardRef<HTMLDListElement, DetailListProps>(
           cn(
             className,
             styles.list,
-            styles[`list--${getDensityCn(density)}`],
+            styles[`list--${size}`],
             withDividers && styles['list--with-dividers'],
             striped && styles['list--striped'],
           ),

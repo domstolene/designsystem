@@ -21,75 +21,107 @@ export default {
 
 type Story = StoryObj<typeof DetailList>;
 
+const styling = `
+          .story-text-right {
+          text-align: right;
+          }
+        `;
+
+const children = [
+  <DetailListRow>
+    <DetailListTerm>Term</DetailListTerm>
+    <DetailListDesc>Beskrivelse</DetailListDesc>
+    <DetailListDesc className="story-text-right">
+      <InlineButton
+        onClick={() => {
+          null;
+        }}
+      >
+        Knapp
+      </InlineButton>
+    </DetailListDesc>
+  </DetailListRow>,
+  <DetailListRow>
+    <DetailListTerm>Term</DetailListTerm>
+    <DetailListDesc>Beskrivelse</DetailListDesc>
+    <DetailListDesc className="story-text-right">
+      <InlineButton
+        onClick={() => {
+          null;
+        }}
+      >
+        Knapp
+      </InlineButton>
+    </DetailListDesc>
+  </DetailListRow>,
+  <DetailListRow>
+    <DetailListTerm>Term</DetailListTerm>
+    <DetailListDesc>Beskrivelse</DetailListDesc>
+    <DetailListDesc className="story-text-right">
+      <InlineButton
+        onClick={() => {
+          null;
+        }}
+      >
+        Knapp
+      </InlineButton>
+    </DetailListDesc>
+  </DetailListRow>,
+  <DetailListRow>
+    <DetailListTerm>Term</DetailListTerm>
+    <DetailListDesc>Beskrivelse</DetailListDesc>
+    <DetailListDesc className="story-text-right">
+      <InlineButton
+        onClick={() => {
+          null;
+        }}
+      >
+        Knapp
+      </InlineButton>
+    </DetailListDesc>
+  </DetailListRow>,
+];
+
 export const Default: Story = {
   decorators: [
     Story => (
       <>
         <Story />
-        <style>
-          {`
-          .story-text-right {
-          text-align: right;
-          }
-        `}
-        </style>
+        <style>{styling}</style>
+      </>
+    ),
+  ],
+  render: args => <DetailList {...args}>{children}</DetailList>,
+};
+
+export const Small: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>{styling}</style>
       </>
     ),
   ],
   render: args => (
-    <DetailList {...args}>
-      <DetailListRow>
-        <DetailListTerm>Term</DetailListTerm>
-        <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc className="story-text-right">
-          <InlineButton
-            onClick={() => {
-              null;
-            }}
-          >
-            Knapp
-          </InlineButton>
-        </DetailListDesc>
-      </DetailListRow>
-      <DetailListRow>
-        <DetailListTerm>Term</DetailListTerm>
-        <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc className="story-text-right">
-          <InlineButton
-            onClick={() => {
-              null;
-            }}
-          >
-            Knapp
-          </InlineButton>
-        </DetailListDesc>
-      </DetailListRow>
-      <DetailListRow>
-        <DetailListTerm>Term</DetailListTerm>
-        <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc className="story-text-right">
-          <InlineButton
-            onClick={() => {
-              null;
-            }}
-          >
-            Knapp
-          </InlineButton>
-        </DetailListDesc>
-      </DetailListRow>
-      <DetailListRow>
-        <DetailListTerm>Term</DetailListTerm>
-        <DetailListDesc>Beskrivelse</DetailListDesc>
-        <DetailListDesc className="story-text-right">
-          <InlineButton
-            onClick={() => {
-              null;
-            }}
-          >
-            Knapp
-          </InlineButton>
-        </DetailListDesc>
-      </DetailListRow>
+    <DetailList {...args} size="small">
+      {children}
+    </DetailList>
+  ),
+};
+
+export const Large: Story = {
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>{styling}</style>
+      </>
+    ),
+  ],
+  render: args => (
+    <DetailList {...args} size="large">
+      {children}
     </DetailList>
   ),
 };

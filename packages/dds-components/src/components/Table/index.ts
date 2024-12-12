@@ -13,7 +13,7 @@ export {
   TableSortCell,
   TableWrapper,
   type TableCellProps,
-  type TableDensity,
+  type TableSize,
   type TableProps,
   type TableRowProps,
   type TableRowType,

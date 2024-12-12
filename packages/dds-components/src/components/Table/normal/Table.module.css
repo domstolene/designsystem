@@ -30,29 +30,17 @@
   }
 }
 
-.table--normal {
-  td,
-  th {
-    padding: var(--dds-spacing-x1-5) var(--dds-spacing-x0-75);
-  }
-}
-
-.table--compact {
-  td,
-  th {
-    padding: var(--dds-spacing-x0-75);
-  }
-}
-
-.table--extra-compact {
+.table--small {
+  font: var(--dds-font-body-small);
+  letter-spacing: var(--dds-font-body-small-letter-spacing);
   td,
   th {
     padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
   }
   th {
+    font: var(--dds-font-heading-xsmall);
+    letter-spacing: var(--dds-font-heading-xsmall-letter-spacing);
     background-color: var(--dds-color-surface-default);
-    font: var(--dds-font-body-small);
-    font-weight: var(--dds-font-weight-bold);
   }
 
   .row--body {
@@ -63,6 +51,30 @@
     &:nth-of-type(even) {
       background-color: var(--dds-color-surface-default);
     }
+  }
+}
+
+.table--medium {
+  font: var(--dds-font-body-medium);
+  letter-spacing: var(--dds-font-body-medium-letter-spacing);
+  th {
+    font: var(--dds-font-heading-small);
+  }
+  td,
+  th {
+    padding: var(--dds-spacing-x0-75);
+  }
+}
+
+.table--large {
+  font: var(--dds-font-body-medium);
+  letter-spacing: var(--dds-font-body-medium-letter-spacing);
+  th {
+    font: var(--dds-font-heading-small);
+  }
+  td,
+  th {
+    padding: var(--dds-spacing-x1-5) var(--dds-spacing-x0-75);
   }
 }
 

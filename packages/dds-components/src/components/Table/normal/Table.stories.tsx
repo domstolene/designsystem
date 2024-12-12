@@ -97,39 +97,10 @@ export const WithDividers: Story = {
   ),
 };
 
-export const Focusable: Story = {
+export const Small: Story = {
   render: args => (
     <Table.Wrapper>
-      <Table {...args}>
-        <Table.Head>
-          <Table.Row>{mappedHeaderCells}</Table.Row>
-        </Table.Head>
-        <Table.Body>
-          {mapCellContents(data, headerCells).map(row => (
-            <Table.Row
-              key={row.toString()}
-              tabIndex={0}
-              onClick={() => {
-                console.log('click');
-              }}
-            >
-              {row.map(cellContent => (
-                <Table.Cell key={`body-${cellContent}`}>
-                  {cellContent}
-                </Table.Cell>
-              ))}
-            </Table.Row>
-          ))}
-        </Table.Body>
-      </Table>
-    </Table.Wrapper>
-  ),
-};
-
-export const Compact: Story = {
-  render: args => (
-    <Table.Wrapper>
-      <Table {...args} density="compact">
+      <Table {...args} size="small">
         <Table.Head>
           <Table.Row>{mappedHeaderCells}</Table.Row>
         </Table.Head>
@@ -149,10 +120,10 @@ export const Compact: Story = {
   ),
 };
 
-export const ExtraCompact: Story = {
+export const Large: Story = {
   render: args => (
     <Table.Wrapper>
-      <Table {...args} density="extraCompact">
+      <Table {...args} size="large">
         <Table.Head>
           <Table.Row>{mappedHeaderCells}</Table.Row>
         </Table.Head>
@@ -191,6 +162,35 @@ export const StickyHeader: Story = {
           ))}
           {mapCellContents(data, headerCells).map(row => (
             <Table.Row key={row.toString()}>
+              {row.map(cellContent => (
+                <Table.Cell key={`body-${cellContent}`}>
+                  {cellContent}
+                </Table.Cell>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+    </Table.Wrapper>
+  ),
+};
+
+export const Focusable: Story = {
+  render: args => (
+    <Table.Wrapper>
+      <Table {...args}>
+        <Table.Head>
+          <Table.Row>{mappedHeaderCells}</Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {mapCellContents(data, headerCells).map(row => (
+            <Table.Row
+              key={row.toString()}
+              tabIndex={0}
+              onClick={() => {
+                console.log('click');
+              }}
+            >
               {row.map(cellContent => (
                 <Table.Cell key={`body-${cellContent}`}>
                   {cellContent}
