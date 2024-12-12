@@ -161,11 +161,11 @@ export const WithDividers: Story = {
   ),
 };
 
-export const Compact: Story = {
+export const Large: Story = {
   render: args => (
     <CollapsibleTable
       {...args}
-      density="compact"
+      size="large"
       headerValues={headerValues}
       isCollapsed={args.isCollapsed !== false && true}
     >
@@ -360,7 +360,6 @@ export const Example: Story = {
       <CollapsibleTable
         isCollapsed={isSmall}
         headerValues={headers}
-        density={isXSmall ? 'compact' : 'normal'}
         definingColumnIndex={[0, 1, 2, 3, 4]}
       >
         <Table.Head>

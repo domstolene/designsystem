@@ -11,10 +11,10 @@ import { Row } from './Row';
 import { SortCell, type SortOrder, type TableSortCellProps } from './SortCell';
 import { Table as BaseTable } from './Table';
 import {
-  type TableDensity,
   type TableProps,
   type TableRowProps,
   type TableRowType,
+  type TableSize,
 } from './Table.types';
 import { TableWrapper } from './TableWrapper';
 
@@ -42,7 +42,7 @@ export { Table };
 
 export type {
   TableCellProps,
-  TableDensity,
+  TableSize,
   TableProps,
   TableRowProps,
   TableRowType,

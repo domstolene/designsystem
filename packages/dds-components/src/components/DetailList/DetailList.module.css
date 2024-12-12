@@ -23,22 +23,28 @@
   }
 }
 
-.list--normal {
+.list--small {
+  font: var(--dds-font-body-small);
+  letter-spacing: var(--dds-font-body-small-letter-spacing);
   .cell {
-    padding-block: var(--dds-spacing-x1-5);
-    padding-inline: var(--dds-spacing-x0-75);
+    padding: var(--dds-spacing-x0-5);
   }
 }
 
-.list--compact {
+.list--medium {
+  font: var(--dds-font-body-medium);
+  letter-spacing: var(--dds-font-body-medium-letter-spacing);
   .cell {
     padding: var(--dds-spacing-x0-75);
   }
 }
 
-.list--extra-compact {
+.list--large {
+  font: var(--dds-font-body-medium);
+  letter-spacing: var(--dds-font-body-medium-letter-spacing);
   .cell {
-    padding: var(--dds-spacing-x0-5);
+    padding-block: var(--dds-spacing-x1-5);
+    padding-inline: var(--dds-spacing-x0-75);
   }
 }
 

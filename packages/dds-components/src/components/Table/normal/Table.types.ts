@@ -1,14 +1,15 @@
 import { type HTMLAttributes, type ReactNode } from 'react';
 
-import { type Density } from '../../../types';
+import { type Size } from '../../../types';
 
-export type TableDensity = Density;
+export type TableSize = Extract<Size, 'small' | 'medium' | 'large'>;
 
 export type TableProps = {
-  /**Spesifiserer hvor romslige cellene i tabellen skal være.
-   * @default "normal"
+  /**
+   * Størrelse på tabellen. Påvirker tetthet i cellene og font.
+   * @default "medium"
    */
-  density?: TableDensity;
+  size?: TableSize;
   /**Spesifiserer om cellene i `<Head>` skal bli sticky ved scrolling. */
   stickyHeader?: boolean;
   /**Legger skillelinjer mellom radene. */

@@ -57,7 +57,7 @@ export const TableButtons: Story = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => (
     <Table.Wrapper>
-      <Table density="compact">
+      <Table>
         <Table.Head>
           <Table.Row type="head">
             <Table.Cell type="head">Bruker</Table.Cell>

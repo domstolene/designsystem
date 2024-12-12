@@ -1,24 +1,14 @@
 import { forwardRef } from 'react';
 
 import styles from './Table.module.css';
-import { type TableDensity, type TableProps } from './Table.types';
+import { type TableProps } from './Table.types';
 import { cn } from '../../../utils';
 import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
-
-function getDensityCn(value: TableDensity) {
-  switch (value) {
-    case 'normal':
-    case 'compact':
-      return value;
-    case 'extraCompact':
-      return 'extra-compact';
-  }
-}
 
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   (
     {
-      density = 'normal',
+      size = 'medium',
       stickyHeader,
       withDividers,
       className,
@@ -34,7 +24,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
         className={cn(
           className,
           styles.table,
-          styles[`table--${getDensityCn(density)}`],
+          styles[`table--${size}`],
           withDividers && styles['table--with-dividers'],
           stickyHeader && styles['table--sticky-header'],
           scrollbar,
