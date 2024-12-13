@@ -1,6 +1,7 @@
 import { type Property } from 'csstype';
 import { type InputHTMLAttributes } from 'react';
 
+import { type Size } from '../../../types';
 import { type StaticTypographyType } from '../../Typography';
 
 export interface CommonInputProps {
@@ -14,7 +15,7 @@ export interface CommonInputProps {
   errorMessage?: string;
 }
 
-export type InputSize = 'medium' | 'small' | 'tiny';
+export type InputSize = Extract<Size, 'medium' | 'small' | 'xsmall'>;
 
 export type InputProps = CommonInputProps & {
   /**Størrelse på inputfeltet.

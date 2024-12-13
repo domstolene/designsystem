@@ -90,7 +90,7 @@ export const OverviewSizes: Story = {
     <StoryVStack>
       <TimePicker {...args} componentSize="medium" label="Medium" />
       <TimePicker {...args} componentSize="small" label="Small" />
-      <TimePicker {...args} componentSize="tiny" label="Tiny" />
+      <TimePicker {...args} componentSize="xsmall" label="Xsmall" />
     </StoryVStack>
   ),
 };

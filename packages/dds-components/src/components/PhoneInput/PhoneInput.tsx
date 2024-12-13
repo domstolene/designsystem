@@ -205,7 +205,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ['--dds-phone-input-width' as any]: width
         ? width
-        : componentSize === 'tiny'
+        : componentSize === 'xsmall'
           ? '131px'
           : '194px',
     };
@@ -300,7 +300,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
             id={selectId}
             className={cn(
               styles.select,
-              componentSize === 'tiny' && styles['select--tiny'],
+              componentSize === 'xsmall' && styles['select--xsmall'],
             )}
             onChange={handleCountryCodeChange}
             defaultValue={defaultValue?.countryCode}

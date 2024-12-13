@@ -97,7 +97,7 @@
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x0-75);
 }
 
-:where(.input--tiny) {
+:where(.input--xsmall) {
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
 }
 

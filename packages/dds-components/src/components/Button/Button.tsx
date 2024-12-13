@@ -21,7 +21,7 @@ const typographyTypes: Record<ButtonSize, StaticTypographyType> = {
   large: 'bodyLarge',
   medium: 'bodyMedium',
   small: 'bodySmall',
-  tiny: 'bodyXsmall',
+  xsmall: 'bodyXsmall',
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

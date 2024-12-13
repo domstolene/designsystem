@@ -35,7 +35,7 @@ export const getIndicatorIconSize = (componentSize: InputSize): IconSize => {
       return 'medium';
     case 'small':
       return 'small';
-    case 'tiny':
+    case 'xsmall':
       return 'small';
   }
 };

@@ -102,7 +102,7 @@ export const OverviewSizes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Button {...args} size="tiny">
+        <Button {...args} size="xsmall">
           Primary
         </Button>
         <Button {...args} size="small">
@@ -118,7 +118,7 @@ export const OverviewSizes: Story = {
       <StoryVStack>
         <Button
           {...args}
-          size="tiny"
+          size="xsmall"
           iconPosition={args.iconPosition ?? 'left'}
           icon={ArrowLeftIcon}
         >
@@ -150,7 +150,7 @@ export const OverviewSizes: Story = {
         </Button>
       </StoryVStack>
       <StoryVStack>
-        <Button {...args} size="tiny" icon={ArrowLeftIcon} />
+        <Button {...args} size="xsmall" icon={ArrowLeftIcon} />
         <Button {...args} size="small" icon={ArrowLeftIcon} />
         <Button {...args} size="medium" icon={ArrowLeftIcon} />
         <Button {...args} size="large" icon={ArrowLeftIcon} />
@@ -163,19 +163,19 @@ export const OverviewLoading: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <Button {...args} purpose="primary" size="tiny" loading />
+        <Button {...args} purpose="primary" size="xsmall" loading />
         <Button {...args} purpose="primary" size="small" loading />
         <Button {...args} purpose="primary" size="medium" loading />
         <Button {...args} purpose="primary" size="large" loading />
       </StoryVStack>
       <StoryVStack>
-        <Button {...args} purpose="secondary" size="tiny" loading />
+        <Button {...args} purpose="secondary" size="xsmall" loading />
         <Button {...args} purpose="secondary" size="small" loading />
         <Button {...args} purpose="secondary" size="medium" loading />
         <Button {...args} purpose="secondary" size="large" loading />
       </StoryVStack>
       <StoryVStack>
-        <Button {...args} purpose="danger" size="tiny" loading />
+        <Button {...args} purpose="danger" size="xsmall" loading />
         <Button {...args} purpose="danger" size="small" loading />
         <Button {...args} purpose="danger" size="medium" loading />
         <Button {...args} purpose="danger" size="large" loading />

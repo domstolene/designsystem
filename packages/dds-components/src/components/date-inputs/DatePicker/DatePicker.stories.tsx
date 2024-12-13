@@ -121,7 +121,7 @@ export const OverviewSizes: Story = {
     <StoryVStack>
       <DatePicker {...args} componentSize="medium" label="Medium" />
       <DatePicker {...args} componentSize="small" label="Small" />
-      <DatePicker {...args} componentSize="tiny" label="Tiny" />
+      <DatePicker {...args} componentSize="xsmall" label="Tiny" />
     </StoryVStack>
   ),
 };

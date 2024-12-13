@@ -1,3 +1,6 @@
+import { type ReactNode } from 'react';
+
+import { StoryThemeProvider } from '../../packages/dds-components/src/components/ThemeProvider/utils/StoryThemeProvider';
 import {
   DatePicker,
   HStack,
@@ -11,6 +14,13 @@ import {
 
 export default {
   title: 'Playground/Testing',
+  decorators: [
+    (Story: ReactNode) => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
 };
 
 export const FormComponents = () => {
@@ -20,7 +30,7 @@ export const FormComponents = () => {
         <VStack align="start" gap="x1">
           <TextInput />
           <TextInput componentSize="small" />
-          <TextInput componentSize="tiny" />
+          <TextInput componentSize="xsmall" />
         </VStack>
         <VStack align="start" gap="x1">
           <TextInput icon={MailIcon} />
@@ -37,13 +47,13 @@ export const FormComponents = () => {
             options={[{ label: 'a', value: 'a' }]}
             componentSize="small"
           />
-          <TextInput componentSize="tiny" icon={MailIcon} />
-          <DatePicker componentSize="tiny" />
-          <TimePicker componentSize="tiny" />
+          <TextInput componentSize="xsmall" icon={MailIcon} />
+          <DatePicker componentSize="xsmall" />
+          <TimePicker componentSize="xsmall" />
           <Select
             icon={MailIcon}
             options={[{ label: 'a', value: 'a' }]}
-            componentSize="tiny"
+            componentSize="xsmall"
           />
         </VStack>
       </HStack>
@@ -80,17 +90,17 @@ export const FormComponents = () => {
         />
       </HStack>
       <HStack align="start" gap={0}>
-        <TextInput componentSize="tiny" icon={MailIcon} />
-        <DatePicker componentSize="tiny" />
+        <TextInput componentSize="xsmall" icon={MailIcon} />
+        <DatePicker componentSize="xsmall" />
         <Select
           icon={MailIcon}
           options={[{ label: 'a', value: 'a' }]}
-          componentSize="tiny"
+          componentSize="xsmall"
         />
         <Select
           icon={MailIcon}
           options={[{ label: 'a', value: 'a' }]}
-          componentSize="tiny"
+          componentSize="xsmall"
           isMulti
         />
       </HStack>

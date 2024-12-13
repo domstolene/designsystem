@@ -39,7 +39,7 @@
   }
 }
 
-.button--tiny {
+.button--xsmall {
   &.just-text {
     padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
   }

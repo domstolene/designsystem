@@ -18,7 +18,7 @@ import { type DatePickerProps } from '../DatePicker';
 export const typographyTypes: Record<InputSize, StaticTypographyType> = {
   medium: 'bodyMedium',
   small: 'bodySmall',
-  tiny: 'bodyXsmall',
+  xsmall: 'bodyXsmall',
 };
 
 interface DateSegmentProps

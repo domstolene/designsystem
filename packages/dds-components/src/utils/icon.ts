@@ -7,7 +7,7 @@ export const getFormInputIconSize = (componentSize: InputSize): IconSize => {
       return 'medium';
     case 'small':
       return 'medium';
-    case 'tiny':
+    case 'xsmall':
       return 'small';
   }
 };

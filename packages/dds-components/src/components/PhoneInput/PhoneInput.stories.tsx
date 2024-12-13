@@ -62,7 +62,7 @@ export const Sizes: Story = {
     <StoryVStack>
       <PhoneInput {...args} />
       <PhoneInput {...args} componentSize="small" />
-      <PhoneInput {...args} componentSize="tiny" />
+      <PhoneInput {...args} componentSize="xsmall" />
     </StoryVStack>
   ),
 };

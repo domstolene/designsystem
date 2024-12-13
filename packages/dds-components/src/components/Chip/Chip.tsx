@@ -44,7 +44,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
         {text}
       </TextOverflowEllipsisInner>
       <Button
-        size="tiny"
+        size="xsmall"
         icon={CloseSmallIcon}
         purpose="tertiary"
         onClick={onClick}

@@ -21,7 +21,7 @@ const optionTypography: SelectTypography = {
     font: 'var(--dds-font-body-small)',
     letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
   },
-  tiny: {
+  xsmall: {
     font: 'var(--dds-font-body-xsmall)',
     letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
   },
@@ -36,7 +36,7 @@ const multiValueLabelTypography: SelectTypography = {
     font: 'var(--dds-font-body-small)',
     letterSpacing: 'var(--dds-font-body-small-letter-spacing)',
   },
-  tiny: {
+  xsmall: {
     font: 'var(--dds-font-body-xsmall)',
     letterSpacing: 'var(--dds-font-body-xsmall-letter-spacing)',
   },
@@ -78,11 +78,11 @@ const control = {
         'calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) + var(--dds-spacing-x0-5))',
     },
   },
-  tiny: {
+  xsmall: {
     base: {
       paddingBlock: 'var(--dds-spacing-x0-25)',
       paddingLeft: 'var(--dds-spacing-x0-5)',
-      ...optionTypography.tiny,
+      ...optionTypography.xsmall,
     },
     hasIcon: {
       paddingLeft:

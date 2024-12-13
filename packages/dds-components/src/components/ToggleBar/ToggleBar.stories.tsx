@@ -57,7 +57,7 @@ export const Overview: Story = {
           <ToggleBar
             {...args}
             name="test"
-            size="tiny"
+            size="xsmall"
             value={value}
             onChange={(_event, value) => {
               setValue(value);
@@ -112,7 +112,7 @@ export const Overview: Story = {
           <ToggleBar
             {...args}
             name="test1"
-            size="tiny"
+            size="xsmall"
             value={value}
             onChange={(_event, value) => {
               setValue(value);
@@ -167,7 +167,7 @@ export const Overview: Story = {
           <ToggleBar
             {...args}
             name="icon_test"
-            size="tiny"
+            size="xsmall"
             value={value}
             onChange={(_event, value) => {
               setValue(value);

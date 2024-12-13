@@ -23,7 +23,7 @@ export const typographyTypes: Record<ToggleBarSize, StaticTypographyType> = {
   large: 'bodyLarge',
   medium: 'bodyMedium',
   small: 'bodySmall',
-  tiny: 'bodyXsmall',
+  xsmall: 'bodyXsmall',
 };
 
 type PickedInputHTMLAttributes = Pick<

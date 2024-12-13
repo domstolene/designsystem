@@ -83,7 +83,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
             {chevronIcon}
             <OverflowMenuGroup>
               <Button
-                size="tiny"
+                size="xsmall"
                 icon={MoreHorizontalIcon}
                 purpose="tertiary"
                 aria-label={`Vis brødsmulesti brødsmule 2 ${breadcrumbChildrenTruncated.length > 1 && `til ${breadcrumbChildren.length - 1}`}`}

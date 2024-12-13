@@ -74,7 +74,7 @@
   gap: var(--dds-spacing-x0-5);
 }
 
-.content--tiny--just-icon {
+.content--xsmall--just-icon {
   padding: var(--dds-spacing-x0-25);
 
   svg {
@@ -82,7 +82,7 @@
   }
 }
 
-.content--tiny--with-text {
+.content--xsmall--with-text {
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-75);
   gap: var(--dds-spacing-x0-5);
 }

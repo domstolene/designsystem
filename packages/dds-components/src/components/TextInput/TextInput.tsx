@@ -98,7 +98,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ['--dds-textinput-width' as any]: width
         ? width
-        : componentSize === 'tiny'
+        : componentSize === 'xsmall'
           ? '210px'
           : 'var(--dds-input-default-width)',
     };
