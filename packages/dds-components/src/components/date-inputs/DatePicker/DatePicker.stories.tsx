@@ -197,12 +197,12 @@ export const DateAndTime: Story = {
           <DatePicker
             {...args}
             value={date}
-            onChange={newValue => setDate(newValue)}
+            onChange={newValue => newValue !== null && setDate(newValue)}
           />
           <TimePicker
             label="Tid"
             value={time}
-            onChange={newTime => setTime(newTime)}
+            onChange={newTime => newTime !== null && setTime(newTime)}
           />
         </StoryHStack>
         <Paragraph>
@@ -222,7 +222,7 @@ export const NativeDate: Story = {
       <DatePicker
         {...args}
         value={nativeDateToCalendarDate(date)}
-        onChange={d => setDate(calendarDateToNativeDate(d))}
+        onChange={d => d !== null && setDate(calendarDateToNativeDate(d))}
       />
     );
   },
