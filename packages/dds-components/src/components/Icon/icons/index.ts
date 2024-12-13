@@ -81,6 +81,7 @@ export * from './image';
 export * from './info';
 export * from './instagram';
 export * from './jordskifterett';
+export * from './jordskiftesak';
 export * from './key';
 export * from './lagmannsrett';
 export * from './language';
