@@ -17,7 +17,7 @@ import { Link, Paragraph } from '../../Typography';
 import { type SortOrder, Table } from '.';
 
 const meta: Meta<typeof Table> = {
-  title: 'dds-components/Table/Table',
+  title: 'dds-components/Table',
   component: Table,
   argTypes: {
     stickyHeader: {
