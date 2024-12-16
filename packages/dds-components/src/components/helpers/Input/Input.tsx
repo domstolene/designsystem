@@ -13,7 +13,7 @@ import { focusable } from '../styling/focus.module.css';
 export const inputTypographyTypes: InputTypographyTypes = {
   medium: 'bodyMedium',
   small: 'bodySmall',
-  tiny: 'bodyXsmall',
+  xsmall: 'bodyXsmall',
 };
 
 export const Input = forwardRef<

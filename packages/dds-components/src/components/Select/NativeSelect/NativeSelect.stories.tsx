@@ -81,7 +81,7 @@ export const OverviewSizes: Story = {
     <StoryVStack>
       <NativeSelect {...args} componentSize="medium" />
       <NativeSelect {...args} componentSize="small" />
-      <NativeSelect {...args} componentSize="tiny" />
+      <NativeSelect {...args} componentSize="xsmall" />
     </StoryVStack>
   ),
 };

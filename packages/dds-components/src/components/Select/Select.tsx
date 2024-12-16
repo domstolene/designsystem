@@ -146,7 +146,7 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ['--dds-select-width' as any]: width
       ? width
-      : componentSize === 'tiny'
+      : componentSize === 'xsmall'
         ? '210px'
         : 'var(--dds-input-default-width)',
   };

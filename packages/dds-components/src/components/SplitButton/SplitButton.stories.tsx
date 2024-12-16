@@ -106,7 +106,7 @@ const SplitButtonVariants = ({ args, ...rest }: SplitButtonVariantsProps) => (
       {...args}
       primaryAction={{ ...rest }}
       secondaryActions={items}
-      size="tiny"
+      size="xsmall"
       purpose="primary"
     />
     <SplitButton
@@ -134,7 +134,7 @@ const SplitButtonVariants = ({ args, ...rest }: SplitButtonVariantsProps) => (
       {...args}
       primaryAction={{ ...rest }}
       secondaryActions={items}
-      size="tiny"
+      size="xsmall"
       purpose="secondary"
     />
   </>

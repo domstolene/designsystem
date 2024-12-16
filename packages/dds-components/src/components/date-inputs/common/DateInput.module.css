@@ -16,7 +16,7 @@
   padding-inline-end: var(--dds-spacing-x0-75);
 }
 
-.date-input--tiny {
+.date-input--xsmall {
   padding-inline-start: var(--dds-spacing-x0-25);
   padding-inline-end: var(--dds-spacing-x0-5);
 }

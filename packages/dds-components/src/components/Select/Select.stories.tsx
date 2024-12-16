@@ -117,12 +117,12 @@ export const OverviewSizes: Story = {
         <StoryVStack>
           <Select {...args} componentSize="medium" />
           <Select {...args} componentSize="small" />
-          <Select {...args} componentSize="tiny" />
+          <Select {...args} componentSize="xsmall" />
         </StoryVStack>
         <StoryVStack>
           <Select {...args} componentSize="medium" icon={CourtIcon} />
           <Select {...args} componentSize="small" icon={CourtIcon} />
-          <Select {...args} componentSize="tiny" icon={CourtIcon} />
+          <Select {...args} componentSize="xsmall" icon={CourtIcon} />
         </StoryVStack>
       </StoryHStack>
     );

@@ -52,7 +52,7 @@ export const Sizes: Story = {
         <Button>Andre</Button>
         <Button>Tredje</Button>
       </ButtonGroup>
-      <ButtonGroup {...args} buttonSize="tiny">
+      <ButtonGroup {...args} buttonSize="xsmall">
         <Button>Første</Button>
         <Button>Andre</Button>
         <Button>Tredje</Button>

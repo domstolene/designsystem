@@ -126,7 +126,7 @@ export const Overview = () => {
               </Heading>
               <Button
                 icon={CopyIcon}
-                size="tiny"
+                size="xsmall"
                 purpose="tertiary"
                 onClick={() => handleCopyImport(importCode)}
               />
@@ -143,7 +143,7 @@ export const Overview = () => {
               </Heading>
               <Button
                 icon={CopyIcon}
-                size="tiny"
+                size="xsmall"
                 purpose="tertiary"
                 onClick={() => handleCopyUse(useCode)}
               />

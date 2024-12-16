@@ -76,12 +76,12 @@ export const Sizes: Story = {
       <StoryVStack>
         <TextInput {...args} />
         <TextInput {...args} componentSize="small" />
-        <TextInput {...args} componentSize="tiny" />
+        <TextInput {...args} componentSize="xsmall" />
       </StoryVStack>
       <StoryVStack>
         <TextInput {...args} icon={MailIcon} />
         <TextInput {...args} componentSize="small" icon={MailIcon} />
-        <TextInput {...args} componentSize="tiny" icon={MailIcon} />
+        <TextInput {...args} componentSize="xsmall" icon={MailIcon} />
       </StoryVStack>
     </StoryHStack>
   ),

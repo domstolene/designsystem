@@ -1,10 +1,13 @@
 import { type Property } from 'csstype';
 import { type ChangeEvent } from 'react';
 
-import { type BaseComponentPropsWithChildren } from '../../types';
+import { type BaseComponentPropsWithChildren, type Size } from '../../types';
 
 export type ToggleBarValue = string | number | null | undefined;
-export type ToggleBarSize = 'tiny' | 'small' | 'medium' | 'large';
+export type ToggleBarSize = Extract<
+  Size,
+  'xsmall' | 'small' | 'medium' | 'large'
+>;
 
 export type ToggleBarProps<T extends string | number> =
   BaseComponentPropsWithChildren<

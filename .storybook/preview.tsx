@@ -43,7 +43,7 @@ const preview: Preview = {
         <ThemeProvider theme={theme}>
           <div className="theme-toggle-bar-wrapper">
             <ToggleBar
-              size="tiny"
+              size="xsmall"
               name={`theme-${nameCounter}`}
               value={theme}
               htmlProps={{ 'aria-label': 'Tema' }}

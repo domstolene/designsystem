@@ -64,7 +64,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ['--dds-native-select-width' as any]: width
         ? width
-        : componentSize === 'tiny'
+        : componentSize === 'xsmall'
           ? '210px'
           : 'var(--dds-input-default-width)',
     };
@@ -123,7 +123,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
           {!multiple && (
             <Icon
               icon={ChevronDownIcon}
-              iconSize={componentSize === 'tiny' ? 'small' : 'medium'}
+              iconSize={componentSize === 'xsmall' ? 'small' : 'medium'}
               className={styles.icon}
             />
           )}
