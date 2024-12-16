@@ -12,6 +12,7 @@ import { useRef, useState } from 'react';
 import { Button } from '../../Button';
 import { Modal } from '../../Modal';
 import { StoryHStack, StoryVStack } from '../../Stack/utils';
+import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../../Typography';
 import { TimePicker } from '../TimePicker';
 import {
@@ -168,6 +169,13 @@ export const ControlFocus: Story = {
 
 export const InsideModal: Story = {
   args: { label: 'Dato' },
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
   render: args => {
     const [isOpen, setOpen] = useState(true);
     return (
