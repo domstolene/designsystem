@@ -1,10 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { StoryVStack } from '../Stack/utils';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Pagination } from '.';
 
-export default {
+const meta: Meta<typeof Pagination> = {
   title: 'dds-components/Pagination',
   component: Pagination,
   argTypes: {
@@ -22,7 +23,15 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-} satisfies Meta<typeof Pagination>;
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
+};
+export default meta;
 
 const customOptionsItemsAmount = 100;
 const customOptions = [17, 32, customOptionsItemsAmount].map(o => ({
