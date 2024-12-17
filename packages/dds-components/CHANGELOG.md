@@ -1,5 +1,53 @@
 # @norges-domstoler/dds-components
 
+## 18.0.0
+
+### Major Changes
+
+- 32d88e6: Bytter navn fra `<CardAccordion>` til `<CardExpandable>`. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/233a8b-v17-til-v18).
+- c43b709: Bytter navn på størrelsesvariant `tiny` til `xsmall` på tvers av komponenter. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/233a8b-v17-til-v18).
+- 6232a2a: Endringer i typer for typografi, samt komponenter som bruker typografi-relaterte props. `TypographyBodyType`, `TypographyHeadingType`, `TypographyLeadType` endrer verdier, typen `TypographySupportingType` fjernes, og `LabelTypografiType` bytter navn til `TypographyLabelType`. De nye typene er:
+
+  ```ts
+  type TypographyBodyType =
+    | 'bodyXsmall'
+    | 'bodySmall'
+    | 'bodyMedium'
+    | 'bodyLarge';
+  type TypographyHeadingType =
+    | 'headingXxsmall'
+    | 'headingXsmall'
+    | 'headingSmall'
+    | 'headingMedium'
+    | 'headingLarge'
+    | 'headingXlarge'
+    | 'headingXxlarge';
+  type TypographyLeadType = 'leadMedium';
+  type TypographyLabelType = 'labelMedium';
+  ```
+
+  Komponenter som endrer mulige verdier for props som følge av denne endringen: `AccordionHeader`, `Heading`, `Link`, `List`, `Paragraph` og `Typography`. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/233a8b-v17-til-v18).
+
+- 1fe2d59: Endrer prop `density` til `size` med t-skjortestørrelser i `<Table>` og `<DetailList>`. Nye propen påvirker både tetthet og tekststørrelse. Default størrelse er nå `medium`, som tilsvarer gamle `compact`. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/233a8b-v17-til-v18).
+- 6232a2a: Implementerer theming med to temaer: Core (for fagsystemer o.l.) og Public (for nettsider som domstol.no og enkelte innloggingssystemer som aktørportalen). Grunnet denne endringen er det nødvendig å wrappe din applikasjon i ny komponent `<ThemeProvider>` for å bruke Elsa komponenter. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/233a8b-v17-til-v18).
+- 6232a2a: Ny komponent: `<ThemeProvider>`. Den brukes som wrapper for applikasjonen for å gi alle komponentene all styling og riktig tema. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/233a8b-v17-til-v18).
+
+### Minor Changes
+
+- 8ebc554: `<Drawer>`, `<Modal>` og dropdown i `<Select>` blir rendret i `<div>` generert av `<ThemeProvider>` som default, istedenfor `document.body`, grunnet theming-endringer og utfordringer rundt SSR. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/233a8b-v17-til-v18).
+- 5c60316: Nytt ikon: Jordskiftesak.
+- 6232a2a: Fjerner default `placeholder` i `<Select>`, da [det anbefales å ikke bruke det](https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Placeholder_Research). Det er fortsatt mulig å sette egen ved behov.
+
+### Patch Changes
+
+- 6232a2a: Migrerer alle komponenter til å bruke nye design tokens.
+- 6232a2a: Endrer default `width` i `<DatePicker>` og `<TimePicker>` til å være `fit-content`. Grunnet theming kan teksten bli bredere, og siden default `width` ble før satt i `px` ble spacing til høyre for lite. Med `fit-content` tar komponenten den plassen den trenger; siden bredden på dato- og tid-input er statisk, ingenting vil "hoppe". Ingen endringer i hvordan custom bredde settes.
+- 386cef0: Fikser `<Spinner>`, `<Icon>` og helper `<AnimatedChevronUpDown>` slik at props `height` og `width` setter høyde og bredde i CSS istedenfor HTML. På denne måten kan man bruke ddsTokens i CSS og ikke bare TS.
+- 386cef0: Fjerner en rekke ubrukte og utdaterte styling helpers i JS. Migrerer resterende til å bruke CSS tokens, og ikke TS-konstanter (`focusVisible`, `scrollbarStyling`).
+- 386cef0: Fikser bug i `<TextInput>` der inputtekst overlappet med affiks ved `readOnly`.
+- 56192c6: Fikser bug der `<ToggleBar>` og `<Feedback>` rendret `<label>` for tekster som ikke er semantiske ledetekster.
+  - @norges-domstoler/development-utils@1.3.1
+
 ## 17.7.0
 
 ### Minor Changes

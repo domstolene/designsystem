@@ -1,5 +1,11 @@
 # @norges-domstoler/app-shell
 
+## 2.0.2
+
+### Patch Changes
+
+- 6232a2a: Oppdaterer `<AppShell>` til å bruke nye typografi-tokens.
+
 ## 2.0.1
 
 ### Patch Changes

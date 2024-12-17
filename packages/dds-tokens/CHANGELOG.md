@@ -1,5 +1,23 @@
 # @norges-domstoler/dds-design-tokens
 
+## 7.0.0
+
+### Major Changes
+
+- 6232a2a: Fjerner base-tokens for farger og border-radius; bruk semantiske tokens hvis du ikke har migrert enda. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/039508-v6-til-v7).
+- 8f004b0: Fjerner JS-konstanter for letter spacing som returneret bare tall. De er ikke veldig nyttige og det holder med originale verdier som er i `em`.
+- 6232a2a: Endrer typografi-tokens til nye semantiske; de bruker nå T-skjortestørrelser istedenfor tall for å beskrive fontstørrelse, og utvalget er mer begrenset per tema. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/039508-v6-til-v7).
+- 6232a2a: Endrer systemet på tokens, slik at de kommer i to temaer: Core (for fagsystemer o.l.) og Public (for nettsider som domstol.no og enkelte innloggingssystemer som Aktørportalen, Pressetjenesten m.m).Det påvirker spesielt hvordan TS-tokens brukes. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/039508-v6-til-v7).
+
+### Minor Changes
+
+- 6232a2a: Setter fallback font direkte i `--dds-font-family-sans` token; Den har verdi `'IBM Plex Sans', Arial, sans-serif`. Dette forplanter seg i alle typografi tokens som tilsvarer CSS `font` rule.
+- 6232a2a: Endrer verdier til eksporterte SCSS-variabler til å peke til CSS-variabler. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/039508-v6-til-v7).
+
+### Patch Changes
+
+- 8ebc554: Endrer fontstørrelse i enkelte font tokens til `clamp()` funksjon. Se detaljer i [migreringsguiden](https://design.domstol.no/987b33f71/p/039508-v6-til-v7).
+
 ## 6.0.1
 
 ### Patch Changes
