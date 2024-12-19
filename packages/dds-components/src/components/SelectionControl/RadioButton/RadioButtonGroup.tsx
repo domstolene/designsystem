@@ -16,7 +16,7 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { RequiredMarker, cn, combineHandlers } from '../../../utils';
+import { RequiredMarker, cn } from '../../../utils';
 import { Icon } from '../../Icon';
 import { LockIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
@@ -38,8 +38,10 @@ export type RadioButtonGroupProps<T extends string | number> =
       ) => void;
       /** Gjør alle barna påkrevd ved å gi dem `required` prop. Legger en markør (*) bak ledeteksten. */
       required?: boolean;
-      /**Default verdi - en `<RadioButton />` blir forhåndsvalgt. **OBS!** brukes kun når brukeren ikke skal fylle ut selv. */
+      /**Verdi - en `<RadioButton>` med denne verdien blir valgt med controlled state. */
       value?: T | undefined;
+      /**Default verdi - en `<RadioButton>` med denne verdien blir forhåndsvalgt med uncontrolled state. */
+      defaultValue?: T | undefined;
     },
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
   >;
@@ -58,6 +60,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
     readOnly = false,
     direction = 'row',
     value,
+    defaultValue,
     children,
     required = false,
     onChange,
@@ -69,17 +72,25 @@ const RadioButtonGroupInner = <T extends string | number = string>(
 
   const { 'aria-required': ariaRequired = false } = htmlProps;
 
-  const [groupValue, setGroupValue] = useState<
-    string | number | null | undefined
-  >(value);
+  const [uncontrolledValue, setUncontrolledValue] = useState<T | undefined>(
+    defaultValue,
+  );
 
   const generatedId = useId();
   const uniqueGroupId = groupId ?? `${generatedId}-radioButtonGroup`;
 
-  const handleChange = combineHandlers(
-    (e: ChangeEvent<HTMLInputElement>) => setGroupValue(e.target.value),
-    e => onChange && onChange(e, e.target.value as T),
-  );
+  const isControlled = value !== undefined;
+  const groupValue = isControlled ? value : uncontrolledValue;
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    if (!isControlled) {
+      setUncontrolledValue(newValue as T);
+    }
+    if (onChange) {
+      onChange(e, newValue as T);
+    }
+  };
 
   const hasErrorMessage = !!errorMessage;
   const showRequiredMarker = required || ariaRequired;
@@ -90,6 +101,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   const contextProps: RadioButtonGroupContextProps = {
     name,
     disabled,
+    defaultValue,
     error: hasErrorMessage,
     errorMessageId: errorMessageId,
     required,

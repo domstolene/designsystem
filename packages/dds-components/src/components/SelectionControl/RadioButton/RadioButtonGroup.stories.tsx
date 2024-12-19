@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../Stack/utils';
 
 import { RadioButton, RadioButtonGroup } from '.';
@@ -26,127 +27,62 @@ export default {
 
 type Story = StoryObj<typeof RadioButtonGroup>;
 
+const children = [
+  <RadioButton value={1} label="Option 1" key={1} />,
+  <RadioButton value={2} label="Option 2" key={2} />,
+  <RadioButton value={3} label="Option 3" key={3} />,
+];
+
+const childrenString = [
+  <RadioButton value="1" label="Option 1" key={1} />,
+  <RadioButton value="2" label="Option 2" key={2} />,
+  <RadioButton value="3" label="Option 3" key={3} />,
+];
+
+let counter = 0;
+const name = () => `test${counter++}`;
+
 export const Default: Story = {
-  args: { label: 'Label' },
+  args: { label: 'Label', children },
   render: args => {
-    const [value, setValue] = useState<number | undefined>();
-    return (
-      <RadioButtonGroup
-        {...args}
-        value={value}
-        onChange={(_event, value) => {
-          setValue(value);
-        }}
-      >
-        <RadioButton value={1} label="Option 1" name="test" />
-        <RadioButton value={2} label="Option 2" name="test" />
-        <RadioButton value={3} label="Option 3" name="test" />
-      </RadioButtonGroup>
-    );
+    return <RadioButtonGroup {...args} />;
   },
 };
 
 export const Overview: Story = {
   args: { label: 'Label' },
   render: args => {
-    const [value, setValue] = useState<number | undefined>();
-    let counter = 0;
-    const name = () => `test${counter++}`;
     return (
       <StoryHStack>
         <StoryVStack>
-          <RadioButtonGroup
-            {...args}
-            value={value}
-            name={name()}
-            onChange={(_event, value) => {
-              setValue(value);
-            }}
-          >
-            <RadioButton label="Option 1" value={1} />
-            <RadioButton label="Option 2" value={2} />
-            <RadioButton label="Option 3" value={3} />
+          <RadioButtonGroup {...args} name={name()}>
+            {children}
           </RadioButtonGroup>
-          <RadioButtonGroup
-            {...args}
-            value={value}
-            name={name()}
-            disabled
-            onChange={(_event, value) => {
-              setValue(value);
-            }}
-          >
-            <RadioButton label="Option 1" value={1} />
-            <RadioButton label="Option 2" value={2} />
-            <RadioButton label="Option 3" value={3} />
+          <RadioButtonGroup {...args} name={name()} disabled>
+            {children}
           </RadioButtonGroup>
           <RadioButtonGroup
             {...args}
             tip="Dette er en hjelpetekst"
-            value={value}
             name={name()}
-            onChange={(_event, value) => {
-              setValue(value);
-            }}
           >
-            <RadioButton label="Option 1" value={1} />
-            <RadioButton label="Option 2" value={2} />
-            <RadioButton label="Option 3" value={3} />
-          </RadioButtonGroup>
-          <RadioButtonGroup
-            {...args}
-            direction="column"
-            value={value}
-            name={name()}
-            onChange={(_event, value) => {
-              setValue(value);
-            }}
-          >
-            <RadioButton label="Option 1" value={1} />
-            <RadioButton label="Option 2" value={2} />
-            <RadioButton label="Option 3" value={3} />
+            {children}
           </RadioButtonGroup>
         </StoryVStack>
         <StoryVStack>
-          <RadioButtonGroup
-            {...args}
-            required
-            value={value}
-            name={name()}
-            onChange={(_event, value) => {
-              setValue(value);
-            }}
-          >
-            <RadioButton label="Option 1" value={1} />
-            <RadioButton label="Option 2" value={2} />
-            <RadioButton label="Option 3" value={3} />
+          <RadioButtonGroup {...args} required name={name()}>
+            {children}
           </RadioButtonGroup>
 
-          <RadioButtonGroup
-            {...args}
-            readOnly
-            value={value}
-            name={name()}
-            onChange={(_event, value) => {
-              setValue(value);
-            }}
-          >
-            <RadioButton label="Option 1" value={1} />
-            <RadioButton label="Option 2" value={2} />
-            <RadioButton label="Option 3" value={3} />
+          <RadioButtonGroup {...args} readOnly name={name()}>
+            {children}
           </RadioButtonGroup>
           <RadioButtonGroup
             {...args}
             errorMessage="Dette er en feilmelding"
-            value={value}
             name={name()}
-            onChange={(_event, value) => {
-              setValue(value);
-            }}
           >
-            <RadioButton label="Option 1" value={1} />
-            <RadioButton label="Option 2" value={2} />
-            <RadioButton label="Option 3" value={3} />
+            {children}
           </RadioButtonGroup>
         </StoryVStack>
       </StoryHStack>
@@ -154,22 +90,88 @@ export const Overview: Story = {
   },
 };
 
-export const WithDefaultValue: Story = {
+export const Direction: Story = {
   args: { label: 'Label' },
+  render: args => {
+    return (
+      <StoryVStack>
+        <RadioButtonGroup {...args} name={name()}>
+          {children}
+        </RadioButtonGroup>
+        <RadioButtonGroup {...args} direction="column" name={name()}>
+          {children}
+        </RadioButtonGroup>
+      </StoryVStack>
+    );
+  },
+};
+
+export const Controlled: Story = {
+  args: { label: 'Label', children },
+  render: args => {
+    const [value, setValue] = useState<number | undefined>();
+    return (
+      <StoryVStack>
+        <RadioButtonGroup
+          {...args}
+          name={name()}
+          value={value}
+          onChange={(_event, value) => {
+            setValue(value as number);
+          }}
+        />
+        <Button size="small" onClick={() => setValue(2)}>
+          Sett til 2
+        </Button>
+      </StoryVStack>
+    );
+  },
+};
+
+export const WithValue: Story = {
+  args: { label: 'Label', children },
   render: args => {
     const [value, setValue] = useState<number | undefined>(2);
     return (
       <RadioButtonGroup
         {...args}
         value={value}
+        name={name()}
         onChange={(_event, value) => {
-          setValue(value);
+          setValue(value as number);
         }}
-      >
-        <RadioButton value={1} label="Option 1" name="test" />
-        <RadioButton value={2} label="Option 2" name="test" />
-        <RadioButton value={3} label="Option 3" name="test" />
-      </RadioButtonGroup>
+      />
     );
+  },
+};
+
+export const WithStringValue: Story = {
+  args: { label: 'Label', children: childrenString },
+  render: args => {
+    const [value, setValue] = useState<string | undefined>('1');
+    return (
+      <RadioButtonGroup
+        {...args}
+        value={value}
+        name={name()}
+        onChange={(_event, value) => {
+          setValue(value as string);
+        }}
+      />
+    );
+  },
+};
+
+export const WithDefaultValue: Story = {
+  args: { label: 'Label', children },
+  render: args => {
+    return <RadioButtonGroup {...args} defaultValue={2} name={name()} />;
+  },
+};
+
+export const WithDefaultStringValue: Story = {
+  args: { label: 'Label', children: childrenString },
+  render: args => {
+    return <RadioButtonGroup {...args} defaultValue="2" name={name()} />;
   },
 };

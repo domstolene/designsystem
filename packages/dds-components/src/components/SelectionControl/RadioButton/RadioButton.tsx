@@ -1,6 +1,6 @@
 import { type ChangeEvent, forwardRef, useId } from 'react';
 
-import { type RadioButtonProps } from './RadioButton.types';
+import { type RadioButtonProps, type RadioValue } from './RadioButton.types';
 import {
   type RadioButtonGroupContextProps,
   useRadioButtonGroup,
@@ -18,15 +18,21 @@ import { Typography } from '../../Typography';
 import { Label, SelectionControl } from '../SelectionControl.styles';
 import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
-const isValueEqualToGroupValueOrFalsy = (
-  value: unknown,
-  group: Nullable<RadioButtonGroupContextProps>,
-): boolean => {
+const getIsChecked = ({
+  value,
+  group,
+  checked,
+}: {
+  value: RadioValue;
+  group: Nullable<RadioButtonGroupContextProps>;
+  checked: boolean | undefined;
+}): boolean => {
+  if (checked !== undefined) return checked;
   if (typeof value !== 'undefined' && value !== null && group) {
     if (typeof value === 'number') {
-      return value === Number(group?.value);
+      return value === Number(group.value);
     }
-    return value === group?.value;
+    return value === group.value;
   }
   return !!value;
 };
@@ -65,7 +71,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       onChange && onChange(event);
-      radioButtonGroup?.onChange(event);
+      radioButtonGroup?.onChange(event, event.target.value);
     };
 
     const describedByIds = [];
@@ -76,6 +82,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     const isReadOnly = readOnly || radioButtonGroup?.readOnly;
     const isDisabled = disabled || radioButtonGroup?.disabled;
     const hasError = error || radioButtonGroup?.error;
+    const isChecked = getIsChecked({ value, group: radioButtonGroup, checked });
 
     return (
       <Label
@@ -94,11 +101,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           name={name ?? radioButtonGroup?.name}
           disabled={isDisabled}
           required={required || !!radioButtonGroup?.required}
-          checked={
-            typeof checked !== 'undefined'
-              ? checked
-              : isValueEqualToGroupValueOrFalsy(value, radioButtonGroup)
-          }
+          checked={isChecked}
           onChange={readOnlyChangeHandler(isReadOnly, handleChange)}
           value={value}
           aria-describedby={
