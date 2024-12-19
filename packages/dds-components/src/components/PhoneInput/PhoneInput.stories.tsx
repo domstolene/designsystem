@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
-import { PhoneInput } from '.';
+import { PhoneInput, type PhoneInputValue } from '.';
 
 export default {
   title: 'dds-components/PhoneInput',
@@ -75,10 +75,7 @@ export const Responsive: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    const [value, setValue] = useState({
-      phoneNumber: '',
-      countryCode: '',
-    });
+    const [value, setValue] = useState<PhoneInputValue | undefined>();
 
     return (
       <StoryVStack>

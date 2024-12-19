@@ -19,3 +19,5 @@ export type RadioButtonProps = BaseComponentPropsWithChildren<
   SelectionControlCommonProps & PickedInputHTMLAttributes,
   Omit<InputHTMLAttributes<HTMLInputElement>, keyof PickedInputHTMLAttributes>
 >;
+
+export type RadioValue = PickedInputHTMLAttributes['value'];
