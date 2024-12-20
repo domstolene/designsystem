@@ -69,7 +69,7 @@ const close = () => setOpen(false);
 
 Det støttes ikke å ha marginer på `parentElement`.
 De vil forsvinner når modalen åpnes pga. `position: fixed`.
-Hvis man ikke sender inn `parentElement`, så brukes `document.body`.
+Hvis man ikke sender inn `parentElement`, så brukes `themeProviderRef`.
 Da må man sette `width: 100%` på `<body>`, og unngå marginer, slik at sideinnholdet ikke flytter på seg når modalen er åpen.
 
 ### Returnering av fokus

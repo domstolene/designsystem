@@ -203,9 +203,3 @@ Komponenten har default bredde. Dette gjør at valgte alternativer ved `isMulti`
 ## Retningslinjer
 
 - Det kan være lurt å lagre kladd av input i skjemaet brukeren fyller ut.
-
-## Kjente problemstillinger
-
-Komponenten bruker [React portal](https://react.dev/reference/react-dom/createPortal) slik at nedtrekksmenyen har riktig z-index og ikke blir dekt av andre elementer. Vår default er `document.body`. Ikke alle løsninger tåler dette. Da kan du sette `menuPortalTarget` til `null`:
-
-<Source code={` <Select menuPortalTarget={null} />`} />

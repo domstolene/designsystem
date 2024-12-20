@@ -56,19 +56,19 @@ export type DrawerProps = BaseComponentPropsWithChildren<
      * @default "right"
      */
     placement?: DrawerPlacement;
-    /**Header for `<Drawer />`. Har default styling hvis verdien er en string. */
+    /**Header for `<Drawer>`. Har default styling hvis verdien er en string. */
     header?: string | ReactNode;
-    /**Spesifiserer om `<Drawer />` skal legges vises. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
+    /**Spesifiserer om `<Drawer>` vises. **OBS!** nødvendig kun hvis `<DrawerGroup>` ikke er i bruk. */
     isOpen?: boolean;
-    /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
+    /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis `<DrawerGroup>` ikke er i bruk. */
     onClose?: () => void;
-    /**Spesifiserer hvilken DOM node `<Drawer>` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` (skaper ikke ny DOM node).
-     * @default document.body
+    /**Spesifiserer hvilken DOM node `<Drawer>` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` eller ref (skaper ikke ny DOM node).
+     * @default themeProviderRef
      */
     parentElement?: HTMLElement;
     /**Custom props for breddehåndtering ved behov. */
     widthProps?: WidthProps;
-    /**Ref til elementet som åpner `<Drawer />`.  **OBS!** nødvendig kun hvis `<DrawerGroup />` ikke er i bruk. */
+    /**Ref til elementet som åpner `<Drawer>`.  **OBS!** nødvendig kun hvis `<DrawerGroup>` ikke er i bruk. */
     triggerRef?: RefObject<HTMLElement>;
     /**
      * Om `<Drawer>` skal vises med backdrop som gråer ut bakgrunnen.
