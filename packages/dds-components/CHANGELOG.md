@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 18.1.0
+
+### Minor Changes
+
+- 58a2a9c: Støtte for `defaultValue` prop i `<RadioButtonGroup>`, slik at man kan bruke ukontrollert state med initiell verdi.
+
 ## 18.0.0
 
 ### Major Changes
