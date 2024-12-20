@@ -1,16 +1,18 @@
 import { type ChangeEvent, createContext, useContext } from 'react';
 
+import { type RadioValue } from './RadioButton.types';
 import { type Nullable } from '../../../types';
 
 export interface RadioButtonGroupContextProps {
   disabled: boolean;
   readOnly: boolean;
   name?: string;
-  value?: string | number | null;
+  value?: RadioValue;
+  defaultValue?: RadioValue;
   error: boolean;
   errorMessageId?: string;
   required: boolean;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>, v: RadioValue) => void;
 }
 
 export const RadioButtonGroupContext =
