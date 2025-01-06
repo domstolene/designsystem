@@ -59,7 +59,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "storybook": "8.4.7",
-    "styled-components": "^6.1.13",
+    "styled-components": "^6.1.14",
     "tsup": "^8.3.5",
     "turbo": "^2.3.3"
   },
