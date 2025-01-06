@@ -56,10 +56,10 @@
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-testing-library": "^7.1.1",
     "prettier": "^3.4.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "storybook": "8.4.7",
-    "styled-components": "^6.1.13",
+    "styled-components": "^6.1.14",
     "tsup": "^8.3.5",
     "turbo": "^2.3.3"
   },
@@ -71,10 +71,10 @@
   },
   "volta": {
     "node": "20.18.1",
-    "pnpm": "9.8.0"
+    "pnpm": "9.15.3"
   },
   "dependencies": {
     "@storybook/test": "8.4.7"
   },
-  "packageManager": "pnpm@9.8.0"
+  "packageManager": "pnpm@9.15.3"
 }
