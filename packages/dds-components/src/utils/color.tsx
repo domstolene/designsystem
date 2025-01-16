@@ -27,13 +27,18 @@ export const convertAlpha = (
   }
 };
 
-export const hexToRGBA = (hex: string): string => {
+export const hexToRGBValues = (hex: string): string => {
   const r = parseInt(hex.slice(1, 3), 16),
     g = parseInt(hex.slice(3, 5), 16),
-    b = parseInt(hex.slice(5, 7), 16),
-    alpha = hex.length === 9 ? hex.slice(7, 9) : 'ff';
+    b = parseInt(hex.slice(5, 7), 16);
 
-  return `rgba(${r}, ${g}, ${b}, ${convertAlpha(alpha, 'hex8', 'decimal')})`;
+  return [r, g, b].join(', ');
+};
+
+export const hexToRGBA = (hex: string): string => {
+  const alpha = hex.length === 9 ? hex.slice(7, 9) : 'ff';
+
+  return `rgba(${hexToRGBValues(hex)}, ${convertAlpha(alpha, 'hex8', 'decimal')})`;
 };
 
 const getRGBValues = (value: string) =>
