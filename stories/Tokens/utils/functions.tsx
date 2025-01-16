@@ -7,7 +7,7 @@ export function splitReferenceKeys(v: string): Array<string> {
 }
 
 export function isReferencedValue(v: string): boolean {
-  return v[0] === '{' && v[v.length - 1] === '}';
+  return v.startsWith('{') && v.endsWith('}')
 }
 
 export const tableStyle = { maxWidth: '90ch' };
