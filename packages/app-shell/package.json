@@ -30,8 +30,8 @@
     "elsa"
   ],
   "devDependencies": {
-    "@norges-domstoler/dds-components": "workspace:*",
-    "@norges-domstoler/development-utils": "workspace:*",
+    "@norges-domstoler/dds-components": "^18",
+    "@norges-domstoler/development-utils": "^1",
     "@norges-domstoler/storybook-components": "workspace:*",
     "@storybook/blocks": "8.4.7",
     "@testing-library/dom": "^10.4.0",
