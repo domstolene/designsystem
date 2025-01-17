@@ -21,7 +21,7 @@ export const StorybookLinkRow = (
 
 interface props {
   docsHref: string;
-  storybookHref: string;
+  storybookHref?: string;
   figmaHref?: string;
   githubHref: string;
   withBottomSpacing?: boolean;
@@ -41,12 +41,14 @@ export const ComponentLinkRow = ({
       href={docsHref}
       linkType="zeroheight"
     />
-    <StorybookLink
-      size="small"
-      text="Storybook"
-      href={storybookHref}
-      linkType="storybook"
-    />
+    {storybookHref && (
+      <StorybookLink
+        size="small"
+        text="Storybook"
+        href={storybookHref}
+        linkType="storybook"
+      />
+    )}
     {figmaHref && (
       <StorybookLink
         size="small"

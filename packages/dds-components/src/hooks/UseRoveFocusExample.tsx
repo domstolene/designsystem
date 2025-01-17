@@ -3,6 +3,7 @@ import React, {
   type ReactNode,
   type SetStateAction,
   useCallback,
+  useEffect,
   useRef,
 } from 'react';
 
@@ -21,7 +22,11 @@ interface Props {
   noWrap?: boolean;
 }
 
-export const UseRoveFocusExample = ({ active, direction, noWrap }: Props) => {
+export const UseRoveFocusExample = ({
+  active,
+  direction = 'column',
+  noWrap,
+}: Props) => {
   const elements = [
     { name: 'Element 1' },
     { name: 'Element 2' },
@@ -86,8 +91,7 @@ interface RoveItemProps {
 
 const RoveItem = (props: RoveItemProps) => {
   const { children, shouldFocus, setFocus, index } = props;
-
-  const itemRef = useRef(null);
+  const itemRef = useRef<HTMLSpanElement>(null);
 
   const handleSelect = useCallback(() => {
     if (shouldFocus) setFocus(index);
@@ -101,6 +105,12 @@ const RoveItem = (props: RoveItemProps) => {
     handleSelect();
   };
 
+  useEffect(() => {
+    if (shouldFocus) {
+      itemRef.current?.focus();
+    }
+  }, [shouldFocus]);
+
   return (
     <span
       tabIndex={shouldFocus ? 0 : -1}
@@ -109,7 +119,7 @@ const RoveItem = (props: RoveItemProps) => {
       role="menuitem"
       ref={itemRef}
     >
-      {children} {shouldFocus && '(fokusert)'}
+      {children}
     </span>
   );
 };
