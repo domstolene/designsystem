@@ -286,6 +286,11 @@
         "value": "{dds-color-base.neutrals.white}",
         "type": "color",
         "description": "Used on surface.notification"
+      },
+      "danger": {
+        "value": "{dds-color-base.danger.dark}",
+        "type": "color",
+        "description": "Error text on paper, or default or subtle surafce/bg"
       }
     },
     "icon": {
@@ -363,6 +368,11 @@
         "value": "{dds-color-base.neutrals.gray9}",
         "type": "color",
         "description": "On surface.info-strong"
+      },
+      "danger": {
+        "value": "{dds-color-base.danger.dark}",
+        "type": "color",
+        "description": "Error icon on paper, or default or subtle surafce/bg"
       }
     },
     "brand": {
