@@ -1,0 +1,24 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import * as ToggleStories from './Toggle.stories';
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/68aa38-toggle-"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=17550-439"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/dds-components/src/components/Toggle"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-toggle--default"
+  withBottomSpacing
+/>
+
+`<Toggle>` er en semantisk `<input type="checkbox">`. Den brukes til umiddelbar tilstandsendring.
+
+## Props
+
+<Canvas of={ToggleStories.Preview} />
+<Controls of={ToggleStories.Preview} />
+
+Native HTML-attributter `aria-describedby`, `name`, `value`, `defaultValue`, `onBlur` støttes på toppnivå.

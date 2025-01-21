@@ -1,0 +1,201 @@
+.label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: var(--dds-spacing-x0-75);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  background-color: var(--dds-color-surface-medium);
+  border-radius: var(--dds-border-radius-rounded);
+  border: 1px solid var(--dds-color-border-default);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 0.2s,
+      border 0.2s,
+      var(--dds-focus-transition);
+  }
+}
+
+.thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--dds-border-radius-rounded);
+  background-color: var(--dds-color-surface-field-default);
+  border: 1px solid var(--dds-color-border-default);
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      transform 0.2s,
+      border 0.2s,
+      width 0.2s;
+  }
+}
+
+.thumb .checkmark {
+  opacity: 0;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s;
+  }
+}
+
+.labeltext--readonly {
+  display: flex;
+  .icon--read-only {
+    align-self: center;
+    flex-shrink: 0;
+    margin-inline-end: var(--dds-spacing-x0-125);
+  }
+}
+
+.medium {
+  .track {
+    height: var(--dds-spacing-x1-5);
+    width: 2.8125rem;
+  }
+
+  .thumb {
+    margin-inline-start: var(--dds-spacing-x0-125);
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  input:checked ~ .track > .thumb {
+    transform: translateX(1.25rem);
+  }
+
+  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly])
+    ~ .track
+    > .thumb {
+    transform: translateX(var(--dds-spacing-x1));
+  }
+
+  input:enabled:active:not([aria-disabled]):not([aria-readonly])
+    ~ .track
+    > .thumb {
+    width: 1.5rem;
+  }
+}
+
+.large {
+  .track {
+    height: 2.125rem;
+    width: 3.25rem;
+  }
+
+  .thumb {
+    margin-inline-start: var(--dds-spacing-x0-25);
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+
+  input:checked ~ .track > .thumb {
+    transform: translateX(var(--dds-spacing-x1));
+  }
+
+  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly])
+    ~ .track
+    > .thumb {
+    transform: translateX(var(--dds-spacing-x0-75));
+  }
+
+  input:enabled:active:not([aria-disabled]):not([aria-readonly])
+    ~ .track
+    > .thumb {
+    width: var(--dds-spacing-x2);
+  }
+}
+
+.label,
+.label--is-loading {
+  input:checked:enabled:not([aria-readonly]) ~ .track {
+    background-color: var(--dds-color-surface-action-selected);
+    border-color: var(--dds-color-border-action-default);
+
+    & > .thumb {
+      border-color: var(--dds-color-border-action-default);
+      .checkmark {
+        color: var(--dds-color-icon-action-resting);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.label {
+  cursor: pointer;
+
+  &:hover
+    input:enabled:checked:not([aria-disabled]):not([aria-readonly])
+    ~ .track {
+    background-color: var(--dds-color-surface-action-hover);
+    border-color: var(--dds-color-border-action-hover);
+
+    .thumb {
+      border-color: var(--dds-color-border-action-hover);
+    }
+  }
+  &:hover input:enabled:not([aria-disabled]):not([aria-readonly]) ~ .track {
+    background-color: var(--dds-color-surface-hover-default);
+    border-color: var(--dds-color-border-action-hover);
+
+    .thumb {
+      border-color: var(--dds-color-border-action-hover);
+
+      .checkmark {
+        color: var(--dds-color-icon-action-hover);
+      }
+    }
+  }
+}
+
+.label--disabled {
+  cursor: not-allowed;
+  color: var(--dds-color-text-subtle);
+
+  input:disabled ~ .track {
+    background-color: var(--dds-color-surface-field-disabled);
+  }
+
+  input:checked:disabled ~ .track {
+    background-color: var(--dds-color-surface-action-selected-disabled);
+    border-color: var(--dds-color-surface-action-selected-disabled);
+  }
+
+  input:checked:disabled ~ .track > .thumb {
+    border-color: var(--dds-color-surface-action-selected-disabled);
+
+    .checkmark {
+      color: var(--dds-color-icon-subtle);
+      opacity: 1;
+    }
+  }
+}
+
+.label--read-only {
+  cursor: default;
+  color: var(--dds-color-text-medium);
+
+  input ~ .track {
+    background-color: var(--dds-color-surface-default);
+  }
+
+  input:checked ~ .track {
+    background-color: var(--dds-color-surface-inverse-default);
+    border-color: var(--dds-color-surface-inverse-default);
+  }
+
+  input:checked ~ .track > .thumb {
+    border-color: var(--dds-color-surface-inverse-default);
+    .checkmark {
+      color: var(--dds-color-icon-medium);
+      opacity: 1;
+    }
+  }
+}
+
+.label--is-loading {
+  cursor: not-allowed;
+}
