@@ -43,7 +43,7 @@
     "tsup": "^8.3.5",
     "typescript": "^5.7.3",
     "vite": "^6.0.9",
-    "vitest": "^2.1.8"
+    "vitest": "^3.0.2"
   },
   "peerDependencies": {
     "@norges-domstoler/dds-components": ">=16",
