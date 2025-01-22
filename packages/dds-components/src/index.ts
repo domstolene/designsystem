@@ -57,6 +57,7 @@ export * from './components/Tag';
 export * from './components/TextArea';
 export * from './components/TextInput';
 export * from './components/ThemeProvider';
+export * from './components/Toggle';
 export * from './components/ToggleBar';
 export * from './components/ToggleButton';
 export * from './components/Tooltip';
