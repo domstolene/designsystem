@@ -133,6 +133,7 @@
   --dds-color-text-action-visited: #7f29b4; /* Used for visited links */
   --dds-color-text-action-visited-on-inverse: #cca9e1; /* Used for visited links on inverse surfaces */
   --dds-color-text-on-notification: #ffffff; /* Used on surface.notification */
+  --dds-color-text-danger: #ad2c2c; /* Error text on paper, or default or subtle surafce/bg */
   --dds-color-icon-default: #0b0d0e; /* Often used with text.default */
   --dds-color-icon-medium: #3a4146; /* Often used with text.medium */
   --dds-color-icon-subtle: #545c62; /* Often used with text.subtle */
@@ -148,6 +149,7 @@
   --dds-color-icon-on-danger-strong: #0b0d0e; /* On surface.danger-strong */
   --dds-color-icon-on-info-default: #466f8a; /* On surface.info-default */
   --dds-color-icon-on-info-strong: #0b0d0e; /* On surface.info-strong */
+  --dds-color-icon-danger: #ad2c2c; /* Error icon on paper, or default or subtle surafce/bg */
   --dds-color-brand-primary-default: #354754; /* Primary brand color */
   --dds-color-brand-primary-subtle: #eaeff4; /* Primary brand color */
   --dds-color-brand-primary-medium: #4f6a7e; /* Primary brand color */
