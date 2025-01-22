@@ -36,6 +36,7 @@ export const isKeyboardEvent = (
  * @param size antall elementer i gruppen.
  * @param active om fokus skal kontrolleres av hooken. Når status blir inaktiv vil fokusrekkefølge nullstilles.
  * @param direction retning elementene blas i.
+ * @param noWrap om indeksen skal 'wrappe' rundt til 0 hvis den går over size - 1, eller til size - 1 hvis den går under 0.
  * @returns hook par: indeksen til fokuserte elemenentet og funksjonen som håndterer fokus.
  */
 
@@ -43,6 +44,7 @@ export function useRoveFocus(
   size?: number,
   active?: boolean,
   direction: Direction = 'column',
+  noWrap?: boolean,
 ): [number, Dispatch<SetStateAction<number>>] {
   const [currentFocusIndex, setCurrentFocusIndex] = useState(-1);
 
@@ -53,19 +55,22 @@ export function useRoveFocus(
     (e: Event) => {
       if (!size || !isKeyboardEvent(e)) return;
       if (e.key === nextKey) {
-        // Down arrow
-        e.preventDefault();
-        setCurrentFocusIndex(prev => (prev === size - 1 ? 0 : prev + 1));
-      } else if (e.key === previousKey) {
-        // Up arrow
+        // Down / Right arrow
         e.preventDefault();
         setCurrentFocusIndex(prev => {
-          if (prev === -1 || prev === 0) return size - 1;
+          if (prev === size - 1) return noWrap ? prev : 0;
+          return prev + 1;
+        });
+      } else if (e.key === previousKey) {
+        // Up / Left arrow
+        e.preventDefault();
+        setCurrentFocusIndex(prev => {
+          if (prev === -1 || prev === 0) return noWrap ? prev : size - 1;
           return prev - 1;
         });
       }
     },
-    [size, setCurrentFocusIndex],
+    [size, setCurrentFocusIndex, direction, noWrap],
   );
 
   useEffect(() => {
