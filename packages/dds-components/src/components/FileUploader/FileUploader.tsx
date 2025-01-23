@@ -150,7 +150,7 @@ export const FileUploader = (props: FileUploaderProps) => {
       {...rest}
     >
       {hasLabel && (
-        <Label id={labelId} showRequiredStyling={showRequiredMarker}>
+        <Label id={labelId} showRequiredStyling={showRequiredMarker} htmlFor={inputId}>
           {label}
         </Label>
       )}
