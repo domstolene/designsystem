@@ -11,6 +11,7 @@ import {
   PersonIcon,
   TrashIcon,
 } from '../../Icon/icons';
+import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Link } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table } from '../normal';
@@ -18,7 +19,7 @@ import { data, headerCells, mapCellContents } from '../normal/tableData';
 
 import { CollapsibleTable } from '.';
 
-export default {
+const meta: Meta<typeof CollapsibleTable> = {
   title: 'dds-components/Table/CollapsibleTable',
   component: CollapsibleTable,
   argTypes: {
@@ -39,7 +40,16 @@ export default {
       exclude: ['headerValues', 'definingColumnIndex'],
     },
   },
-} satisfies Meta<typeof CollapsibleTable>;
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
+};
+
+export default meta;
 
 type Story = StoryObj<typeof CollapsibleTable>;
 

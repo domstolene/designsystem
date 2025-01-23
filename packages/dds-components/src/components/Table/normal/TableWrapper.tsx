@@ -1,14 +1,26 @@
-import { type HTMLAttributes, useEffect, useRef, useState } from 'react';
+import {
+  type HTMLAttributes,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import styles from './Table.module.css';
 import { cn } from '../../../utils';
 import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
+import { ThemeContext } from '../../ThemeProvider';
 
 export type TableWrapperProps = HTMLAttributes<HTMLDivElement>;
 
 export const TableWrapper = ({ className, ...rest }: TableWrapperProps) => {
+  const themeContext = useContext(ThemeContext);
+  const container = themeContext?.el;
+  const containerWidth = container ? container.clientWidth : 0;
+
   const [overflowX, setOverflowX] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [themeContainerWidth, setThemeContainerWidth] =
+    useState(containerWidth);
 
   function isOverflowingX(event: HTMLDivElement): boolean {
     return event.offsetWidth < event.scrollWidth;
@@ -22,11 +34,11 @@ export const TableWrapper = ({ className, ...rest }: TableWrapperProps) => {
       return;
     }
     setOverflowX(false);
-  }, [windowWidth]);
+  }, [themeContainerWidth]);
 
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(window.innerWidth);
+      setThemeContainerWidth(containerWidth);
     }
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
