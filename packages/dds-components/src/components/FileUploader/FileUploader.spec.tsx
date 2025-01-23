@@ -31,9 +31,9 @@ describe('<FileUploader>', () => {
   });
 
   it('should render label', () => {
-      const label = 'Last opp fil';
-      render(<FileUploaderTest label={label} />);
-      const labelNode = screen.getByText(label);
-      expect(labelNode).toBeInTheDocument();
-    });
+    const label = 'Last opp fil';
+    render(<FileUploaderTest label={label} />);
+    const labelNode = screen.getByText(label);
+    expect(labelNode).toBeInTheDocument();
   });
+});
