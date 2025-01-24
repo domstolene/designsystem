@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-design-tokens
 
+## 7.1.0
+
+### Minor Changes
+
+- 99688a9: Legger til to nye semantiske tokens for farger: `dds-color-text-danger` og `dds-color-icon-danger`.
+
 ## 7.0.0
 
 ### Major Changes
