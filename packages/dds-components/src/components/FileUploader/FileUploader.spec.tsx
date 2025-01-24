@@ -29,4 +29,18 @@ describe('<FileUploader>', () => {
     await userEvent.upload(fileInput, file);
     expect(screen.getByText('hello.png', {})).toBeInTheDocument();
   });
+
+  it('should render label', () => {
+    const label = 'Last opp fil';
+    render(<FileUploaderTest label={label} />);
+    const labelNode = screen.getByText(label);
+    expect(labelNode).toBeInTheDocument();
+  });
+
+  it('label should have for-attribute', () => {
+    const label = 'Last opp fil';
+    render(<FileUploaderTest label={label} />);
+    const labelNode = screen.getByText(label);
+    expect(labelNode).toHaveAttribute('for');
+  });
 });
