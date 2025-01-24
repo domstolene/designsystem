@@ -1,5 +1,11 @@
 # @norges-domstoler/app-shell
 
+## 2.0.3
+
+### Patch Changes
+
+- d8ca996: Gjør `@norges-domstoler/app-shell` deprecated. Kopier koden til `<AppShell>`-komponenten inni kodebasen din hvis du ønsker å fortsette å bruke den.
+
 ## 2.0.2
 
 ### Patch Changes

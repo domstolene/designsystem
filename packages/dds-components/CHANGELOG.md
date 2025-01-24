@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 18.2.0
+
+### Minor Changes
+
+- e484707: Fikser bug der `<Select>` ikke eksporterte `JSX.element`, samt bug der `ref` ikke var støttet. Eksponerer `type SelectForwardRefType<Option, IsMulti extends boolean>` for å sette type ved bruk av `useRef()` (valgfritt).
+- 37537d5: Legg til noWrap-argument i useRoveFocus hook som sørger for at indeksen til det fokuserte elementet ikke wrapper når den oppdateres
+- 0f52707: Ny komponent: `<Toggle>`. Brukes til å umiddelbart slå noe av eller på.
+
+### Patch Changes
+
+- daf1d9b: Fjerner referanse til `window` i `<TableWrapper>` slik at den fungerer med SSR.
+- d624097: Knytter label til `input` i `<FileUploader>`.
+  - @norges-domstoler/development-utils@1.3.1
+
 ## 18.1.0
 
 ### Minor Changes
