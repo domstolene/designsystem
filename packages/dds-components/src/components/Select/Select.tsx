@@ -1,5 +1,11 @@
 import { type Properties, type Property } from 'csstype';
-import { type HTMLAttributes, forwardRef, useContext, useId } from 'react';
+import {
+  type HTMLAttributes,
+  type ReactElement,
+  forwardRef,
+  useContext,
+  useId,
+} from 'react';
 import {
   type GroupBase,
   type OptionProps,
@@ -86,13 +92,14 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
 } & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
   WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 
-type ForwardRefType<Option, IsMulti extends boolean> = React.ForwardedRef<
-  SelectInstance<Option, IsMulti, GroupBase<Option>>
->;
+export type SelectForwardRefType<
+  Option,
+  IsMulti extends boolean,
+> = React.ForwardedRef<SelectInstance<Option, IsMulti, GroupBase<Option>>>;
 
 function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   props: SelectProps<Option, IsMulti>,
-  ref: ForwardRefType<Option, IsMulti>,
+  ref: SelectForwardRefType<Option, IsMulti>,
 ) {
   const {
     id,
@@ -246,7 +253,14 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   );
 }
 
-export const Select = forwardRef(SelectInner) as typeof SelectInner;
+export const Select = forwardRef(SelectInner) as <
+  Option = unknown,
+  IsMulti extends boolean = false,
+>(
+  props: SelectProps<Option, IsMulti> & {
+    ref?: SelectForwardRefType<Option, IsMulti>;
+  },
+) => ReactElement;
 
 // @ts-expect-error TODO fix Select type
 Select.displayName = 'Select';

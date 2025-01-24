@@ -2,7 +2,6 @@ import { Story, Canvas, Meta, Controls } from '@storybook/blocks';
 import {
   Source,
   ComponentLinkRow,
-
 } from '@norges-domstoler/storybook-components';
 import { Link } from '../Typography';
 import { Table } from '../Table';
@@ -180,6 +179,24 @@ Du kan bruke `options` i custom format, og sette label og value basert på optio
 Du kan customisere visuelle elementer for både det valgte elemetet og alternativer i lista.
 
 <Canvas of={SelectStories.CustomElement} />
+
+### Bruk av `ref`
+
+`useRef()` støttes uten definert type. Du kan ha strongly typed `ref` ved å sette return-type til vår `SelectForwardRefType<Option, isMulti>` på den.
+
+<Source
+  code={`
+  const ref: SelectForwardRefType<
+    {
+      label: string;
+      value: string;
+    },
+    false
+  > = useRef(null);
+
+return <Select options={[{ label: 'alt', value: 'alt' }]} ref={ref} />;
+`}
+/>
 
 ### Multiselect
 
