@@ -131,6 +131,7 @@
   $dds-color-text-action-visited: var(--dds-color-text-action-visited); /* Used for visited links */
   $dds-color-text-action-visited-on-inverse: var(--dds-color-text-action-visited-on-inverse); /* Used for visited links on inverse surfaces */
   $dds-color-text-on-notification: var(--dds-color-text-on-notification); /* Used on surface.notification */
+  $dds-color-text-danger: var(--dds-color-text-danger); /* Error text on paper, or default or subtle surafce/bg */
   $dds-color-icon-default: var(--dds-color-icon-default); /* Often used with text.default */
   $dds-color-icon-medium: var(--dds-color-icon-medium); /* Often used with text.medium */
   $dds-color-icon-subtle: var(--dds-color-icon-subtle); /* Often used with text.subtle */
@@ -146,6 +147,7 @@
   $dds-color-icon-on-danger-strong: var(--dds-color-icon-on-danger-strong); /* On surface.danger-strong */
   $dds-color-icon-on-info-default: var(--dds-color-icon-on-info-default); /* On surface.info-default */
   $dds-color-icon-on-info-strong: var(--dds-color-icon-on-info-strong); /* On surface.info-strong */
+  $dds-color-icon-danger: var(--dds-color-icon-danger); /* Error icon on paper, or default or subtle surafce/bg */
   $dds-color-brand-primary-default: var(--dds-color-brand-primary-default); /* Primary brand color */
   $dds-color-brand-primary-subtle: var(--dds-color-brand-primary-subtle); /* Primary brand color */
   $dds-color-brand-primary-medium: var(--dds-color-brand-primary-medium); /* Primary brand color */
