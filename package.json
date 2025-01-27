@@ -33,20 +33,20 @@
   },
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.27.11",
+    "@changesets/cli": "^2.27.12",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@storybook/addon-a11y": "8.5.0",
-    "@storybook/addon-docs": "8.5.0",
-    "@storybook/addon-essentials": "8.5.0",
-    "@storybook/addon-links": "8.5.0",
-    "@storybook/addon-mdx-gfm": "8.5.0",
-    "@storybook/addon-storysource": "8.5.0",
-    "@storybook/blocks": "8.5.0",
-    "@storybook/core-common": "8.5.0",
-    "@storybook/react": "8.5.0",
-    "@storybook/react-vite": "8.5.0",
+    "@storybook/addon-a11y": "8.5.2",
+    "@storybook/addon-docs": "8.5.2",
+    "@storybook/addon-essentials": "8.5.2",
+    "@storybook/addon-links": "8.5.2",
+    "@storybook/addon-mdx-gfm": "8.5.2",
+    "@storybook/addon-storysource": "8.5.2",
+    "@storybook/blocks": "8.5.2",
+    "@storybook/core-common": "8.5.2",
+    "@storybook/react": "8.5.2",
+    "@storybook/react-vite": "8.5.2",
     "@testing-library/dom": "^10.4.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -58,10 +58,10 @@
     "prettier": "^3.4.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "storybook": "8.5.0",
+    "storybook": "8.5.2",
     "styled-components": "^6.1.14",
-    "tsup": "^8.3.5",
-    "turbo": "^2.3.3"
+    "tsup": "^8.3.6",
+    "turbo": "^2.3.4"
   },
   "pnpm": {
     "overrides": {
@@ -76,7 +76,7 @@
     "pnpm": "9.15.3"
   },
   "dependencies": {
-    "@storybook/test": "8.5.0"
+    "@storybook/test": "8.5.2"
   },
   "packageManager": "pnpm@9.15.3"
 }
