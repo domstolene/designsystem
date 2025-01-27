@@ -666,5 +666,62 @@
       "value": "1920px",
       "type": "dimension"
     }
+  },
+  "dds-zindex": {
+    "skiptocontent": {
+      "value": "250",
+      "type": "number",
+      "description": "Brukes for dds-skiptocontent"
+    },
+    "modal": {
+      "value": "200",
+      "type": "number",
+      "description": "Brukes for dds-modal"
+    },
+    "modal-backdrop": {
+      "value": "199",
+      "type": "number",
+      "description": "Brukes for dds-modal"
+    },
+    "overflowmenu": {
+      "value": "150",
+      "type": "number",
+      "description": "Brukes for dds-overflowmenu"
+    },
+    "drawer": {
+      "value": "145",
+      "type": "number",
+      "description": "Brukes for dds-drawer"
+    },
+    "drawer-backdrop": {
+      "value": "144",
+      "type": "number",
+      "description": "Brukes for dds-drawer"
+    },
+    "popover": {
+      "value": "130",
+      "type": "number",
+      "description": "Brukes for dds-popover"
+    },
+    "dropdown": {
+      "value": "80",
+      "type": "number",
+      "description": "Dropdown brukes for bl.a søkeforslag"
+    },
+    "tooltip": {
+      "value": "75",
+      "type": "number",
+      "description": "Brukes for dds-tooltip"
+    },
+    "sticky": {
+      "value": "50",
+      "type": "number",
+      "description": "Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater"
+    },
+    "icon": {
+      "value": "1",
+      "type": "number",
+      "description": "Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder"
+    }
   }
 }
