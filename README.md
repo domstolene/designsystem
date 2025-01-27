@@ -6,11 +6,11 @@ I koden brukes prefikset `dds` for å spesifisere assosiasjon med designsystemet
 
 ## 📚 Innhold i monorepo
 
-🪑 [Komponenter](packages/components/README.md)
+🪑 [Komponenter](packages/dds-components/README.md)
 
-🎨 [Design tokens](packages/tokens/README.md)
+🎨 [Design tokens](packages/dds-tokens/README.md)
 
-📕 [Formatering](packages/formatting/README.md)
+📕 [Formatering](packages/dds-formatting/README.md)
 
 🔧 [Dev utils](packages/development-utils/README.md)
 
