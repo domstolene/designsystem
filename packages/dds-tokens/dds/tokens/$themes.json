@@ -108,7 +108,6 @@
       "dds-font-paragraph-spacing.medium": "14c4c17ffba34a104733529978fa860e56101bc3",
       "dds-font-paragraph-spacing.large": "589e4f578de8f0afd831ed86d89438f98cb49d70",
       "dds-font-paragraph-spacing.heading": "12472d7f5bae14bffd0daf0c8c8c7ea278e67969",
-      "dds-spacing.padding-top.heading": "f1a6ec27ced6790c3e8d7254b37fcaa778fd6b67",
       "dds-spacing.x0": "aa36a77eb86789130d97396164fea5ef29898b6a",
       "dds-spacing.x0_125": "1cfac5069c3995aaa108ee457159691c2111deda",
       "dds-spacing.x0_25": "26ba4c10263b3b89611ede890414e55e7fb25037",
@@ -139,7 +138,8 @@
       "dds-breakpoint.sm": "772471e5b722723ab3aa3051193ad46dda8ae8e3",
       "dds-breakpoint.md": "6d0f24af96c4958b83efbf5f603103c0aa181884",
       "dds-breakpoint.lg": "8d6c1fc624ae8379420c5dd6580b760af9725572",
-      "dds-breakpoint.xl": "d93ffd67dba6e296ad9df2538e59b4f6652b5111"
+      "dds-breakpoint.xl": "d93ffd67dba6e296ad9df2538e59b4f6652b5111",
+      "dds-spacing.padding-top-heading": "f1a6ec27ced6790c3e8d7254b37fcaa778fd6b67"
     },
     "$figmaCollectionId": "VariableCollectionId:9567:849",
     "$figmaModeId": "9567:2",

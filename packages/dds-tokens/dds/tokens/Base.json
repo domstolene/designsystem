@@ -473,12 +473,10 @@
     }
   },
   "dds-spacing": {
-    "padding-top": {
-      "heading": {
-        "value": "0.7em",
-        "type": "spacing",
-        "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
-      }
+    "padding-top-heading": {
+      "value": "0.7em",
+      "type": "spacing",
+      "description": "Ekstra spacing over dds-header. 70% av størrelsen på headeren"
     },
     "x0": {
       "value": "0rem",
