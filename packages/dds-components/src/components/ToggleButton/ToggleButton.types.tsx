@@ -11,6 +11,8 @@ export type ToggleButtonProps = BaseComponentProps<
     label?: string;
     /** Ikon. */
     icon?: SvgIcon;
+    /**Størrelse. */
+    size?: 'small' | 'xsmall';
   } & CheckboxPickedHTMLAttributes,
   Omit<
     InputHTMLAttributes<HTMLInputElement>,
