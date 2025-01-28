@@ -10,7 +10,7 @@ import { Icon } from '../Icon';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
-  ({ id, label, icon, className, htmlProps, ...rest }, ref) => {
+  ({ id, label, icon, size = 'small', className, htmlProps, ...rest }, ref) => {
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-toggleButton`;
     const hasIcon = !!icon;
@@ -34,8 +34,9 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
         <span
           className={cn(
             styles.content,
+            styles[size],
             hasIcon && styles['content--with-icon'],
-            typographyStyles['body-small'],
+            typographyStyles[`body-${size}`],
             focusStyles['focus-styled-sibling'],
           )}
         >
