@@ -673,52 +673,47 @@
       "type": "number",
       "description": "Brukes for dds-skiptocontent"
     },
-    "modal": {
+    "modal-backdrop": {
       "value": "200",
       "type": "number",
       "description": "Brukes for dds-modal"
     },
-    "modal-backdrop": {
-      "value": "199",
-      "type": "number",
-      "description": "Brukes for dds-modal"
-    },
-    "overflowmenu": {
-      "value": "150",
-      "type": "number",
-      "description": "Brukes for dds-overflowmenu"
-    },
     "drawer": {
-      "value": "145",
+      "value": "180",
       "type": "number",
       "description": "Brukes for dds-drawer"
     },
     "drawer-backdrop": {
-      "value": "144",
+      "value": "180",
       "type": "number",
       "description": "Brukes for dds-drawer"
     },
-    "popover": {
-      "value": "130",
+    "overflowmenu": {
+      "value": "160",
       "type": "number",
-      "description": "Brukes for dds-popover"
+      "description": "Brukes for dds-overflowmenu"
     },
-    "dropdown": {
-      "value": "80",
+    "popover": {
+      "value": "140",
       "type": "number",
-      "description": "Dropdown brukes for bl.a søkeforslag"
+      "description": "Brukes for dds-popover og kalender i datepicker"
     },
     "tooltip": {
-      "value": "75",
+      "value": "120",
       "type": "number",
       "description": "Brukes for dds-tooltip"
+    },
+    "dropdown": {
+      "value": "100",
+      "type": "number",
+      "description": "Dropdown brukes for bl.a søkeforslag, dropdown i select"
     },
     "sticky": {
       "value": "50",
       "type": "number",
       "description": "Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater"
     },
-    "icon": {
+    "absolute-element": {
       "value": "1",
       "type": "number",
       "description": "Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder"
