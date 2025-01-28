@@ -59,8 +59,9 @@
 }
 
 .content--with-icon {
-  padding-inline-start: var(--dds-spacing-x0-75);
-
+  &.small {
+    padding-inline-start: var(--dds-spacing-x0-75);
+  }
   &.xsmall {
     padding-inline-start: var(--dds-spacing-x0-25);
   }

@@ -14,7 +14,6 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-toggleButton`;
     const hasIcon = !!icon;
-    const hasSize = size ? size : 'small';
 
     return (
       <label htmlFor={uniqueId} className={styles.container}>
@@ -37,7 +36,7 @@ export const ToggleButton = forwardRef<HTMLInputElement, ToggleButtonProps>(
             styles.content,
             styles[size],
             hasIcon && styles['content--with-icon'],
-            typographyStyles[`body-${hasSize}`],
+            typographyStyles[`body-${size}`],
             focusStyles['focus-styled-sibling'],
           )}
         >
