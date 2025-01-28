@@ -1,6 +1,6 @@
 # Elsa - Domstolenes designsystem
 
-![GitHub License](https://img.shields.io/github/license/domstolene/designsystem) ![GitHub branch check runs](https://img.shields.io/github/check-runs/domstolene/designsystem/main) ![Checks](https://github.com/domstolene/designsystem/actions/workflows/release.yml/badge.svg) ![Static Badge](https://img.shields.io/badge/Slack-%23designsystemet-elsa?logo=slack&link=https%3A%2F%2Fdomstoladm.slack.com%2Farchives%2FC01HNLSPTT9)
+![GitHub License](https://img.shields.io/github/license/domstolene/designsystem) ![GitHub branch check runs](https://img.shields.io/github/check-runs/domstolene/designsystem/main) ![Checks](https://github.com/domstolene/designsystem/actions/workflows/release.yml/badge.svg) [![Static Badge](https://img.shields.io/badge/Slack-%23designsystemet--elsa-611F69?logo=slack)](https://domstoladm.slack.com/archives/C01HNLSPTT9)
 
 Elsa er Domstolenes offisielle designsystem. Det består av design i Figma, [dokumentasjon](https://design.domstol.no/) og dette monorepoet.
 
