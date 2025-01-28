@@ -1,10 +1,10 @@
 # @norges-domstoler/dds-formatting
 
-![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-formatting) [![License](https://img.shields.io/npm/l/@norges-domstoler/dds-formatting)](https://www.npmjs.com/package/@norges-domstoler/dds-formatting) ![Checks](https://github.com/domstolene/designsystem/actions/workflows/release.yml/badge.svg)
+[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-formatting)](https://www.npmjs.com/package/@norges-domstoler/dds-formatting) ![License](https://img.shields.io/npm/l/@norges-domstoler/dds-formatting)
 
 Tekstformatering til bruk i domstolenes tjenester.
 
-Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [ Elsa Storybook](https://domstolene.github.io/designsystem) for mer dokumentasjon og demoer.
+Sjekk ut [Elsa - domstolenes designsystem](https://design.domstol.no/) og [ Elsa Storybook](https://domstolene.github.io/designsystem) for dokumentasjon og demoer.
 
 ## 📦 Installasjon
 
