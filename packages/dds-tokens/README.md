@@ -1,6 +1,6 @@
 # @norges-domstoler/dds-design-tokens
 
-[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-design-tokens)](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens)
+[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-design-tokens)](https://www.npmjs.com/package/@norges-domstoler/dds-design-tokens) ![License](https://img.shields.io/npm/l/@norges-domstoler/dds-design-tokens)
 
 Biblioteket inneholder design tokens brukt i [Elsa - domstolenes designsystem](https://design.domstol.no/): farger, typografi, osv. Design tokens kan brukes i domstolenes tjenester i bl.a. global styling og custom elementer. Ellers er det obligatorisk å bruke komponentbiblioteket [dds-components](https://www.npmjs.com/package/@norges-domstoler/dds-components) i domstolenes applikasjoner.
 

@@ -1,6 +1,6 @@
 # @norges-domstoler/dds-components
 
-![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)
+[![Version](https://img.shields.io/npm/v/@norges-domstoler/dds-components)](https://www.npmjs.com/package/@norges-domstoler/dds-components) ![License](https://img.shields.io/npm/l/@norges-domstoler/dds-components)
 
 React UI komponenter til bruk i domstolenes tjenester.
 
