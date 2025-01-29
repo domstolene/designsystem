@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { copyButton } from './CopyButton';
 import { type TokenGenericJsonObject } from './Tokens.types';
 import { Table } from '../../../packages/dds-components/src';
@@ -7,10 +9,17 @@ export function splitReferenceKeys(v: string): Array<string> {
 }
 
 export function isReferencedValue(v: string): boolean {
-  return v.startsWith('{') && v.endsWith('}')
+  return v.startsWith('{') && v.endsWith('}');
 }
 
-export const tableStyle = { maxWidth: '90ch' };
+export const tableStyle = {
+  marginBottom: 'var(--dds-spacing-x1-5)',
+};
+
+export const wrapperStyle = {
+  maxWidth: '90ch',
+  marginInline: 'auto',
+};
 
 interface TokenOverviewTypographyBaseProps {
   tokens: TokenGenericJsonObject;
@@ -50,7 +59,7 @@ export const generateTypographyBaseTable = (
   const { tokens, type, cssRule, hasDesc } = props;
 
   return (
-    <Table>
+    <Table style={tableStyle}>
       <Table.Head>
         <Table.Row>
           <Table.Cell>Token</Table.Cell>

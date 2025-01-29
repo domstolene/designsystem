@@ -666,5 +666,57 @@
       "value": "1920px",
       "type": "dimension"
     }
+  },
+  "dds-zindex": {
+    "skiptocontent": {
+      "value": "250",
+      "type": "number",
+      "description": "Brukes for dds-skiptocontent"
+    },
+    "modal-backdrop": {
+      "value": "200",
+      "type": "number",
+      "description": "Brukes for dds-modal"
+    },
+    "drawer": {
+      "value": "180",
+      "type": "number",
+      "description": "Brukes for dds-drawer"
+    },
+    "drawer-backdrop": {
+      "value": "180",
+      "type": "number",
+      "description": "Brukes for dds-drawer"
+    },
+    "overflowmenu": {
+      "value": "160",
+      "type": "number",
+      "description": "Brukes for dds-overflowmenu"
+    },
+    "popover": {
+      "value": "140",
+      "type": "number",
+      "description": "Brukes for dds-popover og kalender i datepicker"
+    },
+    "tooltip": {
+      "value": "120",
+      "type": "number",
+      "description": "Brukes for dds-tooltip"
+    },
+    "dropdown": {
+      "value": "100",
+      "type": "number",
+      "description": "Dropdown brukes for bl.a søkeforslag, dropdown i select"
+    },
+    "sticky": {
+      "value": "50",
+      "type": "number",
+      "description": "Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater"
+    },
+    "absolute-element": {
+      "value": "1",
+      "type": "number",
+      "description": "Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder"
+    }
   }
 }

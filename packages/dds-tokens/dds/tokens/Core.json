@@ -327,7 +327,7 @@
       "action-hover": {
         "value": "{dds-color-base.interactive.dark}",
         "type": "color",
-        "description": "hover on icon-action, used on secondary buttons etc"
+        "description": "hover on icon-action"
       },
       "on-success-default": {
         "value": "{dds-color-base.success.darker}",

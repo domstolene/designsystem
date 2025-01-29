@@ -7,6 +7,7 @@ import {
   generateTypographyBaseTable,
   isReferencedValue,
   splitReferenceKeys,
+  tableStyle,
 } from './functions';
 import {
   type TokenTypographyBaseJsonObject,
@@ -157,7 +158,7 @@ export const TypographyGenerator = (theme: DdsTheme) => {
   }
 
   return (
-    <Table>
+    <Table style={tableStyle}>
       <Table.Head>
         <Table.Row>
           <Table.Cell>Token</Table.Cell>

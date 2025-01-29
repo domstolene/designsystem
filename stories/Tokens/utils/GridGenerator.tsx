@@ -77,9 +77,7 @@ export const GridGenerator = () => {
         <Table.Row>
           <Table.Cell>Token</Table.Cell>
           <Table.Cell>Verdi</Table.Cell>
-          <Table.Cell>
-            <VisuallyHidden as="span">Forhåndsvisning</VisuallyHidden>
-          </Table.Cell>
+          <Table.Cell style={{ width: '30rem' }}>Eksempel</Table.Cell>
           <Table.Cell>Kopier</Table.Cell>
         </Table.Row>
       </Table.Head>

@@ -8,12 +8,19 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 200;
   background-color: var(--dds-color-surface-backdrop-default);
 
   @media (prefers-reduced-motion: no-preference) {
     transition: opacity 0.2s;
   }
+}
+
+.drawer {
+  z-index: var(--dds-zindex-drawer-backdrop);
+}
+
+.modal {
+  z-index: var(--dds-zindex-modal-backdrop);
 }
 
 .backdrop--visible {

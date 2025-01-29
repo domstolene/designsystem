@@ -5,6 +5,7 @@ import {
   FontSizeGenerator,
   FontStyleGenerator,
   FontWeightGenerator,
+  wrapperStyle,
 } from './utils';
 
 export default {
@@ -12,25 +13,25 @@ export default {
 };
 
 export const FontFamily = () => {
-  return FontFamilyGenerator();
+  return <div style={wrapperStyle}>{FontFamilyGenerator()}</div>;
 };
 
 export const FontSize = () => {
-  return FontSizeGenerator();
+  return <div style={wrapperStyle}> {FontSizeGenerator()}</div>;
 };
 
 export const FontWeight = () => {
-  return FontWeightGenerator();
+  return <div style={wrapperStyle}> {FontWeightGenerator()} </div>;
 };
 
 export const FontStyle = () => {
-  return FontStyleGenerator();
+  return <div style={wrapperStyle}>{FontStyleGenerator()}</div>;
 };
 
 export const LineHeight = () => {
-  return FontLineheightGenerator();
+  return <div style={wrapperStyle}> {FontLineheightGenerator()}</div>;
 };
 
 export const LetterSpacing = () => {
-  return FontLetterSpacingGenerator();
+  return <div style={wrapperStyle}> {FontLetterSpacingGenerator()}</div>;
 };

@@ -1,6 +1,6 @@
 .group > *:focus-visible {
   position: relative;
-  z-index: 1;
+  z-index: var(--dds-zindex-absolute-element);
 }
 
 .group--column {
