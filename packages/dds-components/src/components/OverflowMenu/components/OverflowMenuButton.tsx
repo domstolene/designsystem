@@ -13,7 +13,15 @@ export const OverflowMenuButton = forwardRef<
   HTMLButtonElement,
   OverflowMenuButtonProps
 >((props, ref) => {
-  const { id, icon, children, className, onClick, ...rest } = props;
+  const {
+    id,
+    icon,
+    children,
+    className,
+    onClick,
+    purpose = 'default',
+    ...rest
+  } = props;
 
   const itemRef = useRef<HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
@@ -35,6 +43,7 @@ export const OverflowMenuButton = forwardRef<
         className={cn(
           className,
           styles.list__item,
+          styles[purpose],
           typographyStyles['body-small'],
           styles['list__item--link'],
           focusStyles['focusable--inset'],

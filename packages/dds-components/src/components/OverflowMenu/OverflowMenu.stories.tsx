@@ -80,6 +80,7 @@ export const Default: Story = {
                   null;
                 }}
                 icon={TrashIcon}
+                purpose="danger"
               >
                 Slett
               </OverflowMenuButton>
@@ -130,6 +131,7 @@ export const WithButtons: Story = {
                   null;
                 }}
                 icon={TrashIcon}
+                purpose="danger"
               >
                 Slett
               </OverflowMenuButton>
@@ -153,7 +155,9 @@ export const WithNavigation: Story = {
               <OverflowMenuList>
                 <OverflowMenuLink href="/">Link</OverflowMenuLink>
                 <OverflowMenuLink href="/">Link</OverflowMenuLink>
-                <OverflowMenuLink href="/">Link</OverflowMenuLink>
+                <OverflowMenuLink href="/" purpose="danger">
+                  Link
+                </OverflowMenuLink>
               </OverflowMenuList>
             </nav>
           </OverflowMenu>

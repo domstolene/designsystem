@@ -15,11 +15,18 @@
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  color: var(--dds-color-text-default);
   background-color: var(--dds-color-surface-default);
   text-decoration: none;
   padding: var(--dds-spacing-x0-75);
   gap: var(--dds-spacing-x0-25);
+
+  &.default {
+    color: var(--dds-color-text-default);
+  }
+
+  &.danger {
+    color: var(--dds-color-text-danger);
+  }
 }
 
 .list__item--link {
