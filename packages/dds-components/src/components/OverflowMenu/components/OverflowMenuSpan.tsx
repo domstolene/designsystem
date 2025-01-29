@@ -10,7 +10,7 @@ export const OverflowMenuSpan = forwardRef<
   HTMLButtonElement,
   OverflowMenuSpanProps
 >((props, ref) => {
-  const { icon, children, className, ...rest } = props;
+  const { icon, children, className, purpose = 'default', ...rest } = props;
 
   return (
     <li>
@@ -19,6 +19,7 @@ export const OverflowMenuSpan = forwardRef<
         className={cn(
           className,
           styles.list__item,
+          styles[purpose],
           typographyStyles['body-small'],
         )}
         {...rest}

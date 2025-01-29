@@ -12,6 +12,10 @@ import { type SvgIcon } from '../Icon/utils';
 export interface OverflowMenuListItemBaseProps {
   /**Ikon som vises ved teksten. **OBS!** Settes i tillegg til `children` for riktig layout. */
   icon?: SvgIcon;
+  /**Bestemmer farger basert på formål.
+   * @default "default"
+   */
+  purpose?: 'default' | 'danger';
 }
 
 export type OverflowMenuButtonProps = OverflowMenuListItemBaseProps &

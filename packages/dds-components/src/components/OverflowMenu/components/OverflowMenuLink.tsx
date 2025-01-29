@@ -13,7 +13,16 @@ export const OverflowMenuLink = forwardRef<
   HTMLAnchorElement,
   OverflowMenuLinkProps
 >((props, ref) => {
-  const { id, href, icon, className, onClick, children, ...rest } = props;
+  const {
+    id,
+    href,
+    icon,
+    className,
+    onClick,
+    children,
+    purpose = 'default',
+    ...rest
+  } = props;
 
   const itemRef = useRef<HTMLAnchorElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
@@ -35,6 +44,7 @@ export const OverflowMenuLink = forwardRef<
         className={cn(
           className,
           styles.list__item,
+          styles[purpose],
           typographyStyles['body-small'],
           styles['list__item--link'],
           focusStyles['focusable--inset'],
