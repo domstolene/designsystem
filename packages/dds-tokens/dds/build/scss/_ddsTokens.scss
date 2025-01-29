@@ -75,6 +75,16 @@
   $dds-breakpoint-md: var(--dds-breakpoint-md);
   $dds-breakpoint-lg: var(--dds-breakpoint-lg);
   $dds-breakpoint-xl: var(--dds-breakpoint-xl);
+  $dds-zindex-skiptocontent: var(--dds-zindex-skiptocontent); /* Brukes for dds-skiptocontent */
+  $dds-zindex-modal-backdrop: var(--dds-zindex-modal-backdrop); /* Brukes for dds-modal */
+  $dds-zindex-drawer: var(--dds-zindex-drawer); /* Brukes for dds-drawer */
+  $dds-zindex-drawer-backdrop: var(--dds-zindex-drawer-backdrop); /* Brukes for dds-drawer */
+  $dds-zindex-overflowmenu: var(--dds-zindex-overflowmenu); /* Brukes for dds-overflowmenu */
+  $dds-zindex-popover: var(--dds-zindex-popover); /* Brukes for dds-popover og kalender i datepicker */
+  $dds-zindex-tooltip: var(--dds-zindex-tooltip); /* Brukes for dds-tooltip */
+  $dds-zindex-dropdown: var(--dds-zindex-dropdown); /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
+  $dds-zindex-sticky: var(--dds-zindex-sticky); /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
+  $dds-zindex-absolute-element: var(--dds-zindex-absolute-element); /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
   $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
   $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */

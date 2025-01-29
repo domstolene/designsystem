@@ -1,6 +1,6 @@
 .container {
   box-sizing: border-box;
-  z-index: 100;
+  z-index: var(--dds-zindex-overflowmenu);
   overflow-y: auto;
   min-width: 180px;
   max-width: 300px;

@@ -116,6 +116,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   return (isOpen || hasTransitionedIn) && portalTarget
     ? createPortal(
         <Backdrop
+          zIndex="modal"
           isMounted={isOpen && hasTransitionedIn}
           ref={backdropRef}
           onClick={onBackdropClick}

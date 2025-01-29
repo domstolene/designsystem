@@ -3,7 +3,7 @@ import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Core.json';
 import jsonP from '@norges-domstoler/dds-design-tokens/dds/tokens/Public.json';
 
 import { copyButton } from './CopyButton';
-import { splitReferenceKeys } from './functions';
+import { splitReferenceKeys, tableStyle } from './functions';
 import { type TokenBorderRadiusJsonObject } from './Tokens.types';
 import {
   type DdsTheme,
@@ -42,7 +42,9 @@ export const BorderRadiusGenerator = (theme: DdsTheme) => {
             ></div>
           </Table.Cell>
           <Table.Cell>{copyButton(tokenName)}</Table.Cell>
-          <Table.Cell>{token.description}</Table.Cell>
+          <Table.Cell style={{ width: '20rem' }}>
+            {token.description}
+          </Table.Cell>
           <Table.Cell>{token.value}</Table.Cell>
         </Table.Row>,
       );
@@ -52,7 +54,7 @@ export const BorderRadiusGenerator = (theme: DdsTheme) => {
   }
 
   return (
-    <Table>
+    <Table style={tableStyle}>
       <style>{cssStyle}</style>
       <Table.Head>
         <Table.Row>

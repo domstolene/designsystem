@@ -13,7 +13,7 @@
 .paper {
   width: fit-content;
   position: absolute;
-  z-index: 80;
+  z-index: var(--dds-zindex-tooltip);
   text-align: center;
   padding: var(--dds-spacing-x0-75);
 }

@@ -209,7 +209,12 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   );
 
   const component = withBackdrop ? (
-    <Backdrop isMounted={isMounted} ref={backdropRef} onClick={onBackdropClick}>
+    <Backdrop
+      zIndex="drawer"
+      isMounted={isMounted}
+      ref={backdropRef}
+      onClick={onBackdropClick}
+    >
       {drawer}
     </Backdrop>
   ) : (

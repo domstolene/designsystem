@@ -6,7 +6,9 @@ import {
   IconSizesGenerator,
   ShadowsGenerator,
   TypographyGenerator,
+  wrapperStyle,
 } from './utils';
+import { ZIndexGenerator } from './utils/ZIndexGenerator';
 
 export default {
   title: 'dds-design-tokens/Tokens',
@@ -14,7 +16,7 @@ export default {
 
 export const BorderRadius = () => {
   return (
-    <div>
+    <div style={wrapperStyle}>
       <h2>Core</h2>
       {BorderRadiusGenerator('core')}
       <h2>Public</h2>
@@ -24,32 +26,36 @@ export const BorderRadius = () => {
 };
 
 export const Breakpoints = () => {
-  return BreakpointsGenerator();
+  return <div style={wrapperStyle}> {BreakpointsGenerator()}</div>;
 };
 
 export const Colors = () => {
-  return ColorsGenerator();
+  return <div style={wrapperStyle}> {ColorsGenerator()}</div>;
 };
 
 export const Grid = () => {
-  return GridGenerator();
+  return <div style={wrapperStyle}> {GridGenerator()}</div>;
 };
 
 export const IconSizes = () => {
-  return IconSizesGenerator();
+  return <div style={wrapperStyle}> {IconSizesGenerator()}</div>;
 };
 
 export const Shadows = () => {
-  return ShadowsGenerator();
+  return <div style={wrapperStyle}> {ShadowsGenerator()}</div>;
 };
 
 export const Typography = () => {
   return (
-    <div>
+    <div style={{ maxWidth: '120ch', marginInline: 'auto' }}>
       <h2>Core</h2>
       {TypographyGenerator('core')}
       <h2>Public</h2>
       {TypographyGenerator('public')}
     </div>
   );
+};
+
+export const ZIndex = () => {
+  return <div style={wrapperStyle}> {ZIndexGenerator()}</div>;
 };

@@ -5,15 +5,20 @@ import { cn } from '../../../utils';
 
 type BackdropProps = {
   isMounted?: boolean;
+  zIndex: 'drawer' | 'modal';
 } & Pick<ComponentProps<'div'>, 'children' | 'onClick'>;
 
 export const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
-  ({ isMounted, ...props }, ref) => {
+  ({ isMounted, zIndex, ...props }, ref) => {
     const isMountedCn = isMounted ? 'visible' : 'hidden';
     return (
       <div
         ref={ref}
-        className={cn(styles.backdrop, styles[`backdrop--${isMountedCn}`])}
+        className={cn(
+          styles.backdrop,
+          styles[zIndex],
+          styles[`backdrop--${isMountedCn}`],
+        )}
         {...props}
       />
     );

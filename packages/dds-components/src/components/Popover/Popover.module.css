@@ -1,7 +1,7 @@
 .container {
   position: absolute;
   width: fit-content;
-  z-index: 100;
+  z-index: var(--dds-zindex-popover);
   padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
     var(--dds-spacing-x1-5) var(--dds-spacing-x1);
 }

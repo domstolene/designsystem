@@ -77,6 +77,16 @@
   --dds-breakpoint-md: 960px;
   --dds-breakpoint-lg: 1280px;
   --dds-breakpoint-xl: 1920px;
+  --dds-zindex-skiptocontent: 250; /* Brukes for dds-skiptocontent */
+  --dds-zindex-modal-backdrop: 200; /* Brukes for dds-modal */
+  --dds-zindex-drawer: 180; /* Brukes for dds-drawer */
+  --dds-zindex-drawer-backdrop: 180; /* Brukes for dds-drawer */
+  --dds-zindex-overflowmenu: 160; /* Brukes for dds-overflowmenu */
+  --dds-zindex-popover: 140; /* Brukes for dds-popover og kalender i datepicker */
+  --dds-zindex-tooltip: 120; /* Brukes for dds-tooltip */
+  --dds-zindex-dropdown: 100; /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
+  --dds-zindex-sticky: 50; /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
+  --dds-zindex-absolute-element: 1; /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
   --dds-color-bg-default: #ffffff; /* UI shell base color */
   --dds-color-bg-subtle: #f8f9f9; /* Alternative UI shell base color */
   --dds-color-surface-default: #ffffff; /* Default bg */

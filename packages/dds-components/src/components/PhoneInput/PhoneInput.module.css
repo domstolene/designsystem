@@ -114,9 +114,9 @@
 
 .select:focus-visible,
 .select:hover {
-  z-index: 1;
+  z-index: var(--dds-zindex-absolute-element);
   & ~ svg {
-    z-index: 1;
+    z-index: var(--dds-zindex-absolute-element);
   }
 }
 

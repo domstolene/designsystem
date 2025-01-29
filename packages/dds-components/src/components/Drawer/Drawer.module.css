@@ -16,7 +16,7 @@
   flex-direction: column-reverse;
   justify-content: flex-end;
   min-width: 300px;
-  z-index: 100;
+  z-index: var(--dds-zindex-drawer);
   border-radius: 0;
   padding: var(--dds-drawer-container-padding);
 

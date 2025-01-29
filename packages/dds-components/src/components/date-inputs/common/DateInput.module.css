@@ -115,7 +115,7 @@
 }
 
 .popover {
-  z-index: 100;
+  z-index: var(--dds-zindex-popover);
   border-radius: var(--dds-border-radius-surface);
   background-color: var(--dds-color-surface-default);
   border: 1px solid var(--dds-color-border-default);
