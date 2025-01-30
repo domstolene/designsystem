@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 18.3.0
+
+### Minor Changes
+
+- 2e48b80: Legger til `purpose`-prop i `<OverflowMenuListItemBaseProps>` som gir støtte for bruk av `danger`-farge på `<OverflowMenuButton>`, `<OverflowMenuLink>` og `<OverflowMenuSpan>`
+- 02e6910: Legger til ny variant av `<ToggleButton />`. Denne finnes nå i to størrelser `small` (default) og `xsmall`
+
+### Patch Changes
+
+- bc8eb1a: Tar i bruk nye z-index tokens i alle komponenter.
+  - @norges-domstoler/development-utils@1.3.1
+
 ## 18.2.0
 
 ### Minor Changes
