@@ -5,6 +5,7 @@ import {
   GridGenerator,
   IconSizesGenerator,
   ShadowsGenerator,
+  SpacingGenerator,
   TypographyGenerator,
   wrapperStyle,
 } from './utils';
@@ -43,6 +44,10 @@ export const IconSizes = () => {
 
 export const Shadows = () => {
   return <div style={wrapperStyle}> {ShadowsGenerator()}</div>;
+};
+
+export const Spacing = () => {
+  return <div style={wrapperStyle}> {SpacingGenerator()}</div>;
 };
 
 export const Typography = () => {

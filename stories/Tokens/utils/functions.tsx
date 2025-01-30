@@ -12,6 +12,10 @@ export function isReferencedValue(v: string): boolean {
   return v.startsWith('{') && v.endsWith('}');
 }
 
+export function underscoreToDash(v: string): string {
+  return v.replace('_', '-');
+}
+
 export const tableStyle = {
   marginBottom: 'var(--dds-spacing-x1-5)',
 };
@@ -26,13 +30,15 @@ interface TokenOverviewTypographyBaseProps {
   type: string;
   cssRule: string;
   hasDesc?: boolean;
+  exampleWrapperStyle?: React.CSSProperties;
 }
 
 export function generateTypographyBaseBodyRows(
   props: TokenOverviewTypographyBaseProps,
 ) {
-  const { tokens, type, cssRule, hasDesc } = props;
+  const { tokens, type, cssRule, hasDesc, exampleWrapperStyle } = props;
   const rows: Array<React.JSX.Element> = [];
+  console.log(exampleWrapperStyle);
 
   for (const key in tokens) {
     const token = tokens[key];
@@ -42,7 +48,13 @@ export function generateTypographyBaseBodyRows(
         <Table.Cell>{tokenName}</Table.Cell>
         <Table.Cell>{token.value}</Table.Cell>
         <Table.Cell>
-          <span style={{ [cssRule]: `var(${tokenName})` }}>{key}</span>
+          {exampleWrapperStyle ? (
+            <div style={exampleWrapperStyle}>
+              <div style={{ [cssRule]: `var(${tokenName})` }}>{key}</div>
+            </div>
+          ) : (
+            <div style={{ [cssRule]: `var(${tokenName})` }}>{key}</div>
+          )}
         </Table.Cell>
         <Table.Cell>{copyButton(tokenName)}</Table.Cell>
         {hasDesc && <Table.Cell>{token.description}</Table.Cell>}
@@ -56,7 +68,7 @@ export function generateTypographyBaseBodyRows(
 export const generateTypographyBaseTable = (
   props: TokenOverviewTypographyBaseProps,
 ) => {
-  const { tokens, type, cssRule, hasDesc } = props;
+  const { tokens, type, cssRule, hasDesc, exampleWrapperStyle } = props;
 
   return (
     <Table style={tableStyle}>
@@ -70,7 +82,13 @@ export const generateTypographyBaseTable = (
         </Table.Row>
       </Table.Head>
       <Table.Body>
-        {generateTypographyBaseBodyRows({ tokens, type, cssRule, hasDesc })}
+        {generateTypographyBaseBodyRows({
+          tokens,
+          type,
+          cssRule,
+          hasDesc,
+          exampleWrapperStyle,
+        })}
       </Table.Body>
     </Table>
   );
