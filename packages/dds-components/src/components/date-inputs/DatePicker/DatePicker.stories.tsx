@@ -28,7 +28,7 @@ const meta: Meta<typeof DatePicker> = {
   parameters: {
     docs: {
       story: { inline: true, height: '500px' },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
   argTypes: {
@@ -54,6 +54,13 @@ const meta: Meta<typeof DatePicker> = {
       control: 'boolean',
     },
   },
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
 };
 
 export default meta;
@@ -85,6 +92,14 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
+};
+
+export const SmallScreen: Story = {
+  args: { label: 'Dato', smallScreenBreakpoint: 'xl' },
+};
+
+export const Responsive: Story = {
+  args: { label: 'Dato', smallScreenBreakpoint: 'sm' },
 };
 
 export const Required: Story = {

@@ -26,6 +26,7 @@ import { DateInput } from '../../common/DateInput';
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
     buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
+    buttonOnClick?: () => void;
     groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
   } & Pick<
       InputProps,

@@ -28,11 +28,6 @@ export function CalendarButton({
       {...buttonProps}
       ref={ref}
       type="button"
-      onClick={e => {
-        if (!props.isDisabled && !isReadOnly) {
-          buttonProps.onClick?.(e);
-        }
-      }}
       className={cn(
         buttonProps.className,
         styles['icon-wrapper'],
