@@ -4,7 +4,7 @@ import { I18nProvider } from '@react-aria/i18n';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
 import type * as CSS from 'csstype';
-import { type Ref, forwardRef, useRef } from 'react';
+import { type Ref, forwardRef, useRef, useState } from 'react';
 
 import { Calendar } from './Calendar/Calendar';
 import {
@@ -15,6 +15,10 @@ import {
 import { locale } from './constants';
 import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
+import { cn } from '../../../utils';
+import backdropStyles from '../../helpers/Backdrop/Backdrop.module.css';
+import { Modal } from '../../Modal';
+import styles from '../common/DateInput.module.css';
 import {
   type FocusableRef,
   useFocusManagerRef,
@@ -39,6 +43,10 @@ export interface DatePickerProps
    * Egendefinert bredde på komponenten.
    */
   width?: CSS.Properties['width'];
+  /**
+   * Brekkpunkt for å vise versjon for liten skjerm.
+   */
+  smallScreen?: boolean;
 }
 
 const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
@@ -52,11 +60,16 @@ export function _DatePicker(
     tip,
     style,
     width,
+    smallScreen,
     showWeekNumbers = true,
     ...props
   }: DatePickerProps,
   forwardedRef: Ref<HTMLElement>,
 ) {
+  const [modalClosed, setModalClosed] = useState(true);
+  const showModal = () => setModalClosed(false);
+  const closeModal = () => setModalClosed(true);
+
   const state = useDatePickerState(props);
   const domRef = useFocusManagerRef(
     refIsFocusable(forwardRef) ? forwardedRef : null,
@@ -69,34 +82,79 @@ export function _DatePicker(
     ref,
   );
 
+  const dateField = (
+    <DateField
+      {...fieldProps}
+      groupProps={groupProps}
+      ref={combinedRef}
+      componentSize={componentSize}
+      tip={tip}
+      label={props.label}
+      errorMessage={errorMessage}
+      buttonProps={buttonProps}
+      buttonOnClick={showModal}
+      isOpen={state.isOpen}
+      style={style}
+      width={width}
+    />
+  );
+
   return (
     <I18nProvider locale={locale}>
+      is open {state.isOpen.toString()}; is modal closed{' '}
+      {modalClosed.toString()};
       <CalendarPopover
         isOpen={state.isOpen}
         onClose={state.close}
         showWeekNumbers={showWeekNumbers}
       >
-        <CalendarPopoverAnchor>
-          <DateField
-            {...fieldProps}
-            groupProps={groupProps}
-            ref={combinedRef}
-            componentSize={componentSize}
-            tip={tip}
-            label={props.label}
-            errorMessage={errorMessage}
-            buttonProps={buttonProps}
-            isOpen={state.isOpen}
-            style={style}
-            width={width}
-          />
-        </CalendarPopoverAnchor>
-        <CalendarPopoverContent>
+        <CalendarPopoverAnchor>{dateField}</CalendarPopoverAnchor>
+        <CalendarPopoverContent
+          className={cn(smallScreen && styles['popover--hidden'])}
+        >
           <Calendar {...calendarProps} />
         </CalendarPopoverContent>
       </CalendarPopover>
+      <Modal
+        isOpen={!modalClosed}
+        onClose={closeModal}
+        className={cn(
+          styles.modal,
+          !smallScreen && backdropStyles['modal--hidden'],
+        )}
+      >
+        <Calendar {...calendarProps} />
+      </Modal>
     </I18nProvider>
   );
+
+  // return (
+  //   <I18nProvider locale={locale}>
+  //     {smallScreen ? (
+  //       <>
+  //         {dateField}
+  //         <Modal
+  //           isOpen={state.isOpen}
+  //           onClose={state.close}
+  //           className={styles.modal}
+  //         >
+  //           <Calendar {...calendarProps} />
+  //         </Modal>
+  //       </>
+  //     ) : (
+  //       <CalendarPopover
+  //         isOpen={state.isOpen}
+  //         onClose={state.close}
+  //         showWeekNumbers={showWeekNumbers}
+  //       >
+  //         <CalendarPopoverAnchor>{dateField}</CalendarPopoverAnchor>
+  //         <CalendarPopoverContent>
+  //           <Calendar {...calendarProps} />
+  //         </CalendarPopoverContent>
+  //       </CalendarPopover>
+  //     )}
+  //   </I18nProvider>
+  // );
 }
 
 export const DatePicker = forwardRef(_DatePicker);

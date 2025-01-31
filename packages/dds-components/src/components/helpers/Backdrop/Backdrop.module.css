@@ -15,6 +15,10 @@
   }
 }
 
+.backdrop:has(.modal--hidden) {
+  display: none;
+}
+
 .drawer {
   z-index: var(--dds-zindex-drawer-backdrop);
 }
