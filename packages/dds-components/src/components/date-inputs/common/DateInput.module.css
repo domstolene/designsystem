@@ -127,7 +127,7 @@
 .modal {
   padding-left: var(--dds-spacing-x0-75);
 
-  &>div {
+  & > div {
     padding-right: 0;
   }
 }
