@@ -38,7 +38,6 @@ export function generateTypographyBaseBodyRows(
 ) {
   const { tokens, type, cssRule, hasDesc, exampleWrapperStyle } = props;
   const rows: Array<React.JSX.Element> = [];
-  console.log(exampleWrapperStyle);
 
   for (const key in tokens) {
     const token = tokens[key];
