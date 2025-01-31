@@ -1,5 +1,6 @@
 import { type RefObject, createContext, useContext } from 'react';
 
+import { type AddTabButtonProps } from './AddTabButton';
 import { type Direction } from '../../types';
 
 interface Tabs {
@@ -11,6 +12,7 @@ interface Tabs {
   hasTabFocus: boolean;
   setHasTabFocus: (hasFocus: boolean) => void;
   tabContentDirection: Direction;
+  addTabButtonProps?: Omit<AddTabButtonProps, 'index'>;
 }
 
 export const TabsContext = createContext<Tabs>({
@@ -22,5 +24,6 @@ export const TabsContext = createContext<Tabs>({
   hasTabFocus: false,
   setHasTabFocus: () => null,
   tabContentDirection: 'row',
+  addTabButtonProps: undefined,
 });
 export const useTabsContext = () => useContext(TabsContext);

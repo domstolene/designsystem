@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react';
 
+import { type AddTabButtonProps } from './AddTabButton';
 import { TabsContext } from './Tabs.context';
 import styles from './Tabs.module.css';
 import {
@@ -30,6 +31,8 @@ export type TabsProps = BaseComponentPropsWithChildren<
     tabContentDirection?: Direction;
     /**Bredde for hele komponenten. */
     width?: Property.Width;
+    /** Props for "Legg til fane"-knapp. Støtter native HTML attributter og `width`. */
+    addTabButtonProps?: Omit<AddTabButtonProps, 'index'>;
   },
   Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
 >;
@@ -40,6 +43,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     activeTab,
     onChange,
     tabContentDirection = 'row',
+    addTabButtonProps,
     width,
     children,
     className,
@@ -82,6 +86,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
         hasTabFocus,
         setHasTabFocus,
         tabContentDirection,
+        addTabButtonProps,
       }}
     >
       <div
