@@ -4,5 +4,6 @@ export * from './ColorsGenerator';
 export * from './GridGenerator';
 export * from './IconSizesGenerator';
 export * from './ShadowsGenerator';
+export * from './SpacingGenerator';
 export * from './TypographyGenerator';
 export * from './functions';

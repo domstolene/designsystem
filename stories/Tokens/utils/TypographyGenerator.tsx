@@ -57,10 +57,8 @@ export const TypographyGenerator = (theme: DdsTheme) => {
 
           //To lag med referanse; bør endre JSON-strukturen for lettere henting
           if (referenceKeys[0] === 'dds-font-size') {
-            console.log(v);
             const referenceValue =
               fontSizeReferenceTokens[referenceKeys[1]].value;
-            console.log('referenceValue', referenceValue);
             const splitReferencedKeys = splitReferenceKeys(referenceValue);
             const value =
               baseTokens[splitReferencedKeys[0]][splitReferencedKeys[1]].value;
@@ -217,4 +215,16 @@ export const FontLetterSpacingGenerator = () =>
     type: 'font-letter-spacing',
     cssRule: 'letterSpacing',
     hasDesc: true,
+  });
+
+export const FontParagraphSpacingGenerator = () =>
+  generateTypographyBaseTable({
+    tokens: baseTokens['dds-font-paragraph-spacing'],
+    type: 'font-paragraph-spacing',
+    cssRule: 'marginBottom',
+    hasDesc: true,
+    exampleWrapperStyle: {
+      borderBottom: '1px solid var(--dds-color-border-default)',
+      width: 'fit-content',
+    },
   });
