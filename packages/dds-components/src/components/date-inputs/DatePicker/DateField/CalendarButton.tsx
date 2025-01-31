@@ -11,11 +11,13 @@ import styles from '../../common/DateInput.module.css';
 interface CalendarButtonProps extends AriaButtonProps {
   componentSize: DateFieldProps['componentSize'];
   isReadOnly?: DateFieldProps['isReadOnly'];
+  onClick?: () => void;
 }
 
 export function CalendarButton({
   componentSize,
   isReadOnly,
+  onClick,
   ...props
 }: CalendarButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
@@ -31,6 +33,7 @@ export function CalendarButton({
       onClick={e => {
         if (!props.isDisabled && !isReadOnly) {
           buttonProps.onClick?.(e);
+          onClick && onClick();
         }
       }}
       className={cn(

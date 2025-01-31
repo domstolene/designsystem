@@ -14,6 +14,8 @@ import {
   useOnClickOutside,
   useOnKeyDown,
 } from '../../../hooks';
+import { cn } from '../../../utils';
+import { Paper } from '../../helpers';
 import styles from '../common/DateInput.module.css';
 
 /**------------------------------------------------------------------------
@@ -77,10 +79,12 @@ export const CalendarPopoverAnchor = ({
 
 interface CalendarPopoverContentProps {
   children: ReactNode;
+  className?: string;
 }
 
 export const CalendarPopoverContent = ({
   children,
+  className,
 }: CalendarPopoverContentProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { refs, styles: floatingStyles } = useFloatPosition(null, {
@@ -98,12 +102,14 @@ export const CalendarPopoverContent = ({
   if (!isOpen) return null;
 
   return (
-    <div
+    <Paper
       ref={combinedRef}
-      className={styles.popover}
+      className={cn(styles.popover, className)}
       style={floatingStyles.floating}
+      elevation={2}
+      border="default"
     >
       {children}
-    </div>
+    </Paper>
   );
 };

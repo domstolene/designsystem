@@ -4,12 +4,21 @@ import { describe, expect, it } from 'vitest';
 import { DatePicker } from './DatePicker';
 import { HStack } from '../../Stack';
 import { TextInput } from '../../TextInput';
+import { ThemeProvider } from '../../ThemeProvider';
 
-describe('<DatePicker />', () => {
+const WrappedDatePicker = () => (
+  <ThemeProvider>
+    <DatePicker />
+  </ThemeProvider>
+);
+
+describe('<DatePicker>', () => {
   it('is same height as <TextInput>', () => {
     render(
       <HStack>
-        <DatePicker label="Dato" data-testid="datepicker" />
+        <ThemeProvider>
+          <DatePicker label="Dato" data-testid="datepicker" />
+        </ThemeProvider>
         <TextInput label="Dato" data-testid="textinput" />
       </HStack>,
     );
@@ -23,25 +32,25 @@ describe('<DatePicker />', () => {
     expect(datePickerHeight).toBe(textInputHeight);
   });
   it('should render calender button', () => {
-    render(<DatePicker />);
+    render(<WrappedDatePicker />);
 
     const button = screen.queryByRole('button');
     expect(button).toBeInTheDocument();
   });
   it('calender button should have aria attributes', () => {
-    render(<DatePicker />);
+    render(<WrappedDatePicker />);
 
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-haspopup', 'dialog');
   });
   it('should render three spinbuttons for the date', () => {
-    render(<DatePicker />);
+    render(<WrappedDatePicker />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons).toHaveLength(3);
   });
   it('spinbuttons should have aria-valuemin', () => {
-    render(<DatePicker />);
+    render(<WrappedDatePicker />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons[0]).toHaveAttribute('aria-valuemin', '1');
@@ -49,7 +58,7 @@ describe('<DatePicker />', () => {
     expect(spinbuttons[2]).toHaveAttribute('aria-valuemin', '1');
   });
   it('spinbuttons should have aria-valuemax', () => {
-    render(<DatePicker />);
+    render(<WrappedDatePicker />);
 
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons[0]).toHaveAttribute('aria-valuemax');

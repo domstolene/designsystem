@@ -26,6 +26,7 @@ import { DateInput } from '../../common/DateInput';
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
     buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
+    buttonOnClick?: () => void;
     groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
   } & Pick<
       InputProps,
@@ -43,6 +44,7 @@ function _DateField(
     componentSize = 'medium',
     buttonProps,
     groupProps,
+    buttonOnClick,
     ...props
   }: DateFieldProps,
   forwardedRef: Ref<HTMLDivElement>,
@@ -74,6 +76,9 @@ function _DateField(
         <CalendarButton
           componentSize={componentSize}
           {...buttonProps}
+          onClick={() => {
+            buttonOnClick && buttonOnClick();
+          }}
           isReadOnly={props.isReadOnly}
           isDisabled={disabled || props.isReadOnly}
         />

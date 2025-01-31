@@ -54,6 +54,13 @@ const meta: Meta<typeof DatePicker> = {
       control: 'boolean',
     },
   },
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
 };
 
 export default meta;
@@ -85,6 +92,10 @@ export const Overview: Story = {
       </StoryVStack>
     </StoryHStack>
   ),
+};
+
+export const SmallScreen: Story = {
+  args: { label: 'Dato', smallScreen: true },
 };
 
 export const Required: Story = {
