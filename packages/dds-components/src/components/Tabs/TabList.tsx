@@ -10,6 +10,7 @@ import {
   useState,
 } from 'react';
 
+import { AddTabButton } from './AddTabButton';
 import { useTabsContext } from './Tabs.context';
 import styles from './Tabs.module.css';
 import { TabWidthContextProvider } from './TabWidthContext';
@@ -29,6 +30,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       tabListRef,
       hasTabFocus,
       setHasTabFocus,
+      addTabButtonProps,
     } = useTabsContext();
 
     const uniqueId = id ?? `${tabsId}-tablist`;
@@ -36,20 +38,30 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
     const [focus, setFocus] = useRoveFocus(childrenArray, hasTabFocus, 'row');
     const combinedRef = useCombinedRef(ref, tabListRef);
 
-    const tabListChildren = Children.map(children, (child, index) => {
-      return (
-        isValidElement(child) &&
-        cloneElement(child as ReactElement, {
-          id: `${tabsId}-tab-${index}`,
-          'aria-controls': `${tabsId}-panel-${index}`,
-          active: activeTab === index,
-          index,
-          focus: focus === index && hasTabFocus,
-          setFocus,
-          onClick: () => handleTabChange(index),
+    const hasButton = addTabButtonProps ? true : false;
+
+    const tabListChildren = Children
+      ? Children.map(children, (child, index) => {
+          return (
+            isValidElement(child) &&
+            cloneElement(child as ReactElement, {
+              id: `${tabsId}-tab-${index}`,
+              'aria-controls': `${tabsId}-panel-${index}`,
+              active: activeTab === index,
+              index,
+              focus: focus === index && hasTabFocus,
+              setFocus,
+              onClick: () => handleTabChange(index),
+            })
+          );
         })
+      : [];
+
+    if (hasButton && tabListChildren) {
+      tabListChildren.push(
+        <AddTabButton index={tabListChildren.length} {...addTabButtonProps} />,
       );
-    });
+    }
 
     const [widths, setWidths] = useState<Array<CSS.Properties['width']>>([]);
 
