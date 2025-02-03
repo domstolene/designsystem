@@ -26,7 +26,7 @@ export type Placement =
   | 'left-start'
   | 'left-end';
 
-interface UseFloatPositionOptions {
+export interface UseFloatPositionOptions {
   /**
    * Whether to update the position of the floating element on every animation frame if required.
    * This is optimized for performance but can still be costly.

@@ -9,18 +9,24 @@ import {
   useState,
 } from 'react';
 
-import { useOnKeyDown } from '../../hooks';
+import { PopoverContext } from './Popover.context';
+import {
+  type UseFloatPositionOptions,
+  useCombinedRef,
+  useFloatPosition,
+  useOnKeyDown,
+} from '../../hooks';
 
 export interface PopoverGroupProps {
   /**Callback når det trykkes på lukkeknappen. */
   onCloseButtonClick?: () => void;
   /** Callback når det trykkes på anchor-elementet (trigger-elementet). */
   onTriggerClick?: () => void;
-  /**Forteller `<Popover />` om den skal være åpen.  */
+  /**Forteller `<Popover>` om den skal være åpen.  */
   isOpen?: boolean;
-  /** `id` til `<Popover />.` */
+  /** `id` til `<Popover>.` */
   popoverId?: string;
-  /** Barna til wrapperen: anchor-element som det første og `<Popover />` som det andre.  */
+  /** Barna til wrapperen: anchor-element som det første og `<Popover>` som det andre.  */
   children: ReactNode;
 }
 
@@ -35,6 +41,8 @@ export const PopoverGroup = ({
 
   const generatedId = useId();
   const uniquePopoverId = popoverId ?? `${generatedId}-popover`;
+  const [floatOptions, setFloatOptions] = useState<UseFloatPositionOptions>();
+  const { refs, styles: positionStyles } = useFloatPosition(null, floatOptions);
 
   const handleOnCloseButtonClick = () => {
     setOpen(false);
@@ -47,7 +55,8 @@ export const PopoverGroup = ({
   };
 
   const buttonRef = useRef<HTMLElement>(null);
-  const popoverRef = useRef<HTMLDivElement>(null);
+  const anchorRef = refs.setReference;
+  const combinedRef = useCombinedRef(buttonRef, anchorRef);
 
   useOnKeyDown(['Esc', 'Escape'], () => {
     if (open) {
@@ -57,31 +66,41 @@ export const PopoverGroup = ({
   });
 
   const handleClose = () => setOpen(false);
+  const isAnchorChild = (i: number): boolean => i === 0;
 
   const Children = ReactChildren.map(children, (child, childIndex) => {
     return (
       isValidElement(child) &&
-      (childIndex === 0
+      (isAnchorChild(childIndex)
         ? cloneElement(child as ReactElement, {
             'aria-haspopup': 'dialog',
             'aria-controls': uniquePopoverId,
             'aria-expanded': open,
             onClick: handleOnTriggerClick,
-            ref: buttonRef,
+            ref: combinedRef,
           })
         : cloneElement(child as ReactElement, {
             isOpen: open,
             'aria-hidden': !open,
-            id: uniquePopoverId,
             onCloseButtonClick: handleOnCloseButtonClick,
             anchorElement: buttonRef.current,
-            ref: popoverRef,
             onClose: handleClose,
           }))
     );
   });
 
-  return <>{Children}</>;
+  return (
+    <PopoverContext.Provider
+      value={{
+        floatStyling: positionStyles.floating,
+        setFloatOptions,
+        floatingRef: refs.setFloating,
+        popoverId: uniquePopoverId,
+      }}
+    >
+      {Children}
+    </PopoverContext.Provider>
+  );
 };
 
 PopoverGroup.displayName = 'PopoverGroup';
