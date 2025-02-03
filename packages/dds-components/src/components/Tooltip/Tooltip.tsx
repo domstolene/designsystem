@@ -143,29 +143,27 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         }),
     );
 
-    const containerProps = {
-      ...getBaseHTMLProps(id, cn(className, styles.container), htmlProps, rest),
-      style,
-      onMouseLeave: combineHandlers(closeTooltip, onMouseLeave),
-      onMouseOver: combineHandlers(openTooltip, onMouseOver),
-    };
-
-    const wrapperProps = {
-      id: uniqueTooltipId,
-      ref: combinedRef,
-      role: 'tooltip',
-      'aria-hidden': !open,
-      open: open && inView,
-      style: { ...positionStyles.floating },
-    };
-
     const openCn = open && inView ? 'open' : 'closed';
 
     return (
-      <div {...containerProps}>
+      <div
+        {...getBaseHTMLProps(
+          id,
+          cn(className, styles.container),
+          htmlProps,
+          rest,
+        )}
+        style={style}
+        onMouseLeave={combineHandlers(closeTooltip, onMouseLeave)}
+        onMouseOver={combineHandlers(openTooltip, onMouseOver)}
+      >
         {anchorElement}
         <Paper
-          {...wrapperProps}
+          id={uniqueTooltipId}
+          ref={combinedRef}
+          role="tooltip"
+          aria-hidden={!open}
+          style={{ ...positionStyles.floating }}
           elevation={1}
           border="subtle"
           className={cn(

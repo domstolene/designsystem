@@ -18,7 +18,7 @@ const TestComponent = () => {
   );
 };
 
-describe('<Popover />', () => {
+describe('<Popover>', () => {
   it('should have aria-controls attribute on trigger element', () => {
     render(<TestComponent />);
     const triggerElement = screen.getByRole('button');
@@ -137,5 +137,16 @@ describe('<Popover />', () => {
     await waitFor(() => {
       expect(elQuery).not.toBeInTheDocument();
     });
+  });
+
+  it('Anchor should get focus on open and Esc', async () => {
+    render(<TestComponent />);
+    const triggerButton = screen.getByRole('button');
+
+    await userEvent.keyboard('[Tab]');
+    await userEvent.keyboard('[Enter]');
+    await userEvent.keyboard('[Escape]');
+
+    expect(triggerButton).toHaveFocus();
   });
 });

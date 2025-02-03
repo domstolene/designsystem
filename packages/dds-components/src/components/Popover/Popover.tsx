@@ -1,11 +1,10 @@
 import { type Property } from 'csstype';
-import { type ReactNode, forwardRef } from 'react';
+import { type ReactNode, forwardRef, useEffect } from 'react';
 
 import styles from './Popover.module.css';
 import {
   type Placement,
   useCombinedRef,
-  useFloatPosition,
   useMountTransition,
   useOnClickOutside,
   useReturnFocusOnBlur,
@@ -21,6 +20,7 @@ import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
+import { usePopoverContext } from './Popover.context';
 
 export interface PopoverSizeProps {
   width?: Property.Width;
@@ -36,7 +36,7 @@ export type PopoverProps = BaseComponentPropsWithChildren<
   {
     /**Tittel. */
     title?: string | ReactNode;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Spesifiserer om `<Popover />` skal vises.
+    /** **OBS!** Propen settes automatisk av `<PopoverGroup>`. Spesifiserer om `<Popover>` skal vises.
      * @default false
      */
     isOpen?: boolean;
@@ -44,7 +44,7 @@ export type PopoverProps = BaseComponentPropsWithChildren<
      * @default true
      */
     withCloseButton?: boolean;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Anchor-elementet. */
+    /** **OBS!** Propen settes automatisk av `<PopoverGroup>`. Anchor-elementet. */
     anchorElement?: HTMLElement;
     /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet.
      * @default "bottom"
@@ -60,7 +60,7 @@ export type PopoverProps = BaseComponentPropsWithChildren<
     onBlur?: () => void;
     /**Custom størrelse. */
     sizeProps?: PopoverSizeProps;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Funksjon kjørt ved lukking. */
+    /** **OBS!** Propen settes automatisk av `<PopoverGroup>`. Funksjon kjørt ved lukking. */
     onClose?: () => void;
     /** Om focus skal returneres ved `blur`
      * @default true
@@ -84,19 +84,14 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       offset = 8,
       sizeProps,
       returnFocusOnBlur = true,
-      id,
       className,
       htmlProps = {},
       ...rest
     } = props;
     const hasTransitionedIn = useMountTransition(isOpen, 400);
 
-    const { refs, styles: floatingStyles } = useFloatPosition(null, {
-      placement,
-      offset,
-    });
-    // Use position from anchor element for the popover
-    refs.setReference(anchorElement || null);
+    const { floatStyling, setFloatOptions, floatingRef, popoverId } =
+      usePopoverContext();
 
     const popoverRef = useReturnFocusOnBlur(
       isOpen && hasTransitionedIn && returnFocusOnBlur,
@@ -107,7 +102,11 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       anchorElement && anchorElement,
     );
 
-    const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
+    const multiRef = useCombinedRef(ref, popoverRef, floatingRef);
+
+    useEffect(() => {
+      setFloatOptions && setFloatOptions({ placement, offset });
+    }, []);
 
     const elements: Array<HTMLElement | null> = [popoverRef.current!];
     if (anchorElement) elements.push(anchorElement);
@@ -118,17 +117,17 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       if (isOpen) onClose && onClose();
     });
 
+    const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
+
     return isOpen || hasTransitionedIn ? (
       <Paper
         {...getBaseHTMLProps(
-          id,
+          popoverId,
           cn(
             className,
             styles.container,
             utilStyles['visibility-transition'],
-            hasTransitionedIn && isOpen
-              ? utilStyles['visibility-transition--open']
-              : utilStyles['visibility-transition--closed'],
+            utilStyles[`visibility-transition--${openCn}`],
             focusStyles.focusable,
           ),
           htmlProps,
@@ -136,7 +135,11 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         )}
         ref={multiRef}
         tabIndex={-1}
-        style={{ ...htmlProps.style, ...floatingStyles.floating, ...sizeProps }}
+        style={{
+          ...htmlProps.style,
+          ...floatStyling,
+          ...sizeProps,
+        }}
         role="dialog"
         elevation={3}
         border="subtle"
