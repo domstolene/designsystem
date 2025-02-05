@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-design-tokens
 
+## 7.3.0
+
+### Minor Changes
+
+- ef5e73e: Legger til token for semi-bold font weight.
+
+### Patch Changes
+
+- 37be771: Justert typografistiler for public theme heading size medium-xxsmall.
+- 9997ed1: Fjerner ubrukte font size tokens.
+
 ## 7.2.0
 
 ### Minor Changes

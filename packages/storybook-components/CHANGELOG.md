@@ -1,5 +1,14 @@
 # @norges-domstoler/storybook-components
 
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies [ef5e73e]
+- Updated dependencies [37be771]
+- Updated dependencies [9997ed1]
+  - @norges-domstoler/dds-design-tokens@7.3.0
+
 ## 0.0.14
 
 ### Patch Changes
