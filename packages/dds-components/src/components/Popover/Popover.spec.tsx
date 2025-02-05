@@ -49,20 +49,20 @@ describe('<Popover>', () => {
     expect(popover).toBeInTheDocument();
   });
 
-  it('should render title when opened', async () => {
-    const title = 'title';
+  it('should render header when opened', async () => {
+    const header = 'header';
     render(
       <PopoverGroup>
         <Button>{buttonLabel}</Button>
-        <Popover title={title} />
+        <Popover header={header} />
       </PopoverGroup>,
     );
     const button = screen.getByText(buttonLabel);
 
     await userEvent.click(button);
 
-    const titleElement = screen.getByText(title);
-    expect(titleElement).toBeInTheDocument();
+    const headerElement = screen.getByText(header);
+    expect(headerElement).toBeInTheDocument();
   });
 
   it('should render content when opened', async () => {
@@ -94,31 +94,30 @@ describe('<Popover>', () => {
     });
   });
 
-  it('should run onclick event for closing button', async () => {
+  it('should run onOpen event', async () => {
     const event = vi.fn();
     render(
-      <PopoverGroup isOpen onCloseButtonClick={event}>
-        <Button />
-        <Popover withCloseButton />
-      </PopoverGroup>,
-    );
-
-    const closeButton = screen.getAllByRole('button')[1];
-
-    await userEvent.click(closeButton);
-
-    expect(event).toHaveBeenCalled();
-  });
-
-  it('should run onclick event for trigger element', async () => {
-    const event = vi.fn();
-    render(
-      <PopoverGroup onTriggerClick={event}>
+      <PopoverGroup onOpen={event}>
         <Button />
         <Popover />
       </PopoverGroup>,
     );
     const triggerButton = screen.getByRole('button');
+    await userEvent.click(triggerButton);
+    expect(event).toHaveBeenCalled();
+  });
+
+  it('should run onClose event', async () => {
+    const event = vi.fn();
+    render(
+      <PopoverGroup onClose={event}>
+        <Button />
+        <Popover />
+      </PopoverGroup>,
+    );
+    const triggerButton = screen.getByRole('button');
+    await userEvent.click(triggerButton);
+    expect(event).not.toHaveBeenCalled();
     await userEvent.click(triggerButton);
     expect(event).toHaveBeenCalled();
   });

@@ -15,6 +15,9 @@ interface PopoverContextType {
   >;
   floatingRef: (node: HTMLElement | null) => void;
   popoverId: string;
+  anchorEl: HTMLElement;
+  onClose: () => void;
+  isOpen: boolean;
 }
 
 export const PopoverContext = createContext<Partial<PopoverContextType>>({});
