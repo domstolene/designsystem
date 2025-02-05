@@ -6,7 +6,7 @@ _Denne PRen endrer..._
 
 ### Generelt
 
-- [ ] Lest [CONTRIBUTING.md](CONTRIBUTING.md)
+- [ ] Lest [CONTRIBUTING.md](https://github.com/domstolene/designsystem/blob/main/CONTRIBUTING.md)
 - [ ] Fikk tildelt oppgave i [Elsa Utvikling Jira](https://domstol.atlassian.net/jira/software/c/projects/ELSA1/boards/357)
 
 ### PR

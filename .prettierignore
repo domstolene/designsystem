@@ -1,2 +1,6 @@
 dist
 node_modules
+*.woff
+*.woff2
+*.png
+*.svg
