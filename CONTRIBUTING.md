@@ -98,25 +98,35 @@ Vi bruker ESLint.
 
 Installer gjerne [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
+Du kan velge i innstillinger om feil skal fikses ved lagring. Trykk `Ctrl + Shift + P`, søk på "Open User settings (JSON)" og ha med følgende:
+
+```json
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+```
+
 ### Kodeformatering
 
 Vi bruker Prettier. Du kan sjekke hvilke filer er feilformatert:
 
 ```shell
-pnpm prettier --check
+pnpm format:check
 ```
 
 Du kan rette filer med:
 
 ```shell
-pnpm prettier --write
+pnpm format:write
 ```
+
+Hvis resultatet viser filer du ikke har rørt er de mest sannsynligvis egentlig ikke feil; de vil forsvinne fra source control hvis du prøver å stage dem, og vil vises som fikset hvis du kjører kommandoen på nytt.
 
 #### VS Code
 
 Installer plugin [Prettier - code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
-I instillinger:
+I innstillinger:
 
 - Sett **Text Editor > Default formatter** til "Prettier - code formatter".
 - Sett **Text Editor > Formatting > Format on save mode** til "true".
