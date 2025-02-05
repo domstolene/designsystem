@@ -32,8 +32,6 @@ baseTokens['dds-font-style'] = jsonBase['dds-font-style'];
 export const TypographyGenerator = (theme: DdsTheme) => {
   const tokenSet = theme === 'core' ? jsonC : jsonP;
   const tokens: TokenTypographySemanticJsonObject = tokenSet['dds-font'];
-  const fontSizeReferenceTokens: TokenTypographyBaseJsonObject =
-    tokenSet['dds-font-size'];
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -54,19 +52,7 @@ export const TypographyGenerator = (theme: DdsTheme) => {
             return v;
           }
           const referenceKeys = splitReferenceKeys(v);
-
-          //To lag med referanse; bør endre JSON-strukturen for lettere henting
-          if (referenceKeys[0] === 'dds-font-size') {
-            const referenceValue =
-              fontSizeReferenceTokens[referenceKeys[1]].value;
-            const splitReferencedKeys = splitReferenceKeys(referenceValue);
-            const value =
-              baseTokens[splitReferencedKeys[0]][splitReferencedKeys[1]].value;
-            return value;
-          } else {
-            const value = baseTokens[referenceKeys[0]][referenceKeys[1]].value;
-            return value;
-          }
+          return baseTokens[referenceKeys[0]][referenceKeys[1]].value;
         });
 
         const tokenNameFont = `--dds-font-${key1}-${key2}`;

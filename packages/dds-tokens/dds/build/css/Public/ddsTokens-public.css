@@ -16,16 +16,9 @@
   --dds-font-size-x1: 1rem;
   --dds-font-size-x0-875: 0.875rem;
   --dds-font-size-x0-75: 0.75rem;
-  --dds-font-size-xxlarge: 4rem;
-  --dds-font-size-xlarge: 3rem;
-  --dds-font-size-large: 2rem;
-  --dds-font-size-medium: 1.5rem;
-  --dds-font-size-small: 1.25rem;
-  --dds-font-size-xsmall: 1.125rem;
-  --dds-font-size-xxsmall: 1rem;
-  --dds-font-size-xxxsmall: 0.875rem;
   --dds-font-weight-light: 300;
   --dds-font-weight-normal: 400;
+  --dds-font-weight-semi-bold: 500;
   --dds-font-weight-bold: 600;
   --dds-font-lineheight-x1: 1.5; /* Brukes på str ×1_25 og mindre  */
   --dds-font-lineheight-x2: 1.35; /* Brukes på str x1.5, ×2 og ×3  */
@@ -184,10 +177,10 @@
   --dds-font-body-small: 400 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with small button and input fields */
   --dds-font-body-medium: 400 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* standard body text, used with medium button and input fields */
   --dds-font-body-large: 400 1.25rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Used for large button and large search */
-  --dds-font-heading-xxsmall: 600 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h6 */
-  --dds-font-heading-xsmall: 600 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h5 */
-  --dds-font-heading-small: 600 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h4 */
-  --dds-font-heading-medium: 600 1.25rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h3 */
+  --dds-font-heading-xxsmall: 600 1rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h6 */
+  --dds-font-heading-xsmall: 600 1.125rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h5 */
+  --dds-font-heading-small: 600 1.25rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h4 */
+  --dds-font-heading-medium: 500 1.5rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Default h3 */
   --dds-font-heading-large: 400 clamp(1.5rem, 0.667rem + 2.222vw, 2rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default h2 */
   --dds-font-heading-xlarge: 300 clamp(2.5rem, 1.667rem + 2.222vw, 3rem)/1.35 'IBM Plex Sans', Arial, sans-serif; /* Default H1 */
   --dds-font-heading-xxlarge: 300 clamp(3rem, 1.333rem + 4.444vw, 4rem)/1.2 'IBM Plex Sans', Arial, sans-serif; /* Display or extra large page title (h1) */
