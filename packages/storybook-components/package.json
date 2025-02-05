@@ -1,7 +1,7 @@
 {
   "name": "@norges-domstoler/storybook-components",
   "private": true,
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Storybook components for use in the Elsa design system",
   "author": "Elsa team",
   "license": "MIT",
