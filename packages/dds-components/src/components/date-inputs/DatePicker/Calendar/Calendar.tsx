@@ -44,13 +44,15 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
     title,
   } = useCalendar(props, state);
 
-  const { onClose } = useContext(CalendarPopoverContext);
+  const { onClose, closeButtonRef } = useContext(CalendarPopoverContext);
 
   const closeOnKeyboardBlurBack: KeyboardEventHandler<HTMLButtonElement> = (
     event: KeyboardEvent<HTMLButtonElement>,
   ) => {
     if (event.key === 'Tab' && event.shiftKey === true) {
-      onClose();
+      if (!closeButtonRef?.current?.checkVisibility()) {
+        onClose();
+      }
     }
   };
 
