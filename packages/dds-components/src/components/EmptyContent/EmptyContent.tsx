@@ -6,28 +6,28 @@ import { Heading, type HeadingLevel, Paragraph } from '../Typography';
 
 export type EmptyContentProps = {
   /**Tittel - kort oppsummering. */
-  title?: string;
+  headerText?: string;
   /**Nivå på overskriften. Sørg for at den følger hierarkiet på siden.
    * @default 2
    */
-  titleHeadingLevel?: HeadingLevel;
+  headerHeadingLevel?: HeadingLevel;
   /**Melding - beskrivelse og forklaring på hvordan brukeren kan få innhold. Kan inneholde lenker og andre interaktive elementer. */
   message: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
 export function EmptyContent({
-  title,
+  headerText,
   message,
-  titleHeadingLevel = 2,
+  headerHeadingLevel = 2,
   className,
   ...rest
 }: EmptyContentProps) {
   return (
     <div {...rest} className={cn(className, styles.containter)}>
       <div className={styles.text}>
-        {title && (
-          <Heading level={titleHeadingLevel} typographyType="headingMedium">
-            {title}
+        {headerText && (
+          <Heading level={headerHeadingLevel} typographyType="headingMedium">
+            {headerText}
           </Heading>
         )}
         <Paragraph className={styles.message}>{message}</Paragraph>

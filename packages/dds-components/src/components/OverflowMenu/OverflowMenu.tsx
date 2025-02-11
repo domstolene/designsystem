@@ -1,13 +1,8 @@
-import { forwardRef, useEffect, useId } from 'react';
+import { forwardRef, useEffect } from 'react';
 
-import { OverflowMenuContextProvider } from './OverflowMenu.context';
+import { useOverflowMenuContext } from './OverflowMenu.context';
 import styles from './OverflowMenu.module.css';
-import {
-  useCombinedRef,
-  useFloatPosition,
-  useOnClickOutside,
-  useOnKeyDown,
-} from '../../hooks';
+import { useCombinedRef } from '../../hooks';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Paper } from '../helpers';
@@ -18,72 +13,34 @@ import { type OverflowMenuProps } from '.';
 export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
   (props, ref) => {
     const {
-      anchorRef,
-      onClose,
-      onToggle,
-      isOpen = false,
       placement = 'bottom-end',
-      id,
       offset = 2,
       className,
       htmlProps = {},
       ...rest
     } = props;
 
-    const { refs, styles: floatingStyles } = useFloatPosition(null, {
-      placement,
-      offset,
-    });
-
-    const combinedRef = useCombinedRef(ref, refs.setFloating);
+    const { isOpen, floatStyling, setFloatOptions, menuRef, menuId } =
+      useOverflowMenuContext();
 
     useEffect(() => {
-      anchorRef
-        ? refs.setReference(anchorRef.current)
-        : refs.setReference(null);
-    }, [anchorRef]);
-
-    useOnClickOutside(
-      [refs?.floating?.current, refs?.reference?.current as HTMLElement | null],
-      () => {
-        if (isOpen) {
-          onClose && onClose();
-          onToggle && onToggle();
-        }
-      },
-    );
-
-    useOnKeyDown(['Esc', 'Escape'], () => {
-      if (isOpen) {
-        onClose && onClose();
-        onToggle && onToggle();
-        anchorRef && anchorRef.current?.focus();
-      }
-    });
-
-    useOnKeyDown(['Tab'], () => {
-      if (isOpen) {
-        onClose && onClose();
-        onToggle && onToggle();
-      }
-    });
+      setFloatOptions?.({ placement, offset });
+    }, [placement, offset]);
 
     const { style = {}, ...restHTMLProps } = htmlProps;
-    const generatedId = useId();
+    const openCn = isOpen ? 'open' : 'closed';
 
     return (
       <Paper
-        ref={combinedRef}
+        ref={useCombinedRef(menuRef, ref)}
         {...getBaseHTMLProps(
-          id ?? `${generatedId}-overflowMenu`,
+          menuId,
           cn(
             className,
             styles.container,
             utilStyles.scrollbar,
             utilStyles['visibility-transition'],
-            isOpen
-              ? utilStyles['visibility-transition--open']
-              : utilStyles['visibility-transition--closed'],
+            utilStyles[`visibility-transition--${openCn}`],
           ),
           restHTMLProps,
           rest,
@@ -92,15 +49,9 @@ export const OverflowMenu = forwardRef<HTMLDivElement, OverflowMenuProps>(
         aria-hidden={!isOpen}
         border="default"
         elevation={1}
-        style={{ ...style, ...floatingStyles.floating }}
+        style={{ ...style, ...floatStyling }}
       >
-        <OverflowMenuContextProvider
-          isOpen={isOpen}
-          onToggle={onToggle}
-          onClose={onClose}
-        >
-          {props.children}
-        </OverflowMenuContextProvider>
+        {props.children}
       </Paper>
     );
   },

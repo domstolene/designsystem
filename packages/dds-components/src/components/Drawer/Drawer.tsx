@@ -2,11 +2,9 @@ import { type Property } from 'csstype';
 import {
   type MouseEvent,
   type ReactNode,
-  type RefObject,
   forwardRef,
   useContext,
   useEffect,
-  useId,
   useRef,
 } from 'react';
 import { createPortal } from 'react-dom';
@@ -17,10 +15,10 @@ import {
   useFocusTrap,
   useMountTransition,
   useOnClickOutside,
-  useOnKeyDown,
 } from '../../hooks';
 import {
   type BaseComponentPropsWithChildren,
+  type Size,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
@@ -36,8 +34,9 @@ import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
+import { useDrawerContext } from './Drawer.context';
 
-export type DrawerSize = 'small' | 'medium' | 'large';
+export type DrawerSize = Extract<Size, 'small' | 'medium' | 'large'>;
 export type DrawerPlacement = 'left' | 'right';
 export interface WidthProps {
   minWidth?: Property.MinWidth;
@@ -45,49 +44,43 @@ export interface WidthProps {
   width?: Property.Width;
 }
 
-export type DrawerProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  {
-    /**Størrelsen på `<Drawer>`.
-     * @default "small"
-     */
-    size?: DrawerSize;
-    /** Plasseringen til `<Drawer>`.
-     * @default "right"
-     */
-    placement?: DrawerPlacement;
-    /**Header for `<Drawer>`. Har default styling hvis verdien er en string. */
-    header?: string | ReactNode;
-    /**Spesifiserer om `<Drawer>` vises. **OBS!** nødvendig kun hvis `<DrawerGroup>` ikke er i bruk. */
-    isOpen?: boolean;
-    /**Funksjon kjørt ved lukking. **OBS!** nødvendig kun hvis `<DrawerGroup>` ikke er i bruk. */
-    onClose?: () => void;
-    /**Spesifiserer hvilken DOM node `<Drawer>` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` eller ref (skaper ikke ny DOM node).
-     * @default themeProviderRef
-     */
-    parentElement?: HTMLElement;
-    /**Custom props for breddehåndtering ved behov. */
-    widthProps?: WidthProps;
-    /**Ref til elementet som åpner `<Drawer>`.  **OBS!** nødvendig kun hvis `<DrawerGroup>` ikke er i bruk. */
-    triggerRef?: RefObject<HTMLElement>;
-    /**
-     * Om `<Drawer>` skal vises med backdrop som gråer ut bakgrunnen.
-     */
-    withBackdrop?: boolean;
-  }
+export type DrawerProps = Omit<
+  BaseComponentPropsWithChildren<
+    HTMLDivElement,
+    {
+      /**Størrelsen på `<Drawer>`.
+       * @default "small"
+       */
+      size?: DrawerSize;
+      /** Plasseringen til `<Drawer>`.
+       * @default "right"
+       */
+      placement?: DrawerPlacement;
+      /**Header for `<Drawer>`. Returnerer default `<Heading>` hvis verdien er en `string`. */
+      header?: string | ReactNode;
+      /**Spesifiserer hvilken DOM node `<Drawer>` skal ha som forelder via React portal.
+       * Brukes med f.eks `document.getElementById("id")` eller ref (skaper ikke ny DOM node).
+       * @default themeProviderRef
+       */
+      parentElement?: HTMLElement;
+      /**Custom props for breddehåndtering ved behov. */
+      widthProps?: WidthProps;
+      /**
+       * Om `<Drawer>` skal vises med backdrop som gråer ut bakgrunnen.
+       */
+      withBackdrop?: boolean;
+    }
+  >,
+  'id'
 >;
 
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   const {
     children,
-    onClose,
     header,
-    isOpen = false,
     placement = 'right',
     parentElement,
     size = 'small',
-    triggerRef,
-    id,
     className,
     htmlProps,
     widthProps,
@@ -95,20 +88,21 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
     ...rest
   } = props;
 
-  const generatedId = useId();
-  const uniqueId = id ?? `${generatedId}-drawer`;
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) {
+    throw new Error('Drawer must be used within a ThemeProvider');
+  }
+
+  const portalTarget = parentElement ?? themeContext?.el;
+
+  const { isOpen = false, onClose, drawerId, triggerEl } = useDrawerContext();
+
   const hasHeader = !!header;
-  const headerId = hasHeader ? `${uniqueId}-header` : undefined;
+  const headerId = hasHeader ? `${drawerId}-header` : undefined;
 
   const drawerRef = useFocusTrap<HTMLDivElement>(isOpen);
   const combinedRef = useCombinedRef(ref, drawerRef);
-
-  useOnKeyDown(['Esc', 'Escape'], () => {
-    if (isOpen) {
-      triggerRef && triggerRef.current?.focus();
-      onClose && onClose();
-    }
-  });
 
   useEffect(() => {
     if (withBackdrop) {
@@ -125,15 +119,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   const elements: Array<HTMLElement | null> = [
     drawerRef.current as HTMLElement,
   ];
-  if (triggerRef) elements.push(triggerRef.current);
-
-  const themeContext = useContext(ThemeContext);
-
-  if (!themeContext) {
-    throw new Error('Drawer must be used within a ThemeProvider');
-  }
-
-  const portalTarget = parentElement ?? themeContext?.el;
+  if (triggerEl) elements.push(triggerEl);
 
   useOnClickOutside(elements, () => {
     if (isOpen && !withBackdrop) {
@@ -159,7 +145,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
       role="dialog"
       tabIndex={-1}
       {...getBaseHTMLProps(
-        uniqueId,
+        drawerId,
         cn(
           className,
           styles.container,

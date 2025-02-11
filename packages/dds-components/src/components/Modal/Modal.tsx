@@ -37,19 +37,19 @@ import { Heading } from '../Typography';
 export type ModalProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /**Spesifiserer om modal skal vises. */
+    /**Spesifiserer om `<Modal>` skal åpnes. */
     isOpen?: boolean;
-    /**Funksjon kjørt ved lukking; Settes hvis modal skal være lukkbar. Legger en lukkeknapp i hjørnet og kjøres ved Esc-trykk, lukkeknappklikk og museklikk utenfor. */
+    /**Funksjon kjørt ved lukking; gjør at `<Modal>` blir lukkbar via: Esc-tast, klikk utenfor, klikk på dedikert lukkeknapp. */
     onClose?: () => void;
-    /**Spesifiserer hvilken DOM node `<Modal>` skal ha som forelder via React portal. Brukes med f.eks `document.getElementById("id")` eller ref (skaper ikke ny DOM node).
+    /**Fordeler DOM node for `<Modal>` via React portal. Brukes med f.eks `document.getElementById("id")` eller `ref` (skaper ikke ny DOM node).
      * @default themeProviderRef
      */
     parentElement?: HTMLElement;
-    /**Tittel/header i modal. Setter også `aria-labelledby`. */
+    /**Header i `<Modal>`. Returnerer default `<Heading>` ved `string`. Setter også `aria-labelledby`. */
     header?: string | ReactNode;
     /**Ref som brukes til returnering av fokus. */
     triggerRef?: RefObject<HTMLElement>;
-    /**Ref som skal motta fokus når Modal åpnes. Hvis utelatt blir Modal fokusert. */
+    /**Ref som skal motta fokus når `<Modal>` åpnes. Hvis utelatt blir `<Modal>` fokusert. */
     initialFocusRef?: RefObject<HTMLElement>;
     /** Gjør at innholdet kan scrolles */
     scrollable?: boolean;
@@ -79,7 +79,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
   const combinedRef = useCombinedRef(ref, modalRef);
   const handleClose = () => {
     if (onClose && isOpen) {
-      triggerRef && triggerRef.current?.focus();
+      triggerRef?.current?.focus();
       onClose();
     }
   };

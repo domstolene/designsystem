@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 import styles from './InternalHeader.module.css';
 import { type InternalHeaderProps } from './InternalHeader.types';
@@ -14,6 +14,7 @@ import {
   OverflowMenuButton,
   type OverflowMenuButtonProps,
   OverflowMenuDivider,
+  OverflowMenuGroup,
   OverflowMenuLink,
   type OverflowMenuLinkProps,
   OverflowMenuList,
@@ -38,23 +39,14 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     ...rest
   } = props;
 
-  const [contextMenuIsClosed, setContextMenuIsClosed] = useState(true);
   const [currentPage, setCurrentPage] = useState<string | undefined>(
     currentPageHref,
   );
 
-  const buttonRef = useRef<HTMLButtonElement>(null);
-
   const handleCurrentPageChange = (href: string) => {
     setCurrentPage(href);
-    onCurrentPageChange && onCurrentPageChange();
+    onCurrentPageChange?.();
   };
-
-  const handleContextMenuClick = () => {
-    setContextMenuIsClosed(!contextMenuIsClosed);
-  };
-
-  const onOveflowMenuClose = () => setContextMenuIsClosed(true);
 
   const hasNavigationElements = !!navItems && navItems.length > 0;
   const hasContextMenuElements =
@@ -142,67 +134,64 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               ],
           )}
         >
-          <Button
-            ref={buttonRef}
-            icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
-            purpose="tertiary"
-            onClick={handleContextMenuClick}
-            aria-haspopup="menu"
-            aria-expanded={!contextMenuIsClosed ? true : undefined}
-            aria-label="åpne meny"
-          />
-          <OverflowMenu
-            isOpen={!contextMenuIsClosed}
-            onClose={onOveflowMenuClose}
-            anchorRef={buttonRef}
-            className={styles['context-menu']}
-          >
-            {user && (
-              <OverflowMenuList>
-                {user.href ? (
-                  <OverflowMenuLink icon={PersonIcon} {...user} />
-                ) : (
-                  <OverflowMenuSpan icon={PersonIcon} {...user} />
-                )}
-              </OverflowMenuList>
-            )}
-            {hasNavInContextMenu && (
-              <nav
-                aria-label="sidenavigasjon"
-                className={cn(
-                  styles['nav--in-menu--small-screen'],
-                  styles[`nav--in-menu--small-screen-${smallScreenBreakpoint}`],
-                )}
-              >
+          <OverflowMenuGroup>
+            <Button
+              icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
+              purpose="tertiary"
+              aria-label="åpne meny"
+            />
+            <OverflowMenu className={styles['context-menu']}>
+              {user && (
                 <OverflowMenuList>
-                  {navItems.map(item => (
-                    <OverflowMenuLink {...item} />
-                  ))}
-                </OverflowMenuList>
-              </nav>
-            )}
-            {hasNavInContextMenu && hasContextMenuElements && (
-              <OverflowMenuDivider
-                className={cn(
-                  styles['menu-divider'],
-                  styles[`menu-divider--small-screen-${smallScreenBreakpoint}`],
-                )}
-              />
-            )}
-            {hasContextMenuElements && (
-              <OverflowMenuList>
-                {contextMenuItems.map(item => {
-                  return item.href ? (
-                    <OverflowMenuLink {...(item as OverflowMenuLinkProps)} />
+                  {user.href ? (
+                    <OverflowMenuLink icon={PersonIcon} {...user} />
                   ) : (
-                    <OverflowMenuButton
-                      {...(item as OverflowMenuButtonProps)}
-                    />
-                  );
-                })}
-              </OverflowMenuList>
-            )}
-          </OverflowMenu>
+                    <OverflowMenuSpan icon={PersonIcon} {...user} />
+                  )}
+                </OverflowMenuList>
+              )}
+              {hasNavInContextMenu && (
+                <nav
+                  aria-label="sidenavigasjon"
+                  className={cn(
+                    styles['nav--in-menu--small-screen'],
+                    styles[
+                      `nav--in-menu--small-screen-${smallScreenBreakpoint}`
+                    ],
+                  )}
+                >
+                  <OverflowMenuList>
+                    {navItems.map(item => (
+                      <OverflowMenuLink {...item} />
+                    ))}
+                  </OverflowMenuList>
+                </nav>
+              )}
+              {hasNavInContextMenu && hasContextMenuElements && (
+                <OverflowMenuDivider
+                  className={cn(
+                    styles['menu-divider'],
+                    styles[
+                      `menu-divider--small-screen-${smallScreenBreakpoint}`
+                    ],
+                  )}
+                />
+              )}
+              {hasContextMenuElements && (
+                <OverflowMenuList>
+                  {contextMenuItems.map(item => {
+                    return item.href ? (
+                      <OverflowMenuLink {...(item as OverflowMenuLinkProps)} />
+                    ) : (
+                      <OverflowMenuButton
+                        {...(item as OverflowMenuButtonProps)}
+                      />
+                    );
+                  })}
+                </OverflowMenuList>
+              )}
+            </OverflowMenu>
+          </OverflowMenuGroup>
         </div>
       )}
     </div>

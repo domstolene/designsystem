@@ -5,7 +5,7 @@ import { cn } from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
-import { useOverflowMenu } from '../OverflowMenu.context';
+import { useOverflowMenuContext } from '../OverflowMenu.context';
 import styles from '../OverflowMenu.module.css';
 import { type OverflowMenuButtonProps } from '../OverflowMenu.types';
 
@@ -26,8 +26,8 @@ export const OverflowMenuButton = forwardRef<
   const itemRef = useRef<HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
 
-  const { onToggle, onClose, registerItem, unregisterItem, focusedRef } =
-    useOverflowMenu();
+  const { onClose, registerItem, unregisterItem, focusedRef } =
+    useOverflowMenuContext();
 
   useEffect(() => {
     registerItem(itemRef);
@@ -49,9 +49,8 @@ export const OverflowMenuButton = forwardRef<
           focusStyles['focusable--inset'],
         )}
         onClick={e => {
-          onClick && onClick(e);
-          onClose && onClose();
-          onToggle && onToggle();
+          onClick?.(e);
+          onClose?.();
         }}
         {...rest}
         tabIndex={focusedRef === itemRef ? 0 : -1}

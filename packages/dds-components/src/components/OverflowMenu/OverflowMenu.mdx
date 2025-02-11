@@ -29,10 +29,10 @@ import * as OverflowMenuStories from './OverflowMenu.stories';
 OverflowMenu er en komponent som viser og skjuler en meny med handlinger og/eller lenker når brukeren trykker på en knapp - anchor-elementet. Den består følgende elementer:
 
 - **`<OverflowMenu>`** - selve menyen.
-- **Anchor-element** - valgfritt element som åpner menyen. `<OverflowMenu>` posisjoneres i forhold til anchor-elementet.
-- **`<OverflowMenuGroup>`** - wrapper som håndterer åpning, lukking, refs og universell utforming. Den skal ha `<OverflowMenu>` og anchor-element som barn. Ikke obligatorisk å bruke, men overnevnt må isåfall håndteres på eget ansvar.
+- **Anchor-element** - valgfritt element som åpner menyen, typisk en knapp. `<OverflowMenu>` posisjoneres i forhold til anchor-elementet.
+- **`<OverflowMenuGroup>`** - wrapper som håndterer åpning/lukking og universell utforming. Den skal ha `<OverflowMenu>` og anchor-element som barn. Obligatorisk å bruke.
 
-Menyen bygges med dedikerte subkomponenter. Følgende subkomponenter brukes som barn i `<OverflowMenu>`:
+Menyen bygges med dedikerte delkomponenter som barn i `<OverflowMenu>`:
 
 - **`<OverflowMenuList>`** - en liste med elementer.
 - **`<OverflowMenuButton>`** - knapp. Brukes som barn i `<OverflowMenuList>`.
@@ -41,63 +41,13 @@ Menyen bygges med dedikerte subkomponenter. Følgende subkomponenter brukes som 
 - **`<OverflowMenuListHeader>`** - overskift for en liste. Brukes over `<OverflowMenuList>`.
 - **`<OverflowMenuDivider>`** - divider som kan brukes som skille mellom lister.
 
-## Bruk
-
-<Source
-  code={`import { OverflowMenu, OverflowMenuGroup, Button } from '@norges-domstoler/dds-components';
-
-<OverflowMenuGroup>
-  <Button>Åpne meny</Button>
-  <OverflowMenu>
-    <OverflowMenuList>
-      <OverflowMenuListHeader>Overskrift</OverflowMenuListHeader>
-      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
-      <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
-    </OverflowMenuList>
-    <OverflowMenuDivider />
-    <OverflowMenuList>
-      <OverflowMenuListHeader>Overskrift</OverflowMenuListHeader>
-      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
-      <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
-    </OverflowMenuList>
-  </OverflowMenu>
-</OverflowMenuGroup>
-`} />
-
-### Uten `<OverflowMenuGroup>`
-
-<Source
-  code={`
-  import { OverflowMenu, Button } from '@norges-domstoler/dds-components';
-  import { useState, useRef } from 'react';
-
-const [isClosed, setIsClosed] = useState(true);
-const toggle = () => setIsClosed(!isClosed);
-const close = () => setIsClosed(true);
-const buttonRef = userRef(null);
-const id = 'id';
-
-<Button
-  ref={buttonRef}
-  aria-haspopup="menu"
-  aria-expanded={!isClosed ? true : undefined}
-  aria-controls={id}
->
-  Åpne meny
-</Button>
-<OverflowMenu isOpen={!isClosed} onClose={close} anchorRef={buttonRef} id={id}>
-  <OverflowMenuList>
-    <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
-    <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
-  </OverflowMenuList>
-</OverflowMenu>
-`} />
-
 ## Props
 
 ### OverflowMenu
 
-Hovedkomponenten `<OverflowMenu>`.
+Hovedkomponenten `<OverflowMenu>`. Kan brukes kontrollert eller ikke kontrollert.
+
+**OBS!** Støtter ikke `id`; se [OverflowMenuGroup](#overflowmenugroup).
 
 <Canvas>
   <Story of={OverflowMenuStories.Default} />
@@ -106,23 +56,13 @@ Hovedkomponenten `<OverflowMenu>`.
 
 ### OverflowMenuGroup
 
-En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<OverflowMenu>` ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu>` som andre barn. Ikke obligatorisk, men da må oppførsel osv. håndteres utenfor komponenten.
+En wrapper som håndterer åpning/lukking og universell utforming ut av boksen. Den skal ha anchor-elementet som første barn og `<OverflowMenu>` som andre barn. Obligatorisk å bruke.
 
 <ArgTypes of={OverflowMenuGroup} />
 
 ### OverflowMenuList
 
 Liste med elementer. Returnerer `<ul>`.
-
-### OverflowMenuListHeader
-
-Overskrift for en liste ved behov. Returnerer `<h2>` inni `<li>` for å opprettholde overskriftshierarki på siden. Brukes som barn i `<OverflowMenuList>`.
-
-### OverflowMenuDivider
-
-Skillelinje. Brukes mellom lister.
-
-<ArgTypes of={OverflowMenuDivider} />
 
 ### OverflowMenuButton
 
@@ -145,6 +85,80 @@ Statisk element. Returnerer `<span>` inni `<li>`. Brukes som barn i `<OverflowMe
 
 <ArgTypes of={OverflowMenuSpan} />
 Støtter også alle native props.
+
+### OverflowMenuListHeader
+
+Overskrift for en liste ved behov. Returnerer `<h2>` inni `<li>` for å opprettholde overskriftshierarki på siden. Brukes som barn i `<OverflowMenuList>`.
+
+### OverflowMenuDivider
+
+Skillelinje. Brukes mellom lister.
+
+<ArgTypes of={OverflowMenuDivider} />
+
+## Bruk
+
+<Source
+  code={`import { OverflowMenu, OverflowMenuGroup, Button } from '@norges-domstoler/dds-components';
+
+<OverflowMenuGroup>
+  <Button>Åpne meny</Button>
+  <OverflowMenu>
+    <OverflowMenuListHeader>Overskrift</OverflowMenuListHeader>
+    <OverflowMenuList>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+      <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
+    </OverflowMenuList>
+    <OverflowMenuDivider />
+    <OverflowMenuListHeader>Overskrift</OverflowMenuListHeader>
+    <OverflowMenuList>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+      <OverflowMenuLink href="/">Lenke</OverflowMenuLink>
+    </OverflowMenuList>
+  </OverflowMenu>
+</OverflowMenuGroup>
+`} />
+
+### Callbacks
+
+<Source
+  code={`import { OverflowMenu, OverflowMenuGroup, Button } from '@norges-domstoler/dds-components';
+
+const onClose = () => {
+//din kode
+};
+const onOpen = () => {
+//din kode
+};
+
+<OverflowMenuGroup onClose={onClose} onOpen={onOpen}>
+  <Button>Åpne meny</Button>
+  <OverflowMenu>
+    <OverflowMenuList>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+    </OverflowMenuList>
+  </OverflowMenu>
+</OverflowMenuGroup>
+`} />
+
+### Kontrollert
+
+<Source
+  code={`import { OverflowMenu, OverflowMenuGroup, Button } from '@norges-domstoler/dds-components';
+
+const [isOpen, setIsOpen] = useState(false);
+
+<OverflowMenuGroup isOpne={isOpen} isetIsOpen={setIsOpen}>
+  <Button>Åpne meny</Button>
+  <OverflowMenu>
+    <OverflowMenuList>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+      <OverflowMenuButton onClick={() => {}}>Handling</OverflowMenuButton>
+    </OverflowMenuList>
+  </OverflowMenu>
+</OverflowMenuGroup>
+`} />
 
 ## Eksempler
 

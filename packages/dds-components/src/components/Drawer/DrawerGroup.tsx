@@ -1,7 +1,9 @@
 import {
+  type Dispatch,
   Children as ReactChildren,
   type ReactElement,
   type ReactNode,
+  type SetStateAction,
   cloneElement,
   isValidElement,
   useId,
@@ -9,41 +11,71 @@ import {
   useState,
 } from 'react';
 
+import { DrawerContext } from './Drawer.context';
+import { useOnKeyDown } from '../../hooks';
+
 export interface DrawerGroupProps {
-  /**Barna til komponenten. */
+  /**Barna til komponenten: trigger-element og `<Drawer>`. */
   children: ReactNode;
-  /**`id` til `<Drawer />`. */
+  /**
+   * Om `<Drawer>` er åpen ved første render.
+   */
+  isInitiallyOpen?: boolean;
+  /**
+   * Implementerer kontrollert tilstand: om `<Drawer>` er åpen.
+   */
+  isOpen?: boolean;
+  /**
+   * Implementerer kontrollert tilstand: funksjon som kontrollerer `isOpen`.
+   */
+  setIsOpen?: Dispatch<SetStateAction<boolean>>;
+  /**`id` til `<Drawer>`. */
   drawerId?: string;
-  /**Ekstra logikk som kjøres når `<Drawer />` åpnes. */
+  /**Ekstra logikk som kjøres når `<Drawer>` åpnes. */
   onOpen?: () => void;
-  /**Ekstra logikk som kjøres når `<Drawer />` lukkes. */
+  /**Ekstra logikk som kjøres når `<Drawer>` lukkes. */
   onClose?: () => void;
 }
 
 export const DrawerGroup = ({
   children,
+  isInitiallyOpen,
+  isOpen: propIsOpen,
+  setIsOpen: propSetIsOpen,
   drawerId,
   onOpen,
   onClose,
 }: DrawerGroupProps) => {
+  const [internalIsOpen, internalSetIsOpen] = useState(isInitiallyOpen);
+  const [isOpen, setIsOpen] = [
+    propIsOpen ?? internalIsOpen,
+    propSetIsOpen ?? internalSetIsOpen,
+  ];
+
   const generatedId = useId();
   const uniqueDrawerId = drawerId ?? `${generatedId}-drawer`;
 
-  const buttonRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLElement>(null);
 
-  const [closed, setClosed] = useState(true);
-  const open = () => setClosed(false);
-  const close = () => setClosed(true);
+  const open = () => setIsOpen(true);
+  const close = () => setIsOpen(false);
 
   const handleOpen = () => {
     open();
-    onOpen && onOpen();
+    onOpen?.();
   };
 
   const handleClose = () => {
     close();
-    onClose && onClose();
+    onClose?.();
   };
+
+  useOnKeyDown(['Esc', 'Escape'], () => {
+    if (isOpen) {
+      triggerRef?.current?.focus();
+      handleClose();
+    }
+  });
 
   const Children = ReactChildren.map(children, (child, childIndex) => {
     return (
@@ -52,19 +84,25 @@ export const DrawerGroup = ({
         ? cloneElement(child as ReactElement, {
             'aria-haspopup': 'dialog',
             'aria-controls': uniqueDrawerId,
-            'aria-expanded': !closed,
-            ref: buttonRef,
+            'aria-expanded': isOpen,
+            ref: triggerRef,
             onClick: handleOpen,
           })
-        : cloneElement(child as ReactElement, {
-            id: uniqueDrawerId,
-            triggerRef: buttonRef,
-            isOpen: !closed,
-            onClose: handleClose,
-          }))
+        : child)
     );
   });
-  return <> {Children} </>;
+  return (
+    <DrawerContext.Provider
+      value={{
+        drawerId: uniqueDrawerId,
+        isOpen,
+        onClose: handleClose,
+        triggerEl: triggerRef.current,
+      }}
+    >
+      {Children}
+    </DrawerContext.Provider>
+  );
 };
 
 DrawerGroup.displayName = 'DrawerGroup';
