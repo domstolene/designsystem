@@ -1,24 +1,41 @@
 import {
+  type Dispatch,
   type ReactNode,
   type RefObject,
+  type SetStateAction,
   createContext,
   useContext,
   useEffect,
   useState,
 } from 'react';
 
-import { useRoveFocus } from '../../hooks';
+import {
+  type FloatingStyles,
+  type UseFloatPositionOptions,
+  useRoveFocus,
+} from '../../hooks';
 
 type FocusableElement = HTMLButtonElement | HTMLAnchorElement;
 
-interface OverflowMenuContextProps {
+interface CommonContextProps {
   isOpen: boolean;
-  onToggle?: () => void;
   onClose?: () => void;
+  menuRef?: (node: HTMLElement | null) => void;
+  menuId?: string;
+  floatStyling?: FloatingStyles;
+  setFloatOptions?: Dispatch<
+    SetStateAction<UseFloatPositionOptions | undefined>
+  >;
+}
+type OverflowMenuContextProps = CommonContextProps & {
   registerItem: (ref: RefObject<FocusableElement>) => void;
   unregisterItem: (ref: RefObject<FocusableElement>) => void;
   focusedRef?: RefObject<FocusableElement>;
-}
+};
+
+export type OverflowMenuContextProviderProps = CommonContextProps & {
+  children: ReactNode;
+};
 
 const OverflowMenuContext = createContext<OverflowMenuContextProps>({
   isOpen: false,
@@ -26,21 +43,12 @@ const OverflowMenuContext = createContext<OverflowMenuContextProps>({
   unregisterItem: () => null,
 });
 
-export interface OverflowMenuContextProviderProps {
-  isOpen: boolean;
-  onToggle?: () => void;
-  onClose?: () => void;
-  children: ReactNode;
-}
-
 export function OverflowMenuContextProvider({
-  isOpen,
-  onToggle,
-  onClose,
   children,
+  ...rest
 }: OverflowMenuContextProviderProps) {
   const [items, setItems] = useState<Array<RefObject<FocusableElement>>>([]);
-  const [focusIndex] = useRoveFocus(items.length, isOpen);
+  const [focusIndex] = useRoveFocus(items.length, rest.isOpen);
 
   useEffect(() => {
     items[focusIndex]?.current?.focus();
@@ -49,9 +57,7 @@ export function OverflowMenuContextProvider({
   return (
     <OverflowMenuContext.Provider
       value={{
-        isOpen,
-        onToggle,
-        onClose,
+        ...rest,
         registerItem: ref => setItems(prev => [...prev, ref]),
         unregisterItem: ref =>
           setItems(prev => prev.filter(item => item !== ref)),
@@ -63,6 +69,6 @@ export function OverflowMenuContextProvider({
   );
 }
 
-export const useOverflowMenu = () => {
+export const useOverflowMenuContext = () => {
   return useContext(OverflowMenuContext);
 };

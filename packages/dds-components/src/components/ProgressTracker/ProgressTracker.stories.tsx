@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
 import { Button } from '../Button';
-import { Drawer } from '../Drawer';
+import { Drawer, DrawerGroup } from '../Drawer';
 import { Fieldset } from '../Fieldset';
 import {
   ArrowRightIcon,
@@ -227,14 +227,41 @@ export const SmallScreen: Story = {
     return (
       <>
         <VStack align="left" gap="x1.5">
-          <Button
-            purpose="secondary"
-            onClick={() => setDrawerOpen(true)}
-            iconPosition="right"
-            icon={ChevronRightIcon}
-          >
-            Steg {activeStep + 1} av 4
-          </Button>
+          <DrawerGroup isOpen={isDrawerOpen} setIsOpen={setDrawerOpen}>
+            <Button
+              purpose="secondary"
+              iconPosition="right"
+              icon={ChevronRightIcon}
+            >
+              Steg {activeStep + 1} av 4
+            </Button>
+            <Drawer>
+              <ProgressTracker
+                {...args}
+                activeStep={activeStep}
+                onStepChange={step => {
+                  setDrawerOpen(false);
+                  setActiveStep(step);
+                }}
+              >
+                <ProgressTracker.Item completed={completedSteps.has(0)}>
+                  Parter med lang tekst
+                </ProgressTracker.Item>
+                <ProgressTracker.Item completed={completedSteps.has(1)}>
+                  Slutning
+                </ProgressTracker.Item>
+                <ProgressTracker.Item completed={completedSteps.has(2)}>
+                  Vedlegg
+                </ProgressTracker.Item>
+                <ProgressTracker.Item
+                  completed={completedSteps.has(3)}
+                  disabled
+                >
+                  Sammendrag
+                </ProgressTracker.Item>
+              </ProgressTracker>
+            </Drawer>
+          </DrawerGroup>
           {activeStep >= 0 && <div>Steg {activeStep + 1}</div>}
           <Button
             onClick={() => {
@@ -247,29 +274,6 @@ export const SmallScreen: Story = {
             Sett steg ferdig
           </Button>
         </VStack>
-        <Drawer isOpen={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
-          <ProgressTracker
-            {...args}
-            activeStep={activeStep}
-            onStepChange={step => {
-              setDrawerOpen(false);
-              setActiveStep(step);
-            }}
-          >
-            <ProgressTracker.Item completed={completedSteps.has(0)}>
-              Parter med lang tekst
-            </ProgressTracker.Item>
-            <ProgressTracker.Item completed={completedSteps.has(1)}>
-              Slutning
-            </ProgressTracker.Item>
-            <ProgressTracker.Item completed={completedSteps.has(2)}>
-              Vedlegg
-            </ProgressTracker.Item>
-            <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
-              Sammendrag
-            </ProgressTracker.Item>
-          </ProgressTracker>
-        </Drawer>
       </>
     );
   },
@@ -364,31 +368,29 @@ export const RealWorldRosponsiveExample: Story = {
       <div className="story-grid">
         <div>
           <div className="story-mobile">
-            <Button
-              purpose="secondary"
-              onClick={() => setProgressTrackerDrawerOpen(true)}
-              iconPosition="right"
-              icon={ChevronRightIcon}
+            <DrawerGroup
+              isOpen={progressTrackerDrawerOpen}
+              setIsOpen={setProgressTrackerDrawerOpen}
             >
-              Steg {activeStep + 1} av {steps.length}
-            </Button>
+              <Button
+                purpose="secondary"
+                iconPosition="right"
+                icon={ChevronRightIcon}
+              >
+                Steg {activeStep + 1} av {steps.length}
+              </Button>
+              <Drawer>
+                <ProgressTracker
+                  {...args}
+                  activeStep={activeStep}
+                  onStepChange={newStep => setActiveStep(newStep)}
+                >
+                  {stepItems}
+                </ProgressTracker>
+              </Drawer>
+            </DrawerGroup>
           </div>
           {formSteps[activeStep]}
-        </div>
-
-        <div className="story-mobile">
-          <Drawer
-            isOpen={progressTrackerDrawerOpen}
-            onClose={() => setProgressTrackerDrawerOpen(false)}
-          >
-            <ProgressTracker
-              {...args}
-              activeStep={activeStep}
-              onStepChange={newStep => setActiveStep(newStep)}
-            >
-              {stepItems}
-            </ProgressTracker>
-          </Drawer>
         </div>
         <div className="story-desktop">
           <ProgressTracker

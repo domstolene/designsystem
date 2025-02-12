@@ -41,7 +41,7 @@ function TestComponent({ link, item, span }: props) {
   );
 }
 
-describe('<OverflowMenu />', () => {
+describe('<OverflowMenu>', () => {
   it('should display context menu item as button', () => {
     render(<TestComponent item={item} />);
     const buttonElement = screen.getByRole('button');
@@ -70,10 +70,10 @@ describe('<OverflowMenu />', () => {
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');
   });
 
-  it('should call onToggle event on button click', async () => {
+  it('should call onClose event on button click', async () => {
     const event = vi.fn();
     render(
-      <OverflowMenuGroup onToggle={event}>
+      <OverflowMenuGroup onClose={event}>
         <Button />
         <OverflowMenu />
       </OverflowMenuGroup>,
@@ -81,7 +81,9 @@ describe('<OverflowMenu />', () => {
 
     const menuButton = screen.getByRole('button');
     await userEvent.click(menuButton);
+    expect(event).not.toBeCalled();
 
+    await userEvent.click(menuButton);
     expect(event).toBeCalled();
   });
 

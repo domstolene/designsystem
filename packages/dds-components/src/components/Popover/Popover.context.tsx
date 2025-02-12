@@ -1,4 +1,3 @@
-import { type Strategy } from '@floating-ui/react-dom';
 import {
   type Dispatch,
   type SetStateAction,
@@ -6,10 +5,10 @@ import {
   useContext,
 } from 'react';
 
-import { type UseFloatPositionOptions } from '../../hooks';
+import { type FloatingStyles, type UseFloatPositionOptions } from '../../hooks';
 
 interface PopoverContextType {
-  floatStyling: { position: Strategy; top: number; left: number };
+  floatStyling: FloatingStyles;
   setFloatOptions: Dispatch<
     SetStateAction<UseFloatPositionOptions | undefined>
   >;

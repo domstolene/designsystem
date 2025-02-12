@@ -60,7 +60,7 @@ export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
           iconPosition="left"
           className={styles.main}
         />
-        <OverflowMenuGroup onToggle={() => setIsOpen(!isOpen)}>
+        <OverflowMenuGroup isOpen={isOpen} setIsOpen={setIsOpen}>
           <Button
             {...buttonStyleProps}
             icon={isOpen ? ChevronUpIcon : ChevronDownIcon}

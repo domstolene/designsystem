@@ -47,14 +47,16 @@ export interface UseFloatPositionOptions {
   placement?: Placement;
 }
 
+export interface FloatingStyles {
+  position: Strategy;
+  top: number;
+  left: number;
+}
+
 interface UseFloatPosition {
   refs: UseFloatingReturn['refs'];
   styles: {
-    floating: {
-      position: Strategy;
-      top: number;
-      left: number;
-    };
+    floating: FloatingStyles;
     arrow:
       | {
           [x: string]: string | number;
