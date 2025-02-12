@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { type Placement } from '../../hooks';
 import { Button } from '../Button';
@@ -15,16 +16,16 @@ export default {
   argTypes: {
     withCloseButton: { control: 'boolean' },
     placement: { control: 'text' },
-    title: { control: 'text' },
+    header: { control: 'text' },
     offset: { control: 'number' },
+    returnFocusOnBlur: { control: 'boolean' },
     htmlProps: { control: false },
     sizeProps: { control: false },
-    anchorElement: { control: false },
   },
   parameters: {
     docs: {
       story: { inline: true, height: '300px' },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 } satisfies Meta<typeof Popover>;
@@ -56,7 +57,7 @@ export const ContentOverview: Story = {
       <div>
         <PopoverGroup>
           <Button>Åpne</Button>
-          <Popover {...args} title="Tittel">
+          <Popover {...args} header="Tittel">
             <VStack align="start">
               <Paragraph withMargins>
                 Dette er en popover med tittel, innhold og lukkeknapp
@@ -69,7 +70,7 @@ export const ContentOverview: Story = {
       <div>
         <PopoverGroup>
           <Button>Åpne</Button>
-          <Popover {...args} title="Tittel" withCloseButton={false}>
+          <Popover {...args} header="Tittel" withCloseButton={false}>
             <VStack align="start">
               <Paragraph withMargins>
                 Dette er en popover med tittel og innhold
@@ -136,6 +137,54 @@ export const PlacementOverview: Story = {
   },
 };
 
+export const Controlled: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+      <VStack>
+        åpen: {isOpen.toString()}
+        <PopoverGroup isOpen={isOpen} setIsOpen={setIsOpen}>
+          <Button>Åpne</Button>
+          <Popover {...args}>
+            <VStack align="start">
+              <Paragraph withMargins>
+                Dette er en popover med tekst og knapp
+              </Paragraph>
+              <Button>Klikk</Button>
+            </VStack>
+          </Popover>
+        </PopoverGroup>
+      </VStack>
+    );
+  },
+};
+
+export const WithOnOpenAndOnClose: Story = {
+  render: args => {
+    const [text, setText] = useState('aktiver Popover');
+    const onOpen = () => setText('Popover ble åpnet');
+    const onClose = () => setText('Popover ble lukket');
+
+    return (
+      <VStack>
+        {text}
+        <PopoverGroup onClose={onClose} onOpen={onOpen}>
+          <Button>Åpne</Button>
+          <Popover {...args}>
+            <VStack align="start">
+              <Paragraph withMargins>
+                Dette er en popover med tekst og knapp
+              </Paragraph>
+              <Button>Klikk</Button>
+            </VStack>
+          </Popover>
+        </PopoverGroup>
+      </VStack>
+    );
+  },
+};
+
 export const Overflow: Story = {
   render: args => (
     <PopoverGroup>
@@ -169,7 +218,7 @@ export const InlineExample: Story = {
         en redegjørelse fra{' '}
         <PopoverGroup>
           <InlineButton>advokatene</InlineButton>
-          <Popover {...args} title="Advokat">
+          <Popover {...args} header="Advokat">
             <Paragraph withMargins>Dette er en definisjon</Paragraph>
           </Popover>
         </PopoverGroup>{' '}

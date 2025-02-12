@@ -21,7 +21,7 @@ import * as PopoverStories from './Popover.stories';
 Komponenten består av tre elementer:
 
 - **`<Popover>`** - en komponent som dukker opp via museklikk på anchor-elementet.
-- **Anchor-element**, som er også et trigger-element. Et valgfritt interaktivt element, typisk en knapp, som åpner og lukker popover. Elementet får attributtene `onClick`, `ref`, `aria-haspopup` og `aria-controls` fra `<PopoverGroup>`.
+- **Anchor-element**, som er også et trigger-element. Et valgfritt interaktivt element, typisk en knapp, som åpner og lukker popover. Elementet får attributtene `onClick`, `ref`, `aria-haspopup` og `aria-controls` fra `<PopoverGroup>`; hvis disse attributter settes direkte på elementet blir de overskrevet.
 - **`<PopoverGroup>`** - wrapper for to barn: anchor-element `<Popover>`. Den håndterer oppførsel og universell utforming.
 
 ## Props

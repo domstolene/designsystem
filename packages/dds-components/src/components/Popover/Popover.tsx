@@ -6,7 +6,6 @@ import {
   type Placement,
   useCombinedRef,
   useMountTransition,
-  useOnClickOutside,
   useReturnFocusOnBlur,
 } from '../../hooks';
 import {
@@ -34,18 +33,12 @@ export interface PopoverSizeProps {
 export type PopoverProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /**Tittel. */
-    title?: string | ReactNode;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup>`. Spesifiserer om `<Popover>` skal vises.
-     * @default false
-     */
-    isOpen?: boolean;
+    /**Header. Bruker default semantisk heading hvis verdien er en `string`.  */
+    header?: string | ReactNode;
     /**Om lukkeknapp skal vises.
      * @default true
      */
     withCloseButton?: boolean;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup>`. Anchor-elementet. */
-    anchorElement?: HTMLElement;
     /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet.
      * @default "bottom"
      */
@@ -54,14 +47,10 @@ export type PopoverProps = BaseComponentPropsWithChildren<
      * @default 8
      */
     offset?: number;
-    /** Ekstra logikk kjørt når lukkeknappen trykkes. */
-    onCloseButtonClick?: () => void;
     /** Ekstra logikk kjørt når popover mister fokus. */
     onBlur?: () => void;
     /**Custom størrelse. */
     sizeProps?: PopoverSizeProps;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup>`. Funksjon kjørt ved lukking. */
-    onClose?: () => void;
     /** Om focus skal returneres ved `blur`
      * @default true
      */
@@ -72,13 +61,9 @@ export type PopoverProps = BaseComponentPropsWithChildren<
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (props, ref) => {
     const {
-      title,
-      isOpen = false,
+      header,
       withCloseButton = true,
       onBlur,
-      onCloseButtonClick,
-      onClose,
-      anchorElement,
       children,
       placement = 'bottom',
       offset = 8,
@@ -88,10 +73,18 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       htmlProps = {},
       ...rest
     } = props;
-    const hasTransitionedIn = useMountTransition(isOpen, 400);
 
-    const { floatStyling, setFloatOptions, floatingRef, popoverId } =
-      usePopoverContext();
+    const {
+      floatStyling,
+      setFloatOptions,
+      floatingRef,
+      popoverId,
+      onClose,
+      isOpen = false,
+      anchorEl,
+    } = usePopoverContext();
+
+    const hasTransitionedIn = useMountTransition(isOpen, 400);
 
     const popoverRef = useReturnFocusOnBlur(
       isOpen && hasTransitionedIn && returnFocusOnBlur,
@@ -99,23 +92,16 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         onClose && onClose();
         onBlur && onBlur();
       },
-      anchorElement && anchorElement,
+      anchorEl && anchorEl,
     );
 
     const multiRef = useCombinedRef(ref, popoverRef, floatingRef);
 
     useEffect(() => {
       setFloatOptions && setFloatOptions({ placement, offset });
-    }, []);
+    }, [placement, offset]);
 
-    const elements: Array<HTMLElement | null> = [popoverRef.current!];
-    if (anchorElement) elements.push(anchorElement);
-
-    const hasTitle = !!title;
-
-    useOnClickOutside(elements, () => {
-      if (isOpen) onClose && onClose();
-    });
+    const hasTitle = !!header;
 
     const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
 
@@ -144,21 +130,21 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         elevation={3}
         border="subtle"
       >
-        {title && (
-          <div className={styles.title}>
-            {typeof title === 'string' ? (
+        {header && (
+          <div className={styles.header}>
+            {typeof header === 'string' ? (
               <Heading level={2} typographyType="headingMedium">
-                {title}
+                {header}
               </Heading>
             ) : (
-              title
+              header
             )}
           </div>
         )}
         <div
           className={
             !hasTitle && withCloseButton
-              ? styles['content--closable--no-title']
+              ? styles['content--closable--no-header']
               : ''
           }
         >
@@ -169,7 +155,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             icon={CloseIcon}
             purpose="tertiary"
             size="small"
-            onClick={onCloseButtonClick}
+            onClick={onClose}
             aria-label="Lukk"
             className={styles['close-button']}
           />
