@@ -36,11 +36,11 @@
     "elsa"
   ],
   "scripts": {
-    "clean": "rm -r dist dds/build || :",
+    "clean": "rm -r dist build || :",
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "build:clean": "pnpm clean && pnpm build",
-    "build:tokens": "node ./dds/build.js"
+    "generate:tokens": "node build.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",

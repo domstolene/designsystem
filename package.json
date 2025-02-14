@@ -14,6 +14,7 @@
     "format:check": "prettier --check packages/**/src/** --cache",
     "format:write": "prettier --write packages/**/src/** --cache",
     "storybook": "storybook dev -p 6006",
+    "generate:tokens": "pnpm --filter @norges-domstoler/dds-design-tokens run generate:tokens",
     "build:storybook": "pnpm build && storybook build",
     "serve:storybook": "pnpx serve storybook-static",
     "changeset": "changeset",

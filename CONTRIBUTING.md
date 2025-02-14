@@ -453,13 +453,13 @@ pnpm --filter "@norges-domstoler/dds-design-tokens" add -D style-dictionary
 
 Designansvarlig i team Elsa oppdaterer tokens i Figma; dette vil generere en PR via integrasjon med GitHub. Videre skal man dra branchen lokalt og bygge styling-variabler i CSS, SCSS og TS.
 
-Bygg tokens fra `packages/dds-tokens/dds`:
+Generer stylingvariabler:
 
 ```Shell
-node build.js
+pnpm generate:tokens
 ```
 
-Genererte variabler ligger i `dds/build` organisert etter plattform.
+Genererte variabler ligger i `/build` organisert etter plattform.
 
 ## Release notes
 

@@ -28,13 +28,16 @@ StyleDictionary.registerFormat({
   format: customSCSSFormat,
 });
 
+const sourcePathBase = 'dds/tokens';
+const generatePathBase = 'generated-tokens';
+
 function getStyleDictionaryConfig(theme) {
   return {
-    source: ['tokens/Base.json', `tokens/${theme}.json`],
+    source: [`${sourcePathBase}/Base.json`, `${sourcePathBase}/${theme}.json`],
     preprocessors: ['tokens-studio'],
     platforms: {
       css: {
-        buildPath: `build/css/${theme}/`,
+        buildPath: `${generatePathBase}/css/${theme}/`,
         transformGroup: 'tokens-studio',
         transforms: ['name/kebab'],
         files: [
@@ -46,7 +49,7 @@ function getStyleDictionaryConfig(theme) {
         ],
       },
       js: {
-        buildPath: `build/js/${theme}/`,
+        buildPath: `${generatePathBase}/js/${theme}/`,
         transformGroup: 'tokens-studio',
         files: [
           {
@@ -58,7 +61,7 @@ function getStyleDictionaryConfig(theme) {
       },
       // Returnerer bare 1 fil da SCSS-variabler refererer til CSS-variabler
       scss: {
-        buildPath: `build/scss/`,
+        buildPath: `${generatePathBase}/scss/`,
         transformGroup: 'tokens-studio',
         transforms: ['name/kebab'],
         files: [
