@@ -9,7 +9,7 @@ function isBareModuleId(id) {
   return (
     !id.startsWith('.') &&
     !id.includes(path.join(process.cwd(), 'src')) &&
-    !id.includes(path.join(process.cwd(), 'dds'))
+    !id.includes(path.join(process.cwd(), 'generated-tokens'))
   );
 }
 
@@ -41,8 +41,8 @@ export default {
     commonjs(),
     copy({
       targets: [
-        { src: 'dds/build/css/**/**.css', dest: 'dist/css' },
-        { src: 'dds/build/scss/**/**.scss', dest: 'dist/scss' },
+        { src: 'generated-tokens/css/**/**.css', dest: 'dist/css' },
+        { src: 'generated-tokens/scss/**/**.scss', dest: 'dist/scss' },
       ],
     }),
   ],

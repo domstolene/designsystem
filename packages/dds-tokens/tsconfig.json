@@ -16,6 +16,6 @@
     "noImplicitThis": true,
     "noImplicitAny": true
   },
-  "include": ["dds", "src", "rollup.config.mjs", ".eslintrc.js"],
+  "include": ["build", "src", "rollup.config.mjs", ".eslintrc.js", "utils.js"],
   "exclude": ["node_modules", "dist"]
 }
