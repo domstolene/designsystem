@@ -1,6 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { InputStepper } from './InputStepper';
+import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 export default {
@@ -20,7 +22,7 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 } satisfies Meta<typeof InputStepper>;
@@ -33,48 +35,105 @@ export const Default: Story = {
   },
 };
 
+export const Sizes: Story = {
+  render: args => {
+    return (
+      <StoryHStack>
+        <InputStepper
+          {...args}
+          label="Medium"
+          step={1}
+          minValue={0}
+          maxValue={5}
+        />
+        <InputStepper
+          {...args}
+          label="Small"
+          step={1}
+          minValue={0}
+          maxValue={5}
+          componentSize="small"
+        />
+      </StoryHStack>
+    );
+  },
+};
+
 export const Overview: Story = {
   render: args => {
     return (
       <StoryHStack>
         <StoryVStack>
+          <InputStepper {...args} label="Label" />
           <InputStepper
             {...args}
-            label="Label"
+            label="Error"
             step={1}
             minValue={0}
             maxValue={5}
+            errorMessage="Feilmelding"
           />
           <InputStepper
             {...args}
-            label="Label"
+            label="Hjelpetekst"
             step={1}
             minValue={0}
             maxValue={5}
-            errorMessage="Error message"
+            tip="Hjelpetekst"
           />
         </StoryVStack>
         <StoryVStack>
           <InputStepper
             {...args}
-            label="Label"
+            label="ReadOnly"
             step={1}
             minValue={0}
             maxValue={5}
-            componentSize="small"
-            tip="Hjelp"
+            readOnly
           />
           <InputStepper
             {...args}
-            label="Label"
+            label="Disabled"
             step={1}
             minValue={0}
             maxValue={5}
-            errorMessage="Error message"
-            componentSize="small"
+            disabled
           />
         </StoryVStack>
       </StoryHStack>
+    );
+  },
+};
+export const Controlled: Story = {
+  render: args => {
+    const [value, setValue] = useState(4);
+
+    return (
+      <StoryVStack>
+        <InputStepper
+          {...args}
+          label="Label"
+          step={1}
+          minValue={0}
+          maxValue={5}
+          defaultValue={4}
+          value={value}
+          onChange={e => {
+            if (typeof e === 'number') {
+              setValue(e);
+            } else {
+              setValue(Number(e.target.value));
+            }
+          }}
+        />
+        <Button
+          onClick={() => {
+            setValue(0);
+          }}
+        >
+          Nullstill
+        </Button>
+      </StoryVStack>
     );
   },
 };

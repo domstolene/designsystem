@@ -1,19 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
 
 import { InputStepper } from './InputStepper';
+import { Button } from '../Button';
 
 describe('<InputStepper />', () => {
   it('should render two buttons', () => {
-    const label = 'label';
-    render(<InputStepper label={label} />);
+    render(<InputStepper />);
     const buttonElements = screen.getAllByRole('button');
     expect(buttonElements.length).toEqual(2);
   });
   it('should render text input', () => {
-    const label = 'label';
-    render(<InputStepper label={label} />);
+    render(<InputStepper />);
     const inputElement = screen.getByRole('textbox');
     expect(inputElement).toBeInTheDocument();
   });
@@ -41,7 +41,7 @@ describe('<InputStepper />', () => {
     const labelNode = screen.getByText(label);
     expect(labelNode.getAttribute('for')).toEqual(inputElementId);
   });
-  it('should have accessible description and invalid state when errorMessage provided', () => {
+  it('should have accessible description and invalid state when errorMessage is provided', () => {
     const errorMessage = 'this is an errorMessage';
     render(<InputStepper label="Label" errorMessage={errorMessage} />);
     expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
@@ -49,78 +49,104 @@ describe('<InputStepper />', () => {
     );
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
   });
+  it('should have accessible description when tip is provided', () => {
+    const tip = 'this is a tip';
+    render(<InputStepper label="Label" tip={tip} />);
+    expect(screen.getByRole('textbox')).toHaveAccessibleDescription(tip);
+  });
   it('should increment on click on plus button', async () => {
     const label = 'label';
     render(<InputStepper label={label} defaultValue={1} />);
-    let inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('1');
+    const inputField = screen.getByRole('textbox');
+    expect(inputField).toHaveValue('1');
     const button = screen.getByRole('button', { name: /Legg til Label/i });
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('2');
+    expect(inputField).toHaveValue('2');
   });
   it('should decrement on click on minus button', async () => {
     const label = 'label';
     render(<InputStepper label={label} defaultValue={1} />);
-    let inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('1');
+    const inputField = screen.getByRole('textbox');
+    expect(inputField).toHaveValue('1');
     const button = screen.getByRole('button', { name: /Trekk fra Label/i });
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('0');
+    expect(inputField).toHaveValue('0');
   });
   it('should not increment past the maxValue', async () => {
     const label = 'label';
     render(<InputStepper label={label} defaultValue={1} maxValue={3} />);
-    let inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('1');
+    const inputField = screen.getByRole('textbox');
+    expect(inputField).toHaveValue('1');
     const button = screen.getByRole('button', { name: /Legg til Label/i });
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('2');
+    expect(inputField).toHaveValue('2');
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('3');
+    expect(inputField).toHaveValue('3');
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('3');
+    expect(inputField).toHaveValue('3');
   });
   it('should not decrement past the minValue', async () => {
     const label = 'label';
     render(<InputStepper label={label} defaultValue={3} minValue={1} />);
-    let inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('3');
+    const inputField = screen.getByRole('textbox');
+    expect(inputField).toHaveValue('3');
     const button = screen.getByRole('button', { name: /Trekk fra Label/i });
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('2');
+    expect(inputField).toHaveValue('2');
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('1');
+    expect(inputField).toHaveValue('1');
     await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('1');
+    expect(inputField).toHaveValue('1');
   });
   it('should receive a typed user input', async () => {
     const label = 'label';
     render(<InputStepper label={label} />);
     const inputField = screen.getByRole('textbox');
-    let inputFieldValue = inputField.getAttribute('value');
-    expect(inputFieldValue).toEqual('0');
+    expect(inputField).toHaveValue('0');
     await userEvent.tripleClick(inputField);
     await userEvent.type(inputField, '5');
-    inputFieldValue = inputField.getAttribute('value');
-    console.log(inputFieldValue);
-    expect(inputFieldValue).toEqual('5');
+    expect(inputField).toHaveValue('5');
   });
-  it('should allow decrement to a negative number', async () => {
-    const label = 'label';
-    render(<InputStepper label={label} minValue={-2} />);
-    let inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('0');
-    const button = screen.getByRole('button', { name: /Trekk fra Label/i });
-    await userEvent.click(button);
-    inputFieldValue = screen.getByRole('textbox').getAttribute('value');
-    expect(inputFieldValue).toEqual('-1');
+  it.fails(
+    'should not allow initialization with negative numbers',
+    async () => {
+      render(<InputStepper minValue={-2} />);
+    },
+  );
+  it('should support controlledState', async () => {
+    const ControlledComponent = () => {
+      const [value, setValue] = useState(4);
+      return (
+        <div>
+          <InputStepper
+            label="Label"
+            step={1}
+            minValue={0}
+            maxValue={5}
+            defaultValue={4}
+            value={value}
+            onChange={e => {
+              if (typeof e === 'number') {
+                setValue(e);
+              } else {
+                setValue(Number(e.target.value));
+              }
+            }}
+          />
+          <Button
+            onClick={() => {
+              setValue(0);
+            }}
+          >
+            Nullstill
+          </Button>
+        </div>
+      );
+    };
+    render(<ControlledComponent />);
+    const inputField = screen.getByRole('textbox');
+    expect(inputField).toHaveValue('4');
+    await userEvent.click(screen.getByRole('button', { name: 'Nullstill' }));
+    expect(inputField).toHaveValue('0');
   });
 });

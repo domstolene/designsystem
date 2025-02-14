@@ -4,46 +4,55 @@ import { type BaseComponentProps, type Size } from '../../types';
 
 export type InputStepperSize = Extract<Size, 'small' | 'medium'>;
 
+export function isPositiveInteger(n: number): n is number {
+  return Number.isInteger(n) && n >= 0;
+}
+
 export type InputStepperProps = BaseComponentProps<
   HTMLInputElement,
   {
-    /**Id. */
-    id?: string;
-    /**Label */
-    label: string;
-    /**Label for minusknapp */
+    /**Ledetekst */
+    label?: string;
+    /**Ledetekst for minusknapp */
     decreaseButtonLabel?: string;
-    /**Label for plussknapp */
+    /**Ledetekst for plussknapp */
     increaseButtonLabel?: string;
-
     /**Størrelse.
      * @default 'medium'
      */
     componentSize?: InputStepperSize;
-    /**Formål.*/
-    /**Minimumsverdi
+    /**Minimumsverdi. Negative tall støttes ikke
      * @default 0
      */
     minValue?: number;
-    /**Maksimumsverdi
+    /**Maksimumsverdi. Negative tall støttes ikke
      * @default 10
      */
     maxValue?: number;
-    /**Steg
+    /**Steg. Negative tall støttes ikke
      * @default 1
      */
     step?: number;
     /**Startverdi
      * @default 0
      */
-    defaultValue?: number | undefined;
+    defaultValue?: number;
+    /**Disabeled
+     * @default false
+     */
+    disabled?: boolean;
+    /**ReadOnly
+     * @default false
+     */
+    readonly?: boolean;
+    /**Verdi */
+    value?: number;
     /** Funksjon for å håndtere onChange    */
     onChange?: (value: number) => void;
     /**Feilmelding */
     errorMessage?: string;
     /**Hjelpetekst */
     tip?: string;
-    htmlProps?: React.InputHTMLAttributes<HTMLInputElement>;
   } & InputHTMLAttributes<HTMLInputElement>,
-  Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultValue'>
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultValue' | 'onChange'>
 >;
