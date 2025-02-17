@@ -1,7 +1,9 @@
 import { type Story } from '@storybook/blocks';
 import { type Meta, type StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { Button } from '../Button';
+import { StoryVStack } from '../Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Paragraph } from '../Typography';
 
@@ -17,9 +19,8 @@ const meta: Meta<typeof Drawer> = {
     },
   },
   argTypes: {
-    isOpen: { control: false },
+    withBackdrop: { control: 'boolean' },
     htmlProps: { control: false },
-    triggerRef: { control: false },
     parentElement: { control: false },
     widthProps: { control: false },
   },
@@ -174,6 +175,62 @@ export const OverviewSizes: Story = {
       </DrawerGroup>
     </>
   ),
+};
+
+export const Controlled: Story = {
+  args: { header: 'Tittel' },
+  render: args => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <StoryVStack>
+        <span>Drawer er {isOpen ? 'åpen' : 'lukket'}.</span>
+        <DrawerGroup isOpen={isOpen} setIsOpen={setIsOpen}>
+          <Button>Åpne</Button>
+          <Drawer {...args}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+            <Button>Gjør noe</Button>
+          </Drawer>
+        </DrawerGroup>
+      </StoryVStack>
+    );
+  },
+};
+
+export const WithOnCloseAndOnOpen: Story = {
+  args: { header: 'Tittel' },
+  render: args => {
+    const [text, setText] = useState('Aktiver Drawer.');
+    const onClose = () => {
+      setText('onClose ble kalt.');
+    };
+    const onOpen = () => {
+      setText('onOpen ble kalt.');
+    };
+    return (
+      <StoryVStack>
+        <span>{text}</span>
+        <DrawerGroup onClose={onClose} onOpen={onOpen}>
+          <Button>Åpne</Button>
+          <Drawer {...args}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+            <Button>Gjør noe</Button>
+          </Drawer>
+        </DrawerGroup>
+      </StoryVStack>
+    );
+  },
 };
 
 export const LongContent: Story = {

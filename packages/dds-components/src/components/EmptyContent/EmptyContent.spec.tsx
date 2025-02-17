@@ -14,7 +14,7 @@ describe('<EmptyContent>', () => {
   it('should render title text', () => {
     const message = 'message';
     const title = 'title';
-    render(<EmptyContent message={message} title={title} />);
+    render(<EmptyContent message={message} headerText={title} />);
     expect(screen.getByText(title)).toBeInTheDocument();
   });
   it('should render message link', () => {

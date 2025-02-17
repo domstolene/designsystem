@@ -14,12 +14,13 @@ import * as DatePickerStories from './DatePicker.stories';
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?type=design&node-id=417%3A16&mode=design&t=yAZzSopZv7pOdHLa-1"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/date-inputs/DatePicker"
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-datepicker--default"
+  withBottomSpacing
 />
-
-## Props
 
 `DatePicker`-komponenten er implementert vha. [react-aria](https://react-spectrum.adobe.com/react-aria).
 For mer utfyllende dokumentasjon av props referrerer vi deg til [`DatePicker` dokumentasjon til react-aria](https://react-spectrum.adobe.com/react-aria/DatePicker.html#props).
+
+## Props
 
 <Canvas>
   <Story of={DatePickerStories.Default} />
@@ -67,3 +68,9 @@ const [value, setValue] = useState<Date>(new Date());
   onChange={d => setValue(calendarDateToNativeDate(d))}
 />
 `}/>
+
+## Liten skjerm
+
+Du kan sette brekkpunkt for når versjonen for mindre skjermer skal vises.
+
+<Canvas of={DatePickerStories.Responsive} />

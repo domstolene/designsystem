@@ -15,6 +15,7 @@ import {
 import { locale } from './constants';
 import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
+import { type ScreenSizeLiteral } from '../../helpers';
 import {
   type FocusableRef,
   useFocusManagerRef,
@@ -39,6 +40,10 @@ export interface DatePickerProps
    * Egendefinert bredde på komponenten.
    */
   width?: CSS.Properties['width'];
+  /**
+   * Brekkpunkt for å vise versjon for liten skjerm.
+   */
+  smallScreenBreakpoint?: ScreenSizeLiteral;
 }
 
 const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
@@ -52,6 +57,7 @@ export function _DatePicker(
     tip,
     style,
     width,
+    smallScreenBreakpoint,
     showWeekNumbers = true,
     ...props
   }: DatePickerProps,
@@ -69,6 +75,22 @@ export function _DatePicker(
     ref,
   );
 
+  const dateField = (
+    <DateField
+      {...fieldProps}
+      groupProps={groupProps}
+      ref={combinedRef}
+      componentSize={componentSize}
+      tip={tip}
+      label={props.label}
+      errorMessage={errorMessage}
+      buttonProps={buttonProps}
+      isOpen={state.isOpen}
+      style={style}
+      width={width}
+    />
+  );
+
   return (
     <I18nProvider locale={locale}>
       <CalendarPopover
@@ -76,22 +98,8 @@ export function _DatePicker(
         onClose={state.close}
         showWeekNumbers={showWeekNumbers}
       >
-        <CalendarPopoverAnchor>
-          <DateField
-            {...fieldProps}
-            groupProps={groupProps}
-            ref={combinedRef}
-            componentSize={componentSize}
-            tip={tip}
-            label={props.label}
-            errorMessage={errorMessage}
-            buttonProps={buttonProps}
-            isOpen={state.isOpen}
-            style={style}
-            width={width}
-          />
-        </CalendarPopoverAnchor>
-        <CalendarPopoverContent>
+        <CalendarPopoverAnchor>{dateField}</CalendarPopoverAnchor>
+        <CalendarPopoverContent smallScreenBreakpoint={smallScreenBreakpoint}>
           <Calendar {...calendarProps} />
         </CalendarPopoverContent>
       </CalendarPopover>

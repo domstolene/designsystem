@@ -33,7 +33,7 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
   const weeksInMonth = getWeeksInMonth(state.visibleRange.start, locale);
   const weekDays = ['Ma', 'Ti', 'On', 'To', 'Fr', 'Lø', 'Sø'];
 
-  const { showWeekNumbers } = useContext(CalendarPopoverContext);
+  const { showWeekNumbers, onClose } = useContext(CalendarPopoverContext);
 
   const typographyCn = [
     typographyStyles['body-xsmall'],
@@ -89,7 +89,12 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
               )}
               {datesInWeek.map((date, i) =>
                 date ? (
-                  <CalendarCell key={i} state={state} date={date} />
+                  <CalendarCell
+                    key={i}
+                    state={state}
+                    date={date}
+                    onClose={onClose}
+                  />
                 ) : (
                   <td key={i} />
                 ),

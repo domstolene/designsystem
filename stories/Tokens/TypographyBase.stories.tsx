@@ -2,6 +2,7 @@ import {
   FontFamilyGenerator,
   FontLetterSpacingGenerator,
   FontLineheightGenerator,
+  FontParagraphSpacingGenerator,
   FontSizeGenerator,
   FontStyleGenerator,
   FontWeightGenerator,
@@ -34,4 +35,8 @@ export const LineHeight = () => {
 
 export const LetterSpacing = () => {
   return <div style={wrapperStyle}> {FontLetterSpacingGenerator()}</div>;
+};
+
+export const ParagraphSpacing = () => {
+  return <div style={wrapperStyle}> {FontParagraphSpacingGenerator()}</div>;
 };

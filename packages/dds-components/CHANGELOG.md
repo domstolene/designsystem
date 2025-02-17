@@ -1,5 +1,46 @@
 # @norges-domstoler/dds-components
 
+## 19.0.0
+
+### Major Changes
+
+- 3ced0b0: Endrer navn på prop `title` til `headerText`, og `titleHeadingLevel` til `headerHeadingLevel` i `<EmptyContent>`. På denne måten unngår vi forvirring med nativ HTML `title` og standardiserer navngiving.
+- 2c0cfd7: Revamp av `<Popover>`-komponenten.
+
+  - Fjerner props `onCloseButtonClick` og `onTriggerClick`, legger til `onOpen` og `onClose` i `<PopoverGroup>`. På denne måten vil konsumentene kunne legge til callbacks basert på status på `<Popover>` uten å henge seg oppi detaljer rundt implementasjonen.
+  - Implementerer kontrollert tilstand. `<PopoverGroup>` kan nå ta inn `isOpen` og `setIsOpen` for å bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<Popover>` vises på første render. Propen var tidligere kalt `isOpen`, så nå skiller vi mellom initial og kontrollert tilstand.
+  - Bytter navn på `title` prop til `header` i `<Popover>`. Det er mer riktig, og i tillegg unngår vi forvirring der en konsument kan tro at vi mener native HTML `title`.
+  - Fjerner props fra `<Popover>` som ble satt av forelder: `isOpen`, `anchorElement`, `onClose`, og implementerer React Context istedet. Vi unngår dermed rotet med props konsumenter ikke "får lov" til å sette.
+  - Fjerner `onCloseButtonClick` fra `<Popover>`. Vi dropper støtte for callback på så detaljert oppførsel; det erstattes med `onOpen` og `onClose` i `<PopoverGroup>`.
+
+- 3ced0b0: Revamp av `<OverflowMenu>`.
+
+  - Fjerner prop `onToggle` i `<OverflowMenuGroup>`. Komponenten blir standardisert og bruke kun `onClose` og `onOpen`.
+  - Implementerer kontrollert tilstand. `<OverflowMenuGroup>` kan nå ta inn `isOpen` og `setIsOpen` props for bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<OverflowMenu>` vises på første render.
+  - Fjerner props fra `<OverflowMenu>` som ble satt av forelder: `isOpen`, `anchorRef`, `onClose`, `onToggle`, `id` og implementerer React Context istedet. Vi unngår dermed rotet med props konsumenter ikke "får lov" til å sette. `<OverflowMenuGroup>` er dermed obigatorisk å bruke.
+
+- 3ced0b0: Revamp av `<Drawer>`.
+
+  - Implementerer kontrollert tilstand. `<DrawerGroup>` kan nå ta inn `isOpen` og `setIsOpen` props for bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<Drawer>` vises på første render.
+  - Fjerner props fra `<Drawer>` som ble satt av forelder: `isOpen`, `triggerRef`, `onClose`, `id` og implementerer React Context istedet. Vi unngår dermed rotet med props konsumenter ikke "får lov" til å sette. `<DrawerGroup>` er dermed obigatorisk å bruke.
+
+### Minor Changes
+
+- 8f0f2d9: Støtte for "Legg til fane"-knapp i `<Tabs>` via `addTabButtonProps` prop.
+- 2b65802: Støtte for `smallScreenBreakpoint` prop i `<DatePicker>`; viser versjon for liten skjerm (kalender i modal) ved oppgitt brekkpunkt.
+
+## 18.3.0
+
+### Minor Changes
+
+- 2e48b80: Legger til `purpose`-prop i `<OverflowMenuListItemBaseProps>` som gir støtte for bruk av `danger`-farge på `<OverflowMenuButton>`, `<OverflowMenuLink>` og `<OverflowMenuSpan>`
+- 02e6910: Legger til ny variant av `<ToggleButton />`. Denne finnes nå i to størrelser `small` (default) og `xsmall`
+
+### Patch Changes
+
+- bc8eb1a: Tar i bruk nye z-index tokens i alle komponenter.
+  - @norges-domstoler/development-utils@1.3.1
+
 ## 18.2.0
 
 ### Minor Changes

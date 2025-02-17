@@ -1,7 +1,9 @@
 import {
+  type Dispatch,
   Children as ReactChildren,
   type ReactElement,
   type ReactNode,
+  type SetStateAction,
   cloneElement,
   isValidElement,
   useId,
@@ -9,79 +11,123 @@ import {
   useState,
 } from 'react';
 
-import { useOnKeyDown } from '../../hooks';
+import { PopoverContext } from './Popover.context';
+import {
+  type UseFloatPositionOptions,
+  useCombinedRef,
+  useFloatPosition,
+  useOnClickOutside,
+  useOnKeyDown,
+} from '../../hooks';
 
 export interface PopoverGroupProps {
-  /**Callback når det trykkes på lukkeknappen. */
-  onCloseButtonClick?: () => void;
-  /** Callback når det trykkes på anchor-elementet (trigger-elementet). */
-  onTriggerClick?: () => void;
-  /**Forteller `<Popover />` om den skal være åpen.  */
-  isOpen?: boolean;
-  /** `id` til `<Popover />.` */
-  popoverId?: string;
-  /** Barna til wrapperen: anchor-element som det første og `<Popover />` som det andre.  */
+  /** Barna til wrapperen: anchor-element som det første og `<Popover>` som det andre.  */
   children: ReactNode;
+  /**Forteller `<Popover>` om den skal være åpen på første render.  */
+  isInitiallyOpen?: boolean;
+  /**Implementerer kontrollert tilstand: forteller `<Popover>` om den skal være åpen.  */
+  isOpen?: boolean;
+  /**Implementerer kontrollert tilstand: funksjon for å kontrollere `isOpen`.  */
+  setIsOpen?: Dispatch<SetStateAction<boolean>>;
+  /**Callback når <Popover> åpnes. */
+  onOpen?: () => void;
+  /**Callback når <Popover> lukkes. */
+  onClose?: () => void;
+  /** `id` til `<Popover>.` */
+  popoverId?: string;
 }
 
 export const PopoverGroup = ({
-  isOpen = false,
-  onCloseButtonClick,
-  onTriggerClick,
+  isOpen: propIsOpen,
+  setIsOpen: propSetIsOpen,
+  onClose,
+  onOpen,
+  isInitiallyOpen = false,
   children,
   popoverId,
 }: PopoverGroupProps) => {
-  const [open, setOpen] = useState(isOpen);
+  const [internalIsOpen, internalSetIsOpen] = useState(isInitiallyOpen);
+
+  const open = propIsOpen ?? internalIsOpen;
+  const setOpen = propSetIsOpen ?? internalSetIsOpen;
 
   const generatedId = useId();
   const uniquePopoverId = popoverId ?? `${generatedId}-popover`;
+  const [floatOptions, setFloatOptions] = useState<UseFloatPositionOptions>();
+  const { refs, styles: positionStyles } = useFloatPosition(null, floatOptions);
 
-  const handleOnCloseButtonClick = () => {
+  const handleClose = () => {
     setOpen(false);
-    onCloseButtonClick && onCloseButtonClick();
+    onClose && onClose();
   };
 
-  const handleOnTriggerClick = () => {
-    setOpen(!open);
-    onTriggerClick && onTriggerClick();
+  const handleOpen = () => {
+    setOpen(true);
+    onOpen && onOpen();
+  };
+
+  const handleToggle = () => {
+    if (open) {
+      handleClose();
+    } else {
+      handleOpen();
+    }
   };
 
   const buttonRef = useRef<HTMLElement>(null);
+  const anchorRef = refs.setReference;
+  const combinedAnchorRef = useCombinedRef(buttonRef, anchorRef);
+
   const popoverRef = useRef<HTMLDivElement>(null);
+  const floatingRef = refs.setFloating;
+  const combinedPopoverRef = useCombinedRef(popoverRef, floatingRef);
 
   useOnKeyDown(['Esc', 'Escape'], () => {
     if (open) {
-      setOpen(false);
+      handleClose();
       buttonRef.current?.focus();
     }
   });
 
-  const handleClose = () => setOpen(false);
+  const elements: Array<HTMLElement | null> = [popoverRef.current!];
+  if (buttonRef.current) elements.push(buttonRef.current);
+
+  useOnClickOutside(elements, () => {
+    if (open) handleClose();
+  });
+
+  const isAnchorChild = (i: number): boolean => i === 0;
 
   const Children = ReactChildren.map(children, (child, childIndex) => {
     return (
       isValidElement(child) &&
-      (childIndex === 0
+      (isAnchorChild(childIndex)
         ? cloneElement(child as ReactElement, {
             'aria-haspopup': 'dialog',
             'aria-controls': uniquePopoverId,
             'aria-expanded': open,
-            onClick: handleOnTriggerClick,
-            ref: buttonRef,
+            onClick: handleToggle,
+            ref: combinedAnchorRef,
           })
-        : cloneElement(child as ReactElement, {
-            isOpen: open,
-            'aria-hidden': !open,
-            id: uniquePopoverId,
-            onCloseButtonClick: handleOnCloseButtonClick,
-            anchorElement: buttonRef.current,
-            ref: popoverRef,
-            onClose: handleClose,
-          }))
+        : child)
     );
   });
 
-  return <>{Children}</>;
+  return (
+    <PopoverContext.Provider
+      value={{
+        floatStyling: positionStyles.floating,
+        setFloatOptions,
+        floatingRef: combinedPopoverRef,
+        popoverId: uniquePopoverId,
+        onClose: handleClose,
+        isOpen: open,
+        anchorEl: buttonRef.current ?? undefined,
+      }}
+    >
+      {Children}
+    </PopoverContext.Provider>
+  );
 };
 
 PopoverGroup.displayName = 'PopoverGroup';

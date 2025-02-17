@@ -20,22 +20,24 @@ import * as DrawerStories from './Drawer.stories';
 
 Drawer bygges med følgende elementer:
 
-- **Trigger-element**: styrer en drawer, er typisk en knapp.
-- **`<Drawer>`**: er en komponent som vises når et trigger-element interageres med, vanligvis en knapp. `<Drawer>` kan ha valgfritt innhold.
-- **`<DrawerGroup>`**: håndterer lukking og åpning og gir både `<Drawer>` og trigger-elementet ARIA-attributter. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn. Subkomponenten er valgfri å bruke. Hvis den ikke brukes må oppførsel, referanser og ARIA-attributter håndteres utenfor komponentene på eget ansvar.
+- **`<Drawer>`**: er en komponent som vises når et trigger-element interageres med. `<Drawer>` kan ha valgfritt innhold.
+- **Trigger-element**: valgrfritt element som styrer `<Drawer>`, typisk en knapp.
+- **`<DrawerGroup>`**: håndterer lukking/åpning og universell utforming. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn.
 
 ## Props
 
 ### Drawer
 
-Hovedkomponenten.
+Hovedkomponenten. Den kan brukes kontrollert eller ikke kontrollert.
+
+**OBS!** Støtter ikke `id`; se [DrawerGroup](#drawergroup).
 
 <Canvas of={DrawerStories.Default} sourceState="shown" />
 <Controls of={DrawerStories.Default} />
 
 ### DrawerGroup
 
-En wrapper som håndterer åpning, lukking, ARIA og refs for trigger-elementet og `<Drawer>` ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn. Valgfri å bruke.
+En wrapper som håndterer åpning, lukking, ARIA og refs ut av boksen. Den skal ha trigger-elementet som første barn og `<Drawer>` som andre barn. Obligatorisk å bruke.
 
 <ArgTypes of={DrawerGroup} />
 
@@ -51,35 +53,35 @@ import { Drawer, DrawerGroup, Button } from '@norges-domstoler/dds-components';
 </DrawerGroup>
 `} />
 
-### Uten `<DrawerGroup>`
+### Callbacks
 
 <Source
   code={`
-import { Drawer, Button } from '@norges-domstoler/dds-components';
-import { useState, useRef } from 'react';
+import { Drawer, DrawerGroup, Button } from '@norges-domstoler/dds-components';
 
-const [closed, setClosed] = useState(true);
-const show = () => setClosed(false);
-const close = () => setClosed(true);
-const buttonRef = useRef(null);
-const id = 'id';
+const onClose = () => {
+//din kode
+};
+const onOpen = () => {
+//din kode
+};
 
-<Button
-  onClick={show}
-  ref={buttonRef}
-  aria-expanded={!closed}
-  aria-controls={id}
-  aria-haspopup="dialog"
->
-  Åpne
-</Button>
-<Drawer
-  header="Tittel"
-  id={id}
-  triggerRef={buttonRef}
-  isOpen={!closed}
-  onClose={onClose}
->
-  Innhold
-</Drawer>
+<DrawerGroup onClose={onClose} onOpen={onOpen}>
+  <Button>Åpne</Button>
+  <Drawer header="Tittel">Innhold</Drawer>
+</DrawerGroup>
+`} />
+
+### Kontrollert
+
+<Source
+  code={`
+import { Drawer, DrawerGroup, Button } from '@norges-domstoler/dds-components';
+
+const [isOpen, setIsOpen] = useState(false);
+
+<DrawerGroup isOpne={isOpen} isetIsOpen={setIsOpen}>
+  <Button>Åpne</Button>
+  <Drawer header="Tittel">Innhold</Drawer>
+</DrawerGroup>
 `} />

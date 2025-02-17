@@ -7,22 +7,22 @@ import {
   type CalendarState,
   type RangeCalendarState,
 } from '@react-stately/calendar';
-import { type KeyboardEvent, useContext, useRef } from 'react';
+import { type KeyboardEvent, useRef } from 'react';
 
 import { cn } from '../../../../utils';
 import { focusable } from '../../../helpers/styling/focus.module.css';
 import typographyStyles from '../../../Typography/typographyStyles.module.css';
 import styles from '../../common/DateInput.module.css';
-import { CalendarPopoverContext } from '../CalendarPopover';
 import { timezone } from '../constants';
 
 export type CellVariant = 'default' | 'selected' | 'unavailable';
 
 interface CalendarCellProps extends AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
+  onClose: () => void;
 }
 
-export function CalendarCell({ date, state }: CalendarCellProps) {
+export function CalendarCell({ date, state, onClose }: CalendarCellProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const {
     buttonProps,
@@ -36,8 +36,6 @@ export function CalendarCell({ date, state }: CalendarCellProps) {
   if (isDisabled) {
     return <td {...cellProps} />;
   }
-
-  const { onClose } = useContext(CalendarPopoverContext);
 
   const variant: CellVariant = isSelected
     ? 'selected'

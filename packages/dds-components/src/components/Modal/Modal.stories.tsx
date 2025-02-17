@@ -21,6 +21,8 @@ const meta: Meta<typeof Modal> = {
   argTypes: {
     header: { control: 'text' },
     parentElement: { control: false },
+    onClose: { control: false },
+    isOpen: { control: false },
     triggerRef: { control: false },
     initialFocusRef: { control: false },
     htmlProps: { control: false },
@@ -37,6 +39,7 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
+  args: { onClose: undefined },
   render: args => {
     const [closed, setClosed] = useState(true);
     const show = () => setClosed(false);
@@ -49,12 +52,7 @@ export const Default: Story = {
         <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
           Åpne
         </Button>
-        <Modal
-          {...args}
-          triggerRef={buttonRef}
-          isOpen={!closed}
-          onClose={close}
-        >
+        <Modal {...args} triggerRef={buttonRef} isOpen={!closed}>
           <ModalBody>Modal</ModalBody>
           <ModalActions>
             <Button onClick={close}>OK</Button>
@@ -68,19 +66,14 @@ export const Default: Story = {
   },
 };
 
-export const Overview: Story = {
+export const Closable: Story = {
   args: { header: 'Tittel', onClose: undefined },
   render: args => {
     const [closed, setClosed] = useState(true);
     const show = () => setClosed(false);
     const close = () => setClosed(true);
 
-    const [closed2, setClosed2] = useState(true);
-    const show2 = () => setClosed2(false);
-    const close2 = () => setClosed2(true);
-
     const buttonRef = useRef<HTMLButtonElement>(null);
-    const buttonRef2 = useRef<HTMLButtonElement>(null);
 
     return (
       <StoryHStack>
@@ -93,23 +86,10 @@ export const Overview: Story = {
           triggerRef={buttonRef}
           onClose={close}
         >
-          <ModalBody>Lukkbar modal</ModalBody>
+          <ModalBody>Ikke lukkbar modal</ModalBody>
           <ModalActions>
             <Button onClick={close}>OK</Button>
             <Button purpose="secondary" onClick={close}>
-              Avbryt
-            </Button>
-          </ModalActions>
-        </Modal>
-        <Button aria-haspopup="dialog" onClick={show2} ref={buttonRef2}>
-          Åpne ikke lukkbar
-        </Button>
-        <Modal {...args} isOpen={!closed2} triggerRef={buttonRef2}>
-          <ModalBody>Ikke lukkbar modal</ModalBody>
-          <ModalActions>
-            <Button onClick={close2}>OK</Button>
-
-            <Button purpose="secondary" onClick={close2}>
               Avbryt
             </Button>
           </ModalActions>

@@ -8,12 +8,14 @@
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "test:components": "pnpm --filter @norges-domstoler/dds-components test",
     "lint": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs",
     "lint:fix": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs --fix",
     "lint:ci": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --config .eslintrc.ci.cjs",
-    "format:check": "prettier --check packages/**/src --cache",
-    "format:write": "prettier --write packages/**/src --cache",
+    "format:check": "prettier --check packages/**/src/** --cache",
+    "format:write": "prettier --write packages/**/src/** --cache",
     "storybook": "storybook dev -p 6006",
+    "generate:tokens": "pnpm --filter @norges-domstoler/dds-design-tokens run generate:tokens",
     "build:storybook": "pnpm build && storybook build",
     "serve:storybook": "pnpx serve storybook-static",
     "changeset": "changeset",
@@ -37,16 +39,16 @@
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
-    "@storybook/addon-a11y": "8.5.2",
-    "@storybook/addon-docs": "8.5.2",
-    "@storybook/addon-essentials": "8.5.2",
-    "@storybook/addon-links": "8.5.2",
-    "@storybook/addon-mdx-gfm": "8.5.2",
-    "@storybook/addon-storysource": "8.5.2",
-    "@storybook/blocks": "8.5.2",
-    "@storybook/core-common": "8.5.2",
-    "@storybook/react": "8.5.2",
-    "@storybook/react-vite": "8.5.2",
+    "@storybook/addon-a11y": "8.5.3",
+    "@storybook/addon-docs": "8.5.3",
+    "@storybook/addon-essentials": "8.5.3",
+    "@storybook/addon-links": "8.5.3",
+    "@storybook/addon-mdx-gfm": "8.5.3",
+    "@storybook/addon-storysource": "8.5.3",
+    "@storybook/blocks": "8.5.3",
+    "@storybook/core-common": "8.5.3",
+    "@storybook/react": "8.5.3",
+    "@storybook/react-vite": "8.5.3",
     "@testing-library/dom": "^10.4.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -55,13 +57,13 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-testing-library": "^7.1.1",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "storybook": "8.5.2",
-    "styled-components": "^6.1.14",
+    "storybook": "8.5.3",
+    "styled-components": "^6.1.15",
     "tsup": "^8.3.6",
-    "turbo": "^2.3.4"
+    "turbo": "^2.4.0"
   },
   "pnpm": {
     "overrides": {
@@ -76,7 +78,7 @@
     "pnpm": "9.15.3"
   },
   "dependencies": {
-    "@storybook/test": "8.5.2"
+    "@storybook/test": "8.5.3"
   },
   "packageManager": "pnpm@9.15.3"
 }

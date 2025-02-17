@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/dds-design-tokens",
-  "version": "7.1.0",
+  "version": "7.3.0",
   "description": "Design tokens used in Domstolenes designsystem",
   "author": "DDS team",
   "license": "MIT",
@@ -36,16 +36,16 @@
     "elsa"
   ],
   "scripts": {
-    "clean": "rm -r dist dds/build || :",
+    "clean": "rm -r dist build || :",
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "build:clean": "pnpm clean && pnpm build",
-    "build:tokens": "node ./dds/build.js"
+    "generate:tokens": "node build.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-node-resolve": "^16.0.0",
-    "@types/node": "^22.10.10",
+    "@types/node": "^22.13.1",
     "@tokens-studio/sd-transforms": "^1.2.9",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.5",

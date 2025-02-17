@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react';
+import { useState } from 'react';
 
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
@@ -20,13 +21,12 @@ export default {
   component: OverflowMenu,
   argTypes: {
     offset: { control: 'number' },
-    anchorRef: { control: false },
     htmlProps: { control: false },
   },
   parameters: {
     docs: {
       story: { height: '350px', inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 } satisfies Meta<typeof OverflowMenu>;
@@ -82,6 +82,65 @@ export const Default: Story = {
                 icon={TrashIcon}
                 purpose="danger"
               >
+                Slett
+              </OverflowMenuButton>
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
+  },
+};
+
+export const Controlled: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <VStack>
+        Menyen er {isOpen ? 'åpen' : 'lukket'}.
+        <OverflowMenuGroup isOpen={isOpen} setIsOpen={setIsOpen}>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+                icon={EditIcon}
+              >
+                Rediger
+              </OverflowMenuButton>
+              <OverflowMenuButton
+                onClick={() => {
+                  null;
+                }}
+                icon={TrashIcon}
+                purpose="danger"
+              >
+                Slett
+              </OverflowMenuButton>
+            </OverflowMenuList>
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
+  },
+};
+
+export const WithOnOpenAndOnClose: Story = {
+  render: args => {
+    const [text, setText] = useState('aktiver Popover');
+    const onOpen = () => setText('onOpen ble kalt');
+    const onClose = () => setText('onClose ble kalt');
+    return (
+      <VStack>
+        {text}.
+        <OverflowMenuGroup onOpen={onOpen} onClose={onClose}>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuButton icon={EditIcon}>Rediger</OverflowMenuButton>
+              <OverflowMenuButton icon={TrashIcon} purpose="danger">
                 Slett
               </OverflowMenuButton>
             </OverflowMenuList>
@@ -155,9 +214,7 @@ export const WithNavigation: Story = {
               <OverflowMenuList>
                 <OverflowMenuLink href="/">Link</OverflowMenuLink>
                 <OverflowMenuLink href="/">Link</OverflowMenuLink>
-                <OverflowMenuLink href="/" purpose="danger">
-                  Link
-                </OverflowMenuLink>
+                <OverflowMenuLink href="/">Link</OverflowMenuLink>
               </OverflowMenuList>
             </nav>
           </OverflowMenu>

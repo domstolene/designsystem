@@ -26,7 +26,7 @@ export type Placement =
   | 'left-start'
   | 'left-end';
 
-interface UseFloatPositionOptions {
+export interface UseFloatPositionOptions {
   /**
    * Whether to update the position of the floating element on every animation frame if required.
    * This is optimized for performance but can still be costly.
@@ -47,14 +47,16 @@ interface UseFloatPositionOptions {
   placement?: Placement;
 }
 
+export interface FloatingStyles {
+  position: Strategy;
+  top: number;
+  left: number;
+}
+
 interface UseFloatPosition {
   refs: UseFloatingReturn['refs'];
   styles: {
-    floating: {
-      position: Strategy;
-      top: number;
-      left: number;
-    };
+    floating: FloatingStyles;
     arrow:
       | {
           [x: string]: string | number;

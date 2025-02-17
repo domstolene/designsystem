@@ -6,11 +6,11 @@
     var(--dds-spacing-x1-5) var(--dds-spacing-x1);
 }
 
-.content--closable--no-title {
+.content--closable--no-header {
   margin-top: var(--dds-spacing-x2);
 }
 
-.title {
+.header {
   margin-right: var(--dds-spacing-x2);
 }
 

@@ -1,13 +1,11 @@
 import { type Property } from 'csstype';
-import { type ReactNode, forwardRef } from 'react';
+import { type ReactNode, forwardRef, useEffect } from 'react';
 
 import styles from './Popover.module.css';
 import {
   type Placement,
   useCombinedRef,
-  useFloatPosition,
   useMountTransition,
-  useOnClickOutside,
   useReturnFocusOnBlur,
 } from '../../hooks';
 import {
@@ -21,6 +19,7 @@ import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
+import { usePopoverContext } from './Popover.context';
 
 export interface PopoverSizeProps {
   width?: Property.Width;
@@ -34,18 +33,12 @@ export interface PopoverSizeProps {
 export type PopoverProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /**Tittel. */
-    title?: string | ReactNode;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Spesifiserer om `<Popover />` skal vises.
-     * @default false
-     */
-    isOpen?: boolean;
+    /**Header. Bruker default semantisk heading hvis verdien er en `string`.  */
+    header?: string | ReactNode;
     /**Om lukkeknapp skal vises.
      * @default true
      */
     withCloseButton?: boolean;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Anchor-elementet. */
-    anchorElement?: HTMLElement;
     /**Spesifiserer hvor komponenten skal plasseres i forhold til anchor-elementet.
      * @default "bottom"
      */
@@ -54,14 +47,10 @@ export type PopoverProps = BaseComponentPropsWithChildren<
      * @default 8
      */
     offset?: number;
-    /** Ekstra logikk kjørt når lukkeknappen trykkes. */
-    onCloseButtonClick?: () => void;
     /** Ekstra logikk kjørt når popover mister fokus. */
     onBlur?: () => void;
     /**Custom størrelse. */
     sizeProps?: PopoverSizeProps;
-    /** **OBS!** Propen settes automatisk av `<PopoverGroup />`. Funksjon kjørt ved lukking. */
-    onClose?: () => void;
     /** Om focus skal returneres ved `blur`
      * @default true
      */
@@ -72,31 +61,30 @@ export type PopoverProps = BaseComponentPropsWithChildren<
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (props, ref) => {
     const {
-      title,
-      isOpen = false,
+      header,
       withCloseButton = true,
       onBlur,
-      onCloseButtonClick,
-      onClose,
-      anchorElement,
       children,
       placement = 'bottom',
       offset = 8,
       sizeProps,
       returnFocusOnBlur = true,
-      id,
       className,
       htmlProps = {},
       ...rest
     } = props;
-    const hasTransitionedIn = useMountTransition(isOpen, 400);
 
-    const { refs, styles: floatingStyles } = useFloatPosition(null, {
-      placement,
-      offset,
-    });
-    // Use position from anchor element for the popover
-    refs.setReference(anchorElement || null);
+    const {
+      floatStyling,
+      setFloatOptions,
+      floatingRef,
+      popoverId,
+      onClose,
+      isOpen = false,
+      anchorEl,
+    } = usePopoverContext();
+
+    const hasTransitionedIn = useMountTransition(isOpen, 400);
 
     const popoverRef = useReturnFocusOnBlur(
       isOpen && hasTransitionedIn && returnFocusOnBlur,
@@ -104,31 +92,28 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         onClose && onClose();
         onBlur && onBlur();
       },
-      anchorElement && anchorElement,
+      anchorEl && anchorEl,
     );
 
-    const multiRef = useCombinedRef(ref, popoverRef, refs.setFloating);
+    const multiRef = useCombinedRef(ref, popoverRef, floatingRef);
 
-    const elements: Array<HTMLElement | null> = [popoverRef.current!];
-    if (anchorElement) elements.push(anchorElement);
+    useEffect(() => {
+      setFloatOptions && setFloatOptions({ placement, offset });
+    }, [placement, offset]);
 
-    const hasTitle = !!title;
+    const hasTitle = !!header;
 
-    useOnClickOutside(elements, () => {
-      if (isOpen) onClose && onClose();
-    });
+    const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
 
     return isOpen || hasTransitionedIn ? (
       <Paper
         {...getBaseHTMLProps(
-          id,
+          popoverId,
           cn(
             className,
             styles.container,
             utilStyles['visibility-transition'],
-            hasTransitionedIn && isOpen
-              ? utilStyles['visibility-transition--open']
-              : utilStyles['visibility-transition--closed'],
+            utilStyles[`visibility-transition--${openCn}`],
             focusStyles.focusable,
           ),
           htmlProps,
@@ -136,26 +121,30 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         )}
         ref={multiRef}
         tabIndex={-1}
-        style={{ ...htmlProps.style, ...floatingStyles.floating, ...sizeProps }}
+        style={{
+          ...htmlProps.style,
+          ...floatStyling,
+          ...sizeProps,
+        }}
         role="dialog"
         elevation={3}
         border="subtle"
       >
-        {title && (
-          <div className={styles.title}>
-            {typeof title === 'string' ? (
+        {header && (
+          <div className={styles.header}>
+            {typeof header === 'string' ? (
               <Heading level={2} typographyType="headingMedium">
-                {title}
+                {header}
               </Heading>
             ) : (
-              title
+              header
             )}
           </div>
         )}
         <div
           className={
             !hasTitle && withCloseButton
-              ? styles['content--closable--no-title']
+              ? styles['content--closable--no-header']
               : ''
           }
         >
@@ -166,7 +155,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
             icon={CloseIcon}
             purpose="tertiary"
             size="small"
-            onClick={onCloseButtonClick}
+            onClick={onClose}
             aria-label="Lukk"
             className={styles['close-button']}
           />
