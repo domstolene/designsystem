@@ -8,6 +8,7 @@
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "test:components": "pnpm --filter @norges-domstoler/dds-components test",
     "lint": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs",
     "lint:fix": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs --fix",
     "lint:ci": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --config .eslintrc.ci.cjs",

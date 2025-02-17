@@ -73,6 +73,20 @@ Du kan teste hele applikasjonen:
 pnpm test
 ```
 
+#### Komponenttesting
+
+Test kun dds-components:
+
+```Shell
+pnpm test:components
+```
+
+Kjør spesifikk testfil:
+
+```Shell
+pnpm test:components <KomponentNavn>.spec.tsx
+```
+
 ## Konvensjoner
 
 ### Språk
