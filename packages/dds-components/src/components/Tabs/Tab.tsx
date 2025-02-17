@@ -23,7 +23,6 @@ import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
-import { defaultTypographyType, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type TabProps = BaseComponentPropsWithChildren<
@@ -72,7 +71,7 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
 
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
-  const { tabContentDirection } = useTabsContext();
+  const { tabContentDirection, size } = useTabsContext();
 
   useEffect(() => {
     if (focus) {
@@ -105,9 +104,10 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
         cn(
           className,
           styles.tab,
+          styles[`tab--${size}--${tabContentDirection}`],
           active && styles['tab--active'],
           styles[`tab--${tabContentDirection}`],
-          typographyStyles[getTypographyCn(defaultTypographyType)],
+          typographyStyles[`body-${size}`],
           focusStyles['focusable--inset'],
         ),
         htmlProps,

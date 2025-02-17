@@ -9,7 +9,6 @@ import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { PlusIcon } from '../Icon/icons';
-import { defaultTypographyType, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type AddTabButtonProps = {
@@ -30,7 +29,7 @@ export const AddTabButton = forwardRef<HTMLButtonElement, AddTabButtonProps>(
 
     const buttonRef = useRef<HTMLButtonElement>(null);
     const combinedRef = useCombinedRef(ref, buttonRef);
-    const { tabContentDirection } = useTabsContext();
+    const { tabContentDirection, size } = useTabsContext();
 
     return (
       <button
@@ -40,7 +39,7 @@ export const AddTabButton = forwardRef<HTMLButtonElement, AddTabButtonProps>(
           className,
           styles.tab,
           styles[`tab--${tabContentDirection}`],
-          typographyStyles[getTypographyCn(defaultTypographyType)],
+          typographyStyles[`body-${size}`],
           focusStyles['focusable--inset'],
         )}
       >

@@ -44,25 +44,66 @@ export const Default: Story = {
   ),
 };
 
-export const Overview: Story = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Direction: Story = {
   render: args => (
     <StoryVStack>
-      <Tabs>
-        <TabList>
-          <Tab>Restriksjoner</Tab>
-          <Tab>Aktører</Tab>
-          <Tab>Logg</Tab>
-        </TabList>
-      </Tabs>
-      <Tabs>
+      <Tabs {...args}>
         <TabList>
           <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
           <Tab icon={NotificationsIcon}>Aktører</Tab>
           <Tab icon={NotificationsIcon}>Logg</Tab>
         </TabList>
       </Tabs>
-      <Tabs tabContentDirection="column">
+      <Tabs {...args} tabContentDirection="column">
+        <TabList>
+          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+          <Tab icon={NotificationsIcon}>Aktører</Tab>
+          <Tab icon={NotificationsIcon}>Logg</Tab>
+        </TabList>
+      </Tabs>
+    </StoryVStack>
+  ),
+};
+
+export const Sizes: Story = {
+  render: args => (
+    <StoryVStack>
+      <Tabs {...args}>
+        <TabList>
+          <Tab>Restriksjoner</Tab>
+          <Tab>Aktører</Tab>
+          <Tab>Logg</Tab>
+        </TabList>
+      </Tabs>
+      <Tabs {...args}>
+        <TabList>
+          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+          <Tab icon={NotificationsIcon}>Aktører</Tab>
+          <Tab icon={NotificationsIcon}>Logg</Tab>
+        </TabList>
+      </Tabs>
+      <Tabs {...args} tabContentDirection="column">
+        <TabList>
+          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+          <Tab icon={NotificationsIcon}>Aktører</Tab>
+          <Tab icon={NotificationsIcon}>Logg</Tab>
+        </TabList>
+      </Tabs>
+      <Tabs {...args} size="medium">
+        <TabList>
+          <Tab>Restriksjoner</Tab>
+          <Tab>Aktører</Tab>
+          <Tab>Logg</Tab>
+        </TabList>
+      </Tabs>
+      <Tabs {...args} size="medium">
+        <TabList>
+          <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
+          <Tab icon={NotificationsIcon}>Aktører</Tab>
+          <Tab icon={NotificationsIcon}>Logg</Tab>
+        </TabList>
+      </Tabs>
+      <Tabs {...args} size="medium" tabContentDirection="column">
         <TabList>
           <Tab icon={NotificationsIcon}>Restriksjoner</Tab>
           <Tab icon={NotificationsIcon}>Aktører</Tab>

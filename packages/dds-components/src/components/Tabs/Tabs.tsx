@@ -14,13 +14,18 @@ import styles from './Tabs.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
+  type Size,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
 
+export type TabSize = Extract<Size, 'small' | 'medium'>;
+
 export type TabsProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
+    /**Størrelse på hver `<Tab>`. */
+    size?: TabSize;
     /** Indeksen til den aktive fanen. **OBS!** Ved å sette denne vil brukere aldri kunne endre tab uten at du også registrerer en `onChange`-lytter for å ta vare på aktiv tab utenfor komponenten. */
     activeTab?: number;
     /** Ekstra logikk ved endring av aktiv fane. */
@@ -43,6 +48,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
     activeTab,
     onChange,
     tabContentDirection = 'row',
+    size = 'small',
     addTabButtonProps,
     width,
     children,
@@ -80,6 +86,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
       value={{
         tabsId: uniqueId,
         activeTab: thisActiveTab,
+        size,
         handleTabChange,
         tabListRef,
         tabPanelsRef,
