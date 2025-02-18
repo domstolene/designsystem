@@ -123,7 +123,6 @@ describe('<InputStepper />', () => {
             step={1}
             minValue={0}
             maxValue={5}
-            defaultValue={4}
             value={value}
             onChange={e => {
               if (typeof e === 'number') {

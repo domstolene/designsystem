@@ -9,13 +9,20 @@ export default {
   title: 'dds-components/InputStepper',
   component: InputStepper,
   argTypes: {
+    componentSize: { control: 'radio' },
     label: { control: 'text' },
     decreaseButtonLabel: { control: 'text' },
     increaseButtonLabel: { control: 'text' },
     maxValue: { control: 'number' },
     minValue: { control: 'number' },
     step: { control: 'number' },
+    defaultValue: { control: 'number' },
+    disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
     errorMessage: { control: 'text' },
+    tip: { control: 'text' },
+    value: { control: 'number' },
+    onChange: { control: false },
     htmlProps: { control: false },
   },
 
@@ -30,6 +37,7 @@ export default {
 type Story = StoryObj<typeof InputStepper>;
 
 export const Default: Story = {
+  args: {},
   render: args => {
     return <InputStepper {...args} label="Label" />;
   },
@@ -116,7 +124,6 @@ export const Controlled: Story = {
           step={1}
           minValue={0}
           maxValue={5}
-          defaultValue={4}
           value={value}
           onChange={e => {
             if (typeof e === 'number') {

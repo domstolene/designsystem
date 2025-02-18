@@ -37,14 +37,14 @@ export type InputStepperProps = BaseComponentProps<
      * @default 0
      */
     defaultValue?: number;
-    /**Disabeled
+    /**Disabled
      * @default false
      */
     disabled?: boolean;
     /**ReadOnly
      * @default false
      */
-    readonly?: boolean;
+    readOnly?: boolean;
     /**Verdi */
     value?: number;
     /** Funksjon for å håndtere onChange    */

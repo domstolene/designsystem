@@ -49,7 +49,9 @@ export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
       !isPositiveInteger(maxValue) ||
       !isPositiveInteger(step)
     ) {
-      throw new Error('InputStepper does not support negative numbers');
+      throw new Error(
+        'minValue, maxValue & step must be a non-negative integer',
+      );
     }
     const generatedId = useId();
     const uniqueId = id ?? `${generatedId}-inputStepper`;
@@ -61,8 +63,6 @@ export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
     const hasErrorMessage = !!errorMessage;
     const hasTip = !!tip;
     const hasMessage = hasErrorMessage || hasTip;
-    const isDisabled = disabled;
-    const isReadOnly = readOnly;
     const tipId = derivativeIdGenerator(uniqueId, 'tip');
     const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
@@ -93,112 +93,33 @@ export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ['--dds-input-stepper-width' as any]: width ? width : '85px',
     };
-    if (isDisabled) {
-      return (
-        <div className={cn(className)}>
-          <div>
-            <Label
-              htmlFor={uniqueId}
-              className={cn(inputStyles.label, rest)}
-              readOnly={readOnly}
-            >
-              {label}
-            </Label>
-          </div>
-          <div className={cn(styles['input-container'])}>
-            <StatefulInput
-              type="text"
-              disabled={disabled}
-              inputMode="numeric"
-              pattern="?[0-9]+"
-              id={uniqueId}
-              ref={ref}
-              style={{ ...style, ...styleVariables }}
-              componentSize={componentSize}
-              {...getBaseHTMLProps(
-                uniqueId,
-                cn(styles.textInput),
-                htmlProps,
-                rest,
-              )}
-              value={inputValue}
-              onChange={handleInput}
-              hasErrorMessage={hasErrorMessage}
-              aria-invalid={hasErrorMessage ? true : undefined}
-              aria-describedby={spaceSeparatedIdListGenerator([
-                hasErrorMessage ? errorMessageId : undefined,
-                hasTip ? tipId : undefined,
-              ])}
-            />
-          </div>
-          {hasMessage &&
-            renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-        </div>
-      );
-    } else if (isReadOnly) {
-      return (
-        <div className={cn(className)}>
-          <div>
-            <Label
-              readOnly
-              htmlFor={uniqueId}
-              className={cn(inputStyles.label, rest)}
-            >
-              {label}
-            </Label>
-          </div>
-          <div className={cn(styles['input-container'])}>
-            <StatefulInput
-              type="text"
-              readOnly={readOnly}
-              inputMode="numeric"
-              pattern="-?[0-9]+"
-              id={uniqueId}
-              ref={ref}
-              style={{ ...style, ...styleVariables }}
-              componentSize={componentSize}
-              {...getBaseHTMLProps(
-                uniqueId,
-                cn(styles.textInput),
-                htmlProps,
-                rest,
-              )}
-              value={inputValue}
-              onChange={handleInput}
-              hasErrorMessage={hasErrorMessage}
-              aria-invalid={hasErrorMessage ? true : undefined}
-              aria-describedby={spaceSeparatedIdListGenerator([
-                hasErrorMessage ? errorMessageId : undefined,
-                hasTip ? tipId : undefined,
-              ])}
-            />
-          </div>
-          {hasMessage &&
-            renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-        </div>
-      );
-    }
     return (
       <div className={cn(className)}>
         <div>
-          <Label htmlFor={uniqueId} className={cn(inputStyles.label, rest)}>
+          <Label
+            htmlFor={uniqueId}
+            readOnly={readOnly}
+            className={cn(inputStyles.label)}
+          >
             {label}
           </Label>
         </div>
         <div className={cn(styles['input-container'])}>
-          <Button
-            aria-label={decreaseButtonLabel ?? `Trekk fra ${label}`}
-            purpose="secondary"
-            size={componentSize}
-            icon={MinusIcon}
-            onClick={handleMinus}
-            className={cn(
-              inputStyles['input--medium'],
-              styles['stepButton--left'],
-              styles['stepButton'],
-            )}
-            aria-controls={uniqueId}
-          ></Button>
+          {readOnly || disabled ? null : (
+            <Button
+              aria-label={decreaseButtonLabel ?? `Trekk fra ${label}`}
+              purpose="secondary"
+              size={componentSize}
+              icon={MinusIcon}
+              onClick={handleMinus}
+              className={cn(
+                inputStyles['input--medium'],
+                styles['stepButton--left'],
+                styles['stepButton'],
+              )}
+              aria-controls={uniqueId}
+            ></Button>
+          )}
           <StatefulInput
             type="text"
             disabled={disabled}
@@ -223,15 +144,17 @@ export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
               hasTip ? tipId : undefined,
             ])}
           />
-          <Button
-            aria-label={increaseButtonLabel ?? `Legg til ${label}`}
-            purpose="secondary"
-            size={componentSize}
-            icon={PlusIcon}
-            onClick={handlePlus}
-            className={cn(styles['stepButton--right'], styles['stepButton'])}
-            aria-controls={uniqueId}
-          ></Button>
+          {readOnly || disabled ? null : (
+            <Button
+              aria-label={increaseButtonLabel ?? `Legg til ${label}`}
+              purpose="secondary"
+              size={componentSize}
+              icon={PlusIcon}
+              onClick={handlePlus}
+              className={cn(styles['stepButton--right'], styles['stepButton'])}
+              aria-controls={uniqueId}
+            ></Button>
+          )}
         </div>
         {hasMessage &&
           renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
