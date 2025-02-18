@@ -10,6 +10,7 @@ import styles from './Button.module.css';
 import { type ButtonProps, type ButtonSize } from './Button.types';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import { useButtonGroupContext } from '../ButtonGroup/ButtonGroup.context';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { invisible } from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
@@ -46,6 +47,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ...rest
     } = props;
 
+    const { purpose: groupPurpose, size: groupSize } = useButtonGroupContext();
+
     const hasLabel = !!children;
     const hasIcon = !!icon;
     const hasLabelAndIcon = hasIcon && hasLabel;
@@ -56,8 +59,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonCn = cn(
       className,
       styles.button,
-      styles[`button--${purpose}`],
-      styles[`button--${size}`],
+      styles[`button--${groupPurpose ? groupPurpose : purpose}`],
+      styles[`button--${groupSize ? groupSize : size}`],
       isTextButton && styles['just-text'],
       ...(hasLabelAndIcon
         ? [styles['with-text-and-icon'], styles[`with-icon-${iconPosition}`]]

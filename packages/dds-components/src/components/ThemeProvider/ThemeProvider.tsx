@@ -56,9 +56,7 @@ export function ThemeProvider({
         'dds-themed',
       )}
     >
-      <ThemeContext.Provider value={{ theme, el: element }}>
-        {children}
-      </ThemeContext.Provider>
+      <ThemeContext value={{ theme, el: element }}>{children}</ThemeContext>
     </div>
   );
 }

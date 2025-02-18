@@ -48,9 +48,9 @@ export type ModalProps = BaseComponentPropsWithChildren<
     /**Header i `<Modal>`. Returnerer default `<Heading>` ved `string`. Setter også `aria-labelledby`. */
     header?: string | ReactNode;
     /**Ref som brukes til returnering av fokus. */
-    triggerRef?: RefObject<HTMLElement>;
+    triggerRef?: RefObject<HTMLElement | null>;
     /**Ref som skal motta fokus når `<Modal>` åpnes. Hvis utelatt blir `<Modal>` fokusert. */
-    initialFocusRef?: RefObject<HTMLElement>;
+    initialFocusRef?: RefObject<HTMLElement | null>;
     /** Gjør at innholdet kan scrolles */
     scrollable?: boolean;
   }

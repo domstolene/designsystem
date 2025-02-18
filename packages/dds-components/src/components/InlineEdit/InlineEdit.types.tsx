@@ -27,7 +27,7 @@ export type InlineEditProps = {
   /**Callback for når verdien blir lagret. */
   onSetValue?: (value: string) => void;
   /** Ref til barnet. */
-  inputRef: RefObject<HTMLElement>;
+  inputRef: RefObject<HTMLElement | null>;
   /** Barn (inputelementet). */
   children: ReactNode;
   /**Spesifiserer om brukeren kan tømme inputfeltet. */

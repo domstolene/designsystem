@@ -21,7 +21,7 @@ import { focusable } from '../../helpers/styling/focus.module.css';
 import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table, type TableRowProps } from '../normal';
-import { Cell } from '../normal/Cell';
+import { Cell, type TableCellProps } from '../normal/Cell';
 import { useIsInTableHead } from '../normal/Head';
 import { Row } from '../normal/Row';
 import styles from '../normal/Table.module.css';
@@ -86,7 +86,7 @@ export const CollapsibleRow = forwardRef<HTMLTableRowElement, TableRowProps>(
                   {collapsedHeaderValues[index].content}
                 </DescriptionListTerm>
                 {isValidElement(child) &&
-                  cloneElement(child as ReactElement, {
+                  cloneElement(child as ReactElement<TableCellProps>, {
                     collapsibleProps: { isCollapsibleChild: true },
                   })}
               </Fragment>

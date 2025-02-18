@@ -27,7 +27,7 @@ export function TabWidthContextProvider({
   onChangeWidths,
 }: TabWidthContextProviderProps) {
   return (
-    <TabContext.Provider
+    <TabContext
       value={{
         updateWidth: (index, newWidth) => {
           onChangeWidths(prev => {
@@ -46,7 +46,7 @@ export function TabWidthContextProvider({
       }}
     >
       {children}
-    </TabContext.Provider>
+    </TabContext>
   );
 }
 

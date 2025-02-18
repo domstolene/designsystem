@@ -7,8 +7,8 @@ interface Tabs {
   activeTab: number;
   tabsId: string;
   handleTabChange: (index: number) => void;
-  tabListRef: RefObject<HTMLDivElement> | null;
-  tabPanelsRef: RefObject<HTMLDivElement> | null;
+  tabListRef: RefObject<HTMLDivElement | null> | null;
+  tabPanelsRef: RefObject<HTMLDivElement | null> | null;
   hasTabFocus: boolean;
   setHasTabFocus: (hasFocus: boolean) => void;
   tabContentDirection: Direction;
