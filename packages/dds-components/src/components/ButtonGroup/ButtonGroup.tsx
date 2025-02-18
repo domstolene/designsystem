@@ -2,13 +2,10 @@ import {
   type AriaRole,
   type ButtonHTMLAttributes,
   type HTMLAttributes,
-  Children as ReactChildren,
-  type ReactElement,
-  cloneElement,
   forwardRef,
-  isValidElement,
 } from 'react';
 
+import { ButtonGroupContext } from './ButtonGroup.context';
 import styles from './ButtonGroup.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -58,29 +55,21 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
       ...rest
     } = props;
 
-    const Children = ReactChildren.map(children, child => {
-      return (
-        isValidElement(child) &&
-        cloneElement(child as ReactElement, {
-          purpose: 'secondary',
-          size: buttonSize,
-        })
-      );
-    });
-
     return (
-      <div
-        ref={ref}
-        role={role}
-        {...getBaseHTMLProps(
-          id,
-          cn(className, styles.group, styles[`group--${direction}`]),
-          htmlProps,
-          rest,
-        )}
-      >
-        {Children}
-      </div>
+      <ButtonGroupContext value={{ size: buttonSize, purpose: 'secondary' }}>
+        <div
+          ref={ref}
+          role={role}
+          {...getBaseHTMLProps(
+            id,
+            cn(className, styles.group, styles[`group--${direction}`]),
+            htmlProps,
+            rest,
+          )}
+        >
+          {children}
+        </div>
+      </ButtonGroupContext>
     );
   },
 );

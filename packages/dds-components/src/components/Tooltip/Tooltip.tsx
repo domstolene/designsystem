@@ -1,10 +1,11 @@
 import { type Placement } from '@floating-ui/react-dom';
-import React, {
+import {
   type HTMLAttributes,
   Children as ReactChildren,
+  type ReactElement,
+  type Ref,
   cloneElement,
   forwardRef,
-  isValidElement,
   useEffect,
   useId,
   useRef,
@@ -19,7 +20,11 @@ import { Paper } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-type AnchorElement = React.ReactElement & React.RefAttributes<HTMLElement>;
+type AnchorElement = ReactElement<
+  HTMLAttributes<HTMLElement> & {
+    ref: Ref<HTMLElement>;
+  }
+>;
 
 type PickedHTMLAttributes = Pick<
   HTMLAttributes<HTMLDivElement>,
@@ -131,16 +136,13 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       }
     };
 
-    const anchorProps = children.props as HTMLAttributes<HTMLElement>;
-
     const anchorElement = ReactChildren.only(
-      isValidElement(children) &&
-        cloneElement(children, {
-          ref: refs.setReference,
-          onFocus: combineHandlers(openTooltip, anchorProps.onFocus),
-          onBlur: combineHandlers(closeTooltip, anchorProps.onBlur),
-          'aria-describedby': uniqueTooltipId,
-        }),
+      cloneElement(children, {
+        ref: refs.setReference,
+        onFocus: combineHandlers(openTooltip, children.props.onFocus),
+        onBlur: combineHandlers(closeTooltip, children.props.onBlur),
+        'aria-describedby': uniqueTooltipId,
+      }),
     );
 
     const openCn = open && inView ? 'open' : 'closed';

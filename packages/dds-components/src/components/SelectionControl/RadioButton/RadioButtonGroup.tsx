@@ -132,7 +132,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
         {label} {showRequiredMarker && <RequiredMarker />}
       </Typography>
       {renderInputMessage(tip, tipId)}
-      <RadioButtonGroupContext.Provider value={{ ...contextProps }}>
+      <RadioButtonGroupContext value={{ ...contextProps }}>
         <div
           role="radiogroup"
           aria-labelledby={uniqueGroupId}
@@ -142,7 +142,7 @@ const RadioButtonGroupInner = <T extends string | number = string>(
         >
           {children}
         </div>
-      </RadioButtonGroupContext.Provider>
+      </RadioButtonGroupContext>
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
     </div>
   );
@@ -152,7 +152,7 @@ export const RadioButtonGroup = forwardRef(RadioButtonGroupInner) as <
   T extends string | number = string,
 >(
   props: RadioButtonGroupProps<T> & { ref?: Ref<HTMLDivElement> },
-) => ReactElement;
+) => ReactElement<HTMLAttributes<HTMLDivElement>>;
 
 // @ts-expect-error TODO fix RadioButtonGroup type
 RadioButtonGroup.displayName = 'RadioButtonGroup';

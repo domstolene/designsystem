@@ -10,7 +10,7 @@ export type BreadcrumbProps =
   | HTMLAttributes<HTMLSpanElement>
   | AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const isAnchorTypographyProps = (
+export const isAnchorTypographyProps = (
   props: BreadcrumbProps,
 ): props is AnchorHTMLAttributes<HTMLAnchorElement> => {
   return (props as AnchorHTMLAttributes<HTMLAnchorElement>).href != undefined;

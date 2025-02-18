@@ -65,7 +65,7 @@ export function _DatePicker(
 ) {
   const state = useDatePickerState(props);
   const domRef = useFocusManagerRef(
-    refIsFocusable(forwardRef) ? forwardedRef : null,
+    refIsFocusable(forwardedRef) ? forwardedRef : null,
   );
   const ref = useRef<HTMLElement>(null);
   const combinedRef = useCombinedRef(ref, domRef);
@@ -75,22 +75,6 @@ export function _DatePicker(
     ref,
   );
 
-  const dateField = (
-    <DateField
-      {...fieldProps}
-      groupProps={groupProps}
-      ref={combinedRef}
-      componentSize={componentSize}
-      tip={tip}
-      label={props.label}
-      errorMessage={errorMessage}
-      buttonProps={buttonProps}
-      isOpen={state.isOpen}
-      style={style}
-      width={width}
-    />
-  );
-
   return (
     <I18nProvider locale={locale}>
       <CalendarPopover
@@ -98,7 +82,21 @@ export function _DatePicker(
         onClose={state.close}
         showWeekNumbers={showWeekNumbers}
       >
-        <CalendarPopoverAnchor>{dateField}</CalendarPopoverAnchor>
+        <CalendarPopoverAnchor>
+          <DateField
+            {...fieldProps}
+            groupProps={groupProps}
+            ref={combinedRef}
+            componentSize={componentSize}
+            tip={tip}
+            label={props.label}
+            errorMessage={errorMessage}
+            buttonProps={buttonProps}
+            isOpen={state.isOpen}
+            style={style}
+            width={width}
+          />
+        </CalendarPopoverAnchor>
         <CalendarPopoverContent smallScreenBreakpoint={smallScreenBreakpoint}>
           <Calendar {...calendarProps} />
         </CalendarPopoverContent>

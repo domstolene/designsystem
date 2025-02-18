@@ -30,14 +30,15 @@ import {
 import { CloseIcon } from '../../Icon/icons';
 import { ThemeContext } from '../../ThemeProvider';
 import styles from '../common/DateInput.module.css';
+import { type DateField } from './DateField/DateField';
 
 /**------------------------------------------------------------------------
  * CalendarPopover
  *------------------------------------------------------------------------*/
 
 interface CalendarPopoverContextValue {
-  anchorRef: RefObject<HTMLDivElement> | null;
-  closeButtonRef: RefObject<HTMLButtonElement> | null;
+  anchorRef: RefObject<HTMLDivElement | null> | null;
+  closeButtonRef: RefObject<HTMLButtonElement | null> | null;
   isOpen: boolean;
   onClose: () => void;
   showWeekNumbers: boolean;
@@ -68,11 +69,11 @@ export const CalendarPopover = ({
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   useOnKeyDown('Escape', onClose);
   return (
-    <CalendarPopoverContext.Provider
+    <CalendarPopoverContext
       value={{ anchorRef, closeButtonRef, onClose, ...props }}
     >
       {children}
-    </CalendarPopoverContext.Provider>
+    </CalendarPopoverContext>
   );
 };
 
@@ -81,7 +82,7 @@ export const CalendarPopover = ({
  *------------------------------------------------------------------------*/
 
 interface CalendarPopoverAnchorProps {
-  children: ReactElement;
+  children: ReactElement<typeof DateField>;
 }
 
 export const CalendarPopoverAnchor = ({

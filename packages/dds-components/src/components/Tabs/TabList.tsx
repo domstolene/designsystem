@@ -11,6 +11,7 @@ import {
 } from 'react';
 
 import { AddTabButton } from './AddTabButton';
+import { type TabProps } from './Tab';
 import { useTabsContext } from './Tabs.context';
 import styles from './Tabs.module.css';
 import { TabWidthContextProvider } from './TabWidthContext';
@@ -44,9 +45,11 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
       ? Children.map(children, (child, index) => {
           return (
             isValidElement(child) &&
-            cloneElement(child as ReactElement, {
+            cloneElement(child as ReactElement<TabProps>, {
               id: `${tabsId}-tab-${index}`,
-              'aria-controls': `${tabsId}-panel-${index}`,
+              htmlProps: {
+                'aria-controls': `${tabsId}-panel-${index}`,
+              },
               active: activeTab === index,
               index,
               focus: focus === index && hasTabFocus,
@@ -56,12 +59,6 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           );
         })
       : [];
-
-    if (hasButton && tabListChildren) {
-      tabListChildren.push(
-        <AddTabButton index={tabListChildren.length} {...addTabButtonProps} />,
-      );
-    }
 
     const [widths, setWidths] = useState<Array<CSS.Properties['width']>>([]);
 
@@ -106,6 +103,12 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           style={{ ...style, ...customWidths }}
         >
           {tabListChildren}
+          {hasButton && (
+            <AddTabButton
+              index={tabListChildren ? tabListChildren.length : 0}
+              {...addTabButtonProps}
+            />
+          )}
         </div>
       </TabWidthContextProvider>
     );

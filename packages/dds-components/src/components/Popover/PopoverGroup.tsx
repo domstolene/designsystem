@@ -1,5 +1,7 @@
 import {
+  type DetailedHTMLProps,
   type Dispatch,
+  type HTMLAttributes,
   Children as ReactChildren,
   type ReactElement,
   type ReactNode,
@@ -102,19 +104,24 @@ export const PopoverGroup = ({
     return (
       isValidElement(child) &&
       (isAnchorChild(childIndex)
-        ? cloneElement(child as ReactElement, {
-            'aria-haspopup': 'dialog',
-            'aria-controls': uniquePopoverId,
-            'aria-expanded': open,
-            onClick: handleToggle,
-            ref: combinedAnchorRef,
-          })
+        ? cloneElement(
+            child as ReactElement<
+              DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+            >,
+            {
+              'aria-haspopup': 'dialog',
+              'aria-controls': uniquePopoverId,
+              'aria-expanded': open,
+              onClick: handleToggle,
+              ref: combinedAnchorRef,
+            },
+          )
         : child)
     );
   });
 
   return (
-    <PopoverContext.Provider
+    <PopoverContext
       value={{
         floatStyling: positionStyles.floating,
         setFloatOptions,
@@ -126,7 +133,7 @@ export const PopoverGroup = ({
       }}
     >
       {Children}
-    </PopoverContext.Provider>
+    </PopoverContext>
   );
 };
 

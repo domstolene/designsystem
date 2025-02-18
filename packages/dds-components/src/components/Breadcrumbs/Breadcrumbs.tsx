@@ -1,4 +1,4 @@
-import { Children, forwardRef, isValidElement } from 'react';
+import { Children, type ReactElement, forwardRef, isValidElement } from 'react';
 
 import styles from './Breadcrumbs.module.css';
 import {
@@ -16,7 +16,9 @@ import {
   OverflowMenuGroup,
   OverflowMenuLink,
   OverflowMenuList,
+  OverflowMenuSpan,
 } from '../OverflowMenu';
+import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -64,15 +66,25 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
 
     const breadcrumbChildrenTruncated =
       childrenArray.length > 2
-        ? childrenArray.slice(1, childrenArray.length - 1).map(item => {
-            if (isValidElement(item)) {
-              return (
-                <OverflowMenuLink href={item.props.href}>
-                  {item.props.children}
-                </OverflowMenuLink>
-              );
-            }
-          })
+        ? childrenArray
+            .slice(1, childrenArray.length - 1)
+            .map((item, index) => {
+              if (isValidElement(item)) {
+                const breadcrumb = item as ReactElement<BreadcrumbProps>;
+                if (isAnchorTypographyProps(breadcrumb.props)) {
+                  return (
+                    <OverflowMenuLink key={index} href={breadcrumb.props.href}>
+                      {breadcrumb.props.children}
+                    </OverflowMenuLink>
+                  );
+                } else
+                  return (
+                    <OverflowMenuSpan key={index}>
+                      {breadcrumb.props.children}
+                    </OverflowMenuSpan>
+                  );
+              }
+            })
         : [];
 
     const breadcrumbChildrenSmallScreen = (

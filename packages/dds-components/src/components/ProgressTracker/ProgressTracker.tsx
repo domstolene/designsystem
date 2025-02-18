@@ -14,7 +14,10 @@ import {
 
 import { ProgressTrackerContext } from './ProgressTracker.context';
 import styles from './ProgressTracker.module.css';
-import { ProgressTrackerItem } from './ProgressTrackerItem';
+import {
+  ProgressTrackerItem,
+  type ProgressTrackerItemProps,
+} from './ProgressTrackerItem';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -76,7 +79,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     }, [children]);
 
     return (
-      <ProgressTrackerContext.Provider
+      <ProgressTrackerContext
         value={{
           activeStep: thisActiveStep,
           handleStepChange: handleChange,
@@ -85,7 +88,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
         <div role="group" aria-label="progress" {...containerProps}>
           <ol className={styles.list}>{steps}</ol>
         </div>
-      </ProgressTrackerContext.Provider>
+      </ProgressTrackerContext>
     );
   });
 
@@ -109,7 +112,9 @@ function passIndexPropToProgressTrackerItem<TProps extends object>(
   );
 }
 
-const intersperseItemsWithConnector = (children: Array<ReactElement>) =>
+const intersperseItemsWithConnector = (
+  children: Array<ReactElement<ProgressTrackerItemProps>>,
+) =>
   Children.map(children, (child, index) => {
     if (index === 0) {
       return child;

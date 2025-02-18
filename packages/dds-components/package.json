@@ -52,14 +52,14 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.3",
     "autoprefixer": "^10.4.20",
     "csstype": "3.1.2",
     "jsdom": "^26.0.0",
     "postcss": "^8.5.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "tsup": "^8.3.6",
     "typed-css-modules": "^0.9.1",
     "typescript": "^5.7.3",
@@ -69,8 +69,8 @@
   "peerDependencies": {
     "@internationalized/date": "^3",
     "@norges-domstoler/dds-design-tokens": ">=5.0.0",
-    "react": "^16 || ^17 || ^18 || ^19",
-    "react-dom": "^16 || ^17 || ^18 || ^19"
+    "react": "^19",
+    "react-dom": "^19"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.2",

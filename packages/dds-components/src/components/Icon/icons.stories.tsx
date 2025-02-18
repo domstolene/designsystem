@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { type JSX, useEffect, useState } from 'react';
 
 import { Icon } from './Icon';
 import { CopyIcon } from './icons/copy';

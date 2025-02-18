@@ -10,6 +10,8 @@ import {
 } from 'react';
 
 import { type InlineEditProps } from './InlineEdit.types';
+import { type InlineInputProps } from './InlineInput';
+import { type InlineTextAreaProps } from './InlineTextArea';
 import { useOnClickOutside, useOnKeyDown } from '../../hooks';
 
 type EditElement = HTMLInputElement | HTMLTextAreaElement;
@@ -66,14 +68,17 @@ export const InlineEdit = (props: InlineEditProps) => {
 
   const inputChild = Children.only(
     isValidElement(children) &&
-      cloneElement(children as ReactElement, {
-        onChange: onChangeHandler,
-        onBlur: onBlurHandler,
-        onFocus: onFocusHandler,
-        isEditing,
-        value: editingValue,
-        emptiable,
-      }),
+      cloneElement(
+        children as ReactElement<InlineInputProps | InlineTextAreaProps>,
+        {
+          onChange: onChangeHandler,
+          onBlur: onBlurHandler,
+          onFocus: onFocusHandler,
+          isEditing,
+          value: editingValue,
+          emptiable,
+        },
+      ),
   );
 
   return <>{inputChild}</>;

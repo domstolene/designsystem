@@ -37,7 +37,7 @@ export const ToggleBar = <T extends string | number = string>(
   const labelId = label && `${uniqueId}-label`;
 
   return (
-    <ToggleBarContext.Provider
+    <ToggleBarContext
       value={{
         size: size,
         onChange: handleChange,
@@ -63,7 +63,7 @@ export const ToggleBar = <T extends string | number = string>(
         )}
         <div className={styles.bar}>{children}</div>
       </div>
-    </ToggleBarContext.Provider>
+    </ToggleBarContext>
   );
 };
 

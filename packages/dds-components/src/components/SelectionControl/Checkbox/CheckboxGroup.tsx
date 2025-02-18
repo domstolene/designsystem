@@ -84,7 +84,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         </Typography>
       ) : null}
       {renderInputMessage(tip, tipId)}
-      <CheckboxGroupContext.Provider value={{ ...contextProps }}>
+      <CheckboxGroupContext value={{ ...contextProps }}>
         <div
           role="group"
           aria-labelledby={uniqueGroupId}
@@ -93,7 +93,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         >
           {children}
         </div>
-      </CheckboxGroupContext.Provider>
+      </CheckboxGroupContext>
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
     </div>
   );
