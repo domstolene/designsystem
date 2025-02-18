@@ -1,4 +1,4 @@
-import { Children, forwardRef, isValidElement } from 'react';
+import { Children, type ReactElement, forwardRef, isValidElement } from 'react';
 
 import styles from './Breadcrumbs.module.css';
 import {
@@ -17,6 +17,7 @@ import {
   OverflowMenuLink,
   OverflowMenuList,
 } from '../OverflowMenu';
+import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -66,11 +67,14 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(
       childrenArray.length > 2
         ? childrenArray.slice(1, childrenArray.length - 1).map(item => {
             if (isValidElement(item)) {
-              return (
-                <OverflowMenuLink href={item.props.href}>
-                  {item.props.children}
-                </OverflowMenuLink>
-              );
+              const breadcrumb = item as ReactElement<BreadcrumbProps>;
+              if (isAnchorTypographyProps(breadcrumb.props)) {
+                return (
+                  <OverflowMenuLink href={breadcrumb.props.href}>
+                    {breadcrumb.props.children}
+                  </OverflowMenuLink>
+                );
+              }
             }
           })
         : [];
