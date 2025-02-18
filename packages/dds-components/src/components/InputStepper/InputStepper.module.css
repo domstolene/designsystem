@@ -1,0 +1,23 @@
+.input-container {
+  display: flex;
+}
+.textInput {
+  text-align: center;
+  border-radius: 0;
+  width: var(--dds-input-stepper-width);
+}
+.stepButton {
+  &:focus-visible {
+    z-index: 1;
+  }
+}
+.stepButton--left {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: -1px;
+}
+.stepButton--right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: -1px;
+}
