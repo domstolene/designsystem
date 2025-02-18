@@ -21,7 +21,7 @@ type BaseCardProps<T extends HTMLElement> = BaseComponentPropsWithChildren<
     appearance?: CardAppearance;
 
     /** Referanse til komponenten. */
-    cardRef?: RefObject<T>;
+    cardRef?: RefObject<T | null>;
   }
 >;
 

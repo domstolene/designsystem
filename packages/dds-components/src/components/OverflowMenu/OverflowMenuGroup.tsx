@@ -1,5 +1,7 @@
 import {
+  type DetailedHTMLProps,
   type Dispatch,
+  type HTMLAttributes,
   Children as ReactChildren,
   type ReactElement,
   type ReactNode,
@@ -103,13 +105,18 @@ export const OverflowMenuGroup = ({
     return (
       isValidElement(child) &&
       (childIndex === 0
-        ? cloneElement(child as ReactElement, {
-            'aria-haspopup': 'menu',
-            'aria-controls': uniqueOverflowMenuId,
-            'aria-expanded': isOpen,
-            onClick: handleToggle,
-            ref: combinedAnchorRef,
-          })
+        ? cloneElement(
+            child as ReactElement<
+              DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+            >,
+            {
+              'aria-haspopup': 'menu',
+              'aria-controls': uniqueOverflowMenuId,
+              'aria-expanded': isOpen,
+              onClick: handleToggle,
+              ref: combinedAnchorRef,
+            },
+          )
         : child)
     );
   });

@@ -15,7 +15,7 @@ interface AccordionContext {
   bodyProps: AccordionBodyProps;
   isExpanded: boolean;
   toggleExpanded: () => void;
-  bodyContentRef: RefObject<HTMLDivElement>;
+  bodyContentRef: RefObject<HTMLDivElement | null>;
 }
 
 const AccordionContext = createContext<Partial<AccordionContext>>({});
@@ -24,11 +24,7 @@ export const AccordionContextProvider = ({
   children,
   ...values
 }: AccordionContext & { children: ReactNode }) => {
-  return (
-    <AccordionContext.Provider value={values}>
-      {children}
-    </AccordionContext.Provider>
-  );
+  return <AccordionContext value={values}>{children}</AccordionContext>;
 };
 
 export const useAccordionContext = (): AccordionContext => {

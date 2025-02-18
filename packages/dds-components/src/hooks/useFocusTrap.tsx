@@ -20,8 +20,8 @@ import { getFocusableElements } from '../../../dds-components/src/utils';
 
 export function useFocusTrap<T extends HTMLElement>(
   active: boolean,
-  initialFocusRef: RefObject<HTMLElement> | undefined = undefined,
-): RefObject<T> {
+  initialFocusRef: RefObject<HTMLElement | null> | undefined = undefined,
+): RefObject<T | null> {
   const elementRef = useRef<T>(null);
 
   useEffect(() => {

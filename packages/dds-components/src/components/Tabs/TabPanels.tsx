@@ -7,6 +7,7 @@ import {
   isValidElement,
 } from 'react';
 
+import { type TabPanelProps } from './TabPanel';
 import { useTabsContext } from './Tabs.context';
 import { useCombinedRef } from '../../hooks';
 
@@ -21,11 +22,13 @@ export const TabPanels = forwardRef<HTMLDivElement, TabPanelsProps>(
       const active = index === activeTab;
       return (
         isValidElement(child) &&
-        cloneElement(child as ReactElement, {
+        cloneElement(child as ReactElement<TabPanelProps>, {
           id: `${tabsId}-panel-${index}`,
-          'aria-labelledby': `${tabsId}-tab-${index}`,
           active,
-          'aria-expanded': active,
+          htmlProps: {
+            'aria-labelledby': `${tabsId}-tab-${index}`,
+            'aria-expanded': active,
+          },
         })
       );
     });

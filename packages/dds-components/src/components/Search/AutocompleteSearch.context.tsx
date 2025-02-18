@@ -12,8 +12,8 @@ export interface AutocompleteSearchContextType {
   suggestions?: Array<string>;
   showSuggestions?: boolean;
   inputValue?: string;
-  inputRef?: RefObject<HTMLInputElement> | null;
-  suggestionsRef?: RefObject<HTMLDivElement> | null;
+  inputRef?: RefObject<HTMLInputElement | null> | null;
+  suggestionsRef?: RefObject<HTMLDivElement | null> | null;
 }
 
 export const AutocompleteSearchContext =
