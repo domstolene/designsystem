@@ -30,7 +30,7 @@ export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
       tip,
       errorMessage,
       minValue = 0,
-      maxValue = 10,
+      maxValue,
       defaultValue,
       value,
       disabled,
@@ -112,11 +112,7 @@ export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
               size={componentSize}
               icon={MinusIcon}
               onClick={handleMinus}
-              className={cn(
-                inputStyles['input--medium'],
-                styles['stepButton--left'],
-                styles['stepButton'],
-              )}
+              className={cn(styles['stepButton--left'], styles['stepButton'])}
               aria-controls={uniqueId}
             ></Button>
           )}

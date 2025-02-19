@@ -26,9 +26,8 @@ export type InputStepperProps = BaseComponentProps<
      */
     minValue?: number;
     /**Maksimumsverdi. Negative tall støttes ikke
-     * @default 10
      */
-    maxValue?: number;
+    maxValue: number;
     /**Steg. Negative tall støttes ikke
      * @default 1
      */

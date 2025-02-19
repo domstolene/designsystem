@@ -39,7 +39,7 @@ type Story = StoryObj<typeof InputStepper>;
 export const Default: Story = {
   args: {},
   render: args => {
-    return <InputStepper {...args} label="Label" />;
+    return <InputStepper {...args} label="Label" maxValue={10} />;
   },
 };
 
@@ -72,7 +72,7 @@ export const Overview: Story = {
     return (
       <StoryHStack>
         <StoryVStack>
-          <InputStepper {...args} label="Label" />
+          <InputStepper {...args} label="Label" maxValue={5} />
           <InputStepper
             {...args}
             label="Error"
