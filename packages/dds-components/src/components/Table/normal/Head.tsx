@@ -11,7 +11,7 @@ export const Head = forwardRef<HTMLTableSectionElement, TableHeadProps>(
   ({ children, ...rest }, ref) => {
     return (
       <thead ref={ref} {...rest}>
-        <HeadContext.Provider value={true}>{children}</HeadContext.Provider>
+        <HeadContext value={true}>{children}</HeadContext>
       </thead>
     );
   },

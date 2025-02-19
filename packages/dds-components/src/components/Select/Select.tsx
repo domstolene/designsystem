@@ -1,7 +1,7 @@
 import { type Properties, type Property } from 'csstype';
 import {
   type HTMLAttributes,
-  type ReactElement,
+  type JSX,
   forwardRef,
   useContext,
   useId,
@@ -260,7 +260,7 @@ export const Select = forwardRef(SelectInner) as <
   props: SelectProps<Option, IsMulti> & {
     ref?: SelectForwardRefType<Option, IsMulti>;
   },
-) => ReactElement;
+) => JSX.Element;
 
 // @ts-expect-error TODO fix Select type
 Select.displayName = 'Select';

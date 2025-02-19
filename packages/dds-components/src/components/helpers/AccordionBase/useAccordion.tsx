@@ -112,7 +112,7 @@ export interface AccordionState {
   /**
    * Ref som settes på wrapper inni innholds-elementet; Sørger for animasjon.
    */
-  bodyContentRef: RefObject<HTMLDivElement>;
+  bodyContentRef: RefObject<HTMLDivElement | null>;
 }
 
 export const useAccordion = ({

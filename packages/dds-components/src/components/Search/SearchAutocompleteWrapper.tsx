@@ -155,9 +155,9 @@ export const SearchAutocompleteWrapper = (
     onSugggestionClick: handleSuggestionClick,
   };
   return (
-    <AutocompleteSearchContext.Provider value={contextProps}>
+    <AutocompleteSearchContext value={contextProps}>
       {children}
-    </AutocompleteSearchContext.Provider>
+    </AutocompleteSearchContext>
   );
 };
 
