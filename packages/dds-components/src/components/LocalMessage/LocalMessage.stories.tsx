@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { LocalMessage } from './LocalMessage';
+import { Button } from '../Button';
 import { List, ListItem } from '../List';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Heading, Paragraph } from '../Typography';
@@ -69,16 +70,24 @@ export const Closable: Story = {
 export const ComplexContent: Story = {
   args: {},
   render: args => (
-    <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
-      <Heading level={2} typographyType="headingLarge" withMargins>
-        Dette er en viktig melding
-      </Heading>
-      <Paragraph withMargins>Meldingen har en liste i seg:</Paragraph>
-      <List>
-        <ListItem>Noe her</ListItem>
-        <ListItem>Og også her</ListItem>
-        <ListItem>Og litt mer info her</ListItem>
-      </List>
-    </LocalMessage>
+    <StoryVStack>
+      <LocalMessage {...args} purpose={args.purpose} layout="vertical" closable>
+        <Heading level={2} typographyType="headingLarge" withMargins>
+          Dette er en viktig melding
+        </Heading>
+        <Paragraph withMargins>Meldingen har en liste i seg:</Paragraph>
+        <List>
+          <ListItem>Noe her</ListItem>
+          <ListItem>Og også her</ListItem>
+          <ListItem>Og litt mer info her</ListItem>
+        </List>
+      </LocalMessage>
+      <LocalMessage {...args} closable={true} purpose="success">
+        {'"Dokumentnavn" ble slettet '}
+        <Button purpose="secondary" onClick={() => alert('Du angret!')}>
+          Angre
+        </Button>
+      </LocalMessage>
+    </StoryVStack>
   ),
 };
