@@ -1,9 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { type Placement } from '../../hooks';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
+import { LocalMessage } from '../LocalMessage';
 import { VStack } from '../Stack';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Paragraph } from '../Typography';
@@ -19,6 +20,8 @@ export default {
     header: { control: 'text' },
     offset: { control: 'number' },
     returnFocusOnBlur: { control: 'boolean' },
+    isOpen: { control: false },
+    anchorRef: { control: false },
     htmlProps: { control: false },
     sizeProps: { control: false },
   },
@@ -230,6 +233,47 @@ export const InlineExample: Story = {
         det vanskelig for deg å vente, så ta det opp på forhånd med den som har
         innkalt deg.
       </Paragraph>
+    );
+  },
+};
+
+export const Custom: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState(false);
+    const bRef = useRef<HTMLButtonElement>(null);
+    const id = 'id';
+    return (
+      <VStack gap="x1">
+        <LocalMessage purpose="warning" message="Brukes kun ved corner cases" />
+
+        <Button
+          ref={bRef}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+          aria-controls={id}
+          aria-expanded={isOpen}
+          aria-haspopup={id}
+        >
+          Åpne
+        </Button>
+        <Popover
+          {...args}
+          id={id}
+          isOpen={isOpen}
+          anchorRef={bRef}
+          onClose={() => {
+            setIsOpen(false);
+          }}
+        >
+          <VStack align="start">
+            <Paragraph withMargins>
+              Dette er en popover med tekst og knapp
+            </Paragraph>
+            <Button>Klikk</Button>
+          </VStack>
+        </Popover>
+      </VStack>
     );
   },
 };

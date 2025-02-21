@@ -6,7 +6,7 @@ import { useEffect } from 'react';
  * ```
  * const [isOpen, setOpen] = useState(true);
  * const ref = useRef<HTMLElement>(null);
- * useOnClickOutside(ref, () => setOpen(false));
+ * useOnClickOutside(ref.current, () => setOpen(false));
  *
  * return <div ref={ref}>innhold</div>
  * ```
@@ -15,12 +15,14 @@ import { useEffect } from 'react';
  */
 
 export function useOnClickOutside(
-  element: HTMLElement | null | Array<HTMLElement | null>,
+  element: HTMLElement | null | Array<HTMLElement | null | undefined>,
   handler: (event: MouseEvent | TouchEvent) => void,
 ) {
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
-      const elements = Array.isArray(element) ? element : [element];
+      const elements = Array.isArray(element)
+        ? element
+        : [element].filter(Boolean);
 
       const hasClickedInside = elements.some(el =>
         el?.contains(event.target as HTMLElement),

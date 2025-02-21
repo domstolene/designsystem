@@ -1,11 +1,20 @@
 import { type Property } from 'csstype';
-import { type ReactNode, forwardRef, useEffect } from 'react';
+import {
+  type ReactNode,
+  type RefObject,
+  forwardRef,
+  useEffect,
+  useId,
+} from 'react';
 
 import styles from './Popover.module.css';
 import {
   type Placement,
   useCombinedRef,
+  useFloatPosition,
   useMountTransition,
+  useOnClickOutside,
+  useOnKeyDown,
   useReturnFocusOnBlur,
 } from '../../hooks';
 import {
@@ -55,12 +64,19 @@ export type PopoverProps = BaseComponentPropsWithChildren<
      * @default true
      */
     returnFocusOnBlur?: boolean;
+    /**Anchor ref ved custom kontrollert bruk uten `<PopoverGroup>` Kun for corner cases. */
+    anchorRef?: RefObject<HTMLElement>;
+    /**Spesifiserer om popover er åpen ved custom kontrollert bruk uten `<PopoverGroup>` Kun for corner cases. */
+    isOpen?: boolean;
+    /**Callback for lukking ved custom kontrollert bruk uten `<PopoverGroup>` Kun for corner cases. */
+    onClose?: () => void;
   }
 >;
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   (props, ref) => {
     const {
+      id,
       header,
       withCloseButton = true,
       onBlur,
@@ -71,26 +87,69 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
       returnFocusOnBlur = true,
       className,
       htmlProps = {},
+      anchorRef,
+      isOpen: propIsOpen,
+      onClose: propOnClose,
       ...rest
     } = props;
 
+    const { refs, styles: positionStyles } = useFloatPosition(null, {
+      offset,
+      placement,
+    });
+
+    const context = usePopoverContext();
+
     const {
-      floatStyling,
+      floatStyling: contextFloatStyling,
       setFloatOptions,
-      floatingRef,
+      floatingRef: contextFloatingRef,
+      popoverId: contextPopoverId,
+      onClose: contextOnClose,
+      isOpen: contextIsOpen,
+      anchorEl: contextAnchorEl,
+    } = context;
+
+    const hasContext = contextPopoverId !== undefined;
+    const generatedId = useId();
+    const uniquePopoverId = id ?? `${generatedId}-popover`;
+
+    const [
       popoverId,
-      onClose,
-      isOpen = false,
       anchorEl,
-    } = usePopoverContext();
+      isOpen = false,
+      floatingRef,
+      floatStyling,
+      onClose,
+    ] = hasContext
+      ? [
+          contextPopoverId,
+          contextAnchorEl,
+          contextIsOpen,
+          contextFloatingRef,
+          contextFloatStyling,
+          contextOnClose,
+        ]
+      : [
+          uniquePopoverId,
+          anchorRef?.current && anchorRef.current,
+          propIsOpen,
+          refs.setFloating,
+          positionStyles.floating,
+          propOnClose,
+        ];
+
+    if (!hasContext) {
+      refs.setReference(anchorEl || null);
+    }
 
     const hasTransitionedIn = useMountTransition(isOpen, 400);
 
     const popoverRef = useReturnFocusOnBlur(
       isOpen && hasTransitionedIn && returnFocusOnBlur,
       () => {
-        onClose && onClose();
-        onBlur && onBlur();
+        onClose?.();
+        onBlur?.();
       },
       anchorEl && anchorEl,
     );
@@ -100,6 +159,15 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     useEffect(() => {
       setFloatOptions && setFloatOptions({ placement, offset });
     }, [placement, offset]);
+
+    // hooks when without context
+    useOnClickOutside([popoverRef.current, anchorEl], () => {
+      if (isOpen && !hasContext) onClose?.();
+    });
+
+    useOnKeyDown('Escape', () => {
+      if (isOpen && !hasContext) onClose?.();
+    });
 
     const hasTitle = !!header;
 
