@@ -55,3 +55,17 @@ export default function RouterConnectedLink(
 return <Link {...rest} href={routerHref} onClick={linkClickHandler} />;
 }
 `} />
+
+## I `Next.js`
+
+Komponenten kan wrappes i Next.js sin `<Link>` med props `passHref` og `legacyBehavior` per [Next.js dokumentasjon](https://nextjs.org/docs/pages/api-reference/components/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag).
+Dette er legacy oppførsel og vil sannsynligvis bli endret i fremtiden.
+
+<Source code={`
+import Link from 'next/link';
+import { Link as DDSLink } from '@norges-domstoler/dds-components';
+
+<Link href={\`../\${sakId}\`} passHref legacyBehavior>
+  <DDSLink> Gå til sak </DDSLink>
+</Link>
+`} />
