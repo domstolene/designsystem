@@ -51,7 +51,10 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
               index,
               focus: focus === index && hasTabFocus,
               setFocus,
-              onClick: () => handleTabChange(index),
+              onClick: () => {
+                handleTabChange(index);
+                child.props.onClick?.();
+              },
             })
           );
         })
