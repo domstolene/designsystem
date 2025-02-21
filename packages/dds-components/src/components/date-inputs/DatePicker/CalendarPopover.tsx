@@ -118,7 +118,7 @@ export const CalendarPopoverContent = ({
     throw new Error('DatePicker must be used within a ThemeProvider');
   }
 
-  const portalTarget = themeContext?.el;
+  const portalTarget = themeContext.el;
   const { isOpen, onClose, anchorRef, closeButtonRef } = useContext(
     CalendarPopoverContext,
   );
@@ -132,15 +132,19 @@ export const CalendarPopoverContent = ({
     refs.setReference(anchorRef?.current ?? null);
   }, []);
 
-  useEffect(() => {
-    if (isOpen) {
-      handleElementWithBackdropMount(document.body);
-    } else {
-      handleElementWithBackdropUnmount(document.body);
-    }
+  const hasBreakpoint = !!smallScreenBreakpoint;
 
-    return () => handleElementWithBackdropUnmount(document.body);
-  }, [isOpen]);
+  useEffect(() => {
+    if (hasBreakpoint && modalRef.current?.checkVisibility()) {
+      if (isOpen) {
+        handleElementWithBackdropMount(document.body);
+      } else {
+        handleElementWithBackdropUnmount(document.body);
+      }
+
+      return () => handleElementWithBackdropUnmount(document.body);
+    }
+  }, [isOpen, hasBreakpoint]);
 
   const closeOnKeyboardBlurBack: KeyboardEventHandler<HTMLButtonElement> = (
     event: KeyboardEvent<HTMLButtonElement>,
@@ -155,6 +159,7 @@ export const CalendarPopoverContent = ({
   return (
     <>
       {portalTarget &&
+        hasBreakpoint &&
         createPortal(
           <div
             className={cn(
