@@ -16,11 +16,16 @@ import { useTabsContext } from './Tabs.context';
 import styles from './Tabs.module.css';
 import { TabWidthContextProvider } from './TabWidthContext';
 import { useCombinedRef, useRoveFocus } from '../../hooks';
-import { cn } from '../../utils';
+import { cn, combineHandlers } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 
-export type TabListProps = HTMLAttributes<HTMLDivElement>;
+export type TabListProps = {
+  /**
+   * `<Tab>`-barn.
+   */
+  children?: Array<ReactElement<TabProps>> | ReactElement<TabProps>;
+} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
   ({ children, id, style, onFocus, ...rest }, ref) => {
@@ -43,6 +48,9 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
 
     const tabListChildren = Children
       ? Children.map(children, (child, index) => {
+          const handleThisTabChange = () => {
+            handleTabChange(index);
+          };
           return (
             isValidElement(child) &&
             cloneElement(child as ReactElement<TabProps>, {
@@ -54,10 +62,10 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
               index,
               focus: focus === index && hasTabFocus,
               setFocus,
-              onClick: () => {
-                handleTabChange(index);
-                child.props.onClick?.();
-              },
+              onClick: combineHandlers(
+                handleThisTabChange,
+                child.props.onClick,
+              ),
             })
           );
         })
