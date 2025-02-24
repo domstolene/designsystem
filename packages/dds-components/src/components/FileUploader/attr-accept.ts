@@ -24,7 +24,7 @@ export function isAccepted(
       : acceptedFiles.split(',');
     const fileName = file.name || '';
     const mimeType = (file.type || '').toLowerCase();
-    const baseMimeType = mimeType.match(/^([^/]+)/)?.[1] || '';
+    const baseMimeType = mimeType.split('/')[0] || '';
 
     return acceptedFilesArray.some(type => {
       const validType = type.trim().toLowerCase();
