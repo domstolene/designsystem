@@ -14,9 +14,6 @@ const meta: Meta<typeof Select> = {
   title: 'dds-components/Select/Select',
   component: Select,
   argTypes: {
-    label: { control: 'text' },
-    tip: { control: 'text' },
-    errorMessage: { control: 'text' },
     width: { control: 'text' },
     placeholder: { control: 'text' },
     isDisabled: { control: 'boolean' },

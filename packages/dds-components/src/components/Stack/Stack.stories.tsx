@@ -1,12 +1,13 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { HStack, VStack } from './Stack';
+import { htmlPropsArgType } from '../../storybook/helpers';
 
 export default {
   title: 'dds-components/Stack',
   component: HStack,
   argTypes: {
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     align: { control: 'text' },
     justify: { control: 'text' },
   },

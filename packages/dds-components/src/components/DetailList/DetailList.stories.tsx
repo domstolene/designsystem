@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { InlineButton } from '../InlineButton';
 
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
@@ -13,9 +14,7 @@ export default {
     },
   },
   argTypes: {
-    htmlProps: { control: false },
-    withDividers: { control: 'boolean' },
-    striped: { control: 'boolean' },
+    htmlProps: htmlPropsArgType,
   },
 } satisfies Meta<typeof DetailList>;
 

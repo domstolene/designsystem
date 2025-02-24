@@ -1,5 +1,7 @@
 import { type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
+
 import { Chip, ChipGroup } from '.';
 
 export default {
@@ -12,7 +14,7 @@ export default {
     },
   },
   argTypes: {
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
 };
 

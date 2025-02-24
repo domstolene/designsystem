@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../../storybook/helpers';
 import { Fieldset } from '../../Fieldset';
 import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { Legend } from '../../Typography';
@@ -10,12 +11,10 @@ export default {
   title: 'dds-components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
-    label: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    required: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
+    required: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

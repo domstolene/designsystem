@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { categoryHtml } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
@@ -10,14 +11,10 @@ export default {
   title: 'dds-components/PhoneInput',
   component: PhoneInput,
   argTypes: {
-    label: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    errorMessage: { control: 'text' },
     width: { control: 'text' },
-    selectLabel: { control: 'text' },
-    required: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
+    required: { control: 'boolean', table: categoryHtml },
+    disabled: { control: 'boolean', table: categoryHtml },
+    readOnly: { control: 'boolean' },
     selectRef: { control: false },
     value: { control: false },
     defaultValue: { control: false },

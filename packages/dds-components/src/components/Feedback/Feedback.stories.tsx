@@ -8,56 +8,11 @@ export default {
   title: 'dds-components/Feedback',
   component: Feedback,
   argTypes: {
-    layout: {
-      control: {
-        type: 'radio',
-        options: {
-          vertical: 'vertical',
-          horizontal: 'horizontal',
-        },
-      },
-    },
-    ratingLabel: {
-      control: 'text',
-    },
     ratingValue: {
       options: [null, 'positive', 'negative'],
       control: {
         type: 'radio',
       },
-    },
-    positiveFeedbackLabel: {
-      control: 'text',
-    },
-    negativeFeedbackLabel: {
-      control: 'text',
-    },
-    feedbackTextValue: {
-      control: 'text',
-    },
-    thumbUpTooltip: {
-      control: 'text',
-    },
-    thumbDownTooltip: {
-      control: 'text',
-    },
-    ratingSubmittedTitle: {
-      control: 'text',
-    },
-    submittedTitle: {
-      control: 'text',
-    },
-    textAreaTip: {
-      control: 'text',
-    },
-    feedbackTextAreaExcluded: {
-      control: 'boolean',
-    },
-    loading: {
-      control: 'boolean',
-    },
-    isSubmitted: {
-      control: 'boolean',
     },
   },
   parameters: {

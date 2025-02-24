@@ -22,19 +22,6 @@ import { CollapsibleTable } from '.';
 const meta: Meta<typeof CollapsibleTable> = {
   title: 'dds-components/Table/CollapsibleTable',
   component: CollapsibleTable,
-  argTypes: {
-    isCollapsed: {
-      control: { type: 'boolean' },
-    },
-    stickyHeader: {
-      control: { type: 'boolean' },
-    },
-    withDividers: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
   parameters: {
     controls: {
       exclude: ['headerValues', 'definingColumnIndex'],

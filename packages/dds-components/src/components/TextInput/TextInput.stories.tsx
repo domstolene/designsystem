@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml } from '../../storybook/helpers';
 import { MailIcon } from '../Icon/icons';
 import { LocalMessage } from '../LocalMessage';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
@@ -10,17 +11,12 @@ export default {
   title: 'dds-components/TextInput',
   component: TextInput,
   argTypes: {
-    label: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
-    withCharacterCounter: { control: { type: 'boolean' } },
-    maxLength: { control: { type: 'number' } },
-    required: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
+    maxLength: { control: 'number', table: categoryHtml },
+    required: { control: 'boolean', table: categoryHtml },
+    disabled: { control: 'boolean', table: categoryHtml },
+    readOnly: { control: 'boolean', table: categoryHtml },
     prefix: { control: { type: 'text' } },
-    suffix: { control: { type: 'text' } },
     icon: { control: { disable: true } },
   },
   parameters: {

@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Search } from '../Search';
 import { StoryHStack } from '../Stack/utils';
@@ -25,7 +26,7 @@ const meta: Meta<typeof Modal> = {
     isOpen: { control: false },
     triggerRef: { control: false },
     initialFocusRef: { control: false },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

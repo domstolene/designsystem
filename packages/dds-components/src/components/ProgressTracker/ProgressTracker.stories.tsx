@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { Fieldset } from '../Fieldset';
@@ -24,8 +25,7 @@ export default {
   title: 'dds-components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
-    activeStep: { control: 'number' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

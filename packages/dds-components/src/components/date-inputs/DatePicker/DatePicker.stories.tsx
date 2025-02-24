@@ -32,26 +32,8 @@ const meta: Meta<typeof DatePicker> = {
     },
   },
   argTypes: {
-    label: {
-      control: 'text',
-    },
-    tip: {
-      control: 'text',
-    },
-    errorMessage: {
-      control: 'text',
-    },
     width: {
       control: 'text',
-    },
-    showWeekNumbers: {
-      control: 'boolean',
-    },
-    isDisabled: {
-      control: 'boolean',
-    },
-    isReadOnly: {
-      control: 'boolean',
     },
   },
   decorators: [

@@ -1,13 +1,13 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Legend } from '..';
+import { htmlPropsArgType } from '../../../storybook/helpers';
 
 export default {
   title: 'dds-components/Typography/Legend',
   component: Legend,
   argTypes: {
-    withMargins: { control: { type: 'boolean' } },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

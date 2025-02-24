@@ -1,6 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import {
+  categoryHtml,
+  htmlEventArgType,
+  htmlPropsArgType,
+} from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
@@ -11,12 +16,15 @@ export default {
   component: Toggle,
   argTypes: {
     children: { control: 'text' },
-    disabled: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
-    isLoading: { control: 'boolean' },
-    checked: { control: 'boolean' },
-    defaultChecked: { control: 'boolean' },
-    htmlProps: { control: false },
+    disabled: { table: categoryHtml },
+    checked: { table: categoryHtml },
+    defaultChecked: { table: categoryHtml },
+    value: { control: 'boolean', table: categoryHtml },
+    defaultValue: { control: 'boolean', table: categoryHtml },
+    name: { table: categoryHtml },
+    'aria-describedby': { table: categoryHtml },
+    onBlur: htmlEventArgType,
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

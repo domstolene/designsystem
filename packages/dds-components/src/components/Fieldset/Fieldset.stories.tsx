@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Fieldset } from './Fieldset';
+import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { TextInput } from '../TextInput';
 import { Legend } from '../Typography';
 
@@ -8,8 +9,8 @@ export default {
   title: 'dds-components/Fieldset',
   component: Fieldset,
   argTypes: {
-    disabled: { control: { type: 'boolean' } },
-    htmlProps: { control: false },
+    disabled: { table: categoryHtml },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

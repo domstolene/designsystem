@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import {
   DetailList,
@@ -25,8 +26,7 @@ export default {
     },
   },
   argTypes: {
-    isExpanded: { control: 'boolean' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
 } satisfies Meta<typeof Accordion>;
 
