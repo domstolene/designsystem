@@ -36,7 +36,6 @@
   cursor: pointer;
   border-bottom: 2px solid transparent;
   color: var(--dds-color-text-medium);
-  padding: var(--dds-spacing-x0-5);
   background: var(--dds-color-surface-default);
   border-top-left-radius: var(--dds-border-radius-button);
   border-top-right-radius: var(--dds-border-radius-button);
@@ -56,14 +55,32 @@
   }
 }
 
+.tab--medium--row {
+  padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1)
+    var(--dds-spacing-x0-5);
+  gap: var(--dds-spacing-x0-5);
+}
+
+.tab--small--row {
+  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-75);
+  gap: var(--dds-spacing-x0-125);
+}
+
+.tab--medium--column {
+  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
+  gap: var(--dds-spacing-x0-25);
+}
+
+.tab--small--column {
+  padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-75);
+}
+
 .tab--row {
   flex-direction: row;
-  gap: var(--dds-spacing-x0-5);
 }
 
 .tab--column {
   flex-direction: column;
-  gap: var(--dds-spacing-x0-25);
 }
 
 .tab--active {

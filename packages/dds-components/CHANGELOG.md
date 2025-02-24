@@ -1,5 +1,23 @@
 # @norges-domstoler/dds-components
 
+## 19.2.0
+
+### Minor Changes
+
+- 2c76b83: Støtte for kontrollert `<Popover>` uten `<PopoverGroup>` for corner cases.
+
+## 19.1.0
+
+### Minor Changes
+
+- 80f3ab9: Støtte for `onClick` prop for individuelle `<Tab>` delkomponenter i `<Tabs>`.
+- 5b4902e: Ny komponent `<InputStepper>` som brukes til å øke eller minke verdien i inputfelt ved å klikke på knapper.
+- b8f4430: Støtte for `size` prop i `<Tabs>` med `'medium'` og `'small'`. Bruker `'small'` som default. Justerer også på spacing i begge variantene.
+
+### Patch Changes
+
+- d16972c: Fikser bug der åpning av kalender i `<DatePicker>` satt unødvendig styling på `body`.
+
 ## 19.0.0
 
 ### Major Changes

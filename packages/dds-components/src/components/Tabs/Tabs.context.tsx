@@ -1,11 +1,13 @@
 import { type RefObject, createContext, useContext } from 'react';
 
 import { type AddTabButtonProps } from './AddTabButton';
+import { type TabSize } from './Tabs';
 import { type Direction } from '../../types';
 
 interface Tabs {
   activeTab: number;
   tabsId: string;
+  size: TabSize;
   handleTabChange: (index: number) => void;
   tabListRef: RefObject<HTMLDivElement | null> | null;
   tabPanelsRef: RefObject<HTMLDivElement | null> | null;
@@ -18,6 +20,7 @@ interface Tabs {
 export const TabsContext = createContext<Tabs>({
   activeTab: 0,
   tabsId: '',
+  size: 'small',
   handleTabChange: () => null,
   tabListRef: null,
   tabPanelsRef: null,

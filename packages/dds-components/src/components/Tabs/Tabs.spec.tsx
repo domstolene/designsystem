@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useEffect, useRef } from 'react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
@@ -143,6 +143,21 @@ describe('<Tabs>', () => {
     await userEvent.click(tab2);
     expect(tab1).toHaveAttribute('aria-selected', 'false');
     expect(tab2).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('tab should fire Tab onClick event', async () => {
+    const onClick = vi.fn();
+    render(
+      <Tabs>
+        <TabList>
+          <Tab onClick={onClick} />
+        </TabList>
+      </Tabs>,
+    );
+
+    const tab = screen.getByRole('tab');
+    await userEvent.click(tab);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('tabs should be connected to panels via aria-controls accessible name', () => {
