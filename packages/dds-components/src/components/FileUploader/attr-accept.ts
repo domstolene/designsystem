@@ -17,14 +17,14 @@
 export function isAccepted(
   file: File,
   acceptedFiles: Array<string> | string | undefined,
-) {
+): boolean {
   if (file && acceptedFiles) {
     const acceptedFilesArray = Array.isArray(acceptedFiles)
       ? acceptedFiles
       : acceptedFiles.split(',');
     const fileName = file.name || '';
     const mimeType = (file.type || '').toLowerCase();
-    const baseMimeType = mimeType.replace(/\/.*$/, '');
+    const baseMimeType = mimeType.match(/^([^/]+)/)?.[1] || '';
 
     return acceptedFilesArray.some(type => {
       const validType = type.trim().toLowerCase();
@@ -32,7 +32,7 @@ export function isAccepted(
         return fileName.toLowerCase().endsWith(validType);
       } else if (validType.endsWith('/*')) {
         // This is something like a image/* mime type
-        return baseMimeType === validType.replace(/\/.*$/, '');
+        return baseMimeType === validType.slice(0, -2);
       }
       return mimeType === validType;
     });
