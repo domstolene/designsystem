@@ -65,7 +65,7 @@ export type PopoverProps = BaseComponentPropsWithChildren<
      */
     returnFocusOnBlur?: boolean;
     /**Anchor ref ved custom kontrollert bruk uten `<PopoverGroup>` Kun for corner cases. */
-    anchorRef?: RefObject<HTMLElement>;
+    anchorRef?: RefObject<HTMLElement | null>;
     /**Spesifiserer om popover er åpen ved custom kontrollert bruk uten `<PopoverGroup>` Kun for corner cases. */
     isOpen?: boolean;
     /**Callback for lukking ved custom kontrollert bruk uten `<PopoverGroup>` Kun for corner cases. */
