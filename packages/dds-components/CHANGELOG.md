@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 19.2.0
+
+### Minor Changes
+
+- 2c76b83: Støtte for kontrollert `<Popover>` uten `<PopoverGroup>` for corner cases.
+
 ## 19.1.0
 
 ### Minor Changes
