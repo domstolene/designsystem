@@ -1,12 +1,11 @@
 import type { ReactNode } from 'react';
-import styled from 'styled-components';
 
 import {
   type BannerPosition,
-  ENVIRONMENT_BANNER_HEIGHT,
   type Environment,
   EnvironmentBanner,
 } from './EnvironmentBanner';
+import styles from './EnvironmentBanner.module.css';
 
 export interface EnvironmentBannerProviderProps {
   /**
@@ -24,11 +23,6 @@ export interface EnvironmentBannerProviderProps {
   bannerPosition?: BannerPosition;
 }
 
-const AppWrapper = styled.div`
-  padding-top: ${ENVIRONMENT_BANNER_HEIGHT};
-  position: relative;
-`;
-
 /**
  * Viser et banner med miljøet applikasjonen kjører i.
  */
@@ -42,13 +36,13 @@ export const EnvironmentBannerProvider = ({
   }
 
   return (
-    <AppWrapper>
+    <div className={styles['banner-wrapper']}>
       <EnvironmentBanner
         environment={environment}
         bannerPosition={bannerPosition}
       />
       {children}
-    </AppWrapper>
+    </div>
   );
 };
 
