@@ -327,15 +327,24 @@ importers:
       '@types/react':
         specifier: 19.0.1
         version: 19.0.1
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.5.2)
+      csstype:
+        specifier: 3.1.2
+        version: 3.1.2
+      postcss:
+        specifier: ^8.5.2
+        version: 8.5.2
       react:
         specifier: 19.0.0
         version: 19.0.0
-      styled-components:
-        specifier: ^6.1.15
-        version: 6.1.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       tsup:
         specifier: ^8.3.6
         version: 8.3.6(postcss@8.5.2)(typescript@5.7.3)(yaml@2.7.0)
+      typed-css-modules:
+        specifier: ^0.9.1
+        version: 0.9.1
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
