@@ -48,8 +48,7 @@
     "vitest": "^3.0.5"
   },
   "peerDependencies": {
-    "react": "^16 || ^17 || ^18 || ^19",
-    "styled-components": "^5 || ^6"
+    "react": "^16 || ^17 || ^18 || ^19"
   },
   "publishConfig": {
     "provenance": true
