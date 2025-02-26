@@ -16,7 +16,7 @@ export const CollapsibleTable = forwardRef<
   } = props;
 
   return (
-    <CollapsibleTableContext.Provider
+    <CollapsibleTableContext
       value={{
         isCollapsed,
         headerValues,
@@ -24,7 +24,7 @@ export const CollapsibleTable = forwardRef<
       }}
     >
       <Table ref={ref} {...rest} />
-    </CollapsibleTableContext.Provider>
+    </CollapsibleTableContext>
   );
 });
 

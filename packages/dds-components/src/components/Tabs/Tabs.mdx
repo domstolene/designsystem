@@ -1,5 +1,5 @@
 import { Meta, ArgTypes, Canvas, Story, Controls } from '@storybook/blocks';
-import { Tab, TabPanel } from '.';
+import { Tab, TabPanel, TabList } from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -68,6 +68,7 @@ For å endre på bredden til tabs kan du bruke `width`-attributtet. Her støttes
 
 En liste med `<Tab>`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList>` skal ha `<Tab>` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels>`.
 
+<ArgTypes of={TabList} />
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
 ### TabPanel

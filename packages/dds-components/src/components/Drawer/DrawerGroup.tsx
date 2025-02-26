@@ -1,5 +1,7 @@
 import {
+  type DetailedHTMLProps,
   type Dispatch,
+  type HTMLAttributes,
   Children as ReactChildren,
   type ReactElement,
   type ReactNode,
@@ -81,18 +83,23 @@ export const DrawerGroup = ({
     return (
       isValidElement(child) &&
       (childIndex === 0
-        ? cloneElement(child as ReactElement, {
-            'aria-haspopup': 'dialog',
-            'aria-controls': uniqueDrawerId,
-            'aria-expanded': isOpen,
-            ref: triggerRef,
-            onClick: handleOpen,
-          })
+        ? cloneElement(
+            child as ReactElement<
+              DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+            >,
+            {
+              'aria-haspopup': 'dialog',
+              'aria-controls': uniqueDrawerId,
+              'aria-expanded': isOpen,
+              ref: triggerRef,
+              onClick: handleOpen,
+            },
+          )
         : child)
     );
   });
   return (
-    <DrawerContext.Provider
+    <DrawerContext
       value={{
         drawerId: uniqueDrawerId,
         isOpen,
@@ -101,7 +108,7 @@ export const DrawerGroup = ({
       }}
     >
       {Children}
-    </DrawerContext.Provider>
+    </DrawerContext>
   );
 };
 

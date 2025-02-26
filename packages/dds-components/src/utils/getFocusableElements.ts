@@ -1,7 +1,7 @@
 import { type RefObject } from 'react';
 
 export function getFocusableElements<T extends HTMLElement>(
-  elementRef: RefObject<T>,
+  elementRef: RefObject<T | null>,
 ): NodeListOf<HTMLElement> | [] {
   return elementRef && elementRef.current
     ? elementRef.current.querySelectorAll(

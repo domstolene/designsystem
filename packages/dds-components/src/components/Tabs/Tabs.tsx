@@ -82,7 +82,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
   };
 
   return (
-    <TabsContext.Provider
+    <TabsContext
       value={{
         tabsId: uniqueId,
         activeTab: thisActiveTab,
@@ -108,7 +108,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
       >
         {children}
       </div>
-    </TabsContext.Provider>
+    </TabsContext>
   );
 });
 

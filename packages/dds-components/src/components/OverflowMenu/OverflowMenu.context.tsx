@@ -28,9 +28,9 @@ interface CommonContextProps {
   >;
 }
 type OverflowMenuContextProps = CommonContextProps & {
-  registerItem: (ref: RefObject<FocusableElement>) => void;
-  unregisterItem: (ref: RefObject<FocusableElement>) => void;
-  focusedRef?: RefObject<FocusableElement>;
+  registerItem: (ref: RefObject<FocusableElement | null>) => void;
+  unregisterItem: (ref: RefObject<FocusableElement | null>) => void;
+  focusedRef?: RefObject<FocusableElement | null>;
 };
 
 export type OverflowMenuContextProviderProps = CommonContextProps & {
@@ -47,7 +47,9 @@ export function OverflowMenuContextProvider({
   children,
   ...rest
 }: OverflowMenuContextProviderProps) {
-  const [items, setItems] = useState<Array<RefObject<FocusableElement>>>([]);
+  const [items, setItems] = useState<Array<RefObject<FocusableElement | null>>>(
+    [],
+  );
   const [focusIndex] = useRoveFocus(items.length, rest.isOpen);
 
   useEffect(() => {
@@ -55,7 +57,7 @@ export function OverflowMenuContextProvider({
   }, [focusIndex]);
 
   return (
-    <OverflowMenuContext.Provider
+    <OverflowMenuContext
       value={{
         ...rest,
         registerItem: ref => setItems(prev => [...prev, ref]),
@@ -65,7 +67,7 @@ export function OverflowMenuContextProvider({
       }}
     >
       {children}
-    </OverflowMenuContext.Provider>
+    </OverflowMenuContext>
   );
 }
 

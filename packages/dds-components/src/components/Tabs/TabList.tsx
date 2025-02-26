@@ -11,11 +11,12 @@ import {
 } from 'react';
 
 import { AddTabButton } from './AddTabButton';
+import { type TabProps } from './Tab';
 import { useTabsContext } from './Tabs.context';
 import styles from './Tabs.module.css';
 import { TabWidthContextProvider } from './TabWidthContext';
 import { useCombinedRef, useRoveFocus } from '../../hooks';
-import { cn } from '../../utils';
+import { cn, combineHandlers } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 
@@ -42,29 +43,28 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
 
     const tabListChildren = Children
       ? Children.map(children, (child, index) => {
+          const handleThisTabChange = () => {
+            handleTabChange(index);
+          };
           return (
-            isValidElement(child) &&
-            cloneElement(child as ReactElement, {
+            isValidElement<TabProps>(child) &&
+            cloneElement(child as ReactElement<TabProps>, {
               id: `${tabsId}-tab-${index}`,
-              'aria-controls': `${tabsId}-panel-${index}`,
+              htmlProps: {
+                'aria-controls': `${tabsId}-panel-${index}`,
+              },
               active: activeTab === index,
               index,
               focus: focus === index && hasTabFocus,
               setFocus,
-              onClick: () => {
-                handleTabChange(index);
-                child.props.onClick?.();
-              },
+              onClick: combineHandlers(
+                handleThisTabChange,
+                child.props.onClick,
+              ),
             })
           );
         })
       : [];
-
-    if (hasButton && tabListChildren) {
-      tabListChildren.push(
-        <AddTabButton index={tabListChildren.length} {...addTabButtonProps} />,
-      );
-    }
 
     const [widths, setWidths] = useState<Array<CSS.Properties['width']>>([]);
 
@@ -109,6 +109,12 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
           style={{ ...style, ...customWidths }}
         >
           {tabListChildren}
+          {hasButton && (
+            <AddTabButton
+              index={tabListChildren ? tabListChildren.length : 0}
+              {...addTabButtonProps}
+            />
+          )}
         </div>
       </TabWidthContextProvider>
     );

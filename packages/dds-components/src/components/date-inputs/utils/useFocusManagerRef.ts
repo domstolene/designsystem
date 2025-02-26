@@ -31,7 +31,7 @@ export function useFocusManagerRef<T extends HTMLElement = HTMLElement>(
 }
 
 function createDOMRef<T extends HTMLElement = HTMLElement>(
-  ref: RefObject<T>,
+  ref: RefObject<T | null>,
 ): DOMRefValue<T> {
   return {
     UNSAFE_getDOMNode() {
