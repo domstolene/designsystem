@@ -20,12 +20,7 @@ import { cn, combineHandlers } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 
-export type TabListProps = {
-  /**
-   * `<Tab>`-barn.
-   */
-  children?: Array<ReactElement<TabProps>> | ReactElement<TabProps>;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
+export type TabListProps = HTMLAttributes<HTMLDivElement>;
 
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
   ({ children, id, style, onFocus, ...rest }, ref) => {
@@ -52,7 +47,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
             handleTabChange(index);
           };
           return (
-            isValidElement(child) &&
+            isValidElement<TabProps>(child) &&
             cloneElement(child as ReactElement<TabProps>, {
               id: `${tabsId}-tab-${index}`,
               htmlProps: {
