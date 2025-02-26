@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 20.0.0
+
+### Major Changes
+
+- 39a68f0: Oppgraderer til React 19 med endringer som ikke er kompatible med eldre versjoner. Det er dermed påkrevd med oppgradering til React 19 for konsumentene.
+
+### Patch Changes
+
+- Updated dependencies [39a68f0]
+- Updated dependencies [4f0903e]
+  - @norges-domstoler/development-utils@2.0.0
+
 ## 19.2.0
 
 ### Minor Changes
