@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { FileUploader } from './FileUploader';
+import { categoryHtml } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
@@ -9,17 +10,8 @@ export default {
   title: 'dds-components/FileUploader',
   component: FileUploader,
   argTypes: {
-    label: { control: 'text' },
-    dropAreaLabel: { control: 'text' },
-    btnLabel: { control: 'text' },
-    tip: { control: 'text' },
-    maxFiles: { control: 'number' },
-    withDragAndDrop: { control: 'boolean' },
-    errorMessage: { control: 'text' },
-    required: { control: 'boolean' },
-    disabled: { control: 'boolean' },
     width: { control: 'text' },
-    id: { control: false },
+    id: { control: false, table: categoryHtml },
     initialFiles: { control: false },
     accept: { control: false },
   },
@@ -33,13 +25,7 @@ export default {
 
 type Story = StoryObj<typeof FileUploader>;
 
-export const Default: Story = {
-  args: {
-    label: 'Last opp fil',
-    dropAreaLabel: 'Dra og slipp fil her eller',
-    btnLabel: 'Velg fil',
-  },
-};
+export const Default: Story = {};
 
 const SingleFileUploader = () => {
   const [files, setFiles] = useState<Array<File>>([]);

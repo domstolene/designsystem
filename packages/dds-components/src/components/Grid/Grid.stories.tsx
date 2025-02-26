@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { FilterIcon, PlusIcon } from '../Icon/icons';
 import { InternalHeader } from '../InternalHeader';
@@ -16,6 +17,12 @@ import { Grid, GridChild } from '.';
 export default {
   title: 'dds-components/Grid',
   component: Grid,
+  argTypes: {
+    htmlProps: htmlPropsArgType,
+    columnGap: { control: false },
+    maxWidth: { control: false },
+    rowGap: { control: false },
+  },
   parameters: {
     docs: {
       story: { inline: true },

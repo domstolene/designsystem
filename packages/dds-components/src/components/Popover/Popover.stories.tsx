@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
 import { type Placement } from '../../hooks';
+import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
 import { LocalMessage } from '../LocalMessage';
@@ -15,14 +16,11 @@ export default {
   title: 'dds-components/Popover',
   component: Popover,
   argTypes: {
-    withCloseButton: { control: 'boolean' },
-    placement: { control: 'text' },
     header: { control: 'text' },
-    offset: { control: 'number' },
-    returnFocusOnBlur: { control: 'boolean' },
+    onBlur: htmlEventArgType,
     isOpen: { control: false },
     anchorRef: { control: false },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     sizeProps: { control: false },
   },
   parameters: {

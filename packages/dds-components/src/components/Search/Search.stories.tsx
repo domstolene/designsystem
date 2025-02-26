@@ -8,8 +8,6 @@ export default {
   title: 'dds-components/Search',
   component: Search,
   argTypes: {
-    tip: { control: 'text' },
-    label: { control: 'text' },
     buttonProps: { control: false },
   },
   parameters: {

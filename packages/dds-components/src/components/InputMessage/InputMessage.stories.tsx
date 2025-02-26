@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryHStack } from '../Stack/utils';
 
 import { InputMessage } from '.';
@@ -8,8 +9,7 @@ export default {
   title: 'dds-components/InputMessage',
   component: InputMessage,
   argTypes: {
-    message: { control: 'text' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

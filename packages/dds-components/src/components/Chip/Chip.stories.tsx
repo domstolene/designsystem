@@ -1,5 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
+
 import { Chip } from '.';
 
 export default {
@@ -12,8 +14,7 @@ export default {
     },
   },
   argTypes: {
-    text: { control: { type: 'text' } },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
 } satisfies Meta<typeof Chip>;
 

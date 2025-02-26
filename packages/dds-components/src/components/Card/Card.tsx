@@ -26,7 +26,7 @@ type BaseCardProps<T extends HTMLElement> = BaseComponentPropsWithChildren<
 >;
 
 export type InfoCardProps = BaseCardProps<HTMLDivElement> & {
-  /** Spesifiserer funksjonalitet og formål med komponenten. **OBS!** ved `'navigation'` må `href` oppgis. Ved `'expandable'` må alle `<Card />` grupperte sammen ligge egen `<div>` container. */
+  /** Spesifiserer funksjonalitet og formål med komponenten. **OBS!** ved `'navigation'` må `href` oppgis. */
   cardType: 'info';
 };
 

@@ -2,6 +2,7 @@ import { type Story } from '@storybook/blocks';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryVStack } from '../Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
@@ -19,8 +20,7 @@ const meta: Meta<typeof Drawer> = {
     },
   },
   argTypes: {
-    withBackdrop: { control: 'boolean' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     parentElement: { control: false },
     widthProps: { control: false },
   },

@@ -1,20 +1,18 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { TextArea } from './TextArea';
+import { categoryHtml } from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 export default {
   title: 'dds-components/TextArea',
   component: TextArea,
   argTypes: {
-    label: { control: 'text' },
-    tip: { control: 'text' },
-    errorMessage: { control: 'text' },
     width: { control: 'text' },
-    maxLength: { control: 'number' },
-    required: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
+    maxLength: { control: 'number', table: categoryHtml },
+    required: { control: 'boolean', table: categoryHtml },
+    disabled: { control: 'boolean', table: categoryHtml },
+    readOnly: { control: 'boolean', table: categoryHtml },
   },
   parameters: {
     docs: {

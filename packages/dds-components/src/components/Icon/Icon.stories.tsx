@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryHStack } from '../Stack/utils';
 import { Paragraph } from '../Typography';
 
@@ -11,7 +12,7 @@ export default {
   component: Icon,
   argTypes: {
     color: { control: 'text' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     icon: { control: false },
   },
   parameters: {

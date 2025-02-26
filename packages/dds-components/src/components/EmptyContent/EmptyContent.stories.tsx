@@ -7,12 +7,6 @@ import { Link } from '../Typography';
 export default {
   title: 'dds-components/EmptyContent',
   component: EmptyContent,
-  argTypes: {
-    title: {
-      name: 'title',
-      type: { name: 'string', required: false },
-    },
-  },
   parameters: {
     docs: {
       story: { inline: true },
@@ -24,7 +18,7 @@ export default {
 type Story = StoryObj<typeof EmptyContent>;
 
 export const Default: Story = {
-  args: { title: 'Tittel', message: 'Dette er en tekst.' },
+  args: { headerText: 'Tittel', message: 'Dette er en tekst.' },
 };
 
 export const Overview: Story = {
@@ -60,7 +54,7 @@ export const Overview: Story = {
 
 export const ComplexContent: Story = {
   args: {
-    title: 'Tittel',
+    headerText: 'Tittel',
     message: (
       <>
         Dette er en forklaring. Du kan <Link href="/">registrere en aktør</Link>

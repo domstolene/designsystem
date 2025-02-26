@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { InputStepper } from './InputStepper';
+import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
@@ -9,21 +10,10 @@ export default {
   title: 'dds-components/InputStepper',
   component: InputStepper,
   argTypes: {
-    componentSize: { control: 'radio' },
-    label: { control: 'text' },
-    decreaseButtonLabel: { control: 'text' },
-    increaseButtonLabel: { control: 'text' },
-    maxValue: { control: 'number' },
-    minValue: { control: 'number' },
-    step: { control: 'number' },
-    defaultValue: { control: 'number' },
-    disabled: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
-    errorMessage: { control: 'text' },
-    tip: { control: 'text' },
-    value: { control: 'number' },
-    onChange: { control: false },
-    htmlProps: { control: false },
+    defaultValue: { control: 'number', table: categoryHtml },
+    disabled: { table: categoryHtml },
+    value: { control: 'number', table: categoryHtml },
+    htmlProps: htmlPropsArgType,
   },
 
   parameters: {

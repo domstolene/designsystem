@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryHStack } from '../Stack/utils';
 import { Typography } from '../Typography';
 
@@ -15,7 +16,7 @@ export default {
     },
   },
   argTypes: {
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
 } satisfies Meta<typeof List>;
 

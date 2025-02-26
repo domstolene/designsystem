@@ -9,11 +9,7 @@ export default {
   title: 'dds-components/InlineEdit/InlineEditTextArea',
   component: InlineEditTextArea,
   argTypes: {
-    emptiable: { control: { type: 'boolean' } },
-    error: { control: { type: 'boolean' } },
-    errorMessage: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
-    hideIcon: { control: { type: 'boolean' } },
   },
   parameters: {
     controls: {

@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { PlusCircledIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
@@ -10,11 +11,9 @@ export default {
   title: 'dds-components/ToggleBar',
   component: ToggleBar,
   argTypes: {
-    label: { control: 'text' },
-    name: { control: 'text' },
     width: { control: 'text' },
     value: { control: false },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

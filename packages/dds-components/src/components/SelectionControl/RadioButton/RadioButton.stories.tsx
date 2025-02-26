@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../../Stack/utils';
 
 import { RadioButton } from '.';
@@ -8,11 +9,8 @@ export default {
   title: 'dds-components/RadioButton',
   component: RadioButton,
   argTypes: {
-    label: { control: { type: 'text' } },
-    error: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
-    htmlProps: { control: false },
+    disabled: { table: categoryHtml },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
 import { VStack } from '../Stack';
@@ -20,8 +21,7 @@ export default {
   title: 'dds-components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
-    offset: { control: 'number' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

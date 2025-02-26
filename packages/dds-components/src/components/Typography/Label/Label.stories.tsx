@@ -1,13 +1,15 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+
 import { Label } from '.';
 
 export default {
   title: 'dds-components/Typography/Label',
   component: Label,
   argTypes: {
-    withMargins: { control: { type: 'boolean' } },
-    htmlProps: { control: false },
+    htmlFor: { control: false, table: categoryHtml },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
@@ -9,13 +10,8 @@ const meta: Meta<typeof Pagination> = {
   title: 'dds-components/Pagination',
   component: Pagination,
   argTypes: {
-    withCounter: { control: 'boolean' },
-    withPagination: { control: 'boolean' },
-    withSelect: { control: 'boolean' },
-    defaultItemsPerPage: { control: 'number' },
-    defaultActivePage: { control: 'number' },
     selectOptions: { control: false },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

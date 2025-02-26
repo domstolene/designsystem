@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { LocalMessage } from './LocalMessage';
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { List, ListItem } from '../List';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Heading, Paragraph } from '../Typography';
@@ -9,13 +10,8 @@ export default {
   title: 'dds-components/LocalMessage',
   component: LocalMessage,
   argTypes: {
-    message: {
-      control: 'text',
-      defaultValue: 'En tilfeldig melding',
-    },
     width: { control: 'text' },
-    closable: { control: 'boolean' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {
