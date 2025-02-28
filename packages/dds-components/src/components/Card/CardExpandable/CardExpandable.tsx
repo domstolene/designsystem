@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import styles from './CardExpandable.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -21,49 +19,44 @@ export type CardExpandableProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const CardExpandable = forwardRef<HTMLDivElement, CardExpandableProps>(
-  (props, ref) => {
-    const {
-      isExpanded = false,
-      onChange,
-      id,
-      children,
-      className,
-      htmlProps,
-      ...rest
-    } = props;
+export const CardExpandable = ({
+  isExpanded = false,
+  onChange,
+  id,
+  children,
+  className,
+  htmlProps,
+  ...rest
+}: CardExpandableProps) => {
+  const {
+    id: accordionId,
+    isExpanded: expanded,
+    toggleExpanded,
+    bodyContentRef,
+    headerProps,
+    bodyProps,
+  } = useAccordion({ initiallyExpanded: isExpanded, onChange, id });
 
-    const {
-      id: accordionId,
-      isExpanded: expanded,
-      toggleExpanded,
-      bodyContentRef,
-      headerProps,
-      bodyProps,
-    } = useAccordion({ initiallyExpanded: isExpanded, onChange, id });
-
-    return (
-      <div
-        {...getBaseHTMLProps(
-          accordionId,
-          cn(className, styles['container']),
-          htmlProps,
-          rest,
-        )}
-        ref={ref}
+  return (
+    <div
+      {...getBaseHTMLProps(
+        accordionId,
+        cn(className, styles['container']),
+        htmlProps,
+        rest,
+      )}
+    >
+      <AccordionContextProvider
+        headerProps={headerProps}
+        bodyProps={bodyProps}
+        isExpanded={expanded}
+        toggleExpanded={toggleExpanded}
+        bodyContentRef={bodyContentRef}
       >
-        <AccordionContextProvider
-          headerProps={headerProps}
-          bodyProps={bodyProps}
-          isExpanded={expanded}
-          toggleExpanded={toggleExpanded}
-          bodyContentRef={bodyContentRef}
-        >
-          {children}
-        </AccordionContextProvider>
-      </div>
-    );
-  },
-);
+        {children}
+      </AccordionContextProvider>
+    </div>
+  );
+};
 
 CardExpandable.displayName = 'CardExpandable';

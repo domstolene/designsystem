@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import styles from './Tabs.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -16,25 +14,27 @@ export type TabPanelProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const TabPanel = forwardRef<HTMLDivElement, TabPanelProps>(
-  ({ active = false, children, id, className, htmlProps, ...rest }, ref) => {
-    return (
-      <div
-        {...getBaseHTMLProps(
-          id,
-          cn(className, styles['tab-panel'], focusable),
-          htmlProps,
-          rest,
-        )}
-        ref={ref}
-        tabIndex={0}
-        role="tabpanel"
-        hidden={!active}
-      >
-        {children}
-      </div>
-    );
-  },
+export const TabPanel = ({
+  active = false,
+  children,
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: TabPanelProps) => (
+  <div
+    {...getBaseHTMLProps(
+      id,
+      cn(className, styles['tab-panel'], focusable),
+      htmlProps,
+      rest,
+    )}
+    tabIndex={0}
+    role="tabpanel"
+    hidden={!active}
+  >
+    {children}
+  </div>
 );
 
 TabPanel.displayName = 'TabPanel';

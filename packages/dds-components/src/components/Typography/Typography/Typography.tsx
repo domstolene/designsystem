@@ -1,8 +1,4 @@
-import {
-  type AnchorHTMLAttributes,
-  type HTMLAttributes,
-  forwardRef,
-} from 'react';
+import { type AnchorHTMLAttributes, type HTMLAttributes } from 'react';
 
 import styles from './Typography.module.css';
 import {
@@ -71,83 +67,74 @@ const isAnchorProps = (
   props: TypographyProps,
 ): props is AnchorTypographyProps => props.typographyType === 'a';
 
-export const Typography = forwardRef<HTMLElement, TypographyProps>(
-  (props, ref) => {
-    const {
-      typographyType = 'bodyMedium',
-      as: propAs,
-      children,
-      bold,
-      underline,
-      italic,
-      style,
-      id,
-      withMargins,
-      color,
-      className,
-      htmlProps = {},
-      ...rest
-    } = props;
+export const Typography = (props: TypographyProps) => {
+  const {
+    typographyType = 'bodyMedium',
+    as: propAs,
+    children,
+    bold,
+    underline,
+    italic,
+    style,
+    id,
+    withMargins,
+    color,
+    className,
+    htmlProps = {},
+    ...rest
+  } = props;
 
-    const { style: htmlPropsStyle, ...restHtmlProps } = htmlProps;
+  const { style: htmlPropsStyle, ...restHtmlProps } = htmlProps;
 
-    const as = propAs ? propAs : getElementType(typographyType);
-    const typographyCn = getTypographyCn(typographyType);
+  const as = propAs ? propAs : getElementType(typographyType);
+  const typographyCn = getTypographyCn(typographyType);
 
-    let relProp;
-    let targetProp;
-    let externalLinkProp;
-    if (isAnchorProps(props)) {
-      const { externalLink, target } = props;
-      relProp = as === 'a' ? 'noopener noreferer' : undefined;
-      targetProp = as !== 'a' ? undefined : externalLink ? '_blank' : target;
-      externalLinkProp = as === 'a' && externalLink ? externalLink : undefined;
-    }
+  let relProp;
+  let targetProp;
+  let externalLinkProp;
+  if (isAnchorProps(props)) {
+    const { externalLink, target } = props;
+    relProp = as === 'a' ? 'noopener noreferer' : undefined;
+    targetProp = as !== 'a' ? undefined : externalLink ? '_blank' : target;
+    externalLinkProp = as === 'a' && externalLink ? externalLink : undefined;
+  }
 
-    const typographyProps = {
-      target: targetProp,
-    };
-
-    return (
-      <ElementAs
-        ref={ref}
-        {...typographyProps}
-        {...getBaseHTMLProps<HTMLElement>(
-          id,
-          cn(
-            className,
-            styles.container,
-            externalLinkProp && typographyStyles['a--external'],
-            typographyStyles[typographyCn],
-            withMargins && typographyStyles[`${typographyCn}--margins`],
-            isLegend(as) && typographyStyles.legend,
-            isLegend(as) && withMargins && typographyStyles['legend--margins'],
-            isCaption(as) &&
-              withMargins &&
-              typographyStyles['caption--withMargins'],
-            bold && typographyStyles.bold,
-            underline && typographyStyles.underline,
-            italic && typographyStyles.italic,
-            as === 'a' && focusable,
-          ),
-          restHtmlProps,
-          rest,
-        )}
-        as={as}
-        style={{
-          ...htmlPropsStyle,
-          ...style,
-          color: color && getTextColor(color),
-        }}
-        rel={relProp}
-      >
-        {children}
-        {externalLinkProp && (
-          <Icon icon={OpenExternalIcon} iconSize="inherit" />
-        )}
-      </ElementAs>
-    );
-  },
-);
+  return (
+    <ElementAs
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.container,
+          externalLinkProp && typographyStyles['a--external'],
+          typographyStyles[typographyCn],
+          withMargins && typographyStyles[`${typographyCn}--margins`],
+          isLegend(as) && typographyStyles.legend,
+          isLegend(as) && withMargins && typographyStyles['legend--margins'],
+          isCaption(as) &&
+            withMargins &&
+            typographyStyles['caption--withMargins'],
+          bold && typographyStyles.bold,
+          underline && typographyStyles.underline,
+          italic && typographyStyles.italic,
+          as === 'a' && focusable,
+        ),
+        restHtmlProps,
+        rest,
+      )}
+      as={as}
+      style={{
+        ...htmlPropsStyle,
+        ...style,
+        color: color && getTextColor(color),
+      }}
+      rel={relProp}
+      target={targetProp}
+    >
+      {children}
+      {externalLinkProp && <Icon icon={OpenExternalIcon} iconSize="inherit" />}
+    </ElementAs>
+  );
+};
 
 Typography.displayName = 'Typography';

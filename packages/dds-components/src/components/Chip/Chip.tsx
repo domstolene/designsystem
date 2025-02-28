@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 import styles from './Chip.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
@@ -18,9 +18,14 @@ export type ChipProps = BaseComponentProps<
   }
 >;
 
-export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
-  const { text, onClose, id, className, htmlProps = {}, ...rest } = props;
-
+export const Chip = ({
+  text,
+  onClose,
+  id,
+  className,
+  htmlProps = {},
+  ...rest
+}: ChipProps) => {
   const { 'aria-label': ariaLabel, ...restHTMLprops } = htmlProps;
 
   const [isOpen, setIsOpen] = useState(true);
@@ -38,7 +43,6 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
         restHTMLprops,
         rest,
       )}
-      ref={ref}
     >
       <TextOverflowEllipsisInner className={cn(typographyStyles['body-small'])}>
         {text}
@@ -52,6 +56,6 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
       />
     </div>
   ) : null;
-});
+};
 
 Chip.displayName = 'Chip';

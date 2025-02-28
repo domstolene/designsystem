@@ -1,9 +1,4 @@
-import {
-  type ButtonHTMLAttributes,
-  forwardRef,
-  useEffect,
-  useRef,
-} from 'react';
+import { type ComponentPropsWithRef, useEffect, useRef } from 'react';
 
 import { useCombinedRef } from '../../hooks';
 import { cn } from '../../utils';
@@ -14,14 +9,14 @@ import styles from '../OverflowMenu/OverflowMenu.module.css';
 export type SearchSuggestionItemProps = {
   focus?: boolean;
   index?: number;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & ComponentPropsWithRef<'button'>;
 
-export const SearchSuggestionItem = forwardRef<
-  HTMLButtonElement,
-  SearchSuggestionItemProps
->((props, ref) => {
-  const { focus, className, ...rest } = props;
-
+export const SearchSuggestionItem = ({
+  focus,
+  className,
+  ref,
+  ...rest
+}: SearchSuggestionItemProps) => {
   const itemRef = useRef<HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
 
@@ -45,6 +40,6 @@ export const SearchSuggestionItem = forwardRef<
       tabIndex={focus ? 0 : -1}
     />
   );
-});
+};
 
 SearchSuggestionItem.displayName = 'SearchSuggestionItem';

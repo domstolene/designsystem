@@ -1,11 +1,7 @@
-import { type HTMLAttributes, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
-export type TableFootProps = HTMLAttributes<HTMLTableSectionElement>;
+export type TableFootProps = ComponentPropsWithRef<'tfoot'>;
 
-export const Foot = forwardRef<HTMLTableSectionElement, TableFootProps>(
-  (props, ref) => {
-    return <tfoot ref={ref} {...props} />;
-  },
-);
+export const Foot = (props: TableFootProps) => <tfoot {...props} />;
 
 Foot.displayName = 'Table.Foot';

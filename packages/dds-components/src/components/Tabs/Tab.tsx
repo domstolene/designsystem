@@ -5,7 +5,6 @@ import {
   type KeyboardEvent,
   type MouseEvent,
   type SetStateAction,
-  forwardRef,
   useCallback,
   useEffect,
   useRef,
@@ -48,23 +47,22 @@ export type TabProps = BaseComponentPropsWithChildren<
   Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>
 >;
 
-export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
-  const {
-    active = false,
-    icon,
-    children,
-    focus,
-    setFocus,
-    index,
-    onClick,
-    onKeyDown,
-    id,
-    className,
-    htmlProps,
-    width = '1fr',
-    ...rest
-  } = props;
-
+export const Tab = ({
+  active = false,
+  icon,
+  children,
+  focus,
+  setFocus,
+  index,
+  onClick,
+  onKeyDown,
+  id,
+  className,
+  htmlProps,
+  width = '1fr',
+  ref,
+  ...rest
+}: TabProps) => {
   // Tell parent what my width should be
   // This is used for the grid layout
   useSetTabWidth(index!, width);
@@ -124,6 +122,6 @@ export const Tab = forwardRef<HTMLButtonElement, TabProps>((props, ref) => {
       <span>{children}</span>
     </button>
   );
-});
+};
 
 Tab.displayName = 'Tab';

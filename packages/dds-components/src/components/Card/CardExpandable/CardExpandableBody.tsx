@@ -1,5 +1,4 @@
 import { type Properties, type Property } from 'csstype';
-import { forwardRef } from 'react';
 
 import styles from './CardExpandable.module.css';
 import {
@@ -21,12 +20,13 @@ export type CardExpandableBodyProps = Omit<
   'id'
 >;
 
-export const CardExpandableBody = forwardRef<
-  HTMLDivElement,
-  CardExpandableBodyProps
->((props, ref) => {
-  const { children, className, htmlProps, padding, ...rest } = props;
-
+export const CardExpandableBody = ({
+  children,
+  className,
+  htmlProps,
+  padding,
+  ...rest
+}: CardExpandableBodyProps) => {
   const { bodyContentRef, bodyProps } = useAccordionContext();
 
   const { className: bodyContextCn, id, height, ...restBodyProps } = bodyProps;
@@ -51,7 +51,6 @@ export const CardExpandableBody = forwardRef<
         htmlProps,
         rest,
       )}
-      ref={ref}
       {...restBodyProps}
       style={{ ...htmlProps?.style, ...styleVariables }}
     >
@@ -64,6 +63,6 @@ export const CardExpandableBody = forwardRef<
       </div>
     </div>
   );
-});
+};
 
 CardExpandableBody.displayName = 'CardExpandableBody';

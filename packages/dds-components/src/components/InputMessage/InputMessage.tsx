@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import styles from './InputMessage.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
@@ -21,40 +19,38 @@ export type InputMessageProps = BaseComponentProps<
   }
 >;
 
-export const InputMessage = forwardRef<HTMLDivElement, InputMessageProps>(
-  (props, ref) => {
-    const { message, messageType, id, className, htmlProps, ...rest } = props;
+export const InputMessage = ({
+  message,
+  messageType,
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: InputMessageProps) => {
+  const isError = messageType === 'error';
 
-    const isError = messageType === 'error';
-
-    return (
-      <div
-        {...getBaseHTMLProps(
-          id,
-          cn(
-            className,
-            styles.container,
-            isError && styles['container--error'],
-          ),
-          htmlProps,
-          rest,
-        )}
-        ref={ref}
+  return (
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(className, styles.container, isError && styles['container--error']),
+        htmlProps,
+        rest,
+      )}
+    >
+      {isError && (
+        <Icon icon={ErrorIcon} iconSize="small" className={styles.icon} />
+      )}
+      <Typography
+        typographyType={isError ? 'bodySmall' : 'bodyXsmall'}
+        color={isError ? 'textDefault' : 'textSubtle'}
+        as="span"
       >
-        {isError && (
-          <Icon icon={ErrorIcon} iconSize="small" className={styles.icon} />
-        )}
-        <Typography
-          typographyType={isError ? 'bodySmall' : 'bodyXsmall'}
-          color={isError ? 'textDefault' : 'textSubtle'}
-          as="span"
-        >
-          {message}
-        </Typography>
-      </div>
-    );
-  },
-);
+        {message}
+      </Typography>
+    </div>
+  );
+};
 
 InputMessage.displayName = 'InputMessage';
 

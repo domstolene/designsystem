@@ -44,9 +44,6 @@ const name = () => `test${counter++}`;
 
 export const Default: Story = {
   args: { label: 'Label', children },
-  render: args => {
-    return <RadioButtonGroup {...args} />;
-  },
 };
 
 export const Overview: Story = {

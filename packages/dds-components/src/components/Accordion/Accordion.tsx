@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import styles from './Accordion.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -21,49 +19,44 @@ export type AccordionProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  (props, ref) => {
-    const {
-      isExpanded = false,
-      onChange,
-      id,
-      children,
-      className,
-      htmlProps,
-      ...rest
-    } = props;
+export const Accordion = ({
+  isExpanded = false,
+  onChange,
+  id,
+  children,
+  className,
+  htmlProps,
+  ...rest
+}: AccordionProps) => {
+  const {
+    id: accordionId,
+    isExpanded: expanded,
+    toggleExpanded,
+    bodyContentRef,
+    headerProps,
+    bodyProps,
+  } = useAccordion({ initiallyExpanded: isExpanded, onChange, id });
 
-    const {
-      id: accordionId,
-      isExpanded: expanded,
-      toggleExpanded,
-      bodyContentRef,
-      headerProps,
-      bodyProps,
-    } = useAccordion({ initiallyExpanded: isExpanded, onChange, id });
-
-    return (
-      <div
-        {...getBaseHTMLProps(
-          accordionId,
-          cn(className, styles.container),
-          htmlProps,
-          rest,
-        )}
-        ref={ref}
+  return (
+    <div
+      {...getBaseHTMLProps(
+        accordionId,
+        cn(className, styles.container),
+        htmlProps,
+        rest,
+      )}
+    >
+      <AccordionContextProvider
+        headerProps={headerProps}
+        bodyProps={bodyProps}
+        isExpanded={expanded}
+        toggleExpanded={toggleExpanded}
+        bodyContentRef={bodyContentRef}
       >
-        <AccordionContextProvider
-          headerProps={headerProps}
-          bodyProps={bodyProps}
-          isExpanded={expanded}
-          toggleExpanded={toggleExpanded}
-          bodyContentRef={bodyContentRef}
-        >
-          {children}
-        </AccordionContextProvider>
-      </div>
-    );
-  },
-);
+        {children}
+      </AccordionContextProvider>
+    </div>
+  );
+};
 
 Accordion.displayName = 'Accordion';

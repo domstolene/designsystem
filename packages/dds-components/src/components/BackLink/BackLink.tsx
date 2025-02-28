@@ -1,4 +1,4 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './BackLink.module.css';
 import { Icon } from '../Icon';
@@ -10,23 +10,21 @@ export type BackLinkProps = {
    * Ledetekst.
    */
   label: string;
-} & Pick<ComponentProps<'a'>, 'onClick' | 'href'>;
+} & Pick<ComponentPropsWithRef<'a'>, 'onClick' | 'href' | 'ref'>;
 
-export const BackLink = forwardRef<HTMLElement, BackLinkProps>(
-  ({ label, ...props }, ref) => {
-    return (
-      <nav ref={ref} aria-label="Gå tilbake">
-        <Link {...props}>
-          <Icon
-            icon={icons.ArrowLeftIcon}
-            iconSize="inherit"
-            className={styles.icon}
-          />
-          {label}
-        </Link>
-      </nav>
-    );
-  },
-);
+export const BackLink = ({ label, ref, ...rest }: BackLinkProps) => {
+  return (
+    <nav ref={ref} aria-label="Gå tilbake">
+      <Link {...rest}>
+        <Icon
+          icon={icons.ArrowLeftIcon}
+          iconSize="inherit"
+          className={styles.icon}
+        />
+        {label}
+      </Link>
+    </nav>
+  );
+};
 
 BackLink.displayName = 'BackLink';

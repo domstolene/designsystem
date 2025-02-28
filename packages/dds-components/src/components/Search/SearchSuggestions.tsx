@@ -1,4 +1,4 @@
-import { type MouseEvent, forwardRef } from 'react';
+import { type MouseEvent } from 'react';
 
 import { type SearchProps } from './Search';
 import styles from './Search.module.css';
@@ -7,7 +7,7 @@ import { SearchSuggestionItem } from './SearchSuggestionItem';
 import { useRoveFocus } from '../../hooks';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, derivativeIdGenerator } from '../../utils';
-import { Paper } from '../helpers';
+import { Paper, StylelessList } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
@@ -28,23 +28,18 @@ export type SearchSuggestionsProps = BaseComponentProps<
   }
 >;
 
-export const SearchSuggestions = forwardRef<
-  HTMLDivElement,
-  SearchSuggestionsProps
->((props, ref) => {
-  const {
-    id,
-    searchId,
-    className,
-    htmlProps,
-    suggestions = [],
-    showSuggestions,
-    componentSize = 'medium',
-    onSuggestionClick,
-    maxSuggestions,
-    ...rest
-  } = props;
-
+export const SearchSuggestions = ({
+  id,
+  searchId,
+  className,
+  htmlProps,
+  suggestions = [],
+  showSuggestions,
+  componentSize = 'medium',
+  onSuggestionClick,
+  maxSuggestions,
+  ...rest
+}: SearchSuggestionsProps) => {
   const suggestionsHeaderId = derivativeIdGenerator(
     searchId,
     'suggestions-header',
@@ -72,7 +67,6 @@ export const SearchSuggestions = forwardRef<
         htmlProps,
         rest,
       )}
-      ref={ref}
       aria-hidden={!showSuggestions}
       border="default"
     >
@@ -85,11 +79,7 @@ export const SearchSuggestions = forwardRef<
       >
         Søkeforslag
       </span>
-      <ul
-        role="listbox"
-        aria-labelledby={suggestionsHeaderId}
-        className={utilStyles['remove-list-styling']}
-      >
+      <StylelessList role="listbox" aria-labelledby={suggestionsHeaderId}>
         {suggestionsToRender.map((suggestion, index) => {
           return (
             <li key={index} role="option">
@@ -111,9 +101,9 @@ export const SearchSuggestions = forwardRef<
             </li>
           );
         })}
-      </ul>
+      </StylelessList>
     </Paper>
   );
-});
+};
 
 SearchSuggestions.displayName = 'SearchSuggestions';

@@ -1,4 +1,4 @@
-import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { StylelessList } from '../helpers';
 import { InputMessage } from '../InputMessage';
 
 interface ErrorListProps {
@@ -26,7 +26,7 @@ export const ErrorList = (props: ErrorListProps) => {
   }
 
   return (
-    <ul className={utilStyles['remove-list-styling']}>
+    <StylelessList>
       {errors.map(({ id, message }) => {
         return (
           <li>
@@ -39,6 +39,6 @@ export const ErrorList = (props: ErrorListProps) => {
           </li>
         );
       })}
-    </ul>
+    </StylelessList>
   );
 };

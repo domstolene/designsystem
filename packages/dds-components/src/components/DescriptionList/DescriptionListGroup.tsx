@@ -1,5 +1,4 @@
 import { type Property } from 'csstype';
-import { forwardRef } from 'react';
 
 import styles from './DescriptionList.module.css';
 import {
@@ -20,30 +19,22 @@ export type DescriptionListGroupProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const DescriptionListGroup = forwardRef<
-  HTMLDivElement,
-  DescriptionListGroupProps
->((props, ref) => {
-  const {
-    children,
-    margin,
-    minWidth,
-    maxWidth,
-    id,
-    className,
-    htmlProps,
-    ...rest
-  } = props;
-
-  return (
-    <div
-      ref={ref}
-      {...getBaseHTMLProps(id, cn(className, styles.group), htmlProps, rest)}
-      style={{ ...htmlProps?.style, maxWidth, minWidth, margin }}
-    >
-      {children}
-    </div>
-  );
-});
+export const DescriptionListGroup = ({
+  children,
+  margin,
+  minWidth,
+  maxWidth,
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: DescriptionListGroupProps) => (
+  <div
+    {...getBaseHTMLProps(id, cn(className, styles.group), htmlProps, rest)}
+    style={{ ...htmlProps?.style, maxWidth, minWidth, margin }}
+  >
+    {children}
+  </div>
+);
 
 DescriptionListGroup.displayName = 'DescriptionListGroup';

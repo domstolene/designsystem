@@ -1,4 +1,4 @@
-import { type HTMLAttributes, type PropsWithChildren } from 'react';
+import { type HTMLAttributes, type PropsWithChildren, type Ref } from 'react';
 
 import { cn } from '../../../dds-components/src/utils/dom';
 
@@ -22,6 +22,7 @@ export type BaseComponentProps<
   TOtherProps & {
     /**Ekstra HTML-attributter som vil settes på elementet som genereres. Untatt `id` og `className` som settes på toppnivå. */
     htmlProps?: THTMLAttributesProps;
+    ref?: Ref<TElement>;
   };
 
 /**
