@@ -86,17 +86,17 @@ export const InputStepper = ({
     ['--dds-input-stepper-width' as any]: width ? width : '85px',
   };
   return (
-    <div className={cn(className)}>
+    <div className={className}>
       <div>
         <Label
           htmlFor={uniqueId}
           readOnly={readOnly}
-          className={cn(inputStyles.label)}
+          className={inputStyles.label}
         >
           {label}
         </Label>
       </div>
-      <div className={cn(styles['input-container'])}>
+      <div className={styles['input-container']}>
         {readOnly || disabled ? null : (
           <Button
             aria-label={decreaseButtonLabel ?? `Trekk fra ${label}`}
@@ -117,7 +117,7 @@ export const InputStepper = ({
           id={uniqueId}
           style={{ ...style, ...styleVariables }}
           componentSize={componentSize}
-          {...getBaseHTMLProps(uniqueId, cn(styles.textInput), htmlProps, rest)}
+          {...getBaseHTMLProps(uniqueId, styles.textInput, htmlProps, rest)}
           value={inputValue}
           onChange={handleInput}
           hasErrorMessage={hasErrorMessage}
