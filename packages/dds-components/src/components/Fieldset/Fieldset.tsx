@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import styles from './Fieldset.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -15,19 +13,13 @@ export type FieldsetProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const Fieldset = forwardRef<HTMLFieldSetElement, FieldsetProps>(
-  (props, ref) => {
-    const { id, className, htmlProps, ...rest } = props;
-    return (
-      <fieldset
-        ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(className, styles.container),
-          htmlProps,
-          rest,
-        )}
-      />
-    );
-  },
+export const Fieldset = ({
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: FieldsetProps) => (
+  <fieldset
+    {...getBaseHTMLProps(id, cn(className, styles.container), htmlProps, rest)}
+  />
 );

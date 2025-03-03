@@ -4,7 +4,7 @@ import { I18nProvider } from '@react-aria/i18n';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
 import type * as CSS from 'csstype';
-import { type Ref, forwardRef, useRef } from 'react';
+import { type Ref, useRef } from 'react';
 
 import { Calendar } from './Calendar/Calendar';
 import {
@@ -24,6 +24,7 @@ import {
 export interface DatePickerProps
   extends Omit<AriaDatePickerProps<CalendarDate>, 'granularity'>,
     Pick<DateFieldProps<CalendarDate>, 'componentSize' | 'tip' | 'style'> {
+  ref?: Ref<HTMLElement>;
   /**
    * Ledetekst.
    */
@@ -50,29 +51,25 @@ const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
   return typeof ref === 'object' && ref !== null && 'focus' in ref;
 };
 
-export function _DatePicker(
-  {
-    errorMessage,
-    componentSize,
-    tip,
-    style,
-    width,
-    smallScreenBreakpoint,
-    showWeekNumbers = true,
-    ...props
-  }: DatePickerProps,
-  forwardedRef: Ref<HTMLElement>,
-) {
+export function DatePicker({
+  errorMessage,
+  componentSize,
+  tip,
+  style,
+  width,
+  smallScreenBreakpoint,
+  showWeekNumbers = true,
+  ref,
+  ...props
+}: DatePickerProps) {
   const state = useDatePickerState(props);
-  const domRef = useFocusManagerRef(
-    refIsFocusable(forwardedRef) ? forwardedRef : null,
-  );
-  const ref = useRef<HTMLElement>(null);
-  const combinedRef = useCombinedRef(ref, domRef);
+  const domRef = useFocusManagerRef(ref && refIsFocusable(ref) ? ref : null);
+  const internalRef = useRef<HTMLElement>(null);
+  const combinedRef = useCombinedRef(internalRef, domRef);
   const { buttonProps, calendarProps, fieldProps, groupProps } = useDatePicker(
     { ...props, granularity: 'day' },
     state,
-    ref,
+    internalRef,
   );
 
   return (
@@ -104,7 +101,5 @@ export function _DatePicker(
     </I18nProvider>
   );
 }
-
-export const DatePicker = forwardRef(_DatePicker);
 
 DatePicker.displayName = 'DatePicker';

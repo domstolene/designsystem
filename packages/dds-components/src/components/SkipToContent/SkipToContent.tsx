@@ -1,5 +1,4 @@
 import { type Property } from 'csstype';
-import { forwardRef } from 'react';
 
 import styles from './SkipToContent.module.css';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
@@ -23,34 +22,24 @@ export type SkipToContentProps = BaseComponentProps<
   }
 >;
 
-export const SkipToContent = forwardRef<HTMLAnchorElement, SkipToContentProps>(
-  (props, ref) => {
-    const {
-      text = 'Til hovedinnhold',
-      top = 0,
-      id,
-      className,
-      htmlProps = {},
-      ...rest
-    } = props;
+export const SkipToContent = ({
+  text = 'Til hovedinnhold',
+  top = 0,
+  id,
+  className,
+  htmlProps = {},
+  ...rest
+}: SkipToContentProps) => {
+  const { className: htmlPropsClassName, style, ...restHtmlProps } = htmlProps;
 
-    const {
-      className: htmlPropsClassName,
-      style,
-      ...restHtmlProps
-    } = htmlProps;
-
-    return (
-      <Contrast
-        className={cn(className, htmlPropsClassName, styles.wrapper)}
-        style={{ ...style, top }}
-      >
-        <Link {...getBaseHTMLProps(id, restHtmlProps, rest)} ref={ref}>
-          {text}
-        </Link>
-      </Contrast>
-    );
-  },
-);
+  return (
+    <Contrast
+      className={cn(className, htmlPropsClassName, styles.wrapper)}
+      style={{ ...style, top }}
+    >
+      <Link {...getBaseHTMLProps(id, restHtmlProps, rest)}>{text}</Link>
+    </Contrast>
+  );
+};
 
 SkipToContent.displayName = 'SkipToContent';

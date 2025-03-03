@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 import styles from './GlobalMessage.module.css';
 import {
@@ -35,62 +35,54 @@ export type GlobalMessageProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const GlobalMessage = forwardRef<HTMLDivElement, GlobalMessageProps>(
-  (props, ref) => {
-    const {
-      message,
-      purpose = 'info',
-      closable,
-      onClose,
-      children,
-      id,
-      className,
-      htmlProps,
-      ...rest
-    } = props;
+export const GlobalMessage = ({
+  message,
+  purpose = 'info',
+  closable,
+  onClose,
+  children,
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: GlobalMessageProps) => {
+  const [isClosed, setClosed] = useState(false);
 
-    const [isClosed, setClosed] = useState(false);
-
-    return !isClosed ? (
+  return !isClosed ? (
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.container,
+          styles[`container--${purpose}`],
+          typographyStyles['body-medium'],
+        ),
+        htmlProps,
+        rest,
+      )}
+    >
       <div
-        ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(
-            className,
-            styles.container,
-            styles[`container--${purpose}`],
-            typographyStyles['body-medium'],
-          ),
-          htmlProps,
-          rest,
-        )}
+        className={cn(styles.content, closable && styles['content--closable'])}
       >
-        <div
-          className={cn(
-            styles.content,
-            closable && styles['content--closable'],
-          )}
-        >
-          <Icon icon={icons[purpose]} className={styles.icon} />
-          {children ?? <span>{message}</span>}
-        </div>
-
-        {closable && (
-          <Button
-            icon={CloseIcon}
-            purpose="tertiary"
-            onClick={() => {
-              setClosed(true);
-              onClose && onClose();
-            }}
-            size="small"
-            aria-label="Lukk melding"
-          />
-        )}
+        <Icon icon={icons[purpose]} className={styles.icon} />
+        {children ?? <span>{message}</span>}
       </div>
-    ) : null;
-  },
-);
+
+      {closable && (
+        <Button
+          icon={CloseIcon}
+          purpose="tertiary"
+          onClick={() => {
+            setClosed(true);
+            onClose && onClose();
+          }}
+          size="small"
+          aria-label="Lukk melding"
+        />
+      )}
+    </div>
+  ) : null;
+};
 
 GlobalMessage.displayName = 'GlobalMessage';

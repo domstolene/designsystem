@@ -1,4 +1,4 @@
-import { type ElementType, forwardRef } from 'react';
+import { type ElementType } from 'react';
 
 import {
   type BaseComponentPropsWithChildren,
@@ -43,32 +43,29 @@ export type HeadingProps = BaseComponentPropsWithChildren<
   } & BaseTypographyProps
 >;
 
-export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
-  (props, ref) => {
-    const {
-      id,
-      className,
-      htmlProps,
-      children,
-      typographyType,
-      level,
-      ...rest
-    } = props;
+export const Heading = ({
+  id,
+  className,
+  htmlProps,
+  children,
+  typographyType,
+  level,
+  ...rest
+}: HeadingProps) => {
+  const headingElement: ElementType = getHeadingElement(level);
 
-    const headingElement: ElementType = getHeadingElement(level);
+  const standardTypographyType =
+    typographyType ?? getDefaultTypographyType(headingElement);
 
-    const standardTypographyType =
-      typographyType ?? getDefaultTypographyType(headingElement);
-
-    const headingProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      typographyType: standardTypographyType,
-      as: headingElement,
-      ref,
-    };
-
-    return <Typography {...headingProps}>{children}</Typography>;
-  },
-);
+  return (
+    <Typography
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      typographyType={standardTypographyType}
+      as={headingElement}
+    >
+      {children}
+    </Typography>
+  );
+};
 
 Heading.displayName = 'Heading';

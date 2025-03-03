@@ -2,7 +2,7 @@ import { type Properties, type Property } from 'csstype';
 import {
   type HTMLAttributes,
   type JSX,
-  forwardRef,
+  type Ref,
   useContext,
   useId,
 } from 'react';
@@ -89,46 +89,45 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   ) => JSX.Element;
   /** Testid. Legges på control-div med suffiks "control". */
   'data-testid'?: string;
+  /**Ref til komponenten. */
+  ref?: SelectForwardRefType<Option, IsMulti>;
 } & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
   WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 
-export type SelectForwardRefType<
-  Option,
-  IsMulti extends boolean,
-> = React.ForwardedRef<SelectInstance<Option, IsMulti, GroupBase<Option>>>;
+export type SelectForwardRefType<Option, IsMulti extends boolean> = Ref<
+  SelectInstance<Option, IsMulti, GroupBase<Option>>
+>;
 
-function SelectInner<Option = unknown, IsMulti extends boolean = false>(
-  props: SelectProps<Option, IsMulti>,
-  ref: SelectForwardRefType<Option, IsMulti>,
-) {
-  const {
-    id,
-    label,
-    componentSize = 'medium',
-    errorMessage,
-    tip,
-    required,
-    'aria-required': ariaRequired,
-    readOnly,
-    options,
-    isMulti,
-    value,
-    icon,
-    defaultValue,
-    width,
-    closeMenuOnSelect,
-    className,
-    style,
-    isDisabled,
-    isClearable = true,
-    placeholder,
-    menuPortalTarget,
-    customOptionElement,
-    customSingleValueElement,
-    'data-testid': dataTestId,
-    ...rest
-  } = props;
-
+export function Select<Option = unknown, IsMulti extends boolean = false>({
+  id,
+  label,
+  componentSize = 'medium',
+  errorMessage,
+  tip,
+  required,
+  'aria-required': ariaRequired,
+  readOnly,
+  options,
+  isMulti,
+  value,
+  icon,
+  defaultValue,
+  width,
+  closeMenuOnSelect,
+  className,
+  style,
+  isDisabled,
+  isClearable = true,
+  placeholder,
+  menuPortalTarget,
+  customOptionElement,
+  customSingleValueElement,
+  'data-testid': dataTestId,
+  onKeyDown,
+  openMenuOnClick,
+  ref,
+  ...rest
+}: SelectProps<Option, IsMulti>) {
   const themeContext = useContext(ThemeContext);
 
   if (!themeContext) {
@@ -218,11 +217,11 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,
-    onKeyDown: readOnlyKeyDownHandler('select', readOnly, props.onKeyDown),
+    onKeyDown: readOnlyKeyDownHandler('select', readOnly, onKeyDown),
     openMenuOnClick: readOnly
       ? false
-      : props.openMenuOnClick
-        ? props.openMenuOnClick
+      : openMenuOnClick
+        ? openMenuOnClick
         : undefined,
     ...rest,
   };
@@ -253,14 +252,4 @@ function SelectInner<Option = unknown, IsMulti extends boolean = false>(
   );
 }
 
-export const Select = forwardRef(SelectInner) as <
-  Option = unknown,
-  IsMulti extends boolean = false,
->(
-  props: SelectProps<Option, IsMulti> & {
-    ref?: SelectForwardRefType<Option, IsMulti>;
-  },
-) => JSX.Element;
-
-// @ts-expect-error TODO fix Select type
 Select.displayName = 'Select';

@@ -1,31 +1,21 @@
-import { Children, type HTMLAttributes, forwardRef } from 'react';
+import { Children, type ComponentPropsWithRef } from 'react';
 
 import styles from './Chip.module.css';
 import { cn } from '../../utils/dom';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { StylelessList } from '../helpers';
 
-export type ChipGroupProps = HTMLAttributes<HTMLUListElement>;
+export type ChipGroupProps = ComponentPropsWithRef<'ul'>;
 
-export const ChipGroup = forwardRef<HTMLUListElement, ChipGroupProps>(
-  ({ children, className, ...rest }, ref) => {
-    const childrenArray = Children.toArray(children);
+export const ChipGroup = ({ children, className, ...rest }: ChipGroupProps) => {
+  const childrenArray = Children.toArray(children);
 
-    return (
-      <ul
-        {...rest}
-        className={cn(
-          className,
-          styles.group,
-          utilStyles['remove-list-styling'],
-        )}
-        ref={ref}
-      >
-        {childrenArray.map((item, index) => (
-          <li key={`chip-${index}`}>{item}</li>
-        ))}
-      </ul>
-    );
-  },
-);
+  return (
+    <StylelessList {...rest} className={cn(className, styles.group)}>
+      {childrenArray.map((item, index) => (
+        <li key={`chip-${index}`}>{item}</li>
+      ))}
+    </StylelessList>
+  );
+};
 
 ChipGroup.displayName = 'ChipGroup';

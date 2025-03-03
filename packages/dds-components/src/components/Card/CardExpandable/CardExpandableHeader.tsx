@@ -1,5 +1,5 @@
 import { type Properties, type Property } from 'csstype';
-import { type ButtonHTMLAttributes, forwardRef } from 'react';
+import { type ButtonHTMLAttributes } from 'react';
 
 import styles from './CardExpandable.module.css';
 import {
@@ -31,20 +31,15 @@ export type CardExpandableHeaderProps = Omit<
   'id'
 >;
 
-export const CardExpandableHeader = forwardRef<
-  HTMLButtonElement,
-  CardExpandableHeaderProps
->((props, ref) => {
-  const {
-    children,
-    className,
-    htmlProps,
-    padding,
-    typographyType = 'headingLarge',
-    bold,
-    ...rest
-  } = props;
-
+export const CardExpandableHeader = ({
+  children,
+  className,
+  htmlProps,
+  padding,
+  typographyType = 'headingLarge',
+  bold,
+  ...rest
+}: CardExpandableHeaderProps) => {
   const { isExpanded, headerProps } = useAccordionContext();
 
   const containerStyleVariables: Properties = {
@@ -71,7 +66,6 @@ export const CardExpandableHeader = forwardRef<
         htmlProps,
         rest,
       )}
-      ref={ref}
       {...restHeaderProps}
       type="button"
     >
@@ -100,6 +94,6 @@ export const CardExpandableHeader = forwardRef<
       </div>
     </button>
   );
-});
+};
 
 CardExpandableHeader.displayName = 'CardExpandableHeader';

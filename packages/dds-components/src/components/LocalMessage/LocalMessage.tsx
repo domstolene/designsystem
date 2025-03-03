@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 import styles from './LocalMessage.module.css';
 import {
@@ -58,69 +58,64 @@ export type LocalMessageProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const LocalMessage = forwardRef<HTMLDivElement, LocalMessageProps>(
-  (props, ref) => {
-    const {
-      message,
-      purpose = 'info',
-      closable,
-      onClose,
-      width,
-      layout = 'horisontal',
-      children,
-      id,
-      className,
-      htmlProps,
-      ...rest
-    } = props;
+export const LocalMessage = ({
+  message,
+  purpose = 'info',
+  closable,
+  onClose,
+  width,
+  layout = 'horisontal',
+  children,
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: LocalMessageProps) => {
+  const [isClosed, setClosed] = useState(false);
 
-    const [isClosed, setClosed] = useState(false);
+  if (isClosed) {
+    return <></>;
+  }
 
-    if (isClosed) {
-      return <></>;
-    }
-
-    return (
-      <div
-        ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(
-            className,
-            typographyStyles['body-medium'],
-            styles.container,
-            styles[`container--${layout}`],
-            closable && styles[`container--${layout}--closable`],
-            styles[`container--${purpose}`],
-          ),
-          htmlProps,
-          rest,
-        )}
-        style={{ ...htmlProps?.style, width }}
-      >
-        <Icon
-          icon={icons[purpose]}
-          className={cn(styles.icon, styles.container__icon)}
-        />
-        <div className={styles.container__text}>
-          {children ?? <span>{message}</span>}
-        </div>
-        {closable && (
-          <Button
-            icon={CloseIcon}
-            purpose="tertiary"
-            onClick={() => {
-              setClosed(true);
-              onClose && onClose();
-            }}
-            size="small"
-            aria-label="Lukk melding"
-            className={styles.container__button}
-          />
-        )}
+  return (
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          typographyStyles['body-medium'],
+          styles.container,
+          styles[`container--${layout}`],
+          closable && styles[`container--${layout}--closable`],
+          styles[`container--${purpose}`],
+        ),
+        htmlProps,
+        rest,
+      )}
+      style={{ ...htmlProps?.style, width }}
+    >
+      <Icon
+        icon={icons[purpose]}
+        className={cn(styles.icon, styles.container__icon)}
+      />
+      <div className={styles.container__text}>
+        {children ?? <span>{message}</span>}
       </div>
-    );
-  },
-);
+      {closable && (
+        <Button
+          icon={CloseIcon}
+          purpose="tertiary"
+          onClick={() => {
+            setClosed(true);
+            onClose && onClose();
+          }}
+          size="small"
+          aria-label="Lukk melding"
+          className={styles.container__button}
+        />
+      )}
+    </div>
+  );
+};
 
 LocalMessage.displayName = 'LocalMessage';

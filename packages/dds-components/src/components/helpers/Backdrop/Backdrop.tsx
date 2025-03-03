@@ -1,4 +1,4 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Backdrop.module.css';
 import { cn } from '../../../utils';
@@ -6,23 +6,20 @@ import { cn } from '../../../utils';
 type BackdropProps = {
   isMounted?: boolean;
   zIndex: 'drawer' | 'modal';
-} & Pick<ComponentProps<'div'>, 'children' | 'onClick'>;
+} & Pick<ComponentPropsWithRef<'div'>, 'children' | 'onClick' | 'ref'>;
 
-export const Backdrop = forwardRef<HTMLDivElement, BackdropProps>(
-  ({ isMounted, zIndex, ...props }, ref) => {
-    const isMountedCn = isMounted ? 'visible' : 'hidden';
-    return (
-      <div
-        ref={ref}
-        className={cn(
-          styles.backdrop,
-          styles[zIndex],
-          styles[`backdrop--${isMountedCn}`],
-        )}
-        {...props}
-      />
-    );
-  },
-);
+export const Backdrop = ({ isMounted, zIndex, ...props }: BackdropProps) => {
+  const isMountedCn = isMounted ? 'visible' : 'hidden';
+  return (
+    <div
+      className={cn(
+        styles.backdrop,
+        styles[zIndex],
+        styles[`backdrop--${isMountedCn}`],
+      )}
+      {...props}
+    />
+  );
+};
 
 Backdrop.displayName = 'Backdrop';

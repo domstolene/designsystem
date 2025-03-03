@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import styles from './DescriptionList.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -17,20 +15,17 @@ export type DescriptionListDescProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const DescriptionListDesc = forwardRef<
-  HTMLElement,
-  DescriptionListDescProps
->((props, ref) => {
-  const { children, icon, id, className, htmlProps, ...rest } = props;
-
-  return (
-    <dd
-      ref={ref}
-      {...getBaseHTMLProps(id, cn(className, styles.desc), htmlProps, rest)}
-    >
-      {icon && <Icon icon={icon} />} {children}
-    </dd>
-  );
-});
+export const DescriptionListDesc = ({
+  children,
+  icon,
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: DescriptionListDescProps) => (
+  <dd {...getBaseHTMLProps(id, cn(className, styles.desc), htmlProps, rest)}>
+    {icon && <Icon icon={icon} />} {children}
+  </dd>
+);
 
 DescriptionListDesc.displayName = 'DescriptionListDesc';

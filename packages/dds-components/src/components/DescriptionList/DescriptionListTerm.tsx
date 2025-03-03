@@ -1,12 +1,9 @@
-import { type HTMLAttributes, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
-export type DescriptionListTermProps = HTMLAttributes<HTMLElement>;
+export type DescriptionListTermProps = ComponentPropsWithRef<'dt'>;
 
-export const DescriptionListTerm = forwardRef<
-  HTMLElement,
-  DescriptionListTermProps
->(({ ...rest }, ref) => {
-  return <dt ref={ref} {...rest} />;
-});
+export const DescriptionListTerm = (props: DescriptionListTermProps) => {
+  return <dt {...props} />;
+};
 
 DescriptionListTerm.displayName = 'DescriptionListTerm';

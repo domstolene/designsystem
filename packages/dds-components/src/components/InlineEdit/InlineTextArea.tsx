@@ -1,7 +1,8 @@
-import { type TextareaHTMLAttributes, forwardRef, useId, useRef } from 'react';
+import { useId, useRef } from 'react';
 
+import { useInlineEditContext } from './InlineEdit.context';
 import styles from './InlineEdit.module.css';
-import { type BaseInlineInputProps } from './InlineEdit.types';
+import { type InlineTextAreaProps } from './InlineEdit.types';
 import { inlineEditVisuallyHidden } from './InlineEdit.utils';
 import { useCombinedRef } from '../../hooks';
 import {
@@ -17,24 +18,18 @@ import { EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
-export type InlineTextAreaProps = BaseInlineInputProps &
-  TextareaHTMLAttributes<HTMLTextAreaElement>;
-
-export const InlineTextArea = forwardRef<
-  HTMLTextAreaElement,
-  InlineTextAreaProps
->((props, ref) => {
-  const {
-    id,
-    error,
-    errorMessage,
-    isEditing,
-    width = '140px',
-    'aria-describedby': ariaDescribedby,
-    emptiable,
-    hideIcon,
-    ...rest
-  } = props;
+export const InlineTextArea = ({
+  id,
+  error,
+  errorMessage,
+  width = '140px',
+  'aria-describedby': ariaDescribedby,
+  hideIcon,
+  ref,
+  ...rest
+}: InlineTextAreaProps) => {
+  const { onBlur, onChange, onFocus, isEditing, value, emptiable } =
+    useInlineEditContext();
 
   const genereatedId = useId();
   const uniqueId = id ?? `${genereatedId}-InlineTextArea`;
@@ -63,6 +58,10 @@ export const InlineTextArea = forwardRef<
         )}
         <textarea
           {...rest}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+          onFocus={onFocus}
           id={uniqueId}
           ref={combinedRef}
           aria-describedby={spaceSeparatedIdListGenerator([
@@ -89,6 +88,6 @@ export const InlineTextArea = forwardRef<
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
     </div>
   );
-});
+};
 
 InlineTextArea.displayName = 'InlineTextArea';

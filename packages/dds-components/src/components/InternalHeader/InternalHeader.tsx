@@ -6,6 +6,7 @@ import { NavigationItem } from './NavigationItem';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
+import { StylelessList } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { MenuIcon, MoreVerticalIcon, PersonIcon } from '../Icon/icons';
@@ -56,12 +57,11 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 
   const navigation = hasNavigationElements ? (
     <nav aria-label="sidenavigasjon">
-      <ul
+      <StylelessList
         className={cn(
           styles['nav-list'],
           hasSmallScreenBreakpoint &&
             styles[`nav-list--small-screen-${smallScreenBreakpoint}`],
-          utilStyles['remove-list-styling'],
         )}
       >
         {navItems.map((item, index) => {
@@ -78,7 +78,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             </li>
           );
         })}
-      </ul>
+      </StylelessList>
     </nav>
   ) : null;
 

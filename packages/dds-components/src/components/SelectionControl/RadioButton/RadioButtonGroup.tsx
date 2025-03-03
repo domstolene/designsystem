@@ -1,12 +1,4 @@
-import {
-  type ChangeEvent,
-  type HTMLAttributes,
-  type ReactElement,
-  type Ref,
-  forwardRef,
-  useId,
-  useState,
-} from 'react';
+import { type ChangeEvent, type HTMLAttributes, useId, useState } from 'react';
 
 import {
   RadioButtonGroupContext,
@@ -46,30 +38,25 @@ export type RadioButtonGroupProps<T extends string | number> =
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
   >;
 
-const RadioButtonGroupInner = <T extends string | number = string>(
-  props: RadioButtonGroupProps<T>,
-  ref: Ref<HTMLDivElement>,
-) => {
-  const {
-    name,
-    label,
-    groupId,
-    errorMessage,
-    tip,
-    disabled = false,
-    readOnly = false,
-    direction = 'row',
-    value,
-    defaultValue,
-    children,
-    required = false,
-    onChange,
-    id,
-    className,
-    htmlProps = {},
-    ...rest
-  } = props;
-
+export const RadioButtonGroup = <T extends string | number = string>({
+  name,
+  label,
+  groupId,
+  errorMessage,
+  tip,
+  disabled = false,
+  readOnly = false,
+  direction = 'row',
+  value,
+  defaultValue,
+  children,
+  required = false,
+  onChange,
+  id,
+  className,
+  htmlProps = {},
+  ...rest
+}: RadioButtonGroupProps<T>) => {
   const { 'aria-required': ariaRequired = false } = htmlProps;
 
   const [uncontrolledValue, setUncontrolledValue] = useState<T | undefined>(
@@ -118,7 +105,6 @@ const RadioButtonGroupInner = <T extends string | number = string>(
         { ...htmlProps, 'aria-required': ariaRequired },
         rest,
       )}
-      ref={ref}
     >
       <Typography
         as="span"
@@ -148,11 +134,4 @@ const RadioButtonGroupInner = <T extends string | number = string>(
   );
 };
 
-export const RadioButtonGroup = forwardRef(RadioButtonGroupInner) as <
-  T extends string | number = string,
->(
-  props: RadioButtonGroupProps<T> & { ref?: Ref<HTMLDivElement> },
-) => ReactElement<HTMLAttributes<HTMLDivElement>>;
-
-// @ts-expect-error TODO fix RadioButtonGroup type
 RadioButtonGroup.displayName = 'RadioButtonGroup';

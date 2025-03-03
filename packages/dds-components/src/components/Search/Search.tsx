@@ -1,7 +1,6 @@
 import {
   type ChangeEvent,
-  type InputHTMLAttributes,
-  forwardRef,
+  type ComponentPropsWithRef,
   useId,
   useState,
 } from 'react';
@@ -43,153 +42,149 @@ export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
   componentSize?: SearchSize;
   /**Props for søkeknappen. */
   buttonProps?: SearchButtonProps;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & ComponentPropsWithRef<'input'>;
 
-export const Search = forwardRef<HTMLInputElement, SearchProps>(
-  (
-    {
-      componentSize = 'medium',
-      buttonProps,
-      name,
-      label,
-      tip,
-      id,
-      value,
-      onChange,
-      className,
-      style,
-      'aria-describedby': ariaDescribedby,
-      ...rest
-    },
-    ref,
-  ) => {
-    const generatedId = useId();
-    const uniqueId = id ?? `${generatedId}-searchInput`;
-    const hasLabel = !!label;
-    const tipId = derivativeIdGenerator(uniqueId, 'tip');
-    const suggestionsId = derivativeIdGenerator(uniqueId, 'suggestions');
-    const suggestionsDescriptionId = derivativeIdGenerator(
-      uniqueId,
-      'suggestions-description',
-    );
+export const Search = ({
+  componentSize = 'medium',
+  buttonProps,
+  name,
+  label,
+  tip,
+  id,
+  value,
+  onChange,
+  className,
+  style,
+  'aria-describedby': ariaDescribedby,
+  ref,
+  ...rest
+}: SearchProps) => {
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-searchInput`;
+  const hasLabel = !!label;
+  const tipId = derivativeIdGenerator(uniqueId, 'tip');
+  const suggestionsId = derivativeIdGenerator(uniqueId, 'suggestions');
+  const suggestionsDescriptionId = derivativeIdGenerator(
+    uniqueId,
+    'suggestions-description',
+  );
 
-    const [hasValue, setHasValue] = useState(!!value);
+  const [hasValue, setHasValue] = useState(!!value);
 
-    const context = useAutocompleteSearch();
+  const context = useAutocompleteSearch();
 
-    const combinedRef = context.inputRef
-      ? useCombinedRef(context.inputRef, ref)
-      : ref;
+  const combinedRef = context.inputRef
+    ? useCombinedRef(context.inputRef, ref)
+    : ref;
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setHasValue(e.target.value !== '');
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setHasValue(e.target.value !== '');
 
-      context.onValueChange && context.onValueChange(e);
-      onChange && onChange(e);
-    };
+    context.onValueChange && context.onValueChange(e);
+    onChange && onChange(e);
+  };
 
-    const clearInput = () => {
-      const emptyChangeEvent = createEmptyChangeEvent(uniqueId);
-      handleChange(emptyChangeEvent);
-    };
+  const clearInput = () => {
+    const emptyChangeEvent = createEmptyChangeEvent(uniqueId);
+    handleChange(emptyChangeEvent);
+  };
 
-    const {
-      label: buttonLabel,
-      onClick,
-      ...otherButtonProps
-    } = buttonProps ?? {};
+  const {
+    label: buttonLabel,
+    onClick,
+    ...otherButtonProps
+  } = buttonProps ?? {};
 
-    const hasSuggestions = !!context.suggestions;
-    const showSearchButton = !!buttonProps && !!onClick;
+  const hasSuggestions = !!context.suggestions;
+  const showSearchButton = !!buttonProps && !!onClick;
 
-    return (
-      <div className={styles.container}>
-        {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
-        <div>
-          <div
-            className={cn(
-              className,
-              showSearchButton && styles['with-button-container'],
-            )}
-            style={style}
-          >
-            <div className={styles['input-group']}>
-              <Icon
-                icon={SearchIcon}
-                iconSize={getIconSize(componentSize)}
-                className={cn(
-                  inputStyles['input-group__absolute-element'],
-                  styles['search-icon'],
-                )}
-              />
-              <Input
-                {...rest}
-                ref={combinedRef}
-                name={name}
-                type="search"
-                id={uniqueId}
-                aria-describedby={spaceSeparatedIdListGenerator([
-                  tip ? tipId : undefined,
-                  context.suggestions ? suggestionsDescriptionId : undefined,
-                  ariaDescribedby,
-                ])}
-                value={context.inputValue ?? value}
-                onChange={handleChange}
-                autoComplete="off"
-                aria-autocomplete={hasSuggestions ? 'list' : undefined}
-                aria-controls={hasSuggestions ? suggestionsId : undefined}
-                aria-expanded={context.showSuggestions}
-                role={hasSuggestions ? 'combobox' : undefined}
-                className={cn(
-                  styles.input,
-                  styles[`input--${componentSize}`],
-                  typographyStyles[
-                    getTypographyCn(typographyTypes[componentSize])
-                  ],
-                )}
-              />
-              {hasSuggestions && (
-                <>
-                  <SearchSuggestions
-                    id={suggestionsId}
-                    ref={context.suggestionsRef}
-                    searchId={uniqueId}
-                    onSuggestionClick={context.onSugggestionClick}
-                    suggestions={context.suggestions}
-                    showSuggestions={context.showSuggestions}
-                    componentSize={componentSize}
-                  />
-                  <VisuallyHidden id={suggestionsDescriptionId} as="span">
-                    Bla i søkeforslag med piltaster når listen er utvidet.
-                  </VisuallyHidden>
-                </>
+  return (
+    <div className={styles.container}>
+      {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
+      <div>
+        <div
+          className={cn(
+            className,
+            showSearchButton && styles['with-button-container'],
+          )}
+          style={style}
+        >
+          <div className={styles['input-group']}>
+            <Icon
+              icon={SearchIcon}
+              iconSize={getIconSize(componentSize)}
+              className={cn(
+                inputStyles['input-group__absolute-element'],
+                styles['search-icon'],
               )}
-              {hasValue && (
-                <Button
-                  icon={CloseSmallIcon}
-                  size={componentSize === 'large' ? 'medium' : 'small'}
-                  purpose="tertiary"
-                  aria-label="Tøm"
-                  onClick={clearInput}
-                  className={styles['clear-button']}
+            />
+            <Input
+              {...rest}
+              ref={combinedRef}
+              name={name}
+              type="search"
+              id={uniqueId}
+              aria-describedby={spaceSeparatedIdListGenerator([
+                tip ? tipId : undefined,
+                context.suggestions ? suggestionsDescriptionId : undefined,
+                ariaDescribedby,
+              ])}
+              value={context.inputValue ?? value}
+              onChange={handleChange}
+              autoComplete="off"
+              aria-autocomplete={hasSuggestions ? 'list' : undefined}
+              aria-controls={hasSuggestions ? suggestionsId : undefined}
+              aria-expanded={context.showSuggestions}
+              role={hasSuggestions ? 'combobox' : undefined}
+              className={cn(
+                styles.input,
+                styles[`input--${componentSize}`],
+                typographyStyles[
+                  getTypographyCn(typographyTypes[componentSize])
+                ],
+              )}
+            />
+            {hasSuggestions && (
+              <>
+                <SearchSuggestions
+                  id={suggestionsId}
+                  ref={context.suggestionsRef}
+                  searchId={uniqueId}
+                  onSuggestionClick={context.onSugggestionClick}
+                  suggestions={context.suggestions}
+                  showSuggestions={context.showSuggestions}
+                  componentSize={componentSize}
                 />
-              )}
-            </div>
-            {showSearchButton && (
+                <VisuallyHidden id={suggestionsDescriptionId} as="span">
+                  Bla i søkeforslag med piltaster når listen er utvidet.
+                </VisuallyHidden>
+              </>
+            )}
+            {hasValue && (
               <Button
-                size={componentSize}
-                onClick={onClick}
-                {...otherButtonProps}
-              >
-                {buttonLabel ?? 'Søk'}
-              </Button>
+                icon={CloseSmallIcon}
+                size={componentSize === 'large' ? 'medium' : 'small'}
+                purpose="tertiary"
+                aria-label="Tøm"
+                onClick={clearInput}
+                className={styles['clear-button']}
+              />
             )}
           </div>
-          {renderInputMessage(tip, tipId)}
+          {showSearchButton && (
+            <Button
+              size={componentSize}
+              onClick={onClick}
+              {...otherButtonProps}
+            >
+              {buttonLabel ?? 'Søk'}
+            </Button>
+          )}
         </div>
+        {renderInputMessage(tip, tipId)}
       </div>
-    );
-  },
-);
+    </div>
+  );
+};
 
 Search.displayName = 'Search';

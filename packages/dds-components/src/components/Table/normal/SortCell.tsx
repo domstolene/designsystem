@@ -1,4 +1,4 @@
-import { type MouseEvent, forwardRef } from 'react';
+import { type MouseEvent } from 'react';
 
 import { Cell, type TableCellProps } from './Cell';
 import styles from './Table.module.css';
@@ -35,28 +35,31 @@ const makeSortIcon = (isSorted?: boolean, sortOrder?: SortOrder) => {
   );
 };
 
-export const SortCell = forwardRef<HTMLTableCellElement, TableSortCellProps>(
-  ({ isSorted, sortOrder, onClick, children, ...rest }, ref) => (
-    <Cell
-      ref={ref}
-      type="head"
-      aria-sort={isSorted && sortOrder ? sortOrder : undefined}
-      {...rest}
+export const SortCell = ({
+  isSorted,
+  sortOrder,
+  onClick,
+  children,
+  ...rest
+}: TableSortCellProps) => (
+  <Cell
+    type="head"
+    aria-sort={isSorted && sortOrder ? sortOrder : undefined}
+    {...rest}
+  >
+    <button
+      onClick={onClick}
+      aria-description="Aktiver for å endre sorteringsrekkefølge"
+      className={cn(
+        utilStyles['normalize-button'],
+        utilStyles['remove-button-styling'],
+        styles['sort-button'],
+        focusable,
+      )}
     >
-      <button
-        onClick={onClick}
-        aria-description="Aktiver for å endre sorteringsrekkefølge"
-        className={cn(
-          utilStyles['normalize-button'],
-          utilStyles['remove-button-styling'],
-          styles['sort-button'],
-          focusable,
-        )}
-      >
-        {children} {makeSortIcon(isSorted, sortOrder)}
-      </button>
-    </Cell>
-  ),
+      {children} {makeSortIcon(isSorted, sortOrder)}
+    </button>
+  </Cell>
 );
 
 SortCell.displayName = 'Table.SortCell';
