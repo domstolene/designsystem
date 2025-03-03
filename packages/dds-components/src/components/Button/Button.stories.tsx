@@ -1,6 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { ArrowLeftIcon } from '../..';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  htmlPropsArgType,
+} from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 import { Button } from '.';
@@ -15,14 +20,14 @@ export default {
     },
   },
   argTypes: {
-    loading: { control: 'boolean' },
-    fullWidth: { control: 'boolean' },
-    href: { control: 'text' },
+    href: { table: categoryHtml },
     children: { control: 'text' },
-    loadingTooltip: { control: 'text' },
-    htmlProps: { control: false },
-    target: { control: false },
+    target: { control: false, table: categoryHtml },
     icon: { control: false },
+    htmlProps: htmlPropsArgType,
+    onClick: htmlEventArgType,
+    onBlur: htmlEventArgType,
+    onFocus: htmlEventArgType,
   },
 } satisfies Meta<typeof Button>;
 

@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -27,7 +28,7 @@ export default {
     },
   },
   argTypes: {
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     cardRef: { control: false },
   },
 } satisfies Meta<typeof Card>;

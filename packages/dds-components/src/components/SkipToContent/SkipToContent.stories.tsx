@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Heading } from '../Typography';
 
 import { SkipToContent } from '.';
@@ -8,9 +9,8 @@ export default {
   title: 'dds-components/SkipToContent',
   component: SkipToContent,
   argTypes: {
-    text: { control: 'text' },
     top: { control: 'text' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

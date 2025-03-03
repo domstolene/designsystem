@@ -15,6 +15,7 @@ let nameCounter = 0;
 
 const preview: Preview = {
   parameters: {
+    controls: { sort: 'requiredFirst' },
     options: {
       storySort: {
         method: 'alphabetical',
@@ -31,6 +32,7 @@ const preview: Preview = {
           </Unstyled>
         </DocsContainer>
       ),
+      controls: { sort: 'requiredFirst' },
     },
   },
   decorators: [

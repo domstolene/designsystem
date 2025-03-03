@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
 import { VStack } from '../Stack';
@@ -11,9 +12,7 @@ export default {
   title: 'dds-components/Tooltip',
   component: Tooltip,
   argTypes: {
-    text: { control: 'text' },
-    delay: { control: 'number' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     children: { control: false },
     tooltipId: { control: false },
   },

@@ -1,15 +1,14 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { GlobalMessage } from './GlobalMessage';
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 
 export default {
   title: 'dds-components/GlobalMessage',
   component: GlobalMessage,
   argTypes: {
-    message: { control: 'text' },
-    closable: { control: 'boolean' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

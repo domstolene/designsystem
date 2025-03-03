@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Table } from '../Table/normal';
 import { Link, Paragraph } from '../Typography';
@@ -10,7 +11,7 @@ export default {
   title: 'dds-components/VisuallyHidden',
   component: VisuallyHidden,
   argTypes: {
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

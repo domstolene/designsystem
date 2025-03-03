@@ -25,11 +25,11 @@ export type FileUploaderProps = {
   /**Ledetekst for filopplaster. */
   label?: string;
   /**Ledetekst for slippsonen. Denne teksten skal, av UU-hensyn, henge sammen med den usynlige teksten: "velg fil med påfølgende knapp"
-   * @default "Dra og slipp filer her eller"
+   * @default Dra og slipp filer her eller
    */
   dropAreaLabel?: string;
   /**Ledetekst for opplastingsknappen.
-   * @default "Velg fil"
+   * @default Velg fil
    */
   btnLabel?: string;
   /**Hjelpetekst. */

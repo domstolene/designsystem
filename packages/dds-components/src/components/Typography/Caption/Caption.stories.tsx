@@ -1,13 +1,14 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../../storybook/helpers';
+
 import { Caption } from '.';
 
 export default {
   title: 'dds-components/Typography/Caption',
   component: Caption,
   argTypes: {
-    withMargins: { control: { type: 'boolean' } },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

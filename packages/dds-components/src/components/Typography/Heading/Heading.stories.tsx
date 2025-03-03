@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../Stack/utils';
 
 import { Heading } from '.';
@@ -8,8 +9,7 @@ export default {
   title: 'dds-components/Typography/Heading',
   component: Heading,
   argTypes: {
-    withMargins: { control: { type: 'boolean' } },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

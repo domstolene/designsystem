@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 
 import { Breadcrumb } from '.';
@@ -13,7 +14,12 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-  argTypes: { href: { control: { type: 'text' } } },
+  argTypes: {
+    href: {
+      control: 'text',
+      table: categoryHtml,
+    },
+  },
 } satisfies Meta<typeof Breadcrumb>;
 
 type Story = StoryObj<typeof Breadcrumb>;

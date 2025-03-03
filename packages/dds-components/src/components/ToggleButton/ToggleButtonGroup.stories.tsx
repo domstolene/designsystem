@@ -1,13 +1,14 @@
 import { type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
+
 import { ToggleButton, ToggleButtonGroup } from '.';
 
 export default {
   title: 'dds-components/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup,
   argTypes: {
-    label: { control: 'text' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     labelId: { control: false },
   },
   parameters: {

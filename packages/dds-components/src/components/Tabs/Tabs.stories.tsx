@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryVStack } from '../Stack/utils';
 import { TextArea } from '../TextArea';
@@ -13,9 +14,8 @@ export default {
   component: Tabs,
   argTypes: {
     width: { control: 'text' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
     addTabButtonProps: { control: false },
-    activeTab: { control: 'number' },
   },
   parameters: {
     docs: {
