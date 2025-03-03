@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 20.0.0
+
+### Major Changes
+
+- 9d7a491: Oppgradering til React 19: Fjerner `forwardRef` fra alle komponenter og bruker `ref` as prop istedet.
+- 39a68f0: Oppgraderer til React 19 med endringer som ikke er kompatible med eldre versjoner. Det er dermed påkrevd med oppgradering til React 19 for konsumentene.
+
 ## 19.2.0
 
 ### Minor Changes
