@@ -141,7 +141,6 @@ export const InputStepper = ({
       </div>
       {hasMessage &&
         renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-      ;
     </div>
   );
 };
