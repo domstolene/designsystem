@@ -1,19 +1,7 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { StylelessList, type StylelessListProps } from '../../helpers';
 
-import { cn } from '../../../utils';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
+type OverflowMenuListProps = StylelessListProps;
 
-type OverflowMenuListProps = ComponentProps<'ul'>;
-
-export const OverflowMenuList = forwardRef<
-  HTMLUListElement,
-  OverflowMenuListProps
->((props, ref) => {
-  return (
-    <ul
-      ref={ref}
-      {...props}
-      className={cn(props.className, utilStyles['remove-list-styling'])}
-    />
-  );
-});
+export const OverflowMenuList = (props: OverflowMenuListProps) => (
+  <StylelessList {...props} />
+);

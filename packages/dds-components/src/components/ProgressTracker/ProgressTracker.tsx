@@ -5,7 +5,6 @@ import {
   type ReactElement,
   type ReactNode,
   cloneElement,
-  forwardRef,
   isValidElement,
   useEffect,
   useMemo,
@@ -41,17 +40,15 @@ type ProgressTrackerComponent =
   };
 
 export const ProgressTracker: ProgressTrackerComponent = (() => {
-  const Res = forwardRef<HTMLDivElement, ProgressTrackerProps>((props, ref) => {
-    const {
-      id,
-      activeStep = 0,
-      onStepChange,
-      children,
-      className,
-      htmlProps,
-      ...rest
-    } = props;
-
+  const Res = ({
+    id,
+    activeStep = 0,
+    onStepChange,
+    children,
+    className,
+    htmlProps,
+    ...rest
+  }: ProgressTrackerProps) => {
     const [thisActiveStep, setActiveStep] = useState(activeStep);
 
     const handleChange = (step: number) => {
@@ -64,11 +61,6 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
         setActiveStep(activeStep);
       }
     }, [activeStep, thisActiveStep]);
-
-    const containerProps = {
-      ...getBaseHTMLProps(id, className, htmlProps, rest),
-      ref,
-    };
 
     const steps = useMemo(() => {
       const validChildren = removeInvalidChildren(children);
@@ -85,12 +77,16 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
           handleStepChange: handleChange,
         }}
       >
-        <div role="group" aria-label="progress" {...containerProps}>
+        <div
+          role="group"
+          aria-label="progress"
+          {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        >
           <ol className={styles.list}>{steps}</ol>
         </div>
       </ProgressTrackerContext>
     );
-  });
+  };
 
   (Res as ProgressTrackerComponent).Item = ProgressTrackerItem;
   (Res as ProgressTrackerComponent).displayName = 'ProgressTracker';

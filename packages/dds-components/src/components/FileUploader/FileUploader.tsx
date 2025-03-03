@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { type ComponentProps, useId } from 'react';
+import { type ComponentPropsWithRef, useId } from 'react';
 
 import { ErrorList } from './ErrorList';
 import { File } from './File';
@@ -12,7 +12,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Button } from '../Button';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { StylelessList } from '../helpers';
 import { UploadIcon } from '../Icon/icons';
 import { InputMessage } from '../InputMessage';
 import { Label } from '../Typography';
@@ -47,7 +47,7 @@ export type FileUploaderProps = {
   /**Om listen med opplastede filer skal skjules. Brukes kun hvis listen blir vist på egen måte. */
   hideFileList?: boolean;
 } & Partial<FileUploaderHookProps> &
-  Omit<ComponentProps<'div'>, 'onChange' | 'id'>;
+  Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'>;
 
 export const FileUploader = (props: FileUploaderProps) => {
   const {
@@ -186,11 +186,7 @@ export const FileUploader = (props: FileUploaderProps) => {
         </div>
       )}
       <ErrorList errors={rootErrorsList} />
-      {!hideFileList && (
-        <ul className={utilStyles['remove-list-styling']}>
-          {fileListElements}
-        </ul>
-      )}
+      {!hideFileList && <StylelessList>{fileListElements}</StylelessList>}
     </div>
   );
 };

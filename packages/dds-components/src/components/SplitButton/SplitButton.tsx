@@ -1,4 +1,4 @@
-import { type HTMLAttributes, forwardRef, useState } from 'react';
+import { type ComponentPropsWithRef, useState } from 'react';
 
 import styles from './SplitButton.module.css';
 import { type ExtractStrict } from '../../types';
@@ -33,57 +33,53 @@ export type SplitButtonProps = Pick<ButtonProps, 'size'> & {
    * @default "primary"
    */
   purpose?: SplitButtonPurpose;
-} & HTMLAttributes<HTMLDivElement>;
+} & ComponentPropsWithRef<'div'>;
 
-export const SplitButton = forwardRef<HTMLDivElement, SplitButtonProps>(
-  (props, ref) => {
-    const {
-      size,
-      primaryAction,
-      secondaryActions,
-      purpose = 'primary',
-      className,
-      ...rest
-    } = props;
+export const SplitButton = ({
+  size,
+  primaryAction,
+  secondaryActions,
+  purpose = 'primary',
+  className,
+  ...rest
+}: SplitButtonProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const buttonStyleProps: ButtonProps = {
+    purpose,
+    size,
+  };
 
-    const [isOpen, setIsOpen] = useState(false);
-    const buttonStyleProps: ButtonProps = {
-      purpose,
-      size,
-    };
-
-    return (
-      <div ref={ref} className={cn(className, styles.container)} {...rest}>
+  return (
+    <div className={cn(className, styles.container)} {...rest}>
+      <Button
+        {...buttonStyleProps}
+        {...primaryAction}
+        iconPosition="left"
+        className={styles.main}
+      />
+      <OverflowMenuGroup isOpen={isOpen} setIsOpen={setIsOpen}>
         <Button
           {...buttonStyleProps}
-          {...primaryAction}
-          iconPosition="left"
-          className={styles.main}
+          icon={isOpen ? ChevronUpIcon : ChevronDownIcon}
+          aria-label="Åpne liste med flere valg"
+          purpose={purpose}
+          className={cn(
+            styles.option,
+            purpose === 'primary' && styles['option--primary'],
+          )}
         />
-        <OverflowMenuGroup isOpen={isOpen} setIsOpen={setIsOpen}>
-          <Button
-            {...buttonStyleProps}
-            icon={isOpen ? ChevronUpIcon : ChevronDownIcon}
-            aria-label="Åpne liste med flere valg"
-            purpose={purpose}
-            className={cn(
-              styles.option,
-              purpose === 'primary' && styles['option--primary'],
-            )}
-          />
-          <OverflowMenu placement="bottom-end">
-            <OverflowMenuList>
-              {secondaryActions.map((item, index) => (
-                <OverflowMenuButton key={index} {...item}>
-                  {item.children}
-                </OverflowMenuButton>
-              ))}
-            </OverflowMenuList>
-          </OverflowMenu>
-        </OverflowMenuGroup>
-      </div>
-    );
-  },
-);
+        <OverflowMenu placement="bottom-end">
+          <OverflowMenuList>
+            {secondaryActions.map((item, index) => (
+              <OverflowMenuButton key={index} {...item}>
+                {item.children}
+              </OverflowMenuButton>
+            ))}
+          </OverflowMenuList>
+        </OverflowMenu>
+      </OverflowMenuGroup>
+    </div>
+  );
+};
 
 SplitButton.displayName = 'SplitButton';

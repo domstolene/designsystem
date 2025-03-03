@@ -1,20 +1,11 @@
-import { type InputHTMLAttributes, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import { cn } from '../../../utils';
 import utilStyles from '../styling/utilStyles.module.css';
 
-type HiddenInputProps = InputHTMLAttributes<HTMLInputElement>;
-
-export const HiddenInput = forwardRef<HTMLInputElement, HiddenInputProps>(
-  (props, ref) => {
-    const { className, ...rest } = props;
-
-    return (
-      <input
-        ref={ref}
-        className={cn(className, utilStyles['hide-input'])}
-        {...rest}
-      />
-    );
-  },
+export const HiddenInput = ({
+  className,
+  ...rest
+}: ComponentPropsWithRef<'input'>) => (
+  <input className={cn(className, utilStyles['hide-input'])} {...rest} />
 );

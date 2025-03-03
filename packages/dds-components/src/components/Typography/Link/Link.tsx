@@ -1,4 +1,4 @@
-import { type AnchorHTMLAttributes, forwardRef } from 'react';
+import { type AnchorHTMLAttributes } from 'react';
 
 import {
   type BaseComponentPropsWithChildren,
@@ -34,20 +34,18 @@ export type LinkProps = BaseComponentPropsWithChildren<
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof PickedHTMLAttributes>
 >;
 
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
-  const {
-    id,
-    className,
-    htmlProps,
-    children,
-    typographyType,
-    withMargins,
-    withVisited,
-    external,
-    target,
-    ...rest
-  } = props;
-
+export const Link = ({
+  id,
+  className,
+  htmlProps,
+  children,
+  typographyType,
+  withMargins,
+  withVisited,
+  external,
+  target,
+  ...rest
+}: LinkProps) => {
   return (
     <a
       {...getBaseHTMLProps(
@@ -67,7 +65,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
         rest,
       )}
       {...rest}
-      ref={ref}
       rel="noopener noreferer"
       target={external ? '_blank' : target}
     >
@@ -75,6 +72,6 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
       {external && <Icon iconSize="inherit" icon={OpenExternalIcon} />}
     </a>
   );
-});
+};
 
 Link.displayName = 'Link';

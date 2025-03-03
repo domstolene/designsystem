@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { useCombinedRef } from '../../../hooks';
 import { cn } from '../../../utils';
@@ -9,20 +9,16 @@ import { useOverflowMenuContext } from '../OverflowMenu.context';
 import styles from '../OverflowMenu.module.css';
 import { type OverflowMenuButtonProps } from '../OverflowMenu.types';
 
-export const OverflowMenuButton = forwardRef<
-  HTMLButtonElement,
-  OverflowMenuButtonProps
->((props, ref) => {
-  const {
-    id,
-    icon,
-    children,
-    className,
-    onClick,
-    purpose = 'default',
-    ...rest
-  } = props;
-
+export const OverflowMenuButton = ({
+  id,
+  icon,
+  children,
+  className,
+  onClick,
+  purpose = 'default',
+  ref,
+  ...rest
+}: OverflowMenuButtonProps) => {
   const itemRef = useRef<HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
 
@@ -60,6 +56,6 @@ export const OverflowMenuButton = forwardRef<
       </button>
     </li>
   );
-});
+};
 
 OverflowMenuButton.displayName = 'OverflowMenuButton';

@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes, forwardRef } from 'react';
+import { type ButtonHTMLAttributes } from 'react';
 
 import styles from './Accordion.module.css';
 import {
@@ -28,21 +28,15 @@ export type AccordionHeaderProps = Omit<
   'id'
 >;
 
-export const AccordionHeader = forwardRef<
-  HTMLButtonElement,
-  AccordionHeaderProps
->((props, ref) => {
-  const {
-    children,
-    className,
-    htmlProps,
-    typographyType = 'headingMedium',
-    bold,
-    ...rest
-  } = props;
-
+export const AccordionHeader = ({
+  children,
+  className,
+  htmlProps,
+  typographyType = 'headingMedium',
+  bold,
+  ...rest
+}: AccordionHeaderProps) => {
   const { isExpanded, headerProps } = useAccordionContext();
-
   const { id, ...restHeaderProps } = headerProps;
 
   return (
@@ -62,7 +56,6 @@ export const AccordionHeader = forwardRef<
         htmlProps,
         rest,
       )}
-      ref={ref}
       {...restHeaderProps}
       type="button"
     >
@@ -89,6 +82,6 @@ export const AccordionHeader = forwardRef<
       </div>
     </button>
   );
-});
+};
 
 AccordionHeader.displayName = 'AccordionHeader';

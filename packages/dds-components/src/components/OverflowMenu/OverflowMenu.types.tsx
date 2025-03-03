@@ -1,30 +1,23 @@
-import {
-  type AnchorHTMLAttributes,
-  type ButtonHTMLAttributes,
-  type HTMLAttributes,
-} from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import { type Placement } from '../../hooks';
 import { type BaseComponentPropsWithChildren } from '../../types';
 import { type SvgIcon } from '../Icon/utils';
 
-export interface OverflowMenuListItemBaseProps {
+export type OverflowMenuListItemBaseProps<T extends 'span' | 'button' | 'a'> = {
   /**Ikon som vises ved teksten. **OBS!** Settes i tillegg til `children` for riktig layout. */
   icon?: SvgIcon;
   /**Bestemmer farger basert på formål.
    * @default "default"
    */
   purpose?: 'default' | 'danger';
-}
+} & ComponentPropsWithRef<T>;
 
-export type OverflowMenuButtonProps = OverflowMenuListItemBaseProps &
-  ButtonHTMLAttributes<HTMLButtonElement>;
+export type OverflowMenuButtonProps = OverflowMenuListItemBaseProps<'button'>;
 
-export type OverflowMenuLinkProps = OverflowMenuListItemBaseProps &
-  AnchorHTMLAttributes<HTMLAnchorElement>;
+export type OverflowMenuLinkProps = OverflowMenuListItemBaseProps<'a'>;
 
-export type OverflowMenuSpanProps = OverflowMenuListItemBaseProps &
-  HTMLAttributes<HTMLSpanElement>;
+export type OverflowMenuSpanProps = OverflowMenuListItemBaseProps<'span'>;
 
 export type OverflowMenuProps = Omit<
   BaseComponentPropsWithChildren<

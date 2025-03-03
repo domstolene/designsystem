@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { type InputHTMLAttributes } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import { type Size } from '../../../types';
 import { type StaticTypographyType } from '../../Typography';
@@ -22,11 +22,10 @@ export type InputProps = CommonInputProps & {
    * @default "medium"
    */
   componentSize?: InputSize;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & ComponentPropsWithRef<'input'>;
 
 export type StatefulInputProps = {
   hasErrorMessage: boolean;
-} & Pick<InputProps, 'componentSize'> &
-  InputHTMLAttributes<HTMLInputElement>;
+} & Omit<InputProps, keyof CommonInputProps>;
 
 export type InputTypographyTypes = Record<InputSize, StaticTypographyType>;

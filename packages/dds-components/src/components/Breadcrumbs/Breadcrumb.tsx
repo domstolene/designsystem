@@ -1,39 +1,30 @@
-import {
-  type AnchorHTMLAttributes,
-  type HTMLAttributes,
-  forwardRef,
-} from 'react';
+import { type ComponentPropsWithRef, type Ref } from 'react';
 
-import { Typography } from '../Typography';
+import { Link } from '../Typography';
 
 export type BreadcrumbProps =
-  | HTMLAttributes<HTMLSpanElement>
-  | AnchorHTMLAttributes<HTMLAnchorElement>;
+  | ComponentPropsWithRef<'a'>
+  | ComponentPropsWithRef<'span'>;
 
 export const isAnchorTypographyProps = (
   props: BreadcrumbProps,
-): props is AnchorHTMLAttributes<HTMLAnchorElement> => {
-  return (props as AnchorHTMLAttributes<HTMLAnchorElement>).href != undefined;
+): props is ComponentPropsWithRef<'a'> => {
+  return (props as ComponentPropsWithRef<'a'>).href != undefined;
 };
 
-export const Breadcrumb = forwardRef<HTMLElement, BreadcrumbProps>(
-  (props, ref) => {
-    const { children, ...rest } = props;
-
-    if (isAnchorTypographyProps(props)) {
-      return (
-        <Typography htmlProps={rest} ref={ref} typographyType="a">
-          {children}
-        </Typography>
-      );
-    }
-
+export const Breadcrumb = ({ children, ref, ...rest }: BreadcrumbProps) => {
+  if (isAnchorTypographyProps(rest)) {
     return (
-      <span {...rest} ref={ref}>
+      <Link ref={ref as Ref<HTMLAnchorElement>} htmlProps={rest}>
         {children}
-      </span>
+      </Link>
     );
-  },
-);
+  }
+  return (
+    <span ref={ref} {...rest}>
+      {children}
+    </span>
+  );
+};
 
 Breadcrumb.displayName = 'Breadcrumb';

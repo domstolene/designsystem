@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { useCombinedRef } from '../../../hooks';
 import { cn } from '../../../utils';
@@ -9,21 +9,17 @@ import { useOverflowMenuContext } from '../OverflowMenu.context';
 import styles from '../OverflowMenu.module.css';
 import { type OverflowMenuLinkProps } from '../OverflowMenu.types';
 
-export const OverflowMenuLink = forwardRef<
-  HTMLAnchorElement,
-  OverflowMenuLinkProps
->((props, ref) => {
-  const {
-    id,
-    href,
-    icon,
-    className,
-    onClick,
-    children,
-    purpose = 'default',
-    ...rest
-  } = props;
-
+export const OverflowMenuLink = ({
+  id,
+  href,
+  icon,
+  className,
+  onClick,
+  children,
+  ref,
+  purpose = 'default',
+  ...rest
+}: OverflowMenuLinkProps) => {
   const itemRef = useRef<HTMLAnchorElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
 
@@ -62,6 +58,6 @@ export const OverflowMenuLink = forwardRef<
       </a>
     </li>
   );
-});
+};
 
 OverflowMenuLink.displayName = 'OverflowMenuLink';

@@ -1,4 +1,4 @@
-import { type ElementType, forwardRef } from 'react';
+import { type ElementType } from 'react';
 
 import styles from './List.module.css';
 import {
@@ -26,23 +26,20 @@ export type ListProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const List = forwardRef<HTMLOListElement, ListProps>((props, ref) => {
-  const {
-    listType = 'unordered',
-    typographyType = 'inherit',
-    children,
-    id,
-    className,
-    htmlProps,
-    ...rest
-  } = props;
-
+export const List = ({
+  listType = 'unordered',
+  typographyType = 'inherit',
+  children,
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: ListProps) => {
   const List: ElementType = listType === 'ordered' ? 'ol' : 'ul';
 
   return (
     <List
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
-      ref={ref}
       className={cn(
         styles.list,
         styles[`list--${listType}`],
@@ -54,6 +51,6 @@ export const List = forwardRef<HTMLOListElement, ListProps>((props, ref) => {
       {children}
     </List>
   );
-});
+};
 
 List.displayName = 'List';

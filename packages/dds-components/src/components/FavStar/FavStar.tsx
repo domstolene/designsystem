@@ -1,4 +1,4 @@
-import { type Ref, forwardRef, useId } from 'react';
+import { useId } from 'react';
 
 import styles from './FavStar.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
@@ -36,62 +36,56 @@ export interface FavStarProps
   size?: ComponentSize;
 }
 
-export const FavStar = forwardRef(
-  (
-    {
-      id,
-      className,
-      onChange,
-      checked: checkedProp,
-      defaultChecked,
-      size = 'medium',
-      htmlProps,
-      ...rest
-    }: FavStarProps,
-    ref: Ref<HTMLInputElement>,
-  ) => {
-    const { style, ...props } = getBaseHTMLProps(
-      id,
-      cn(className),
-      htmlProps,
-      rest,
-    );
-    const generatedId = useId();
-    const [checked, setChecked] = useControllableState({
-      value: checkedProp,
-      defaultValue: defaultChecked ?? false,
-      onChange,
-    });
-    return (
-      <label
-        className={cn(
-          className,
-          styles.container,
-          styles[`container--${size}`],
-          focusStyles['has-focusable-input'],
-        )}
-        style={style}
-        htmlFor={id ?? generatedId}
-      >
-        <input
-          {...props}
-          id={id ?? generatedId}
-          checked={checked}
-          onChange={e => setChecked(e.target.checked)}
-          ref={ref}
-          type="checkbox"
-          aria-label={props['aria-label'] ?? 'Favoriser'}
-          className={utilStyles['hide-input']}
-        />
-        <Icon iconSize={size} icon={StarIcon} className={styles.icon} />
-        <Icon
-          iconSize={size}
-          icon={StarFilledIcon}
-          className={cn(styles.icon, !checked && styles['icon--invisible'])}
-        />
-      </label>
-    );
-  },
-);
+export const FavStar = ({
+  id,
+  className,
+  onChange,
+  checked: checkedProp,
+  defaultChecked,
+  size = 'medium',
+  htmlProps,
+  ...rest
+}: FavStarProps) => {
+  const { style, ...props } = getBaseHTMLProps(
+    id,
+    cn(className),
+    htmlProps,
+    rest,
+  );
+  const generatedId = useId();
+  const [checked, setChecked] = useControllableState({
+    value: checkedProp,
+    defaultValue: defaultChecked ?? false,
+    onChange,
+  });
+  return (
+    <label
+      className={cn(
+        className,
+        styles.container,
+        styles[`container--${size}`],
+        focusStyles['has-focusable-input'],
+      )}
+      style={style}
+      htmlFor={id ?? generatedId}
+    >
+      <input
+        {...props}
+        id={id ?? generatedId}
+        checked={checked}
+        onChange={e => setChecked(e.target.checked)}
+        type="checkbox"
+        aria-label={props['aria-label'] ?? 'Favoriser'}
+        className={utilStyles['hide-input']}
+      />
+      <Icon iconSize={size} icon={StarIcon} className={styles.icon} />
+      <Icon
+        iconSize={size}
+        icon={StarFilledIcon}
+        className={cn(styles.icon, !checked && styles['icon--invisible'])}
+      />
+    </label>
+  );
+};
 
 FavStar.displayName = 'FavStar';

@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { type ComponentPropsWithRef, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Skeleton.module.css';
 import { cn } from '../../utils';
@@ -17,26 +17,23 @@ export type SkeletonProps = {
   borderRadius?: Property.BorderRadius;
 } & ComponentPropsWithRef<'div'>;
 
-export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
-  (props, ref) => {
-    const {
-      width,
-      height,
-      borderRadius = 'var(--dds-border-radius-surface)',
-      className,
-      style,
-      ...rest
-    } = props;
-
-    return (
-      <div
-        ref={ref}
-        className={cn(className, styles.container)}
-        style={{ ...style, width, height, borderRadius }}
-        {...rest}
-      ></div>
-    );
-  },
-);
+export const Skeleton = ({
+  width,
+  height,
+  borderRadius = 'var(--dds-border-radius-surface)',
+  className,
+  style,
+  ref,
+  ...rest
+}: SkeletonProps) => {
+  return (
+    <div
+      ref={ref}
+      className={cn(className, styles.container)}
+      style={{ ...style, width, height, borderRadius }}
+      {...rest}
+    ></div>
+  );
+};
 
 Skeleton.displayName = 'Skeleton';

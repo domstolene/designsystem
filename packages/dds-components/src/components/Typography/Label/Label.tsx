@@ -1,4 +1,4 @@
-import { type LabelHTMLAttributes, forwardRef } from 'react';
+import { type LabelHTMLAttributes } from 'react';
 
 import styles from './Label.module.css';
 import {
@@ -28,17 +28,15 @@ export type LabelProps = BaseComponentPropsWithChildren<
   Omit<LabelHTMLAttributes<HTMLLabelElement>, keyof PickedHTMLAttributes>
 >;
 
-export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
-  const {
-    showRequiredStyling,
-    readOnly,
-    id,
-    className,
-    htmlProps,
-    children,
-    ...rest
-  } = props;
-
+export const Label = ({
+  showRequiredStyling,
+  readOnly,
+  id,
+  className,
+  htmlProps,
+  children,
+  ...rest
+}: LabelProps) => {
   return (
     <Typography
       {...getBaseHTMLProps(
@@ -47,7 +45,6 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
         htmlProps,
         rest,
       )}
-      ref={ref}
       typographyType="labelMedium"
     >
       {readOnly && (
@@ -61,6 +58,6 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>((props, ref) => {
       {showRequiredStyling && <RequiredMarker />}
     </Typography>
   );
-});
+};
 
 Label.displayName = 'Label';

@@ -1,5 +1,5 @@
 import { type Properties } from 'csstype';
-import { forwardRef, useId } from 'react';
+import { useId } from 'react';
 
 import { Label, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
 import { useControllableState } from '../../hooks/useControllableState';
@@ -18,76 +18,68 @@ import {
 import inputStyles from '../helpers/Input/Input.module.css';
 import { renderInputMessage } from '../InputMessage';
 
-export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
-  (
-    {
-      id,
-      className,
-      label,
-      decreaseButtonLabel,
-      increaseButtonLabel,
-      componentSize,
-      tip,
-      errorMessage,
-      minValue = 0,
-      maxValue,
-      defaultValue,
-      value,
-      disabled,
-      readOnly,
-      step = 1,
-      onChange,
-      style,
-      width,
-      htmlProps,
-      ...rest
-    },
-    ref,
-  ) => {
-    if (
-      !isPositiveInteger(minValue) ||
-      !isPositiveInteger(maxValue) ||
-      !isPositiveInteger(step)
-    ) {
-      throw new Error(
-        'minValue, maxValue & step must be a non-negative integer',
-      );
-    }
-    const generatedId = useId();
-    const uniqueId = id ?? `${generatedId}-inputStepper`;
-    const [inputValue, setInputValue] = useControllableState<number>({
-      defaultValue: defaultValue ?? 0,
-      value: value,
-      onChange,
-    });
-    const hasErrorMessage = !!errorMessage;
-    const hasTip = !!tip;
-    const hasMessage = hasErrorMessage || hasTip;
-    const tipId = derivativeIdGenerator(uniqueId, 'tip');
-    const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+export const InputStepper = ({
+  id,
+  className,
+  label,
+  decreaseButtonLabel,
+  increaseButtonLabel,
+  componentSize,
+  tip,
+  errorMessage,
+  minValue = 0,
+  maxValue,
+  defaultValue,
+  value,
+  disabled,
+  readOnly,
+  step = 1,
+  onChange,
+  style,
+  width,
+  htmlProps,
+  ...rest
+}: InputStepperProps) => {
+  if (
+    !isPositiveInteger(minValue) ||
+    !isPositiveInteger(maxValue) ||
+    !isPositiveInteger(step)
+  ) {
+    throw new Error('minValue, maxValue & step must be a non-negative integer');
+  }
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-inputStepper`;
+  const [inputValue, setInputValue] = useControllableState<number>({
+    defaultValue: defaultValue ?? 0,
+    value: value,
+    onChange,
+  });
+  const hasErrorMessage = !!errorMessage;
+  const hasTip = !!tip;
+  const hasMessage = hasErrorMessage || hasTip;
+  const tipId = derivativeIdGenerator(uniqueId, 'tip');
+  const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
-    const handlePlus = () => {
-      if (maxValue !== undefined && inputValue + step <= maxValue) {
-        setInputValue(+inputValue + +step);
+  const handlePlus = () => {
+    if (maxValue !== undefined && inputValue + step <= maxValue) {
+      setInputValue(+inputValue + +step);
+    }
+  };
+  const handleMinus = () => {
+    if (minValue !== undefined && inputValue - step >= minValue) {
+      setInputValue(inputValue - step);
+    }
+  };
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (+e.target.value >= minValue && +e.target.value <= maxValue) {
+      setInputValue(Number(e.target.value));
+      if (onChange) {
+        onChange(e);
       }
-    };
-    const handleMinus = () => {
-      if (minValue !== undefined && inputValue - step >= minValue) {
-        setInputValue(inputValue - step);
-      }
-    };
-    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (+e.target.value >= minValue && +e.target.value <= maxValue) {
-        setInputValue(Number(e.target.value));
-        if (onChange) {
-          onChange(e);
-        }
-      } else {
-        throw new RangeError(
-          `Verdien må være mellom ${minValue} og ${maxValue}`,
-        );
-      }
-    };
+    } else {
+      throw new RangeError(`Verdien må være mellom ${minValue} og ${maxValue}`);
+    }
+  };
 
     const styleVariables: Properties = {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -156,8 +148,10 @@ export const InputStepper = forwardRef<HTMLInputElement, InputStepperProps>(
         {hasMessage &&
           renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
       </div>
-    );
-  },
-);
+      {hasMessage &&
+        renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+    </div>
+  );
+};
 
 InputStepper.displayName = 'InputStepper';

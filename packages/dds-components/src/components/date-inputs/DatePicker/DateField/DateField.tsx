@@ -10,13 +10,7 @@ import {
 } from '@react-aria/datepicker';
 import { useLocale } from '@react-aria/i18n';
 import { useDateFieldState } from '@react-stately/datepicker';
-import {
-  type ForwardRefExoticComponent,
-  type Ref,
-  type RefAttributes,
-  forwardRef,
-  useRef,
-} from 'react';
+import { type Ref, useRef } from 'react';
 
 import { CalendarButton } from './CalendarButton';
 import { DateSegment } from './DateSegment';
@@ -37,17 +31,17 @@ export type DateFieldProps<T extends DateValue = CalendarDate> =
       | 'style'
       | 'width'
       | 'className'
-    >;
+    > & {
+      ref?: Ref<HTMLDivElement>;
+    };
 
-function _DateField(
-  {
-    componentSize = 'medium',
-    buttonProps,
-    groupProps,
-    ...props
-  }: DateFieldProps,
-  forwardedRef: Ref<HTMLDivElement>,
-) {
+export function DateField({
+  componentSize = 'medium',
+  buttonProps,
+  groupProps,
+  ref,
+  ...props
+}: DateFieldProps) {
   const { locale } = useLocale();
   const state = useDateFieldState({
     ...props,
@@ -55,8 +49,8 @@ function _DateField(
     createCalendar,
   });
 
-  const ref = useRef<HTMLInputElement>(null);
-  const { labelProps, fieldProps } = useDateField(props, state, ref);
+  const internalRef = useRef<HTMLInputElement>(null);
+  const { labelProps, fieldProps } = useDateField(props, state, internalRef);
 
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
@@ -68,8 +62,8 @@ function _DateField(
       label={props.label}
       disabled={disabled}
       required={props.isRequired}
-      ref={forwardedRef}
-      internalRef={ref}
+      ref={ref}
+      internalRef={internalRef}
       readOnly={props.isReadOnly}
       prefix={
         <CalendarButton
@@ -94,9 +88,5 @@ function _DateField(
     </DateInput>
   );
 }
-
-export const DateField: ForwardRefExoticComponent<
-  DateFieldProps & RefAttributes<HTMLDivElement>
-> = forwardRef(_DateField);
 
 DateField.displayName = 'DateField';

@@ -1,9 +1,4 @@
-import {
-  type ChangeEvent,
-  type InputHTMLAttributes,
-  forwardRef,
-  useId,
-} from 'react';
+import { type ChangeEvent, type InputHTMLAttributes, useId } from 'react';
 
 import {
   type ToggleBarContextType,
@@ -68,71 +63,66 @@ const calculateChecked = (
   return !!value;
 };
 
-export const ToggleRadio = forwardRef<HTMLInputElement, ToggleRadioProps>(
-  (props, ref) => {
-    const {
-      value,
-      name,
-      onChange,
-      checked,
-      'aria-label': ariaLabel,
-      'aria-labelledby': ariaLabelledBy,
-      icon,
-      label,
-      htmlProps,
-      className,
-      id,
-      ...rest
-    } = props;
+export const ToggleRadio = ({
+  value,
+  name,
+  onChange,
+  checked,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
+  icon,
+  label,
+  htmlProps,
+  className,
+  id,
+  ...rest
+}: ToggleRadioProps) => {
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-ToggleRadio`;
+  const group = useToggleBarContext();
 
-    const generatedId = useId();
-    const uniqueId = id ?? `${generatedId}-ToggleRadio`;
-    const group = useToggleBarContext();
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onChange && onChange(event);
+    group?.onChange && group.onChange(event);
+  };
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-      onChange && onChange(event);
-      group?.onChange && group.onChange(event);
-    };
+  const contentTypeCn = label ? 'with-text' : 'just-icon';
 
-    const contentTypeCn = label ? 'with-text' : 'just-icon';
-
-    return (
-      <label htmlFor={uniqueId} className={styles.label}>
-        <input
-          {...getBaseHTMLProps(
-            uniqueId,
-            cn(
-              className,
-              focusStyles['focusable-sibling'],
-              utilStyles['hide-input'],
-            ),
-            htmlProps,
-            rest,
-          )}
-          type="radio"
-          ref={ref}
-          name={name ?? group.name}
-          onChange={handleChange}
-          value={value}
-          checked={calculateChecked(value, group, checked)}
-          aria-label={ariaLabel}
-          aria-labelledby={ariaLabelledBy}
-        />
-        <Typography
-          as="span"
-          typographyType={typographyTypes[group.size]}
-          className={cn(
-            styles.content,
-            styles[`content--${group.size}--${contentTypeCn}`],
-            focusStyles['focus-styled-sibling'],
-          )}
-        >
-          {icon && <Icon icon={icon} iconSize="inherit" />}
-          {label && <span>{label}</span>}
-        </Typography>
-      </label>
-    );
-  },
-);
+  return (
+    <label htmlFor={uniqueId} className={styles.label}>
+      <input
+        {...getBaseHTMLProps(
+          uniqueId,
+          cn(
+            className,
+            focusStyles['focusable-sibling'],
+            utilStyles['hide-input'],
+          ),
+          htmlProps,
+          rest,
+        )}
+        type="radio"
+        name={name ?? group.name}
+        onChange={handleChange}
+        value={value}
+        checked={calculateChecked(value, group, checked)}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledBy}
+      />
+      <Typography
+        as="span"
+        typographyType={typographyTypes[group.size]}
+        className={cn(
+          styles.content,
+          styles[`content--${group.size}--${contentTypeCn}`],
+          focusStyles['focus-styled-sibling'],
+        )}
+      >
+        {icon && <Icon icon={icon} iconSize="inherit" />}
+        {label && <span>{label}</span>}
+      </Typography>
+    </label>
+  );
+};
 
 ToggleRadio.displayName = 'ToggleRadio';

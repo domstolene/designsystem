@@ -1,4 +1,4 @@
-import { type HTMLAttributes, type ReactNode } from 'react';
+import { type ComponentPropsWithRef, type ReactNode } from 'react';
 
 import { type Size } from '../../../types';
 
@@ -14,7 +14,7 @@ export type TableProps = {
   stickyHeader?: boolean;
   /**Legger skillelinjer mellom radene. */
   withDividers?: boolean;
-} & HTMLAttributes<HTMLTableElement>;
+} & ComponentPropsWithRef<'table'>;
 
 export type HeaderValues = Array<{ key: string; content: ReactNode }>;
 
@@ -36,4 +36,4 @@ export type TableRowProps = {
   selected?: boolean;
   /**Spesifiserer om raden skal ha hover styling. Brukes hovedsakelig på rader med klikkbar innhold. */
   hoverable?: boolean;
-} & HTMLAttributes<HTMLTableRowElement>;
+} & ComponentPropsWithRef<'tr'>;

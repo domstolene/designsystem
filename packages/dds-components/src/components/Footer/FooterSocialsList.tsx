@@ -1,25 +1,14 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Footer.module.css';
 import { cn } from '../../utils';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { StylelessList } from '../helpers';
 
-export type FooterSocialsListProps = ComponentProps<'ul'>;
+export type FooterSocialsListProps = ComponentPropsWithRef<'ul'>;
 
-export const FooterSocialsList = forwardRef<
-  HTMLUListElement,
-  FooterSocialsListProps
->((props, ref) => {
-  const { className, ...rest } = props;
-  return (
-    <ul
-      ref={ref}
-      className={cn(
-        className,
-        utilStyles['remove-list-styling'],
-        styles['socials-list'],
-      )}
-      {...rest}
-    />
-  );
-});
+export const FooterSocialsList = ({
+  className,
+  ...rest
+}: FooterSocialsListProps) => (
+  <StylelessList className={cn(className, styles['socials-list'])} {...rest} />
+);

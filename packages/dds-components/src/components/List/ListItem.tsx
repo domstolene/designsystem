@@ -1,14 +1,12 @@
-import { type HTMLAttributes, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './List.module.css';
 import { cn } from '../../utils';
 
-export type ListItemProps = HTMLAttributes<HTMLLIElement>;
+export type ListItemProps = ComponentPropsWithRef<'li'>;
 
-export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
-  ({ className, ...rest }, ref) => {
-    return <li ref={ref} {...rest} className={cn(className, styles.li)} />;
-  },
+export const ListItem = ({ className, ...rest }: ListItemProps) => (
+  <li {...rest} className={cn(className, styles.li)} />
 );
 
 ListItem.displayName = 'ListItem';

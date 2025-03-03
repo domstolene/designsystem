@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -11,21 +9,22 @@ export type LegendProps = BaseComponentPropsWithChildren<
   BaseTypographyProps
 >;
 
-export const Legend = forwardRef<HTMLLegendElement, LegendProps>(
-  (props, ref) => {
-    const { id, className, htmlProps, children, ...rest } = props;
-
-    return (
-      <Typography
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
-        ref={ref}
-        as="legend"
-        typographyType="headingLarge"
-      >
-        {children}
-      </Typography>
-    );
-  },
-);
+export const Legend = ({
+  id,
+  className,
+  htmlProps,
+  children,
+  ...rest
+}: LegendProps) => {
+  return (
+    <Typography
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      as="legend"
+      typographyType="headingLarge"
+    >
+      {children}
+    </Typography>
+  );
+};
 
 Legend.displayName = 'Legend';

@@ -1,13 +1,6 @@
 import { type useDateField, type useDatePicker } from '@react-aria/datepicker';
 import { type Properties } from 'csstype';
-import {
-  type ForwardRefExoticComponent,
-  type ReactNode,
-  type Ref,
-  type RefAttributes,
-  forwardRef,
-  useContext,
-} from 'react';
+import { type ReactNode, type Ref, useContext } from 'react';
 
 import styles from './DateInput.module.css';
 import { cn } from '../../../utils';
@@ -37,30 +30,30 @@ export type DateInputProps = {
     | 'required'
     | 'readOnly'
     | 'width'
-  >;
+  > & {
+    ref?: Ref<HTMLDivElement>;
+  };
 
-function _DateInput(
-  {
-    errorMessage,
-    tip,
-    componentSize = 'medium',
-    style,
-    className,
-    disabled,
-    active,
-    internalRef,
-    readOnly,
-    required,
-    children,
-    prefix: button,
-    labelProps,
-    fieldProps,
-    groupProps,
-    width,
-    ...props
-  }: DateInputProps,
-  forwardedRef: Ref<HTMLDivElement>,
-) {
+export function DateInput({
+  errorMessage,
+  tip,
+  componentSize = 'medium',
+  style,
+  className,
+  disabled,
+  active,
+  internalRef,
+  readOnly,
+  required,
+  children,
+  prefix: button,
+  labelProps,
+  fieldProps,
+  groupProps,
+  width,
+  ref,
+  ...props
+}: DateInputProps) {
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
   const hasLabel = props.label != null;
@@ -77,7 +70,7 @@ function _DateInput(
     <div
       {...groupProps}
       className={cn(className, inputStyles.container)}
-      ref={forwardedRef}
+      ref={ref}
     >
       {hasLabel && (
         <Label
@@ -122,9 +115,5 @@ function _DateInput(
     </div>
   );
 }
-
-export const DateInput: ForwardRefExoticComponent<
-  DateInputProps & RefAttributes<HTMLDivElement>
-> = forwardRef(_DateInput);
 
 DateInput.displayName = 'DateInput';

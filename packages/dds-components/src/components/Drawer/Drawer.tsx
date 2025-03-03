@@ -2,7 +2,6 @@ import { type Property } from 'csstype';
 import {
   type MouseEvent,
   type ReactNode,
-  forwardRef,
   useContext,
   useEffect,
   useRef,
@@ -74,20 +73,19 @@ export type DrawerProps = Omit<
   'id'
 >;
 
-export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
-  const {
-    children,
-    header,
-    placement = 'right',
-    parentElement,
-    size = 'small',
-    className,
-    htmlProps,
-    widthProps,
-    withBackdrop,
-    ...rest
-  } = props;
-
+export const Drawer = ({
+  children,
+  header,
+  placement = 'right',
+  parentElement,
+  size = 'small',
+  className,
+  htmlProps,
+  widthProps,
+  withBackdrop,
+  ref,
+  ...rest
+}: DrawerProps) => {
   const themeContext = useContext(ThemeContext);
 
   if (!themeContext) {
@@ -210,6 +208,6 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>((props, ref) => {
   return (isOpen || hasTransitionedIn) && portalTarget
     ? createPortal(component, portalTarget)
     : null;
-});
+};
 
 Drawer.displayName = 'Drawer';

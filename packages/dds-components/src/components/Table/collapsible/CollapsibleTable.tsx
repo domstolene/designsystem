@@ -1,20 +1,13 @@
-import { forwardRef } from 'react';
-
 import { type CollapsibleTableProps } from './CollapsibleTable.types';
 import { CollapsibleTableContext } from './Table.context';
 import { Table } from '../normal';
 
-export const CollapsibleTable = forwardRef<
-  HTMLTableElement,
-  CollapsibleTableProps
->((props, ref) => {
-  const {
-    isCollapsed,
-    headerValues,
-    definingColumnIndex = [0],
-    ...rest
-  } = props;
-
+export const CollapsibleTable = ({
+  isCollapsed,
+  headerValues,
+  definingColumnIndex = [0],
+  ...rest
+}: CollapsibleTableProps) => {
   return (
     <CollapsibleTableContext
       value={{
@@ -23,9 +16,9 @@ export const CollapsibleTable = forwardRef<
         definingColumnIndex,
       }}
     >
-      <Table ref={ref} {...rest} />
+      <Table {...rest} />
     </CollapsibleTableContext>
   );
-});
+};
 
 CollapsibleTable.displayName = 'CollapsibleTable';

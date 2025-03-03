@@ -1,23 +1,12 @@
-import {
-  type HTMLAttributes,
-  createContext,
-  forwardRef,
-  useContext,
-} from 'react';
+import { type ComponentPropsWithRef, createContext, useContext } from 'react';
 
-export type TableHeadProps = HTMLAttributes<HTMLTableSectionElement>;
+export type TableHeadProps = ComponentPropsWithRef<'thead'>;
 
-export const Head = forwardRef<HTMLTableSectionElement, TableHeadProps>(
-  ({ children, ...rest }, ref) => {
-    return (
-      <thead ref={ref} {...rest}>
-        <HeadContext value={true}>{children}</HeadContext>
-      </thead>
-    );
-  },
+export const Head = ({ children, ...rest }: TableHeadProps) => (
+  <thead {...rest}>
+    <HeadContext value={true}>{children}</HeadContext>
+  </thead>
 );
-
-Head.displayName = 'Table.Head';
 
 const HeadContext = createContext(false);
 

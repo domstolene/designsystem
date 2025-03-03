@@ -1,15 +1,10 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Footer.module.css';
 import { cn } from '../../utils';
 
-export type FooterLeftProps = ComponentProps<'div'>;
+export type FooterLeftProps = ComponentPropsWithRef<'div'>;
 
-export const FooterLeft = forwardRef<HTMLDivElement, FooterLeftProps>(
-  (props, ref) => {
-    const { className, ...rest } = props;
-    return (
-      <div ref={ref} className={cn(className, styles['left'])} {...rest} />
-    );
-  },
+export const FooterLeft = ({ className, ...rest }: FooterLeftProps) => (
+  <div className={cn(className, styles['left'])} {...rest} />
 );

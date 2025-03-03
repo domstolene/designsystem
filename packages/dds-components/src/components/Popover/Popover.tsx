@@ -1,11 +1,5 @@
 import { type Property } from 'csstype';
-import {
-  type ReactNode,
-  type RefObject,
-  forwardRef,
-  useEffect,
-  useId,
-} from 'react';
+import { type ReactNode, type RefObject, useEffect, useId } from 'react';
 
 import styles from './Popover.module.css';
 import {
@@ -73,164 +67,161 @@ export type PopoverProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-  (props, ref) => {
-    const {
-      id,
-      header,
-      withCloseButton = true,
-      onBlur,
-      children,
-      placement = 'bottom',
-      offset = 8,
-      sizeProps,
-      returnFocusOnBlur = true,
-      className,
-      htmlProps = {},
-      anchorRef,
-      isOpen: propIsOpen,
-      onClose: propOnClose,
-      ...rest
-    } = props;
+export const Popover = ({
+  id,
+  header,
+  withCloseButton = true,
+  onBlur,
+  children,
+  placement = 'bottom',
+  offset = 8,
+  sizeProps,
+  returnFocusOnBlur = true,
+  className,
+  htmlProps = {},
+  anchorRef,
+  isOpen: propIsOpen,
+  onClose: propOnClose,
+  ref,
+  ...rest
+}: PopoverProps) => {
+  const { refs, styles: positionStyles } = useFloatPosition(null, {
+    offset,
+    placement,
+  });
 
-    const { refs, styles: positionStyles } = useFloatPosition(null, {
-      offset,
-      placement,
-    });
+  const context = usePopoverContext();
 
-    const context = usePopoverContext();
+  const {
+    floatStyling: contextFloatStyling,
+    setFloatOptions,
+    floatingRef: contextFloatingRef,
+    popoverId: contextPopoverId,
+    onClose: contextOnClose,
+    isOpen: contextIsOpen,
+    anchorEl: contextAnchorEl,
+  } = context;
 
-    const {
-      floatStyling: contextFloatStyling,
-      setFloatOptions,
-      floatingRef: contextFloatingRef,
-      popoverId: contextPopoverId,
-      onClose: contextOnClose,
-      isOpen: contextIsOpen,
-      anchorEl: contextAnchorEl,
-    } = context;
+  const hasContext = contextPopoverId !== undefined;
+  const generatedId = useId();
+  const uniquePopoverId = id ?? `${generatedId}-popover`;
 
-    const hasContext = contextPopoverId !== undefined;
-    const generatedId = useId();
-    const uniquePopoverId = id ?? `${generatedId}-popover`;
+  const [
+    popoverId,
+    anchorEl,
+    isOpen = false,
+    floatingRef,
+    floatStyling,
+    onClose,
+  ] = hasContext
+    ? [
+        contextPopoverId,
+        contextAnchorEl,
+        contextIsOpen,
+        contextFloatingRef,
+        contextFloatStyling,
+        contextOnClose,
+      ]
+    : [
+        uniquePopoverId,
+        anchorRef?.current && anchorRef.current,
+        propIsOpen,
+        refs.setFloating,
+        positionStyles.floating,
+        propOnClose,
+      ];
 
-    const [
-      popoverId,
-      anchorEl,
-      isOpen = false,
-      floatingRef,
-      floatStyling,
-      onClose,
-    ] = hasContext
-      ? [
-          contextPopoverId,
-          contextAnchorEl,
-          contextIsOpen,
-          contextFloatingRef,
-          contextFloatStyling,
-          contextOnClose,
-        ]
-      : [
-          uniquePopoverId,
-          anchorRef?.current && anchorRef.current,
-          propIsOpen,
-          refs.setFloating,
-          positionStyles.floating,
-          propOnClose,
-        ];
+  if (!hasContext) {
+    refs.setReference(anchorEl || null);
+  }
 
-    if (!hasContext) {
-      refs.setReference(anchorEl || null);
-    }
+  const hasTransitionedIn = useMountTransition(isOpen, 400);
 
-    const hasTransitionedIn = useMountTransition(isOpen, 400);
+  const popoverRef = useReturnFocusOnBlur(
+    isOpen && hasTransitionedIn && returnFocusOnBlur,
+    () => {
+      onClose?.();
+      onBlur?.();
+    },
+    anchorEl && anchorEl,
+  );
 
-    const popoverRef = useReturnFocusOnBlur(
-      isOpen && hasTransitionedIn && returnFocusOnBlur,
-      () => {
-        onClose?.();
-        onBlur?.();
-      },
-      anchorEl && anchorEl,
-    );
+  const multiRef = useCombinedRef(ref, popoverRef, floatingRef);
 
-    const multiRef = useCombinedRef(ref, popoverRef, floatingRef);
+  useEffect(() => {
+    setFloatOptions && setFloatOptions({ placement, offset });
+  }, [placement, offset]);
 
-    useEffect(() => {
-      setFloatOptions && setFloatOptions({ placement, offset });
-    }, [placement, offset]);
+  // hooks when without context
+  useOnClickOutside([popoverRef.current, anchorEl], () => {
+    if (isOpen && !hasContext) onClose?.();
+  });
 
-    // hooks when without context
-    useOnClickOutside([popoverRef.current, anchorEl], () => {
-      if (isOpen && !hasContext) onClose?.();
-    });
+  useOnKeyDown('Escape', () => {
+    if (isOpen && !hasContext) onClose?.();
+  });
 
-    useOnKeyDown('Escape', () => {
-      if (isOpen && !hasContext) onClose?.();
-    });
+  const hasTitle = !!header;
 
-    const hasTitle = !!header;
+  const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
 
-    const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
-
-    return isOpen || hasTransitionedIn ? (
-      <Paper
-        {...getBaseHTMLProps(
-          popoverId,
-          cn(
-            className,
-            styles.container,
-            utilStyles['visibility-transition'],
-            utilStyles[`visibility-transition--${openCn}`],
-            focusStyles.focusable,
-          ),
-          htmlProps,
-          rest,
-        )}
-        ref={multiRef}
-        tabIndex={-1}
-        style={{
-          ...htmlProps.style,
-          ...floatStyling,
-          ...sizeProps,
-        }}
-        role="dialog"
-        elevation={3}
-        border="subtle"
-      >
-        {header && (
-          <div className={styles.header}>
-            {typeof header === 'string' ? (
-              <Heading level={2} typographyType="headingMedium">
-                {header}
-              </Heading>
-            ) : (
-              header
-            )}
-          </div>
-        )}
-        <div
-          className={
-            !hasTitle && withCloseButton
-              ? styles['content--closable--no-header']
-              : ''
-          }
-        >
-          {children}
+  return isOpen || hasTransitionedIn ? (
+    <Paper
+      {...getBaseHTMLProps(
+        popoverId,
+        cn(
+          className,
+          styles.container,
+          utilStyles['visibility-transition'],
+          utilStyles[`visibility-transition--${openCn}`],
+          focusStyles.focusable,
+        ),
+        htmlProps,
+        rest,
+      )}
+      ref={multiRef}
+      tabIndex={-1}
+      style={{
+        ...htmlProps.style,
+        ...floatStyling,
+        ...sizeProps,
+      }}
+      role="dialog"
+      elevation={3}
+      border="subtle"
+    >
+      {header && (
+        <div className={styles.header}>
+          {typeof header === 'string' ? (
+            <Heading level={2} typographyType="headingMedium">
+              {header}
+            </Heading>
+          ) : (
+            header
+          )}
         </div>
-        {withCloseButton && (
-          <Button
-            icon={CloseIcon}
-            purpose="tertiary"
-            size="small"
-            onClick={onClose}
-            aria-label="Lukk"
-            className={styles['close-button']}
-          />
-        )}
-      </Paper>
-    ) : null;
-  },
-);
+      )}
+      <div
+        className={
+          !hasTitle && withCloseButton
+            ? styles['content--closable--no-header']
+            : ''
+        }
+      >
+        {children}
+      </div>
+      {withCloseButton && (
+        <Button
+          icon={CloseIcon}
+          purpose="tertiary"
+          size="small"
+          onClick={onClose}
+          aria-label="Lukk"
+          className={styles['close-button']}
+        />
+      )}
+    </Paper>
+  ) : null;
+};
 
 Popover.displayName = 'Popover';

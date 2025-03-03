@@ -1,20 +1,24 @@
-import { forwardRef, useRef } from 'react';
+import { useRef } from 'react';
 
-import { InlineEdit } from './InlineEdit';
+import { InlineEditContextProvider } from './InlineEdit.context';
 import { type InlineEditInputProps } from './InlineEdit.types';
 import { InlineInput } from './InlineInput';
 import { useCombinedRef } from '../../hooks';
 
-export const InlineEditInput = forwardRef<
-  HTMLInputElement,
-  InlineEditInputProps
->((props, ref) => {
-  const { onSetValue, emptiable, value, onFocus, onChange, onBlur, ...rest } =
-    props;
+export const InlineEditInput = ({
+  onSetValue,
+  emptiable,
+  value,
+  onFocus,
+  onChange,
+  onBlur,
+  ref,
+  ...rest
+}: InlineEditInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const combinedRef = useCombinedRef(ref, inputRef);
   return (
-    <InlineEdit
+    <InlineEditContextProvider
       onSetValue={onSetValue}
       emptiable={emptiable}
       inputRef={inputRef}
@@ -24,6 +28,6 @@ export const InlineEditInput = forwardRef<
       onBlur={onBlur}
     >
       <InlineInput {...rest} ref={combinedRef} />
-    </InlineEdit>
+    </InlineEditContextProvider>
   );
-});
+};

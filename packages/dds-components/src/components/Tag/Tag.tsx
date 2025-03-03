@@ -1,4 +1,4 @@
-import { type ReactNode, forwardRef } from 'react';
+import { type ReactNode } from 'react';
 
 import styles from './Tag.module.css';
 import {
@@ -59,19 +59,17 @@ export type TagProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
-  const {
-    text,
-    purpose = 'default',
-    appearance = 'default',
-    id,
-    className,
-    children,
-    htmlProps,
-    withIcon,
-    ...rest
-  } = props;
-
+export const Tag = ({
+  text,
+  purpose = 'default',
+  appearance = 'default',
+  id,
+  className,
+  children,
+  htmlProps,
+  withIcon,
+  ...rest
+}: TagProps) => {
   const icon = icons[purpose];
 
   return (
@@ -88,12 +86,11 @@ export const Tag = forwardRef<HTMLSpanElement, TagProps>((props, ref) => {
         htmlProps,
         rest,
       )}
-      ref={ref}
     >
       {withIcon && icon && <Icon icon={icon} iconSize="small" />}
       <TextOverflowEllipsisInner>{children ?? text}</TextOverflowEllipsisInner>
     </TextOverflowEllipsisWrapper>
   );
-});
+};
 
 Tag.displayName = 'Tag';

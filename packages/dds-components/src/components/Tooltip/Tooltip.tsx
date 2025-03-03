@@ -5,7 +5,6 @@ import {
   type ReactElement,
   type Ref,
   cloneElement,
-  forwardRef,
   useEffect,
   useId,
   useRef,
@@ -52,148 +51,145 @@ export type TooltipProps = BaseComponentProps<
   Omit<HTMLAttributes<HTMLDivElement>, 'children' | keyof PickedHTMLAttributes>
 >;
 
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-  (props, ref) => {
-    const {
-      text,
-      placement = 'bottom',
-      children,
-      tooltipId,
-      delay = 100,
-      style,
-      onMouseLeave,
-      onMouseOver,
-      id,
-      className,
-      htmlProps,
-      ...rest
-    } = props;
+export const Tooltip = ({
+  text,
+  placement = 'bottom',
+  children,
+  tooltipId,
+  delay = 100,
+  style,
+  onMouseLeave,
+  onMouseOver,
+  id,
+  ref,
+  className,
+  htmlProps,
+  ...rest
+}: TooltipProps) => {
+  const generatedId = useId();
+  const uniqueTooltipId = tooltipId ?? `${generatedId}-tooltip`;
+  const [open, setOpen] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
+  const { refs, styles: positionStyles } = useFloatPosition(arrowElement, {
+    placement,
+  });
+  const tooltipRef = useRef<HTMLDivElement>(null);
+  const combinedRef = useCombinedRef(ref, refs.setFloating, tooltipRef);
 
-    const generatedId = useId();
-    const uniqueTooltipId = tooltipId ?? `${generatedId}-tooltip`;
-    const [open, setOpen] = useState(false);
-    const [inView, setInView] = useState(false);
-    const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-    const { refs, styles: positionStyles } = useFloatPosition(arrowElement, {
-      placement,
-    });
-    const tooltipRef = useRef<HTMLDivElement>(null);
-    const combinedRef = useCombinedRef(ref, refs.setFloating, tooltipRef);
+  const closeWhenNotInView: IntersectionObserverCallback = entries => {
+    const [entry] = entries;
+    entry.isIntersecting ? setInView(true) : setInView(false);
+  };
 
-    const closeWhenNotInView: IntersectionObserverCallback = entries => {
-      const [entry] = entries;
-      entry.isIntersecting ? setInView(true) : setInView(false);
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
     };
+    const ref = tooltipRef.current;
+    const observer = new IntersectionObserver(closeWhenNotInView, options);
 
-    useEffect(() => {
-      const options = {
-        root: null,
-        rootMargin: '0px',
-      };
-      const ref = tooltipRef.current;
-      const observer = new IntersectionObserver(closeWhenNotInView, options);
+    if (ref) observer.observe(ref);
 
-      if (ref) observer.observe(ref);
+    return () => {
+      if (ref) observer.unobserve(ref);
+    };
+  }, [tooltipRef]);
 
-      return () => {
-        if (ref) observer.unobserve(ref);
-      };
-    }, [tooltipRef]);
-
-    useEffect(() => {
+  useEffect(() => {
+    if (tooltipRef.current) {
+      window.addEventListener('scroll', () => {
+        closeTooltip();
+      });
+    }
+    return () => {
       if (tooltipRef.current) {
-        window.addEventListener('scroll', () => {
-          closeTooltip();
-        });
+        window.removeEventListener('scroll', () => null);
       }
-      return () => {
-        if (tooltipRef.current) {
-          window.removeEventListener('scroll', () => null);
-        }
-      };
-    }, []);
+    };
+  }, []);
 
-    let timer: ReturnType<typeof setTimeout>;
+  let timer: ReturnType<typeof setTimeout>;
 
-    useEffect(() => {
-      return () => {
-        clearTimeout(timer);
-      };
-    }, []);
-
-    useOnKeyDown(['Escape', 'Esc'], () => {
-      if (open) setOpen(false);
-    });
-
-    const closeTooltip = () => {
+  useEffect(() => {
+    return () => {
       clearTimeout(timer);
-      setOpen(false);
     };
-    const openTooltip = () => {
-      if (!open) {
-        clearTimeout(timer);
-        timer = setTimeout(() => setOpen(true), delay);
-      }
-    };
+  }, []);
 
-    const anchorElement = ReactChildren.only(
-      cloneElement(children, {
-        ref: refs.setReference,
-        onFocus: combineHandlers(openTooltip, children.props.onFocus),
-        onBlur: combineHandlers(closeTooltip, children.props.onBlur),
-        'aria-describedby': uniqueTooltipId,
-      }),
-    );
+  useOnKeyDown(['Escape', 'Esc'], () => {
+    if (open) setOpen(false);
+  });
 
-    const openCn = open && inView ? 'open' : 'closed';
+  const closeTooltip = () => {
+    clearTimeout(timer);
+    setOpen(false);
+  };
+  const openTooltip = () => {
+    if (!open) {
+      clearTimeout(timer);
+      timer = setTimeout(() => setOpen(true), delay);
+    }
+  };
 
-    return (
-      <div
-        {...getBaseHTMLProps(
-          id,
-          cn(className, styles.container),
-          htmlProps,
-          rest,
+  const anchorElement = ReactChildren.only(
+    cloneElement(children, {
+      ref: refs.setReference,
+      onFocus: combineHandlers(openTooltip, children.props.onFocus),
+      onBlur: combineHandlers(closeTooltip, children.props.onBlur),
+      'aria-describedby': uniqueTooltipId,
+    }),
+  );
+
+  const openCn = open && inView ? 'open' : 'closed';
+
+  return (
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(className, styles.container),
+        htmlProps,
+        rest,
+      )}
+      style={style}
+      onMouseLeave={combineHandlers(closeTooltip, onMouseLeave)}
+      onMouseOver={combineHandlers(openTooltip, onMouseOver)}
+    >
+      {anchorElement}
+      <Paper
+        id={uniqueTooltipId}
+        ref={combinedRef}
+        role="tooltip"
+        aria-hidden={!open}
+        style={{ ...positionStyles.floating }}
+        elevation={1}
+        border="subtle"
+        className={cn(
+          styles.paper,
+          typographyStyles['body-medium'],
+          utilStyles['visibility-transition'],
+          utilStyles[`visibility-transition--${openCn}`],
         )}
-        style={style}
-        onMouseLeave={combineHandlers(closeTooltip, onMouseLeave)}
-        onMouseOver={combineHandlers(openTooltip, onMouseOver)}
       >
-        {anchorElement}
-        <Paper
-          id={uniqueTooltipId}
-          ref={combinedRef}
-          role="tooltip"
-          aria-hidden={!open}
-          style={{ ...positionStyles.floating }}
-          elevation={1}
-          border="subtle"
-          className={cn(
-            styles.paper,
-            typographyStyles['body-medium'],
-            utilStyles['visibility-transition'],
-            utilStyles[`visibility-transition--${openCn}`],
-          )}
-        >
-          {text}
-          <div ref={setArrowElement} style={positionStyles.arrow}>
-            <svg width="36" height="9">
-              <path
-                d="M16.586 6.586L10 0h16.154a.373.373 0 00-.263.11l-6.477 6.476a2 2 0 01-2.828 0z"
-                className={styles['svg-arrow__background']}
-              />
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M26.5.5l-6.732 6.94a2.5 2.5 0 01-3.536 0L9.5.5H11l5.94 6.232a1.5 1.5 0 002.12 0L25 .5h1.5z"
-                className={styles['svg-arrow__border']}
-              />
-            </svg>
-          </div>
-        </Paper>
-      </div>
-    );
-  },
-);
+        {text}
+        <div ref={setArrowElement} style={positionStyles.arrow}>
+          <svg width="36" height="9">
+            <path
+              d="M16.586 6.586L10 0h16.154a.373.373 0 00-.263.11l-6.477 6.476a2 2 0 01-2.828 0z"
+              className={styles['svg-arrow__background']}
+            />
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M26.5.5l-6.732 6.94a2.5 2.5 0 01-3.536 0L9.5.5H11l5.94 6.232a1.5 1.5 0 002.12 0L25 .5h1.5z"
+              className={styles['svg-arrow__border']}
+            />
+          </svg>
+        </div>
+      </Paper>
+    </div>
+  );
+};
 
 Tooltip.displayName = 'Tooltip';

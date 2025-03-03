@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import styles from './DetailList.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -31,36 +29,29 @@ export type DetailListProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const DetailList = forwardRef<HTMLDListElement, DetailListProps>(
-  (props, ref) => {
-    const {
+export const DetailList = ({
+  id,
+  className,
+  htmlProps,
+  withDividers = true,
+  striped = true,
+  size = 'medium',
+  ...rest
+}: DetailListProps) => (
+  <dl
+    {...getBaseHTMLProps(
       id,
-      className,
+      cn(
+        className,
+        styles.list,
+        styles[`list--${size}`],
+        withDividers && styles['list--with-dividers'],
+        striped && styles['list--striped'],
+      ),
       htmlProps,
-      withDividers = true,
-      striped = true,
-      size = 'medium',
-      ...rest
-    } = props;
-
-    return (
-      <dl
-        ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(
-            className,
-            styles.list,
-            styles[`list--${size}`],
-            withDividers && styles['list--with-dividers'],
-            striped && styles['list--striped'],
-          ),
-          htmlProps,
-          rest,
-        )}
-      />
-    );
-  },
+      rest,
+    )}
+  />
 );
 
 DetailList.displayName = 'DetailList';

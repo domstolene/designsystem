@@ -1,9 +1,4 @@
-import {
-  type InputHTMLAttributes,
-  type ReactNode,
-  forwardRef,
-  useId,
-} from 'react';
+import { type InputHTMLAttributes, type ReactNode, useId } from 'react';
 
 import styles from './Toggle.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
@@ -64,102 +59,93 @@ export type ToggleProps = BaseComponentProps<
   Omit<InputHTMLAttributes<HTMLInputElement>, keyof TogglePickedHTMLAttributes>
 >;
 
-export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
-  (
-    {
-      id,
-      children,
-      size = 'medium',
-      checked: checkedProp,
-      defaultChecked,
-      onChange,
-      disabled,
-      readOnly,
-      isLoading,
-      className,
-      htmlProps = {},
-      ...rest
-    },
-    ref,
-  ) => {
-    const generatedId = useId();
-    const uniqueId = id ?? `${generatedId}-toggle`;
-    const iconSize = size === 'large' ? 'medium' : 'small';
+export const Toggle = ({
+  id,
+  children,
+  size = 'medium',
+  checked: checkedProp,
+  defaultChecked,
+  onChange,
+  disabled,
+  readOnly,
+  isLoading,
+  className,
+  htmlProps = {},
+  ...rest
+}: ToggleProps) => {
+  const generatedId = useId();
+  const uniqueId = id ?? `${generatedId}-toggle`;
+  const iconSize = size === 'large' ? 'medium' : 'small';
 
-    const [checked, setChecked] = useControllableState({
-      value: checkedProp,
-      defaultValue: defaultChecked ?? false,
-      onChange,
-    });
+  const [checked, setChecked] = useControllableState({
+    value: checkedProp,
+    defaultValue: defaultChecked ?? false,
+    onChange,
+  });
 
-    return (
-      <label
-        htmlFor={uniqueId}
-        className={cn(
-          styles.label,
-          styles[size],
-          isLoading && styles['label--is-loading'],
-          disabled && styles['label--disabled'],
-          readOnly && styles['label--read-only'],
+  return (
+    <label
+      htmlFor={uniqueId}
+      className={cn(
+        styles.label,
+        styles[size],
+        isLoading && styles['label--is-loading'],
+        disabled && styles['label--disabled'],
+        readOnly && styles['label--read-only'],
+      )}
+    >
+      <input
+        {...getBaseHTMLProps(
+          uniqueId,
+          cn(
+            className,
+            focusStyles['focusable-sibling'],
+            utilStyles['hide-input'],
+          ),
+          htmlProps,
+          rest,
         )}
-      >
-        <input
-          {...getBaseHTMLProps(
-            uniqueId,
-            cn(
-              className,
-              focusStyles['focusable-sibling'],
-              utilStyles['hide-input'],
-            ),
-            htmlProps,
-            rest,
-          )}
-          ref={ref}
-          type="checkbox"
-          checked={checked}
-          onChange={e => setChecked(e.target.checked)}
-          disabled={disabled}
-          aria-disabled={isLoading}
-          aria-readonly={readOnly}
-          onKeyDown={readOnlyKeyDownHandler(
-            'selectionControl',
-            readOnly || isLoading,
-            htmlProps.onKeyDown,
-          )}
-          onClick={readOnlyClickHandler(
-            readOnly || isLoading,
-            htmlProps.onClick,
-          )}
-        />
-        <span className={cn(styles.track, focusStyles['focus-styled-sibling'])}>
-          <span className={styles.thumb}>
-            {isLoading ? (
-              <Spinner size={`var(--dds-icon-size-${size})`} />
-            ) : (
-              <Icon
-                className={styles.checkmark}
-                icon={CheckIcon}
-                iconSize={iconSize}
-              />
-            )}
-          </span>
-        </span>
-        <span className={cn(readOnly && styles['labeltext--readonly'])}>
-          {readOnly && (
+        type="checkbox"
+        checked={checked}
+        onChange={e => setChecked(e.target.checked)}
+        disabled={disabled}
+        aria-disabled={isLoading}
+        aria-readonly={readOnly}
+        onKeyDown={readOnlyKeyDownHandler(
+          'selectionControl',
+          readOnly || isLoading,
+          htmlProps.onKeyDown,
+        )}
+        onClick={readOnlyClickHandler(readOnly || isLoading, htmlProps.onClick)}
+      />
+      <span className={cn(styles.track, focusStyles['focus-styled-sibling'])}>
+        <span className={styles.thumb}>
+          {isLoading ? (
+            <Spinner size={`var(--dds-icon-size-${size})`} />
+          ) : (
             <Icon
-              icon={LockIcon}
-              iconSize="small"
-              className={styles['icon--read-only']}
+              className={styles.checkmark}
+              icon={CheckIcon}
+              iconSize={iconSize}
             />
           )}
-          {children}{' '}
-          {isLoading && (
-            <VisuallyHidden as="span">Innlastning pågår</VisuallyHidden>
-          )}
         </span>
-      </label>
-    );
-  },
-);
+      </span>
+      <span className={cn(readOnly && styles['labeltext--readonly'])}>
+        {readOnly && (
+          <Icon
+            icon={LockIcon}
+            iconSize="small"
+            className={styles['icon--read-only']}
+          />
+        )}
+        {children}{' '}
+        {isLoading && (
+          <VisuallyHidden as="span">Innlastning pågår</VisuallyHidden>
+        )}
+      </span>
+    </label>
+  );
+};
 
 Toggle.displayName = 'Toggle';

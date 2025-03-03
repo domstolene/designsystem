@@ -1,16 +1,16 @@
-import type { MutableRefObject, RefCallback } from 'react';
+import type { Ref, RefCallback, RefObject } from 'react';
 import { useCallback } from 'react';
 
 /**
  * Kombinerer refs for et element.
  * Eksempel på bruk:
  * ```
- * const MyComponent = forwardRef<HTMLDivElement, Props>((props, ref) => {
+ * const MyComponent = ({ref, ...props}) => {
  *
  *  const itemRef = useRef<HTMLDivElement>(null);
  *  const combinedRef = useCombinedRef(ref, itemRef);
  *
- *  return <div ref={combinedRef}>innhold</div>
+ *  return <div ref={combinedRef} {...props}>innhold</div>
  * });
  * ```
  * @param refs array med refs.
@@ -21,13 +21,13 @@ import { useCallback } from 'react';
  */
 
 export function useCombinedRef<T>(
-  ...refs: Array<React.Ref<T> | undefined>
+  ...refs: Array<Ref<T> | undefined>
 ): RefCallback<T> {
   return useCallback((element: T) => {
     refs.filter(Boolean).forEach(ref => {
       if (typeof ref === 'function') ref(element);
       else if (ref && typeof ref === 'object')
-        (ref as MutableRefObject<T>).current = element;
+        (ref as RefObject<T>).current = element;
     });
   }, refs);
 }

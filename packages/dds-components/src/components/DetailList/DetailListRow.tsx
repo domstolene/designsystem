@@ -1,14 +1,12 @@
-import { type ComponentPropsWithRef, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './DetailList.module.css';
 import { cn } from '../../utils';
 
 export type DetailListRowProps = ComponentPropsWithRef<'div'>;
 
-export const DetailListRow = forwardRef<HTMLDivElement, DetailListRowProps>(
-  ({ className, ...rest }, ref) => {
-    return <div ref={ref} className={cn(className, styles.row)} {...rest} />;
-  },
+export const DetailListRow = ({ className, ...rest }: DetailListRowProps) => (
+  <div className={cn(className, styles.row)} {...rest} />
 );
 
 DetailListRow.displayName = 'DetailListRow';

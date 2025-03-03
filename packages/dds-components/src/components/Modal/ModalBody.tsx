@@ -1,5 +1,4 @@
 import { type Property } from 'csstype';
-import { forwardRef } from 'react';
 
 import styles from './Modal.module.css';
 import {
@@ -19,31 +18,33 @@ export type ModalBodyProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const ModalBody = forwardRef<HTMLDivElement, ModalBodyProps>(
-  (props, ref) => {
-    const { children, id, className, scrollable, htmlProps, height, ...rest } =
-      props;
-
-    return (
-      <div
-        ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(
-            className,
-            utilStyles.scrollbar,
-            scrollable && utilStyles['scrollable-y'],
-            styles.body,
-          ),
-          htmlProps,
-          rest,
-        )}
-        style={{ ...htmlProps?.style, height: height }}
-      >
-        {children}
-      </div>
-    );
-  },
-);
+export const ModalBody = ({
+  children,
+  id,
+  className,
+  scrollable,
+  htmlProps,
+  height,
+  ...rest
+}: ModalBodyProps) => {
+  return (
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          utilStyles.scrollbar,
+          scrollable && utilStyles['scrollable-y'],
+          styles.body,
+        ),
+        htmlProps,
+        rest,
+      )}
+      style={{ ...htmlProps?.style, height: height }}
+    >
+      {children}
+    </div>
+  );
+};
 
 ModalBody.displayName = 'ModalBody';

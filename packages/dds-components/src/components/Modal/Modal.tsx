@@ -1,7 +1,6 @@
 import {
   type ReactNode,
   type RefObject,
-  forwardRef,
   useContext,
   useEffect,
   useId,
@@ -56,21 +55,21 @@ export type ModalProps = BaseComponentPropsWithChildren<
   }
 >;
 
-export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
-  const {
-    isOpen = false,
-    parentElement,
-    children,
-    header,
-    onClose,
-    id,
-    triggerRef,
-    initialFocusRef,
-    scrollable,
-    className,
-    htmlProps,
-    ...rest
-  } = props;
+export const Modal = ({
+  isOpen = false,
+  parentElement,
+  children,
+  header,
+  onClose,
+  id,
+  triggerRef,
+  initialFocusRef,
+  scrollable,
+  className,
+  htmlProps,
+  ref,
+  ...rest
+}: ModalProps) => {
   const generatedId = useId();
   const modalId = id ?? `${generatedId}-modal`;
   const headerId = `${modalId}-header`;
@@ -174,6 +173,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>((props, ref) => {
         portalTarget,
       )
     : null;
-});
+};
 
 Modal.displayName = 'Modal';
