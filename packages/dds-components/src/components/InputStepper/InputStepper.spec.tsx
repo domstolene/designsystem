@@ -154,4 +154,16 @@ describe('<InputStepper />', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Nullstill' }));
     expect(inputField).toHaveValue('0');
   });
+  it('should render as readOnly if readOnly is set', async () => {
+    const label = 'label';
+    render(<InputStepper label={label} maxValue={5} readOnly />);
+    const inputField = screen.getByRole('textbox');
+    expect(inputField).toHaveAttribute('readonly');
+  });
+  it('should render as disabled if disabled is set', async () => {
+    const label = 'label';
+    render(<InputStepper label={label} maxValue={5} disabled />);
+    const inputField = screen.getByRole('textbox');
+    expect(inputField).toBeDisabled;
+  });
 });
