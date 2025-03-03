@@ -158,9 +158,6 @@ importers:
       '@floating-ui/react-dom':
         specifier: ^2.1.2
         version: 2.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@norges-domstoler/development-utils':
-        specifier: workspace:*
-        version: link:../development-utils
       '@react-aria/button':
         specifier: ^3.11.1
         version: 3.11.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -312,9 +309,6 @@ importers:
 
   packages/development-utils:
     devDependencies:
-      '@norges-domstoler/dds-design-tokens':
-        specifier: workspace:*
-        version: link:../dds-tokens
       '@norges-domstoler/storybook-components':
         specifier: workspace:*
         version: link:../storybook-components
