@@ -1,5 +1,4 @@
 import { type Properties, type StandardProperties } from 'csstype';
-import { forwardRef } from 'react';
 
 import styles from './Stack.module.css';
 import {
@@ -51,93 +50,81 @@ export type StackProps = BaseComponentPropsWithChildren<
   Omit<StackStyleProps, 'direction'>
 >;
 
-export const HStack = forwardRef<HTMLDivElement, StackProps>(
-  (
-    {
-      id,
-      className,
-      htmlProps,
-      align = 'center',
-      justify = 'flex-start',
-      gap,
-      padding,
-      ...rest
-    },
-    ref,
-  ) => {
-    const style: Properties = {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ['--dds-stack-align-items' as any]: align,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ['--dds-stack-justify-content' as any]: justify,
-    };
+export const HStack = ({
+  id,
+  className,
+  htmlProps,
+  align = 'center',
+  justify = 'flex-start',
+  gap,
+  padding,
+  ...rest
+}: StackProps) => {
+  const style: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-stack-align-items' as any]: align,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-stack-justify-content' as any]: justify,
+  };
 
-    return (
-      <div
-        ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(
-            className,
-            styles.stack,
-            styles.horizontal,
-            gap ? styles[`gap-${spacingPropToCn(gap)}`] : styles['gap-0'],
-            padding
-              ? styles[`padding-${spacingPropToCn(padding)}`]
-              : styles['padding-0'],
-          ),
-          htmlProps,
-          rest,
-        )}
-        style={{ ...htmlProps?.style, ...style }}
-      />
-    );
-  },
-);
+  return (
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.stack,
+          styles.horizontal,
+          gap ? styles[`gap-${spacingPropToCn(gap)}`] : styles['gap-0'],
+          padding
+            ? styles[`padding-${spacingPropToCn(padding)}`]
+            : styles['padding-0'],
+        ),
+        htmlProps,
+        rest,
+      )}
+      style={{ ...htmlProps?.style, ...style }}
+    />
+  );
+};
 
 HStack.displayName = 'HStack';
 
-export const VStack = forwardRef<HTMLDivElement, StackProps>(
-  (
-    {
-      id,
-      className,
-      htmlProps,
-      align = 'center',
-      justify = 'flex-start',
-      gap,
-      padding,
-      ...rest
-    },
-    ref,
-  ) => {
-    const style: Properties = {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ['--dds-stack-align-items' as any]: align,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ['--dds-stack-justify-content' as any]: justify,
-    };
+export const VStack = ({
+  id,
+  className,
+  htmlProps,
+  align = 'center',
+  justify = 'flex-start',
+  gap,
+  padding,
+  ...rest
+}: StackProps) => {
+  const style: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-stack-align-items' as any]: align,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-stack-justify-content' as any]: justify,
+  };
 
-    return (
-      <div
-        ref={ref}
-        {...getBaseHTMLProps(
-          id,
-          cn(
-            className,
-            styles.stack,
-            styles.vertical,
-            gap && styles[`gap-${spacingPropToCn(gap)}`],
-            padding && styles[`padding-${spacingPropToCn(padding)}`],
-          ),
-          htmlProps,
-          rest,
-        )}
-        style={{ ...htmlProps?.style, ...style }}
-      />
-    );
-  },
-);
+  return (
+    <div
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.stack,
+          styles.vertical,
+          gap && styles[`gap-${spacingPropToCn(gap)}`],
+          padding && styles[`padding-${spacingPropToCn(padding)}`],
+        ),
+        htmlProps,
+        rest,
+      )}
+      style={{ ...htmlProps?.style, ...style }}
+    />
+  );
+};
 
 VStack.displayName = 'VStack';
 

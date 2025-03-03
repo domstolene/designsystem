@@ -1,10 +1,7 @@
 import { type Property } from 'csstype';
-import {
-  type InputHTMLAttributes,
-  type ReactNode,
-  type RefObject,
-  type TextareaHTMLAttributes,
-} from 'react';
+import { type ComponentPropsWithRef, type InputHTMLAttributes } from 'react';
+
+export type EditElement = HTMLInputElement | HTMLTextAreaElement;
 
 export interface BaseInlineInputProps {
   /**Spesifiserer error state. Hvis `errorMessage` ikke brukes må inputfeltet knyttes med ARIA til en feilmelding som vises andre steder i applikasjonen. */
@@ -17,19 +14,11 @@ export interface BaseInlineInputProps {
   width?: Property.Width;
   /**Om redigeringsikonet skal vises. */
   hideIcon?: boolean;
-  /** **OBS!** settes automatisk av forelder. Spesifiserer om brukeren kan tømme inputfeltet. */
-  emptiable?: boolean;
-  /** **OBS!** settes automatisk av forelder. Spesifiserer om komponenten er i redigeringsmodus. */
-  isEditing?: boolean;
 }
 
 export type InlineEditProps = {
   /**Callback for når verdien blir lagret. */
   onSetValue?: (value: string) => void;
-  /** Ref til barnet. */
-  inputRef: RefObject<HTMLElement | null>;
-  /** Barn (inputelementet). */
-  children: ReactNode;
   /**Spesifiserer om brukeren kan tømme inputfeltet. */
   emptiable?: boolean;
   /**Ekstra callback ved `onChange`-event. */
@@ -40,20 +29,18 @@ export type InlineEditProps = {
   onBlur?: () => void;
 } & Pick<InputHTMLAttributes<HTMLInputElement>, 'value'>;
 
-export type CommonInlineEditWrapperProps = Pick<
-  InlineEditProps,
-  'onSetValue' | 'emptiable' | 'onBlur' | 'onFocus' | 'onChange'
-> &
-  Pick<BaseInlineInputProps, 'error' | 'errorMessage' | 'width' | 'hideIcon'>;
+export type InlineInputProps = BaseInlineInputProps &
+  Omit<
+    ComponentPropsWithRef<'input'>,
+    'width' | 'value' | 'onChange' | 'onFocus' | 'onBlur'
+  >;
 
-export type InlineEditTextAreaProps = Omit<
-  TextareaHTMLAttributes<HTMLTextAreaElement>,
-  'onChange' | 'onFocus' | 'onBlur'
-> &
-  CommonInlineEditWrapperProps;
+export type InlineTextAreaProps = BaseInlineInputProps &
+  Omit<
+    ComponentPropsWithRef<'textarea'>,
+    'value' | 'onChange' | 'onFocus' | 'onBlur'
+  >;
 
-export type InlineEditInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'width' | 'onChange' | 'onFocus' | 'onBlur'
-> &
-  CommonInlineEditWrapperProps;
+export type InlineEditTextAreaProps = InlineTextAreaProps & InlineEditProps;
+
+export type InlineEditInputProps = InlineInputProps & InlineEditProps;

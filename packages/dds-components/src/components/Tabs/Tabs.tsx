@@ -1,12 +1,5 @@
 import { type Properties, type Property } from 'csstype';
-import {
-  type HTMLAttributes,
-  forwardRef,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from 'react';
+import { type HTMLAttributes, useEffect, useId, useRef, useState } from 'react';
 
 import { type AddTabButtonProps } from './AddTabButton';
 import { TabsContext } from './Tabs.context';
@@ -42,21 +35,19 @@ export type TabsProps = BaseComponentPropsWithChildren<
   Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
 >;
 
-export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
-  const {
-    id,
-    activeTab,
-    onChange,
-    tabContentDirection = 'row',
-    size = 'small',
-    addTabButtonProps,
-    width,
-    children,
-    className,
-    htmlProps,
-    ...rest
-  } = props;
-
+export const Tabs = ({
+  id,
+  activeTab,
+  onChange,
+  tabContentDirection = 'row',
+  size = 'small',
+  addTabButtonProps,
+  width,
+  children,
+  className,
+  htmlProps,
+  ...rest
+}: TabsProps) => {
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-tabs`;
 
@@ -97,7 +88,6 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
       }}
     >
       <div
-        ref={ref}
         {...getBaseHTMLProps(
           uniqueId,
           cn(className, styles.tabs),
@@ -110,6 +100,6 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
       </div>
     </TabsContext>
   );
-});
+};
 
 Tabs.displayName = 'Tabs';

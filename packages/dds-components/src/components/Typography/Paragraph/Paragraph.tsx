@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -19,27 +17,22 @@ export type ParagraphProps = BaseComponentPropsWithChildren<
   } & BaseTypographyProps
 >;
 
-export const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
-  (props, ref) => {
-    const {
-      id,
-      className,
-      htmlProps,
-      children,
-      typographyType = 'bodyMedium',
-      ...rest
-    } = props;
-
-    return (
-      <Typography
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
-        typographyType={typographyType}
-        ref={ref}
-      >
-        {children}
-      </Typography>
-    );
-  },
-);
+export const Paragraph = ({
+  id,
+  className,
+  htmlProps,
+  children,
+  typographyType = 'bodyMedium',
+  ...rest
+}: ParagraphProps) => {
+  return (
+    <Typography
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      typographyType={typographyType}
+    >
+      {children}
+    </Typography>
+  );
+};
 
 Paragraph.displayName = 'Paragraph';

@@ -2,7 +2,6 @@ import { type Properties, type Property } from 'csstype';
 import {
   type ChangeEvent,
   type ForwardedRef,
-  forwardRef,
   useEffect,
   useId,
   useLayoutEffect,
@@ -22,13 +21,12 @@ import {
   type InputProps,
   type ScreenSizeLiteral,
   StatefulInput,
-  inputTypographyTypes,
 } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
 import { NativeSelect } from '../Select';
-import { Label, getTypographyCn } from '../Typography';
+import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export interface PhoneInputValue {
@@ -134,234 +132,229 @@ export type PhoneInputProps = {
   | 'style'
   | 'aria-required'
   | 'aria-describedby'
+  | 'ref'
 >;
 
-export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
-  (
-    {
-      label,
-      readOnly,
-      errorMessage,
-      tip,
-      required,
-      width,
-      componentSize = 'medium',
-      name,
-      className,
-      style,
-      value,
-      selectLabel = 'Landskode',
-      selectRef,
-      onChange,
-      defaultValue,
-      'aria-required': ariaRequired,
-      'aria-describedby': ariaDescribedby,
-      groupLabel = 'Landskode og telefonnummer',
-      ...props
+export const PhoneInput = ({
+  label,
+  readOnly,
+  errorMessage,
+  tip,
+  required,
+  width,
+  componentSize = 'medium',
+  name,
+  className,
+  style,
+  value,
+  selectLabel = 'Landskode',
+  selectRef,
+  onChange,
+  defaultValue,
+  'aria-required': ariaRequired,
+  'aria-describedby': ariaDescribedby,
+  groupLabel = 'Landskode og telefonnummer',
+  ref,
+  ...props
+}: PhoneInputProps) => {
+  const generatedId = useId();
+  const uniqueId = props.id ?? generatedId;
+  const phoneInputId = `${uniqueId}-phone-input`;
+  const phoneNumberId = `${uniqueId}-phone-number`;
+  const selectId = `${uniqueId}-country-code`;
+
+  const hasErrorMessage = !!errorMessage;
+  const hasTip = !!tip;
+  const hasLabel = !!label;
+  const hasMessage = hasErrorMessage || hasTip;
+
+  const tipId = derivativeIdGenerator(phoneInputId, 'tip');
+  const errorMessageId = derivativeIdGenerator(phoneInputId, 'errorMessage');
+
+  const [callingCode, setCallingCode] = useState('');
+  const [selectedCountryCodeText, setSelectedCountryCodeText] = useState('');
+  const [internalValue, setInternalValue] = useState<PhoneInputValue>(
+    defaultValue ?? {
+      countryCode: '',
+      phoneNumber: '',
     },
-    ref,
-  ) => {
-    const generatedId = useId();
-    const uniqueId = props.id ?? generatedId;
-    const phoneInputId = `${uniqueId}-phone-input`;
-    const phoneNumberId = `${uniqueId}-phone-number`;
-    const selectId = `${uniqueId}-country-code`;
+  );
 
-    const hasErrorMessage = !!errorMessage;
-    const hasTip = !!tip;
-    const hasLabel = !!label;
-    const hasMessage = hasErrorMessage || hasTip;
+  const isControlled = value !== undefined;
 
-    const tipId = derivativeIdGenerator(phoneInputId, 'tip');
-    const errorMessageId = derivativeIdGenerator(phoneInputId, 'errorMessage');
+  const [callingCodeWidth, setCallingCodeWidth] = useState(0);
 
-    const [callingCode, setCallingCode] = useState('');
-    const [selectedCountryCodeText, setSelectedCountryCodeText] = useState('');
-    const [internalValue, setInternalValue] = useState<PhoneInputValue>(
-      defaultValue ?? {
-        countryCode: '',
-        phoneNumber: '',
-      },
-    );
+  const callingCodeRef = useRef<HTMLSpanElement>(null);
 
-    const isControlled = value !== undefined;
+  useLayoutEffect(() => {
+    if (callingCodeRef.current) {
+      setCallingCodeWidth(callingCodeRef.current.offsetWidth);
+    }
+  }, [callingCode]);
 
-    const [callingCodeWidth, setCallingCodeWidth] = useState(0);
+  const callingCodeInlineStart: Property.PaddingInlineStart | undefined =
+    callingCodeWidth
+      ? `calc(var(--dds-spacing-x1) + ${callingCodeWidth}px)`
+      : undefined;
 
-    const callingCodeRef = useRef<HTMLSpanElement>(null);
+  const styleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-phone-input-width' as any]: width
+      ? width
+      : componentSize === 'xsmall'
+        ? '131px'
+        : '194px',
+  };
 
-    useLayoutEffect(() => {
-      if (callingCodeRef.current) {
-        setCallingCodeWidth(callingCodeRef.current.offsetWidth);
-      }
-    }, [callingCode]);
+  const internalSelectRef = useRef<HTMLSelectElement>(null);
 
-    const callingCodeInlineStart: Property.PaddingInlineStart | undefined =
-      callingCodeWidth
-        ? `calc(var(--dds-spacing-x1) + ${callingCodeWidth}px)`
-        : undefined;
+  const combinedSelectRef = useCombinedRef(selectRef, internalSelectRef);
 
-    const styleVariables: Properties = {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ['--dds-phone-input-width' as any]: width
-        ? width
-        : componentSize === 'xsmall'
-          ? '131px'
-          : '194px',
-    };
+  const displayedValue = isControlled ? value : internalValue;
 
-    const internalSelectRef = useRef<HTMLSelectElement>(null);
-
-    const combinedSelectRef = useCombinedRef(selectRef, internalSelectRef);
-
-    const displayedValue = isControlled ? value : internalValue;
-
-    useEffect(() => {
-      const selectEl = internalSelectRef.current;
-      if (selectEl && selectEl.value) {
-        const { options, selectedIndex } = selectEl;
-        const content = options[selectedIndex].innerHTML;
-        setSelectedCountryCodeText(content);
-        setCallingCode(getCallingCode(content));
-      }
-    }, [displayedValue?.countryCode]);
-
-    const handleCountryCodeChange = (e: ChangeEvent<HTMLSelectElement>) => {
-      const newValue = {
-        countryCode: e.target.value,
-        phoneNumber: displayedValue?.phoneNumber ?? '',
-      };
-
-      const { options, selectedIndex } = e.target;
+  useEffect(() => {
+    const selectEl = internalSelectRef.current;
+    if (selectEl && selectEl.value) {
+      const { options, selectedIndex } = selectEl;
       const content = options[selectedIndex].innerHTML;
+      setSelectedCountryCodeText(content);
       setCallingCode(getCallingCode(content));
+    }
+  }, [displayedValue?.countryCode]);
 
-      if (isControlled && onChange) {
-        onChange(newValue);
-      } else {
-        setInternalValue(newValue);
-      }
+  const handleCountryCodeChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const newValue = {
+      countryCode: e.target.value,
+      phoneNumber: displayedValue?.phoneNumber ?? '',
     };
 
-    const handlePhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
-      const newValue = {
-        countryCode: displayedValue?.countryCode ?? '',
-        phoneNumber: e.target.value,
-      };
+    const { options, selectedIndex } = e.target;
+    const content = options[selectedIndex].innerHTML;
+    setCallingCode(getCallingCode(content));
 
-      if (isControlled && onChange) {
-        onChange(newValue);
-      } else {
-        setInternalValue(newValue);
-      }
+    if (isControlled && onChange) {
+      onChange(newValue);
+    } else {
+      setInternalValue(newValue);
+    }
+  };
+
+  const handlePhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = {
+      countryCode: displayedValue?.countryCode ?? '',
+      phoneNumber: e.target.value,
     };
 
-    const commonProps = {
-      required,
-      'aria-required': ariaRequired,
-      disabled: props.disabled,
-      readOnly,
-      componentSize,
-    };
+    if (isControlled && onChange) {
+      onChange(newValue);
+    } else {
+      setInternalValue(newValue);
+    }
+  };
 
-    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    const showRequiredStyling = !!(required || ariaRequired);
+  const commonProps = {
+    required,
+    'aria-required': ariaRequired,
+    disabled: props.disabled,
+    readOnly,
+    componentSize,
+  };
 
-    return (
-      <div className={cn(className, inputStyles.container)} style={style}>
-        {hasLabel && (
-          <Label
-            htmlFor={phoneNumberId}
-            showRequiredStyling={showRequiredStyling}
-            className={inputStyles.label}
-            readOnly={readOnly}
-          >
-            {label}
-          </Label>
-        )}
-        <div
-          className={cn(
-            styles['inputs-container'],
-            !!props.smallScreenBreakpoint &&
-              styles[
-                `inputs-container--small-screen-${props.smallScreenBreakpoint}`
-              ],
-          )}
-          style={styleVariables}
-          role="group"
-          aria-label={groupLabel}
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+  const showRequiredStyling = !!(required || ariaRequired);
+
+  return (
+    <div className={cn(className, inputStyles.container)} style={style}>
+      {hasLabel && (
+        <Label
+          htmlFor={phoneNumberId}
+          showRequiredStyling={showRequiredStyling}
+          className={inputStyles.label}
+          readOnly={readOnly}
         >
-          <label className={utilStyles['visually-hidden']} htmlFor={selectId}>
-            {selectLabel}
-          </label>
-          <NativeSelect
-            {...commonProps}
-            ref={combinedSelectRef}
-            id={selectId}
+          {label}
+        </Label>
+      )}
+      <div
+        className={cn(
+          styles['inputs-container'],
+          !!props.smallScreenBreakpoint &&
+            styles[
+              `inputs-container--small-screen-${props.smallScreenBreakpoint}`
+            ],
+        )}
+        style={styleVariables}
+        role="group"
+        aria-label={groupLabel}
+      >
+        <label className={utilStyles['visually-hidden']} htmlFor={selectId}>
+          {selectLabel}
+        </label>
+        <NativeSelect
+          {...commonProps}
+          ref={combinedSelectRef}
+          id={selectId}
+          className={cn(
+            styles.select,
+            componentSize === 'xsmall' && styles['select--xsmall'],
+          )}
+          onChange={handleCountryCodeChange}
+          defaultValue={defaultValue?.countryCode}
+          value={displayedValue?.countryCode || ''}
+          title={selectedCountryCodeText}
+          name={`${name}-country-code`}
+          aria-describedby={spaceSeparatedIdListGenerator([
+            hasTip ? tipId : undefined,
+            ariaDescribedby,
+          ])}
+        >
+          {countryOptions.map((item, index) => (
+            <option value={item.countryCode} key={index}>
+              {item.label}
+            </option>
+          ))}
+        </NativeSelect>
+        <div className={inputStyles['input-group']}>
+          <span
             className={cn(
-              styles.select,
-              componentSize === 'xsmall' && styles['select--xsmall'],
+              typographyStyles[`body-${componentSize}`],
+              inputStyles['input-group__absolute-element'],
+              styles['calling-code'],
             )}
-            onChange={handleCountryCodeChange}
-            defaultValue={defaultValue?.countryCode}
-            value={displayedValue?.countryCode || ''}
-            title={selectedCountryCodeText}
-            name={`${name}-country-code`}
+            ref={callingCodeRef}
+          >
+            {callingCode}
+          </span>
+
+          <StatefulInput
+            ref={ref}
+            type="tel"
+            {...commonProps}
+            id={phoneNumberId}
+            value={displayedValue?.phoneNumber || ''}
+            defaultValue={defaultValue?.phoneNumber}
+            name={`${name}-phone-number`}
+            onChange={handlePhoneNumberChange}
+            style={{
+              ...styleVariables,
+              paddingInlineStart: callingCodeInlineStart,
+            }}
+            className={styles.input}
+            hasErrorMessage={hasErrorMessage}
+            aria-invalid={hasErrorMessage ? true : undefined}
             aria-describedby={spaceSeparatedIdListGenerator([
               hasTip ? tipId : undefined,
+              hasErrorMessage ? errorMessageId : undefined,
               ariaDescribedby,
             ])}
-          >
-            {countryOptions.map((item, index) => (
-              <option value={item.countryCode} key={index}>
-                {item.label}
-              </option>
-            ))}
-          </NativeSelect>
-          <div className={inputStyles['input-group']}>
-            <span
-              className={cn(
-                typographyStyles[
-                  getTypographyCn(inputTypographyTypes[componentSize])
-                ],
-                inputStyles['input-group__absolute-element'],
-                styles['calling-code'],
-              )}
-              ref={callingCodeRef}
-            >
-              {callingCode}
-            </span>
-
-            <StatefulInput
-              ref={ref}
-              type="tel"
-              {...commonProps}
-              id={phoneNumberId}
-              value={displayedValue?.phoneNumber || ''}
-              defaultValue={defaultValue?.phoneNumber}
-              name={`${name}-phone-number`}
-              onChange={handlePhoneNumberChange}
-              style={{
-                ...styleVariables,
-                paddingInlineStart: callingCodeInlineStart,
-              }}
-              className={styles.input}
-              hasErrorMessage={hasErrorMessage}
-              aria-invalid={hasErrorMessage ? true : undefined}
-              aria-describedby={spaceSeparatedIdListGenerator([
-                hasTip ? tipId : undefined,
-                hasErrorMessage ? errorMessageId : undefined,
-                ariaDescribedby,
-              ])}
-            />
-          </div>
+          />
         </div>
-        {hasMessage &&
-          renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
       </div>
-    );
-  },
-);
+      {hasMessage &&
+        renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+    </div>
+  );
+};
 
 PhoneInput.displayName = 'PhoneInput';
 

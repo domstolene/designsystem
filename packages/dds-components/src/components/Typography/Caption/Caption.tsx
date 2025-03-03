@@ -1,5 +1,3 @@
-import { forwardRef } from 'react';
-
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -11,21 +9,22 @@ export type CaptionProps = BaseComponentPropsWithChildren<
   BaseTypographyProps
 >;
 
-export const Caption = forwardRef<HTMLTableCaptionElement, CaptionProps>(
-  (props, ref) => {
-    const { id, className, htmlProps, children, ...rest } = props;
-
-    return (
-      <Typography
-        {...getBaseHTMLProps(id, className, htmlProps, rest)}
-        ref={ref}
-        typographyType="headingLarge"
-        as="caption"
-      >
-        {children}
-      </Typography>
-    );
-  },
-);
+export const Caption = ({
+  id,
+  className,
+  htmlProps,
+  children,
+  ...rest
+}: CaptionProps) => {
+  return (
+    <Typography
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
+      typographyType="headingLarge"
+      as="caption"
+    >
+      {children}
+    </Typography>
+  );
+};
 
 Caption.displayName = 'Caption';

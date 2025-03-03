@@ -1,23 +1,19 @@
-import {
-  type ElementType,
-  type HTMLAttributes,
-  type ReactNode,
-  forwardRef,
-} from 'react';
+import { type ElementType } from 'react';
 
-export type ElementAsProps = {
-  as: ElementType;
-  children?: ReactNode;
-} & HTMLAttributes<HTMLElement>;
+import { type As, type PropsOfWithRef } from '../../../types';
 
-export const ElementAs = forwardRef<HTMLElement, ElementAsProps>(
-  (props, ref) => {
-    const { as, children, ...rest } = props;
-    const As = as;
-    return (
-      <As ref={ref} {...rest}>
-        {children}
-      </As>
-    );
-  },
-);
+export type PolymorphicProps<T extends As> = PropsOfWithRef<T>;
+
+export const ElementAs = <T extends ElementType = 'div'>({
+  as,
+  ref,
+  children,
+  ...props
+}: PolymorphicProps<T>) => {
+  const Component = as || 'div';
+  return (
+    <Component ref={ref} {...props}>
+      {children}
+    </Component>
+  );
+};

@@ -1,7 +1,7 @@
 import { type Time } from '@internationalized/date';
 import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
-import { type Ref, forwardRef, useRef } from 'react';
+import { type Ref, useRef } from 'react';
 
 import { cn } from '../../../utils';
 import { type InputProps } from '../../helpers/Input/Input.types';
@@ -16,13 +16,17 @@ export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> &
   Pick<
     InputProps,
     'componentSize' | 'errorMessage' | 'tip' | 'style' | 'width' | 'className'
-  >;
+  > & {
+    ref?: Ref<HTMLDivElement>;
+  };
 
-function _TimePicker(
-  { componentSize = 'medium', width, ...props }: TimePickerProps,
-  forwardedRef: Ref<HTMLDivElement>,
-) {
-  const ref = useRef<HTMLInputElement>(null);
+export function TimePicker({
+  componentSize = 'medium',
+  width,
+  ref,
+  ...props
+}: TimePickerProps) {
+  const internalRef = useRef<HTMLInputElement>(null);
   const state = useTimeFieldState({
     ...props,
     locale,
@@ -30,7 +34,7 @@ function _TimePicker(
   const { labelProps, fieldProps } = useTimeField(
     { ...props, hideTimeZone: true, granularity: 'hour' },
     state,
-    ref,
+    internalRef,
   );
 
   const iconSize = componentSize === 'xsmall' ? 'small' : 'medium';
@@ -43,8 +47,8 @@ function _TimePicker(
       disabled={disabled}
       required={props.isRequired}
       componentSize={componentSize}
-      ref={forwardedRef}
-      internalRef={ref}
+      ref={ref}
+      internalRef={internalRef}
       readOnly={props.isReadOnly}
       labelProps={labelProps}
       fieldProps={fieldProps}
@@ -72,7 +76,5 @@ function _TimePicker(
     </DateInput>
   );
 }
-
-export const TimePicker = forwardRef(_TimePicker);
 
 TimePicker.displayName = 'TimePicker';

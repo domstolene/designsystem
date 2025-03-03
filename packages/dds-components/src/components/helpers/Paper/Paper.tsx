@@ -1,31 +1,33 @@
-import { type ComponentProps, forwardRef } from 'react';
+import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Paper.module.css';
+import { type BorderColor, getBorderCn } from '../../../types';
 import { cn } from '../../../utils';
 
 type Elevation = 1 | 2 | 3 | 4;
-type Border = 'default' | 'subtle' | 'onInverse';
+type Border = BorderColor;
 
 export type PaperProps = {
   elevation?: Elevation;
   border?: Border;
-} & ComponentProps<'div'>;
+} & ComponentPropsWithRef<'div'>;
 
-export const Paper = forwardRef<HTMLDivElement, PaperProps>((props, ref) => {
-  const { elevation, border, className, ...rest } = props;
-
-  const borderCn =
-    border === 'default' || border === 'subtle' ? border : 'on-inverse';
+export const Paper = ({
+  elevation,
+  border = 'default',
+  className,
+  ...rest
+}: PaperProps) => {
+  const borderCn = getBorderCn(border);
   return (
     <div
-      ref={ref}
       className={cn(
         className,
         styles.container,
         elevation && styles[`shadow--${elevation}`],
-        border && styles[`border--${borderCn}`],
+        borderCn && styles[`border--${borderCn}`],
       )}
       {...rest}
     />
   );
-});
+};

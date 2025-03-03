@@ -2,7 +2,6 @@ import {
   type AriaRole,
   type ButtonHTMLAttributes,
   type HTMLAttributes,
-  forwardRef,
 } from 'react';
 
 import { ButtonGroupContext } from './ButtonGroup.context';
@@ -42,35 +41,28 @@ export type ButtonGroupProps = BaseComponentPropsWithChildren<
   } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof PickedHTMLAttributes>
 >;
 
-export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
-  (props, ref) => {
-    const {
-      children,
-      id,
-      className,
-      htmlProps,
-      direction = 'row',
-      buttonSize = 'medium',
-      role = 'group',
-      ...rest
-    } = props;
-
-    return (
-      <ButtonGroupContext value={{ size: buttonSize, purpose: 'secondary' }}>
-        <div
-          ref={ref}
-          role={role}
-          {...getBaseHTMLProps(
-            id,
-            cn(className, styles.group, styles[`group--${direction}`]),
-            htmlProps,
-            rest,
-          )}
-        >
-          {children}
-        </div>
-      </ButtonGroupContext>
-    );
-  },
+export const ButtonGroup = ({
+  children,
+  id,
+  className,
+  htmlProps,
+  direction = 'row',
+  buttonSize = 'medium',
+  role = 'group',
+  ...rest
+}: ButtonGroupProps) => (
+  <ButtonGroupContext value={{ size: buttonSize, purpose: 'secondary' }}>
+    <div
+      role={role}
+      {...getBaseHTMLProps(
+        id,
+        cn(className, styles.group, styles[`group--${direction}`]),
+        htmlProps,
+        rest,
+      )}
+    >
+      {children}
+    </div>
+  </ButtonGroupContext>
 );
 ButtonGroup.displayName = 'ButtonGroup';

@@ -1,7 +1,9 @@
-import { forwardRef } from 'react';
-
 import styles from './Divider.module.css';
-import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
+import {
+  type BaseComponentProps,
+  getBaseHTMLProps,
+  getBorderCn,
+} from '../../types';
 import { cn } from '../../utils';
 
 export type DividerColor = 'default' | 'subtle' | 'onInverse';
@@ -16,22 +18,23 @@ export type DividerProps = BaseComponentProps<
   }
 >;
 
-export const Divider = forwardRef<HTMLHRElement, DividerProps>((props, ref) => {
-  const { color = 'default', id, className, htmlProps, ...rest } = props;
-  const colorCn =
-    color === 'default' || color === 'subtle' ? color : 'on-inverse';
+export const Divider = ({
+  color = 'default',
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: DividerProps) => {
+  const colorCn = getBorderCn(color);
 
-  const lineProps = {
-    ...getBaseHTMLProps(
-      id,
-      cn(className, styles.divider, styles[`divider--${colorCn}`]),
-      htmlProps,
-      rest,
-    ),
-    color,
-  };
-
-  return <hr ref={ref} {...lineProps} />;
-});
-
-Divider.displayName = 'Divider';
+  return (
+    <hr
+      {...getBaseHTMLProps(
+        id,
+        cn(className, styles.divider, styles[`divider--${colorCn}`]),
+        htmlProps,
+        rest,
+      )}
+    />
+  );
+};
