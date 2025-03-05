@@ -111,6 +111,7 @@ export const InputStepper = ({
         <StatefulInput
           type="text"
           disabled={disabled}
+          readOnly={readOnly}
           inputMode="numeric"
           pattern="-?[0-9]+"
           id={uniqueId}
