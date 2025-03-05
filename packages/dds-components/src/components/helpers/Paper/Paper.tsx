@@ -14,11 +14,11 @@ export type PaperProps = {
 
 export const Paper = ({
   elevation,
-  border = 'default',
+  border,
   className,
   ...rest
 }: PaperProps) => {
-  const borderCn = getBorderCn(border);
+  const borderCn = border ? getBorderCn(border) : undefined;
   return (
     <div
       className={cn(
