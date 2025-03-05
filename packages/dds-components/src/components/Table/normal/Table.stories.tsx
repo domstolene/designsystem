@@ -15,7 +15,7 @@ import { Checkbox } from '../../SelectionControl/Checkbox';
 import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Link, Paragraph } from '../../Typography';
 
-import { type SortOrder, Table } from '.';
+import { Table } from '.';
 
 const meta: Meta<typeof Table> = {
   title: 'dds-components/Table',
@@ -520,7 +520,7 @@ export const Sortable: Story = {
           return {
             ...headerCell,
             isSorted: false,
-            sortOrder: headerCell.sortOrder ? ('none' as SortOrder) : undefined,
+            sortOrder: headerCell.sortOrder ? 'none' : undefined,
           };
         },
       );

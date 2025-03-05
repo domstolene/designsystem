@@ -15,7 +15,7 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { cn } from '../../utils';
+import { cn, isEmpty } from '../../utils';
 import { Button } from '../Button';
 import { Paper } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
@@ -102,7 +102,7 @@ export const Popover = ({
     anchorEl: contextAnchorEl,
   } = context;
 
-  const hasContext = contextPopoverId !== undefined;
+  const hasContext = !isEmpty(context);
   const generatedId = useId();
   const uniquePopoverId = id ?? `${generatedId}-popover`;
 

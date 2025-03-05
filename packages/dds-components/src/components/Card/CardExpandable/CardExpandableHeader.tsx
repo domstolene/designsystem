@@ -49,7 +49,7 @@ export const CardExpandableHeader = ({
       'var(--dds-spacing-x1) var(--dds-spacing-x0-75) var(--dds-spacing-x1) var(--dds-spacing-x1-5)',
   };
 
-  const { id, ...restHeaderProps } = headerProps;
+  const { id, ...restHeaderProps } = headerProps ?? {};
 
   return (
     <button

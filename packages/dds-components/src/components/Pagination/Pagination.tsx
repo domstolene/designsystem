@@ -120,12 +120,12 @@ export const Pagination = ({
           const isActive = item === activePage;
           return (
             <li key={`pagination-item-${i}`} className={styles.list__item}>
-              {item !== 'truncator' ? (
+              {item !== 'truncator' && typeof item === 'number' ? (
                 <Button
                   purpose={isActive ? 'primary' : 'secondary'}
                   size="small"
                   onClick={event => {
-                    onPageChange(event, item as number);
+                    onPageChange(event, item);
                   }}
                   aria-label={
                     isActive

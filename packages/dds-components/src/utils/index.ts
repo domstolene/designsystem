@@ -5,6 +5,7 @@ export * from './getFocusableElements';
 export * from './getScrollbarSize';
 export * from './icon';
 export * from './idGenerator';
+export * from './object';
 export * from './readonlyEventHandlers';
 export * from './searchFilter';
 export * from './text';

@@ -36,8 +36,6 @@ export const Checkbox = ({
 
   const { style, className: htmlPropsClassName, ...restHtmlProps } = htmlProps;
 
-  type AriaChecked = 'mixed' | boolean | undefined;
-
   const isReadOnly = readOnly || checkboxGroup?.readOnly;
   const hasError = error || checkboxGroup?.error;
   const isDisabled = disabled || checkboxGroup?.disabled;
@@ -64,7 +62,7 @@ export const Checkbox = ({
         ])}
         aria-invalid={hasError ? true : undefined}
         aria-labelledby={checkboxGroup?.uniqueGroupId}
-        aria-checked={indeterminate ? ('mixed' as AriaChecked) : undefined}
+        aria-checked={indeterminate ? 'mixed' : undefined}
         aria-readonly={isReadOnly}
         type="checkbox"
         data-indeterminate={indeterminate}
