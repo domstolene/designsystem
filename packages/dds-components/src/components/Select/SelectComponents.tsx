@@ -134,11 +134,7 @@ export const DDSControl = <TValue, IsMulti extends boolean>(
   const { className, ...rest } = props;
 
   return (
-    <div
-      data-testid={
-        dataTestId ? ((dataTestId + '-control') as string) : undefined
-      }
-    >
+    <div data-testid={dataTestId ? dataTestId + '-control' : undefined}>
       <Control
         {...rest}
         className={cn(

@@ -3,7 +3,6 @@ import {
   Children,
   type ComponentPropsWithRef,
   type FocusEvent,
-  type ReactElement,
   cloneElement,
   isValidElement,
   useState,
@@ -53,7 +52,7 @@ export const TabList = ({
         };
         return (
           isValidElement<TabProps>(child) &&
-          cloneElement(child as ReactElement<TabProps>, {
+          cloneElement(child, {
             id: `${tabsId}-tab-${index}`,
             htmlProps: {
               'aria-controls': `${tabsId}-panel-${index}`,
