@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
 import { FavStar } from './FavStar';
+import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { AttachmentIcon } from '../Icon/icons';
@@ -21,9 +22,9 @@ const meta: Meta<typeof FavStar> = {
     },
   },
   argTypes: {
-    checked: { control: { type: 'boolean' } },
-    defaultChecked: { control: false },
-    htmlProps: { control: false },
+    checked: { control: false, table: categoryHtml },
+    defaultChecked: { table: categoryHtml },
+    htmlProps: htmlPropsArgType,
   },
 };
 

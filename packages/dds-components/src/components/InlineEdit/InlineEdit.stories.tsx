@@ -3,29 +3,21 @@ import { useState } from 'react';
 
 import { InlineEditInput } from './InlineEditInput';
 import { InlineEditTextArea } from './InlineEditTextArea';
+import { htmlEventArgType } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 
 export default {
   title: 'dds-components/InlineEdit',
   component: InlineEditInput,
   argTypes: {
-    emptiable: { control: { type: 'boolean' } },
-    error: { control: { type: 'boolean' } },
-    errorMessage: { control: { type: 'text' } },
     width: { control: { type: 'text' } },
+    onFocus: htmlEventArgType,
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
   },
   parameters: {
     controls: {
-      exclude: [
-        'style',
-        'className',
-        'onFocus',
-        'onBlur',
-        'onChange',
-        'onSetValue',
-        'inputRef',
-        'children',
-      ],
+      exclude: ['style', 'className', 'onSetValue', 'inputRef', 'children'],
     },
   },
 } satisfies Meta<typeof InlineEditInput>;

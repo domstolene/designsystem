@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
@@ -9,8 +10,15 @@ export default {
   title: 'dds-components/ToggleButton',
   component: ToggleButton,
   argTypes: {
-    label: { control: 'text' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
+    'aria-describedby': { control: 'text', table: categoryHtml },
+    name: { control: false, table: categoryHtml },
+    checked: { control: false, table: categoryHtml },
+    defaultChecked: { control: 'boolean', table: categoryHtml },
+    value: { control: false, table: categoryHtml },
+    defaultValue: { control: false, table: categoryHtml },
+    onChange: { control: false, table: categoryHtml },
+    onBlur: { control: false, table: categoryHtml },
     icon: { control: false },
   },
   parameters: {

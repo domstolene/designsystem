@@ -8,11 +8,7 @@ export default {
   title: 'dds-components/ProgressBar',
   component: ProgressBar,
   argTypes: {
-    tip: { control: 'text' },
-    errorMessage: { control: 'text' },
     width: { control: 'text' },
-    value: { control: 'number' },
-    max: { control: 'number' },
   },
   parameters: {
     docs: {

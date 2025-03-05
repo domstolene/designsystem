@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../../Stack/utils';
 
 import { Checkbox } from '.';
@@ -8,12 +9,16 @@ export default {
   title: 'dds-components/Checkbox',
   component: Checkbox,
   argTypes: {
-    label: { control: { type: 'text' } },
-    error: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
-    indeterminate: { control: { type: 'boolean' } },
-    htmlProps: { control: false },
+    disabled: { table: categoryHtml },
+    htmlProps: htmlPropsArgType,
+    'aria-describedby': { control: false, table: categoryHtml },
+    name: { control: false, table: categoryHtml },
+    checked: { control: false, table: categoryHtml },
+    defaultChecked: { control: false, table: categoryHtml },
+    value: { control: false, table: categoryHtml },
+    defaultValue: { control: false, table: categoryHtml },
+    onChange: { control: false, table: categoryHtml },
+    onBlur: { control: false, table: categoryHtml },
   },
   parameters: {
     docs: {

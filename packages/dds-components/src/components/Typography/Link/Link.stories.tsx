@@ -1,5 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import {
+  categoryHtml,
+  htmlEventArgType,
+  htmlPropsArgType,
+} from '../../../storybook/helpers';
 import { StoryVStack } from '../../Stack/utils';
 import { Paragraph } from '../Paragraph';
 
@@ -9,12 +14,10 @@ export default {
   title: 'dds-components/Typography/Link',
   component: Link,
   argTypes: {
-    external: { control: { type: 'boolean' } },
-    typographyType: { control: { type: 'select' } },
-    withMargins: { control: { type: 'boolean' } },
-    withVisited: { control: { type: 'boolean' } },
-    href: { control: { type: 'text' } },
-    htmlProps: { control: false },
+    href: { control: 'text', table: categoryHtml },
+    onClick: htmlEventArgType,
+    target: { control: false, table: categoryHtml },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

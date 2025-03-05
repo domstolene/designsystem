@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { EditIcon } from '../Icon/icons';
 import { StoryVStack } from '../Stack/utils';
 
@@ -9,14 +10,10 @@ export default {
   title: 'dds-components/InternalHeader',
   component: InternalHeader,
   argTypes: {
-    applicationName: { control: 'text' },
-    applicationDesc: { control: 'text' },
-    currentPageHref: { control: 'text' },
-    applicationHref: { control: 'text' },
     navItems: { control: false },
     contextMenuItems: { control: false },
     user: { control: false },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

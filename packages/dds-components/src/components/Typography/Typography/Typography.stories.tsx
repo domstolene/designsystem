@@ -1,22 +1,19 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Typography } from '..';
+import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../Stack/utils';
 
 export default {
   title: 'dds-components/Typography/Typography',
   component: Typography,
   argTypes: {
-    children: { control: { type: 'text' } },
-    typographyType: { control: { type: 'select' } },
-    bold: { control: { type: 'boolean' } },
-    italic: { control: { type: 'boolean' } },
-    withMargins: { control: { type: 'boolean' } },
-    externalLink: { control: { type: 'boolean' } },
-    color: { control: { type: 'text' } },
-    href: { control: { type: 'text' } },
-    as: { control: { type: 'text' } },
-    htmlProps: { control: false },
+    children: { control: 'text' },
+    color: { control: 'text' },
+    href: { control: 'text', table: categoryHtml },
+    target: { control: false, table: categoryHtml },
+    as: { control: 'text' },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryHStack } from '../Stack/utils';
 
 import { Spinner } from '.';
@@ -10,8 +11,7 @@ export default {
   argTypes: {
     color: { control: 'text' },
     size: { control: 'text' },
-    tooltip: { control: 'text', defaultValue: 'Innlasting pågår' },
-    htmlProps: { control: false },
+    htmlProps: htmlPropsArgType,
   },
   parameters: {
     docs: {

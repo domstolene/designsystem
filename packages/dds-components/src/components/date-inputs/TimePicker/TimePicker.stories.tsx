@@ -11,11 +11,7 @@ const meta: Meta<typeof TimePicker> = {
   title: 'dds-components/TimePicker',
   component: TimePicker,
   argTypes: {
-    width: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    isDisabled: { control: { type: 'boolean' } },
-    isReadOnly: { control: { type: 'boolean' } },
+    width: { control: 'text' },
     className: { table: { disable: true } },
   },
   parameters: {

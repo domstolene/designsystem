@@ -20,7 +20,7 @@ export type BaseComponentProps<
     HTMLAttributes<TElement> = HTMLAttributes<TElement>,
 > = Pick<THTMLAttributesProps, 'id' | 'className'> &
   TOtherProps & {
-    /**Ekstra HTML-attributter som vil settes på elementet som genereres. Untatt `id` og `className` som settes på toppnivå. */
+    /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
     htmlProps?: THTMLAttributesProps;
     ref?: Ref<TElement>;
   };

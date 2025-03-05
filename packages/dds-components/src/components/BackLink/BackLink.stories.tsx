@@ -1,5 +1,7 @@
 import { type StoryObj } from '@storybook/react';
 
+import { categoryHtml, htmlEventArgType } from '../../storybook/helpers';
+
 import { BackLink } from '.';
 
 export default {
@@ -12,12 +14,10 @@ export default {
     },
   },
   argTypes: {
-    label: {
-      control: 'text',
-    },
     href: {
-      control: 'text',
+      table: categoryHtml,
     },
+    onClick: htmlEventArgType,
   },
 };
 

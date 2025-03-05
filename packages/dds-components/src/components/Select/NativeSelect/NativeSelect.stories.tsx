@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml } from '../../../storybook/helpers';
 import { StoryVStack } from '../../Stack/utils';
 
 import { NativeSelect, NativeSelectPlaceholder } from '.';
@@ -18,8 +19,8 @@ export default {
     tip: { control: 'text' },
     errorMessage: { control: 'text' },
     width: { control: 'text' },
-    disabled: { control: 'boolean' },
-    required: { control: 'boolean' },
+    disabled: { control: 'boolean', table: categoryHtml },
+    required: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean' },
   },
 } satisfies Meta<typeof NativeSelect>;

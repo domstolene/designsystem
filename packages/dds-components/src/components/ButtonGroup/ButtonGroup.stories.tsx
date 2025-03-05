@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button/Button';
 import { StoryVStack } from '../Stack/utils';
 
@@ -15,10 +16,10 @@ export default {
     },
   },
   argTypes: {
-    role: { control: 'text' },
-    'aria-label': { control: 'text' },
-    'aria-labelledby': { control: 'text' },
-    htmlProps: { control: false },
+    role: { control: 'text', table: categoryHtml },
+    'aria-label': { table: categoryHtml },
+    'aria-labelledby': { table: categoryHtml },
+    htmlProps: htmlPropsArgType,
   },
 } satisfies Meta<typeof ButtonGroup>;
 

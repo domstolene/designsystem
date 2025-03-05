@@ -20,18 +20,6 @@ import { type SortOrder, Table } from '.';
 const meta: Meta<typeof Table> = {
   title: 'dds-components/Table',
   component: Table,
-  argTypes: {
-    stickyHeader: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    withDividers: {
-      control: {
-        type: 'boolean',
-      },
-    },
-  },
   parameters: {
     docs: {
       story: { inline: true },

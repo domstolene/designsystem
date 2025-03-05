@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 
 import { Breadcrumb, Breadcrumbs } from '.';
@@ -12,6 +13,9 @@ export default {
       story: { inline: true },
       canvas: { sourceState: 'shown' },
     },
+  },
+  argTypes: {
+    htmlProps: htmlPropsArgType,
   },
 } satisfies Meta<typeof Breadcrumbs>;
 

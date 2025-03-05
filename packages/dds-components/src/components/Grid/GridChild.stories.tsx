@@ -6,7 +6,7 @@ export default {
   title: 'dds-components/Grid/GridChild',
   component: GridChild,
   argTypes: {
-    gridRow: { control: 'text' },
+    gridRow: { control: false },
     justifySelf: { control: 'text' },
     // feil props vises i tabell, quick fix for å unngå forvirring
     // TODO: fikse åvise riktige props
