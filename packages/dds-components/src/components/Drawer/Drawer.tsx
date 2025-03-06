@@ -114,9 +114,7 @@ export const Drawer = ({
     }
   }, [isOpen]);
 
-  const elements: Array<HTMLElement | null> = [
-    drawerRef.current as HTMLElement,
-  ];
+  const elements: Array<HTMLElement | null> = [drawerRef.current];
   if (triggerEl) elements.push(triggerEl);
 
   useOnClickOutside(elements, () => {

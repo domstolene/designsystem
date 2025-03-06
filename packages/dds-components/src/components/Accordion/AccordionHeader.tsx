@@ -37,7 +37,7 @@ export const AccordionHeader = ({
   ...rest
 }: AccordionHeaderProps) => {
   const { isExpanded, headerProps } = useAccordionContext();
-  const { id, ...restHeaderProps } = headerProps;
+  const { id, ...restHeaderProps } = headerProps ?? {};
 
   return (
     <button

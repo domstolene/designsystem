@@ -3,7 +3,6 @@ import {
   type Dispatch,
   type HTMLAttributes,
   Children as ReactChildren,
-  type ReactElement,
   type ReactNode,
   type SetStateAction,
   cloneElement,
@@ -103,20 +102,17 @@ export const OverflowMenuGroup = ({
 
   const Children = ReactChildren.map(children, (child, childIndex) => {
     return (
-      isValidElement(child) &&
+      isValidElement<
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+      >(child) &&
       (childIndex === 0
-        ? cloneElement(
-            child as ReactElement<
-              DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
-            >,
-            {
-              'aria-haspopup': 'menu',
-              'aria-controls': uniqueOverflowMenuId,
-              'aria-expanded': isOpen,
-              onClick: handleToggle,
-              ref: combinedAnchorRef,
-            },
-          )
+        ? cloneElement(child, {
+            'aria-haspopup': 'menu',
+            'aria-controls': uniqueOverflowMenuId,
+            'aria-expanded': isOpen,
+            onClick: handleToggle,
+            ref: combinedAnchorRef,
+          })
         : child)
     );
   });

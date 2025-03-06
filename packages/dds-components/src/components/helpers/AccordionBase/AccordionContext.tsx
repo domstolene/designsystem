@@ -9,6 +9,7 @@ import {
   type AccordionBodyProps,
   type AccordionHeaderProps,
 } from './useAccordion';
+import { isEmpty } from '../../../utils';
 
 interface AccordionContext {
   headerProps: AccordionHeaderProps;
@@ -27,14 +28,13 @@ export const AccordionContextProvider = ({
   return <AccordionContext value={values}>{children}</AccordionContext>;
 };
 
-export const useAccordionContext = (): AccordionContext => {
+export const useAccordionContext = (): Partial<AccordionContext> => {
   const context = useContext(AccordionContext);
-
-  if (!context) {
+  if (isEmpty(context)) {
     throw new Error(
       'useAccordionContext must be used within a AccordionContextProvider. Have you wrapped <AccordionHeader> and <AccordionBody> inside a <Accordion>, or <CardAccordionHeader> and <CardAccordionBody> inside a <CardAccordion>?',
     );
   }
 
-  return context as AccordionContext;
+  return context;
 };

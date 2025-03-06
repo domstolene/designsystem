@@ -21,7 +21,12 @@ export const AccordionBody = ({
 }: AccordionBodyProps) => {
   const { bodyContentRef, bodyProps } = useAccordionContext();
 
-  const { className: bodyContextCn, id, height, ...restBodyProps } = bodyProps;
+  const {
+    className: bodyContextCn,
+    id,
+    height,
+    ...restBodyProps
+  } = bodyProps ?? {};
 
   const styleVariables: Properties = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

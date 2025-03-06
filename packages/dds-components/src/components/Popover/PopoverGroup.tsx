@@ -3,7 +3,6 @@ import {
   type Dispatch,
   type HTMLAttributes,
   Children as ReactChildren,
-  type ReactElement,
   type ReactNode,
   type SetStateAction,
   cloneElement,
@@ -102,20 +101,17 @@ export const PopoverGroup = ({
 
   const Children = ReactChildren.map(children, (child, childIndex) => {
     return (
-      isValidElement(child) &&
+      isValidElement<
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+      >(child) &&
       (isAnchorChild(childIndex)
-        ? cloneElement(
-            child as ReactElement<
-              DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
-            >,
-            {
-              'aria-haspopup': 'dialog',
-              'aria-controls': uniquePopoverId,
-              'aria-expanded': open,
-              onClick: handleToggle,
-              ref: combinedAnchorRef,
-            },
-          )
+        ? cloneElement(child, {
+            'aria-haspopup': 'dialog',
+            'aria-controls': uniquePopoverId,
+            'aria-expanded': open,
+            onClick: handleToggle,
+            ref: combinedAnchorRef,
+          })
         : child)
     );
   });
