@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 20.0.0
+
+### Major Changes
+
+- 9d7a491: Oppgradering til React 19: Fjerner `forwardRef` fra alle komponenter og bruker `ref` as prop istedet.
+- 39a68f0: Oppgraderer til React 19 med endringer som ikke er kompatible med eldre versjoner. Det er dermed påkrevd med oppgradering til React 19 for konsumentene.
+
+### Patch Changes
+
+- 68990df: Fikser bug i `<InputStepper>` der readOnly-attributtet ikke faktisk førte til at feltet ble readOnly
+- 4e5a795: Fikser bug der `<Drawer>` fikk border.
+
 ## 19.2.0
 
 ### Minor Changes

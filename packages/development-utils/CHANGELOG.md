@@ -1,5 +1,15 @@
 # @norges-domstoler/development-utils
 
+## 2.0.0
+
+### Major Changes
+
+- 39a68f0: Oppgraderer til React 19 med endringer som ikke er kompatible med eldre versjoner. Det er dermed påkrevd med oppgradering til React 19 for konsumentene.
+
+### Minor Changes
+
+- 4f0903e: Bruk css modules istedenfor styled-components for dev-utils
+
 ## 1.3.1
 
 ### Patch Changes
