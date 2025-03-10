@@ -1,3 +1,5 @@
+import { type Meta } from '@storybook/react';
+
 import {
   BorderRadiusGenerator,
   BreakpointsGenerator,
@@ -11,9 +13,13 @@ import {
 } from './utils';
 import { ZIndexGenerator } from './utils/ZIndexGenerator';
 
-export default {
+const meta: Meta = {
   title: 'dds-design-tokens/Tokens',
+  parameters: {
+    disableGlobalDecorator: true,
+  },
 };
+export default meta;
 
 export const BorderRadius = () => {
   return (
