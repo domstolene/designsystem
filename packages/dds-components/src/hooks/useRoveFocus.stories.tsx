@@ -5,6 +5,9 @@ import { UseRoveFocusExample } from './UseRoveFocusExample';
 export default {
   title: 'dds-components/Hooks/useRoveFocus',
   component: UseRoveFocusExample,
+  parameters: {
+    disableGlobalDecorator: true,
+  },
   argTypes: {
     active: {
       control: 'boolean',

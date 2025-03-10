@@ -6,6 +6,7 @@ const meta: Meta<typeof EnvironmentBannerProvider> = {
   title: 'development-utils/EnvironmentBannerProvider',
   component: EnvironmentBannerProvider,
   parameters: {
+    disableGlobalDecorator: true,
     docs: {
       story: { inline: true },
       canvas: { sourceState: 'shown' },

@@ -37,7 +37,15 @@ const preview: Preview = {
   },
   decorators: [
     /** Styring av theme med toggle bar i hver story */
-    Story => {
+    /** Hvis story ikke skal ha theme-styring returner fast theme  */
+    (Story, context) => {
+      if (context.parameters.disableGlobalDecorator) {
+        return (
+          <ThemeProvider>
+            <Story />
+          </ThemeProvider>
+        );
+      }
       const [theme, setTheme] = useState<DdsTheme>('core');
       nameCounter++;
 
