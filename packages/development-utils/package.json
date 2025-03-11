@@ -1,6 +1,6 @@
 {
   "name": "@norges-domstoler/development-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Development utilities for developing applications in Norges Domstoler",
   "author": "Elsa team",
   "license": "MIT",
@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/domstolene/designsystem"
   },
-    "sideEffects": [
+  "sideEffects": [
     "*.css",
     "src/styles/index.ts"
   ],

@@ -1,5 +1,11 @@
 # @norges-domstoler/development-utils
 
+## 2.0.1
+
+### Patch Changes
+
+- c7121a5: Eksporter css-fil for dev-utils
+
 ## 2.0.0
 
 ### Major Changes
