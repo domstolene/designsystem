@@ -8,17 +8,25 @@
     "type": "git",
     "url": "https://github.com/domstolene/designsystem"
   },
+    "sideEffects": [
+    "*.css",
+    "src/styles/index.ts"
+  ],
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./index.css": "./dist/index.css"
+  },
   "homepage": "https://design.domstol.no",
   "scripts": {
     "generate-css-types": "tcm src",
     "build": "pnpm run generate-css-types && tsup --dts",
-    "build:fast": "tsup",
     "dev": "pnpm run generate-css-types --watch",
     "typecheck": "tsc --noEmit"
   },
