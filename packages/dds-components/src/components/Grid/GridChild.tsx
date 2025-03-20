@@ -7,7 +7,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
-import { type BreakpointBasedProps } from '../helpers';
+import { type BreakpointBasedProps } from '../layout/common/Responsive.types';
 
 export const isRelativeGridColumn = (
   type: ColumnsOccupied | undefined,

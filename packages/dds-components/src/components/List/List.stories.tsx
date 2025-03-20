@@ -7,7 +7,7 @@ import { Typography } from '../Typography';
 import { List, ListItem, type ListProps } from '.';
 
 export default {
-  title: 'dds-components/List',
+  title: 'dds-components/Components/List',
   component: List,
   parameters: {
     docs: {

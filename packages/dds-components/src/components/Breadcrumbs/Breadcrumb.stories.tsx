@@ -6,7 +6,7 @@ import { StoryVStack } from '../Stack/utils';
 import { Breadcrumb } from '.';
 
 export default {
-  title: 'dds-components/Breadcrumbs/Breadcrumb',
+  title: 'dds-components/Components/Breadcrumbs/Breadcrumb',
   component: Breadcrumb,
   parameters: {
     docs: {

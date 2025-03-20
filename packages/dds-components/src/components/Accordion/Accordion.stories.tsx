@@ -17,7 +17,7 @@ import { Link, Paragraph, Typography } from '../Typography';
 import { Accordion, AccordionBody, AccordionHeader } from '.';
 
 export default {
-  title: 'dds-components/Accordion',
+  title: 'dds-components/Components/Accordion',
   component: Accordion,
   parameters: {
     docs: {

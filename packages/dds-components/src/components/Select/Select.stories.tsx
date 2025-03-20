@@ -11,7 +11,7 @@ import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Select, type SelectProps, createSelectOptions } from '.';
 
 const meta: Meta<typeof Select> = {
-  title: 'dds-components/Select/Select',
+  title: 'dds-components/Components/Select/Select',
   component: Select,
   argTypes: {
     width: { control: 'text' },

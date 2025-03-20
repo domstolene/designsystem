@@ -5,8 +5,8 @@ import {
 } from 'react';
 
 import { type BaseComponentProps } from '../../types';
-import { type ScreenSizeLiteral } from '../helpers';
 import { type SvgIcon } from '../Icon/utils';
+import { type ScreenSizeLiteral } from '../layout';
 
 type NavigationLinkProps = {
   children: ReactNode;

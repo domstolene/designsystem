@@ -6,7 +6,7 @@ import { StoryHStack } from '../Stack/utils';
 import { InputMessage } from '.';
 
 export default {
-  title: 'dds-components/InputMessage',
+  title: 'dds-components/Components/InputMessage',
   component: InputMessage,
   argTypes: {
     htmlProps: htmlPropsArgType,

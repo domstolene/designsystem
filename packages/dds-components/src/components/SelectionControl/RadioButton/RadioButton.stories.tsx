@@ -6,7 +6,7 @@ import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { RadioButton } from '.';
 
 export default {
-  title: 'dds-components/RadioButton',
+  title: 'dds-components/Components/RadioButton',
   component: RadioButton,
   argTypes: {
     disabled: { table: categoryHtml },

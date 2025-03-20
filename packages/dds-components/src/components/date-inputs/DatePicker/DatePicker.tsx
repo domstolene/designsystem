@@ -15,7 +15,7 @@ import {
 import { locale } from './constants';
 import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
-import { type ScreenSizeLiteral } from '../../helpers';
+import { type ScreenSizeLiteral } from '../../layout';
 import {
   type FocusableRef,
   useFocusManagerRef,

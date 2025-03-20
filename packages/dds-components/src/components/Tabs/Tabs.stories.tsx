@@ -10,7 +10,7 @@ import { Paragraph } from '../Typography';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
 export default {
-  title: 'dds-components/Tabs',
+  title: 'dds-components/Components/Tabs',
   component: Tabs,
   argTypes: {
     width: { control: 'text' },

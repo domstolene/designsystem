@@ -7,7 +7,7 @@ import { htmlEventArgType } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 
 export default {
-  title: 'dds-components/InlineEdit',
+  title: 'dds-components/Components/InlineEdit',
   component: InlineEditInput,
   argTypes: {
     width: { control: { type: 'text' } },

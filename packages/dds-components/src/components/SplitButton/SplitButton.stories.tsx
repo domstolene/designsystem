@@ -10,7 +10,7 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/SplitButton',
+  title: 'dds-components/Components/SplitButton',
   component: SplitButton,
   parameters: {
     docs: {

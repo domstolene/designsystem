@@ -22,7 +22,7 @@ import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Legend, Paragraph } from '../Typography';
 
 export default {
-  title: 'dds-components/ProgressTracker',
+  title: 'dds-components/Components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
     htmlProps: htmlPropsArgType,

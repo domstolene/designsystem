@@ -11,7 +11,7 @@ import { Paragraph } from '../Paragraph';
 import { Link } from '.';
 
 export default {
-  title: 'dds-components/Typography/Link',
+  title: 'dds-components/Components/Typography/Link',
   component: Link,
   argTypes: {
     href: { control: 'text', table: categoryHtml },

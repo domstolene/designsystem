@@ -7,7 +7,7 @@ import { StoryVStack } from '../Stack/utils';
 import { ButtonGroup } from '.';
 
 export default {
-  title: 'dds-components/ButtonGroup',
+  title: 'dds-components/Components/ButtonGroup',
   component: ButtonGroup,
   parameters: {
     docs: {

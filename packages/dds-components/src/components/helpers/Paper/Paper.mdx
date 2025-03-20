@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
+import { Paper } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as PaperStories from './Paper.stories';
+
+<Meta of={PaperStories} />
+
+# Paper
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/5922aa-paper"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/layout/Paper"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-layout-primitives-paper--default"
+  withBottomSpacing
+/>
+
+`<Paper>` er en code-only layout primitive; en layout-komponent som brukes som byggekloss for andre komponenter og strukturer.
+Den støtter spacing og flate-styling med design tokens direkte via props.
+
+## Props
+
+<Canvas of={PaperStories.Default} sourceState="shown" />
+<Controls of={PaperStories.Default} />

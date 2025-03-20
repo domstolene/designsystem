@@ -6,7 +6,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 const meta: Meta<typeof Select<Option, true>> = {
-  title: 'dds-components/Select/MultiSelect',
+  title: 'dds-components/Components/Select/MultiSelect',
   component: Select,
   argTypes: {
     label: { control: { type: 'text' } },

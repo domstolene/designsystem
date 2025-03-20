@@ -6,7 +6,7 @@ import { StoryHStack } from '../Stack/utils';
 import { Spinner } from '.';
 
 export default {
-  title: 'dds-components/Spinner',
+  title: 'dds-components/Components/Spinner',
   component: Spinner,
   argTypes: {
     color: { control: 'text' },

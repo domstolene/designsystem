@@ -5,7 +5,7 @@ import { StoryVStack } from '../Stack/utils';
 import { ProgressBar } from '.';
 
 export default {
-  title: 'dds-components/ProgressBar',
+  title: 'dds-components/Components/ProgressBar',
   component: ProgressBar,
   argTypes: {
     width: { control: 'text' },

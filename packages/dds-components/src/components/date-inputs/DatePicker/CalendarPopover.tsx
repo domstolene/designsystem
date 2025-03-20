@@ -23,14 +23,15 @@ import { Button } from '../../Button';
 import {
   Backdrop,
   Paper,
-  type ScreenSizeLiteral,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../../helpers';
 import { CloseIcon } from '../../Icon/icons';
+import { type ScreenSizeLiteral } from '../../layout';
 import { ThemeContext } from '../../ThemeProvider';
 import styles from '../common/DateInput.module.css';
 import { type DateField } from './DateField/DateField';
+import { Show } from '../../layout/Show';
 
 /**------------------------------------------------------------------------
  * CalendarPopover
@@ -162,13 +163,7 @@ export const CalendarPopoverContent = ({
       {portalTarget &&
         hasBreakpoint &&
         createPortal(
-          <div
-            className={cn(
-              styles.modal,
-              !!smallScreenBreakpoint &&
-                styles[`modal--small-screen-show-${smallScreenBreakpoint}`],
-            )}
-          >
+          <Show breakpointBelow={smallScreenBreakpoint}>
             <Backdrop zIndex="modal" isMounted={isMounted}>
               <Paper
                 ref={modalRef}
@@ -190,17 +185,13 @@ export const CalendarPopoverContent = ({
                 {children}
               </Paper>
             </Backdrop>
-          </div>,
+          </Show>,
           portalTarget,
         )}
       <Paper
         ref={combinedRef}
-        className={cn(
-          styles.popover,
-          !!smallScreenBreakpoint &&
-            styles[`popover--large-screen-hide-${smallScreenBreakpoint}`],
-          className,
-        )}
+        breakpointBelow={hasBreakpoint ? smallScreenBreakpoint : undefined}
+        className={cn(styles.popover, className)}
         style={floatingStyles.floating}
         elevation={2}
         border="default"

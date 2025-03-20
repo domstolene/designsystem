@@ -5,7 +5,7 @@ import { htmlPropsArgType } from '../../storybook/helpers';
 import { ToggleButton, ToggleButtonGroup } from '.';
 
 export default {
-  title: 'dds-components/ToggleButton/ToggleButtonGroup',
+  title: 'dds-components/Components/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup,
   argTypes: {
     htmlProps: htmlPropsArgType,

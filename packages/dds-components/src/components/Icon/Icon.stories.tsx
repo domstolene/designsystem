@@ -8,7 +8,7 @@ import { Paragraph } from '../Typography';
 import { Icon } from '.';
 
 export default {
-  title: 'dds-components/Icon',
+  title: 'dds-components/Components/Icon',
   component: Icon,
   argTypes: {
     color: { control: 'text' },

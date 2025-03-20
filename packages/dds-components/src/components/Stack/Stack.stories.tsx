@@ -4,7 +4,7 @@ import { HStack, VStack } from './Stack';
 import { htmlPropsArgType } from '../../storybook/helpers';
 
 export default {
-  title: 'dds-components/Stack',
+  title: 'dds-components/Layout Primitives/Stack',
   component: HStack,
   argTypes: {
     htmlProps: htmlPropsArgType,

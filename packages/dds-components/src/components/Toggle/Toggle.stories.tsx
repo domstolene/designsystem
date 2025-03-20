@@ -12,7 +12,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Toggle } from '.';
 
 export default {
-  title: 'dds-components/Toggle',
+  title: 'dds-components/Components/Toggle',
   component: Toggle,
   argTypes: {
     children: { control: 'text' },

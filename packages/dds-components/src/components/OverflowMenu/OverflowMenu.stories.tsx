@@ -18,7 +18,7 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/OverflowMenu',
+  title: 'dds-components/Components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
     htmlProps: htmlPropsArgType,

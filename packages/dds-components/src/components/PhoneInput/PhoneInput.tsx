@@ -17,14 +17,11 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import {
-  type InputProps,
-  type ScreenSizeLiteral,
-  StatefulInput,
-} from '../helpers';
+import { type InputProps, StatefulInput } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
+import { type ScreenSizeLiteral } from '../layout';
 import { NativeSelect } from '../Select';
 import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';

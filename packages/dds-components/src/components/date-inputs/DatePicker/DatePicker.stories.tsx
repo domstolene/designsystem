@@ -9,6 +9,7 @@ import {
 import type { Meta, StoryObj } from '@storybook/react';
 import { useRef, useState } from 'react';
 
+import { windowWidthDecorator } from '../../../storybook/helpers';
 import { Button } from '../../Button';
 import { Modal } from '../../Modal';
 import { StoryHStack, StoryVStack } from '../../Stack/utils';
@@ -23,7 +24,7 @@ import {
 import { DatePicker } from '.';
 
 const meta: Meta<typeof DatePicker> = {
-  title: 'dds-components/DatePicker',
+  title: 'dds-components/Components/DatePicker',
   component: DatePicker,
   parameters: {
     docs: {
@@ -82,6 +83,13 @@ export const SmallScreen: Story = {
 
 export const Responsive: Story = {
   args: { label: 'Dato', smallScreenBreakpoint: 'sm' },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Åpne kalender; versjonen for liten skjerm vises ved sm brekkpunkt.',
+      ),
+  ],
 };
 
 export const Required: Story = {

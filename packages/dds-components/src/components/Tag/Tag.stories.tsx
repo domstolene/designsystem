@@ -6,7 +6,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Tag } from '.';
 
 export default {
-  title: 'dds-components/Tag',
+  title: 'dds-components/Components/Tag',
   component: Tag,
   argTypes: {
     children: { control: 'text' },

@@ -5,7 +5,7 @@ import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../Stack/utils';
 
 export default {
-  title: 'dds-components/Typography/Typography',
+  title: 'dds-components/Components/Typography/Typography',
   component: Typography,
   argTypes: {
     children: { control: 'text' },
