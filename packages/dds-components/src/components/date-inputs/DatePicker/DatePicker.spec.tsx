@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { DatePicker } from './DatePicker';
-import { HStack } from '../../Stack';
+import { HStack } from '../../layout';
 import { TextInput } from '../../TextInput';
 import { ThemeProvider } from '../../ThemeProvider';
 

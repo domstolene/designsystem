@@ -1,11 +1,10 @@
 import { useId } from 'react';
 
-import styles from './ToggleButton.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { cn } from '../../utils';
+import { Box, VStack } from '../layout';
 import { Typography } from '../Typography';
 
 type Direction = 'row' | 'column';
@@ -40,13 +39,9 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
   const uniqueLabelId = labelId ?? `${generatedId}-ToggleButtonGroupLabel`;
 
   return (
-    <div
-      {...getBaseHTMLProps(
-        id,
-        cn(className, styles['group-container']),
-        htmlProps,
-        rest,
-      )}
+    <VStack
+      gap="x0.5"
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
       role="group"
       aria-labelledby={label ? uniqueLabelId : undefined}
     >
@@ -55,10 +50,10 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
           {label}
         </Typography>
       )}
-      <div className={cn(styles.group, styles[`group--${direction}`])}>
+      <Box display="flex" flexWrap="wrap" gap="x0.75" flexDirection={direction}>
         {children}
-      </div>
-    </div>
+      </Box>
+    </VStack>
   );
 };
 

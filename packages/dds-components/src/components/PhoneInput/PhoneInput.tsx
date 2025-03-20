@@ -17,14 +17,12 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import {
-  type InputProps,
-  type ScreenSizeLiteral,
-  StatefulInput,
-} from '../helpers';
+import { type InputProps, StatefulInput } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
+import { Box, type Breakpoint } from '../layout';
+import { applyResponsiveStyle } from '../layout/common/utils';
 import { NativeSelect } from '../Select';
 import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
@@ -103,7 +101,7 @@ export type PhoneInputProps = {
   /**
    * Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den stacker subkomponentene vertikalt.
    */
-  smallScreenBreakpoint?: ScreenSizeLiteral;
+  smallScreenBreakpoint?: Breakpoint;
   /**
    * Usynlig ledetekst for nedtrekksliste med landkoder. Brukes hvis default ikke passer eller ikke er beskrivende nok.
    * @default "Landskode"
@@ -263,6 +261,8 @@ export const PhoneInput = ({
   // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
+  const bp = props.smallScreenBreakpoint;
+
   return (
     <div className={cn(className, inputStyles.container)} style={style}>
       {hasLabel && (
@@ -275,13 +275,12 @@ export const PhoneInput = ({
           {label}
         </Label>
       )}
-      <div
+      <Box
+        display="flex"
+        flexDirection={applyResponsiveStyle('column', bp, 'row')}
         className={cn(
           styles['inputs-container'],
-          !!props.smallScreenBreakpoint &&
-            styles[
-              `inputs-container--small-screen-${props.smallScreenBreakpoint}`
-            ],
+          !!bp && styles[`inputs-container--small-screen-${bp}`],
         )}
         style={styleVariables}
         role="group"
@@ -349,7 +348,7 @@ export const PhoneInput = ({
             ])}
           />
         </div>
-      </div>
+      </Box>
       {hasMessage &&
         renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
     </div>

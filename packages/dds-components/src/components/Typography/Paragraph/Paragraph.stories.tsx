@@ -1,12 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../../storybook/helpers';
-import { StoryVStack } from '../../Stack/utils';
+import { StoryVStack } from '../../layout/Stack/utils';
 
 import { Paragraph } from '.';
 
 export default {
-  title: 'dds-components/Typography/Paragraph',
+  title: 'dds-components/Components/Typography/Paragraph',
   component: Paragraph,
   argTypes: {
     htmlProps: htmlPropsArgType,

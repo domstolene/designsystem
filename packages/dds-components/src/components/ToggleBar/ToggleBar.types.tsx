@@ -1,5 +1,5 @@
 import { type Property } from 'csstype';
-import { type ChangeEvent } from 'react';
+import { type ChangeEvent, type InputHTMLAttributes } from 'react';
 
 import { type BaseComponentPropsWithChildren, type Size } from '../../types';
 
@@ -27,5 +27,6 @@ export type ToggleBarProps<T extends string | number> =
       name?: string;
       /**Bredden til komponenten. Bredden fordeles likt mellom barna.  */
       width?: Property.Width;
-    }
+    },
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'size'>
   >;

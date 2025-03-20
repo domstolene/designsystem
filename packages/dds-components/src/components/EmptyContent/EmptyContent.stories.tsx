@@ -1,11 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { EmptyContent } from './EmptyContent';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 import { Link } from '../Typography';
 
 export default {
-  title: 'dds-components/EmptyContent',
+  title: 'dds-components/Components/EmptyContent',
   component: EmptyContent,
   parameters: {
     docs: {

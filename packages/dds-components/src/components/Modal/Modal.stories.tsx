@@ -3,14 +3,14 @@ import { useRef, useState } from 'react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
+import { StoryHStack } from '../layout/Stack/utils';
 import { Search } from '../Search';
-import { StoryHStack } from '../Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Modal, ModalActions, ModalBody } from '.';
 
 const meta: Meta<typeof Modal> = {
-  title: 'dds-components/Modal',
+  title: 'dds-components/Components/Modal',
   component: Modal,
   decorators: [
     Story => (

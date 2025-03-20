@@ -7,12 +7,12 @@ import {
   htmlPropsArgType,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Toggle } from '.';
 
 export default {
-  title: 'dds-components/Toggle',
+  title: 'dds-components/Components/Toggle',
   component: Toggle,
   argTypes: {
     children: { control: 'text' },

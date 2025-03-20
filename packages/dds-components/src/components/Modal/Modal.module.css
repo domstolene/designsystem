@@ -7,9 +7,7 @@
     calc(var(--dds-spacing-x1) - var(--dds-modal-content-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding));
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
+
   padding: var(--dds-modal-container-padding);
 }
 
@@ -19,9 +17,7 @@
 }
 
 .content {
-  display: grid;
   padding-right: calc(var(--dds-spacing-x1) - var(--dds-modal-content-padding));
-  gap: var(--dds-spacing-x1);
 }
 
 /* Spacing slik at fokusmarkering osv. ikke skjules ved overflow */
@@ -31,12 +27,6 @@
 
 .header {
   padding: var(--dds-modal-content-padding);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--dds-spacing-x1);
 }
 
 .close-button {

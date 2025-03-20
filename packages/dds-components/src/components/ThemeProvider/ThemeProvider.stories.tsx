@@ -5,7 +5,7 @@ import { LocalMessage } from '../LocalMessage';
 import { ThemeProvider } from '.';
 
 export default {
-  title: 'dds-components/ThemeProvider',
+  title: 'dds-components/Components/ThemeProvider',
   component: ThemeProvider,
 } satisfies Meta<typeof ThemeProvider>;
 

@@ -9,19 +9,26 @@ import * as FieldsetStories from './Fieldset.stories';
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/67392b-fieldset"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Fieldset"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-fieldset--default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-fieldset--default"
   withBottomSpacing
 />
 
-`<Fieldset>` er en code-only komponent som tilsvarer nativ HTML-tag `<fieldset>`; den grupperer skjemafelt som hører sammen. Den skal ha `<Legend>` som første barn.
+`<Fieldset>` er en code-only komponent som tilsvarer nativ HTML-tag `<fieldset>`; den grupperer skjemafelt som hører sammen. Den skal ha `<Legend>` som første barn og `<FieldsetGroup>` som andre.
 
 ## Props
 
+### Fieldset
+
 <Canvas of={FieldsetStories.Default} sourceState="shown" />
 <Controls of={FieldsetStories.Default} />
+
+### FieldsetGroup
+
+Responsiv delkomponent; støtter samme props som [VStack](https://domstolene.github.io/designsystem/?path=/docs/dds-components-stack--docs).
 
 ## Retningslinjer
 
 - `<Legend>` skal være første barnet.
 - Bruk `withMargins`-prop på `<Legend>` for riktig spacing.
-- **OBS!** ikke ment for å gruppere `<Checkbox>` eller `<RadioButton>`, da bruker du `<CheckboxGroup>` eller `<RadioButtonGroup>`. En slik gruppe kan derimot være barn i `<Fieldset>`.
+- Bruk `<FieldsetGroup>` for riktig spacing for gruppen.
+- **OBS!** ikke ment for å gruppere `<Checkbox>` eller `<RadioButton>` på standard måte, da bruker du `<CheckboxGroup>` eller `<RadioButtonGroup>`. En slik gruppe kan derimot være barn i `<Fieldset>`.

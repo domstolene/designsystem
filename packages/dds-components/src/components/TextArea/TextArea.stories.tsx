@@ -2,10 +2,10 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { TextArea } from './TextArea';
 import { categoryHtml } from '../../storybook/helpers';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
-  title: 'dds-components/TextArea',
+  title: 'dds-components/Components/TextArea',
   component: TextArea,
   argTypes: {
     width: { control: 'text' },
@@ -17,7 +17,7 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 } satisfies Meta<typeof TextArea>;

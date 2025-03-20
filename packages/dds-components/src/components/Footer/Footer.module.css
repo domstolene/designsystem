@@ -7,24 +7,6 @@
   }
 }
 
-.logo--xs-hide {
-  @media only screen and (max-width: 600px) {
-    display: none;
-  }
-}
-
-.logo--sm-hide {
-  @media only screen and (max-width: 960px) {
-    display: none;
-  }
-}
-
-.logo--md-hide {
-  @media only screen and (max-width: 1280px) {
-    display: none;
-  }
-}
-
 .left {
   display: flex;
   flex-direction: column;

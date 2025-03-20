@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest';
 
 import { Pagination } from '.';
 
-describe('<Pagination />', () => {
+describe('<Pagination>', () => {
   it('has aria label', () => {
     render(<Pagination itemsAmount={10} />);
     const pagination = screen.getByRole('navigation');
-    expect(pagination).toHaveAttribute('aria-label', 'paginering');
+    expect(pagination).toHaveAccessibleName('paginering');
   });
   it('has aria label on each page', () => {
     render(<Pagination itemsAmount={100} defaultActivePage={3} />);
@@ -51,9 +51,8 @@ describe('<Pagination />', () => {
   describe('pagination with small screen variant', () => {
     it('has aria label', () => {
       render(<Pagination itemsAmount={10} smallScreenBreakpoint="sm" />);
-      const paginations = screen.getAllByRole('navigation');
-      expect(paginations[0]).toHaveAttribute('aria-label', 'paginering');
-      expect(paginations[1]).toHaveAttribute('aria-label', 'paginering');
+      const pagination = screen.getByRole('navigation');
+      expect(pagination).toHaveAccessibleName('paginering');
     });
     it('should render correct number of pages', () => {
       const itemsAmount = 6;

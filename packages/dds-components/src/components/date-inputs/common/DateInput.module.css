@@ -117,67 +117,6 @@
 
 .popover {
   z-index: var(--dds-zindex-popover);
-  padding: var(--dds-spacing-x0-5);
-}
-
-.popover--large-screen-hide-xs {
-  @media only screen and (max-width: 600px) {
-    display: none;
-  }
-}
-
-.popover--large-screen-hide-sm {
-  @media only screen and (max-width: 960px) {
-    display: none;
-  }
-}
-
-.popover--large-screen-hide-md {
-  @media only screen and (max-width: 1280px) {
-    display: none;
-  }
-}
-
-.popover--large-screen-hide-lg {
-  @media only screen and (max-width: 1920px) {
-    display: none;
-  }
-}
-
-.popover--large-screen-hide-xl {
-  display: none;
-}
-
-.modal {
-  display: none;
-}
-
-.modal--small-screen-show-xs {
-  @media only screen and (max-width: 600px) {
-    display: block;
-  }
-}
-
-.modal--small-screen-show-sm {
-  @media only screen and (max-width: 960px) {
-    display: block;
-  }
-}
-
-.modal--small-screen-show-md {
-  @media only screen and (max-width: 1280px) {
-    display: block;
-  }
-}
-
-.modal--small-screen-show-lg {
-  @media only screen and (max-width: 1920px) {
-    display: block;
-  }
-}
-
-.modal--small-screen-show-xl {
-  display: block;
 }
 
 .modal-close-button-wrapper {

@@ -5,6 +5,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { VStack } from '../layout';
 
 export type DescriptionListAppearance = 'default' | 'subtle';
 
@@ -29,7 +30,12 @@ export const DescriptionList = ({
   htmlProps,
   ...rest
 }: DescriptionListProps) => (
-  <dl
+  <VStack
+    as="dl"
+    margin="x0"
+    flexWrap="wrap"
+    rowGap="x0"
+    columnGap="x2"
     {...getBaseHTMLProps(
       id,
       cn(
@@ -43,7 +49,7 @@ export const DescriptionList = ({
     )}
   >
     {children}
-  </dl>
+  </VStack>
 );
 
 DescriptionList.displayName = 'DescriptionList';
