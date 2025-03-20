@@ -5,7 +5,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Search } from '.';
 
 export default {
-  title: 'dds-components/Search',
+  title: 'dds-components/Components/Search',
   component: Search,
   argTypes: {
     buttonProps: { control: false },

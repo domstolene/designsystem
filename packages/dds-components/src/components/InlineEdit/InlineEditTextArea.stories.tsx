@@ -6,7 +6,7 @@ import { StoryVStack } from '../Stack/utils';
 import { Table } from '../Table/normal';
 
 export default {
-  title: 'dds-components/InlineEdit/InlineEditTextArea',
+  title: 'dds-components/Components/InlineEdit/InlineEditTextArea',
   component: InlineEditTextArea,
   argTypes: {
     width: { control: { type: 'text' } },

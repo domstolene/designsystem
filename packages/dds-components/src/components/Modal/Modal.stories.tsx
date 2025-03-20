@@ -10,7 +10,7 @@ import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Modal, ModalActions, ModalBody } from '.';
 
 const meta: Meta<typeof Modal> = {
-  title: 'dds-components/Modal',
+  title: 'dds-components/Components/Modal',
   component: Modal,
   decorators: [
     Story => (

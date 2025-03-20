@@ -6,7 +6,7 @@ import { StoryVStack } from '../../Stack/utils';
 import { NativeSelect, NativeSelectPlaceholder } from '.';
 
 export default {
-  title: 'dds-components/Select/NativeSelect',
+  title: 'dds-components/Components/Select/NativeSelect',
   component: NativeSelect,
   parameters: {
     docs: {

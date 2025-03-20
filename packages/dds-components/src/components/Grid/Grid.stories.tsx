@@ -15,7 +15,7 @@ import { Heading } from '../Typography';
 import { Grid, GridChild } from '.';
 
 export default {
-  title: 'dds-components/Grid',
+  title: 'dds-components/Layout Primitives/Grid',
   component: Grid,
   argTypes: {
     htmlProps: htmlPropsArgType,

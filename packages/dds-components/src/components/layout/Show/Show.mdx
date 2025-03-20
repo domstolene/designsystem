@@ -1,0 +1,25 @@
+import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
+import { Show } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as ShowStories from './Show.stories';
+
+<Meta of={ShowStories} />
+
+# Show
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/75bde2-show"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/layout/Show"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-layout-primitives-show--default"
+  withBottomSpacing
+/>
+
+`<Show>` er en code-only layout primitive; en layout-komponent som brukes som byggekloss for andre komponenter og strukturer. Den brukes til å vise innhold og er polymorf.
+
+## Props
+
+<Canvas of={ShowStories.Default} sourceState="shown" />
+<Controls of={ShowStories.Default} />

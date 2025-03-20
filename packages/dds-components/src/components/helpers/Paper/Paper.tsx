@@ -3,14 +3,19 @@ import { type ComponentPropsWithRef } from 'react';
 import styles from './Paper.module.css';
 import { type BorderColor, getBorderCn } from '../../../types';
 import { cn } from '../../../utils';
+import { Box } from '../../layout/Box/Box';
+import { type ResponsiveProps } from '../../layout/common/Responsive.types';
 
 type Elevation = 1 | 2 | 3 | 4;
 type Border = BorderColor;
 
 export type PaperProps = {
+  /**I hvor stor grad flaten skal framheves. */
   elevation?: Elevation;
+  /**Farge på kantlinje. */
   border?: Border;
-} & ComponentPropsWithRef<'div'>;
+} & ResponsiveProps &
+  ComponentPropsWithRef<'div'>;
 
 export const Paper = ({
   elevation,
@@ -20,7 +25,7 @@ export const Paper = ({
 }: PaperProps) => {
   const borderCn = border ? getBorderCn(border) : undefined;
   return (
-    <div
+    <Box
       className={cn(
         className,
         styles.container,

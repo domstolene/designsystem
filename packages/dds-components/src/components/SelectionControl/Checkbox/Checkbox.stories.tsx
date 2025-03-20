@@ -6,7 +6,7 @@ import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { Checkbox } from '.';
 
 export default {
-  title: 'dds-components/Checkbox',
+  title: 'dds-components/Components/Checkbox',
   component: Checkbox,
   argTypes: {
     disabled: { table: categoryHtml },

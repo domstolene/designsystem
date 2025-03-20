@@ -6,6 +6,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { type ResponsiveStackProps } from '../layout/common/Responsive.types';
 
 export type StackSpacing =
   | 'x0.125'
@@ -20,7 +21,7 @@ export type StackSpacing =
   | 'x4'
   | 'x6'
   | 'x10';
-export interface StackStyleProps {
+export type StackStyleProps = {
   /**
    * Hvilken retning elementene skal plasseres i.
    */
@@ -43,7 +44,7 @@ export interface StackStyleProps {
    * Hvilken spacing token som skal brukes som CSS `padding`.
    */
   padding?: StackSpacing | 0;
-}
+} & ResponsiveStackProps;
 
 export type StackProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -54,8 +55,8 @@ export const HStack = ({
   id,
   className,
   htmlProps,
-  align = 'center',
-  justify = 'flex-start',
+  align,
+  justify,
   gap,
   padding,
   ...rest
@@ -94,8 +95,8 @@ export const VStack = ({
   id,
   className,
   htmlProps,
-  align = 'center',
-  justify = 'flex-start',
+  align,
+  justify,
   gap,
   padding,
   ...rest
@@ -128,7 +129,7 @@ export const VStack = ({
 
 VStack.displayName = 'VStack';
 
-export function spacingPropToCn(value: string): HyphenSpacingProps {
+function spacingPropToCn(value: string): HyphenSpacingProps {
   return value
     .replace(/(0)(1-9)/g, '$1-$2')
     .replace(/([a-z])([0-9])/g, '$1-$2')

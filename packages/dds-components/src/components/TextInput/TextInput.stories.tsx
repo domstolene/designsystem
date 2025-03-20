@@ -8,7 +8,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { TextInput } from '.';
 
 export default {
-  title: 'dds-components/TextInput',
+  title: 'dds-components/Components/TextInput',
   component: TextInput,
   argTypes: {
     width: { control: { type: 'text' } },

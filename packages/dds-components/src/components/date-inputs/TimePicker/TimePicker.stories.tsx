@@ -8,7 +8,7 @@ import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { TimePicker } from '.';
 
 const meta: Meta<typeof TimePicker> = {
-  title: 'dds-components/TimePicker',
+  title: 'dds-components/Components/TimePicker',
   component: TimePicker,
   argTypes: {
     width: { control: 'text' },

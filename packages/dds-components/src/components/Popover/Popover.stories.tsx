@@ -13,7 +13,7 @@ import { Paragraph } from '../Typography';
 import { Popover, PopoverGroup } from '.';
 
 export default {
-  title: 'dds-components/Popover',
+  title: 'dds-components/Components/Popover',
   component: Popover,
   argTypes: {
     header: { control: 'text' },
@@ -241,7 +241,7 @@ export const Custom: Story = {
     const bRef = useRef<HTMLButtonElement>(null);
     const id = 'id';
     return (
-      <VStack gap="x1">
+      <StoryVStack align="center">
         <LocalMessage purpose="warning" message="Brukes kun ved corner cases" />
 
         <Button
@@ -271,7 +271,7 @@ export const Custom: Story = {
             <Button>Klikk</Button>
           </VStack>
         </Popover>
-      </VStack>
+      </StoryVStack>
     );
   },
 };

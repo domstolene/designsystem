@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Grid, GridChild } from '.';
 
 export default {
-  title: 'dds-components/Grid/GridChild',
+  title: 'dds-components/Layout Primitives/Grid/GridChild',
   component: GridChild,
   argTypes: {
     gridRow: { control: false },

@@ -5,7 +5,7 @@ import { htmlPropsArgType } from '../../storybook/helpers';
 import { Chip, ChipGroup } from '.';
 
 export default {
-  title: 'dds-components/Chip/ChipGroup',
+  title: 'dds-components/Components/Chip/ChipGroup',
   component: ChipGroup,
   parameters: {
     docs: {

@@ -7,7 +7,7 @@ import { Typography } from '../Typography';
 import { Divider } from '.';
 
 export default {
-  title: 'dds-components/Divider',
+  title: 'dds-components/Components/Divider',
   component: Divider,
   parameters: {
     docs: {

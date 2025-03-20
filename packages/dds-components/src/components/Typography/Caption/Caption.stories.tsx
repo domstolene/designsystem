@@ -5,7 +5,7 @@ import { htmlPropsArgType } from '../../../storybook/helpers';
 import { Caption } from '.';
 
 export default {
-  title: 'dds-components/Typography/Caption',
+  title: 'dds-components/Components/Typography/Caption',
   component: Caption,
   argTypes: {
     htmlProps: htmlPropsArgType,

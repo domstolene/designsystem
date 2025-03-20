@@ -8,7 +8,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { ToggleBar, ToggleRadio } from '.';
 
 export default {
-  title: 'dds-components/ToggleBar',
+  title: 'dds-components/Components/ToggleBar',
   component: ToggleBar,
   argTypes: {
     width: { control: 'text' },

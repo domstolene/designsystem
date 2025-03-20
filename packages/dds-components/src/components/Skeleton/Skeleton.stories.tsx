@@ -4,7 +4,7 @@ import { Skeleton } from './Skeleton';
 import { StoryVStack } from '../Stack/utils';
 
 export default {
-  title: 'dds-components/Skeleton',
+  title: 'dds-components/Components/Skeleton',
   component: Skeleton,
   argTypes: {
     width: { control: 'text' },

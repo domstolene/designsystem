@@ -13,7 +13,7 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/DescriptionList',
+  title: 'dds-components/Components/DescriptionList',
   component: DescriptionList,
   parameters: {
     docs: {

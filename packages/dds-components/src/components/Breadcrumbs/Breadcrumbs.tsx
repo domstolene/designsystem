@@ -7,7 +7,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
-import { type ScreenSizeLiteral, StylelessList } from '../helpers';
+import { StylelessList } from '../helpers';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, MoreHorizontalIcon } from '../Icon/icons';
 import {
@@ -18,6 +18,8 @@ import {
   OverflowMenuSpan,
 } from '../OverflowMenu';
 import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
+import { type ScreenSizeLiteral } from '../layout';
+import { Hide } from '../layout/Hide';
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -113,25 +115,23 @@ export const Breadcrumbs = ({
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       aria-label="brødsmulesti"
     >
-      <StylelessList
-        className={cn(
-          styles.list,
-          hasSmallScreenBreakpoint &&
-            styles[`list--large-screen-hide-${smallScreenBreakpoint}`],
-        )}
+      <Hide
+        as={StylelessList}
+        breakpointBelow={
+          hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined
+        }
+        className={cn(styles.list)}
       >
         {breadcrumbChildren}
-      </StylelessList>
+      </Hide>
       {hasSmallScreenBreakpoint && (
-        <StylelessList
-          className={cn(
-            styles.list,
-            styles['list--small-screen'],
-            styles[`list--small-screen-show-${smallScreenBreakpoint}`],
-          )}
+        <Hide
+          as={StylelessList}
+          breakpointAbove={smallScreenBreakpoint}
+          className={cn(styles.list)}
         >
           {breadcrumbChildrenSmallScreen}
-        </StylelessList>
+        </Hide>
       )}
     </nav>
   );

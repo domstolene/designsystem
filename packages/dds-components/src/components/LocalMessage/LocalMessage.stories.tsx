@@ -7,7 +7,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
 export default {
-  title: 'dds-components/LocalMessage',
+  title: 'dds-components/Components/LocalMessage',
   component: LocalMessage,
   argTypes: {
     width: { control: 'text' },

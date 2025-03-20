@@ -11,7 +11,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Button } from '.';
 
 export default {
-  title: 'dds-components/Button',
+  title: 'dds-components/Components/Button',
   component: Button,
   parameters: {
     docs: {

@@ -5,7 +5,7 @@ import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryVStack } from '../Stack/utils';
 
 export default {
-  title: 'dds-components/GlobalMessage',
+  title: 'dds-components/Components/GlobalMessage',
   component: GlobalMessage,
   argTypes: {
     htmlProps: htmlPropsArgType,

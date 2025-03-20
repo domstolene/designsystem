@@ -19,7 +19,7 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/Card',
+  title: 'dds-components/Components/Card',
   component: Card,
   parameters: {
     docs: {

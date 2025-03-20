@@ -7,7 +7,7 @@ import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { ToggleButton } from '.';
 
 export default {
-  title: 'dds-components/ToggleButton',
+  title: 'dds-components/Components/ToggleButton',
   component: ToggleButton,
   argTypes: {
     htmlProps: htmlPropsArgType,

@@ -8,7 +8,7 @@ import { Legend } from '../../Typography';
 import { Checkbox, CheckboxGroup } from '.';
 
 export default {
-  title: 'dds-components/Checkbox/CheckboxGroup',
+  title: 'dds-components/Components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     required: { control: 'boolean' },

@@ -5,7 +5,7 @@ import { categoryHtml } from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 export default {
-  title: 'dds-components/TextArea',
+  title: 'dds-components/Components/TextArea',
   component: TextArea,
   argTypes: {
     width: { control: 'text' },

@@ -7,11 +7,12 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
-import { type BreakpointBasedProps } from '../helpers';
+import { type StaticAndBreakpointBasedProp } from '../layout/common/Responsive.types';
+import { getStandardResponsiveCSSProperties } from '../layout/common/utils';
 
-type RowGapGrid = BreakpointBasedProps<'rowGap'>;
-type MaxWidthGrid = BreakpointBasedProps<'maxWidth'>;
-type ColumnGapGrid = BreakpointBasedProps<'columnGap'>;
+type RowGapGrid = StaticAndBreakpointBasedProp<'rowGap'>;
+type MaxWidthGrid = StaticAndBreakpointBasedProp<'maxWidth'>;
+type ColumnGapGrid = StaticAndBreakpointBasedProp<'columnGap'>;
 
 type BaseGridProps = {
   /**Maksimal bredde. Gjøres per brekkepunkt.  */
@@ -49,63 +50,42 @@ export const Grid = (props: GridProps) => {
     ...rest
   } = props;
 
+  const maxWidths = getStandardResponsiveCSSProperties<'maxWidth'>(
+    maxWidth,
+    'grid',
+    'max-width',
+  );
+
+  const columnGaps = getStandardResponsiveCSSProperties<'columnGap'>(
+    columnGap,
+    'grid',
+    'column-gap',
+    'grid',
+    'gutter-size',
+  );
+
+  const rowGaps = getStandardResponsiveCSSProperties<'rowGap'>(
+    rowGap,
+    'grid',
+    'row-gap',
+    'grid',
+    'gutter-size',
+  );
+
   const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-xs-max-width' as any]: maxWidth?.xs,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-xs-row-gap' as any]: rowGap?.xs
-      ? rowGap.xs
-      : 'var(--dds-grid-xs-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-xs-column-gap' as any]: columnGap?.xs
-      ? columnGap.xs
-      : 'var(--dds-grid-xs-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-sm-max-width' as any]: maxWidth?.sm,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-sm-row-gap' as any]: rowGap?.sm
-      ? rowGap.sm
-      : 'var(--dds-grid-sm-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-sm-column-gap' as any]: columnGap?.sm
-      ? columnGap.sm
-      : 'var(--dds-grid-sm-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-md-max-width' as any]: maxWidth?.md,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-md-row-gap' as any]: rowGap?.md
-      ? rowGap.md
-      : 'var(--dds-grid-md-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-md-column-gap' as any]: columnGap?.md
-      ? columnGap.md
-      : 'var(--dds-grid-md-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-lg-max-width' as any]: maxWidth?.lg,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-lg-row-gap' as any]: rowGap?.lg
-      ? rowGap.lg
-      : 'var(--dds-grid-lg-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-lg-column-gap' as any]: columnGap?.lg
-      ? columnGap.lg
-      : 'var(--dds-grid-lg-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-xl-max-width' as any]: maxWidth?.xl,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-xl-row-gap' as any]: rowGap?.xl
-      ? rowGap.xl
-      : 'var(--dds-grid-xl-gutter-size)',
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-grid-xl-column-gap' as any]: columnGap?.xl
-      ? columnGap.xl
-      : 'var(--dds-grid-xl-gutter-size)',
+    ...rowGaps,
+    ...maxWidths,
+    ...columnGaps,
   };
 
   return as === 'div' ? (
     <div
       {...getBaseHTMLProps(id, cn(className, styles.grid), htmlProps, rest)}
-      style={{ ...style, ...htmlProps?.style, ...styleVariables }}
+      style={{
+        ...style,
+        ...htmlProps?.style,
+        ...styleVariables,
+      }}
     />
   ) : (
     <form

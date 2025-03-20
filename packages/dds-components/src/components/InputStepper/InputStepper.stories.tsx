@@ -7,7 +7,7 @@ import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 export default {
-  title: 'dds-components/InputStepper',
+  title: 'dds-components/Components/InputStepper',
   component: InputStepper,
   argTypes: {
     defaultValue: { control: 'number', table: categoryHtml },

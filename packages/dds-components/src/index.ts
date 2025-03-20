@@ -1,6 +1,7 @@
 import './styles';
 
 export * from './components/helpers';
+export * from './components/layout';
 export * from './components/Icon/icons';
 export * as icons from './components/Icon/icons';
 export * from './hooks';
@@ -9,6 +10,7 @@ export { cn } from './utils/dom';
 
 export * from './components/Accordion';
 export * from './components/BackLink';
+export * from './components/layout/Box';
 export * from './components/Breadcrumbs';
 export * from './components/Button';
 export * from './components/ButtonGroup';
@@ -28,6 +30,7 @@ export * from './components/FileUploader';
 export * from './components/Footer';
 export * from './components/GlobalMessage';
 export * from './components/Grid';
+export * from './components/layout/Hide';
 export * from './components/Icon';
 export * from './components/InlineButton';
 export * from './components/InlineEdit';
@@ -46,6 +49,7 @@ export * from './components/Search';
 export * from './components/Select';
 export * from './components/SelectionControl/Checkbox';
 export * from './components/SelectionControl/RadioButton';
+export * from './components/layout/Show';
 export * from './components/Skeleton';
 export * from './components/SkipToContent';
 export * from './components/Spinner';

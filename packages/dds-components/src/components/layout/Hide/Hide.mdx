@@ -1,0 +1,25 @@
+import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
+import { Hide } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as HideStories from './Hide.stories';
+
+<Meta of={HideStories} />
+
+# Hide
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/76f0e1-hide"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/layout/Hide"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-layout-primitives-hide--default"
+  withBottomSpacing
+/>
+
+`<Hide>` er en code-only layout primitive; en layout-komponent som brukes som byggekloss for andre komponenter og strukturer. Den brukes til å skjule innhold og er polymorf.
+
+## Props
+
+<Canvas of={HideStories.Default} sourceState="shown" />
+<Controls of={HideStories.Default} />

@@ -6,7 +6,7 @@ import { StoryVStack } from '../../Stack/utils';
 import { Paragraph } from '.';
 
 export default {
-  title: 'dds-components/Typography/Paragraph',
+  title: 'dds-components/Components/Typography/Paragraph',
   component: Paragraph,
   argTypes: {
     htmlProps: htmlPropsArgType,

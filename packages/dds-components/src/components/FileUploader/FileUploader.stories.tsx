@@ -7,7 +7,7 @@ import { StoryVStack } from '../Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
 export default {
-  title: 'dds-components/FileUploader',
+  title: 'dds-components/Components/FileUploader',
   component: FileUploader,
   argTypes: {
     width: { control: 'text' },

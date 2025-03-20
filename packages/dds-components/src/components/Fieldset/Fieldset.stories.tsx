@@ -4,9 +4,10 @@ import { Fieldset } from './Fieldset';
 import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { TextInput } from '../TextInput';
 import { Legend } from '../Typography';
+import { FieldsetGroup } from './FieldsetGroup';
 
 export default {
-  title: 'dds-components/Fieldset',
+  title: 'dds-components/Components/Fieldset',
   component: Fieldset,
   argTypes: {
     disabled: { table: categoryHtml },
@@ -25,16 +26,10 @@ export const Default: Story = {
   render: args => (
     <Fieldset {...args}>
       <Legend withMargins>Telefon og epost</Legend>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--dds-spacing-x1-5)',
-        }}
-      >
+      <FieldsetGroup>
         <TextInput label="Telefon" />
         <TextInput label="Epost" />
-      </div>
+      </FieldsetGroup>
     </Fieldset>
   ),
 };
