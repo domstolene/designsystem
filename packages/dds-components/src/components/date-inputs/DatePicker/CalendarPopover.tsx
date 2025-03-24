@@ -22,16 +22,15 @@ import { cn } from '../../../utils';
 import { Button } from '../../Button';
 import {
   Backdrop,
-  Paper,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../../helpers';
 import { CloseIcon } from '../../Icon/icons';
-import { type ScreenSizeLiteral } from '../../layout';
 import { ThemeContext } from '../../ThemeProvider';
 import styles from '../common/DateInput.module.css';
 import { type DateField } from './DateField/DateField';
-import { Show } from '../../layout/Show';
+import { type ScreenSizeLiteral } from '../../layout';
+import { Paper, Show } from '../../layout';
 
 /**------------------------------------------------------------------------
  * CalendarPopover
