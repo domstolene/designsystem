@@ -43,10 +43,10 @@
     "generate:tokens": "node build.js"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.2",
-    "@rollup/plugin-node-resolve": "^16.0.0",
-    "@types/node": "^22.13.4",
-    "@tokens-studio/sd-transforms": "^1.2.9",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@types/node": "^22.13.13",
+    "@tokens-studio/sd-transforms": "^1.2.12",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "rollup": "^3.29.5",
     "rollup-plugin-copy": "^3.5.0",
@@ -54,7 +54,7 @@
     "rollup-plugin-sass": "^1.15.2",
     "rollup-plugin-typescript2": "^0.36.0",
     "style-dictionary": "^4.3.3",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "publishConfig": {
     "provenance": true
