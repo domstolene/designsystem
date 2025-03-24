@@ -24,7 +24,6 @@ import { cn } from '../../utils';
 import { Button } from '../Button';
 import {
   Backdrop,
-  Paper,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../helpers';
@@ -34,7 +33,7 @@ import { CloseIcon } from '../Icon/icons';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 import { useDrawerContext } from './Drawer.context';
-import { VStack } from '../layout/Stack';
+import { Paper, VStack } from '../layout';
 
 export type DrawerSize = Extract<Size, 'small' | 'medium' | 'large'>;
 export type DrawerPlacement = 'left' | 'right';

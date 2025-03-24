@@ -21,6 +21,8 @@ const meta: Meta<typeof Paper> = {
     ...responsivePropsArgTypes,
     className: htmlPropsArgType,
     style: htmlPropsArgType,
+    tabIndex: htmlPropsArgType,
+    role: htmlPropsArgType,
   },
 };
 export default meta;
@@ -31,7 +33,8 @@ export const Default: Story = {
   args: {
     border: 'default',
     padding: 'x1.5',
+    maxWidth: '20rem',
     children:
-      'Dette en en Paper - layout-komponent med støtte for styling for en flate',
+      'Dette en en Paper: layout-komponent med støtte for flate-styling',
   },
 };

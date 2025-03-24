@@ -23,14 +23,13 @@ import { cn } from '../../utils';
 import { Button } from '../Button';
 import {
   Backdrop,
-  Paper,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { Box } from '../layout';
+import { Box, Paper } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 

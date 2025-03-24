@@ -1,20 +1,27 @@
-import { type ComponentPropsWithoutRef } from 'react';
+import { type ComponentProps } from 'react';
 
 import styles from './Paper.module.css';
-import { type BorderColor, getBorderCn } from '../../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  type BorderColor,
+  getBorderCn,
+} from '../../../types';
 import { cn } from '../../../utils';
 import { Box, type BoxProps } from '../../layout/Box/Box';
 
 type Elevation = 1 | 2 | 3 | 4;
 type Border = BorderColor;
 
-export type PaperProps = {
-  /**I hvor stor grad flaten skal framheves. */
-  elevation?: Elevation;
-  /**Farge på kantlinje. */
-  border?: Border;
-} & BoxProps &
-  ComponentPropsWithoutRef<'div'>;
+export type PaperProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  {
+    /**I hvor stor grad flaten skal framheves. */
+    elevation?: Elevation;
+    /**Farge på kantlinje. */
+    border?: Border;
+  } & BoxProps &
+    Pick<ComponentProps<'div'>, 'tabIndex' | 'role'>
+>;
 
 export const Paper = ({
   elevation,

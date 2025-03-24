@@ -5,8 +5,8 @@ import styles from './OverflowMenu.module.css';
 import { useCombinedRef } from '../../hooks';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
-import { Paper } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { Paper } from '../layout';
 
 import { type OverflowMenuProps } from '.';
 
