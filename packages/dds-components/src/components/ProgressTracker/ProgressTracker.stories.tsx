@@ -14,9 +14,9 @@ import {
   GavelIcon,
   PersonIcon,
 } from '../Icon/icons';
+import { HStack, VStack } from '../layout/Stack';
 import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
-import { HStack, VStack } from '../Stack';
 import { TextInput } from '../TextInput';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Legend, Paragraph } from '../Typography';
@@ -45,7 +45,7 @@ export const Default: Story = {
     const [completedSteps, setCompletedSteps] = useState(new Set());
 
     return (
-      <VStack align="left" gap="x1.5">
+      <VStack gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -96,7 +96,7 @@ export const WithIcons: Story = {
     const [completedSteps, setCompletedSteps] = useState(new Set());
 
     return (
-      <VStack align="left" gap="x1.5">
+      <VStack gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -167,7 +167,7 @@ export const FutureStepsDisabled: Story = {
     const isDisabled = (index: number) => index > highestCompletedStep + 1;
 
     return (
-      <VStack align="left" gap="x1.5">
+      <VStack gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -226,7 +226,7 @@ export const SmallScreen: Story = {
 
     return (
       <>
-        <VStack align="left" gap="x1.5">
+        <VStack gap="x1.5">
           <DrawerGroup isOpen={isDrawerOpen} setIsOpen={setDrawerOpen}>
             <Button
               purpose="secondary"
@@ -408,7 +408,7 @@ export const RealWorldRosponsiveExample: Story = {
 
 const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack align="flex-start">
+    <VStack>
       <Heading level={2} typographyType="headingXlarge" withMargins>
         Rolle- og saksnummer
       </Heading>
@@ -448,7 +448,7 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
 
 const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack align="flex-start">
+    <VStack>
       <Heading level={2} typographyType="headingXlarge" withMargins>
         Kontaktinformasjon
       </Heading>
@@ -482,7 +482,7 @@ const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
 
 const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack align="flex-start">
+    <VStack>
       <Heading level={2} typographyType="headingXlarge" withMargins>
         Fakturainformasjon
       </Heading>

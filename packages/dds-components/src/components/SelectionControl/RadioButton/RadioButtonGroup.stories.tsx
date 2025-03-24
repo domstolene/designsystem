@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { Button } from '../../Button';
-import { StoryHStack, StoryVStack } from '../../Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { RadioButton, RadioButtonGroup } from '.';
 

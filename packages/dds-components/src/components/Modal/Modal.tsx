@@ -30,6 +30,7 @@ import {
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { Box } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 
@@ -121,6 +122,9 @@ export const Modal = ({
           onClick={onBackdropClick}
         >
           <Paper
+            display="flex"
+            flexDirection="column"
+            minWidth="200px"
             {...getBaseHTMLProps(
               id,
               cn(
@@ -154,7 +158,7 @@ export const Modal = ({
               />
             )}
 
-            <div className={styles.content}>
+            <Box display="grid" gap="x1" className={styles.content}>
               {!!header && (
                 <div id={headerId} className={styles.header}>
                   {typeof header === 'string' ? (
@@ -167,7 +171,7 @@ export const Modal = ({
                 </div>
               )}
               {children}
-            </div>
+            </Box>
           </Paper>
         </Backdrop>,
         portalTarget,

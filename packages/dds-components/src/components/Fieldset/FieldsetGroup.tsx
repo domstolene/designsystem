@@ -2,7 +2,7 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { VStack } from '../Stack';
+import { VStack } from '../layout/Stack';
 
 export type FieldsetGroupProps = BaseComponentPropsWithChildren<HTMLDivElement>;
 

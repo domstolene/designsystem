@@ -1,21 +1,3 @@
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--dds-spacing-x0-5);
-}
-
-.list-item {
-  align-items: center;
-  display: flex;
-  gap: var(--dds-spacing-x0-5);
-  padding: 0;
-}
-
-.list-item--large-screen {
-  padding: var(--dds-spacing-x0-125) 0;
-}
-
 .icon {
   color: var(--dds-color-icon-link);
 }

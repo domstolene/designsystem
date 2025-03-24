@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Tooltip } from '.';
 
@@ -29,7 +29,7 @@ export const Default: Story = {
   args: { text: 'Dette er en tooltip' },
   render: args => (
     <StoryVStack
-      align="center"
+      alignItems="center"
       htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}
     >
       <Tooltip {...args}>
@@ -42,7 +42,7 @@ export const Default: Story = {
 export const Overview: Story = {
   render: () => (
     <StoryHStack
-      justify="center"
+      justifyContent="center"
       htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}
     >
       <StoryVStack>

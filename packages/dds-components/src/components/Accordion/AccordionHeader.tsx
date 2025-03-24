@@ -11,6 +11,7 @@ import { useAccordionContext } from '../helpers/AccordionBase';
 import baseStyles from '../helpers/AccordionBase/AccordionBase.module.css';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { Box } from '../layout';
 import { type StaticTypographyType, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -40,7 +41,9 @@ export const AccordionHeader = ({
   const { id, ...restHeaderProps } = headerProps ?? {};
 
   return (
-    <button
+    <Box
+      as="button"
+      padding="x1 x1.5 x1 x1"
       {...getBaseHTMLProps(
         id,
         cn(
@@ -50,27 +53,24 @@ export const AccordionHeader = ({
           utilStyles['normalize-button'],
           utilStyles['remove-button-styling'],
           focusable,
-          styles['header-container'],
           baseStyles['header-container'],
         ),
         htmlProps,
         rest,
       )}
       {...restHeaderProps}
-      type="button"
     >
-      <span
-        className={cn(
-          baseStyles.header__chevron,
-          styles['header-container__chevron'],
-        )}
+      <Box
+        as="span"
+        marginInline="x0 x0.5"
+        className={baseStyles.header__chevron}
       >
         <AnimatedChevronUpDown
           width="var(--dds-icon-size-medium)"
           height="var(--dds-spacing-x0-5)"
           isUp={isExpanded}
         />
-      </span>
+      </Box>
       <div
         className={cn(
           baseStyles.header__content,
@@ -80,7 +80,7 @@ export const AccordionHeader = ({
       >
         {children}
       </div>
-    </button>
+    </Box>
   );
 };
 

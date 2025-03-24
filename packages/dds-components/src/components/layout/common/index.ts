@@ -1,2 +1,5 @@
-export * from './Responsive.types';
-export * from './utils';
+export {
+  type ResponsiveProps,
+  type ResponsiveStackProps,
+  type ScreenSizeLiteral,
+} from './Responsive.types';

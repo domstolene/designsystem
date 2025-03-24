@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { FileUploader } from './FileUploader';
 import { categoryHtml } from '../../storybook/helpers';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
 export default {

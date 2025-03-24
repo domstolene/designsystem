@@ -7,7 +7,7 @@ import {
   htmlPropsArgType,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Toggle } from '.';
 

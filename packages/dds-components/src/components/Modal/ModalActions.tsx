@@ -1,12 +1,11 @@
 import { type ComponentPropsWithRef } from 'react';
 
-import styles from './Modal.module.css';
-import { cn } from '../../utils';
+import { Box } from '../layout';
 
 export type ModalActionsProps = ComponentPropsWithRef<'div'>;
 
-export const ModalActions = ({ className, ...rest }: ModalActionsProps) => (
-  <div {...rest} className={cn(className, styles.actions)} />
+export const ModalActions = (props: ModalActionsProps) => (
+  <Box display="flex" flexWrap="wrap" gap="x1" {...props} />
 );
 
 ModalActions.displayName = 'ModalActions';

@@ -170,6 +170,7 @@ export const CalendarPopoverContent = ({
                 className={cn(styles.popover, className)}
                 elevation={2}
                 border="default"
+                padding="x0.5"
               >
                 <div className={styles['modal-close-button-wrapper']}>
                   <Button

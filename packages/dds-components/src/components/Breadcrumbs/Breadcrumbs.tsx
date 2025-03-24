@@ -19,7 +19,7 @@ import {
 } from '../OverflowMenu';
 import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
 import { type ScreenSizeLiteral } from '../layout';
-import { Hide } from '../layout/Hide';
+import { HStack, type HStackProps } from '../layout/Stack';
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -50,15 +50,23 @@ export const Breadcrumbs = ({
 
   const childrenArray = Children.toArray(children);
 
+  const responsiveLiProps: HStackProps = {
+    as: 'li',
+    alignItems: 'center',
+    gap: 'x0.5',
+    padding: 'x0',
+  };
+
   const breadcrumbChildren = childrenArray.map((item, index) => {
     return (
-      <li
+      <HStack
         key={`breadcrumb-${index}`}
-        className={cn(styles['list-item'], styles[`list-item--large-screen`])}
+        {...responsiveLiProps}
+        padding="x0.125 0"
       >
         {index !== 0 && chevronIcon}
         {item}
-      </li>
+      </HStack>
     );
   });
 
@@ -84,9 +92,9 @@ export const Breadcrumbs = ({
 
   const breadcrumbChildrenSmallScreen = (
     <>
-      <li className={styles['list-item']}>{childrenArray[0]}</li>
+      <HStack {...responsiveLiProps}>{childrenArray[0]}</HStack>
       {breadcrumbChildrenTruncated.length > 0 && (
-        <li className={styles['list-item']}>
+        <HStack {...responsiveLiProps}>
           {chevronIcon}
           <OverflowMenuGroup>
             <Button
@@ -99,39 +107,43 @@ export const Breadcrumbs = ({
               <OverflowMenuList>{breadcrumbChildrenTruncated}</OverflowMenuList>
             </OverflowMenu>
           </OverflowMenuGroup>
-        </li>
+        </HStack>
       )}
-      <li className={styles['list-item']}>
+      <HStack {...responsiveLiProps}>
         {chevronIcon}
         {childrenArray[childrenArray.length - 1]}
-      </li>
+      </HStack>
     </>
   );
 
   const hasSmallScreenBreakpoint = !!smallScreenBreakpoint;
 
+  const responsiveListProps: HStackProps = {
+    as: StylelessList,
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: 'x0.5',
+  };
   return (
     <nav
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       aria-label="brødsmulesti"
     >
-      <Hide
-        as={StylelessList}
+      <HStack
+        {...responsiveListProps}
         breakpointBelow={
           hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined
         }
-        className={cn(styles.list)}
       >
         {breadcrumbChildren}
-      </Hide>
+      </HStack>
       {hasSmallScreenBreakpoint && (
-        <Hide
-          as={StylelessList}
+        <HStack
+          {...responsiveListProps}
           breakpointAbove={smallScreenBreakpoint}
-          className={cn(styles.list)}
         >
           {breadcrumbChildrenSmallScreen}
-        </Hide>
+        </HStack>
       )}
     </nav>
   );

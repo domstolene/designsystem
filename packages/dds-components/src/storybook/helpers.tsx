@@ -3,11 +3,12 @@ import { type ArgTypes } from '@storybook/react';
 import { type ReactNode, useState } from 'react';
 
 import {
+  type CommonResponsiveProps,
   type ResponsiveProps,
   type ResponsiveStackProps,
 } from '../components/layout/common/Responsive.types';
 import { getBreakpointFromScreenWidth } from '../components/layout/common/utils';
-import { HStack, VStack } from '../components/Stack';
+import { HStack, VStack } from '../components/layout/Stack';
 import { Paragraph } from '../components/Typography';
 import { useWindowResize } from '../hooks';
 
@@ -41,10 +42,18 @@ export const CSSSelectArgType = {
 
 type ResponsiveArgTypes<T> = {
   [k in keyof T]: {
-    control: Control;
-    table: { category: string };
+    control?: Control;
+    table?: { category: string };
   };
 };
+
+export const commonResponsivePropsArgTypes: ResponsiveArgTypes<CommonResponsiveProps> =
+  {
+    ref: { control: { disable: true } },
+    children: { control: { disable: true } },
+    className: htmlPropsArgType,
+    style: htmlPropsArgType,
+  };
 
 export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
   padding: CSSArgType,
@@ -57,21 +66,35 @@ export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
   top: CSSArgType,
   left: CSSArgType,
   right: CSSArgType,
+  overflow: CSSArgType,
+  overflowX: CSSArgType,
+  overflowY: CSSArgType,
   width: CSSArgType,
   maxWidth: CSSArgType,
   minWidth: CSSArgType,
   height: CSSArgType,
   maxHeight: CSSArgType,
   minHeight: CSSArgType,
-  position: CSSSelectArgType,
+  position: CSSArgType,
+  display: CSSArgType,
+  flexDirection: CSSArgType,
+  flexBasis: CSSArgType,
+  flexFlow: CSSArgType,
+  flexWrap: CSSArgType,
+  alignContent: CSSArgType,
+  alignItems: CSSArgType,
+  justifyContent: CSSArgType,
+  justifyItems: CSSArgType,
+  gap: CSSArgType,
 };
 
 export const responsiveStackPropsArgTypes: ResponsiveArgTypes<ResponsiveStackProps> =
   {
-    ...responsivePropsArgTypes,
-    display: CSSSelectArgType,
-    flexDirection: CSSSelectArgType,
-    gap: CSSArgType,
+    ...(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { display, flexDirection, ...rest } = responsivePropsArgTypes;
+      return rest;
+    })(),
   };
 
 export const windowWidthDecorator = (Story: ReactNode, intro?: string) => {

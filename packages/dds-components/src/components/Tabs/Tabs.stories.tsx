@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 

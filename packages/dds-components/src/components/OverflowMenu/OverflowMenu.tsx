@@ -30,6 +30,9 @@ export const OverflowMenu = ({
 
   return (
     <Paper
+      overflowY="auto"
+      minWidth="180px"
+      maxWidth="300px"
       ref={useCombinedRef(menuRef, ref)}
       {...getBaseHTMLProps(
         menuId,

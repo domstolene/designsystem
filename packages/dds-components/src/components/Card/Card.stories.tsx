@@ -8,7 +8,7 @@ import {
   DescriptionListTerm,
 } from '../DescriptionList';
 import { Divider } from '../Divider';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Link, Paragraph } from '../Typography';
 
 import {
@@ -24,7 +24,6 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
     },
   },
   argTypes: {

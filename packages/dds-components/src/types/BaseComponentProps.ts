@@ -22,6 +22,7 @@ export type BaseComponentProps<
   TOtherProps & {
     /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
     htmlProps?: THTMLAttributesProps;
+    /**Ref til komponenten. */
     ref?: Ref<TElement>;
   };
 

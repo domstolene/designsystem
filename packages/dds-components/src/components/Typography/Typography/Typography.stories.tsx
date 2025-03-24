@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Typography } from '..';
 import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
-import { StoryVStack } from '../../Stack/utils';
+import { StoryVStack } from '../../layout/Stack/utils';
 
 export default {
   title: 'dds-components/Components/Typography/Typography',

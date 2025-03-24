@@ -30,6 +30,7 @@ export const isSpacingScale = (value: unknown): value is SpacingScale => {
   return (
     typeof value === 'string' &&
     [
+      'x0',
       'x0.125',
       'x0.25',
       'x0.5',
@@ -47,6 +48,7 @@ export const isSpacingScale = (value: unknown): value is SpacingScale => {
 };
 
 type HyphenSpacingProps =
+  | 'x0'
   | 'x0-125'
   | 'x0-25'
   | 'x0-5'
@@ -67,6 +69,12 @@ export function spacingPropToCn(value: string): HyphenSpacingProps {
 const spacingToken = (v: SpacingScale): string =>
   `var(--dds-spacing-${spacingPropToCn(v)})`;
 
+const convertMultiValue = (value: string) =>
+  value
+    .split(' ')
+    .map(v => (isSpacingScale(v) ? spacingToken(v) : v))
+    .join(' ');
+
 export function getResponsiveCSSProperties<T>(
   property?: ResponsiveProp<T>,
   prefix?: string,
@@ -84,14 +92,12 @@ export function getResponsiveCSSProperties<T>(
     breakpoints.forEach(bp => {
       if (property[bp]) {
         (properties as Record<string, string>)[`${pPrefix}-${bp}${pSuffix}`] =
-          isSpacingScale(property[bp])
-            ? spacingToken(property[bp])
-            : (property[bp] as string);
+          convertMultiValue(property[bp].toString());
       }
     });
-  } else {
+  } else if (property) {
     (properties as Record<string, string>)[`${pPrefix}${pSuffix}`] =
-      isSpacingScale(property) ? spacingToken(property) : (property as string);
+      convertMultiValue(property.toString());
   }
 
   if (!Object.keys(properties).length && defaultPrefix && defaultSuffix) {

@@ -5,9 +5,9 @@ import { type Placement } from '../../hooks';
 import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
+import { VStack } from '../layout/Stack';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
-import { VStack } from '../Stack';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Paragraph } from '../Typography';
 
 import { Popover, PopoverGroup } from '.';
@@ -39,7 +39,7 @@ export const Default: Story = {
       <PopoverGroup>
         <Button>Åpne</Button>
         <Popover {...args}>
-          <VStack align="start">
+          <VStack>
             <Paragraph withMargins>
               Dette er en popover med tekst og knapp
             </Paragraph>
@@ -54,12 +54,12 @@ export const Default: Story = {
 export const ContentOverview: Story = {
   args: {},
   render: args => (
-    <StoryHStack justify="center">
+    <StoryHStack justifyContent="center">
       <div>
         <PopoverGroup>
           <Button>Åpne</Button>
           <Popover {...args} header="Tittel">
-            <VStack align="start">
+            <VStack>
               <Paragraph withMargins>
                 Dette er en popover med tittel, innhold og lukkeknapp
               </Paragraph>
@@ -72,7 +72,7 @@ export const ContentOverview: Story = {
         <PopoverGroup>
           <Button>Åpne</Button>
           <Popover {...args} header="Tittel" withCloseButton={false}>
-            <VStack align="start">
+            <VStack>
               <Paragraph withMargins>
                 Dette er en popover med tittel og innhold
               </Paragraph>
@@ -85,7 +85,7 @@ export const ContentOverview: Story = {
         <PopoverGroup>
           <Button>Åpne</Button>
           <Popover {...args}>
-            <VStack align="start">
+            <VStack>
               <Paragraph withMargins>
                 Dette er en popover med innhold og lukkeknapp
               </Paragraph>
@@ -112,7 +112,7 @@ export const PlacementOverview: Story = {
     );
     return (
       <StoryHStack
-        justify="center"
+        justifyContent="center"
         htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}
       >
         <StoryVStack>
@@ -148,7 +148,7 @@ export const Controlled: Story = {
         <PopoverGroup isOpen={isOpen} setIsOpen={setIsOpen}>
           <Button>Åpne</Button>
           <Popover {...args}>
-            <VStack align="start">
+            <VStack>
               <Paragraph withMargins>
                 Dette er en popover med tekst og knapp
               </Paragraph>
@@ -173,7 +173,7 @@ export const WithOnOpenAndOnClose: Story = {
         <PopoverGroup onClose={onClose} onOpen={onOpen}>
           <Button>Åpne</Button>
           <Popover {...args}>
-            <VStack align="start">
+            <VStack>
               <Paragraph withMargins>
                 Dette er en popover med tekst og knapp
               </Paragraph>
@@ -241,7 +241,7 @@ export const Custom: Story = {
     const bRef = useRef<HTMLButtonElement>(null);
     const id = 'id';
     return (
-      <StoryVStack align="center">
+      <StoryVStack alignItems="center">
         <LocalMessage purpose="warning" message="Brukes kun ved corner cases" />
 
         <Button
@@ -264,7 +264,7 @@ export const Custom: Story = {
             setIsOpen(false);
           }}
         >
-          <VStack align="start">
+          <VStack>
             <Paragraph withMargins>
               Dette er en popover med tekst og knapp
             </Paragraph>

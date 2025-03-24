@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { useWindowResize } from '../../../hooks';
 import {
-  htmlPropsArgType,
+  commonResponsivePropsArgTypes,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
@@ -18,9 +18,9 @@ const meta: Meta<typeof Box> = {
   argTypes: {
     breakpointBelow: { control: 'select' },
     breakpointAbove: { control: 'select' },
+    ...commonResponsivePropsArgTypes,
     ...responsivePropsArgTypes,
-    className: htmlPropsArgType,
-    style: htmlPropsArgType,
+    as: { control: 'text' },
   },
   parameters: {
     docs: {

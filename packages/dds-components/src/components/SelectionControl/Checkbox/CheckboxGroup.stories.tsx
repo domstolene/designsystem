@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../../storybook/helpers';
 import { Fieldset } from '../../Fieldset';
-import { StoryHStack, StoryVStack } from '../../Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Legend } from '../../Typography';
 
 import { Checkbox, CheckboxGroup } from '.';

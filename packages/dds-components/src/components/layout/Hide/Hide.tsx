@@ -4,11 +4,11 @@ import styles from '../common/display.module.css';
 import {
   type CommonResponsiveProps,
   type PolymorphicProp,
-  type ResponsiveDisplayHideProps,
+  type PrimitiveDisplayHideProps,
 } from '../common/Responsive.types';
 
 export type HideProps = PolymorphicProp &
-  ResponsiveDisplayHideProps &
+  PrimitiveDisplayHideProps &
   CommonResponsiveProps;
 
 export const Hide = ({

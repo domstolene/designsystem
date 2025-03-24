@@ -1,4 +1,4 @@
-import { type StandardProperties } from 'csstype';
+import { type Property, type StandardProperties } from 'csstype';
 import {
   type CSSProperties,
   type ElementType,
@@ -21,6 +21,7 @@ export interface PolymorphicProp {
 }
 
 export type SpacingScale =
+  | 'x0'
   | 'x0.125'
   | 'x0.25'
   | 'x0.5'
@@ -34,14 +35,14 @@ export type SpacingScale =
   | 'x6'
   | 'x10';
 
-export interface ResponsiveDisplayHideProps {
+export interface PrimitiveDisplayHideProps {
   /** Brekkpunkt og nedover komponenten skal skjules.  */
   breakpointBelow?: ScreenSizeLiteral;
   /** Brekkpunkt og oppover komponenten skal skjules.  */
   breakpointAbove?: ScreenSizeLiteral;
 }
 
-export interface ResponsiveDisplayShowProps {
+export interface PrimitiveDisplayShowProps {
   /** Brekkpunkt og nedover komponenten skal vises.  */
   breakpointBelow?: ScreenSizeLiteral;
   /** Brekkpunkt og oppover komponenten skal vises.  */
@@ -81,53 +82,76 @@ export interface CSSProps {
   style?: CSSProperties;
 }
 
-/**TODO: implementere ordentlige responsive props med tilhørende CSS fil. */
-
-export type ResponsiveProps = ResponsiveDisplayHideProps & {
+interface PrimitiveLayoutProps {
   /** CSS width. */
-  width?: StaticAndBreakpointBasedProp<'width'>;
+  width?: ResponsiveProp<StandardProperties['width']>; //
   /** CSS max width. */
-  maxWidth?: StaticAndBreakpointBasedProp<'maxWidth'>;
+  maxWidth?: ResponsiveProp<StandardProperties['maxWidth']>; //
   /** CSS min width. */
-  minWidth?: StaticAndBreakpointBasedProp<'minWidth'>;
+  minWidth?: ResponsiveProp<StandardProperties['minWidth']>; //
   /** CSS height. */
-  height?: StaticAndBreakpointBasedProp<'height'>;
+  height?: ResponsiveProp<StandardProperties['height']>; //
   /** CSS max height. */
-  maxHeight?: StaticAndBreakpointBasedProp<'maxHeight'>;
+  maxHeight?: ResponsiveProp<StandardProperties['maxHeight']>; //
   /** CSS min height. */
-  minHeight?: StaticAndBreakpointBasedProp<'minHeight'>;
-  /** CSS top. */
-  top?: StaticAndBreakpointBasedProp<'top'>;
-  /** CSS bottom. */
-  bottom?: StaticAndBreakpointBasedProp<'bottom'>;
-  /** CSS left. */
-  left?: StaticAndBreakpointBasedProp<'left'>;
-  /** CSS right. */
-  right?: StaticAndBreakpointBasedProp<'right'>;
-  /** CSS padding. Støtter standardverdier og dds spacing tokens skala. */
-  padding?: ResponsiveProp<StandardProperties['padding'] | SpacingScale>;
-  /** CSS padding inline. */
-  paddingInline?: StaticAndBreakpointBasedProp<'paddingInline'>;
-  /** CSS padding block. */
-  paddingBlock?: StaticAndBreakpointBasedProp<'paddingBlock'>;
-  /** CSS margin. */
-  margin?: StaticAndBreakpointBasedProp<'margin'>;
-  /** CSS margin inline. */
-  marginInline?: StaticAndBreakpointBasedProp<'marginInline'>;
-  /** CSS margin block. */
-  marginBlock?: StaticAndBreakpointBasedProp<'marginBlock'>;
+  minHeight?: ResponsiveProp<StandardProperties['minHeight']>; //
+  /** CSS overflow. */
+  overflow?: ResponsiveProp<StandardProperties['overflow']>; //
+  /** CSS overflow y. */
+  overflowY?: ResponsiveProp<StandardProperties['overflowY']>; //
+  /** CSS overflow x. */
+  overflowX?: ResponsiveProp<StandardProperties['overflowX']>; //
   /** CSS position. */
-  position?: StaticAndBreakpointBasedProp<'position'>;
-};
-
-export type ResponsiveStackProps = ResponsiveProps & {
+  position?: ResponsiveProp<Property.Position>; //
+  /** CSS top. Støtter standardverdier og dds spacing tokens skala. */
+  top?: ResponsiveProp<StandardProperties['top'] | SpacingScale>; //
+  /** CSS bottom. Støtter standardverdier og dds spacing tokens skala. */
+  bottom?: ResponsiveProp<StandardProperties['bottom'] | SpacingScale>; //
+  /** CSS left. Støtter standardverdier og dds spacing tokens skala. */
+  left?: ResponsiveProp<StandardProperties['left'] | SpacingScale>; //
+  /** CSS right. Støtter standardverdier og dds spacing tokens skala. */
+  right?: ResponsiveProp<StandardProperties['right'] | SpacingScale>; //
+  /** CSS padding. Støtter standardverdier og dds spacing tokens skala. */
+  padding?: ResponsiveProp<StandardProperties['padding'] | SpacingScale>; //
+  /** CSS padding inline. */
+  paddingInline?: ResponsiveProp<
+    StandardProperties['paddingInline'] | SpacingScale
+  >;
+  /** CSS padding block. Støtter standardverdier og dds spacing tokens skala.*/
+  paddingBlock?: ResponsiveProp<
+    StandardProperties['paddingBlock'] | SpacingScale
+  >;
+  /** CSS margin. Støtter standardverdier og dds spacing tokens skala.*/
+  margin?: ResponsiveProp<StandardProperties['margin'] | SpacingScale>;
+  /** CSS margin inline. Støtter standardverdier og dds spacing tokens skala.*/
+  marginInline?: ResponsiveProp<
+    StandardProperties['marginInline'] | SpacingScale
+  >;
+  /** CSS margin block. Støtter standardverdier og dds spacing tokens skala.*/
+  marginBlock?: ResponsiveProp<
+    StandardProperties['marginBlock'] | SpacingScale
+  >;
   /** CSS display. */
-  display?: StaticAndBreakpointBasedProp<'display'>;
+  display?: ResponsiveProp<StandardProperties['display']>;
   /** CSS flex-direction. */
-  flexDirection?: StaticAndBreakpointBasedProp<'flexDirection'>;
+  flexDirection?: ResponsiveProp<StandardProperties['flexDirection']>;
+  /** CSS flex-basis. */
+  flexBasis?: ResponsiveProp<StandardProperties['flexBasis']>;
+  /** CSS flex-wrap. */
+  flexWrap?: ResponsiveProp<StandardProperties['flexWrap']>;
+  /** CSS flex-flow. */
+  flexFlow?: ResponsiveProp<StandardProperties['flexFlow']>;
+  /** CSS align items. */
+  alignItems?: ResponsiveProp<StandardProperties['alignItems']>;
+  /** CSS justify items. */
+  justifyItems?: ResponsiveProp<StandardProperties['justifyItems']>;
+  /** CSS align-content. */
+  alignContent?: ResponsiveProp<StandardProperties['alignContent']>;
+  /** CSS justify-content. */
+  justifyContent?: ResponsiveProp<StandardProperties['justifyContent']>;
   /** CSS gap. */
-  gap?: StaticAndBreakpointBasedProp<'gap'>;
-};
+  gap?: ResponsiveProp<StandardProperties['gap'] | SpacingScale>;
+}
 
 export type PolymorphicResponsiveProps = PolymorphicProp & ResponsiveProps;
 
@@ -137,3 +161,13 @@ export type CommonResponsiveProps = CSSProps & {
   /**Barn. */
   children?: ReactNode;
 };
+
+export type ResponsiveProps = PolymorphicProp &
+  CommonResponsiveProps &
+  PrimitiveDisplayHideProps &
+  PrimitiveLayoutProps;
+
+export type ResponsiveStackProps = Omit<
+  ResponsiveProps,
+  'display' | 'flexDirection'
+>;

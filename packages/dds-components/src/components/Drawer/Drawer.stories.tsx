@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Paragraph } from '../Typography';
 

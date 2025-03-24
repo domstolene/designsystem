@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { categoryHtml, windowWidthDecorator } from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { PhoneInput, type PhoneInputValue } from '.';
 

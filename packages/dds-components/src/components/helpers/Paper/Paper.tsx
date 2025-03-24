@@ -1,10 +1,9 @@
-import { type ComponentPropsWithRef } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 
 import styles from './Paper.module.css';
 import { type BorderColor, getBorderCn } from '../../../types';
 import { cn } from '../../../utils';
-import { Box } from '../../layout/Box/Box';
-import { type ResponsiveProps } from '../../layout/common/Responsive.types';
+import { Box, type BoxProps } from '../../layout/Box/Box';
 
 type Elevation = 1 | 2 | 3 | 4;
 type Border = BorderColor;
@@ -14,8 +13,8 @@ export type PaperProps = {
   elevation?: Elevation;
   /**Farge på kantlinje. */
   border?: Border;
-} & ResponsiveProps &
-  ComponentPropsWithRef<'div'>;
+} & BoxProps &
+  ComponentPropsWithoutRef<'div'>;
 
 export const Paper = ({
   elevation,

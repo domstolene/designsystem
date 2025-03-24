@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryHStack } from '../Stack/utils';
+import { StoryHStack } from '../layout/Stack/utils';
 
 import { InputMessage } from '.';
 

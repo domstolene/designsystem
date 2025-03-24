@@ -3,39 +3,33 @@ import {
   Source,
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
-import * as StackStories from './Stack.stories';
+import * as StackStories from './HStack.stories';
 
 <Meta of={StackStories} />
 
-# VStack og HStack
+# HStack
 
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/8539cc-stack"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Stack"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-stack--v-stack-default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-layout-primitives-hstack--docs"
   withBottomSpacing
 />
 
-`<VStack>` og `<HStack>` er komponenter som skal hjelpe deg med layout.
+`<HStack>` er komponenter som skal hjelpe deg med layout.
 De lar deg respektivt legge elementer i en kolonne eller rad.
 
 ## Props
 
-<Canvas of={StackStories.VStackDefault} />
-<Controls of={StackStories.VStackDefault} />
+<Canvas of={StackStories.Default} />
+<Controls of={StackStories.Default} />
 
 ## Bruk
 
 <Source
-  code={`import { VStack, HStack } from '@norges-domstoler/dds-components';
+  code={`import { HStack } from '@norges-domstoler/dds-components';
 
-<VStack gap="x1">
-  <div />
-  <div />
-  <div />
-</VStack>
-
-<HStack justify="space-between">
+<HStack justifyContent="space-between">
   <div />
   <div />
   <div />

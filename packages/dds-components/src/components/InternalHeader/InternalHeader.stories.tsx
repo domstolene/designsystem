@@ -5,7 +5,7 @@ import {
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { EditIcon } from '../Icon/icons';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 import { InternalHeader } from '.';
 
@@ -113,7 +113,7 @@ export const Overview: Story = {
     applicationDesc: 'Produktnavn',
   },
   render: args => (
-    <StoryVStack align="stretch">
+    <StoryVStack alignItems="stretch">
       <InternalHeader {...args} />
       <InternalHeader
         {...args}

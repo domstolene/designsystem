@@ -1,18 +1,16 @@
-import { cn } from '../../../utils';
 import { Divider, type DividerProps } from '../../Divider';
-import styles from '../OverflowMenu.module.css';
+import { Box } from '../../layout';
 
 type OverflowMenuDividerProps = DividerProps;
 
-export const OverflowMenuDivider = ({
-  className,
-  ...rest
-}: OverflowMenuDividerProps) => {
+export const OverflowMenuDivider = (props: OverflowMenuDividerProps) => {
   return (
-    <Divider
+    <Box
+      marginInline="x0.5"
+      marginBlock="x0"
+      as={Divider}
       color="subtle"
-      className={cn(className, styles.divider)}
-      {...rest}
+      {...props}
     />
   );
 };

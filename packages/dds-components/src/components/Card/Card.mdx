@@ -26,7 +26,7 @@ Det finnes følgene typer `<Card>`:
 - **navigation**: gjør `<Card>` klikkbart og rendrer en lenke. Skal ikke inneholde interaktive elementer.
 - **expandable**: brukes når `<Card>` skal ha en tittel og ekspanderbart panel. Ved expandable Card skal delkomponentene `<CardExpandable>`, `<CardExpandableHeader>` og `<CardExpandableBody>` brukes.
 
-  `<Card>` får typen via cardType-prop (se [Card Props](#card-1)).
+`<Card>` får typen via cardType-prop (se [Card Props](#card-1)).
 
 ## Props
 
@@ -48,24 +48,6 @@ En container for CardExpandable-subkomponenter som håndterer oppførsel og univ
 <Canvas of={CardStories.Expandable} sourceState="shown" />
 
 <ArgTypes of={CardExpandable} />
-
-#### Bruk
-
-<Source code={`
-import {
-  Card,
-  CardExpandable,
-  CardExpandableBody,
-  CardExpandableHeader,
-} from '@norges-domstoler/dds-components';
-
-<Card cardType="expandable">
-  <CardExpandable>
-    <CardExpandableHeader> Title </CardExpandableHeader>
-    <CardExpandableBody>Content</CardExpandableBody>
-  </CardExpandable>
-</Card>
-`} />
 
 ### CardExpandableHeader
 

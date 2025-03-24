@@ -4,7 +4,7 @@ import {
   htmlPropsArgType,
   windowWidthDecorator,
 } from '../../storybook/helpers';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Pagination } from '.';
@@ -19,7 +19,7 @@ const meta: Meta<typeof Pagination> = {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
   decorators: [

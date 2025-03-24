@@ -11,8 +11,8 @@ import { useRef, useState } from 'react';
 
 import { windowWidthDecorator } from '../../../storybook/helpers';
 import { Button } from '../../Button';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Modal } from '../../Modal';
-import { StoryHStack, StoryVStack } from '../../Stack/utils';
 import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../../Typography';
 import { TimePicker } from '../TimePicker';
