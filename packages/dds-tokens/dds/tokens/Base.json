@@ -1,305 +1,431 @@
 {
   "dds-color-base": {
     "primary": {
-      "lightest": {
+      "50": {
         "value": "#eaeff4",
         "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#acbbc6",
         "type": "color"
       },
-      "light": {
+      "400": {
         "value": "#4f6a7e",
         "type": "color"
       },
-      "base": {
-        "value": "#354754",
-        "type": "color",
-        "description": "Primary er hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge"
-      },
-      "dark": {
-        "value": "#313d45",
+      "450": {
+        "value": "#405767",
         "type": "color"
       },
-      "darker": {
+      "500": {
+        "value": "#354754",
+        "type": "color"
+      },
+      "600": {
+        "value": "#2A3943",
+        "type": "color"
+      },
+      "700": {
         "value": "#202b32",
         "type": "color"
       },
-      "darkest": {
+      "750": {
+        "value": "#1B242A",
+        "type": "color"
+      },
+      "800": {
         "value": "#151c22",
+        "type": "color"
+      },
+      "850": {
+        "value": "#101519",
         "type": "color"
       }
     },
-    "neutrals": {
+    "gray": {
+      "50": {
+        "value": "#F1F3F4",
+        "type": "color"
+      },
+      "100": {
+        "value": "#E4E6E8",
+        "type": "color"
+      },
+      "200": {
+        "value": "#D6DADD",
+        "type": "color"
+      },
+      "300": {
+        "value": "#adb5ba",
+        "type": "color"
+      },
+      "500": {
+        "value": "#77838c",
+        "type": "color"
+      },
+      "600": {
+        "value": "#545c62",
+        "type": "color"
+      },
+      "700": {
+        "value": "#3a4146",
+        "type": "color"
+      },
+      "800": {
+        "value": "#303438",
+        "type": "color"
+      },
+      "850": {
+        "value": "#22272a",
+        "type": "color"
+      },
+      "900": {
+        "value": "#181A1C",
+        "type": "color"
+      },
       "white": {
         "value": "#ffffff",
         "type": "color"
       },
-      "gray1": {
-        "value": "#f8f9f9",
-        "type": "color"
-      },
-      "gray2": {
-        "value": "#ebecee",
-        "type": "color"
-      },
-      "gray3": {
-        "value": "#cfd4d7",
-        "type": "color"
-      },
-      "gray4": {
-        "value": "#adb5ba",
-        "type": "color"
-      },
-      "gray5": {
-        "value": "#77838c",
-        "type": "color"
-      },
-      "gray6": {
-        "value": "#545c62",
-        "type": "color"
-      },
-      "gray7": {
-        "value": "#3a4146",
-        "type": "color"
-      },
-      "gray8": {
-        "value": "#22272a",
-        "type": "color"
-      },
-      "gray9": {
+      "black": {
         "value": "#0b0d0e",
         "type": "color"
       }
     },
     "interactive": {
-      "lightest": {
+      "50": {
         "value": "#e7f1f7",
         "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#9fc5de",
         "type": "color"
       },
-      "light": {
+      "350": {
         "value": "#589ac6",
         "type": "color"
       },
-      "base": {
-        "value": "#106ead",
-        "type": "color",
-        "description": "Interactive brukes til interaksjon. Dette er vanligvis knapper og lenker. Den brukes ofte for å indikere at en komponent er klikkbar eller at man interagerer med den"
+      "400": {
+        "value": "#408BBD",
+        "type": "color"
       },
-      "dark": {
+      "500": {
+        "value": "#106ead",
+        "type": "color"
+      },
+      "600": {
         "value": "#0d588a",
         "type": "color"
       },
-      "darker": {
+      "700": {
         "value": "#0a4268",
         "type": "color"
       },
-      "darkest": {
+      "750": {
+        "value": "#083757",
+        "type": "color"
+      },
+      "800": {
         "value": "#062c45",
+        "type": "color"
+      },
+      "900": {
+        "value": "#052134",
         "type": "color"
       }
     },
     "secondary": {
-      "lightest": {
+      "100": {
         "value": "#e6eded",
-        "type": "color",
-        "description": "--l80"
+        "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#cddbdb",
         "type": "color"
       },
-      "light": {
+      "350": {
         "value": "#b8cdcd",
         "type": "color"
       },
-      "base": {
-        "value": "#9ab8b7",
-        "type": "color",
-        "description": "Secondary er den andre hovedfargen til Domstolene. Denne brukes ofte som bakgrunnsfarge."
-      },
-      "dark": {
-        "value": "#7b9392",
+      "450": {
+        "value": "#A9C4C4",
         "type": "color"
       },
-      "darker": {
+      "500": {
+        "value": "#9ab8b7",
+        "type": "color"
+      },
+      "600": {
+        "value": "#759997",
+        "type": "color"
+      },
+      "700": {
         "value": "#4d6463",
         "type": "color"
       },
-      "darkest": {
-        "value": "#3e4a49",
+      "750": {
+        "value": "#435656",
+        "type": "color"
+      },
+      "800": {
+        "value": "#3A4E4C",
+        "type": "color"
+      },
+      "850": {
+        "value": "#2B3A3A",
         "type": "color"
       }
     },
     "tertiary": {
-      "lightest": {
-        "value": "#ffe6df",
+      "100": {
+        "value": "#FCE5DD",
         "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#ffd6ca",
         "type": "color"
       },
-      "light": {
-        "value": "#f6c1b1",
-        "type": "color"
-      },
-      "base": {
+      "350": {
         "value": "#f2a68f",
-        "type": "color",
-        "description": "Tertiary er er den tredje profilfargen til Domstolene. Denne brukes gjerne som støttefarge"
-      },
-      "dark": {
-        "value": "#f59877",
         "type": "color"
       },
-      "darker": {
+      "400": {
+        "value": "#F38B66",
+        "type": "color"
+      },
+      "500": {
         "value": "#f27e55",
         "type": "color"
       },
-      "darkest": {
-        "value": "#c26544",
+      "600": {
+        "value": "#D45D32",
+        "type": "color"
+      },
+      "700": {
+        "value": "#A24422",
+        "type": "color"
+      },
+      "750": {
+        "value": "#833A21",
+        "type": "color"
+      },
+      "800": {
+        "value": "#692E1A",
+        "type": "color"
+      },
+      "900": {
+        "value": "#4F2314",
         "type": "color"
       }
     },
     "success": {
-      "lightest": {
+      "50": {
         "value": "#f0f9f0",
         "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#c1e5c2",
         "type": "color"
       },
-      "light": {
+      "350": {
         "value": "#93d294",
         "type": "color"
       },
-      "base": {
-        "value": "#65be66",
-        "type": "color",
-        "description": "Brukes for å kommunisere suksess eller noe som er riktig."
+      "450": {
+        "value": "#74C575",
+        "type": "color"
       },
-      "dark": {
+      "500": {
+        "value": "#65be66",
+        "type": "color"
+      },
+      "600": {
         "value": "#519852",
         "type": "color"
       },
-      "darker": {
+      "700": {
         "value": "#3d723d",
         "type": "color"
       },
-      "darkest": {
+      "750": {
+        "value": "#335F33",
+        "type": "color"
+      },
+      "800": {
         "value": "#284c29",
+        "type": "color"
+      },
+      "850": {
+        "value": "#1E391F",
         "type": "color"
       }
     },
     "danger": {
-      "lightest": {
+      "50": {
         "value": "#fbebeb",
         "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#efafaf",
         "type": "color"
       },
-      "light": {
+      "350": {
         "value": "#e47373",
         "type": "color"
       },
-      "base": {
-        "value": "#d83737",
-        "type": "color",
-        "description": "Brukes for å kommunisere feil og destruktive handlinger, som f.eks. slett."
+      "450": {
+        "value": "#DC4B4B",
+        "type": "color"
       },
-      "dark": {
+      "500": {
+        "value": "#d83737",
+        "type": "color"
+      },
+      "600": {
         "value": "#ad2c2c",
         "type": "color"
       },
-      "darker": {
+      "700": {
         "value": "#822121",
         "type": "color"
       },
-      "darkest": {
+      "750": {
+        "value": "#6C1C1C",
+        "type": "color"
+      },
+      "800": {
         "value": "#561616",
+        "type": "color"
+      },
+      "850": {
+        "value": "#411111",
         "type": "color"
       }
     },
     "warning": {
-      "lightest": {
+      "50": {
         "value": "#fefced",
         "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#fbf3b8",
         "type": "color"
       },
-      "light": {
+      "350": {
         "value": "#f7e982",
         "type": "color"
       },
-      "base": {
+      "450": {
+        "value": "#F5E35F",
+        "type": "color"
+      },
+      "500": {
         "value": "#f4e04d",
-        "type": "color",
-        "description": "Brukes for å kommunisere varsler."
-      },
-      "dark": {
-        "value": "#c3b33e",
         "type": "color"
       },
-      "darker": {
-        "value": "#92862e",
+      "600": {
+        "value": "#CCBA35",
         "type": "color"
       },
-      "darkest": {
-        "value": "#625a1f",
+      "700": {
+        "value": "#9A8C26",
+        "type": "color"
+      },
+      "750": {
+        "value": "#817520",
+        "type": "color"
+      },
+      "800": {
+        "value": "#675E1A",
+        "type": "color"
+      },
+      "850": {
+        "value": "#494317",
         "type": "color"
       }
     },
     "info": {
-      "lightest": {
+      "50": {
         "value": "#f1f8fd",
         "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#c8e3f5",
         "type": "color"
       },
-      "light": {
+      "350": {
         "value": "#9eceee",
         "type": "color"
       },
-      "base": {
+      "450": {
+        "value": "#83C0E9",
+        "type": "color"
+      },
+      "500": {
         "value": "#75b9e6",
         "type": "color"
       },
-      "dark": {
-        "value": "#5e94b8",
+      "600": {
+        "value": "#5197C5",
         "type": "color"
       },
-      "darker": {
-        "value": "#466f8a",
+      "700": {
+        "value": "#3E7192",
         "type": "color"
       },
-      "darkest": {
-        "value": "#2f4a5c",
+      "750": {
+        "value": "#345E7A",
+        "type": "color"
+      },
+      "800": {
+        "value": "#2A4B61",
+        "type": "color"
+      },
+      "850": {
+        "value": "#233845",
         "type": "color"
       }
     },
     "visited": {
-      "base": {
-        "value": "#7F29B4",
-        "type": "color",
-        "description": "Used for visited links"
+      "50": {
+        "value": "#F2EAF8",
+        "type": "color"
       },
-      "lighter": {
+      "200": {
         "value": "#CCA9E1",
-        "type": "color",
-        "description": "Used for visited links"
+        "type": "color"
+      },
+      "350": {
+        "value": "#A569CB",
+        "type": "color"
+      },
+      "450": {
+        "value": "#8C3EBC",
+        "type": "color"
+      },
+      "500": {
+        "value": "#7F29B4",
+        "type": "color"
+      },
+      "600": {
+        "value": "#662190",
+        "type": "color"
+      },
+      "700": {
+        "value": "#4C196C",
+        "type": "color"
+      },
+      "750": {
+        "value": "#40155A",
+        "type": "color"
+      },
+      "800": {
+        "value": "#331048",
+        "type": "color"
+      },
+      "850": {
+        "value": "#260C36",
+        "type": "color"
       }
     }
   },
@@ -542,7 +668,7 @@
         "y": "2px",
         "blur": "4px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
+        "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow"
@@ -553,7 +679,7 @@
         "y": "4px",
         "blur": "8px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
+        "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow"
@@ -564,7 +690,7 @@
         "y": "8px",
         "blur": "16px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
+        "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow"
@@ -575,7 +701,7 @@
         "y": "16px",
         "blur": "32px",
         "spread": "0px",
-        "color": "rgba( {dds-color-base.neutrals.gray9}, 10%)",
+        "color": "rgba( {dds-color-base.gray.black}, 10%)",
         "type": "dropShadow"
       },
       "type": "boxShadow"
