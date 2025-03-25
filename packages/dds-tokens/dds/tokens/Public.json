@@ -393,7 +393,8 @@
       },
       "primary-strong": {
         "value": "{dds-color-base.primary.700}",
-        "type": "color"
+        "type": "color",
+        "description": "Primary brand color"
       },
       "secondary-default": {
         "value": "{dds-color-base.secondary.500}",
@@ -412,10 +413,11 @@
       },
       "secondary-strong": {
         "value": "{dds-color-base.secondary.700}",
-        "type": "color"
+        "type": "color",
+        "description": "Secondary brand color"
       },
       "tertiary-default": {
-        "value": "{dds-color-base.tertiary.350}",
+        "value": "{dds-color-base.tertiary.500}",
         "type": "color",
         "description": "Tertiary brand color"
       },
@@ -425,13 +427,14 @@
         "description": "Tertiary brand color"
       },
       "tertiary-medium": {
-        "value": "{dds-color-base.tertiary.700}",
+        "value": "{dds-color-base.tertiary.350}",
         "type": "color",
         "description": "Tertiary brand color"
       },
       "tertiary-strong": {
-        "value": "{dds-color-base.tertiary.500}",
-        "type": "color"
+        "value": "{dds-color-base.tertiary.600}",
+        "type": "color",
+        "description": "Tertiary brand color"
       }
     },
     "focus": {
