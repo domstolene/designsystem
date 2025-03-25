@@ -448,6 +448,18 @@
         "type": "color",
         "description": "Contrast to .outside"
       }
+    },
+    "data": {
+      "01": {
+        "default": {
+          "value": "{dds-color-data.blue.500}",
+          "type": "color"
+        },
+        "subtle": {
+          "value": "{dds-color-data.blue.200}",
+          "type": "color"
+        }
+      }
     }
   },
   "dds-font": {
