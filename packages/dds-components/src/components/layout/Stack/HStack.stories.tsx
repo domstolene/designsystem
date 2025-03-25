@@ -1,17 +1,14 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { HStack } from './HStack';
-import {
-  htmlPropsArgType,
-  responsiveStackPropsArgTypes,
-} from '../../../storybook/helpers';
+import { responsiveStackPropsArgTypes } from '../../../storybook/helpers';
 import { Box } from '../../layout';
 
 export default {
   title: 'dds-components/Layout Primitives/HStack',
   component: HStack,
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    as: { control: 'text' },
     ...responsiveStackPropsArgTypes,
   },
 } satisfies Meta<typeof HStack>;

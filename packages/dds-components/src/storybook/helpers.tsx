@@ -3,7 +3,6 @@ import { type ArgTypes } from '@storybook/react';
 import { type ReactNode, useState } from 'react';
 
 import {
-  type CommonResponsiveProps,
   type ResponsiveProps,
   type ResponsiveStackProps,
 } from '../components/layout/common/Responsive.types';
@@ -11,6 +10,7 @@ import { getBreakpointFromScreenWidth } from '../components/layout/common/utils'
 import { HStack, VStack } from '../components/layout/Stack';
 import { Paragraph } from '../components/Typography';
 import { useWindowResize } from '../hooks';
+import { type BaseComponentPropsWithChildren } from '../types';
 
 export const categories = {
   html: 'HTML attributes',
@@ -47,15 +47,20 @@ type ResponsiveArgTypes<T> = {
   };
 };
 
-export const commonResponsivePropsArgTypes: ResponsiveArgTypes<CommonResponsiveProps> =
-  {
-    ref: { control: { disable: true } },
-    children: { control: { disable: true } },
-    className: htmlPropsArgType,
-    style: htmlPropsArgType,
-  };
+export const commonBasePropsArgTypes: ResponsiveArgTypes<
+  BaseComponentPropsWithChildren<HTMLDivElement>
+> = {
+  ref: { control: { disable: true } },
+  children: { control: { disable: true } },
+  className: htmlPropsArgType,
+  style: htmlPropsArgType,
+  htmlProps: htmlPropsArgType,
+};
 
 export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
+  ...commonBasePropsArgTypes,
+  breakpointAbove: { control: { type: 'select' } },
+  breakpointBelow: { control: { type: 'select' } },
   padding: CSSArgType,
   paddingBlock: CSSArgType,
   paddingInline: CSSArgType,

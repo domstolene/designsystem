@@ -1,17 +1,14 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { VStack } from './VStack';
-import {
-  htmlPropsArgType,
-  responsiveStackPropsArgTypes,
-} from '../../../storybook/helpers';
+import { responsiveStackPropsArgTypes } from '../../../storybook/helpers';
 import { Box } from '../../layout';
 
 export default {
   title: 'dds-components/Layout Primitives/VStack',
   component: VStack,
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    as: { control: 'text' },
     ...responsiveStackPropsArgTypes,
   },
 } satisfies Meta<typeof VStack>;

@@ -1,12 +1,26 @@
+import { type HTMLAttributes } from 'react';
+
+import {
+  type BaseComponentPropsWithChildren,
+  getBaseHTMLProps,
+} from '../../../types';
 import { cn } from '../../../utils';
 import styles from '../common/layout.module.css';
-import { type ResponsiveProps } from '../common/Responsive.types';
+import {
+  type CSSProps,
+  type ResponsiveProps,
+} from '../common/Responsive.types';
 import { getResponsiveCSSProperties } from '../common/utils';
 import { Hide } from '../Hide';
 
-export type BoxProps = ResponsiveProps;
+export type BoxProps = BaseComponentPropsWithChildren<
+  HTMLDivElement,
+  ResponsiveProps & CSSProps,
+  Omit<HTMLAttributes<HTMLDivElement>, keyof CSSProps>
+>;
 
 export const Box = ({
+  id,
   as = 'div',
   className,
   style,
@@ -40,6 +54,7 @@ export const Box = ({
   flexWrap,
   flexBasis,
   flexFlow,
+  htmlProps,
   ...rest
 }: BoxProps) => {
   const responsiveStyles = {
@@ -77,42 +92,46 @@ export const Box = ({
 
   return (
     <Hide
-      {...rest}
-      style={{ ...style, ...responsiveStyles }}
-      className={cn(
-        className,
-        padding && styles['dds-p'],
-        paddingInline && styles['dds-p-i'],
-        paddingBlock && styles['dds-p-b'],
-        margin && styles['dds-m'],
-        marginInline && styles['dds-m-i'],
-        marginBlock && styles['dds-m-b'],
-        height && styles['dds-h'],
-        maxHeight && styles['dds-max-h'],
-        minHeight && styles['dds-min-h'],
-        width && styles['dds-w'],
-        maxWidth && styles['dds-max-w'],
-        minWidth && styles['dds-min-w'],
-        position && styles['dds-pos'],
-        left && styles['dds-l'],
-        right && styles['dds-r'],
-        top && styles['dds-t'],
-        bottom && styles['dds-b'],
-        overflow && styles['dds-o'],
-        overflowX && styles['dds-o-x'],
-        overflowY && styles['dds-o-y'],
-        display && styles['dds-display'],
-        flexDirection && styles['dds-flex-dir'],
-        gap && styles['dds-gap'],
-        alignContent && styles['dds-a-c'],
-        alignItems && styles['dds-a-i'],
-        justifyContent && styles['dds-j-c'],
-        justifyItems && styles['dds-j-i'],
-        flexWrap && styles['dds-wrap'],
-        flexBasis && styles['dds-basis'],
-        flexFlow && styles['dds-flow'],
-      )}
       as={as}
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          padding && styles['dds-p'],
+          paddingInline && styles['dds-p-i'],
+          paddingBlock && styles['dds-p-b'],
+          margin && styles['dds-m'],
+          marginInline && styles['dds-m-i'],
+          marginBlock && styles['dds-m-b'],
+          height && styles['dds-h'],
+          maxHeight && styles['dds-max-h'],
+          minHeight && styles['dds-min-h'],
+          width && styles['dds-w'],
+          maxWidth && styles['dds-max-w'],
+          minWidth && styles['dds-min-w'],
+          position && styles['dds-pos'],
+          left && styles['dds-l'],
+          right && styles['dds-r'],
+          top && styles['dds-t'],
+          bottom && styles['dds-b'],
+          overflow && styles['dds-o'],
+          overflowX && styles['dds-o-x'],
+          overflowY && styles['dds-o-y'],
+          display && styles['dds-display'],
+          flexDirection && styles['dds-flex-dir'],
+          gap && styles['dds-gap'],
+          alignContent && styles['dds-a-c'],
+          alignItems && styles['dds-a-i'],
+          justifyContent && styles['dds-j-c'],
+          justifyItems && styles['dds-j-i'],
+          flexWrap && styles['dds-wrap'],
+          flexBasis && styles['dds-basis'],
+          flexFlow && styles['dds-flow'],
+        ),
+        htmlProps,
+        rest,
+      )}
+      style={{ ...style, ...responsiveStyles }}
     />
   );
 };

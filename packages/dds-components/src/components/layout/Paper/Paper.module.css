@@ -29,3 +29,27 @@
 :where(.border--on-inverse) {
   border: 1px solid var(--dds-color-border-inverse);
 }
+
+:where(.border-radius--button) {
+  border-radius: var(--dds-border-radius-button);
+}
+
+:where(.border-radius--surface) {
+  border-radius: var(--dds-border-radius-surface);
+}
+
+:where(.border-radius--chip) {
+  border-radius: var(--dds-border-radius-chip);
+}
+
+:where(.border-radius--input) {
+  border-radius: var(--dds-border-radius-input);
+}
+
+:where(.border-radius--rounded) {
+  border-radius: var(--dds-border-radius-rounded);
+}
+
+:where(.border-radius--0) {
+  border-radius: 0;
+}

@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import {
-  htmlPropsArgType,
+  commonBasePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
 
@@ -13,8 +13,8 @@ const meta: Meta<typeof Hide> = {
   argTypes: {
     breakpointBelow: { control: 'select' },
     breakpointAbove: { control: 'select' },
-    className: htmlPropsArgType,
-    style: htmlPropsArgType,
+    as: { control: 'text' },
+    ...commonBasePropsArgTypes,
   },
   parameters: {
     docs: {

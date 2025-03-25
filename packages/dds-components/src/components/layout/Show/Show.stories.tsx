@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import {
-  htmlPropsArgType,
+  commonBasePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
 
@@ -11,10 +11,10 @@ const meta: Meta<typeof Show> = {
   title: 'dds-components/Layout Primitives/Show',
   component: Show,
   argTypes: {
+    as: { control: 'text' },
     breakpointBelow: { control: 'select' },
     breakpointAbove: { control: 'select' },
-    className: htmlPropsArgType,
-    style: htmlPropsArgType,
+    ...commonBasePropsArgTypes,
   },
   parameters: {
     docs: {

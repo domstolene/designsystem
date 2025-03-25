@@ -1,10 +1,5 @@
 import { type Property, type StandardProperties } from 'csstype';
-import {
-  type CSSProperties,
-  type ElementType,
-  type ReactNode,
-  type Ref,
-} from 'react';
+import { type CSSProperties, type ElementType } from 'react';
 
 export type ScreenSizeLiteral = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export const screenSizeLiterals: Array<ScreenSizeLiteral> = [
@@ -76,8 +71,6 @@ export function isCustomBreakpointObject<T>(
 }
 
 export interface CSSProps {
-  /**Klassenavn. */
-  className?: string;
   /**Inline style.*/
   style?: CSSProperties;
 }
@@ -155,15 +148,7 @@ interface PrimitiveLayoutProps {
 
 export type PolymorphicResponsiveProps = PolymorphicProp & ResponsiveProps;
 
-export type CommonResponsiveProps = CSSProps & {
-  /**Ref. */
-  ref?: Ref<HTMLDivElement | null>;
-  /**Barn. */
-  children?: ReactNode;
-};
-
 export type ResponsiveProps = PolymorphicProp &
-  CommonResponsiveProps &
   PrimitiveDisplayHideProps &
   PrimitiveLayoutProps;
 

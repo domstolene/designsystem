@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import {
+  categoryCss,
   htmlPropsArgType,
   responsivePropsArgTypes,
 } from '../../../storybook/helpers';
@@ -16,11 +17,20 @@ const meta: Meta<typeof Paper> = {
     },
   },
   argTypes: {
-    breakpointBelow: { control: 'select' },
-    breakpointAbove: { control: 'select' },
+    as: { control: 'text' },
     ...responsivePropsArgTypes,
-    className: htmlPropsArgType,
-    style: htmlPropsArgType,
+    elevation: {
+      control: { type: 'select' },
+      table: categoryCss,
+    },
+    border: {
+      control: { type: 'select' },
+      table: categoryCss,
+    },
+    borderRadius: {
+      control: { type: 'select' },
+      table: categoryCss,
+    },
     tabIndex: htmlPropsArgType,
     role: htmlPropsArgType,
   },

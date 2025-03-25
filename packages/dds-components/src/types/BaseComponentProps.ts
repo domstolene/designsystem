@@ -1,4 +1,4 @@
-import { type HTMLAttributes, type PropsWithChildren, type Ref } from 'react';
+import { type HTMLAttributes, type ReactNode, type Ref } from 'react';
 
 import { cn } from '../../../dds-components/src/utils/dom';
 
@@ -18,12 +18,16 @@ export type BaseComponentProps<
   TOtherProps extends object = object,
   THTMLAttributesProps extends
     HTMLAttributes<TElement> = HTMLAttributes<TElement>,
-> = Pick<THTMLAttributesProps, 'id' | 'className'> &
+> = Omit<THTMLAttributesProps, 'id' | 'className'> &
   TOtherProps & {
     /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
     htmlProps?: THTMLAttributesProps;
     /**Ref til komponenten. */
     ref?: Ref<TElement>;
+    /**HTML id. */
+    id?: string;
+    /**Klassenavn. */
+    className?: string;
   };
 
 /**
@@ -35,7 +39,14 @@ export type BaseComponentPropsWithChildren<
   T extends Element,
   TProps extends object = object,
   THTMLProps extends HTMLAttributes<T> = HTMLAttributes<T>,
-> = BaseComponentProps<T, PropsWithChildren<TProps>, THTMLProps>;
+> = BaseComponentProps<
+  T,
+  TProps & {
+    /**Barn. */
+    children?: ReactNode;
+  },
+  THTMLProps
+>;
 
 interface GetBaseHTMLProps {
   <T extends Element>(

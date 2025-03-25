@@ -1,3 +1,5 @@
+import { type HTMLAttributes } from 'react';
+
 import styles from './Stack.module.css';
 import {
   type BaseComponentPropsWithChildren,
@@ -5,10 +7,12 @@ import {
 } from '../../../types';
 import { cn } from '../../../utils';
 import { Box, type ResponsiveStackProps } from '../../layout';
+import { type CSSProps } from '../common/Responsive.types';
 
 export type VStackProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
-  ResponsiveStackProps
+  ResponsiveStackProps & CSSProps,
+  Omit<HTMLAttributes<HTMLDivElement>, keyof CSSProps>
 >;
 
 export const VStack = ({ id, className, htmlProps, ...rest }: VStackProps) => {
