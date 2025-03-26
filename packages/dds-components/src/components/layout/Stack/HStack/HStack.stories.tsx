@@ -1,17 +1,17 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { VStack } from './VStack';
-import { responsiveStackPropsArgTypes } from '../../../storybook/helpers';
-import { Box } from '../../layout';
+import { HStack } from './HStack';
+import { Box } from '../..';
+import { responsiveStackPropsArgTypes } from '../../../../storybook/helpers';
 
 export default {
-  title: 'dds-components/Layout Primitives/VStack',
-  component: VStack,
+  title: 'dds-components/Layout Primitives/HStack',
+  component: HStack,
   argTypes: {
     as: { control: 'text' },
     ...responsiveStackPropsArgTypes,
   },
-} satisfies Meta<typeof VStack>;
+} satisfies Meta<typeof HStack>;
 
 const ExampleElement = () => (
   <Box
@@ -23,7 +23,7 @@ const ExampleElement = () => (
   />
 );
 
-type Story = StoryObj<typeof VStack>;
+type Story = StoryObj<typeof HStack>;
 
 export const Default: Story = {
   args: {

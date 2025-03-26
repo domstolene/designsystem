@@ -1,4 +1,5 @@
-import { HStack, type HStackProps, VStack, type VStackProps } from '../';
+import { HStack, type HStackProps } from '../HStack';
+import { VStack, type VStackProps } from '../VStack';
 
 export function StoryVStack({ alignItems, gap, ...rest }: VStackProps) {
   return (

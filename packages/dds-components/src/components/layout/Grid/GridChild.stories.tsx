@@ -1,20 +1,21 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { Paper } from '..';
+import {
+  categoryCss,
+  responsivePropsArgTypes,
+} from '../../../storybook/helpers';
+
 import { Grid, GridChild } from '.';
 
 export default {
   title: 'dds-components/Layout Primitives/Grid/GridChild',
   component: GridChild,
   argTypes: {
-    gridRow: { control: false },
-    justifySelf: { control: 'text' },
-    // feil props vises i tabell, quick fix for å unngå forvirring
-    // TODO: fikse åvise riktige props
-    // xs: { table: { disable: true } },
-    // sm: { table: { disable: true } },
-    // md: { table: { disable: true } },
-    // lg: { table: { disable: true } },
-    // xl: { table: { disable: true } },
+    gridRow: { control: 'text' },
+    justifySelf: { control: 'text', table: categoryCss },
+    columnsOccupied: { control: 'text', table: categoryCss },
+    ...responsivePropsArgTypes,
   },
   parameters: {
     docs: {
@@ -33,14 +34,9 @@ export const Default: Story = {
         <Story />
         <style>
           {`
-          .story-grid, .story-grid__child {
+          .story-styling {
             border: 1px dashed gray;
-            padding:  var(--dds-spacing-x0-5);
             }
-            
-          .story-grid__child {
-            background: var(--dds-color-surface-subtle);
-          }
         `}
         </style>
       </>
@@ -49,9 +45,11 @@ export const Default: Story = {
   args: { columnsOccupied: 'all' },
   render: args => {
     return (
-      <Grid as="div" className="story-grid">
+      <Grid as="div" padding="x1" className="story-styling">
         <GridChild {...args}>
-          <div className="story-grid__child">GridChild</div>
+          <Paper padding="x0.5" className="story-styling">
+            GridChild
+          </Paper>
         </GridChild>
       </Grid>
     );

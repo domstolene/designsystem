@@ -1,16 +1,21 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
-import { Button } from '../Button';
-import { FilterIcon, PlusIcon } from '../Icon/icons';
-import { InternalHeader } from '../InternalHeader';
-import { LocalMessage } from '../LocalMessage';
-import { Pagination } from '../Pagination';
-import { Search } from '../Search';
-import { Table } from '../Table/normal';
-import { Tag } from '../Tag';
-import { TextInput } from '../TextInput';
-import { Heading } from '../Typography';
+import {
+  categoryCss,
+  htmlPropsArgType,
+  responsivePropsArgTypes,
+  windowWidthDecorator,
+} from '../../../storybook/helpers';
+import { Button } from '../../Button';
+import { FilterIcon, PlusIcon } from '../../Icon/icons';
+import { InternalHeader } from '../../InternalHeader';
+import { LocalMessage } from '../../LocalMessage';
+import { Pagination } from '../../Pagination';
+import { Search } from '../../Search';
+import { Table } from '../../Table/normal';
+import { Tag } from '../../Tag';
+import { TextInput } from '../../TextInput';
+import { Heading } from '../../Typography';
 
 import { Grid, GridChild } from '.';
 
@@ -18,15 +23,14 @@ export default {
   title: 'dds-components/Layout Primitives/Grid',
   component: Grid,
   argTypes: {
+    ...responsivePropsArgTypes,
     htmlProps: htmlPropsArgType,
-    columnGap: { control: false },
-    maxWidth: { control: false },
-    rowGap: { control: false },
+    columnGap: { control: 'text', table: categoryCss },
+    rowGap: { control: 'text', table: categoryCss },
   },
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
     },
   },
 } satisfies Meta<typeof Grid>;
@@ -35,60 +39,81 @@ type Story = StoryObj<typeof Grid>;
 
 export const Default: Story = {
   decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>
-          {`
-          .story-grid, .story-grid__child {
-            border:1px dashed gray;
-            padding:var(--dds-spacing-x0-5);
-          }
-          .story-grid__child {
-           background: var(--dds-color-surface-subtle);
-          }
-      `}
-        </style>
-      </>
-    ),
+    Story =>
+      windowWidthDecorator(
+        <>
+          <Story />
+          <style>
+            {`
+          .story-styling {
+            border: 1px dashed gray;
+            }
+            `}
+          </style>
+        </>,
+      ),
   ],
   render: args => {
     return (
-      <Grid {...args} className="story-grid">
-        <GridChild columnsOccupied="all">
-          <div className="story-grid__child">Alle kolonner</div>
-        </GridChild>
-        <GridChild columnsOccupied="firstHalf">
-          <div className="story-grid__child">Første halv</div>
-        </GridChild>
-        <GridChild columnsOccupied="secondHalf">
-          <div className="story-grid__child">Andre halv</div>
+      <Grid {...args} className="story-styling" padding="x0.5">
+        <GridChild
+          columnsOccupied="all"
+          padding="x0.5"
+          className="story-styling"
+        >
+          Alle kolonner
         </GridChild>
         <GridChild
           columnsOccupied={{
-            xs: '1/-1',
-            sm: '1/7',
-            md: '1/11',
+            xs: 'firstHalf',
+            sm: 'firstHalf',
+            md: 'firstHalf',
+            lg: 'firstHalf',
+            xl: 'firstHalf',
+          }}
+          padding="x0.5"
+          className="story-styling"
+        >
+          Første halv
+        </GridChild>
+        <GridChild
+          columnsOccupied={{
+            xs: 'secondHalf',
+            sm: 'secondHalf',
+            md: 'secondHalf',
+            lg: 'secondHalf',
+            xl: 'secondHalf',
+          }}
+          padding="x0.5"
+          className="story-styling"
+        >
+          Andre halv
+        </GridChild>
+        <GridChild
+          columnsOccupied={{
+            xs: 'all',
+            sm: 'all',
+            md: 'firstHalf',
             lg: '1/10',
             xl: '1/8',
           }}
+          padding="x0.5"
+          className="story-styling"
         >
-          <div className="story-grid__child">
-            Custom antall kolonner per brekkepunkt
-          </div>
+          Responsiv
         </GridChild>
         <GridChild
           columnsOccupied={{
-            xs: '1/-1',
-            sm: '7/9',
-            md: '11/13',
+            xs: 'all',
+            sm: 'all',
+            md: 'secondHalf',
             lg: '10/13',
             xl: '8/13',
           }}
+          padding="x0.5"
+          className="story-styling"
         >
-          <div className="story-grid__child">
-            Custom antall kolonner per brekkepunkt
-          </div>
+          Responsiv
         </GridChild>
       </Grid>
     );
@@ -96,24 +121,6 @@ export const Default: Story = {
 };
 
 export const PageExample: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>
-          {`
-          .story-grid {
-            margin-top: var(--dds-spacing-x1);
-
-            @media (min-width: 768px) {
-              margin-top: var(--dds-spacing-x2);
-            }
-          }
-      `}
-        </style>
-      </>
-    ),
-  ],
   render: args => {
     return (
       <>
@@ -126,7 +133,11 @@ export const PageExample: Story = {
           ]}
           smallScreenBreakpoint="xs"
         />
-        <Grid {...args} className="story-grid">
+        <Grid
+          {...args}
+          maxWidth="150ch"
+          marginBlock={{ xs: 'x1', sm: 'x1', md: 'x2', lg: 'x2', xl: 'x4' }}
+        >
           <GridChild
             columnsOccupied={{
               xs: '1/-1',
@@ -214,7 +225,7 @@ export const JustRelativeColumns: Story = {
         <TextInput label="Adresse" width="100%" />
       </GridChild>
       <GridChild columnsOccupied="all" justifySelf="right">
-        <Button icon={PlusIcon} purpose="secondary">
+        <Button icon={PlusIcon} purpose="secondary" size="small">
           Legg til
         </Button>
       </GridChild>

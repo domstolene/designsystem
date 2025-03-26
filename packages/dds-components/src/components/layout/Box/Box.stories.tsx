@@ -6,8 +6,10 @@ import {
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
-import { isCustomBreakpointObject } from '../common/Responsive.types';
-import { getBreakpointFromScreenWidth } from '../common/utils';
+import {
+  getBreakpointFromScreenWidth,
+  isBreakpointObject,
+} from '../common/utils';
 
 import { Box } from '.';
 
@@ -64,7 +66,7 @@ export const WithPaddingPerBreakpoint: Story = {
       <Box {...args}>
         Ved dette brekkpunktet er padding{' '}
         {args.padding &&
-        isCustomBreakpointObject(args.padding) &&
+        isBreakpointObject(args.padding) &&
         args.padding[getBreakpointFromScreenWidth(w)]
           ? args.padding[getBreakpointFromScreenWidth(w)]
           : 'ikke satt'}

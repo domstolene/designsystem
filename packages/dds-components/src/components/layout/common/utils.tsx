@@ -1,145 +1,107 @@
-import { type Properties, type StandardProperties } from 'csstype';
+import { type Properties } from 'csstype';
 
 import {
+  type RelativeColumnsOccupied,
   type ResponsiveProp,
+  type ScreenSizeLiteral,
   type SpacingScale,
-  type StaticAndBreakpointBasedProp,
-  isBreakpointObject,
-  isCustomBreakpointObject,
   screenSizeLiterals,
 } from './Responsive.types';
 
+export function isBreakpointObject<T>(
+  value: ResponsiveProp<T>,
+): value is { [k in ScreenSizeLiteral]?: T } {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
 export const getBreakpointFromScreenWidth = (width: number) => {
-  switch (true) {
-    case width > 1919:
-      return 'xl';
-    case 1280 <= width && width < 1919:
-      return 'lg';
-    case 960 <= width && width < 1279:
-      return 'md';
-    case 600 <= width && width < 960:
-      return 'sm';
-    case width < 600:
-      return 'xs';
-    default:
-      return 'xs';
-  }
+  if (width > 1919) return 'xl';
+  if (width >= 1280) return 'lg';
+  if (width >= 960) return 'md';
+  if (width >= 600) return 'sm';
+  return 'xs';
 };
+
+const SPACING_SCALES: Array<SpacingScale> = [
+  'x0',
+  'x0.125',
+  'x0.25',
+  'x0.5',
+  'x0.75',
+  'x1',
+  'x1.5',
+  'x2',
+  'x2.5',
+  'x3',
+  'x4',
+  'x6',
+  'x10',
+];
 
 export const isSpacingScale = (value: unknown): value is SpacingScale => {
   return (
-    typeof value === 'string' &&
-    [
-      'x0',
-      'x0.125',
-      'x0.25',
-      'x0.5',
-      'x0.75',
-      'x1',
-      'x1.5',
-      'x2',
-      'x2.5',
-      'x3',
-      'x4',
-      'x6',
-      'x10',
-    ].includes(value)
+    typeof value === 'string' && SPACING_SCALES.includes(value as SpacingScale)
   );
 };
 
-type HyphenSpacingProps =
-  | 'x0'
-  | 'x0-125'
-  | 'x0-25'
-  | 'x0-5'
-  | 'x0-75'
-  | 'x1'
-  | 'x1-5'
-  | 'x2'
-  | 'x2-5'
-  | 'x3'
-  | 'x4'
-  | 'x6'
-  | 'x10';
+export const isRelativeGridColumn = (
+  type: unknown,
+): type is RelativeColumnsOccupied => {
+  return type === 'all' || type === 'firstHalf' || type === 'secondHalf';
+};
 
-export function spacingPropToCn(value: string): HyphenSpacingProps {
-  return value.replace(/\./g, '-') as HyphenSpacingProps;
+export function spacingPropToToken(value: string): string {
+  return value.replace(/\./g, '-');
 }
 
 const spacingToken = (v: SpacingScale): string =>
-  `var(--dds-spacing-${spacingPropToCn(v)})`;
+  `var(--dds-spacing-${spacingPropToToken(v)})`;
 
-const convertMultiValue = (value: string) =>
+const relativeGridColumnToken = (
+  v: RelativeColumnsOccupied,
+  bp?: ScreenSizeLiteral,
+): string => {
+  if (v === 'all') return '1 / -1';
+  if (!bp) return '';
+  return v === 'firstHalf'
+    ? `1 / calc(var(--dds-grid-${bp}-count) / 2 + 1)`
+    : `calc(var(--dds-grid-${bp}-count) / 2 + 1) / -1`;
+};
+
+const getValue = (v: string, bp?: ScreenSizeLiteral): string =>
+  isSpacingScale(v)
+    ? spacingToken(v)
+    : isRelativeGridColumn(v)
+      ? relativeGridColumnToken(v, bp)
+      : v;
+
+const convertMultiValue = (value: string, bp?: ScreenSizeLiteral) =>
   value
     .split(' ')
-    .map(v => (isSpacingScale(v) ? spacingToken(v) : v))
+    .map(v => getValue(v, bp))
     .join(' ');
 
 export function getResponsiveCSSProperties<T>(
   property?: ResponsiveProp<T>,
   prefix?: string,
   suffix?: string,
-  defaultPrefix?: string,
-  defaultSuffix?: string,
 ): Properties | undefined {
-  if (property === undefined) return;
-  const properties: Properties = {};
+  if (!property) return;
 
+  const properties: Properties = {};
   const pPrefix = `--dds-${prefix}`;
   const pSuffix = suffix ? `-${suffix}` : '';
-  const breakpoints = screenSizeLiterals;
-  if (isCustomBreakpointObject(property)) {
-    breakpoints.forEach(bp => {
+
+  if (isBreakpointObject(property)) {
+    screenSizeLiterals.forEach(bp => {
       if (property[bp]) {
         (properties as Record<string, string>)[`${pPrefix}-${bp}${pSuffix}`] =
-          convertMultiValue(property[bp].toString());
+          convertMultiValue(property[bp].toString(), bp);
       }
     });
-  } else if (property) {
+  } else {
     (properties as Record<string, string>)[`${pPrefix}${pSuffix}`] =
       convertMultiValue(property.toString());
-  }
-
-  if (!Object.keys(properties).length && defaultPrefix && defaultSuffix) {
-    breakpoints.forEach(bp => {
-      (properties as Record<string, string>)[`${pPrefix}-${bp}${pSuffix}`] =
-        `var(--dds-${defaultPrefix}-${bp}-${defaultSuffix})`;
-    });
-  }
-  return properties;
-}
-
-export function getStandardResponsiveCSSProperties<
-  T extends keyof StandardProperties,
->(
-  property: StaticAndBreakpointBasedProp<T>,
-  prefix: string,
-  suffix: string,
-  defaultPrefix?: string,
-  defaultSuffix?: string,
-): Properties {
-  const properties: Properties = {};
-
-  const pPrefix = `--dds-${prefix}`;
-  const pSuffix = `${suffix}`;
-  const breakpoints = screenSizeLiterals;
-  if (isBreakpointObject(property)) {
-    breakpoints.forEach(bp => {
-      if (property[bp]) {
-        (properties as Record<string, string>)[`${pPrefix}-${bp}-${pSuffix}`] =
-          property[bp] as string;
-      }
-    });
-  } else if (property !== undefined) {
-    (properties as Record<string, string>)[`${pPrefix}-${pSuffix}`] =
-      property as string;
-  } else if (defaultPrefix && defaultSuffix) {
-    breakpoints.forEach(bp => {
-      {
-        (properties as Record<string, string>)[`${pPrefix}-${bp}-${pSuffix}`] =
-          `var(--dds-${defaultPrefix}-${bp}-${defaultSuffix})` as string;
-      }
-    });
   }
 
   return properties;
