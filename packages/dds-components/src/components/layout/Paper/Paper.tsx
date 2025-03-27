@@ -4,22 +4,20 @@ import styles from './Paper.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type BorderColor,
-  getBorderCn,
+  type BorderRadius,
+  type Elevation,
+  type PaperBackground,
+  getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
 import { Box } from '../../layout/Box/Box';
 import { type ResponsiveProps } from '../common';
 import { type CSSProps } from '../common/Responsive.types';
+import { getResponsiveCSSProperties } from '../common/utils';
 
-export type PaperElevation = 1 | 2 | 3 | 4;
+export type PaperElevation = Elevation;
 export type PaperBorder = BorderColor;
-export type PaperBorderRadius =
-  | 'button'
-  | 'input'
-  | 'surface'
-  | 'chip'
-  | 'rounded'
-  | 0;
+export type PaperBorderRadius = BorderRadius;
 
 type PickedAttributes = Pick<
   HTMLAttributes<HTMLDivElement>,
@@ -29,35 +27,51 @@ type PickedAttributes = Pick<
 export type PaperProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
   {
-    /**I hvor stor grad flaten skal framheves. */
+    /**I hvor stor grad flaten skal framheves. Støtter dds tokens. */
     elevation?: PaperElevation;
-    /**Farge på kantlinje. */
+    /**Farge på kantlinje. Støtter dds tokens. */
     border?: PaperBorder;
-    /**Hvor runde hjørner skal være. */
+    /**Hvor runde hjørner skal være. Støtter dds tokens. */
     borderRadius?: PaperBorderRadius;
+    /**Bakgrunn. Støtter dds tokens. */
+    background?: PaperBackground;
   } & ResponsiveProps &
     PickedAttributes,
   Omit<HTMLAttributes<HTMLDivElement>, keyof PickedAttributes>
 >;
 
 export const Paper = ({
+  id,
   elevation,
   border,
-  borderRadius,
+  borderRadius = 'surface',
+  background = 'surface-paper-default',
   className,
+  htmlProps,
+  style,
   ...rest
 }: PaperProps) => {
-  const borderCn = border ? getBorderCn(border) : undefined;
+  const styleVariables = {
+    ...getResponsiveCSSProperties(background, 'paper-background'),
+    ...getResponsiveCSSProperties(border, 'paper-border'),
+  };
+
   return (
     <Box
-      className={cn(
-        className,
-        styles.container,
-        elevation && styles[`shadow--${elevation}`],
-        borderCn && styles[`border--${borderCn}`],
-        borderRadius && styles[`border-radius--${borderRadius}`],
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.container,
+          elevation && styles[`shadow--${elevation}`],
+          borderRadius && styles[`border-radius--${borderRadius}`],
+          styles.background,
+          border && styles.border,
+        ),
+        htmlProps,
+        rest,
       )}
-      {...rest}
+      style={{ ...style, ...styleVariables }}
     />
   );
 };

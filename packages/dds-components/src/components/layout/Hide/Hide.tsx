@@ -2,6 +2,7 @@ import { type HTMLAttributes } from 'react';
 
 import {
   type BaseComponentPropsWithChildren,
+  type PolymorphicProp,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
@@ -9,7 +10,6 @@ import { ElementAs } from '../../helpers';
 import styles from '../common/display.module.css';
 import {
   type CSSProps,
-  type PolymorphicProp,
   type PrimitiveDisplayHideProps,
 } from '../common/Responsive.types';
 

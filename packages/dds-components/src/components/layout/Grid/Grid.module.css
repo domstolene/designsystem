@@ -1,4 +1,7 @@
 /*Grid*/
+.grid {
+  display: grid;
+}
 
 .dds-c-g {
   --dds-r-c-g: var(--dds-r-xs-c-g);
@@ -26,7 +29,19 @@
   grid-row: var(--dds-r-j-self);
 }
 
+.child--first-half {
+  grid-column: 1 / calc(var(--dds-grid-col-count) / 2 + 1);
+}
+
+.child--second-half {
+  grid-column: calc(var(--dds-grid-col-count) / 2 + 1) / -1;
+}
+
 @media (max-width: 599px) {
+  .grid {
+    grid-template-columns: repeat(var(--dds-grid-xs-count), minmax(0, 1fr));
+  }
+
   .dds-c-g {
     --dds-r-c-g: var(--dds-r-xs-c-g, var(--dds-grid-xs-gutter-size));
   }
@@ -35,6 +50,9 @@
   }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-xs-grid-column);
+  }
+  .child-col-count {
+    --dds-grid-col-count: var(--dds-grid-xs-count);
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-xs-grid-row);
@@ -45,6 +63,10 @@
 }
 
 @media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(var(--dds-grid-sm-count), minmax(0, 1fr));
+  }
+
   .dds-c-g {
     --dds-r-c-g: var(--dds-r-sm-c-g, var(--dds-grid-sm-gutter-size));
   }
@@ -53,6 +75,9 @@
   }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-sm-grid-column);
+  }
+  .child-col-count {
+    --dds-grid-col-count: var(--dds-grid-sm-count);
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-sm-grid-row);
@@ -63,6 +88,10 @@
 }
 
 @media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(var(--dds-grid-md-count), minmax(0, 1fr));
+  }
+
   .dds-c-g {
     --dds-r-c-g: var(--dds-r-md-c-g, var(--dds-grid-md-gutter-size));
   }
@@ -71,6 +100,9 @@
   }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-md-grid-column);
+  }
+  .child-col-count {
+    --dds-grid-col-count: var(--dds-grid-md-count);
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-md-grid-row);
@@ -81,6 +113,10 @@
 }
 
 @media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(var(--dds-grid-lg-count), minmax(0, 1fr));
+  }
+
   .dds-c-g {
     --dds-r-c-g: var(--dds-r-lg-c-g, var(--dds-grid-lg-gutter-size));
   }
@@ -89,6 +125,9 @@
   }
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-lg-grid-column);
+  }
+  .child-col-count {
+    --dds-grid-col-count: var(--dds-grid-lg-count);
   }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-lg-grid-row);
@@ -99,6 +138,10 @@
 }
 
 @media (min-width: 1920px) {
+  .grid {
+    grid-template-columns: repeat(var(--dds-grid-xl-count), minmax(0, 1fr));
+  }
+
   .dds-c-g {
     --dds-r-c-g: var(--dds-r-xl-c-g, var(--dds-grid-xl-gutter-size));
   }
@@ -108,59 +151,13 @@
   .dds-grid-column {
     --dds-r-grid-column: var(--dds-r-xl-grid-column);
   }
+  .child-col-count {
+    --dds-grid-col-count: var(--dds-grid-xl-count);
+  }
   .dds-grid-row {
     --dds-r-grid-row: var(--dds-r-xl-grid-row);
   }
   .dds-j-self {
     --dds-r-j-self: var(--dds-r-xl-j-self);
   }
-}
-
-.grid {
-  display: grid;
-
-  @media only screen and (max-width: 599px) {
-    grid-template-columns: repeat(var(--dds-grid-xs-count), minmax(0, 1fr));
-  }
-
-  @media only screen and (min-width: 600px) {
-    grid-template-columns: repeat(var(--dds-grid-sm-count), minmax(0, 1fr));
-  }
-
-  @media only screen and (min-width: 960px) {
-    grid-template-columns: repeat(var(--dds-grid-md-count), minmax(0, 1fr));
-  }
-
-  @media only screen and (min-width: 1280px) {
-    grid-template-columns: repeat(var(--dds-grid-lg-count), minmax(0, 1fr));
-  }
-
-  @media only screen and (min-width: 1920px) {
-    grid-template-columns: repeat(var(--dds-grid-xl-count), minmax(0, 1fr));
-  }
-}
-
-.grid-child {
-  --dds-grid-half-col-count: var(--dds-grid-xs-count);
-
-  @media only screen and (min-width: 600px) {
-    --dds-grid-half-col-count: var(--dds-grid-sm-count);
-  }
-  @media only screen and (min-width: 960px) {
-    --dds-grid-half-col-count: var(--dds-grid-md-count);
-  }
-  @media only screen and (min-width: 1280px) {
-    --dds-grid-half-col-count: var(--dds-grid-lg-count);
-  }
-  @media only screen and (min-width: 1920px) {
-    --dds-grid-half-col-count: var(--dds-grid-xl-count);
-  }
-}
-
-.grid-child--first-half {
-  grid-column: 1 / calc(var(--dds-grid-half-col-count) / 2 + 1);
-}
-
-.grid-child--second-half {
-  grid-column: calc(var(--dds-grid-half-col-count) / 2 + 1) / -1;
 }

@@ -17,9 +17,20 @@ import * as ShowStories from './Show.stories';
   withBottomSpacing
 />
 
-`<Show>` er en code-only layout primitive; en layout-komponent som brukes som byggekloss for andre komponenter og strukturer. Den brukes til å vise innhold og er polymorf.
+`<Show>` er en code-only layout primitive; en layout-komponent som brukes som byggekloss for andre komponenter og strukturer. Den brukes til å vise innhold ved spesifiserte brekkpunter.
 
 ## Props
 
 <Canvas of={ShowStories.Default} sourceState="shown" />
 <Controls of={ShowStories.Default} />
+
+## Retningslinjer
+
+### Brukes til
+
+- Implementasjon av responsivt innhold, f.eks. vise et element kun på mindre skjermer.
+- Alternativ visning for ulike skjermstørrelser.
+
+### Brukes ikke til
+
+- Vise elementer basert på state.

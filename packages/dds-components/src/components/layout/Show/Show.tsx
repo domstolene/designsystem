@@ -1,12 +1,14 @@
 import { type HTMLAttributes } from 'react';
 
-import { type BaseComponentPropsWithChildren } from '../../../types';
+import {
+  type BaseComponentPropsWithChildren,
+  type PolymorphicProp,
+} from '../../../types';
 import { cn } from '../../../utils';
 import { ElementAs } from '../../helpers';
 import styles from '../common/display.module.css';
 import {
   type CSSProps,
-  type PolymorphicProp,
   type PrimitiveDisplayShowProps,
 } from '../common/Responsive.types';
 

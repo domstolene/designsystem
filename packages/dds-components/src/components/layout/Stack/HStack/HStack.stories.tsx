@@ -2,7 +2,10 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { HStack } from './HStack';
 import { Box } from '../..';
-import { responsiveStackPropsArgTypes } from '../../../../storybook/helpers';
+import {
+  responsiveStackPropsArgTypes,
+  windowWidthDecorator,
+} from '../../../../storybook/helpers';
 
 export default {
   title: 'dds-components/Layout Primitives/HStack',
@@ -18,7 +21,7 @@ const ExampleElement = () => (
     width="5rem"
     height="5rem"
     style={{
-      border: '2px dashed black',
+      border: '1px dashed black',
     }}
   />
 );
@@ -27,6 +30,35 @@ type Story = StoryObj<typeof HStack>;
 
 export const Default: Story = {
   args: {
+    children: [
+      <ExampleElement />,
+      <ExampleElement />,
+      <ExampleElement />,
+      <ExampleElement />,
+    ],
+  },
+};
+
+export const StylingPerBreakpoint: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    style: {
+      border: '1px dashed var(--dds-color-border-default)',
+    },
+    padding: {
+      xs: 'x0.125',
+      sm: 'x0.25',
+      md: 'x0.5',
+      lg: 'x1',
+      xl: 'x2',
+    },
+    gap: {
+      xs: 'x0.125',
+      sm: 'x0.25',
+      md: 'x0.5',
+      lg: 'x1',
+      xl: 'x2',
+    },
     children: [
       <ExampleElement />,
       <ExampleElement />,

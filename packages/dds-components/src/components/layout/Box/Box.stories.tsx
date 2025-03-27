@@ -38,16 +38,9 @@ export const Default: Story = {
     style: {
       border: '1px solid var(--dds-color-border-default)',
     },
-    padding: 'x0.125',
-  },
-};
 
-export const WithCustomPadding: Story = {
-  args: {
-    style: {
-      border: '1px solid var(--dds-color-border-default)',
-    },
-    padding: '10%',
+    height: { xs: '1rem', sm: '2rem', md: '6rem', lg: '8rem', xl: '10rem' },
+    width: '6rem',
   },
 };
 

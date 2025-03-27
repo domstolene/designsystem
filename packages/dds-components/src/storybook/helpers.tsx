@@ -2,12 +2,12 @@ import { type Control } from '@storybook/blocks';
 import { type ArgTypes } from '@storybook/react';
 import { type ReactNode, useState } from 'react';
 
+import { HStack, VStack } from '../components/layout';
 import {
   type ResponsiveProps,
   type ResponsiveStackProps,
 } from '../components/layout/common/Responsive.types';
 import { getBreakpointFromScreenWidth } from '../components/layout/common/utils';
-import { HStack, VStack } from '../components/layout/Stack';
 import { Paragraph } from '../components/Typography';
 import { useWindowResize } from '../hooks';
 import { type BaseComponentPropsWithChildren } from '../types';

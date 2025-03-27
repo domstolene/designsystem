@@ -7,6 +7,12 @@ import {
   type SpacingScale,
   screenSizeLiterals,
 } from './Responsive.types';
+import {
+  type BorderColor,
+  type PaperBackground,
+  isBorderColor,
+  isPaperBackground,
+} from '../../../types';
 
 export function isBreakpointObject<T>(
   value: ResponsiveProp<T>,
@@ -54,8 +60,11 @@ export function spacingPropToToken(value: string): string {
   return value.replace(/\./g, '-');
 }
 
-const spacingToken = (v: SpacingScale): string =>
+const getSpacingToken = (v: SpacingScale): string =>
   `var(--dds-spacing-${spacingPropToToken(v)})`;
+
+const getColorToken = (v: PaperBackground | BorderColor): string =>
+  `var(--dds-color-${v})`;
 
 const relativeGridColumnToken = (
   v: RelativeColumnsOccupied,
@@ -68,12 +77,12 @@ const relativeGridColumnToken = (
     : `calc(var(--dds-grid-${bp}-count) / 2 + 1) / -1`;
 };
 
-const getValue = (v: string, bp?: ScreenSizeLiteral): string =>
-  isSpacingScale(v)
-    ? spacingToken(v)
-    : isRelativeGridColumn(v)
-      ? relativeGridColumnToken(v, bp)
-      : v;
+const getValue = (v: string, bp?: ScreenSizeLiteral): string => {
+  if (isPaperBackground(v) || isBorderColor(v)) return getColorToken(v);
+  if (isSpacingScale(v)) return getSpacingToken(v);
+  if (isRelativeGridColumn(v)) return relativeGridColumnToken(v, bp);
+  return v;
+};
 
 const convertMultiValue = (value: string, bp?: ScreenSizeLiteral) =>
   value

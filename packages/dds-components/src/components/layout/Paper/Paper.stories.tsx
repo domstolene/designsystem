@@ -31,6 +31,10 @@ const meta: Meta<typeof Paper> = {
       control: { type: 'select' },
       table: categoryCss,
     },
+    background: {
+      control: { type: 'select' },
+      table: categoryCss,
+    },
     tabIndex: htmlPropsArgType,
     role: htmlPropsArgType,
   },
@@ -41,10 +45,31 @@ type Story = StoryObj<typeof Paper>;
 
 export const Default: Story = {
   args: {
-    border: 'default',
+    border: 'border-default',
     padding: 'x1.5',
     maxWidth: '20rem',
     children:
-      'Dette en en Paper: layout-komponent med støtte for flate-styling',
+      'Dette er en Paper: layout-komponent med støtte for flate-styling',
+  },
+};
+
+export const Styled: Story = {
+  args: {
+    border: 'border-default',
+    background: 'surface-info-default',
+    elevation: 2,
+    padding: 'x1.5',
+    maxWidth: '20rem',
+    children: 'Dette er en styled Paper',
+  },
+};
+
+export const Branded: Story = {
+  args: {
+    background: 'brand-secondary-subtle',
+    elevation: 2,
+    padding: 'x1.5',
+    maxWidth: '20rem',
+    children: 'Dette er en branded Paper',
   },
 };
