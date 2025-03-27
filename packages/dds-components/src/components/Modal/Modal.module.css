@@ -11,11 +11,30 @@
   flex-direction: column;
   min-width: 200px;
   padding: var(--dds-modal-container-padding);
+  padding-top: 0;
 }
 
 .container-scrollable {
   max-height: calc(100vh - var(--dds-spacing-x1));
   overflow: auto;
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  padding-top: var(--dds-spacing-x1);
+  padding-bottom: var(--dds-spacing-x0-75);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--dds-color-surface-default);
+  z-index: 1;
+}
+
+.close-button {
+  margin-left: auto;
+  margin-top: calc(-1 * var(--dds-spacing-x0-125));
 }
 
 .content {
@@ -29,16 +48,8 @@
   padding: var(--dds-modal-content-padding);
 }
 
-.header {
-  padding: var(--dds-modal-content-padding);
-}
-
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: var(--dds-spacing-x1);
-}
-
-.close-button {
-  align-self: flex-end;
 }
