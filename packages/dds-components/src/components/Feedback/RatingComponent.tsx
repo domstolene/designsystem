@@ -4,7 +4,7 @@ import { ThumbIcon } from './utils';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { HStack } from '../layout/Stack';
+import { HStack } from '../layout';
 import { Spinner } from '../Spinner';
 import { Tooltip } from '../Tooltip';
 import typographyStyles from '../Typography/typographyStyles.module.css';

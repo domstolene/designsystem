@@ -17,8 +17,8 @@ const meta: Meta<typeof Box> = {
   title: 'dds-components/Layout Primitives/Box',
   component: Box,
   argTypes: {
-    breakpointBelow: { control: 'select' },
-    breakpointAbove: { control: 'select' },
+    hideBelow: { control: 'select' },
+    hideAbove: { control: 'select' },
     as: { control: 'text' },
     ...responsivePropsArgTypes,
   },

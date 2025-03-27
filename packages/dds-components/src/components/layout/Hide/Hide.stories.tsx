@@ -11,8 +11,8 @@ const meta: Meta<typeof Hide> = {
   title: 'dds-components/Layout Primitives/Hide',
   component: Hide,
   argTypes: {
-    breakpointBelow: { control: 'select' },
-    breakpointAbove: { control: 'select' },
+    hideBelow: { control: 'select' },
+    hideAbove: { control: 'select' },
     as: { control: 'text' },
     ...commonBasePropsArgTypes,
   },
@@ -30,13 +30,13 @@ type Story = StoryObj<typeof Hide>;
 export const Default: Story = {
   args: {
     children: 'Denne skjules kun ved sm brekkpunkt og nedover',
-    breakpointBelow: 'sm',
+    hideBelow: 'sm',
   },
 };
 
 export const BreakpointAbove: Story = {
   args: {
     children: 'Denne skjules kun ved sm brekkpunkt og oppover',
-    breakpointAbove: 'sm',
+    hideAbove: 'sm',
   },
 };

@@ -20,8 +20,8 @@ export type HideProps = BaseComponentPropsWithChildren<
 >;
 
 export const Hide = ({
-  breakpointBelow,
-  breakpointAbove,
+  hideBelow,
+  hideAbove,
   className,
   as = 'div',
   htmlProps,
@@ -34,8 +34,8 @@ export const Hide = ({
       id,
       cn(
         className,
-        breakpointBelow && styles[`${breakpointBelow}-hide-below`],
-        breakpointAbove && styles[`${breakpointAbove}-hide-above`],
+        hideBelow && styles[`${hideBelow}-hide-below`],
+        hideAbove && styles[`${hideAbove}-hide-above`],
       ),
       htmlProps,
       rest,

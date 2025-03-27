@@ -1,7 +1,7 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
 import { Button } from '../Button';
-import { VStack } from '../layout/Stack';
+import { VStack } from '../layout';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 import { ThumbIcon } from './utils';

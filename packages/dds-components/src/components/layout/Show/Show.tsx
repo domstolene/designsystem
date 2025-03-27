@@ -19,8 +19,8 @@ export type ShowProps = BaseComponentPropsWithChildren<
 >;
 
 export const Show = ({
-  breakpointBelow,
-  breakpointAbove,
+  showBelow,
+  showAbove,
   className,
   as = 'div',
   ...rest
@@ -30,8 +30,8 @@ export const Show = ({
     as={as}
     className={cn(
       className,
-      breakpointBelow && styles[`${breakpointBelow}-hide-above`],
-      breakpointAbove && styles[`${breakpointAbove}-hide-below`],
+      showBelow && styles[`${showBelow}-hide-above`],
+      showAbove && styles[`${showAbove}-hide-below`],
     )}
   />
 );

@@ -59,8 +59,8 @@ export const commonBasePropsArgTypes: ResponsiveArgTypes<
 
 export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
   ...commonBasePropsArgTypes,
-  breakpointAbove: { control: { type: 'select' } },
-  breakpointBelow: { control: { type: 'select' } },
+  hideAbove: { control: { type: 'select' } },
+  hideBelow: { control: { type: 'select' } },
   padding: CSSArgType,
   paddingBlock: CSSArgType,
   paddingInline: CSSArgType,

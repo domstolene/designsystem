@@ -18,8 +18,7 @@ import {
   OverflowMenuSpan,
 } from '../OverflowMenu';
 import { type BreadcrumbProps, isAnchorTypographyProps } from './Breadcrumb';
-import { type ScreenSizeLiteral } from '../layout';
-import { HStack, type HStackProps } from '../layout/Stack';
+import { HStack, type HStackProps, type ScreenSizeLiteral } from '../layout';
 
 export type BreadcrumbsProps = BaseComponentPropsWithChildren<
   HTMLElement,
@@ -131,17 +130,12 @@ export const Breadcrumbs = ({
     >
       <HStack
         {...responsiveListProps}
-        breakpointBelow={
-          hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined
-        }
+        hideBelow={hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined}
       >
         {breadcrumbChildren}
       </HStack>
       {hasSmallScreenBreakpoint && (
-        <HStack
-          {...responsiveListProps}
-          breakpointAbove={smallScreenBreakpoint}
-        >
+        <HStack {...responsiveListProps} hideAbove={smallScreenBreakpoint}>
           {breadcrumbChildrenSmallScreen}
         </HStack>
       )}

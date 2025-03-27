@@ -184,11 +184,7 @@ export const Pagination = ({
           }
         : { className: styles.nav })}
     >
-      <Hide
-        as="ol"
-        breakpointBelow={smallScreenBreakpoint}
-        className={styles.list}
-      >
+      <Hide as="ol" hideBelow={smallScreenBreakpoint} className={styles.list}>
         <li
           className={cn(
             styles.list__item,
@@ -210,11 +206,7 @@ export const Pagination = ({
         </li>
       </Hide>
       {!!smallScreenBreakpoint && (
-        <Hide
-          as="ol"
-          breakpointAbove={smallScreenBreakpoint}
-          className={styles.list}
-        >
+        <Hide as="ol" hideAbove={smallScreenBreakpoint} className={styles.list}>
           <li
             className={cn(
               styles.list__item,

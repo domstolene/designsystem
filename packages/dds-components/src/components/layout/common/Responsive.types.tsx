@@ -31,16 +31,16 @@ export type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 
 export interface PrimitiveDisplayHideProps {
   /** Brekkpunkt og nedover komponenten skal skjules.  */
-  breakpointBelow?: ScreenSizeLiteral;
+  hideBelow?: ScreenSizeLiteral;
   /** Brekkpunkt og oppover komponenten skal skjules.  */
-  breakpointAbove?: ScreenSizeLiteral;
+  hideAbove?: ScreenSizeLiteral;
 }
 
 export interface PrimitiveDisplayShowProps {
   /** Brekkpunkt og nedover komponenten skal vises.  */
-  breakpointBelow?: ScreenSizeLiteral;
+  showBelow?: ScreenSizeLiteral;
   /** Brekkpunkt og oppover komponenten skal vises.  */
-  breakpointAbove?: ScreenSizeLiteral;
+  showAbove?: ScreenSizeLiteral;
 }
 
 export type BreakpointBasedProp<T> = {

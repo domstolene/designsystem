@@ -61,9 +61,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     <nav aria-label="sidenavigasjon">
       <Hide
         as={StylelessList}
-        breakpointBelow={
-          hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined
-        }
+        hideBelow={hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined}
         className={cn(styles['nav-list'])}
       >
         {navItems.map((item, index) => {
@@ -125,7 +123,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       {navigation}
       {hasContextMenu && (
         <Show
-          breakpointBelow={
+          showBelow={
             !hasContextMenuLargeScreen && hasSmallScreenBreakpoint
               ? smallScreenBreakpoint
               : undefined
@@ -152,7 +150,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
                 <Hide
                   as="nav"
                   aria-label="sidenavigasjon"
-                  breakpointAbove={smallScreenBreakpoint}
+                  hideAbove={smallScreenBreakpoint}
                 >
                   <OverflowMenuList>
                     {navItems.map(item => (
@@ -164,7 +162,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               {hasNavInContextMenu && hasContextMenuElements && (
                 <Hide
                   as={OverflowMenuDivider}
-                  breakpointAbove={smallScreenBreakpoint}
+                  hideAbove={smallScreenBreakpoint}
                 />
               )}
               {hasContextMenuElements && (

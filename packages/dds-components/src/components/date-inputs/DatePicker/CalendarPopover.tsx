@@ -162,13 +162,13 @@ export const CalendarPopoverContent = ({
       {portalTarget &&
         hasBreakpoint &&
         createPortal(
-          <Show breakpointBelow={smallScreenBreakpoint}>
+          <Show showBelow={smallScreenBreakpoint}>
             <Backdrop zIndex="modal" isMounted={isMounted}>
               <Paper
                 ref={modalRef}
                 className={cn(styles.popover, className)}
                 elevation={2}
-                border="default"
+                border="border-default"
                 padding="x0.5"
               >
                 <div className={styles['modal-close-button-wrapper']}>
@@ -190,11 +190,11 @@ export const CalendarPopoverContent = ({
         )}
       <Paper
         ref={combinedRef}
-        breakpointBelow={hasBreakpoint ? smallScreenBreakpoint : undefined}
+        hideBelow={hasBreakpoint ? smallScreenBreakpoint : undefined}
         className={cn(styles.popover, className)}
         style={floatingStyles.floating}
         elevation={2}
-        border="default"
+        border="border-default"
       >
         {children}
       </Paper>

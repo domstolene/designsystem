@@ -12,8 +12,8 @@ const meta: Meta<typeof Show> = {
   component: Show,
   argTypes: {
     as: { control: 'text' },
-    breakpointBelow: { control: 'select' },
-    breakpointAbove: { control: 'select' },
+    showBelow: { control: 'select' },
+    showAbove: { control: 'select' },
     ...commonBasePropsArgTypes,
   },
   parameters: {
@@ -30,13 +30,13 @@ type Story = StoryObj<typeof Show>;
 export const Default: Story = {
   args: {
     children: 'Denne vises kun ved sm brekkpunkt og oppover',
-    breakpointAbove: 'sm',
+    showAbove: 'sm',
   },
 };
 
 export const BreakpointBelow: Story = {
   args: {
     children: 'Denne vises kun ved sm brekkpunkt og nedover',
-    breakpointBelow: 'sm',
+    showBelow: 'sm',
   },
 };
