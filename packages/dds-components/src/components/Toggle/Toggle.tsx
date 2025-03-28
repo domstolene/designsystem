@@ -56,7 +56,10 @@ export type ToggleProps = BaseComponentProps<
      */
     size?: ToggleSize;
   } & TogglePickedHTMLAttributes,
-  Omit<InputHTMLAttributes<HTMLInputElement>, keyof TogglePickedHTMLAttributes>
+  Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    keyof TogglePickedHTMLAttributes | 'size'
+  >
 >;
 
 export const Toggle = ({

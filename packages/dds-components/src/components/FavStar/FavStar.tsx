@@ -14,27 +14,29 @@ import { StarFilledIcon, StarIcon } from '../Icon/icons';
 
 type ComponentSize = 'medium' | 'large';
 
-export interface FavStarProps
-  extends BaseComponentPropsWithChildren<HTMLElement> {
-  /**
-   * Status på favorisering. `true` betyr at den er favorisert.
-   */
-  checked?: boolean;
-  /**
-   * Hvis du skal bruke `<FavStar>` uncontrolled så kan denne brukes til å sette den initielle "favoritt"-statusen.
-   * @default false
-   */
-  defaultChecked?: boolean;
-  /**
-   * Callback som blir kalt når brukeren endrer status på favorisering.
-   */
-  onChange?: (checked: boolean) => void;
-  /**
-   * Størrelse på `<FavStar>`. `'medium'` er den mest vanlige størrelsen.
-   * @default "medium"
-   */
-  size?: ComponentSize;
-}
+export type FavStarProps = BaseComponentPropsWithChildren<
+  HTMLElement,
+  {
+    /**
+     * Status på favorisering. `true` betyr at den er favorisert.
+     */
+    checked?: boolean;
+    /**
+     * Hvis du skal bruke `<FavStar>` uncontrolled så kan denne brukes til å sette den initielle "favoritt"-statusen.
+     * @default false
+     */
+    defaultChecked?: boolean;
+    /**
+     * Callback som blir kalt når brukeren endrer status på favorisering.
+     */
+    onChange?: (checked: boolean) => void;
+    /**
+     * Størrelse på `<FavStar>`. `'medium'` er den mest vanlige størrelsen.
+     * @default "medium"
+     */
+    size?: ComponentSize;
+  }
+>;
 
 export const FavStar = ({
   id,

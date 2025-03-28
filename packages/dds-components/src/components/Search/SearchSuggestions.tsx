@@ -69,7 +69,7 @@ export const SearchSuggestions = ({
         rest,
       )}
       aria-hidden={!showSuggestions}
-      border="default"
+      border="border-default"
     >
       <span
         id={suggestionsHeaderId}
