@@ -1,5 +1,12 @@
 import { type Property } from 'csstype';
-import { type ReactNode, type RefObject, useEffect, useId } from 'react';
+import {
+  type ReactNode,
+  type RefObject,
+  useContext,
+  useEffect,
+  useId,
+} from 'react';
+import { createPortal } from 'react-dom';
 
 import styles from './Popover.module.css';
 import {
@@ -23,6 +30,7 @@ import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
 import { Heading } from '../Typography';
 import { usePopoverContext } from './Popover.context';
+import { ThemeContext } from '../ThemeProvider';
 
 export interface PopoverSizeProps {
   width?: Property.Width;
@@ -46,6 +54,14 @@ export type PopoverProps = BaseComponentPropsWithChildren<
      * @default "bottom"
      */
     placement?: Placement;
+    /**Angir rotnode hvor popover skal rendres.
+     * @default themeProviderRef
+     */
+    parentElement?: HTMLElement;
+    /**Angir om popover skal rendre i en portal eller ikke.
+     * @default "false"
+     */
+    portal?: boolean;
     /**Avstand fra anchor-elementet i px.
      * @default 8
      */
@@ -74,6 +90,8 @@ export const Popover = ({
   onBlur,
   children,
   placement = 'bottom',
+  parentElement,
+  portal = false,
   offset = 8,
   sizeProps,
   returnFocusOnBlur = true,
@@ -91,6 +109,8 @@ export const Popover = ({
   });
 
   const context = usePopoverContext();
+  const themeContext = useContext(ThemeContext);
+  const portalTarget = parentElement ?? themeContext?.el;
 
   const {
     floatStyling: contextFloatStyling,
@@ -165,7 +185,7 @@ export const Popover = ({
 
   const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
 
-  return isOpen || hasTransitionedIn ? (
+  const popover = (
     <Paper
       {...getBaseHTMLProps(
         popoverId,
@@ -221,7 +241,13 @@ export const Popover = ({
         />
       )}
     </Paper>
-  ) : null;
+  );
+
+  return isOpen || hasTransitionedIn
+    ? portal && portalTarget
+      ? createPortal(popover, portalTarget)
+      : popover
+    : null;
 };
 
 Popover.displayName = 'Popover';
