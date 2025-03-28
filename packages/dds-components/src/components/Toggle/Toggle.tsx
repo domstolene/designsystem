@@ -12,15 +12,10 @@ import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { CheckIcon, LockIcon } from '../Icon/icons';
-import { type CheckboxPickedHTMLAttributes } from '../SelectionControl/Checkbox';
 import { Spinner } from '../Spinner';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export type ToggleSize = Extract<Size, 'medium' | 'large'>;
-type TogglePickedHTMLAttributes = Omit<
-  CheckboxPickedHTMLAttributes,
-  'onChange' | 'checked' | 'defaultChecked'
->;
 
 export type ToggleProps = BaseComponentProps<
   HTMLElement,
@@ -55,10 +50,10 @@ export type ToggleProps = BaseComponentProps<
      * @default "medium"
      */
     size?: ToggleSize;
-  } & TogglePickedHTMLAttributes,
+  },
   Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    keyof TogglePickedHTMLAttributes | 'size'
+    'size' | 'onChange' | 'checked' | 'defaultChecked'
   >
 >;
 

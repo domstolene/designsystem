@@ -7,7 +7,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
-import { type StylelessList } from '../helpers';
+import { StylelessList } from '../helpers';
 import { Icon } from '../Icon';
 import { ChevronRightIcon, MoreHorizontalIcon } from '../Icon/icons';
 import {
@@ -50,6 +50,7 @@ export const Breadcrumbs = ({
   const childrenArray = Children.toArray(children);
 
   const responsiveLiProps: HStackProps<'li'> = {
+    as: 'li',
     alignItems: 'center',
     gap: 'x0.5',
     padding: 'x0',
@@ -117,6 +118,7 @@ export const Breadcrumbs = ({
   const hasSmallScreenBreakpoint = !!smallScreenBreakpoint;
 
   const responsiveListProps: HStackProps<typeof StylelessList> = {
+    as: StylelessList,
     flexWrap: 'wrap',
     alignItems: 'center',
     gap: 'x0.5',

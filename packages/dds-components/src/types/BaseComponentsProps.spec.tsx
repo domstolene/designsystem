@@ -118,7 +118,6 @@ describe('getBaseHTMLProps', () => {
   });
   it('overwrites aria-attributes that are set on the root if they are set on htmlprops', () => {
     const props: BCP = {
-      // @ts-expect-error tester oppførsel med ukjent prop
       'aria-label': 'foobar',
       'aria-describedby': 'other',
       htmlProps: { 'aria-label': 'arialabelfromhtmlprops' },
