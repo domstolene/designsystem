@@ -1,14 +1,14 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { categoryHtml } from '../../storybook/helpers';
+import { categoryHtml, windowWidthDecorator } from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { PhoneInput, type PhoneInputValue } from '.';
 
 export default {
-  title: 'dds-components/PhoneInput',
+  title: 'dds-components/Components/PhoneInput',
   component: PhoneInput,
   argTypes: {
     width: { control: 'text' },
@@ -68,6 +68,13 @@ export const Responsive: Story = {
   args: {
     smallScreenBreakpoint: 'sm',
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
+      ),
+  ],
 };
 
 export const Controlled: Story = {

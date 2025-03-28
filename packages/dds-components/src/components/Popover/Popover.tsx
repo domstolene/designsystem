@@ -1,6 +1,7 @@
 import { type Property } from 'csstype';
 import { type ReactNode, type RefObject, useEffect, useId } from 'react';
 
+import { usePopoverContext } from './Popover.context';
 import styles from './Popover.module.css';
 import {
   type Placement,
@@ -17,12 +18,11 @@ import {
 } from '../../types';
 import { cn, isEmpty } from '../../utils';
 import { Button } from '../Button';
-import { Paper } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { Paper } from '../layout';
 import { Heading } from '../Typography';
-import { usePopoverContext } from './Popover.context';
 
 export interface PopoverSizeProps {
   width?: Property.Width;
@@ -188,7 +188,7 @@ export const Popover = ({
       }}
       role="dialog"
       elevation={3}
-      border="subtle"
+      border="border-subtle"
     >
       {header && (
         <div className={styles.header}>

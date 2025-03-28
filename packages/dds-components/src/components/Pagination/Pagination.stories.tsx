@@ -1,13 +1,16 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryVStack } from '../Stack/utils';
+import {
+  htmlPropsArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
+import { StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Pagination } from '.';
 
 const meta: Meta<typeof Pagination> = {
-  title: 'dds-components/Pagination',
+  title: 'dds-components/Components/Pagination',
   component: Pagination,
   argTypes: {
     selectOptions: { control: false },
@@ -16,7 +19,7 @@ const meta: Meta<typeof Pagination> = {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
   decorators: [
@@ -84,6 +87,13 @@ export const CustomOptions: Story = {
 export const Responsive: Story = {
   args: { smallScreenBreakpoint: 'sm', itemsAmount: 100 },
   render: args => <Pagination {...args} withCounter withSelect />,
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
+      ),
+  ],
 };
 
 export const DefaultActivePage: Story = {

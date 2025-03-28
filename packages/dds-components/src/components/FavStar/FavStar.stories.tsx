@@ -6,14 +6,14 @@ import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { AttachmentIcon } from '../Icon/icons';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Checkbox } from '../SelectionControl/Checkbox';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
 import { Caption, Link, Typography } from '../Typography';
 
 const meta: Meta<typeof FavStar> = {
-  title: 'dds-components/FavStar',
+  title: 'dds-components/Components/FavStar',
   component: FavStar,
   parameters: {
     docs: {
@@ -73,10 +73,12 @@ export const UsingRef: Story = {
   render: args => {
     const favstarRef = useRef<HTMLInputElement>(null);
     return (
-      <>
+      <StoryVStack>
         <FavStar {...args} ref={favstarRef} />
-        <Button onClick={() => favstarRef.current?.focus()}>Focus</Button>
-      </>
+        <Button size="small" onClick={() => favstarRef.current?.focus()}>
+          Focus
+        </Button>
+      </StoryVStack>
     );
   },
 };

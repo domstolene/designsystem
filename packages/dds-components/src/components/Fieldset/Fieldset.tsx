@@ -1,4 +1,4 @@
-import styles from './Fieldset.module.css';
+import { container } from './Fieldset.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -20,6 +20,8 @@ export const Fieldset = ({
   ...rest
 }: FieldsetProps) => (
   <fieldset
-    {...getBaseHTMLProps(id, cn(className, styles.container), htmlProps, rest)}
+    {...getBaseHTMLProps(id, cn(className, container), htmlProps, rest)}
   />
 );
+
+Fieldset.displayName = 'Fieldset';

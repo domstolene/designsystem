@@ -15,8 +15,8 @@ import styles from './Tooltip.module.css';
 import { useCombinedRef, useFloatPosition, useOnKeyDown } from '../../hooks';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, combineHandlers } from '../../utils';
-import { Paper } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { Paper } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 type AnchorElement = ReactElement<
@@ -164,7 +164,7 @@ export const Tooltip = ({
         aria-hidden={!open}
         style={{ ...positionStyles.floating }}
         elevation={1}
-        border="subtle"
+        border="border-subtle"
         className={cn(
           styles.paper,
           typographyStyles['body-medium'],

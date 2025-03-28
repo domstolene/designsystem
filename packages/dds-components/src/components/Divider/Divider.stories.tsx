@@ -7,7 +7,7 @@ import { Typography } from '../Typography';
 import { Divider } from '.';
 
 export default {
-  title: 'dds-components/Divider',
+  title: 'dds-components/Components/Divider',
   component: Divider,
   parameters: {
     docs: {
@@ -44,7 +44,7 @@ export const Overview: Story = {
       <Divider {...args} />
       <Divider {...args} color="subtle" />
       <Contrast className="story-container">
-        <Divider {...args} color="onInverse" />
+        <Divider {...args} color="on-inverse" />
       </Contrast>
     </>
   ),
@@ -59,7 +59,7 @@ export const OnInverse: Story = {
       </>
     ),
   ],
-  args: { color: 'onInverse' },
+  args: { color: 'on-inverse' },
   render: args => (
     <Contrast className="story-container">
       <Divider {...args} />

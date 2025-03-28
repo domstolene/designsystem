@@ -1,12 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryHStack } from '../Stack/utils';
+import { StoryHStack } from '../layout/Stack/utils';
 
 import { Spinner } from '.';
 
 export default {
-  title: 'dds-components/Spinner',
+  title: 'dds-components/Components/Spinner',
   component: Spinner,
   argTypes: {
     color: { control: 'text' },
@@ -16,7 +16,7 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 } satisfies Meta<typeof Spinner>;

@@ -2,10 +2,10 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { GlobalMessage } from './GlobalMessage';
 import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
-  title: 'dds-components/GlobalMessage',
+  title: 'dds-components/Components/GlobalMessage',
   component: GlobalMessage,
   argTypes: {
     htmlProps: htmlPropsArgType,

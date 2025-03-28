@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { InputStepper } from './InputStepper';
 import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
-  title: 'dds-components/InputStepper',
+  title: 'dds-components/Components/InputStepper',
   component: InputStepper,
   argTypes: {
     defaultValue: { control: 'number', table: categoryHtml },

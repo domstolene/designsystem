@@ -2,13 +2,13 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { categoryHtml } from '../../storybook/helpers';
 import { MailIcon } from '../Icon/icons';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
 
 import { TextInput } from '.';
 
 export default {
-  title: 'dds-components/TextInput',
+  title: 'dds-components/Components/TextInput',
   component: TextInput,
   argTypes: {
     width: { control: { type: 'text' } },
@@ -22,7 +22,7 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 } satisfies Meta<typeof TextInput>;

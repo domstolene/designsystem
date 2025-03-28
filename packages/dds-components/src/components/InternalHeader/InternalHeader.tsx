@@ -10,6 +10,8 @@ import { StylelessList } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { MenuIcon, MoreVerticalIcon, PersonIcon } from '../Icon/icons';
+import { Hide } from '../layout/Hide';
+import { Show } from '../layout/Show';
 import {
   OverflowMenu,
   OverflowMenuButton,
@@ -57,12 +59,10 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 
   const navigation = hasNavigationElements ? (
     <nav aria-label="sidenavigasjon">
-      <StylelessList
-        className={cn(
-          styles['nav-list'],
-          hasSmallScreenBreakpoint &&
-            styles[`nav-list--small-screen-${smallScreenBreakpoint}`],
-        )}
+      <Hide
+        as={StylelessList}
+        hideBelow={hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined}
+        className={cn(styles['nav-list'])}
       >
         {navItems.map((item, index) => {
           const { href, ...rest } = item;
@@ -78,7 +78,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             </li>
           );
         })}
-      </StylelessList>
+      </Hide>
     </nav>
   ) : null;
 
@@ -122,17 +122,13 @@ export const InternalHeader = (props: InternalHeaderProps) => {
       )}
       {navigation}
       {hasContextMenu && (
-        <div
-          className={cn(
-            styles['context-menu-group'],
-            !hasContextMenuLargeScreen &&
-              styles['context-menu-group--small-screen-only'],
-            !hasContextMenuLargeScreen &&
-              hasSmallScreenBreakpoint &&
-              styles[
-                `context-menu-group--small-screen-only-${smallScreenBreakpoint}`
-              ],
-          )}
+        <Show
+          showBelow={
+            !hasContextMenuLargeScreen && hasSmallScreenBreakpoint
+              ? smallScreenBreakpoint
+              : undefined
+          }
+          className={cn(styles['context-menu-group'])}
         >
           <OverflowMenuGroup>
             <Button
@@ -151,30 +147,22 @@ export const InternalHeader = (props: InternalHeaderProps) => {
                 </OverflowMenuList>
               )}
               {hasNavInContextMenu && (
-                <nav
+                <Hide
+                  as="nav"
                   aria-label="sidenavigasjon"
-                  className={cn(
-                    styles['nav--in-menu--small-screen'],
-                    styles[
-                      `nav--in-menu--small-screen-${smallScreenBreakpoint}`
-                    ],
-                  )}
+                  hideAbove={smallScreenBreakpoint}
                 >
                   <OverflowMenuList>
                     {navItems.map(item => (
                       <OverflowMenuLink {...item} />
                     ))}
                   </OverflowMenuList>
-                </nav>
+                </Hide>
               )}
               {hasNavInContextMenu && hasContextMenuElements && (
-                <OverflowMenuDivider
-                  className={cn(
-                    styles['menu-divider'],
-                    styles[
-                      `menu-divider--small-screen-${smallScreenBreakpoint}`
-                    ],
-                  )}
+                <Hide
+                  as={OverflowMenuDivider}
+                  hideAbove={smallScreenBreakpoint}
                 />
               )}
               {hasContextMenuElements && (
@@ -192,7 +180,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               )}
             </OverflowMenu>
           </OverflowMenuGroup>
-        </div>
+        </Show>
       )}
     </div>
   );

@@ -3,12 +3,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { Button } from '../../Button';
-import { StoryHStack, StoryVStack } from '../../Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { TimePicker } from '.';
 
 const meta: Meta<typeof TimePicker> = {
-  title: 'dds-components/TimePicker',
+  title: 'dds-components/Components/TimePicker',
   component: TimePicker,
   argTypes: {
     width: { control: 'text' },

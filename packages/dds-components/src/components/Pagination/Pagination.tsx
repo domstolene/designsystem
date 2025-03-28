@@ -5,7 +5,6 @@ import { PaginationGenerator } from './paginationGenerator';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
-import { type ScreenSizeLiteral } from '../helpers';
 import { Icon } from '../Icon';
 import {
   ChevronFirstIcon,
@@ -14,6 +13,8 @@ import {
   ChevronRightIcon,
   MoreHorizontalIcon,
 } from '../Icon/icons';
+import { type ScreenSizeLiteral } from '../layout';
+import { Hide } from '../layout/Hide';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
 
@@ -170,32 +171,20 @@ export const Pagination = ({
     />
   );
 
-  const navProps = (smallScreenVariant?: boolean) => {
-    const cns = [
-      styles.nav,
-      smallScreenVariant && styles['nav--small-screen'],
-      smallScreenVariant &&
-        smallScreenBreakpoint &&
-        styles[`nav--small-screen-show-${smallScreenBreakpoint}`],
-      !smallScreenVariant &&
-        smallScreenBreakpoint &&
-        styles[`nav--large-screen-hide-${smallScreenBreakpoint}`],
-    ];
-    const common = { ref: ref, 'aria-label': 'paginering' };
-    return !withSelect && !withCounter
-      ? {
-          ...common,
-          ...getBaseHTMLProps(id, cn(className, ...cns), htmlProps, rest),
-        }
-      : { ...common, className: cn(...cns) };
-  };
-
   const isOnFirstPage = activePage === 1;
   const isOnLastPage = activePage === pagesLength;
 
-  const largeScreenNavigation = withPagination ? (
-    <nav {...navProps()}>
-      <ol className={styles.list}>
+  const navigation = withPagination ? (
+    <nav
+      ref={ref}
+      aria-label="paginering"
+      {...(!withSelect && !withCounter
+        ? {
+            ...getBaseHTMLProps(id, cn(className, styles.nav), htmlProps, rest),
+          }
+        : { className: styles.nav })}
+    >
+      <Hide as="ol" hideBelow={smallScreenBreakpoint} className={styles.list}>
         <li
           className={cn(
             styles.list__item,
@@ -215,76 +204,73 @@ export const Pagination = ({
         >
           {nextPageButton}
         </li>
-      </ol>
-    </nav>
-  ) : null;
-
-  const smallScreenNavigation = withPagination ? (
-    <nav {...navProps(true)}>
-      <ol className={styles.list}>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnFirstPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnFirstPage}
-        >
-          <Button
-            purpose="secondary"
-            size="small"
-            icon={ChevronFirstIcon}
-            onClick={event => {
-              onPageChange(event, 1);
-            }}
-            aria-label="Gå til første siden"
-          />
-        </li>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnFirstPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnFirstPage}
-        >
-          {previousPageButton}
-        </li>
-        <li className={styles.list__item}>
-          <Button
-            size="small"
-            onClick={event => {
-              onPageChange(event, activePage);
-            }}
+      </Hide>
+      {!!smallScreenBreakpoint && (
+        <Hide as="ol" hideAbove={smallScreenBreakpoint} className={styles.list}>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnFirstPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnFirstPage}
           >
-            {activePage}
-          </Button>
-        </li>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnLastPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnLastPage}
-        >
-          {nextPageButton}
-        </li>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnLastPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnLastPage}
-        >
-          <Button
-            purpose="secondary"
-            size="small"
-            icon={ChevronLastIcon}
-            onClick={event => {
-              onPageChange(event, pagesLength);
-            }}
-            aria-label="Gå til siste siden"
-          />
-        </li>
-      </ol>
+            <Button
+              purpose="secondary"
+              size="small"
+              icon={ChevronFirstIcon}
+              onClick={event => {
+                onPageChange(event, 1);
+              }}
+              aria-label="Gå til første siden"
+            />
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnFirstPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnFirstPage}
+          >
+            {previousPageButton}
+          </li>
+          <li className={styles.list__item}>
+            <Button
+              size="small"
+              onClick={event => {
+                onPageChange(event, activePage);
+              }}
+            >
+              {activePage}
+            </Button>
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnLastPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnLastPage}
+          >
+            {nextPageButton}
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnLastPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnLastPage}
+          >
+            <Button
+              purpose="secondary"
+              size="small"
+              icon={ChevronLastIcon}
+              onClick={event => {
+                onPageChange(event, pagesLength);
+              }}
+              aria-label="Gå til siste siden"
+            />
+          </li>
+        </Hide>
+      )}
     </nav>
   ) : null;
 
@@ -295,10 +281,7 @@ export const Pagination = ({
     activePage === pagesLength ? itemsAmount : activePage * itemsPerPage;
 
   return !withCounter && !withSelect ? (
-    <>
-      {largeScreenNavigation}
-      {smallScreenBreakpoint && smallScreenNavigation}
-    </>
+    navigation
   ) : (
     <div
       {...getBaseHTMLProps(
@@ -335,8 +318,7 @@ export const Pagination = ({
           </Paragraph>
         )}
       </div>
-      {largeScreenNavigation}
-      {smallScreenBreakpoint && smallScreenNavigation}
+      {navigation}
     </div>
   );
 };

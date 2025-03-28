@@ -6,7 +6,7 @@ import { InlineButton } from '../InlineButton';
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
 
 export default {
-  title: 'dds-components/DetailList',
+  title: 'dds-components/Components/DetailList',
   component: DetailList,
   parameters: {
     docs: {
