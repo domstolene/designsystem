@@ -188,7 +188,7 @@ export const Popover = ({
       }}
       role="dialog"
       elevation={3}
-      border="subtle"
+      border="border-subtle"
     >
       {header && (
         <div className={styles.header}>

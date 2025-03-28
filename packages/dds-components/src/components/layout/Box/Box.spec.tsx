@@ -9,4 +9,8 @@ describe('<Box>', () => {
     render(<Box>{text}</Box>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
+  it('should render specified HTML element', () => {
+    render(<Box as="button" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
 });

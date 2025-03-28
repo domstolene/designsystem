@@ -1,8 +1,6 @@
 import { type Property, type StandardProperties } from 'csstype';
 import { type CSSProperties } from 'react';
 
-import { type PolymorphicProp } from '../../../types';
-
 export type ScreenSizeLiteral = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export const screenSizeLiterals: Array<ScreenSizeLiteral> = [
   'xs',
@@ -125,10 +123,7 @@ interface PrimitiveLayoutProps {
   gap?: ResponsiveProp<StandardProperties['gap'] | SpacingScale>;
 }
 
-export type ResponsiveProps = PolymorphicProp &
-  PrimitiveDisplayHideProps &
-  PrimitiveLayoutProps &
-  CSSProps;
+export type ResponsiveProps = PrimitiveDisplayHideProps & PrimitiveLayoutProps;
 
 export type ResponsiveStackProps = Omit<
   ResponsiveProps,

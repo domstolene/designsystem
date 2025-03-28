@@ -1,12 +1,12 @@
-import { type HTMLAttributes } from 'react';
+import { type ComponentProps, type ElementType } from 'react';
 
 import styles from './Paper.module.css';
 import {
-  type BaseComponentPropsWithChildren,
   type BorderColor,
   type BorderRadius,
   type Elevation,
   type PaperBackground,
+  type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
@@ -19,28 +19,29 @@ export type PaperElevation = Elevation;
 export type PaperBorder = BorderColor;
 export type PaperBorderRadius = BorderRadius;
 
-type PickedAttributes = Pick<
-  HTMLAttributes<HTMLDivElement>,
+type PickedAttributes<T extends ElementType = 'div'> = Pick<
+  ComponentProps<T>,
   'tabIndex' | 'role' | keyof CSSProps
 >;
 
-export type PaperProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  {
-    /**I hvor stor grad flaten skal framheves. Støtter dds tokens. */
-    elevation?: PaperElevation;
-    /**Farge på kantlinje. Støtter dds tokens. */
-    border?: PaperBorder;
-    /**Hvor runde hjørner skal være. Støtter dds tokens. */
-    borderRadius?: PaperBorderRadius;
-    /**Bakgrunn. Støtter dds tokens. */
-    background?: PaperBackground;
-  } & ResponsiveProps &
-    PickedAttributes,
-  Omit<HTMLAttributes<HTMLDivElement>, keyof PickedAttributes>
->;
+export type PaperProps<T extends ElementType = 'div'> =
+  PolymorphicBaseComponentProps<
+    T,
+    {
+      /**I hvor stor grad flaten skal framheves. Støtter dds tokens. */
+      elevation?: PaperElevation;
+      /**Farge på kantlinje. Støtter dds tokens. */
+      border?: PaperBorder;
+      /**Hvor runde hjørner skal være. Støtter dds tokens. */
+      borderRadius?: PaperBorderRadius;
+      /**Bakgrunn. Støtter dds tokens. */
+      background?: PaperBackground;
+    } & ResponsiveProps &
+      PickedAttributes,
+    Omit<ComponentProps<T>, keyof PickedAttributes>
+  >;
 
-export const Paper = ({
+export const Paper = <T extends ElementType = 'div'>({
   id,
   elevation,
   border,
@@ -50,7 +51,7 @@ export const Paper = ({
   htmlProps,
   style,
   ...rest
-}: PaperProps) => {
+}: PaperProps<T>) => {
   const styleVariables = {
     ...getResponsiveCSSProperties(background, 'paper-background'),
     ...getResponsiveCSSProperties(border, 'paper-border'),

@@ -1,35 +1,26 @@
-import { type HTMLAttributes } from 'react';
+import { type ElementType } from 'react';
 
 import {
-  type BaseComponentPropsWithChildren,
-  type PolymorphicProp,
+  type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
 import { ElementAs } from '../../helpers';
 import styles from '../common/display.module.css';
-import {
-  type CSSProps,
-  type PrimitiveDisplayHideProps,
-} from '../common/Responsive.types';
+import { type PrimitiveDisplayHideProps } from '../common/Responsive.types';
 
-export type HideProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  PolymorphicProp & PrimitiveDisplayHideProps & CSSProps,
-  Omit<HTMLAttributes<HTMLDivElement>, keyof CSSProps>
->;
+export type HideProps<T extends ElementType = 'div'> =
+  PolymorphicBaseComponentProps<T, PrimitiveDisplayHideProps>;
 
-export const Hide = ({
+export const Hide = <T extends ElementType = 'div'>({
   hideBelow,
   hideAbove,
   className,
-  as = 'div',
   htmlProps,
   id,
   ...rest
-}: HideProps) => (
+}: HideProps<T>) => (
   <ElementAs
-    as={as}
     {...getBaseHTMLProps(
       id,
       cn(

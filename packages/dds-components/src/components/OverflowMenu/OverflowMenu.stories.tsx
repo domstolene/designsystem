@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
-import { VStack } from '../layout/Stack';
+import { VStack } from '../layout';
 
 import {
   OverflowMenu,

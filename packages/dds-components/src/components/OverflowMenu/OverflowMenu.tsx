@@ -49,7 +49,7 @@ export const OverflowMenu = ({
       role="menu"
       aria-hidden={!isOpen}
       elevation={1}
-      border="default"
+      border="border-default"
       style={{ ...style, ...floatStyling }}
     />
   );

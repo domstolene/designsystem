@@ -13,4 +13,8 @@ describe('<Grid>', () => {
     );
     expect(screen.getByText(text)).toBeInTheDocument();
   });
+  it('should render specified HTML element', () => {
+    render(<Grid as="button" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
 });

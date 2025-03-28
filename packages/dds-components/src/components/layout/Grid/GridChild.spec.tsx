@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { Show } from '.';
+import { GridChild } from '.';
 
-describe('<Show>', () => {
+describe('<GridChild>', () => {
   it('should render content', () => {
     const text = 'text';
-    render(<Show>{text}</Show>);
+    render(<GridChild>{text}</GridChild>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('should render specified HTML element', () => {
-    render(<Show as="button" />);
+    render(<GridChild as="button" />);
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
 });

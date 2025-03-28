@@ -1,20 +1,23 @@
-import { type HTMLAttributes } from 'react';
+import { type ElementType } from 'react';
 
-import { getBaseHTMLProps } from '../../../../types';
-import { type BaseComponentPropsWithChildren } from '../../../../types';
+import {
+  type PolymorphicBaseComponentProps,
+  getBaseHTMLProps,
+} from '../../../../types';
 import { cn } from '../../../../utils';
 import { Box } from '../../../layout';
 import { type ResponsiveStackProps } from '../../common';
-import { type CSSProps } from '../../common/Responsive.types';
 import styles from '../Stack.module.css';
 
-export type HStackProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  ResponsiveStackProps & CSSProps,
-  Omit<HTMLAttributes<HTMLDivElement>, keyof CSSProps>
->;
+export type HStackProps<T extends ElementType = 'div'> =
+  PolymorphicBaseComponentProps<T, ResponsiveStackProps>;
 
-export const HStack = ({ id, className, htmlProps, ...rest }: HStackProps) => {
+export const HStack = <T extends ElementType = 'div'>({
+  id,
+  className,
+  htmlProps,
+  ...rest
+}: HStackProps<T>) => {
   return (
     <Box
       {...getBaseHTMLProps(

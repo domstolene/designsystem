@@ -1,4 +1,11 @@
-import { type HTMLAttributes, type ReactNode, type Ref } from 'react';
+import {
+  type CSSProperties,
+  type ComponentPropsWithRef,
+  type ElementType,
+  type HTMLAttributes,
+  type ReactNode,
+  type Ref,
+} from 'react';
 
 import { cn } from '../../../dds-components/src/utils/dom';
 
@@ -28,6 +35,36 @@ export type BaseComponentProps<
     id?: string;
     /**Klassenavn. */
     className?: string;
+  };
+
+/**
+ * Basetype for polymorfe props som eksponeres til konsumenter av designsystemet.
+ * Lager en intersection-type med props som sendes inn og `id` og `htmlProps`
+ * slik at man kan ha `ComponentPropsWithRef`-props på komponenter som eksponeres
+ * av designsystemet.
+ *
+ * @template E Element-type som genereres av komponenten.
+ * @template TOtherProps Andre props komponenten skal eksponere til konsumenter.
+ * @template TComponentProps Standard `ComponentPropsWithRef<E>` men kan overstyres for f.eks knapper hvis man trenger en annen basetype for `htmlProps`.
+ */
+export type PolymorphicBaseComponentProps<
+  E extends ElementType,
+  TOtherProps extends object = object,
+  TComponentProps extends object = ComponentPropsWithRef<E>,
+> = Omit<TComponentProps, 'id' | 'className' | 'style' | 'ref'> &
+  TOtherProps & {
+    /**HTML- eller React-element som returneres. */
+    as?: E;
+    /**Ref til komponenten. */
+    ref?: ComponentPropsWithRef<E>['ref'];
+    /**Native HTML-attributter som vil settes på elementet som genereres. Untatt `id`, `className` og `style` (og eventuelle andre attributter spesifisert i dokumentasjonen) som settes på toppnivå. */
+    htmlProps?: TComponentProps;
+    /**HTML id. */
+    id?: string;
+    /**Klassenavn. */
+    className?: string;
+    /**Inline style. */
+    style?: CSSProperties;
   };
 
 /**

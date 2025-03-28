@@ -14,7 +14,7 @@ import {
   GavelIcon,
   PersonIcon,
 } from '../Icon/icons';
-import { HStack, VStack } from '../layout/Stack';
+import { HStack, VStack } from '../layout';
 import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { TextInput } from '../TextInput';

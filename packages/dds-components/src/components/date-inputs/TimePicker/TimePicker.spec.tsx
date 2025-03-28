@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
 import { TimePicker } from './TimePicker';
-import { HStack } from '../../layout/Stack';
+import { HStack } from '../../layout';
 import { TextInput } from '../../TextInput';
 
 describe('<TimePicker />', () => {

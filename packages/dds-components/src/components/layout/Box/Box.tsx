@@ -1,27 +1,20 @@
-import { type HTMLAttributes } from 'react';
+import { type ElementType } from 'react';
 
 import {
-  type BaseComponentPropsWithChildren,
+  type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
 import styles from '../common/layout.module.css';
-import {
-  type CSSProps,
-  type ResponsiveProps,
-} from '../common/Responsive.types';
+import { type ResponsiveProps } from '../common/Responsive.types';
 import { getResponsiveCSSProperties } from '../common/utils';
 import { Hide } from '../Hide';
 
-export type BoxProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  ResponsiveProps & CSSProps,
-  Omit<HTMLAttributes<HTMLDivElement>, keyof CSSProps>
->;
+export type BoxProps<T extends ElementType = 'div'> =
+  PolymorphicBaseComponentProps<T, ResponsiveProps>;
 
-export const Box = ({
+export const Box = <T extends ElementType = 'div'>({
   id,
-  as = 'div',
   className,
   style,
   padding,
@@ -56,7 +49,7 @@ export const Box = ({
   flexFlow,
   htmlProps,
   ...rest
-}: BoxProps) => {
+}: BoxProps<T>) => {
   const responsiveStyles = {
     ...getResponsiveCSSProperties(padding, 'r', 'p'),
     ...getResponsiveCSSProperties(paddingInline, 'r', 'p-i'),
@@ -92,7 +85,6 @@ export const Box = ({
 
   return (
     <Hide
-      as={as}
       {...getBaseHTMLProps(
         id,
         cn(

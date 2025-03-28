@@ -9,4 +9,8 @@ describe('<Hide>', () => {
     render(<Hide>{text}</Hide>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
+  it('should render specified HTML element', () => {
+    render(<Hide as="button" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
 });

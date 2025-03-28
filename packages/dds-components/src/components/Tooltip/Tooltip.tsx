@@ -164,7 +164,7 @@ export const Tooltip = ({
         aria-hidden={!open}
         style={{ ...positionStyles.floating }}
         elevation={1}
-        border="subtle"
+        border="border-subtle"
         className={cn(
           styles.paper,
           typographyStyles['body-medium'],

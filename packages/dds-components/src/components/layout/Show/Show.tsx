@@ -1,37 +1,35 @@
-import { type HTMLAttributes } from 'react';
+import { type ElementType } from 'react';
 
 import {
-  type BaseComponentPropsWithChildren,
-  type PolymorphicProp,
+  type PolymorphicBaseComponentProps,
+  getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
 import { ElementAs } from '../../helpers';
 import styles from '../common/display.module.css';
-import {
-  type CSSProps,
-  type PrimitiveDisplayShowProps,
-} from '../common/Responsive.types';
+import { type PrimitiveDisplayShowProps } from '../common/Responsive.types';
 
-export type ShowProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  PolymorphicProp & PrimitiveDisplayShowProps & CSSProps,
-  Omit<HTMLAttributes<HTMLDivElement>, keyof CSSProps>
->;
+export type ShowProps<T extends ElementType = 'div'> =
+  PolymorphicBaseComponentProps<T, PrimitiveDisplayShowProps>;
 
-export const Show = ({
+export const Show = <T extends ElementType = 'div'>({
   showBelow,
   showAbove,
   className,
-  as = 'div',
+  htmlProps,
+  id,
   ...rest
-}: ShowProps) => (
+}: ShowProps<T>) => (
   <ElementAs
-    {...rest}
-    as={as}
-    className={cn(
-      className,
-      showBelow && styles[`${showBelow}-hide-above`],
-      showAbove && styles[`${showAbove}-hide-below`],
+    {...getBaseHTMLProps(
+      id,
+      cn(
+        className,
+        showBelow && styles[`${showBelow}-hide-above`],
+        showAbove && styles[`${showAbove}-hide-below`],
+      ),
+      htmlProps,
+      rest,
     )}
   />
 );

@@ -1,15 +1,14 @@
 import { type Properties, type StandardProperties } from 'csstype';
-import { type HTMLAttributes } from 'react';
+import { type ElementType } from 'react';
 
 import { Box } from '..';
 import styles from './Grid.module.css';
 import {
-  type BaseComponentPropsWithChildren,
+  type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
 import {
-  type CSSProps,
   type ResponsiveProp,
   type ResponsiveProps,
   type SpacingScale,
@@ -21,31 +20,27 @@ type ColumnGapGrid = ResponsiveProp<
   StandardProperties['columnGap'] | SpacingScale
 >;
 
-// export type GridProps = GridDivProps | GridFormProps;
-export type GridProps = BaseComponentPropsWithChildren<
-  HTMLDivElement,
-  {
-    /** CSS `row-gap`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser. */
-    rowGap?: RowGapGrid;
-    /** CSS `column-gap`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser. */
-    columnGap?: ColumnGapGrid;
-  } & Omit<ResponsiveProps, 'display'> &
-    CSSProps,
-  Omit<HTMLAttributes<HTMLDivElement>, 'style'>
->;
+export type GridProps<T extends ElementType = 'div'> =
+  PolymorphicBaseComponentProps<
+    T,
+    {
+      /** CSS `row-gap`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser. */
+      rowGap?: RowGapGrid;
+      /** CSS `column-gap`. Støtter standardverdier og dds spacing tokens skala, per brekkpunkt eller samme for alle skjermstørrelser. */
+      columnGap?: ColumnGapGrid;
+    } & Omit<ResponsiveProps, 'display'>
+  >;
 
-export const Grid = (props: GridProps) => {
-  const {
-    id,
-    className,
-    htmlProps,
-    rowGap,
-    columnGap,
-    marginInline = { xs: 'x2', sm: 'x2', md: 'x4', lg: 'x6', xl: 'x10' },
-    style,
-    ...rest
-  } = props;
-
+export const Grid = <T extends ElementType = 'div'>({
+  id,
+  className,
+  htmlProps,
+  rowGap,
+  columnGap,
+  marginInline = { xs: 'x2', sm: 'x2', md: 'x4', lg: 'x6', xl: 'x10' },
+  style,
+  ...rest
+}: GridProps<T>) => {
   const styleVariables: Properties = {
     ...getResponsiveCSSProperties(columnGap, 'r', 'c-g'),
     ...getResponsiveCSSProperties(rowGap, 'r', 'r-g'),

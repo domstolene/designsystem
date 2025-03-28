@@ -5,7 +5,7 @@ import { type Placement } from '../../hooks';
 import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
-import { VStack } from '../layout/Stack';
+import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
 import { Paragraph } from '../Typography';
@@ -251,7 +251,7 @@ export const Custom: Story = {
           }}
           aria-controls={id}
           aria-expanded={isOpen}
-          aria-haspopup={id}
+          aria-haspopup="dialog"
         >
           Åpne
         </Button>

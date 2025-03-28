@@ -9,4 +9,8 @@ describe('<Paper>', () => {
     render(<Paper>{text}</Paper>);
     expect(screen.getByText(text)).toBeInTheDocument();
   });
+  it('should render specified HTML element', () => {
+    render(<Paper as="button" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
 });

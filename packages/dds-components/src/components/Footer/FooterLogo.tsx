@@ -13,16 +13,13 @@ export type FooterLogoProps = ComponentPropsWithRef<'img'> & {
 export const FooterLogo = ({ hideBreakpoint, ...rest }: FooterLogoProps) => {
   return (
     <Box
+      as="img"
       hideBelow={hideBreakpoint ? hideBreakpoint : undefined}
-      width="fit-content"
-    >
-      <img
-        src={Logo}
-        height={80}
-        width={151}
-        alt="norges domstoler"
-        {...rest}
-      />
-    </Box>
+      src={Logo}
+      height={80}
+      width={151}
+      alt="norges domstoler"
+      {...rest}
+    />
   );
 };
