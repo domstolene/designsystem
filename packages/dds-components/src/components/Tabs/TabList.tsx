@@ -55,6 +55,7 @@ export const TabList = ({
           cloneElement(child, {
             id: `${tabsId}-tab-${index}`,
             htmlProps: {
+              ...child.props.htmlProps,
               'aria-controls': `${tabsId}-panel-${index}`,
             },
             active: activeTab === index,
