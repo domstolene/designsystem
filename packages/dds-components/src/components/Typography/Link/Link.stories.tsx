@@ -5,13 +5,13 @@ import {
   htmlEventArgType,
   htmlPropsArgType,
 } from '../../../storybook/helpers';
-import { StoryVStack } from '../../Stack/utils';
+import { StoryVStack } from '../../layout/Stack/utils';
 import { Paragraph } from '../Paragraph';
 
 import { Link } from '.';
 
 export default {
-  title: 'dds-components/Typography/Link',
+  title: 'dds-components/Components/Typography/Link',
   component: Link,
   argTypes: {
     href: { control: 'text', table: categoryHtml },

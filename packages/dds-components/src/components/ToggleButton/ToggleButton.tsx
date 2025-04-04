@@ -7,6 +7,7 @@ import { cn } from '../../utils';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
+import { Box } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export const ToggleButton = ({
@@ -23,7 +24,7 @@ export const ToggleButton = ({
   const hasIcon = !!icon;
 
   return (
-    <label htmlFor={uniqueId} className={styles.container}>
+    <Box as="label" htmlFor={uniqueId} width="fit-content">
       <input
         {...getBaseHTMLProps(
           uniqueId,
@@ -48,7 +49,7 @@ export const ToggleButton = ({
       >
         {hasIcon && <Icon icon={icon} iconSize="inherit" />} {label}
       </span>
-    </label>
+    </Box>
   );
 };
 

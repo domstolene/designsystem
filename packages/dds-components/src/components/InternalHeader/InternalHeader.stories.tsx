@@ -1,13 +1,16 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import {
+  htmlPropsArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { EditIcon } from '../Icon/icons';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 import { InternalHeader } from '.';
 
 export default {
-  title: 'dds-components/InternalHeader',
+  title: 'dds-components/Components/InternalHeader',
   component: InternalHeader,
   argTypes: {
     navItems: { control: false },
@@ -84,6 +87,13 @@ export const Responsive: Story = {
     user,
     smallScreenBreakpoint: 'xs',
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved xs brekkpunkt.',
+      ),
+  ],
 };
 
 export const WithCurrentPage: Story = {
@@ -103,7 +113,7 @@ export const Overview: Story = {
     applicationDesc: 'Produktnavn',
   },
   render: args => (
-    <StoryVStack align="stretch">
+    <StoryVStack alignItems="stretch">
       <InternalHeader {...args} />
       <InternalHeader
         {...args}
@@ -155,6 +165,13 @@ export const ResponsiveWithNavigation: Story = {
     navItems: navigationLinks,
     smallScreenBreakpoint: 'sm',
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
+      ),
+  ],
 };
 
 export const ResponsiveWithContextMenu: Story = {
@@ -164,6 +181,13 @@ export const ResponsiveWithContextMenu: Story = {
     contextMenuItems: menuElements,
     smallScreenBreakpoint: 'sm',
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
+      ),
+  ],
 };
 
 export const ResponsiveWithNavigationAndContextMenu: Story = {
@@ -176,6 +200,13 @@ export const ResponsiveWithNavigationAndContextMenu: Story = {
     user: user,
     smallScreenBreakpoint: 'sm',
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
+      ),
+  ],
 };
 
 export const WithNavigationLongLink: Story = {

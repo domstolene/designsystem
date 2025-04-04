@@ -1,12 +1,7 @@
-import { type StandardProperties } from 'csstype';
-
 import { ScreenSize } from '../../../hooks';
+import { type Breakpoint } from '../../layout/common/Responsive.types';
 
-export type ScreenSizeLiteral = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-export const getLiteralScreenSize = (
-  screenSize: ScreenSize,
-): ScreenSizeLiteral => {
+export const getLiteralScreenSize = (screenSize: ScreenSize): Breakpoint => {
   switch (screenSize) {
     case ScreenSize.XLarge:
       return 'xl';
@@ -19,8 +14,4 @@ export const getLiteralScreenSize = (
     case ScreenSize.XSmall:
       return 'xs';
   }
-};
-
-export type BreakpointBasedProps<T extends keyof StandardProperties> = {
-  [k in ScreenSizeLiteral]?: StandardProperties[T];
 };

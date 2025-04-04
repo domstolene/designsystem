@@ -4,12 +4,12 @@ import {
   type ElementType,
 } from 'react';
 
-export type As = ElementType;
-
-export type PropsOf<T extends As> = ComponentPropsWithoutRef<T> & {
+export type PropsOf<T extends ElementType> = ComponentPropsWithoutRef<T> & {
+  /** HTML- eller React-element som returneres. */
   as?: T;
 };
 
-export type PropsOfWithRef<T extends As> = ComponentPropsWithRef<T> & {
+export type PropsOfWithRef<T extends ElementType> = ComponentPropsWithRef<T> & {
+  /** HTML- eller React-element som returneres. */
   as?: T;
 };

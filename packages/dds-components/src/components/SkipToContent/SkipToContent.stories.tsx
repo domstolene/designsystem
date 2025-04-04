@@ -6,7 +6,7 @@ import { Heading } from '../Typography';
 import { SkipToContent } from '.';
 
 export default {
-  title: 'dds-components/SkipToContent',
+  title: 'dds-components/Components/SkipToContent',
   component: SkipToContent,
   argTypes: {
     top: { control: 'text' },

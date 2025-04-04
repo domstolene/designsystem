@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { PlusCircledIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import {
   SplitButton,
@@ -10,12 +10,12 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/SplitButton',
+  title: 'dds-components/Components/SplitButton',
   component: SplitButton,
   parameters: {
     docs: {
       story: { inline: true, height: '200px' },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
   argTypes: {

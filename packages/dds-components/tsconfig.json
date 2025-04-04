@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.json",
   "include": [
     "src",
+    "stories/patterns",
     ".eslintrc.cjs",
     "vitest.config.ts",
     "tsup.config.ts",

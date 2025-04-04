@@ -2,12 +2,12 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { ToggleButton } from '.';
 
 export default {
-  title: 'dds-components/ToggleButton',
+  title: 'dds-components/Components/ToggleButton',
   component: ToggleButton,
   argTypes: {
     htmlProps: htmlPropsArgType,

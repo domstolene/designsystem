@@ -1,0 +1,25 @@
+import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
+import { Box } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as BoxStories from './Box.stories';
+
+<Meta of={BoxStories} />
+
+# Box
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/377d6d-box  "
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/layout/Box"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-layout-primitives-box--default"
+  withBottomSpacing
+/>
+
+`<Box>` er en code-only layout primitive; et grunnelement som brukes som byggekloss for andre komponenter og strukturer. Den støtter spacing med design tokens aliaser direkte via props.
+
+## Props
+
+<Canvas of={BoxStories.Default} sourceState="shown" />
+<Controls of={BoxStories.Default} />

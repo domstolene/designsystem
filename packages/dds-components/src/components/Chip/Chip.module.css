@@ -9,8 +9,3 @@
   border-radius: var(--dds-border-radius-chip);
   background-color: var(--dds-color-surface-subtle);
 }
-
-.group {
-  display: flex;
-  gap: var(--dds-spacing-x0-75);
-}

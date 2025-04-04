@@ -1,6 +1,7 @@
 import './styles';
 
 export * from './components/helpers';
+export * from './components/layout';
 export * from './components/Icon/icons';
 export * as icons from './components/Icon/icons';
 export * from './hooks';
@@ -27,7 +28,6 @@ export * from './components/Fieldset';
 export * from './components/FileUploader';
 export * from './components/Footer';
 export * from './components/GlobalMessage';
-export * from './components/Grid';
 export * from './components/Icon';
 export * from './components/InlineButton';
 export * from './components/InlineEdit';
@@ -50,7 +50,6 @@ export * from './components/Skeleton';
 export * from './components/SkipToContent';
 export * from './components/Spinner';
 export * from './components/SplitButton';
-export * from './components/Stack';
 export * from './components/Table';
 export * from './components/Tabs';
 export * from './components/Tag';

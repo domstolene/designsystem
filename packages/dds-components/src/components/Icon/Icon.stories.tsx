@@ -2,13 +2,13 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryHStack } from '../Stack/utils';
+import { StoryHStack } from '../layout/Stack/utils';
 import { Paragraph } from '../Typography';
 
 import { Icon } from '.';
 
 export default {
-  title: 'dds-components/Icon',
+  title: 'dds-components/Components/Icon',
   component: Icon,
   argTypes: {
     color: { control: 'text' },

@@ -1,12 +1,8 @@
 import styles from './Divider.module.css';
-import {
-  type BaseComponentProps,
-  getBaseHTMLProps,
-  getBorderCn,
-} from '../../types';
+import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 
-export type DividerColor = 'default' | 'subtle' | 'onInverse';
+export type DividerColor = 'default' | 'subtle' | 'on-inverse';
 
 export type DividerProps = BaseComponentProps<
   HTMLHRElement,
@@ -25,13 +21,11 @@ export const Divider = ({
   htmlProps,
   ...rest
 }: DividerProps) => {
-  const colorCn = getBorderCn(color);
-
   return (
     <hr
       {...getBaseHTMLProps(
         id,
-        cn(className, styles.divider, styles[`divider--${colorCn}`]),
+        cn(className, styles.divider, styles[`divider--${color}`]),
         htmlProps,
         rest,
       )}

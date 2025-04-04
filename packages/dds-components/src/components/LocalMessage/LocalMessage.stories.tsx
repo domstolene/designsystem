@@ -2,12 +2,12 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { LocalMessage } from './LocalMessage';
 import { htmlPropsArgType } from '../../storybook/helpers';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { List, ListItem } from '../List';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
 export default {
-  title: 'dds-components/LocalMessage',
+  title: 'dds-components/Components/LocalMessage',
   component: LocalMessage,
   argTypes: {
     width: { control: 'text' },

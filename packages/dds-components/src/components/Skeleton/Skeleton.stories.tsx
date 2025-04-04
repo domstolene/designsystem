@@ -1,10 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Skeleton } from './Skeleton';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
-  title: 'dds-components/Skeleton',
+  title: 'dds-components/Components/Skeleton',
   component: Skeleton,
   argTypes: {
     width: { control: 'text' },

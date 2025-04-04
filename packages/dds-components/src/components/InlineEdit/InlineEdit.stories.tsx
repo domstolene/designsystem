@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { InlineEditInput } from './InlineEditInput';
 import { InlineEditTextArea } from './InlineEditTextArea';
 import { htmlEventArgType } from '../../storybook/helpers';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
-  title: 'dds-components/InlineEdit',
+  title: 'dds-components/Components/InlineEdit',
   component: InlineEditInput,
   argTypes: {
     width: { control: { type: 'text' } },

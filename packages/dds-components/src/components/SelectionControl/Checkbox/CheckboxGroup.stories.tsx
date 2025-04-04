@@ -2,13 +2,13 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../../storybook/helpers';
 import { Fieldset } from '../../Fieldset';
-import { StoryHStack, StoryVStack } from '../../Stack/utils';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Legend } from '../../Typography';
 
 import { Checkbox, CheckboxGroup } from '.';
 
 export default {
-  title: 'dds-components/Checkbox/CheckboxGroup',
+  title: 'dds-components/Components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     required: { control: 'boolean' },

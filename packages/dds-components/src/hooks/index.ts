@@ -8,3 +8,4 @@ export * from './useOnKeyDown';
 export * from './useReturnFocusOnBlur';
 export * from './useRoveFocus';
 export * from './useScreenSize';
+export * from './useWindowResize';

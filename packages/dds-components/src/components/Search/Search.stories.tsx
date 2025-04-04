@@ -1,11 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Search } from '.';
 
 export default {
-  title: 'dds-components/Search',
+  title: 'dds-components/Components/Search',
   component: Search,
   argTypes: {
     buttonProps: { control: false },

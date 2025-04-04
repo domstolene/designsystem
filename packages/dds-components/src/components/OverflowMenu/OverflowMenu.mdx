@@ -22,7 +22,7 @@ import * as OverflowMenuStories from './OverflowMenu.stories';
   docsHref="https://design.domstol.no/987b33f71/p/76d235-overflowmenu/b/5650fd"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=5773%3A159680"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/OverflowMenu"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-overflowmenu--default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-overflowmenu--default"
   withBottomSpacing
 />
 
@@ -149,7 +149,7 @@ const onOpen = () => {
 
 const [isOpen, setIsOpen] = useState(false);
 
-<OverflowMenuGroup isOpne={isOpen} isetIsOpen={setIsOpen}>
+<OverflowMenuGroup isOpen={isOpen} setIsOpen={setIsOpen}>
   <Button>Åpne meny</Button>
   <OverflowMenu>
     <OverflowMenuList>

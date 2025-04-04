@@ -88,7 +88,3 @@
   border-color: var(--dds-color-surface-action-selected);
   box-shadow: inset 0px -2px 0px 0px var(--dds-color-surface-action-selected);
 }
-
-.tab-panel {
-  padding: var(--dds-spacing-x0-25);
-}
