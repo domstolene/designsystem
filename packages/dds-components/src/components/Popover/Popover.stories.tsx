@@ -8,8 +8,6 @@ import { InlineButton } from '../InlineButton';
 import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
-import { VStack } from '../Stack';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../Typography';
 

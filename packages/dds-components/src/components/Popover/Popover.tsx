@@ -8,7 +8,6 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 
-import { usePopoverContext } from './Popover.context';
 import styles from './Popover.module.css';
 import {
   type Placement,
