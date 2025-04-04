@@ -7,7 +7,6 @@ addons.setConfig({
   sidebar: {
     showRoots: true,
     collapsedRoots: [
-      'app-shell',
       'dds-components',
       'development-utils',
       'dds-design-tokens',

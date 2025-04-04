@@ -12,7 +12,6 @@ I koden brukes prefikset `dds` for å spesifisere assosiasjon med designsystemet
 - 🎨 [dds-design-tokens](packages/dds-tokens/README.md)
 - 📕 [dds-formatting](packages/dds-formatting/README.md)
 - 🔧 [development-utils](packages/development-utils/README.md)
-- 🐚 [app-shell](packages/app-shell/README.md) (deprecated, kopier `<AppShell>` inn i kodebasen din hvis du bruker denne)
 
 ## 🏬 Storefront
 
