@@ -2,6 +2,7 @@ import { type ComponentPropsWithRef } from 'react';
 
 import { type Placement } from '../../hooks';
 import { type BaseComponentPropsWithChildren } from '../../types';
+import { type ButtonProps } from '../Button';
 import { type SvgIcon } from '../Icon/utils';
 
 export type OverflowMenuListItemBaseProps<T extends 'span' | 'button' | 'a'> = {
@@ -13,7 +14,8 @@ export type OverflowMenuListItemBaseProps<T extends 'span' | 'button' | 'a'> = {
   purpose?: 'default' | 'danger';
 } & ComponentPropsWithRef<T>;
 
-export type OverflowMenuButtonProps = OverflowMenuListItemBaseProps<'button'>;
+export type OverflowMenuButtonProps = OverflowMenuListItemBaseProps<'button'> &
+  Pick<ButtonProps, 'loading' | 'loadingTooltip'>;
 
 export type OverflowMenuLinkProps = OverflowMenuListItemBaseProps<'a'>;
 

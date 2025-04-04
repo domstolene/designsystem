@@ -89,3 +89,23 @@
 .invisible {
   visibility: hidden;
 }
+
+.center-absolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center-absolute-y {
+  position: absolute;
+
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.center-absolute-x {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

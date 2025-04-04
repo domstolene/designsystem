@@ -53,6 +53,11 @@
   font-size: calc(var(--dds-font-lineheight-x1) * 1em);
 }
 
+.button-loading {
+  cursor: not-allowed;
+  position: relative;
+}
+
 .divider {
   margin-inline: var(--dds-spacing-x0-5);
   margin-block: var(--dds-spacing-x0);
