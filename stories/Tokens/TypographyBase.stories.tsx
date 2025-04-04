@@ -1,3 +1,5 @@
+import { type Meta } from '@storybook/react';
+
 import {
   FontFamilyGenerator,
   FontLetterSpacingGenerator,
@@ -9,9 +11,14 @@ import {
   wrapperStyle,
 } from './utils';
 
-export default {
+const meta: Meta = {
   title: 'dds-design-tokens/Tokens/Typography base',
+  parameters: {
+    disableGlobalDecorator: true,
+  },
 };
+
+export default meta;
 
 export const FontFamily = () => {
   return <div style={wrapperStyle}>{FontFamilyGenerator()}</div>;

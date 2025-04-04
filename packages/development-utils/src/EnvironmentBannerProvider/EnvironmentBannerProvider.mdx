@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/addon-docs';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs';
+import { Default } from './EnvironmentBannerProvider.stories';
 
 <Meta title="development-utils/EnvironmentBannerProvider" />
 
@@ -6,6 +7,9 @@ import { Meta } from '@storybook/addon-docs';
 
 Denne komponenten kan brukes for å hjelpe utviklere/testere med å se hvilket miljø de jobber i. Den viser en banner (med unik farge per miljø) øverst på siden med miljønavnet.
 I produksjon (ved `environment="PROD"`) eller ved et ukjent miljø er den skjult, så du trenger ikke å håndtere skjuling av banneren.
+
+<Canvas of={Default} />
+<Controls of={Default} />
 
 ## 🔨 Bruk
 

@@ -8,13 +8,23 @@ import { InlineButton } from '../InlineButton';
 import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
+import { VStack } from '../Stack';
+import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../Typography';
 
 import { Popover, PopoverGroup } from '.';
 
-export default {
+const meta: Meta<typeof Popover> = {
   title: 'dds-components/Components/Popover',
   component: Popover,
+  decorators: [
+    Story => (
+      <StoryThemeProvider>
+        <Story />
+      </StoryThemeProvider>
+    ),
+  ],
   argTypes: {
     header: { control: 'text' },
     onBlur: htmlEventArgType,
@@ -29,7 +39,9 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-} satisfies Meta<typeof Popover>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Popover>;
 

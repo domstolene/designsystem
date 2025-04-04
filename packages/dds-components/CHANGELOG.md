@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 20.1.0
+
+### Minor Changes
+
+- 69fd7a3: Fikser bug der `htmlProps`-prop ikke ble satt og setter standardverdien `type='button'` i `<Tab>`. På denne måten vil ikke bytting mellom faner trigge submit hvis `<Tabs>` ligger i `<form>`.
+
 ## 20.0.0
 
 ### Major Changes
