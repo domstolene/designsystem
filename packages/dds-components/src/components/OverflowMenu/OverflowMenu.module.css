@@ -49,3 +49,8 @@
   /*TODO: bytte til icon size token for button når den er på plass*/
   font-size: calc(var(--dds-font-lineheight-x1) * 1em);
 }
+
+.button-loading {
+  cursor: not-allowed;
+  position: relative;
+}

@@ -3,7 +3,11 @@ import { useEffect, useRef } from 'react';
 import { useCombinedRef } from '../../../hooks';
 import { cn } from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
+import utilStyles, {
+  invisible,
+} from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
+import { Spinner } from '../../Spinner';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 import { useOverflowMenuContext } from '../OverflowMenu.context';
 import styles from '../OverflowMenu.module.css';
@@ -16,6 +20,9 @@ export const OverflowMenuButton = ({
   className,
   onClick,
   purpose = 'default',
+  loading,
+  loadingTooltip,
+  'aria-disabled': ariaDisabled,
   ref,
   ...rest
 }: OverflowMenuButtonProps) => {
@@ -43,16 +50,37 @@ export const OverflowMenuButton = ({
           typographyStyles['body-small'],
           styles['list__item--link'],
           focusStyles['focusable--inset'],
+          loading && styles['button-loading'],
         )}
-        onClick={e => {
-          onClick?.(e);
-          onClose?.();
-        }}
+        onClick={
+          loading
+            ? undefined
+            : e => {
+                onClick?.(e);
+                onClose?.();
+              }
+        }
+        aria-disabled={loading ? true : ariaDisabled ? ariaDisabled : undefined}
         {...rest}
         tabIndex={focusedRef === itemRef ? 0 : -1}
       >
-        {icon && <Icon iconSize="inherit" icon={icon} />}
-        {children}
+        {loading && (
+          <span className={cn(utilStyles['center-absolute'])}>
+            <Spinner
+              size="var(--dds-icon-size-medium)"
+              tooltip={loadingTooltip}
+            />
+          </span>
+        )}
+
+        {icon && (
+          <Icon
+            className={cn(loading && invisible)}
+            iconSize="inherit"
+            icon={icon}
+          />
+        )}
+        <span className={cn(loading && invisible)}>{children}</span>
       </button>
     </li>
   );

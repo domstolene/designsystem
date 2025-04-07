@@ -68,6 +68,14 @@ export const Default: Story = {
                 Handling
               </OverflowMenuButton>
               <OverflowMenuButton
+                loading
+                onClick={() => {
+                  null;
+                }}
+              >
+                Handling 2
+              </OverflowMenuButton>
+              <OverflowMenuButton
                 onClick={() => {
                   null;
                 }}
