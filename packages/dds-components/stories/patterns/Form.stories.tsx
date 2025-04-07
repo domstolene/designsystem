@@ -1,5 +1,5 @@
 import { type Meta } from '@storybook/react';
-import { type FormEvent, useState } from 'react';
+import { type FormEvent, Fragment, useState } from 'react';
 
 import {
   ArrowLeftIcon,
@@ -161,7 +161,7 @@ export const FormWithSteps = () => {
   ));
 
   const formSteps = [
-    <>
+    <Fragment key={0}>
       <Heading level={2} withMargins>
         {steps[0]}
       </Heading>
@@ -217,8 +217,8 @@ export const FormWithSteps = () => {
           </HStack>
         </VStack>
       </form>
-    </>,
-    <>
+    </Fragment>,
+    <Fragment key={1}>
       <Heading level={2} withMargins>
         {steps[1]}
       </Heading>
@@ -256,7 +256,7 @@ export const FormWithSteps = () => {
           <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
       </form>
-    </>,
+    </Fragment>,
   ];
   return (
     <StoryThemeProvider>
@@ -374,7 +374,7 @@ export const FormWithStepsCustomGrid = () => {
   ));
 
   const formSteps = [
-    <>
+    <Fragment key={0}>
       <Heading level={2}>{steps[0]}</Heading>
       <form
         onSubmit={e => {
@@ -412,8 +412,8 @@ export const FormWithStepsCustomGrid = () => {
           </HStack>
         </VStack>
       </form>
-    </>,
-    <>
+    </Fragment>,
+    <Fragment key={1}>
       <Heading level={2}>{steps[1]}</Heading>
       <form
         onSubmit={e => {
@@ -449,7 +449,7 @@ export const FormWithStepsCustomGrid = () => {
           <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
       </form>
-    </>,
+    </Fragment>,
   ];
   return (
     <StoryThemeProvider>

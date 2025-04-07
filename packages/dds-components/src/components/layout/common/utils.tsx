@@ -1,11 +1,12 @@
 import { type Properties } from 'csstype';
 
 import {
+  BREAKPOINTS,
   type Breakpoint,
   type RelativeColumnsOccupied,
   type ResponsiveProp,
+  SPACING_SCALES,
   type SpacingScale,
-  breakpoints,
 } from './Responsive.types';
 import {
   type BorderColor,
@@ -27,22 +28,6 @@ export const getBreakpointFromScreenWidth = (width: number) => {
   if (width >= 600) return 'sm';
   return 'xs';
 };
-
-const SPACING_SCALES: Array<SpacingScale> = [
-  'x0',
-  'x0.125',
-  'x0.25',
-  'x0.5',
-  'x0.75',
-  'x1',
-  'x1.5',
-  'x2',
-  'x2.5',
-  'x3',
-  'x4',
-  'x6',
-  'x10',
-];
 
 export const isSpacingScale = (value: unknown): value is SpacingScale => {
   return (
@@ -102,7 +87,7 @@ export function getResponsiveCSSProperties<T>(
   const pSuffix = suffix ? `-${suffix}` : '';
 
   if (isBreakpointObject(property)) {
-    breakpoints.forEach(bp => {
+    BREAKPOINTS.forEach(bp => {
       if (property[bp]) {
         (properties as Record<string, string>)[`${pPrefix}-${bp}${pSuffix}`] =
           convertMultiValue(property[bp].toString(), bp);
@@ -122,8 +107,8 @@ export function applyResponsiveStyle<T>(
   largeScreenP?: T,
 ): ResponsiveProp<T> | undefined {
   if (!bp) return largeScreenP;
-  const bpIndex = breakpoints.indexOf(bp);
-  return breakpoints.reduce((acc, curr, index) => {
+  const bpIndex = BREAKPOINTS.indexOf(bp);
+  return BREAKPOINTS.reduce((acc, curr, index) => {
     return { ...acc, [curr]: index <= bpIndex ? p : largeScreenP };
   }, {});
 }

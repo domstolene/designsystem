@@ -1,53 +1,15 @@
-export type BorderColor =
-  | 'border-default'
-  | 'border-subtle'
-  | 'border-inverse'
-  | 'border-action-default'
-  | 'border-action-hover'
-  | 'border-success'
-  | 'border-warning'
-  | 'border-danger'
-  | 'border-info'
-  | 'border-on-action';
+export const BORDER_RADII = [
+  'button',
+  'input',
+  'surface',
+  'chip',
+  'rounded',
+  '0',
+] as const;
 
-export type PaperBackground =
-  | 'surface-subtle'
-  | 'surface-medium'
-  | 'surface-inverse-default'
-  | 'surface-danger-default'
-  | 'surface-danger-strong'
-  | 'surface-success-default'
-  | 'surface-success-strong'
-  | 'surface-warning-default'
-  | 'surface-warning-strong'
-  | 'surface-info-default'
-  | 'surface-info-strong'
-  | 'surface-paper-default'
-  | 'surface-notification'
-  | 'brand-primary-default'
-  | 'brand-primary-subtle'
-  | 'brand-primary-medium'
-  | 'brand-primary-strong'
-  | 'brand-secondary-default'
-  | 'brand-secondary-subtle'
-  | 'brand-secondary-medium'
-  | 'brand-secondary-strong'
-  | 'brand-tertiary-default'
-  | 'brand-tertiary-subtle'
-  | 'brand-tertiary-medium'
-  | 'brand-tertiary-strong';
+export const ELEVATIONS = [1, 2, 3, 4] as const;
 
-export type BorderRadius =
-  | 'button'
-  | 'input'
-  | 'surface'
-  | 'chip'
-  | 'rounded'
-  | '0';
-
-export type Elevation = 1 | 2 | 3 | 4;
-
-export const BORDER_COLORS: Array<BorderColor> = [
+export const BORDER_COLORS = [
   'border-default',
   'border-subtle',
   'border-inverse',
@@ -58,9 +20,9 @@ export const BORDER_COLORS: Array<BorderColor> = [
   'border-danger',
   'border-info',
   'border-on-action',
-];
+] as const;
 
-const BACKGROUNDS: Array<PaperBackground> = [
+const BACKGROUNDS = [
   'surface-subtle',
   'surface-medium',
   'surface-inverse-default',
@@ -86,18 +48,12 @@ const BACKGROUNDS: Array<PaperBackground> = [
   'brand-tertiary-subtle',
   'brand-tertiary-medium',
   'brand-tertiary-strong',
-];
+] as const;
 
-export const BORDER_RADII: Array<BorderRadius> = [
-  'button',
-  'input',
-  'surface',
-  'chip',
-  'rounded',
-  '0',
-];
-
-export const ELEVATIONS: Array<Elevation> = [1, 2, 3, 4];
+export type BorderRadius = (typeof BORDER_RADII)[number];
+export type Elevation = (typeof ELEVATIONS)[number];
+export type BorderColor = (typeof BORDER_COLORS)[number];
+export type PaperBackground = (typeof BACKGROUNDS)[number];
 
 export const isPaperBackground = (value: unknown): value is PaperBackground => {
   return (

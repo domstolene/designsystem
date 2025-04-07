@@ -1,22 +1,25 @@
 import { type Property } from 'csstype';
 
-export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export const breakpoints: Array<Breakpoint> = ['xs', 'sm', 'md', 'lg', 'xl'];
+export const BREAKPOINTS = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+export type Breakpoint = (typeof BREAKPOINTS)[number];
 
-export type SpacingScale =
-  | 'x0'
-  | 'x0.125'
-  | 'x0.25'
-  | 'x0.5'
-  | 'x0.75'
-  | 'x1'
-  | 'x1.5'
-  | 'x2'
-  | 'x2.5'
-  | 'x3'
-  | 'x4'
-  | 'x6'
-  | 'x10';
+export const SPACING_SCALES = [
+  'x0',
+  'x0.125',
+  'x0.25',
+  'x0.5',
+  'x0.75',
+  'x1',
+  'x1.5',
+  'x2',
+  'x2.5',
+  'x3',
+  'x4',
+  'x6',
+  'x10',
+] as const;
+
+export type SpacingScale = (typeof SPACING_SCALES)[number];
 
 export type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
 
