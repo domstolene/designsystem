@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 20.2.0
+
+### Minor Changes
+
+- 41260b3: Legger til optional property `portal`, default `false`, som angir om popover skal rendre i portal eller ikke.
+- 957771e: Støtte for props `loading` og `loadingTooltip` i `<OverflowMenuButton>`.
+
 ## 20.1.0
 
 ### Minor Changes
