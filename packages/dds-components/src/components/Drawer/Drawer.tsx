@@ -157,13 +157,7 @@ export const Drawer = ({
       style={{ ...htmlProps?.style, ...widthProps }}
       aria-labelledby={headerId}
     >
-      <div
-        className={cn(
-          styles['content-container'],
-          utilStyles.scrollbar,
-          utilStyles['scrollable-y'],
-        )}
-      >
+      <div className={styles['drawer-header']}>
         {hasHeader && (
           <div id={headerId}>
             {typeof header === 'string' ? (
@@ -175,18 +169,27 @@ export const Drawer = ({
             )}
           </div>
         )}
-        {children}
+
+        <Button
+          className={cn(styles['button--close'])}
+          data-testid="drawer-close-btn"
+          size="small"
+          purpose="tertiary"
+          onClick={onClose}
+          aria-label="Lukk"
+          icon={CloseIcon}
+        />
       </div>
 
-      <Button
-        className={cn(styles['button--close'])}
-        data-testid="drawer-close-btn"
-        size="small"
-        purpose="tertiary"
-        onClick={onClose}
-        aria-label="Lukk"
-        icon={CloseIcon}
-      />
+      <div
+        className={cn(
+          styles['content-container'],
+          utilStyles.scrollbar,
+          utilStyles['scrollable-y'],
+        )}
+      >
+        {children}
+      </div>
     </Paper>
   );
 
