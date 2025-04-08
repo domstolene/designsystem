@@ -87,7 +87,7 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   customSingleValueElement?: (
     props: SingleValueProps<Option, IsMulti, GroupBase<Option>>,
   ) => JSX.Element;
-  /** Testid. Legges på control-div med suffiks "control". */
+  /** Testid. Legges på roten og control-div med suffiks "control". */
   'data-testid'?: string;
   /**Ref til komponenten. */
   ref?: SelectForwardRefType<Option, IsMulti>;
@@ -235,6 +235,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
         readOnly && styles['container--readonly'],
       )}
       style={{ ...style, ...styleVariables }}
+      data-testid={dataTestId}
     >
       {hasLabel && (
         <Label

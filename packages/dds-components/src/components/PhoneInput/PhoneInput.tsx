@@ -136,6 +136,7 @@ export type PhoneInputProps = {
 >;
 
 export const PhoneInput = ({
+  id,
   label,
   readOnly,
   errorMessage,
@@ -145,7 +146,6 @@ export const PhoneInput = ({
   componentSize = 'medium',
   name,
   className,
-  style,
   value,
   selectLabel = 'Landskode',
   selectRef,
@@ -154,11 +154,13 @@ export const PhoneInput = ({
   'aria-required': ariaRequired,
   'aria-describedby': ariaDescribedby,
   groupLabel = 'Landskode og telefonnummer',
+  disabled,
+  smallScreenBreakpoint,
   ref,
   ...props
 }: PhoneInputProps) => {
   const generatedId = useId();
-  const uniqueId = props.id ?? generatedId;
+  const uniqueId = id ?? generatedId;
   const phoneInputId = `${uniqueId}-phone-input`;
   const phoneNumberId = `${uniqueId}-phone-number`;
   const selectId = `${uniqueId}-country-code`;
@@ -255,7 +257,7 @@ export const PhoneInput = ({
   const commonProps = {
     required,
     'aria-required': ariaRequired,
-    disabled: props.disabled,
+    disabled,
     readOnly,
     componentSize,
   };
@@ -264,7 +266,7 @@ export const PhoneInput = ({
   const showRequiredStyling = !!(required || ariaRequired);
 
   return (
-    <div className={cn(className, inputStyles.container)} style={style}>
+    <div className={cn(className, inputStyles.container)} {...props}>
       {hasLabel && (
         <Label
           htmlFor={phoneNumberId}
@@ -278,10 +280,8 @@ export const PhoneInput = ({
       <div
         className={cn(
           styles['inputs-container'],
-          !!props.smallScreenBreakpoint &&
-            styles[
-              `inputs-container--small-screen-${props.smallScreenBreakpoint}`
-            ],
+          !!smallScreenBreakpoint &&
+            styles[`inputs-container--small-screen-${smallScreenBreakpoint}`],
         )}
         style={styleVariables}
         role="group"
