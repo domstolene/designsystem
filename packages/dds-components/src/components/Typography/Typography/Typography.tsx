@@ -110,7 +110,6 @@ export const Typography = (props: TypographyProps) => {
           typographyStyles[typographyCn],
           withMargins && typographyStyles[`${typographyCn}--margins`],
           isLegend(as) && typographyStyles.legend,
-          isLegend(as) && withMargins && typographyStyles['legend--margins'],
           isCaption(as) &&
             withMargins &&
             typographyStyles['caption--withMargins'],

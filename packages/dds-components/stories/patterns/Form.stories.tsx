@@ -165,70 +165,17 @@ export const FormWithSteps = () => {
       <Heading level={2} withMargins>
         {steps[0]}
       </Heading>
-      <form
+      <VStack
+        as="form"
+        gap="x1"
         onSubmit={e => {
           completeStep(0, e);
         }}
       >
-        <VStack gap="x1">
-          <Fieldset>
-            <Legend withMargins>Overskrift for gruppe</Legend>
-            <FieldsetGroup>
-              <TextInput label="Ledetekst" />
-              <NativeSelect label="Ledetekst">
-                <option></option>
-                <option>Valg 1</option>
-                <option>Valg 2</option>
-                <option>Valg 3</option>
-              </NativeSelect>
-            </FieldsetGroup>
-          </Fieldset>
-          <Fieldset>
-            <Legend withMargins>Overskrift for gruppe</Legend>
-            <FieldsetGroup>
-              <TextInput label="Ledetekst" />
-              <NativeSelect label="Ledetekst">
-                <option></option>
-                <option>Valg 1</option>
-                <option>Valg 2</option>
-                <option>Valg 3</option>
-              </NativeSelect>
-            </FieldsetGroup>
-          </Fieldset>
-          <Fieldset>
-            <Legend withMargins>Adresse</Legend>
-            <FieldsetGroup>
-              <TextInput label="Adresse" />
-              <Box
-                display="flex"
-                flexDirection={{
-                  xs: 'column',
-                }}
-                gap="x1.5"
-              >
-                <TextInput width="94px" label="Postnummer" />
-                <TextInput label="Sted" readOnly width="202px" />
-              </Box>
-            </FieldsetGroup>
-          </Fieldset>
-          <HStack gap="x1.5" paddingBlock="x1 0">
-            <Button>Neste</Button>
-            <Button purpose="tertiary">Avbryt og forkast</Button>
-          </HStack>
-        </VStack>
-      </form>
-    </Fragment>,
-    <Fragment key={1}>
-      <Heading level={2} withMargins>
-        {steps[1]}
-      </Heading>
-      <form
-        onSubmit={e => {
-          completeStep(1, e);
-        }}
-      >
         <Fieldset>
-          <Legend withMargins>Overskrift for gruppe</Legend>
+          <Legend withMargins typographyType="headingMedium">
+            Overskrift for gruppe
+          </Legend>
           <FieldsetGroup>
             <TextInput label="Ledetekst" />
             <NativeSelect label="Ledetekst">
@@ -240,7 +187,72 @@ export const FormWithSteps = () => {
           </FieldsetGroup>
         </Fieldset>
         <Fieldset>
-          <Legend withMargins>Overskrift for gruppe</Legend>
+          <Legend withMargins typographyType="headingMedium">
+            Overskrift for gruppe
+          </Legend>
+          <FieldsetGroup>
+            <TextInput label="Ledetekst" />
+            <NativeSelect label="Ledetekst">
+              <option></option>
+              <option>Valg 1</option>
+              <option>Valg 2</option>
+              <option>Valg 3</option>
+            </NativeSelect>
+          </FieldsetGroup>
+        </Fieldset>
+        <Fieldset>
+          <Legend withMargins typographyType="headingMedium">
+            Adresse
+          </Legend>
+          <FieldsetGroup>
+            <TextInput label="Adresse" />
+            <Box
+              display="flex"
+              flexDirection={{
+                xs: 'column',
+              }}
+              gap="x1.5"
+            >
+              <TextInput width="94px" label="Postnummer" />
+              <TextInput label="Sted" readOnly width="202px" />
+            </Box>
+          </FieldsetGroup>
+        </Fieldset>
+        <HStack gap="x1.5" paddingBlock="x1 0">
+          <Button>Neste</Button>
+          <Button purpose="tertiary">Avbryt og forkast</Button>
+        </HStack>
+      </VStack>
+    </Fragment>,
+    <Fragment key={1}>
+      <Heading level={2} withMargins>
+        {steps[1]}
+      </Heading>
+      <VStack
+        as="form"
+        gap="x1"
+        onSubmit={e => {
+          completeStep(1, e);
+        }}
+      >
+        <Fieldset>
+          <Legend withMargins typographyType="headingMedium">
+            Overskrift for gruppe
+          </Legend>
+          <FieldsetGroup>
+            <TextInput label="Ledetekst" />
+            <NativeSelect label="Ledetekst">
+              <option></option>
+              <option>Valg 1</option>
+              <option>Valg 2</option>
+              <option>Valg 3</option>
+            </NativeSelect>
+          </FieldsetGroup>
+        </Fieldset>
+        <Fieldset>
+          <Legend withMargins typographyType="headingMedium">
+            Overskrift for gruppe
+          </Legend>
           <FieldsetGroup>
             <TextInput label="Ledetekst" />
             <NativeSelect label="Ledetekst">
@@ -252,10 +264,10 @@ export const FormWithSteps = () => {
           </FieldsetGroup>
         </Fieldset>
         <HStack gap="x1.5" paddingBlock="x1 0">
-          <Button>Neste</Button>
+          <Button>Send inn</Button>
           <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
-      </form>
+      </VStack>
     </Fragment>,
   ];
   return (
@@ -295,16 +307,6 @@ export const FormWithSteps = () => {
             <span className="required-mark">*</span>.
           </Paragraph>
           <VStack gap="x1">
-            {activeStep > 0 && (
-              <Button
-                purpose="secondary"
-                icon={ArrowLeftIcon}
-                onClick={() => previousStep()}
-              >
-                Forrige steg
-              </Button>
-            )}
-
             <ShowHide showBelow="sm">
               <DrawerGroup
                 isOpen={progressTrackerDrawerOpen}
@@ -327,6 +329,15 @@ export const FormWithSteps = () => {
                 </Drawer>
               </DrawerGroup>
             </ShowHide>
+            {activeStep > 0 && (
+              <Button
+                purpose="secondary"
+                icon={ArrowLeftIcon}
+                onClick={() => previousStep()}
+              >
+                Forrige steg
+              </Button>
+            )}
           </VStack>
           {formSteps[activeStep]}
         </GridChild>
@@ -383,7 +394,9 @@ export const FormWithStepsCustomGrid = () => {
       >
         <VStack gap="x1">
           <Fieldset>
-            <Legend withMargins>Overskrift for gruppe</Legend>
+            <Legend withMargins typographyType="headingMedium">
+              Overskrift for gruppe
+            </Legend>
             <FieldsetGroup>
               <TextInput label="Ledetekst" />
               <NativeSelect label="Ledetekst">
@@ -395,7 +408,9 @@ export const FormWithStepsCustomGrid = () => {
             </FieldsetGroup>
           </Fieldset>
           <Fieldset>
-            <Legend withMargins>Overskrift for gruppe</Legend>
+            <Legend withMargins typographyType="headingMedium">
+              Overskrift for gruppe
+            </Legend>
             <FieldsetGroup>
               <TextInput label="Ledetekst" />
               <NativeSelect label="Ledetekst">
@@ -421,7 +436,9 @@ export const FormWithStepsCustomGrid = () => {
         }}
       >
         <Fieldset>
-          <Legend withMargins>Overskrift for gruppe</Legend>
+          <Legend withMargins typographyType="headingMedium">
+            Overskrift for gruppe
+          </Legend>
           <FieldsetGroup>
             <TextInput label="Ledetekst" />
             <NativeSelect label="Ledetekst">
@@ -433,7 +450,9 @@ export const FormWithStepsCustomGrid = () => {
           </FieldsetGroup>
         </Fieldset>
         <Fieldset>
-          <Legend withMargins>Overskrift for gruppe</Legend>
+          <Legend withMargins typographyType="headingMedium">
+            Overskrift for gruppe
+          </Legend>
           <FieldsetGroup>
             <TextInput label="Ledetekst" />
             <NativeSelect label="Ledetekst">
@@ -445,7 +464,7 @@ export const FormWithStepsCustomGrid = () => {
           </FieldsetGroup>
         </Fieldset>
         <HStack gap="x1.5" paddingBlock="x1 0">
-          <Button>Neste</Button>
+          <Button>Send inn</Button>
           <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
       </form>
@@ -476,9 +495,6 @@ export const FormWithStepsCustomGrid = () => {
               <span className="required-mark">*</span>.
             </Paragraph>
             <VStack gap="x1">
-              <Button purpose="secondary" icon={ArrowLeftIcon}>
-                Forrige steg
-              </Button>
               <ShowHide showBelow="sm">
                 <DrawerGroup
                   isOpen={progressTrackerDrawerOpen}
@@ -501,6 +517,11 @@ export const FormWithStepsCustomGrid = () => {
                   </Drawer>
                 </DrawerGroup>
               </ShowHide>
+              {activeStep > 0 && (
+                <Button purpose="secondary" icon={ArrowLeftIcon}>
+                  Forrige steg
+                </Button>
+              )}
             </VStack>
             {formSteps[activeStep]}
           </VStack>
