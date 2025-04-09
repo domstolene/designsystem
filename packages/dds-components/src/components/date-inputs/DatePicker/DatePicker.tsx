@@ -89,7 +89,6 @@ export function DatePicker({
             label={props.label}
             errorMessage={errorMessage}
             buttonProps={buttonProps}
-            isOpen={state.isOpen}
             style={style}
             width={width}
           />
