@@ -145,21 +145,9 @@ export const Modal = ({
             id={modalId}
             elevation={4}
           >
-            {onClose && (
-              <Button
-                size="small"
-                purpose="tertiary"
-                icon={CloseIcon}
-                onClick={handleClose}
-                aria-label="Lukk dialog"
-                className={styles['close-button']}
-                htmlProps={{ tabIndex: -1 }}
-              />
-            )}
-
-            <Box display="grid" gap="x1" className={styles.content}>
+            <div className={styles['modal-header']}>
               {!!header && (
-                <div id={headerId} className={styles.header}>
+                <div id={headerId}>
                   {typeof header === 'string' ? (
                     <Heading level={2} typographyType="headingLarge">
                       {header}
@@ -169,8 +157,18 @@ export const Modal = ({
                   )}
                 </div>
               )}
-              {children}
-            </Box>
+              {onClose && (
+                <Button
+                  size="small"
+                  purpose="tertiary"
+                  icon={CloseIcon}
+                  onClick={handleClose}
+                  aria-label="Lukk dialog"
+                  className={styles['close-button']}
+                />
+              )}
+            </div>
+             <Box display="grid" gap="x1">{children}</Box>
           </Paper>
         </Backdrop>,
         portalTarget,

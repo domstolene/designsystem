@@ -45,6 +45,22 @@
   padding: var(--dds-drawer-content-container-padding);
 }
 
+.drawer-header {
+  display: flex;
+  align-items: flex-start;
+  padding-left: var(--dds-drawer-content-container-padding);
+  padding-right: var(--dds-drawer-content-container-padding);
+  padding-top: var(--dds-spacing-x1);
+  padding-bottom: var(--dds-spacing-x0-75);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--dds-color-surface-default);
+  z-index: 1;
+}
+
 .button--close {
-  align-self: flex-end;
+  margin-left: auto;
+  margin-top: calc(-1 * var(--dds-spacing-x0-125));
 }

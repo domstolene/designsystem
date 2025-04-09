@@ -157,8 +157,8 @@ export const Drawer = ({
       minWidth="300px"
       maxWidth={getMaxWidth(size)}
       display="flex"
-      flexDirection="column-reverse"
-      justifyContent="flex-end"
+      flexDirection="column"
+      justifyContent="flex-start"
       padding="var(--dds-drawer-container-padding)"
       borderRadius="0"
       {...getBaseHTMLProps(
@@ -177,11 +177,9 @@ export const Drawer = ({
       style={{ ...htmlProps?.style, ...widthProps }}
       aria-labelledby={headerId}
     >
-      <VStack
-        gap="x1"
-        overflowY="auto"
-        className={cn(styles['content-container'], utilStyles.scrollbar)}
-      >
+
+    
+      <div className={styles['drawer-header']}>
         {hasHeader && (
           <div id={headerId}>
             {typeof header === 'string' ? (
@@ -193,18 +191,23 @@ export const Drawer = ({
             )}
           </div>
         )}
+        <Button
+          className={cn(styles['button--close'])}
+          data-testid="drawer-close-btn"
+          size="small"
+          purpose="tertiary"
+          onClick={onClose}
+          aria-label="Lukk"
+          icon={CloseIcon}
+        />
+      </div>
+      <VStack
+        gap="x1"
+        overflowY="auto"
+        className={cn(styles['content-container'], utilStyles.scrollbar)}
+      >
         {children}
       </VStack>
-
-      <Button
-        className={cn(styles['button--close'])}
-        data-testid="drawer-close-btn"
-        size="small"
-        purpose="tertiary"
-        onClick={onClose}
-        aria-label="Lukk"
-        icon={CloseIcon}
-      />
     </Paper>
   );
 
