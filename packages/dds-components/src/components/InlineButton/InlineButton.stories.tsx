@@ -5,7 +5,7 @@ import { InlineButton } from './InlineButton';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export default {
-  title: 'dds-components/InlineButton',
+  title: 'dds-components/Components/InlineButton',
   component: InlineButton,
   argTypes: {
     children: { control: { type: 'text' } },

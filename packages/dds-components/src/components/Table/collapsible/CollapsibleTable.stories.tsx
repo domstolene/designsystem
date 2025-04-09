@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { ScreenSize, useScreenSize } from '../../../hooks';
+import { windowWidthDecorator } from '../../../storybook/helpers';
 import { Button } from '../../Button';
 import { FavStar } from '../../FavStar';
 import { Icon } from '../../Icon';
@@ -20,7 +21,7 @@ import { data, headerCells, mapCellContents } from '../normal/tableData';
 import { CollapsibleTable } from '.';
 
 const meta: Meta<typeof CollapsibleTable> = {
-  title: 'dds-components/Table/CollapsibleTable',
+  title: 'dds-components/Components/Table/CollapsibleTable',
   component: CollapsibleTable,
   parameters: {
     controls: {
@@ -294,6 +295,13 @@ export const Responsive: Story = {
       </Table.Wrapper>
     );
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Kollapset versjon vises ved sm brekkpunkt.',
+      ),
+  ],
 };
 
 export const ResposiveMultipleBreakpoints: Story = {
@@ -325,6 +333,13 @@ export const ResposiveMultipleBreakpoints: Story = {
       </Table.Wrapper>
     );
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Ulike kollapsede versjoner vises ved xs og sm brekkpunkt.',
+      ),
+  ],
 };
 
 const headers = [

@@ -12,7 +12,7 @@ addons.setConfig({
       'dds-design-tokens',
       'dds-formatting',
       'icons',
-      'examples',
+      'patterns',
       'playground',
     ],
   },

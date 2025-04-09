@@ -14,7 +14,7 @@ import * as CardStories from './Card.stories';
   docsHref="https://design.domstol.no/987b33f71/p/0822fe-card/b/79dd5d"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=3421%3A94375"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Card"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-card--default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-card--default"
   withBottomSpacing
 />
 
@@ -26,7 +26,7 @@ Det finnes følgene typer `<Card>`:
 - **navigation**: gjør `<Card>` klikkbart og rendrer en lenke. Skal ikke inneholde interaktive elementer.
 - **expandable**: brukes når `<Card>` skal ha en tittel og ekspanderbart panel. Ved expandable Card skal delkomponentene `<CardExpandable>`, `<CardExpandableHeader>` og `<CardExpandableBody>` brukes.
 
-  `<Card>` får typen via cardType-prop (se [Card Props](#card-1)).
+`<Card>` får typen via cardType-prop (se [Card Props](#card-1)).
 
 ## Props
 
@@ -48,24 +48,6 @@ En container for CardExpandable-subkomponenter som håndterer oppførsel og univ
 <Canvas of={CardStories.Expandable} sourceState="shown" />
 
 <ArgTypes of={CardExpandable} />
-
-#### Bruk
-
-<Source code={`
-import {
-  Card,
-  CardExpandable,
-  CardExpandableBody,
-  CardExpandableHeader,
-} from '@norges-domstoler/dds-components';
-
-<Card cardType="expandable">
-  <CardExpandable>
-    <CardExpandableHeader> Title </CardExpandableHeader>
-    <CardExpandableBody>Content</CardExpandableBody>
-  </CardExpandable>
-</Card>
-`} />
 
 ### CardExpandableHeader
 

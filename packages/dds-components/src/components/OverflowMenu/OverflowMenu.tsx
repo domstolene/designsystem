@@ -5,8 +5,8 @@ import styles from './OverflowMenu.module.css';
 import { useCombinedRef } from '../../hooks';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
-import { Paper } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { Paper } from '../layout';
 
 import { type OverflowMenuProps } from '.';
 
@@ -30,6 +30,9 @@ export const OverflowMenu = ({
 
   return (
     <Paper
+      overflowY="auto"
+      minWidth="180px"
+      maxWidth="300px"
       ref={useCombinedRef(menuRef, ref)}
       {...getBaseHTMLProps(
         menuId,
@@ -46,6 +49,7 @@ export const OverflowMenu = ({
       role="menu"
       aria-hidden={!isOpen}
       elevation={1}
+      border="border-default"
       style={{ ...style, ...floatStyling }}
     />
   );

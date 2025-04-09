@@ -24,10 +24,10 @@ import {
 } from '../../types';
 import { cn, isEmpty } from '../../utils';
 import { Button } from '../Button';
-import { Paper } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { Paper } from '../layout';
 import { Heading } from '../Typography';
 import { usePopoverContext } from './Popover.context';
 import { ThemeContext } from '../ThemeProvider';
@@ -208,7 +208,7 @@ export const Popover = ({
       }}
       role="dialog"
       elevation={3}
-      border="subtle"
+      border="border-subtle"
     >
       {header && (
         <div className={styles.header}>

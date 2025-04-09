@@ -5,7 +5,6 @@ import { PaginationGenerator } from './paginationGenerator';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
-import { type ScreenSizeLiteral } from '../helpers';
 import { Icon } from '../Icon';
 import {
   ChevronFirstIcon,
@@ -14,6 +13,8 @@ import {
   ChevronRightIcon,
   MoreHorizontalIcon,
 } from '../Icon/icons';
+import { Box, type Breakpoint, ShowHide } from '../layout';
+import { applyResponsiveStyle } from '../layout/common/utils';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
 
@@ -60,7 +61,7 @@ export type PaginationProps = BaseComponentProps<
     /**Brukes til å hente `selectedOption` og eventuelt kjøre annen logikk når `withSelect=true` ved endring av alternativ. */
     onSelectOptionChange?: (option: PaginationOption | null) => void;
     /**Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den viser færre sideknapper og stacker subkomponentene. */
-    smallScreenBreakpoint?: ScreenSizeLiteral;
+    smallScreenBreakpoint?: Breakpoint;
   },
   Omit<HTMLAttributes<HTMLElement>, 'onChange'>
 >;
@@ -170,32 +171,26 @@ export const Pagination = ({
     />
   );
 
-  const navProps = (smallScreenVariant?: boolean) => {
-    const cns = [
-      styles.nav,
-      smallScreenVariant && styles['nav--small-screen'],
-      smallScreenVariant &&
-        smallScreenBreakpoint &&
-        styles[`nav--small-screen-show-${smallScreenBreakpoint}`],
-      !smallScreenVariant &&
-        smallScreenBreakpoint &&
-        styles[`nav--large-screen-hide-${smallScreenBreakpoint}`],
-    ];
-    const common = { ref: ref, 'aria-label': 'paginering' };
-    return !withSelect && !withCounter
-      ? {
-          ...common,
-          ...getBaseHTMLProps(id, cn(className, ...cns), htmlProps, rest),
-        }
-      : { ...common, className: cn(...cns) };
-  };
-
   const isOnFirstPage = activePage === 1;
   const isOnLastPage = activePage === pagesLength;
 
-  const largeScreenNavigation = withPagination ? (
-    <nav {...navProps()}>
-      <ol className={styles.list}>
+  const navigation = withPagination ? (
+    <Box
+      as="nav"
+      ref={ref}
+      aria-label="paginering"
+      display="flex"
+      alignItems="center"
+      {...(!withSelect &&
+        !withCounter && {
+          ...getBaseHTMLProps(id, className, htmlProps, rest),
+        })}
+    >
+      <ShowHide
+        as="ol"
+        hideBelow={smallScreenBreakpoint}
+        className={styles.list}
+      >
         <li
           className={cn(
             styles.list__item,
@@ -215,77 +210,78 @@ export const Pagination = ({
         >
           {nextPageButton}
         </li>
-      </ol>
-    </nav>
-  ) : null;
-
-  const smallScreenNavigation = withPagination ? (
-    <nav {...navProps(true)}>
-      <ol className={styles.list}>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnFirstPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnFirstPage}
+      </ShowHide>
+      {!!smallScreenBreakpoint && (
+        <ShowHide
+          as="ol"
+          showBelow={smallScreenBreakpoint}
+          className={styles.list}
         >
-          <Button
-            purpose="secondary"
-            size="small"
-            icon={ChevronFirstIcon}
-            onClick={event => {
-              onPageChange(event, 1);
-            }}
-            aria-label="Gå til første siden"
-          />
-        </li>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnFirstPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnFirstPage}
-        >
-          {previousPageButton}
-        </li>
-        <li className={styles.list__item}>
-          <Button
-            size="small"
-            onClick={event => {
-              onPageChange(event, activePage);
-            }}
+          <li
+            className={cn(
+              styles.list__item,
+              isOnFirstPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnFirstPage}
           >
-            {activePage}
-          </Button>
-        </li>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnLastPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnLastPage}
-        >
-          {nextPageButton}
-        </li>
-        <li
-          className={cn(
-            styles.list__item,
-            isOnLastPage && styles['list__item--hidden'],
-          )}
-          aria-hidden={isOnLastPage}
-        >
-          <Button
-            purpose="secondary"
-            size="small"
-            icon={ChevronLastIcon}
-            onClick={event => {
-              onPageChange(event, pagesLength);
-            }}
-            aria-label="Gå til siste siden"
-          />
-        </li>
-      </ol>
-    </nav>
+            <Button
+              purpose="secondary"
+              size="small"
+              icon={ChevronFirstIcon}
+              onClick={event => {
+                onPageChange(event, 1);
+              }}
+              aria-label="Gå til første siden"
+            />
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnFirstPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnFirstPage}
+          >
+            {previousPageButton}
+          </li>
+          <li className={styles.list__item}>
+            <Button
+              size="small"
+              onClick={event => {
+                onPageChange(event, activePage);
+              }}
+            >
+              {activePage}
+            </Button>
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnLastPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnLastPage}
+          >
+            {nextPageButton}
+          </li>
+          <li
+            className={cn(
+              styles.list__item,
+              isOnLastPage && styles['list__item--hidden'],
+            )}
+            aria-hidden={isOnLastPage}
+          >
+            <Button
+              purpose="secondary"
+              size="small"
+              icon={ChevronLastIcon}
+              onClick={event => {
+                onPageChange(event, pagesLength);
+              }}
+              aria-label="Gå til siste siden"
+            />
+          </li>
+        </ShowHide>
+      )}
+    </Box>
   ) : null;
 
   const activePageFirstItem =
@@ -295,23 +291,16 @@ export const Pagination = ({
     activePage === pagesLength ? itemsAmount : activePage * itemsPerPage;
 
   return !withCounter && !withSelect ? (
-    <>
-      {largeScreenNavigation}
-      {smallScreenBreakpoint && smallScreenNavigation}
-    </>
+    navigation
   ) : (
-    <div
-      {...getBaseHTMLProps(
-        id,
-        cn(
-          className,
-          styles.container,
-          smallScreenBreakpoint &&
-            styles[`container--small-screen-${smallScreenBreakpoint}`],
-        ),
-        htmlProps,
-        rest,
-      )}
+    <Box
+      display="flex"
+      gap="x0.75"
+      justifyContent="space-between"
+      flexWrap="wrap"
+      flexDirection={applyResponsiveStyle('column', smallScreenBreakpoint)}
+      alignItems={applyResponsiveStyle('center', smallScreenBreakpoint)}
+      {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
       <div className={styles.indicators}>
         {withSelect && (
@@ -335,9 +324,8 @@ export const Pagination = ({
           </Paragraph>
         )}
       </div>
-      {largeScreenNavigation}
-      {smallScreenBreakpoint && smallScreenNavigation}
-    </div>
+      {navigation}
+    </Box>
   );
 };
 

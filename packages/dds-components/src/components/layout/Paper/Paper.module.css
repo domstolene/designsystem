@@ -1,0 +1,50 @@
+.background {
+  background: var(--dds-paper-background);
+}
+.border {
+  border: 1px solid var(--dds-paper-border);
+}
+
+:where(.container) {
+  box-sizing: border-box;
+  background-color: var(--dds-color-surface-default);
+  border-radius: var(--dds-border-radius-surface);
+  margin: 0;
+}
+
+:where(.shadow--1) {
+  box-shadow: var(--dds-shadow-1);
+}
+:where(.shadow--2) {
+  box-shadow: var(--dds-shadow-2);
+}
+:where(.shadow--3) {
+  box-shadow: var(--dds-shadow-3);
+}
+:where(.shadow--4) {
+  box-shadow: var(--dds-shadow-4);
+}
+
+:where(.border-radius--button) {
+  border-radius: var(--dds-border-radius-button);
+}
+
+:where(.border-radius--surface) {
+  border-radius: var(--dds-border-radius-surface);
+}
+
+:where(.border-radius--chip) {
+  border-radius: var(--dds-border-radius-chip);
+}
+
+:where(.border-radius--input) {
+  border-radius: var(--dds-border-radius-input);
+}
+
+:where(.border-radius--rounded) {
+  border-radius: var(--dds-border-radius-rounded);
+}
+
+:where(.border-radius--0) {
+  border-radius: 0;
+}

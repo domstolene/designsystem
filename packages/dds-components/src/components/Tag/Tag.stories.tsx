@@ -1,12 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Tag } from '.';
 
 export default {
-  title: 'dds-components/Tag',
+  title: 'dds-components/Components/Tag',
   component: Tag,
   argTypes: {
     children: { control: 'text' },

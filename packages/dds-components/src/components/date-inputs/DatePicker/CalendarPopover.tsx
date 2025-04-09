@@ -22,8 +22,6 @@ import { cn } from '../../../utils';
 import { Button } from '../../Button';
 import {
   Backdrop,
-  Paper,
-  type ScreenSizeLiteral,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../../helpers';
@@ -31,6 +29,8 @@ import { CloseIcon } from '../../Icon/icons';
 import { ThemeContext } from '../../ThemeProvider';
 import styles from '../common/DateInput.module.css';
 import { type DateField } from './DateField/DateField';
+import { type Breakpoint, ShowHide } from '../../layout';
+import { Paper } from '../../layout';
 
 /**------------------------------------------------------------------------
  * CalendarPopover
@@ -99,7 +99,7 @@ export const CalendarPopoverAnchor = ({
 interface CalendarPopoverContentProps {
   children: ReactNode;
   className?: string;
-  smallScreenBreakpoint?: ScreenSizeLiteral;
+  smallScreenBreakpoint?: Breakpoint;
 }
 
 export const CalendarPopoverContent = ({
@@ -162,19 +162,14 @@ export const CalendarPopoverContent = ({
       {portalTarget &&
         hasBreakpoint &&
         createPortal(
-          <div
-            className={cn(
-              styles.modal,
-              !!smallScreenBreakpoint &&
-                styles[`modal--small-screen-show-${smallScreenBreakpoint}`],
-            )}
-          >
+          <ShowHide showBelow={smallScreenBreakpoint}>
             <Backdrop zIndex="modal" isMounted={isMounted}>
               <Paper
                 ref={modalRef}
                 className={cn(styles.popover, className)}
                 elevation={2}
-                border="default"
+                border="border-default"
+                padding="x0.5"
               >
                 <div className={styles['modal-close-button-wrapper']}>
                   <Button
@@ -190,20 +185,16 @@ export const CalendarPopoverContent = ({
                 {children}
               </Paper>
             </Backdrop>
-          </div>,
+          </ShowHide>,
           portalTarget,
         )}
       <Paper
         ref={combinedRef}
-        className={cn(
-          styles.popover,
-          !!smallScreenBreakpoint &&
-            styles[`popover--large-screen-hide-${smallScreenBreakpoint}`],
-          className,
-        )}
+        hideBelow={hasBreakpoint ? smallScreenBreakpoint : undefined}
+        className={cn(styles.popover, className)}
         style={floatingStyles.floating}
         elevation={2}
-        border="default"
+        border="border-default"
       >
         {children}
       </Paper>

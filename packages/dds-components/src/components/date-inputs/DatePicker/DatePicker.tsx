@@ -15,7 +15,7 @@ import {
 import { locale } from './constants';
 import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
-import { type ScreenSizeLiteral } from '../../helpers';
+import { type Breakpoint } from '../../layout';
 import {
   type FocusableRef,
   useFocusManagerRef,
@@ -44,7 +44,7 @@ export interface DatePickerProps
   /**
    * Brekkpunkt for å vise versjon for liten skjerm.
    */
-  smallScreenBreakpoint?: ScreenSizeLiteral;
+  smallScreenBreakpoint?: Breakpoint;
 }
 
 const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {

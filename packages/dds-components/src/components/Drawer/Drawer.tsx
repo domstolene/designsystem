@@ -24,7 +24,6 @@ import { cn } from '../../utils';
 import { Button } from '../Button';
 import {
   Backdrop,
-  Paper,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../helpers';
@@ -34,6 +33,7 @@ import { CloseIcon } from '../Icon/icons';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 import { useDrawerContext } from './Drawer.context';
+import { HStack, Paper, VStack } from '../layout';
 
 export type DrawerSize = Extract<Size, 'small' | 'medium' | 'large'>;
 export type DrawerPlacement = 'left' | 'right';
@@ -135,17 +135,37 @@ export const Drawer = ({
 
   const isOpenCn = isMounted ? 'opened' : 'closed';
 
+  const getMaxWidth = (size: DrawerSize): string => {
+    switch (size) {
+      case 'small':
+        return '400px';
+      case 'medium':
+        return '600px';
+      case 'large':
+        return '800px';
+    }
+  };
+
   const drawer = (
     <Paper
       ref={combinedRef}
       role="dialog"
       tabIndex={-1}
+      position="fixed"
+      top="0"
+      height="100%"
+      minWidth="300px"
+      maxWidth={getMaxWidth(size)}
+      display="flex"
+      flexDirection="column"
+      justifyContent="flex-start"
+      padding="var(--dds-drawer-container-padding)"
+      borderRadius="0"
       {...getBaseHTMLProps(
         drawerId,
         cn(
           className,
           styles.container,
-          styles[`container--${size}`],
           styles[`container--${placement}`],
           styles[`container--${placement}-${isOpenCn}`],
           focusStyles['focusable--inset'],
@@ -157,7 +177,14 @@ export const Drawer = ({
       style={{ ...htmlProps?.style, ...widthProps }}
       aria-labelledby={headerId}
     >
-      <div className={styles['drawer-header']}>
+      <HStack
+        position="sticky"
+        top="0"
+        left="0"
+        width="100%"
+        paddingInline="var(--dds-drawer-content-container-padding)"
+        className={styles['drawer-header']}
+      >
         {hasHeader && (
           <div id={headerId}>
             {typeof header === 'string' ? (
@@ -169,7 +196,6 @@ export const Drawer = ({
             )}
           </div>
         )}
-
         <Button
           className={cn(styles['button--close'])}
           data-testid="drawer-close-btn"
@@ -179,17 +205,14 @@ export const Drawer = ({
           aria-label="Lukk"
           icon={CloseIcon}
         />
-      </div>
-
-      <div
-        className={cn(
-          styles['content-container'],
-          utilStyles.scrollbar,
-          utilStyles['scrollable-y'],
-        )}
+      </HStack>
+      <VStack
+        gap="x1"
+        overflowY="auto"
+        className={cn(styles['content-container'], utilStyles.scrollbar)}
       >
         {children}
-      </div>
+      </VStack>
     </Paper>
   );
 

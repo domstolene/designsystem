@@ -13,6 +13,7 @@ import { StatefulInput, getDefaultText, renderCharCounter } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
 import { Label } from '../Typography';
 
 export const TextInput = ({
@@ -159,8 +160,11 @@ export const TextInput = ({
     );
   } else if (hasAffix) {
     extendedInput = (
-      <div
-        className={cn(styles['affix-container'], styles['input-width'])}
+      <Box
+        position="relative"
+        display="flex"
+        alignItems="center"
+        className={styles['input-width']}
         style={styleVariables}
       >
         {prefix && (
@@ -197,7 +201,7 @@ export const TextInput = ({
             {suffix}
           </span>
         )}
-      </div>
+      </Box>
     );
   }
 
@@ -213,14 +217,15 @@ export const TextInput = ({
       style={style}
     >
       {hasLabel && (
-        <Label
+        <Box
+          as={Label}
+          display="block"
           htmlFor={uniqueId}
           showRequiredStyling={showRequiredStyling}
-          className={inputStyles.label}
           readOnly={readOnly}
         >
           {label}
-        </Label>
+        </Box>
       )}
       {extendedInput ? (
         extendedInput
@@ -232,7 +237,7 @@ export const TextInput = ({
         />
       )}
       {hasMessage && (
-        <div className={styles['message-container']}>
+        <Box display="flex" justifyContent="space-between" gap="x0.5">
           {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
           {renderCharCounter(
             characterCounterId,
@@ -240,7 +245,7 @@ export const TextInput = ({
             text.length,
             maxLength,
           )}
-        </div>
+        </Box>
       )}
     </div>
   );

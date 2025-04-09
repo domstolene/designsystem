@@ -1,10 +1,10 @@
-import styles from './Tabs.module.css';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
 import { focusable } from '../helpers/styling/focus.module.css';
+import { Box } from '../layout';
 
 export type TabPanelProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -22,19 +22,15 @@ export const TabPanel = ({
   htmlProps,
   ...rest
 }: TabPanelProps) => (
-  <div
-    {...getBaseHTMLProps(
-      id,
-      cn(className, styles['tab-panel'], focusable),
-      htmlProps,
-      rest,
-    )}
+  <Box
+    padding="x0.25"
+    {...getBaseHTMLProps(id, cn(className, focusable), htmlProps, rest)}
     tabIndex={0}
     role="tabpanel"
     hidden={!active}
   >
     {children}
-  </div>
+  </Box>
 );
 
 TabPanel.displayName = 'TabPanel';

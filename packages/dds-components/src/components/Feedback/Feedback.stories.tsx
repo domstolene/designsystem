@@ -5,7 +5,7 @@ import { Divider } from '../Divider';
 import { Feedback } from '.';
 
 export default {
-  title: 'dds-components/Feedback',
+  title: 'dds-components/Components/Feedback',
   component: Feedback,
   argTypes: {
     ratingValue: {

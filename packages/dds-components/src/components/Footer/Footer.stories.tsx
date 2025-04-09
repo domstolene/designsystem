@@ -17,7 +17,7 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/Footer',
+  title: 'dds-components/Components/Footer',
   component: Footer,
   parameters: {
     docs: {

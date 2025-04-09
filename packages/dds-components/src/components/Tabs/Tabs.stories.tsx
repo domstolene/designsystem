@@ -3,14 +3,14 @@ import { useState } from 'react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
 export default {
-  title: 'dds-components/Tabs',
+  title: 'dds-components/Components/Tabs',
   component: Tabs,
   argTypes: {
     width: { control: 'text' },

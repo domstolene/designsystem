@@ -1,17 +1,12 @@
 .container {
   /* Justering på spacing slik at fokusmarkering osv. ikke skjules ved overflow */
   --dds-modal-content-padding: var(--dds-spacing-x0-25);
-  --dds-modal-container-padding: calc(
-      var(--dds-spacing-x1) - var(--dds-modal-content-padding)
-    )
+  --dds-modal-container-padding: var(--dds-spacing-x1)
     calc(var(--dds-spacing-x1) - var(--dds-modal-content-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-modal-content-padding));
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
+
   padding: var(--dds-modal-container-padding);
-  padding-top: 0;
 }
 
 .container-scrollable {
@@ -19,16 +14,11 @@
   overflow: auto;
 }
 
-.modal-header {
-  display: flex;
-  align-items: flex-start;
-  padding-top: var(--dds-spacing-x1);
-  padding-bottom: var(--dds-spacing-x0-75);
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
+.header-container {
   background-color: var(--dds-color-surface-default);
+  padding-bottom: calc(
+    var(--dds-spacing-x0-75) - var(--dds-modal-content-padding)
+  );
   z-index: 1;
 }
 
@@ -38,18 +28,10 @@
 }
 
 .content {
-  display: grid;
   padding-right: calc(var(--dds-spacing-x1) - var(--dds-modal-content-padding));
-  gap: var(--dds-spacing-x1);
 }
 
 /* Spacing slik at fokusmarkering osv. ikke skjules ved overflow */
 .body {
   padding: var(--dds-modal-content-padding);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--dds-spacing-x1);
 }

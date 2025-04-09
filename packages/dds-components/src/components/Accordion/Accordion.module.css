@@ -19,20 +19,6 @@
   }
 }
 
-.header-container {
-  padding: var(--dds-spacing-x1) var(--dds-spacing-x1-5) var(--dds-spacing-x1)
-    var(--dds-spacing-x1);
-}
-
-.header-container__chevron {
-  margin-right: var(--dds-spacing-x0-5);
-}
-
 .body {
   height: var(--dds-card-accordion-body-height);
-}
-
-.body__content {
-  padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1-5) var(--dds-spacing-x2)
-    var(--dds-spacing-x1);
 }

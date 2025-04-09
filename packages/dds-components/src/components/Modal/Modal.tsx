@@ -23,13 +23,13 @@ import { cn } from '../../utils';
 import { Button } from '../Button';
 import {
   Backdrop,
-  Paper,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { Box, HStack, Paper } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 
@@ -121,6 +121,9 @@ export const Modal = ({
           onClick={onBackdropClick}
         >
           <Paper
+            display="flex"
+            flexDirection="column"
+            minWidth="200px"
             {...getBaseHTMLProps(
               id,
               cn(
@@ -142,7 +145,14 @@ export const Modal = ({
             id={modalId}
             elevation={4}
           >
-            <div className={styles['modal-header']}>
+            <HStack
+              paddingBlock="0 x0.75"
+              position="sticky"
+              top="0"
+              left="0"
+              width="100%"
+              className={styles['header-container']}
+            >
               {!!header && (
                 <div id={headerId}>
                   {typeof header === 'string' ? (
@@ -154,7 +164,6 @@ export const Modal = ({
                   )}
                 </div>
               )}
-
               {onClose && (
                 <Button
                   size="small"
@@ -165,9 +174,10 @@ export const Modal = ({
                   className={styles['close-button']}
                 />
               )}
-            </div>
-
-            <div className={styles.content}>{children}</div>
+            </HStack>
+            <Box display="grid" gap="x1">
+              {children}
+            </Box>
           </Paper>
         </Backdrop>,
         portalTarget,

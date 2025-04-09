@@ -4,14 +4,14 @@ import { useState } from 'react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Paragraph } from '../Typography';
 
 import { Drawer, DrawerGroup } from '.';
 
 const meta: Meta<typeof Drawer> = {
-  title: 'dds-components/Drawer',
+  title: 'dds-components/Components/Drawer',
   component: Drawer,
   parameters: {
     docs: {
@@ -78,7 +78,7 @@ export const withBackdrop: Story = {
 export const OverviewPlacement: Story = {
   args: { header: 'Tittel' },
   render: args => (
-    <>
+    <StoryHStack>
       <DrawerGroup>
         <Button>Åpne høyre</Button>
         <Drawer {...args}>
@@ -93,14 +93,14 @@ export const OverviewPlacement: Story = {
           <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
-    </>
+    </StoryHStack>
   ),
 };
 
 export const OverviewSizes: Story = {
   args: { header: 'Rettsmekling' },
   render: args => (
-    <>
+    <StoryHStack>
       <DrawerGroup>
         <Button>Åpne liten</Button>
         <Drawer {...args}>
@@ -173,7 +173,7 @@ export const OverviewSizes: Story = {
           <Button>Gjør noe</Button>
         </Drawer>
       </DrawerGroup>
-    </>
+    </StoryHStack>
   ),
 };
 

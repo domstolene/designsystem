@@ -1,7 +1,7 @@
 import { Heading, Paragraph } from '..';
 
 export default {
-  title: 'dds-components/Typography/Examples',
+  title: 'dds-components/Components/Typography/Examples',
 };
 
 export const Article = () => {

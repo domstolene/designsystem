@@ -1,9 +1,6 @@
 .container {
   box-sizing: border-box;
   z-index: var(--dds-zindex-overflowmenu);
-  overflow-y: auto;
-  min-width: 180px;
-  max-width: 300px;
 }
 
 .list {
@@ -56,14 +53,4 @@
 .button-loading {
   cursor: not-allowed;
   position: relative;
-}
-
-.divider {
-  margin-inline: var(--dds-spacing-x0-5);
-  margin-block: var(--dds-spacing-x0);
-}
-
-.group-header {
-  padding-inline: var(--dds-spacing-x0-75);
-  padding-block-start: var(--dds-spacing-x0-75);
 }
