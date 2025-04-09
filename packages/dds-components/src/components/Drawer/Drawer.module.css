@@ -2,9 +2,7 @@
   --dds-transition-duration-drawer-move: 0.2s;
   /* Justering på spacing slik at fokusmarkering osv. ikke skjules ved overflow */
   --dds-drawer-content-container-padding: var(--dds-spacing-x0-25);
-  --dds-drawer-container-padding: calc(
-      var(--dds-spacing-x1) - var(--dds-drawer-content-container-padding)
-    )
+  --dds-drawer-container-padding: var(--dds-spacing-x1)
     calc(var(--dds-spacing-x1) - var(--dds-drawer-content-container-padding))
     calc(var(--dds-spacing-x1) - var(--dds-drawer-content-container-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-drawer-content-container-padding));
@@ -46,16 +44,9 @@
 }
 
 .drawer-header {
-  display: flex;
-  align-items: flex-start;
-  padding-left: var(--dds-drawer-content-container-padding);
-  padding-right: var(--dds-drawer-content-container-padding);
-  padding-top: var(--dds-spacing-x1);
-  padding-bottom: var(--dds-spacing-x0-75);
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
+  padding-bottom: calc(
+    var(--dds-spacing-x0-75) - var(--dds-drawer-content-container-padding)
+  );
   background-color: var(--dds-color-surface-default);
   z-index: 1;
 }

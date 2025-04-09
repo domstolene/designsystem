@@ -33,7 +33,7 @@ import { CloseIcon } from '../Icon/icons';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 import { useDrawerContext } from './Drawer.context';
-import { Paper, VStack } from '../layout';
+import { HStack, Paper, VStack } from '../layout';
 
 export type DrawerSize = Extract<Size, 'small' | 'medium' | 'large'>;
 export type DrawerPlacement = 'left' | 'right';
@@ -177,9 +177,14 @@ export const Drawer = ({
       style={{ ...htmlProps?.style, ...widthProps }}
       aria-labelledby={headerId}
     >
-
-    
-      <div className={styles['drawer-header']}>
+      <HStack
+        position="sticky"
+        top="0"
+        left="0"
+        width="100%"
+        paddingInline="var(--dds-drawer-content-container-padding)"
+        className={styles['drawer-header']}
+      >
         {hasHeader && (
           <div id={headerId}>
             {typeof header === 'string' ? (
@@ -200,7 +205,7 @@ export const Drawer = ({
           aria-label="Lukk"
           icon={CloseIcon}
         />
-      </div>
+      </HStack>
       <VStack
         gap="x1"
         overflowY="auto"

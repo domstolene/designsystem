@@ -29,7 +29,7 @@ import {
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { Box, Paper } from '../layout';
+import { Box, HStack, Paper } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 
@@ -145,7 +145,14 @@ export const Modal = ({
             id={modalId}
             elevation={4}
           >
-            <div className={styles['modal-header']}>
+            <HStack
+              paddingBlock="0 x0.75"
+              position="sticky"
+              top="0"
+              left="0"
+              width="100%"
+              className={styles['header-container']}
+            >
               {!!header && (
                 <div id={headerId}>
                   {typeof header === 'string' ? (
@@ -167,8 +174,10 @@ export const Modal = ({
                   className={styles['close-button']}
                 />
               )}
-            </div>
-             <Box display="grid" gap="x1">{children}</Box>
+            </HStack>
+            <Box display="grid" gap="x1">
+              {children}
+            </Box>
           </Paper>
         </Backdrop>,
         portalTarget,
