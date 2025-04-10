@@ -2,28 +2,33 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { type BaseTypographyProps, Typography } from '../Typography';
+import {
+  type BaseTypographyProps,
+  Typography,
+  type TypographyHeadingType,
+} from '../Typography';
 
 export type LegendProps = BaseComponentPropsWithChildren<
   HTMLLegendElement,
-  BaseTypographyProps
+  BaseTypographyProps & {
+    /**Typografistil basert på utvalget for HTML heading elementer.  */
+    typographyType?: TypographyHeadingType;
+  }
 >;
 
 export const Legend = ({
   id,
   className,
   htmlProps,
-  children,
+  typographyType = 'headingLarge',
   ...rest
 }: LegendProps) => {
   return (
     <Typography
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       as="legend"
-      typographyType="headingLarge"
-    >
-      {children}
-    </Typography>
+      typographyType={typographyType}
+    />
   );
 };
 
