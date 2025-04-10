@@ -1,5 +1,28 @@
 # @norges-domstoler/dds-components
 
+## 21.0.0
+
+### Major Changes
+
+- b09e10b: Fjerner types `MaxWidthGrid`, `RowGapGrid` og `ColumnGapGrid` i `<Grid>`; disse brukes istedet på tvers av layout primitives.
+- b09e10b: Endrer verdi `'onInverse'` til `'on-inverse'` for `color` prop i `<Divider>`.
+- b09e10b: Endrer navnet på `type ScreenSizeLiteral` til `Breakpoint`
+- b09e10b: Bytter navn på type `StackSpacing` til `SpacingScale`, og tar den i bruk på tvers av layout primitives.
+- b09e10b: Bytter navn på props i `<HStack>` og `<VStack>`: `align` -> `alignItems`, `justify` -> `justifyContent`.
+- b09e10b: Revamper komponenter `<VStack>`, `<HStack>`, `<Grid>` og `<Paper>` i samsvar med layout primitives-standarden inkludert polymorfi, utvidet støtte for CSS props og responsiv skjuling. Se detaljer i [migreringsguiden v19 til v20](https://design.domstol.no/987b33f71/p/88e4c8-v19-til-v20).
+
+### Minor Changes
+
+- b09e10b: Legger til nye layout primitives: `<Box>`, `<Show>` og `<Hide>`. Se detaljer i [migreringsguiden v19 til v20](https://design.domstol.no/987b33f71/p/88e4c8-v19-til-v20).
+- b09e10b: Ny hook: `useWindowResize()`. Brukes for funksjonalitet som kjøres når brukeren endrer vindusstørrelse.
+- ab90914: Ny prop i `<Legend>`: `typoghraphyType`. Den støtter typografistilier for overskrifter. Brukes når komponenten trenger størrelsen tilpasset etter overskriftshierarki ellers på siden.
+- f054b3e: Justerer på layout for Modal og Drawer. Gjør header sticky, og flytter header opp på linje med lukke-knapp for å redusere spacing i toppen.
+- b09e10b: Legger til `<FieldsetGroup>` delkomponent som bruker riktig spacing og layout ut av boksen.
+
+### Patch Changes
+
+- ab90914: Fjerner fast spacing på bunnen i `<Legend>` ved bruk av `withMargins` prop; den arver nå spacing fra valgt typografistil.
+
 ## 20.2.0
 
 ### Minor Changes
