@@ -1,4 +1,3 @@
-import { type Properties, type Property } from 'csstype';
 import {
   type HTMLAttributes,
   type JSX,
@@ -36,10 +35,11 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
-import { type InputSize } from '../helpers';
+import { type InputSize, getInputWidth } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { type SvgIcon } from '../Icon/utils';
 import { renderInputMessage } from '../InputMessage';
+import { Box, type ResponsiveProps } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Label } from '../Typography';
 
@@ -73,8 +73,6 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   errorMessage?: string;
   /**Hjelpetekst. */
   tip?: string;
-  /**Custom bredde ved behov. */
-  width?: Property.Width;
   /** CSS klassenavn. */
   className?: string;
   /** Inline styling. */
@@ -92,6 +90,7 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   /**Ref til komponenten. */
   ref?: SelectForwardRefType<Option, IsMulti>;
 } & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
+  Pick<ResponsiveProps, 'width'> &
   WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 
 export type SelectForwardRefType<Option, IsMulti extends boolean> = Ref<
@@ -148,14 +147,10 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-select-width' as any]: width
-      ? width
-      : componentSize === 'xsmall'
-        ? '210px'
-        : 'var(--dds-input-default-width)',
-  };
+  const inputWidth = getInputWidth(
+    width,
+    componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)',
+  );
 
   const reactSelectProps: ReactSelectProps<
     Option,
@@ -227,14 +222,16 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   };
 
   return (
-    <div
+    <Box
+      width={inputWidth}
+      position="relative"
+      margin="0"
       className={cn(
         className,
-        styles.container,
         isDisabled && styles['container--disabled'],
         readOnly && styles['container--readonly'],
       )}
-      style={{ ...style, ...styleVariables }}
+      style={style}
     >
       {hasLabel && (
         <Label
@@ -248,7 +245,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       )}
       <ReactSelect {...reactSelectProps} ref={ref} />
       {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-    </div>
+    </Box>
   );
 }
 

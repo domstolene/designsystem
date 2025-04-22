@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { TextArea } from './TextArea';
-import { categoryHtml } from '../../storybook/helpers';
+import { categoryHtml, windowWidthDecorator } from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
@@ -58,4 +58,18 @@ export const Overview: Story = {
 
 export const WithCharacterCount: Story = {
   args: { label: 'Label', maxLength: 200 },
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    label: 'Label',
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '20%',
+      lg: 'var(--dds-input-default-width)',
+      xl: 'var(--dds-input-default-width)',
+    },
+  },
 };

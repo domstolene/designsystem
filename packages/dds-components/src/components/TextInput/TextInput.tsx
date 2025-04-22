@@ -1,4 +1,4 @@
-import { type Properties, type Property } from 'csstype';
+import { type Property } from 'csstype';
 import React, { useId, useLayoutEffect, useRef, useState } from 'react';
 
 import styles from './TextInput.module.css';
@@ -9,7 +9,12 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { getFormInputIconSize } from '../../utils/icon';
-import { StatefulInput, getDefaultText, renderCharCounter } from '../helpers';
+import {
+  StatefulInput,
+  getDefaultText,
+  getInputWidth,
+  renderCharCounter,
+} from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
@@ -84,14 +89,10 @@ export const TextInput = ({
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-textinput-width' as any]: width
-      ? width
-      : componentSize === 'xsmall'
-        ? '210px'
-        : 'var(--dds-input-default-width)',
-  };
+  const inputWidth = getInputWidth(
+    width,
+    componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)',
+  );
 
   const generalInputProps = {
     ref,
@@ -134,10 +135,7 @@ export const TextInput = ({
 
   if (hasIcon) {
     extendedInput = (
-      <div
-        className={cn(styles['input-width'], inputStyles['input-group'])}
-        style={styleVariables}
-      >
+      <Box className={inputStyles['input-group']} width={inputWidth}>
         {
           <Icon
             icon={icon}
@@ -156,7 +154,7 @@ export const TextInput = ({
           )}
           {...generalInputProps}
         />
-      </div>
+      </Box>
     );
   } else if (hasAffix) {
     extendedInput = (
@@ -164,8 +162,7 @@ export const TextInput = ({
         position="relative"
         display="flex"
         alignItems="center"
-        className={styles['input-width']}
-        style={styleVariables}
+        width={inputWidth}
       >
         {prefix && (
           <span
@@ -230,11 +227,7 @@ export const TextInput = ({
       {extendedInput ? (
         extendedInput
       ) : (
-        <StatefulInput
-          style={styleVariables}
-          className={styles['input-width']}
-          {...generalInputProps}
-        />
+        <Box as={StatefulInput} width={inputWidth} {...generalInputProps} />
       )}
       {hasMessage && (
         <Box display="flex" justifyContent="space-between" gap="x0.5">

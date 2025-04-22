@@ -1,4 +1,3 @@
-import { type Property } from 'csstype';
 import {
   type MouseEvent,
   type ReactNode,
@@ -33,15 +32,14 @@ import { CloseIcon } from '../Icon/icons';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 import { useDrawerContext } from './Drawer.context';
-import { HStack, Paper, VStack } from '../layout';
+import { HStack, Paper, type ResponsiveProps, VStack } from '../layout';
 
 export type DrawerSize = Extract<Size, 'small' | 'medium' | 'large'>;
 export type DrawerPlacement = 'left' | 'right';
-export interface WidthProps {
-  minWidth?: Property.MinWidth;
-  maxWidth?: Property.MaxWidth;
-  width?: Property.Width;
-}
+export type WidthProps = Pick<
+  ResponsiveProps,
+  'minWidth' | 'maxWidth' | 'width'
+>;
 
 export type DrawerProps = Omit<
   BaseComponentPropsWithChildren<
@@ -62,7 +60,7 @@ export type DrawerProps = Omit<
        * @default themeProviderRef
        */
       parentElement?: HTMLElement;
-      /**Custom props for breddehåndtering ved behov. */
+      /**Custom props for breddehåndtering ved behov. Kan settes per brekkpunkt eller samme verdi for alle. */
       widthProps?: WidthProps;
       /**
        * Om `<Drawer>` skal vises med backdrop som gråer ut bakgrunnen.
@@ -81,7 +79,7 @@ export const Drawer = ({
   size = 'small',
   className,
   htmlProps,
-  widthProps,
+  widthProps = {},
   withBackdrop,
   ref,
   ...rest
@@ -95,6 +93,7 @@ export const Drawer = ({
   const portalTarget = parentElement ?? themeContext?.el;
 
   const { isOpen = false, onClose, drawerId, triggerEl } = useDrawerContext();
+  const { minWidth, maxWidth, width } = widthProps;
 
   const hasHeader = !!header;
   const headerId = hasHeader ? `${drawerId}-header` : undefined;
@@ -154,8 +153,9 @@ export const Drawer = ({
       position="fixed"
       top="0"
       height="100%"
-      minWidth="300px"
-      maxWidth={getMaxWidth(size)}
+      minWidth={minWidth ? minWidth : '300px'}
+      maxWidth={maxWidth ? maxWidth : getMaxWidth(size)}
+      width={width}
       display="flex"
       flexDirection="column"
       justifyContent="flex-start"
@@ -174,7 +174,6 @@ export const Drawer = ({
         rest,
       )}
       elevation={4}
-      style={{ ...htmlProps?.style, ...widthProps }}
       aria-labelledby={headerId}
     >
       <HStack

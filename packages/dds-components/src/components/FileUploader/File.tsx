@@ -9,6 +9,7 @@ import {
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { CheckCircledIcon, CloseIcon, ErrorIcon } from '../Icon/icons';
+import { Paper } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 interface FileProps {
@@ -29,7 +30,17 @@ export const File = (props: FileProps) => {
 
   return (
     <li>
-      <div className={cn(styles.file, !isValid && styles['file--invalid'])}>
+      <Paper
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        gap="x0.75"
+        marginBlock="x0.5 0"
+        padding="x0.5 x1"
+        border={isValid ? 'border-default' : 'border-danger'}
+        background="surface-subtle"
+        className={cn(!isValid && styles['file--invalid'])}
+      >
         <span
           className={cn(styles.file__name, typographyStyles['body-medium'])}
         >
@@ -54,7 +65,7 @@ export const File = (props: FileProps) => {
             ),
           }}
         />
-      </div>
+      </Paper>
       <ErrorList errors={errorsList} />
     </li>
   );

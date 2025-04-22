@@ -1,4 +1,3 @@
-import { type Property } from 'csstype';
 import { type ComponentPropsWithRef, useId } from 'react';
 
 import { ErrorList } from './ErrorList';
@@ -15,6 +14,7 @@ import { Button } from '../Button';
 import { StylelessList } from '../helpers';
 import { UploadIcon } from '../Icon/icons';
 import { InputMessage } from '../InputMessage';
+import { Box, type ResponsiveProps, VStack } from '../layout';
 import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -38,15 +38,14 @@ export type FileUploaderProps = {
   required?: boolean;
   /**Callback for når fil-listen endres. */
   onChange: (newFiles: FileList) => void;
-  /**Bredde for filopplasteren. */
-  width?: Property.Width;
   /**Om drag-and-drop zone skal vises.
    * @default true
    */
   withDragAndDrop?: boolean;
   /**Om listen med opplastede filer skal skjules. Brukes kun hvis listen blir vist på egen måte. */
   hideFileList?: boolean;
-} & Partial<FileUploaderHookProps> &
+} & Pick<ResponsiveProps, 'width'> &
+  Partial<FileUploaderHookProps> &
   Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'>;
 
 export const FileUploader = (props: FileUploaderProps) => {
@@ -64,10 +63,9 @@ export const FileUploader = (props: FileUploaderProps) => {
     maxFiles,
     disabled,
     onChange,
-    width,
+    width = 'var(--dds-input-default-width)',
     errorMessage,
     hideFileList,
-    style,
     className,
     ...rest
   } = props;
@@ -139,14 +137,10 @@ export const FileUploader = (props: FileUploaderProps) => {
   );
 
   return (
-    <div
+    <Box
       id={uniqueId}
-      className={cn(
-        className,
-        styles.container,
-        typographyStyles['body-medium'],
-      )}
-      style={{ ...style, width }}
+      className={cn(className, typographyStyles['body-medium'])}
+      width={width}
       {...rest}
     >
       {hasLabel && (
@@ -160,7 +154,9 @@ export const FileUploader = (props: FileUploaderProps) => {
       )}
       {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
       {withDragAndDrop ? (
-        <div
+        <VStack
+          gap="x1"
+          padding="x1.5 x1.5 x2 x1.5"
           {...getRootProps()}
           className={cn(
             styles['input-container'],
@@ -178,7 +174,7 @@ export const FileUploader = (props: FileUploaderProps) => {
             velg fil med påfølgende knapp
           </VisuallyHidden>
           {button}
-        </div>
+        </VStack>
       ) : (
         <div className={styles['input-container--no-drag-zone']}>
           <input {...getInputProps()} id={inputId} />
@@ -187,7 +183,7 @@ export const FileUploader = (props: FileUploaderProps) => {
       )}
       <ErrorList errors={rootErrorsList} />
       {!hideFileList && <StylelessList>{fileListElements}</StylelessList>}
-    </div>
+    </Box>
   );
 };
 

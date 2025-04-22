@@ -1,5 +1,6 @@
-import { type Property } from 'csstype';
 import { type ComponentPropsWithRef, type InputHTMLAttributes } from 'react';
+
+import { type ResponsiveProps } from '../layout';
 
 export type EditElement = HTMLInputElement | HTMLTextAreaElement;
 
@@ -11,7 +12,7 @@ export interface BaseInlineInputProps {
   /** Bredde på komponenten.
    * @default "140px"
    */
-  width?: Property.Width;
+  width?: ResponsiveProps['width'];
   /**Om redigeringsikonet skal vises. */
   hideIcon?: boolean;
 }

@@ -1,4 +1,3 @@
-import { type Properties, type Property } from 'csstype';
 import { type HTMLAttributes, useEffect, useId, useRef, useState } from 'react';
 
 import { type AddTabButtonProps } from './AddTabButton';
@@ -11,6 +10,7 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { Box, type ResponsiveProps } from '../layout';
 
 export type TabSize = Extract<Size, 'small' | 'medium'>;
 
@@ -27,11 +27,9 @@ export type TabsProps = BaseComponentPropsWithChildren<
      * @default "row"
      */
     tabContentDirection?: Direction;
-    /**Bredde for hele komponenten. */
-    width?: Property.Width;
     /** Props for "Legg til fane"-knapp. Støtter native HTML attributter og `width`. */
     addTabButtonProps?: Omit<AddTabButtonProps, 'index'>;
-  },
+  } & Pick<ResponsiveProps, 'width'>,
   Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>
 >;
 
@@ -67,11 +65,6 @@ export const Tabs = ({
     }
   }, [activeTab, thisActiveTab]);
 
-  const customWidth: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-tabs-width' as any]: width,
-  };
-
   return (
     <TabsContext
       value={{
@@ -87,17 +80,17 @@ export const Tabs = ({
         addTabButtonProps,
       }}
     >
-      <div
+      <Box
         {...getBaseHTMLProps(
           uniqueId,
           cn(className, styles.tabs),
           htmlProps,
           rest,
         )}
-        style={{ ...htmlProps?.style, ...customWidth }}
+        width={width}
       >
         {children}
-      </div>
+      </Box>
     </TabsContext>
   );
 };

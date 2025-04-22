@@ -2,7 +2,11 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { FileUploader } from './FileUploader';
-import { categoryHtml } from '../../storybook/helpers';
+import {
+  categoryCss,
+  categoryHtml,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { StoryVStack } from '../layout/Stack/utils';
 import { Heading, Paragraph } from '../Typography';
 
@@ -10,7 +14,7 @@ export default {
   title: 'dds-components/Components/FileUploader',
   component: FileUploader,
   argTypes: {
-    width: { control: 'text' },
+    width: { control: 'text', table: categoryCss },
     id: { control: false, table: categoryHtml },
     initialFiles: { control: false },
     accept: { control: false },
@@ -143,5 +147,18 @@ export const CustomFileList: Story = {
         )}
       </>
     );
+  },
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '30%',
+      lg: 'var(--dds-input-default-width)',
+      xl: 'var(--dds-input-default-width)',
+    },
   },
 };

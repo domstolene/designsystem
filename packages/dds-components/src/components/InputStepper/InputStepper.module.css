@@ -4,7 +4,6 @@
 .textInput {
   text-align: center;
   border-radius: 0;
-  width: var(--dds-input-stepper-width);
 }
 .stepButton {
   &:focus-visible {

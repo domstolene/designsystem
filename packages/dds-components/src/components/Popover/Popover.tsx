@@ -1,4 +1,3 @@
-import { type Property } from 'csstype';
 import {
   type ReactNode,
   type RefObject,
@@ -27,19 +26,15 @@ import { Button } from '../Button';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
-import { Paper } from '../layout';
+import { Paper, type ResponsiveProps } from '../layout';
 import { Heading } from '../Typography';
 import { usePopoverContext } from './Popover.context';
 import { ThemeContext } from '../ThemeProvider';
 
-export interface PopoverSizeProps {
-  width?: Property.Width;
-  height?: Property.Height;
-  minWidth?: Property.MinWidth;
-  minHeight?: Property.MinHeight;
-  maxWidth?: Property.MaxWidth;
-  maxHeight?: Property.MaxHeight;
-}
+export type PopoverSizeProps = Pick<
+  ResponsiveProps,
+  'width' | 'height' | 'minWidth' | 'minHeight' | 'maxWidth' | 'maxHeight'
+>;
 
 export type PopoverProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -93,7 +88,7 @@ export const Popover = ({
   parentElement,
   portal = false,
   offset = 8,
-  sizeProps,
+  sizeProps = {},
   returnFocusOnBlur = true,
   className,
   htmlProps = {},
@@ -107,6 +102,7 @@ export const Popover = ({
     offset,
     placement,
   });
+  const { maxHeight, maxWidth, minHeight, minWidth, height, width } = sizeProps;
 
   const context = usePopoverContext();
   const themeContext = useContext(ThemeContext);
@@ -201,10 +197,15 @@ export const Popover = ({
       )}
       ref={multiRef}
       tabIndex={-1}
+      height={height}
+      maxHeight={maxHeight}
+      minHeight={minHeight}
+      width={width}
+      maxWidth={maxWidth}
+      minWidth={minWidth}
       style={{
         ...htmlProps.style,
         ...floatStyling,
-        ...sizeProps,
       }}
       role="dialog"
       elevation={3}

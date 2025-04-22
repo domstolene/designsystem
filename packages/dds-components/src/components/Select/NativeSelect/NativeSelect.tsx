@@ -1,4 +1,3 @@
-import { type Properties } from 'csstype';
 import { useId } from 'react';
 import type { ComponentPropsWithRef } from 'react';
 
@@ -10,13 +9,18 @@ import {
   readOnlyMouseDownHandler,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
-import { type CommonInputProps, type InputProps } from '../../helpers';
+import {
+  type CommonInputProps,
+  type InputProps,
+  getInputWidth,
+} from '../../helpers';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import { ChevronDownIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
+import { Box } from '../../layout';
 import { Label } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
@@ -55,17 +59,13 @@ export const NativeSelect = ({
 
   const showRequiredStyling = !!(required || ariaRequired);
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-native-select-width' as any]: width
-      ? width
-      : componentSize === 'xsmall'
-        ? '210px'
-        : 'var(--dds-input-default-width)',
-  };
+  const inputWidth = getInputWidth(
+    width,
+    componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)',
+  );
 
   return (
-    <div>
+    <div className={className} style={style}>
       {hasLabel && (
         <Label
           className={inputStyles.label}
@@ -76,12 +76,11 @@ export const NativeSelect = ({
           {label}
         </Label>
       )}
-      <div className={styles.container}>
+      <Box position="relative" width={inputWidth}>
         <select
           id={uniqueId}
           multiple={multiple}
           className={cn(
-            className,
             styles.select,
             readOnly && styles['select--readonly'],
             inputStyles.input,
@@ -93,7 +92,6 @@ export const NativeSelect = ({
             hasErrorMessage && inputStyles['input--stateful-danger'],
             multiple && styles['select--multiple'],
           )}
-          style={{ ...style, ...styleVariables }}
           aria-readonly={readOnly}
           aria-invalid={hasErrorMessage}
           aria-describedby={spaceSeparatedIdListGenerator([
@@ -115,7 +113,7 @@ export const NativeSelect = ({
             className={styles.icon}
           />
         )}
-      </div>
+      </Box>
       {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
     </div>
   );

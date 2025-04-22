@@ -4,7 +4,8 @@ import { ToggleBarContext } from './ToggleBar.context';
 import styles from './ToggleBar.module.css';
 import { type ToggleBarProps, type ToggleBarValue } from './ToggleBar.types';
 import { getBaseHTMLProps } from '../../types';
-import { cn, combineHandlers } from '../../utils';
+import { combineHandlers } from '../../utils';
+import { VStack } from '../layout';
 import { Typography } from '../Typography';
 
 export const ToggleBar = <T extends string | number = string>(
@@ -45,14 +46,10 @@ export const ToggleBar = <T extends string | number = string>(
         value: groupValue,
       }}
     >
-      <div
-        {...getBaseHTMLProps(
-          id,
-          cn(className, styles.container),
-          htmlProps,
-          rest,
-        )}
-        style={{ ...htmlProps?.style, width }}
+      <VStack
+        {...getBaseHTMLProps(id, className, htmlProps, rest)}
+        width={width}
+        gap="x0.125"
         role="radiogroup"
         aria-labelledby={labelId ?? htmlProps?.['aria-labelledby']}
       >
@@ -62,7 +59,7 @@ export const ToggleBar = <T extends string | number = string>(
           </Typography>
         )}
         <div className={styles.bar}>{children}</div>
-      </div>
+      </VStack>
     </ToggleBarContext>
   );
 };

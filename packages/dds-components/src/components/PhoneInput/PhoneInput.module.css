@@ -2,33 +2,26 @@
   .input {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    width: var(--dds-phone-input-width);
   }
-
-  .select {
-    width: 8rem;
+  select {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    margin-right: -1px;
   }
 
-  .select--xsmall {
-    width: 5rem;
+  .select > div {
+    margin-right: -1px;
   }
 }
 
 .inputs-container--small-screen-xs {
   @media only screen and (max-width: 600px) {
-    width: var(--dds-phone-input-width);
     .input {
       border-top-right-radius: 0;
-      width: 100%;
     }
 
-    .select {
+    select {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      width: 100%;
       margin-bottom: -1px;
     }
   }
@@ -36,16 +29,13 @@
 
 .inputs-container--small-screen-sm {
   @media only screen and (max-width: 960px) {
-    width: var(--dds-phone-input-width);
     .input {
       border-top-right-radius: 0;
-      width: 100%;
     }
 
-    .select {
+    select {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      width: 100%;
       margin-bottom: -1px;
     }
   }
@@ -53,16 +43,13 @@
 
 .inputs-container--small-screen-md {
   @media only screen and (max-width: 1280px) {
-    width: var(--dds-phone-input-width);
     .input {
       border-top-right-radius: 0;
-      width: 100%;
     }
 
-    .select {
+    select {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      width: 100%;
       margin-bottom: -1px;
     }
   }
@@ -70,38 +57,32 @@
 
 .inputs-container--small-screen-lg {
   @media only screen and (max-width: 1920px) {
-    width: var(--dds-phone-input-width);
     .input {
       border-top-right-radius: 0;
-      width: 100%;
     }
 
-    .select {
+    select {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      width: 100%;
       margin-bottom: -1px;
     }
   }
 }
 
 .inputs-container--small-screen-xl {
-  width: var(--dds-phone-input-width);
   .input {
     border-top-right-radius: 0;
-    width: 100%;
   }
 
-  .select {
+  select {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    width: 100%;
     margin-bottom: -1px;
   }
 }
 
-.select:focus-visible,
-.select:hover {
+select:focus-visible,
+select:hover {
   z-index: var(--dds-zindex-absolute-element);
   & ~ svg {
     z-index: var(--dds-zindex-absolute-element);
