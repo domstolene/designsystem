@@ -13,11 +13,13 @@
 
 .list--striped {
   .row {
-    &:nth-of-type(even) {
+    &:nth-of-type(4n-3),
+    &:nth-of-type(4n-2) {
       background-color: var(--dds-color-surface-default);
     }
 
-    &:nth-of-type(odd) {
+    &:nth-of-type(4n-1),
+    &:nth-of-type(4n) {
       background-color: var(--dds-color-surface-subtle);
     }
   }
@@ -48,8 +50,12 @@
   }
 }
 
-.row {
-  display: table-row;
+.column {
+  dt,
+  dd {
+    margin-inline-start: 0;
+    text-align: left;
+  }
 }
 
 .cell {
