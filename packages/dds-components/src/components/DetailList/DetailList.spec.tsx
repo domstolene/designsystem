@@ -14,9 +14,9 @@ describe('<DetailList>', () => {
         </DetailListRow>
       </DetailList>,
     );
-    const term = screen.getByRole('term');
-    expect(term).toBeInTheDocument();
-    expect(screen.getByText(termText)).toBeInTheDocument();
+    const terms = screen.getAllByRole('term');
+    expect(terms).toHaveLength(2);
+    expect(screen.getAllByText(termText)).toHaveLength(2);
   });
   it('should render description', () => {
     const descText = 'desc';
@@ -28,8 +28,8 @@ describe('<DetailList>', () => {
         </DetailListRow>
       </DetailList>,
     );
-    const desc = screen.getByRole('definition');
-    expect(desc).toBeInTheDocument();
-    expect(screen.getByText(descText)).toBeInTheDocument();
+    const descs = screen.getAllByRole('definition');
+    expect(descs).toHaveLength(2);
+    expect(screen.getAllByText(descText)).toHaveLength(2);
   });
 });
