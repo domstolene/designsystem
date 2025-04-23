@@ -13,13 +13,13 @@
 
 .list--striped {
   .row {
-    &:nth-of-type(4n-3),
-    &:nth-of-type(4n-2) {
+    &:nth-of-type(4n-1),
+    &:nth-of-type(4n) {
       background-color: var(--dds-color-surface-default);
     }
 
-    &:nth-of-type(4n-1),
-    &:nth-of-type(4n) {
+    &:nth-of-type(4n-3),
+    &:nth-of-type(4n-2) {
       background-color: var(--dds-color-surface-subtle);
     }
   }
