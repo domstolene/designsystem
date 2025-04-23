@@ -80,16 +80,106 @@
   --dds-zindex-dropdown: 100; /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   --dds-zindex-sticky: 50; /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   --dds-zindex-absolute-element: 1; /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
+  --dds-color-data-red-100: #f8d2d4;
+  --dds-color-data-red-200: #f0a5a9;
+  --dds-color-data-red-300: #e9787e;
+  --dds-color-data-red-400: #e14b53;
+  --dds-color-data-red-500: #da1e28;
+  --dds-color-data-red-600: #ae1820;
+  --dds-color-data-red-700: #831218;
+  --dds-color-data-red-800: #570c10;
+  --dds-color-data-red-900: #2c0608;
+  --dds-color-data-magenta-100: #eed3df;
+  --dds-color-data-magenta-200: #dfa5bf;
+  --dds-color-data-magenta-300: #cf789e;
+  --dds-color-data-magenta-400: #c74f84;
+  --dds-color-data-magenta-500: #b62665;
+  --dds-color-data-magenta-600: #8a1a4b;
+  --dds-color-data-magenta-700: #671438;
+  --dds-color-data-magenta-800: #440e26;
+  --dds-color-data-magenta-900: #220713;
+  --dds-color-data-brown-100: #f0ddd5;
+  --dds-color-data-brown-200: #e1bcac;
+  --dds-color-data-brown-300: #d19a82;
+  --dds-color-data-brown-400: #c27959;
+  --dds-color-data-brown-500: #b3572f;
+  --dds-color-data-brown-600: #8f4626;
+  --dds-color-data-brown-700: #6b341c;
+  --dds-color-data-brown-800: #482313;
+  --dds-color-data-brown-900: #241109;
+  --dds-color-data-olive-100: #e6e4d0;
+  --dds-color-data-olive-200: #cdc9a1;
+  --dds-color-data-olive-300: #b3ae71;
+  --dds-color-data-olive-400: #989344;
+  --dds-color-data-olive-500: #7c7518;
+  --dds-color-data-olive-600: #635e13;
+  --dds-color-data-olive-700: #4a460e;
+  --dds-color-data-olive-800: #322f0a;
+  --dds-color-data-olive-900: #191705;
+  --dds-color-data-green-100: #d1e6d7;
+  --dds-color-data-green-200: #a3ccaf;
+  --dds-color-data-green-300: #75b388;
+  --dds-color-data-green-400: #479960;
+  --dds-color-data-green-500: #198038;
+  --dds-color-data-green-600: #14662d;
+  --dds-color-data-green-700: #0f4d22;
+  --dds-color-data-green-800: #0a3316;
+  --dds-color-data-green-900: #051a0b;
+  --dds-color-data-teal-100: #c2e2e1;
+  --dds-color-data-teal-200: #90ccc9;
+  --dds-color-data-teal-300: #5dafad;
+  --dds-color-data-teal-400: #2c9390;
+  --dds-color-data-teal-500: #007d79;
+  --dds-color-data-teal-600: #006461;
+  --dds-color-data-teal-700: #004b49;
+  --dds-color-data-teal-800: #003230;
+  --dds-color-data-teal-900: #001918;
+  --dds-color-data-deepblue-100: #b9d7e5;
+  --dds-color-data-deepblue-200: #96c5d9;
+  --dds-color-data-deepblue-300: #6aa8c3;
+  --dds-color-data-deepblue-400: #3e8bac;
+  --dds-color-data-deepblue-500: #196b8f;
+  --dds-color-data-deepblue-600: #135774;
+  --dds-color-data-deepblue-700: #0e455e;
+  --dds-color-data-deepblue-800: #0d3445;
+  --dds-color-data-deepblue-900: #05151d;
+  --dds-color-data-blue-100: #cfe0ff;
+  --dds-color-data-blue-200: #9fc0ff;
+  --dds-color-data-blue-300: #6fa1fe;
+  --dds-color-data-blue-400: #3f81fe;
+  --dds-color-data-blue-500: #0f62fe;
+  --dds-color-data-blue-600: #0c4ecb;
+  --dds-color-data-blue-700: #093b98;
+  --dds-color-data-blue-800: #062766;
+  --dds-color-data-blue-900: #031433;
+  --dds-color-data-purple-100: #e8d9fe;
+  --dds-color-data-purple-200: #d0b2fe;
+  --dds-color-data-purple-300: #b98cfd;
+  --dds-color-data-purple-400: #a165fd;
+  --dds-color-data-purple-500: #8a3ffc;
+  --dds-color-data-purple-600: #6e32ca;
+  --dds-color-data-purple-700: #532697;
+  --dds-color-data-purple-800: #371965;
+  --dds-color-data-purple-900: #1c0d32;
+  --dds-color-data-gray-100: #e3e3e3;
+  --dds-color-data-gray-200: #c7c7c7;
+  --dds-color-data-gray-300: #aaaaaa;
+  --dds-color-data-gray-400: #8e8e8e;
+  --dds-color-data-gray-500: #727272;
+  --dds-color-data-gray-600: #5b5b5b;
+  --dds-color-data-gray-700: #444444;
+  --dds-color-data-gray-800: #2e2e2e;
+  --dds-color-data-gray-900: #171717;
   --dds-color-bg-default: #ffffff; /* UI shell base color */
-  --dds-color-bg-subtle: #f8f9f9; /* Alternative UI shell base color */
+  --dds-color-bg-subtle: #f1f3f4; /* Alternative UI shell base color */
   --dds-color-surface-default: #ffffff; /* Default bg */
-  --dds-color-surface-subtle: #f8f9f9; /* Subtle surface color */
-  --dds-color-surface-medium: #ebecee; /* Medium surface color */
+  --dds-color-surface-subtle: #f1f3f4; /* Subtle surface color */
+  --dds-color-surface-medium: #e4e6e8; /* Medium surface color */
   --dds-color-surface-hover-default: #e7f1f7; /* Hover on surface (default, subtle, medium) */
-  --dds-color-surface-hover-subtle: #f8f9f9; /* Subtle hover on surface (default, medium) */
+  --dds-color-surface-hover-subtle: #f1f3f4; /* Subtle hover on surface (default, medium) */
   --dds-color-surface-selected-default: #e7f1f7; /* Selected state for surface (default, subtle, medium) */
   --dds-color-surface-inverse-default: #354754; /* Can be used as a surface for menu, navigation, footer etc */
-  --dds-color-surface-inverse-hover: #313d45; /* Hover on surface.inverse */
+  --dds-color-surface-inverse-hover: #2a3943; /* Hover on surface.inverse */
   --dds-color-surface-inverse-selected: #202b32; /* selected on surface.inverse */
   --dds-color-surface-action-resting: #106ead; /* Primary button bg */
   --dds-color-surface-action-hover: #0d588a; /* Hover on surface.action/selected */
@@ -108,13 +198,13 @@
   --dds-color-surface-paper-default: #ffffff; /* modal, drawer, popover etc */
   --dds-color-surface-backdrop-default: #0b0d0e80; /* background overlay for modals (50%) */
   --dds-color-surface-field-default: #ffffff; /* Form elements (textinput, datepicker etc) */
-  --dds-color-surface-field-disabled: #f8f9f9; /* disabled state on surface.field */
-  --dds-color-surface-highlighted-default: #ffe6df; /* bg for highlighted text on text.default. Use with $Text */
+  --dds-color-surface-field-disabled: #f1f3f4; /* disabled state on surface.field */
+  --dds-color-surface-highlighted-default: #fce5dd; /* bg for highlighted text on text.default. Use with $Text */
   --dds-color-surface-scrollbar: #adb5ba; /* Used for scrollbar */
   --dds-color-surface-notification: #d83737; /* bg on a notification */
-  --dds-color-surface-skeleton: #cfd4d7; /* Used for skeleton */
+  --dds-color-surface-skeleton: #d6dadd; /* Used for skeleton */
   --dds-color-border-default: #77838c; /* Form components, togglebutton, secondary button, checkbox etc */
-  --dds-color-border-subtle: #cfd4d7; /* Dropdown, tooltip, overflow etc */
+  --dds-color-border-subtle: #d6dadd; /* Dropdown, tooltip, overflow etc */
   --dds-color-border-inverse: #acbbc6; /* Border or divider on surface.inverse */
   --dds-color-border-action-default: #106ead; /* Used in progress tracker */
   --dds-color-border-action-hover: #0d588a; /* Hover on secondary button etc */
@@ -146,27 +236,57 @@
   --dds-color-icon-action-hover: #0d588a; /* hover on icon-action */
   --dds-color-icon-on-success-default: #3d723d; /* On surface.success-default */
   --dds-color-icon-on-success-strong: #0b0d0e; /* On surface-success-strong */
-  --dds-color-icon-on-warning-default: #92862e; /* On surface.warning-default */
+  --dds-color-icon-on-warning-default: #9a8c26; /* On surface.warning-default */
   --dds-color-icon-on-warning-strong: #0b0d0e; /* On surface.warning-strong */
   --dds-color-icon-on-danger-default: #ad2c2c; /* On surface.danger-default */
   --dds-color-icon-on-danger-strong: #0b0d0e; /* On surface.danger-strong */
-  --dds-color-icon-on-info-default: #466f8a; /* On surface.info-default */
+  --dds-color-icon-on-info-default: #3e7192; /* On surface.info-default */
   --dds-color-icon-on-info-strong: #0b0d0e; /* On surface.info-strong */
   --dds-color-icon-danger: #ad2c2c; /* Error icon on paper, or default or subtle surafce/bg */
   --dds-color-brand-primary-default: #354754; /* Primary brand color */
   --dds-color-brand-primary-subtle: #eaeff4; /* Primary brand color */
   --dds-color-brand-primary-medium: #4f6a7e; /* Primary brand color */
-  --dds-color-brand-primary-strong: #202b32;
+  --dds-color-brand-primary-strong: #202b32; /* Primary brand color */
   --dds-color-brand-secondary-default: #9ab8b7; /* Secondary brand color */
   --dds-color-brand-secondary-subtle: #e6eded; /* Secondary brand color */
   --dds-color-brand-secondary-medium: #b8cdcd; /* Secondary brand color */
-  --dds-color-brand-secondary-strong: #4d6463;
-  --dds-color-brand-tertiary-default: #f2a68f; /* Tertiary brand color */
-  --dds-color-brand-tertiary-subtle: #ffe6df; /* Tertiary brand color */
-  --dds-color-brand-tertiary-medium: #f6c1b1; /* Tertiary brand color */
-  --dds-color-brand-tertiary-strong: #f27e55;
-  --dds-color-focus-outside: #2f4a5c; /* Contrast to .inside */
+  --dds-color-brand-secondary-strong: #4d6463; /* Secondary brand color */
+  --dds-color-brand-tertiary-default: #f27e55; /* Tertiary brand color */
+  --dds-color-brand-tertiary-subtle: #fce5dd; /* Tertiary brand color */
+  --dds-color-brand-tertiary-medium: #f2a68f; /* Tertiary brand color */
+  --dds-color-brand-tertiary-strong: #d45d32; /* Tertiary brand color */
+  --dds-color-focus-outside: #2a4b61; /* Contrast to .inside */
   --dds-color-focus-inside: #f1f8fd; /* Contrast to .outside */
+  --dds-color-data-10-default: #196b8f;
+  --dds-color-data-10-subtle: #96c5d9;
+  --dds-color-data-10-border: #196b8f;
+  --dds-color-data-01-default: #0f62fe;
+  --dds-color-data-01-subtle: #9fc0ff;
+  --dds-color-data-01-border: #0f62fe;
+  --dds-color-data-02-default: #b3572f;
+  --dds-color-data-02-subtle: #e1bcac;
+  --dds-color-data-02-border: #b3572f;
+  --dds-color-data-03-default: #727272;
+  --dds-color-data-03-subtle: #c7c7c7;
+  --dds-color-data-03-border: #727272;
+  --dds-color-data-04-default: #198038;
+  --dds-color-data-04-subtle: #a3ccaf;
+  --dds-color-data-04-border: #198038;
+  --dds-color-data-05-default: #8a3ffc;
+  --dds-color-data-05-subtle: #d0b2fe;
+  --dds-color-data-05-border: #8a3ffc;
+  --dds-color-data-06-default: #b62665;
+  --dds-color-data-06-subtle: #dfa5bf;
+  --dds-color-data-06-border: #b62665;
+  --dds-color-data-07-default: #7c7518;
+  --dds-color-data-07-subtle: #cdc9a1;
+  --dds-color-data-07-border: #7c7518;
+  --dds-color-data-08-default: #da1e28;
+  --dds-color-data-08-subtle: #f0a5a9;
+  --dds-color-data-08-border: #da1e28;
+  --dds-color-data-09-default: #007d79;
+  --dds-color-data-09-subtle: #90ccc9;
+  --dds-color-data-09-border: #007d79;
   --dds-font-label-medium: 600 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Label for form components */
   --dds-font-body-xsmall: 400 0.75rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with xsmall button and input fields */
   --dds-font-body-small: 400 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with small button and input fields */

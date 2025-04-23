@@ -78,6 +78,96 @@
   $dds-zindex-dropdown: var(--dds-zindex-dropdown); /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   $dds-zindex-sticky: var(--dds-zindex-sticky); /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   $dds-zindex-absolute-element: var(--dds-zindex-absolute-element); /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
+  $dds-color-data-red-100: var(--dds-color-data-red-100);
+  $dds-color-data-red-200: var(--dds-color-data-red-200);
+  $dds-color-data-red-300: var(--dds-color-data-red-300);
+  $dds-color-data-red-400: var(--dds-color-data-red-400);
+  $dds-color-data-red-500: var(--dds-color-data-red-500);
+  $dds-color-data-red-600: var(--dds-color-data-red-600);
+  $dds-color-data-red-700: var(--dds-color-data-red-700);
+  $dds-color-data-red-800: var(--dds-color-data-red-800);
+  $dds-color-data-red-900: var(--dds-color-data-red-900);
+  $dds-color-data-magenta-100: var(--dds-color-data-magenta-100);
+  $dds-color-data-magenta-200: var(--dds-color-data-magenta-200);
+  $dds-color-data-magenta-300: var(--dds-color-data-magenta-300);
+  $dds-color-data-magenta-400: var(--dds-color-data-magenta-400);
+  $dds-color-data-magenta-500: var(--dds-color-data-magenta-500);
+  $dds-color-data-magenta-600: var(--dds-color-data-magenta-600);
+  $dds-color-data-magenta-700: var(--dds-color-data-magenta-700);
+  $dds-color-data-magenta-800: var(--dds-color-data-magenta-800);
+  $dds-color-data-magenta-900: var(--dds-color-data-magenta-900);
+  $dds-color-data-brown-100: var(--dds-color-data-brown-100);
+  $dds-color-data-brown-200: var(--dds-color-data-brown-200);
+  $dds-color-data-brown-300: var(--dds-color-data-brown-300);
+  $dds-color-data-brown-400: var(--dds-color-data-brown-400);
+  $dds-color-data-brown-500: var(--dds-color-data-brown-500);
+  $dds-color-data-brown-600: var(--dds-color-data-brown-600);
+  $dds-color-data-brown-700: var(--dds-color-data-brown-700);
+  $dds-color-data-brown-800: var(--dds-color-data-brown-800);
+  $dds-color-data-brown-900: var(--dds-color-data-brown-900);
+  $dds-color-data-olive-100: var(--dds-color-data-olive-100);
+  $dds-color-data-olive-200: var(--dds-color-data-olive-200);
+  $dds-color-data-olive-300: var(--dds-color-data-olive-300);
+  $dds-color-data-olive-400: var(--dds-color-data-olive-400);
+  $dds-color-data-olive-500: var(--dds-color-data-olive-500);
+  $dds-color-data-olive-600: var(--dds-color-data-olive-600);
+  $dds-color-data-olive-700: var(--dds-color-data-olive-700);
+  $dds-color-data-olive-800: var(--dds-color-data-olive-800);
+  $dds-color-data-olive-900: var(--dds-color-data-olive-900);
+  $dds-color-data-green-100: var(--dds-color-data-green-100);
+  $dds-color-data-green-200: var(--dds-color-data-green-200);
+  $dds-color-data-green-300: var(--dds-color-data-green-300);
+  $dds-color-data-green-400: var(--dds-color-data-green-400);
+  $dds-color-data-green-500: var(--dds-color-data-green-500);
+  $dds-color-data-green-600: var(--dds-color-data-green-600);
+  $dds-color-data-green-700: var(--dds-color-data-green-700);
+  $dds-color-data-green-800: var(--dds-color-data-green-800);
+  $dds-color-data-green-900: var(--dds-color-data-green-900);
+  $dds-color-data-teal-100: var(--dds-color-data-teal-100);
+  $dds-color-data-teal-200: var(--dds-color-data-teal-200);
+  $dds-color-data-teal-300: var(--dds-color-data-teal-300);
+  $dds-color-data-teal-400: var(--dds-color-data-teal-400);
+  $dds-color-data-teal-500: var(--dds-color-data-teal-500);
+  $dds-color-data-teal-600: var(--dds-color-data-teal-600);
+  $dds-color-data-teal-700: var(--dds-color-data-teal-700);
+  $dds-color-data-teal-800: var(--dds-color-data-teal-800);
+  $dds-color-data-teal-900: var(--dds-color-data-teal-900);
+  $dds-color-data-deepblue-100: var(--dds-color-data-deepblue-100);
+  $dds-color-data-deepblue-200: var(--dds-color-data-deepblue-200);
+  $dds-color-data-deepblue-300: var(--dds-color-data-deepblue-300);
+  $dds-color-data-deepblue-400: var(--dds-color-data-deepblue-400);
+  $dds-color-data-deepblue-500: var(--dds-color-data-deepblue-500);
+  $dds-color-data-deepblue-600: var(--dds-color-data-deepblue-600);
+  $dds-color-data-deepblue-700: var(--dds-color-data-deepblue-700);
+  $dds-color-data-deepblue-800: var(--dds-color-data-deepblue-800);
+  $dds-color-data-deepblue-900: var(--dds-color-data-deepblue-900);
+  $dds-color-data-blue-100: var(--dds-color-data-blue-100);
+  $dds-color-data-blue-200: var(--dds-color-data-blue-200);
+  $dds-color-data-blue-300: var(--dds-color-data-blue-300);
+  $dds-color-data-blue-400: var(--dds-color-data-blue-400);
+  $dds-color-data-blue-500: var(--dds-color-data-blue-500);
+  $dds-color-data-blue-600: var(--dds-color-data-blue-600);
+  $dds-color-data-blue-700: var(--dds-color-data-blue-700);
+  $dds-color-data-blue-800: var(--dds-color-data-blue-800);
+  $dds-color-data-blue-900: var(--dds-color-data-blue-900);
+  $dds-color-data-purple-100: var(--dds-color-data-purple-100);
+  $dds-color-data-purple-200: var(--dds-color-data-purple-200);
+  $dds-color-data-purple-300: var(--dds-color-data-purple-300);
+  $dds-color-data-purple-400: var(--dds-color-data-purple-400);
+  $dds-color-data-purple-500: var(--dds-color-data-purple-500);
+  $dds-color-data-purple-600: var(--dds-color-data-purple-600);
+  $dds-color-data-purple-700: var(--dds-color-data-purple-700);
+  $dds-color-data-purple-800: var(--dds-color-data-purple-800);
+  $dds-color-data-purple-900: var(--dds-color-data-purple-900);
+  $dds-color-data-gray-100: var(--dds-color-data-gray-100);
+  $dds-color-data-gray-200: var(--dds-color-data-gray-200);
+  $dds-color-data-gray-300: var(--dds-color-data-gray-300);
+  $dds-color-data-gray-400: var(--dds-color-data-gray-400);
+  $dds-color-data-gray-500: var(--dds-color-data-gray-500);
+  $dds-color-data-gray-600: var(--dds-color-data-gray-600);
+  $dds-color-data-gray-700: var(--dds-color-data-gray-700);
+  $dds-color-data-gray-800: var(--dds-color-data-gray-800);
+  $dds-color-data-gray-900: var(--dds-color-data-gray-900);
   $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
   $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */
@@ -154,17 +244,47 @@
   $dds-color-brand-primary-default: var(--dds-color-brand-primary-default); /* Primary brand color */
   $dds-color-brand-primary-subtle: var(--dds-color-brand-primary-subtle); /* Primary brand color */
   $dds-color-brand-primary-medium: var(--dds-color-brand-primary-medium); /* Primary brand color */
-  $dds-color-brand-primary-strong: var(--dds-color-brand-primary-strong);
+  $dds-color-brand-primary-strong: var(--dds-color-brand-primary-strong); /* Primary brand color */
   $dds-color-brand-secondary-default: var(--dds-color-brand-secondary-default); /* Secondary brand color */
   $dds-color-brand-secondary-subtle: var(--dds-color-brand-secondary-subtle); /* Secondary brand color */
   $dds-color-brand-secondary-medium: var(--dds-color-brand-secondary-medium); /* Secondary brand color */
-  $dds-color-brand-secondary-strong: var(--dds-color-brand-secondary-strong);
+  $dds-color-brand-secondary-strong: var(--dds-color-brand-secondary-strong); /* Secondary brand color */
   $dds-color-brand-tertiary-default: var(--dds-color-brand-tertiary-default); /* Tertiary brand color */
   $dds-color-brand-tertiary-subtle: var(--dds-color-brand-tertiary-subtle); /* Tertiary brand color */
   $dds-color-brand-tertiary-medium: var(--dds-color-brand-tertiary-medium); /* Tertiary brand color */
-  $dds-color-brand-tertiary-strong: var(--dds-color-brand-tertiary-strong);
+  $dds-color-brand-tertiary-strong: var(--dds-color-brand-tertiary-strong); /* Tertiary brand color */
   $dds-color-focus-outside: var(--dds-color-focus-outside); /* Contrast to .inside */
   $dds-color-focus-inside: var(--dds-color-focus-inside); /* Contrast to .outside */
+  $dds-color-data-10-default: var(--dds-color-data-10-default);
+  $dds-color-data-10-subtle: var(--dds-color-data-10-subtle);
+  $dds-color-data-10-border: var(--dds-color-data-10-border);
+  $dds-color-data-01-default: var(--dds-color-data-01-default);
+  $dds-color-data-01-subtle: var(--dds-color-data-01-subtle);
+  $dds-color-data-01-border: var(--dds-color-data-01-border);
+  $dds-color-data-02-default: var(--dds-color-data-02-default);
+  $dds-color-data-02-subtle: var(--dds-color-data-02-subtle);
+  $dds-color-data-02-border: var(--dds-color-data-02-border);
+  $dds-color-data-03-default: var(--dds-color-data-03-default);
+  $dds-color-data-03-subtle: var(--dds-color-data-03-subtle);
+  $dds-color-data-03-border: var(--dds-color-data-03-border);
+  $dds-color-data-04-default: var(--dds-color-data-04-default);
+  $dds-color-data-04-subtle: var(--dds-color-data-04-subtle);
+  $dds-color-data-04-border: var(--dds-color-data-04-border);
+  $dds-color-data-05-default: var(--dds-color-data-05-default);
+  $dds-color-data-05-subtle: var(--dds-color-data-05-subtle);
+  $dds-color-data-05-border: var(--dds-color-data-05-border);
+  $dds-color-data-06-default: var(--dds-color-data-06-default);
+  $dds-color-data-06-subtle: var(--dds-color-data-06-subtle);
+  $dds-color-data-06-border: var(--dds-color-data-06-border);
+  $dds-color-data-07-default: var(--dds-color-data-07-default);
+  $dds-color-data-07-subtle: var(--dds-color-data-07-subtle);
+  $dds-color-data-07-border: var(--dds-color-data-07-border);
+  $dds-color-data-08-default: var(--dds-color-data-08-default);
+  $dds-color-data-08-subtle: var(--dds-color-data-08-subtle);
+  $dds-color-data-08-border: var(--dds-color-data-08-border);
+  $dds-color-data-09-default: var(--dds-color-data-09-default);
+  $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
+  $dds-color-data-09-border: var(--dds-color-data-09-border);
   $dds-border-radius-button: var(--dds-border-radius-button); /* For use in button component and togglebutton */
   $dds-border-radius-surface: var(--dds-border-radius-surface); /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
   $dds-border-radius-input: var(--dds-border-radius-input); /* All input fields, and check boxes */
