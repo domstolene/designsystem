@@ -1,4 +1,3 @@
-import { type Property } from 'csstype';
 import { useState } from 'react';
 
 import styles from './LocalMessage.module.css';
@@ -17,6 +16,7 @@ import {
   TipIcon,
   WarningIcon,
 } from '../Icon/icons';
+import { Box, type ResponsiveProps } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 const icons: Record<LocalMessagePurpose, SvgIcon> = {
@@ -53,9 +53,7 @@ export type LocalMessageProps = BaseComponentPropsWithChildren<
      * @default "horisontal"
      */
     layout?: LocalMessageLayout;
-    /**Custom bredde ved behov. */
-    width?: Property.Width;
-  }
+  } & Pick<ResponsiveProps, 'width'>
 >;
 
 export const LocalMessage = ({
@@ -78,7 +76,7 @@ export const LocalMessage = ({
   }
 
   return (
-    <div
+    <Box
       {...getBaseHTMLProps(
         id,
         cn(
@@ -92,7 +90,11 @@ export const LocalMessage = ({
         htmlProps,
         rest,
       )}
-      style={{ ...htmlProps?.style, width }}
+      width={width}
+      display="grid"
+      alignItems="center"
+      padding="x0.75"
+      gap="x0.5"
     >
       <Icon
         icon={icons[purpose]}
@@ -114,7 +116,7 @@ export const LocalMessage = ({
           className={styles.container__button}
         />
       )}
-    </div>
+    </Box>
   );
 };
 

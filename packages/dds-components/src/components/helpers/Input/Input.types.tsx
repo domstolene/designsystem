@@ -1,14 +1,14 @@
-import { type Property } from 'csstype';
 import { type ComponentPropsWithRef } from 'react';
 
 import { type Size } from '../../../types';
+import { type ResponsiveProps } from '../../layout/common/Responsive.types';
 import { type StaticTypographyType } from '../../Typography';
 
 export interface CommonInputProps {
   /**Ledetekst. */
   label?: string;
   /**Bredde for inputfeltet. */
-  width?: Property.Width;
+  width?: ResponsiveProps['width'];
   /**Hjelpetekst. */
   tip?: string;
   /**Feilmelding. Setter også error state. */
@@ -22,7 +22,7 @@ export type InputProps = CommonInputProps & {
    * @default "medium"
    */
   componentSize?: InputSize;
-} & ComponentPropsWithRef<'input'>;
+} & Omit<ComponentPropsWithRef<'input'>, 'width'>;
 
 export type StatefulInputProps = {
   hasErrorMessage: boolean;

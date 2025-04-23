@@ -15,6 +15,7 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export const InlineInput = ({
@@ -42,7 +43,7 @@ export const InlineInput = ({
   const combinedRef = useCombinedRef(ref, inputRef);
 
   return (
-    <div className={styles.container} style={{ width }}>
+    <Box position="relative" width={width}>
       <div className={inputStyles['input-group']}>
         {!isEditing && !hideIcon && (
           <span
@@ -70,10 +71,7 @@ export const InlineInput = ({
           aria-invalid={hasErrorState}
           className={cn(
             styles['inline-input'],
-            !hideIcon && styles['inline-input--with-icon'],
-            !hideIcon &&
-              isEditing &&
-              styles['inline-input--with-icon--is-editing'],
+            !hideIcon && !isEditing && styles['inline-input--with-icon'],
             typographyStyles['body-medium'],
             hasErrorState && inputStyles['input--stateful-danger'],
             focusable,
@@ -82,7 +80,7 @@ export const InlineInput = ({
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
-    </div>
+    </Box>
   );
 };
 

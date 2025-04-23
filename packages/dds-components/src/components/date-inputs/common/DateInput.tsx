@@ -1,13 +1,13 @@
 import { type useDateField, type useDatePicker } from '@react-aria/datepicker';
-import { type Properties } from 'csstype';
 import { type ReactNode, type Ref, useContext } from 'react';
 
 import styles from './DateInput.module.css';
 import { cn } from '../../../utils';
-import { type InputProps } from '../../helpers';
+import { type InputProps, getInputWidth } from '../../helpers';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { InputMessage } from '../../InputMessage';
+import { Box } from '../../layout';
 import { Label } from '../../Typography';
 import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
 
@@ -61,11 +61,6 @@ export function DateInput({
 
   const { isOpen } = useContext(CalendarPopoverContext);
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-date-input-width' as any]: width ? width : 'fit-content',
-  };
-
   return (
     <div
       {...groupProps}
@@ -82,10 +77,11 @@ export function DateInput({
           {props.label}
         </Label>
       )}
-      <div
+      <Box
         {...fieldProps}
-        style={{ ...style, ...styleVariables }}
+        style={style}
         ref={internalRef}
+        width={getInputWidth(width, 'fit-content')}
         className={cn(
           inputStyles.input,
           inputStyles['input--stateful'],
@@ -105,7 +101,7 @@ export function DateInput({
       >
         {button}
         <div className={styles['date-segment-container']}>{children}</div>
-      </div>
+      </Box>
       {hasMessage && (
         <InputMessage
           messageType={hasErrorMessage ? 'error' : 'tip'}

@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
+import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { CourtIcon } from '../Icon/icons';
@@ -14,7 +15,7 @@ const meta: Meta<typeof Select> = {
   title: 'dds-components/Components/Select/Select',
   component: Select,
   argTypes: {
-    width: { control: 'text' },
+    width: { control: 'text', table: categoryCss },
     placeholder: { control: 'text' },
     isDisabled: { control: 'boolean' },
     isClearable: { control: 'boolean' },
@@ -147,6 +148,21 @@ export const WithValue: Story = {
     label: 'Label',
     options: options,
     value: options[0],
+  },
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    label: 'Label',
+    options: options,
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '20%',
+      lg: 'var(--dds-input-default-width)',
+      xl: 'var(--dds-input-default-width)',
+    },
   },
 };
 

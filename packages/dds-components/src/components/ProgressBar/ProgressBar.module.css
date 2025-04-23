@@ -1,26 +1,10 @@
-.container {
-  width: 100%;
-}
-
 .progress {
-  width: var(--dds-progressbar-width);
-  height: 48px;
   background-color: var(--dds-color-surface-medium);
   border: 1px solid var(--dds-color-border-default);
   border-radius: var(--dds-border-radius-surface);
 }
 
-.progress--small {
-  height: var(--dds-spacing-x0-75);
-}
-
-.progress--medium {
-  height: var(--dds-spacing-x1-5);
-}
-
 .fill {
-  height: 100%;
-  width: var(--dds-progressbar-fill-width);
   background-color: var(--dds-color-surface-action-resting);
 
   @media (prefers-reduced-motion: no-preference) {
@@ -39,7 +23,6 @@
 }
 
 .fill--indeterminate {
-  width: 25%;
   animation: indeterminate 2s infinite linear;
 }
 

@@ -1,4 +1,4 @@
-import { type Properties, type Property } from 'csstype';
+import { type Property } from 'csstype';
 import {
   type ChangeEvent,
   type ForwardedRef,
@@ -17,7 +17,7 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { type InputProps, StatefulInput } from '../helpers';
+import { type InputProps, StatefulInput, getInputWidth } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
@@ -195,15 +195,6 @@ export const PhoneInput = ({
       ? `calc(var(--dds-spacing-x1) + ${callingCodeWidth}px)`
       : undefined;
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-phone-input-width' as any]: width
-      ? width
-      : componentSize === 'xsmall'
-        ? '131px'
-        : '194px',
-  };
-
   const internalSelectRef = useRef<HTMLSelectElement>(null);
 
   const combinedSelectRef = useCombinedRef(selectRef, internalSelectRef);
@@ -263,6 +254,9 @@ export const PhoneInput = ({
 
   const bp = props.smallScreenBreakpoint;
 
+  const widthDefault =
+    componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)';
+
   return (
     <div className={cn(className, inputStyles.container)} style={style}>
       {hasLabel && (
@@ -282,7 +276,7 @@ export const PhoneInput = ({
           styles['inputs-container'],
           !!bp && styles[`inputs-container--small-screen-${bp}`],
         )}
-        style={styleVariables}
+        width={getInputWidth(width, widthDefault)}
         role="group"
         aria-label={groupLabel}
       >
@@ -290,13 +284,15 @@ export const PhoneInput = ({
           {selectLabel}
         </label>
         <NativeSelect
+          width={applyResponsiveStyle(
+            '100%',
+            bp,
+            componentSize === 'xsmall' ? '5rem' : '8rem',
+          )}
           {...commonProps}
           ref={combinedSelectRef}
           id={selectId}
-          className={cn(
-            styles.select,
-            componentSize === 'xsmall' && styles['select--xsmall'],
-          )}
+          className={cn(styles.select)}
           onChange={handleCountryCodeChange}
           defaultValue={defaultValue?.countryCode}
           value={displayedValue?.countryCode || ''}
@@ -313,7 +309,7 @@ export const PhoneInput = ({
             </option>
           ))}
         </NativeSelect>
-        <div className={inputStyles['input-group']}>
+        <Box width="100%" className={inputStyles['input-group']}>
           <span
             className={cn(
               typographyStyles[`body-${componentSize}`],
@@ -325,7 +321,8 @@ export const PhoneInput = ({
             {callingCode}
           </span>
 
-          <StatefulInput
+          <Box
+            as={StatefulInput}
             ref={ref}
             type="tel"
             {...commonProps}
@@ -334,8 +331,8 @@ export const PhoneInput = ({
             defaultValue={defaultValue?.phoneNumber}
             name={`${name}-phone-number`}
             onChange={handlePhoneNumberChange}
+            width="100%"
             style={{
-              ...styleVariables,
               paddingInlineStart: callingCodeInlineStart,
             }}
             className={styles.input}
@@ -347,7 +344,7 @@ export const PhoneInput = ({
               ariaDescribedby,
             ])}
           />
-        </div>
+        </Box>
       </Box>
       {hasMessage &&
         renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
