@@ -319,7 +319,7 @@
     --dds-r-t: var(--dds-r-sm-t);
   }
   .dds-b {
-    --dds-r-t: var(--dds-r-sm-t);
+    --dds-r-b: var(--dds-r-sm-b);
   }
   .dds-o {
     --dds-r-o: var(--dds-r-sm-o);
@@ -421,7 +421,7 @@
     --dds-r-t: var(--dds-r-md-t);
   }
   .dds-b {
-    --dds-r-t: var(--dds-r-md-t);
+    --dds-r-b: var(--dds-r-md-b);
   }
   .dds-o {
     --dds-r-o: var(--dds-r-md-o);
@@ -523,7 +523,7 @@
     --dds-r-t: var(--dds-r-lg-t);
   }
   .dds-b {
-    --dds-r-t: var(--dds-r-lg-t);
+    --dds-r-b: var(--dds-r-lg-b);
   }
   .dds-o {
     --dds-r-o: var(--dds-r-lg-o);

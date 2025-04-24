@@ -11,6 +11,7 @@ import {
 } from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import utilStyles from '../../helpers/styling/utilStyles.module.css';
+import { Box } from '../../layout';
 import { Typography } from '../../Typography';
 import { Label, SelectionControl } from '../SelectionControl.styles';
 import { selectionControlTypographyProps } from '../SelectionControl.utils';
@@ -26,6 +27,7 @@ export const Checkbox = ({
   'aria-describedby': ariaDescribedby,
   className,
   htmlProps = {},
+  children,
   ...rest
 }: CheckboxProps) => {
   const generatedId = useId();
@@ -33,6 +35,7 @@ export const Checkbox = ({
   const checkboxGroup = useCheckboxGroup();
 
   const hasLabel = !!label;
+  const hasChildren = !!children;
 
   const { style, className: htmlPropsClassName, ...restHtmlProps } = htmlProps;
 
@@ -41,7 +44,13 @@ export const Checkbox = ({
   const isDisabled = disabled || checkboxGroup?.disabled;
 
   return (
-    <Label
+    <Box
+      position="relative"
+      display="flex"
+      alignItems="center"
+      width="fit-content"
+      paddingInline="calc(18px + var(--dds-spacing-x0-5)) 0"
+      as={Label}
       hasError={hasError}
       disabled={isDisabled}
       readOnly={isReadOnly}
@@ -81,10 +90,12 @@ export const Checkbox = ({
         controlType="checkbox"
         className={focusStyles['focus-styled-sibling']}
       />
-      {hasLabel && (
+      {hasChildren ? (
+        children
+      ) : hasLabel ? (
         <Typography {...selectionControlTypographyProps}>{label}</Typography>
-      )}
-    </Label>
+      ) : null}
+    </Box>
   );
 };
 

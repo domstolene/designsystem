@@ -19,13 +19,8 @@
 }
 
 .label {
-  position: relative;
-  display: flex;
-  align-items: center;
   cursor: pointer;
   user-select: none;
-  width: fit-content;
-  padding-left: calc(18px + var(--dds-spacing-x0-5));
 
   input ~ .selection-control {
     @media (prefers-reduced-motion: no-preference) {
