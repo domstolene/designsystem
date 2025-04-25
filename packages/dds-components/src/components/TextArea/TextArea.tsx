@@ -76,6 +76,7 @@ export const TextArea = ({
   };
 
   const hasErrorMessage = !!errorMessage;
+  const hasMessage = hasErrorMessage || !!tip;
   const hasLabel = !!label;
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
@@ -85,6 +86,7 @@ export const TextArea = ({
   );
 
   const showRequiredStyling = required || !!ariaRequired;
+  const inputWidth = getInputWidth(width);
 
   return (
     <div className={cn(className, inputStyles.container)} style={{ ...style }}>
@@ -100,7 +102,7 @@ export const TextArea = ({
       )}
       <Box
         as="textarea"
-        width={getInputWidth(width)}
+        width={inputWidth}
         ref={multiRef}
         id={uniqueId}
         onChange={onChangeHandler}
@@ -128,7 +130,17 @@ export const TextArea = ({
         )}
         {...rest}
       />
-      <Box display="flex" alignContent="space-between">
+      <Box
+        display="flex"
+        justifyContent={
+          withCharacterCounter
+            ? hasMessage
+              ? 'space-between'
+              : 'flex-end'
+            : undefined
+        }
+        width={withCharacterCounter ? inputWidth : undefined}
+      >
         {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
         {renderCharCounter(
           characterCounterId,
