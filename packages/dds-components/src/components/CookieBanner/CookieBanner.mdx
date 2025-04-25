@@ -1,0 +1,42 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import { Link } from '../Typography';
+import * as CookieBannerStories from './CookieBanner.stories';
+
+<Meta of={CookieBannerStories} />
+
+# CookieBanner
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/63b46e-cookiebanner"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/CookieBanner"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-cookiebanner--default"
+  withBottomSpacing
+/>
+
+`<CookieBanner>` er en komponent som støtter:
+
+- en rekke props for standardisert visning av typisk innhold for samtykke knyttet til informasjonskapsler, som knapper i knapperekka. Layout håndteres ut av boksen. Disse er valgfrie å bruke.
+- responsive CSS props som posisjonerer komponenten og håndterer størrelsen.
+
+## Props
+
+<Canvas of={CookieBannerStories.Default} />
+<Controls of={CookieBannerStories.Default} />
+
+## Retningslinjer
+
+### Ekomloven § 3-15
+
+Bruk komponenten i samsvar med <Link external href="https://www.datatilsynet.no/personvern-pa-ulike-omrader/internett-og-apper/bruk-av-informasjonskapsler-og-andre-sporingsteknologier/"> Datatilsynets veiledning</Link>.
+
+### Plassering i koden
+
+Brukeren skal kunne ta avgjørelser rundt informasjonskaplser som en av de første handlingene på siden. Plasser dermed cookie banner nærme toppen av siden, slik at skjemlesere og tastaturnavigasjon kan sømløst få tilgang til innholdet.
+
+### Visuell plassering
+
+Banner bør ligge i nedre venstre hjørne, slik at den følger leserekkefølgen og er synlig nok, og samtidig ikke er i veien for resten av nettsiden. Bruk dedikerte CSS props til dette.
+Den kan gjerne plasseres med ulik avstand fra kanten av nettleservinduet for hvert brekkpunkt. <Link external href="https://domstolene.github.io/designsystem/iframe.html?args=&globals=&id=dds-components-components-cookiebanner--placement-with-checkboxes&viewMode=story"> Åpne eksempelet under i eget vindu for mer realistisk oppførsel</Link>.
+
+<Canvas of={CookieBannerStories.PlacementWithCheckboxes} />

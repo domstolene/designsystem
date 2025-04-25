@@ -58,6 +58,7 @@ export const RadioButton = ({
 
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-radioButton`;
+  const hasChildren = !!children;
   const hasLabel = !!label;
 
   const radioButtonGroup = useRadioButtonGroup();
@@ -116,9 +117,11 @@ export const RadioButton = ({
         controlType="radio"
         className={focusStyles['focus-styled-sibling']}
       />
-      <Typography {...selectionControlTypographyProps}>
-        {children ?? label}
-      </Typography>
+      {hasChildren ? (
+        children
+      ) : hasLabel ? (
+        <Typography {...selectionControlTypographyProps}>{label}</Typography>
+      ) : null}
     </Label>
   );
 };
