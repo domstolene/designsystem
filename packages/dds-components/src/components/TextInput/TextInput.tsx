@@ -78,7 +78,8 @@ export const TextInput = ({
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
   const hasLabel = !!label;
-  const hasMessage = hasErrorMessage || hasTip || !!maxLength;
+  const hasMessage = hasErrorMessage || hasTip;
+  const hasBottomContainer = hasErrorMessage || hasTip || !!maxLength;
   const hasIcon = !!icon;
   const hasAffix = !!(prefix ?? suffix);
 
@@ -229,8 +230,19 @@ export const TextInput = ({
       ) : (
         <Box as={StatefulInput} width={inputWidth} {...generalInputProps} />
       )}
-      {hasMessage && (
-        <Box display="flex" justifyContent="space-between" gap="x0.5">
+      {hasBottomContainer && (
+        <Box
+          display="flex"
+          justifyContent={
+            withCharacterCounter
+              ? hasMessage
+                ? 'space-between'
+                : 'flex-end'
+              : undefined
+          }
+          gap="x0.5"
+          width={withCharacterCounter ? inputWidth : undefined}
+        >
           {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
           {renderCharCounter(
             characterCounterId,
