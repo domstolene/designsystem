@@ -1,12 +1,7 @@
-.container {
-  position: relative;
-  width: fit-content;
-}
-
 .select {
   appearance: none;
-  width: var(--dds-native-select-width);
   text-overflow: ellipsis;
+  width: 100%;
 
   &:hover:not(:disabled):not(.select--readonly) {
     border-color: var(--dds-color-border-action-hover);

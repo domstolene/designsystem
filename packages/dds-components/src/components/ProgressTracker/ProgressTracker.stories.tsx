@@ -5,7 +5,7 @@ import { ProgressTracker } from './ProgressTracker';
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
-import { Fieldset } from '../Fieldset';
+import { Fieldset, FieldsetGroup } from '../Fieldset';
 import {
   ArrowRightIcon,
   AttachmentIcon,
@@ -14,15 +14,15 @@ import {
   GavelIcon,
   PersonIcon,
 } from '../Icon/icons';
+import { Box, Grid, HStack, ShowHide, VStack } from '../layout';
 import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
-import { HStack, VStack } from '../Stack';
 import { TextInput } from '../TextInput';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Legend, Paragraph } from '../Typography';
 
 export default {
-  title: 'dds-components/ProgressTracker',
+  title: 'dds-components/Components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
     htmlProps: htmlPropsArgType,
@@ -45,7 +45,7 @@ export const Default: Story = {
     const [completedSteps, setCompletedSteps] = useState(new Set());
 
     return (
-      <VStack align="left" gap="x1.5">
+      <VStack gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -96,7 +96,7 @@ export const WithIcons: Story = {
     const [completedSteps, setCompletedSteps] = useState(new Set());
 
     return (
-      <VStack align="left" gap="x1.5">
+      <VStack gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -167,7 +167,7 @@ export const FutureStepsDisabled: Story = {
     const isDisabled = (index: number) => index > highestCompletedStep + 1;
 
     return (
-      <VStack align="left" gap="x1.5">
+      <VStack gap="x1.5">
         <ProgressTracker
           {...args}
           activeStep={activeStep}
@@ -226,7 +226,7 @@ export const SmallScreen: Story = {
 
     return (
       <>
-        <VStack align="left" gap="x1.5">
+        <VStack gap="x1.5">
           <DrawerGroup isOpen={isDrawerOpen} setIsOpen={setDrawerOpen}>
             <Button
               purpose="secondary"
@@ -287,33 +287,8 @@ export const RealWorldRosponsiveExample: Story = {
         <style>
           {`
           .story-grid {
-              display: grid;
               grid-template-columns: 26rem 1fr;
               gap: var(--dds-spacing-x6);
-          }
-
-          .story-form-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: var(--dds-spacing-x1-5);
-          }
-
-          .story-step-button {
-            margin-top: var(--dds-spacing-x2);
-          }
-
-          .story-mobile {
-            @media (min-width: 768px) {
-              display: none;
-            }
-          }
-
-          .story-desktop {
-            display: none;
-            margin-top: var(--dds-spacing-x3);
-            @media (min-width: 768px) {
-              display: block;
-            }
           }
           `}
         </style>
@@ -365,9 +340,9 @@ export const RealWorldRosponsiveExample: Story = {
     ];
 
     return (
-      <div className="story-grid">
+      <Grid className="story-grid">
         <div>
-          <div className="story-mobile">
+          <ShowHide showBelow="md">
             <DrawerGroup
               isOpen={progressTrackerDrawerOpen}
               setIsOpen={setProgressTrackerDrawerOpen}
@@ -389,10 +364,10 @@ export const RealWorldRosponsiveExample: Story = {
                 </ProgressTracker>
               </Drawer>
             </DrawerGroup>
-          </div>
+          </ShowHide>
           {formSteps[activeStep]}
         </div>
-        <div className="story-desktop">
+        <Box hideBelow="md" marginBlock="x3 x1">
           <ProgressTracker
             {...args}
             activeStep={activeStep}
@@ -400,19 +375,19 @@ export const RealWorldRosponsiveExample: Story = {
           >
             {stepItems}
           </ProgressTracker>
-        </div>
-      </div>
+        </Box>
+      </Grid>
     );
   },
 };
 
 const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack align="flex-start">
+    <VStack gap="x1">
       <Heading level={2} typographyType="headingXlarge" withMargins>
         Rolle- og saksnummer
       </Heading>
-      <Paragraph withMargins>
+      <Paragraph typographyType="leadMedium">
         Vi trenger å vite litt om deg og saken før vi logger deg inn på neste
         steg.
       </Paragraph>
@@ -421,26 +396,23 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
           event.preventDefault();
           onSubmit();
         }}
-        className="story-form-wrapper"
       >
         <Fieldset>
           <Legend withMargins>Saksopplysninger</Legend>
-          <div className="story-form-wrapper">
+          <FieldsetGroup>
             <TextInput label="Rettens saksnummer" required />
             <Select
               label="Din rolle"
               required
               options={[{ value: 'advokat', label: 'Advokat' }]}
             />
-          </div>
+          </FieldsetGroup>
         </Fieldset>
-        <Button
-          htmlProps={{ style: { marginTop: '2rem' } }}
-          icon={ArrowRightIcon}
-          iconPosition="right"
-        >
-          Neste steg
-        </Button>
+        <Box marginBlock="x2 x1">
+          <Button icon={ArrowRightIcon} iconPosition="right">
+            Neste steg
+          </Button>
+        </Box>
       </form>
     </VStack>
   );
@@ -448,11 +420,13 @@ const RolleSaksnummerForm = ({ onSubmit }: { onSubmit: () => void }) => {
 
 const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack align="flex-start">
+    <VStack>
       <Heading level={2} typographyType="headingXlarge" withMargins>
         Kontaktinformasjon
       </Heading>
-      <form
+      <VStack
+        as="form"
+        gap="x1.5"
         onSubmit={event => {
           event.preventDefault();
           onSubmit();
@@ -475,14 +449,14 @@ const Kontaktinformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
         >
           Neste steg
         </Button>
-      </form>
+      </VStack>
     </VStack>
   );
 };
 
 const Fakturainformasjon = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
-    <VStack align="flex-start">
+    <VStack>
       <Heading level={2} typographyType="headingXlarge" withMargins>
         Fakturainformasjon
       </Heading>

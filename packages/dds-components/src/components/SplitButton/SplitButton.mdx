@@ -13,7 +13,7 @@ import * as SplitButtonStories from './SplitButton.stories';
   docsHref="https://design.domstol.no/987b33f71/p/1868a2-splitbutton"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/SplitButton"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=155%3A37"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-splitbutton--default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-splitbutton--default"
   withBottomSpacing
 />
 
@@ -24,21 +24,5 @@ Når menyen åpnes og en handling velges blir den umiddelbart gjennomført.
 
 ## Props
 
-<Canvas of={SplitButtonStories.Default} sourceState="shown" />
+<Canvas of={SplitButtonStories.Default} />
 <Controls of={SplitButtonStories.Default} />
-
-## Bruk
-
-<Source
-  code={`import { SplitButton } from '@norges-domstoler/dds-components';
-
-const items = [{
-title: 'Sekundær handling',
-onClick: () => {},
-}];
-
-<SplitButton
-  primaryAction={{ label: 'Label', onClick: () => {} }}
-  secondaryActions={items}
-/>
-`} />

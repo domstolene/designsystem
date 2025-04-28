@@ -5,6 +5,8 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { type Breakpoint } from '../layout';
+import { DetailListContext } from './DetailList.context';
 
 export type DetailListSize = Extract<Size, 'large' | 'medium' | 'small'>;
 
@@ -26,6 +28,8 @@ export type DetailListProps = BaseComponentPropsWithChildren<
      * @default true
      */
     striped?: boolean;
+    /**Brekkpunkt og nedover versjonen for små skjermer skal vises; den gjør om rader til kolonner. */
+    smallScreenBreakpoint?: Breakpoint;
   }
 >;
 
@@ -36,22 +40,25 @@ export const DetailList = ({
   withDividers = true,
   striped = true,
   size = 'medium',
+  smallScreenBreakpoint,
   ...rest
 }: DetailListProps) => (
-  <dl
-    {...getBaseHTMLProps(
-      id,
-      cn(
-        className,
-        styles.list,
-        styles[`list--${size}`],
-        withDividers && styles['list--with-dividers'],
-        striped && styles['list--striped'],
-      ),
-      htmlProps,
-      rest,
-    )}
-  />
+  <DetailListContext value={{ smallScreenBreakpoint }}>
+    <dl
+      {...getBaseHTMLProps(
+        id,
+        cn(
+          className,
+          styles.list,
+          styles[`list--${size}`],
+          withDividers && styles['list--with-dividers'],
+          striped && styles['list--striped'],
+        ),
+        htmlProps,
+        rest,
+      )}
+    />
+  </DetailListContext>
 );
 
 DetailList.displayName = 'DetailList';

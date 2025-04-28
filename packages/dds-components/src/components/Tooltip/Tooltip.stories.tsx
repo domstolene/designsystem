@@ -3,13 +3,12 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
-import { VStack } from '../Stack';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Tooltip } from '.';
 
 export default {
-  title: 'dds-components/Tooltip',
+  title: 'dds-components/Components/Tooltip',
   component: Tooltip,
   argTypes: {
     htmlProps: htmlPropsArgType,
@@ -29,20 +28,17 @@ type Story = StoryObj<typeof Tooltip>;
 export const Default: Story = {
   args: { text: 'Dette er en tooltip' },
   render: args => (
-    <VStack htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}>
+    <StoryVStack alignItems="center" paddingBlock="x6">
       <Tooltip {...args}>
         <Button icon={HelpIcon} aria-label="Vis forklaring" />
       </Tooltip>
-    </VStack>
+    </StoryVStack>
   ),
 };
 
 export const Overview: Story = {
   render: () => (
-    <StoryHStack
-      justify="center"
-      htmlProps={{ style: { paddingBlock: 'var(--dds-spacing-x6)' } }}
-    >
+    <StoryHStack justifyContent="center" paddingBlock="x6">
       <StoryVStack>
         <Tooltip placement="top-start" text="top-start">
           <Button size="large" icon={HelpIcon} aria-label="Vis forklaring" />

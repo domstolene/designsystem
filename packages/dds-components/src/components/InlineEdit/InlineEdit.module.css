@@ -1,7 +1,3 @@
-.container {
-  position: relative;
-}
-
 .inline-input {
   width: 100%;
   padding: var(--dds-spacing-x0-25);
@@ -29,10 +25,6 @@
 
 .inline-input--with-icon {
   padding-left: var(--dds-spacing-x2);
-}
-
-.inline-input--with-icon--is-editing {
-  padding-left: var(--dds-spacing-x0-25);
 }
 
 .inline-textarea {

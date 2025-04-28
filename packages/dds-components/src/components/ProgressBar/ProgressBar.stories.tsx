@@ -1,14 +1,15 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { StoryVStack } from '../Stack/utils';
+import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import { StoryVStack } from '../layout/Stack/utils';
 
 import { ProgressBar } from '.';
 
 export default {
-  title: 'dds-components/ProgressBar',
+  title: 'dds-components/Components/ProgressBar',
   component: ProgressBar,
   argTypes: {
-    width: { control: 'text' },
+    width: { control: 'text', table: categoryCss },
   },
   parameters: {
     docs: {
@@ -51,4 +52,18 @@ export const Sizes: Story = {
       <ProgressBar {...args} size="small" />
     </StoryVStack>
   ),
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    label: 'Label',
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '20%',
+      lg: 'var(--dds-input-default-width)',
+      xl: 'var(--dds-input-default-width)',
+    },
+  },
 };

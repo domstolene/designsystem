@@ -1,11 +1,7 @@
 .container {
   border: 1px solid;
   box-sizing: border-box;
-  display: grid;
-  align-items: center;
   border-radius: var(--dds-border-radius-surface);
-  padding: var(--dds-spacing-x0-75);
-  gap: var(--dds-spacing-x0-5);
 }
 
 .container--info {

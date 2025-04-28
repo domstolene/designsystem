@@ -3,7 +3,6 @@ import { useDatePicker } from '@react-aria/datepicker';
 import { I18nProvider } from '@react-aria/i18n';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
-import type * as CSS from 'csstype';
 import { type Ref, useRef } from 'react';
 
 import { Calendar } from './Calendar/Calendar';
@@ -15,7 +14,8 @@ import {
 import { locale } from './constants';
 import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
-import { type ScreenSizeLiteral } from '../../helpers';
+import { type Breakpoint } from '../../layout';
+import { type ResponsiveProps } from '../../layout/common/Responsive.types';
 import {
   type FocusableRef,
   useFocusManagerRef,
@@ -23,7 +23,8 @@ import {
 
 export interface DatePickerProps
   extends Omit<AriaDatePickerProps<CalendarDate>, 'granularity'>,
-    Pick<DateFieldProps<CalendarDate>, 'componentSize' | 'tip' | 'style'> {
+    Pick<DateFieldProps<CalendarDate>, 'componentSize' | 'tip' | 'style'>,
+    Pick<ResponsiveProps, 'width'> {
   ref?: Ref<HTMLElement>;
   /**
    * Ledetekst.
@@ -38,13 +39,9 @@ export interface DatePickerProps
    */
   showWeekNumbers?: boolean;
   /**
-   * Egendefinert bredde på komponenten.
-   */
-  width?: CSS.Properties['width'];
-  /**
    * Brekkpunkt for å vise versjon for liten skjerm.
    */
-  smallScreenBreakpoint?: ScreenSizeLiteral;
+  smallScreenBreakpoint?: Breakpoint;
 }
 
 const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
@@ -89,7 +86,6 @@ export function DatePicker({
             label={props.label}
             errorMessage={errorMessage}
             buttonProps={buttonProps}
-            isOpen={state.isOpen}
             style={style}
             width={width}
           />

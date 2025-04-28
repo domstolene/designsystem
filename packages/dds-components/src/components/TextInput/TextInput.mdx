@@ -10,19 +10,19 @@ import * as TextInputStories from './TextInput.stories';
   docsHref="https://design.domstol.no/987b33f71/p/8048eb-textinput/b/800765"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/TextInput"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-textinput--default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-textinput--default"
 />
 
 ## Props
 
-<Canvas of={TextInputStories.Default} sourceState="shown" />
+<Canvas of={TextInputStories.Default} />
 <Controls of={TextInputStories.Default} />
 
 ### maxLength
 
 Når native attributtet `maxLength` brukes dukker det opp en tegnteller til høyre under inputfeltet:
 
-<Canvas of={TextInputStories.WithCharacterCount} sourceState="shown" />
+<Canvas of={TextInputStories.WithCharacterCount} />
 
 For å ikke vise tegntelleren sett `withCharacterCounter=false`.
 
@@ -35,6 +35,10 @@ Maks antall tegn i input bør ta utgangspunkt i konteksten til applikasjonen, s�
 ### Placeholder
 
 Unngå å bruke `placeholder` attributtet. Hvis du bruker den istedenfor semantisk ledetekst ser brukeren ikke hva feltet ber om etter det blir fylt ut. I tillegg kan inputfeltet se ferdig fylt ut.
+
+### Tegnteller
+
+Tegnteller legger seg under inputfeltet til høyre. Hvis det blir for lite plass til feilmelding eller hjelpetekst vurder å gjøre inputfeltet bredere.
 
 ### Affiks
 

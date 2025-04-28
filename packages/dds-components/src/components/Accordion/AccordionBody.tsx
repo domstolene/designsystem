@@ -7,6 +7,7 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { useAccordionContext } from '../helpers/AccordionBase';
+import { Box } from '../layout';
 
 export type AccordionBodyProps = Omit<
   BaseComponentPropsWithChildren<HTMLDivElement>,
@@ -44,9 +45,9 @@ export const AccordionBody = ({
       {...restBodyProps}
       style={{ ...htmlProps?.style, ...styleVariables }}
     >
-      <div ref={bodyContentRef} className={styles.body__content}>
+      <Box ref={bodyContentRef} padding="x0.5 x1.5 x2 x1">
         {children}
-      </div>
+      </Box>
     </div>
   );
 };

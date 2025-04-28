@@ -15,16 +15,16 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/react": "^18.3.12",
-    "react": "^18.3.1",
-    "tsup": "^8.3.6",
-    "typescript": "^5.7.3"
+    "@types/react": "^19.1.2",
+    "react": "^19.1.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18 || ^19"
   },
   "dependencies": {
     "@norges-domstoler/dds-design-tokens": "workspace:*",
-    "@storybook/addon-docs": "8.5.6"
+    "@storybook/addon-docs": "8.6.12"
   }
 }

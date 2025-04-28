@@ -1,19 +1,23 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import {
+  categoryCss,
+  htmlPropsArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
 
 export default {
-  title: 'dds-components/Tabs',
+  title: 'dds-components/Components/Tabs',
   component: Tabs,
   argTypes: {
-    width: { control: 'text' },
+    width: { control: 'text', table: categoryCss },
     htmlProps: htmlPropsArgType,
     addTabButtonProps: { control: false },
   },
@@ -228,6 +232,56 @@ export const WithWidth: Story = {
   ),
 };
 
+export const MaxContentWidth: Story = {
+  render: args => (
+    <>
+      <Paragraph withMargins>
+        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
+        Her er alle tabs satt til å ha bredde "<code>max-content</code>".
+      </Paragraph>
+      <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
+        <TabList>
+          <Tab width="max-content">Aktører</Tab>
+          <Tab width="max-content">Restriksjoner</Tab>
+          <Tab width="max-content">Vedlegg</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Innhold 1</TabPanel>
+          <TabPanel>Innhold 2</TabPanel>
+          <TabPanel>Innhold 3</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
+  ),
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '20%',
+      lg: '500px',
+      xl: '1000px',
+    },
+  },
+  render: args => (
+    <Tabs {...args}>
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>Innhold 1</TabPanel>
+        <TabPanel>Innhold 2</TabPanel>
+        <TabPanel>Innhold 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  ),
+};
+
 export const TabLongNames: Story = {
   render: args => (
     <Tabs {...args}>
@@ -273,28 +327,5 @@ export const ManyTabs: Story = {
         <TabPanel>Innhold 10</TabPanel>
       </TabPanels>
     </Tabs>
-  ),
-};
-
-export const MaxContentWidth: Story = {
-  render: args => (
-    <>
-      <Paragraph withMargins>
-        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
-        Her er alle tabs satt til å ha bredde "<code>max-content</code>".
-      </Paragraph>
-      <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
-        <TabList>
-          <Tab width="max-content">Aktører</Tab>
-          <Tab width="max-content">Restriksjoner</Tab>
-          <Tab width="max-content">Vedlegg</Tab>
-        </TabList>
-        <TabPanels>
-          <TabPanel>Innhold 1</TabPanel>
-          <TabPanel>Innhold 2</TabPanel>
-          <TabPanel>Innhold 3</TabPanel>
-        </TabPanels>
-      </Tabs>
-    </>
   ),
 };

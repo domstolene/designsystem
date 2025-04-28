@@ -1,12 +1,15 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
-import { StoryVStack } from '../Stack/utils';
+import {
+  htmlPropsArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
+import { StoryVStack } from '../layout/Stack/utils';
 
 import { Breadcrumb, Breadcrumbs } from '.';
 
 export default {
-  title: 'dds-components/Breadcrumbs',
+  title: 'dds-components/Components/Breadcrumbs',
   component: Breadcrumbs,
   parameters: {
     docs: {
@@ -58,4 +61,11 @@ export const responsive: Story = {
     children,
     smallScreenBreakpoint: 'sm',
   },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
+      ),
+  ],
 };

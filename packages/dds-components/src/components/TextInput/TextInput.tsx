@@ -1,4 +1,4 @@
-import { type Properties, type Property } from 'csstype';
+import { type Property } from 'csstype';
 import React, { useId, useLayoutEffect, useRef, useState } from 'react';
 
 import styles from './TextInput.module.css';
@@ -9,10 +9,16 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { getFormInputIconSize } from '../../utils/icon';
-import { StatefulInput, getDefaultText, renderCharCounter } from '../helpers';
+import {
+  StatefulInput,
+  getDefaultText,
+  getInputWidth,
+  renderCharCounter,
+} from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
 import { Label } from '../Typography';
 
 export const TextInput = ({
@@ -72,7 +78,8 @@ export const TextInput = ({
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
   const hasLabel = !!label;
-  const hasMessage = hasErrorMessage || hasTip || !!maxLength;
+  const hasMessage = hasErrorMessage || hasTip;
+  const hasBottomContainer = hasErrorMessage || hasTip || !!maxLength;
   const hasIcon = !!icon;
   const hasAffix = !!(prefix ?? suffix);
 
@@ -83,14 +90,10 @@ export const TextInput = ({
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-textinput-width' as any]: width
-      ? width
-      : componentSize === 'xsmall'
-        ? '210px'
-        : 'var(--dds-input-default-width)',
-  };
+  const inputWidth = getInputWidth(
+    width,
+    componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)',
+  );
 
   const generalInputProps = {
     ref,
@@ -133,10 +136,7 @@ export const TextInput = ({
 
   if (hasIcon) {
     extendedInput = (
-      <div
-        className={cn(styles['input-width'], inputStyles['input-group'])}
-        style={styleVariables}
-      >
+      <Box className={inputStyles['input-group']} width={inputWidth}>
         {
           <Icon
             icon={icon}
@@ -155,13 +155,15 @@ export const TextInput = ({
           )}
           {...generalInputProps}
         />
-      </div>
+      </Box>
     );
   } else if (hasAffix) {
     extendedInput = (
-      <div
-        className={cn(styles['affix-container'], styles['input-width'])}
-        style={styleVariables}
+      <Box
+        position="relative"
+        display="flex"
+        alignItems="center"
+        width={inputWidth}
       >
         {prefix && (
           <span
@@ -197,7 +199,7 @@ export const TextInput = ({
             {suffix}
           </span>
         )}
-      </div>
+      </Box>
     );
   }
 
@@ -213,26 +215,34 @@ export const TextInput = ({
       style={style}
     >
       {hasLabel && (
-        <Label
+        <Box
+          as={Label}
+          display="block"
           htmlFor={uniqueId}
           showRequiredStyling={showRequiredStyling}
-          className={inputStyles.label}
           readOnly={readOnly}
         >
           {label}
-        </Label>
+        </Box>
       )}
       {extendedInput ? (
         extendedInput
       ) : (
-        <StatefulInput
-          style={styleVariables}
-          className={styles['input-width']}
-          {...generalInputProps}
-        />
+        <Box as={StatefulInput} width={inputWidth} {...generalInputProps} />
       )}
-      {hasMessage && (
-        <div className={styles['message-container']}>
+      {hasBottomContainer && (
+        <Box
+          display="flex"
+          justifyContent={
+            withCharacterCounter
+              ? hasMessage
+                ? 'space-between'
+                : 'flex-end'
+              : undefined
+          }
+          gap="x0.5"
+          width={withCharacterCounter ? inputWidth : undefined}
+        >
           {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
           {renderCharCounter(
             characterCounterId,
@@ -240,7 +250,7 @@ export const TextInput = ({
             text.length,
             maxLength,
           )}
-        </div>
+        </Box>
       )}
     </div>
   );

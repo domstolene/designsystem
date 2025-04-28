@@ -7,8 +7,9 @@ import { SearchSuggestionItem } from './SearchSuggestionItem';
 import { useRoveFocus } from '../../hooks';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, derivativeIdGenerator } from '../../utils';
-import { Paper, StylelessList } from '../helpers';
+import { StylelessList } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
+import { Paper } from '../layout';
 import { getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -68,7 +69,7 @@ export const SearchSuggestions = ({
         rest,
       )}
       aria-hidden={!showSuggestions}
-      border="default"
+      border="border-default"
     >
       <span
         id={suggestionsHeaderId}

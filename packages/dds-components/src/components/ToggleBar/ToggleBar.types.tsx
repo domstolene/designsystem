@@ -1,7 +1,7 @@
-import { type Property } from 'csstype';
-import { type ChangeEvent } from 'react';
+import { type ChangeEvent, type InputHTMLAttributes } from 'react';
 
 import { type BaseComponentPropsWithChildren, type Size } from '../../types';
+import { type ResponsiveProps } from '../layout';
 
 export type ToggleBarValue = string | number | null | undefined;
 export type ToggleBarSize = Extract<
@@ -26,6 +26,10 @@ export type ToggleBarProps<T extends string | number> =
       /** Gir alle barna samme `name` prop.*/
       name?: string;
       /**Bredden til komponenten. Bredden fordeles likt mellom barna.  */
-      width?: Property.Width;
-    }
+      width?: ResponsiveProps['width'];
+    },
+    Omit<
+      InputHTMLAttributes<HTMLInputElement>,
+      'value' | 'onChange' | 'size' | 'width'
+    >
   >;

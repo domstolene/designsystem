@@ -1,4 +1,4 @@
-import { type Properties, type Property } from 'csstype';
+import { type Property } from 'csstype';
 import {
   type ChangeEvent,
   type ForwardedRef,
@@ -17,14 +17,12 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import {
-  type InputProps,
-  type ScreenSizeLiteral,
-  StatefulInput,
-} from '../helpers';
+import { type InputProps, StatefulInput, getInputWidth } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
+import { Box, type Breakpoint } from '../layout';
+import { applyResponsiveStyle } from '../layout/common/utils';
 import { NativeSelect } from '../Select';
 import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
@@ -103,7 +101,7 @@ export type PhoneInputProps = {
   /**
    * Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den stacker subkomponentene vertikalt.
    */
-  smallScreenBreakpoint?: ScreenSizeLiteral;
+  smallScreenBreakpoint?: Breakpoint;
   /**
    * Usynlig ledetekst for nedtrekksliste med landkoder. Brukes hvis default ikke passer eller ikke er beskrivende nok.
    * @default "Landskode"
@@ -197,15 +195,6 @@ export const PhoneInput = ({
       ? `calc(var(--dds-spacing-x1) + ${callingCodeWidth}px)`
       : undefined;
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-phone-input-width' as any]: width
-      ? width
-      : componentSize === 'xsmall'
-        ? '131px'
-        : '194px',
-  };
-
   const internalSelectRef = useRef<HTMLSelectElement>(null);
 
   const combinedSelectRef = useCombinedRef(selectRef, internalSelectRef);
@@ -263,6 +252,11 @@ export const PhoneInput = ({
   // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
+  const bp = props.smallScreenBreakpoint;
+
+  const widthDefault =
+    componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)';
+
   return (
     <div className={cn(className, inputStyles.container)} style={style}>
       {hasLabel && (
@@ -275,15 +269,14 @@ export const PhoneInput = ({
           {label}
         </Label>
       )}
-      <div
+      <Box
+        display="flex"
+        flexDirection={applyResponsiveStyle('column', bp, 'row')}
         className={cn(
           styles['inputs-container'],
-          !!props.smallScreenBreakpoint &&
-            styles[
-              `inputs-container--small-screen-${props.smallScreenBreakpoint}`
-            ],
+          !!bp && styles[`inputs-container--small-screen-${bp}`],
         )}
-        style={styleVariables}
+        width={getInputWidth(width, widthDefault)}
         role="group"
         aria-label={groupLabel}
       >
@@ -291,13 +284,15 @@ export const PhoneInput = ({
           {selectLabel}
         </label>
         <NativeSelect
+          width={applyResponsiveStyle(
+            '100%',
+            bp,
+            componentSize === 'xsmall' ? '5rem' : '8rem',
+          )}
           {...commonProps}
           ref={combinedSelectRef}
           id={selectId}
-          className={cn(
-            styles.select,
-            componentSize === 'xsmall' && styles['select--xsmall'],
-          )}
+          className={cn(styles.select)}
           onChange={handleCountryCodeChange}
           defaultValue={defaultValue?.countryCode}
           value={displayedValue?.countryCode || ''}
@@ -314,7 +309,7 @@ export const PhoneInput = ({
             </option>
           ))}
         </NativeSelect>
-        <div className={inputStyles['input-group']}>
+        <Box width="100%" className={inputStyles['input-group']}>
           <span
             className={cn(
               typographyStyles[`body-${componentSize}`],
@@ -326,7 +321,8 @@ export const PhoneInput = ({
             {callingCode}
           </span>
 
-          <StatefulInput
+          <Box
+            as={StatefulInput}
             ref={ref}
             type="tel"
             {...commonProps}
@@ -335,8 +331,8 @@ export const PhoneInput = ({
             defaultValue={defaultValue?.phoneNumber}
             name={`${name}-phone-number`}
             onChange={handlePhoneNumberChange}
+            width="100%"
             style={{
-              ...styleVariables,
               paddingInlineStart: callingCodeInlineStart,
             }}
             className={styles.input}
@@ -348,8 +344,8 @@ export const PhoneInput = ({
               ariaDescribedby,
             ])}
           />
-        </div>
-      </div>
+        </Box>
+      </Box>
       {hasMessage &&
         renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
     </div>

@@ -1,17 +1,21 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { categoryHtml } from '../../storybook/helpers';
+import {
+  categoryCss,
+  categoryHtml,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { PhoneInput, type PhoneInputValue } from '.';
 
 export default {
-  title: 'dds-components/PhoneInput',
+  title: 'dds-components/Components/PhoneInput',
   component: PhoneInput,
   argTypes: {
-    width: { control: 'text' },
+    width: { control: 'text', table: categoryCss },
     required: { control: 'boolean', table: categoryHtml },
     disabled: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean' },
@@ -67,6 +71,26 @@ export const Sizes: Story = {
 export const Responsive: Story = {
   args: {
     smallScreenBreakpoint: 'sm',
+  },
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt.',
+      ),
+  ],
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '50%',
+      lg: 'var(--dds-input-default-width)',
+      xl: 'var(--dds-input-default-width)',
+    },
   },
 };
 

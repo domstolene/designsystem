@@ -1,17 +1,21 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import {
+  categoryCss,
+  htmlPropsArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { PlusCircledIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { ToggleBar, ToggleRadio } from '.';
 
 export default {
-  title: 'dds-components/ToggleBar',
+  title: 'dds-components/Components/ToggleBar',
   component: ToggleBar,
   argTypes: {
-    width: { control: 'text' },
+    width: { control: 'text', table: categoryCss },
     value: { control: false },
     htmlProps: htmlPropsArgType,
   },
@@ -247,21 +251,49 @@ export const WithWidth: Story = {
   render: args => {
     const [value, setValue] = useState<string | undefined>();
     return (
-      <>
-        <ToggleBar
-          {...args}
-          name="test"
-          value={value}
-          onChange={(_event, value) => {
-            setValue(value);
-          }}
-          width="320px"
-        >
-          <ToggleRadio value="alt1" label="Alt" />
-          <ToggleRadio value="alt2" label="Alt" />
-          <ToggleRadio value="alt3" label="Alt" />
-        </ToggleBar>
-      </>
+      <ToggleBar
+        {...args}
+        name="test"
+        value={value}
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+        width="320px"
+      >
+        <ToggleRadio value="alt1" label="Alt" />
+        <ToggleRadio value="alt2" label="Alt" />
+        <ToggleRadio value="alt3" label="Alt" />
+      </ToggleBar>
+    );
+  },
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '30%',
+      lg: '500px',
+      xl: '1000px',
+    },
+  },
+  render: args => {
+    const [value, setValue] = useState<string | undefined>();
+    return (
+      <ToggleBar
+        {...args}
+        name="test"
+        value={value}
+        onChange={(_event, value) => {
+          setValue(value);
+        }}
+      >
+        <ToggleRadio value="alt1" label="Alt" />
+        <ToggleRadio value="alt2" label="Alt" />
+        <ToggleRadio value="alt3" label="Alt" />
+      </ToggleBar>
     );
   },
 };

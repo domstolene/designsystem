@@ -1,0 +1,99 @@
+import { Canvas, Controls, Meta, ArgTypes, Primary } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import { GridChild } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import { Link } from '../../Typography';
+import * as GridStories from './Grid.stories';
+import * as GridChildStories from './GridChild.stories';
+
+<Meta of={GridStories} />
+
+# Grid
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/219dd1-grid"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Grid"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-layout-primitives-grid--default"
+  withBottomSpacing
+/>
+
+`<Grid>` er en layout primitive: den implementerer grid layout definert i Figma for alle brekkpunkter. Grid i Figma defineres som stiler og er dermed ikke egen komponent.
+
+Grid består av to subkomponenter:
+
+- **`<Grid>`** - en container-komponent for grid children som tar i bruk CSS Grid. Den definerer antall kolonner og gutters (`gap` i CSS) basert på skjermstørrelse. Den støtter også alle standard layout primitive props; se props-tabellen under "CSS properites".
+- **`<GridChild>`** - en wrapper-komponent for innhold, brukes som barn i `<Grid>`. Den spesifiserer hvilke deler av grid innholdet skal ta, både kolonner og rader. Den støtter også alle standard layout primitive props; se props-tabellen under "CSS properites".
+
+Les mer om brekkepunkter, grid tokens og hvordan vi bruker det hele i <Link href="https://design.domstol.no/987b33f71/p/442cff-grid-og-layout/b/312b16" external>Grid og layout i dokumentasjonen</Link>.
+
+## Bruk
+
+<Source
+  code={`
+  import { Grid, GridChild } from '@norges-domstoler/dds-components';
+
+<Grid as="div">
+  <GridChild
+    columnsOccupied={{
+      xs: 'all',
+      sm: 'all',
+      md: 'firstHalf',
+      lg: 'firstHalf',
+      xl: '1/4',
+    }}
+  >
+    innhold
+  </GridChild>
+  <GridChild
+    columnsOccupied={{
+      xs: 'all',
+      sm: 'all',
+      md: 'secondHalf',
+      lg: 'secondHalf',
+      xl: '4/9',
+    }}
+  >
+    innhold
+  </GridChild>
+  <GridChild columnsOccupied="all">innhold</GridChild>
+</Grid>
+`} />
+
+## Grid
+
+En responsiv container-komponent for `<GridChild>` barn. Den håndterer grid layout basert på brekkpunkter. Den støtter også alle standard layout primitive props.
+
+Komponenten har defaults for enkelte CSS props som implementerer Elsas grid system, men kan overskrives: `gridTemplateColumns`, `columnGap`, `rowGap` (se props-tabell).
+
+<Canvas of={GridStories.Default} />
+<Controls of={GridStories.Default} />
+
+## GridChild
+
+En responsiv wrapper-component som håndterer hvor mange kolonner innhold skal ta. Den støtter også alle standard layout primitive props.
+
+<Canvas of={GridChildStories.Default} />
+<Controls of={GridChildStories.Default} />
+
+### Typer
+
+<Source
+  code={`
+  type RelativeColumnsOccupied = 'all' | 'firstHalf' | 'secondHalf';
+
+type type ColumnsOccupied =
+ResponsiveProp<Property.GridColumn | RelativeColumnsOccupied>;`}
+/>
+
+## Eksempler
+
+### Side med søk
+
+<Canvas of={GridStories.PageExample} />
+
+### Simpelt skjema - bare relative kolonner
+
+<Canvas of={GridStories.JustRelativeColumns} />

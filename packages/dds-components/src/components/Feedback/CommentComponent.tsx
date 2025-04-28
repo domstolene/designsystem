@@ -1,7 +1,7 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
 import { Button } from '../Button';
-import { VStack } from '../Stack';
+import { VStack } from '../layout';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 import { ThumbIcon } from './utils';
@@ -32,7 +32,7 @@ export const CommentComponent = ({
   handleFeedbackTextChange,
 }: CommentComponentType) => {
   return (
-    <VStack gap="x1" align="flex-start">
+    <VStack gap="x1">
       <span className={styles['rating-submitted-title']}>
         {ThumbIcon({ rating, layout, type: 'comment' })}
         <Paragraph>{ratingSubmittedTitle} </Paragraph>

@@ -288,7 +288,7 @@ Hvis du viser flere varianter i en enkel story kan du bruke `<StoryVStack>` og `
 
 ```JSX
 import { Button } from '.';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 /**config...**/
 

@@ -2,12 +2,12 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button/Button';
-import { StoryVStack } from '../Stack/utils';
+import { StoryVStack } from '../layout/Stack/utils';
 
 import { ButtonGroup } from '.';
 
 export default {
-  title: 'dds-components/ButtonGroup',
+  title: 'dds-components/Components/ButtonGroup',
   component: ButtonGroup,
   parameters: {
     docs: {

@@ -1,12 +1,6 @@
 .textarea {
-  width: var(--dds-text-area-width);
   height: auto;
   resize: vertical;
   vertical-align: bottom;
   padding-bottom: var(--dds-spacing-x0-5);
-}
-
-.message-container {
-  display: flex;
-  justify-content: space-between;
 }

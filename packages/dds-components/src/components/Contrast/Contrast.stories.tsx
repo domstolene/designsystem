@@ -15,7 +15,7 @@ import { Link, Paragraph } from '../Typography';
 import { Contrast } from '.';
 
 export default {
-  title: 'dds-components/Contrast',
+  title: 'dds-components/Components/Contrast',
   component: Contrast,
   parameters: {
     docs: {

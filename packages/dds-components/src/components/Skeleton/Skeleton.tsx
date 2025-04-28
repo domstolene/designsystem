@@ -3,19 +3,17 @@ import { type ComponentPropsWithRef } from 'react';
 
 import styles from './Skeleton.module.css';
 import { cn } from '../../utils';
+import { Box, type ResponsiveProps } from '../layout';
 
 export type SkeletonAppearance = 'circle' | 'rectangle';
 
 export type SkeletonProps = {
-  /** Bredde. */
-  width?: Property.Width;
-  /** Høyde. */
-  height?: Property.Height;
   /**CSS border radius.
    * @default "var(--dds-border-radius-surface)"
    */
   borderRadius?: Property.BorderRadius;
-} & ComponentPropsWithRef<'div'>;
+} & Pick<ResponsiveProps, 'width' | 'height'> &
+  ComponentPropsWithRef<'div'>;
 
 export const Skeleton = ({
   width,
@@ -27,12 +25,14 @@ export const Skeleton = ({
   ...rest
 }: SkeletonProps) => {
   return (
-    <div
+    <Box
+      width={width}
+      height={height}
       ref={ref}
       className={cn(className, styles.container)}
-      style={{ ...style, width, height, borderRadius }}
+      style={{ ...style, borderRadius }}
       {...rest}
-    ></div>
+    ></Box>
   );
 };
 

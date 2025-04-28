@@ -24,6 +24,11 @@ import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
+type PickedAttributes = Pick<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'onClick' | 'onKeyDown'
+>;
+
 export type TabProps = BaseComponentPropsWithChildren<
   HTMLButtonElement,
   {
@@ -43,8 +48,8 @@ export type TabProps = BaseComponentPropsWithChildren<
      * @default "1fr"
      */
     width?: CSS.Properties['width'];
-  } & Pick<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>,
-  Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick' | 'onKeyDown'>
+  } & PickedAttributes,
+  Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof PickedAttributes>
 >;
 
 export const Tab = ({
@@ -58,7 +63,7 @@ export const Tab = ({
   onKeyDown,
   id,
   className,
-  htmlProps,
+  htmlProps = {},
   width = '1fr',
   ref,
   ...rest
@@ -70,6 +75,9 @@ export const Tab = ({
   const itemRef = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const combinedRef = useCombinedRef(ref, itemRef);
   const { tabContentDirection, size } = useTabsContext();
+
+  const { type = 'button', ...restHtmlProps } = htmlProps;
+  const fixedHtmlProps = { type, ...restHtmlProps };
 
   useEffect(() => {
     if (focus) {
@@ -85,14 +93,14 @@ export const Tab = ({
 
   const handleOnClick = (e: MouseEvent<HTMLButtonElement>) => {
     handleSelect();
-    onClick && onClick(e);
+    onClick?.(e);
   };
 
   const handleOnKeyDown = (
     e: KeyboardEvent<HTMLAnchorElement> & KeyboardEvent<HTMLButtonElement>,
   ) => {
     handleSelect();
-    onKeyDown && onKeyDown(e);
+    onKeyDown?.(e);
   };
 
   return (
@@ -108,7 +116,7 @@ export const Tab = ({
           typographyStyles[`body-${size}`],
           focusStyles['focusable--inset'],
         ),
-        htmlProps,
+        fixedHtmlProps,
         rest,
       )}
       ref={combinedRef}

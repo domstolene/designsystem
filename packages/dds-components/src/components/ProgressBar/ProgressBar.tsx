@@ -1,4 +1,3 @@
-import { type Properties } from 'csstype';
 import { type ComponentPropsWithRef, useId } from 'react';
 
 import { Label } from '../Typography';
@@ -9,8 +8,9 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { type CommonInputProps } from '../helpers';
+import { type CommonInputProps, getInputWidth } from '../helpers';
 import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
 
 export type ProgressBarSize = 'medium' | 'small';
 
@@ -69,21 +69,10 @@ export const ProgressBar = ({
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
 
-  const progressStyleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-progressbar-width' as any]: width
-      ? width
-      : 'var(--dds-input-default-width)',
-  };
-
   const fillPrecentage = hasValidValue && (value / (max ?? 1)) * 100 + '%';
-  const fillStyleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-progressbar-fill-width' as any]: fillPrecentage ?? 0,
-  };
-
+  const isIndeterminate = !hasValidValue && !hasErrorMessage;
   return (
-    <div className={cn(className, styles.container)} style={style}>
+    <Box width="100%" className={className} style={style}>
       {hasLabel ? <Label htmlFor={uniqueId}>{label}</Label> : undefined}
       <progress
         id={uniqueId}
@@ -99,22 +88,24 @@ export const ProgressBar = ({
       >
         {fillPrecentage}
       </progress>
-      <div
-        style={progressStyleVariables}
-        className={cn(styles.progress, styles[`progress--${size}`])}
+      <Box
+        width={getInputWidth(width)}
+        height={size === 'small' ? 'x0.75' : 'x1.5'}
+        className={cn(styles.progress)}
       >
-        <div
-          style={fillStyleVariables}
+        <Box
+          height="100%"
+          width={isIndeterminate ? '25%' : fillPrecentage ? fillPrecentage : 0}
           className={cn(
             styles.fill,
-            !hasValidValue && !hasErrorMessage && styles['fill--indeterminate'],
+            isIndeterminate && styles['fill--indeterminate'],
             fillPrecentage === '100%' && styles['fill--done'],
             errorMessage && styles['fill--error'],
           )}
         />
-      </div>
+      </Box>
       {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
-    </div>
+    </Box>
   );
 };
 

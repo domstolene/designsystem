@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
-import { VStack } from '../Stack';
+import { VStack } from '../layout';
 
 import {
   OverflowMenu,
@@ -18,7 +18,7 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/OverflowMenu',
+  title: 'dds-components/Components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
     htmlProps: htmlPropsArgType,
@@ -66,6 +66,14 @@ export const Default: Story = {
                 }}
               >
                 Handling
+              </OverflowMenuButton>
+              <OverflowMenuButton
+                loading
+                onClick={() => {
+                  null;
+                }}
+              >
+                Handling 2
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {

@@ -10,12 +10,12 @@ import * as TextAreaStories from './TextArea.stories';
   docsHref="https://design.domstol.no/987b33f71/p/39f89e-textarea"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=155%3A38"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/TextArea"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-textarea--default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-textarea--default"
 />
 
 ## Props
 
-<Canvas of={TextAreaStories.Default} sourceState="shown" />
+<Canvas of={TextAreaStories.Default} />
 <Controls of={TextAreaStories.Default} />
 
 I tillegg støttes alle native HTML-attributter som er en del av `TextareaHTMLAttributes<HTMLTextAreaElement>`-interface.
@@ -29,6 +29,10 @@ Maks antall tegn i input bør ta utgangspunkt i konteksten til applikasjonen, s�
 ### Placeholder
 
 Unngå å bruke `placeholder` attributtet. Hvis du bruker den istedenfor semantisk ledetekst ser brukeren ikke hva feltet ber om etter det blir fylt ut. I tillegg kan inputfeltet se ferdig fylt ut.
+
+### Tegnteller
+
+Tegnteller legger seg under inputfeltet til høyre. Hvis det blir for lite plass til feilmelding eller hjelpetekst vurder å gjøre inputfeltet bredere.
 
 ### Generelt
 

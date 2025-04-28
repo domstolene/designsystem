@@ -8,7 +8,7 @@ import { Link, Paragraph } from '../Typography';
 import { VisuallyHidden } from '.';
 
 export default {
-  title: 'dds-components/VisuallyHidden',
+  title: 'dds-components/Components/VisuallyHidden',
   component: VisuallyHidden,
   argTypes: {
     htmlProps: htmlPropsArgType,

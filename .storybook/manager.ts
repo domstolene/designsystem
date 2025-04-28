@@ -7,13 +7,12 @@ addons.setConfig({
   sidebar: {
     showRoots: true,
     collapsedRoots: [
-      'app-shell',
       'dds-components',
       'development-utils',
       'dds-design-tokens',
       'dds-formatting',
       'icons',
-      'examples',
+      'patterns',
       'playground',
     ],
   },

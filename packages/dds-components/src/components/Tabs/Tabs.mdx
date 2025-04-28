@@ -14,7 +14,7 @@ import * as TabsStories from './Tabs.stories';
   docsHref="https://design.domstol.no/987b33f71/p/206fdc-skiptocontent/b/11d1c4"
   figmaHref="https://www.figma.com/file/ewqSDmkgqDQ5PyOsRp4V5b/?node-id=7003%3A143267"
   githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/Tabs"
-  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-tabs--default"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-tabs--default"
   withBottomSpacing
 />
 
@@ -38,7 +38,7 @@ Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList
 
 ### Tab
 
-En fane. Tilhørende `<TabPanel>` vises ved museklikk.
+En fane. Tilhørende `<TabPanel>` vises ved museklikk. Har `type="button"` som default.
 
 <ArgTypes of={Tab} />
 
@@ -68,7 +68,6 @@ For å endre på bredden til tabs kan du bruke `width`-attributtet. Her støttes
 
 En liste med `<Tab>`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList>` skal ha `<Tab>` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels>`.
 
-<ArgTypes of={TabList} />
 Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
 
 ### TabPanel

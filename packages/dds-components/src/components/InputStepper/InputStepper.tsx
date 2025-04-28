@@ -1,10 +1,9 @@
-import { type Properties } from 'csstype';
 import { useId } from 'react';
 
-import { Label, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
+import { Box, Label, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
 import { useControllableState } from '../../hooks/useControllableState';
 import { Button } from '../Button';
-import { StatefulInput } from '../helpers';
+import { StatefulInput, getInputWidth } from '../helpers';
 import styles from './InputStepper.module.css';
 import {
   type InputStepperProps,
@@ -81,10 +80,6 @@ export const InputStepper = ({
     }
   };
 
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-input-stepper-width' as any]: width ? width : '85px',
-  };
   return (
     <div className={className}>
       <div>
@@ -96,7 +91,10 @@ export const InputStepper = ({
           {label}
         </Label>
       </div>
-      <div className={styles['input-container']}>
+      <Box
+        className={styles['input-container']}
+        width={getInputWidth(width, '180px')}
+      >
         {readOnly || disabled ? null : (
           <Button
             aria-label={decreaseButtonLabel ?? `Trekk fra ${label}`}
@@ -108,14 +106,16 @@ export const InputStepper = ({
             aria-controls={uniqueId}
           ></Button>
         )}
-        <StatefulInput
+        <Box
+          as={StatefulInput}
+          width="100%"
           type="text"
           disabled={disabled}
           readOnly={readOnly}
           inputMode="numeric"
           pattern="-?[0-9]+"
           id={uniqueId}
-          style={{ ...style, ...styleVariables }}
+          style={style}
           componentSize={componentSize}
           {...getBaseHTMLProps(uniqueId, styles.textInput, htmlProps, rest)}
           value={inputValue}
@@ -138,7 +138,7 @@ export const InputStepper = ({
             aria-controls={uniqueId}
           ></Button>
         )}
-      </div>
+      </Box>
       {hasMessage &&
         renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
     </div>

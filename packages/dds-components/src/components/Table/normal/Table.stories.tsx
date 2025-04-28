@@ -18,7 +18,7 @@ import { Link, Paragraph } from '../../Typography';
 import { Table } from '.';
 
 const meta: Meta<typeof Table> = {
-  title: 'dds-components/Table',
+  title: 'dds-components/Components/Table',
   component: Table,
   parameters: {
     docs: {

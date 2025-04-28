@@ -1,0 +1,38 @@
+import { Canvas, Controls, Meta, ArgTypes, Story } from '@storybook/blocks';
+import { ShowHide } from '.';
+import {
+  Source,
+  ComponentLinkRow,
+} from '@norges-domstoler/storybook-components';
+import * as ShowHideStories from './ShowHide.stories';
+
+<Meta of={ShowHideStories} />
+
+# ShowHide
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/76f0e1-hide"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/layout/ShowHide"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-layout-primitives-showhide--default"
+  withBottomSpacing
+/>
+
+`<ShowHide>` er en code-only layout primitive; et grunnelement som brukes som byggekloss for andre komponenter og strukturer. Den brukes til å skjule eller vise innhold ved spesifiserte brekkpunter.
+
+## Props
+
+<Canvas of={ShowHideStories.Default} sourceState="shown" />
+<Controls of={ShowHideStories.Default} />
+
+## Retningslinjer
+
+### Brukes til
+
+- Implementasjon av responsivt innhold, f.eks. skjule et element kun på mindre skjermer.
+- Alternativ visning for ulike skjermstørrelser.
+- Skjule meny som skal vises kun for desktop.
+
+### Brukes ikke til
+
+- Skjule elementer basert på state.
+- Skjule elementer som skal være tilgjengelige for skjermlesere; bruk [VisuallyHidden](https://design.domstol.no/987b33f71/p/53c59b-visuallyhidden).

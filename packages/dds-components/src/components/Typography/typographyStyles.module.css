@@ -234,10 +234,6 @@
   padding-inline: 0;
 }
 
-:where(.legend--margins) {
-  margin-bottom: var(--dds-spacing-x1-5);
-}
-
 :where(.caption--withMargins) {
   display: table-caption;
 }

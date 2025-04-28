@@ -1,12 +1,15 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import {
+  htmlPropsArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { InlineButton } from '../InlineButton';
 
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
 
 export default {
-  title: 'dds-components/DetailList',
+  title: 'dds-components/Components/DetailList',
   component: DetailList,
   parameters: {
     docs: {
@@ -123,4 +126,19 @@ export const Large: Story = {
       {children}
     </DetailList>
   ),
+};
+
+export const Responsive: Story = {
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <>
+          <Story />
+          <style>{styling}</style>
+        </>,
+        'Versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
+      ),
+  ],
+  args: { smallScreenBreakpoint: 'sm' },
+  render: args => <DetailList {...args}>{children}</DetailList>,
 };

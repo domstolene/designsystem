@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-formatting
 
+## 1.6.0
+
+### Minor Changes
+
+- b44c55c: Nye formateringsfunksjoner for beløp: `formatBeloep()` og `formatInputBeloep()`.
+
 ## 1.5.0
 
 ### Minor Changes

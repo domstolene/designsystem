@@ -5,7 +5,7 @@ import { categoryHtml, htmlEventArgType } from '../../storybook/helpers';
 import { BackLink } from '.';
 
 export default {
-  title: 'dds-components/BackLink',
+  title: 'dds-components/Components/BackLink',
   component: BackLink,
   parameters: {
     docs: {

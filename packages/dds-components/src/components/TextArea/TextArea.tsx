@@ -1,4 +1,3 @@
-import { type Properties } from 'csstype';
 import {
   type ComponentPropsWithRef,
   useEffect,
@@ -14,12 +13,13 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { getDefaultText, renderCharCounter } from '../helpers';
+import { getDefaultText, getInputWidth, renderCharCounter } from '../helpers';
 import { type CommonInputProps } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
 import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -76,6 +76,7 @@ export const TextArea = ({
   };
 
   const hasErrorMessage = !!errorMessage;
+  const hasMessage = hasErrorMessage || !!tip;
   const hasLabel = !!label;
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
@@ -85,11 +86,7 @@ export const TextArea = ({
   );
 
   const showRequiredStyling = required || !!ariaRequired;
-
-  const styleVariables: Properties = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ['--dds-text-area-width' as any]: width ?? 'var(--dds-input-default-width)',
-  };
+  const inputWidth = getInputWidth(width);
 
   return (
     <div className={cn(className, inputStyles.container)} style={{ ...style }}>
@@ -103,7 +100,9 @@ export const TextArea = ({
           {label}
         </Label>
       )}
-      <textarea
+      <Box
+        as="textarea"
+        width={inputWidth}
         ref={multiRef}
         id={uniqueId}
         onChange={onChangeHandler}
@@ -129,10 +128,19 @@ export const TextArea = ({
           typographyStyles['body-medium'],
           focusable,
         )}
-        style={styleVariables}
         {...rest}
       />
-      <div className={styles['message-container']}>
+      <Box
+        display="flex"
+        justifyContent={
+          withCharacterCounter
+            ? hasMessage
+              ? 'space-between'
+              : 'flex-end'
+            : undefined
+        }
+        width={withCharacterCounter ? inputWidth : undefined}
+      >
         {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
         {renderCharCounter(
           characterCounterId,
@@ -140,7 +148,7 @@ export const TextArea = ({
           text.length,
           maxLength,
         )}
-      </div>
+      </Box>
     </div>
   );
 };

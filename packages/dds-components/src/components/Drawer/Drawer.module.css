@@ -2,39 +2,16 @@
   --dds-transition-duration-drawer-move: 0.2s;
   /* Justering på spacing slik at fokusmarkering osv. ikke skjules ved overflow */
   --dds-drawer-content-container-padding: var(--dds-spacing-x0-25);
-  --dds-drawer-container-padding: calc(
-      var(--dds-spacing-x1) - var(--dds-drawer-content-container-padding)
-    )
+  --dds-drawer-container-padding: var(--dds-spacing-x1)
     calc(var(--dds-spacing-x1) - var(--dds-drawer-content-container-padding))
     calc(var(--dds-spacing-x1) - var(--dds-drawer-content-container-padding))
     calc(var(--dds-spacing-x1-5) - var(--dds-drawer-content-container-padding));
 
-  position: fixed;
-  top: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  min-width: 300px;
   z-index: var(--dds-zindex-drawer);
-  border-radius: 0;
-  padding: var(--dds-drawer-container-padding);
 
   @media (prefers-reduced-motion: no-preference) {
     transition: transform var(--dds-transition-duration-drawer-move);
   }
-}
-
-.container--small {
-  max-width: 400px;
-}
-
-.container--medium {
-  max-width: 600px;
-}
-
-.container--large {
-  max-width: 800px;
 }
 
 .container--left {
@@ -62,13 +39,19 @@
 }
 
 .content-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--dds-spacing-x1);
   /* Spacing slik at fokusmarkering osv. ikke skjules ved overflow */
   padding: var(--dds-drawer-content-container-padding);
 }
 
+.drawer-header {
+  padding-bottom: calc(
+    var(--dds-spacing-x0-75) - var(--dds-drawer-content-container-padding)
+  );
+  background-color: var(--dds-color-surface-default);
+  z-index: 1;
+}
+
 .button--close {
-  align-self: flex-end;
+  margin-left: auto;
+  margin-top: calc(-1 * var(--dds-spacing-x0-125));
 }

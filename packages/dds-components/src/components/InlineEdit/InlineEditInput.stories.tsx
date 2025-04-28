@@ -2,14 +2,15 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { InlineEditInput } from './InlineEditInput';
-import { StoryVStack } from '../Stack/utils';
+import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import { StoryVStack } from '../layout/Stack/utils';
 import { Table } from '../Table/normal';
 
 export default {
-  title: 'dds-components/InlineEdit/InlineEditInput',
+  title: 'dds-components/Components/InlineEdit/InlineEditInput',
   component: InlineEditInput,
   argTypes: {
-    width: { control: { type: 'text' } },
+    width: { control: 'text', table: categoryCss },
   },
   parameters: {
     controls: {
@@ -103,5 +104,18 @@ export const InTable: Story = {
         </Table>
       </Table.Wrapper>
     );
+  },
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '20%',
+      lg: 'var(--dds-input-default-width)',
+      xl: 'var(--dds-input-default-width)',
+    },
   },
 };

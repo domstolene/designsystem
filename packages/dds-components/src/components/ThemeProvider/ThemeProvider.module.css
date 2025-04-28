@@ -18,6 +18,7 @@
 
   /*Other*/
   --dds-input-default-width: 320px;
+  --dds-input-default-width-xsmall: 210px;
   --dds-transition-duration-surface-move: 0.5s;
 }
 

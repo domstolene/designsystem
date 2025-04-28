@@ -23,13 +23,13 @@ import { cn } from '../../utils';
 import { Button } from '../Button';
 import {
   Backdrop,
-  Paper,
   handleElementWithBackdropMount,
   handleElementWithBackdropUnmount,
 } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { Box, HStack, Paper } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { Heading } from '../Typography';
 
@@ -121,6 +121,9 @@ export const Modal = ({
           onClick={onBackdropClick}
         >
           <Paper
+            display="flex"
+            flexDirection="column"
+            minWidth="200px"
             {...getBaseHTMLProps(
               id,
               cn(
@@ -142,21 +145,16 @@ export const Modal = ({
             id={modalId}
             elevation={4}
           >
-            {onClose && (
-              <Button
-                size="small"
-                purpose="tertiary"
-                icon={CloseIcon}
-                onClick={handleClose}
-                aria-label="Lukk dialog"
-                className={styles['close-button']}
-                htmlProps={{ tabIndex: -1 }}
-              />
-            )}
-
-            <div className={styles.content}>
+            <HStack
+              paddingBlock="0 x0.75"
+              position="sticky"
+              top="0"
+              left="0"
+              width="100%"
+              className={styles['header-container']}
+            >
               {!!header && (
-                <div id={headerId} className={styles.header}>
+                <div id={headerId}>
                   {typeof header === 'string' ? (
                     <Heading level={2} typographyType="headingLarge">
                       {header}
@@ -166,8 +164,20 @@ export const Modal = ({
                   )}
                 </div>
               )}
+              {onClose && (
+                <Button
+                  size="small"
+                  purpose="tertiary"
+                  icon={CloseIcon}
+                  onClick={handleClose}
+                  aria-label="Lukk dialog"
+                  className={styles['close-button']}
+                />
+              )}
+            </HStack>
+            <Box display="grid" gap="x1">
               {children}
-            </div>
+            </Box>
           </Paper>
         </Backdrop>,
         portalTarget,

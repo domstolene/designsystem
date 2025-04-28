@@ -1,5 +1,11 @@
-import { type Property } from 'csstype';
-import { type ReactNode, type RefObject, useEffect, useId } from 'react';
+import {
+  type ReactNode,
+  type RefObject,
+  useContext,
+  useEffect,
+  useId,
+} from 'react';
+import { createPortal } from 'react-dom';
 
 import styles from './Popover.module.css';
 import {
@@ -17,21 +23,18 @@ import {
 } from '../../types';
 import { cn, isEmpty } from '../../utils';
 import { Button } from '../Button';
-import { Paper } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { CloseIcon } from '../Icon/icons';
+import { Paper, type ResponsiveProps } from '../layout';
 import { Heading } from '../Typography';
 import { usePopoverContext } from './Popover.context';
+import { ThemeContext } from '../ThemeProvider';
 
-export interface PopoverSizeProps {
-  width?: Property.Width;
-  height?: Property.Height;
-  minWidth?: Property.MinWidth;
-  minHeight?: Property.MinHeight;
-  maxWidth?: Property.MaxWidth;
-  maxHeight?: Property.MaxHeight;
-}
+export type PopoverSizeProps = Pick<
+  ResponsiveProps,
+  'width' | 'height' | 'minWidth' | 'minHeight' | 'maxWidth' | 'maxHeight'
+>;
 
 export type PopoverProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -46,6 +49,14 @@ export type PopoverProps = BaseComponentPropsWithChildren<
      * @default "bottom"
      */
     placement?: Placement;
+    /**Angir rotnode hvor popover skal rendres.
+     * @default themeProviderRef
+     */
+    parentElement?: HTMLElement;
+    /**Angir om popover skal rendre i en portal eller ikke.
+     * @default "false"
+     */
+    portal?: boolean;
     /**Avstand fra anchor-elementet i px.
      * @default 8
      */
@@ -74,8 +85,10 @@ export const Popover = ({
   onBlur,
   children,
   placement = 'bottom',
+  parentElement,
+  portal = false,
   offset = 8,
-  sizeProps,
+  sizeProps = {},
   returnFocusOnBlur = true,
   className,
   htmlProps = {},
@@ -89,8 +102,11 @@ export const Popover = ({
     offset,
     placement,
   });
+  const { maxHeight, maxWidth, minHeight, minWidth, height, width } = sizeProps;
 
   const context = usePopoverContext();
+  const themeContext = useContext(ThemeContext);
+  const portalTarget = parentElement ?? themeContext?.el;
 
   const {
     floatStyling: contextFloatStyling,
@@ -165,7 +181,7 @@ export const Popover = ({
 
   const openCn = hasTransitionedIn && isOpen ? 'open' : 'closed';
 
-  return isOpen || hasTransitionedIn ? (
+  const popover = (
     <Paper
       {...getBaseHTMLProps(
         popoverId,
@@ -181,14 +197,19 @@ export const Popover = ({
       )}
       ref={multiRef}
       tabIndex={-1}
+      height={height}
+      maxHeight={maxHeight}
+      minHeight={minHeight}
+      width={width}
+      maxWidth={maxWidth}
+      minWidth={minWidth}
       style={{
         ...htmlProps.style,
         ...floatStyling,
-        ...sizeProps,
       }}
       role="dialog"
       elevation={3}
-      border="subtle"
+      border="border-subtle"
     >
       {header && (
         <div className={styles.header}>
@@ -221,7 +242,13 @@ export const Popover = ({
         />
       )}
     </Paper>
-  ) : null;
+  );
+
+  return isOpen || hasTransitionedIn
+    ? portal && portalTarget
+      ? createPortal(popover, portalTarget)
+      : popover
+    : null;
 };
 
 Popover.displayName = 'Popover';

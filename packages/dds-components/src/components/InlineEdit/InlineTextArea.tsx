@@ -16,6 +16,7 @@ import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export const InlineTextArea = ({
@@ -44,7 +45,7 @@ export const InlineTextArea = ({
   const combinedRef = useCombinedRef(ref, inputRef);
 
   return (
-    <div className={styles.container} style={{ width }}>
+    <Box position="relative" width={width}>
       <div className={inputStyles['input-group']}>
         {!isEditing && !hideIcon && (
           <span
@@ -71,10 +72,7 @@ export const InlineTextArea = ({
           ])}
           className={cn(
             styles['inline-input'],
-            !hideIcon && styles['inline-input--with-icon'],
-            !hideIcon &&
-              isEditing &&
-              styles['inline-input--with-icon--is-editing'],
+            !hideIcon && !isEditing && styles['inline-input--with-icon'],
             styles['inline-textarea'],
             inputStyles['input--stateful'],
             hasErrorState && inputStyles['input--stateful-danger'],
@@ -86,7 +84,7 @@ export const InlineTextArea = ({
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
-    </div>
+    </Box>
   );
 };
 

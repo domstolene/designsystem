@@ -8,7 +8,7 @@ import {
   DescriptionListTerm,
 } from '../DescriptionList';
 import { Divider } from '../Divider';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Heading, Link, Paragraph } from '../Typography';
 
 import {
@@ -19,12 +19,11 @@ import {
 } from '.';
 
 export default {
-  title: 'dds-components/Card',
+  title: 'dds-components/Components/Card',
   component: Card,
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
     },
   },
   argTypes: {

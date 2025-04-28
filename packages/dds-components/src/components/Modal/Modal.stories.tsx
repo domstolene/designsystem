@@ -3,14 +3,14 @@ import { useRef, useState } from 'react';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
+import { StoryHStack } from '../layout/Stack/utils';
 import { Search } from '../Search';
-import { StoryHStack } from '../Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Modal, ModalActions, ModalBody } from '.';
 
 const meta: Meta<typeof Modal> = {
-  title: 'dds-components/Modal',
+  title: 'dds-components/Components/Modal',
   component: Modal,
   decorators: [
     Story => (
@@ -21,6 +21,7 @@ const meta: Meta<typeof Modal> = {
   ],
   argTypes: {
     header: { control: 'text' },
+    scrollable: { control: 'boolean' },
     parentElement: { control: false },
     onClose: { control: false },
     isOpen: { control: false },
@@ -53,7 +54,13 @@ export const Default: Story = {
         <Button aria-haspopup="dialog" onClick={show} ref={buttonRef}>
           Åpne
         </Button>
-        <Modal {...args} triggerRef={buttonRef} isOpen={!closed}>
+        <Modal
+          {...args}
+          onClose={close}
+          triggerRef={buttonRef}
+          isOpen={!closed}
+          htmlProps={{ style: { width: '400px' } }}
+        >
           <ModalBody>Modal</ModalBody>
           <ModalActions>
             <Button onClick={close}>OK</Button>

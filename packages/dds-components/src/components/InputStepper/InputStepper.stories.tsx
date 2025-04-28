@@ -2,18 +2,24 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
 import { InputStepper } from './InputStepper';
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import {
+  categoryCss,
+  categoryHtml,
+  htmlPropsArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { Button } from '../Button';
-import { StoryHStack, StoryVStack } from '../Stack/utils';
+import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
-  title: 'dds-components/InputStepper',
+  title: 'dds-components/Components/InputStepper',
   component: InputStepper,
   argTypes: {
     defaultValue: { control: 'number', table: categoryHtml },
     disabled: { table: categoryHtml },
     value: { control: 'number', table: categoryHtml },
     htmlProps: htmlPropsArgType,
+    width: { control: 'text', table: categoryCss },
   },
 
   parameters: {
@@ -27,82 +33,52 @@ export default {
 type Story = StoryObj<typeof InputStepper>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    maxValue: 5,
+  },
   render: args => {
-    return <InputStepper {...args} label="Label" maxValue={10} />;
+    return <InputStepper {...args} label="Label" />;
   },
 };
 
 export const Sizes: Story = {
+  args: {
+    maxValue: 5,
+  },
   render: args => {
     return (
       <StoryHStack>
-        <InputStepper
-          {...args}
-          label="Medium"
-          step={1}
-          minValue={0}
-          maxValue={5}
-        />
-        <InputStepper
-          {...args}
-          label="Small"
-          step={1}
-          minValue={0}
-          maxValue={5}
-          componentSize="small"
-        />
+        <InputStepper {...args} label="Medium" />
+        <InputStepper {...args} label="Small" componentSize="small" />
       </StoryHStack>
     );
   },
 };
 
 export const Overview: Story = {
+  args: {
+    maxValue: 5,
+  },
   render: args => {
     return (
       <StoryHStack>
         <StoryVStack>
           <InputStepper {...args} label="Label" maxValue={5} />
-          <InputStepper
-            {...args}
-            label="Error"
-            step={1}
-            minValue={0}
-            maxValue={5}
-            errorMessage="Feilmelding"
-          />
-          <InputStepper
-            {...args}
-            label="Hjelpetekst"
-            step={1}
-            minValue={0}
-            maxValue={5}
-            tip="Hjelpetekst"
-          />
+          <InputStepper {...args} label="Error" errorMessage="Feilmelding" />
+          <InputStepper {...args} label="Hjelpetekst" tip="Hjelpetekst" />
         </StoryVStack>
         <StoryVStack>
-          <InputStepper
-            {...args}
-            label="ReadOnly"
-            step={1}
-            minValue={0}
-            maxValue={5}
-            readOnly
-          />
-          <InputStepper
-            {...args}
-            label="Disabled"
-            step={1}
-            minValue={0}
-            maxValue={5}
-            disabled
-          />
+          <InputStepper {...args} label="ReadOnly" readOnly />
+          <InputStepper {...args} label="Disabled" disabled />
         </StoryVStack>
       </StoryHStack>
     );
   },
 };
 export const Controlled: Story = {
+  args: {
+    maxValue: 5,
+  },
   render: args => {
     const [value, setValue] = useState(4);
 
@@ -111,9 +87,6 @@ export const Controlled: Story = {
         <InputStepper
           {...args}
           label="Label"
-          step={1}
-          minValue={0}
-          maxValue={5}
           value={value}
           onChange={e => {
             if (typeof e === 'number') {
@@ -132,5 +105,19 @@ export const Controlled: Story = {
         </Button>
       </StoryVStack>
     );
+  },
+};
+
+export const ResponsiveWidth: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '50%',
+      lg: '180px',
+      xl: '180px',
+    },
+    maxValue: 5,
   },
 };

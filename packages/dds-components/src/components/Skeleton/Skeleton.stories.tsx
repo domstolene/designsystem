@@ -1,14 +1,15 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Skeleton } from './Skeleton';
-import { StoryVStack } from '../Stack/utils';
+import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
-  title: 'dds-components/Skeleton',
+  title: 'dds-components/Components/Skeleton',
   component: Skeleton,
   argTypes: {
-    width: { control: 'text' },
-    height: { control: 'text' },
+    width: { control: 'text', table: categoryCss },
+    height: { control: 'text', table: categoryCss },
     borderRadius: { control: 'text' },
   },
   parameters: {
@@ -62,4 +63,24 @@ export const Example: Story = {
       />
     </StoryVStack>
   ),
+};
+
+export const Responsive: Story = {
+  decorators: [Story => windowWidthDecorator(<Story />)],
+  args: {
+    width: {
+      xs: '100%',
+      sm: '100%',
+      md: '20%',
+      lg: 'var(--dds-input-default-width)',
+      xl: 'var(--dds-input-default-width)',
+    },
+    height: {
+      xs: '20px',
+      sm: '20px',
+      md: '30px',
+      lg: '50px',
+      xl: '50px',
+    },
+  },
 };
