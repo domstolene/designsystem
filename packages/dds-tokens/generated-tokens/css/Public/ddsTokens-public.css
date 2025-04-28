@@ -23,7 +23,7 @@
   --dds-font-lineheight-x1: 1.5; /* Brukes på str ×1_25 og mindre  */
   --dds-font-lineheight-x2: 1.35; /* Brukes på str x1.5, ×2 og ×3  */
   --dds-font-lineheight-x3: 1.2; /* Brukes på str ×3 og større */
-  --dds-font-lineheight-list: 2.5; /* Brukes på lister */
+  --dds-font-lineheight-list: 2; /* Brukes på lister */
   --dds-font-letter-spacing-tight: -0.01em; /* Brukes på str ×2.5 og større */
   --dds-font-letter-spacing-normal: 0em; /* Brukes på str ×1 og opp til og med ×2 */
   --dds-font-letter-spacing-loose: 0.01em; /* Brukes på størrelser under ×1 */
