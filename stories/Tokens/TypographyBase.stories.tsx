@@ -1,6 +1,7 @@
 import { type Meta } from '@storybook/react';
 
 import {
+  DataColorsBaseGenerator,
   FontFamilyGenerator,
   FontLetterSpacingGenerator,
   FontLineheightGenerator,
@@ -12,7 +13,7 @@ import {
 } from './utils';
 
 const meta: Meta = {
-  title: 'dds-design-tokens/Tokens/Typography base',
+  title: 'dds-design-tokens/Tokens/Base',
   parameters: {
     disableGlobalDecorator: true,
   },
@@ -46,4 +47,8 @@ export const LetterSpacing = () => {
 
 export const ParagraphSpacing = () => {
   return <div style={wrapperStyle}> {FontParagraphSpacingGenerator()}</div>;
+};
+
+export const DataVisualisation = () => {
+  return <div style={wrapperStyle}>{DataColorsBaseGenerator()}</div>;
 };

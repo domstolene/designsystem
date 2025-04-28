@@ -4,6 +4,7 @@ import {
   BorderRadiusGenerator,
   BreakpointsGenerator,
   ColorsGenerator,
+  DataColorsGenerator,
   GridGenerator,
   IconSizesGenerator,
   ShadowsGenerator,
@@ -38,6 +39,10 @@ export const Breakpoints = () => {
 
 export const Colors = () => {
   return <div style={wrapperStyle}> {ColorsGenerator()}</div>;
+};
+
+export const ColorsDataVisualisation = () => {
+  return <div style={wrapperStyle}> {DataColorsGenerator()}</div>;
 };
 
 export const Grid = () => {
