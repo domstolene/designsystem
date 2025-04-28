@@ -544,7 +544,7 @@
       "description": "Brukes på str ×3 og større"
     },
     "list": {
-      "value": "250%",
+      "value": "200%",
       "type": "lineHeights",
       "description": "Brukes på lister"
     }
