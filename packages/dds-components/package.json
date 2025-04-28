@@ -63,7 +63,7 @@
     "tsup": "^8.4.0",
     "typed-css-modules": "^0.9.1",
     "typescript": "^5.8.3",
-    "vite": "^6.3.2",
+    "vite": "^6.3.3",
     "vitest": "^3.1.2"
   },
   "peerDependencies": {

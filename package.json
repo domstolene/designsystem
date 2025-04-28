@@ -62,7 +62,7 @@
     "react-dom": "19.1.0",
     "storybook": "8.6.12",
     "tsup": "^8.4.0",
-    "turbo": "^2.5.0"
+    "turbo": "^2.5.2"
   },
   "pnpm": {
     "overrides": {
