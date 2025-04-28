@@ -1,5 +1,21 @@
 # @norges-domstoler/dds-design-tokens
 
+## 8.0.0
+
+### Major Changes
+
+- 2ad29a8: Endringer i palett for tertiary-fargene. Disse kan se helt annerledes ut og bruken må sjekkes. Se detaljer i [migreringsguiden v7 til v8](https://design.domstol.no/987b33f71/p/063d12-v7-til-v8).
+
+### Minor Changes
+
+- 2ad29a8: Nye farger for detavisualisering, både semantiske og base som ka brukes fritt. Se detaljer i [migreringsguiden v7 til v8](https://design.domstol.no/987b33f71/p/063d12-v7-til-v8).
+
+### Patch Changes
+
+- 2ad29a8: Små justeringer på en del grå fargetokens, som `dds-color-bg-subtle`, `dds-color-surface-medium` m.m., for bedre kontraster.
+- 2ad29a8: Metning på enkelte farger justeres.
+- 03aac33: Justerer på token for linjehøyde i lister fra 2.5 til 2.
+
 ## 7.3.0
 
 ### Minor Changes
