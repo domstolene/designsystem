@@ -1,5 +1,38 @@
 # @norges-domstoler/dds-components
 
+## 21.0.0
+
+### Major Changes
+
+- b09e10b: Fjerner types `MaxWidthGrid`, `RowGapGrid` og `ColumnGapGrid` i `<Grid>`; disse brukes istedet på tvers av layout primitives.
+- 80da191: Endrer hvordan `width` prop fungerer i `<PhoneInput>` og `<InputStepper>`. Den setter bredde for hele input-gruppen, og ikke bare inputfeltet. Se detaljer i [migreringsguiden v20 til v21](https://design.domstol.no/987b33f71/p/88e4c8-v20-til-v21).
+- b09e10b: Endrer verdi `'onInverse'` til `'on-inverse'` for `color` prop i `<Divider>`.
+- b09e10b: Endrer navnet på `type ScreenSizeLiteral` til `Breakpoint`
+- b09e10b: Bytter navn på type `StackSpacing` til `SpacingScale`, og tar den i bruk på tvers av layout primitives.
+- b09e10b: Bytter navn på props i `<HStack>` og `<VStack>`: `align` -> `alignItems`, `justify` -> `justifyContent`.
+- b09e10b: Revamper komponenter `<VStack>`, `<HStack>`, `<Grid>` og `<Paper>` i samsvar med layout primitives-standarden inkludert polymorfi, utvidet støtte for CSS props og responsiv skjuling. Se detaljer i [migreringsguiden v20 til v21](https://design.domstol.no/987b33f71/p/88e4c8-v20-til-v21).
+- 80da191: Endrer hvordan enkelte props fungerer i `<NativeSelect>`; `className` og `style` settes nå på rotcontainer, mens `width` settes på kontainer for `<select>` og chevronikonet. På denne måten er det likt på tvers av inputkomponenter og fleksibelt.
+
+### Minor Changes
+
+- b09e10b: Legger til nye layout primitives: `<Box>` og `<ShowHide>`. Se detaljer i [migreringsguiden v20 til v21](https://design.domstol.no/987b33f71/p/88e4c8-v20-til-v21).
+- 80da191: Utvider `width` og `height` props til å støtte responsive verdier i `<Skeleton>`. Se detaljer i [migreringsguiden v20 til v21](https://design.domstol.no/987b33f71/p/88e4c8-v20-til-v21).
+- b09e10b: Ny hook: `useWindowResize()`. Brukes for funksjonalitet som kjøres når brukeren endrer vindusstørrelse.
+- 80da191: Utvider `widthProps` prop til å støtte responsive verdier i `<Drawer>`. Se detaljer i [migreringsguiden v20 til v21](https://design.domstol.no/987b33f71/p/88e4c8-v20-til-v21).
+- 80da191: Utvider `width` prop til å støtte responsive verdier i følgende komponenter: `<FileUploader>`, `<TextInput>`, `<TextArea>`, `<NativeSelect>`, `<Select>`, `<ProgressBar>`, `<DatePicker>`, `<InlineEditInput>`, `<InlineEditTextArea>`, `<LocalMessage>`, `<ToggleBar>`, `<PhoneInput>`, `<InputStepper>`. Se detaljer i [migreringsguiden v20 til v21](https://design.domstol.no/987b33f71/p/88e4c8-v20-til-v21).
+- ab90914: Ny prop i `<Legend>`: `typoghraphyType`. Den støtter typografistilier for overskrifter. Brukes når komponenten trenger størrelsen tilpasset etter overskriftshierarki ellers på siden.
+- f054b3e: Justerer på layout for Modal og Drawer. Gjør header sticky, og flytter header opp på linje med lukke-knapp for å redusere spacing i toppen.
+- e780239: Ny komponent: `<CookieBanner>`. Brukes til samtykkebanner for informasjonskapsler.
+- b09e10b: Legger til `<FieldsetGroup>` delkomponent som bruker riktig spacing og layout ut av boksen.
+- 80da191: Utvider `sizeProps` prop til å støtte responsive verdier i `<Popover>`. Se detaljer i [migreringsguiden v20 til v21](https://design.domstol.no/987b33f71/p/88e4c8-v20-til-v21).
+- 1e48bbb: Ny prop `smallScreenBreakpoint` i `<DetailList>`. Den gjør om rader (`<DetailListRow>`) til kolonner.
+
+### Patch Changes
+
+- 80da191: Fikser bug der `<NativeSelect>` ikke støttet prosentverdi for `width` prop.
+- 7b4d48a: Tegnteller plasseres nå under inpufeltet til høyre i `<TextInput>` og `<TextArea>`. Hvis det blir for lite plass til feilmelding eller hjelpetekst vurder å gjøre inputfeltet bredere.
+- ab90914: Fjerner fast spacing på bunnen i `<Legend>` ved bruk av `withMargins` prop; den arver nå spacing fra valgt typografistil.
+
 ## 20.2.0
 
 ### Minor Changes
