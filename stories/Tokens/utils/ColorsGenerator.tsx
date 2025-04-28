@@ -4,20 +4,20 @@ import jsonC from '@norges-domstoler/dds-design-tokens/dds/tokens/Core.json';
 import { copyButton } from './CopyButton';
 import { type TokenColorJsonObject } from './Tokens.types';
 import {
+  Box,
+  HStack,
   Heading,
+  Paper,
+  StylelessList,
   Table,
   Typography,
+  VStack,
   VisuallyHidden,
 } from '../../../packages/dds-components/src/index';
 
 export const ColorsGenerator = () => {
   const tokens: TokenColorJsonObject = jsonC['dds-color'];
   const baseTokens: TokenColorJsonObject = jsonBase['dds-color-base'];
-  const cssStyle = ` .dds-color-preview {
-                height: var(--dds-spacing-x2);
-                width: var(--dds-spacing-x2);
-                border: 1px solid var(--dds-color-border-default);
-            }`;
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -41,12 +41,14 @@ export const ColorsGenerator = () => {
               {alpha}
             </Table.Cell>
             <Table.Cell>
-              <div
-                className="dds-color-preview"
+              <Paper
+                height="var(--dds-spacing-x2"
+                width="var(--dds-spacing-x2"
+                border="border-default"
                 style={{
                   background: `var(${tokenName})`,
                 }}
-              ></div>
+              ></Paper>
             </Table.Cell>
             <Table.Cell>{copyButton(tokenName)}</Table.Cell>
             <Table.Cell>{token.description}</Table.Cell>
@@ -61,7 +63,6 @@ export const ColorsGenerator = () => {
 
   return (
     <Table>
-      <style>{cssStyle}</style>
       <Table.Head>
         <Table.Row>
           <Table.Cell>Token</Table.Cell>
@@ -82,11 +83,6 @@ export const ColorsGenerator = () => {
 export const DataColorsGenerator = () => {
   const tokens: TokenColorJsonObject = jsonC['dds-color-data'];
   const baseTokens: TokenColorJsonObject = jsonBase['dds-color-data'];
-  const cssStyle = ` .dds-color-preview {
-                height: var(--dds-spacing-x2);
-                width: var(--dds-spacing-x2);
-                border: 1px solid var(--dds-color-border-default);
-            }`;
 
   function generateBodyRows() {
     const rows: Array<React.JSX.Element> = [];
@@ -110,12 +106,14 @@ export const DataColorsGenerator = () => {
               {alpha}
             </Table.Cell>
             <Table.Cell>
-              <div
-                className="dds-color-preview"
+              <Paper
+                height="var(--dds-spacing-x2"
+                width="var(--dds-spacing-x2"
+                border="border-default"
                 style={{
                   background: `var(${tokenName})`,
                 }}
-              ></div>
+              ></Paper>
             </Table.Cell>
             <Table.Cell>{copyButton(tokenName)}</Table.Cell>
             <Table.Cell>{token.description}</Table.Cell>
@@ -130,7 +128,6 @@ export const DataColorsGenerator = () => {
 
   return (
     <Table>
-      <style>{cssStyle}</style>
       <Table.Head>
         <Table.Row>
           <Table.Cell>Token</Table.Cell>
@@ -150,29 +147,13 @@ export const DataColorsGenerator = () => {
 
 export const DataColorsBaseGenerator = () => {
   const baseTokens: TokenColorJsonObject = jsonBase['dds-color-data'];
-  const cssStyle = ` .dds-color-preview {
-                height: 100px;
-                width: 100px;
-
-                }
+  const cssStyle = `
                 .dds-main-container {
-                display: flex;
-                flex-direction: column;
-                gap: var(--dds-spacing-x6);
                 text-transform: capitalize;
-                }
-
-
-                .dds-tokens-container {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: var(--dds-spacing-x1);
-                max-width: 900px;
                 }
                 `;
 
-  function generateBodyRows() {
+  function generateCards() {
     const categoryContainers: Array<React.JSX.Element> = [];
 
     for (const key1 in baseTokens) {
@@ -182,28 +163,21 @@ export const DataColorsBaseGenerator = () => {
         const token = baseTokens[key1][key2];
         const tokenName = `${key2}`;
         tokens.push(
-          <div>
-            <div style={{ width: 'fit-content' }}>
-              <div>
-                <div
-                  className="dds-color-preview"
-                  style={{
-                    background: `var(--dds-color-data-${key1}-${tokenName})`,
-                  }}
-                ></div>
-                <Heading level={2} typographyType="headingXsmall">
-                  {tokenName}
-                </Heading>
-                <Typography
-                  as="span"
-                  typographyType="bodySmall"
-                  color="textMedium"
-                >
-                  {token.value}
-                </Typography>
-              </div>
-            </div>
-          </div>,
+          <VStack as="li" gap="x0.25">
+            <Box
+              height="100px"
+              width="100px"
+              style={{
+                background: `var(--dds-color-data-${key1}-${tokenName})`,
+              }}
+            />
+            <Heading level={2} typographyType="headingXsmall">
+              {tokenName}
+            </Heading>
+            <Typography as="span" typographyType="bodySmall" color="textMedium">
+              {token.value}
+            </Typography>
+          </VStack>,
         );
       }
       categoryContainers.push(
@@ -211,7 +185,9 @@ export const DataColorsBaseGenerator = () => {
           <Heading level={2} withMargins typographyType="headingMedium">
             {key1}
           </Heading>
-          <div className="dds-tokens-container">{tokens}</div>
+          <HStack as={StylelessList} gap="x1" maxWidth="900px" flexWrap="wrap">
+            {tokens}
+          </HStack>
         </div>,
       );
     }
@@ -220,39 +196,22 @@ export const DataColorsBaseGenerator = () => {
   }
 
   return (
-    <div className="dds-main-container">
+    <VStack className="dds-main-container" gap="x6">
       <style>{cssStyle}</style>
-      {generateBodyRows()}
-    </div>
+      {generateCards()}
+    </VStack>
   );
 };
 
 export const ColorsBaseGenerator = () => {
   const baseTokens: TokenColorJsonObject = jsonBase['dds-color-base'];
-  const cssStyle = ` .dds-color-preview {
-                height: 100px;
-                width: 100px;
-
-                }
-                .dds-main-container {
-                display: flex;
-                flex-direction: column;
-                gap: var(--dds-spacing-x6);
-                }
+  const cssStyle = `
                 .category-heading {
                   text-transform: capitalize;
                 }
-
-                .dds-tokens-container {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: var(--dds-spacing-x1);
-                max-width: 900px;
-                }
                 `;
 
-  function generateBodyRows() {
+  function generateCards() {
     const categoryContainers: Array<React.JSX.Element> = [];
 
     for (const key1 in baseTokens) {
@@ -262,28 +221,21 @@ export const ColorsBaseGenerator = () => {
         const token = baseTokens[key1][key2];
         const tokenName = `${key2}`;
         tokens.push(
-          <div>
-            <div style={{ width: 'fit-content' }}>
-              <div>
-                <div
-                  className="dds-color-preview"
-                  style={{
-                    background: token.value,
-                  }}
-                ></div>
-                <Heading level={2} typographyType="headingXsmall">
-                  {tokenName}
-                </Heading>
-                <Typography
-                  as="span"
-                  typographyType="bodySmall"
-                  color="textMedium"
-                >
-                  {token.value}
-                </Typography>
-              </div>
-            </div>
-          </div>,
+          <VStack gap="x0.25" as="li">
+            <Box
+              width="100px"
+              height="100px"
+              style={{
+                background: token.value,
+              }}
+            />
+            <Heading level={2} typographyType="headingXsmall">
+              {tokenName}
+            </Heading>
+            <Typography as="span" typographyType="bodySmall" color="textMedium">
+              {token.value}
+            </Typography>
+          </VStack>,
         );
       }
       categoryContainers.push(
@@ -296,7 +248,9 @@ export const ColorsBaseGenerator = () => {
           >
             {key1}
           </Heading>
-          <div className="dds-tokens-container">{tokens}</div>
+          <HStack as={StylelessList} flexWrap="wrap" gap="x1" maxWidth="900px">
+            {tokens}
+          </HStack>
         </div>,
       );
     }
@@ -305,9 +259,9 @@ export const ColorsBaseGenerator = () => {
   }
 
   return (
-    <div className="dds-main-container">
+    <VStack gap="x6" className="dds-main-container">
       <style>{cssStyle}</style>
-      {generateBodyRows()}
-    </div>
+      {generateCards()}
+    </VStack>
   );
 };
