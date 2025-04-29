@@ -14,14 +14,26 @@ describe('<DetailList>', () => {
         </DetailListRow>
       </DetailList>,
     );
-    const terms = screen.getAllByRole('term');
-    expect(terms).toHaveLength(2);
-    expect(screen.getAllByText(termText)).toHaveLength(2);
+    const terms = screen.getByRole('term');
+    expect(terms).toBeInTheDocument();
   });
   it('should render description', () => {
     const descText = 'desc';
     render(
       <DetailList>
+        <DetailListRow>
+          <DetailListTerm />
+          <DetailListDesc>{descText}</DetailListDesc>
+        </DetailListRow>
+      </DetailList>,
+    );
+    const descs = screen.getByRole('definition');
+    expect(descs).toBeInTheDocument();
+  });
+  it('should render small screen list', () => {
+    const descText = 'desc';
+    render(
+      <DetailList smallScreenBreakpoint="sm">
         <DetailListRow>
           <DetailListTerm />
           <DetailListDesc>{descText}</DetailListDesc>

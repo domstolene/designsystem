@@ -9,22 +9,25 @@ export type DetailListRowProps = ComponentPropsWithRef<'div'>;
 
 export const DetailListRow = ({ className, ...rest }: DetailListRowProps) => {
   const { smallScreenBreakpoint: bp } = useDetailListContext();
+  const hasBp = !!bp;
 
   return (
     <>
       <Box
         display="table-row"
-        hideBelow={bp}
+        hideBelow={hasBp ? bp : undefined}
         className={cn(className, styles.row)}
         {...rest}
       />
-      <Box
-        display="flex"
-        flexDirection="column"
-        showBelow={bp}
-        className={cn(className, styles.row, styles.column)}
-        {...rest}
-      />
+      {hasBp && (
+        <Box
+          display="flex"
+          flexDirection="column"
+          showBelow={bp}
+          className={cn(className, styles.row, styles.column)}
+          {...rest}
+        />
+      )}
     </>
   );
 };
