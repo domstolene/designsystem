@@ -1,6 +1,10 @@
 import { type Meta } from '@storybook/react';
 
-import { ColorsBaseGenerator, wrapperStyle } from './utils';
+import {
+  BorderRadiusBaseGenerator,
+  ColorsBaseGenerator,
+  wrapperStyle,
+} from './utils';
 
 const meta: Meta = {
   title: 'dds-design-tokens/Tokens/NotExposed',
@@ -12,4 +16,8 @@ export default meta;
 
 export const ColorsBase = () => {
   return <div style={wrapperStyle}>{ColorsBaseGenerator()}</div>;
+};
+
+export const BorderRadiusBase = () => {
+  return <div style={wrapperStyle}>{BorderRadiusBaseGenerator()}</div>;
 };
