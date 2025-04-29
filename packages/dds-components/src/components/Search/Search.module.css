@@ -12,7 +12,6 @@
 .with-button-container {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: var(--dds-spacing-x0-5);
 }
 
 .input {
