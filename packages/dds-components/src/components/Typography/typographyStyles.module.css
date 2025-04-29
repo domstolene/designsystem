@@ -48,10 +48,8 @@
   }
 }
 
-:where(.a--visited) {
-  &:visited {
-    color: var(--dds-color-text-action-visited);
-  }
+.a--visited:visited {
+  color: var(--dds-color-text-action-visited);
 }
 
 :where(.body-xsmall) {
