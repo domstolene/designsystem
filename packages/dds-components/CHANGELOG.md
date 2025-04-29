@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 21.1.0
+
+### Minor Changes
+
+- d9cb50c: Støtte for responsiv `width` prop i `<Search>`.
+
+### Patch Changes
+
+- d591d35: Fikser bug der `<DetailList>` viste versjonen for liten skjerm samtidig som standard.
+
 ## 21.0.0
 
 ### Major Changes
