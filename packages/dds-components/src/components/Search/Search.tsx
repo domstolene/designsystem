@@ -22,6 +22,7 @@ import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
 import { CloseSmallIcon, SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
+import { Box } from '../layout';
 import { Label, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -42,7 +43,8 @@ export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
   componentSize?: SearchSize;
   /**Props for søkeknappen. */
   buttonProps?: SearchButtonProps;
-} & ComponentPropsWithRef<'input'>;
+} & Pick<InputProps, 'width'> &
+  Omit<ComponentPropsWithRef<'input'>, 'width'>;
 
 export const Search = ({
   componentSize = 'medium',
@@ -52,6 +54,7 @@ export const Search = ({
   tip,
   id,
   value,
+  width,
   onChange,
   className,
   style,
@@ -102,11 +105,13 @@ export const Search = ({
     <div className={styles.container}>
       {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
       <div>
-        <div
+        <Box
           className={cn(
             className,
             showSearchButton && styles['with-button-container'],
           )}
+          width={width}
+          gap="x0.5"
           style={style}
         >
           <div className={styles['input-group']}>
@@ -180,7 +185,7 @@ export const Search = ({
               {buttonLabel ?? 'Søk'}
             </Button>
           )}
-        </div>
+        </Box>
         {renderInputMessage(tip, tipId)}
       </div>
     </div>
