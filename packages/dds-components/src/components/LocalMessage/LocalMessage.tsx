@@ -92,8 +92,7 @@ export const LocalMessage = ({
       )}
       width={width}
       display="grid"
-      alignItems="center"
-      padding="x0.75"
+      padding="x0.75 x0.75 x0.75 x0.5"
       gap="x0.5"
     >
       <Icon
@@ -111,7 +110,7 @@ export const LocalMessage = ({
             setClosed(true);
             onClose && onClose();
           }}
-          size="small"
+          size="xsmall"
           aria-label="Lukk melding"
           className={styles.container__button}
         />

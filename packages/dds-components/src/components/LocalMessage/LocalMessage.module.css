@@ -68,7 +68,6 @@
 
 .container__text {
   grid-area: text;
-  padding-right: var(--dds-spacing-x0-75);
 }
 
 .container__icon {
@@ -77,5 +76,4 @@
 
 .container__button {
   grid-area: closeButton;
-  margin: calc(0px - var(--dds-spacing-x0-75)) 0;
 }
