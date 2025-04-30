@@ -9,7 +9,7 @@ import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, derivativeIdGenerator } from '../../utils';
 import { StylelessList } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { Paper } from '../layout';
+import { Box, Paper } from '../layout';
 import { getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
@@ -70,16 +70,21 @@ export const SearchSuggestions = ({
       )}
       aria-hidden={!showSuggestions}
       border="border-default"
+      position="absolute"
+      top="100%"
+      width="100%"
+      maxHeight="300px"
+      overflowY="scroll"
+      marginBlock="x0.25 0"
     >
-      <span
+      <Box
+        as="h2"
+        paddingInline="0 x1"
         id={suggestionsHeaderId}
-        className={cn(
-          styles.suggestions__header,
-          typographyStyles['body-xsmall'],
-        )}
+        className={typographyStyles['body-xsmall']}
       >
         Søkeforslag
-      </span>
+      </Box>
       <StylelessList role="listbox" aria-labelledby={suggestionsHeaderId}>
         {suggestionsToRender.map((suggestion, index) => {
           return (
