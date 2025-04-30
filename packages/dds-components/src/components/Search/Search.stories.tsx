@@ -48,17 +48,13 @@ export const Default: Story = {};
 export const Overview: Story = {
   render: args => (
     <StoryVStack>
-      <Search {...args} componentSize="medium" />
-      <Search {...args} componentSize="medium" tip="Dette er en hjelpetekst" />
+      <Search {...args} />
+      <Search {...args} tip="Dette er en hjelpetekst" />
       <Search {...args} label={args.label ?? 'Label'} />
+      <Search {...args} showIcon={false} />
+      <Search {...args} buttonProps={{ onClick: () => null, label: 'Søk' }} />
       <Search
         {...args}
-        componentSize="medium"
-        buttonProps={{ onClick: () => null, label: 'Søk' }}
-      />
-      <Search
-        {...args}
-        componentSize="medium"
         buttonProps={{
           onClick: () => null,
           purpose: 'secondary',
@@ -66,14 +62,9 @@ export const Overview: Story = {
       />
       <Search
         {...args}
-        componentSize="medium"
         buttonProps={{ onClick: () => null, label: 'Custom label' }}
       />
-      <Search
-        {...args}
-        componentSize="medium"
-        buttonProps={{ onClick: () => null, loading: true }}
-      />
+      <Search {...args} buttonProps={{ onClick: () => null, loading: true }} />
     </StoryVStack>
   ),
 };

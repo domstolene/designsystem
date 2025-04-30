@@ -22,7 +22,7 @@ import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
 import { CloseSmallIcon, SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
-import { Box } from '../layout';
+import { Box, Grid, HStack, type ResponsiveProps, VStack } from '../layout';
 import { Label, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -38,17 +38,47 @@ const getIconSize = (size: SearchSize): IconSize => {
   }
 };
 
+const getPadding = (
+  size: SearchSize,
+  showIcon: boolean,
+): ResponsiveProps['padding'] => {
+  /**Avhengig av størrelse på tømmeknapp  */
+  const paddingRight = (textSize: string) => `calc(
+ var(--dds-spacing-x1) + ${textSize} * 1.5 + var(--dds-spacing-x0-5)
+ )`;
+  /**Avhengig av størrelse på søkeikonet */
+  const paddingLeft = (iconSize: string) => `calc(
+ var(--dds-spacing-x0-75) + ${iconSize} + var(--dds-spacing-x0-5)
+ )`;
+
+  const pRSmallButton = paddingRight('0.875rem');
+  const pRMediumButton = paddingRight('1rem');
+  const pLSmallIcon = paddingLeft('var(--dds-icon-size-small)');
+  const pLMediumIcon = paddingLeft('var(--dds-icon-size-medium)');
+
+  const paddingMap = {
+    large: `x1 ${pRMediumButton} x1 ${showIcon ? pLMediumIcon : 'x0.75'}`,
+    medium: `x0.75 ${pRSmallButton} x0.75 ${showIcon ? pLMediumIcon : 'x0.75'}`,
+    small: `x0.5 ${pRSmallButton} x0.5 ${showIcon ? pLSmallIcon : 'x0.75'}`,
+  };
+
+  return paddingMap[size];
+};
+
 export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
   /**Størrelsen på komponenten. */
   componentSize?: SearchSize;
   /**Props for søkeknappen. */
   buttonProps?: SearchButtonProps;
+  /**Om søkeikonet skal vises. */
+  showIcon?: boolean;
 } & Pick<InputProps, 'width'> &
   Omit<ComponentPropsWithRef<'input'>, 'width'>;
 
 export const Search = ({
   componentSize = 'medium',
   buttonProps,
+  showIcon = true,
   name,
   label,
   tip,
@@ -100,83 +130,91 @@ export const Search = ({
 
   const hasSuggestions = !!context.suggestions;
   const showSearchButton = !!buttonProps && !!onClick;
-
+  const inputGroup = (
+    <HStack
+      position="relative"
+      width={!showSearchButton ? width : undefined}
+      className={!showSearchButton ? className : undefined}
+    >
+      {showIcon && (
+        <Icon
+          icon={SearchIcon}
+          iconSize={getIconSize(componentSize)}
+          className={cn(
+            inputStyles['input-group__absolute-element'],
+            styles['search-icon'],
+          )}
+        />
+      )}
+      <Box
+        as={Input}
+        {...rest}
+        ref={combinedRef}
+        name={name}
+        type="search"
+        id={uniqueId}
+        aria-describedby={spaceSeparatedIdListGenerator([
+          tip ? tipId : undefined,
+          context.suggestions ? suggestionsDescriptionId : undefined,
+          ariaDescribedby,
+        ])}
+        value={context.inputValue ?? value}
+        onChange={handleChange}
+        autoComplete="off"
+        aria-autocomplete={hasSuggestions ? 'list' : undefined}
+        aria-controls={hasSuggestions ? suggestionsId : undefined}
+        aria-expanded={context.showSuggestions}
+        role={hasSuggestions ? 'combobox' : undefined}
+        width="100%"
+        padding={getPadding(componentSize, showIcon)}
+        className={cn(
+          styles.input,
+          typographyStyles[getTypographyCn(typographyTypes[componentSize])],
+        )}
+      />
+      {hasSuggestions && (
+        <>
+          <SearchSuggestions
+            id={suggestionsId}
+            ref={context.suggestionsRef}
+            searchId={uniqueId}
+            onSuggestionClick={context.onSugggestionClick}
+            suggestions={context.suggestions}
+            showSuggestions={context.showSuggestions}
+            componentSize={componentSize}
+          />
+          <VisuallyHidden id={suggestionsDescriptionId} as="span">
+            Bla i søkeforslag med piltaster når listen er utvidet.
+          </VisuallyHidden>
+        </>
+      )}
+      {hasValue && (
+        <Button
+          icon={CloseSmallIcon}
+          size={componentSize === 'large' ? 'medium' : 'small'}
+          purpose="tertiary"
+          aria-label="Tøm"
+          onClick={clearInput}
+          className={styles['clear-button']}
+        />
+      )}
+    </HStack>
+  );
   return (
-    <div className={styles.container}>
+    <VStack gap="x0.125">
       {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
       <div>
-        <Box
-          className={cn(
-            className,
-            showSearchButton && styles['with-button-container'],
-          )}
-          width={width}
-          gap="x0.5"
-          style={style}
-        >
-          <div className={styles['input-group']}>
-            <Icon
-              icon={SearchIcon}
-              iconSize={getIconSize(componentSize)}
-              className={cn(
-                inputStyles['input-group__absolute-element'],
-                styles['search-icon'],
-              )}
-            />
-            <Input
-              {...rest}
-              ref={combinedRef}
-              name={name}
-              type="search"
-              id={uniqueId}
-              aria-describedby={spaceSeparatedIdListGenerator([
-                tip ? tipId : undefined,
-                context.suggestions ? suggestionsDescriptionId : undefined,
-                ariaDescribedby,
-              ])}
-              value={context.inputValue ?? value}
-              onChange={handleChange}
-              autoComplete="off"
-              aria-autocomplete={hasSuggestions ? 'list' : undefined}
-              aria-controls={hasSuggestions ? suggestionsId : undefined}
-              aria-expanded={context.showSuggestions}
-              role={hasSuggestions ? 'combobox' : undefined}
-              className={cn(
-                styles.input,
-                styles[`input--${componentSize}`],
-                typographyStyles[
-                  getTypographyCn(typographyTypes[componentSize])
-                ],
-              )}
-            />
-            {hasSuggestions && (
-              <>
-                <SearchSuggestions
-                  id={suggestionsId}
-                  ref={context.suggestionsRef}
-                  searchId={uniqueId}
-                  onSuggestionClick={context.onSugggestionClick}
-                  suggestions={context.suggestions}
-                  showSuggestions={context.showSuggestions}
-                  componentSize={componentSize}
-                />
-                <VisuallyHidden id={suggestionsDescriptionId} as="span">
-                  Bla i søkeforslag med piltaster når listen er utvidet.
-                </VisuallyHidden>
-              </>
-            )}
-            {hasValue && (
-              <Button
-                icon={CloseSmallIcon}
-                size={componentSize === 'large' ? 'medium' : 'small'}
-                purpose="tertiary"
-                aria-label="Tøm"
-                onClick={clearInput}
-                className={styles['clear-button']}
-              />
-            )}
-          </div>
-          {showSearchButton && (
+        {showSearchButton ? (
+          <Grid
+            className={className}
+            width={width}
+            columnGap="x0.5"
+            rowGap="0"
+            marginInline="0"
+            gridTemplateColumns="1fr auto"
+            style={style}
+          >
+            {inputGroup}
             <Button
               size={componentSize}
               onClick={onClick}
@@ -184,11 +222,13 @@ export const Search = ({
             >
               {buttonLabel ?? 'Søk'}
             </Button>
-          )}
-        </Box>
+          </Grid>
+        ) : (
+          inputGroup
+        )}
         {renderInputMessage(tip, tipId)}
       </div>
-    </div>
+    </VStack>
   );
 };
 
