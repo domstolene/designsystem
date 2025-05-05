@@ -1,28 +1,33 @@
 .list {
   --dds-progress-tracker-connector-width: 1px;
   --dds-progress-tracker-item-number-size: 1.75rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--dds-spacing-x0-125);
-  margin: 0;
-  padding: 0;
 }
 
-.connector {
+.connector--column {
   border-right: var(--dds-progress-tracker-connector-width) solid
     var(--dds-color-border-default);
   width: 1px;
-  height: 18px;
+  height: 1.125rem;
   margin-left: calc(
     (var(--dds-progress-tracker-item-number-size) / 2) -
       (var(--dds-progress-tracker-connector-width) / 2)
   );
 }
 
+.connector--row {
+  flex: 0 0 auto;
+  border-top: var(--dds-progress-tracker-connector-width) solid
+    var(--dds-color-border-default);
+  height: 1px;
+  width: 1.875rem;
+  margin-top: calc(
+    (var(--dds-progress-tracker-item-number-size) / 2) -
+      (var(--dds-progress-tracker-connector-width) / 2)
+  );
+}
+
 .item {
-  flex: 1;
+  flex: 0 0 auto;
   position: relative;
   display: flex;
   justify-content: center;
