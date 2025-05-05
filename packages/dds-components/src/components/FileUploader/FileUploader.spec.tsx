@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { type ComponentProps, useState } from 'react';
 import { describe, expect, it } from 'vitest';
@@ -20,14 +20,18 @@ describe('<FileUploader>', () => {
     render(<FileUploaderTest />);
     const fileInput = screen.getByTestId('file-uploader-input');
     await userEvent.upload(fileInput, file);
-    expect(screen.getByText('hello.png', {})).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('hello.png', {})).toBeInTheDocument();
+    });
   });
 
   it('accepts uploading files with accept prop', async () => {
     render(<FileUploaderTest accept={['image/png']} />);
     const fileInput = screen.getByTestId('file-uploader-input');
     await userEvent.upload(fileInput, file);
-    expect(screen.getByText('hello.png', {})).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('hello.png', {})).toBeInTheDocument();
+    });
   });
 
   it('should render label', () => {
