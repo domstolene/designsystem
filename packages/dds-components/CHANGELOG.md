@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 21.2.0
+
+### Minor Changes
+
+- 54fa9b9: Støtte for horisontal `<ProgressTracker>` via ny prop: `direction`. Komponenten er fortsatt vertikal som default.
+- 2fa60d9: Støtte for å skjule søkeikon i `<Search>` via `showIcon` prop.
+- 2fa60d9: Fjerner unødvendig nøstet `<div>` i`<Search>` når søkeknappen ikke er der og justerer på avstander. Kan påvirke layout.
+
+### Patch Changes
+
+- d24e64a: Endrer layout i `LocalMessage` slik at ikon legger seg på toppen ved flere linjer med tekst. Fikser andre små feil som avstander og størrelse på lukkeknapp.
+
 ## 21.1.0
 
 ### Minor Changes
