@@ -3,7 +3,7 @@
   "include": [
     "src",
     "stories/patterns",
-    ".eslintrc.cjs",
+    "eslint.config.cjs",
     "vitest.config.ts",
     "tsup.config.ts",
     "modules/custom.d.ts"
