@@ -78,6 +78,9 @@
   $dds-zindex-dropdown: var(--dds-zindex-dropdown); /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   $dds-zindex-sticky: var(--dds-zindex-sticky); /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   $dds-zindex-absolute-element: var(--dds-zindex-absolute-element); /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
+  $dds-color-data-10-default: var(--dds-color-data-10-default);
+  $dds-color-data-10-subtle: var(--dds-color-data-10-subtle);
+  $dds-color-data-10-border: var(--dds-color-data-10-border);
   $dds-color-data-red-100: var(--dds-color-data-red-100);
   $dds-color-data-red-200: var(--dds-color-data-red-200);
   $dds-color-data-red-300: var(--dds-color-data-red-300);
@@ -168,6 +171,33 @@
   $dds-color-data-gray-700: var(--dds-color-data-gray-700);
   $dds-color-data-gray-800: var(--dds-color-data-gray-800);
   $dds-color-data-gray-900: var(--dds-color-data-gray-900);
+  $dds-color-data-01-default: var(--dds-color-data-01-default);
+  $dds-color-data-01-subtle: var(--dds-color-data-01-subtle);
+  $dds-color-data-01-border: var(--dds-color-data-01-border);
+  $dds-color-data-02-default: var(--dds-color-data-02-default);
+  $dds-color-data-02-subtle: var(--dds-color-data-02-subtle);
+  $dds-color-data-02-border: var(--dds-color-data-02-border);
+  $dds-color-data-03-default: var(--dds-color-data-03-default);
+  $dds-color-data-03-subtle: var(--dds-color-data-03-subtle);
+  $dds-color-data-03-border: var(--dds-color-data-03-border);
+  $dds-color-data-04-default: var(--dds-color-data-04-default);
+  $dds-color-data-04-subtle: var(--dds-color-data-04-subtle);
+  $dds-color-data-04-border: var(--dds-color-data-04-border);
+  $dds-color-data-05-default: var(--dds-color-data-05-default);
+  $dds-color-data-05-subtle: var(--dds-color-data-05-subtle);
+  $dds-color-data-05-border: var(--dds-color-data-05-border);
+  $dds-color-data-06-default: var(--dds-color-data-06-default);
+  $dds-color-data-06-subtle: var(--dds-color-data-06-subtle);
+  $dds-color-data-06-border: var(--dds-color-data-06-border);
+  $dds-color-data-07-default: var(--dds-color-data-07-default);
+  $dds-color-data-07-subtle: var(--dds-color-data-07-subtle);
+  $dds-color-data-07-border: var(--dds-color-data-07-border);
+  $dds-color-data-08-default: var(--dds-color-data-08-default);
+  $dds-color-data-08-subtle: var(--dds-color-data-08-subtle);
+  $dds-color-data-08-border: var(--dds-color-data-08-border);
+  $dds-color-data-09-default: var(--dds-color-data-09-default);
+  $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
+  $dds-color-data-09-border: var(--dds-color-data-09-border);
   $dds-color-bg-default: var(--dds-color-bg-default); /* UI shell base color */
   $dds-color-bg-subtle: var(--dds-color-bg-subtle); /* Alternative UI shell base color */
   $dds-color-surface-default: var(--dds-color-surface-default); /* Default bg */
@@ -255,36 +285,6 @@
   $dds-color-brand-tertiary-strong: var(--dds-color-brand-tertiary-strong); /* Tertiary brand color */
   $dds-color-focus-outside: var(--dds-color-focus-outside); /* Contrast to .inside */
   $dds-color-focus-inside: var(--dds-color-focus-inside); /* Contrast to .outside */
-  $dds-color-data-10-default: var(--dds-color-data-10-default);
-  $dds-color-data-10-subtle: var(--dds-color-data-10-subtle);
-  $dds-color-data-10-border: var(--dds-color-data-10-border);
-  $dds-color-data-01-default: var(--dds-color-data-01-default);
-  $dds-color-data-01-subtle: var(--dds-color-data-01-subtle);
-  $dds-color-data-01-border: var(--dds-color-data-01-border);
-  $dds-color-data-02-default: var(--dds-color-data-02-default);
-  $dds-color-data-02-subtle: var(--dds-color-data-02-subtle);
-  $dds-color-data-02-border: var(--dds-color-data-02-border);
-  $dds-color-data-03-default: var(--dds-color-data-03-default);
-  $dds-color-data-03-subtle: var(--dds-color-data-03-subtle);
-  $dds-color-data-03-border: var(--dds-color-data-03-border);
-  $dds-color-data-04-default: var(--dds-color-data-04-default);
-  $dds-color-data-04-subtle: var(--dds-color-data-04-subtle);
-  $dds-color-data-04-border: var(--dds-color-data-04-border);
-  $dds-color-data-05-default: var(--dds-color-data-05-default);
-  $dds-color-data-05-subtle: var(--dds-color-data-05-subtle);
-  $dds-color-data-05-border: var(--dds-color-data-05-border);
-  $dds-color-data-06-default: var(--dds-color-data-06-default);
-  $dds-color-data-06-subtle: var(--dds-color-data-06-subtle);
-  $dds-color-data-06-border: var(--dds-color-data-06-border);
-  $dds-color-data-07-default: var(--dds-color-data-07-default);
-  $dds-color-data-07-subtle: var(--dds-color-data-07-subtle);
-  $dds-color-data-07-border: var(--dds-color-data-07-border);
-  $dds-color-data-08-default: var(--dds-color-data-08-default);
-  $dds-color-data-08-subtle: var(--dds-color-data-08-subtle);
-  $dds-color-data-08-border: var(--dds-color-data-08-border);
-  $dds-color-data-09-default: var(--dds-color-data-09-default);
-  $dds-color-data-09-subtle: var(--dds-color-data-09-subtle);
-  $dds-color-data-09-border: var(--dds-color-data-09-border);
   $dds-border-radius-button: var(--dds-border-radius-button); /* For use in button component and togglebutton */
   $dds-border-radius-surface: var(--dds-border-radius-surface); /* Most surfaces, for example cards, papers, messages, backgrounds in GUI */
   $dds-border-radius-input: var(--dds-border-radius-input); /* All input fields, and check boxes */
