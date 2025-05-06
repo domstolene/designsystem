@@ -149,6 +149,57 @@ export const WithIcons: Story = {
   },
 };
 
+export const Horisontal: Story = {
+  render: args => {
+    const numSteps = 3;
+
+    const [activeStep, setActiveStep] = useState(0);
+    const [completedSteps, setCompletedSteps] = useState(new Set());
+
+    return (
+      <VStack gap="x1.5">
+        <ProgressTracker
+          {...args}
+          direction="row"
+          activeStep={activeStep}
+          onStepChange={step => setActiveStep(step)}
+        >
+          <ProgressTracker.Item completed={completedSteps.has(0)}>
+            Parter
+          </ProgressTracker.Item>
+          <ProgressTracker.Item completed={completedSteps.has(1)}>
+            Slutning
+          </ProgressTracker.Item>
+          <ProgressTracker.Item completed={completedSteps.has(2)}>
+            Vedlegg
+          </ProgressTracker.Item>
+          <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
+            Sammendrag
+          </ProgressTracker.Item>
+        </ProgressTracker>
+
+        <div>
+          {activeStep === 0 && <div>Steg 1</div>}
+          {activeStep === 1 && <div>Steg 2</div>}
+          {activeStep === 2 && <div>Steg 3</div>}
+          {activeStep === 3 && <div>Steg 4</div>}
+        </div>
+
+        <Button
+          onClick={() => {
+            setCompletedSteps(s => new Set([...s, activeStep]));
+            if (activeStep < numSteps - 1) {
+              setActiveStep(s => s + 1);
+            }
+          }}
+        >
+          Sett som ferdig
+        </Button>
+      </VStack>
+    );
+  },
+};
+
 export const FutureStepsDisabled: Story = {
   render: args => {
     const numSteps = 3;

@@ -19,8 +19,13 @@ import {
 } from './ProgressTrackerItem';
 import {
   type BaseComponentPropsWithChildren,
+  type Direction,
   getBaseHTMLProps,
 } from '../../types';
+import { cn } from '../../utils';
+import { StylelessOList } from '../helpers';
+import { scrollbar } from '../helpers/styling/utilStyles.module.css';
+import { Box } from '../layout';
 
 export type ProgressTrackerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -31,6 +36,8 @@ export type ProgressTrackerProps = BaseComponentPropsWithChildren<
     activeStep?: number;
     /** Ekstra logikk ved klikking på et steg. */
     onStepChange?: (step: number) => void;
+    /**Retning stegene gjengis i. OBS! Ikke tilpasset mindre skjermer. */
+    direction?: Direction;
   }
 >;
 
@@ -44,6 +51,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     id,
     activeStep = 0,
     onStepChange,
+    direction = 'column',
     children,
     className,
     htmlProps,
@@ -65,10 +73,14 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     const steps = useMemo(() => {
       const validChildren = removeInvalidChildren(children);
       const itemsWithIndex = passIndexPropToProgressTrackerItem(validChildren);
-      const itemsWithConnectorsBetween =
-        intersperseItemsWithConnector(itemsWithIndex);
+      const itemsWithConnectorsBetween = intersperseItemsWithConnector(
+        itemsWithIndex,
+        direction,
+      );
       return itemsWithConnectorsBetween;
     }, [children]);
+
+    const isRow = direction === 'row';
 
     return (
       <ProgressTrackerContext
@@ -82,7 +94,19 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
           aria-label="progress"
           {...getBaseHTMLProps(id, className, htmlProps, rest)}
         >
-          <ol className={styles.list}>{steps}</ol>
+          <Box
+            as={StylelessOList}
+            display="flex"
+            flexDirection={direction}
+            alignItems="start"
+            gap={isRow ? 'x0.5' : 'x0.125'}
+            overflowX={isRow ? 'auto' : undefined}
+            margin="0"
+            padding={isRow ? 'x0.25' : '0'}
+            className={cn(styles.list, scrollbar)}
+          >
+            {steps}
+          </Box>
         </div>
       </ProgressTrackerContext>
     );
@@ -110,6 +134,7 @@ function passIndexPropToProgressTrackerItem<TProps extends object>(
 
 const intersperseItemsWithConnector = (
   children: Array<ReactElement<ProgressTrackerItemProps>>,
+  direction: Direction,
 ) =>
   Children.map(children, (child, index) => {
     if (index === 0) {
@@ -117,7 +142,7 @@ const intersperseItemsWithConnector = (
     }
     return (
       <Fragment key={index}>
-        <div aria-hidden className={styles.connector} />
+        <div aria-hidden className={styles[`connector--${direction}`]} />
         {child}
       </Fragment>
     );
