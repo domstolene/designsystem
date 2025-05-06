@@ -8,12 +8,12 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
+import { convertBooleanishToBoolean } from '../../../types/Booleanish';
 import { cn } from '../../../utils';
 import { renderInputMessage } from '../../InputMessage';
 import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
 import { GroupLabel } from '../SelectionControl.styles';
-import { convertBooleanishToBoolean } from '../../../types/Booleanish';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<

@@ -1,14 +1,13 @@
 import { type HTMLAttributes, type LabelHTMLAttributes } from 'react';
 
 import styles from './SelectionControl.module.css';
-import { cn, RequiredMarker } from '../../utils';
-import typographyStyles from '../Typography/typographyStyles.module.css';
-import { Box } from '../layout';
-import { Typography } from '../Typography';
+import { RequiredMarker, cn } from '../../utils';
 import { Icon } from '../Icon';
 import { LockIcon } from '../Icon/icons';
-
+import { Box } from '../layout';
+import { Typography } from '../Typography';
 import labelStyles from '../Typography/Label/Label.module.css';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 type SelectionControlType = 'radio' | 'checkbox';
 
 type SelectionControlProps = {
@@ -71,12 +70,12 @@ export const Label = ({
   );
 };
 
-type SelectionControlGroupLabelProps = {
+interface SelectionControlGroupLabelProps {
   id?: string;
   showRequiredMarker?: boolean;
   readOnly?: boolean;
   children?: string;
-};
+}
 
 export const GroupLabel = ({
   id,
