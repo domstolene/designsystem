@@ -82,6 +82,8 @@ module.exports = defineConfig([
 
       'import/no-unresolved': 'error',
 
+      'import/no-cycle': 'error',
+
       'import/order': [
         'error',
         {
