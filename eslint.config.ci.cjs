@@ -1,9 +1,12 @@
+const { defineConfig } = require('eslint/config');
 const baseConfig = require('./eslint.config.cjs');
 
-module.exports = {
-  ...baseConfig,
-  rules: {
-    ...baseConfig.rules,
-    'import/no-cycle': 'error',
+module.exports = defineConfig([
+  {
+    ...baseConfig,
+    rules: {
+      ...baseConfig.rules,
+      'import/no-cycle': 'error',
+    },
   },
-};
+]);
