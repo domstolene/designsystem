@@ -80,6 +80,9 @@
   --dds-zindex-dropdown: 100; /* Dropdown brukes for bl.a søkeforslag, dropdown i select */
   --dds-zindex-sticky: 50; /* Sticky header skal dekke til flat innhold i gruppen (tabell o.l.). Den skal legge seg under elementer som stiller med egne flater */
   --dds-zindex-absolute-element: 1; /* Dekorative elementer med absolutt posisjon, som ellers hadde blitt skjult bak forelder */
+  --dds-color-data-10-default: #196b8f;
+  --dds-color-data-10-subtle: #96c5d9;
+  --dds-color-data-10-border: #196b8f;
   --dds-color-data-red-100: #f8d2d4;
   --dds-color-data-red-200: #f0a5a9;
   --dds-color-data-red-300: #e9787e;
@@ -170,11 +173,38 @@
   --dds-color-data-gray-700: #444444;
   --dds-color-data-gray-800: #2e2e2e;
   --dds-color-data-gray-900: #171717;
+  --dds-color-data-01-default: #0f62fe;
+  --dds-color-data-01-subtle: #9fc0ff;
+  --dds-color-data-01-border: #0f62fe;
+  --dds-color-data-02-default: #b3572f;
+  --dds-color-data-02-subtle: #e1bcac;
+  --dds-color-data-02-border: #b3572f;
+  --dds-color-data-03-default: #727272;
+  --dds-color-data-03-subtle: #c7c7c7;
+  --dds-color-data-03-border: #727272;
+  --dds-color-data-04-default: #198038;
+  --dds-color-data-04-subtle: #a3ccaf;
+  --dds-color-data-04-border: #198038;
+  --dds-color-data-05-default: #8a3ffc;
+  --dds-color-data-05-subtle: #d0b2fe;
+  --dds-color-data-05-border: #8a3ffc;
+  --dds-color-data-06-default: #b62665;
+  --dds-color-data-06-subtle: #dfa5bf;
+  --dds-color-data-06-border: #b62665;
+  --dds-color-data-07-default: #7c7518;
+  --dds-color-data-07-subtle: #cdc9a1;
+  --dds-color-data-07-border: #7c7518;
+  --dds-color-data-08-default: #da1e28;
+  --dds-color-data-08-subtle: #f0a5a9;
+  --dds-color-data-08-border: #da1e28;
+  --dds-color-data-09-default: #007d79;
+  --dds-color-data-09-subtle: #90ccc9;
+  --dds-color-data-09-border: #007d79;
   --dds-color-bg-default: #ffffff; /* UI shell base color */
   --dds-color-bg-subtle: #f1f3f4; /* Alternative UI shell base color */
   --dds-color-surface-default: #ffffff; /* Default bg */
   --dds-color-surface-subtle: #f1f3f4; /* Subtle surface color */
-  --dds-color-surface-medium: #e4e6e8; /* Medium surface color */
+  --dds-color-surface-medium: #e9ebec; /* Medium surface color */
   --dds-color-surface-hover-default: #e7f1f7; /* Hover on surface (default, subtle, medium) */
   --dds-color-surface-hover-subtle: #f1f3f4; /* Subtle hover on surface (default, medium) */
   --dds-color-surface-selected-default: #e7f1f7; /* Selected state for surface (default, subtle, medium) */
@@ -257,36 +287,6 @@
   --dds-color-brand-tertiary-strong: #d45d32; /* Tertiary brand color */
   --dds-color-focus-outside: #2a4b61; /* Contrast to .inside */
   --dds-color-focus-inside: #f1f8fd; /* Contrast to .outside */
-  --dds-color-data-10-default: #196b8f;
-  --dds-color-data-10-subtle: #96c5d9;
-  --dds-color-data-10-border: #196b8f;
-  --dds-color-data-01-default: #0f62fe;
-  --dds-color-data-01-subtle: #9fc0ff;
-  --dds-color-data-01-border: #0f62fe;
-  --dds-color-data-02-default: #b3572f;
-  --dds-color-data-02-subtle: #e1bcac;
-  --dds-color-data-02-border: #b3572f;
-  --dds-color-data-03-default: #727272;
-  --dds-color-data-03-subtle: #c7c7c7;
-  --dds-color-data-03-border: #727272;
-  --dds-color-data-04-default: #198038;
-  --dds-color-data-04-subtle: #a3ccaf;
-  --dds-color-data-04-border: #198038;
-  --dds-color-data-05-default: #8a3ffc;
-  --dds-color-data-05-subtle: #d0b2fe;
-  --dds-color-data-05-border: #8a3ffc;
-  --dds-color-data-06-default: #b62665;
-  --dds-color-data-06-subtle: #dfa5bf;
-  --dds-color-data-06-border: #b62665;
-  --dds-color-data-07-default: #7c7518;
-  --dds-color-data-07-subtle: #cdc9a1;
-  --dds-color-data-07-border: #7c7518;
-  --dds-color-data-08-default: #da1e28;
-  --dds-color-data-08-subtle: #f0a5a9;
-  --dds-color-data-08-border: #da1e28;
-  --dds-color-data-09-default: #007d79;
-  --dds-color-data-09-subtle: #90ccc9;
-  --dds-color-data-09-border: #007d79;
   --dds-font-label-medium: 600 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /* Label for form components */
   --dds-font-body-xsmall: 400 0.75rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with xsmall button and input fields */
   --dds-font-body-small: 400 0.875rem/1.5 'IBM Plex Sans', Arial, sans-serif; /*  used with small button and input fields */
