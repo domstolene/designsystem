@@ -1,6 +1,6 @@
 # @norges-domstoler/dds-components
 
-## 21.2.1
+## 21.2.1 (2025-05-07)
 
 ### Patch Changes
 
