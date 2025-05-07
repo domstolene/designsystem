@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 21.2.1
+
+### Patch Changes
+
+- 25dc142: Bedre UU i `<ProgressTracker>`: `<nav>` wrapper for navigasjon, fikser bug der egen `aria-label` ikke var støttet, bedre default `aria-label`, bedre usynlig knappetekst for skjermleser, fikser ugyldig HTML.
+- d5b92da: Fikser bug der `<RadioButton>` ikke fikk layout styling.
+
 ## 21.2.0 (2025-05-06)
 
 ### Minor Changes
