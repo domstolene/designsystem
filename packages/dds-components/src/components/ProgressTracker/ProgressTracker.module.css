@@ -3,34 +3,33 @@
   --dds-progress-tracker-item-number-size: 1.75rem;
 }
 
-.connector--column {
+.list-item:not(:first-child)::before {
+  content: '';
+  display: block;
+}
+
+.list-item--column:not(:first-child)::before {
   border-right: var(--dds-progress-tracker-connector-width) solid
     var(--dds-color-border-default);
-  width: 1px;
+  width: var(--dds-progress-tracker-connector-width);
   height: 1.125rem;
   margin-left: calc(
     (var(--dds-progress-tracker-item-number-size) / 2) -
       (var(--dds-progress-tracker-connector-width) / 2)
   );
+  margin-bottom: var(--dds-spacing-x0-125);
 }
 
-.connector--row {
-  flex: 0 0 auto;
+.list-item--row:not(:first-child)::before {
   border-top: var(--dds-progress-tracker-connector-width) solid
     var(--dds-color-border-default);
-  height: 1px;
+  height: var(--dds-progress-tracker-connector-width);
   width: 1.875rem;
   margin-top: calc(
     (var(--dds-progress-tracker-item-number-size) / 2) -
       (var(--dds-progress-tracker-connector-width) / 2)
   );
-}
-
-.item {
-  flex: 0 0 auto;
-  position: relative;
-  display: flex;
-  justify-content: center;
+  margin-right: var(--dds-spacing-x0-5);
 }
 
 .item-button {
@@ -92,11 +91,8 @@
 
 .item-number {
   border-radius: var(--dds-border-radius-rounded);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: var(--dds-zindex-absolute-element);
-  font-weight: 600;
+  font-weight: var(--dds-font-weight-bold);
   border: 2px solid;
   height: var(--dds-progress-tracker-item-number-size);
   width: var(--dds-progress-tracker-item-number-size);
