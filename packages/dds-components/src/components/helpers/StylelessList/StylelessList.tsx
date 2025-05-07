@@ -11,8 +11,8 @@ export const StylelessList = ({ className, ...rest }: StylelessListProps) => (
 );
 
 export type StylelessOListProps<TProps extends object = object> = TProps &
-  ComponentPropsWithRef<'ul'>;
+  ComponentPropsWithRef<'ol'>;
 
 export const StylelessOList = ({ className, ...rest }: StylelessOListProps) => (
-  <ul {...rest} className={cn(className, utilStyles['remove-list-styling'])} />
+  <ol {...rest} className={cn(className, utilStyles['remove-list-styling'])} />
 );

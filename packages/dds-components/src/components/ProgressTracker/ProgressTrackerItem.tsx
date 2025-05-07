@@ -11,6 +11,7 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { CheckIcon } from '../Icon/icons';
 import { type SvgIcon } from '../Icon/utils';
+import { Box } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -84,14 +85,10 @@ export type ProgressTrackerItemProps =
       }
     >;
 
-const getVisuallyHiddenText = (
-  active: boolean,
-  completed: boolean,
-  index: number,
-) =>
-  `${index + 1}, ${active ? '' : 'Trinn, '}${
-    completed ? 'Ferdig, ' : 'Ikke ferdig, '
-  }`;
+const getVisuallyHiddenTextBefore = (index: number) => `${index + 1}. trinn, `;
+
+const getVisuallyHiddenTextAfter = (completed: boolean) =>
+  `, ${completed ? 'ferdig' : 'ikke ferdig'}`;
 
 export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const {
@@ -107,7 +104,8 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     ...rest
   } = props;
 
-  const { activeStep, handleStepChange } = useProgressTrackerContext();
+  const { activeStep, handleStepChange, direction } =
+    useProgressTrackerContext();
   const active = activeStep === index;
   const itemState = toItemState(active, completed, disabled);
 
@@ -132,7 +130,10 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 
   const stepContent = (
     <>
-      <div
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
         aria-hidden
         className={cn(
           styles['item-number'],
@@ -141,7 +142,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         )}
       >
         {stepNumberContent}
-      </div>
+      </Box>
       <div
         className={cn(
           styles['item-text'],
@@ -150,15 +151,23 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         )}
       >
         <VisuallyHidden as="span">
-          {getVisuallyHiddenText(active, completed, index)}
+          {getVisuallyHiddenTextBefore(index)}
         </VisuallyHidden>
         {children}
+        <VisuallyHidden as="span">
+          {getVisuallyHiddenTextAfter(completed)}
+        </VisuallyHidden>
       </div>
     </>
   );
 
   return (
-    <li aria-current={active ? 'step' : undefined} className={styles.item}>
+    <Box
+      as="li"
+      display={direction === 'row' ? 'flex' : undefined}
+      aria-current={active ? 'step' : undefined}
+      className={cn(styles['list-item'], styles[`list-item--${direction}`])}
+    >
       {handleStepChange ? (
         <button
           {...getBaseHTMLProps(
@@ -184,7 +193,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
           {stepContent}
         </div>
       )}
-    </li>
+    </Box>
   );
 };
 

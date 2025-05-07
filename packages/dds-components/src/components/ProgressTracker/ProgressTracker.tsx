@@ -1,7 +1,6 @@
 import {
   Children,
   type ForwardRefExoticComponent,
-  Fragment,
   type ReactElement,
   type ReactNode,
   cloneElement,
@@ -13,10 +12,7 @@ import {
 
 import { ProgressTrackerContext } from './ProgressTracker.context';
 import styles from './ProgressTracker.module.css';
-import {
-  ProgressTrackerItem,
-  type ProgressTrackerItemProps,
-} from './ProgressTrackerItem';
+import { ProgressTrackerItem } from './ProgressTrackerItem';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
@@ -54,7 +50,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     direction = 'column',
     children,
     className,
-    htmlProps,
+    htmlProps = {},
     ...rest
   }: ProgressTrackerProps) => {
     const [thisActiveStep, setActiveStep] = useState(activeStep);
@@ -73,25 +69,23 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
     const steps = useMemo(() => {
       const validChildren = removeInvalidChildren(children);
       const itemsWithIndex = passIndexPropToProgressTrackerItem(validChildren);
-      const itemsWithConnectorsBetween = intersperseItemsWithConnector(
-        itemsWithIndex,
-        direction,
-      );
-      return itemsWithConnectorsBetween;
+      return itemsWithIndex;
     }, [children]);
 
     const isRow = direction === 'row';
+
+    const { 'aria-label': ariaLabel } = htmlProps;
 
     return (
       <ProgressTrackerContext
         value={{
           activeStep: thisActiveStep,
           handleStepChange: handleChange,
+          direction,
         }}
       >
-        <div
-          role="group"
-          aria-label="progress"
+        <nav
+          aria-label={ariaLabel ?? 'stegprogresjon'}
           {...getBaseHTMLProps(id, className, htmlProps, rest)}
         >
           <Box
@@ -107,7 +101,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
           >
             {steps}
           </Box>
-        </div>
+        </nav>
       </ProgressTrackerContext>
     );
   };
@@ -131,19 +125,3 @@ function passIndexPropToProgressTrackerItem<TProps extends object>(
     }),
   );
 }
-
-const intersperseItemsWithConnector = (
-  children: Array<ReactElement<ProgressTrackerItemProps>>,
-  direction: Direction,
-) =>
-  Children.map(children, (child, index) => {
-    if (index === 0) {
-      return child;
-    }
-    return (
-      <Fragment key={index}>
-        <div aria-hidden className={styles[`connector--${direction}`]} />
-        {child}
-      </Fragment>
-    );
-  });
