@@ -1,9 +1,13 @@
 import { type HTMLAttributes, type LabelHTMLAttributes } from 'react';
 
 import styles from './SelectionControl.module.css';
-import { cn } from '../../utils';
+import { RequiredMarker, cn } from '../../utils';
+import { Icon } from '../Icon';
+import { LockIcon } from '../Icon/icons';
+import { Box } from '../layout';
+import { Typography } from '../Typography';
+import labelStyles from '../Typography/Label/Label.module.css';
 import typographyStyles from '../Typography/typographyStyles.module.css';
-
 type SelectionControlType = 'radio' | 'checkbox';
 
 type SelectionControlProps = {
@@ -43,7 +47,13 @@ export const Label = ({
   ...rest
 }: SelectionControlLabelProps) => {
   return (
-    <label
+    <Box
+      as="label"
+      position="relative"
+      display="flex"
+      alignItems="center"
+      width="fit-content"
+      paddingInline="calc(18px + var(--dds-spacing-x0-5)) 0"
       className={cn(
         className,
         styles.label,
@@ -57,5 +67,37 @@ export const Label = ({
       )}
       {...rest}
     />
+  );
+};
+
+interface SelectionControlGroupLabelProps {
+  id?: string;
+  showRequiredMarker?: boolean;
+  readOnly?: boolean;
+  children?: string;
+}
+
+export const GroupLabel = ({
+  id,
+  showRequiredMarker,
+  readOnly,
+  children,
+}: SelectionControlGroupLabelProps) => {
+  return (
+    <Typography
+      as="span"
+      typographyType="labelMedium"
+      id={id}
+      className={readOnly ? labelStyles['read-only'] : undefined}
+    >
+      {readOnly && (
+        <Icon
+          icon={LockIcon}
+          className={labelStyles['read-only__icon']}
+          iconSize="small"
+        />
+      )}
+      {children} {showRequiredMarker && <RequiredMarker />}
+    </Typography>
   );
 };

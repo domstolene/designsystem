@@ -11,7 +11,6 @@ import {
 } from '../../../utils';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import utilStyles from '../../helpers/styling/utilStyles.module.css';
-import { Box } from '../../layout';
 import { Typography } from '../../Typography';
 import { Label, SelectionControl } from '../SelectionControl.styles';
 import { selectionControlTypographyProps } from '../SelectionControl.utils';
@@ -44,13 +43,7 @@ export const Checkbox = ({
   const isDisabled = disabled || checkboxGroup?.disabled;
 
   return (
-    <Box
-      position="relative"
-      display="flex"
-      alignItems="center"
-      width="fit-content"
-      paddingInline="calc(18px + var(--dds-spacing-x0-5)) 0"
-      as={Label}
+    <Label
       hasError={hasError}
       disabled={isDisabled}
       readOnly={isReadOnly}
@@ -95,7 +88,7 @@ export const Checkbox = ({
       ) : hasLabel ? (
         <Typography {...selectionControlTypographyProps}>{label}</Typography>
       ) : null}
-    </Box>
+    </Label>
   );
 };
 

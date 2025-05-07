@@ -8,14 +8,12 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { RequiredMarker, cn, derivativeIdGenerator } from '../../../utils';
-import { Icon } from '../../Icon';
-import { LockIcon } from '../../Icon/icons';
+import { convertBooleanishToBoolean } from '../../../types/Booleanish';
+import { cn, derivativeIdGenerator } from '../../../utils';
 import { renderInputMessage } from '../../InputMessage';
-import { Typography } from '../../Typography';
-import labelStyles from '../../Typography/Label/Label.module.css';
 import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
+import { GroupLabel } from '../SelectionControl.styles';
 
 export type CheckboxGroupProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -47,7 +45,8 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
   const generatedId = useId();
   const uniqueGroupId = groupId ?? `${generatedId}-checkboxGroup`;
   const hasErrorMessage = !!errorMessage;
-  const showRequiredMarker = required || ariaRequired;
+  const showRequiredMarker =
+    required || convertBooleanishToBoolean(ariaRequired);
 
   const errorMessageId = derivativeIdGenerator(uniqueGroupId, 'errorMessage');
   const tipId = derivativeIdGenerator(uniqueGroupId, 'tip');
@@ -71,17 +70,13 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
       )}
     >
       {label !== undefined ? (
-        <Typography
-          as="span"
-          typographyType="labelMedium"
+        <GroupLabel
           id={uniqueGroupId}
-          className={readOnly ? labelStyles['read-only'] : undefined}
+          readOnly={readOnly}
+          showRequiredMarker={showRequiredMarker}
         >
-          {readOnly && (
-            <Icon icon={LockIcon} className={labelStyles['read-only__icon']} />
-          )}
-          {label} {showRequiredMarker && <RequiredMarker />}
-        </Typography>
+          {label}
+        </GroupLabel>
       ) : null}
       {renderInputMessage(tip, tipId)}
       <CheckboxGroupContext value={{ ...contextProps }}>

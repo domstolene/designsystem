@@ -8,14 +8,12 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { RequiredMarker, cn } from '../../../utils';
-import { Icon } from '../../Icon';
-import { LockIcon } from '../../Icon/icons';
+import { convertBooleanishToBoolean } from '../../../types/Booleanish';
+import { cn } from '../../../utils';
 import { renderInputMessage } from '../../InputMessage';
-import { Typography } from '../../Typography';
-import labelStyles from '../../Typography/Label/Label.module.css';
 import { type SelectionControlGroupCommonProps } from '../common/SelectionControl.types';
 import styles from '../SelectionControl.module.css';
+import { GroupLabel } from '../SelectionControl.styles';
 
 export type RadioButtonGroupProps<T extends string | number> =
   BaseComponentPropsWithChildren<
@@ -80,7 +78,8 @@ export const RadioButtonGroup = <T extends string | number = string>({
   };
 
   const hasErrorMessage = !!errorMessage;
-  const showRequiredMarker = required || ariaRequired;
+  const showRequiredMarker =
+    required || convertBooleanishToBoolean(ariaRequired);
 
   const tipId = tip && `${uniqueGroupId}-tip`;
   const errorMessageId = errorMessage && `${uniqueGroupId}-errorMessage`;
@@ -106,17 +105,15 @@ export const RadioButtonGroup = <T extends string | number = string>({
         rest,
       )}
     >
-      <Typography
-        as="span"
-        typographyType="labelMedium"
-        id={uniqueGroupId}
-        className={readOnly ? labelStyles['read-only'] : undefined}
-      >
-        {readOnly && (
-          <Icon icon={LockIcon} className={labelStyles['read-only__icon']} />
-        )}
-        {label} {showRequiredMarker && <RequiredMarker />}
-      </Typography>
+      {label !== undefined ? (
+        <GroupLabel
+          id={uniqueGroupId}
+          readOnly={readOnly}
+          showRequiredMarker={showRequiredMarker}
+        >
+          {label}
+        </GroupLabel>
+      ) : null}
       {renderInputMessage(tip, tipId)}
       <RadioButtonGroupContext value={{ ...contextProps }}>
         <div
