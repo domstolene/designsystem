@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-design-tokens
 
+## 8.0.1
+
+### Patch Changes
+
+- 30b40cc: Justerer på basetoken `dds-color-base-gray-100` for bedre kontrast; Påvirker semantisk token `dds-color-surface-medium`.
+
 ## 8.0.0
 
 ### Major Changes
