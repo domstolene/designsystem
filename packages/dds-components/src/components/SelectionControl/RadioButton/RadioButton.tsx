@@ -1,11 +1,8 @@
 import { type ChangeEvent, useId } from 'react';
 
 import { type RadioButtonProps, type RadioValue } from './RadioButton.types';
-import {
-  type RadioButtonGroupContextProps,
-  useRadioButtonGroup,
-} from './RadioButtonGroupContext';
-import { type Nullable, getBaseHTMLProps } from '../../../types';
+import { useRadioButtonGroup } from './RadioButtonGroupContext';
+import { getBaseHTMLProps } from '../../../types';
 import {
   cn,
   readOnlyChangeHandler,
@@ -20,19 +17,19 @@ import { selectionControlTypographyProps } from '../SelectionControl.utils';
 
 const getIsChecked = ({
   value,
-  group,
+  groupValue,
   checked,
 }: {
   value: RadioValue;
-  group: Nullable<RadioButtonGroupContextProps>;
+  groupValue: RadioValue;
   checked: boolean | undefined;
 }): boolean => {
   if (checked !== undefined) return checked;
-  if (typeof value !== 'undefined' && value !== null && group) {
+  if (typeof value !== 'undefined' && value !== null && groupValue !== null) {
     if (typeof value === 'number') {
-      return value === Number(group.value);
+      return value === Number(groupValue);
     }
-    return value === group.value;
+    return value === groupValue;
   }
   return !!value;
 };
@@ -65,7 +62,7 @@ export const RadioButton = ({
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange && onChange(event);
-    radioButtonGroup?.onChange(event, event.target.value);
+    radioButtonGroup?.onChange?.(event, event.target.value);
   };
 
   const describedByIds = [];
@@ -76,7 +73,11 @@ export const RadioButton = ({
   const isReadOnly = readOnly || radioButtonGroup?.readOnly;
   const isDisabled = disabled || radioButtonGroup?.disabled;
   const hasError = error || radioButtonGroup?.error;
-  const isChecked = getIsChecked({ value, group: radioButtonGroup, checked });
+  const isChecked = getIsChecked({
+    value,
+    groupValue: radioButtonGroup?.value,
+    checked,
+  });
 
   return (
     <Label
@@ -85,7 +86,7 @@ export const RadioButton = ({
       readOnly={isReadOnly}
       style={style}
       className={cn(className, htmlPropsClassName)}
-      hasText={hasLabel}
+      hasText={hasLabel || hasChildren}
       htmlFor={uniqueId}
       controlType="radio"
     >
@@ -102,6 +103,7 @@ export const RadioButton = ({
           describedByIds.length > 0 ? describedByIds.join(' ') : undefined
         }
         aria-invalid={hasError ? true : undefined}
+        aria-readonly={isReadOnly}
         className={cn(
           utilStyles['hide-input'],
           focusStyles['focusable-sibling'],

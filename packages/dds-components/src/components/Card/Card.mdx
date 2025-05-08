@@ -5,6 +5,8 @@ import {
   Source,
 } from '@norges-domstoler/storybook-components';
 import * as CardStories from './Card.stories';
+import * as CardSelectableStories from './CardSelectionControl/CardSelectable.stories';
+import * as CardSelectableGroupStories from './CardSelectionControl/CardSelectableGroup.stories';
 
 <Meta of={CardStories} />
 
@@ -25,6 +27,7 @@ Det finnes følgene typer `<Card>`:
 - **info**: statisk wrapper; innholdet er valgfritt, inkludert interaktive elementer.
 - **navigation**: gjør `<Card>` klikkbart og rendrer en lenke. Skal ikke inneholde interaktive elementer.
 - **expandable**: brukes når `<Card>` skal ha en tittel og ekspanderbart panel. Ved expandable Card skal delkomponentene `<CardExpandable>`, `<CardExpandableHeader>` og `<CardExpandableBody>` brukes.
+- **selectable**: brukes når man trenger radioknapp eller avkryssingsboks med `<Card>` styling. Den er implementert via egen delkomponent: `<CardSelectable>`.
 
 `<Card>` får typen via cardType-prop (se [Card Props](#card-1)).
 
@@ -34,7 +37,7 @@ Det finnes følgene typer `<Card>`:
 
 Wrapper for innhold i et kort. Bruk design-tokens for spacing og annet styling der relevant. Har default typografi.
 
-<Canvas of={CardStories.Default} sourceState="shown" />
+<Canvas of={CardStories.Default} />
 <Controls of={CardStories.Default} />
 
 ### CardExpandable
@@ -45,7 +48,7 @@ En container for CardExpandable-subkomponenter som håndterer oppførsel og univ
 - `<CardExpandableHeader>` som første barn,
 - `<CardExpandableBody>` som andre barn.
 
-<Canvas of={CardStories.Expandable} sourceState="shown" />
+<Canvas of={CardStories.Expandable} />
 
 <ArgTypes of={CardExpandable} />
 
@@ -61,8 +64,40 @@ Body i `<CardExpandable>`. Skal brukes som andre barn og den får automatisk rik
 
 <ArgTypes of={CardExpandableBody} />
 
+### CardSelectable
+
+Egen komponent for selectable variant. Kan returnere radioknapp eller avkrysningboks.
+
+<Canvas of={CardSelectableStories.Radio} />
+<Controls of={CardSelectableStories.Radio} />
+
+### CardSelectableGroup
+
+Gruppe med `<CardSelectable>`. Håndterer en del oppførsel, styling og UU.
+
+<Canvas of={CardSelectableGroupStories.Group} />
+<Controls of={CardSelectableGroupStories.Group} />
+
 ## Retningslinjer
+
+### Expandable
 
 - Ikke bruk `<Card type="expandable">` i en gruppe. Bruk heller `<Accordion>`-komponent.
 - Ikke legg interaktive elementer (knapp, radio, inputfelt...) inni `<CardExpandableHeader>`. Den er allerede en knapp og kan ikke ha nøstet interaksjon.
 - Ikke bruk `<CardExpandableHeader>` til å kontrollere andre elementer, som å åpne `<OverflowMenu>` eller en modal.
+
+### Selectable
+
+#### Gruppe
+
+For gruppe med valgbare elementer trenger du å ha en felles ledetekst som er semantisk knyttet til gruppen; dette kan gjøres med `aria-labelledby` hvis teksten er synlig:
+
+<Canvas of={CardSelectableGroupStories.WithLabel} />
+
+Hvis gruppen ikke har synlig ledetekst bruk programmatisk ledetekst med `aria-label` eller `<VisuallyHidden>`-komponenten og `aria-labelledby`:
+
+<Canvas of={CardSelectableGroupStories.GroupWithInvisibleLabel} />
+
+Ved hjelepekst knytt den programmatisk til gruppen med `tipId`:
+
+<Canvas of={CardSelectableGroupStories.WithCustomTip} />
