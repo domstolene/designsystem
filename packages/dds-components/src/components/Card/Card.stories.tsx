@@ -117,7 +117,6 @@ export const Overview: Story = {
             {body}
           </div>
         </Card>
-
         <Card {...args} cardType="expandable" appearance="border">
           <CardExpandable>
             <CardExpandableHeader> Title </CardExpandableHeader>
