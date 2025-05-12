@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.29.3",
+    "@changesets/cli": "^2.29.4",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
@@ -62,7 +62,7 @@
     "react-dom": "19.1.0",
     "storybook": "8.6.12",
     "tsup": "^8.4.0",
-    "turbo": "^2.5.2"
+    "turbo": "^2.5.3"
   },
   "pnpm": {
     "overrides": {
