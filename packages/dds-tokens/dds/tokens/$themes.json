@@ -3,7 +3,10 @@
     "id": "156a716921b10e24a326ddfaecd5cd7d56bd7600",
     "name": "Elsa",
     "selectedTokenSets": {
-      "Base": "enabled"
+      "Base/Elsa": "enabled",
+      "Theme/Core": "disabled",
+      "Theme/Public": "disabled",
+      "Mode/light": "disabled"
     },
     "$figmaStyleReferences": {
       "dds-shadow.1": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
@@ -284,8 +287,10 @@
     "id": "b6e658fce797f535939d0292abbeaa2718b84cd3",
     "name": "Core",
     "selectedTokenSets": {
-      "Base": "source",
-      "Core": "enabled"
+      "Base/Elsa": "source",
+      "Theme/Core": "disabled",
+      "Theme/Public": "disabled",
+      "Mode/light": "enabled"
     },
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
@@ -487,8 +492,10 @@
       "dds-shadow.4": "S:b4edca369a01a597171a6043dbcb0f069055ef50,"
     },
     "selectedTokenSets": {
-      "Base": "source",
-      "Public": "enabled"
+      "Base/Elsa": "source",
+      "Theme/Core": "disabled",
+      "Theme/Public": "enabled",
+      "Mode/light": "disabled"
     },
     "$figmaVariableReferences": {
       "dds-color.bg.default": "3bd9f370920fb74d7a2c23eb0b0fe444f46f9d57",
