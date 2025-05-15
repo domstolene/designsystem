@@ -285,7 +285,7 @@
     "name": "Core",
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Mode/light": "enabled"
+      "Mode/Light": "enabled"
     },
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
