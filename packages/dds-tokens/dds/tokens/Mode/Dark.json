@@ -295,17 +295,17 @@
     },
     "icon": {
       "default": {
-        "value": "{dds-color-base.gray.black}",
+        "value": "{dds-color-base.gray.white}",
         "type": "color",
         "description": "Often used with text.default"
       },
       "medium": {
-        "value": "{dds-color-base.gray.700}",
+        "value": "{dds-color-base.gray.100}",
         "type": "color",
         "description": "Often used with text.medium"
       },
       "subtle": {
-        "value": "{dds-color-base.gray.600}",
+        "value": "{dds-color-base.gray.200}",
         "type": "color",
         "description": "Often used with text.subtle"
       },
@@ -315,22 +315,22 @@
         "description": "On surface.inverse"
       },
       "on-action": {
-        "value": "{dds-color-base.gray.white}",
+        "value": "{dds-color-base.gray.black}",
         "type": "color",
         "description": "On surface.action (primary and danger button)"
       },
       "action-resting": {
-        "value": "{dds-color-base.interactive.500}",
+        "value": "{dds-color-base.interactive.350}",
         "type": "color",
         "description": "Often used with Text.action"
       },
       "action-hover": {
-        "value": "{dds-color-base.interactive.600}",
+        "value": "{dds-color-base.interactive.200}",
         "type": "color",
         "description": "hover on icon-action"
       },
       "on-success-default": {
-        "value": "{dds-color-base.success.700}",
+        "value": "{dds-color-base.success.200}",
         "type": "color",
         "description": "On surface.success-default"
       },
@@ -340,7 +340,7 @@
         "description": "On surface-success-strong"
       },
       "on-warning-default": {
-        "value": "{dds-color-base.warning.700}",
+        "value": "{dds-color-base.warning.200}",
         "type": "color",
         "description": "On surface.warning-default"
       },
@@ -350,7 +350,7 @@
         "description": "On surface.warning-strong"
       },
       "on-danger-default": {
-        "value": "{dds-color-base.danger.600}",
+        "value": "{dds-color-base.danger.200}",
         "type": "color",
         "description": "On surface.danger-default"
       },
@@ -360,7 +360,7 @@
         "description": "On surface.danger-strong"
       },
       "on-info-default": {
-        "value": "{dds-color-base.info.700}",
+        "value": "{dds-color-base.info.200}",
         "type": "color",
         "description": "On surface.info-default"
       },
@@ -370,7 +370,7 @@
         "description": "On surface.info-strong"
       },
       "danger": {
-        "value": "{dds-color-base.danger.600}",
+        "value": "{dds-color-base.danger.350}",
         "type": "color",
         "description": "Error icon on paper, or default or subtle surafce/bg"
       }
@@ -439,12 +439,12 @@
     },
     "focus": {
       "outside": {
-        "value": "{dds-color-base.info.800}",
+        "value": "{dds-color-base.info.50}",
         "type": "color",
         "description": "Contrast to .inside"
       },
       "inside": {
-        "value": "{dds-color-base.info.50}",
+        "value": "{dds-color-base.info.800}",
         "type": "color",
         "description": "Contrast to .outside"
       }
