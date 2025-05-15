@@ -171,12 +171,12 @@
     },
     "border": {
       "default": {
-        "value": "{dds-color-base.gray.500}",
+        "value": "{dds-color-base.gray.600}",
         "type": "color",
         "description": "Form components, togglebutton, secondary button, checkbox etc"
       },
       "subtle": {
-        "value": "{dds-color-base.gray.200}",
+        "value": "{dds-color-base.gray.700}",
         "type": "color",
         "description": "Dropdown, tooltip, overflow etc"
       },
@@ -186,22 +186,22 @@
         "description": "Border or divider on surface.inverse"
       },
       "action-default": {
-        "value": "{dds-color-base.interactive.500}",
+        "value": "{dds-color-base.interactive.350}",
         "type": "color",
         "description": "Used in progress tracker"
       },
       "action-hover": {
-        "value": "{dds-color-base.interactive.600}",
+        "value": "{dds-color-base.interactive.200}",
         "type": "color",
         "description": "Hover on secondary button etc"
       },
       "success": {
-        "value": "{dds-color-base.success.500}",
+        "value": "{dds-color-base.success.600}",
         "type": "color",
         "description": "Used with tag-default"
       },
       "warning": {
-        "value": "{dds-color-base.warning.500}",
+        "value": "{dds-color-base.warning.600}",
         "type": "color",
         "description": "Tag.default"
       },
@@ -211,29 +211,29 @@
         "description": "Tag.default, error message field"
       },
       "info": {
-        "value": "{dds-color-base.info.500}",
+        "value": "{dds-color-base.info.600}",
         "type": "color",
         "description": "Tag.default"
       },
       "on-action": {
-        "value": "{dds-color-base.gray.white}",
+        "value": "{dds-color-base.gray.900}",
         "type": "color",
         "description": "Used on primary split button"
       }
     },
     "text": {
       "default": {
-        "value": "{dds-color-base.gray.black}",
+        "value": "{dds-color-base.gray.white}",
         "type": "color",
         "description": "default text, heading, body. on surface.hover"
       },
       "medium": {
-        "value": "{dds-color-base.gray.700}",
+        "value": "{dds-color-base.gray.100}",
         "type": "color",
         "description": "Label, etc"
       },
       "subtle": {
-        "value": "{dds-color-base.gray.600}",
+        "value": "{dds-color-base.gray.200}",
         "type": "color",
         "description": "Disabled or less important text"
       },
