@@ -67,6 +67,7 @@ export const SplitButton = ({
             styles.option,
             purpose === 'primary' && styles['option--primary'],
           )}
+          type="button"
         />
         <OverflowMenu placement="bottom-end">
           <OverflowMenuList>
