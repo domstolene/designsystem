@@ -243,12 +243,12 @@
         "description": "On surface.inverse"
       },
       "on-action": {
-        "value": "{dds-color-base.gray.white}",
+        "value": "{dds-color-base.gray.black}",
         "type": "color",
         "description": "On surface.action (primary and danger button)"
       },
       "on-status-default": {
-        "value": "{dds-color-base.gray.black}",
+        "value": "{dds-color-base.gray.white}",
         "type": "color",
         "description": "On default status surfaces"
       },
@@ -258,22 +258,22 @@
         "description": "On status surfaces with strong prop"
       },
       "action-resting": {
-        "value": "{dds-color-base.interactive.500}",
+        "value": "{dds-color-base.interactive.350}",
         "type": "color",
         "description": "Link, number in progress tracker"
       },
       "action-hover": {
-        "value": "{dds-color-base.interactive.600}",
+        "value": "{dds-color-base.interactive.200}",
         "type": "color",
         "description": "Hover on text.action"
       },
       "requiredfield": {
-        "value": "{dds-color-base.danger.500}",
+        "value": "{dds-color-base.danger.350}",
         "type": "color",
         "description": "Asterix to indicate required field"
       },
       "action-visited": {
-        "value": "{dds-color-base.visited.500}",
+        "value": "{dds-color-base.visited.200}",
         "type": "color",
         "description": "Used for visited links"
       },
@@ -288,7 +288,7 @@
         "description": "Used on surface.notification"
       },
       "danger": {
-        "value": "{dds-color-base.danger.600}",
+        "value": "{dds-color-base.danger.350}",
         "type": "color",
         "description": "Error text on paper, or default or subtle surafce/bg"
       }
