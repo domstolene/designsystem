@@ -382,17 +382,17 @@
         "description": "Primary brand color"
       },
       "primary-subtle": {
-        "value": "{dds-color-base.primary.50}",
+        "value": "{dds-color-base.primary.750}",
         "type": "color",
         "description": "Primary brand color"
       },
       "primary-medium": {
-        "value": "{dds-color-base.primary.400}",
+        "value": "{dds-color-base.primary.600}",
         "type": "color",
         "description": "Primary brand color"
       },
       "primary-strong": {
-        "value": "{dds-color-base.primary.700}",
+        "value": "{dds-color-base.primary.400}",
         "type": "color",
         "description": "Primary brand color"
       },
@@ -402,17 +402,17 @@
         "description": "Secondary brand color"
       },
       "secondary-subtle": {
-        "value": "{dds-color-base.secondary.100}",
+        "value": "{dds-color-base.secondary.850}",
         "type": "color",
         "description": "Secondary brand color"
       },
       "secondary-medium": {
-        "value": "{dds-color-base.secondary.350}",
+        "value": "{dds-color-base.secondary.700}",
         "type": "color",
         "description": "Secondary brand color"
       },
       "secondary-strong": {
-        "value": "{dds-color-base.secondary.700}",
+        "value": "{dds-color-base.secondary.350}",
         "type": "color",
         "description": "Secondary brand color"
       },
@@ -422,17 +422,17 @@
         "description": "Tertiary brand color"
       },
       "tertiary-subtle": {
-        "value": "{dds-color-base.tertiary.100}",
+        "value": "{dds-color-base.tertiary.900}",
         "type": "color",
         "description": "Tertiary brand color"
       },
       "tertiary-medium": {
-        "value": "{dds-color-base.tertiary.350}",
+        "value": "{dds-color-base.tertiary.700}",
         "type": "color",
         "description": "Tertiary brand color"
       },
       "tertiary-strong": {
-        "value": "{dds-color-base.tertiary.600}",
+        "value": "{dds-color-base.tertiary.350}",
         "type": "color",
         "description": "Tertiary brand color"
       }
@@ -453,141 +453,141 @@
   "dds-color-data": {
     "10": {
       "default": {
-        "value": "{dds-color-data.deepblue.500}",
+        "value": "{dds-color-data.deepblue.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.deepblue.200}",
+        "value": "{dds-color-data.deepblue.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.deepblue.500}",
+        "value": "{dds-color-data.deepblue.400}",
         "type": "color"
       }
     },
     "01": {
       "default": {
-        "value": "{dds-color-data.blue.500}",
+        "value": "{dds-color-data.blue.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.blue.200}",
+        "value": "{dds-color-data.blue.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.blue.500}",
+        "value": "{dds-color-data.blue.400}",
         "type": "color"
       }
     },
     "02": {
       "default": {
-        "value": "{dds-color-data.brown.500}",
+        "value": "{dds-color-data.brown.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.brown.200}",
+        "value": "{dds-color-data.brown.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.brown.500}",
+        "value": "{dds-color-data.brown.400}",
         "type": "color"
       }
     },
     "03": {
       "default": {
-        "value": "{dds-color-data.gray.500}",
+        "value": "{dds-color-data.gray.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.gray.200}",
+        "value": "{dds-color-data.gray.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.gray.500}",
+        "value": "{dds-color-data.gray.400}",
         "type": "color"
       }
     },
     "04": {
       "default": {
-        "value": "{dds-color-data.green.500}",
+        "value": "{dds-color-data.green.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.green.200}",
+        "value": "{dds-color-data.green.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.green.500}",
+        "value": "{dds-color-data.green.400}",
         "type": "color"
       }
     },
     "05": {
       "default": {
-        "value": "{dds-color-data.purple.500}",
+        "value": "{dds-color-data.purple.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.purple.200}",
+        "value": "{dds-color-data.purple.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.purple.500}",
+        "value": "{dds-color-data.purple.400}",
         "type": "color"
       }
     },
     "06": {
       "default": {
-        "value": "{dds-color-data.magenta.500}",
+        "value": "{dds-color-data.magenta.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.magenta.200}",
+        "value": "{dds-color-data.magenta.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.magenta.500}",
+        "value": "{dds-color-data.magenta.400}",
         "type": "color"
       }
     },
     "07": {
       "default": {
-        "value": "{dds-color-data.olive.500}",
+        "value": "{dds-color-data.olive.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.olive.200}",
+        "value": "{dds-color-data.olive.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.olive.500}",
+        "value": "{dds-color-data.olive.400}",
         "type": "color"
       }
     },
     "08": {
       "default": {
-        "value": "{dds-color-data.red.500}",
+        "value": "{dds-color-data.red.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.red.200}",
+        "value": "{dds-color-data.red.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.red.500}",
+        "value": "{dds-color-data.red.400}",
         "type": "color"
       }
     },
     "09": {
       "default": {
-        "value": "{dds-color-data.teal.500}",
+        "value": "{dds-color-data.teal.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.teal.200}",
+        "value": "{dds-color-data.teal.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.teal.500}",
+        "value": "{dds-color-data.teal.400}",
         "type": "color"
       }
     }
