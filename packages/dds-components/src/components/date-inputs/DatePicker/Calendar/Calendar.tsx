@@ -15,6 +15,7 @@ import {
 import { CalendarGrid } from './CalendarGrid';
 import { Button } from '../../../Button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../Icon/icons';
+import { HStack } from '../../../layout';
 import { Heading } from '../../../Typography';
 import styles from '../../common/DateInput.module.css';
 import { CalendarPopoverContext } from '../CalendarPopover';
@@ -58,7 +59,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
 
   return (
     <div {...calendarProps} className={styles.calendar}>
-      <div className={styles.calendar__header}>
+      <HStack justifyContent="space-between" alignItems="center">
         <Button
           type="button"
           aria-label={prevAriaLabel}
@@ -85,7 +86,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
           icon={ArrowRightIcon}
           className={styles['calendar__month-button']}
         />
-      </div>
+      </HStack>
       <CalendarGrid state={state} />
     </div>
   );

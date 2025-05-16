@@ -95,7 +95,6 @@
   transition: 0.2s;
   background: transparent;
   border-radius: var(--dds-border-radius-button);
-  color: var(--dds-color-icon-default);
 
   &:not(:disabled):not(.disabled):hover,
   &:not(:disabled):not(.disabled):active {
@@ -127,14 +126,8 @@
 .calendar {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  height: 327px;
-}
-
-.calendar__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: var(--dds-spacing-x0-25);
+  height: 337px;
 }
 
 .calendar__header__month {
@@ -145,17 +138,18 @@
   user-select: none;
 }
 
-.calendar__week-number {
+.calendar__grid-element {
   width: 40px;
   height: 40px;
+}
+
+.calendar__week-number {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .calendar__cell-button {
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -58,6 +58,7 @@ export function CalendarCell({ date, state, onClose }: CalendarCellProps) {
         hidden={isOutsideVisibleRange}
         onKeyDown={closeOnKeyboardBlurForward}
         className={cn(
+          styles['calendar__grid-element'],
           styles['calendar__cell-button'],
           isToday(date, timezone) && styles['calendar__cell-button--today'],
           styles[`calendar__cell-button--${variant}`],
