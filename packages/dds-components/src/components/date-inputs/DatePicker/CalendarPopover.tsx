@@ -29,7 +29,7 @@ import { CloseIcon } from '../../Icon/icons';
 import { ThemeContext } from '../../ThemeProvider';
 import styles from '../common/DateInput.module.css';
 import { type DateField } from './DateField/DateField';
-import { type Breakpoint, ShowHide } from '../../layout';
+import { type Breakpoint, type PaperProps, ShowHide } from '../../layout';
 import { Paper } from '../../layout';
 
 /**------------------------------------------------------------------------
@@ -157,6 +157,12 @@ export const CalendarPopoverContent = ({
 
   if (!isOpen) return null;
 
+  const paperStyleProps: PaperProps = {
+    elevation: 2,
+    border: 'border-default',
+    padding: 'x0.75',
+  };
+
   return (
     <>
       {portalTarget &&
@@ -167,9 +173,7 @@ export const CalendarPopoverContent = ({
               <Paper
                 ref={modalRef}
                 className={cn(styles.popover, className)}
-                elevation={2}
-                border="border-default"
-                padding="x0.5"
+                {...paperStyleProps}
               >
                 <div className={styles['modal-close-button-wrapper']}>
                   <Button
@@ -193,8 +197,7 @@ export const CalendarPopoverContent = ({
         hideBelow={hasBreakpoint ? smallScreenBreakpoint : undefined}
         className={cn(styles.popover, className)}
         style={floatingStyles.floating}
-        elevation={2}
-        border="border-default"
+        {...paperStyleProps}
       >
         {children}
       </Paper>
