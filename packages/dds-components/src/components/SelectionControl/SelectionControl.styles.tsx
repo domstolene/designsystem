@@ -53,7 +53,7 @@ export const Label = ({
       display="flex"
       alignItems="center"
       width="fit-content"
-      paddingInline="calc(18px + var(--dds-spacing-x0-5)) 0"
+      paddingInline="calc(var(--dds-selection-control-height) + var(--dds-spacing-x0-5)) 0"
       className={cn(
         className,
         styles.label,

@@ -1,5 +1,6 @@
 .checkbox-label {
-  padding: 0 0 0 calc(18px + var(--dds-spacing-x0-5));
+  padding: 0 0 0
+    calc(var(--dds-selection-control-height) + var(--dds-spacing-x0-5));
   align-items: flex-start;
   /* Plasserer ikonet sentrert i forhold til første linja av teksten.
   *  Trekker fra 1px slik at det ser ut som i Figma; CSS håndterer linjehøyde annerledes.

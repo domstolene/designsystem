@@ -85,7 +85,7 @@ export const RadioButton = ({
       readOnly={isReadOnly}
       style={style}
       className={cn(className, htmlPropsClassName)}
-      hasText={hasLabel}
+      hasText={hasLabel || hasChildren}
       htmlFor={uniqueId}
       controlType="radio"
     >
