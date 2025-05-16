@@ -57,7 +57,9 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
       <thead {...headerProps}>
         <tr>
           {showWeekNumbers && (
-            <th className={cn(...typographyCn)}>
+            <th
+              className={cn(styles['calendar__grid-element'], ...typographyCn)}
+            >
               # <VisuallyHidden as="span">Ukenummer</VisuallyHidden>
             </th>
           )}
@@ -80,6 +82,7 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
               {showWeekNumbers && (
                 <td
                   className={cn(
+                    styles['calendar__grid-element'],
                     styles['calendar__week-number'],
                     ...typographyCn,
                   )}
