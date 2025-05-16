@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 21.2.2
+
+### Patch Changes
+
+- f5e447f: Fikser bug der `<DatePicker>` kalender manglet spacing og dager kunne bleede utover boksen. Justerer også på spacing over og under ukedager.
+- 7d8904d: SplitButton: Sett `type="button"` for å hindre at skjema submittes når knapp for å åpne liste med flere valg trykkes
+
 ## 21.2.1 (2025-05-07)
 
 ### Patch Changes
