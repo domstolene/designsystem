@@ -3,7 +3,11 @@
     "id": "156a716921b10e24a326ddfaecd5cd7d56bd7600",
     "name": "Elsa",
     "selectedTokenSets": {
-      "Base/Elsa": "enabled"
+      "Base/Elsa": "enabled",
+      "Theme/Core/Light": "disabled",
+      "Theme/Public/Light": "disabled",
+      "Theme/Core/Dark": "disabled",
+      "Theme/Public/Dark": "disabled"
     },
     "$figmaStyleReferences": {
       "dds-shadow.1": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
@@ -282,10 +286,10 @@
   },
   {
     "id": "b6e658fce797f535939d0292abbeaa2718b84cd3",
-    "name": "Core",
+    "name": "Light",
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Core": "enabled"
+      "Theme/Core/Light": "enabled"
     },
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
@@ -461,11 +465,11 @@
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "9567:3",
-    "group": "Theme"
+    "group": "Core"
   },
   {
     "id": "fd480e5b6bb83ef12c22bc32685b9039a5e4cd75",
-    "name": "Public",
+    "name": "Dark",
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
       "dds-font.body.xsmall": "S:4da4c81508de779c07e371989ddc82392aa805e7,",
@@ -488,7 +492,7 @@
     },
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Public": "enabled"
+      "Theme/Core/Dark": "enabled"
     },
     "$figmaVariableReferences": {
       "dds-color.bg.default": "3bd9f370920fb74d7a2c23eb0b0fe444f46f9d57",
@@ -644,26 +648,26 @@
     },
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "11000:0",
-    "group": "Theme"
+    "group": "Core"
   },
   {
-    "id": "bb6de538fefd3a9be122210e7f32823bf1fc5d7c",
+    "id": "6b2a1c71f82f4ce9e1854d42bbf15a5b9d887901",
     "name": "Light",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Mode/Light": "enabled"
+      "Theme/Public/Light": "enabled"
     },
-    "group": "Mode"
+    "group": "Public"
   },
   {
-    "id": "7019ccc4daef0b510d536bf789cb456d72c2ccb1",
+    "id": "475e3850cf853a3a917f5850b54e403d810ba11f",
     "name": "Dark",
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Mode/Dark": "enabled"
+      "Theme/Public/Dark": "enabled"
     },
-    "group": "Mode"
+    "group": "Public"
   }
 ]
