@@ -3,11 +3,7 @@
     "id": "156a716921b10e24a326ddfaecd5cd7d56bd7600",
     "name": "Elsa",
     "selectedTokenSets": {
-      "Base/Elsa": "enabled",
-      "Theme/Core/Light": "disabled",
-      "Theme/Public/Light": "disabled",
-      "Theme/Core/Dark": "disabled",
-      "Theme/Public/Dark": "disabled"
+      "Base/Elsa": "enabled"
     },
     "$figmaStyleReferences": {
       "dds-shadow.1": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
