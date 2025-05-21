@@ -1,7 +1,9 @@
 {
   "tokenSetOrder": [
-    "Base",
-    "Core",
-    "Public"
+    "Base/Elsa",
+    "Theme/Core",
+    "Theme/Public",
+    "Mode/Light",
+    "Mode/Dark"
   ]
 }
