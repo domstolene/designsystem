@@ -3,7 +3,11 @@
     "id": "156a716921b10e24a326ddfaecd5cd7d56bd7600",
     "name": "Elsa",
     "selectedTokenSets": {
-      "Base/Elsa": "enabled"
+      "Base/Elsa": "enabled",
+      "Mode/Light": "disabled",
+      "Mode/Dark": "disabled",
+      "Theme/Core": "disabled",
+      "Theme/Public": "disabled"
     },
     "$figmaStyleReferences": {
       "dds-shadow.1": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
@@ -285,7 +289,10 @@
     "name": "Light",
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Core/Light": "enabled"
+      "Mode/Light": "disabled",
+      "Mode/Dark": "disabled",
+      "Theme/Core": "enabled",
+      "Theme/Public": "disabled"
     },
     "$figmaStyleReferences": {
       "dds-font.label.medium": "S:33c1e01d7ed5016292baf8d962c736959aad3ec0,",
@@ -488,7 +495,10 @@
     },
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Core/Dark": "enabled"
+      "Mode/Light": "disabled",
+      "Mode/Dark": "disabled",
+      "Theme/Core": "disabled",
+      "Theme/Public": "disabled"
     },
     "$figmaVariableReferences": {
       "dds-border-radius.button": "7d33566407bfecef1c36f6b388086eba3daadf12",
@@ -652,7 +662,10 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Public/Light": "enabled"
+      "Mode/Light": "enabled",
+      "Mode/Dark": "disabled",
+      "Theme/Core": "disabled",
+      "Theme/Public": "disabled"
     },
     "group": "Public",
     "$figmaCollectionId": "VariableCollectionId:12655:5346",
@@ -816,7 +829,10 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Public/Dark": "enabled"
+      "Mode/Light": "disabled",
+      "Mode/Dark": "enabled",
+      "Theme/Core": "disabled",
+      "Theme/Public": "disabled"
     },
     "group": "Public",
     "$figmaCollectionId": "VariableCollectionId:12655:5346",
