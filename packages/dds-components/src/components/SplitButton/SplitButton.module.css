@@ -25,5 +25,5 @@
 
 .option--primary,
 .option--primary:hover {
-  border-left: 1px solid var(--dds-color-border-on-action);
+  border-left: 1px solid var(--dds-color-border-on-action) !important;
 }
