@@ -1,4 +1,4 @@
-import { type ComponentPropsWithRef } from 'react';
+import { type ComponentPropsWithRef, type MouseEventHandler } from 'react';
 
 import { type Placement } from '../../hooks';
 import { type BaseComponentPropsWithChildren } from '../../types';
@@ -15,7 +15,10 @@ export type OverflowMenuListItemBaseProps<T extends 'span' | 'button' | 'a'> = {
 } & ComponentPropsWithRef<T>;
 
 export type OverflowMenuButtonProps = OverflowMenuListItemBaseProps<'button'> &
-  Pick<ButtonProps, 'loading' | 'loadingTooltip'>;
+  Pick<ButtonProps, 'loading' | 'loadingTooltip'> & {
+    /**Asynkron `onClick` event; håndterer loading status, slik at menyen ikke lukker seg under loading. */
+    onClickAsync?: MouseEventHandler<HTMLButtonElement>;
+  };
 
 export type OverflowMenuLinkProps = OverflowMenuListItemBaseProps<'a'>;
 

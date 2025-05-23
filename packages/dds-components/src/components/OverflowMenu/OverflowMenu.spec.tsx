@@ -42,11 +42,6 @@ function TestComponent({ link, item, span }: props) {
 }
 
 describe('<OverflowMenu>', () => {
-  it('should display context menu item as button', () => {
-    render(<TestComponent item={item} />);
-    const buttonElement = screen.getByRole('button');
-    expect(buttonElement).toBeInTheDocument();
-  });
   it('should display context menu item as link', () => {
     render(<TestComponent link={link} />);
     const aElement = screen.getByText(text);
@@ -102,18 +97,6 @@ describe('<OverflowMenu>', () => {
     expect(event).toBeCalled();
   });
 
-  it('should run onClick event from context menu', async () => {
-    const event = vi.fn();
-    const item = { children: text, onClick: event };
-    render(<TestComponent item={item} />);
-
-    const menuButton = screen.getByRole('button');
-    await userEvent.click(menuButton);
-
-    await userEvent.click(screen.getByRole('menuitem', { name: text }));
-
-    expect(event).toHaveBeenCalled();
-  });
   it('should hide menu after Esc keydown', async () => {
     render(<TestComponent />);
     const menuButton = screen.getByRole('button');
@@ -125,5 +108,94 @@ describe('<OverflowMenu>', () => {
 
     const elQuery = screen.queryByRole('menu');
     expect(elQuery).not.toBeInTheDocument();
+  });
+
+  describe('<OverflowMenuButton>', () => {
+    it('should display context menu item as button', () => {
+      render(<TestComponent item={item} />);
+      const buttonElement = screen.getByRole('button');
+      expect(buttonElement).toBeInTheDocument();
+    });
+
+    it('should run onClick event from context menu', async () => {
+      const event = vi.fn();
+      const item = { children: text, onClick: event };
+      render(<TestComponent item={item} />);
+
+      const menuButton = screen.getByRole('button');
+      await userEvent.click(menuButton);
+
+      await userEvent.click(screen.getByRole('menuitem', { name: text }));
+
+      expect(event).toHaveBeenCalled();
+    });
+    it('should run onClickAsync and close menu after it resolves', async () => {
+      const asyncClick = vi.fn(() => Promise.resolve());
+      render(
+        <TestComponent item={{ children: text, onClickAsync: asyncClick }} />,
+      );
+
+      const menuButton = screen.getByRole('button');
+      await userEvent.click(menuButton);
+
+      const menuItem = screen.getByRole('menuitem', { name: text });
+      await userEvent.click(menuItem);
+
+      expect(asyncClick).toHaveBeenCalled(); // Wait for async operation to finish and menu to close
+
+      await screen.findByRole('button');
+      expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    });
+
+    it('should keep menu open while onClickAsync is pending', async () => {
+      let resolveFn: () => void;
+      const asyncClick = vi.fn(
+        () =>
+          new Promise<void>(resolve => {
+            resolveFn = resolve;
+          }),
+      );
+
+      render(
+        <TestComponent item={{ children: text, onClickAsync: asyncClick }} />,
+      );
+
+      const menuButton = screen.getByRole('button');
+      await userEvent.click(menuButton);
+
+      const menu = screen.getByRole('menu');
+      expect(menu).toBeInTheDocument();
+
+      const menuItem = screen.getByRole('menuitem', { name: text });
+      await userEvent.click(menuItem);
+
+      expect(screen.getByRole('menu')).toBeInTheDocument();
+
+      resolveFn!();
+    });
+
+    it('should disable button while loading from onClickAsync', async () => {
+      let resolveFn: () => void;
+      const asyncClick = vi.fn(
+        () =>
+          new Promise<void>(resolve => {
+            resolveFn = resolve;
+          }),
+      );
+
+      render(
+        <TestComponent item={{ children: text, onClickAsync: asyncClick }} />,
+      );
+
+      const menuButton = screen.getByRole('button');
+      await userEvent.click(menuButton);
+
+      const menuItem = screen.getByRole('menuitem', { name: text });
+      await userEvent.click(menuItem);
+
+      expect(menuItem).toHaveAttribute('aria-disabled', 'true');
+
+      resolveFn!();
+    });
   });
 });
