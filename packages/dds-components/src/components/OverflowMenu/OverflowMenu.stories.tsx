@@ -210,6 +210,33 @@ export const WithButtons: Story = {
   },
 };
 
+export const WithAsyncClick: Story = {
+  render: args => {
+    const [text, setText] = useState('Klikk på "Handling" i menyen');
+    const click = async () => {
+      setText('Jobber...');
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setText('Ferdig!');
+    };
+    return (
+      <VStack>
+        <span>{text}</span>
+        <OverflowMenuGroup>
+          <Button icon={MenuIcon} aria-label="Åpne meny" />
+          <OverflowMenu {...args}>
+            <OverflowMenuList>
+              <OverflowMenuButton onClickAsync={click}>
+                Handling
+              </OverflowMenuButton>
+            </OverflowMenuList>
+            <OverflowMenuDivider />
+          </OverflowMenu>
+        </OverflowMenuGroup>
+      </VStack>
+    );
+  },
+};
+
 export const WithNavigation: Story = {
   parameters: { docs: { story: { height: '250px' } } },
   render: args => {
