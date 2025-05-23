@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 21.3.0
+
+### Minor Changes
+
+- 0f3ffcd: Ny delkomponent og variant: `<CardSelectable>` med `<CardSelectableGroup>`. Bruker `<Card>` styling og returnerer enten en avkrysningboks eller radioknapp; oppførselen er stort sett samme som `<RadioButton>` `<Checkbox>` og deres grupper.
+- efd0882: Støtte for async funksjonkall med `onClickAsync` prop i `<OverflowMenuButton>`, slik at menyen er fortsatt åpen under loading.
+
+### Patch Changes
+
+- 0f3ffcd: Fikser bug i `<Checkbox>` og `<RadioButton>` der padding for komponent uten ledetekst ble satt selv om `children` prop ble brukt.
+- 0f3ffcd: Fikser bug der `<RadioButton>` sin `<input>` ikke fikk `aria-readonly` attributt ved `readOnly` prop.
+- 0f3ffcd: Oppdaterer border-farge i disabled `<Checkbox>` og `<RadioButton>` til `dds-color-border-subtle`.
+
 ## 21.2.2 (2025-05-16)
 
 ### Patch Changes
