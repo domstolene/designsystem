@@ -1,9 +1,10 @@
-import { type ChangeEvent, type HTMLAttributes, useId, useState } from 'react';
+import { type ChangeEvent, type HTMLAttributes, useId } from 'react';
 
 import {
   RadioButtonGroupContext,
   type RadioButtonGroupContextProps,
 } from './RadioButtonGroupContext';
+import { useControllableGroupState } from '../../../hooks/useControllableState';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -57,25 +58,14 @@ export const RadioButtonGroup = <T extends string | number = string>({
 }: RadioButtonGroupProps<T>) => {
   const { 'aria-required': ariaRequired = false } = htmlProps;
 
-  const [uncontrolledValue, setUncontrolledValue] = useState<T | undefined>(
-    defaultValue,
-  );
-
   const generatedId = useId();
   const uniqueGroupId = groupId ?? `${generatedId}-radioButtonGroup`;
 
-  const isControlled = value !== undefined;
-  const groupValue = isControlled ? value : uncontrolledValue;
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    if (!isControlled) {
-      setUncontrolledValue(newValue as T);
-    }
-    if (onChange) {
-      onChange(e, newValue as T);
-    }
-  };
+  const { groupValue, handleChange } = useControllableGroupState({
+    value,
+    defaultValue,
+    onChange,
+  });
 
   const hasErrorMessage = !!errorMessage;
   const showRequiredMarker =

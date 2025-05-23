@@ -106,7 +106,7 @@
 .label--disabled {
   cursor: not-allowed;
   input:disabled ~ .selection-control {
-    border-color: var(--dds-color-border-default);
+    border-color: var(--dds-color-border-subtle);
   }
   input:checked:disabled ~ .selection-control,
   input:disabled[data-indeterminate='true'] ~ .selection-control {

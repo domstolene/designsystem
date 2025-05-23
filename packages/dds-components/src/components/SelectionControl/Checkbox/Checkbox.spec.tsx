@@ -38,29 +38,27 @@ describe('<Checkbox>', () => {
     await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
-  it('children of CheckboxGroup should have accessible description when tip provided', () => {
-    const groupId = 'groupId';
-    const tip = 'tip';
-    render(
-      <CheckboxGroup groupId={groupId} tip={tip}>
-        <Checkbox />
-      </CheckboxGroup>,
-    );
-    const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).toHaveAccessibleDescription(tip);
-  });
-  it('children of CheckboxGroup should have aria-describedby as errorMessage id and aria-invalid when errorMessage provided', () => {
-    const groupId = 'groupId';
-    render(
-      <CheckboxGroup groupId={groupId} errorMessage="errorMessage">
-        <Checkbox />
-      </CheckboxGroup>,
-    );
-    const checkbox = screen.getByRole('checkbox');
-    expect(checkbox).toHaveAttribute(
-      'aria-describedby',
-      `${groupId}-errorMessage`,
-    );
-    expect(checkbox).toHaveAttribute('aria-invalid', 'true');
+  describe('<CheckboxGroup>', () => {
+    it('children of CheckboxGroup should have accessible description when tip provided', () => {
+      const tip = 'tip';
+      render(
+        <CheckboxGroup tip={tip}>
+          <Checkbox />
+        </CheckboxGroup>,
+      );
+      const checkbox = screen.getByRole('checkbox');
+      expect(checkbox).toHaveAccessibleDescription(tip);
+    });
+    it('children of CheckboxGroup should be invalid and have have accessible description when errorMessage provided', () => {
+      const errorMessage = 'error';
+      render(
+        <CheckboxGroup errorMessage={errorMessage}>
+          <Checkbox />
+        </CheckboxGroup>,
+      );
+      const checkbox = screen.getByRole('checkbox');
+      expect(checkbox).toHaveAccessibleDescription(errorMessage);
+      expect(checkbox).toBeInvalid();
+    });
   });
 });

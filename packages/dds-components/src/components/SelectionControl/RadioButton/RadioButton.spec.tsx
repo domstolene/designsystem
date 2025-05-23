@@ -39,6 +39,11 @@ describe('<RadioButton>', () => {
     const radio = screen.getByRole('radio');
     expect(radio).toBeInTheDocument();
   });
+  it('should have a label', () => {
+    const label = 'Select me';
+    render(<RadioButton label={label} />);
+    expect(screen.getByText(label)).toBeInTheDocument();
+  });
   describe('<RadioButtonGroup>', () => {
     it('should set default checked uncontrolled state', () => {
       render(TestComponent);
@@ -51,6 +56,19 @@ describe('<RadioButton>', () => {
       await userEvent.click(radio);
 
       expect(radio).toHaveFocus();
+    });
+    it('should make children readOnly', async () => {
+      render(
+        <RadioButtonGroup readOnly>
+          <RadioButton />
+          <RadioButton />
+        </RadioButtonGroup>,
+      );
+      const radios = screen.getAllByRole('radio');
+
+      radios.forEach(radio => {
+        expect(radio).toHaveAttribute('aria-readonly', 'true');
+      });
     });
     it('should get focus on Tab', async () => {
       render(TestComponent);

@@ -24,6 +24,7 @@ export default {
   parameters: {
     docs: {
       story: { inline: true },
+      canvas: { sourceState: 'shown' },
     },
   },
   argTypes: {
@@ -117,7 +118,6 @@ export const Overview: Story = {
             {body}
           </div>
         </Card>
-
         <Card {...args} cardType="expandable" appearance="border">
           <CardExpandable>
             <CardExpandableHeader> Title </CardExpandableHeader>

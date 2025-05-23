@@ -1,4 +1,9 @@
-import { type Dispatch, type SetStateAction, useState } from 'react';
+import {
+  type ChangeEvent,
+  type Dispatch,
+  type SetStateAction,
+  useState,
+} from 'react';
 
 import { useCallbackRef } from './useCallbackRef';
 
@@ -35,4 +40,35 @@ export function useControllableState<T>(props: UseControllableStateProps<T>) {
   );
 
   return [value, setValue] as [T, Dispatch<SetStateAction<T>>];
+}
+
+/**
+ * The `useControllableGroupState` hook returns the group value and handleChange function to control it.
+ */
+export interface UseControllableGroupStateProps<T>
+  extends Pick<UseControllableStateProps<T>, 'defaultValue' | 'value'> {
+  onChange?: (event: ChangeEvent<HTMLInputElement>, value: T) => void;
+}
+
+export function useControllableGroupState<T>(
+  props: UseControllableGroupStateProps<T>,
+) {
+  const { value, defaultValue, onChange } = props;
+  const [uncontrolledValue, setUncontrolledValue] = useState<T | undefined>(
+    defaultValue,
+  );
+  const isControlled = value !== undefined;
+  const groupValue = isControlled ? value : uncontrolledValue;
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value as T;
+    if (!isControlled) {
+      setUncontrolledValue(newValue);
+    }
+    if (onChange) {
+      onChange(e, newValue);
+    }
+  };
+
+  return { groupValue, handleChange };
 }
