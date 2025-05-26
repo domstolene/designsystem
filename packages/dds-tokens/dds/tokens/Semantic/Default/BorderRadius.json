@@ -1,0 +1,29 @@
+{
+  "dds-border-radius": {
+    "button": {
+      "value": "{dds-border-radius-base.1}",
+      "type": "borderRadius",
+      "description": "For use in button component and togglebutton"
+    },
+    "surface": {
+      "value": "{dds-border-radius-base.2}",
+      "type": "borderRadius",
+      "description": "Most surfaces, for example cards, papers, messages, backgrounds in GUI"
+    },
+    "input": {
+      "value": "{dds-border-radius-base.1}",
+      "type": "borderRadius",
+      "description": "All input fields, and check boxes"
+    },
+    "chip": {
+      "value": "{dds-border-radius-base.2}",
+      "type": "borderRadius",
+      "description": "Chips and tags"
+    },
+    "rounded": {
+      "value": "{dds-border-radius-base.100}",
+      "type": "borderRadius",
+      "description": "Rounded and circular components such as radiobutton, toggle, togglebutton and progress tracker"
+    }
+  }
+}
