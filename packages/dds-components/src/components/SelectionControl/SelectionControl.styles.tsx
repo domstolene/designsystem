@@ -31,16 +31,12 @@ export const SelectionControl = ({
 
 type SelectionControlLabelProps = {
   disabled?: boolean;
-  readOnly?: boolean;
-  hasError?: boolean;
   hasText?: boolean;
   controlType: SelectionControlType;
 } & LabelHTMLAttributes<HTMLLabelElement>;
 
 export const Label = ({
   disabled,
-  readOnly,
-  hasError,
   hasText,
   controlType,
   className,
@@ -60,10 +56,7 @@ export const Label = ({
         styles[`label--${controlType}`],
         !hasText && styles['label--no-text'],
         typographyStyles['text-color--default'],
-        disabled && styles['label--disabled'],
         disabled && typographyStyles['text-color--subtle'],
-        readOnly && styles['label--readonly'],
-        hasError && styles['label--error'],
       )}
       {...rest}
     />

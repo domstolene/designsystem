@@ -44,9 +44,7 @@ export const Checkbox = ({
 
   return (
     <Label
-      hasError={hasError}
       disabled={isDisabled}
-      readOnly={isReadOnly}
       htmlFor={uniqueId}
       hasText={hasLabel || hasChildren}
       controlType="checkbox"
