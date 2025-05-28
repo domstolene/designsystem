@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 21.3.1
+
+### Patch Changes
+
+- c3bbf05: Fikser bug deg border mellom knappene i `<SplitButton>` fikk feil farge på hover.
+
 ## 21.3.0 (2025-05-23)
 
 ### Minor Changes
