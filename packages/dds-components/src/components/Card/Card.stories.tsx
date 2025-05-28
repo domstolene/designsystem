@@ -16,6 +16,7 @@ import {
   CardExpandable,
   CardExpandableBody,
   CardExpandableHeader,
+  CardSelectable,
 } from '.';
 
 export default {
@@ -81,7 +82,7 @@ export const Overview: Story = {
         <Card {...args} cardType="info">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Info
             </Heading>
             {body}
           </div>
@@ -89,23 +90,25 @@ export const Overview: Story = {
         <Card {...args} cardType="navigation" href="#">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Navigation
             </Heading>
             {body}
           </div>
         </Card>
         <Card {...args} cardType="expandable">
           <CardExpandable>
-            <CardExpandableHeader> Title </CardExpandableHeader>
+            <CardExpandableHeader> Expandable </CardExpandableHeader>
             <CardExpandableBody>Content</CardExpandableBody>
           </CardExpandable>
         </Card>
+        <CardSelectable cardType="checkbox">Selectable checkbox</CardSelectable>
+        <CardSelectable cardType="radio">Selectable radio</CardSelectable>
       </StoryVStack>
       <StoryVStack>
         <Card {...args} cardType="info" appearance="border">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Info
             </Heading>
             {body}
           </div>
@@ -113,17 +116,23 @@ export const Overview: Story = {
         <Card {...args} appearance="border" cardType="navigation" href="#">
           <div className="story-container-padding">
             <Heading level={2} typographyType="headingLarge">
-              Title
+              Navigation
             </Heading>
             {body}
           </div>
         </Card>
         <Card {...args} cardType="expandable" appearance="border">
           <CardExpandable>
-            <CardExpandableHeader> Title </CardExpandableHeader>
+            <CardExpandableHeader> Expandable </CardExpandableHeader>
             <CardExpandableBody>Content</CardExpandableBody>
           </CardExpandable>
         </Card>
+        <CardSelectable cardType="checkbox" appearance="border">
+          Selectable checkbox
+        </CardSelectable>
+        <CardSelectable cardType="radio" appearance="border">
+          Selectable radio
+        </CardSelectable>
       </StoryVStack>
     </StoryHStack>
   ),

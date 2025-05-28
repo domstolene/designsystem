@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { CardSelectable } from './CardSelectable';
 import {
+  categoryHtml,
   htmlPropsArgType,
   responsivePropsArgTypes,
 } from '../../../storybook/helpers';
@@ -28,8 +29,8 @@ export default {
   },
   argTypes: {
     htmlProps: htmlPropsArgType,
-    checked: htmlPropsArgType,
-    disabled: htmlPropsArgType,
+    checked: { table: categoryHtml, control: 'boolean' },
+    disabled: { table: categoryHtml, control: 'boolean' },
     value: htmlPropsArgType,
     defaultValue: htmlPropsArgType,
     padding,

@@ -13,9 +13,9 @@ export default {
     label: { control: { type: 'text' } },
     errorMessage: { control: { type: 'text' } },
     tip: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
-    readOnly: { control: { type: 'boolean' } },
-    required: { control: { type: 'boolean' } },
+    disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
+    required: { control: 'boolean' },
   },
   parameters: {
     docs: {

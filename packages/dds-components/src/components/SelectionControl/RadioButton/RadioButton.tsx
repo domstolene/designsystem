@@ -81,9 +81,7 @@ export const RadioButton = ({
 
   return (
     <Label
-      hasError={hasError}
       disabled={isDisabled}
-      readOnly={isReadOnly}
       style={style}
       className={cn(className, htmlPropsClassName)}
       hasText={hasLabel || hasChildren}

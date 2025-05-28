@@ -33,6 +33,11 @@ export const CardSelectable = (props: CardSelectableProps) => {
   const cardType = cardTypeProp ?? cardTypeContext;
   const group = cardTypeContext === 'radio' ? radioGroup : checkboxGroup;
 
+  if (!cardType)
+    throw new Error(`
+Error: <CardSelectable> requires a \`cardType\` prop.
+Provide \`cardType\` either via a parent <CardSelectableGroup> or directly on the component.`);
+
   const {
     disabled = group?.disabled,
     readOnly = group?.readOnly,
@@ -48,9 +53,6 @@ export const CardSelectable = (props: CardSelectableProps) => {
     styles.container,
     styles[`container--${appearance}`],
     styles[`container--selection-control`],
-    readOnly && styles[`container--selection-control--readonly`],
-    disabled && styles[`container--selection-control--disabled`],
-    error && styles[`container--selection-control--error`],
     focusStyles['has-focusable-input'],
   );
 
