@@ -723,7 +723,7 @@
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
           "textDecoration": "{dds-font-style.normal}",
-          "fontSize": "clamp(1.25rem, 0.833rem + 1.111vw, 1.5rem)"
+          "fontSize": "{dds-font-size.x1_5}"
         },
         "type": "typography",
         "description": "Default h2"
@@ -732,7 +732,7 @@
         "value": {
           "fontFamily": "{dds-font-family.sans}",
           "fontWeight": "{dds-font-weight.normal}",
-          "fontSize": "clamp(1.5rem, 0.667rem + 2.222vw, 2rem)",
+          "fontSize": "{dds-font-size.x2}",
           "lineHeight": "{dds-font-lineheight.x2}",
           "letterSpacing": "{dds-font-letter-spacing.normal}",
           "paragraphSpacing": "{dds-font-paragraph-spacing.heading}",
