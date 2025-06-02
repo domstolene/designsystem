@@ -1,3 +1,5 @@
+import { type HTMLAttributes } from 'react';
+
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -14,7 +16,8 @@ export type ParagraphProps = BaseComponentPropsWithChildren<
   {
     /**Spesifiserer typografistil basert på utvalget for brødtekst og ingress.  */
     typographyType?: TypographyBodyType | TypographyLeadType;
-  } & BaseTypographyProps
+  } & BaseTypographyProps,
+  Omit<HTMLAttributes<HTMLParagraphElement>, 'color'>
 >;
 
 export const Paragraph = ({

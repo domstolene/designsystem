@@ -7,7 +7,12 @@ import {
   type TypographyHeadingType,
   type TypographyType,
 } from './Typography.types';
-import { convertCamelToHyphen } from '../../../utils';
+import {
+  type TextColor,
+  convertCamelToHyphen,
+  isTextColor,
+} from '../../../utils';
+import typographyStyles from '../typographyStyles.module.css';
 
 export const defaultTypographyType: TypographyBodyType = 'bodyMedium';
 export const defaultTypographyTypeClassName: HyphenTypographyType =
@@ -118,3 +123,12 @@ export const isInlineElement = (as: ElementType): as is InlineElement =>
 export function getTypographyCn(value: TypographyType): HyphenTypographyType {
   return convertCamelToHyphen(value) as HyphenTypographyType;
 }
+
+export const getColorCn = (color?: TextColor) => {
+  if (!isTextColor(color)) return null;
+  const [prefix] = color.split('-', 1);
+  const key = `${prefix}-color--${color.slice(prefix.length + 1)}`;
+  console.log(prefix);
+  console.log(key);
+  return (typographyStyles as Record<string, string>)[key] || null;
+};

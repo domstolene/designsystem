@@ -1,3 +1,5 @@
+import { type ComponentProps } from 'react';
+
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -6,7 +8,8 @@ import { type BaseTypographyProps, Typography } from '../Typography';
 
 export type CaptionProps = BaseComponentPropsWithChildren<
   HTMLTableCaptionElement,
-  BaseTypographyProps
+  BaseTypographyProps,
+  Omit<ComponentProps<'caption'>, 'color'>
 >;
 
 export const Caption = ({

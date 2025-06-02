@@ -2,6 +2,8 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
+import { Typography } from '../Typography';
 
 import { Paragraph } from '.';
 
@@ -9,7 +11,9 @@ export default {
   title: 'dds-components/Components/Typography/Paragraph',
   component: Paragraph,
   argTypes: {
+    color: { control: 'text' },
     htmlProps: htmlPropsArgType,
+    ...storyTypographyHtmlAttrs,
   },
   parameters: {
     docs: {
@@ -44,5 +48,18 @@ export const Overview: Story = {
         {args.children || 'leadMedium'}
       </Paragraph>
     </StoryVStack>
+  ),
+};
+
+export const CustomColor: Story = {
+  render: args => (
+    <Paragraph {...args} color="text-subtle">
+      {' '}
+      Obligatoriske felter er merket med{' '}
+      <Typography as="span" color="text-requiredfield">
+        *
+      </Typography>
+      .
+    </Paragraph>
   ),
 };

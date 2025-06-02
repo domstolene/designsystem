@@ -7,6 +7,7 @@ import {
 } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { Paragraph } from '../Paragraph';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Link } from '.';
 
@@ -18,6 +19,7 @@ export default {
     onClick: htmlEventArgType,
     target: { control: false, table: categoryHtml },
     htmlProps: htmlPropsArgType,
+    ...storyTypographyHtmlAttrs,
   },
   parameters: {
     docs: {
@@ -45,6 +47,14 @@ export const Overview: Story = {
 
 export const WithVisited: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no', withVisited: true },
+};
+
+export const CustomColor: Story = {
+  args: {
+    children: 'Link',
+    href: 'https://www.domstol.no',
+    color: 'text-default',
+  },
 };
 
 export const InText: Story = {

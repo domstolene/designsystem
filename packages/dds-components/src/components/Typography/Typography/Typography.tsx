@@ -8,6 +8,7 @@ import {
   type TypographyLabelType,
 } from './Typography.types';
 import {
+  getColorCn,
   getElementType,
   getTypographyCn,
   isCaption,
@@ -15,7 +16,7 @@ import {
 } from './Typography.utils';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
 import { cn } from '../../../utils';
-import { getTextColor } from '../../../utils/color';
+import { getTextColor, isTextColor } from '../../../utils/color';
 import { ElementAs } from '../../helpers/ElementAs/ElementAs';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
@@ -24,7 +25,7 @@ import typographyStyles from '../typographyStyles.module.css';
 
 type AnchorTypographyProps = BaseComponentProps<
   HTMLAnchorElement,
-  TypographyComponentProps & {
+  {
     /**nativ `href`-prop ved `typographyType='a'`.  */
     href?: string | undefined;
 
@@ -39,13 +40,11 @@ type AnchorTypographyProps = BaseComponentProps<
 
 type LabelTypographyProps = BaseComponentProps<
   HTMLLabelElement,
-  TypographyComponentProps,
   HTMLAttributes<HTMLLabelElement>
 >;
 
 type OtherTypographyProps = BaseComponentProps<
   HTMLElement,
-  TypographyComponentProps,
   HTMLAttributes<HTMLElement>
 >;
 
@@ -53,15 +52,18 @@ export type TypographyProps =
   | ({
       /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
       typographyType?: TypographyAnchorType;
-    } & AnchorTypographyProps)
+    } & TypographyComponentProps &
+      Omit<AnchorTypographyProps, 'color'>)
   | ({
       /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
       typographyType?: TypographyLabelType;
-    } & LabelTypographyProps)
+    } & TypographyComponentProps &
+      Omit<LabelTypographyProps, 'color'>)
   | ({
       /**Styling basert på det typografiske utvalget definert i Figma. Returnerer default HTML tag for hver type. **OBS!** Ved bruk av `'a'` er det flere tilgjengelige props, se under.  */
       typographyType?: OtherTypographyType;
-    } & OtherTypographyProps);
+    } & TypographyComponentProps &
+      Omit<OtherTypographyProps, 'color'>);
 
 const isAnchorProps = (
   props: TypographyProps,
@@ -105,6 +107,7 @@ export const Typography = (props: TypographyProps) => {
         id,
         cn(
           className,
+          getColorCn(color),
           styles.container,
           externalLinkProp && typographyStyles['a--external'],
           typographyStyles[typographyCn],
@@ -125,7 +128,7 @@ export const Typography = (props: TypographyProps) => {
       style={{
         ...htmlPropsStyle,
         ...style,
-        color: color && getTextColor(color),
+        color: color && !isTextColor(color) ? getTextColor(color) : undefined,
       }}
       rel={relProp}
       target={targetProp}

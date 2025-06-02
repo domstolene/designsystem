@@ -25,7 +25,10 @@ export interface BaseLabelProps {
 export type LabelProps = BaseComponentPropsWithChildren<
   HTMLLabelElement,
   BaseLabelProps & BaseTypographyProps & PickedHTMLAttributes,
-  Omit<LabelHTMLAttributes<HTMLLabelElement>, keyof PickedHTMLAttributes>
+  Omit<
+    LabelHTMLAttributes<HTMLLabelElement>,
+    keyof PickedHTMLAttributes | 'color'
+  >
 >;
 
 export const Label = ({

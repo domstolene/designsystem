@@ -74,67 +74,41 @@ export const changeRGBAAlpha = (value: string, alpha: number): string => {
   return value.replace(/[\d.]+\)$/g, alpha.toString() + ')');
 };
 
-export const textColors = {
-  textOnAction: 'var(--dds-color-text-on-action)',
-  textOnInverse: 'var(--dds-color-text-on-inverse)',
-  textOnStatusDefault: 'var(--dds-color-text-on-status-default)',
-  textOnStatusStrong: 'var(--dds-color-text-on-status-strong)',
-  textActionResting: 'var(--dds-color-text-action-resting)',
-  textActionHover: 'var(--dds-color-text-action-hover)',
-  textActionVisited: 'var(--dds-color-text-action-visited)',
-  textDefault: 'var(--dds-color-text-default)',
-  textRequiredfield: 'var(--dds-color-text-requiredfield)',
-  textSubtle: 'var(--dds-color-text-subtle)',
-  textMedium: 'var(--dds-color-text-medium)',
-  textOnNotification: 'var(--dds-color-text-on-notification)',
+/**
+ * Tekstfarger i kebab-case; camelCase blir deprecated, og kebab-case blir standarden for props som refererer til CSS-variabler.
+ * TODO: fjerne cameCase på et tidspunkt.
+ */
+const TEXT_COLORS = [
+  'text-on-action',
+  'text-on-inverse',
+  'text-on-status-default',
+  'text-on-status-strong',
+  'text-action-resting',
+  'text-action-hover',
+  'text-action-visited',
+  'text-default',
+  'text-requiredfield',
+  'text-subtle',
+  'text-medium',
+  'text-on-notification',
+  'icon-on-action',
+  'icon-on-info-default',
+  'icon-on-success-default',
+  'icon-on-danger-default',
+  'icon-on-warning-default',
+  'icon-on-info-strong',
+  'icon-on-success-strong',
+  'icon-on-danger-strong',
+  'icon-on-warning-strong',
+  'icon-on-inverse',
+  'icon-action-resting',
+  'icon-action-hover',
+  'icon-default',
+  'icon-subtle',
+  'icon-medium',
+] as const;
 
-  iconOnAction: 'var(--dds-color-icon-on-action)',
-  iconOnInfoDefault: 'var(--dds-color-icon-on-info-default)',
-  iconOnSuccessDefault: 'var(--dds-color-icon-on-success-default)',
-  iconOnDangerDefault: 'var(--dds-color-icon-on-danger-default)',
-  iconOnWarningDefault: 'var(--dds-color-icon-on-warning-default)',
-  iconOnInfoStrong: 'var(--dds-color-icon-on-info-strong)',
-  iconOnSuccessStrong: 'var(--dds-color-icon-on-success-strong)',
-  iconOnDangerStrong: 'var(--dds-color-icon-on-danger-strong)',
-  iconOnWarningStrong: 'var(--dds-color-icon-on-warning-strong)',
-  iconOnInverse: 'var(--dds-color-icon-on-inverse)',
-  iconActionResting: 'var(--dds-color-icon-action-resting)',
-  iconActionHover: 'var(--dds-color-icon-action-hover)',
-  iconDefault: 'var(--dds-color-icon-default)',
-  iconSubtle: 'var(--dds-color-icon-subtle)',
-  iconMedium: 'var(--dds-color-icon-medium)',
-};
-
-export type DDSTextColor =
-  | 'textOnAction'
-  | 'textOnInverse'
-  | 'textOnStatusDefault'
-  | 'textOnStatusStrong'
-  | 'textActionResting'
-  | 'textActionHover'
-  | 'textActionVisited'
-  | 'textDefault'
-  | 'textRequiredfield'
-  | 'textSubtle'
-  | 'textMedium'
-  | 'textOnNotification'
-  | 'iconOnAction'
-  | 'iconOnInfoDefault'
-  | 'iconOnSuccessDefault'
-  | 'iconOnDangerDefault'
-  | 'iconOnWarningDefault'
-  | 'iconOnInfoStrong'
-  | 'iconOnSuccessStrong'
-  | 'iconOnDangerStrong'
-  | 'iconOnWarningStrong'
-  | 'iconOnInverse'
-  | 'iconActionResting'
-  | 'iconActionHover'
-  | 'iconDefault'
-  | 'iconSubtle'
-  | 'iconMedium';
-
-export const textColorsArray = [
+const TEXT_COLORS_CAMEL = [
   'textOnAction',
   'textOnInverse',
   'textOnStatusDefault',
@@ -147,7 +121,6 @@ export const textColorsArray = [
   'textSubtle',
   'textMedium',
   'textOnNotification',
-
   'iconOnAction',
   'iconOnInfoDefault',
   'iconOnSuccessDefault',
@@ -163,15 +136,49 @@ export const textColorsArray = [
   'iconDefault',
   'iconSubtle',
   'iconMedium',
-];
+] as const;
 
-export type TextColor = DDSTextColor | Property.Color;
+type DDSTextColor = (typeof TEXT_COLORS)[number];
+type DDSTextColorCamel = (typeof TEXT_COLORS_CAMEL)[number];
 
-export function isTextColor(color: string): color is DDSTextColor {
-  return textColorsArray.indexOf(color) !== -1;
-}
+const TEXT_COLOR_VALUES_CAMEL: Record<DDSTextColorCamel, string> =
+  TEXT_COLORS_CAMEL.reduce(
+    (acc, key) => {
+      const kebab = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+      acc[key] = `var(--dds-color-${kebab})`;
+      return acc;
+    },
+    {} as Record<DDSTextColorCamel, string>,
+  );
 
-export const getTextColor = (color: TextColor): TextColor => {
-  if (isTextColor(color)) return textColors[color];
+const TEXT_COLOR_VALUES_KEBAB: Record<DDSTextColor, string> =
+  TEXT_COLORS.reduce(
+    (acc, key) => {
+      acc[key] = `var(--dds-color-${key})`;
+      return acc;
+    },
+    {} as Record<DDSTextColor, string>,
+  );
+
+export type TextColor = DDSTextColor | DDSTextColorCamel | Property.Color;
+
+export const isTextColorCamel = (
+  value: unknown,
+): value is DDSTextColorCamel => {
+  return (
+    typeof value === 'string' &&
+    TEXT_COLORS_CAMEL.includes(value as DDSTextColorCamel)
+  );
+};
+
+export const isTextColor = (value: unknown): value is DDSTextColor => {
+  return (
+    typeof value === 'string' && TEXT_COLORS.includes(value as DDSTextColor)
+  );
+};
+
+export const getTextColor = (color: TextColor): string => {
+  if (isTextColorCamel(color)) return TEXT_COLOR_VALUES_CAMEL[color];
+  if (isTextColor(color)) return TEXT_COLOR_VALUES_KEBAB[color];
   return color;
 };

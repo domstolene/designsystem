@@ -2,12 +2,14 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Legend } from '..';
 import { htmlPropsArgType } from '../../../storybook/helpers';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 export default {
   title: 'dds-components/Components/Typography/Legend',
   component: Legend,
   argTypes: {
     htmlProps: htmlPropsArgType,
+    ...storyTypographyHtmlAttrs,
   },
   parameters: {
     docs: {

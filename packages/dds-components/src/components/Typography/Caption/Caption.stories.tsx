@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../../storybook/helpers';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Caption } from '.';
 
@@ -9,6 +10,7 @@ export default {
   component: Caption,
   argTypes: {
     htmlProps: htmlPropsArgType,
+    ...storyTypographyHtmlAttrs,
   },
   parameters: {
     docs: {

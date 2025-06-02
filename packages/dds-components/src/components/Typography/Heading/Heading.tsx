@@ -1,4 +1,4 @@
-import { type ElementType } from 'react';
+import { type ElementType, type HTMLAttributes } from 'react';
 
 import {
   type BaseComponentPropsWithChildren,
@@ -40,7 +40,8 @@ export type HeadingProps = BaseComponentPropsWithChildren<
     level: HeadingLevel;
     /**Spesifiserer typografistil basert på utvalget for HTML heading elementer.  */
     typographyType?: TypographyHeadingType;
-  } & BaseTypographyProps
+  } & BaseTypographyProps,
+  Omit<HTMLAttributes<HTMLHeadingElement>, 'color'>
 >;
 
 export const Heading = ({
