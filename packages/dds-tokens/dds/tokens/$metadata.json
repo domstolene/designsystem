@@ -1,7 +1,12 @@
 {
   "tokenSetOrder": [
-    "Base",
-    "Core",
-    "Public"
+    "Base/Elsa",
+    "Semantic/Default/Color",
+    "Semantic/Default/BorderRadius",
+    "Semantic/Default/Typography",
+    "Theme/Core",
+    "Theme/Public",
+    "Mode/Light",
+    "Mode/Dark"
   ]
 }
