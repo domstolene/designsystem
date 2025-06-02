@@ -1,5 +1,13 @@
 # @norges-domstoler/dds-components
 
+## 21.3.1
+
+### Patch Changes
+
+- 183df0f: Hover styling overskriver nå error-styling i `Checkbox>` og `<RadioButton>`.
+- 183df0f: Små justeringer i styling i `<SelectableCard>`: selected-bakgrunn ved `checked`, ingen ramme ved `disabled`/`readOnly` kombinert med `checked`, disabled-bakgrunn i selection control ved `disabled`/`readOnly`.
+- c3bbf05: Fikser bug deg border mellom knappene i `<SplitButton>` fikk feil farge på hover.
+
 ## 21.3.0 (2025-05-23)
 
 ### Minor Changes
