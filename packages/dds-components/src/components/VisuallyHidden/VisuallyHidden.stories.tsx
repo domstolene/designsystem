@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { categoryHtml, commonArgTypes } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Table } from '../Table/normal';
 import { Link, Paragraph } from '../Typography';
@@ -11,7 +11,9 @@ export default {
   title: 'dds-components/Components/VisuallyHidden',
   component: VisuallyHidden,
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
+    as: { control: 'text' },
+    style: { table: categoryHtml },
   },
   parameters: {
     docs: {
@@ -35,17 +37,14 @@ export const Default: Story = {
 export const WithLink: Story = {
   render: args => (
     <>
+      <Paragraph>Eksempeltekst på en nettside.</Paragraph>
       <Paragraph>
-        I foreldretvister kan du søke fri rettshjelp hvis du har lav inntekt og
-        formue.
-      </Paragraph>
-      <Paragraph>
-        På sivilrett.no finner du{' '}
+        Her finner du{' '}
         <Link href="/">
           mer informasjon og søknadsskjema
-          <VisuallyHidden {...args} as="span">
+          <VisuallyHidden {...args}>
             {' '}
-            i forbindelse med foreldretvister
+            i forbindelse med et spesifikt tema
           </VisuallyHidden>
         </Link>
         .
@@ -63,7 +62,7 @@ export const TableButtons: Story = {
           <Table.Row type="head">
             <Table.Cell type="head">Bruker</Table.Cell>
             <Table.Cell type="head">
-              <VisuallyHidden as="span">Aksjoner</VisuallyHidden>
+              <VisuallyHidden>Aksjoner</VisuallyHidden>
             </Table.Cell>
           </Table.Row>
         </Table.Head>
@@ -72,7 +71,7 @@ export const TableButtons: Story = {
             <Table.Cell>Ane Bjerke</Table.Cell>
             <Table.Cell layout="right">
               <Button size="small" purpose="danger">
-                Slett <VisuallyHidden as="span">Ane Bjerke</VisuallyHidden>
+                Slett <VisuallyHidden>Navn Navnesen</VisuallyHidden>
               </Button>
             </Table.Cell>
           </Table.Row>
@@ -80,8 +79,7 @@ export const TableButtons: Story = {
             <Table.Cell>Sandra Lovsetter</Table.Cell>
             <Table.Cell layout="right">
               <Button size="small" purpose="danger">
-                Slett{' '}
-                <VisuallyHidden as="span">Sandra Lovsetter</VisuallyHidden>
+                Slett <VisuallyHidden>Sandra Lovsetter</VisuallyHidden>
               </Button>
             </Table.Cell>
           </Table.Row>

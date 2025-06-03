@@ -183,7 +183,7 @@ export const Search = ({
             showSuggestions={context.showSuggestions}
             componentSize={componentSize}
           />
-          <VisuallyHidden id={suggestionsDescriptionId} as="span">
+          <VisuallyHidden id={suggestionsDescriptionId}>
             Bla i søkeforslag med piltaster når listen er utvidet.
           </VisuallyHidden>
         </>

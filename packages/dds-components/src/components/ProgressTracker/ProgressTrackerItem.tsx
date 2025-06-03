@@ -150,13 +150,9 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
           typographyStyles['body-medium'],
         )}
       >
-        <VisuallyHidden as="span">
-          {getVisuallyHiddenTextBefore(index)}
-        </VisuallyHidden>
+        <VisuallyHidden>{getVisuallyHiddenTextBefore(index)}</VisuallyHidden>
         {children}
-        <VisuallyHidden as="span">
-          {getVisuallyHiddenTextAfter(completed)}
-        </VisuallyHidden>
+        <VisuallyHidden>{getVisuallyHiddenTextAfter(completed)}</VisuallyHidden>
       </div>
     </>
   );

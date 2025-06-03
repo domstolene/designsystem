@@ -82,7 +82,7 @@ export const ShadowsGenerator = () => {
           <Table.Cell>Token</Table.Cell>
           <Table.Cell>Verdi</Table.Cell>
           <Table.Cell>
-            <VisuallyHidden as="span">Forhåndsvisning</VisuallyHidden>
+            <VisuallyHidden>Forhåndsvisning</VisuallyHidden>
           </Table.Cell>
           <Table.Cell>Kopier</Table.Cell>
           <Table.Cell>Base-token</Table.Cell>

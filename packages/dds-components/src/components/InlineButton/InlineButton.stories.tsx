@@ -47,8 +47,7 @@ export const Example: Story = {
               <span>
                 ...{' '}
                 <InlineButton onClick={toggle}>
-                  Vis flere{' '}
-                  <VisuallyHidden as="span">resultater</VisuallyHidden>
+                  Vis flere <VisuallyHidden>resultater</VisuallyHidden>
                 </InlineButton>
               </span>
             )}
@@ -64,7 +63,7 @@ export const Example: Story = {
         </ul>
         {isShown && (
           <InlineButton onClick={toggle}>
-            Vis færre <VisuallyHidden as="span">resultater</VisuallyHidden>
+            Vis færre <VisuallyHidden>resultater</VisuallyHidden>
           </InlineButton>
         )}
       </>

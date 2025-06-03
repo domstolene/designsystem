@@ -117,7 +117,7 @@ export const CollapsibleRow = ({
           {definingColumnCells}
           <Table.Cell type="head" layout="center">
             Utvid
-            <VisuallyHidden as="span">raden</VisuallyHidden>
+            <VisuallyHidden>raden</VisuallyHidden>
           </Table.Cell>
         </>
       </Row>

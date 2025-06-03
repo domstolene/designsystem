@@ -24,6 +24,13 @@ export const htmlPropsArgType: Partial<ArgTypes> = {
   table: categoryHtml,
 };
 
+export const commonArgTypes: ArgTypes = {
+  id: { table: categoryHtml },
+  className: { table: categoryHtml },
+  htmlProps: htmlPropsArgType,
+  ref: { control: { disable: true } },
+};
+
 export const htmlEventArgType: Partial<ArgTypes> = {
   control: { disable: true },
   table: categoryHtml,

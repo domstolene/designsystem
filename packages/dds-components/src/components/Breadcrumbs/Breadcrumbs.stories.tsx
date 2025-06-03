@@ -1,14 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import {
-  htmlPropsArgType,
-  windowWidthDecorator,
-} from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook/helpers';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { Breadcrumb, Breadcrumbs } from '.';
 
-export default {
+const meta: Meta<typeof Breadcrumbs> = {
   title: 'dds-components/Components/Breadcrumbs',
   component: Breadcrumbs,
   parameters: {
@@ -18,9 +15,11 @@ export default {
     },
   },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
-} satisfies Meta<typeof Breadcrumbs>;
+};
+
+export default meta;
 
 type Story = StoryObj<typeof Breadcrumbs>;
 

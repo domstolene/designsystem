@@ -45,7 +45,7 @@ const socials = (
             htmlProps={{ style: { display: 'block' } }}
           />
         </Link>
-        <VisuallyHidden as="span">Facebook</VisuallyHidden>
+        <VisuallyHidden>Facebook</VisuallyHidden>
       </li>
       <li>
         <Link
@@ -58,7 +58,7 @@ const socials = (
             icon={InstagramIcon}
             htmlProps={{ style: { display: 'block' } }}
           />
-          <VisuallyHidden as="span">Instagram</VisuallyHidden>
+          <VisuallyHidden>Instagram</VisuallyHidden>
         </Link>
       </li>
       <li>
@@ -72,7 +72,7 @@ const socials = (
             icon={LinkedInIcon}
             htmlProps={{ style: { display: 'block' } }}
           />
-          <VisuallyHidden as="span">LinkedIn</VisuallyHidden>
+          <VisuallyHidden>LinkedIn</VisuallyHidden>
         </Link>
       </li>
     </FooterSocialsList>
