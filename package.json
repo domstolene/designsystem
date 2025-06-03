@@ -53,16 +53,16 @@
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.1",
-    "eslint-import-resolver-typescript": "^4.4.1",
+    "eslint-import-resolver-typescript": "^4.4.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-testing-library": "^7.2.2",
+    "eslint-plugin-testing-library": "^7.3.0",
     "prettier": "^3.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "storybook": "8.6.14",
     "tsup": "^8.5.0",
-    "turbo": "^2.5.3"
+    "turbo": "^2.5.4"
   },
   "pnpm": {
     "overrides": {
