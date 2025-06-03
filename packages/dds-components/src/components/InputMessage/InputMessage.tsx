@@ -43,7 +43,7 @@ export const InputMessage = ({
       )}
       <Typography
         typographyType={isError ? 'bodySmall' : 'bodyXsmall'}
-        color={isError ? 'textDefault' : 'textSubtle'}
+        color={isError ? 'text-default' : 'text-subtle'}
         as="span"
       >
         {message}

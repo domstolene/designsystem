@@ -29,8 +29,8 @@ export const Overview: Story = {
   render: args => (
     <StoryHStack>
       <Spinner {...args} />
-      <Spinner {...args} color="iconSubtle" />
-      <Spinner {...args} color="iconOnSuccessDefault" />
+      <Spinner {...args} color="icon-subtle" />
+      <Spinner {...args} color="icon-on-success-default" />
       <Spinner {...args} size="60px" />
     </StoryHStack>
   ),

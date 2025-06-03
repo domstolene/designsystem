@@ -89,8 +89,8 @@ export const Button = ({
             size="calc(var(--dds-font-lineheight-x1) * 1em)"
             color={
               purpose === 'primary' || purpose === 'danger'
-                ? 'iconOnAction'
-                : 'iconDefault'
+                ? 'icon-on-action'
+                : 'icon-default'
             }
             tooltip={loadingTooltip}
             className={styles.icon}

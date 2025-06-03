@@ -14,13 +14,13 @@ export const ThumbIcon = ({ rating, layout, type }: ThumbIconProps) =>
   type === 'comment' ? (
     <Icon
       icon={rating === 'positive' ? ThumbUpFilledIcon : ThumbDownFilledIcon}
-      color="iconActionResting"
+      color="icon-action-resting"
       iconSize={getIconSize(layout)}
     />
   ) : (
     <Icon
       icon={rating === 'positive' ? ThumbUpIcon : ThumbDownIcon}
-      color="iconMedium"
+      color="icon-medium"
       iconSize={getIconSize(layout)}
     />
   );

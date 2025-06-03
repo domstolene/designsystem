@@ -29,7 +29,7 @@ export function CharCounter(props: Props) {
       )}
       as="div"
       typographyType="bodyXsmall"
-      color="textSubtle"
+      color="text-subtle"
       aria-label={`${current} av ${max} tegn skrevet`}
     >
       {current}/{max}
