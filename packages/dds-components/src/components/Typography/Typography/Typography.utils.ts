@@ -128,7 +128,5 @@ export const getColorCn = (color?: TextColor) => {
   if (!isTextColor(color)) return null;
   const [prefix] = color.split('-', 1);
   const key = `${prefix}-color--${color.slice(prefix.length + 1)}`;
-  console.log(prefix);
-  console.log(key);
   return (typographyStyles as Record<string, string>)[key] || null;
 };
