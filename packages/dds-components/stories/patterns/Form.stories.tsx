@@ -21,6 +21,7 @@ import {
   ProgressTracker,
   ShowHide,
   TextInput,
+  Typography,
   VStack,
 } from '../../src';
 import { StoryThemeProvider } from '../../src/components/ThemeProvider/utils/StoryThemeProvider';
@@ -30,23 +31,6 @@ const meta: Meta = {
   parameters: {
     layout: 'fullscreen',
   },
-  decorators: [
-    Story => (
-      <>
-        <style>
-          {`
-          .text--subtle  {
-            color: var(--dds-color-text-subtle);
-          }
-          .required-mark {
-          color: var(--dds-color-text-requiredfield);
-          }
-          `}
-        </style>
-        <Story />
-      </>
-    ),
-  ],
 };
 
 export default meta;
@@ -74,13 +58,12 @@ export const Form = () => {
           Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
           ingress og body er vanlig mengdetekst.
         </Paragraph>
-        <Paragraph
-          withMargins
-          typographyType="bodySmall"
-          className="text--subtle"
-        >
+        <Paragraph withMargins typographyType="bodySmall" color="text-subtle">
           Obligatoriske felter er merket med{' '}
-          <span className="required-mark">*</span>.
+          <Typography as="span" color="text-requiredfield">
+            *
+          </Typography>
+          .
         </Paragraph>
         <form>
           <VStack gap="x1">
@@ -298,13 +281,12 @@ export const FormWithSteps = () => {
             Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
             ingress og body er vanlig mengdetekst.
           </Paragraph>
-          <Paragraph
-            typographyType="bodySmall"
-            className="text--subtle"
-            withMargins
-          >
+          <Paragraph typographyType="bodySmall" color="text-subtle" withMargins>
             Obligatoriske felter er merket med{' '}
-            <span className="required-mark">*</span>.
+            <Typography as="span" color="text-requiredfield">
+              *
+            </Typography>
+            .
           </Paragraph>
           <VStack gap="x1">
             <ShowHide showBelow="sm">
@@ -490,9 +472,12 @@ export const FormWithStepsCustomGrid = () => {
               Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
               ingress og body er vanlig mengdetekst.
             </Paragraph>
-            <Paragraph typographyType="bodySmall" className="text--subtle">
+            <Paragraph typographyType="bodySmall" color="text-subtle">
               Obligatoriske felter er merket med{' '}
-              <span className="required-mark">*</span>.
+              <Typography as="span" color="text-requiredfield">
+                *
+              </Typography>
+              .
             </Paragraph>
             <VStack gap="x1">
               <ShowHide showBelow="sm">

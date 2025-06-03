@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Typography } from '..';
 import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 export default {
   title: 'dds-components/Components/Typography/Typography',
@@ -13,6 +14,7 @@ export default {
     href: { control: 'text', table: categoryHtml },
     target: { control: false, table: categoryHtml },
     as: { control: 'text' },
+    ...storyTypographyHtmlAttrs,
     htmlProps: htmlPropsArgType,
   },
   parameters: {
@@ -118,5 +120,5 @@ export const OverviewLink: Story = {
 };
 
 export const CustomColor: Story = {
-  args: { children: 'Typography', color: 'textActionResting' },
+  args: { children: 'Typography', color: 'text-action-resting' },
 };

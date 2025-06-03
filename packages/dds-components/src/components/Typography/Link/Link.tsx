@@ -4,13 +4,14 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../../types';
-import { cn } from '../../../utils';
+import { cn, getTextColor, isTextColor } from '../../../utils';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { OpenExternalIcon } from '../../Icon/icons';
 import {
   type BaseTypographyProps,
   type TypographyBodyType,
+  getColorCn,
   getTypographyCn,
 } from '../Typography';
 import typographyStyles from '../typographyStyles.module.css';
@@ -31,21 +32,27 @@ export type LinkProps = BaseComponentPropsWithChildren<
     typographyType?: TypographyBodyType;
   } & BaseTypographyProps &
     PickedHTMLAttributes,
-  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof PickedHTMLAttributes>
+  Omit<
+    AnchorHTMLAttributes<HTMLAnchorElement>,
+    keyof PickedHTMLAttributes | 'color'
+  >
 >;
 
 export const Link = ({
   id,
   className,
-  htmlProps,
+  htmlProps = {},
   children,
   typographyType,
   withMargins,
   withVisited,
   external,
   target,
+  style,
+  color,
   ...rest
 }: LinkProps) => {
+  const { style: htmlPropsStyle, ...restHtmlProps } = htmlProps;
   return (
     <a
       {...getBaseHTMLProps(
@@ -60,13 +67,19 @@ export const Link = ({
             withMargins &&
             typographyStyles[`${getTypographyCn(typographyType)}--margins`],
           focusable,
+          getColorCn(color),
         ),
-        htmlProps,
+        restHtmlProps,
         rest,
       )}
       {...rest}
       rel="noopener noreferer"
       target={external ? '_blank' : target}
+      style={{
+        ...htmlPropsStyle,
+        ...style,
+        color: color && !isTextColor(color) ? getTextColor(color) : undefined,
+      }}
     >
       {children}
       {external && <Icon iconSize="inherit" icon={OpenExternalIcon} />}

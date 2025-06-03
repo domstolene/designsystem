@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Heading } from '.';
 
@@ -10,6 +11,7 @@ export default {
   component: Heading,
   argTypes: {
     htmlProps: htmlPropsArgType,
+    ...storyTypographyHtmlAttrs,
   },
   parameters: {
     docs: {
@@ -87,4 +89,11 @@ export const WithMargins: Story = {
       <Heading {...args} withMargins />
     </div>
   ),
+};
+
+export const CustomColor: Story = {
+  args: {
+    children: 'Heading',
+    color: 'text-subtle',
+  },
 };

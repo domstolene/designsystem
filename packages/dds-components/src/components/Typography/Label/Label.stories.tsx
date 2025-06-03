@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+import { storyTypographyHtmlAttrs } from '../storyUtils';
 
 import { Label } from '.';
 
@@ -10,6 +11,7 @@ export default {
   argTypes: {
     htmlFor: { control: false, table: categoryHtml },
     htmlProps: htmlPropsArgType,
+    ...storyTypographyHtmlAttrs,
   },
   parameters: {
     docs: {
