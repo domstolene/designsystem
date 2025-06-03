@@ -66,13 +66,13 @@
     transform: translateX(1.25rem);
   }
 
-  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly])
+  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
     ~ .track
     > .thumb {
     transform: translateX(var(--dds-spacing-x1));
   }
 
-  input:enabled:active:not([aria-disabled]):not([aria-readonly])
+  input:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
     ~ .track
     > .thumb {
     width: 1.5rem;
@@ -95,13 +95,13 @@
     transform: translateX(var(--dds-spacing-x1));
   }
 
-  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly])
+  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
     ~ .track
     > .thumb {
     transform: translateX(var(--dds-spacing-x0-75));
   }
 
-  input:enabled:active:not([aria-disabled]):not([aria-readonly])
+  input:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
     ~ .track
     > .thumb {
     width: var(--dds-spacing-x2);
@@ -110,7 +110,7 @@
 
 .label,
 .label--is-loading {
-  input:checked:enabled:not([aria-readonly]) ~ .track {
+  input:checked:enabled:not([aria-readonly='true']) ~ .track {
     background-color: var(--dds-color-surface-action-selected);
     border-color: var(--dds-color-border-action-default);
 
@@ -128,7 +128,7 @@
   cursor: pointer;
 
   &:hover
-    input:enabled:checked:not([aria-disabled]):not([aria-readonly])
+    input:enabled:checked:not([aria-disabled]):not([aria-readonly='true'])
     ~ .track {
     background-color: var(--dds-color-surface-action-hover);
     border-color: var(--dds-color-border-action-hover);
@@ -137,7 +137,9 @@
       border-color: var(--dds-color-border-action-hover);
     }
   }
-  &:hover input:enabled:not([aria-disabled]):not([aria-readonly]) ~ .track {
+  &:hover
+    input:enabled:not([aria-disabled]):not([aria-readonly='true'])
+    ~ .track {
     background-color: var(--dds-color-surface-hover-default);
     border-color: var(--dds-color-border-action-hover);
 
