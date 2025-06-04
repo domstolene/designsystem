@@ -40,3 +40,13 @@ Banner bør ligge i nedre venstre hjørne, slik at den følger leserekkefølgen 
 Den kan gjerne plasseres med ulik avstand fra kanten av nettleservinduet for hvert brekkpunkt. <Link external href="https://domstolene.github.io/designsystem/iframe.html?args=&globals=&id=dds-components-components-cookiebanner--placement-with-checkboxes&viewMode=story"> Åpne eksempelet under i eget vindu for mer realistisk oppførsel</Link>.
 
 <Canvas of={CookieBannerStories.PlacementWithCheckboxes} />
+
+### På siden med detaljer om informasjonskapsler
+
+Dersom du følger eksempelet og inkluderer en lenke til en side med detaljer om informasjonskapsler, skal denne siden også vise `<CookieBanner>` så lenge brukeren ikke har tatt et valg.
+På små skjermer skal en sammentrukket versjon av banneret vises.
+Denne versjonen skal kunne utvides av brukeren, men ikke trekkes sammen igjen etter utvidelse.
+
+Dette møsteret implementeres ved å sette `collapsedBreakpoint` i komponenten for den spesifikke siden (endre vindusbredde for å se skaleringen):
+
+<Canvas of={CookieBannerStories.Collapsible} withToolbar />

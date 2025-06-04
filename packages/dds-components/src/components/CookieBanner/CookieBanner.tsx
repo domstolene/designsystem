@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { type ReactNode, useState } from 'react';
 
 import {
   type BaseComponentPropsWithChildren,
@@ -6,7 +6,15 @@ import {
 } from '../../types';
 import { cn } from '../../utils';
 import { Button, type ButtonProps } from '../Button';
-import { HStack, Paper, type ResponsiveProps, VStack } from '../layout';
+import { ExpandIcon } from '../Icon/icons';
+import {
+  type Breakpoint,
+  HStack,
+  Paper,
+  type ResponsiveProps,
+  ShowHide,
+  VStack,
+} from '../layout';
 import { Heading } from '../Typography';
 import {
   CookieBannerCheckbox,
@@ -26,6 +34,8 @@ export type CookieBannerProps = BaseComponentPropsWithChildren<
     buttons?: Array<Omit<ButtonProps, 'purpose' | 'size'>>;
     /**Checkboxes for hver type informasjonskapsel som brukes på siden. Layout håndteres ut av boksen. */
     checkboxes?: Array<CookieBannerCheckboxProps>;
+    /**Brekkpunkt for sammentrukket variant; Brukes på siden med detaljer om informasjonskapsler. */
+    collapsedBreakpoint?: Breakpoint;
   } & Pick<
     ResponsiveProps,
     'position' | 'top' | 'bottom' | 'left' | 'right' | 'width' | 'maxHeight'
@@ -44,8 +54,18 @@ export function CookieBanner({
   maxHeight = 'calc(100vh - 100px)',
   width = 'fit-content',
   children,
+  collapsedBreakpoint,
   ...rest
 }: CookieBannerProps) {
+  const hasBp = !!collapsedBreakpoint;
+  const [isCollapsedOnBreakpoint, setIsCollapsedOnBreakpoint] = useState(hasBp);
+  const heading = headerText ? (
+    <Heading level={2} typographyType="headingMedium">
+      {headerText}
+    </Heading>
+  ) : (
+    ''
+  );
   return (
     <Paper
       {...getBaseHTMLProps(
@@ -63,31 +83,47 @@ export function CookieBanner({
       background="brand-tertiary-medium"
     >
       <VStack maxWidth="70ch" gap="x1">
-        {headerText && (
-          <Heading level={2} typographyType="headingMedium">
-            {headerText}
-          </Heading>
-        )}
-        {children}
-        {description && <div>{description}</div>}
-        {checkboxes && (
-          <VStack gap="x1">
-            {checkboxes.map(props => (
-              <CookieBannerCheckbox {...props} />
-            ))}
-          </VStack>
-        )}
-        {buttons && (
-          <HStack
-            gap={applyResponsiveStyle('x1', 'sm', 'x1.5')}
-            flexWrap="wrap"
-            paddingBlock="x0.25 0"
-          >
-            {buttons.map(props => (
-              <Button {...props} size="medium" purpose="secondary" />
-            ))}
+        {hasBp && isCollapsedOnBreakpoint ? (
+          <HStack alignItems="center" justifyContent="space-between" gap="x1">
+            {heading}
+            <ShowHide
+              as={Button}
+              showBelow={collapsedBreakpoint}
+              aria-label="Utvid samtykke for bruk av informasjonskapsler"
+              purpose="tertiary"
+              icon={ExpandIcon}
+              onClick={() => setIsCollapsedOnBreakpoint(false)}
+              aria-expanded="false"
+            />
           </HStack>
+        ) : (
+          heading
         )}
+        <VStack
+          gap="x1"
+          hideBelow={isCollapsedOnBreakpoint ? collapsedBreakpoint : undefined}
+        >
+          {children}
+          {description && <div>{description}</div>}
+          {checkboxes && (
+            <VStack gap="x1">
+              {checkboxes.map((props, index) => (
+                <CookieBannerCheckbox {...props} key={index} />
+              ))}
+            </VStack>
+          )}
+          {buttons && (
+            <HStack
+              gap={applyResponsiveStyle('x1', 'sm', 'x1.5')}
+              flexWrap="wrap"
+              paddingBlock="x0.25 0"
+            >
+              {buttons.map(props => (
+                <Button {...props} size="medium" purpose="secondary" />
+              ))}
+            </HStack>
+          )}
+        </VStack>
       </VStack>
     </Paper>
   );
