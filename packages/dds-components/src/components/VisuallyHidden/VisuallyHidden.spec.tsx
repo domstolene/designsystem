@@ -6,7 +6,11 @@ import { VisuallyHidden } from './VisuallyHidden';
 describe('<VisuallyHidden>', () => {
   it('should render children', () => {
     const text = 'text';
-    render(<VisuallyHidden as="span">{text}</VisuallyHidden>);
+    render(<VisuallyHidden>{text}</VisuallyHidden>);
     expect(screen.getByText(text)).toBeInTheDocument;
+  });
+  it('should render <p>', () => {
+    render(<VisuallyHidden as="p" />);
+    expect(screen.getByRole('paragraph')).toBeInTheDocument;
   });
 });

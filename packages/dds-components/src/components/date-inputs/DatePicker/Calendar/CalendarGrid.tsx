@@ -60,7 +60,7 @@ export function CalendarGrid({ state, ...props }: CalendarGridProps) {
             <th
               className={cn(styles['calendar__grid-element'], ...typographyCn)}
             >
-              # <VisuallyHidden as="span">Ukenummer</VisuallyHidden>
+              # <VisuallyHidden>Ukenummer</VisuallyHidden>
             </th>
           )}
           {weekDays.map((day, index) => (

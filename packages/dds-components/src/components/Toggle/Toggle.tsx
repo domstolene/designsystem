@@ -138,9 +138,7 @@ export const Toggle = ({
           />
         )}
         {children}{' '}
-        {isLoading && (
-          <VisuallyHidden as="span">Innlastning pågår</VisuallyHidden>
-        )}
+        {isLoading && <VisuallyHidden>Innlastning pågår</VisuallyHidden>}
       </span>
     </label>
   );

@@ -130,9 +130,7 @@ export const GroupWithInvisibleLabel: Story = {
   render: args => {
     return (
       <>
-        <VisuallyHidden as="span" id="label-1">
-          Gruppeledetekst
-        </VisuallyHidden>
+        <VisuallyHidden id="label-1">Gruppeledetekst</VisuallyHidden>
         <CardSelectableGroup {...args} aria-labelledby="label-1">
           <CardSelectable children="alternativ 1" value={1} name="a" />
           <CardSelectable children="alternativ 2" value={2} name="a" />

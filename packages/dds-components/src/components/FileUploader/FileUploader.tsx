@@ -170,9 +170,7 @@ export const FileUploader = (props: FileUploaderProps) => {
             data-testid="file-uploader-input"
           />
           {dropAreaLabel}
-          <VisuallyHidden as="span">
-            velg fil med påfølgende knapp
-          </VisuallyHidden>
+          <VisuallyHidden>velg fil med påfølgende knapp</VisuallyHidden>
           {button}
         </VStack>
       ) : (

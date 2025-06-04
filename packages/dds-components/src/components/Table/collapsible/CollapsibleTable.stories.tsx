@@ -345,16 +345,16 @@ export const ResposiveMultipleBreakpoints: Story = {
 const headers = [
   {
     key: 'fav',
-    content: <VisuallyHidden as="span">Velg som favoritt</VisuallyHidden>,
+    content: <VisuallyHidden>Velg som favoritt</VisuallyHidden>,
   },
   {
     key: 'Dokumenttype',
-    content: <VisuallyHidden as="span">Dokumenttype</VisuallyHidden>,
+    content: <VisuallyHidden>Dokumenttype</VisuallyHidden>,
   },
   { key: 'Nummer', content: 'Nr.' },
   {
     key: 'Lest status',
-    content: <VisuallyHidden as="span">Lest status</VisuallyHidden>,
+    content: <VisuallyHidden>Lest status</VisuallyHidden>,
   },
   { key: 'Dokumentnavn', content: 'Dokumentnavn' },
   { key: 'Avsender', content: 'Avsender' },
