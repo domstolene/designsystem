@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 21.4.0
+
+### Minor Changes
+
+- f6728a8: Støtte for `color` prop i typografikomponenter: `<Caption>`, `<Heading>`, `<Label>`, `<Legend>`, `<Link>`, `<Paragraph>`. Den støtter både valgfri string og fargenavn for tekst og ikon fra våre design tokens; når kebab-case fargenavn brukes settes CSS klasse for den fargen, ellers brukes inline CSS. Farger som ikke er paret med en bakgrunnsfarge (f.eks. `text-subtle`, men ikke `text-on-notification`) blir automatisk invertert i `<Contrast>`-komponenten.
+- f6728a8: `color` prop i `<Typography>` utvides til å støtte fargenavn i kebab-case, slik at props som refererer til CSS-variabler standardiseres på tvers av biblioteket; camelCase blir deprecated og ikke støttet på sikt.
+- 1ae0ef3: Utvider `<VisuallyHidden>` sin `as` prop til å støtte valgfritt element. Propen er ikke lenger påkrevd og komponenten returnerer `<span>` som default.
+
+### Patch Changes
+
+- d8a80a9: Fikser bug der `<Toggle>`, `<RadioButton>` og `<Checkbox>` fikk read-only styling ved `readOnly="false"`.
+- f6728a8: Fikser bug der `color` prop i `<Typography>` støttet depracated nativ HTML `color`-attributt, og konsumenten fikk dermed ikke tooltip med mulige verdier i kodeeditor.
+
 ## 21.3.1
 
 ### Patch Changes (2025-06-02)
