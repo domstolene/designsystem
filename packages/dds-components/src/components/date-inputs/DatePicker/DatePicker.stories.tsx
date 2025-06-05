@@ -6,7 +6,7 @@ import {
   toCalendarDateTime,
   today,
 } from '@internationalized/date';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
 
 import { windowWidthDecorator } from '../../../storybook/helpers';

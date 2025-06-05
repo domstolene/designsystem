@@ -1,5 +1,5 @@
-import { type Story } from '@storybook/blocks';
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Story } from '@storybook/addon-docs/blocks';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { CardSelectable } from './CardSelectable';

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { ScreenSize, useScreenSize } from '../../../hooks';
 import { windowWidthDecorator } from '../../../storybook/helpers';

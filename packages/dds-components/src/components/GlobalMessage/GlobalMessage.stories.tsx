@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { GlobalMessage } from './GlobalMessage';
 import { htmlPropsArgType } from '../../storybook/helpers';

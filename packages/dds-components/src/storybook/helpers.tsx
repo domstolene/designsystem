@@ -1,5 +1,5 @@
-import { type Control } from '@storybook/blocks';
-import { type ArgTypes } from '@storybook/react';
+import { type Control } from '@storybook/addon-docs/blocks';
+import { type ArgTypes } from '@storybook/react-vite';
 import { type ReactNode, useState } from 'react';
 
 import { HStack, type ShowHideProps, VStack } from '../components/layout';

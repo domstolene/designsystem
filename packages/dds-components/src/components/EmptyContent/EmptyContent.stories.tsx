@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { EmptyContent } from './EmptyContent';
 import { StoryVStack } from '../layout/Stack/utils';

@@ -1,8 +1,8 @@
 import '@norges-domstoler/dds-components/index.css';
 import React from 'react';
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react-vite';
 import { DocsContainer } from '@storybook/addon-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from '@storybook/addon-docs/blocks';
 import {
   ToggleBar,
   ToggleRadio,
@@ -32,9 +32,12 @@ const preview: Preview = {
           </Unstyled>
         </DocsContainer>
       ),
+
       controls: { sort: 'requiredFirst' },
+      codePanel: true,
     },
   },
+
   decorators: [
     /** Styring av theme med toggle bar i hver story */
     /** Hvis story ikke skal ha theme-styring returner fast theme  */
@@ -70,6 +73,8 @@ const preview: Preview = {
       );
     },
   ],
+
+  tags: ['autodocs'],
 };
 
 export default preview;
