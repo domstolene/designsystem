@@ -11,25 +11,20 @@ const config: StorybookConfig = {
     '../packages/*/stories/**/*.mdx',
     '../packages/*/stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
+
   staticDirs: ['./images'],
+
   addons: [
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    {
-      name: '@storybook/addon-storysource',
-      options: {
-        loaderOptions: {
-          injectStoryParameters: true,
-        },
-      },
-    },
-    getAbsolutePath('@storybook/addon-mdx-gfm'),
+    getAbsolutePath('@storybook/addon-docs'),
   ],
+
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
+
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
@@ -38,9 +33,6 @@ const config: StorybookConfig = {
       propFilter: prop =>
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
-  },
-  docs: {
-    autodocs: true,
   },
 };
 

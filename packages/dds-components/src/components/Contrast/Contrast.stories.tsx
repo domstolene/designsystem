@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { BackLink } from '../BackLink';
 import { Breadcrumb, Breadcrumbs } from '../Breadcrumbs';

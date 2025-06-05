@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
 import { htmlPropsArgType } from '../../storybook/helpers';

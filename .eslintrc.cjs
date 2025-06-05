@@ -8,6 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/stylistic',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:storybook/recommended',
   ],
   env: {
     es6: true,

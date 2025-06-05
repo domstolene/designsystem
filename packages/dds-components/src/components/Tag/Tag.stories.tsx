@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
