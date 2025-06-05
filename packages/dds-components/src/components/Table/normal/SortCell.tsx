@@ -5,7 +5,6 @@ import styles from './Table.module.css';
 import { cn } from '../../../utils';
 import { StylelessButton } from '../../helpers';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import {
   ChevronDownIcon,

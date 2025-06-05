@@ -16,7 +16,6 @@ import {
 import { DescriptionList, DescriptionListTerm } from '../../DescriptionList';
 import { AnimatedChevronUpDown, StylelessButton } from '../../helpers';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { VisuallyHidden } from '../../VisuallyHidden';
 import { Table, type TableRowProps } from '../normal';
 import { Cell, type TableCellProps } from '../normal/Cell';
