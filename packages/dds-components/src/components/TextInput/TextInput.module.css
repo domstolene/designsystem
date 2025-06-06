@@ -10,10 +10,6 @@
   color: var(--dds-color-text-subtle);
 }
 
-.input-width {
-  width: var(--dds-textinput-width);
-}
-
 .input {
   &.with-icon--medium {
     padding-left: calc(
