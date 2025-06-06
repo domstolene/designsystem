@@ -46,13 +46,6 @@ export const ShadowsGenerator = () => {
         token.value.spread,
         colorRgbaValue,
       );
-      const baseValue = getShadowValue(
-        token.value.x,
-        token.value.y,
-        token.value.blur,
-        token.value.spread,
-        token.value.color,
-      );
       rows.push(
         <Table.Row key={tokenName}>
           <Table.Cell>{tokenName}</Table.Cell>
@@ -66,7 +59,6 @@ export const ShadowsGenerator = () => {
             ></div>
           </Table.Cell>
           <Table.Cell>{copyButton(tokenName)}</Table.Cell>
-          <Table.Cell>{baseValue}</Table.Cell>
         </Table.Row>,
       );
     }
@@ -85,7 +77,6 @@ export const ShadowsGenerator = () => {
             <VisuallyHidden>Forhåndsvisning</VisuallyHidden>
           </Table.Cell>
           <Table.Cell>Kopier</Table.Cell>
-          <Table.Cell>Base-token</Table.Cell>
         </Table.Row>
       </Table.Head>
       <Table.Body>{generateBodyRows()}</Table.Body>
