@@ -21,8 +21,8 @@ Arbeidet logges i [Elsa Utvikling tavle](https://domstol.atlassian.net/jira/soft
 ### Nødvendige installasjoner
 
 - **[Volta](https://volta.sh/)**: Vi anbefaler å installere Volta for versjonshåndtering av Node.js og pnpm. Volta vil automatisk installere riktig versjon av Node.js og pnpm når du jobber med designsystemet. Siden Volta kun har eksperimentell støtte for pnpm må du legge til `VOLTA_FEATURE_PNPM=1` i miljøvariabler (Windows), eller `.bashrc`, `.zshrc` eller tilsvarende (Linux/Mac). Se [Volta pnpm support](https://docs.volta.sh/advanced/pnpm) for mer informasjon.
+- **[Node.js](https://nodejs.org/en)**: kjør `volta install node` for riktig versjon.
 - **[pnpm](https://pnpm.io/)**: vi bruker pnpm som pakke-manager. Kjør `volta install pnpm` for riktig versjon.
-- **[node](https://nodejs.org/en)**: kjør `volta install node` for riktig versjon.
 
 ### Kjør miljøet
 
@@ -36,6 +36,12 @@ Kjør utviklingsmiljøet:
 
 ```shell
 pnpm dev
+```
+
+Bygg bibliotekene:
+
+```shell
+pnpm build
 ```
 
 Kjør Storybook (demoside og playground):
