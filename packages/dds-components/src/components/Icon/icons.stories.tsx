@@ -4,10 +4,9 @@ import { Icon } from './Icon';
 import { CopyIcon } from './icons/copy';
 import styles from './IconStory.module.css';
 import { type SvgIcon, type SvgProps } from './utils';
-import { cn, icons } from '../..';
+import { StylelessButton, cn, icons } from '../..';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { LocalMessage } from '../LocalMessage';
 import { Modal, ModalBody } from '../Modal';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
@@ -67,21 +66,17 @@ export const Overview = () => {
     return Object.entries(iconsObject).map(([key, value]) => {
       const trimmedName = trim(key);
       return (
-        <button
+        <StylelessButton
           key={key}
           onClick={() => onIconClick(key, value)}
           title={trimmedName}
-          className={cn(
-            styles.card,
-            utilStyles['remove-button-styling'],
-            focusable,
-          )}
+          className={cn(styles.card, focusable)}
         >
           <Icon iconSize="large" icon={value} />
           <Typography typographyType="bodyXsmall" className={styles.card__name}>
             {trimmedName}
           </Typography>
-        </button>
+        </StylelessButton>
       );
     });
   };

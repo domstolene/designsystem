@@ -3,8 +3,8 @@ import { type MouseEvent } from 'react';
 import { Cell, type TableCellProps } from './Cell';
 import styles from './Table.module.css';
 import { cn } from '../../../utils';
+import { StylelessButton } from '../../helpers';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import {
   ChevronDownIcon,
@@ -47,18 +47,13 @@ export const SortCell = ({
     aria-sort={isSorted && sortOrder ? sortOrder : undefined}
     {...rest}
   >
-    <button
+    <StylelessButton
       onClick={onClick}
       aria-description="Aktiver for å endre sorteringsrekkefølge"
-      className={cn(
-        utilStyles['normalize-button'],
-        utilStyles['remove-button-styling'],
-        styles['sort-button'],
-        focusable,
-      )}
+      className={cn(styles['sort-button'], focusable)}
     >
       {children} {makeSortIcon(isSorted, sortOrder)}
-    </button>
+    </StylelessButton>
   </Cell>
 );
 

@@ -261,3 +261,28 @@ export const PlacementWithCheckboxes: Story = {
     );
   },
 };
+
+export const Collapsible: Story = {
+  decorators: [
+    Story =>
+      windowWidthDecorator(
+        <Story />,
+        'Sammentrukket variant vises ved sm brekkpunkt.',
+      ),
+  ],
+  args: {
+    headerText: 'Tittel for banner',
+    collapsedBreakpoint: 'sm',
+    description: (
+      <>
+        Eksempeltekst for dette cookie-banneret. Fyll inn passende tekst om at
+        vi har noen valgfrie og noen nødvendige informasjonskapsler.{' '}
+        <Link href="/" color="text-default">
+          Se alle våre informasjonskapsler
+        </Link>
+        .
+      </>
+    ),
+    buttons: [{ children: 'Godkjenn alle' }, { children: 'Kun nødvendige' }],
+  },
+};

@@ -7,11 +7,10 @@ import {
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
-import { AnimatedChevronUpDown } from '../../helpers';
+import { AnimatedChevronUpDown, StylelessButton } from '../../helpers';
 import { useAccordionContext } from '../../helpers/AccordionBase';
 import baseStyles from '../../helpers/AccordionBase/AccordionBase.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { type StaticTypographyType, getTypographyCn } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
@@ -52,15 +51,13 @@ export const CardExpandableHeader = ({
   const { id, ...restHeaderProps } = headerProps ?? {};
 
   return (
-    <button
+    <StylelessButton
       {...getBaseHTMLProps(
         id,
         cn(
           className,
           styles['header-button'],
           baseStyles['header-button'],
-          utilStyles['normalize-button'],
-          utilStyles['remove-button-styling'],
           focusable,
         ),
         htmlProps,
@@ -92,7 +89,7 @@ export const CardExpandableHeader = ({
           />
         </span>
       </div>
-    </button>
+    </StylelessButton>
   );
 };
 
