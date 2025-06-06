@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-design-tokens
 
+## 8.0.2
+
+### Patch Changes
+
+- 064033f: Endringer i skalering av fontstørrelse på mindre skjermer.
+
+  - Core tema: Kun xxlarge som blir skalert ned.
+  - Public tema: xxlarge og xlarge blir skalert ned.
+
 ## 8.0.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 21.5.0 (2025-06-06)
+
+### Minor Changes
+
+- 9239dcd: Ny prop i `<CookieBanner>`: `collapsedBreakpoint`. Brukes til sammentrukket versjon på siden med detaljer om informasjonskapsler. Se detaljer i retningslinjer.
+
+### Patch Changes
+
+- 3286f86: Fikser bug der `<DatePicker>` ikke ble påvirket av `width` prop.
+
 ## 21.4.0 (2025-06-04)
 
 ### Minor Changes
