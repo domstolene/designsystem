@@ -50,7 +50,7 @@
     "eslint-import-resolver-typescript": "^4.4.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-storybook": "9.1.0-alpha.2",
+    "eslint-plugin-storybook": "9.1.0-alpha.3",
     "eslint-plugin-testing-library": "^7.3.0",
     "prettier": "^3.5.3",
     "react": "19.1.0",
