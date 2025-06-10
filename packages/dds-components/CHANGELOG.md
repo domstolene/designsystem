@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 21.5.1
+
+### Patch Changes
+
+- dffe29a: Fikser bug der `<Checkbox>` fikk indeterminate-styling selv om `indeterminate` prop var satt til `false`.
+
 ## 21.5.0 (2025-06-06)
 
 ### Minor Changes
