@@ -25,3 +25,4 @@ updates:
         patterns:
           - '@storybook/*'
           - 'storybook'
+          - 'eslint-plugin-storybook'
