@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
@@ -84,9 +84,8 @@ describe('<InlineEdit>', () => {
   it('should run onFocus event', async () => {
     const event = vi.fn();
     render(<TestComponentInput onFocus={event} />);
-    const input = screen.getByRole('textbox');
 
-    act(() => input.focus());
+    await userEvent.tab();
 
     expect(event).toHaveBeenCalled();
   });
@@ -106,7 +105,8 @@ describe('<InlineEdit>', () => {
     render(<TestComponentInput onBlur={event} />);
     const input = screen.getByRole('textbox');
 
-    act(() => input.focus());
+    await userEvent.tab();
+
     fireEvent.focusOut(input);
 
     expect(event).toHaveBeenCalled();
@@ -161,9 +161,8 @@ describe('<InlineEdit>', () => {
   it('should run onFocus event on textarea', async () => {
     const event = vi.fn();
     render(<TestComponentTextArea onFocus={event} />);
-    const input = screen.getByRole('textbox');
 
-    act(() => input.focus());
+    await userEvent.tab();
 
     expect(event).toHaveBeenCalled();
   });
@@ -183,7 +182,8 @@ describe('<InlineEdit>', () => {
     render(<TestComponentTextArea onBlur={event} />);
     const input = screen.getByRole('textbox');
 
-    act(() => input.focus());
+    await userEvent.tab();
+
     fireEvent.focusOut(input);
 
     expect(event).toHaveBeenCalled();
