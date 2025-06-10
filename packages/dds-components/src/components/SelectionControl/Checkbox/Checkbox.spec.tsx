@@ -38,6 +38,11 @@ describe('<Checkbox>', () => {
     await userEvent.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
+  it('should be indeterminate', async () => {
+    render(<Checkbox indeterminate />);
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).toHaveAttribute('aria-checked', 'mixed');
+  });
   describe('<CheckboxGroup>', () => {
     it('children of CheckboxGroup should have accessible description when tip provided', () => {
       const tip = 'tip';
