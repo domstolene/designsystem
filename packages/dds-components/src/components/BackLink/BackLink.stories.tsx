@@ -1,10 +1,11 @@
-import { type StoryObj } from '@storybook/react-vite';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { LanguageProvider } from '../../i18n';
 import { categoryHtml, htmlEventArgType } from '../../storybook/helpers';
 
 import { BackLink } from '.';
 
-export default {
+const meta: Meta<typeof BackLink> = {
   title: 'dds-components/Components/BackLink',
   component: BackLink,
   parameters: {
@@ -19,7 +20,16 @@ export default {
     },
     onClick: htmlEventArgType,
   },
+  decorators: [
+    Story => (
+      <LanguageProvider language="nb">
+        <Story />
+      </LanguageProvider>
+    ),
+  ],
 };
+
+export default meta;
 
 type Story = StoryObj<typeof BackLink>;
 

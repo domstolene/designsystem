@@ -9,6 +9,7 @@ import {
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
 
+import { LanguageProvider } from '../../../i18n';
 import { windowWidthDecorator } from '../../../storybook/helpers';
 import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
@@ -39,9 +40,11 @@ const meta: Meta<typeof DatePicker> = {
   },
   decorators: [
     Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
+      <LanguageProvider language="nb">
+        <StoryThemeProvider>
+          <Story />
+        </StoryThemeProvider>
+      </LanguageProvider>
     ),
   ],
 };

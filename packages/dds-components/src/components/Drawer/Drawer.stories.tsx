@@ -2,6 +2,7 @@ import { type Story } from '@storybook/addon-docs/blocks';
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
+import { LanguageProvider } from '../../i18n';
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -26,9 +27,11 @@ const meta: Meta<typeof Drawer> = {
   },
   decorators: [
     Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
+      <LanguageProvider language="en">
+        <StoryThemeProvider>
+          <Story />
+        </StoryThemeProvider>
+      </LanguageProvider>
     ),
   ],
 };
@@ -56,7 +59,7 @@ export const Default: Story = {
   ),
 };
 
-export const withBackdrop: Story = {
+export const WithBackdrop: Story = {
   args: { header: 'Tittel' },
   render: args => (
     <DrawerGroup>

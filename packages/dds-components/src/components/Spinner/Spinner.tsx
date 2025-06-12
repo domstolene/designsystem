@@ -2,6 +2,8 @@ import { type Property } from 'csstype';
 import { useId, useRef } from 'react';
 
 import styles from './Spinner.module.css';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { type TextColor, cn, getTextColor } from '../../utils';
 
@@ -27,12 +29,14 @@ export function Spinner(props: SpinnerProps) {
   const {
     size = 'var(--dds-icon-size-medium)',
     color = 'iconActionResting',
-    tooltip = 'Innlasting pågår',
+    tooltip,
     id,
     className,
     htmlProps,
     ...rest
   } = props;
+
+  const { t } = useTranslation();
 
   const mountTime = useRef(Date.now());
   const outerAnimationDelay = -(mountTime.current % 2000);
@@ -54,7 +58,7 @@ export function Spinner(props: SpinnerProps) {
         height: size,
       }}
     >
-      <title id={uniqueId}>{tooltip}</title>
+      <title id={uniqueId}>{tooltip ?? t(commonTexts.loading)}</title>
       <circle
         className={cn(styles.circle)}
         style={{
