@@ -14,6 +14,8 @@ import {
   useMountTransition,
   useOnClickOutside,
 } from '../../hooks';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentPropsWithChildren,
   type Size,
@@ -89,6 +91,7 @@ export const Drawer = ({
   if (!themeContext) {
     throw new Error('Drawer must be used within a ThemeProvider');
   }
+  const { t } = useTranslation();
 
   const portalTarget = parentElement ?? themeContext?.el;
 
@@ -201,7 +204,7 @@ export const Drawer = ({
           size="small"
           purpose="tertiary"
           onClick={onClose}
-          aria-label="Lukk"
+          aria-label={t(commonTexts.close)}
           icon={CloseIcon}
         />
       </HStack>

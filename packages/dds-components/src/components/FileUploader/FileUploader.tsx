@@ -5,6 +5,7 @@ import { File } from './File';
 import styles from './FileUploader.module.css';
 import { type FileList } from './types';
 import { type FileUploaderHookProps, useFileUploader } from './useFileUploader';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
@@ -52,7 +53,7 @@ export const FileUploader = (props: FileUploaderProps) => {
   const {
     id,
     label,
-    dropAreaLabel = 'Dra og slipp filer her eller',
+    dropAreaLabel,
     btnLabel = 'Velg fil',
     tip,
     required = false,
@@ -69,6 +70,9 @@ export const FileUploader = (props: FileUploaderProps) => {
     className,
     ...rest
   } = props;
+
+  const { t } = useTranslation();
+  const tDropAreaLabel = dropAreaLabel ?? t(texts.dragAndDropOr);
 
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-fileUploader`;
@@ -169,8 +173,8 @@ export const FileUploader = (props: FileUploaderProps) => {
             id={inputId}
             data-testid="file-uploader-input"
           />
-          {dropAreaLabel}
-          <VisuallyHidden>velg fil med påfølgende knapp</VisuallyHidden>
+          {tDropAreaLabel}
+          <VisuallyHidden>{t(texts.uploadFileWithButton)}</VisuallyHidden>
           {button}
         </VStack>
       ) : (
@@ -186,3 +190,18 @@ export const FileUploader = (props: FileUploaderProps) => {
 };
 
 FileUploader.displayName = 'FileUploader';
+
+const texts = createTexts({
+  dragAndDropOr: {
+    nb: 'Dra og slipp filer her eller',
+    no: 'Dra og slipp filer her eller',
+    nn: 'Dra og slepp filer her eller',
+    en: 'Drag and drop files here or',
+  },
+  uploadFileWithButton: {
+    nb: 'last opp en fil med den påfølgende knappen',
+    no: 'last opp en fil med den påfølgende knappen',
+    nn: 'last opp ei fil med den påfølgjande knappen',
+    en: 'upload using the following button',
+  },
+});

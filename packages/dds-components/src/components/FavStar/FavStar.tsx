@@ -2,6 +2,7 @@ import { type HTMLAttributes, useId } from 'react';
 
 import styles from './FavStar.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -49,6 +50,7 @@ export const FavStar = ({
   htmlProps,
   ...rest
 }: FavStarProps) => {
+  const { t } = useTranslation();
   const { style, ...props } = getBaseHTMLProps(
     id,
     cn(className),
@@ -78,7 +80,7 @@ export const FavStar = ({
         checked={checked}
         onChange={e => setChecked(e.target.checked)}
         type="checkbox"
-        aria-label={props['aria-label'] ?? 'Favoriser'}
+        aria-label={props['aria-label'] ?? t(texts.favourite)}
         className={utilStyles['hide-input']}
       />
       <Icon iconSize={size} icon={StarIcon} className={styles.icon} />
@@ -92,3 +94,12 @@ export const FavStar = ({
 };
 
 FavStar.displayName = 'FavStar';
+
+const texts = createTexts({
+  favourite: {
+    nb: 'Favoriser',
+    no: 'Favoriser',
+    nn: 'Favorittmerk',
+    en: 'Favorite',
+  },
+});

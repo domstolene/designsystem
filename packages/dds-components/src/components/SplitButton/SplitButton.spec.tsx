@@ -28,7 +28,7 @@ describe('<SplitButton>', () => {
     render(<SplitButton primaryAction={primary} secondaryActions={item} />);
     const menu = screen.queryByRole('menu');
     expect(menu).not.toBeInTheDocument();
-    const menuButton = screen.getByLabelText('Åpne liste med flere valg');
+    const menuButton = screen.getByLabelText('Flere handlinger');
 
     await userEvent.click(menuButton!);
 
@@ -68,7 +68,7 @@ describe('<SplitButton>', () => {
 
   it('should hide menu after Esc keydown', async () => {
     render(<SplitButton secondaryActions={item} primaryAction={primary} />);
-    const menuButton = screen.getByLabelText('Åpne liste med flere valg');
+    const menuButton = screen.getByLabelText('Flere handlinger');
     fireEvent.click(menuButton!);
     const menuOpened = screen.getByRole('menu');
     expect(menuOpened).toHaveAttribute('aria-hidden', 'false');

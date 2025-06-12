@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from './InternalHeader.module.css';
 import { type InternalHeaderProps } from './InternalHeader.types';
 import { NavigationItem } from './NavigationItem';
+import { createTexts, useTranslation } from '../../i18n/translation';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -43,6 +44,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     ...rest
   } = props;
 
+  const { t } = useTranslation();
+
   const [currentPage, setCurrentPage] = useState<string | undefined>(
     currentPageHref,
   );
@@ -59,7 +62,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
   const hasNavInContextMenu = hasSmallScreenBreakpoint && hasNavigationElements;
 
   const navigation = hasNavigationElements ? (
-    <nav aria-label="sidenavigasjon">
+    <nav aria-label={t(texts.siteNavigation)}>
       <ShowHide
         as={StylelessList}
         hideBelow={hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined}
@@ -137,7 +140,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
             <Button
               icon={hasNavInContextMenu ? MenuIcon : MoreVerticalIcon}
               purpose="tertiary"
-              aria-label="åpne meny"
+              aria-label={t(texts.openMenu)}
             />
             <OverflowMenu className={styles['context-menu']}>
               {user && (
@@ -152,7 +155,7 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               {hasNavInContextMenu && (
                 <ShowHide
                   as="nav"
-                  aria-label="sidenavigasjon"
+                  aria-label={t(texts.siteNavigation)}
                   showBelow={smallScreenBreakpoint}
                 >
                   <OverflowMenuList>
@@ -190,3 +193,18 @@ export const InternalHeader = (props: InternalHeaderProps) => {
 };
 
 InternalHeader.displayName = 'InternalHeader';
+
+const texts = createTexts({
+  openMenu: {
+    nb: 'Åpne meny',
+    no: 'Åpne meny',
+    nn: 'Opna meny',
+    en: 'Open menu',
+  },
+  siteNavigation: {
+    nb: 'Sidenavigasjon',
+    no: 'Sidenavigasjon',
+    nn: 'Sidenavigasjon',
+    en: 'Site navigation',
+  },
+});

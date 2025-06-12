@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { LanguageProvider } from '../../i18n';
 import { commonArgTypes, windowWidthDecorator } from '../../storybook/helpers';
 import { StoryVStack } from '../layout/Stack/utils';
 
@@ -17,6 +18,13 @@ const meta: Meta<typeof Breadcrumbs> = {
   argTypes: {
     ...commonArgTypes,
   },
+  decorators: [
+    Story => (
+      <LanguageProvider language="nb">
+        <Story />
+      </LanguageProvider>
+    ),
+  ],
 };
 
 export default meta;
@@ -55,7 +63,7 @@ export const SmallScreen: Story = {
   },
 };
 
-export const responsive: Story = {
+export const Responsive: Story = {
   args: {
     children,
     smallScreenBreakpoint: 'sm',

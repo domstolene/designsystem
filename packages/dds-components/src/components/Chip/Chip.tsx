@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import styles from './Chip.module.css';
+import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils/dom';
 import { Button } from '../Button';
@@ -26,6 +27,7 @@ export const Chip = ({
   htmlProps = {},
   ...rest
 }: ChipProps) => {
+  const { t } = useTranslation();
   const { 'aria-label': ariaLabel, ...restHTMLprops } = htmlProps;
 
   const [isOpen, setIsOpen] = useState(true);
@@ -52,10 +54,19 @@ export const Chip = ({
         icon={CloseSmallIcon}
         purpose="tertiary"
         onClick={onClick}
-        aria-label={ariaLabel ?? `Fjern ${text ? `chip ${text}` : 'chip'}`}
+        aria-label={ariaLabel ?? t(texts.removeChip) + (text ? ` ${text}` : '')}
       />
     </div>
   ) : null;
 };
 
 Chip.displayName = 'Chip';
+
+const texts = createTexts({
+  removeChip: {
+    nb: 'Fjern chip',
+    no: 'Fjern chip',
+    nn: 'Fjern chip',
+    en: 'Remove chip',
+  },
+});

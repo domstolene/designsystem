@@ -2,6 +2,8 @@ import { type InputHTMLAttributes, type ReactNode, useId } from 'react';
 
 import styles from './Toggle.module.css';
 import { useControllableState } from '../../hooks/useControllableState';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentProps,
   type Size,
@@ -71,6 +73,7 @@ export const Toggle = ({
   htmlProps = {},
   ...rest
 }: ToggleProps) => {
+  const { t } = useTranslation();
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-toggle`;
   const iconSize = size === 'large' ? 'medium' : 'small';
@@ -138,7 +141,7 @@ export const Toggle = ({
           />
         )}
         {children}{' '}
-        {isLoading && <VisuallyHidden>Innlastning pågår</VisuallyHidden>}
+        {isLoading && <VisuallyHidden>{t(commonTexts.loading)}</VisuallyHidden>}
       </span>
     </label>
   );

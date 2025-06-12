@@ -8,6 +8,7 @@ import {
 } from 'react';
 
 import { useCollapsibleTableContext } from './Table.context';
+import { createTexts, useTranslation } from '../../../i18n';
 import {
   cn,
   derivativeIdGenerator,
@@ -33,6 +34,7 @@ export const CollapsibleRow = ({
   ref,
   ...rest
 }: TableRowProps) => {
+  const { t } = useTranslation();
   const isInHead = useIsInTableHead();
   const type = _type ?? (isInHead ? 'head' : 'body');
   const { isCollapsed, headerValues, definingColumnIndex } =
@@ -115,8 +117,8 @@ export const CollapsibleRow = ({
         <>
           {definingColumnCells}
           <Table.Cell type="head" layout="center">
-            Utvid
-            <VisuallyHidden>raden</VisuallyHidden>
+            {t(texts.expand)}
+            <VisuallyHidden>{t(texts.row)}</VisuallyHidden>
           </Table.Cell>
         </>
       </Row>
@@ -169,3 +171,18 @@ export const CollapsibleRow = ({
 };
 
 CollapsibleRow.displayName = 'CollapsibleTable.Row';
+
+const texts = createTexts({
+  expand: {
+    nb: 'Utvid',
+    no: 'Utvid',
+    nn: 'Utvid',
+    en: 'Expand',
+  },
+  row: {
+    nb: 'raden',
+    no: 'raden',
+    nn: 'raden',
+    en: 'row',
+  },
+});

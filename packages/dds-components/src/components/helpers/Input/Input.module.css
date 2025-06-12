@@ -109,10 +109,6 @@
   display: block;
 }
 
-:where(.char-counter) {
-  margin-left: auto;
-}
-
 :where(.input-group__absolute-element) {
   position: absolute;
   top: 50%;

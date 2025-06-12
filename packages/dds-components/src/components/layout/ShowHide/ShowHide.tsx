@@ -1,11 +1,11 @@
 import { type ElementType } from 'react';
 
+import { ElementAs } from '../../../polymorphic';
 import {
   type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn } from '../../../utils';
-import { ElementAs } from '../../helpers';
 import styles from '../common/display.module.css';
 import { type PrimitiveDisplayProps } from '../common/Responsive.types';
 

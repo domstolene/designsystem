@@ -71,7 +71,7 @@ describe('<TextInput>', () => {
     const length = 5;
     render(<TextInput id={id} maxLength={length} />);
     expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
-      `0/${length}`,
+      `0 av ${length} tegn skrevet. ${length} igjen.`,
     );
     expect(screen.getByText(`0/${length}`)).toBeInTheDocument();
   });

@@ -3,20 +3,21 @@ import { useEffect, useState } from 'react';
 import { CommentComponent } from './CommentComponent';
 import { type FeedbackProps, type Rating } from './Feedback.types';
 import { RatingComponent } from './RatingComponent';
+import { createTexts, useTranslation } from '../../i18n';
 import { Paragraph } from '../Typography';
 
 export const Feedback = ({
   layout = 'vertical',
-  ratingLabel = 'Hva syns du om tjenesten?',
-  positiveFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
-  negativeFeedbackLabel = 'Hva kan vi forbedre? (valgfritt)',
-  ratingSubmittedTitle = 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
-  submittedTitle = 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
-  textAreaTip = 'Ikke send inn personopplysninger eller annen sensitiv informasjon',
+  ratingLabel,
+  positiveFeedbackLabel,
+  negativeFeedbackLabel,
+  ratingSubmittedTitle,
+  submittedTitle,
+  textAreaTip,
   ratingValue: ratingProp,
   feedbackTextValue: feedbackTextProp,
-  thumbUpTooltip = 'Bra',
-  thumbDownTooltip = 'Dårlig',
+  thumbUpTooltip,
+  thumbDownTooltip,
   feedbackTextAreaExcluded = false,
   loading = false,
   isSubmitted: isSubmittedProp,
@@ -24,10 +25,21 @@ export const Feedback = ({
   onFeedbackTextChange,
   onSubmit,
 }: FeedbackProps) => {
+  const { t } = useTranslation();
   const [rating, setRating] = useState<Rating | null>(null);
   const [feedbackText, setFeedbackText] = useState<string>();
   const [isFeedbackSubmitted, setIsFeedbackSubmitted] =
     useState<boolean>(false);
+  const tRatingLabel = ratingLabel ?? t(texts.ratingQuestion);
+  const tPositiveFeedbackLabel =
+    positiveFeedbackLabel ?? t(texts.improvalQuestion);
+  const tNegativeFeedbackLabel =
+    negativeFeedbackLabel ?? t(texts.improvalQuestion);
+  const tRatingSubmittedTitle = ratingSubmittedTitle ?? t(texts.thanks);
+  const tSubmittedTitle = submittedTitle ?? t(texts.thanks);
+  const tTextAreaTip = textAreaTip ?? t(texts.sensitiveInfo);
+  const tThumbUpTooltip = thumbUpTooltip ?? t(texts.good);
+  const tThumbDownTooltip = thumbDownTooltip ?? t(texts.bad);
 
   useEffect(() => {
     ratingProp !== undefined && setRating(ratingProp);
@@ -63,10 +75,10 @@ export const Feedback = ({
     return (
       <RatingComponent
         layout={layout}
-        ratingLabel={ratingLabel}
+        ratingLabel={tRatingLabel}
         loading={loading}
-        thumbUpTooltip={thumbUpTooltip}
-        thumbDownTooltip={thumbDownTooltip}
+        thumbUpTooltip={tThumbUpTooltip}
+        thumbDownTooltip={tThumbDownTooltip}
         handleRatingChange={handleRatingChange}
       />
     );
@@ -78,10 +90,10 @@ export const Feedback = ({
         layout={layout}
         rating={rating}
         feedbackText={feedbackText}
-        positiveFeedbackLabel={positiveFeedbackLabel}
-        negativeFeedbackLabel={negativeFeedbackLabel}
-        ratingSubmittedTitle={ratingSubmittedTitle}
-        textAreaTip={textAreaTip}
+        positiveFeedbackLabel={tPositiveFeedbackLabel}
+        negativeFeedbackLabel={tNegativeFeedbackLabel}
+        ratingSubmittedTitle={tRatingSubmittedTitle}
+        textAreaTip={tTextAreaTip}
         loading={loading}
         handleSubmit={handleSubmit}
         handleFeedbackTextChange={handleFeedbackTextChange}
@@ -89,5 +101,44 @@ export const Feedback = ({
     );
   }
 
-  return <Paragraph>{submittedTitle}</Paragraph>;
+  return <Paragraph>{tSubmittedTitle}</Paragraph>;
 };
+
+const texts = createTexts({
+  ratingQuestion: {
+    nb: 'Hva syns du om tjenesten?',
+    no: 'Hva syns du om tjenesten?',
+    nn: 'Kva synest du om tenesta?',
+    en: 'What do you think about the service?',
+  },
+  improvalQuestion: {
+    nb: 'Hva kan vi forbedre? (valgfritt)',
+    no: 'Hva kan vi forbedre? (valgfritt)',
+    nn: 'Kva kan vi forbetre? (valfritt)',
+    en: 'What can we improve? (optional)',
+  },
+  thanks: {
+    nb: 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+    no: 'Tusen takk! Tilbakemeldingen din hjelper oss å forbedre løsningen',
+    nn: 'Tusen takk! Tilbakemeldinga di hjelper oss å forbetre løysinga',
+    en: 'Thank you! Your feedback helps us improve the service',
+  },
+  sensitiveInfo: {
+    nb: 'Ikke send inn personopplysninger eller annen sensitiv informasjon',
+    no: 'Ikke send inn personopplysninger eller annen sensitiv informasjon',
+    nn: 'Ikkje send inn personopplysningar eller annan sensitiv informasjon',
+    en: 'Do not submit personal data or other sensitive information',
+  },
+  good: {
+    nb: 'Bra',
+    no: 'Bra',
+    nn: 'Bra',
+    en: 'Good',
+  },
+  bad: {
+    nb: 'Dårlig',
+    no: 'Dårlig',
+    nn: 'Dårleg',
+    en: 'Bad',
+  },
+});

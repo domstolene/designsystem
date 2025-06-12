@@ -71,7 +71,9 @@ export function useTheme() {
   const themeName = useContext(ThemeContext)?.theme;
 
   if (!themeName) {
-    throw new Error('useTheme must be used inside a ThemeProvider');
+    throw new Error(
+      'useTheme must be used inside a ThemeProvider or DdsProvider',
+    );
   }
 
   const theme = ddsTokens[themeName];

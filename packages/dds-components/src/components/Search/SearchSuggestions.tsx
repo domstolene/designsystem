@@ -5,6 +5,7 @@ import styles from './Search.module.css';
 import { typographyTypes } from './Search.utils';
 import { SearchSuggestionItem } from './SearchSuggestionItem';
 import { useRoveFocus } from '../../hooks';
+import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn, derivativeIdGenerator } from '../../utils';
 import { StylelessList } from '../helpers';
@@ -45,7 +46,7 @@ export const SearchSuggestions = ({
     searchId,
     'suggestions-header',
   );
-
+  const { t } = useTranslation();
   const [focus] = useRoveFocus(suggestions?.length, showSuggestions);
 
   const suggestionsToRender = maxSuggestions
@@ -92,7 +93,7 @@ export const SearchSuggestions = ({
               <SearchSuggestionItem
                 index={index}
                 focus={focus === index && showSuggestions}
-                aria-label={`søk på ${suggestion}`}
+                aria-label={t(texts.search(suggestion))}
                 onClick={onSuggestionClick}
                 aria-setsize={suggestionsToRender.length}
                 aria-posinset={index}
@@ -113,3 +114,12 @@ export const SearchSuggestions = ({
 };
 
 SearchSuggestions.displayName = 'SearchSuggestions';
+
+const texts = createTexts({
+  search: suggestion => ({
+    no: `${suggestion} søk`,
+    nb: `${suggestion} søk`,
+    nn: `${suggestion} søk`,
+    en: `${suggestion} search`,
+  }),
+});
