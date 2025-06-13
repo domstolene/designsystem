@@ -209,9 +209,9 @@ const texts = createTexts({
     en: 'uncompleted',
   },
   completed: {
-    nb: 'ferdig',
-    no: 'ferdig',
-    nn: 'ferdig',
-    en: 'completed',
+    nb: ', ferdig',
+    no: ', ferdig',
+    nn: ', ferdig',
+    en: ', completed',
   },
 });
