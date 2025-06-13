@@ -1,6 +1,7 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
 import { ThumbIcon } from './utils';
+import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
 import { StylelessButton } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -26,6 +27,7 @@ export const RatingComponent = ({
   thumbDownTooltip,
   handleRatingChange,
 }: RatingComponentType) => {
+  const { t } = useTranslation();
   const button = (rating: Rating, layout: Layout, tooltip: string) => (
     <StylelessButton
       aria-label={tooltip}
@@ -45,7 +47,7 @@ export const RatingComponent = ({
     >
       <h2 className={typographyStyles['label-medium']}>{ratingLabel}</h2>
       {loading ? (
-        <Spinner tooltip="Laster opp tilbakemelding ..." />
+        <Spinner tooltip={t(texts.uploadingFeedback)} />
       ) : (
         <HStack gap="x1">
           <Tooltip text={thumbUpTooltip}>
@@ -59,3 +61,12 @@ export const RatingComponent = ({
     </div>
   );
 };
+
+const texts = createTexts({
+  uploadingFeedback: {
+    nb: 'Laster opp tilbakemelding...',
+    no: 'Laster opp tilbakemelding...',
+    nn: 'Lastar opp tilbakemelding...',
+    en: 'Uploading feedback...',
+  },
+});

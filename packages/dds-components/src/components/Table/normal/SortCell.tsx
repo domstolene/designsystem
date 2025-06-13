@@ -2,6 +2,7 @@ import { type MouseEvent } from 'react';
 
 import { Cell, type TableCellProps } from './Cell';
 import styles from './Table.module.css';
+import { createTexts, useTranslation } from '../../../i18n';
 import { cn } from '../../../utils';
 import { StylelessButton } from '../../helpers';
 import { focusable } from '../../helpers/styling/focus.module.css';
@@ -41,20 +42,32 @@ export const SortCell = ({
   onClick,
   children,
   ...rest
-}: TableSortCellProps) => (
-  <Cell
-    type="head"
-    aria-sort={isSorted && sortOrder ? sortOrder : undefined}
-    {...rest}
-  >
-    <StylelessButton
-      onClick={onClick}
-      aria-description="Aktiver for å endre sorteringsrekkefølge"
-      className={cn(styles['sort-button'], focusable)}
+}: TableSortCellProps) => {
+  const { t } = useTranslation();
+  return (
+    <Cell
+      type="head"
+      aria-sort={isSorted && sortOrder ? sortOrder : undefined}
+      {...rest}
     >
-      {children} {makeSortIcon(isSorted, sortOrder)}
-    </StylelessButton>
-  </Cell>
-);
+      <StylelessButton
+        onClick={onClick}
+        aria-description={t(texts.changeSort)}
+        className={cn(styles['sort-button'], focusable)}
+      >
+        {children} {makeSortIcon(isSorted, sortOrder)}
+      </StylelessButton>
+    </Cell>
+  );
+};
 
 SortCell.displayName = 'Table.SortCell';
+
+const texts = createTexts({
+  changeSort: {
+    nb: 'Aktiver for å endre sorteringsrekkefølge',
+    no: 'Aktiver for å endre sorteringsrekkefølge',
+    nn: 'Aktiver for å endre sorteringsrekkjefølgje',
+    en: 'Activate to change sort order',
+  },
+});

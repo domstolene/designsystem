@@ -12,6 +12,7 @@ import {
 import { COUNTRIES, type Country, type ISOCountryCode } from './constants';
 import styles from './PhoneInput.module.css';
 import { useCombinedRef } from '../../hooks';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
@@ -155,6 +156,9 @@ export const PhoneInput = ({
   ref,
   ...props
 }: PhoneInputProps) => {
+  const { t } = useTranslation();
+  const tGroupLabel = groupLabel ?? t(texts.countryCodeAndPhoneNumber);
+  const tSelectLabel = selectLabel ?? t(texts.countryCode);
   const generatedId = useId();
   const uniqueId = props.id ?? generatedId;
   const phoneInputId = `${uniqueId}-phone-input`;
@@ -278,10 +282,10 @@ export const PhoneInput = ({
         )}
         width={getInputWidth(width, widthDefault)}
         role="group"
-        aria-label={groupLabel}
+        aria-label={tGroupLabel}
       >
         <label className={utilStyles['visually-hidden']} htmlFor={selectId}>
-          {selectLabel}
+          {tSelectLabel}
         </label>
         <NativeSelect
           width={applyResponsiveStyle(
@@ -356,3 +360,18 @@ PhoneInput.displayName = 'PhoneInput';
 
 const getCallingCode = (s: string): string =>
   s.substring(s.indexOf('+'), s.length) ?? '';
+
+const texts = createTexts({
+  countryCode: {
+    nb: 'Landskode',
+    no: 'Landskode',
+    nn: 'Landskode',
+    en: 'Country code',
+  },
+  countryCodeAndPhoneNumber: {
+    nb: 'Landskode og telefonnummer',
+    no: 'Landskode og telefonnummer',
+    nn: 'Landskode og telefonnummer',
+    en: 'Country code and phone number',
+  },
+});

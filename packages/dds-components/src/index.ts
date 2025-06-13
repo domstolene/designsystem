@@ -7,6 +7,8 @@ export * as icons from './components/Icon/icons';
 export * from './hooks';
 export * from './types';
 export { cn } from './utils/dom';
+export * from './i18n';
+export * from './DdsProvider';
 
 export * from './components/Accordion';
 export * from './components/BackLink';

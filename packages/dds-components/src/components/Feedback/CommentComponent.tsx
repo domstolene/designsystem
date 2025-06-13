@@ -5,6 +5,7 @@ import { VStack } from '../layout';
 import { TextArea } from '../TextArea';
 import { Paragraph } from '../Typography';
 import { ThumbIcon } from './utils';
+import { createTexts, useTranslation } from '../../i18n';
 
 interface CommentComponentType {
   layout: Layout;
@@ -31,6 +32,7 @@ export const CommentComponent = ({
   handleSubmit,
   handleFeedbackTextChange,
 }: CommentComponentType) => {
+  const { t } = useTranslation();
   return (
     <VStack gap="x1">
       <span className={styles['rating-submitted-title']}>
@@ -54,8 +56,17 @@ export const CommentComponent = ({
         onClick={handleSubmit}
         loading={loading}
       >
-        Send inn
+        {t(texts.send)}
       </Button>
     </VStack>
   );
 };
+
+const texts = createTexts({
+  send: {
+    nb: 'Send inn',
+    no: 'Send inn',
+    nn: 'Send inn',
+    en: 'Send',
+  },
+});

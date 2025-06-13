@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { CookieBanner } from './CookieBanner';
+import { LanguageProvider } from '../../i18n';
 import {
   categoryHtml,
   htmlPropsArgType,
@@ -14,7 +15,7 @@ import { Link } from '../Typography';
 const { position, left, right, top, bottom, maxHeight, width } =
   responsivePropsArgTypes;
 
-export default {
+const meta: Meta<typeof CookieBanner> = {
   title: 'dds-components/Components/CookieBanner',
   component: CookieBanner,
   argTypes: {
@@ -34,7 +35,16 @@ export default {
       canvas: { sourceState: 'shown' },
     },
   },
-} satisfies Meta<typeof CookieBanner>;
+  decorators: [
+    Story => (
+      <LanguageProvider language="nb">
+        <Story />
+      </LanguageProvider>
+    ),
+  ],
+};
+
+export default meta;
 
 type Story = StoryObj<typeof CookieBanner>;
 

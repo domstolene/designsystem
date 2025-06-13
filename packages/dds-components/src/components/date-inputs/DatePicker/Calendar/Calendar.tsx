@@ -13,6 +13,7 @@ import {
 } from 'react';
 
 import { CalendarGrid } from './CalendarGrid';
+import { createTexts, useTranslation } from '../../../../i18n';
 import { Button } from '../../../Button';
 import { ArrowLeftIcon, ArrowRightIcon } from '../../../Icon/icons';
 import { HStack } from '../../../layout';
@@ -32,6 +33,7 @@ function createCalendar(identifier: string) {
 export type CalendarProps<T extends DateValue> = AriaCalendarProps<T>;
 
 export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
+  const { t } = useTranslation();
   const { locale } = useLocale();
   const state = useCalendarState({
     ...props,
@@ -40,8 +42,8 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
   });
   const {
     calendarProps,
-    prevButtonProps: { onPress: onPrev, 'aria-label': prevAriaLabel },
-    nextButtonProps: { onPress: onNext, 'aria-label': nextAriaLabel },
+    prevButtonProps: { onPress: onPrev },
+    nextButtonProps: { onPress: onNext },
     title,
   } = useCalendar(props, state);
 
@@ -62,7 +64,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
       <HStack justifyContent="space-between" alignItems="center">
         <Button
           type="button"
-          aria-label={prevAriaLabel}
+          aria-label={t(texts.previousMonth)}
           onClick={e => onPrev?.(e as never)}
           size="small"
           purpose="tertiary"
@@ -79,7 +81,7 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
         </Heading>
         <Button
           type="button"
-          aria-label={nextAriaLabel}
+          aria-label={t(texts.nextMonth)}
           onClick={e => onNext?.(e as never)}
           size="small"
           purpose="tertiary"
@@ -93,3 +95,18 @@ export function Calendar<T extends DateValue>(props: CalendarProps<T>) {
 }
 
 Calendar.displayName = 'Calendar';
+
+const texts = createTexts({
+  nextMonth: {
+    nb: 'Neste måned',
+    no: 'Neste måned',
+    nn: 'Neste månad',
+    en: 'Next month',
+  },
+  previousMonth: {
+    nb: 'Forrige måned',
+    no: 'Forrige måned',
+    nn: 'Førre månad',
+    en: 'Previous month',
+  },
+});

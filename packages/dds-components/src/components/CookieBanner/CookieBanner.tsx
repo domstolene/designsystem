@@ -1,5 +1,6 @@
 import { type ReactNode, useState } from 'react';
 
+import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -50,13 +51,16 @@ export function CookieBanner({
   id,
   className,
   htmlProps,
-  'aria-label': ariaLabel = 'Samtykke for bruk av informasjonskapsler',
+  'aria-label': ariaLabel,
   maxHeight = 'calc(100vh - 100px)',
   width = 'fit-content',
   children,
   collapsedBreakpoint,
   ...rest
 }: CookieBannerProps) {
+  const { t } = useTranslation();
+  const tAriaLabel = ariaLabel ?? t(texts.consent);
+
   const hasBp = !!collapsedBreakpoint;
   const [isCollapsedOnBreakpoint, setIsCollapsedOnBreakpoint] = useState(hasBp);
   const heading = headerText ? (
@@ -75,7 +79,7 @@ export function CookieBanner({
         rest,
       )}
       role="region"
-      aria-label={ariaLabel}
+      aria-label={tAriaLabel}
       padding={applyResponsiveStyle('x1', 'sm', 'x1.5')}
       width={width}
       maxHeight={maxHeight}
@@ -89,7 +93,7 @@ export function CookieBanner({
             <ShowHide
               as={Button}
               showBelow={collapsedBreakpoint}
-              aria-label="Utvid samtykke for bruk av informasjonskapsler"
+              aria-label={t(texts.expandConsent)}
               purpose="tertiary"
               icon={ExpandIcon}
               onClick={() => setIsCollapsedOnBreakpoint(false)}
@@ -130,3 +134,18 @@ export function CookieBanner({
 }
 
 CookieBanner.displayName = 'CookieBanner';
+
+const texts = createTexts({
+  expandConsent: {
+    nb: 'Utvid samtykke for bruk av informasjonskapsler',
+    no: 'Utvid samtykke for bruk av informasjonskapsler',
+    nn: 'Utvid samtykke for bruk av informasjonskapslar',
+    en: 'Expand consent for the use of cookies',
+  },
+  consent: {
+    nb: 'Samtykke for bruk av informasjonskapsler',
+    no: 'Samtykke for bruk av informasjonskapsler',
+    nn: 'Samtykke for bruk av informasjonskapslar',
+    en: 'Consent for the use of cookies',
+  },
+});

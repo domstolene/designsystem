@@ -35,7 +35,7 @@ describe('<Breadcrumbs>', () => {
   it('should have nav with accessible name', () => {
     render(<Breadcrumbs />);
     const breadcrumbs = screen.getByRole('navigation');
-    expect(breadcrumbs).toHaveAccessibleName('brødsmulesti');
+    expect(breadcrumbs).toHaveAccessibleName('Brødsmulesti');
   });
   it('should render 4 breadcrumbs', () => {
     render(<TestComponent />);
@@ -50,7 +50,7 @@ describe('<Breadcrumbs>', () => {
     it('should render button for truncated children', () => {
       render(<TestComponentSmallScreen />);
       const button = screen.getByRole('button');
-      expect(button).toHaveAccessibleName('Vis brødsmulesti brødsmule 2 til 3');
+      expect(button).toHaveAccessibleName('Vis brødsmule 2 til 3');
       expect(button).toHaveAttribute('aria-expanded', 'false');
     });
     it('should show menu on button click', async () => {
