@@ -43,7 +43,7 @@
     "generate:tokens": "node build.js"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-commonjs": "^28.0.5",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@types/node": "^22.15.29",
     "@tokens-studio/sd-transforms": "^2.0.0",
