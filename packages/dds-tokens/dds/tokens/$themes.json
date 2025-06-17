@@ -4,10 +4,10 @@
     "name": "Elsa",
     "selectedTokenSets": {
       "Base/Elsa": "enabled",
-      "Theme/Core/Light": "disabled",
-      "Theme/Core/Dark": "disabled",
-      "Theme/Public/Light": "disabled",
-      "Theme/Public/Dark": "disabled"
+      "Theme/Core-Light": "disabled",
+      "Theme/Core-Dark": "disabled",
+      "Theme/Public-Light": "disabled",
+      "Theme/Public-Dark": "disabled"
     },
     "$figmaStyleReferences": {
       "dds-shadow.1": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
@@ -306,10 +306,10 @@
     "selectedTokenSets": {
       "Base/Elsa": "source",
       "Semantic/Default/Color": "enabled",
-      "Theme/Core/Light": "disabled",
-      "Theme/Core/Dark": "disabled",
-      "Theme/Public/Light": "disabled",
-      "Theme/Public/Dark": "disabled"
+      "Theme/Core-Light": "disabled",
+      "Theme/Core-Dark": "disabled",
+      "Theme/Public-Light": "disabled",
+      "Theme/Public-Dark": "disabled"
     },
     "group": "Semantic",
     "$figmaCollectionId": "VariableCollectionId:9567:917",
@@ -473,7 +473,10 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Core/Light": "enabled"
+      "Theme/Core-Light": "enabled",
+      "Theme/Core-Dark": "disabled",
+      "Theme/Public-Light": "disabled",
+      "Theme/Public-Dark": "disabled"
     },
     "group": "Core",
     "$figmaCollectionId": "VariableCollectionId:12896:4222",
@@ -637,7 +640,10 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Core/Dark": "enabled"
+      "Theme/Core-Light": "disabled",
+      "Theme/Core-Dark": "enabled",
+      "Theme/Public-Light": "disabled",
+      "Theme/Public-Dark": "disabled"
     },
     "group": "Core",
     "$figmaCollectionId": "VariableCollectionId:12896:4222",
@@ -801,7 +807,10 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Public/Light": "enabled"
+      "Theme/Core-Light": "disabled",
+      "Theme/Core-Dark": "disabled",
+      "Theme/Public-Light": "enabled",
+      "Theme/Public-Dark": "disabled"
     },
     "group": "Public",
     "$figmaCollectionId": "VariableCollectionId:12896:4223",
@@ -965,7 +974,10 @@
     "$figmaStyleReferences": {},
     "selectedTokenSets": {
       "Base/Elsa": "source",
-      "Theme/Public/Dark": "enabled"
+      "Theme/Core-Light": "disabled",
+      "Theme/Core-Dark": "disabled",
+      "Theme/Public-Light": "disabled",
+      "Theme/Public-Dark": "enabled"
     },
     "group": "Public",
     "$figmaCollectionId": "VariableCollectionId:12896:4223",

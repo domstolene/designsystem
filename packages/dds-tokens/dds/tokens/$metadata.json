@@ -4,9 +4,9 @@
     "Semantic/Default/Color",
     "Semantic/Default/BorderRadius",
     "Semantic/Default/Typography",
-    "Theme/Core/Light",
-    "Theme/Core/Dark",
-    "Theme/Public/Light",
-    "Theme/Public/Dark"
+    "Theme/Core-Light",
+    "Theme/Core-Dark",
+    "Theme/Public-Light",
+    "Theme/Public-Dark"
   ]
 }
