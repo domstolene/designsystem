@@ -1,6 +1,7 @@
 import { ErrorList } from './ErrorList';
 import styles from './FileUploader.module.css';
 import { type FileUploaderFile } from './fileUploaderReducer';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
@@ -21,6 +22,7 @@ interface FileProps {
 }
 
 export const File = (props: FileProps) => {
+  const { t } = useTranslation();
   const { parentId, index, file: stateFile, removeFile, isValid } = props;
 
   const errorsList = stateFile.errors.map((e, errorIndex) => ({
@@ -57,9 +59,9 @@ export const File = (props: FileProps) => {
           onClick={removeFile}
           icon={CloseIcon}
           htmlProps={{
-            'aria-label': `Fjern fil ${stateFile.file.name}`,
+            'aria-label': t(texts.removeFile(stateFile.file.name)),
             'aria-invalid': !isValid ? true : undefined,
-            'aria-errormessage': !isValid ? 'Ugyldig fil' : undefined,
+            'aria-errormessage': !isValid ? t(texts.invalidFile) : undefined,
             'aria-describedby': spaceSeparatedIdListGenerator(
               errorsList.map(e => e.id),
             ),
@@ -70,3 +72,18 @@ export const File = (props: FileProps) => {
     </li>
   );
 };
+
+const texts = createTexts({
+  removeFile: file => ({
+    nb: `Fjern fil ${file}`,
+    no: `Fjern fil ${file}`,
+    nn: `Fjern fil ${file}`,
+    en: `Remove file ${file}`,
+  }),
+  invalidFile: {
+    nb: 'Ugyldig fil',
+    no: 'Ugyldig fil',
+    nn: 'Ugyldig fil',
+    en: 'Invalid file',
+  },
+});

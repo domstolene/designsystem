@@ -7,19 +7,19 @@ describe('<Pagination>', () => {
   it('has aria label', () => {
     render(<Pagination itemsAmount={10} />);
     const pagination = screen.getByRole('navigation');
-    expect(pagination).toHaveAccessibleName('paginering');
+    expect(pagination).toHaveAccessibleName('Paginering');
   });
   it('has aria label on each page', () => {
     render(<Pagination itemsAmount={100} defaultActivePage={3} />);
     expect(
       within(screen.getAllByRole('listitem')[0]).getByRole('button'),
-    ).toHaveAttribute('aria-label', 'Gå til forrige siden');
+    ).toHaveAttribute('aria-label', 'Forrige side');
     expect(
       within(screen.getAllByRole('listitem')[1]).getByRole('button'),
-    ).toHaveAttribute('aria-label', 'Gå til side 1');
+    ).toHaveAttribute('aria-label', 'Side 1');
     expect(
       within(screen.getAllByRole('listitem')[3]).getByRole('button'),
-    ).toHaveAttribute('aria-label', 'Nåværende side (side 3)');
+    ).toHaveAttribute('aria-label', 'Nåværende side (3)');
   });
   it('should render correct number of pages', () => {
     const itemsAmount = 6;
@@ -52,7 +52,7 @@ describe('<Pagination>', () => {
     it('has aria label', () => {
       render(<Pagination itemsAmount={10} smallScreenBreakpoint="sm" />);
       const pagination = screen.getByRole('navigation');
-      expect(pagination).toHaveAccessibleName('paginering');
+      expect(pagination).toHaveAccessibleName('Paginering');
     });
     it('should render correct number of pages', () => {
       const itemsAmount = 6;

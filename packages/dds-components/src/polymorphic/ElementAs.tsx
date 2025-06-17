@@ -1,6 +1,6 @@
 import { type ElementType } from 'react';
 
-import { type PropsOfWithRef } from '../../../types';
+import { type PropsOfWithRef } from './polymorphic.types';
 
 export type PolymorphicProps<T extends ElementType> = PropsOfWithRef<T>;
 

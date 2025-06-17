@@ -2,6 +2,7 @@ import { type HTMLAttributes, useState } from 'react';
 
 import styles from './Pagination.module.css';
 import { PaginationGenerator } from './paginationGenerator';
+import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { Button } from '../Button';
@@ -88,6 +89,8 @@ export const Pagination = ({
   ref,
   ...rest
 }: PaginationProps) => {
+  const { t } = useTranslation();
+
   const [activePage, setActivePage] = useState(defaultActivePage);
   const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage);
 
@@ -129,9 +132,7 @@ export const Pagination = ({
                     onPageChange(event, item);
                   }}
                   aria-label={
-                    isActive
-                      ? `Nåværende side (side ${item})`
-                      : `Gå til side ${item}`
+                    isActive ? t(texts.currentPage(item)) : t(texts.page(item))
                   }
                 >
                   {item}
@@ -155,7 +156,7 @@ export const Pagination = ({
       onClick={event => {
         onPageChange(event, activePage - 1);
       }}
-      aria-label="Gå til forrige siden"
+      aria-label={t(texts.previousPage)}
     />
   );
 
@@ -167,7 +168,7 @@ export const Pagination = ({
       onClick={event => {
         onPageChange(event, activePage + 1);
       }}
-      aria-label="Gå til neste siden"
+      aria-label={t(texts.nextPage)}
     />
   );
 
@@ -178,7 +179,7 @@ export const Pagination = ({
     <Box
       as="nav"
       ref={ref}
-      aria-label="paginering"
+      aria-label={t(texts.pagination)}
       display="flex"
       alignItems="center"
       {...(!withSelect &&
@@ -231,7 +232,7 @@ export const Pagination = ({
               onClick={event => {
                 onPageChange(event, 1);
               }}
-              aria-label="Gå til første siden"
+              aria-label={t(texts.firstPage)}
             />
           </li>
           <li
@@ -276,7 +277,7 @@ export const Pagination = ({
               onClick={event => {
                 onPageChange(event, pagesLength);
               }}
-              aria-label="Gå til siste siden"
+              aria-label={t(texts.lastPage)}
             />
           </li>
         </ShowHide>
@@ -315,12 +316,18 @@ export const Pagination = ({
             isClearable={false}
             onChange={handleSelectChange}
             componentSize="small"
-            aria-label="Antall elementer per side"
+            aria-label={t(texts.itemsPerPage)}
           />
         )}
         {withCounter && (
           <Paragraph>
-            Viser {activePageFirstItem}-{activePageLastItem} av {itemsAmount}
+            {t(
+              texts.showsAmountOfTotalItems(
+                activePageFirstItem,
+                activePageLastItem,
+                itemsAmount,
+              ),
+            )}
           </Paragraph>
         )}
       </div>
@@ -330,3 +337,60 @@ export const Pagination = ({
 };
 
 Pagination.displayName = 'Pagination';
+
+const texts = createTexts({
+  pagination: {
+    nb: 'Paginering',
+    no: 'Paginering',
+    nn: 'Paginering',
+    en: 'Pagination',
+  },
+  itemsPerPage: {
+    nb: 'Elementer per side',
+    no: 'Elementer per side',
+    nn: 'Element per side',
+    en: 'Items per page',
+  },
+  nextPage: {
+    nb: 'Neste side',
+    no: 'Neste side',
+    nn: 'Neste side',
+    en: 'Next page',
+  },
+  previousPage: {
+    nb: 'Forrige side',
+    no: 'Forrige side',
+    nn: 'Førre side',
+    en: 'Previous page',
+  },
+  firstPage: {
+    nb: 'Første side',
+    no: 'Første side',
+    nn: 'Fyrste side',
+    en: 'First page',
+  },
+  lastPage: {
+    nb: 'Siste side',
+    no: 'Siste side',
+    nn: 'Siste side',
+    en: 'Last page',
+  },
+  currentPage: page => ({
+    nb: `Nåværende side (${page})`,
+    no: `Nåværende side (${page})`,
+    nn: `Noverande side (${page})`,
+    en: `Current page (${page})`,
+  }),
+  page: page => ({
+    nb: `Side ${page}`,
+    no: `Side ${page}`,
+    nn: `Side ${page}`,
+    en: `Page ${page}`,
+  }),
+  showsAmountOfTotalItems: (first, last, total) => ({
+    nb: `Viser ${first}-${last} av ${total}`,
+    no: `Viser ${first}-${last} av ${total}`,
+    nn: `Viser ${first}-${last} av ${total}`,
+    en: `Shows ${first}-${last} of ${total}`,
+  }),
+});

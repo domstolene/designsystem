@@ -1,6 +1,6 @@
 export * from './Backdrop';
 export * from './Chevron';
-export * from './ElementAs';
+export * from './CharCounter';
 export * from './HiddenInput';
 export * from './Input';
 export * from './ScreenSize';

@@ -221,7 +221,7 @@ describe('<Feedback>', () => {
 
     assertInDocument([
       'Hva syns du om tjenesten?',
-      'Laster opp tilbakemelding ...',
+      'Laster opp tilbakemelding...',
     ]);
 
     assertNotInDocument([

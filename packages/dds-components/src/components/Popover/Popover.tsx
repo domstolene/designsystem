@@ -17,6 +17,8 @@ import {
   useOnKeyDown,
   useReturnFocusOnBlur,
 } from '../../hooks';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -117,6 +119,8 @@ export const Popover = ({
     isOpen: contextIsOpen,
     anchorEl: contextAnchorEl,
   } = context;
+
+  const { t } = useTranslation();
 
   const hasContext = !isEmpty(context);
   const generatedId = useId();
@@ -237,7 +241,7 @@ export const Popover = ({
           purpose="tertiary"
           size="small"
           onClick={onClose}
-          aria-label="Lukk"
+          aria-label={t(commonTexts.close)}
           className={styles['close-button']}
         />
       )}

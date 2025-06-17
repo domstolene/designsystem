@@ -1,6 +1,7 @@
 import { type ComponentPropsWithRef, useState } from 'react';
 
 import styles from './SplitButton.module.css';
+import { createTexts, useTranslation } from '../../i18n';
 import { type ExtractStrict } from '../../types';
 import { cn } from '../../utils';
 import { Button, type ButtonProps, type ButtonPurpose } from '../Button';
@@ -43,6 +44,7 @@ export const SplitButton = ({
   className,
   ...rest
 }: SplitButtonProps) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const buttonStyleProps: ButtonProps = {
     purpose,
@@ -61,7 +63,7 @@ export const SplitButton = ({
         <Button
           {...buttonStyleProps}
           icon={isOpen ? ChevronUpIcon : ChevronDownIcon}
-          aria-label="Åpne liste med flere valg"
+          aria-label={t(texts.moreActions)}
           purpose={purpose}
           className={cn(
             styles.option,
@@ -84,3 +86,12 @@ export const SplitButton = ({
 };
 
 SplitButton.displayName = 'SplitButton';
+
+const texts = createTexts({
+  moreActions: {
+    nb: 'Flere handlinger',
+    no: 'Flere handlinger',
+    nn: 'Fleire handlingar',
+    en: 'More actions',
+  },
+});

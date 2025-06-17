@@ -2,6 +2,7 @@ import { useId } from 'react';
 
 import { Box, Label, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
 import { useControllableState } from '../../hooks/useControllableState';
+import { createTexts, useTranslation } from '../../i18n';
 import { Button } from '../Button';
 import { StatefulInput, getInputWidth } from '../helpers';
 import styles from './InputStepper.module.css';
@@ -46,6 +47,7 @@ export const InputStepper = ({
   ) {
     throw new Error('minValue, maxValue & step must be a non-negative integer');
   }
+  const { t } = useTranslation();
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-inputStepper`;
   const [inputValue, setInputValue] = useControllableState<number>({
@@ -97,7 +99,7 @@ export const InputStepper = ({
       >
         {readOnly || disabled ? null : (
           <Button
-            aria-label={decreaseButtonLabel ?? `Trekk fra ${label}`}
+            aria-label={decreaseButtonLabel ?? `${t(texts.decrease)} ${label}`}
             purpose="secondary"
             size={componentSize}
             icon={MinusIcon}
@@ -129,7 +131,7 @@ export const InputStepper = ({
         />
         {readOnly || disabled ? null : (
           <Button
-            aria-label={increaseButtonLabel ?? `Legg til ${label}`}
+            aria-label={increaseButtonLabel ?? `${t(texts.increase)} ${label}`}
             purpose="secondary"
             size={componentSize}
             icon={PlusIcon}
@@ -146,3 +148,18 @@ export const InputStepper = ({
 };
 
 InputStepper.displayName = 'InputStepper';
+
+const texts = createTexts({
+  decrease: {
+    nb: 'Trekk fra',
+    no: 'Trekk fra',
+    nn: 'Trekk frå',
+    en: 'Decrease',
+  },
+  increase: {
+    nb: 'Legg til',
+    no: 'Legg til',
+    nn: 'Legg til',
+    en: 'Increase',
+  },
+});

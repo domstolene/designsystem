@@ -11,6 +11,7 @@ import { type SearchButtonProps, type SearchSize } from './Search.types';
 import { createEmptyChangeEvent, typographyTypes } from './Search.utils';
 import { SearchSuggestions } from './SearchSuggestions';
 import { useCombinedRef } from '../../hooks';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
@@ -102,6 +103,8 @@ export const Search = ({
     'suggestions-description',
   );
 
+  const { t } = useTranslation();
+
   const [hasValue, setHasValue] = useState(!!value);
 
   const context = useAutocompleteSearch();
@@ -184,7 +187,7 @@ export const Search = ({
             componentSize={componentSize}
           />
           <VisuallyHidden id={suggestionsDescriptionId}>
-            Bla i søkeforslag med piltaster når listen er utvidet.
+            {t(texts.useArrowKeys)}
           </VisuallyHidden>
         </>
       )}
@@ -193,7 +196,7 @@ export const Search = ({
           icon={CloseSmallIcon}
           size={componentSize === 'large' ? 'medium' : 'small'}
           purpose="tertiary"
-          aria-label="Tøm"
+          aria-label={t(texts.clearSearch)}
           onClick={clearInput}
           className={styles['clear-button']}
         />
@@ -233,3 +236,18 @@ export const Search = ({
 };
 
 Search.displayName = 'Search';
+
+const texts = createTexts({
+  clearSearch: {
+    nb: 'Tøm søk',
+    no: 'Tøm søk',
+    nn: 'Tøm søk',
+    en: 'Clear search',
+  },
+  useArrowKeys: {
+    nb: 'Bruk piltastene for å navigere i forslagene når listen er utvidet',
+    no: 'Bruk piltastene for å navigere i forslagene når listen er utvidet',
+    nn: 'Bruk piltastane for å navigere i forslaga når lista er utvida',
+    en: 'Use the arrow keys to navigate suggestions when the list is expanded',
+  },
+});

@@ -2,6 +2,7 @@ import { type ComponentPropsWithRef, useMemo } from 'react';
 
 import { useProgressTrackerContext } from './ProgressTracker.context';
 import styles from './ProgressTracker.module.css';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -85,11 +86,6 @@ export type ProgressTrackerItemProps =
       }
     >;
 
-const getVisuallyHiddenTextBefore = (index: number) => `${index + 1}. trinn, `;
-
-const getVisuallyHiddenTextAfter = (completed: boolean) =>
-  `, ${completed ? 'ferdig' : 'ikke ferdig'}`;
-
 export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   const {
     id,
@@ -103,6 +99,8 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     children,
     ...rest
   } = props;
+
+  const { t } = useTranslation();
 
   const { activeStep, handleStepChange, direction } =
     useProgressTrackerContext();
@@ -150,9 +148,11 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
           typographyStyles['body-medium'],
         )}
       >
-        <VisuallyHidden>{getVisuallyHiddenTextBefore(index)}</VisuallyHidden>
+        <VisuallyHidden>{t(texts.stepTextBefore(index + 1))}</VisuallyHidden>
         {children}
-        <VisuallyHidden>{getVisuallyHiddenTextAfter(completed)}</VisuallyHidden>
+        <VisuallyHidden>
+          {completed ? t(texts.completed) : t(texts.uncompleted)}
+        </VisuallyHidden>
       </div>
     </>
   );
@@ -194,3 +194,24 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 };
 
 ProgressTrackerItem.displayName = 'ProgressTracker.Item';
+
+const texts = createTexts({
+  stepTextBefore: index => ({
+    nb: `${index}. trinn, `,
+    no: `${index}. trinn, `,
+    nn: `${index}. trinn, `,
+    en: `${index}. step, `,
+  }),
+  uncompleted: {
+    nb: ', ikke ferdig',
+    no: ', ikke ferdig',
+    nn: ', ikkje ferdig',
+    en: 'uncompleted',
+  },
+  completed: {
+    nb: ', ferdig',
+    no: ', ferdig',
+    nn: ', ferdig',
+    en: ', completed',
+  },
+});

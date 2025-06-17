@@ -1,11 +1,11 @@
 import { type ElementType } from 'react';
 
+import { ElementAs } from '../../polymorphic';
 import {
   type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
-import { ElementAs } from '../helpers';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 
 export type VisuallyHiddenProps<T extends ElementType = 'span'> =

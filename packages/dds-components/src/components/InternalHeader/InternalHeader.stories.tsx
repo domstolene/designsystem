@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { LanguageProvider } from '../../i18n';
 import {
   htmlPropsArgType,
   windowWidthDecorator,
@@ -9,7 +10,7 @@ import { StoryVStack } from '../layout/Stack/utils';
 
 import { InternalHeader } from '.';
 
-export default {
+const meta: Meta<typeof InternalHeader> = {
   title: 'dds-components/Components/InternalHeader',
   component: InternalHeader,
   argTypes: {
@@ -24,8 +25,16 @@ export default {
       canvas: { sourceState: 'hidden' },
     },
   },
-} satisfies Meta<typeof InternalHeader>;
+  decorators: [
+    Story => (
+      <LanguageProvider language="nb">
+        <Story />
+      </LanguageProvider>
+    ),
+  ],
+};
 
+export default meta;
 const navigationLink = {
   href: '#',
   children: 'navlenke',

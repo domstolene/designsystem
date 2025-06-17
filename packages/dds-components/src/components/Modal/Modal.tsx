@@ -15,6 +15,8 @@ import {
   useMountTransition,
   useOnKeyDown,
 } from '../../hooks';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
@@ -88,6 +90,8 @@ export const Modal = ({
   if (!themeContext) {
     throw new Error('Modal must be used within a ThemeProvider');
   }
+
+  const { t } = useTranslation();
 
   const portalTarget = parentElement ?? themeContext?.el;
 
@@ -170,7 +174,7 @@ export const Modal = ({
                   purpose="tertiary"
                   icon={CloseIcon}
                   onClick={handleClose}
-                  aria-label="Lukk dialog"
+                  aria-label={t(commonTexts.close)}
                   className={styles['close-button']}
                 />
               )}

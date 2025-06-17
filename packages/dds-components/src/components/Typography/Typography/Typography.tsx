@@ -14,10 +14,10 @@ import {
   isCaption,
   isLegend,
 } from './Typography.utils';
+import { ElementAs } from '../../../polymorphic';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
 import { cn } from '../../../utils';
 import { getTextColor, isTextColor } from '../../../utils/color';
-import { ElementAs } from '../../helpers/ElementAs/ElementAs';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { OpenExternalIcon } from '../../Icon/icons';
