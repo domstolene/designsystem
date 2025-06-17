@@ -21,12 +21,12 @@ describe('<Chip />', () => {
     const text = 'text';
     render(<Chip text={text} />);
     const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('aria-label', `Fjern chip ${text}`);
+    expect(button).toHaveAttribute('aria-label', `Fjern merkelapp ${text}`);
   });
   it('Should have generic aria-label', () => {
     render(<Chip />);
     const button = screen.getByRole('button');
-    expect(button).toHaveAttribute('aria-label', 'Fjern chip');
+    expect(button).toHaveAttribute('aria-label', 'Fjern merkelapp');
   });
   it('Should call onClose event', async () => {
     const event = vi.fn();
