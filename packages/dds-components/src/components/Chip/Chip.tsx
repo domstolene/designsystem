@@ -64,9 +64,9 @@ Chip.displayName = 'Chip';
 
 const texts = createTexts({
   removeChip: {
-    nb: 'Fjern chip',
-    no: 'Fjern chip',
-    nn: 'Fjern chip',
+    nb: 'Fjern merkelapp',
+    no: 'Fjern merkelapp',
+    nn: 'Fjern merkelapp',
     en: 'Remove chip',
   },
 });
