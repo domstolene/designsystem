@@ -346,9 +346,9 @@ const texts = createTexts({
     en: 'Pagination',
   },
   itemsPerPage: {
-    nb: 'Antall elementer per side',
-    no: 'Antall elementer per side',
-    nn: 'Antall element per side',
+    nb: 'Elementer per side',
+    no: 'Elementer per side',
+    nn: 'Element per side',
     en: 'Items per page',
   },
   nextPage: {
