@@ -182,7 +182,7 @@ const texts = createTexts({
   row: {
     nb: 'raden',
     no: 'raden',
-    nn: 'raden',
+    nn: 'rada',
     en: 'row',
   },
 });
