@@ -1,8 +1,13 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { InlineEditTextArea } from './InlineEditTextArea';
-import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  categoryCss,
+  htmlEventArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { StoryVStack } from '../layout/Stack/utils';
 import { Table } from '../Table/normal';
 
@@ -11,7 +16,11 @@ export default {
   component: InlineEditTextArea,
   argTypes: {
     width: { control: 'text', table: categoryCss },
+    onFocus: htmlEventArgType,
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn(), onBlur: fn(), onFocus: fn(), onSetValue: fn() },
   parameters: {
     controls: {
       exclude: ['inputRef'],

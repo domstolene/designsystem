@@ -1,8 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import {
   categoryCss,
   categoryHtml,
+  htmlEventArgType,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
@@ -26,7 +28,9 @@ export default {
     disabled: { control: 'boolean', table: categoryHtml },
     required: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean' },
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
 } satisfies Meta<typeof NativeSelect>;
 
 type Story = StoryObj<typeof NativeSelect>;

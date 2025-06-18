@@ -1,6 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  htmlPropsArgType,
+} from '../../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { RadioButton } from '.';
@@ -11,7 +16,9 @@ export default {
   argTypes: {
     disabled: { table: categoryHtml },
     htmlProps: htmlPropsArgType,
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

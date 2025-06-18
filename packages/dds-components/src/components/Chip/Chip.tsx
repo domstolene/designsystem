@@ -14,7 +14,7 @@ export type ChipProps = BaseComponentProps<
   {
     /** Teksten som vises i komponenten. */
     text?: string;
-    /** Ekstra logikk når `<Chip />` lukkes. */
+    /** Ekstra logikk når `<Chip>` lukkes. */
     onClose?: () => void;
   }
 >;

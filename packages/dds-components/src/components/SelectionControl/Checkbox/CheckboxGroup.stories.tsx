@@ -41,7 +41,7 @@ const fieldsetStyling = `
 .fieldset-story-container div[role="group"] {
   flex-wrap: wrap;
   max-height: 100px;
-  max-width: 500px; 
+  max-width: 500px;
 }
 `;
 

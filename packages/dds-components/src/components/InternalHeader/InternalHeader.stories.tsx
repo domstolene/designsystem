@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { LanguageProvider } from '../../i18n';
 import {
@@ -19,6 +20,7 @@ const meta: Meta<typeof InternalHeader> = {
     user: { control: false },
     htmlProps: htmlPropsArgType,
   },
+  args: { onCurrentPageChange: fn() },
   parameters: {
     docs: {
       story: { inline: true, height: '320px' },

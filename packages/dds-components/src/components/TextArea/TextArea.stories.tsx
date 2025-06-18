@@ -1,7 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { TextArea } from './TextArea';
-import { categoryHtml, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {
@@ -13,7 +18,9 @@ export default {
     required: { control: 'boolean', table: categoryHtml },
     disabled: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean', table: categoryHtml },
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

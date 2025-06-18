@@ -8,9 +8,13 @@ import {
 } from '@internationalized/date';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { LanguageProvider } from '../../../i18n';
-import { windowWidthDecorator } from '../../../storybook/helpers';
+import {
+  htmlEventArgType,
+  windowWidthDecorator,
+} from '../../../storybook/helpers';
 import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Modal } from '../../Modal';
@@ -37,6 +41,18 @@ const meta: Meta<typeof DatePicker> = {
     width: {
       control: 'text',
     },
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
+    onFocus: htmlEventArgType,
+    onOpenChange: { control: false },
+    onFocusChange: { control: false },
+  },
+  args: {
+    onBlur: fn(),
+    onChange: fn(),
+    onFocus: fn(),
+    onFocusChange: fn(),
+    onOpenChange: fn(),
   },
   decorators: [
     Story => (
@@ -204,7 +220,9 @@ export const DateAndTime: Story = {
       dateStyle: 'full',
       timeStyle: 'short',
     });
-    const [date, setDate] = useState<CalendarDate>(today('Europe/Oslo'));
+    const [date, setDate] = useState<CalendarDate>(
+      new CalendarDate(2025, 6, 18),
+    );
     const [time, setTime] = useState<Time>(new Time(12, 0, 0));
     const dateTime = toCalendarDateTime(date, time);
     return (
@@ -233,7 +251,7 @@ export const DateAndTime: Story = {
 export const NativeDate: Story = {
   args: { label: 'Dato' },
   render: args => {
-    const [date, setDate] = useState<Date>(new Date());
+    const [date, setDate] = useState<Date>(new Date('June 18, 2025'));
     return (
       <DatePicker
         {...args}

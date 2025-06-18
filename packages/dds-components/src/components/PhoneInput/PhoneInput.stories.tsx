@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import {
   categoryCss,
@@ -24,6 +25,7 @@ export default {
     defaultValue: { control: false },
     id: { control: false },
   },
+  args: { onChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

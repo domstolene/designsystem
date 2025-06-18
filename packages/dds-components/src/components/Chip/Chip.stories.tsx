@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 
@@ -16,6 +17,7 @@ export default {
   argTypes: {
     htmlProps: htmlPropsArgType,
   },
+  args: { onClose: fn() },
 } satisfies Meta<typeof Chip>;
 
 type Story = StoryObj<typeof Chip>;

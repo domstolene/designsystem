@@ -1,9 +1,11 @@
 import { type Story } from '@storybook/addon-docs/blocks';
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { CardSelectable } from './CardSelectable';
 import {
   categoryHtml,
+  htmlEventArgType,
   htmlPropsArgType,
   responsivePropsArgTypes,
 } from '../../../storybook/helpers';
@@ -34,7 +36,11 @@ export default {
     value: htmlPropsArgType,
     defaultValue: htmlPropsArgType,
     padding,
+    onChange: htmlEventArgType,
+    onBlur: htmlEventArgType,
   },
+
+  args: { onBlur: fn(), onChange: fn() },
 } satisfies Meta<typeof CardSelectable>;
 
 type Story = StoryObj<typeof CardSelectable>;

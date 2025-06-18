@@ -1,7 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -18,7 +19,6 @@ import {
   CardExpandableHeader,
   CardSelectable,
 } from '.';
-
 export default {
   title: 'dds-components/Components/Card',
   component: Card,
@@ -31,7 +31,9 @@ export default {
   argTypes: {
     htmlProps: htmlPropsArgType,
     cardRef: { control: false },
+    onClick: htmlEventArgType,
   },
+  args: { onClick: fn() },
 } satisfies Meta<typeof Card>;
 
 type Story = StoryObj<typeof Card>;

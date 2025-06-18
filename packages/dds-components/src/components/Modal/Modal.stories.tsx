@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
@@ -29,6 +30,7 @@ const meta: Meta<typeof Modal> = {
     initialFocusRef: { control: false },
     htmlProps: htmlPropsArgType,
   },
+  args: { onClose: fn() },
   parameters: {
     docs: {
       story: { height: '350px', inline: true },

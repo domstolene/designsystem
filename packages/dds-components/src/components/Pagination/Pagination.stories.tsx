@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import {
   htmlPropsArgType,
@@ -16,6 +17,7 @@ const meta: Meta<typeof Pagination> = {
     selectOptions: { control: false },
     htmlProps: htmlPropsArgType,
   },
+  args: { onChange: fn(), onSelectOptionChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

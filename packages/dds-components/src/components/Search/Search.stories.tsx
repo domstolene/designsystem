@@ -1,6 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import {
+  htmlEventArgType,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
@@ -14,7 +16,9 @@ export default {
   argTypes: {
     buttonProps: { control: false },
     width: responsivePropsArgTypes.width,
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

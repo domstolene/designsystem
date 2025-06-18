@@ -1,7 +1,9 @@
 import { Time } from '@internationalized/date';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
+import { htmlEventArgType } from '../../../storybook/helpers';
 import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
@@ -13,11 +15,15 @@ const meta: Meta<typeof TimePicker> = {
   argTypes: {
     width: { control: 'text' },
     className: { table: { disable: true } },
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
+    onFocus: htmlEventArgType,
   },
+  args: { onBlur: fn(), onFocus: fn(), onChange: fn(), onFocusChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
 };
