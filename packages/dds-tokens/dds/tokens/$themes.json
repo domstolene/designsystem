@@ -3,13 +3,7 @@
     "id": "156a716921b10e24a326ddfaecd5cd7d56bd7600",
     "name": "Elsa",
     "selectedTokenSets": {
-      "Base/Elsa": "enabled",
-      "Semantic/Color/Light": "disabled",
-      "Semantic/Color/Dark": "disabled",
-      "Semantic/Typography/Core": "disabled",
-      "Semantic/Typography/Public": "disabled",
-      "Semantic/BorderRadius/Public": "disabled",
-      "Semantic/BorderRadius/Core": "disabled"
+      "Base/Elsa": "enabled"
     },
     "$figmaStyleReferences": {
       "dds-shadow.1": "S:ba186c5a2001dfa8783f73aa441297307fb71006,",
@@ -465,7 +459,7 @@
       "dds-border-radius.chip": "b09cd814cec2b4f93cd0031d4786f86716bb496f",
       "dds-border-radius.rounded": "77d10b2d24264946249c6cf98c3724ba67d34a23"
     },
-    "group": "Semantic"
+    "group": "Theme"
   },
   {
     "id": "93d0c2761316e8139bf2720c3c70026a2cbaa384",
@@ -646,7 +640,7 @@
       "dds-border-radius.chip": "b09cd814cec2b4f93cd0031d4786f86716bb496f",
       "dds-border-radius.rounded": "77d10b2d24264946249c6cf98c3724ba67d34a23"
     },
-    "group": "Semantic"
+    "group": "Theme"
   },
   {
     "id": "437aba140c23523206f37722e1943e738590e04a",
@@ -658,7 +652,7 @@
       "Semantic/Typography/Public": "enabled",
       "Semantic/BorderRadius/Public": "enabled"
     },
-    "group": "Semantic",
+    "group": "Theme",
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:1",
     "$figmaVariableReferences": {
@@ -839,7 +833,7 @@
       "Semantic/Typography/Public": "enabled",
       "Semantic/BorderRadius/Public": "enabled"
     },
-    "group": "Semantic",
+    "group": "Theme",
     "$figmaCollectionId": "VariableCollectionId:9567:917",
     "$figmaModeId": "12927:2",
     "$figmaVariableReferences": {
