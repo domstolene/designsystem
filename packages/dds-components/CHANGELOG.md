@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 21.6.0
+
+### Minor Changes
+
+- ff7a6eb: Intern støtte for i18n i komponenter via ny provider, med støtte for språkene `'nb'`, `'no'`, `'nn'` og `'en'`,. Gjelder statiske, hovedsakelig usynlige tekster for UU/skjermleser, men også noen synlige. Bruker `'nb'` som default inntil videre, og vil dermed ikke føre til noen endringer hos konsumenter i denne release. Default blir fjernet i neste major release, med påkrevd bruk av `<DdsProvider>`.
+- ff7a6eb: Ny komponent: `<DdsProvider>`. Slår sammen `<LanguageProvider>` og `<ThemeProvider>`. Blir påkrevd å bruke i neste major release istedenfor `<ThemeProvider>`; må ikke brukes enda grunnet default språk inntil videre.
+
+### Patch Changes
+
+- ff7a6eb: Utbedrer noen statiske usynlige ledetekster og beskrivelser for UU/skjermleser.
+
 ## 21.5.1 (2025-06-10)
 
 ### Patch Changes
