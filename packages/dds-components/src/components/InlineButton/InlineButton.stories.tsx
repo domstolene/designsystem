@@ -1,7 +1,9 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { InlineButton } from './InlineButton';
+import { htmlEventArgType } from '../../storybook/helpers';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export default {
@@ -9,7 +11,11 @@ export default {
   component: InlineButton,
   argTypes: {
     children: { control: { type: 'text' } },
+    onClick: htmlEventArgType,
+    onFocus: htmlEventArgType,
+    onBlur: htmlEventArgType,
   },
+  args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
   parameters: {
     docs: {
       story: { inline: true },

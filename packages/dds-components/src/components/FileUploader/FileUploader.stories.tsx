@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { FileUploader } from './FileUploader';
 import {
@@ -19,6 +20,7 @@ export default {
     initialFiles: { control: false },
     accept: { control: false },
   },
+  args: { onChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

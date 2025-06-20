@@ -22,7 +22,8 @@
     "prerelease": "pnpm build",
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset publish --tag dev"
+    "release:dev": "changeset publish --tag dev",
+    "chromatic": "npx chromatic --project-token=chpt_e4cbe6b1aef0b79 --build-script-name=build:storybook"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
   "homepage": "https://github.com/domstolene/designsystem#readme",
   "devDependencies": {
     "@changesets/cli": "^2.29.4",
+    "@chromatic-com/storybook": "4.0.0",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
@@ -46,6 +48,7 @@
     "@testing-library/dom": "^10.4.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
+    "chromatic": "^13.0.0",
     "eslint": "^8.57.1",
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "^2.31.0",
@@ -63,8 +66,8 @@
     "overrides": {
       "react": "19.1.0",
       "react-dom": "19.1.0",
-      "@types/react": "19.0.1",
-      "@types/react-dom": "19.0.1",
+      "@types/react": "19.1.8",
+      "@types/react-dom": "19.1.6",
       "nanoid@<3.3.8": ">=3.3.8",
       "@babel/runtime@<7.26.10": ">=7.26.10"
     }

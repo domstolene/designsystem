@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { InputStepper } from './InputStepper';
 import {
@@ -21,7 +22,7 @@ export default {
     htmlProps: htmlPropsArgType,
     width: { control: 'text', table: categoryCss },
   },
-
+  args: { onChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

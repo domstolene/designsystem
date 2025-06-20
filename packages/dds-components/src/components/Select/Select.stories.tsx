@@ -1,7 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/internal/test';
 
-import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  categoryCss,
+  htmlEventArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { CourtIcon } from '../Icon/icons';
@@ -23,7 +28,11 @@ const meta: Meta<typeof Select> = {
     readOnly: { control: 'boolean' },
     isLoading: { control: 'boolean' },
     icon: { control: false },
+    onChange: htmlEventArgType,
+    onBlur: htmlEventArgType,
+    onFocus: htmlEventArgType,
   },
+  args: { onChange: fn(), onInputChange: fn(), onBlur: fn(), onFocus: fn() },
   parameters: {
     docs: {
       story: { inline: true, height: '450px' },

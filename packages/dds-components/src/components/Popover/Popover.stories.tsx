@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { type Placement } from '../../hooks';
 import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
@@ -31,6 +32,7 @@ const meta: Meta<typeof Popover> = {
     htmlProps: htmlPropsArgType,
     sizeProps: { control: false },
   },
+  args: { onBlur: fn(), onClose: fn() },
   parameters: {
     docs: {
       story: { inline: true, height: '300px' },

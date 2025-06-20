@@ -1,6 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/internal/test';
 
-import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  htmlPropsArgType,
+} from '../../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { Checkbox } from '.';
@@ -17,9 +22,10 @@ export default {
     defaultChecked: { control: false, table: categoryHtml },
     value: { control: false, table: categoryHtml },
     defaultValue: { control: false, table: categoryHtml },
-    onChange: { control: false, table: categoryHtml },
-    onBlur: { control: false, table: categoryHtml },
+    onBlur: htmlEventArgType,
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn(), onBlur: fn() },
   parameters: {
     docs: {
       story: { inline: true },

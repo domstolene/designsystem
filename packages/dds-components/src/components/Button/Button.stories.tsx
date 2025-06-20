@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { ArrowLeftIcon } from '../..';
 import {
@@ -29,6 +30,7 @@ export default {
     onBlur: htmlEventArgType,
     onFocus: htmlEventArgType,
   },
+  args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
 } satisfies Meta<typeof Button>;
 
 type Story = StoryObj<typeof Button>;

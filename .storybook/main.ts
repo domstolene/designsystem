@@ -4,9 +4,6 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 const require = createRequire(import.meta.url);
 
-function getAbsolutePath(value: string): string {
-  return dirname(require.resolve(join(value, 'package.json')));
-}
 const config: StorybookConfig = {
   stories: [
     '../stories/**/*.stories.@(js|jsx|ts|tsx)',
@@ -21,13 +18,14 @@ const config: StorybookConfig = {
   staticDirs: ['./images'],
 
   addons: [
-    getAbsolutePath('@storybook/addon-links'),
-    getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-docs'),
+    '@storybook/addon-links',
+    '@storybook/addon-a11y',
+    '@storybook/addon-docs',
+    '@chromatic-com/storybook',
   ],
 
   framework: {
-    name: getAbsolutePath('@storybook/react-vite'),
+    name: '@storybook/react-vite',
     options: {},
   },
 

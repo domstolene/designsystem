@@ -31,3 +31,8 @@ dist
 # Storybook
 storybook-static
 doctor-storybook.log
+build-storybook.log
+
+# Chromatic
+chromatic-diagnostics.json
+chromatic.log

@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { LocalMessage } from './LocalMessage';
 import {
@@ -17,6 +18,7 @@ export default {
     width: { control: 'text', table: categoryCss },
     htmlProps: htmlPropsArgType,
   },
+  args: { onClose: fn() },
   parameters: {
     docs: {
       story: { inline: true },

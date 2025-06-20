@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
@@ -21,6 +22,7 @@ export default {
     htmlProps: htmlPropsArgType,
     ...storyTypographyHtmlAttrs,
   },
+  args: { onClick: fn() },
   parameters: {
     docs: {
       story: { inline: true },

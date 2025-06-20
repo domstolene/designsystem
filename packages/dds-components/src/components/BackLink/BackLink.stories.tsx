@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { LanguageProvider } from '../../i18n';
 import { categoryHtml, htmlEventArgType } from '../../storybook/helpers';
@@ -20,6 +21,7 @@ const meta: Meta<typeof BackLink> = {
     },
     onClick: htmlEventArgType,
   },
+  args: { onClick: fn() },
   decorators: [
     Story => (
       <LanguageProvider language="nb">

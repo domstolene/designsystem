@@ -1,8 +1,13 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { FavStar } from './FavStar';
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  htmlPropsArgType,
+} from '../../storybook/helpers';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
@@ -19,14 +24,16 @@ const meta: Meta<typeof FavStar> = {
   parameters: {
     docs: {
       story: { inline: true },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
   argTypes: {
     checked: { control: false, table: categoryHtml },
     defaultChecked: { table: categoryHtml },
     htmlProps: htmlPropsArgType,
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
 };
 
 export default meta;

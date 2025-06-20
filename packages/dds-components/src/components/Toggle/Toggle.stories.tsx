@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
@@ -26,6 +27,7 @@ export default {
     onBlur: htmlEventArgType,
     htmlProps: htmlPropsArgType,
   },
+  args: { onChange: fn(), onBlur: fn() },
   parameters: {
     docs: {
       story: { inline: true },

@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { InlineEditInput } from './InlineEditInput';
 import { InlineEditTextArea } from './InlineEditTextArea';
@@ -15,6 +16,7 @@ export default {
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
   },
+  args: { onChange: fn(), onBlur: fn(), onFocus: fn(), onSetValue: fn() },
   parameters: {
     controls: {
       exclude: ['style', 'className', 'onSetValue', 'inputRef', 'children'],

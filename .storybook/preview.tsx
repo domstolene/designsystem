@@ -1,7 +1,7 @@
 import '@norges-domstoler/dds-components/index.css';
 import React from 'react';
 import type { Preview } from '@storybook/react-vite';
-import { DocsContainer } from '@storybook/addon-docs';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { Unstyled } from '@storybook/addon-docs/blocks';
 import {
   ToggleBar,
@@ -9,7 +9,6 @@ import {
   ThemeProvider,
   DdsTheme,
 } from '@norges-domstoler/dds-components';
-import { useState } from 'storybook/internal/preview-api';
 
 let nameCounter = 0;
 
@@ -22,7 +21,6 @@ const preview: Preview = {
         order: ['Introduction', '*', ['Introduction', 'Changelog']],
       },
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
     docs: {
       container: ({ children, context }) => (
         <DocsContainer context={context}>
@@ -49,7 +47,7 @@ const preview: Preview = {
           </ThemeProvider>
         );
       }
-      const [theme, setTheme] = useState<DdsTheme>('core');
+      const [theme, setTheme] = React.useState<DdsTheme>('core');
       nameCounter++;
 
       return (

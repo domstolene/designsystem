@@ -17,7 +17,7 @@ const meta: Meta<typeof Drawer> = {
   parameters: {
     docs: {
       story: { height: '500px', inline: true, scrollbar: false },
-      canvas: { sourceState: 'hidden' },
+      canvas: { sourceState: 'shown' },
     },
   },
   argTypes: {

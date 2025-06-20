@@ -93,6 +93,26 @@ Kjør spesifikk testfil:
 pnpm test:components <KomponentNavn>.spec.tsx
 ```
 
+#### Visuell testing
+
+Hvis din kode kan resultere i visuelle endringer i komponenter eller design tokens, kjør visuelle tester via Storybook sin Chromatic integrasjon.
+
+Du kan gjøre det direkte i nettleseren i Storybook ved å trykke på "Run tests" i global widget:
+
+![image](https://github.com/user-attachments/assets/766db2a9-6617-493b-9ee4-17c526313e45)
+
+Tester kan også kjøres per komponent via fanen "Visual tests":
+
+![image](https://github.com/user-attachments/assets/cc52dd61-264b-460b-b969-84b5339b6983)
+
+Hvis forskjeller er funnet, aksepterer du de som er ønsket, fikser de som er uønsket og kjører tester på nytt. Les mer i Storybook docs: [kjør visuelle tester](https://storybook.js.org/docs/writing-tests/visual-testing#run-visual-tests) og [se over endringer](https://storybook.js.org/docs/writing-tests/visual-testing#review-changes).
+
+Du kan også kjøre en kommando for å se resultatet i terminalen:
+
+```Shell
+pnpm chromatic
+```
+
 ## Konvensjoner
 
 ### Språk

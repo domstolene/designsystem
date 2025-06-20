@@ -1,6 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -14,7 +15,10 @@ export default {
     htmlProps: htmlPropsArgType,
     children: { control: false },
     tooltipId: { control: false },
+    onMouseLeave: htmlEventArgType,
+    onMouseOver: htmlEventArgType,
   },
+  args: { onMouseLeave: fn(), onMouseOver: fn() },
   parameters: {
     docs: {
       story: { inline: true },

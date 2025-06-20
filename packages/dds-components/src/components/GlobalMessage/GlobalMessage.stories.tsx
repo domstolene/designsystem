@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
 import { GlobalMessage } from './GlobalMessage';
 import { htmlPropsArgType } from '../../storybook/helpers';
@@ -10,6 +11,7 @@ export default {
   argTypes: {
     htmlProps: htmlPropsArgType,
   },
+  args: { onClose: fn() },
   parameters: {
     docs: {
       story: { inline: true },

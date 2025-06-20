@@ -1,6 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import { categoryHtml, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { MailIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
@@ -18,7 +23,9 @@ export default {
     readOnly: { control: 'boolean', table: categoryHtml },
     prefix: { control: { type: 'text' } },
     icon: { control: { disable: true } },
+    onChange: htmlEventArgType,
   },
+  args: { onChange: fn() },
   parameters: {
     docs: {
       story: { inline: true },

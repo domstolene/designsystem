@@ -1,6 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import {
+  categoryHtml,
+  htmlEventArgType,
+  htmlPropsArgType,
+} from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
@@ -17,10 +22,11 @@ export default {
     defaultChecked: { control: 'boolean', table: categoryHtml },
     value: { control: false, table: categoryHtml },
     defaultValue: { control: false, table: categoryHtml },
-    onChange: { control: false, table: categoryHtml },
-    onBlur: { control: false, table: categoryHtml },
+    onChange: htmlEventArgType,
+    onBlur: htmlEventArgType,
     icon: { control: false },
   },
+  args: { onChange: fn(), onBlur: fn() },
   parameters: {
     docs: {
       story: { inline: true },
