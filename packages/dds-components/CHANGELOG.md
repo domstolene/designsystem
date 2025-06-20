@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 21.6.1
+
+### Patch Changes
+
+- e63e899: Fikser en bug der `<Select>` lukket dropdown når options endret seg dynamisk.
+
 ## 21.6.0 (2025-06-20)
 
 ### Minor Changes
