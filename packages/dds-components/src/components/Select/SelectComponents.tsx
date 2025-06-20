@@ -1,4 +1,4 @@
-import type { JSX } from 'react';
+import { type JSX, useMemo } from 'react';
 import {
   type ClearIndicatorProps,
   type ControlProps,
@@ -124,19 +124,31 @@ export const DDSInput = <TOption, IsMulti extends boolean>(
   />
 );
 
-export const DDSControl = <TValue, IsMulti extends boolean>(
-  props: ControlProps<TValue, IsMulti>,
+interface CustomInnerDDSControlProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  'data-testid'?: string;
+}
+
+export function createDDSControl(
   componentSize: InputSize,
   readOnly?: boolean,
   icon?: SvgIcon,
   dataTestId?: string,
-) => {
-  const { className, ...rest } = props;
+) {
+  return function DDSControlWrapper<TValue, IsMulti extends boolean>(
+    props: ControlProps<TValue, IsMulti>,
+  ) {
+    const { className, children, innerProps, ...rest } = props;
 
-  return (
-    <div data-testid={dataTestId ? dataTestId + '-control' : undefined}>
+    return (
       <Control
         {...rest}
+        innerProps={
+          {
+            ...innerProps,
+            'data-testid': dataTestId ? dataTestId + '-control' : undefined,
+          } as CustomInnerDDSControlProps
+        }
         className={cn(
           className,
           styles.control,
@@ -154,8 +166,19 @@ export const DDSControl = <TValue, IsMulti extends boolean>(
             )}
           />
         )}
-        {props.children}
+        {children}
       </Control>
-    </div>
+    );
+  };
+}
+
+export const DDSControl = (
+  componentSize: InputSize,
+  readOnly?: boolean,
+  icon?: SvgIcon,
+  dataTestId?: string,
+) =>
+  useMemo(
+    () => createDDSControl(componentSize, readOnly, icon, dataTestId),
+    [componentSize, readOnly, icon, dataTestId],
   );
-};

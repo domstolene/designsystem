@@ -207,8 +207,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       ClearIndicator: props => DDSClearIndicator(props, componentSize),
       DropdownIndicator: props => DDSDropdownIndicator(props, componentSize),
       MultiValueRemove: DDSMultiValueRemove,
-      Control: props =>
-        DDSControl(props, componentSize, readOnly, icon, dataTestId),
+      Control: DDSControl(componentSize, readOnly, icon, dataTestId),
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,
