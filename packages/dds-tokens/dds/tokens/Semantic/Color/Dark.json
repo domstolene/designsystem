@@ -248,7 +248,7 @@
         "description": "On surface.action (primary and danger button)"
       },
       "on-status-default": {
-        "value": "{dds-color-base.gray.black}",
+        "value": "{dds-color-base.gray.white}",
         "type": "color",
         "description": "On default status surfaces"
       },
