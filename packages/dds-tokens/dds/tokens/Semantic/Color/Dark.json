@@ -509,85 +509,85 @@
     },
     "04": {
       "default": {
-        "value": "{dds-color-data.green.500}",
+        "value": "{dds-color-data.green.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.green.200}",
+        "value": "{dds-color-data.green.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.green.500}",
+        "value": "{dds-color-data.green.400}",
         "type": "color"
       }
     },
     "05": {
       "default": {
-        "value": "{dds-color-data.purple.500}",
+        "value": "{dds-color-data.purple.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.purple.200}",
+        "value": "{dds-color-data.purple.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.purple.500}",
+        "value": "{dds-color-data.purple.400}",
         "type": "color"
       }
     },
     "06": {
       "default": {
-        "value": "{dds-color-data.magenta.500}",
+        "value": "{dds-color-data.magenta.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.magenta.200}",
+        "value": "{dds-color-data.magenta.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.magenta.500}",
+        "value": "{dds-color-data.magenta.400}",
         "type": "color"
       }
     },
     "07": {
       "default": {
-        "value": "{dds-color-data.olive.500}",
+        "value": "{dds-color-data.olive.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.olive.200}",
+        "value": "{dds-color-data.olive.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.olive.500}",
+        "value": "{dds-color-data.olive.400}",
         "type": "color"
       }
     },
     "08": {
       "default": {
-        "value": "{dds-color-data.red.500}",
+        "value": "{dds-color-data.red.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.red.200}",
+        "value": "{dds-color-data.red.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.red.500}",
+        "value": "{dds-color-data.red.400}",
         "type": "color"
       }
     },
     "09": {
       "default": {
-        "value": "{dds-color-data.teal.500}",
+        "value": "{dds-color-data.teal.400}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.teal.200}",
+        "value": "{dds-color-data.teal.700}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.teal.500}",
+        "value": "{dds-color-data.teal.400}",
         "type": "color"
       }
     }
