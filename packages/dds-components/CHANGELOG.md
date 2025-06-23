@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 21.6.1 (2025-06-23)
+
+### Patch Changes
+
+- e63e899: Fikser en bug der `<Select>` lukket dropdown når options endret seg dynamisk.
+- 673a168: `<TextArea>` bli mindre når brukeren fjerner tekst; før endret størrelsen seg kun når brukeren skrev mer tekst, nå endres størrelsen i begge tilfeller.
+
 ## 21.6.0 (2025-06-20)
 
 ### Minor Changes
