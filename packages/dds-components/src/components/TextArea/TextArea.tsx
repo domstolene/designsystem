@@ -59,9 +59,9 @@ export const TextArea = ({
 
   useEffect(() => {
     if (textAreaRef?.current) {
-      textAreaRef.current.style.height = `${
-        textAreaRef.current.scrollHeight + 2
-      }px`;
+      const el = textAreaRef.current;
+      el.style.height = 'auto';
+      el.style.height = `${el.scrollHeight + 2}px`;
     }
   }, [text]);
 
