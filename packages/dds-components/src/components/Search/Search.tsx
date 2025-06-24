@@ -8,7 +8,7 @@ import {
 import { useAutocompleteSearch } from './AutocompleteSearch.context';
 import styles from './Search.module.css';
 import { type SearchButtonProps, type SearchSize } from './Search.types';
-import { createEmptyChangeEvent, typographyTypes } from './Search.utils';
+import { typographyTypes } from './Search.utils';
 import { SearchSuggestions } from './SearchSuggestions';
 import { useCombinedRef } from '../../hooks';
 import { createTexts, useTranslation } from '../../i18n';
@@ -17,6 +17,7 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
 import { Button } from '../Button';
 import { Input, type InputProps } from '../helpers';
 import inputStyles from '../helpers/Input/Input.module.css';
@@ -121,8 +122,8 @@ export const Search = ({
   };
 
   const clearInput = () => {
-    const emptyChangeEvent = createEmptyChangeEvent(uniqueId);
-    handleChange(emptyChangeEvent);
+    const clearChangeEvent = createClearChangeEvent<HTMLInputElement>(uniqueId);
+    handleChange(clearChangeEvent);
   };
 
   const {

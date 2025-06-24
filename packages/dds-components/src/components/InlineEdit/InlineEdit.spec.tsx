@@ -5,10 +5,12 @@ import { describe, expect, it, vi } from 'vitest';
 
 import {
   type InlineEditInputProps,
+  type InlineEditSelectProps,
   type InlineEditTextAreaProps,
 } from './InlineEdit.types';
-import { InlineEditInput } from './InlineEditInput';
-import { InlineEditTextArea } from './InlineEditTextArea';
+import { InlineEditInput } from './InlineEditInput/InlineEditInput';
+import { InlineEditSelect } from './InlineEditSelect/InlineEditSelect';
+import { InlineEditTextArea } from './InlineEditTextArea/InlineEditTextArea';
 
 const initialValue = 'v';
 const newValue = 'text';
@@ -27,165 +29,273 @@ const TestComponentInput = (props: InlineEditInputProps) => {
   return <InlineEditInput value={value} onSetValue={setValue} {...rest} />;
 };
 
+const TestComponentSelect = (props: InlineEditSelectProps) => {
+  const { value: propValue, ...rest } = props;
+  const [value, setValue] = useState(propValue || '');
+
+  return (
+    <InlineEditSelect value={value} onSetValue={setValue} {...rest}>
+      <option></option>
+      <option>{initialValue}</option>
+      <option>{newValue}</option>
+    </InlineEditSelect>
+  );
+};
+
 describe('<InlineEdit>', () => {
-  it('should render textbox when using <input>', () => {
-    render(<TestComponentInput />);
-    expect(screen.getByRole('textbox')).toBeInTheDocument;
-  });
-  it('should render textbox when using <textarea>', () => {
-    render(<TestComponentTextArea />);
-    expect(screen.getByRole('textbox')).toBeInTheDocument;
-  });
-  it('should save input and lose focus on Enter', async () => {
-    render(<TestComponentInput value={initialValue} />);
-    const input = screen.getByRole('textbox');
-    await userEvent.type(input, `{backspace}${newValue}{enter}`);
+  describe('<input>', () => {
+    it('should render textbox when using <input>', () => {
+      render(<TestComponentInput />);
+      expect(screen.getByRole('textbox')).toBeInTheDocument;
+    });
 
-    expect(input).not.toHaveFocus();
-    expect(input).toHaveValue(newValue);
-  });
-  it('should save input and lose focus on Escape', async () => {
-    render(<TestComponentInput value={initialValue} />);
-    const input = screen.getByRole('textbox');
-    await userEvent.type(input, `{backspace}${newValue}{escape}`);
+    it('should save input and lose focus on Enter', async () => {
+      render(<TestComponentInput value={initialValue} />);
+      const input = screen.getByRole('textbox');
+      await userEvent.type(input, `{backspace}${newValue}{enter}`);
 
-    expect(input).not.toHaveFocus();
-    expect(input).toHaveValue(newValue);
-  });
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
+    it('should save input and lose focus on Escape', async () => {
+      render(<TestComponentInput value={initialValue} />);
+      const input = screen.getByRole('textbox');
+      await userEvent.type(input, `{backspace}${newValue}{escape}`);
 
-  it('should reset to last-saved value if input is empty', async () => {
-    render(<TestComponentInput value={initialValue} />);
-    const input = screen.getByRole('textbox');
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
 
-    await userEvent.type(input, '{backspace}{enter}');
+    it('should reset to last-saved value if input is empty', async () => {
+      render(<TestComponentInput value={initialValue} />);
+      const input = screen.getByRole('textbox');
 
-    expect(input).toHaveValue(initialValue);
-  });
-  it('should become empty when emptiable and input is empty', async () => {
-    render(<TestComponentInput emptiable value={initialValue} />);
-    const input = screen.getByRole('textbox');
+      await userEvent.type(input, '{backspace}{enter}');
 
-    await userEvent.type(input, '{backspace}{enter}');
+      expect(input).toHaveValue(initialValue);
+    });
+    it('should become empty when emptiable and input is empty', async () => {
+      render(<TestComponentInput emptiable value={initialValue} />);
+      const input = screen.getByRole('textbox');
 
-    expect(input).toHaveValue('');
-  });
+      await userEvent.type(input, '{backspace}{enter}');
 
-  it('should focus when tabbed to', async () => {
-    render(<TestComponentInput />);
-    const input = screen.getByRole('textbox');
+      expect(input).toHaveValue('');
+    });
 
-    expect(document.body).toHaveFocus();
+    it('should focus when tabbed to', async () => {
+      render(<TestComponentInput />);
+      const input = screen.getByRole('textbox');
 
-    await userEvent.tab();
+      expect(document.body).toHaveFocus();
 
-    expect(input).toHaveFocus();
-  });
+      await userEvent.tab();
 
-  it('should run onFocus event', async () => {
-    const event = vi.fn();
-    render(<TestComponentInput onFocus={event} />);
+      expect(input).toHaveFocus();
+    });
 
-    await userEvent.tab();
+    it('should run onFocus event', async () => {
+      const event = vi.fn();
+      render(<TestComponentInput onFocus={event} />);
 
-    expect(event).toHaveBeenCalled();
-  });
+      await userEvent.tab();
 
-  it('should run onChange event', async () => {
-    const event = vi.fn();
-    render(<TestComponentInput onChange={event} />);
-    const input = screen.getByRole('textbox');
+      expect(event).toHaveBeenCalled();
+    });
 
-    await userEvent.type(input, `${newValue}`);
+    it('should run onChange event', async () => {
+      const event = vi.fn();
+      render(<TestComponentInput onChange={event} />);
+      const input = screen.getByRole('textbox');
 
-    expect(event).toHaveBeenCalled();
-  });
+      await userEvent.type(input, `${newValue}`);
 
-  it('should run onBlur event', async () => {
-    const event = vi.fn();
-    render(<TestComponentInput onBlur={event} />);
-    const input = screen.getByRole('textbox');
+      expect(event).toHaveBeenCalled();
+    });
 
-    await userEvent.tab();
+    it('should run onBlur event', async () => {
+      const event = vi.fn();
+      render(<TestComponentInput onBlur={event} />);
+      const input = screen.getByRole('textbox');
 
-    fireEvent.focusOut(input);
+      await userEvent.tab();
 
-    expect(event).toHaveBeenCalled();
-  });
+      fireEvent.focusOut(input);
 
-  it('textarea should save input and lose focus on Enter', async () => {
-    render(<TestComponentTextArea value={initialValue} />);
-    const input = screen.getByRole('textbox');
-    await userEvent.type(input, `{backspace}${newValue}{enter}`);
-
-    expect(input).not.toHaveFocus();
-    expect(input).toHaveValue(newValue);
+      expect(event).toHaveBeenCalled();
+    });
   });
 
-  it('textarea should save input and lose focus on Escape', async () => {
-    render(<TestComponentTextArea value={initialValue} />);
-    const input = screen.getByRole('textbox');
-    await userEvent.type(input, `{backspace}${newValue}{escape}`);
+  describe('<textarea>', () => {
+    it('should render textbox when using <textarea>', () => {
+      render(<TestComponentTextArea />);
+      expect(screen.getByRole('textbox')).toBeInTheDocument;
+    });
 
-    expect(input).not.toHaveFocus();
-    expect(input).toHaveValue(newValue);
+    it('should save input and lose focus on Enter', async () => {
+      render(<TestComponentTextArea value={initialValue} />);
+      const input = screen.getByRole('textbox');
+      await userEvent.type(input, `{backspace}${newValue}{enter}`);
+
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
+
+    it('should save input and lose focus on Escape', async () => {
+      render(<TestComponentTextArea value={initialValue} />);
+      const input = screen.getByRole('textbox');
+      await userEvent.type(input, `{backspace}${newValue}{escape}`);
+
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
+
+    it('should reset to last-saved value if input is empty', async () => {
+      render(<TestComponentTextArea value={initialValue} />);
+      const input = screen.getByRole('textbox');
+
+      await userEvent.type(input, '{backspace}{enter}');
+
+      expect(input).toHaveValue(initialValue);
+    });
+
+    it('should become empty when emptiable and input is empty', async () => {
+      render(<TestComponentTextArea emptiable value={initialValue} />);
+      const input = screen.getByRole('textbox');
+
+      await userEvent.type(input, '{backspace}{enter}');
+
+      expect(input).toHaveValue('');
+    });
+
+    it('should focus when tabbed to', async () => {
+      render(<TestComponentTextArea />);
+      const input = screen.getByRole('textbox');
+
+      expect(document.body).toHaveFocus();
+
+      await userEvent.tab();
+
+      expect(input).toHaveFocus();
+    });
+
+    it('should run onFocus event', async () => {
+      const event = vi.fn();
+      render(<TestComponentTextArea onFocus={event} />);
+
+      await userEvent.tab();
+
+      expect(event).toHaveBeenCalled();
+    });
+
+    it('should run onChange event', async () => {
+      const event = vi.fn();
+      render(<TestComponentTextArea onChange={event} />);
+      const input = screen.getByRole('textbox');
+
+      await userEvent.type(input, `${newValue}`);
+
+      expect(event).toHaveBeenCalled();
+    });
+
+    it('should run onBlur event', async () => {
+      const event = vi.fn();
+      render(<TestComponentTextArea onBlur={event} />);
+      const input = screen.getByRole('textbox');
+
+      await userEvent.tab();
+
+      fireEvent.focusOut(input);
+
+      expect(event).toHaveBeenCalled();
+    });
   });
+  describe('<select>', () => {
+    it('should render combobox', () => {
+      render(<TestComponentSelect />);
+      expect(screen.getByRole('combobox')).toBeInTheDocument;
+    });
 
-  it('textarea should reset to last-saved value if input is empty', async () => {
-    render(<TestComponentTextArea value={initialValue} />);
-    const input = screen.getByRole('textbox');
+    it('should save input and lose focus on Enter', async () => {
+      render(<TestComponentSelect value={initialValue} />);
+      const input = screen.getByRole('combobox');
+      await userEvent.selectOptions(input, newValue);
+      await userEvent.keyboard('{Enter}');
 
-    await userEvent.type(input, '{backspace}{enter}');
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
 
-    expect(input).toHaveValue(initialValue);
-  });
-  it('textarea should become empty when emptiable and input is empty', async () => {
-    render(<TestComponentTextArea emptiable value={initialValue} />);
-    const input = screen.getByRole('textbox');
+    it('should save input and lose focus on Escape', async () => {
+      render(<TestComponentSelect value={initialValue} />);
+      const input = screen.getByRole('combobox');
+      await userEvent.selectOptions(input, newValue);
+      await userEvent.keyboard('{Escape}');
 
-    await userEvent.type(input, '{backspace}{enter}');
+      expect(input).not.toHaveFocus();
+      expect(input).toHaveValue(newValue);
+    });
 
-    expect(input).toHaveValue('');
-  });
+    it('should reset to last-saved value if input is empty', async () => {
+      render(<TestComponentSelect value={initialValue} />);
+      const input = screen.getByRole('combobox');
 
-  it('textarea should focus when tabbed to', async () => {
-    render(<TestComponentTextArea />);
-    const input = screen.getByRole('textbox');
+      await userEvent.selectOptions(input, '');
+      await userEvent.keyboard('{Enter}');
 
-    expect(document.body).toHaveFocus();
+      expect(input).toHaveValue(initialValue);
+    });
 
-    await userEvent.tab();
+    it('should become empty when emptiable and input is empty', async () => {
+      render(<TestComponentSelect emptiable value={initialValue} />);
+      const input = screen.getByRole('combobox');
 
-    expect(input).toHaveFocus();
-  });
+      await userEvent.selectOptions(input, '');
+      await userEvent.keyboard('{Enter}');
 
-  it('should run onFocus event on textarea', async () => {
-    const event = vi.fn();
-    render(<TestComponentTextArea onFocus={event} />);
+      expect(input).toHaveValue('');
+    });
 
-    await userEvent.tab();
+    it('should focus when tabbed to', async () => {
+      render(<TestComponentSelect />);
+      const input = screen.getByRole('combobox');
 
-    expect(event).toHaveBeenCalled();
-  });
+      expect(document.body).toHaveFocus();
 
-  it('should run onChange event on textarea', async () => {
-    const event = vi.fn();
-    render(<TestComponentTextArea onChange={event} />);
-    const input = screen.getByRole('textbox');
+      await userEvent.tab();
 
-    await userEvent.type(input, `${newValue}`);
+      expect(input).toHaveFocus();
+    });
 
-    expect(event).toHaveBeenCalled();
-  });
+    it('should run onFocus event', async () => {
+      const event = vi.fn();
+      render(<TestComponentSelect onFocus={event} />);
 
-  it('should run onBlur event on textarea', async () => {
-    const event = vi.fn();
-    render(<TestComponentTextArea onBlur={event} />);
-    const input = screen.getByRole('textbox');
+      await userEvent.tab();
 
-    await userEvent.tab();
+      expect(event).toHaveBeenCalled();
+    });
 
-    fireEvent.focusOut(input);
+    it('should run onChange event', async () => {
+      const event = vi.fn();
+      render(<TestComponentSelect onChange={event} />);
+      const input = screen.getByRole('combobox');
 
-    expect(event).toHaveBeenCalled();
+      await userEvent.selectOptions(input, newValue);
+
+      expect(event).toHaveBeenCalled();
+    });
+
+    it('should run onBlur event', async () => {
+      const event = vi.fn();
+      render(<TestComponentSelect onBlur={event} />);
+      const input = screen.getByRole('combobox');
+
+      await userEvent.tab();
+
+      fireEvent.focusOut(input);
+
+      expect(event).toHaveBeenCalled();
+    });
   });
 });

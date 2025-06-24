@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 
-import { InlineEditContextProvider } from './InlineEdit.context';
-import { type InlineEditInputProps } from './InlineEdit.types';
+import { InlineEditContextProvider } from '../InlineEdit.context';
+import { type InlineEditInputProps } from '../InlineEdit.types';
 import { InlineInput } from './InlineInput';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '../../../hooks';
 
 export const InlineEditInput = ({
   onSetValue,

@@ -1,25 +1,25 @@
 import { useId, useRef } from 'react';
 
-import { useInlineEditContext } from './InlineEdit.context';
-import styles from './InlineEdit.module.css';
-import { type InlineTextAreaProps } from './InlineEdit.types';
-import { inlineEditVisuallyHidden } from './InlineEdit.utils';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '../../../hooks';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
-import inputStyles from '../helpers/Input/Input.module.css';
-import { focusable } from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { Icon } from '../Icon';
-import { EditIcon } from '../Icon/icons';
-import { renderInputMessage } from '../InputMessage';
-import { Box } from '../layout';
-import typographyStyles from '../Typography/typographyStyles.module.css';
+} from '../../../utils';
+import inputStyles from '../../helpers/Input/Input.module.css';
+import focusStyles from '../../helpers/styling/focus.module.css';
+import { Icon } from '../../Icon';
+import { ChevronDownIcon, EditIcon } from '../../Icon/icons';
+import { renderInputMessage } from '../../InputMessage';
+import { Box } from '../../layout';
+import selectStyles from '../../Select/NativeSelect/NativeSelect.module.css';
+import typographyStyles from '../../Typography/typographyStyles.module.css';
+import { useInlineEditContext } from '../InlineEdit.context';
+import styles from '../InlineEdit.module.css';
+import { type InlineSelectProps } from '../InlineEdit.types';
+import { inlineEditVisuallyHidden } from '../InlineEdit.utils';
 
-export const InlineTextArea = ({
+export const InlineSelect = ({
   id,
   error,
   errorMessage,
@@ -28,20 +28,19 @@ export const InlineTextArea = ({
   hideIcon,
   ref,
   ...rest
-}: InlineTextAreaProps) => {
+}: InlineSelectProps) => {
   const { onBlur, onChange, onFocus, isEditing, value, emptiable } =
     useInlineEditContext();
 
   const genereatedId = useId();
-  const uniqueId = id ?? `${genereatedId}-InlineTextArea`;
+  const uniqueId = id ?? `${genereatedId}-InlineSelect`;
   const hasErrorMessage = !!errorMessage;
-  const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
   const hasError = !!error;
   const hasErrorState = hasError || hasErrorMessage;
-
+  const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
   const descId = derivativeIdGenerator(uniqueId, 'desc');
 
-  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const inputRef = useRef<HTMLSelectElement>(null);
   const combinedRef = useCombinedRef(ref, inputRef);
 
   return (
@@ -57,7 +56,7 @@ export const InlineTextArea = ({
             <Icon icon={EditIcon} iconSize="small" />
           </span>
         )}
-        <textarea
+        <select
           {...rest}
           value={value}
           onChange={onChange}
@@ -70,16 +69,20 @@ export const InlineTextArea = ({
             descId,
             ariaDescribedby,
           ])}
+          aria-invalid={hasErrorState}
           className={cn(
             styles['inline-input'],
+            styles['inline-select'],
             !hideIcon && !isEditing && styles['inline-input--with-icon'],
-            styles['inline-textarea'],
-            inputStyles['input--stateful'],
-            hasErrorState && inputStyles['input--stateful-danger'],
             typographyStyles['body-medium'],
-            utilStyles.scrollbar,
-            focusable,
+            hasErrorState && inputStyles['input--stateful-danger'],
+            focusStyles['focusable-focus'],
           )}
+        />
+        <Icon
+          icon={ChevronDownIcon}
+          iconSize="small"
+          className={selectStyles.icon}
         />
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
@@ -88,4 +91,4 @@ export const InlineTextArea = ({
   );
 };
 
-InlineTextArea.displayName = 'InlineTextArea';
+InlineSelect.displayName = 'InlineSelect';

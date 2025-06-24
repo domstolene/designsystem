@@ -12,15 +12,21 @@
       var(--dds-focus-transition);
   }
 
-  &:hover:enabled:read-write:not(:focus) {
-    border-color: transparent;
-    box-shadow: none;
-    background-color: var(--dds-color-surface-hover-default);
-  }
-
   &:focus {
     background-color: var(--dds-color-surface-default);
   }
+}
+.inline-input:hover:enabled:read-write:not(:focus),
+.inline-select:hover:enabled:not(:focus) {
+  border-color: transparent;
+  box-shadow: none;
+  background-color: var(--dds-color-surface-hover-default);
+}
+
+.inline-select {
+  appearance: none;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 .inline-input--with-icon {
