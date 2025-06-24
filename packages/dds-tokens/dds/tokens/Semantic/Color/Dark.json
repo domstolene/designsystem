@@ -201,7 +201,7 @@
         "description": "Used with tag-default"
       },
       "warning": {
-        "value": "{dds-color-base.warning.500}",
+        "value": "{dds-color-base.warning.600}",
         "type": "color",
         "description": "Tag.default"
       },
