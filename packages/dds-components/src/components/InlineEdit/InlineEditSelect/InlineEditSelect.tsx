@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 
-import { InlineEditContextProvider } from './InlineEdit.context';
-import { type InlineEditInputProps } from './InlineEdit.types';
-import { InlineInput } from './InlineInput';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '../../../hooks';
+import { InlineEditContextProvider } from '../InlineEdit.context';
+import { type InlineEditSelectProps } from '../InlineEdit.types';
+import { InlineField } from '../InlineField';
 
-export const InlineEditInput = ({
+export const InlineEditSelect = ({
   onSetValue,
   emptiable,
   value,
@@ -14,8 +14,8 @@ export const InlineEditInput = ({
   onBlur,
   ref,
   ...rest
-}: InlineEditInputProps) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+}: InlineEditSelectProps) => {
+  const inputRef = useRef<HTMLSelectElement>(null);
   const combinedRef = useCombinedRef(ref, inputRef);
   return (
     <InlineEditContextProvider
@@ -27,7 +27,7 @@ export const InlineEditInput = ({
       onChange={onChange}
       onBlur={onBlur}
     >
-      <InlineInput {...rest} ref={combinedRef} />
+      <InlineField elementType="select" {...rest} ref={combinedRef} />
     </InlineEditContextProvider>
   );
 };

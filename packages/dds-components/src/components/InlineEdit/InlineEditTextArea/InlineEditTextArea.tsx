@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 
-import { InlineEditContextProvider } from './InlineEdit.context';
-import { type InlineEditTextAreaProps } from './InlineEdit.types';
-import { InlineTextArea } from './InlineTextArea';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '../../../hooks';
+import { InlineEditContextProvider } from '../InlineEdit.context';
+import { type InlineEditTextAreaProps } from '../InlineEdit.types';
+import { InlineField } from '../InlineField';
 
 export const InlineEditTextArea = ({
   onSetValue,
@@ -27,7 +27,7 @@ export const InlineEditTextArea = ({
       onChange={onChange}
       onBlur={onBlur}
     >
-      <InlineTextArea ref={combinedRef} {...rest} />
+      <InlineField elementType="textarea" {...rest} ref={combinedRef} />
     </InlineEditContextProvider>
   );
 };
