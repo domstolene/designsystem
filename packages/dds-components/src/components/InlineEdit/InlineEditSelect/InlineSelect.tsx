@@ -1,18 +1,20 @@
 import { useId, useRef } from 'react';
 
 import { useCombinedRef } from '../../../hooks';
+import { createTexts, useTranslation } from '../../../i18n';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
+import { createClearChangeEvent } from '../../../utils/createClearChangeEvent';
+import { InlineIconButton } from '../../helpers/InlineIconButton';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
-import { ChevronDownIcon, EditIcon } from '../../Icon/icons';
+import { ChevronDownIcon, CloseSmallIcon, EditIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
-import { Box } from '../../layout';
-import selectStyles from '../../Select/NativeSelect/NativeSelect.module.css';
+import { Box, HStack } from '../../layout';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 import { useInlineEditContext } from '../InlineEdit.context';
 import styles from '../InlineEdit.module.css';
@@ -29,6 +31,7 @@ export const InlineSelect = ({
   ref,
   ...rest
 }: InlineSelectProps) => {
+  const { t } = useTranslation();
   const { onBlur, onChange, onFocus, isEditing, value, emptiable } =
     useInlineEditContext();
 
@@ -42,6 +45,12 @@ export const InlineSelect = ({
 
   const inputRef = useRef<HTMLSelectElement>(null);
   const combinedRef = useCombinedRef(ref, inputRef);
+
+  const clearInput = () => {
+    const clearChangeEvent =
+      createClearChangeEvent<HTMLSelectElement>(uniqueId);
+    onChange?.(clearChangeEvent);
+  };
 
   return (
     <Box position="relative" width={width}>
@@ -74,16 +83,29 @@ export const InlineSelect = ({
             styles['inline-input'],
             styles['inline-select'],
             !hideIcon && !isEditing && styles['inline-input--with-icon'],
+            !!value && styles['inline-select--with-clear-button'],
             typographyStyles['body-medium'],
             hasErrorState && inputStyles['input--stateful-danger'],
             focusStyles['focusable-focus'],
           )}
         />
-        <Icon
-          icon={ChevronDownIcon}
-          iconSize="small"
-          className={selectStyles.icon}
-        />
+        <HStack
+          position="absolute"
+          right="x0.25"
+          top="0"
+          className={styles['indicators-container']}
+          gap="x0.5"
+        >
+          {!!value && emptiable && (
+            <InlineIconButton
+              aria-label={t(texts.clearSelect)}
+              onClick={clearInput}
+              icon={CloseSmallIcon}
+              size="small"
+            />
+          )}
+          <Icon icon={ChevronDownIcon} iconSize="small" />
+        </HStack>
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
@@ -92,3 +114,12 @@ export const InlineSelect = ({
 };
 
 InlineSelect.displayName = 'InlineSelect';
+
+const texts = createTexts({
+  clearSelect: {
+    no: 'Tøm nedtrekksliste',
+    nb: 'Tøm nedtrekksliste',
+    nn: 'Tøm nedtrekksliste',
+    en: 'Clear selection',
+  },
+});

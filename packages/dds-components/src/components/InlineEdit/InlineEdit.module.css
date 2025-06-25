@@ -16,17 +16,23 @@
     background-color: var(--dds-color-surface-default);
   }
 }
-.inline-input:hover:enabled:read-write:not(:focus),
-.inline-select:hover:enabled:not(:focus) {
-  border-color: transparent;
-  box-shadow: none;
-  background-color: var(--dds-color-surface-hover-default);
-}
 
 .inline-select {
   appearance: none;
   text-overflow: ellipsis;
   width: 100%;
+  padding-right: var(--dds-spacing-x1-5);
+}
+
+.inline-select--with-clear-button {
+  padding-right: var(--dds-spacing-x3);
+}
+
+.inline-input:hover:enabled:read-write:not(:focus),
+.inline-select:hover:enabled:not(:focus) {
+  border-color: transparent;
+  box-shadow: none;
+  background-color: var(--dds-color-surface-hover-default);
 }
 
 .inline-input--with-icon {
@@ -46,4 +52,8 @@
   &:hover {
     cursor: text;
   }
+}
+
+.indicators-container {
+  transform: translateY(75%);
 }
