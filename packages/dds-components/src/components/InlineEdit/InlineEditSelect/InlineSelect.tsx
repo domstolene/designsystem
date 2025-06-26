@@ -13,7 +13,7 @@ import inputStyles from '../../helpers/Input/Input.module.css';
 import { Icon } from '../../Icon';
 import { ChevronDownIcon, CloseSmallIcon, EditIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
-import { Box, HStack } from '../../layout';
+import { Box } from '../../layout';
 import { useInlineEditContext } from '../InlineEdit.context';
 import styles from '../InlineEdit.module.css';
 import { type InlineSelectProps } from '../InlineEdit.types';
@@ -81,23 +81,20 @@ export const InlineSelect = ({
             ...inlineSelectCns(hasErrorState, !hideIcon && !isEditing, !!value),
           )}
         />
-        <HStack
-          position="absolute"
-          right="x0.25"
-          top="x0"
-          className={styles['indicators-container']}
-          gap="x0.5"
-        >
-          {!!value && emptiable && (
-            <InlineIconButton
-              aria-label={t(texts.clearSelect)}
-              onClick={clearInput}
-              icon={CloseSmallIcon}
-              size="small"
-            />
-          )}
-          <Icon icon={ChevronDownIcon} iconSize="small" />
-        </HStack>
+        {!!value && emptiable && (
+          <InlineIconButton
+            aria-label={t(texts.clearSelect)}
+            onClick={clearInput}
+            icon={CloseSmallIcon}
+            size="small"
+            className={styles['clear-button']}
+          />
+        )}
+        <Icon
+          icon={ChevronDownIcon}
+          iconSize="small"
+          className={styles.chevron}
+        />
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
       {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}

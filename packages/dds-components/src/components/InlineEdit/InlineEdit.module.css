@@ -60,6 +60,15 @@
   }
 }
 
-.indicators-container {
+.chevron {
+  position: absolute;
+  right: var(--dds-spacing-x0-25);
+  transform: translateY(50%);
+  pointer-events: none;
+}
+
+.clear-button {
+  position: absolute;
+  right: calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-small));
   transform: translateY(50%);
 }
