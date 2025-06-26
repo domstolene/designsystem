@@ -537,127 +537,127 @@
     },
     "01": {
       "default": {
-        "value": "{dds-color-data.blue.400}",
+        "value": "{dds-color-data.blue.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.blue.700}",
+        "value": "{dds-color-data.blue.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.blue.400}",
+        "value": "{dds-color-data.blue.300}",
         "type": "color"
       }
     },
     "02": {
       "default": {
-        "value": "{dds-color-data.brown.400}",
+        "value": "{dds-color-data.brown.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.brown.700}",
+        "value": "{dds-color-data.brown.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.brown.400}",
+        "value": "{dds-color-data.brown.300}",
         "type": "color"
       }
     },
     "03": {
       "default": {
-        "value": "{dds-color-data.gray.400}",
+        "value": "{dds-color-data.gray.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.gray.700}",
+        "value": "{dds-color-data.gray.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.gray.400}",
+        "value": "{dds-color-data.gray.300}",
         "type": "color"
       }
     },
     "04": {
       "default": {
-        "value": "{dds-color-data.green.400}",
+        "value": "{dds-color-data.green.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.green.700}",
+        "value": "{dds-color-data.green.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.green.400}",
+        "value": "{dds-color-data.green.300}",
         "type": "color"
       }
     },
     "05": {
       "default": {
-        "value": "{dds-color-data.purple.400}",
+        "value": "{dds-color-data.purple.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.purple.700}",
+        "value": "{dds-color-data.purple.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.purple.400}",
+        "value": "{dds-color-data.purple.300}",
         "type": "color"
       }
     },
     "06": {
       "default": {
-        "value": "{dds-color-data.magenta.400}",
+        "value": "{dds-color-data.magenta.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.magenta.700}",
+        "value": "{dds-color-data.magenta.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.magenta.400}",
+        "value": "{dds-color-data.magenta.300}",
         "type": "color"
       }
     },
     "07": {
       "default": {
-        "value": "{dds-color-data.olive.400}",
+        "value": "{dds-color-data.olive.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.olive.700}",
+        "value": "{dds-color-data.olive.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.olive.400}",
+        "value": "{dds-color-data.olive.300}",
         "type": "color"
       }
     },
     "08": {
       "default": {
-        "value": "{dds-color-data.red.400}",
+        "value": "{dds-color-data.red.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.red.700}",
+        "value": "{dds-color-data.red.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.red.400}",
+        "value": "{dds-color-data.red.300}",
         "type": "color"
       }
     },
     "09": {
       "default": {
-        "value": "{dds-color-data.teal.400}",
+        "value": "{dds-color-data.teal.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.teal.700}",
+        "value": "{dds-color-data.teal.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.teal.400}",
+        "value": "{dds-color-data.teal.300}",
         "type": "color"
       }
     }
