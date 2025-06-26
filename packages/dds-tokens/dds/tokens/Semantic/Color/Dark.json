@@ -523,15 +523,15 @@
   "dds-color-data": {
     "10": {
       "default": {
-        "value": "{dds-color-data.deepblue.400}",
+        "value": "{dds-color-data.deepblue.300}",
         "type": "color"
       },
       "subtle": {
-        "value": "{dds-color-data.deepblue.700}",
+        "value": "{dds-color-data.deepblue.600}",
         "type": "color"
       },
       "border": {
-        "value": "{dds-color-data.deepblue.400}",
+        "value": "{dds-color-data.deepblue.300}",
         "type": "color"
       }
     },
