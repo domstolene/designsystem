@@ -7,16 +7,17 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
 import inputStyles from '../../helpers/Input/Input.module.css';
-import { focusable } from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { EditIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
-import typographyStyles from '../../Typography/typographyStyles.module.css';
 import { useInlineEditContext } from '../InlineEdit.context';
 import styles from '../InlineEdit.module.css';
 import { type InlineInputProps } from '../InlineEdit.types';
-import { inlineEditVisuallyHidden } from '../InlineEdit.utils';
+import {
+  inlineEditInputCns,
+  inlineEditVisuallyHidden,
+} from '../InlineEdit.utils';
 
 export const InlineInput = ({
   id,
@@ -70,11 +71,7 @@ export const InlineInput = ({
           ])}
           aria-invalid={hasErrorState}
           className={cn(
-            styles['inline-input'],
-            !hideIcon && !isEditing && styles['inline-input--with-icon'],
-            typographyStyles['body-medium'],
-            hasErrorState && inputStyles['input--stateful-danger'],
-            focusable,
+            ...inlineEditInputCns(hasErrorState, !hideIcon && !isEditing),
           )}
         />
       </div>

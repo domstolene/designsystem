@@ -7,17 +7,17 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
 import inputStyles from '../../helpers/Input/Input.module.css';
-import { focusable } from '../../helpers/styling/focus.module.css';
-import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import { EditIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
-import typographyStyles from '../../Typography/typographyStyles.module.css';
 import { useInlineEditContext } from '../InlineEdit.context';
 import styles from '../InlineEdit.module.css';
 import { type InlineTextAreaProps } from '../InlineEdit.types';
-import { inlineEditVisuallyHidden } from '../InlineEdit.utils';
+import {
+  inlineEditTextareaCns,
+  inlineEditVisuallyHidden,
+} from '../InlineEdit.utils';
 
 export const InlineTextArea = ({
   id,
@@ -71,14 +71,7 @@ export const InlineTextArea = ({
             ariaDescribedby,
           ])}
           className={cn(
-            styles['inline-input'],
-            !hideIcon && !isEditing && styles['inline-input--with-icon'],
-            styles['inline-textarea'],
-            inputStyles['input--stateful'],
-            hasErrorState && inputStyles['input--stateful-danger'],
-            typographyStyles['body-medium'],
-            utilStyles.scrollbar,
-            focusable,
+            ...inlineEditTextareaCns(hasErrorState, !hideIcon && !isEditing),
           )}
         />
       </div>

@@ -20,7 +20,7 @@ export interface BaseInlineInputProps {
   hideIcon?: boolean;
 }
 
-export type InlineEditCommonProps = {
+export interface InlineEditCommonProps {
   /**Callback for når verdien blir lagret. */
   onSetValue?: (value: string) => void;
   /**Spesifiserer om brukeren kan tømme inputfeltet. */
@@ -31,20 +31,9 @@ export type InlineEditCommonProps = {
   onFocus?: () => void;
   /**Ekstra callback ved `onBlur`-event. */
   onBlur?: () => void;
-} & Pick<InputHTMLAttributes<HTMLInputElement>, 'value'>;
-
-export type InlineEditProps = {
-  /**Callback for når verdien blir lagret. */
-  onSetValue?: (value: string) => void;
-  /**Spesifiserer om brukeren kan tømme inputfeltet. */
-  emptiable?: boolean;
-  /**Ekstra callback ved `onChange`-event. */
-  onChange?: () => void;
-  /**Ekstra callback ved `onFocus`-event. */
-  onFocus?: () => void;
-  /**Ekstra callback ved `onBlur`-event. */
-  onBlur?: () => void;
-} & Pick<InputHTMLAttributes<HTMLInputElement>, 'value'>;
+  /**HTML `value`. */
+  value?: InputHTMLAttributes<HTMLInputElement>['value'];
+}
 
 export type InlineInputProps = BaseInlineInputProps &
   Omit<

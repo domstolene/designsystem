@@ -19,6 +19,7 @@ export default {
     onFocus: htmlEventArgType,
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
+    value: htmlEventArgType,
   },
   args: { onChange: fn(), onBlur: fn(), onFocus: fn(), onSetValue: fn() },
   parameters: {

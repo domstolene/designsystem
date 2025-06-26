@@ -1,6 +1,7 @@
 .inline-input {
   width: 100%;
   padding: var(--dds-spacing-x0-25);
+  border-width: 1px;
   border-color: transparent;
   background-color: transparent;
   border-radius: var(--dds-border-radius-input);
@@ -35,6 +36,11 @@
   background-color: var(--dds-color-surface-hover-default);
 }
 
+.inline-input--danger {
+  border-color: var(--dds-color-border-danger);
+  box-shadow: 0 0 0 1px var(--dds-color-border-danger);
+}
+
 .inline-input--with-icon {
   padding-left: var(--dds-spacing-x2);
 }
@@ -55,5 +61,5 @@
 }
 
 .indicators-container {
-  transform: translateY(75%);
+  transform: translateY(50%);
 }

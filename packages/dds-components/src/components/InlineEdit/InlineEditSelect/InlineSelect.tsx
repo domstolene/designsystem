@@ -10,16 +10,14 @@ import {
 import { createClearChangeEvent } from '../../../utils/createClearChangeEvent';
 import { InlineIconButton } from '../../helpers/InlineIconButton';
 import inputStyles from '../../helpers/Input/Input.module.css';
-import focusStyles from '../../helpers/styling/focus.module.css';
 import { Icon } from '../../Icon';
 import { ChevronDownIcon, CloseSmallIcon, EditIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Box, HStack } from '../../layout';
-import typographyStyles from '../../Typography/typographyStyles.module.css';
 import { useInlineEditContext } from '../InlineEdit.context';
 import styles from '../InlineEdit.module.css';
 import { type InlineSelectProps } from '../InlineEdit.types';
-import { inlineEditVisuallyHidden } from '../InlineEdit.utils';
+import { inlineEditVisuallyHidden, inlineSelectCns } from '../InlineEdit.utils';
 
 export const InlineSelect = ({
   id,
@@ -80,19 +78,13 @@ export const InlineSelect = ({
           ])}
           aria-invalid={hasErrorState}
           className={cn(
-            styles['inline-input'],
-            styles['inline-select'],
-            !hideIcon && !isEditing && styles['inline-input--with-icon'],
-            !!value && styles['inline-select--with-clear-button'],
-            typographyStyles['body-medium'],
-            hasErrorState && inputStyles['input--stateful-danger'],
-            focusStyles['focusable-focus'],
+            ...inlineSelectCns(hasErrorState, !hideIcon && !isEditing, !!value),
           )}
         />
         <HStack
           position="absolute"
           right="x0.25"
-          top="0"
+          top="x0"
           className={styles['indicators-container']}
           gap="x0.5"
         >
