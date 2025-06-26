@@ -242,6 +242,11 @@
         "type": "color",
         "description": "On surface.inverse"
       },
+      "danger": {
+        "value": "{dds-color-base.danger.600}",
+        "type": "color",
+        "description": "Error text on paper, or default or subtle surafce/bg"
+      },
       "on-action": {
         "value": "{dds-color-base.gray.white}",
         "type": "color",
@@ -287,10 +292,75 @@
         "type": "color",
         "description": "Used on surface.notification"
       },
-      "danger": {
-        "value": "{dds-color-base.danger.600}",
+      "on-primary-default": {
+        "value": "{dds-color-base.gray.white}",
         "type": "color",
-        "description": "Error text on paper, or default or subtle surafce/bg"
+        "description": "Used on brand.primary-default"
+      },
+      "on-primary-subtle": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.primary-subtle"
+      },
+      "on-primary-medium": {
+        "value": "{dds-color-base.gray.white}",
+        "type": "color",
+        "description": "Used on brand.primary-medium"
+      },
+      "on-primary-strong": {
+        "value": "{dds-color-base.gray.white}",
+        "type": "color",
+        "description": "Used on brand.primary-strong"
+      },
+      "on-secondary-default": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.secondary-default"
+      },
+      "on-secondary-subtle": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.secondary-subtle"
+      },
+      "on-secondary-medium": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.secondary-medium"
+      },
+      "on-secondary-strong": {
+        "value": "{dds-color-base.gray.white}",
+        "type": "color",
+        "description": "Used on brand.secondary-strong"
+      },
+      "on-tertiary-default": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.tertiary-default"
+      },
+      "on-tertiary-subtle": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.tertiary-subtle"
+      },
+      "on-tertiary-medium": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.tertiary-medium"
+      },
+      "on-tertiary-strong": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on brand.tertiary-strong"
+      },
+      "on-data-default": {
+        "value": "{dds-color-base.gray.white}",
+        "type": "color",
+        "description": "Used on data. with default value"
+      },
+      "on-data-subtle": {
+        "value": "{dds-color-base.gray.black}",
+        "type": "color",
+        "description": "Used on data. with subtle value"
       }
     },
     "icon": {
@@ -313,6 +383,11 @@
         "value": "{dds-color-base.gray.white}",
         "type": "color",
         "description": "On surface.inverse"
+      },
+      "danger": {
+        "value": "{dds-color-base.danger.600}",
+        "type": "color",
+        "description": "Error icon on paper, or default or subtle surafce/bg"
       },
       "on-action": {
         "value": "{dds-color-base.gray.white}",
@@ -368,11 +443,6 @@
         "value": "{dds-color-base.gray.black}",
         "type": "color",
         "description": "On surface.info-strong"
-      },
-      "danger": {
-        "value": "{dds-color-base.danger.600}",
-        "type": "color",
-        "description": "Error icon on paper, or default or subtle surafce/bg"
       }
     },
     "brand": {
