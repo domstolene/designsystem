@@ -44,9 +44,24 @@ const TestComponentSelect = (props: InlineEditSelectProps) => {
 
 describe('<InlineEdit>', () => {
   describe('<input>', () => {
-    it('should render textbox when using <input>', () => {
+    it('should render textbox>', () => {
       render(<TestComponentInput />);
       expect(screen.getByRole('textbox')).toBeInTheDocument;
+    });
+    it('should be invalid', () => {
+      render(<TestComponentInput error />);
+      expect(screen.getByRole('textbox')).toBeInvalid;
+    });
+
+    it('should have accessible name', () => {
+      render(<TestComponentInput aria-label="text" />);
+      expect(screen.getByRole('textbox')).toHaveAccessibleName('text');
+    });
+    it('should have accessible description', () => {
+      render(<TestComponentInput />);
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+        'Escape, Enter eller Tab for å lagre. Innskrivingsfeltet kan ikke tømmes.',
+      );
     });
 
     it('should save input and lose focus on Enter', async () => {
@@ -127,9 +142,24 @@ describe('<InlineEdit>', () => {
   });
 
   describe('<textarea>', () => {
-    it('should render textbox when using <textarea>', () => {
+    it('should render textbox', () => {
       render(<TestComponentTextArea />);
       expect(screen.getByRole('textbox')).toBeInTheDocument;
+    });
+    it('should be invalid', () => {
+      render(<TestComponentTextArea error />);
+      expect(screen.getByRole('textbox')).toBeInvalid;
+    });
+
+    it('should have accessible name', () => {
+      render(<TestComponentTextArea aria-label="text" />);
+      expect(screen.getByRole('textbox')).toHaveAccessibleName('text');
+    });
+    it('should have accessible description', () => {
+      render(<TestComponentTextArea />);
+      expect(screen.getByRole('textbox')).toHaveAccessibleDescription(
+        'Escape, Enter eller Tab for å lagre. Innskrivingsfeltet kan ikke tømmes.',
+      );
     });
 
     it('should save input and lose focus on Enter', async () => {
@@ -214,6 +244,21 @@ describe('<InlineEdit>', () => {
     it('should render combobox', () => {
       render(<TestComponentSelect />);
       expect(screen.getByRole('combobox')).toBeInTheDocument;
+    });
+    it('should be invalid', () => {
+      render(<TestComponentSelect error />);
+      expect(screen.getByRole('combobox')).toBeInvalid;
+    });
+
+    it('should have accessible name', () => {
+      render(<TestComponentSelect aria-label="text" />);
+      expect(screen.getByRole('combobox')).toHaveAccessibleName('text');
+    });
+    it('should have accessible description', () => {
+      render(<TestComponentSelect />);
+      expect(screen.getByRole('combobox')).toHaveAccessibleDescription(
+        'Escape, Enter eller Tab for å lagre. Innskrivingsfeltet kan ikke tømmes.',
+      );
     });
 
     it('should save input and lose focus on Enter', async () => {

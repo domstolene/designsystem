@@ -1,6 +1,13 @@
-import { type ComponentPropsWithRef, type InputHTMLAttributes } from 'react';
+import {
+  type ComponentPropsWithRef,
+  type HTMLProps,
+  type InputHTMLAttributes,
+  type JSX,
+  type ReactElement,
+} from 'react';
 
 import { type ResponsiveProps } from '../layout';
+import { type InlineEditContextType } from './InlineEdit.context';
 
 export type EditElement =
   | HTMLInputElement
@@ -58,3 +65,38 @@ export type InlineEditTextAreaProps = InlineTextAreaProps &
 
 export type InlineEditInputProps = InlineInputProps & InlineEditCommonProps;
 export type InlineEditSelectProps = InlineSelectProps & InlineEditCommonProps;
+type PickedContextType = Partial<
+  Omit<InlineEditContextType, 'isEditing' | 'emptyable'>
+>;
+export type InlineETag<T extends EditElement> = T extends HTMLInputElement
+  ? 'input'
+  : T extends HTMLTextAreaElement
+    ? 'textarea'
+    : T extends HTMLSelectElement
+      ? 'select'
+      : never;
+
+export type InlineEditHTMLProps<TElement extends EditElement> = Omit<
+  HTMLProps<TElement>,
+  keyof PickedContextType | 'width'
+>;
+
+export type RenderInputProps<TElement extends EditElement> = {
+  ref: React.Ref<TElement>;
+  hasError?: boolean;
+} & InlineEditHTMLProps<TElement>;
+
+export type InlineEditFieldProps<TElement extends EditElement> = {
+  elementType: InlineETag<TElement>;
+  id?: string;
+  error?: boolean;
+  errorMessage?: string;
+  hideIcon?: boolean;
+  ref?: React.Ref<TElement>;
+  'aria-describedby'?: string;
+  className?: string;
+  renderInput: (
+    props: RenderInputProps<TElement>,
+  ) => ReactElement<JSX.IntrinsicElements[InlineETag<TElement>]>;
+} & Pick<ResponsiveProps, 'width'> &
+  InlineEditHTMLProps<TElement>;
