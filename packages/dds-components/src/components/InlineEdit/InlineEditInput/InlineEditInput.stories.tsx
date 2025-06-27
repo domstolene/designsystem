@@ -2,23 +2,24 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { InlineEditTextArea } from './InlineEditTextArea';
+import { InlineEditInput } from './InlineEditInput';
 import {
   categoryCss,
   htmlEventArgType,
   windowWidthDecorator,
-} from '../../storybook/helpers';
-import { StoryVStack } from '../layout/Stack/utils';
-import { Table } from '../Table/normal';
+} from '../../../storybook/helpers';
+import { StoryVStack } from '../../layout/Stack/utils';
+import { Table } from '../../Table/normal';
 
 export default {
-  title: 'dds-components/Components/InlineEdit/InlineEditTextArea',
-  component: InlineEditTextArea,
+  title: 'dds-components/Components/InlineEdit/InlineEditInput',
+  component: InlineEditInput,
   argTypes: {
     width: { control: 'text', table: categoryCss },
     onFocus: htmlEventArgType,
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
+    value: htmlEventArgType,
   },
   args: { onChange: fn(), onBlur: fn(), onFocus: fn(), onSetValue: fn() },
   parameters: {
@@ -26,14 +27,13 @@ export default {
       exclude: ['inputRef'],
     },
   },
-} satisfies Meta<typeof InlineEditTextArea>;
-
-type Story = StoryObj<typeof InlineEditTextArea>;
+} satisfies Meta<typeof InlineEditInput>;
+type Story = StoryObj<typeof InlineEditInput>;
 
 export const Default: Story = {
   render: args => {
     const [value, setValue] = useState('');
-    return <InlineEditTextArea {...args} value={value} onSetValue={setValue} />;
+    return <InlineEditInput {...args} value={value} onSetValue={setValue} />;
   },
 };
 
@@ -47,27 +47,27 @@ export const Overview: Story = {
     const [value6, setValue6] = useState('uten ikon');
     return (
       <StoryVStack>
-        <InlineEditTextArea {...args} value={value} onSetValue={setValue} />
-        <InlineEditTextArea {...args} onSetValue={setValue2} value={value2} />
-        <InlineEditTextArea
+        <InlineEditInput {...args} value={value} onSetValue={setValue} />
+        <InlineEditInput {...args} onSetValue={setValue2} value={value2} />
+        <InlineEditInput
           {...args}
           onSetValue={setValue3}
           value={value3}
           error
         />
-        <InlineEditTextArea
+        <InlineEditInput
           {...args}
           onSetValue={setValue4}
           value={value4}
           errorMessage="Feilmelding"
         />
-        <InlineEditTextArea
+        <InlineEditInput
           {...args}
           onSetValue={setValue5}
           value={value5}
           emptiable
         />
-        <InlineEditTextArea
+        <InlineEditInput
           {...args}
           onSetValue={setValue6}
           value={value6}
@@ -95,17 +95,14 @@ export const InTable: Story = {
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <InlineEditTextArea
-                  {...args}
-                  onSetValue={() => setValue(value)}
-                />
+                <InlineEditInput {...args} onSetValue={() => setValue(value)} />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
               <Table.Cell>innhold</Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <InlineEditTextArea
+                <InlineEditInput
                   {...args}
                   onSetValue={() => setValue2(value2)}
                 />

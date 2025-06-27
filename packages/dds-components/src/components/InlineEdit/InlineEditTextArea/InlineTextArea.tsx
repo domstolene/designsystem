@@ -1,24 +1,25 @@
 import { useId, useRef } from 'react';
 
-import { useInlineEditContext } from './InlineEdit.context';
-import styles from './InlineEdit.module.css';
-import { type InlineInputProps } from './InlineEdit.types';
-import { inlineEditVisuallyHidden } from './InlineEdit.utils';
-import { useCombinedRef } from '../../hooks';
+import { useCombinedRef } from '../../../hooks';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
-} from '../../utils';
-import inputStyles from '../helpers/Input/Input.module.css';
-import { focusable } from '../helpers/styling/focus.module.css';
-import { Icon } from '../Icon';
-import { EditIcon } from '../Icon/icons';
-import { renderInputMessage } from '../InputMessage';
-import { Box } from '../layout';
-import typographyStyles from '../Typography/typographyStyles.module.css';
+} from '../../../utils';
+import inputStyles from '../../helpers/Input/Input.module.css';
+import { Icon } from '../../Icon';
+import { EditIcon } from '../../Icon/icons';
+import { renderInputMessage } from '../../InputMessage';
+import { Box } from '../../layout';
+import { useInlineEditContext } from '../InlineEdit.context';
+import styles from '../InlineEdit.module.css';
+import { type InlineTextAreaProps } from '../InlineEdit.types';
+import {
+  inlineEditTextareaCns,
+  inlineEditVisuallyHidden,
+} from '../InlineEdit.utils';
 
-export const InlineInput = ({
+export const InlineTextArea = ({
   id,
   error,
   errorMessage,
@@ -27,19 +28,20 @@ export const InlineInput = ({
   hideIcon,
   ref,
   ...rest
-}: InlineInputProps) => {
+}: InlineTextAreaProps) => {
   const { onBlur, onChange, onFocus, isEditing, value, emptiable } =
     useInlineEditContext();
 
   const genereatedId = useId();
-  const uniqueId = id ?? `${genereatedId}-InlineInput`;
+  const uniqueId = id ?? `${genereatedId}-InlineTextArea`;
   const hasErrorMessage = !!errorMessage;
+  const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
   const hasError = !!error;
   const hasErrorState = hasError || hasErrorMessage;
-  const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+
   const descId = derivativeIdGenerator(uniqueId, 'desc');
 
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const combinedRef = useCombinedRef(ref, inputRef);
 
   return (
@@ -55,7 +57,7 @@ export const InlineInput = ({
             <Icon icon={EditIcon} iconSize="small" />
           </span>
         )}
-        <input
+        <textarea
           {...rest}
           value={value}
           onChange={onChange}
@@ -68,13 +70,8 @@ export const InlineInput = ({
             descId,
             ariaDescribedby,
           ])}
-          aria-invalid={hasErrorState}
           className={cn(
-            styles['inline-input'],
-            !hideIcon && !isEditing && styles['inline-input--with-icon'],
-            typographyStyles['body-medium'],
-            hasErrorState && inputStyles['input--stateful-danger'],
-            focusable,
+            ...inlineEditTextareaCns(hasErrorState, !hideIcon && !isEditing),
           )}
         />
       </div>
@@ -84,4 +81,4 @@ export const InlineInput = ({
   );
 };
 
-InlineInput.displayName = 'InlineInput';
+InlineTextArea.displayName = 'InlineTextArea';

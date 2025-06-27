@@ -1,4 +1,8 @@
+import styles from './InlineEdit.module.css';
 import { createTexts, useTranslation } from '../../i18n';
+import focusStyles, { focusable } from '../helpers/styling/focus.module.css';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
+import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 export const inlineEditVisuallyHidden = (id: string, clearable?: boolean) => {
@@ -25,3 +29,41 @@ const texts = createTexts({
     en: ' Input field cannot be cleared.',
   },
 });
+
+export const inlineEditCns = (
+  hasErrorState?: boolean,
+  showEditingIcon?: boolean,
+) => [
+  styles['inline-input'],
+  typographyStyles['body-medium'],
+  hasErrorState && styles['inline-input--danger'],
+  showEditingIcon && styles['inline-input--with-icon'],
+];
+
+export const inlineEditInputCns = (
+  hasErrorState?: boolean,
+  showEditingIcon?: boolean,
+) => [
+  ...inlineEditCns(hasErrorState, showEditingIcon),
+  utilStyles.scrollbar,
+  focusable,
+];
+
+export const inlineEditTextareaCns = (
+  hasErrorState?: boolean,
+  showEditingIcon?: boolean,
+) => [
+  ...inlineEditInputCns(hasErrorState, showEditingIcon),
+  utilStyles.scrollbar,
+];
+
+export const inlineSelectCns = (
+  hasErrorState?: boolean,
+  showEditingIcon?: boolean,
+  hasValue?: boolean,
+) => [
+  ...inlineEditCns(hasErrorState, showEditingIcon),
+  styles['inline-select'],
+  hasValue && styles['inline-select--with-clear-button'],
+  focusStyles['focusable-focus'],
+];

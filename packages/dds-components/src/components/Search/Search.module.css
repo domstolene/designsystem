@@ -21,9 +21,6 @@
   top: 50%;
   transform: translate(0, -50%);
   right: var(--dds-spacing-x1);
-
-  width: var(--dds-icon-size-medium);
-  height: var(--dds-icon-size-medium);
 }
 
 .suggestions {

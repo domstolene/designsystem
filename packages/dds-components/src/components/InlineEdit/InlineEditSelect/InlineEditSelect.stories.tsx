@@ -2,23 +2,24 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { InlineEditInput } from './InlineEditInput';
+import { InlineEditSelect } from './InlineEditSelect';
 import {
   categoryCss,
   htmlEventArgType,
   windowWidthDecorator,
-} from '../../storybook/helpers';
-import { StoryVStack } from '../layout/Stack/utils';
-import { Table } from '../Table/normal';
+} from '../../../storybook/helpers';
+import { StoryVStack } from '../../layout/Stack/utils';
+import { Table } from '../../Table/normal';
 
 export default {
-  title: 'dds-components/Components/InlineEdit/InlineEditInput',
-  component: InlineEditInput,
+  title: 'dds-components/Components/InlineEdit/InlineEditSelect',
+  component: InlineEditSelect,
   argTypes: {
     width: { control: 'text', table: categoryCss },
     onFocus: htmlEventArgType,
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
+    value: htmlEventArgType,
   },
   args: { onChange: fn(), onBlur: fn(), onFocus: fn(), onSetValue: fn() },
   parameters: {
@@ -26,48 +27,84 @@ export default {
       exclude: ['inputRef'],
     },
   },
-} satisfies Meta<typeof InlineEditInput>;
-type Story = StoryObj<typeof InlineEditInput>;
+} satisfies Meta<typeof InlineEditSelect>;
+type Story = StoryObj<typeof InlineEditSelect>;
+
+const children = [
+  <option></option>,
+  <option>Alt 1</option>,
+  <option>Alt 2</option>,
+  <option>Alt 3</option>,
+];
 
 export const Default: Story = {
   render: args => {
     const [value, setValue] = useState('');
-    return <InlineEditInput {...args} value={value} onSetValue={setValue} />;
+    return (
+      <InlineEditSelect
+        {...args}
+        children={children}
+        value={value}
+        onSetValue={setValue}
+      />
+    );
   },
 };
 
 export const Overview: Story = {
   render: args => {
     const [value, setValue] = useState('');
-    const [value2, setValue2] = useState('tekst');
+    const [value2, setValue2] = useState('Alt 1');
     const [value3, setValue3] = useState('');
     const [value4, setValue4] = useState('');
-    const [value5, setValue5] = useState('tømbar');
-    const [value6, setValue6] = useState('uten ikon');
+    const [value5, setValue5] = useState('Tømbar');
+    const [value6, setValue6] = useState('Uten ikon');
     return (
       <StoryVStack>
-        <InlineEditInput {...args} value={value} onSetValue={setValue} />
-        <InlineEditInput {...args} onSetValue={setValue2} value={value2} />
-        <InlineEditInput
+        <InlineEditSelect
           {...args}
+          children={children}
+          value={value}
+          onSetValue={setValue}
+        />
+        <InlineEditSelect
+          {...args}
+          children={children}
+          onSetValue={setValue2}
+          value={value2}
+        />
+        <InlineEditSelect
+          {...args}
+          children={children}
           onSetValue={setValue3}
           value={value3}
           error
         />
-        <InlineEditInput
+        <InlineEditSelect
           {...args}
+          children={children}
           onSetValue={setValue4}
           value={value4}
           errorMessage="Feilmelding"
         />
-        <InlineEditInput
+        <InlineEditSelect
           {...args}
+          children={[
+            <option></option>,
+            <option>Tømbar</option>,
+            <option>Alt 2</option>,
+          ]}
           onSetValue={setValue5}
           value={value5}
           emptiable
         />
-        <InlineEditInput
+        <InlineEditSelect
           {...args}
+          children={[
+            <option></option>,
+            <option>Uten ikon</option>,
+            <option>Alt 2</option>,
+          ]}
           onSetValue={setValue6}
           value={value6}
           hideIcon
@@ -94,15 +131,20 @@ export const InTable: Story = {
           <Table.Body>
             <Table.Row>
               <Table.Cell>
-                <InlineEditInput {...args} onSetValue={() => setValue(value)} />
+                <InlineEditSelect
+                  {...args}
+                  children={children}
+                  onSetValue={() => setValue(value)}
+                />
               </Table.Cell>
               <Table.Cell>innhold</Table.Cell>
               <Table.Cell>innhold</Table.Cell>
             </Table.Row>
             <Table.Row>
               <Table.Cell>
-                <InlineEditInput
+                <InlineEditSelect
                   {...args}
+                  children={children}
                   onSetValue={() => setValue2(value2)}
                 />
               </Table.Cell>
