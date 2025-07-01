@@ -79,7 +79,9 @@ export const Tooltip = ({
 
   const closeWhenNotInView: IntersectionObserverCallback = entries => {
     const [entry] = entries;
-    entry.isIntersecting ? setInView(true) : setInView(false);
+    if (entry.isIntersecting) {
+      setInView(true);
+    } else setInView(false);
   };
 
   useEffect(() => {

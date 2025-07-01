@@ -59,7 +59,7 @@ export const ProgressTracker: ProgressTrackerComponent = (() => {
 
     const handleChange = (step: number) => {
       setActiveStep(step);
-      onStepChange && onStepChange(step);
+      onStepChange?.(step);
     };
 
     useEffect(() => {

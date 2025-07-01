@@ -7,7 +7,7 @@ describe('<Table>', () => {
   it('renders a table', () => {
     render(<Table />);
     const table = screen.getByRole('table');
-    expect(table).toBeInTheDocument;
+    expect(table).toBeInTheDocument();
   });
   it('renders body as rowgroup', () => {
     render(

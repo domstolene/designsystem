@@ -8,7 +8,7 @@ describe('<Toggle>', () => {
   it('should render label', () => {
     const label = 'label';
     render(<Toggle children={label} />);
-    expect(screen.getByText(label)).toBeInTheDocument;
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
   it('should have accessible name', () => {
     const label = 'label';

@@ -59,12 +59,12 @@ export const PopoverGroup = ({
 
   const handleClose = () => {
     setOpen(false);
-    onClose && onClose();
+    onClose?.();
   };
 
   const handleOpen = () => {
     setOpen(true);
-    onOpen && onOpen();
+    onOpen?.();
   };
 
   const handleToggle = () => {

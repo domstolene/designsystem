@@ -250,9 +250,7 @@ export type ISOCountryCode =
   | 'ZW'
   | 'AX';
 
-type Countries = {
-  [key in ISOCountryCode]: Country;
-};
+type Countries = Record<ISOCountryCode, Country>;
 
 // Hentet fra [uber/baseweb](https://github.com/uber/baseweb/)
 // Modifisert til å passe våre behov: nummer som int

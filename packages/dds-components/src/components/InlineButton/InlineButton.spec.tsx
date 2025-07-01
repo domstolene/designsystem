@@ -7,12 +7,12 @@ import { InlineButton } from './InlineButton';
 describe('<InlineButton>', () => {
   it('should render button', () => {
     render(<InlineButton />);
-    expect(screen.getByRole('button')).toBeInTheDocument;
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
   it('should render button text', () => {
     const text = 'text';
     render(<InlineButton>{text}</InlineButton>);
-    expect(screen.getByText(text)).toBeInTheDocument;
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('calls onClick when button is clicked', async () => {
     const onClick = vi.fn();

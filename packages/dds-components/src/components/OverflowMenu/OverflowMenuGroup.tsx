@@ -73,14 +73,14 @@ export const OverflowMenuGroup = ({
 
   const handleClose = () => {
     if (isOpen) {
-      onClose && onClose();
+      onClose?.();
       close();
     }
   };
 
   const handleToggle = () => {
-    !isOpen && onOpen?.();
-    isOpen && onClose?.();
+    if (!isOpen) onOpen?.();
+    if (isOpen) onClose?.();
     toggle();
   };
 
@@ -90,7 +90,7 @@ export const OverflowMenuGroup = ({
 
   useOnKeyDown(['Esc', 'Escape'], () => {
     if (isOpen) {
-      onClose && onClose();
+      onClose?.();
       close();
       buttonRef.current?.focus();
     }

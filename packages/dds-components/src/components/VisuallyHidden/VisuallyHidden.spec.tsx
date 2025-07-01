@@ -7,10 +7,10 @@ describe('<VisuallyHidden>', () => {
   it('should render children', () => {
     const text = 'text';
     render(<VisuallyHidden>{text}</VisuallyHidden>);
-    expect(screen.getByText(text)).toBeInTheDocument;
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('should render <p>', () => {
     render(<VisuallyHidden as="p" />);
-    expect(screen.getByRole('paragraph')).toBeInTheDocument;
+    expect(screen.getByRole('paragraph')).toBeInTheDocument();
   });
 });

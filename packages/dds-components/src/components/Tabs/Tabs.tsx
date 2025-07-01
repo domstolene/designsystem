@@ -56,7 +56,7 @@ export const Tabs = ({
 
   const handleTabChange = (index: number) => {
     setActiveTab(index);
-    onChange && onChange(index);
+    onChange?.(index);
   };
 
   useEffect(() => {

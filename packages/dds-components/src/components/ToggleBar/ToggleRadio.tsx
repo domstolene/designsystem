@@ -82,8 +82,8 @@ export const ToggleRadio = ({
   const group = useToggleBarContext();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event);
-    group?.onChange && group.onChange(event);
+    onChange?.(event);
+    group?.onChange?.(event);
   };
 
   const contentTypeCn = label ? 'with-text' : 'just-icon';

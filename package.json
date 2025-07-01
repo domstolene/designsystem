@@ -9,9 +9,9 @@
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "test:components": "pnpm --filter @norges-domstoler/dds-components test",
-    "lint": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs",
-    "lint:fix": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --cache --config .eslintrc.cjs --fix",
-    "lint:ci": "eslint packages/**/src --ext .js,.jsx,.ts,.tsx --config .eslintrc.ci.cjs",
+    "lint": "eslint packages/**/src/**/*.{ts,tsx,js,jsx}",
+    "lint:fix": "eslint packages/**/src/**/*.{ts,tsx,js,jsx} --fix",
+    "lint:ci": "eslint packages/**/src/**/*.{ts,tsx,js,jsx} --config eslint.config.ci.mjs",
     "format:check": "prettier --check packages/**/src/** --cache",
     "format:write": "prettier --write packages/**/src/** --cache",
     "storybook": "storybook dev -p 6006",
@@ -38,6 +38,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.29.4",
     "@chromatic-com/storybook": "4.0.0",
+    "@eslint/js": "^9.30.0",
     "@norges-domstoler/dds-components": "workspace:*",
     "@norges-domstoler/dds-design-tokens": "workspace:*",
     "@norges-domstoler/storybook-components": "workspace:*",
@@ -49,9 +50,11 @@
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "chromatic": "^13.0.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.30.0",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-storybook": "9.1.0-alpha.2",
     "eslint-plugin-testing-library": "^7.5.3",
@@ -60,7 +63,9 @@
     "react-dom": "19.1.0",
     "storybook": "9.1.0-alpha.2",
     "tsup": "^8.5.0",
-    "turbo": "^2.5.4"
+    "turbo": "^2.5.4",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.1"
   },
   "pnpm": {
     "overrides": {

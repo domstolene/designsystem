@@ -122,13 +122,13 @@ export const SearchAutocompleteWrapper = (
     } else {
       setSuggestions([]);
     }
-    onChange && onChange(e);
+    onChange?.(e);
   };
 
   const handleSuggestionClick = (e: MouseEvent<HTMLButtonElement>) => {
     setSuggestions([]);
     handleSetInputValue((e.target as HTMLButtonElement).innerText);
-    onSuggestionSelection && onSuggestionSelection();
+    onSuggestionSelection?.();
     closeSuggestions();
   };
 

@@ -30,11 +30,11 @@ const TestComponentInput = (props: InlineEditInputProps) => {
 describe('<InlineEdit>', () => {
   it('should render textbox when using <input>', () => {
     render(<TestComponentInput />);
-    expect(screen.getByRole('textbox')).toBeInTheDocument;
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
   it('should render textbox when using <textarea>', () => {
     render(<TestComponentTextArea />);
-    expect(screen.getByRole('textbox')).toBeInTheDocument;
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
   it('should save input and lose focus on Enter', async () => {
     render(<TestComponentInput value={initialValue} />);

@@ -7,11 +7,11 @@ describe('<InputMessage />', () => {
   it('should render tip', () => {
     const tip = 'tip';
     render(<InputMessage messageType="tip" message={tip} />);
-    expect(screen.getByText(tip)).toBeInTheDocument;
+    expect(screen.getByText(tip)).toBeInTheDocument();
   });
   it('should render error message', () => {
     const errorMessage = 'errorMessage';
     render(<InputMessage messageType="error" message={errorMessage} />);
-    expect(screen.getByText(errorMessage)).toBeInTheDocument;
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
 });

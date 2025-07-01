@@ -112,7 +112,7 @@ export const LocalMessage = ({
           purpose="tertiary"
           onClick={() => {
             setClosed(true);
-            onClose && onClose();
+            onClose?.();
           }}
           size="xsmall"
           aria-label={t(commonTexts.closeMessage)}

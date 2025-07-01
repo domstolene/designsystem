@@ -102,7 +102,7 @@ export const Pagination = ({
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     page: number,
   ) => {
-    page && setActivePage(page);
+    if (page) setActivePage(page);
     if (event && onChange) {
       onChange(event, page);
     }

@@ -19,7 +19,7 @@ export const readOnlyMouseDownHandler = <T,>(
       evt.preventDefault();
       // gi fokus til elementet per standard readonly oppførsel
       (evt.target as HTMLElement).focus();
-    } else onMouseDown && onMouseDown(evt);
+    } else onMouseDown?.(evt);
   };
 };
 
@@ -43,7 +43,7 @@ export const readOnlyKeyDownHandler = <T,>(
       } else if (type === 'selectionControl' && evt.key === ' ') {
         evt.preventDefault();
       }
-    } else onKeyDown && onKeyDown(evt);
+    } else onKeyDown?.(evt);
   };
 };
 
@@ -55,7 +55,7 @@ export const readOnlyChangeHandler = <T,>(
     if (readOnly) {
       return;
     }
-    onChange && onChange(evt);
+    onChange?.(evt);
   };
 };
 
@@ -68,6 +68,6 @@ export const readOnlyClickHandler = <T,>(
       evt.preventDefault();
       return;
     }
-    onClick && onClick(evt);
+    onClick?.(evt);
   };
 };

@@ -51,7 +51,7 @@ export const Default: Story = {
               <OverflowMenuLink href="/">Link</OverflowMenuLink>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
@@ -62,7 +62,7 @@ export const Default: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
@@ -70,14 +70,14 @@ export const Default: Story = {
               <OverflowMenuButton
                 loading
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling 2
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={EditIcon}
               >
@@ -85,7 +85,7 @@ export const Default: Story = {
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={TrashIcon}
                 purpose="danger"
@@ -112,7 +112,7 @@ export const Controlled: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={EditIcon}
               >
@@ -120,7 +120,7 @@ export const Controlled: Story = {
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={TrashIcon}
                 purpose="danger"
@@ -169,7 +169,7 @@ export const WithButtons: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
@@ -180,14 +180,14 @@ export const WithButtons: Story = {
             <OverflowMenuList>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
               >
                 Handling
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={EditIcon}
               >
@@ -195,7 +195,7 @@ export const WithButtons: Story = {
               </OverflowMenuButton>
               <OverflowMenuButton
                 onClick={() => {
-                  null;
+                  //kun for showcase
                 }}
                 icon={TrashIcon}
                 purpose="danger"

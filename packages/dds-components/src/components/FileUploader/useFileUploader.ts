@@ -248,11 +248,9 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     } => ({
       onBlur: onRootBlur,
       onFocus: onRootFocus,
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onDragEnter: onRootDragEnter,
       onDragOver: onRootDragOver,
       onDragLeave: onRootDragLeave,
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onDrop: setFiles,
       ref: rootRef,
     }),
@@ -285,7 +283,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       style: { display: 'none' },
       tabIndex: -1,
       ref: inputRef,
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+
       onChange: setFiles,
       multiple: !maxFiles || maxFiles > 1,
       ...(accept ? { accept: accept.join(',') } : {}),

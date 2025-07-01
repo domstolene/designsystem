@@ -34,7 +34,7 @@ export const Chip = ({
 
   const onClick = () => {
     setIsOpen(false);
-    onClose && onClose();
+    onClose?.();
   };
 
   return isOpen ? (
