@@ -46,11 +46,11 @@ describe('<InlineEdit>', () => {
   describe('<input>', () => {
     it('should render textbox>', () => {
       render(<TestComponentInput />);
-      expect(screen.getByRole('textbox')).toBeInTheDocument;
+      expect(screen.getByRole('textbox')).toBeInTheDocument();
     });
     it('should be invalid', () => {
       render(<TestComponentInput error />);
-      expect(screen.getByRole('textbox')).toBeInvalid;
+      expect(screen.getByRole('textbox')).toBeInvalid();
     });
 
     it('should have accessible name', () => {
@@ -145,11 +145,11 @@ describe('<InlineEdit>', () => {
   describe('<textarea>', () => {
     it('should render textbox', () => {
       render(<TestComponentTextArea />);
-      expect(screen.getByRole('textbox')).toBeInTheDocument;
+      expect(screen.getByRole('textbox')).toBeInTheDocument();
     });
     it('should be invalid', () => {
       render(<TestComponentTextArea error />);
-      expect(screen.getByRole('textbox')).toBeInvalid;
+      expect(screen.getByRole('textbox')).toBeInvalid();
     });
 
     it('should have accessible name', () => {
@@ -245,11 +245,11 @@ describe('<InlineEdit>', () => {
   describe('<select>', () => {
     it('should render combobox', () => {
       render(<TestComponentSelect />);
-      expect(screen.getByRole('combobox')).toBeInTheDocument;
+      expect(screen.getByRole('combobox')).toBeInTheDocument();
     });
     it('should be invalid', () => {
       render(<TestComponentSelect error />);
-      expect(screen.getByRole('combobox')).toBeInvalid;
+      expect(screen.getByRole('combobox')).toBeInvalid();
     });
 
     it('should have accessible name', () => {
