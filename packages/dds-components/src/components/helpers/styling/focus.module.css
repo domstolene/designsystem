@@ -1,5 +1,6 @@
 .focused,
 .focusable:focus-visible,
+.focusable-focus:focus,
 .focusable-within:focus-within,
 .has-focusable-input:has(input:focus-visible),
 .focusable-sibling:focus-visible + .focus-styled-sibling {

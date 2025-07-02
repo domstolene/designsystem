@@ -1,10 +1,10 @@
 import styles from './Feedback.module.css';
 import { type Layout, type Rating } from './Feedback.types';
-import { ThumbIcon } from './utils';
+import { getIconSize } from './utils';
 import { createTexts, useTranslation } from '../../i18n';
 import { cn } from '../../utils';
-import { StylelessButton } from '../helpers';
-import { focusable } from '../helpers/styling/focus.module.css';
+import { InlineIconButton } from '../helpers/InlineIconButton';
+import { ThumbDownIcon, ThumbUpIcon } from '../Icon/icons';
 import { HStack } from '../layout';
 import { Spinner } from '../Spinner';
 import { Tooltip } from '../Tooltip';
@@ -28,14 +28,15 @@ export const RatingComponent = ({
   handleRatingChange,
 }: RatingComponentType) => {
   const { t } = useTranslation();
+
   const button = (rating: Rating, layout: Layout, tooltip: string) => (
-    <StylelessButton
+    <InlineIconButton
       aria-label={tooltip}
       onClick={() => handleRatingChange(rating)}
-      className={cn(styles.button, styles[`button--${layout}`], focusable)}
-    >
-      {ThumbIcon({ rating, layout, type: 'rating' })}
-    </StylelessButton>
+      size={getIconSize(layout)}
+      icon={rating === 'positive' ? ThumbUpIcon : ThumbDownIcon}
+      color="icon-medium"
+    ></InlineIconButton>
   );
 
   return (

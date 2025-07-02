@@ -57,9 +57,3 @@ export interface FeedbackProps {
 
 export type Rating = 'positive' | 'negative';
 export type Layout = 'vertical' | 'horizontal';
-
-export interface ThumbIconProps {
-  rating: Rating | null;
-  layout: Layout;
-  type: 'comment' | 'rating';
-}
