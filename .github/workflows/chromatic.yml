@@ -4,6 +4,7 @@ on: push
 
 jobs:
   chromatic:
+    if: github.actor != 'dependabot[bot]'
     name: Run Chromatic
     runs-on: ubuntu-latest
     permissions:
