@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "esnext", "dom.iterable"],
     "declaration": true,
     "sourceMap": true,
     "moduleResolution": "Bundler",
