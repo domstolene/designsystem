@@ -52,7 +52,6 @@
     "chromatic": "^13.0.1",
     "eslint": "^9.30.0",
     "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.5.1",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.37.5",
