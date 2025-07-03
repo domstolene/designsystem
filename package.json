@@ -11,7 +11,6 @@
     "test:components": "pnpm --filter @norges-domstoler/dds-components test",
     "lint": "eslint packages/**/src/**/*.{ts,tsx,js,jsx}",
     "lint:fix": "eslint packages/**/src/**/*.{ts,tsx,js,jsx} --fix",
-    "lint:ci": "eslint packages/**/src/**/*.{ts,tsx,js,jsx} --config eslint.config.ci.mjs",
     "format:check": "prettier --check packages/**/src/** --cache",
     "format:write": "prettier --write packages/**/src/** --cache",
     "storybook": "storybook dev -p 6006",
