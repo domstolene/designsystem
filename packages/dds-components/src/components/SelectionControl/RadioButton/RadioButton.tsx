@@ -61,7 +61,7 @@ export const RadioButton = ({
   const radioButtonGroup = useRadioButtonGroup();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    onChange && onChange(event);
+    onChange?.(event);
     radioButtonGroup?.onChange?.(event, event.target.value);
   };
 

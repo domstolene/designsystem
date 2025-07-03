@@ -6,11 +6,11 @@ import { Fieldset } from './Fieldset';
 describe('<Fieldset>', () => {
   it('should render group', () => {
     render(<Fieldset />);
-    expect(screen.getByRole('group')).toBeInTheDocument;
+    expect(screen.getByRole('group')).toBeInTheDocument();
   });
   it('should render children', () => {
     const text = 'text';
     render(<Fieldset>{text}</Fieldset>);
-    expect(screen.getByText(text)).toBeInTheDocument;
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
 });

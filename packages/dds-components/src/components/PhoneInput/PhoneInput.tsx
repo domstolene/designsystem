@@ -29,7 +29,6 @@ import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export interface PhoneInputValue {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   countryCode: ISOCountryCode | (string & {});
   phoneNumber: string;
 }
@@ -253,7 +252,6 @@ export const PhoneInput = ({
     componentSize,
   };
 
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
   const bp = props.smallScreenBreakpoint;

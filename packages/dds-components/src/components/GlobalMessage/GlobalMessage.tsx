@@ -78,7 +78,7 @@ export const GlobalMessage = ({
           purpose="tertiary"
           onClick={() => {
             setClosed(true);
-            onClose && onClose();
+            onClose?.();
           }}
           size="small"
           aria-label={t(commonTexts.closeMessage)}

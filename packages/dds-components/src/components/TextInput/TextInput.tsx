@@ -119,7 +119,6 @@ export const TextInput = ({
     ...rest,
   };
 
-  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const showRequiredStyling = !!(required || ariaRequired);
 
   const preffixPaddingInlineStart: Property.PaddingInlineStart | undefined =

@@ -118,8 +118,8 @@ export const Search = ({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setHasValue(e.target.value !== '');
 
-    context.onValueChange && context.onValueChange(e);
-    onChange && onChange(e);
+    context?.onValueChange?.(e);
+    onChange?.(e);
   };
 
   const clearInput = () => {

@@ -169,7 +169,7 @@ export const Popover = ({
   const multiRef = useCombinedRef(ref, popoverRef, floatingRef);
 
   useEffect(() => {
-    setFloatOptions && setFloatOptions({ placement, offset });
+    setFloatOptions?.({ placement, offset });
   }, [placement, offset]);
 
   // hooks when without context

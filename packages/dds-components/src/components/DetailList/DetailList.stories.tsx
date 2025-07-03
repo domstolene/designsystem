@@ -36,7 +36,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp
@@ -49,7 +49,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp
@@ -62,7 +62,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp
@@ -75,7 +75,7 @@ const children = [
     <DetailListDesc className="story-text-right">
       <InlineButton
         onClick={() => {
-          null;
+          //kun for showcase
         }}
       >
         Knapp

@@ -42,33 +42,32 @@ export const Feedback = ({
   const tThumbDownTooltip = thumbDownTooltip ?? t(texts.bad);
 
   useEffect(() => {
-    ratingProp !== undefined && setRating(ratingProp);
+    if (ratingProp !== undefined) setRating(ratingProp);
   }, [ratingProp]);
 
   useEffect(() => {
-    feedbackTextProp !== undefined && setFeedbackText(feedbackTextProp);
+    if (feedbackTextProp !== undefined) setFeedbackText(feedbackTextProp);
   }, [feedbackTextProp]);
 
   useEffect(() => {
-    isSubmittedProp !== undefined && setIsFeedbackSubmitted(isSubmittedProp);
+    if (isSubmittedProp !== undefined) setIsFeedbackSubmitted(isSubmittedProp);
   }, [isSubmittedProp]);
 
   const handleRatingChange = (newRating: Rating) => {
-    onRating && onRating(newRating);
-    onSubmit && feedbackTextAreaExcluded && onSubmit(newRating, '');
+    onRating?.(newRating);
+    if (onSubmit && feedbackTextAreaExcluded) onSubmit(newRating, '');
 
-    ratingProp === undefined && setRating(newRating);
+    if (ratingProp === undefined) setRating(newRating);
   };
 
   const handleFeedbackTextChange = (newFeedbackText: string) => {
-    onFeedbackTextChange && onFeedbackTextChange(newFeedbackText);
-    feedbackTextProp === undefined && setFeedbackText(newFeedbackText);
+    onFeedbackTextChange?.(newFeedbackText);
+    if (feedbackTextProp === undefined) setFeedbackText(newFeedbackText);
   };
 
   const handleSubmit = () => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Ved submit er rating alltid satt
-    onSubmit && onSubmit(rating!, feedbackText ?? '');
-    isSubmittedProp === undefined && setIsFeedbackSubmitted(true);
+    onSubmit?.(rating!, feedbackText ?? '');
+    if (isSubmittedProp === undefined) setIsFeedbackSubmitted(true);
   };
 
   if (rating === null && !isFeedbackSubmitted) {

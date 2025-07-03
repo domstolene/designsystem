@@ -164,6 +164,6 @@ describe('<InputStepper />', () => {
     const label = 'label';
     render(<InputStepper label={label} maxValue={5} disabled />);
     const inputField = screen.getByRole('textbox');
-    expect(inputField).toBeDisabled;
+    expect(inputField).toBeDisabled();
   });
 });

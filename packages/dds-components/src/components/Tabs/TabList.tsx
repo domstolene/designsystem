@@ -72,7 +72,7 @@ export const TabList = ({
 
   const handleOnFocus = (event: FocusEvent<HTMLDivElement, Element>) => {
     setHasTabFocus(true);
-    onFocus && onFocus(event);
+    onFocus?.(event);
   };
 
   const handleOnBlur = (event: FocusEvent<HTMLDivElement, Element>) => {

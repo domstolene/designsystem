@@ -109,8 +109,8 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 
   const handleClick = () => {
     if (!disabled) {
-      onClick && onClick(index);
-      handleStepChange && handleStepChange(index);
+      onClick?.(index);
+      handleStepChange?.(index);
     }
   };
 

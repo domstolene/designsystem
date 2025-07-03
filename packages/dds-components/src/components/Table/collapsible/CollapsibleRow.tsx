@@ -42,7 +42,7 @@ export const CollapsibleRow = ({
   const [childrenCollapsed, setChildrenCollapsed] = useState(true);
 
   useEffect(() => {
-    !isCollapsed && setChildrenCollapsed(true);
+    if (!isCollapsed) setChildrenCollapsed(true);
   }, [isCollapsed]);
 
   const rowProps = (isOpenCollapsibleHeader?: boolean) => {

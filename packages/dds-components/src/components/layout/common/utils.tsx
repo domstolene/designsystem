@@ -17,7 +17,7 @@ import {
 
 export function isBreakpointObject<T>(
   value: ResponsiveProp<T>,
-): value is { [k in Breakpoint]?: T } {
+): value is Partial<Record<Breakpoint, T>> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
