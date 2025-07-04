@@ -1,5 +1,16 @@
 # @norges-domstoler/dds-components
 
+## 21.7.0 (2025-07-04)
+
+### Minor Changes
+
+- 0284211: Ny komponent: `<InlineEditSelect>`. Den er en del av [InlineEdit](https://design.domstol.no/987b33f71/p/767867-inlineedit)-komponentgruppen og returnerer nativ `<select>`.
+
+### Patch Changes
+
+- 0284211: Fikser styling for border ved valideringsfeil i `<InlineEdit>`-komponenter.
+- 0284211: Justerer på størrelse på tømmeknapp i `<Search>`
+
 ## 21.6.1 (2025-06-23)
 
 ### Patch Changes
@@ -186,7 +197,6 @@
 
 - 3ced0b0: Endrer navn på prop `title` til `headerText`, og `titleHeadingLevel` til `headerHeadingLevel` i `<EmptyContent>`. På denne måten unngår vi forvirring med nativ HTML `title` og standardiserer navngiving.
 - 2c0cfd7: Revamp av `<Popover>`-komponenten.
-
   - Fjerner props `onCloseButtonClick` og `onTriggerClick`, legger til `onOpen` og `onClose` i `<PopoverGroup>`. På denne måten vil konsumentene kunne legge til callbacks basert på status på `<Popover>` uten å henge seg oppi detaljer rundt implementasjonen.
   - Implementerer kontrollert tilstand. `<PopoverGroup>` kan nå ta inn `isOpen` og `setIsOpen` for å bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<Popover>` vises på første render. Propen var tidligere kalt `isOpen`, så nå skiller vi mellom initial og kontrollert tilstand.
   - Bytter navn på `title` prop til `header` i `<Popover>`. Det er mer riktig, og i tillegg unngår vi forvirring der en konsument kan tro at vi mener native HTML `title`.
@@ -194,13 +204,11 @@
   - Fjerner `onCloseButtonClick` fra `<Popover>`. Vi dropper støtte for callback på så detaljert oppførsel; det erstattes med `onOpen` og `onClose` i `<PopoverGroup>`.
 
 - 3ced0b0: Revamp av `<OverflowMenu>`.
-
   - Fjerner prop `onToggle` i `<OverflowMenuGroup>`. Komponenten blir standardisert og bruke kun `onClose` og `onOpen`.
   - Implementerer kontrollert tilstand. `<OverflowMenuGroup>` kan nå ta inn `isOpen` og `setIsOpen` props for bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<OverflowMenu>` vises på første render.
   - Fjerner props fra `<OverflowMenu>` som ble satt av forelder: `isOpen`, `anchorRef`, `onClose`, `onToggle`, `id` og implementerer React Context istedet. Vi unngår dermed rotet med props konsumenter ikke "får lov" til å sette. `<OverflowMenuGroup>` er dermed obigatorisk å bruke.
 
 - 3ced0b0: Revamp av `<Drawer>`.
-
   - Implementerer kontrollert tilstand. `<DrawerGroup>` kan nå ta inn `isOpen` og `setIsOpen` props for bli kontrollert av konsumenten; hvis de ikke settes brukes intern håndtering. Legger også til `isInitiallyOpen`, som forteller om `<Drawer>` vises på første render.
   - Fjerner props fra `<Drawer>` som ble satt av forelder: `isOpen`, `triggerRef`, `onClose`, `id` og implementerer React Context istedet. Vi unngår dermed rotet med props konsumenter ikke "får lov" til å sette. `<DrawerGroup>` er dermed obigatorisk å bruke.
 
@@ -611,7 +619,6 @@
   Bakgrunnen til denne endringen er at vi vil migrere designsystemet bort fra `styled-components`.
   `styled-components` genererer CSS ved run-time.
   Dette har en del negative konsekvenser som
-
   - dårligere ytelse,
   - kompliserer SSR oppsett, og,
   - setter en [begrensning på bruk av moderne React-funksjonalitet som Streaming SSR](https://github.com/styled-components/styled-components/issues/3658).
@@ -620,7 +627,6 @@
 - b6a2b23: Flytter `<AppShell>`-komponent ut fra dds-components til egen pakke.
 - 62882b4: Endrer variantene for color i `<Divider>` fra `'primary'` og `'primaryLighter'` til `'default'`, `'subtle'` og `'onInverse'`, slik at de følger navngiving på semantiske tokens.
 - 23bffd9: - Oppdaterer alle komponenter til å bruke CSS modules istedenfor styled-components. Det vil gi oss bl.a. bedre performance, lettere styling override, og kompatibilitet med server components. Denne oppgraderingen betyr at det ikke brukes en CSS-in-JS-løsning lenger, og det kan påvirke hvordan komponentene oppleves hos konsumenter.
-
   - `<Button>` støtter ikke `label`-prop lenger, da den er deprecated. Bruk `children` i stedet.
   - `<Button>` ble redesignet og simplifisert, da det ikke trengs så mange varianter. Den støtter ikke `appearance`-prop lenger. Det støttes kun `purpose`-prop med følgende verdier: `'primary'`, `'secondary'`, `'tertiary'`, `'danger'`. Hvordan koden skal oppdateres avhenger av kontekst; for eksempel, en gammel lukkeknapp brukte `<Button purpose="secondary" appearance="borderless">`, den byttes til `<Button purpose="tertiary">`.
   - `<Typography>` støtter ikke `interactionProps`-prop lenger. Du kan overskrive styling for `:hover` og `:active` med egen CSS-kode i stedet.
@@ -636,7 +642,6 @@
 ### Minor Changes
 
 - 23bffd9: - Støtte for alle HTML-attributter for `<div>` i `<FileUploader>`.
-
   - Støtte for alle HTML-attributter for `<div>` i `<SplitButton>`.
   - Eksporterer `type SearchButtonProps` fra `<Search>`, slik at den er lett tilgjengelig for konsumenter.
 
@@ -651,7 +656,6 @@
 
 - 1ad72df: Støtte for `data-testid` i `<Select />` for lettere testing. Legger `data-testid` + suffiks `'control'` på control-div.
 - 23bffd9: - Oppdaterer border styling i `<FileUploader>`.
-
   - Oppdaterer spacing i `<OverflowMenu>`.
   - Legger til skygge i `<DatePicker>` popover.
   - Endrer `:active` styling i `<Button>` til at knapper ser ut til å bli trykt på.
@@ -749,7 +753,6 @@
 
 - ade4158: Justerer spacing i `<Chip />`.
 - dfed172: Fikser at museklikk på knapper for å bla i måneder i `<Datepicker />` ikke skal lukke kalender i Safari.
-
   - Fikser også at museklikk inne i kalenderen ikke lukker den (for alle nettlesere).
 
 - 0147de5: Fikser at `<FileUploader>` sin `accept`-prop kastet feil ved bruk av ESM-bygg.
@@ -764,7 +767,6 @@
 
 - fe471c1: Fjerner `disabled` prop i `<TimePicker />`, da det er `isDisabled` som er støttet.
 - 1270247: Oppdaterer default styling i `<Heading />` for nivåene 2, 3, 4 og 5.
-
   - Stilen på overskriften vil forandre seg der det brukes default og nivå 2-5, f.eks. `<Heading level={3}>`. Hvis nye default ikke passer må `typogaphyType` prop brukes for å få den ønskede stilen.
 
 - 65f4bbf: Fikser slik at brukeren ikke markerer tekst når de blar i måneder i `<DatePicker />`.
@@ -1238,7 +1240,6 @@
 ### Minor Changes
 
 - 96b76033: Legger til nye ikoner
-
   - AgreementIcon
   - CaringIcon
   - PayoutIcon
@@ -1269,7 +1270,6 @@
 ### Minor Changes
 
 - e3cdac52: Lagt inn nye ikoner
-
   - StarHalfFilled
   - Thumbup
   - ThumbupFilled
@@ -1446,7 +1446,6 @@
 - 8236e843: Åpner opp for overstyring av CardAccordion.
 
   Lagt til nye props (alle optional):
-
   - `CardAccordionHeader`: `padding`, `typographyType`, `bold`
   - `CardAccordionBody`: `padding`
 
