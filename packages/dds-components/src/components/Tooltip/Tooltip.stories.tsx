@@ -40,6 +40,17 @@ export const Default: Story = {
   ),
 };
 
+export const NotKeptMounted: Story = {
+  args: { text: 'Dette er en tooltip' },
+  render: args => (
+    <StoryVStack alignItems="center" paddingBlock="x6">
+      <Tooltip {...args} keepMounted={false}>
+        <Button icon={HelpIcon} aria-label="Vis forklaring" />
+      </Tooltip>
+    </StoryVStack>
+  ),
+};
+
 export const Overview: Story = {
   render: () => (
     <StoryHStack justifyContent="center" paddingBlock="x6">
