@@ -15,8 +15,8 @@ export default [
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        project: './tsconfig.json',
-        tsconfigRootDir: new URL('.', import.meta.url),
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
@@ -42,8 +42,6 @@ export default [
         'error',
         { fixStyle: 'inline-type-imports' },
       ],
-      'no-unused-expressions': 'off',
-      '@typescript-eslint/no-unused-expressions': 'error',
       'sort-imports': [
         'error',
         {
