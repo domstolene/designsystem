@@ -1,0 +1,59 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useFloatPositionStories from './useFloatPosition.stories';
+
+<Meta of={useFloatPositionStories} />
+
+# useFloatPosition
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/30227e-useonkeydown"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useFloatPosition/useFloatPosition.tsx"
+  withBottomSpacing
+/>
+
+Håndterer posisjonering av et element i forhold til et annet element i DOM.
+
+`@returns` objekt med:
+
+- `refs`: referanser for float og anchor
+- `styles`: stiler for float og arrow som brukes i deres respektive `style`-attributt
+
+<Canvas of={useFloatPositionStories.Preview} sourceState="none" />
+<Controls of={useFloatPositionStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useFloatPosition } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+
+    // Hvis du trenger en pil
+    const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
+
+    const { refs, styles: positionStyles } = useFloatPosition(arrowElement, {
+        placement: 'right',
+        offset: 2,
+    });
+
+    return (
+
+        <>
+            <button ref={refs.setReference}>Anchor</button>
+            <div
+                ref={refs.setFloating}
+                style={positionStyles.floating}
+            >
+                <div ref={setArrowElement} style={positionStyles.arrow}>
+                // din pil, f.eks. svg
+                </div>
+                Innhold
+            </div>
+        </>
+    );
+
+};`} />

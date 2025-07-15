@@ -1,0 +1,37 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useIsMountedStories from './useIsMounted.stories';
+
+<Meta of={useIsMountedStories} />
+
+# useIsMounted
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/582fac-useismounted"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useIsMounted/useIsMounted.tsx"
+  withBottomSpacing
+/>
+
+`@returns` om komponenten er mounted.
+
+<Canvas of={useIsMountedStories.Preview} sourceState="none" />
+
+## Bruk
+
+<Source code={`
+import { useIsMounted } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+
+    const isMounted = useIsMounted();
+
+    useEffect(() => {
+      if(isMounted()) {
+      // logikk når mounted
+      }
+    }, [isMounted]);
+
+};`} />

@@ -1,0 +1,33 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useOnKeyDownStories from './useOnKeyDown.stories';
+
+<Meta of={useOnKeyDownStories} />
+
+# useOnKeyDown
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/30227e-useonkeydown"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useOnKeyDown/useOnKeyDown.tsx"
+  withBottomSpacing
+/>
+
+Kjører logikk ved trykk på spesifisert(e) tast(er).
+
+<Canvas of={useOnKeyDownStories.Preview} sourceState="none" />
+<Controls of={useOnKeyDownStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useOnKeyDown } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+const [isOpen, setOpen] = useState(true);
+useOnKeyDown('Escape', () => setOpen(false));
+
+return isOpen ? <div>innhold</div> : null
+};`} />

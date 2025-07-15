@@ -1,0 +1,53 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useFocusTrapStories from './useFocusTrap.stories';
+
+<Meta of={useFocusTrapStories} />
+
+# useFocusTrap
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/604e25-usefocustrap"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useFocusTrap/useFocusTrap.tsx"
+  withBottomSpacing
+/>
+
+Fanger fokus i en loop inni et flateelement.
+
+`@returns` `ref` til flateelementet.
+
+<Canvas of={useFocusTrapStories.Preview} sourceState="none" />
+<Controls of={useFocusTrapStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useFocusTrap } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+
+const [isOpen, setIsOpen] = useState();
+
+const componentRef = useFocusTrap<HTMLDivElement>(isOpen);
+
+return
+(
+
+  <div>
+    <button onClick={() => setIsOpen(true)}>Åpne</button>
+    {isOpen ?
+    <div ref={componentRef}>
+
+        <button onClick={() => setIsOpen(false)}>Lukk</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
+
+: null}
+
+  </div>)
+};`} />
