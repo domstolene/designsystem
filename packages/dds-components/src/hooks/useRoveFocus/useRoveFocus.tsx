@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 
-import { type Direction } from '../types';
+import { type Direction } from '../../types';
 
 export const isKeyboardEvent = (
   e: Event | KeyboardEvent<Element>,

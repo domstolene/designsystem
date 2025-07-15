@@ -1,0 +1,20 @@
+import { ArgTypes, Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import * as FocusTrapStories from './useFocusTrap.stories';
+
+<Meta of={FocusTrapStories} />
+
+# useFocusTrap
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/604e25-usefocustrap"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useFocusTrap/useFocusTrap.tsx"
+  withBottomSpacing
+/>
+
+Fanger fokus i en loop inni et flateelement.
+
+`@returns` `ref` til flateelementet.
+
+<Canvas of={FocusTrapStories.Default} sourceState="none" />
+<Controls of={FocusTrapStories.Default} />
