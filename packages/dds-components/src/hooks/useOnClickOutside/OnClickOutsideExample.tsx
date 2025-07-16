@@ -6,7 +6,7 @@ import { Paper } from '../../components/layout';
 
 interface UseOnClickOutsideProps {
   /**Element(er) brukeren klikker utenfor. */
-  element: Parameters<typeof useOnClickOutside>[0];
+  element?: Parameters<typeof useOnClickOutside>[0];
   /**Funksjon kjørt ved klikk utenfor. */
   handler: Parameters<typeof useOnClickOutside>[1];
 }

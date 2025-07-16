@@ -8,6 +8,10 @@ const meta: Meta<typeof FocusTrapExample> = {
   parameters: {
     disableGlobalDecorator: true,
   },
+  argTypes: {
+    active: { control: false },
+    initialFocusRef: { control: false },
+  },
 };
 
 export default meta;

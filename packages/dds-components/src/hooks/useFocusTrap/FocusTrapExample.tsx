@@ -7,9 +7,9 @@ import { Paper, VStack } from '../../components/layout';
 
 export interface FocusTrapProps {
   /**Om focus skal fanges i en flate, f.eks. modal når den åpnes. */
-  active: Parameters<typeof useFocusTrap>[0];
+  active?: Parameters<typeof useFocusTrap>[0];
   /** Ref som skal motta focus idet focus trap blir aktiv. */
-  initialFocusRef: Parameters<typeof useFocusTrap>[1];
+  initialFocusRef?: Parameters<typeof useFocusTrap>[1];
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
