@@ -18,4 +18,4 @@ export default meta;
 
 type Story = StoryObj<typeof FocusTrapExample>;
 
-export const Default: Story = {};
+export const Preview: Story = {};

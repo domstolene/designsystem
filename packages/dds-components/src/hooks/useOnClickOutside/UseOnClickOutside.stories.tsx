@@ -14,4 +14,4 @@ export default meta;
 
 type Story = StoryObj<typeof OnClickOutsideExample>;
 
-export const Default: Story = {};
+export const Preview: Story = {};

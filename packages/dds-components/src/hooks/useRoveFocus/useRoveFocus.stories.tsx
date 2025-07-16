@@ -11,7 +11,7 @@ export default {
 } as Meta<typeof RoveFocusExample>;
 
 type Story = StoryObj<typeof RoveFocusExample>;
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     size: 4,
     active: true,
