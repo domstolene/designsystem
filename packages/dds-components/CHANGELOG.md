@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 21.8.0
+
+### Minor Changes
+
+- 1de6a0c: Ny prop i `<Tooltip>`: `keepMounted`. Tillater å rendre komponenten når den skal vises, uten at den er alltid i DOM. Har `true` som default.
+
+### Patch Changes
+
+- b559af7: Fikser størrelse på spinner i `<Button>` ved loading-tilstand.
+
 ## 21.7.0 (2025-07-04)
 
 ### Minor Changes
