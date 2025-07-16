@@ -85,8 +85,7 @@ export const Button = ({
       {loading && (
         <span className={cn(!noContent && styles['spinner-wrapper--absolute'])}>
           <Spinner
-            /*TODO: bytte til icon size token for button når den er på plass*/
-            size="calc(var(--dds-font-lineheight-x1) * 1em)"
+            size="1em"
             color={
               purpose === 'primary' || purpose === 'danger'
                 ? 'iconOnAction'
