@@ -8,9 +8,6 @@ const meta: Meta<typeof OnClickOutsideExample> = {
   parameters: {
     disableGlobalDecorator: true,
   },
-  argTypes: {
-    element: { control: false },
-  },
 };
 
 export default meta;
