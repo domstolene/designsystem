@@ -1,8 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
-import * as useOnClickOutsideStories from './useOnClickOutside.stories';
+import useOnClickOutsideMeta, { Default } from './useOnClickOutside.stories';
 
-<Meta of={useOnClickOutsideStories} />
+<Meta of={useOnClickOutsideMeta} />
 
 # useOnClickOutside
 
@@ -14,5 +14,5 @@ import * as useOnClickOutsideStories from './useOnClickOutside.stories';
 
 Kjører logikk ved klikk utenfor spesifisert(e) element(er).
 
-<Canvas of={useOnClickOutsideStories.Default} sourceState="none" />
-<Controls of={useOnClickOutsideStories.Default} />
+<Canvas of={Default} sourceState="none" />
+<Controls of={Default} />

@@ -278,7 +278,7 @@ Spørs på komponenten kan det være relevant med flere stories: eksempel med ko
 Du kan følge en enkel mal for stories-fila:
 
 ```JSX
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { Button } from '.';
 
 // config
