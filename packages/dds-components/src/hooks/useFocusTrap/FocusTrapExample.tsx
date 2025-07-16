@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Button } from 'storybook/internal/components';
 
 import { useFocusTrap } from './useFocusTrap';
+import { Button } from '../../components/Button';
 import { InlineButton } from '../../components/InlineButton';
 import { Paper, VStack } from '../../components/layout';
 
