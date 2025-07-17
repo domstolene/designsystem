@@ -1,5 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as useFocusTrapStories from './useFocusTrap.stories';
 
 <Meta of={useFocusTrapStories} />
@@ -18,3 +21,32 @@ Fanger fokus i en loop inni et flateelement.
 
 <Canvas of={useFocusTrapStories.Preview} sourceState="none" />
 <Controls of={useFocusTrapStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useFocusTrap } from '@norges-domstoler/dds-components';
+
+const MyComponent = () => {
+const [isOpen, setIsOpen] = useState();
+
+const componentRef = useFocusTrap<HTMLDivElement>(isOpen);
+
+return
+(
+
+<div>
+  <button onClick={() => setIsOpen(true)}>Åpne</button>
+  {isOpen ?
+   <div ref={componentRef}>
+
+      <button onClick={() => setIsOpen(false)}>Lukk</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+    </div>
+
+: null}
+
+</div>)
+};`} />

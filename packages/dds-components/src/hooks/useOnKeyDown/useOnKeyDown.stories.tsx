@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { OnKeyDownExample } from './OneKeyDownExample';
+import { OnKeyDownExample } from './OnKeyDownExample';
 
 const meta: Meta<typeof OnKeyDownExample> = {
   title: 'dds-components/Hooks/useOnKeyDown',

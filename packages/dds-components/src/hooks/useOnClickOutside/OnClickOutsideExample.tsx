@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react';
 
 import { useOnClickOutside } from './useOnClickOutside';
-import { Button } from '../../components/Button';
 import { Paper } from '../../components/layout';
 
 export interface UseOnClickOutsideProps {
@@ -13,31 +12,25 @@ export interface UseOnClickOutsideProps {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const OnClickOutsideExample = (props: UseOnClickOutsideProps) => {
-  const [isOpen, setOpen] = useState(true);
+  const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  useOnClickOutside([ref.current, buttonRef.current], () => setOpen(false));
+  useOnClickOutside(ref.current, () => setCount(count + 1));
 
   return (
     <div>
-      <p>Klikk utenfor knappen eller flaten lukker flaten.</p>
+      <p>Klikk utenfor flaten med innhold.</p>
+      <p>Antall klikk utenfor: {count}</p>
       <p>
         <code>useOnClickOutside(element, handler);</code>
       </p>
       <p>
         <code>
-          useOnClickOutside([ref.current, buttonRef.current], () =&gt;
-          setOpen(false));
+          useOnClickOutside([ref.current], () =&gt; setCount(count + 1));
         </code>
       </p>
-      <Button ref={buttonRef} onClick={() => setOpen(true)}>
-        Åpne
-      </Button>
-      {isOpen && (
-        <Paper padding="x1" border="border-default" margin="x1" ref={ref}>
-          innhold
-        </Paper>
-      )}
+      <Paper padding="x1" border="border-default" margin="x1" ref={ref}>
+        Innhold
+      </Paper>
     </div>
   );
 };

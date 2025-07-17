@@ -1,5 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 import * as useOnKeyDownStories from './useOnKeyDown.stories';
 
 <Meta of={useOnKeyDownStories} />
@@ -12,7 +15,19 @@ import * as useOnKeyDownStories from './useOnKeyDown.stories';
   withBottomSpacing
 />
 
-Kjører logikk ved trykk på tastaturtast(er).
+Kjører logikk ved trykk på spesifisert(e) tastaturtast(er).
 
 <Canvas of={useOnKeyDownStories.Preview} sourceState="none" />
 <Controls of={useOnKeyDownStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useOnKeyDown } from '@norges-domstoler/dds-components';
+
+const MyComponent = () => {
+const [isOpen, setOpen] = useState(true);
+useOnKeyDown('Escape', () => setOpen(false));
+
+return isOpen ? <div>innhold</div> : null
+};`} />

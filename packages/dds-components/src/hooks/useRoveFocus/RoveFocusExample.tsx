@@ -34,11 +34,12 @@ export const RoveFocusExample = ({
   size,
 }: Props) => {
   const elements = [];
-  const maxSize = !size ? 0 : size <= 10 ? size : 10;
-  for (let index = 1; index < maxSize + 1; index++) {
+  const maxSize = 10;
+  const loopSize = !size ? 0 : size <= maxSize ? size : maxSize;
+  for (let index = 1; index < loopSize + 1; index++) {
     elements.push(`Element ${index}`);
   }
-  const [focus, setFocus] = useRoveFocus(
+  const [focusedIndex, setFocus] = useRoveFocus(
     elements.length,
     active,
     direction,
@@ -61,7 +62,7 @@ export const RoveFocusExample = ({
         )}
         ) til å styre fokus-indeksen.
       </p>
-      <p>Indeks: {focus}</p>
+      <p>Fokusert indeks: {focusedIndex}</p>
       <p>
         <code>useRoveFocus(size, active, direction, noWrap)</code>
       </p>
@@ -71,12 +72,13 @@ export const RoveFocusExample = ({
           {direction}, {(noWrap ?? false).toString()})
         </code>
       </p>
+      {loopSize === maxSize && <p>Nådd maks antall elementer 🥵 </p>}
       <ul>
         {elements.map((element, index) => (
           <li key={element}>
             <RoveItem
               index={index}
-              shouldFocus={focus === index}
+              shouldFocus={focusedIndex === index}
               setFocus={setFocus}
             >
               {element}

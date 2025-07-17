@@ -1,6 +1,9 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 
-import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
 
 import * as useOnClickOutsideStories from './useOnClickOutside.stories';
 
@@ -16,5 +19,17 @@ import * as useOnClickOutsideStories from './useOnClickOutside.stories';
 Kjører logikk ved klikk utenfor spesifisert(e) element(er).
 
 <Canvas of={useOnClickOutsideStories.Preview} sourceState="none" />
-
 <Controls of={useOnClickOutsideStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useOnClickOutside } from '@norges-domstoler/dds-components';
+
+const MyComponent = () => {
+const [isOpen, setOpen] = useState(true);
+const ref = useRef<HTMLElement>(null);
+useOnClickOutside(ref.current, () => setOpen(false));
+
+return isOpen ? <div ref={ref}>innhold</div> : null
+};`} />
