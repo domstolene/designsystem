@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 
-import { type Direction } from '../types';
+import { type Direction } from '../../types';
 
 export const isKeyboardEvent = (
   e: Event | KeyboardEvent<Element>,
@@ -21,13 +21,13 @@ export const isKeyboardEvent = (
  * import RoveItem from './RoveItem';
  *
  * const MyComponent = () => {
- *  const [focus, setFocus] = useRoveFocus(elements.length);
+ *  const [focusedIndex, setFocus] = useRoveFocus(elements.length);
  *
  *  return (
  *  <ul>
  *    {elements.map((element, index) => (
  *    <li key={element}>
- *      <RoveItem index={index} focus={focus === index} setFocus={setFocus}>{element.name}</RoveItem>
+ *      <RoveItem index={index} shouldFocus={focusedIndex === index} setFocus={setFocus}>{element.name}</RoveItem>
  *    </li>
  *    ))}
  *  </ul>)

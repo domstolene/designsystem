@@ -30,7 +30,7 @@ import { useEffect, useState } from 'react';
  * ```
  * @param isMounted om elementet er mounted.
  * @param unmountDelay hvor lenge transition skal vare før unmount.
- * @returns om transition er ferdig.
+ * @returns om den har trasisjonert inn.
  */
 
 export const useMountTransition = (

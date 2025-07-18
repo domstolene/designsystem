@@ -1,4 +1,4 @@
-import { Source as StorybookSource } from '@storybook/addon-docs';
+import { Source as StorybookSource } from '@storybook/addon-docs/blocks';
 
 type SupportedLanguage =
   | 'jsextra'

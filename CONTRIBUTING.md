@@ -278,7 +278,7 @@ Spørs på komponenten kan det være relevant med flere stories: eksempel med ko
 Du kan følge en enkel mal for stories-fila:
 
 ```JSX
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { Button } from '.';
 
 // config
@@ -339,7 +339,7 @@ Docs-fila er en `.mdx` fil som inneholder teknisk dokumentasjon og viser Storybo
 Enkel mal for docs-fila:
 
 ```JSX
-import { Canvas, Controls, Meta } from '@storybook/addon-docs';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { Source, ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as komponentStories from './KomponentNavn.stories'
 import * as delkomponentStories from './DelkomponentNavn.stories'

@@ -5,8 +5,7 @@ import { useEffect } from 'react';
  * Typisk bruk:
  * ```
  * const [isOpen, setOpen] = useState(true);
- * const ref = useRef<HTMLElement>(null);
- * useOnKeyDown(['Escape', 'Esc'], () => setOpen(false));
+ * useOnKeyDown('Escape', () => setOpen(false));
  *
  * return isOpen ? <div>innhold</div> : null;
  * ```

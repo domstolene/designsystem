@@ -1,4 +1,4 @@
-import React, {
+import {
   type Dispatch,
   type ReactNode,
   type SetStateAction,
@@ -8,32 +8,38 @@ import React, {
 } from 'react';
 
 import { useRoveFocus } from './useRoveFocus';
-import { Icon } from '../components/Icon';
+import { Icon } from '../../components/Icon';
 import {
   ArrowDownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   ArrowUpIcon,
-} from '../components/Icon/icons';
+} from '../../components/Icon/icons';
 
-interface Props {
-  active?: boolean;
-  direction: 'column' | 'row';
-  noWrap?: boolean;
+export interface Props {
+  /**Antall elementer. */
+  size?: Parameters<typeof useRoveFocus>[0];
+  /**Om fokus skal kontrolleres av hooken. Når status blir inaktiv vil fokusrekkefølge nullstilles. */
+  active?: Parameters<typeof useRoveFocus>[1];
+  /**Retning elementene blas i. */
+  direction: Parameters<typeof useRoveFocus>[2];
+  /**Om indeksen skal 'wrappe' rundt til 0 hvis den går over size - 1, eller til size - 1 hvis den går under 0. */
+  noWrap?: Parameters<typeof useRoveFocus>[3];
 }
 
-export const UseRoveFocusExample = ({
+export const RoveFocusExample = ({
   active,
   direction = 'column',
   noWrap,
+  size,
 }: Props) => {
-  const elements = [
-    { name: 'Element 1' },
-    { name: 'Element 2' },
-    { name: 'Element 3' },
-    { name: 'Element 4' },
-  ];
-  const [focus, setFocus] = useRoveFocus(
+  const elements = [];
+  const maxSize = 10;
+  const loopSize = !size ? 0 : size <= maxSize ? size : maxSize;
+  for (let index = 1; index < loopSize + 1; index++) {
+    elements.push(`Element ${index}`);
+  }
+  const [focusedIndex, setFocus] = useRoveFocus(
     elements.length,
     active,
     direction,
@@ -41,7 +47,7 @@ export const UseRoveFocusExample = ({
   );
   return (
     <div>
-      <pre>
+      <p>
         Bruk piltastene (
         {direction === 'column' ? (
           <>
@@ -55,25 +61,27 @@ export const UseRoveFocusExample = ({
           </>
         )}
         ) til å styre fokus-indeksen.
-        <br />
-        Indeks: {focus}
-        <br />
+      </p>
+      <p>Fokusert indeks: {focusedIndex}</p>
+      <p>
         <code>useRoveFocus(size, active, direction, noWrap)</code>
-        <br />
+      </p>
+      <p>
         <code>
           useRoveFocus({elements.length}, {(active ?? false).toString()},{' '}
           {direction}, {(noWrap ?? false).toString()})
         </code>
-      </pre>
+      </p>
+      {loopSize === maxSize && <p>Nådd maks antall elementer 🥵 </p>}
       <ul>
         {elements.map((element, index) => (
-          <li key={element.name}>
+          <li key={element}>
             <RoveItem
               index={index}
-              shouldFocus={focus === index}
+              shouldFocus={focusedIndex === index}
               setFocus={setFocus}
             >
-              {element.name}
+              {element}
             </RoveItem>
           </li>
         ))}

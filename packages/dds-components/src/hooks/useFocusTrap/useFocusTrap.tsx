@@ -1,6 +1,6 @@
 import { type RefObject, useEffect, useRef } from 'react';
 
-import { getFocusableElements } from '../../../dds-components/src/utils';
+import { getFocusableElements } from '../../utils';
 
 /**
  * Fanger fokus i en loop inni et element. Typisk bruk:

@@ -8,7 +8,7 @@ import { useEffect } from 'react';
  * const ref = useRef<HTMLElement>(null);
  * useOnClickOutside(ref.current, () => setOpen(false));
  *
- * return <div ref={ref}>innhold</div>
+ * return isOpen && <div ref={ref}>innhold</div>
  * ```
  * @param element HTML elementet man klikker utenfor.
  * @param handler funksjonen som kjøres ved klikk utenfor.
