@@ -5,17 +5,48 @@ import {
   useState,
 } from 'react';
 
-import { useCallbackRef } from './useCallbackRef';
+import { useCallbackRef } from '../useCallbackRef';
 
 export interface UseControllableStateProps<T> {
+  /**Verdi. */
   value?: T;
+  /**Default verdi. */
   defaultValue?: T | (() => T);
+  /** `onChange` funksjon. */
   onChange?: (value: T) => void;
 }
 
 /**
  * The `useControllableState` hook returns the state and function that updates the state, just like React.useState does.
  */
+
+/**
+ * Håndterer bruk av state slik at den kan bli kontrollert eller ukontrollert ut av boksen. Typisk bruk:
+ * ```
+ * const MyComponent = ({
+ *   onChange,
+ *  checked: checkedProp,
+ *  defaultChecked
+ * }) => {
+ *  const [checked, setChecked] = useControllableState({
+ *    value: checkedProp,
+ *    defaultValue: defaultChecked ?? false,
+ *    onChange,
+ *  });
+ *  return (
+ *    <input
+ *      checked={checked}
+ *      onChange={e => setChecked(e.target.checked)}
+ *      type="checkbox"
+ *    />
+ *  ) };
+ * ```
+ * @param value kontrollert verdi.
+ * @param defaultValue default verdi ved ukontrollert state.
+ * @param onChange funksjon til å kotrnollere `value`.
+ * @returns state og funksjon til å kontrollere den.
+ */
+
 export function useControllableState<T>(props: UseControllableStateProps<T>) {
   const { value: valueProp, defaultValue, onChange } = props;
 
