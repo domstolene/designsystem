@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
 import { useFocusTrap } from './useFocusTrap';
-import { Button } from '../../components/Button';
-import { InlineButton } from '../../components/InlineButton';
 import { Paper, VStack } from '../../components/layout';
 
 export interface FocusTrapProps {
@@ -33,16 +31,16 @@ export const FocusTrapExample = (props: FocusTrapProps) => {
           const ref = useFocusTrap&lt;HTMLDivElement&gt;({isOpen.toString()})
         </code>
       </p>
-      <Button onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? 'Lukk' : 'Åpen'} flate
-      </Button>
+      <button onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? 'Lukk' : 'Åpne'} flate
+      </button>
       {isOpen && (
         <Paper ref={ref} border="border-default" padding="x0.75">
           <VStack gap="x1">
-            <InlineButton onClick={() => setIsOpen(false)}>Lukk</InlineButton>
-            <Button>1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
+            <button onClick={() => setIsOpen(false)}>Lukk</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
           </VStack>
         </Paper>
       )}

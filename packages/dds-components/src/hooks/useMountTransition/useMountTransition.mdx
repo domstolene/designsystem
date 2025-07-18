@@ -17,6 +17,8 @@ import * as useMountTransitionStories from './useMountTransition.stories';
 
 Tillater effekter og animasjoner for elementer som blir lagt til og/eller fjernet fra DOM; like etter mount eller like før unmount.
 
+`@returns` om tranisjonen kjører (er mounted og synlig).
+
 <Canvas of={useMountTransitionStories.Preview} sourceState="none" />
 <Controls of={useMountTransitionStories.Preview} />
 
@@ -41,14 +43,15 @@ opacity: 1;
 import { useMountTransition } from '@norges-domstoler/dds-components';
 
 const MyComponent = () => {
+
 const [isOpen, setOpen] = useState(true);
 const hasTransitionedIn = useMountTransition(isOpen, 500);
 
 return isOpen || hasTransitionedIn ?
 
-<div
-    className={\`component \${hasTransitionedIn && 'transitionedIn'} \${isOpen && 'mounted'}\`}>
-    innhold
-</div>
-: null
+  <div
+      className={\`component \${hasTransitionedIn && 'transitionedIn'} \${isOpen && 'mounted'}\`}>
+      innhold
+  </div>
+  : null
 };`} />

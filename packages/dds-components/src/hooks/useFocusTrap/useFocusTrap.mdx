@@ -28,6 +28,7 @@ Fanger fokus i en loop inni et flateelement.
 import { useFocusTrap } from '@norges-domstoler/dds-components';
 
 const MyComponent = () => {
+
 const [isOpen, setIsOpen] = useState();
 
 const componentRef = useFocusTrap<HTMLDivElement>(isOpen);
@@ -35,18 +36,18 @@ const componentRef = useFocusTrap<HTMLDivElement>(isOpen);
 return
 (
 
-<div>
-  <button onClick={() => setIsOpen(true)}>Åpne</button>
-  {isOpen ?
-   <div ref={componentRef}>
+  <div>
+    <button onClick={() => setIsOpen(true)}>Åpne</button>
+    {isOpen ?
+    <div ref={componentRef}>
 
-      <button onClick={() => setIsOpen(false)}>Lukk</button>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-    </div>
+        <button onClick={() => setIsOpen(false)}>Lukk</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
 
 : null}
 
-</div>)
+  </div>)
 };`} />
