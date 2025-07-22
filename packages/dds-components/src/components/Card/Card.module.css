@@ -68,6 +68,7 @@
 
 .container--navigation {
   text-decoration: none;
+  display: block;
 }
 
 .container--expandable {
