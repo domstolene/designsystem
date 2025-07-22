@@ -1,4 +1,6 @@
-export * from './useCombinedRefs';
+export * from './useCallbackRef';
+export * from './useCombinedRef';
+export * from './useControllableState';
 export * from './useFloatPosition';
 export * from './useFocusTrap';
 export * from './useIsMounted';

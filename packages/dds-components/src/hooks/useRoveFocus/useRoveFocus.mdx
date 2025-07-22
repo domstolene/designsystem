@@ -1,0 +1,51 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as RoveStories from './useRoveFocus.stories';
+
+<Meta of={RoveStories} />
+
+# useRoveFocus
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/0202f1-userovefocus"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useRoveFocus.tsx"
+  withBottomSpacing
+/>
+
+Bytter fokus mellom elementer i en gruppe med piltaster og ikke Tab, og looper fokus i gruppen.
+
+`@returns` array med to verdier: indeksen til fokuserte elemenentet og funksjonen som håndterer fokus.
+
+<Canvas of={RoveStories.Preview} sourceState="none" />
+<Controls of={RoveStories.Preview} />
+
+## Bruk
+
+<Source
+  code={`
+ import { useRoveFocus } from '@norges-domstoler/dds-components';
+ import elements from './elements';
+ import RoveItem from './RoveItem';
+
+function MyComponent() {
+const [focusedIndex, setFocus] = useRoveFocus(elements.length);
+
+return (
+
+<ul>
+  {elements.map((element, index) => (
+    <li key={element}>
+      <RoveItem
+        index={index}
+        shouldFocus={focusedIndex === index}
+        setFocus={setFocus}
+      >
+        {element.name}
+      </RoveItem>
+    </li>
+  ))}
+</ul>
+) }; `} />
