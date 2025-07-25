@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryHtml, commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes, htmlArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Table } from '../Table/normal';
 import { Link, Paragraph } from '../Typography';
@@ -13,19 +13,13 @@ export default {
   argTypes: {
     ...commonArgTypes,
     as: { control: 'text' },
-    style: { table: categoryHtml },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
+    style: htmlArgType,
   },
 } satisfies Meta<typeof VisuallyHidden>;
 
 type Story = StoryObj<typeof VisuallyHidden>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <>
       <Paragraph>Teksten under er usynlig.</Paragraph>

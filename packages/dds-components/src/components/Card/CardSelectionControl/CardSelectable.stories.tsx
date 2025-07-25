@@ -5,8 +5,9 @@ import { fn } from 'storybook/test';
 import { CardSelectable } from './CardSelectable';
 import {
   categoryHtml,
+  commonArgTypes,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
   responsivePropsArgTypes,
 } from '../../../storybook/helpers';
 import { VStack } from '../../layout';
@@ -18,24 +19,16 @@ import {
   type CardSelectableType,
 } from '../Card.types';
 
-const { padding } = responsivePropsArgTypes;
-
 export default {
   title: 'dds-components/Components/Card/CardSelectable',
   component: CardSelectable,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     checked: { table: categoryHtml, control: 'boolean' },
     disabled: { table: categoryHtml, control: 'boolean' },
-    value: htmlPropsArgType,
-    defaultValue: htmlPropsArgType,
-    padding,
+    value: htmlArgType,
+    defaultValue: htmlArgType,
+    padding: responsivePropsArgTypes.padding,
     onChange: htmlEventArgType,
     onBlur: htmlEventArgType,
   },

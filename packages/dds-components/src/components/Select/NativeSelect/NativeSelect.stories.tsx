@@ -2,9 +2,9 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import {
-  categoryCss,
   categoryHtml,
   htmlEventArgType,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
@@ -14,17 +14,11 @@ import { NativeSelect, NativeSelectPlaceholder } from '.';
 export default {
   title: 'dds-components/Components/Select/NativeSelect',
   component: NativeSelect,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
   argTypes: {
     label: { control: 'text' },
     tip: { control: 'text' },
     errorMessage: { control: 'text' },
-    width: { control: 'text', table: categoryCss },
+    width: responsivePropsArgTypes.width,
     disabled: { control: 'boolean', table: categoryHtml },
     required: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean' },
@@ -54,7 +48,7 @@ const nativeOptions = options.map((item, index) => (
 
 const children = [<NativeSelectPlaceholder />, ...nativeOptions];
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     label: 'Label',
     children,

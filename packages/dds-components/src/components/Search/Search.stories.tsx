@@ -19,12 +19,6 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof Search>;
 
 const array = [
@@ -47,7 +41,7 @@ const array = [
 
 type Story = StoryObj<typeof Search>;
 
-export const Default: Story = {};
+export const Preview: Story = {};
 
 export const Overview: Story = {
   render: args => (
@@ -133,12 +127,9 @@ export const WithSuggestions: Story = {
       </Search.AutocompleteWrapper>
       <div>
         Elementer i listen:{' '}
-        {array.map((item, index) => (
-          <span>
-            {item}
-            {index !== array.length - 1 && ', '}
-          </span>
-        ))}
+        {array.map(
+          (item, index) => `${item}${index !== array.length - 1 ? ', ' : ''}`,
+        )}
         .
       </div>
     </>

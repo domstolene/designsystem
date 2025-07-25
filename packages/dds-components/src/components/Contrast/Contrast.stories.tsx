@@ -19,12 +19,6 @@ import { Contrast } from '.';
 const meta: Meta<typeof Contrast> = {
   title: 'dds-components/Components/Contrast',
   component: Contrast,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
     as: { control: 'text' },
   },
@@ -40,7 +34,7 @@ const meta: Meta<typeof Contrast> = {
 export default meta;
 type Story = StoryObj<typeof Contrast>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Contrast {...args} style={{ padding: 'var(--dds-spacing-x2)' }}>
       <Paragraph>

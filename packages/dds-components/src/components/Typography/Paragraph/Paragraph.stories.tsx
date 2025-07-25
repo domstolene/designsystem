@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 import { Typography } from '../Typography';
@@ -11,21 +10,13 @@ export default {
   title: 'dds-components/Components/Typography/Paragraph',
   component: Paragraph,
   argTypes: {
-    color: { control: 'text' },
-    htmlProps: htmlPropsArgType,
     ...storyTypographyHtmlAttrs,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
   },
 } satisfies Meta<typeof Paragraph>;
 
 type Story = StoryObj<typeof Paragraph>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Paragraph' },
 };
 

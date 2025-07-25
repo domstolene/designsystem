@@ -1,28 +1,26 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Skeleton } from './Skeleton';
-import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  categoryCss,
+  responsivePropsArgTypes,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { StoryVStack } from '../layout/Stack/utils';
 
 export default {
   title: 'dds-components/Components/Skeleton',
   component: Skeleton,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
-    height: { control: 'text', table: categoryCss },
-    borderRadius: { control: 'text' },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
+    width: responsivePropsArgTypes.width,
+    height: responsivePropsArgTypes.height,
+    borderRadius: { control: 'text', table: categoryCss },
   },
 } satisfies Meta<typeof Skeleton>;
 
 type Story = StoryObj<typeof Skeleton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     width: '320px',
     height: 'var(--dds-spacing-x2)',

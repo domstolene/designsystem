@@ -1,3 +1,5 @@
+import { type HTMLAttributes } from 'react';
+
 import { type SvgIcon } from './utils';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { type TextColor } from '../../utils';
@@ -32,7 +34,8 @@ export type IconProps = BaseComponentProps<
      * @default "currentcolor"
      */
     color?: TextColor;
-  }
+  },
+  Omit<HTMLAttributes<SVGSVGElement>, 'color'>
 >;
 
 export function Icon(props: IconProps) {

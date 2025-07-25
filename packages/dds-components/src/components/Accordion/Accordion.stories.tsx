@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook/helpers';
 import { Button } from '../Button';
 import {
   DetailList,
@@ -19,20 +19,14 @@ import { Accordion, AccordionBody, AccordionHeader } from '.';
 export default {
   title: 'dds-components/Components/Accordion',
   component: Accordion,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof Accordion>;
 
 type Story = StoryObj<typeof Accordion>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Accordion {...args}>
       <AccordionHeader>Header</AccordionHeader>

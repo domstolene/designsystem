@@ -4,8 +4,9 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  commonArgTypes,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -17,23 +18,17 @@ export default {
   component: Toggle,
   argTypes: {
     children: { control: 'text' },
-    disabled: { table: categoryHtml },
-    checked: { table: categoryHtml },
-    defaultChecked: { table: categoryHtml },
-    value: { control: 'boolean', table: categoryHtml },
-    defaultValue: { control: 'boolean', table: categoryHtml },
-    name: { table: categoryHtml },
-    'aria-describedby': { table: categoryHtml },
+    disabled: { control: 'boolean', table: categoryHtml },
+    checked: htmlArgType,
+    defaultChecked: htmlArgType,
+    value: htmlArgType,
+    defaultValue: htmlArgType,
+    name: htmlArgType,
+    'aria-describedby': htmlArgType,
     onBlur: htmlEventArgType,
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
   args: { onChange: fn(), onBlur: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof Toggle>;
 
 type Story = StoryObj<typeof Toggle>;

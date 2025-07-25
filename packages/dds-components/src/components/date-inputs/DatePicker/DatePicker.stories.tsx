@@ -13,6 +13,7 @@ import { fn } from 'storybook/test';
 import { LanguageProvider } from '../../../i18n';
 import {
   htmlEventArgType,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
 import { Button } from '../../Button';
@@ -33,14 +34,11 @@ const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
   parameters: {
     docs: {
-      story: { inline: true, height: '500px' },
-      canvas: { sourceState: 'shown' },
+      story: { height: '500px' },
     },
   },
   argTypes: {
-    width: {
-      control: 'text',
-    },
+    width: responsivePropsArgTypes.width,
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
     onFocus: htmlEventArgType,
@@ -69,7 +67,7 @@ export default meta;
 
 type Story = StoryObj<typeof DatePicker>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Dato' },
 };
 

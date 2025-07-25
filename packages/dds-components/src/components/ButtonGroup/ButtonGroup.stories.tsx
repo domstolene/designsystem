@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import { categoryHtml, commonArgTypes } from '../../storybook/helpers';
 import { Button } from '../Button/Button';
 import { StoryVStack } from '../layout/Stack/utils';
 
@@ -9,23 +9,17 @@ import { ButtonGroup } from '.';
 export default {
   title: 'dds-components/Components/ButtonGroup',
   component: ButtonGroup,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
     role: { control: 'text', table: categoryHtml },
     'aria-label': { table: categoryHtml },
     'aria-labelledby': { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof ButtonGroup>;
 
 type Story = StoryObj<typeof ButtonGroup>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <ButtonGroup {...args}>
       <Button>Første</Button>

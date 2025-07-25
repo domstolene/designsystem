@@ -3,8 +3,9 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  commonArgTypes,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
 } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -15,29 +16,23 @@ export default {
   title: 'dds-components/Components/ToggleButton',
   component: ToggleButton,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-    'aria-describedby': { control: 'text', table: categoryHtml },
-    name: { control: false, table: categoryHtml },
-    checked: { control: false, table: categoryHtml },
+    ...commonArgTypes,
+    'aria-describedby': htmlArgType,
+    name: htmlArgType,
+    checked: htmlArgType,
     defaultChecked: { control: 'boolean', table: categoryHtml },
-    value: { control: false, table: categoryHtml },
-    defaultValue: { control: false, table: categoryHtml },
+    value: htmlArgType,
+    defaultValue: htmlArgType,
     onChange: htmlEventArgType,
     onBlur: htmlEventArgType,
     icon: { control: false },
   },
   args: { onChange: fn(), onBlur: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof ToggleButton>;
 
 type Story = StoryObj<typeof ToggleButton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Tekst' },
 };
 

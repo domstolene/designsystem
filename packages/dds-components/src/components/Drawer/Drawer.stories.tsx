@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { LanguageProvider } from '../../i18n';
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
@@ -16,12 +16,11 @@ const meta: Meta<typeof Drawer> = {
   component: Drawer,
   parameters: {
     docs: {
-      story: { height: '500px', inline: true, scrollbar: false },
-      canvas: { sourceState: 'shown' },
+      story: { height: '500px', scrollbar: false },
     },
   },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     parentElement: { control: false },
     widthProps: { control: false },
   },
@@ -40,7 +39,7 @@ export default meta;
 
 type Story = StoryObj<typeof Drawer>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { header: 'Tittel' },
   render: args => (
     <DrawerGroup>

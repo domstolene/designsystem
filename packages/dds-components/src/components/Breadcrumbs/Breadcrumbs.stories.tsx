@@ -9,12 +9,6 @@ import { Breadcrumb, Breadcrumbs } from '.';
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'dds-components/Components/Breadcrumbs',
   component: Breadcrumbs,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
     ...commonArgTypes,
   },
@@ -38,7 +32,7 @@ const children = [
   <Breadcrumb>Siden du er på</Breadcrumb>,
 ];
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     children,
   },

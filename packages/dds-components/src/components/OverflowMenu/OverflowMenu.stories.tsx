@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { EditIcon, MenuIcon, PersonIcon, TrashIcon } from '../Icon/icons';
 import { VStack } from '../layout';
@@ -17,23 +17,26 @@ import {
   OverflowMenuSpan,
 } from '.';
 
+const { className, htmlProps, ref } = commonArgTypes;
+
 export default {
   title: 'dds-components/Components/OverflowMenu',
   component: OverflowMenu,
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    className,
+    htmlProps,
+    ref,
   },
   parameters: {
     docs: {
-      story: { height: '350px', inline: true },
-      canvas: { sourceState: 'shown' },
+      story: { height: '350px' },
     },
   },
 } satisfies Meta<typeof OverflowMenu>;
 
 type Story = StoryObj<typeof OverflowMenu>;
 
-export const Default: Story = {
+export const Preview: Story = {
   parameters: { docs: { story: { height: '480px' } } },
   render: args => {
     return (

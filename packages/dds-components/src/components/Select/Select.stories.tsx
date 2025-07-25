@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { fn } from 'storybook/internal/test';
 
 import {
-  categoryCss,
   htmlEventArgType,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
@@ -20,7 +20,7 @@ const meta: Meta<typeof Select> = {
   title: 'dds-components/Components/Select/Select',
   component: Select,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
+    width: responsivePropsArgTypes.width,
     placeholder: { control: 'text' },
     isDisabled: { control: 'boolean' },
     isClearable: { control: 'boolean' },
@@ -35,7 +35,7 @@ const meta: Meta<typeof Select> = {
   args: { onChange: fn(), onInputChange: fn(), onBlur: fn(), onFocus: fn() },
   parameters: {
     docs: {
-      story: { inline: true, height: '450px' },
+      story: { height: '450px' },
     },
     controls: {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
@@ -90,7 +90,7 @@ const groupedOptions = [
   },
 ];
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label', options: options },
 };
 

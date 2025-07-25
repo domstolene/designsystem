@@ -1,9 +1,9 @@
 import { type ArgTypes } from '@storybook/react-vite';
 
-import { categoryHtml } from '../../storybook/helpers';
+import { commonArgTypes, htmlArgType } from '../../storybook/helpers';
 
 export const storyTypographyHtmlAttrs: ArgTypes = {
-  id: { table: categoryHtml },
-  className: { table: categoryHtml },
+  ...commonArgTypes,
+  style: htmlArgType,
   color: { control: { type: 'text' } },
 };

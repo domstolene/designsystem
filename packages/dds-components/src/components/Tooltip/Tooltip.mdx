@@ -27,12 +27,13 @@ En tooltip består av:
 
 ## Props
 
-<Canvas of={TooltipStories.Default} sourceState="shown" />
-<Controls of={TooltipStories.Default} />
+<Canvas of={TooltipStories.Preview} />
+<Controls of={TooltipStories.Preview} />
 
 ### Events
 
-Det brukes ulike events til å lukke eller åpne tooltip. For å bruke callback på event som styrer tooltip må den sendes som prop til riktig element. Se oversikt over hvilket element bruker hvilken event:
+Det brukes ulike events til å lukke eller åpne tooltip.
+Hover-events settes på tooltip, mens focus-events settes på anchor-elementer.
 
 <Table.Wrapper>
   <Table size='small' style={{ width: '100%' }}>

@@ -30,7 +30,8 @@ const preview: Preview = {
           </Unstyled>
         </DocsContainer>
       ),
-
+      canvas: { sourceState: 'shown' },
+      story: { inline: true },
       controls: { sort: 'requiredFirst' },
       codePanel: true,
     },

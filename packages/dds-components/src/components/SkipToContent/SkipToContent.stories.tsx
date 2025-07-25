@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { categoryCss, commonArgTypes } from '../../storybook/helpers';
 import { Heading } from '../Typography';
 
 import { SkipToContent } from '.';
@@ -9,20 +9,14 @@ export default {
   title: 'dds-components/Components/SkipToContent',
   component: SkipToContent,
   argTypes: {
-    top: { control: 'text' },
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    top: { control: 'text', table: categoryCss },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof SkipToContent>;
 
 type Story = StoryObj<typeof SkipToContent>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { href: '#innhold' },
   render: args => (
     <div style={{ position: 'relative' }}>
