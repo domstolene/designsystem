@@ -1,5 +1,17 @@
 # @norges-domstoler/dds-components
 
+## 21.8.0
+
+### Minor Changes
+
+- 1de6a0c: Ny prop i `<Tooltip>`: `keepMounted`. Tillater å rendre komponenten når den skal vises, uten at den er alltid i DOM. Har `true` som default.
+- e83f386: Eksponerer enkelte hooks: `useCallbackRef()`, `useControllableState()`.
+
+### Patch Changes
+
+- b559af7: Fikser størrelse på spinner i `<Button>` ved loading-tilstand.
+- d5d042e: Fikser bug der `<Card cardType="navigation">` var et inline element.
+
 ## 21.7.0 (2025-07-04)
 
 ### Minor Changes
