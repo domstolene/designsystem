@@ -21,17 +21,11 @@ export default {
     accept: { control: false },
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof FileUploader>;
 
 type Story = StoryObj<typeof FileUploader>;
 
-export const Default: Story = {};
+export const Preview: Story = {};
 
 const SingleFileUploader = () => {
   const [files, setFiles] = useState<Array<File>>([]);

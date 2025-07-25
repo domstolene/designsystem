@@ -5,6 +5,7 @@ import { fn } from 'storybook/test';
 import {
   categoryCss,
   categoryHtml,
+  htmlArgType,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
@@ -23,20 +24,14 @@ export default {
     selectRef: { control: false },
     value: { control: false },
     defaultValue: { control: false },
-    id: { control: false },
+    id: htmlArgType,
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof PhoneInput>;
 
 type Story = StoryObj<typeof PhoneInput>;
 
-export const Default: Story = { args: { label: 'Telefonnummer' } };
+export const Preview: Story = { args: { label: 'Telefonnummer' } };
 
 export const Overview: Story = {
   args: { label: 'Telefonnummer' },

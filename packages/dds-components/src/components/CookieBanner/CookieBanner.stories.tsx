@@ -3,8 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { CookieBanner } from './CookieBanner';
 import { LanguageProvider } from '../../i18n';
 import {
-  categoryHtml,
-  htmlPropsArgType,
+  commonArgTypes,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
@@ -19,8 +18,7 @@ const meta: Meta<typeof CookieBanner> = {
   title: 'dds-components/Components/CookieBanner',
   component: CookieBanner,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-    id: { control: false, table: categoryHtml },
+    ...commonArgTypes,
     position,
     left,
     right,
@@ -28,12 +26,6 @@ const meta: Meta<typeof CookieBanner> = {
     bottom,
     maxHeight,
     width,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
   },
   decorators: [
     Story => (
@@ -48,7 +40,7 @@ export default meta;
 
 type Story = StoryObj<typeof CookieBanner>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     headerText: 'Tittel for banner',
     description: (

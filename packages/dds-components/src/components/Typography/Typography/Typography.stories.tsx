@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Typography } from '..';
-import { categoryHtml, htmlPropsArgType } from '../../../storybook/helpers';
+import { categoryHtml } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 
@@ -15,19 +15,12 @@ export default {
     target: { control: false, table: categoryHtml },
     as: { control: 'text' },
     ...storyTypographyHtmlAttrs,
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
   },
 } satisfies Meta<typeof Typography>;
 
 type Story = StoryObj<typeof Typography>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Typography' },
 };
 

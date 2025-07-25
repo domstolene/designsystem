@@ -359,15 +359,15 @@ import * as delkomponentStories from './DelkomponentNavn.stories'
 
 ## Props
 
-// Referanse til primære storien, ofte komponentStories.Default.
+// Referanse til primære storien, ofte komponentStories.Preview.
 // Bruk Canvas for demo og Controls for kotrollere.
-<Canvas of={komponentStories.Default} />
-<Controls of={komponentStories.Default} />
+<Canvas of={komponentStories.Preview} />
+<Controls of={komponentStories.Preview} />
 
 // Hvis det er delkomponenter, vis demoer for de også.
 ### Delkomponent
 
-<Canvas of={delkomponentStories.Default} />
+<Canvas of={delkomponentStories.Preview} />
 
 // Eksempler ved behov
 ## Eksempler

@@ -19,18 +19,13 @@ const meta: Meta<typeof Box> = {
   argTypes: {
     ...responsivePropsArgTypes,
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-    },
-  },
   decorators: [Story => windowWidthDecorator(<Story />)],
 };
 export default meta;
 
 type Story = StoryObj<typeof Box>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     style: {
       border: '1px solid var(--dds-color-border-default)',

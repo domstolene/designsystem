@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes, htmlEventArgType } from '../../storybook/helpers';
 import {
   DescriptionList,
   DescriptionListDesc,
@@ -22,14 +22,8 @@ import {
 export default {
   title: 'dds-components/Components/Card',
   component: Card,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     cardRef: { control: false },
     onClick: htmlEventArgType,
   },
@@ -54,7 +48,7 @@ const contentContainerStyle = (
   </style>
 );
 
-export const Default: Story = {
+export const Preview: Story = {
   decorators: [
     Story => (
       <>

@@ -37,7 +37,7 @@ const children = [
   <option>Alt 3</option>,
 ];
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => {
     const [value, setValue] = useState('');
     return (

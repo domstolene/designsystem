@@ -16,17 +16,11 @@ export default {
     onBlur: htmlEventArgType,
   },
   args: { onClick: fn(), onBlur: fn(), onFocus: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof InlineButton>;
 
 type Story = StoryObj<typeof InlineButton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     children: 'Vis mer',
   },

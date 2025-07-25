@@ -27,7 +27,7 @@ const ExampleElement = () => (
 
 type Story = StoryObj<typeof VStack>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     children: [
       <ExampleElement />,

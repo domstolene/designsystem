@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../../storybook/helpers';
+import { commonArgTypes } from '../../../storybook/helpers';
 import { Fieldset } from '../../Fieldset';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Legend } from '../../Typography';
@@ -11,22 +11,13 @@ export default {
   title: 'dds-components/Components/Checkbox/CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
-    required: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    readOnly: { control: 'boolean' },
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof CheckboxGroup>;
 
 type Story = StoryObj<typeof CheckboxGroup>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     label: 'Label',
     children: [

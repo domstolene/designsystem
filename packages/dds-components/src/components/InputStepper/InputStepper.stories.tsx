@@ -4,9 +4,9 @@ import { fn } from 'storybook/test';
 
 import { InputStepper } from './InputStepper';
 import {
-  categoryCss,
   categoryHtml,
-  htmlPropsArgType,
+  commonArgTypes,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
@@ -19,21 +19,15 @@ export default {
     defaultValue: { control: 'number', table: categoryHtml },
     disabled: { table: categoryHtml },
     value: { control: 'number', table: categoryHtml },
-    htmlProps: htmlPropsArgType,
-    width: { control: 'text', table: categoryCss },
+    ...commonArgTypes,
+    width: responsivePropsArgTypes.width,
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof InputStepper>;
 
 type Story = StoryObj<typeof InputStepper>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     maxValue: 5,
   },

@@ -2,8 +2,8 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import {
-  categoryCss,
-  htmlPropsArgType,
+  commonArgTypes,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
@@ -17,21 +17,15 @@ export default {
   title: 'dds-components/Components/Tabs',
   component: Tabs,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
-    htmlProps: htmlPropsArgType,
+    width: responsivePropsArgTypes.width,
+    ...commonArgTypes,
     addTabButtonProps: { control: false },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
   },
 } satisfies Meta<typeof Tabs>;
 
 type Story = StoryObj<typeof Tabs>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Tabs {...args}>
       <TabList>

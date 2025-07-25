@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes, htmlEventArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { HelpIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -12,24 +12,18 @@ export default {
   title: 'dds-components/Components/Tooltip',
   component: Tooltip,
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     children: { control: false },
     tooltipId: { control: false },
     onMouseLeave: htmlEventArgType,
     onMouseOver: htmlEventArgType,
   },
   args: { onMouseLeave: fn(), onMouseOver: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof Tooltip>;
 
 type Story = StoryObj<typeof Tooltip>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { text: 'Dette er en tooltip' },
   render: args => (
     <StoryVStack alignItems="center" paddingBlock="x6">

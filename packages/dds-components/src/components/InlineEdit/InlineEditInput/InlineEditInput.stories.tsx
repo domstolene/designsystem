@@ -4,8 +4,8 @@ import { fn } from 'storybook/test';
 
 import { InlineEditInput } from './InlineEditInput';
 import {
-  categoryCss,
   htmlEventArgType,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
@@ -15,7 +15,7 @@ export default {
   title: 'dds-components/Components/InlineEdit/InlineEditInput',
   component: InlineEditInput,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
+    width: responsivePropsArgTypes.width,
     onFocus: htmlEventArgType,
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
@@ -30,7 +30,7 @@ export default {
 } satisfies Meta<typeof InlineEditInput>;
 type Story = StoryObj<typeof InlineEditInput>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => {
     const [value, setValue] = useState('');
     return <InlineEditInput {...args} value={value} onSetValue={setValue} />;

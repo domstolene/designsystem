@@ -24,6 +24,11 @@ const meta: Meta<typeof CollapsibleTable> = {
   title: 'dds-components/Components/Table/CollapsibleTable',
   component: CollapsibleTable,
   parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'hidden',
+      },
+    },
     controls: {
       exclude: ['headerValues', 'definingColumnIndex'],
     },

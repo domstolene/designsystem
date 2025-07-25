@@ -14,6 +14,7 @@ import { Heading, Typography } from '../Typography';
 
 export default {
   title: 'Icons/Overview',
+  parameters: { docs: { canvas: { sourceState: 'none' } } },
 };
 
 export const Overview = () => {

@@ -3,8 +3,9 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  commonArgTypes,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
 } from '../../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
@@ -15,21 +16,20 @@ export default {
   component: RadioButton,
   argTypes: {
     disabled: { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    required: { table: categoryHtml },
+    ...commonArgTypes,
+    'aria-describedby': htmlArgType,
+    name: htmlArgType,
+    checked: htmlArgType,
+    value: htmlArgType,
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof RadioButton>;
 
 type Story = StoryObj<typeof RadioButton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label' },
 };
 

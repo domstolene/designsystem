@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Fieldset } from './Fieldset';
-import { categoryHtml, htmlPropsArgType } from '../../storybook/helpers';
+import { categoryHtml, commonArgTypes } from '../../storybook/helpers';
 import { TextInput } from '../TextInput';
 import { Legend } from '../Typography';
 import { FieldsetGroup } from './FieldsetGroup';
@@ -11,18 +11,13 @@ export default {
   component: Fieldset,
   argTypes: {
     disabled: { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-    },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof Fieldset>;
 
 type Story = StoryObj<typeof Fieldset>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Fieldset {...args}>
       <Legend withMargins>Telefon og epost</Legend>

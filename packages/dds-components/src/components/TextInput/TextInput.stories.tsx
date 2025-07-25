@@ -26,17 +26,11 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof TextInput>;
 
 type Story = StoryObj<typeof TextInput>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label' },
 };
 

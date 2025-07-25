@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { type Placement } from '../../hooks';
-import { htmlEventArgType, htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes, htmlEventArgType } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
 import { VStack } from '../layout';
@@ -29,14 +29,13 @@ const meta: Meta<typeof Popover> = {
     onBlur: htmlEventArgType,
     isOpen: { control: false },
     anchorRef: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     sizeProps: { control: false },
   },
   args: { onBlur: fn(), onClose: fn() },
   parameters: {
     docs: {
-      story: { inline: true, height: '300px' },
-      canvas: { sourceState: 'shown' },
+      story: { height: '300px' },
     },
   },
 };
@@ -45,7 +44,7 @@ export default meta;
 
 type Story = StoryObj<typeof Popover>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <VStack>
       <PopoverGroup>

@@ -7,17 +7,11 @@ import { Link } from '../Typography';
 export default {
   title: 'dds-components/Components/EmptyContent',
   component: EmptyContent,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof EmptyContent>;
 
 type Story = StoryObj<typeof EmptyContent>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { headerText: 'Tittel', message: 'Dette er en tekst.' },
 };
 

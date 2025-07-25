@@ -25,16 +25,11 @@ export default {
     ...responsivePropsArgTypes,
     gridTemplateColumns: { control: 'text', table: categoryCss },
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-    },
-  },
 } satisfies Meta<typeof Grid>;
 
 type Story = StoryObj<typeof Grid>;
 
-export const Default: Story = {
+export const Preview: Story = {
   decorators: [
     Story =>
       windowWidthDecorator(

@@ -2,10 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { LanguageProvider } from '../../i18n';
-import {
-  htmlPropsArgType,
-  windowWidthDecorator,
-} from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook/helpers';
 import { EditIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
 
@@ -18,13 +15,12 @@ const meta: Meta<typeof InternalHeader> = {
     navItems: { control: false },
     contextMenuItems: { control: false },
     user: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
   args: { onCurrentPageChange: fn() },
   parameters: {
     docs: {
-      story: { inline: true, height: '320px' },
-      canvas: { sourceState: 'hidden' },
+      story: { height: '320px' },
     },
   },
   decorators: [

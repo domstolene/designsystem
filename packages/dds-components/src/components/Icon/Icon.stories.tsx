@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook/helpers';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Paragraph } from '../Typography';
 
@@ -12,14 +12,8 @@ export default {
   component: Icon,
   argTypes: {
     color: { control: 'text' },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     icon: { control: false },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
   },
 } satisfies Meta<typeof Icon>;
 
@@ -27,7 +21,7 @@ type Story = StoryObj<typeof Icon>;
 
 const icon = OpenExternal;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { icon },
 };
 

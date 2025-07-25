@@ -9,12 +9,6 @@ import { BackLink } from '.';
 const meta: Meta<typeof BackLink> = {
   title: 'dds-components/Components/BackLink',
   component: BackLink,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
     href: {
       table: categoryHtml,
@@ -35,6 +29,6 @@ export default meta;
 
 type Story = StoryObj<typeof BackLink>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Forrige nivå', href: '#' },
 };

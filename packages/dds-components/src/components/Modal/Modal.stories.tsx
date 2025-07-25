@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Search } from '../Search';
@@ -22,19 +22,17 @@ const meta: Meta<typeof Modal> = {
   ],
   argTypes: {
     header: { control: 'text' },
-    scrollable: { control: 'boolean' },
     parentElement: { control: false },
     onClose: { control: false },
     isOpen: { control: false },
     triggerRef: { control: false },
     initialFocusRef: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
   args: { onClose: fn() },
   parameters: {
     docs: {
-      story: { height: '350px', inline: true },
-      canvas: { sourceState: 'hidden' },
+      story: { height: '350px' },
     },
   },
 };
@@ -42,7 +40,7 @@ export default meta;
 
 type Story = StoryObj<typeof Modal>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { onClose: undefined },
   render: args => {
     const [closed, setClosed] = useState(true);

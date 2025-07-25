@@ -1,10 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import {
-  htmlPropsArgType,
-  windowWidthDecorator,
-} from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook/helpers';
 import { StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
@@ -15,15 +12,9 @@ const meta: Meta<typeof Pagination> = {
   component: Pagination,
   argTypes: {
     selectOptions: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
   args: { onChange: fn(), onSelectOptionChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   decorators: [
     Story => (
       <StoryThemeProvider>
@@ -42,7 +33,7 @@ const customOptions = [17, 32, customOptionsItemsAmount].map(o => ({
 
 type Story = StoryObj<typeof Pagination>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { itemsAmount: 100 },
 };
 

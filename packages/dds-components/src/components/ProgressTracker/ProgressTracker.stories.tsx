@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { Fieldset, FieldsetGroup } from '../Fieldset';
@@ -25,19 +25,13 @@ export default {
   title: 'dds-components/Components/ProgressTracker',
   component: ProgressTracker,
   argTypes: {
-    htmlProps: htmlPropsArgType,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof ProgressTracker>;
 
 type Story = StoryObj<typeof ProgressTracker>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => {
     const numSteps = 3;
 

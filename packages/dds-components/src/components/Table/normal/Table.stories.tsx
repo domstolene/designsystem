@@ -22,7 +22,6 @@ const meta: Meta<typeof Table> = {
   component: Table,
   parameters: {
     docs: {
-      story: { inline: true },
       canvas: { sourceState: 'hidden' },
     },
   },
@@ -47,7 +46,7 @@ const mappedHeaderCells = headerCells.map(headerCell => {
   );
 });
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Table.Wrapper>
       <Table {...args}>
