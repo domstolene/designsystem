@@ -3,8 +3,8 @@ import { fn } from 'storybook/test';
 
 import { LocalMessage } from './LocalMessage';
 import {
-  categoryCss,
-  htmlPropsArgType,
+  commonArgTypes,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -15,21 +15,15 @@ export default {
   title: 'dds-components/Components/LocalMessage',
   component: LocalMessage,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
-    htmlProps: htmlPropsArgType,
+    width: responsivePropsArgTypes.width,
+    ...commonArgTypes,
   },
   args: { onClose: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof LocalMessage>;
 
 type Story = StoryObj<typeof LocalMessage>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     children: 'Dette er en lokal melding',
   },

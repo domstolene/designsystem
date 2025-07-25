@@ -11,23 +11,31 @@ import { getBreakpointFromScreenWidth } from '../components/layout/common/utils'
 import { Paragraph } from '../components/Typography';
 import { useWindowResize } from '../hooks';
 
+export interface ArgType {
+  control?: Control;
+  table?: { category: string };
+}
+
+type ResponsiveArgTypes<T> = {
+  [k in keyof T]: ArgType;
+};
+
 export const categories = {
   html: 'HTML attributes',
   css: 'CSS properties',
 };
-
 export const categoryHtml = { category: categories.html };
 export const categoryCss = { category: categories.css };
 
-export const htmlPropsArgType: Partial<ArgTypes> = {
+export const htmlArgType: Partial<ArgTypes> = {
   control: { disable: true },
   table: categoryHtml,
 };
 
-export const commonArgTypes: ArgTypes = {
-  id: { table: categoryHtml },
-  className: { table: categoryHtml },
-  htmlProps: htmlPropsArgType,
+export const commonArgTypes: Partial<ArgTypes> = {
+  id: htmlArgType,
+  className: htmlArgType,
+  htmlProps: htmlArgType,
   ref: { control: { disable: true } },
 };
 
@@ -36,36 +44,28 @@ export const htmlEventArgType: Partial<ArgTypes> = {
   table: categoryHtml,
 };
 
-export const CSSArgType = {
+export const CSSArgType: ArgType = {
   control: { type: 'text' },
   table: categoryCss,
 };
 
-export const CSSSelectArgType = {
+export const CSSSelectArgType: ArgType = {
   control: { type: 'select' },
   table: categoryCss,
 };
 
-type ResponsiveArgTypes<T> = {
-  [k in keyof T]: {
-    control?: Control;
-    table?: { category: string };
+export const commonResponsivePropsArgTypes: ResponsiveArgTypes<ShowHideProps> =
+  {
+    ...commonArgTypes,
+    as: { control: 'text' },
+    children: { control: { disable: true } },
+    style: htmlArgType,
+    showBelow: { control: { type: 'select' } },
+    hideBelow: { control: { type: 'select' } },
   };
-};
-
-export const commonBasePropsArgTypes: ResponsiveArgTypes<ShowHideProps> = {
-  as: { control: 'text' },
-  ref: { control: { disable: true } },
-  children: { control: { disable: true } },
-  className: htmlPropsArgType,
-  style: htmlPropsArgType,
-  htmlProps: htmlPropsArgType,
-  showBelow: { control: { type: 'select' } },
-  hideBelow: { control: { type: 'select' } },
-};
 
 export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
-  ...commonBasePropsArgTypes,
+  ...commonResponsivePropsArgTypes,
   padding: CSSArgType,
   paddingBlock: CSSArgType,
   paddingInline: CSSArgType,
@@ -132,38 +132,36 @@ export const windowWidthDecorator = (Story: ReactNode, intro?: string) => {
   };
 
   return (
-    <>
-      <VStack gap="x1">
-        <HStack>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="1.5rem"
-            height="1.5rem"
-            fill="none"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              fill="currentColor"
-              fill-rule="evenodd"
-              d={getIcon()}
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-          {bp}{' '}
-          <span
-            style={{
-              color: 'var(--dds-color-text-subtle)',
-              marginInlineStart: 'var(--dds-spacing-x1)',
-            }}
-          >
-            {' '}
-            {width}px
-          </span>
-        </HStack>
-        {intro && <Paragraph typographyType="bodySmall">{intro}</Paragraph>}
-        {Story}
-      </VStack>
-    </>
+    <VStack gap="x1">
+      <HStack>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1.5rem"
+          height="1.5rem"
+          fill="none"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d={getIcon()}
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+        {bp}{' '}
+        <span
+          style={{
+            color: 'var(--dds-color-text-subtle)',
+            marginInlineStart: 'var(--dds-spacing-x1)',
+          }}
+        >
+          {' '}
+          {width}px
+        </span>
+      </HStack>
+      {intro && <Paragraph typographyType="bodySmall">{intro}</Paragraph>}
+      {Story}
+    </VStack>
   );
 };

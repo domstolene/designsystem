@@ -4,8 +4,8 @@ import { fn } from 'storybook/test';
 import { ArrowLeftIcon } from '../..';
 import {
   categoryHtml,
+  commonArgTypes,
   htmlEventArgType,
-  htmlPropsArgType,
 } from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
@@ -14,18 +14,12 @@ import { Button } from '.';
 export default {
   title: 'dds-components/Components/Button',
   component: Button,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
   argTypes: {
     href: { table: categoryHtml },
     children: { control: 'text' },
     target: { control: false, table: categoryHtml },
     icon: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     onClick: htmlEventArgType,
     onBlur: htmlEventArgType,
     onFocus: htmlEventArgType,
@@ -35,7 +29,7 @@ export default {
 
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Tekst' },
 };
 

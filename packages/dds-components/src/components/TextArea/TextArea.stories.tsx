@@ -21,17 +21,11 @@ export default {
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof TextArea>;
 
 type Story = StoryObj<typeof TextArea>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label' },
 };
 

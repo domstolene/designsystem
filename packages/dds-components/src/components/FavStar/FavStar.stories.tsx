@@ -5,8 +5,8 @@ import { fn } from 'storybook/test';
 import { FavStar } from './FavStar';
 import {
   categoryHtml,
+  commonArgTypes,
   htmlEventArgType,
-  htmlPropsArgType,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -21,16 +21,10 @@ import { Caption, Link, Typography } from '../Typography';
 const meta: Meta<typeof FavStar> = {
   title: 'dds-components/Components/FavStar',
   component: FavStar,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
     checked: { control: false, table: categoryHtml },
     defaultChecked: { table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     onChange: htmlEventArgType,
   },
   args: { onChange: fn() },
@@ -40,7 +34,7 @@ export default meta;
 
 type Story = StoryObj<typeof FavStar>;
 
-export const Default: Story = {};
+export const Preview: Story = {};
 
 export const OverviewSizes: Story = {
   render: args => (

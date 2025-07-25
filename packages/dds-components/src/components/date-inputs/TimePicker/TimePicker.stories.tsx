@@ -3,7 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { htmlEventArgType } from '../../../storybook/helpers';
+import {
+  htmlEventArgType,
+  responsivePropsArgTypes,
+} from '../../../storybook/helpers';
 import { Button } from '../../Button';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
@@ -13,26 +16,20 @@ const meta: Meta<typeof TimePicker> = {
   title: 'dds-components/Components/TimePicker',
   component: TimePicker,
   argTypes: {
-    width: { control: 'text' },
+    width: responsivePropsArgTypes.width,
     className: { table: { disable: true } },
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
     onFocus: htmlEventArgType,
   },
   args: { onBlur: fn(), onFocus: fn(), onChange: fn(), onFocusChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof TimePicker>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Tidspunkt' },
 };
 

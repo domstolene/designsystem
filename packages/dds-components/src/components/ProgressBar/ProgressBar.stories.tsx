@@ -1,6 +1,9 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryCss, windowWidthDecorator } from '../../storybook/helpers';
+import {
+  responsivePropsArgTypes,
+  windowWidthDecorator,
+} from '../../storybook/helpers';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { ProgressBar } from '.';
@@ -9,19 +12,13 @@ export default {
   title: 'dds-components/Components/ProgressBar',
   component: ProgressBar,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
+    width: responsivePropsArgTypes.width,
   },
 } satisfies Meta<typeof ProgressBar>;
 
 type Story = StoryObj<typeof ProgressBar>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     label: 'Label',
   },

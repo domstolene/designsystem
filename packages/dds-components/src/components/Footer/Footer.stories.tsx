@@ -19,12 +19,6 @@ import {
 export default {
   title: 'dds-components/Components/Footer',
   component: Footer,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof Footer>;
 
 type Story = StoryObj<typeof Footer>;
@@ -79,7 +73,7 @@ const socials = (
   </FooterSocialsGroup>
 );
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => (
     <Footer {...args}>
       <Grid

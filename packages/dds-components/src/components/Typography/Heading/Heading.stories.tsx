@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 
@@ -10,20 +9,13 @@ export default {
   title: 'dds-components/Components/Typography/Heading',
   component: Heading,
   argTypes: {
-    htmlProps: htmlPropsArgType,
     ...storyTypographyHtmlAttrs,
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
   },
 } satisfies Meta<typeof Heading>;
 
 type Story = StoryObj<typeof Heading>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Heading', level: 1 },
 };
 

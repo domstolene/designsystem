@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { CardSelectable } from './CardSelectable';
 import { CardSelectableGroup } from './CardSelectableGroup';
 import {
-  htmlPropsArgType,
+  commonArgTypes,
   responsivePropsArgTypes,
 } from '../../../storybook/helpers';
 import { Button } from '../../Button';
@@ -28,16 +28,8 @@ const {
 export default {
   title: 'dds-components/Components/Card/CardSelectable/Group',
   component: CardSelectableGroup,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
-    className: htmlPropsArgType,
-    id: htmlPropsArgType,
+    ...commonArgTypes,
     alignItems,
     flexDirection,
     columnGap,

@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import {
-  categoryCss,
-  htmlPropsArgType,
+  commonArgTypes,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { PlusCircledIcon } from '../Icon/icons';
@@ -16,22 +16,16 @@ export default {
   title: 'dds-components/Components/ToggleBar',
   component: ToggleBar,
   argTypes: {
-    width: { control: 'text', table: categoryCss },
+    width: responsivePropsArgTypes.width,
     value: { control: false },
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
   args: { onChange: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof ToggleBar>;
 
 type Story = StoryObj<typeof ToggleBar>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => {
     const [value, setValue] = useState<string | undefined>();
     return (

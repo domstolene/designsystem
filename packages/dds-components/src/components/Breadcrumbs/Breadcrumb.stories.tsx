@@ -9,12 +9,6 @@ import { Breadcrumb } from '.';
 export default {
   title: 'dds-components/Components/Breadcrumbs/Breadcrumb',
   component: Breadcrumb,
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
   argTypes: {
     href: {
       control: 'text',
@@ -27,7 +21,7 @@ export default {
 
 type Story = StoryObj<typeof Breadcrumb>;
 
-export const BreadcrumbDefault: Story = {
+export const BreadcrumbPreview: Story = {
   args: {
     children: 'Side',
   },

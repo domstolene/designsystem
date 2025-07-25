@@ -1,9 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import {
-  htmlPropsArgType,
-  windowWidthDecorator,
-} from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook/helpers';
 import { InlineButton } from '../InlineButton';
 
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
@@ -11,13 +8,8 @@ import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';
 export default {
   title: 'dds-components/Components/DetailList',
   component: DetailList,
-  parameters: {
-    docs: {
-      story: { inline: true },
-    },
-  },
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
   },
 } satisfies Meta<typeof DetailList>;
 
@@ -84,7 +76,7 @@ const children = [
   </DetailListRow>,
 ];
 
-export const Default: Story = {
+export const Preview: Story = {
   decorators: [
     Story => (
       <>

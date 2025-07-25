@@ -14,8 +14,7 @@ export default {
   component: SplitButton,
   parameters: {
     docs: {
-      story: { inline: true, height: '200px' },
-      canvas: { sourceState: 'shown' },
+      story: { height: '200px' },
     },
   },
   argTypes: {
@@ -38,7 +37,7 @@ const items = [
 
 type Story = StoryObj<typeof SplitButton>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: {
     primaryAction: { children: 'Tekst' },
     secondaryActions: items,

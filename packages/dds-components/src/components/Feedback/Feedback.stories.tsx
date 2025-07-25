@@ -15,17 +15,11 @@ export default {
       },
     },
   },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
-  },
 } satisfies Meta<typeof Feedback>;
 
 type Story = StoryObj<typeof Feedback>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { ratingLabel: 'Hva syns du om tjenesten?' },
 };
 

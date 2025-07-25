@@ -22,7 +22,7 @@ const meta: Meta<typeof Select<Option, true>> = {
   },
   parameters: {
     docs: {
-      story: { inline: true, height: '450px' },
+      story: { height: '450px' },
     },
     controls: {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
@@ -54,7 +54,7 @@ const options: Array<Option> = [
   'Alternativ 4',
 ].map(s => ({ label: s, value: s }));
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label', options: options, isMulti: true },
 };
 

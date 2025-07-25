@@ -1,6 +1,6 @@
 import { type StoryObj } from '@storybook/react-vite';
 
-import { htmlPropsArgType } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook/helpers';
 
 import { ToggleButton, ToggleButtonGroup } from '.';
 
@@ -8,20 +8,14 @@ export default {
   title: 'dds-components/Components/ToggleButton/ToggleButtonGroup',
   component: ToggleButtonGroup,
   argTypes: {
-    htmlProps: htmlPropsArgType,
+    ...commonArgTypes,
     labelId: { control: false },
-  },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'hidden' },
-    },
   },
 };
 
 type Story = StoryObj<typeof ToggleButtonGroup>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { label: 'Label' },
   render: args => (
     <ToggleButtonGroup {...args}>

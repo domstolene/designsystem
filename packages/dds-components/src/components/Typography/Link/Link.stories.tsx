@@ -3,8 +3,8 @@ import { fn } from 'storybook/test';
 
 import {
   categoryHtml,
+  htmlArgType,
   htmlEventArgType,
-  htmlPropsArgType,
 } from '../../../storybook/helpers';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { Paragraph } from '../Paragraph';
@@ -18,22 +18,15 @@ export default {
   argTypes: {
     href: { control: 'text', table: categoryHtml },
     onClick: htmlEventArgType,
-    target: { control: false, table: categoryHtml },
-    htmlProps: htmlPropsArgType,
+    target: htmlArgType,
     ...storyTypographyHtmlAttrs,
   },
   args: { onClick: fn() },
-  parameters: {
-    docs: {
-      story: { inline: true },
-      canvas: { sourceState: 'shown' },
-    },
-  },
 } satisfies Meta<typeof Link>;
 
 type Story = StoryObj<typeof Link>;
 
-export const Default: Story = {
+export const Preview: Story = {
   args: { children: 'Link', href: 'https://www.domstol.no' },
 };
 

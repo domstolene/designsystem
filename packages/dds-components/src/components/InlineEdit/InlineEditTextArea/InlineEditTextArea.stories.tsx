@@ -31,7 +31,7 @@ export default {
 
 type Story = StoryObj<typeof InlineEditTextArea>;
 
-export const Default: Story = {
+export const Preview: Story = {
   render: args => {
     const [value, setValue] = useState('');
     return <InlineEditTextArea {...args} value={value} onSetValue={setValue} />;
