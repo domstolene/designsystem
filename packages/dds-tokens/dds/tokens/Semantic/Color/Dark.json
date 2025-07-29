@@ -390,12 +390,12 @@
         "description": "On surface.action (primary and danger button)"
       },
       "action-resting": {
-        "value": "{dds-color-base.interactive.350}",
+        "value": "{dds-color-base.interactive.200}",
         "type": "color",
         "description": "Often used with Text.action"
       },
       "action-hover": {
-        "value": "{dds-color-base.interactive.200}",
+        "value": "{dds-color-base.interactive.50}",
         "type": "color",
         "description": "hover on icon-action"
       },
