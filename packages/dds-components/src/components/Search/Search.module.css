@@ -17,9 +17,6 @@
 }
 
 .clear-button {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
   right: var(--dds-spacing-x1);
 }
 

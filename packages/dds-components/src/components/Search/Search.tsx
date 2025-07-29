@@ -20,17 +20,17 @@ import {
 import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
 import { Button } from '../Button';
 import { Input, type InputProps } from '../helpers';
-import { InlineIconButton } from '../helpers/InlineIconButton';
+import { ClearButton } from '../helpers/ClearButton/ClearButton';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
-import { CloseSmallIcon, SearchIcon } from '../Icon/icons';
+import { SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
 import { Box, Grid, HStack, type ResponsiveProps, VStack } from '../layout';
 import { Label, getTypographyCn } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-const getIconSize = (size: SearchSize): IconSize => {
+const getIconSize = (size: SearchSize): Exclude<IconSize, 'inherit'> => {
   switch (size) {
     case 'large':
       return 'medium';
@@ -194,9 +194,8 @@ export const Search = ({
         </>
       )}
       {hasValue && (
-        <InlineIconButton
-          icon={CloseSmallIcon}
-          size={componentSize === 'small' ? 'small' : 'medium'}
+        <ClearButton
+          size={getIconSize(componentSize)}
           aria-label={t(texts.clearSearch)}
           onClick={clearInput}
           className={styles['clear-button']}

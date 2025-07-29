@@ -1,6 +1,12 @@
 import { createTexts } from './translation';
 
 export const commonTexts = createTexts({
+  clearSelect: {
+    no: 'Tøm nedtrekksliste',
+    nb: 'Tøm nedtrekksliste',
+    nn: 'Tøm nedtrekksliste',
+    en: 'Clear selection',
+  },
   close: {
     nb: 'Lukk',
     no: 'Lukk',

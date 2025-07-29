@@ -1,7 +1,10 @@
-import { useId } from 'react';
-import type { ComponentPropsWithRef } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
+import type { ChangeEvent, ComponentPropsWithRef } from 'react';
 
 import styles from './NativeSelect.module.css';
+import { useCombinedRef } from '../../../hooks';
+import { useTranslation } from '../../../i18n';
+import { commonTexts } from '../../../i18n/commonTexts';
 import {
   cn,
   derivativeIdGenerator,
@@ -9,11 +12,13 @@ import {
   readOnlyMouseDownHandler,
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
+import { createClearChangeEvent } from '../../../utils/createClearChangeEvent';
 import {
   type CommonInputProps,
   type InputProps,
   getInputWidth,
 } from '../../helpers';
+import { ClearButton } from '../../helpers/ClearButton';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
@@ -24,11 +29,15 @@ import { Box } from '../../layout';
 import { Label } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
-export type NativeSelectProps = CommonInputProps &
+export type NativeSelectProps = {
+  /**Om verdien til `<select>` kan tømmes. */
+  clearable?: boolean;
+} & CommonInputProps &
   Pick<InputProps, 'componentSize' | 'readOnly'> &
   ComponentPropsWithRef<'select'>;
 
 export const NativeSelect = ({
+  ref,
   id,
   children,
   componentSize = 'medium',
@@ -45,8 +54,33 @@ export const NativeSelect = ({
   style,
   onKeyDown,
   onMouseDown,
+  clearable,
+  onChange,
   ...rest
 }: NativeSelectProps) => {
+  const { t } = useTranslation();
+  const selectRef = useRef<HTMLSelectElement>(null);
+
+  const [hasValue, setHasValue] = useState(false);
+
+  useEffect(() => {
+    const selectedIndex = selectRef.current?.selectedIndex ?? -1;
+    setHasValue(selectedIndex !== 0);
+  }, []);
+
+  useEffect(() => {
+    if (clearable) {
+      const firstOption = selectRef.current?.options[0];
+      if (firstOption?.value !== '') {
+        throw new Error(
+          `Invalid configuration: The first <option> in <NativeSelect> must have value="" to support the clearable feature. 
+      Please ensure the empty option is defined as:
+      <option value=""></option>`,
+        );
+      }
+    }
+  }, [clearable]);
+
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-native-select`;
 
@@ -64,6 +98,20 @@ export const NativeSelect = ({
     componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)',
   );
 
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setHasValue(e.target.selectedIndex !== 0);
+    onChange?.(e);
+  };
+
+  const clearInput = () => {
+    const clearChangeEvent =
+      createClearChangeEvent<HTMLSelectElement>(uniqueId);
+    setHasValue(false);
+    onChange?.(clearChangeEvent);
+  };
+
+  const iconSize = componentSize === 'xsmall' ? 'small' : 'medium';
+
   return (
     <div className={className} style={style}>
       {hasLabel && (
@@ -78,6 +126,7 @@ export const NativeSelect = ({
       )}
       <Box position="relative" width={inputWidth}>
         <select
+          ref={useCombinedRef(ref, selectRef)}
           id={uniqueId}
           multiple={multiple}
           className={cn(
@@ -91,7 +140,11 @@ export const NativeSelect = ({
             typographyStyles[`body-${componentSize}`],
             hasErrorMessage && inputStyles['input--stateful-danger'],
             multiple && styles['select--multiple'],
+            hasValue &&
+              clearable &&
+              styles[`select--with-clear-button-${iconSize}`],
           )}
+          onChange={handleChange}
           aria-readonly={readOnly}
           aria-invalid={hasErrorMessage}
           aria-describedby={spaceSeparatedIdListGenerator([
@@ -106,10 +159,18 @@ export const NativeSelect = ({
         >
           {children}
         </select>
+        {hasValue && clearable && (
+          <ClearButton
+            aria-label={t(commonTexts.clearSelect)}
+            onClick={clearInput}
+            size={iconSize}
+            className={cn(styles[`clear-button--${iconSize}`])}
+          />
+        )}
         {!multiple && (
           <Icon
             icon={ChevronDownIcon}
-            iconSize={componentSize === 'xsmall' ? 'small' : 'medium'}
+            iconSize={iconSize}
             className={styles.icon}
           />
         )}

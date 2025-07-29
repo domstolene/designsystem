@@ -68,10 +68,26 @@
   }
 }
 
+.select--with-clear-button-small {
+  padding-right: var(--dds-spacing-x3);
+}
+
+.select--with-clear-button-medium {
+  padding-right: var(--dds-spacing-x4);
+}
+
 .icon {
   position: absolute;
   top: 50%;
   transform: translate(-150%, -50%);
   align-self: center;
   pointer-events: none;
+}
+
+.clear-button--small {
+  right: calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-small));
+}
+
+.clear-button--medium {
+  right: calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-medium));
 }

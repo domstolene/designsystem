@@ -7,8 +7,8 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import inputStyles from '../helpers/Input/Input.module.css';
-import { Icon } from '../Icon';
-import { ChevronDownIcon, CloseSmallIcon, EditIcon } from '../Icon/icons';
+import { Icon, type SvgIcon } from '../Icon';
+import { ChevronDownIcon, EditIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 import { useInlineEditContext } from './InlineEdit.context';
@@ -25,9 +25,11 @@ import {
   inlineSelectCns,
   inlineTextareaCns,
 } from './InlineEdit.utils';
-import { createTexts, useTranslation } from '../../i18n';
+import { useTranslation } from '../../i18n';
+import { commonTexts } from '../../i18n/commonTexts';
 import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
-import { InlineIconButton } from '../helpers/InlineIconButton';
+import { ClearButton } from '../helpers/ClearButton/ClearButton';
+import utilStyles from '../helpers/styling/utilStyles.module.css';
 
 export function InlineField<T extends EditElementTag>(
   props: InlineFieldProps<T>,
@@ -83,6 +85,17 @@ export function InlineField<T extends EditElementTag>(
   };
 
   const cnArgs = [hasErrorState, !isEditing && !hideIcon];
+  const iconSize = 'small';
+  function makeIcon(icon: SvgIcon, className: string) {
+    return (
+      <Icon
+        iconSize={iconSize}
+        icon={icon}
+        className={cn(className, utilStyles['center-absolute-y'])}
+      />
+    );
+  }
+
   const renderElement = () => {
     switch (elementType) {
       case 'input':
@@ -113,19 +126,14 @@ export function InlineField<T extends EditElementTag>(
               className={cn(className, ...inlineSelectCns(...cnArgs, hasValue))}
             />
             {hasValue && emptiable && (
-              <InlineIconButton
-                aria-label={t(texts.clearSelect)}
+              <ClearButton
+                aria-label={t(commonTexts.clearSelect)}
                 onClick={clearInput}
-                icon={CloseSmallIcon}
-                size="small"
+                size={iconSize}
                 className={styles['clear-button']}
               />
             )}
-            <Icon
-              icon={ChevronDownIcon}
-              iconSize="small"
-              className={styles.chevron}
-            />
+            {makeIcon(ChevronDownIcon, styles.chevron)}
           </>
         );
       default:
@@ -135,14 +143,7 @@ export function InlineField<T extends EditElementTag>(
   return (
     <Box position="relative" width={width}>
       <div className={inputStyles['input-group']}>
-        {!isEditing && !hideIcon && (
-          <span
-            onClick={() => inputRef.current?.focus()}
-            className={styles['icon-wrapper']}
-          >
-            <Icon icon={EditIcon} iconSize="small" />
-          </span>
-        )}
+        {!isEditing && !hideIcon && makeIcon(EditIcon, styles['edit-icon'])}
         {renderElement()}
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
@@ -150,12 +151,3 @@ export function InlineField<T extends EditElementTag>(
     </Box>
   );
 }
-
-const texts = createTexts({
-  clearSelect: {
-    no: 'Tøm nedtrekksliste',
-    nb: 'Tøm nedtrekksliste',
-    nn: 'Tøm nedtrekksliste',
-    en: 'Clear selection',
-  },
-});
