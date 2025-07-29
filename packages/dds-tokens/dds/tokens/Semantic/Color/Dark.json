@@ -109,7 +109,7 @@
         "description": "tag with strong value"
       },
       "warning-default": {
-        "value": "{dds-color-base.warning.800}",
+        "value": "{dds-color-base.warning.850}",
         "type": "color",
         "description": "tag, message"
       },
