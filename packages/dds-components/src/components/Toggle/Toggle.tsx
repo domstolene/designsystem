@@ -10,8 +10,8 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn, readOnlyClickHandler, readOnlyKeyDownHandler } from '../../utils';
+import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { CheckIcon, LockIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
@@ -95,14 +95,10 @@ export const Toggle = ({
         readOnly && styles['label--read-only'],
       )}
     >
-      <input
+      <HiddenInput
         {...getBaseHTMLProps(
           uniqueId,
-          cn(
-            className,
-            focusStyles['focusable-sibling'],
-            utilStyles['hide-input'],
-          ),
+          cn(className, focusStyles['focusable-sibling']),
           htmlProps,
           rest,
         )}

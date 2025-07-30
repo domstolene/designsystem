@@ -8,8 +8,8 @@ import styles from './ToggleBar.module.css';
 import { type ToggleBarSize } from './ToggleBar.types';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { type SvgIcon } from '../Icon/utils';
 import { type StaticTypographyType, Typography } from '../Typography';
@@ -90,14 +90,10 @@ export const ToggleRadio = ({
 
   return (
     <label htmlFor={uniqueId} className={styles.label}>
-      <input
+      <HiddenInput
         {...getBaseHTMLProps(
           uniqueId,
-          cn(
-            className,
-            focusStyles['focusable-sibling'],
-            utilStyles['hide-input'],
-          ),
+          cn(className, focusStyles['focusable-sibling']),
           htmlProps,
           rest,
         )}

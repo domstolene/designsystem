@@ -35,7 +35,7 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
-import { type InputSize, getInputWidth } from '../helpers';
+import { type InputSize, getInputWidth } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { type SvgIcon } from '../Icon/utils';
 import { renderInputMessage } from '../InputMessage';

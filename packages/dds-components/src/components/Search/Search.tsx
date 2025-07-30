@@ -19,8 +19,8 @@ import {
 } from '../../utils';
 import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
 import { Button } from '../Button';
-import { Input, type InputProps } from '../helpers';
 import { InlineIconButton } from '../helpers/InlineIconButton';
+import { Input, type InputProps } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
 import { CloseSmallIcon, SearchIcon } from '../Icon/icons';

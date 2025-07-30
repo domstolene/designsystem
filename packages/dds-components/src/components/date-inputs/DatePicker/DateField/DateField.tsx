@@ -14,7 +14,7 @@ import { type Ref, useRef } from 'react';
 
 import { CalendarButton } from './CalendarButton';
 import { DateSegment } from './DateSegment';
-import { type InputProps } from '../../../helpers';
+import { type InputProps } from '../../../helpers/Input';
 import { DateInput } from '../../common/DateInput';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =

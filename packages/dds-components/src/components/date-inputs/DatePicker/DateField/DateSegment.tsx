@@ -6,7 +6,7 @@ import type {
 import { useRef } from 'react';
 
 import { cn } from '../../../../utils';
-import { type InputSize } from '../../../helpers';
+import { type InputSize } from '../../../helpers/Input';
 import {
   type StaticTypographyType,
   getTypographyCn,

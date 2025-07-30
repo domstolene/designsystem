@@ -14,6 +14,26 @@ interface SvgChevronProps {
   width?: Property.Width;
 }
 
+/**
+ * Animert chevron der armene beveger seg uavhengig av hverandre.
+ *
+ * @component
+ * @param {SvgChevronProps} props - Props for komponenten.
+ * @param {boolean} props.isUp - om chevron peker opp.
+ * @param {Property.Height} props.height - høyde.
+ * @param {Property.Width} props.width - bredde.
+ *
+ * @returns {JSX.Element} Et `<svg>`-element som animeres basert props.
+
+ * @example
+ * ```tsx
+ * const [isExpanded, setIsExpanded] = useState(false);
+ * <button onClick={() => setIsExpanded(!isExpanded)}>
+ *    <AnimatedChevronUpDown isUp={isExpanded} />
+ * </button>
+ * ```
+ */
+
 export const AnimatedChevronUpDown = ({
   isUp,
   height = '5px',

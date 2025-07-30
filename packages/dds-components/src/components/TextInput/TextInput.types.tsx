@@ -1,4 +1,4 @@
-import { type InputProps } from '../helpers';
+import { type InputProps } from '../helpers/Input';
 import { type SvgIcon } from '../Icon/utils';
 
 export type TextInputProps = InputProps & {
