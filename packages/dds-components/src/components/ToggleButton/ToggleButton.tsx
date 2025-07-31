@@ -4,8 +4,8 @@ import styles from './ToggleButton.module.css';
 import { type ToggleButtonProps } from './ToggleButton.types';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
+import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { Box } from '../layout';
 import typographyStyles from '../Typography/typographyStyles.module.css';
@@ -25,14 +25,10 @@ export const ToggleButton = ({
 
   return (
     <Box as="label" htmlFor={uniqueId} width="fit-content">
-      <input
+      <HiddenInput
         {...getBaseHTMLProps(
           uniqueId,
-          cn(
-            className,
-            focusStyles['focusable-sibling'],
-            utilStyles['hide-input'],
-          ),
+          cn(className, focusStyles['focusable-sibling']),
           htmlProps,
           rest,
         )}

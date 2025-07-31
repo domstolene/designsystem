@@ -13,8 +13,12 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { getDefaultText, getInputWidth, renderCharCounter } from '../helpers';
-import { type CommonInputProps } from '../helpers';
+import { renderCharCounter } from '../helpers/CharCounter';
+import {
+  type CommonInputProps,
+  getDefaultText,
+  getInputWidth,
+} from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';

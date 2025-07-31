@@ -1,20 +1,20 @@
 import { useId } from 'react';
 
 import { Box, Label, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
-import { useControllableState } from '../../hooks/useControllableState';
-import { createTexts, useTranslation } from '../../i18n';
-import { Button } from '../Button';
-import { StatefulInput, getInputWidth } from '../helpers';
 import styles from './InputStepper.module.css';
 import {
   type InputStepperProps,
   isPositiveInteger,
 } from './InputStepper.types';
+import { useControllableState } from '../../hooks/useControllableState';
+import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
+import { Button } from '../Button';
+import { StatefulInput, getInputWidth } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { renderInputMessage } from '../InputMessage';
 
