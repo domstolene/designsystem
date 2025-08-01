@@ -12,7 +12,7 @@ export default {
   component: VisuallyHidden,
   argTypes: {
     ...commonArgTypes,
-    as: { control: 'text' },
+    as: { control: 'text', table: { defaultValue: { summary: 'span' } } },
     style: htmlArgType,
   },
 } satisfies Meta<typeof VisuallyHidden>;
