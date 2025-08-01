@@ -23,6 +23,7 @@ import {
   TextInput,
   Typography,
   VStack,
+  VisuallyHidden,
 } from '../../src';
 import { StoryThemeProvider } from '../../src/components/ThemeProvider/utils/StoryThemeProvider';
 
@@ -47,31 +48,28 @@ export const Form = () => {
         ]}
         smallScreenBreakpoint="sm"
       />
-      <Box
-        maxWidth="60ch"
-        marginInline={{ xs: 'x2', sm: 'x2', md: 'x4', lg: 'x6', xl: 'x10' }}
-      >
-        <Heading level={1} withMargins>
-          Navn på skjema
-        </Heading>
-        <Paragraph withMargins typographyType="leadMedium">
-          Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
-          ingress og body er vanlig mengdetekst.
-        </Paragraph>
-        <Paragraph withMargins typographyType="bodySmall" color="text-subtle">
-          Obligatoriske felter er merket med{' '}
-          <Typography as="span" color="text-requiredfield">
-            *
-          </Typography>
-          .
-        </Paragraph>
-        <form>
-          <VStack gap="x1">
+      <Grid maxWidth="60ch" marginBlock="0 x1">
+        <GridChild columnsOccupied="all">
+          <Heading level={1} withMargins>
+            Navn på skjema
+          </Heading>
+          <Paragraph withMargins typographyType="leadMedium">
+            Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
+            ingress og body er vanlig mengdetekst.
+          </Paragraph>
+          <Paragraph withMargins typographyType="bodySmall" color="text-subtle">
+            Obligatoriske felter er merket med{' '}
+            <Typography as="span" color="text-requiredfield">
+              *
+            </Typography>
+            .
+          </Paragraph>
+          <VStack as="form" gap="x1">
             <Fieldset>
               <Legend withMargins>Overskrift for gruppe</Legend>
               <FieldsetGroup>
-                <TextInput label="Ledetekst" />
-                <NativeSelect label="Ledetekst">
+                <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+                <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
                   <option></option>
                   <option>Valg 1</option>
                   <option>Valg 2</option>
@@ -82,8 +80,8 @@ export const Form = () => {
             <Fieldset>
               <Legend withMargins>Overskrift for gruppe</Legend>
               <FieldsetGroup>
-                <TextInput label="Ledetekst" />
-                <NativeSelect label="Ledetekst">
+                <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+                <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
                   <option></option>
                   <option>Valg 1</option>
                   <option>Valg 2</option>
@@ -94,7 +92,7 @@ export const Form = () => {
             <Fieldset>
               <Legend withMargins>Adresse</Legend>
               <FieldsetGroup>
-                <TextInput label="Adresse" />
+                <TextInput label="Adresse" width={{ xs: '100%' }} />
                 <Box
                   display="flex"
                   flexDirection={{
@@ -103,18 +101,28 @@ export const Form = () => {
                   gap="x1.5"
                 >
                   <TextInput width="94px" label="Postnummer" />
-                  <TextInput label="Sted" readOnly width="202px" />
+                  <TextInput
+                    label="Sted"
+                    readOnly
+                    width={{
+                      xs: '100%',
+                      sm: '202px',
+                      md: '202px',
+                      lg: '202px',
+                      xl: '202px',
+                    }}
+                  />
                 </Box>
               </FieldsetGroup>
             </Fieldset>
 
-            <HStack gap="x1.5" paddingBlock="x1 0">
+            <HStack gap="x1.5" paddingBlock="x1">
               <Button>Send inn</Button>
               <Button purpose="tertiary">Avbryt og forkast</Button>
             </HStack>
           </VStack>
-        </form>
-      </Box>
+        </GridChild>
+      </Grid>
     </StoryThemeProvider>
   );
 };
@@ -160,8 +168,8 @@ export const FormWithSteps = () => {
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
-            <TextInput label="Ledetekst" />
-            <NativeSelect label="Ledetekst">
+            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
               <option></option>
               <option>Valg 1</option>
               <option>Valg 2</option>
@@ -174,8 +182,8 @@ export const FormWithSteps = () => {
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
-            <TextInput label="Ledetekst" />
-            <NativeSelect label="Ledetekst">
+            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
               <option></option>
               <option>Valg 1</option>
               <option>Valg 2</option>
@@ -188,7 +196,7 @@ export const FormWithSteps = () => {
             Adresse
           </Legend>
           <FieldsetGroup>
-            <TextInput label="Adresse" />
+            <TextInput label="Adresse" width={{ xs: '100%' }} />
             <Box
               display="flex"
               flexDirection={{
@@ -201,7 +209,7 @@ export const FormWithSteps = () => {
             </Box>
           </FieldsetGroup>
         </Fieldset>
-        <HStack gap="x1.5" paddingBlock="x1 0">
+        <HStack gap="x1.5" paddingBlock="x1">
           <Button>Neste</Button>
           <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
@@ -223,8 +231,8 @@ export const FormWithSteps = () => {
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
-            <TextInput label="Ledetekst" />
-            <NativeSelect label="Ledetekst">
+            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
               <option></option>
               <option>Valg 1</option>
               <option>Valg 2</option>
@@ -237,8 +245,8 @@ export const FormWithSteps = () => {
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
-            <TextInput label="Ledetekst" />
-            <NativeSelect label="Ledetekst">
+            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
               <option></option>
               <option>Valg 1</option>
               <option>Valg 2</option>
@@ -299,7 +307,8 @@ export const FormWithSteps = () => {
                   iconPosition="right"
                   icon={ChevronRightIcon}
                 >
-                  Steg {activeStep + 1} av {steps.length}
+                  Steg {activeStep + 1} av {steps.length}{' '}
+                  <VisuallyHidden>Vis stegnavigasjon</VisuallyHidden>
                 </Button>
                 <Drawer>
                   <ProgressTracker
@@ -360,6 +369,10 @@ export const FormWithStepsCustomGrid = () => {
     setActiveStep(step + 1);
   };
 
+  const previousStep = () => {
+    setActiveStep(activeStep - 1);
+  };
+
   const stepItems = steps.map((step, index) => (
     <ProgressTracker.Item key={step} completed={completedSteps.has(index)}>
       {step}
@@ -380,8 +393,8 @@ export const FormWithStepsCustomGrid = () => {
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
-              <TextInput label="Ledetekst" />
-              <NativeSelect label="Ledetekst">
+              <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+              <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
                 <option></option>
                 <option>Valg 1</option>
                 <option>Valg 2</option>
@@ -394,8 +407,8 @@ export const FormWithStepsCustomGrid = () => {
               Overskrift for gruppe
             </Legend>
             <FieldsetGroup>
-              <TextInput label="Ledetekst" />
-              <NativeSelect label="Ledetekst">
+              <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+              <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
                 <option></option>
                 <option>Valg 1</option>
                 <option>Valg 2</option>
@@ -403,7 +416,25 @@ export const FormWithStepsCustomGrid = () => {
               </NativeSelect>
             </FieldsetGroup>
           </Fieldset>
-          <HStack gap="x1.5" paddingBlock="x1 0">
+          <Fieldset>
+            <Legend withMargins typographyType="headingMedium">
+              Adresse
+            </Legend>
+            <FieldsetGroup>
+              <TextInput label="Adresse" width={{ xs: '100%' }} />
+              <Box
+                display="flex"
+                flexDirection={{
+                  xs: 'column',
+                }}
+                gap="x1.5"
+              >
+                <TextInput width="94px" label="Postnummer" />
+                <TextInput label="Sted" readOnly width="202px" />
+              </Box>
+            </FieldsetGroup>
+          </Fieldset>
+          <HStack gap="x1.5" paddingBlock="x1">
             <Button>Neste</Button>
             <Button purpose="tertiary">Avbryt og forkast</Button>
           </HStack>
@@ -422,8 +453,8 @@ export const FormWithStepsCustomGrid = () => {
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
-            <TextInput label="Ledetekst" />
-            <NativeSelect label="Ledetekst">
+            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
               <option></option>
               <option>Valg 1</option>
               <option>Valg 2</option>
@@ -436,8 +467,8 @@ export const FormWithStepsCustomGrid = () => {
             Overskrift for gruppe
           </Legend>
           <FieldsetGroup>
-            <TextInput label="Ledetekst" />
-            <NativeSelect label="Ledetekst">
+            <TextInput label="Ledetekst" width={{ xs: '100%' }} />
+            <NativeSelect label="Ledetekst" width={{ xs: '100%' }}>
               <option></option>
               <option>Valg 1</option>
               <option>Valg 2</option>
@@ -445,7 +476,7 @@ export const FormWithStepsCustomGrid = () => {
             </NativeSelect>
           </FieldsetGroup>
         </Fieldset>
-        <HStack gap="x1.5" paddingBlock="x1 0">
+        <HStack gap="x1.5" paddingBlock="x1">
           <Button>Send inn</Button>
           <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
@@ -460,7 +491,7 @@ export const FormWithStepsCustomGrid = () => {
         gridTemplateColumns={{
           xs: '100%',
           sm: '60ch',
-          md: '60ch',
+          md: '60ch 1fr',
           lg: '60ch 1fr',
           xl: '60ch 1fr',
         }}
@@ -490,7 +521,8 @@ export const FormWithStepsCustomGrid = () => {
                     iconPosition="right"
                     icon={ChevronRightIcon}
                   >
-                    Steg {activeStep + 1} av {steps.length}
+                    Steg {activeStep + 1} av {steps.length}{' '}
+                    <VisuallyHidden>Vis stegnavigasjon</VisuallyHidden>
                   </Button>
                   <Drawer>
                     <ProgressTracker
@@ -503,7 +535,11 @@ export const FormWithStepsCustomGrid = () => {
                 </DrawerGroup>
               </ShowHide>
               {activeStep > 0 && (
-                <Button purpose="secondary" icon={ArrowLeftIcon}>
+                <Button
+                  purpose="secondary"
+                  icon={ArrowLeftIcon}
+                  onClick={() => previousStep()}
+                >
                   Forrige steg
                 </Button>
               )}
@@ -511,7 +547,7 @@ export const FormWithStepsCustomGrid = () => {
             {formSteps[activeStep]}
           </VStack>
         </GridChild>
-        <GridChild hideBelow="md" marginBlock="x3 x1">
+        <GridChild hideBelow="sm" marginBlock="x3 x1">
           <ProgressTracker
             activeStep={activeStep}
             onStepChange={newStep => setActiveStep(newStep)}

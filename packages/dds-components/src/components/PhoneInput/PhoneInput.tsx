@@ -27,7 +27,7 @@ import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
 import { Box, type Breakpoint } from '../layout';
-import { applyResponsiveStyle } from '../layout/common/utils';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 import { NativeSelect } from '../Select';
 import { Label } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
@@ -277,7 +277,7 @@ export const PhoneInput = ({
       )}
       <Box
         display="flex"
-        flexDirection={applyResponsiveStyle('column', bp, 'row')}
+        flexDirection={styleUpToBreakpoint('column', bp, 'row')}
         className={cn(
           styles['inputs-container'],
           !!bp && styles[`inputs-container--small-screen-${bp}`],
@@ -290,7 +290,7 @@ export const PhoneInput = ({
           {tSelectLabel}
         </label>
         <NativeSelect
-          width={applyResponsiveStyle(
+          width={styleUpToBreakpoint(
             '100%',
             bp,
             componentSize === 'xsmall' ? '5rem' : '8rem',
