@@ -1,6 +1,5 @@
 import { type HTMLAttributes, type ReactNode } from 'react';
 
-import styles from './EmptyContent.module.css';
 import { Paper, VStack } from '../layout';
 import { Heading, type HeadingLevel, Paragraph } from '../Typography';
 
@@ -31,8 +30,8 @@ export function EmptyContent({
       height="100%"
       width="100%"
       padding="x1.5"
-      background="surface-subtle"
-      borderRadius="0"
+      background="surface-medium"
+      borderRadius="surface"
       {...rest}
     >
       <VStack maxWidth="70ch" gap="x1" textAlign="center">
@@ -41,7 +40,7 @@ export function EmptyContent({
             {headerText}
           </Heading>
         )}
-        <Paragraph className={styles.message}>{message}</Paragraph>
+        <Paragraph color="text-medium">{message}</Paragraph>
       </VStack>
     </Paper>
   );
