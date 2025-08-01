@@ -1,0 +1,49 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as useAccordionStories from './useAccordion.stories';
+
+<Meta of={useAccordionStories} />
+
+# useAccordion
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/48d466-usecontrollablestate"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/useAccordion/useAccordion.tsx"
+  withBottomSpacing
+/>
+
+Implementerer trekkspill-mønsteret der en header utvider og trekker sammen et panel. Håndterer oppførsel, UU og visuelle effekter.
+
+`@returns` accordion state: om den er utvidet, props for header og body, ekstra state-funksjoner ved behov.
+
+<Canvas of={useAccordionStories.Preview} sourceState="none" />
+<Controls of={useAccordionStories.Preview} />
+
+## Bruk
+
+<Source code={`
+import { useAccordion } from '@norges-domstoler/dds-components';
+
+function MyComponent() {
+
+    const { isExpanded, bodyContentRef, headerProps, bodyProps } = useAccordion({});
+    const { height, ...restBodyProps } = bodyProps;
+
+    return (
+
+        <>
+            <button {...headerProps}>
+                {isExpanded ? 'Skjul' : 'Vis'} innhold
+            </button>
+            <div style={{height}} {...restBodyProps}>
+                <div ref={bodyContentRef}>
+                    innhold
+                </div>
+            </div>
+        </>
+    )
+
+});`} />

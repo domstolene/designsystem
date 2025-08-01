@@ -14,7 +14,7 @@ import {
 
 import styles from './Select.module.css';
 import { cn, getFormInputIconSize } from '../../utils';
-import { type InputSize } from '../helpers';
+import { type InputSize } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize, type SvgIcon } from '../Icon';
 import { CheckIcon, ChevronDownIcon, CloseSmallIcon } from '../Icon/icons';

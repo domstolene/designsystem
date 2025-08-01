@@ -2,34 +2,26 @@ import { useId } from 'react';
 
 import styles from './CharCounter.module.css';
 import { createTexts, useTranslation } from '../../../i18n';
-import { type BaseComponentProps, getBaseHTMLProps } from '../../../types';
-import { cn } from '../../../utils';
 import { Typography } from '../../Typography';
 import { VisuallyHidden } from '../../VisuallyHidden';
 
-type Props = BaseComponentProps<
-  HTMLElement,
-  {
-    current: number;
-    max: number;
-  }
->;
+interface CharCounterProps {
+  id: string;
+  current: number;
+  max: number;
+}
 
-export function CharCounter(props: Props) {
+export function CharCounter(props: CharCounterProps) {
   const { t } = useTranslation();
-  const { current, max, id, className, htmlProps, ...rest } = props;
+  const { current, max, id } = props;
 
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-characterCounter`;
 
   return (
     <Typography
-      {...getBaseHTMLProps(
-        uniqueId,
-        cn(className, styles.container),
-        htmlProps,
-        rest,
-      )}
+      id={uniqueId}
+      className={styles.container}
       as="div"
       typographyType="bodyXsmall"
       color="textSubtle"

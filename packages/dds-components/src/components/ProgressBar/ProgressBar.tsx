@@ -8,7 +8,7 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { type CommonInputProps, getInputWidth } from '../helpers';
+import { type CommonInputProps, getInputWidth } from '../helpers/Input';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 

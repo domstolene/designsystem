@@ -3,7 +3,7 @@ import { type ReactNode, type Ref, useContext } from 'react';
 
 import styles from './DateInput.module.css';
 import { cn } from '../../../utils';
-import { type InputProps, getInputWidth } from '../../helpers';
+import { type InputProps, getInputWidth } from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { InputMessage } from '../../InputMessage';

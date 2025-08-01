@@ -9,12 +9,8 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { getFormInputIconSize } from '../../utils/icon';
-import {
-  StatefulInput,
-  getDefaultText,
-  getInputWidth,
-  renderCharCounter,
-} from '../helpers';
+import { renderCharCounter } from '../helpers/CharCounter';
+import { StatefulInput, getDefaultText, getInputWidth } from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';

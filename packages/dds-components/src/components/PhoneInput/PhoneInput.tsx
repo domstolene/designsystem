@@ -18,7 +18,11 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { type InputProps, StatefulInput, getInputWidth } from '../helpers';
+import {
+  type InputProps,
+  StatefulInput,
+  getInputWidth,
+} from '../helpers/Input';
 import inputStyles from '../helpers/Input/Input.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';

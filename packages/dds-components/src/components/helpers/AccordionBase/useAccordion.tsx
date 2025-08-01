@@ -17,15 +17,15 @@ import { cn, useElementHeight } from '../../../utils';
 
 export interface AccordionConfig {
   /**
-   * Om accordion skal være åpen ved innlasting.
+   * Om accordion skal være utvidet ved første render.
    */
-  initiallyExpanded: boolean;
+  initiallyExpanded?: boolean;
   /**
    * Callback som blir kalt når brukeren trykker på header.
    */
   onChange?: (expanded: boolean) => void;
   /**
-   * Custom id for accordion. Brukes til universell utforming.
+   * Custom id for accordion; delene får i tillegg suffix `'header'` og `'body'`.
    */
   id?: string;
 }
@@ -114,6 +114,32 @@ export interface AccordionState {
    */
   bodyContentRef: RefObject<HTMLDivElement | null>;
 }
+
+/**
+ * Implementerer trekkspill-mønsteret; header som utvider og trekker sammen et panel. Håndterer oppførsel, UU og visuelle effekter.
+ * @returns {AccordionState} accordion state og props å bruke på acccordion-elementer: header og body.
+ * @example
+ * ```tsx
+ * function MyComponent() {
+ *
+ *  const { isExpanded, bodyContentRef, headerProps, bodyProps } = useAccordion({});
+ *  const { height, ...restBodyProps } = bodyProps;
+ *
+ *  return (
+ *    <>
+ *      <button {...headerProps}>
+ *        {isExpanded ? 'Skjul' : 'Vis'} innhold
+ *      </button>
+ *      <div style={{height}} {...restBodyProps}>
+ *        <div ref={bodyContentRef}>
+ *          innhold
+ *        </div>
+ *      </div>
+ *    </>
+ *  )
+ * });
+ * ```
+ */
 
 export const useAccordion = ({
   initiallyExpanded = false,

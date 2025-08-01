@@ -13,12 +13,12 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../../utils';
 import { createClearChangeEvent } from '../../../utils/createClearChangeEvent';
+import { ClearButton } from '../../helpers/ClearButton';
 import {
   type CommonInputProps,
   type InputProps,
   getInputWidth,
-} from '../../helpers';
-import { ClearButton } from '../../helpers/ClearButton';
+} from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { scrollbar } from '../../helpers/styling/utilStyles.module.css';

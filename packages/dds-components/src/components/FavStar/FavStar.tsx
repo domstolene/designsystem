@@ -8,8 +8,8 @@ import {
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
+import { HiddenInput } from '../helpers';
 import focusStyles from '../helpers/styling/focus.module.css';
-import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { Icon } from '../Icon';
 import { StarFilledIcon, StarIcon } from '../Icon/icons';
 
@@ -74,14 +74,13 @@ export const FavStar = ({
       style={style}
       htmlFor={id ?? generatedId}
     >
-      <input
+      <HiddenInput
         {...props}
         id={id ?? generatedId}
         checked={checked}
         onChange={e => setChecked(e.target.checked)}
         type="checkbox"
         aria-label={props['aria-label'] ?? t(texts.favourite)}
-        className={utilStyles['hide-input']}
       />
       <Icon iconSize={size} icon={StarIcon} className={styles.icon} />
       <Icon

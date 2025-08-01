@@ -1,11 +1,8 @@
 import { type GroupBase, type StylesConfig } from 'react-select';
 
-import {
-  type InputSize,
-  focusVisible,
-  focusVisibleTransitionValue,
-} from '../helpers';
+import { focusVisible, focusVisibleTransitionValue } from '../helpers';
 import { scrollbarStyling } from '../helpers';
+import { type InputSize } from '../helpers/Input';
 
 type SelectTypography = Record<
   InputSize,
