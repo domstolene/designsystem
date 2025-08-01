@@ -1,5 +1,27 @@
 # @norges-domstoler/dds-components
 
+## 21.8.0 (2025-08-01)
+
+### Minor Changes
+
+- 1de6a0c: Ny prop i `<Tooltip>`: `keepMounted`. Tillater å rendre komponenten når den skal vises, uten at den er alltid i DOM. Har `true` som default.
+- e83f386: Eksponerer enkelte hooks: `useCallbackRef()`, `useControllableState()`.
+- 9d4d12a: Støtte for `clearable` prop i `<NativeSelect>`; brukeren kan trykke en knapp til å sette komponenten til tom verdi. Krever at første `<option>` har `value=""`.
+
+### Patch Changes
+
+- b559af7: Fikser størrelse på spinner i `<Button>` ved loading-tilstand.
+- 9d4d12a: Fikser bug der styling fra `<PhoneInput>` påvirket `<select>` element globalt.
+- 9d4d12a: `<InlineEditSelect>` får pointer-musepeker ved hover.
+- a640ceb: Bytter bakgrunnsfarge i `<EmptyContent>` fra `dds-surface-sublte` til `dds-surface-medium` slik at komponenten er synlig på `dds-surface-subtle` bakgrunn.
+- a640ceb: Fikser bug der beskrivelsestekst i `<EmptyContent>` ikke fikk riktig farge.
+- 2726702: `<Input>` helper og tilhørende types er ikke lengre eksponert; ser ikke ut som om noen har brukt den, og den egner seg kun til intern bruk. Endringen er dermed ikke breaking.
+- a640ceb: Setter border radius til `dds-border-radius-surface` i `<EmptyContent>`.
+- 2726702: Gjør `initiallyExpanded` prop ikke påkrevd i `useAccordion`, da den allerede bruker default `false`.
+- 9d4d12a: Refaktorerte `<InlineEdit>` slik at edit-ikonet ikke bruker en ekstra `<span>` wrapper.
+- 2726702: `<CharCounter>` helper er ikke lengre eksponert; ser ikke ut som om noen har brukt den, og den egner seg kun til intern bruk. Endringen er dermed ikke breaking.
+- d5d042e: Fikser bug der `<Card cardType="navigation">` var et inline element.
+
 ## 21.7.0 (2025-07-04)
 
 ### Minor Changes
