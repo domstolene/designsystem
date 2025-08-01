@@ -16,6 +16,7 @@ export default {
   component: NativeSelect,
   argTypes: {
     label: { control: 'text' },
+    clearable: { control: 'boolean' },
     tip: { control: 'text' },
     errorMessage: { control: 'text' },
     width: responsivePropsArgTypes.width,
@@ -119,5 +120,13 @@ export const Groups: Story = {
         </optgroup>
       </>
     ),
+  },
+};
+
+export const Clearable: Story = {
+  args: {
+    label: 'Label',
+    children,
+    clearable: true,
   },
 };

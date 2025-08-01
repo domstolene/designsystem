@@ -23,6 +23,7 @@
   text-overflow: ellipsis;
   width: 100%;
   padding-right: var(--dds-spacing-x1-5);
+  cursor: pointer;
 }
 
 .inline-select--with-clear-button {
@@ -49,26 +50,17 @@
   resize: vertical;
 }
 
-.icon-wrapper {
-  position: absolute;
-  top: var(--dds-spacing-x0-5);
+.edit-icon {
   left: var(--dds-spacing-x0-5);
+  pointer-events: none;
   z-index: var(--dds-zindex-absolute-element);
-
-  &:hover {
-    cursor: text;
-  }
 }
 
 .chevron {
-  position: absolute;
   right: var(--dds-spacing-x0-25);
-  transform: translateY(50%);
   pointer-events: none;
 }
 
 .clear-button {
-  position: absolute;
   right: calc(var(--dds-spacing-x0-75) + var(--dds-icon-size-small));
-  transform: translateY(50%);
 }

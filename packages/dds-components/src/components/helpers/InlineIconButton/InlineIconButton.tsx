@@ -8,7 +8,7 @@ import { Icon } from '../../Icon';
 import { StylelessButton } from '../StylelessButton';
 import { focusable } from '../styling/focus.module.css';
 
-type InlineIconButtonProps = Required<Pick<ButtonProps, 'size' | 'icon'>> &
+export type InlineIconButtonProps = Required<Pick<ButtonProps, 'icon'>> &
   ComponentPropsWithRef<'button'> & {
     size: ExtractStrict<ButtonSize, 'large' | 'medium' | 'small'>;
     color?: TextColor;
