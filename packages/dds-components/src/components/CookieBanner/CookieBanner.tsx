@@ -22,7 +22,7 @@ import {
   type CookieBannerCheckboxProps,
 } from './CookieBannerCheckbox';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
-import { applyResponsiveStyle } from '../layout/common/utils';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 
 export type CookieBannerProps = BaseComponentPropsWithChildren<
   HTMLDivElement,
@@ -80,7 +80,7 @@ export function CookieBanner({
       )}
       role="region"
       aria-label={tAriaLabel}
-      padding={applyResponsiveStyle('x1', 'sm', 'x1.5')}
+      padding={styleUpToBreakpoint('x1', 'sm', 'x1.5')}
       width={width}
       maxHeight={maxHeight}
       border="border-default"
@@ -118,7 +118,7 @@ export function CookieBanner({
           )}
           {buttons && (
             <HStack
-              gap={applyResponsiveStyle('x1', 'sm', 'x1.5')}
+              gap={styleUpToBreakpoint('x1', 'sm', 'x1.5')}
               flexWrap="wrap"
               paddingBlock="x0.25 0"
             >

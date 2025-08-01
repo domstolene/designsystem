@@ -7,7 +7,7 @@ import { type StaticTypographyType } from '../../Typography';
 export interface CommonInputProps {
   /**Ledetekst. */
   label?: string;
-  /**Bredde for inputfeltet. */
+  /**Bredde for inputfeltet. Kan settes per brekkpunkt, manglende brekkpunter får da default bredde. */
   width?: ResponsiveProps['width'];
   /**Hjelpetekst. */
   tip?: string;
