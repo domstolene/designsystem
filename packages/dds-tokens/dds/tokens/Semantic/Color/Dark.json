@@ -84,7 +84,7 @@
         "description": "Hover on surface.action-danger"
       },
       "action-selected-disabled": {
-        "value": "{dds-color-base.gray.700}",
+        "value": "{dds-color-base.gray.600}",
         "type": "color",
         "description": "bg on a selected disabled checkbox, radio etc"
       },
