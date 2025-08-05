@@ -452,12 +452,12 @@
         "description": "Primary brand color"
       },
       "primary-subtle": {
-        "value": "{dds-color-base.primary.750}",
+        "value": "{dds-color-base.primary.600}",
         "type": "color",
         "description": "Primary brand color"
       },
       "primary-medium": {
-        "value": "{dds-color-base.primary.600}",
+        "value": "{dds-color-base.primary.450}",
         "type": "color",
         "description": "Primary brand color"
       },
