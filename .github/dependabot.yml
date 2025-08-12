@@ -17,6 +17,10 @@ updates:
       typescript:
         patterns:
           - 'typescript'
+        update-types:
+          - 'major'
+          - 'minor'
+          - 'patch'
       non-major:
         update-types:
           - 'minor'
