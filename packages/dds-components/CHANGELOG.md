@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 21.9.0 (2025-08-12)
+
+### Minor Changes
+
+- c273b21: Utbedrer oppførselen til `width` prop i input-komponenter; Hvis bredde settes kun på enkelte brekkpunkter vil resterende brekkpunkter få default bredde definert i komponenten. Før fikk utelatte brekkpunkter ingen definert bredde, og dermed utforutsigbar bredde. Kan potensielt føre til endringer i layout. Påvirker komponentene `<TextInput>`, `<Select>`, `<PhoneInput>`, `<ProgressBar>`, `<NativeSelect>`, `<TextArea>`, `<DatePicker>`, `<TimePicker>`.
+
 ## 21.8.0 (2025-08-01)
 
 ### Minor Changes
