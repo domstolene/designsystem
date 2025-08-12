@@ -12,7 +12,7 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import utilStyles from '../helpers/styling/utilStyles.module.css';
 import { MenuIcon, MoreVerticalIcon, PersonIcon } from '../Icon/icons';
 import { Box } from '../layout';
-import { applyResponsiveStyle } from '../layout/common/utils';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 import { ShowHide } from '../layout/ShowHide';
 import {
   OverflowMenu,
@@ -94,8 +94,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
     <Box
       display="flex"
       alignItems="center"
-      gap={applyResponsiveStyle('x1.5', smallScreenBreakpoint, 'x1')}
-      paddingInline={applyResponsiveStyle(
+      gap={styleUpToBreakpoint('x1.5', smallScreenBreakpoint, 'x1')}
+      paddingInline={styleUpToBreakpoint(
         'x1.5',
         smallScreenBreakpoint,
         'x1 x0.5',

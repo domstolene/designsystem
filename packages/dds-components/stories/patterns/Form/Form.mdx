@@ -1,0 +1,65 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  ComponentLinkRow,
+  Source,
+} from '@norges-domstoler/storybook-components';
+import * as FormStories from './Form.stories';
+
+<Meta of={FormStories} />
+
+# Form
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/30227e-useonkeydown"
+  githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/Form/Form.tsx"
+  withBottomSpacing
+/>
+
+**OBS!** Se demoer/stories utenfor Docs for riktig responsiv layout.
+
+## Hvordan implementere?
+
+Skjema-mønsteret bruker gjerne en del komponenter, layout primitives og props for å implementere typisk layout. Du trenger i utganspunktet ingen egen CSS styling.
+
+### Layout primitives
+
+- **`<Grid>`**: overordnet layout.
+- **`<VStack>`, `<HStack>`, `<Box>`, `<ShowHide>`**: lokalisert layout. Bruk gjerne `as` prop aktivt for å sette layout i semantiske elementer, f.eks. `<form>` kan kodes som `<VStack as="form" gap="x1">`.
+
+### Komponenter
+
+- **Skjemakomponenter**: skjema er ikke et skjema uten skjemakomponenter! Bruk gjerne `width` prop med brekkpunkter i komponenter som støtter den, som `<TextInput>`.
+- **`<Paragraph>`, `<Heading>`, `<Lead>`, `<Typography>` osv.**: bruk typografikomponenter for å beskrive hva skjema gjelder og tigjenglighetsinformasjon, som markering av påkrevde felt. Bruk standard marginer med `withMargins` prop.
+- **`<Fieldset>`, `<Legend>`, `<FieldsetGroup>`**: hvis du grupperer inputelementer gjør det semantisk med dedikerte komponenter.
+
+### Styling
+
+- **Spacing**: komponenter som `<FieldsetGroup>` har innbakt spacing som følger retningslinjer. Typografikomponenter bør brukes med `withMargins` prop. Sett i tillegg egen spacing for generiske containere; bruk gjerne [layout primitives](#layout-primitives).
+- **Tekstfarge**: det meste av tekst skal ha standardisert farge, men ikke alt. Info om markering av påkrevde felt og påkrevd-markør skal bruke fargene `dds-color-text-subtle` og `dds-color-text-requiredfield`; disse kan settes med `color` prop i typografikomponeter.
+- **Størrelse på `<Legend>`**: hvis du bruker flere overskrifter på skjemasiden kan det hende du trenger å tilpasse størrelsen på din `<Legend>`. Bruk `typographyType` prop ved behov.
+
+## Vanlig
+
+<Canvas of={FormStories.Form} />
+
+## Med steg
+
+Hvis skjema har steg bruker du i tillegg:
+
+- **`<ProgressTracker>`**: til høyre for skjema.
+- **`<ShowHide>` for mobilversjon av `<ProgressTracker>`**. Den tilgjenngeligjøres via `<Drawer>`, `<NativeSelect>` e.l. på mindre skjerm. Hvis du bruker `<Drawer>` trenger utløserknappen en tilgjengelig tekst; for eksempel, hvis knappeteksten er "Steg 1 av 2" med chevron-ikon vil seende brukere forstå hva den gjør. Du kan utvide denne med `<VisuallyHidden>` og usynlig tekst som "Vis stegnavigasjon" for assisterende verktøy.
+
+<Canvas of={FormStories.FormWithSteps} />
+
+## Med steg - custom grid
+
+Istedenfor å bruke default kolonner i vårt `<Grid>` kan du f.eks. bruke to kolonner, der selve skjema har opptil spesifisert bredde og `<ProgressTracker>` tar resten.
+Default CSS for `margin-inline` fra `<Grid>` er riktig her, men pass på spacing mellom kolonnene.
+
+<Canvas of={FormStories.FormWithStepsCustomGrid} />
+
+## Forlate skjema
+
+Implementer advarsel for når brukeren prøver å forlate påbegynt skjema, slik at de kan ombestemme seg og bli på siden. `<Modal>` kan være en slik advarsel.
+
+<Canvas of={FormStories.ExitForm} />

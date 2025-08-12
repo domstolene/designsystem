@@ -101,7 +101,15 @@ export function getResponsiveCSSProperties<T>(
   return properties;
 }
 
-export function applyResponsiveStyle<T>(
+/**
+ * Setter styling opptil et brekkpunkt og muligens annen styling over det brekkpunktet.
+ * @param p styling under og inkludert brekkpunktet.
+ * @param bp brekkpunktet.
+ * @param largeScreenP styling over brekkpunktet.
+ * @returns responsiv styling for en CSS prop.
+ */
+
+export function styleUpToBreakpoint<T>(
   p: T,
   bp?: Breakpoint,
   largeScreenP?: T,

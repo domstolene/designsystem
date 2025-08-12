@@ -15,7 +15,7 @@ import {
   MoreHorizontalIcon,
 } from '../Icon/icons';
 import { Box, type Breakpoint, ShowHide } from '../layout';
-import { applyResponsiveStyle } from '../layout/common/utils';
+import { styleUpToBreakpoint } from '../layout/common/utils';
 import { Select } from '../Select';
 import { Paragraph } from '../Typography';
 
@@ -299,8 +299,8 @@ export const Pagination = ({
       gap="x0.75"
       justifyContent="space-between"
       flexWrap="wrap"
-      flexDirection={applyResponsiveStyle('column', smallScreenBreakpoint)}
-      alignItems={applyResponsiveStyle('center', smallScreenBreakpoint)}
+      flexDirection={styleUpToBreakpoint('column', smallScreenBreakpoint)}
+      alignItems={styleUpToBreakpoint('center', smallScreenBreakpoint)}
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
     >
       <div className={styles.indicators}>
