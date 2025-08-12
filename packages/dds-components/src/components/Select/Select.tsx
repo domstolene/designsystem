@@ -196,6 +196,10 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
             ...props,
             readOnly,
             'aria-required': ariaRequired,
+            'aria-activedescendant':
+              props['aria-activedescendant'] === ''
+                ? undefined
+                : props['aria-activedescendant'],
           },
           hasErrorMessage,
           spaceSeparatedIdListGenerator([
