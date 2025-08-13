@@ -125,6 +125,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   onKeyDown,
   openMenuOnClick,
   ref,
+  instanceId,
   ...rest
 }: SelectProps<Option, IsMulti>) {
   const themeContext = useContext(ThemeContext);
@@ -169,6 +170,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
         ? false
         : true,
     isMulti,
+    instanceId: instanceId ?? useId(),
     inputId: uniqueId,
     name: uniqueId,
     menuPortalTarget: portalTarget,
@@ -194,6 +196,10 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
             ...props,
             readOnly,
             'aria-required': ariaRequired,
+            'aria-activedescendant':
+              props['aria-activedescendant'] === ''
+                ? undefined
+                : props['aria-activedescendant'],
           },
           hasErrorMessage,
           spaceSeparatedIdListGenerator([
