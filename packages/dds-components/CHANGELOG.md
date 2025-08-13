@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 21.9.1
+
+### Patch Changes
+
+- 3e61d81: Fikser hydreringsfeil i `<Select>`-komponent
+
 ## 21.9.0 (2025-08-12)
 
 ### Minor Changes
