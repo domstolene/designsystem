@@ -42,15 +42,15 @@
   "devDependencies": {
     "@norges-domstoler/storybook-components": "workspace:*",
     "@testing-library/react": "^16.3.0",
-    "@types/react": "19.1.8",
-    "react": "19.1.0",
+    "@types/react": "19.1.10",
+    "react": "19.1.1",
     "typed-css-modules": "^0.9.1",
     "autoprefixer": "^10.4.21",
     "csstype": "3.1.2",
     "postcss": "^8.5.6",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "vite": "^7.0.6",
+    "vite": "^7.1.2",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
