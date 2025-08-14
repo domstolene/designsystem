@@ -11,6 +11,8 @@ import { getBreakpointFromScreenWidth } from '../components/layout/common/utils'
 import { Paragraph } from '../components/Typography';
 import { useWindowResize } from '../hooks';
 
+export const labelText = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
+
 export interface ArgType {
   control?: Control;
   table?: { category: string };

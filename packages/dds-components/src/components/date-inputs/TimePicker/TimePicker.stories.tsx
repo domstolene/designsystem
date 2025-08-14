@@ -5,9 +5,11 @@ import { fn } from 'storybook/test';
 
 import {
   htmlEventArgType,
+  labelText,
   responsivePropsArgTypes,
 } from '../../../storybook/helpers';
 import { Button } from '../../Button';
+import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { TimePicker } from '.';
@@ -84,12 +86,17 @@ export const ReadOnly: Story = {
   args: { label: 'Tidspunkt', isReadOnly: true },
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <TimePicker {...args} componentSize="medium" label="Medium" />
-      <TimePicker {...args} componentSize="small" label="Small" />
-      <TimePicker {...args} componentSize="xsmall" label="Xsmall" />
+      {INPUT_SIZES.map(size => (
+        <TimePicker
+          {...args}
+          key={size}
+          componentSize={size}
+          label={labelText(size)}
+        />
+      ))}
     </StoryVStack>
   ),
 };

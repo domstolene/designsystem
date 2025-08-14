@@ -1,11 +1,13 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
+import { TOGGLE_BUTTON_SIZES } from './ToggleButton.types';
 import {
   categoryHtml,
   commonArgTypes,
   htmlArgType,
   htmlEventArgType,
+  labelText,
 } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -44,17 +46,25 @@ export const Sizes: Story = {
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <ToggleButton {...args} label="Small" />
-        <ToggleButton {...args} label="Xsmall" size="xsmall" />
+        {TOGGLE_BUTTON_SIZES.map(size => (
+          <ToggleButton
+            {...args}
+            key={size}
+            size={size}
+            label={labelText(size)}
+          />
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <ToggleButton {...args} label="Small" icon={NotificationsIcon} />
-        <ToggleButton
-          {...args}
-          label="Xsmall"
-          icon={NotificationsIcon}
-          size="xsmall"
-        />
+        {TOGGLE_BUTTON_SIZES.map(size => (
+          <ToggleButton
+            {...args}
+            key={size}
+            size={size}
+            label={labelText(size)}
+            icon={NotificationsIcon}
+          />
+        ))}
       </StoryVStack>
     </StoryHStack>
   ),

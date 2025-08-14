@@ -3,12 +3,15 @@ import { useState } from 'react';
 import { fn } from 'storybook/internal/test';
 
 import {
+  categoryHtml,
   htmlEventArgType,
+  labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
+import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Modal, ModalBody } from '../Modal';
@@ -24,7 +27,7 @@ const meta: Meta<typeof Select> = {
     placeholder: { control: 'text' },
     isDisabled: { control: 'boolean' },
     isClearable: { control: 'boolean' },
-    required: { control: 'boolean' },
+    required: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean' },
     isLoading: { control: 'boolean' },
     icon: { control: false },
@@ -116,20 +119,31 @@ export const Overview: Story = {
   },
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   args: { options: options },
   render: args => {
     return (
       <StoryHStack>
         <StoryVStack>
-          <Select {...args} componentSize="medium" />
-          <Select {...args} componentSize="small" />
-          <Select {...args} componentSize="xsmall" />
+          {INPUT_SIZES.map(size => (
+            <Select
+              {...args}
+              key={size}
+              label={labelText(size)}
+              componentSize={size}
+            />
+          ))}
         </StoryVStack>
         <StoryVStack>
-          <Select {...args} componentSize="medium" icon={CourtIcon} />
-          <Select {...args} componentSize="small" icon={CourtIcon} />
-          <Select {...args} componentSize="xsmall" icon={CourtIcon} />
+          {INPUT_SIZES.map(size => (
+            <Select
+              {...args}
+              key={size}
+              label={labelText(size)}
+              componentSize={size}
+              icon={CourtIcon}
+            />
+          ))}
         </StoryVStack>
       </StoryHStack>
     );

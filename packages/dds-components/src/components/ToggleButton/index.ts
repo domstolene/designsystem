@@ -1,3 +1,3 @@
 export * from './ToggleButton';
 export * from './ToggleButtonGroup';
-export * from './ToggleButton.types';
+export type { ToggleButtonProps } from './ToggleButton.types';

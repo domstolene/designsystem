@@ -4,9 +4,11 @@ import { fn } from 'storybook/test';
 import {
   categoryHtml,
   htmlEventArgType,
+  labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
+import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryVStack } from '../../layout/Stack/utils';
 
 import { NativeSelect, NativeSelectPlaceholder } from '.';
@@ -72,16 +74,21 @@ export const Overview: Story = {
   ),
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   args: {
     label: 'Label',
     children,
   },
   render: args => (
     <StoryVStack>
-      <NativeSelect {...args} componentSize="medium" />
-      <NativeSelect {...args} componentSize="small" />
-      <NativeSelect {...args} componentSize="xsmall" />
+      {INPUT_SIZES.map(size => (
+        <NativeSelect
+          {...args}
+          key={size}
+          label={labelText(size)}
+          componentSize={size}
+        />
+      ))}
     </StoryVStack>
   ),
 };

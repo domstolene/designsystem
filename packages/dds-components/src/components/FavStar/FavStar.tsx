@@ -5,6 +5,7 @@ import { useControllableState } from '../../hooks/useControllableState';
 import { createTexts, useTranslation } from '../../i18n';
 import {
   type BaseComponentPropsWithChildren,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
@@ -13,7 +14,8 @@ import focusStyles from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { StarFilledIcon, StarIcon } from '../Icon/icons';
 
-type ComponentSize = 'medium' | 'large';
+export const FAVSTAR_SIZES = createSizes('medium', 'large');
+type ComponentSize = (typeof FAVSTAR_SIZES)[number];
 
 export type FavStarProps = BaseComponentPropsWithChildren<
   HTMLElement,

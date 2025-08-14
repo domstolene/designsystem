@@ -1,3 +1,7 @@
 export * from './ToggleBar';
-export * from './ToggleBar.types';
+export type {
+  ToggleBarProps,
+  ToggleBarSize,
+  ToggleBarValue,
+} from './ToggleBar.types';
 export * from './ToggleRadio';

@@ -6,13 +6,14 @@ import styles from './Tabs.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
-  type Size,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn } from '../../utils';
 import { Box, type ResponsiveProps } from '../layout';
 
-export type TabSize = Extract<Size, 'small' | 'medium'>;
+export const TABS_SIZES = createSizes('small', 'medium');
+export type TabSize = (typeof TABS_SIZES)[number];
 
 export type TabsProps = BaseComponentPropsWithChildren<
   HTMLDivElement,

@@ -6,9 +6,11 @@ import {
   categoryCss,
   categoryHtml,
   htmlArgType,
+  labelText,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
+import { INPUT_SIZES } from '../helpers/Input';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { PhoneInput, type PhoneInputValue } from '.';
@@ -58,9 +60,14 @@ export const Sizes: Story = {
   args: { label: 'Label' },
   render: args => (
     <StoryVStack>
-      <PhoneInput {...args} />
-      <PhoneInput {...args} componentSize="small" />
-      <PhoneInput {...args} componentSize="xsmall" />
+      {INPUT_SIZES.map(size => (
+        <PhoneInput
+          {...args}
+          key={size}
+          componentSize={size}
+          label={labelText(size)}
+        />
+      ))}
     </StoryVStack>
   ),
 };

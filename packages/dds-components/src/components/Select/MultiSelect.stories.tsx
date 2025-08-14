@@ -1,6 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Select } from './Select';
+import {
+  categoryHtml,
+  labelText,
+  responsivePropsArgTypes,
+} from '../../storybook/helpers';
+import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
@@ -9,14 +15,11 @@ const meta: Meta<typeof Select<Option, true>> = {
   title: 'dds-components/Components/Select/MultiSelect',
   component: Select,
   argTypes: {
-    label: { control: { type: 'text' } },
-    tip: { control: { type: 'text' } },
-    errorMessage: { control: { type: 'text' } },
-    width: { control: { type: 'text' } },
+    width: responsivePropsArgTypes.width,
     placeholder: { control: { type: 'text' } },
     isDisabled: { control: { type: 'boolean' } },
     isClearable: { control: { type: 'boolean' } },
-    required: { control: { type: 'boolean' } },
+    required: { control: { type: 'boolean' }, table: categoryHtml },
     readOnly: { control: { type: 'boolean' } },
     isLoading: { control: { type: 'boolean' } },
   },
@@ -78,18 +81,35 @@ export const Overview: Story = {
   ),
 };
 
-export const OverviewSizes: Story = {
-  args: { label: 'Label', options: options, isMulti: true },
+export const Sizes: Story = {
+  args: { options: options, isMulti: true },
   render: args => {
     return (
       <StoryHStack>
         <StoryVStack>
-          <Select {...args} />
-          <Select {...args} componentSize="small" />
+          {INPUT_SIZES.map(size =>
+            size === 'xsmall' ? null : (
+              <Select
+                {...args}
+                key={size}
+                label={labelText(size)}
+                componentSize={size}
+              />
+            ),
+          )}
         </StoryVStack>
         <StoryVStack>
-          <Select {...args} icon={CourtIcon} />
-          <Select {...args} componentSize="small" icon={CourtIcon} />
+          {INPUT_SIZES.map(size =>
+            size === 'xsmall' ? null : (
+              <Select
+                {...args}
+                key={size}
+                label={labelText(size)}
+                icon={CourtIcon}
+                componentSize={size}
+              />
+            ),
+          )}
         </StoryVStack>
       </StoryHStack>
     );

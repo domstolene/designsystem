@@ -2,11 +2,12 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { FavStar } from './FavStar';
+import { FAVSTAR_SIZES, FavStar } from './FavStar';
 import {
   categoryHtml,
   commonArgTypes,
   htmlEventArgType,
+  labelText,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
@@ -36,21 +37,17 @@ type Story = StoryObj<typeof FavStar>;
 
 export const Preview: Story = {};
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   render: args => (
     <StoryHStack>
-      <StoryVStack>
-        <Typography as="span" typographyType="labelMedium">
-          Medium
-        </Typography>
-        <FavStar {...args} size="medium" />
-      </StoryVStack>
-      <StoryVStack>
-        <Typography as="span" typographyType="labelMedium">
-          Large
-        </Typography>
-        <FavStar {...args} size="large" />
-      </StoryVStack>
+      {FAVSTAR_SIZES.map(size => (
+        <StoryVStack key={size}>
+          <Typography as="span" typographyType="labelMedium">
+            {labelText(size)}
+          </Typography>
+          <FavStar {...args} size={size} />
+        </StoryVStack>
+      ))}
     </StoryHStack>
   ),
 };

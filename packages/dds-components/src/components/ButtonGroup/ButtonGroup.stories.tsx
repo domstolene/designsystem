@@ -1,7 +1,12 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryHtml, commonArgTypes } from '../../storybook/helpers';
+import {
+  categoryHtml,
+  commonArgTypes,
+  labelText,
+} from '../../storybook/helpers';
 import { Button } from '../Button/Button';
+import { BUTTON_SIZES } from '../Button/Button.types';
 import { StoryVStack } from '../layout/Stack/utils';
 
 import { ButtonGroup } from '.';
@@ -32,26 +37,13 @@ export const Preview: Story = {
 export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <ButtonGroup {...args} buttonSize="large">
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args}>
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args} buttonSize="small">
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args} buttonSize="xsmall">
-        <Button>Første</Button>
-        <Button>Andre</Button>
-        <Button>Tredje</Button>
-      </ButtonGroup>
+      {BUTTON_SIZES.map(size => (
+        <ButtonGroup key={size} {...args} buttonSize={size}>
+          <Button>{labelText(size)}</Button>
+          <Button>{labelText(size)}</Button>
+          <Button>{labelText(size)}</Button>
+        </ButtonGroup>
+      ))}
     </StoryVStack>
   ),
 };
