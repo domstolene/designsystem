@@ -25,6 +25,9 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+        exclude-patterns:
+          - 'typescript'
+
       storybook:
         patterns:
           - '@storybook/*'
