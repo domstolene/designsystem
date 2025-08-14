@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 21.9.2
+
+### Patch Changes
+
+- d78c546: Fikser bug der verdier for deprecated HTML attributt `color` var støttet i tillegg til `color` prop i `<Divider>`.
+
 ## 21.9.1 (2025-08-14)
 
 ### Patch Changes
