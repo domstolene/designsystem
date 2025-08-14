@@ -4,8 +4,11 @@ import { fn } from 'storybook/test';
 import {
   categoryHtml,
   htmlEventArgType,
+  labelText,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
+import { INPUT_SIZES } from '../helpers/Input';
 import { MailIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
@@ -16,7 +19,7 @@ export default {
   title: 'dds-components/Components/TextInput',
   component: TextInput,
   argTypes: {
-    width: { control: { type: 'text' } },
+    width: responsivePropsArgTypes.width,
     maxLength: { control: 'number', table: categoryHtml },
     required: { control: 'boolean', table: categoryHtml },
     disabled: { control: 'boolean', table: categoryHtml },
@@ -67,18 +70,27 @@ export const Overview: Story = {
 };
 
 export const Sizes: Story = {
-  args: { label: 'Label' },
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <TextInput {...args} />
-        <TextInput {...args} componentSize="small" />
-        <TextInput {...args} componentSize="xsmall" />
+        {INPUT_SIZES.map(size => (
+          <TextInput
+            {...args}
+            key={size}
+            label={labelText(size)}
+            componentSize={size}
+          />
+        ))}
       </StoryVStack>
       <StoryVStack>
-        <TextInput {...args} icon={MailIcon} />
-        <TextInput {...args} componentSize="small" icon={MailIcon} />
-        <TextInput {...args} componentSize="xsmall" icon={MailIcon} />
+        {INPUT_SIZES.map(size => (
+          <TextInput
+            {...args}
+            label={labelText(size)}
+            componentSize={size}
+            icon={MailIcon}
+          />
+        ))}
       </StoryVStack>
     </StoryHStack>
   ),

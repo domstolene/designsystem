@@ -1,6 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
+import { PROGRESS_BAR_SIZES } from './ProgressBar';
 import {
+  labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
@@ -21,6 +23,8 @@ type Story = StoryObj<typeof ProgressBar>;
 export const Preview: Story = {
   args: {
     label: 'Label',
+    value: 3,
+    max: 5,
   },
 };
 
@@ -41,12 +45,14 @@ export const Overview: Story = {
 export const Sizes: Story = {
   args: {
     label: 'Label',
-    value: 50,
+    value: 3,
+    max: 5,
   },
   render: args => (
     <StoryVStack>
-      <ProgressBar {...args} />
-      <ProgressBar {...args} size="small" />
+      {PROGRESS_BAR_SIZES.map(size => (
+        <ProgressBar {...args} key={size} size={size} label={labelText(size)} />
+      ))}
     </StoryVStack>
   ),
 };
@@ -55,6 +61,8 @@ export const ResponsiveWidth: Story = {
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
     label: 'Label',
+    value: 3,
+    max: 5,
     width: {
       xs: '100%',
       sm: '100%',

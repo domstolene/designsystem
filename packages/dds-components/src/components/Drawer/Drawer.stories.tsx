@@ -8,6 +8,7 @@ import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Paragraph } from '../Typography';
+import { DRAWER_SIZES } from './Drawer';
 
 import { Drawer, DrawerGroup } from '.';
 
@@ -99,82 +100,38 @@ export const OverviewPlacement: Story = {
   ),
 };
 
-export const OverviewSizes: Story = {
-  args: { header: 'Rettsmekling' },
+export const Sizes: Story = {
+  args: { header: 'Header' },
   render: args => (
     <StoryHStack>
-      <DrawerGroup>
-        <Button>Åpne liten</Button>
-        <Drawer {...args}>
-          <div>
-            <Paragraph>
-              En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
-              hovedforhandling og dom. Det går ut på at partene kommer fram til
-              en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
-              raskere, mer effektiv og billigere måte å løse konflikten på.
-            </Paragraph>
-            <Heading level={2} typographyType="headingLarge" withMargins>
-              Hva er rettsmekling?
-            </Heading>
-            <Paragraph>
-              Rettsmekling går ut på at partene selv finner en løsning på
-              konflikten ved å bruke en mekler (vanligvis en dommer i domstolen
-              som behandler saken). Avtalen man kommer fram til, blir
-              rettskraftig på lik linje med en dom. Rettsmekling kan bare brukes
-              i sivile saker, ikke i straffesaker.
-            </Paragraph>
-          </div>
-          <Button>Gjør noe</Button>
-        </Drawer>
-      </DrawerGroup>
-      <DrawerGroup>
-        <Button>Åpne medium</Button>
-        <Drawer {...args} size="medium">
-          <div>
-            <Paragraph>
-              En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
-              hovedforhandling og dom. Det går ut på at partene kommer fram til
-              en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
-              raskere, mer effektiv og billigere måte å løse konflikten på.
-            </Paragraph>
-            <Heading level={2} typographyType="headingLarge" withMargins>
-              Hva er rettsmekling?
-            </Heading>
-            <Paragraph>
-              Rettsmekling går ut på at partene selv finner en løsning på
-              konflikten ved å bruke en mekler (vanligvis en dommer i domstolen
-              som behandler saken). Avtalen man kommer fram til, blir
-              rettskraftig på lik linje med en dom. Rettsmekling kan bare brukes
-              i sivile saker, ikke i straffesaker.
-            </Paragraph>
-          </div>
-          <Button>Gjør noe</Button>
-        </Drawer>
-      </DrawerGroup>
-      <DrawerGroup>
-        <Button>Åpne stor</Button>
-        <Drawer {...args} size="large">
-          <div>
-            <Paragraph>
-              En sivil tvist kan løses ved hjelp av rettsmekling i stedet for
-              hovedforhandling og dom. Det går ut på at partene kommer fram til
-              en avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
-              raskere, mer effektiv og billigere måte å løse konflikten på.
-            </Paragraph>
-            <Heading level={2} typographyType="headingLarge" withMargins>
-              Hva er rettsmekling?
-            </Heading>
-            <Paragraph>
-              Rettsmekling går ut på at partene selv finner en løsning på
-              konflikten ved å bruke en mekler (vanligvis en dommer i domstolen
-              som behandler saken). Avtalen man kommer fram til, blir
-              rettskraftig på lik linje med en dom. Rettsmekling kan bare brukes
-              i sivile saker, ikke i straffesaker.
-            </Paragraph>
-          </div>
-          <Button>Gjør noe</Button>
-        </Drawer>
-      </DrawerGroup>
+      {DRAWER_SIZES.map(size => (
+        <DrawerGroup key={size}>
+          <Button>Åpne {size}</Button>
+          <Drawer {...args} size={size}>
+            <div>
+              <Paragraph>
+                Dette er en eksempeletekst. Den er litt lengre slik at man kan
+                tydelig vise forskjeller mellom ulike størrelser på komponenten.
+                Teksten er et par setninger lang.
+              </Paragraph>
+              <Heading level={3} withMargins>
+                Dette er en overskrift
+              </Heading>
+              <Paragraph>
+                Dette er en eksempeletekst. Den er litt lengre slik at man kan
+                tydelig vise forskjeller mellom ulike størrelser på komponenten.
+                Teksten er et par setninger lang. Dette er en eksempeletekst.
+                Den er litt lengre slik at man kan tydelig vise forskjeller
+                mellom ulike størrelser på komponenten. Teksten er et par
+                setninger lang. Dette er en eksempeletekst. Den er litt lengre
+                slik at man kan tydelig vise forskjeller mellom ulike størrelser
+                på komponenten. Teksten er et par setninger lang.
+              </Paragraph>
+            </div>
+            <Button>Gjør noe</Button>
+          </Drawer>
+        </DrawerGroup>
+      ))}
     </StoryHStack>
   ),
 };
@@ -190,7 +147,7 @@ export const Controlled: Story = {
           <Button>Åpne</Button>
           <Drawer {...args}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            eiusmod tempor incididunt ut labore en dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat. Duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -248,7 +205,7 @@ export const LongContent: Story = {
             avtale, kalt rettsforlik, ved hjelp av en mekler. Dette er en
             raskere, mer effektiv og billigere måte å løse konflikten på.
           </Paragraph>
-          <Heading level={2} typographyType="headingLarge" withMargins>
+          <Heading level={3} withMargins>
             Hva er rettsmekling?
           </Heading>
           <Paragraph withMargins>
@@ -258,7 +215,7 @@ export const LongContent: Story = {
             på lik linje med en dom. Rettsmekling kan bare brukes i sivile
             saker, ikke i straffesaker.
           </Paragraph>
-          <Heading level={2} typographyType="headingLarge" withMargins>
+          <Heading level={3} withMargins>
             Hva er fordelene med rettsmekling?
           </Heading>
           <Paragraph withMargins>

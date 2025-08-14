@@ -6,7 +6,7 @@ import { useTranslation } from '../../i18n';
 import { commonTexts } from '../../i18n/commonTexts';
 import {
   type BaseComponentProps,
-  type Size,
+  createSizes,
   getBaseHTMLProps,
 } from '../../types';
 import { cn, readOnlyClickHandler, readOnlyKeyDownHandler } from '../../utils';
@@ -17,7 +17,8 @@ import { CheckIcon, LockIcon } from '../Icon/icons';
 import { Spinner } from '../Spinner';
 import { VisuallyHidden } from '../VisuallyHidden';
 
-export type ToggleSize = Extract<Size, 'medium' | 'large'>;
+export const TOGGLE_SIZES = createSizes('medium', 'large');
+export type ToggleSize = (typeof TOGGLE_SIZES)[number];
 
 export type ToggleProps = BaseComponentProps<
   HTMLElement,

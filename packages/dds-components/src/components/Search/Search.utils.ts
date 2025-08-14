@@ -1,8 +1,10 @@
 import { type ChangeEvent } from 'react';
 
 import { type SearchSize } from './Search.types';
+import { createSizes } from '../../types';
 import { type StaticTypographyType } from '../Typography';
 
+export const SEARCH_SIZES = createSizes('small', 'medium', 'large');
 export const typographyTypes: Record<SearchSize, StaticTypographyType> = {
   small: 'bodySmall',
   medium: 'bodyMedium',

@@ -19,7 +19,7 @@ export const Preview: Story = {
   args: { children: 'Heading', level: 1 },
 };
 
-export const Overview: Story = {
+export const LevelDefaults: Story = {
   render: args => (
     <StoryVStack>
       <Heading {...args} level={1}>
@@ -44,7 +44,7 @@ export const Overview: Story = {
   ),
 };
 
-export const OverviewStyles: Story = {
+export const TypographyStyles: Story = {
   render: args => (
     <StoryVStack>
       <Heading {...args} level={1} typographyType="headingXxlarge">

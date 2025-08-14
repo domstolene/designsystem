@@ -1,9 +1,10 @@
 import { type InputHTMLAttributes } from 'react';
 
-import { type BaseComponentProps, type Size } from '../../types';
+import { type BaseComponentProps, createSizes } from '../../types';
 import { type InputProps } from '../helpers/Input';
 
-export type InputStepperSize = Extract<Size, 'small' | 'medium'>;
+export const INPUT_STEPPER_SIZES = createSizes('small', 'medium');
+export type InputStepperSize = (typeof INPUT_STEPPER_SIZES)[number];
 
 export function isPositiveInteger(n: number): n is number {
   return Number.isInteger(n) && n >= 0;

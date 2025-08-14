@@ -1,10 +1,12 @@
 import { type ButtonHTMLAttributes, type ReactNode } from 'react';
 
-import { type BaseComponentProps, type Size } from '../../types';
+import { type BaseComponentProps, createSizes } from '../../types';
 import { type SvgIcon } from '../Icon/utils';
 
+export const BUTTON_SIZES = createSizes('xsmall', 'small', 'medium', 'large');
+
 export type ButtonPurpose = 'primary' | 'secondary' | 'danger' | 'tertiary';
-export type ButtonSize = Extract<Size, 'xsmall' | 'small' | 'medium' | 'large'>;
+export type ButtonSize = (typeof BUTTON_SIZES)[number];
 export type IconPosition = 'left' | 'right';
 
 type PickedHTMLAttributes = Pick<

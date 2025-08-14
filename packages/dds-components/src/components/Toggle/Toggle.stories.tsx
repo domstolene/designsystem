@@ -7,8 +7,10 @@ import {
   commonArgTypes,
   htmlArgType,
   htmlEventArgType,
+  labelText,
 } from '../../storybook/helpers';
 import { Button } from '../Button';
+import { TOGGLE_SIZES } from './Toggle';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Toggle } from '.';
@@ -60,8 +62,11 @@ export const Overview: Story = {
 export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <Toggle {...args} size="medium" children="Medium" />
-      <Toggle {...args} size="large" children="Large" />
+      {TOGGLE_SIZES.map(size => (
+        <Toggle {...args} key={size} size={size}>
+          {labelText(size)}
+        </Toggle>
+      ))}
     </StoryVStack>
   ),
 };

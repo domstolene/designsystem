@@ -13,10 +13,12 @@ import { fn } from 'storybook/test';
 import { LanguageProvider } from '../../../i18n';
 import {
   htmlEventArgType,
+  labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../../storybook/helpers';
 import { Button } from '../../Button';
+import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Modal } from '../../Modal';
 import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
@@ -139,12 +141,17 @@ export const Error: Story = {
   args: { label: 'Dato', errorMessage: 'Her er noe veldig galt! 😨' },
 };
 
-export const OverviewSizes: Story = {
+export const Sizes: Story = {
   render: args => (
     <StoryVStack>
-      <DatePicker {...args} componentSize="medium" label="Medium" />
-      <DatePicker {...args} componentSize="small" label="Small" />
-      <DatePicker {...args} componentSize="xsmall" label="Tiny" />
+      {INPUT_SIZES.map(size => (
+        <DatePicker
+          {...args}
+          key={size}
+          componentSize={size}
+          label={labelText(size)}
+        />
+      ))}
     </StoryVStack>
   ),
 };
