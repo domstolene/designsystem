@@ -21,13 +21,20 @@ export default {
 
 type Story = StoryObj<typeof Breadcrumb>;
 
-export const BreadcrumbPreview: Story = {
+export const Preview: Story = {
+  args: {
+    children: 'Side',
+    href: '/',
+  },
+};
+
+export const CurrentPage: Story = {
   args: {
     children: 'Side',
   },
 };
 
-export const BreadcrumbOverview: Story = {
+export const Overview: Story = {
   render: args => (
     <StoryVStack>
       <Breadcrumb {...args} href="#">

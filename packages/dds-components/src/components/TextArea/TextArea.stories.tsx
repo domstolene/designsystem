@@ -5,6 +5,7 @@ import { TextArea } from './TextArea';
 import {
   categoryHtml,
   htmlEventArgType,
+  responsivePropsArgTypes,
   windowWidthDecorator,
 } from '../../storybook/helpers';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
@@ -13,7 +14,7 @@ export default {
   title: 'dds-components/Components/TextArea',
   component: TextArea,
   argTypes: {
-    width: { control: 'text' },
+    width: responsivePropsArgTypes.width,
     maxLength: { control: 'number', table: categoryHtml },
     required: { control: 'boolean', table: categoryHtml },
     disabled: { control: 'boolean', table: categoryHtml },

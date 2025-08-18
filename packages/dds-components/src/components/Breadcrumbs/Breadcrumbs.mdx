@@ -28,12 +28,10 @@ Komponenten kan være responsiv hvis et brekkepunkt er spesifisert.
 
 ### Breadcrumbs
 
-<Canvas of={BreadcrumbsStories.Preview} />
-<Controls of={BreadcrumbsStories.Preview} />
-
 Selve brødsmulestien. Skal ha `<Breadcrumb>` som barn.
 
-I tillegg støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLElement>`-interface i `htmlProps`.
+<Canvas of={BreadcrumbsStories.Preview} />
+<Controls of={BreadcrumbsStories.Preview} />
 
 ### Breadcrumb
 
@@ -41,7 +39,8 @@ Brødsmule. Returnerer `<a>` hvis `href`-prop er oppgitt eller `<span>` hvis ikk
 
 **OBS!** Alle `<Breadcrumb>`-komponenter bør være lenker bortsett fra den siste som tilsvarer siden brukeren er inne på.
 
-<Canvas of={BreadcrumbStories.BreadcrumbPreview} />
+<Canvas of={BreadcrumbStories.Preview} />
+<Controls of={BreadcrumbStories.Preview} />
 
 Den støtter alle native HTML-attributter som er en del av `AnchorHTMLAttributes<HTMLAnchorElement>` eller `HTMLAttributes<HTMLSpanElement>` -interface.
 
