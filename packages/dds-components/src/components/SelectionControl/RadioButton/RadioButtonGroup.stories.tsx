@@ -34,7 +34,7 @@ let counter = 0;
 const name = () => `test${counter++}`;
 
 export const Preview: Story = {
-  args: { label: 'Label', children },
+  args: { label: 'Label', children, name: 'test' },
 };
 
 export const Overview: Story = {
