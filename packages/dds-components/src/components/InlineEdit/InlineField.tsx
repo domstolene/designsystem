@@ -91,7 +91,12 @@ export function InlineField<T extends EditElementTag>(
       <Icon
         iconSize={iconSize}
         icon={icon}
-        className={cn(className, utilStyles['center-absolute-y'])}
+        className={cn(
+          className,
+          elementType === 'textarea'
+            ? styles['edit-icon-textarea']
+            : utilStyles['center-absolute-y'],
+        )}
       />
     );
   }
