@@ -17,6 +17,7 @@
   padding-left: calc(
     var(--dds-spacing-x2) - (var(--dds-list-ul-li-padding-left))
   );
+  --dds-list-bullet-size: 1em;
 
   li {
     position: relative;
@@ -26,10 +27,13 @@
     &:before {
       content: '';
       display: inline-block;
-      height: 1em;
-      width: 1em;
+      height: var(--dds-list-bullet-size);
+      width: var(--dds-list-bullet-size);
       position: absolute;
-      top: calc((2.5em / 2) - 0.5em);
+      top: calc(
+        (var(--dds-font-lineheight-list) * 1em) / 2 -
+          var(--dds-list-bullet-size) / 2
+      );
       left: 0;
       background: var(--dds-color-text-body);
       mask-size: 100%;

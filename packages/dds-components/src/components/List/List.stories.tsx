@@ -47,11 +47,11 @@ export const Overview: Story = {
             <ListItem>Item</ListItem>
             <ListItem>
               Item
-              <List>
+              <List typographyType={typographyType} listType={listType}>
                 <ListItem>Item</ListItem>
                 <ListItem>
                   Item
-                  <List>
+                  <List typographyType={typographyType} listType={listType}>
                     <ListItem>Item</ListItem>
                     <ListItem>Item</ListItem>
                   </List>
@@ -108,29 +108,20 @@ export const Example: Story = {
   render: args => (
     <div style={{ maxWidth: '700px' }}>
       <Typography withMargins>
-        Første gang du gjør tjeneste som arbeidslivskyndig meddommer, vil
-        rettens leder be deg om:
+        Dette er et eksempelsetning som viser hvordan komponenten ser ut i
+        mengdetekst. Her er listen:
       </Typography>
       <List {...args}>
-        <ListItem>å følge nøye med i forhandlingen</ListItem>
-        <ListItem>
-          merke deg forklaringene som blir gitt og bevisene som blir fremlagt
-        </ListItem>
-        <ListItem>
-          å gi uttrykk for hvordan du vurderer saken etter at bevisene er lagt
-          frem
-        </ListItem>
-        <ListItem>
-          å ikke legge vekt på andre forhold enn bevisene som er ført i saken
-        </ListItem>
+        <ListItem>første punkt i listen</ListItem>
+        <ListItem>andre punkt i listen er her</ListItem>
+        <ListItem>og så tredje punkt</ListItem>
+        <ListItem>til slutt kommer fjerde punkt</ListItem>
       </List>
       <Typography withMargins>
-        Første gang du er i retten må du også avgi en forsikring. Den sier at du
-        både i den aktuelle saken og i fremtidige saker vil gi vel akt på alt
-        som fremkommer gjennom forhandlingene i retten, og at du vil dømme slik
-        du finner sannest å rettest å være etter loven og sakens bevisligheter.
-        På oppfordring fra dommeren, skal du til dette svare: «Det forsikrer
-        jeg.»
+        Eksempeltekst under listen. Den skal være litt lengre for å få mer
+        realistisk inntrykk; gjerne over minst to linjer, men helst tre. Derfor
+        trenger vi en ekstra setning i dette avsnittet. Og gjerne enda en for å
+        være helt sikker.
       </Typography>
     </div>
   ),
