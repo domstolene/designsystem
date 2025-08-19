@@ -54,7 +54,7 @@
     "rollup-plugin-sass": "^1.15.3",
     "rollup-plugin-typescript2": "^0.36.0",
     "style-dictionary": "^5.0.1",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   },
   "publishConfig": {
     "provenance": true
