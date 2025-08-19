@@ -167,11 +167,15 @@ export const WithAddTabButton: Story = {
 };
 
 export const WithWidth: Story = {
+  args: { width: '500px' },
   render: args => (
-    <Tabs {...args} width="500px">
-      {tabList()}
-      {tabPanels}
-    </Tabs>
+    <>
+      <Paragraph withMargins>Bredde: {args.width?.toString()}</Paragraph>
+      <Tabs {...args}>
+        {tabList()}
+        {tabPanels}
+      </Tabs>
+    </>
   ),
 };
 

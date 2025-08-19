@@ -2,14 +2,12 @@ import { type HTMLAttributes, useEffect, useId, useRef, useState } from 'react';
 
 import { type AddTabButtonProps } from './AddTabButton';
 import { TabsContext } from './Tabs.context';
-import styles from './Tabs.module.css';
 import {
   type BaseComponentPropsWithChildren,
   type Direction,
   createSizes,
   getBaseHTMLProps,
 } from '../../types';
-import { cn } from '../../utils';
 import { Box, type ResponsiveProps } from '../layout';
 
 export const TABS_SIZES = createSizes('small', 'medium');
@@ -82,12 +80,7 @@ export const Tabs = ({
       }}
     >
       <Box
-        {...getBaseHTMLProps(
-          uniqueId,
-          cn(className, styles.tabs),
-          htmlProps,
-          rest,
-        )}
+        {...getBaseHTMLProps(uniqueId, className, htmlProps, rest)}
         width={width}
       >
         {children}
