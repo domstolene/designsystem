@@ -56,6 +56,15 @@
   z-index: var(--dds-zindex-absolute-element);
 }
 
+/* Sentrerer ikonet i forhold til første linjen med tekst */
+.edit-icon-textarea {
+  position: absolute;
+  top: calc(
+    ((var(--dds-font-lineheight-x1) * 1em - var(--dds-icon-size-small)) / 2) +
+      var(--dds-spacing-x0-25)
+  );
+}
+
 .chevron {
   right: var(--dds-spacing-x0-25);
   pointer-events: none;
