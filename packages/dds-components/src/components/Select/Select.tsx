@@ -1,12 +1,18 @@
 import {
   type HTMLAttributes,
   type JSX,
+  type ReactNode,
   type Ref,
+  useCallback,
   useContext,
   useId,
 } from 'react';
 import {
+  type ClearIndicatorProps,
+  type ControlProps,
+  type DropdownIndicatorProps,
   type GroupBase,
+  type InputProps,
   type OptionProps,
   default as ReactSelect,
   type Props as ReactSelectProps,
@@ -153,6 +159,83 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
     componentSize === 'xsmall' && 'var(--dds-input-default-width-xsmall)',
   );
 
+  const customInput = useCallback(
+    <Option, IsMulti extends boolean>(
+      props: InputProps<Option, IsMulti>,
+    ): ReactNode => (
+      <DDSInput
+        {...props}
+        readOnly={readOnly}
+        aria-required={ariaRequired}
+        aria-activedescendant={
+          props['aria-activedescendant'] === ''
+            ? undefined
+            : props['aria-activedescendant']
+        }
+        ariaInvalid={hasErrorMessage}
+        ariaDescribedby={spaceSeparatedIdListGenerator([
+          singleValueId,
+          tip ? tipId : undefined,
+          errorMessage ? errorMessageId : undefined,
+        ])}
+      />
+    ),
+    [],
+  );
+
+  const customSingleValue = useCallback(
+    (
+      props: SingleValueProps<Option, IsMulti, GroupBase<Option>>,
+    ): ReactNode => (
+      <CustomSingleValue
+        {...props}
+        id={singleValueId}
+        Element={customSingleValueElement}
+      />
+    ),
+    [],
+  );
+
+  const customClearIndicator = useCallback(
+    (
+      props: ClearIndicatorProps<Option, IsMulti, GroupBase<Option>>,
+    ): ReactNode => <DDSClearIndicator {...props} size={componentSize} />,
+    [componentSize],
+  );
+
+  const customDropdownIndicator = useCallback(
+    (
+      props: DropdownIndicatorProps<Option, IsMulti, GroupBase<Option>>,
+    ): ReactNode => (
+      <DDSDropdownIndicator {...props} componentSize={componentSize} />
+    ),
+    [componentSize],
+  );
+
+  const customControl = useCallback(
+    (props: ControlProps<Option, IsMulti, GroupBase<Option>>): ReactNode => (
+      <DDSControl
+        {...props}
+        componentSize={componentSize}
+        readOnly={readOnly}
+        icon={icon}
+        dataTestId={dataTestId}
+      />
+    ),
+    [componentSize, readOnly, icon, dataTestId],
+  );
+
+  const customOptionComponent = useCallback(
+    (props: OptionProps<Option, IsMulti, GroupBase<Option>>): ReactNode => {
+      if (customOptionElement) {
+        return <CustomOption {...props} customElement={customOptionElement} />;
+      } else {
+        return <DDSOption {...props} componentSize={componentSize} />;
+      }
+    },
+    [customOptionElement, componentSize],
+  );
+
   const reactSelectProps: ReactSelectProps<
     Option,
     IsMulti,
@@ -186,34 +269,14 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       return searchFilter(label, inputValue) || inputValue === '';
     },
     components: {
-      Option: customOptionElement
-        ? props => CustomOption(props, customOptionElement)
-        : props => DDSOption(props, componentSize),
+      Option: customOptionComponent,
       NoOptionsMessage: DDSNoOptionsMessage,
-      Input: props =>
-        DDSInput(
-          {
-            ...props,
-            readOnly,
-            'aria-required': ariaRequired,
-            'aria-activedescendant':
-              props['aria-activedescendant'] === ''
-                ? undefined
-                : props['aria-activedescendant'],
-          },
-          hasErrorMessage,
-          spaceSeparatedIdListGenerator([
-            singleValueId,
-            tip ? tipId : undefined,
-            errorMessage ? errorMessageId : undefined,
-          ]),
-        ),
-      SingleValue: props =>
-        CustomSingleValue(props, singleValueId, customSingleValueElement),
-      ClearIndicator: props => DDSClearIndicator(props, componentSize),
-      DropdownIndicator: props => DDSDropdownIndicator(props, componentSize),
+      Input: customInput,
+      SingleValue: customSingleValue,
+      ClearIndicator: customClearIndicator,
+      DropdownIndicator: customDropdownIndicator,
       MultiValueRemove: DDSMultiValueRemove,
-      Control: DDSControl(componentSize, readOnly, icon, dataTestId),
+      Control: customControl,
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
     required,
