@@ -45,7 +45,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "@tokens-studio/sd-transforms": "^2.0.1",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
     "rollup": "^3.29.5",
