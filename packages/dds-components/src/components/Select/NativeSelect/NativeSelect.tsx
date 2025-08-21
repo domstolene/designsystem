@@ -30,10 +30,12 @@ import { Label } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type NativeSelectProps = {
-  /**Om verdien til `<select>` kan tømmes. */
+  /** Om verdien til `<select>` kan tømmes. */
   clearable?: boolean;
+  /** Implementerer `readOnly` oppførsel etter standard for `<input>` og setter `readOnly` styling. */
+  readOnly?: InputProps['readOnly'];
 } & CommonInputProps &
-  Pick<InputProps, 'componentSize' | 'readOnly'> &
+  Pick<InputProps, 'componentSize'> &
   ComponentPropsWithRef<'select'>;
 
 export const NativeSelect = ({
