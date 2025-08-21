@@ -1,7 +1,3 @@
-.tabs {
-  width: var(--dds-tabs-width);
-}
-
 .tab-row {
   display: grid;
   overflow-x: auto;
