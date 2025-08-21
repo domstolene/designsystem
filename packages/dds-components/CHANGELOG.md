@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 21.9.2 (2025-08-21)
+
+### Patch Changes
+
+- 22c1de8: Fikser bug der redigeringsikonet var plassert feil i `<InlineEditTextArea>`.
+- ad3c1c4: Fikser bug der `width` prop i `<Tabs>` hadde ingen effekt.
+- bd3cf8e: Fikser plasseringen på bullet i `<List>`.
+- d78c546: Fikser bug der verdier for deprecated HTML attributt `color` var støttet i tillegg til `color` prop i `<Divider>`.
+- a39e5f2: Fikser feil der `<Select>`-komponenten kunne miste fokus dersom noen av propertyene endret seg mens den var åpnet.
+
 ## 21.9.1 (2025-08-14)
 
 ### Patch Changes
