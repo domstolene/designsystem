@@ -4,6 +4,7 @@ import { fn } from 'storybook/test';
 
 import { FAVSTAR_SIZES, FavStar } from './FavStar';
 import {
+  StoryLabel,
   categoryHtml,
   commonArgTypes,
   htmlEventArgType,
@@ -17,7 +18,7 @@ import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { Table } from '../Table';
 import { Tooltip } from '../Tooltip';
-import { Caption, Link, Typography } from '../Typography';
+import { Caption, Link } from '../Typography';
 
 const meta: Meta<typeof FavStar> = {
   title: 'dds-components/Components/FavStar',
@@ -42,9 +43,7 @@ export const Sizes: Story = {
     <StoryHStack>
       {FAVSTAR_SIZES.map(size => (
         <StoryVStack key={size}>
-          <Typography as="span" typographyType="labelMedium">
-            {labelText(size)}
-          </Typography>
+          <StoryLabel>{labelText(size)}</StoryLabel>
           <FavStar {...args} size={size} />
         </StoryVStack>
       ))}

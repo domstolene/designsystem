@@ -4,6 +4,7 @@ import { fn } from 'storybook/test';
 
 import { TOGGLE_BAR_SIZES } from './ToggleBar.types';
 import {
+  StoryLabel,
   commonArgTypes,
   labelText,
   responsivePropsArgTypes,
@@ -12,7 +13,6 @@ import {
 import { PlusCircledIcon } from '../Icon/icons';
 import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { Typography } from '../Typography';
 
 import { ToggleBar, ToggleRadio } from '.';
 
@@ -61,9 +61,7 @@ export const Sizes: Story = {
       <StoryHStack flexWrap="wrap">
         {TOGGLE_BAR_SIZES.map(size => (
           <VStack key={size} gap="x0.125">
-            <Typography as="span" typographyType="labelMedium">
-              {labelText(size)}
-            </Typography>
+            <StoryLabel>{labelText(size)}</StoryLabel>
             <StoryVStack>
               <ToggleBar {...args} name={`test${name++}`} size={size}>
                 {toggleRadios(true)}
