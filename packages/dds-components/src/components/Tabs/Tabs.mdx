@@ -5,7 +5,7 @@ import {
   Story,
   Controls,
 } from '@storybook/addon-docs/blocks';
-import { Tab, TabPanel, TabList } from '.';
+import { Tabs, Tab, TabPanel, TabPanels, TabList } from '.';
 import {
   Source,
   ComponentLinkRow,
@@ -24,80 +24,76 @@ import * as TabsStories from './Tabs.stories';
   withBottomSpacing
 />
 
-Komponenten består av flere subkomponenter:
+## Delkomponenter
 
-- `<Tabs>` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har `<TabList>` og `<TabPanels>` som barn.
-- `<Tab>` - en fane.
-- `<TabList>` - liste med faner. Håndterer ARIA-attributter og `id` for barna.
-- `<TabPanel>` - panel med innhold som hører til en spesifikk fane.
-- `<TabPanels>` - liste med paneler. Håndterer ARIA-attributter og `id` for barna.
+<Tabs>
+  <TabList>
+    <Tab>Tabs</Tab>
+    <Tab>TabList</Tab>
+    <Tab>Tab</Tab>
+    <Tab>TabPanels</Tab>
+    <Tab>TabPanel</Tab>
+  </TabList>
+  <TabPanels paddingBlock='x1.5 0'>
+    <TabPanel>
+      Ytterste container for andre delkomponenter. Håndterer oppførsel og eventuelt litt styling. Har `<TabList>` og `<TabPanels>` som barn.
 
-## Props
+      <Canvas of={TabsStories.Preview} />
+      <Controls of={TabsStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      En liste med `<Tab>`. Setter ARIA-attributter som `aria-controls` og roving focus for barna. `<TabList>` skal ha `<Tab>` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels>`.
 
-### Tabs
+      Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+    </TabPanel>
+    <TabPanel>
+      En fane. Tilhørende `<TabPanel>` vises ved museklikk. Har `type="button"` som default.
 
-Ytterste container som styrer hvilket panel skal vises via indeks. Har `<TabList>` og `<TabPanels>` som barn.
+      <ArgTypes of={Tab} />
+    </TabPanel>
+    <TabPanel>
+      En liste med `<TabPanel>`. Setter attributter som `aria-labelledby` for barna. `<TabPanels>` skal ha `<TabPanel>` som barn i samme rekkefølge som tilhørende paneler i `<TabList>`.
 
-<Canvas of={TabsStories.Preview} />
+      <ArgTypes of={TabPanels} />
 
-<Controls of={TabsStories.Preview} />
+      Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+    </TabPanel>
+    <TabPanel>
+      Panel med innhold. Vises ved museklikk på tilhørende `<Tab>`.
 
-### Tab
+      <ArgTypes of={TabPanel} />
+    </TabPanel>
 
-En fane. Tilhørende `<TabPanel>` vises ved museklikk. Har `type="button"` som default.
-
-<ArgTypes of={Tab} />
-
-#### Bredde
-
-For å endre på bredden til tabs kan du bruke `width`-attributtet. Her støttes alle de samme enhetene som i `grid-template-columns` i CSS.
-
-<Source
-  code={`import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@norges-domstoler/dds-components';
-  <Tabs>
-    <TabList>
-      <Tab width="max-content">Tab 1</Tab>
-      <Tab width="8rem">Tab 2</Tab>
-      <Tab width="1fr">Tab 3</Tab>
-    </TabList>
-    <TabPanels>
-      <TabPanel>Innhold 1</TabPanel>
-      <TabPanel>Innhold 2</TabPanel>
-      <TabPanel>Innhold 3</TabPanel>
-    </TabPanels>
-  </Tabs>
-
-`}
-/>
-
-### TabList
-
-En liste med `<Tab>`. Setter attributter som `aria-controls` og roving focus for barna. `<TabList>` skal ha `<Tab>` som barn i samme rekkefølge som tilhørende paneler i `<TabPanels>`.
-
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
-
-### TabPanel
-
-Panel med innhold. Vises ved museklikk på tilhørende `<Tab>`.
-
-<ArgTypes of={TabPanel} />
-
-### TabPanels
-
-En liste med `<TabPanel>`. Setter attributter som `aria-labelledby` for barna. `<TabPanels>` skal ha `<TabPanel>` som barn i samme rekkefølge som tilhørende paneler i `<TabList>`.
-
-Det støttes alle native HTML-attributter som er en del av `HTMLAttributes<HTMLDivElement>`-interface.
+  </TabPanels>
+</Tabs>
 
 ## Eksempler
 
-### Aktiv fane
+<Tabs>
+  <TabList>
+    <Tab>Aktiv fane</Tab>
+    <Tab>Med ikon</Tab>
+    <Tab>Bredde</Tab>
+    <Tab>Med "Legg til"-knapp</Tab>
+    <Tab>Overflow</Tab>
+  </TabList>
+  <TabPanels paddingBlock="x1.5 0">
+    <TabPanel>
+      <Canvas of={TabsStories.ActiveTab} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TabsStories.WithIcon} />
+    </TabPanel>
+    <TabPanel>
 
-<Canvas of={TabsStories.ActiveTab} />
+      <Canvas of={TabsStories.DifferentWidths} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TabsStories.WithAddTabButton} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TabsStories.TabOverflow} sourceState="hidden" />
+    </TabPanel>
 
-### Med legg til-knapp
-
-<Canvas of={TabsStories.WithAddTabButton} />
-
-### Mange faner
-
-<Canvas of={TabsStories.ManyTabs} sourceState="hidden" />
+  </TabPanels>
+</Tabs>

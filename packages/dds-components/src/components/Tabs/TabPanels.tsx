@@ -8,8 +8,13 @@ import {
 import { type TabPanelProps } from './TabPanel';
 import { useTabsContext } from './Tabs.context';
 import { useCombinedRef } from '../../hooks';
+import { Box, type ResponsiveProps } from '../layout';
 
-export type TabPanelsProps = ComponentPropsWithRef<'div'>;
+export type TabPanelsProps = Pick<
+  ResponsiveProps,
+  'padding' | 'paddingBlock' | 'paddingInline'
+> &
+  ComponentPropsWithRef<'div'>;
 
 export const TabPanels = ({ children, ref, ...rest }: TabPanelsProps) => {
   const { activeTab, tabsId, tabPanelsRef } = useTabsContext();
@@ -31,9 +36,9 @@ export const TabPanels = ({ children, ref, ...rest }: TabPanelsProps) => {
   });
 
   return (
-    <div ref={combinedRef} {...rest}>
+    <Box ref={combinedRef} {...rest}>
       {panelChildren}
-    </div>
+    </Box>
   );
 };
 

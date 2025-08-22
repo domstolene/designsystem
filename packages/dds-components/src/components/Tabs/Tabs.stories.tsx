@@ -138,6 +138,10 @@ export const WithAddTabButton: Story = {
 
     return (
       <>
+        <Paragraph withMargins>
+          Legg til-knapp inkluderes direkte i fanerekka. Husk å begrense antall
+          faner, slik at brukeren ikke kan legge til uendelig mange.
+        </Paragraph>
         {tooManyText}
         <Tabs
           {...args}
@@ -178,25 +182,6 @@ export const WithWidth: Story = {
   ),
 };
 
-export const MaxContentWidth: Story = {
-  render: args => (
-    <>
-      <Paragraph withMargins>
-        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab.
-        Her er alle tabs satt til å ha bredde "<code>max-content</code>".
-      </Paragraph>
-      <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
-        <TabList>
-          <Tab width="max-content">Aktører</Tab>
-          <Tab width="max-content">Restriksjoner</Tab>
-          <Tab width="max-content">Vedlegg</Tab>
-        </TabList>
-        {tabPanels}
-      </Tabs>
-    </>
-  ),
-};
-
 export const ResponsiveWidth: Story = {
   decorators: [Story => windowWidthDecorator(<Story />)],
   args: {
@@ -216,33 +201,49 @@ export const ResponsiveWidth: Story = {
   ),
 };
 
-export const ManyTabs: Story = {
+export const DifferentWidths: Story = {
   render: args => (
-    <Tabs {...args} htmlProps={{ style: { width: '400px' } }}>
-      <TabList>
-        <Tab>Fane 1</Tab>
-        <Tab>Fane 2</Tab>
-        <Tab>Fane 3</Tab>
-        <Tab>Fane 4</Tab>
-        <Tab>Fane 5</Tab>
-        <Tab>Fane 6</Tab>
-        <Tab>Fane 7</Tab>
-        <Tab>Fane 8</Tab>
-        <Tab>Fane 9</Tab>
-        <Tab>Fane 10</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>Innhold 1</TabPanel>
-        <TabPanel>Innhold 2</TabPanel>
-        <TabPanel>Innhold 3</TabPanel>
-        <TabPanel>Innhold 4</TabPanel>
-        <TabPanel>Innhold 5</TabPanel>
-        <TabPanel>Innhold 6</TabPanel>
-        <TabPanel>Innhold 7</TabPanel>
-        <TabPanel>Innhold 8</TabPanel>
-        <TabPanel>Innhold 9</TabPanel>
-        <TabPanel>Innhold 10</TabPanel>
-      </TabPanels>
-    </Tabs>
+    <>
+      <Paragraph withMargins>
+        Dette er et eksempel på hvordan du kan sette egne bredder på hver tab
+        med <code>width</code>-attributtet. Det støttes de samme enhetene som i
+        <code>grid-template-columns</code> i CSS.
+      </Paragraph>
+      <Tabs {...args}>
+        <TabList>
+          <Tab width="max-content">Fane 1</Tab>
+          <Tab width="8rem">Fane 2</Tab>
+          <Tab width="1fr">Fane 3</Tab>
+        </TabList>
+        {tabPanels}
+      </Tabs>
+    </>
+  ),
+};
+
+export const TabOverflow: Story = {
+  render: args => (
+    <>
+      <Paragraph withMargins>
+        Hvis den totale bredden til fanene går utover tilgjengelig bredde vil
+        horisontal scrollbar vises.
+      </Paragraph>
+      <Tabs {...args} htmlProps={{ style: { width: '200px' } }}>
+        <TabList>
+          <Tab>Fane 1</Tab>
+          <Tab>Fane 2</Tab>
+          <Tab>Fane 3</Tab>
+          <Tab>Fane 4</Tab>
+          <Tab>Fane 5</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>Innhold 1</TabPanel>
+          <TabPanel>Innhold 2</TabPanel>
+          <TabPanel>Innhold 3</TabPanel>
+          <TabPanel>Innhold 4</TabPanel>
+          <TabPanel>Innhold 5</TabPanel>
+        </TabPanels>
+      </Tabs>
+    </>
   ),
 };

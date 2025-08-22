@@ -35,6 +35,7 @@ const meta: Meta = {
   title: 'Patterns/Form',
   parameters: {
     layout: 'fullscreen',
+    docs: { canvas: { inline: false } },
   },
 };
 
@@ -59,8 +60,8 @@ export const Form = () => {
             Navn på skjema
           </Heading>
           <Paragraph withMargins typographyType="leadMedium">
-            Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
-            ingress og body er vanlig mengdetekst.
+            Dette er et eksempel på en ingress. Den består ofte av et par
+            setninger. En setning til.
           </Paragraph>
           <Paragraph withMargins typographyType="bodySmall" color="text-subtle">
             Obligatoriske felter er merket med{' '}
@@ -123,7 +124,6 @@ export const Form = () => {
 
             <HStack gap="x1.5" paddingBlock="x1.5">
               <Button>Send inn</Button>
-              <Button purpose="tertiary">Avbryt og forkast</Button>
             </HStack>
           </VStack>
         </GridChild>
@@ -226,7 +226,6 @@ export const FormWithSteps = () => {
         </Fieldset>
         <HStack gap="x1.5" paddingBlock="x1.5">
           <Button>Neste</Button>
-          <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
       </VStack>
     </Fragment>,
@@ -271,7 +270,6 @@ export const FormWithSteps = () => {
         </Fieldset>
         <HStack gap="x1.5" paddingBlock="x1 0">
           <Button>Send inn</Button>
-          <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
       </VStack>
     </Fragment>,
@@ -302,8 +300,8 @@ export const FormWithSteps = () => {
             Navn på skjema
           </Heading>
           <Paragraph typographyType="leadMedium" withMargins>
-            Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
-            ingress og body er vanlig mengdetekst.
+            Dette er et eksempel på en ingress. Den består ofte av et par
+            setninger. En setning til.
           </Paragraph>
           <Paragraph typographyType="bodySmall" color="text-subtle" withMargins>
             Obligatoriske felter er merket med{' '}
@@ -462,7 +460,6 @@ export const FormWithStepsCustomGrid = () => {
           </Fieldset>
           <HStack gap="x1.5" paddingBlock="x1.5">
             <Button>Neste</Button>
-            <Button purpose="tertiary">Avbryt og forkast</Button>
           </HStack>
         </VStack>
       </form>
@@ -504,7 +501,6 @@ export const FormWithStepsCustomGrid = () => {
         </Fieldset>
         <HStack gap="x1.5" paddingBlock="x1.5">
           <Button>Send inn</Button>
-          <Button purpose="tertiary">Avbryt og forkast</Button>
         </HStack>
       </form>
     </Fragment>,
@@ -526,8 +522,8 @@ export const FormWithStepsCustomGrid = () => {
           <VStack gap="x1">
             <Heading level={1}>Navn på skjema</Heading>
             <Paragraph typographyType="leadMedium">
-              Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead er
-              ingress og body er vanlig mengdetekst.
+              Dette er et eksempel på en ingress. Den består ofte av et par
+              setninger. En setning til.
             </Paragraph>
             <Paragraph typographyType="bodySmall" color="text-subtle">
               Obligatoriske felter er merket med{' '}
@@ -610,18 +606,14 @@ export const ExitForm = () => {
           {isFormPage ? (
             <>
               <Box marginBlock="x1">
-                <BackLink
-                  label="Tilbake"
-                  href="//"
-                  onClick={() => setShowModal(true)}
-                />
+                <BackLink label="Tilbake" onClick={() => setShowModal(true)} />
               </Box>
               <Heading level={1} withMargins>
                 Navn på skjema
               </Heading>
               <Paragraph withMargins typographyType="leadMedium">
-                Dette er et avsnitt/ingress. Bruk "body" og "lead" i meg. Lead
-                er ingress og body er vanlig mengdetekst.
+                Dette er et eksempel på en ingress. Den består ofte av et par
+                setninger. En setning til.
               </Paragraph>
               <Paragraph
                 withMargins
@@ -649,7 +641,6 @@ export const ExitForm = () => {
                 </Fieldset>
                 <HStack gap="x1.5" paddingBlock="x1.5">
                   <Button>Send inn</Button>
-                  <Button purpose="tertiary">Avbryt og forkast</Button>
                 </HStack>
               </VStack>
             </>
