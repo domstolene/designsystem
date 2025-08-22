@@ -2,6 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import {
+  StoryLabel,
   commonArgTypes,
   labelText,
   responsivePropsArgTypes,
@@ -9,7 +10,7 @@ import {
 } from '../../storybook/helpers';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
-import { Paragraph, Typography } from '../Typography';
+import { Paragraph } from '../Typography';
 import { TABS_SIZES } from './Tabs';
 
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '.';
@@ -70,9 +71,7 @@ export const Sizes: Story = {
     <StoryVStack gap="x2.5">
       {TABS_SIZES.map(size => (
         <StoryVStack gap="x0.5" key={size}>
-          <Typography as="span" typographyType="labelMedium">
-            {labelText(size)}
-          </Typography>
+          <StoryLabel>{labelText(size)}</StoryLabel>
           <Tabs {...args} size={size}>
             {tabList()}
           </Tabs>

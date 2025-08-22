@@ -22,6 +22,7 @@ import {
 import inputStyles from '../../helpers/Input/Input.module.css';
 import { focusable } from '../../helpers/styling/focus.module.css';
 import { scrollbar } from '../../helpers/styling/utilStyles.module.css';
+import utilStyles from '../../helpers/styling/utilStyles.module.css';
 import { Icon } from '../../Icon';
 import { ChevronDownIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
@@ -112,7 +113,7 @@ export const NativeSelect = ({
     onChange?.(clearChangeEvent);
   };
 
-  const iconSize = componentSize === 'xsmall' ? 'small' : 'medium';
+  const iconSize = componentSize === 'medium' ? 'medium' : 'small';
 
   return (
     <div className={className} style={style}>
@@ -166,14 +167,14 @@ export const NativeSelect = ({
             aria-label={t(commonTexts.clearSelect)}
             onClick={clearInput}
             size={iconSize}
-            className={cn(styles[`clear-button--${iconSize}`])}
+            className={styles[`clear-button--${iconSize}`]}
           />
         )}
         {!multiple && (
           <Icon
             icon={ChevronDownIcon}
             iconSize={iconSize}
-            className={styles.icon}
+            className={cn(utilStyles['center-absolute-y'], styles.icon)}
           />
         )}
       </Box>

@@ -8,11 +8,14 @@ import {
   type ResponsiveStackProps,
 } from '../components/layout/common/Responsive.types';
 import { getBreakpointFromScreenWidth } from '../components/layout/common/utils';
-import { Paragraph } from '../components/Typography';
+import { Paragraph, Typography } from '../components/Typography';
 import { useWindowResize } from '../hooks';
 
 export const labelText = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
 
+export const StoryLabel = (props: { children: ReactNode }) => (
+  <Typography {...props} as="span" typographyType="labelMedium" />
+);
 export interface ArgType {
   control?: Control;
   table?: { category: string };

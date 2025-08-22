@@ -1,109 +1,76 @@
-import { type ReactNode } from 'react';
+import { type Meta } from '@storybook/react-vite';
 
+import { LocalMessage } from '../../packages/dds-components/dist/index.mjs';
+import { type InputSize } from '../../packages/dds-components/src/components/helpers/Input';
 import { StoryThemeProvider } from '../../packages/dds-components/src/components/ThemeProvider/utils/StoryThemeProvider';
 import {
   DatePicker,
   HStack,
   MailIcon,
+  NativeSelect,
   Search,
   Select,
   TextInput,
   TimePicker,
   VStack,
 } from '../../packages/dds-components/src/index';
+import { StoryLabel } from '../../packages/dds-components/src/storybook/helpers';
 
-export default {
+const meta: Meta = {
   title: 'Playground/Testing',
   decorators: [
-    (Story: ReactNode) => (
+    Story => (
       <StoryThemeProvider>
         <Story />
       </StoryThemeProvider>
     ),
   ],
 };
+export default meta;
+
+const icon = MailIcon;
+
+function renderInputs(size: InputSize) {
+  return (
+    <>
+      <TextInput componentSize={size} icon={icon} />
+      <DatePicker componentSize={size} />
+      <TimePicker componentSize={size} />
+      {size !== 'xsmall' && <Search componentSize={size} />}
+      <Select
+        componentSize={size}
+        icon={icon}
+        options={[{ label: 'a', value: 'a' }]}
+        value={{ label: 'a', value: 'a' }}
+      />
+      <NativeSelect componentSize={size} value="a" clearable>
+        <option value=""></option>
+        <option value="a">a</option>
+      </NativeSelect>
+    </>
+  );
+}
 
 export const FormComponents = () => {
   return (
-    <VStack align="start" gap="x1">
-      <HStack align="start" gap="x1">
-        <VStack align="start" gap="x1">
-          <TextInput />
-          <TextInput componentSize="small" />
-          <TextInput componentSize="xsmall" />
+    <VStack gap="x1.5">
+      <LocalMessage message="Her tester vi om skjemakomponenter ser likt ut." />
+      <VStack gap="x0.25">
+        <StoryLabel>Horisontal plassering på ikonene</StoryLabel>
+        <VStack gap="x1">
+          {renderInputs('medium')}
+          {renderInputs('small')}
+          {renderInputs('xsmall')}
         </VStack>
-        <VStack align="start" gap="x1">
-          <TextInput icon={MailIcon} />
-          <Search />
-          <DatePicker componentSize="medium" />
-          <TimePicker componentSize="medium" />
-          <Select icon={MailIcon} options={[{ label: 'a', value: 'a' }]} />
-          <TextInput componentSize="small" icon={MailIcon} />
-          <Search componentSize="small" />
-          <DatePicker componentSize="small" />
-          <TimePicker componentSize="small" />
-          <Select
-            icon={MailIcon}
-            options={[{ label: 'a', value: 'a' }]}
-            componentSize="small"
-          />
-          <TextInput componentSize="xsmall" icon={MailIcon} />
-          <DatePicker componentSize="xsmall" />
-          <TimePicker componentSize="xsmall" />
-          <Select
-            icon={MailIcon}
-            options={[{ label: 'a', value: 'a' }]}
-            componentSize="xsmall"
-          />
+      </VStack>
+      <VStack gap="x0.25">
+        <StoryLabel> Høyde og vertikal plassering på ikonene</StoryLabel>
+        <VStack gap="x1">
+          <HStack>{renderInputs('medium')}</HStack>
+          <HStack>{renderInputs('small')}</HStack>
+          <HStack>{renderInputs('xsmall')}</HStack>
         </VStack>
-      </HStack>
-      <HStack align="start" gap={0}>
-        <TextInput componentSize="medium" icon={MailIcon} />
-        <Search componentSize="medium" />
-        <DatePicker componentSize="medium" />
-        <Select
-          icon={MailIcon}
-          options={[{ label: 'a', value: 'a' }]}
-          componentSize="medium"
-        />
-        <Select
-          icon={MailIcon}
-          options={[{ label: 'a', value: 'a' }]}
-          componentSize="medium"
-          isMulti
-        />
-      </HStack>
-      <HStack align="start" gap={0}>
-        <TextInput componentSize="small" icon={MailIcon} />
-        <Search componentSize="small" />
-        <DatePicker componentSize="small" />
-        <Select
-          icon={MailIcon}
-          options={[{ label: 'a', value: 'a' }]}
-          componentSize="small"
-        />
-        <Select
-          icon={MailIcon}
-          options={[{ label: 'a', value: 'a' }]}
-          componentSize="small"
-          isMulti
-        />
-      </HStack>
-      <HStack align="start" gap={0}>
-        <TextInput componentSize="xsmall" icon={MailIcon} />
-        <DatePicker componentSize="xsmall" />
-        <Select
-          icon={MailIcon}
-          options={[{ label: 'a', value: 'a' }]}
-          componentSize="xsmall"
-        />
-        <Select
-          icon={MailIcon}
-          options={[{ label: 'a', value: 'a' }]}
-          componentSize="xsmall"
-          isMulti
-        />
-      </HStack>
+      </VStack>
     </VStack>
   );
 };

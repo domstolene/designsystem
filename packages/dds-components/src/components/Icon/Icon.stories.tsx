@@ -1,9 +1,9 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
-import { commonArgTypes, labelText } from '../../storybook/helpers';
+import { StoryLabel, commonArgTypes, labelText } from '../../storybook/helpers';
 import { StoryHStack } from '../layout/Stack/utils';
-import { Paragraph, Typography } from '../Typography';
+import { Paragraph } from '../Typography';
 import { ICON_SIZES } from './Icon';
 import { VStack } from '../layout';
 
@@ -33,9 +33,7 @@ export const Sizes: Story = {
     <StoryHStack>
       {ICON_SIZES.map(size => (
         <VStack key={size}>
-          <Typography as="span" typographyType="labelMedium">
-            {labelText(size)}
-          </Typography>
+          <StoryLabel>{labelText(size)}</StoryLabel>
           <Icon {...args} iconSize={size} />
         </VStack>
       ))}
