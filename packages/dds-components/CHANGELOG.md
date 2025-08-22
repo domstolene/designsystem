@@ -1,5 +1,15 @@
 # @norges-domstoler/dds-components
 
+## 21.10.0
+
+### Minor Changes
+
+- 48f2a7d: Støtte for resposive props i `<Tabs>`-delkomponenter: `padding`, `paddingInline` og `paddingBlock` i `TabPanels`; `padding` i `<TabPanel>` med default som fra før av. Gir mer fleksibilitet med tanke på spacing rundt innholdet.
+
+### Patch Changes
+
+- 4dc36fe: Fikser feil størrelse på tømmeknapp i `<NativeSelect>` og ulik ikon-spacing i `<NativeSelect>` og `<Select>`.
+
 ## 21.9.2 (2025-08-21)
 
 ### Patch Changes
