@@ -3,6 +3,13 @@ import {
   ComponentLinkRow,
   Source,
 } from '@norges-domstoler/storybook-components';
+import {
+  Tabs,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+} from '../../../src/components/Tabs';
 import * as FormStories from './Form.stories';
 
 <Meta of={FormStories} />
@@ -12,10 +19,8 @@ import * as FormStories from './Form.stories';
 <ComponentLinkRow
   docsHref="https://design.domstol.no/987b33f71/p/30227e-useonkeydown"
   githubHref="https://github.com/domstolene/designsystem/blob/main/packages/dds-components/src/hooks/Form/Form.tsx"
-  withBottomSpacing
+  storybookHref="https://domstolene.github.io/designsystem/?path=/docs/patterns-form--docs"
 />
-
-**OBS!** Se demoer/stories utenfor Docs for riktig responsiv layout.
 
 ## Hvordan implementere?
 
@@ -38,28 +43,41 @@ Skjema-mønsteret bruker gjerne en del komponenter, layout primitives og props f
 - **Tekstfarge**: det meste av tekst skal ha standardisert farge, men ikke alt. Info om markering av påkrevde felt og påkrevd-markør skal bruke fargene `dds-color-text-subtle` og `dds-color-text-requiredfield`; disse kan settes med `color` prop i typografikomponeter.
 - **Størrelse på `<Legend>`**: hvis du bruker flere overskrifter på skjemasiden kan det hende du trenger å tilpasse størrelsen på din `<Legend>`. Bruk `typographyType` prop ved behov.
 
-## Vanlig
+## Maler
 
-<Canvas of={FormStories.Form} />
+**OBS!** For layout for større brekkpunkter se demoer/stories utenfor Docs.
 
-## Med steg
+<Tabs>
+  <TabList>
+    <Tab>Vanlig</Tab>
+    <Tab>Med steg</Tab>
+    <Tab>Med steg custom grid</Tab>
+    <Tab>Forlate skjema</Tab>
+  </TabList>
+  <TabPanels paddingBlock='var(--dds-spacing-x1-5) 0'>
+    <TabPanel>
+      Enkelt skjema som får plass på én side.
+      <Canvas of={FormStories.Form} />
+    </TabPanel>
+    <TabPanel>
+      Hvis skjema har steg bruker du i tillegg:
 
-Hvis skjema har steg bruker du i tillegg:
+      - **`<ProgressTracker>`**: til høyre for skjema.
+      - **`<ShowHide>` for mobilversjon av `<ProgressTracker>`**. Den tilgjenngeligjøres via `<Drawer>`, `<NativeSelect>` e.l. på mindre skjerm. Hvis du bruker `<Drawer>` trenger utløserknappen en tilgjengelig tekst; for eksempel, hvis knappeteksten er "Steg 1 av 2" med chevron-ikon vil seende brukere forstå hva den gjør. Du kan utvide denne med `<VisuallyHidden>` og usynlig tekst som "Vis stegnavigasjon" for assisterende verktøy.
 
-- **`<ProgressTracker>`**: til høyre for skjema.
-- **`<ShowHide>` for mobilversjon av `<ProgressTracker>`**. Den tilgjenngeligjøres via `<Drawer>`, `<NativeSelect>` e.l. på mindre skjerm. Hvis du bruker `<Drawer>` trenger utløserknappen en tilgjengelig tekst; for eksempel, hvis knappeteksten er "Steg 1 av 2" med chevron-ikon vil seende brukere forstå hva den gjør. Du kan utvide denne med `<VisuallyHidden>` og usynlig tekst som "Vis stegnavigasjon" for assisterende verktøy.
+      <Canvas of={FormStories.FormWithSteps} />
+    </TabPanel>
+    <TabPanel>
+      Istedenfor å bruke default kolonner i vårt `<Grid>` kan du f.eks. bruke to kolonner, der selve skjema har opptil spesifisert bredde og `<ProgressTracker>` tar resten.
+      Default CSS for `margin-inline` fra `<Grid>` er riktig her, men pass på spacing mellom kolonnene.
 
-<Canvas of={FormStories.FormWithSteps} />
+      <Canvas of={FormStories.FormWithStepsCustomGrid} />
+    </TabPanel>
+    <TabPanel>
+      Implementer advarsel for når brukeren prøver å forlate påbegynt skjema, slik at de kan ombestemme seg og bli på siden. `<Modal>` kan være en slik advarsel.
 
-## Med steg - custom grid
+      <Canvas of={FormStories.ExitForm} />
+    </TabPanel>
 
-Istedenfor å bruke default kolonner i vårt `<Grid>` kan du f.eks. bruke to kolonner, der selve skjema har opptil spesifisert bredde og `<ProgressTracker>` tar resten.
-Default CSS for `margin-inline` fra `<Grid>` er riktig her, men pass på spacing mellom kolonnene.
-
-<Canvas of={FormStories.FormWithStepsCustomGrid} />
-
-## Forlate skjema
-
-Implementer advarsel for når brukeren prøver å forlate påbegynt skjema, slik at de kan ombestemme seg og bli på siden. `<Modal>` kan være en slik advarsel.
-
-<Canvas of={FormStories.ExitForm} />
+  </TabPanels>
+</Tabs>

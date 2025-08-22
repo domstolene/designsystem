@@ -44,7 +44,7 @@ export type TabProps = BaseComponentPropsWithChildren<
     setFocus?: Dispatch<SetStateAction<number>>;
     /** Indeksen til `<Tab>`. **OBS!** settes automatisk av forelder.*/
     index?: number;
-    /** Bredden til `<Tab>`. Her er det støtte for de samme enhetene som du kan bruke i `grid-template-columns`.
+    /** Bredden til `<Tab>`. Støtter samme enheter som `grid-template-columns`.
      * @default "1fr"
      */
     width?: CSS.Properties['width'];
