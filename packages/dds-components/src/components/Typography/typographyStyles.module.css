@@ -243,6 +243,10 @@
   padding-inline: 0;
 }
 
+:where(.caption) {
+  text-align: left;
+}
+
 :where(.caption--withMargins) {
   display: table-caption;
 }
