@@ -41,6 +41,9 @@ const meta: Meta<typeof DatePicker> = {
   },
   argTypes: {
     width: responsivePropsArgTypes.width,
+    isDisabled: { control: 'boolean' },
+    isReadOnly: { control: 'boolean' },
+    isRequired: { control: 'boolean' },
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
     onFocus: htmlEventArgType,
@@ -71,6 +74,10 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Preview: Story = {
   args: { label: 'Dato' },
+};
+
+export const Clearable: Story = {
+  args: { label: 'Dato', clearable: true },
 };
 
 export const Overview: Story = {

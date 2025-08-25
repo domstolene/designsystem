@@ -55,6 +55,15 @@
   width: 0;
 }
 
+.clear-button {
+  align-self: center;
+  margin-left: var(--dds-spacing-x0-5);
+}
+
+.clear-button--inactive {
+  visibility: hidden;
+}
+
 /**------------------------------------------------------------------------
  * Ikon-wrapper ved siden av input
  * Gjelder både dato og tid

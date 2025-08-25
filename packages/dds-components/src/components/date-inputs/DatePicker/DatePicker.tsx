@@ -42,6 +42,11 @@ export interface DatePickerProps
    * Brekkpunkt for å vise versjon for liten skjerm.
    */
   smallScreenBreakpoint?: Breakpoint;
+  /**
+   * Om brukeren kan fjerne valgt dato med en tømmeknapp, inkludert delvis utfylte verdier (f.eks. kun måned).
+   * @default false
+   */
+  clearable?: boolean;
 }
 
 const refIsFocusable = (ref: Ref<unknown>): ref is FocusableRef => {
@@ -56,6 +61,7 @@ export function DatePicker({
   width,
   smallScreenBreakpoint,
   showWeekNumbers = true,
+  clearable = false,
   ref,
   ...props
 }: DatePickerProps) {
@@ -88,6 +94,7 @@ export function DatePicker({
             buttonProps={buttonProps}
             style={style}
             width={width}
+            clearable={clearable}
           />
         </CalendarPopoverAnchor>
         <CalendarPopoverContent smallScreenBreakpoint={smallScreenBreakpoint}>

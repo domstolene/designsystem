@@ -31,7 +31,7 @@ import { Label } from '../../Typography';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type NativeSelectProps = {
-  /** Om verdien til `<select>` kan tømmes. */
+  /** Om brukeren kan fjerne verdien med en tømmeknapp. */
   clearable?: boolean;
   /** Implementerer `readOnly` oppførsel etter standard for `<input>` og setter `readOnly` styling. */
   readOnly?: InputProps['readOnly'];
@@ -114,6 +114,7 @@ export const NativeSelect = ({
   };
 
   const iconSize = componentSize === 'medium' ? 'medium' : 'small';
+  const showClearButton = clearable && hasValue && !readOnly && !rest.disabled;
 
   return (
     <div className={className} style={style}>
@@ -162,7 +163,7 @@ export const NativeSelect = ({
         >
           {children}
         </select>
-        {hasValue && clearable && (
+        {showClearButton && (
           <ClearButton
             aria-label={t(commonTexts.clearSelect)}
             onClick={clearInput}
