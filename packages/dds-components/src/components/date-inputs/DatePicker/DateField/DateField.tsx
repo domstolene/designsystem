@@ -10,18 +10,23 @@ import {
 } from '@react-aria/datepicker';
 import { useLocale } from '@react-aria/i18n';
 import { useDateFieldState } from '@react-stately/datepicker';
-import { type Ref, useRef } from 'react';
+import { type Ref, useEffect, useRef, useState } from 'react';
 
 import { CalendarButton } from './CalendarButton';
 import { DateSegment } from './DateSegment';
+import { cn } from '../../../../utils';
+import { ClearButton } from '../../../helpers/ClearButton';
 import { type InputProps } from '../../../helpers/Input';
 import { DateInput } from '../../common/DateInput';
+import styles from '../../common/DateInput.module.css';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
     buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
     buttonOnClick?: () => void;
     groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
+    ref?: Ref<HTMLDivElement>;
+    clearable?: boolean;
   } & Pick<
       InputProps,
       | 'componentSize'
@@ -31,15 +36,14 @@ export type DateFieldProps<T extends DateValue = CalendarDate> =
       | 'style'
       | 'width'
       | 'className'
-    > & {
-      ref?: Ref<HTMLDivElement>;
-    };
+    >;
 
 export function DateField({
   componentSize = 'medium',
   buttonProps,
   groupProps,
   ref,
+  clearable,
   ...props
 }: DateFieldProps) {
   const { locale } = useLocale();
@@ -53,6 +57,27 @@ export function DateField({
   const { labelProps, fieldProps } = useDateField(props, state, internalRef);
 
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
+  const showClearButton = clearable && !disabled && !props.isReadOnly;
+
+  const [hasValue, setHasValue] = useState(!!state.value);
+  const clearButtonSize = componentSize === 'medium' ? 'medium' : 'small';
+
+  useEffect(() => {
+    setHasValue(!!state.value);
+  }, [state.value]);
+
+  useEffect(() => {
+    const hasPartialValue = state.segments.some(
+      segment =>
+        segment.type !== 'literal' && segment.placeholder !== segment.text,
+    );
+    setHasValue(hasPartialValue);
+  }, [state.segments]);
+
+  const clearDate = () => {
+    state.setValue(null);
+    setHasValue(false);
+  };
 
   return (
     <DateInput
@@ -85,6 +110,18 @@ export function DateField({
           state={state}
         />
       ))}
+      {showClearButton && (
+        <ClearButton
+          absolute={false}
+          aria-hidden={!hasValue}
+          className={cn(
+            styles['clear-button'],
+            !hasValue && styles['clear-button--inactive'],
+          )}
+          size={clearButtonSize}
+          onClick={clearDate}
+        />
+      )}
     </DateInput>
   );
 }
