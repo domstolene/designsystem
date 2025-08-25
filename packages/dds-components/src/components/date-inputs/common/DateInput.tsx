@@ -9,6 +9,7 @@ import focusStyles from '../../helpers/styling/focus.module.css';
 import { InputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
 import { Label } from '../../Typography';
+import { type DatePickerProps } from '../DatePicker';
 import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
 
 export type DateInputProps = {
@@ -16,9 +17,12 @@ export type DateInputProps = {
   active?: boolean;
   children: ReactNode;
   prefix?: ReactNode;
+  suffix?: ReactNode;
   label?: ReactNode;
   internalRef: Ref<HTMLDivElement>;
   groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
+  ref?: Ref<HTMLDivElement>;
+  clearable?: DatePickerProps['clearable'];
 } & Pick<ReturnType<typeof useDateField>, 'fieldProps' | 'labelProps'> &
   Pick<
     InputProps,
@@ -30,9 +34,7 @@ export type DateInputProps = {
     | 'required'
     | 'readOnly'
     | 'width'
-  > & {
-    ref?: Ref<HTMLDivElement>;
-  };
+  >;
 
 export function DateInput({
   errorMessage,
@@ -47,10 +49,12 @@ export function DateInput({
   required,
   children,
   prefix: button,
+  suffix: suffixEl,
   labelProps,
   fieldProps,
   groupProps,
   width,
+  clearable,
   ref,
   ...props
 }: DateInputProps) {
@@ -89,7 +93,7 @@ export function DateInput({
           inputStyles[`input--${componentSize}`],
           hasErrorMessage && inputStyles['input--stateful-danger'],
           styles['date-input'],
-          styles[`date-input--${componentSize}`],
+          clearable && styles[`date-input--${componentSize}--clearable`],
           focusStyles['focusable-within'],
           isOpen && focusStyles.focused,
           disabled && 'disabled',
@@ -101,6 +105,7 @@ export function DateInput({
       >
         {button}
         <div className={styles['date-segment-container']}>{children}</div>
+        {suffixEl}
       </Box>
       {hasMessage && (
         <InputMessage

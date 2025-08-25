@@ -14,14 +14,20 @@ import { type Ref, useRef } from 'react';
 
 import { CalendarButton } from './CalendarButton';
 import { DateSegment } from './DateSegment';
+import { createTexts, useTranslation } from '../../../../i18n';
+import { cn } from '../../../../utils';
+import { ClearButton } from '../../../helpers/ClearButton';
 import { type InputProps } from '../../../helpers/Input';
 import { DateInput } from '../../common/DateInput';
+import styles from '../../common/DateInput.module.css';
 
 export type DateFieldProps<T extends DateValue = CalendarDate> =
   AriaDateFieldOptions<T> & {
     buttonProps?: ReturnType<typeof useDatePicker>['buttonProps'];
     buttonOnClick?: () => void;
     groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
+    ref?: Ref<HTMLDivElement>;
+    clearable?: boolean;
   } & Pick<
       InputProps,
       | 'componentSize'
@@ -31,18 +37,18 @@ export type DateFieldProps<T extends DateValue = CalendarDate> =
       | 'style'
       | 'width'
       | 'className'
-    > & {
-      ref?: Ref<HTMLDivElement>;
-    };
+    >;
 
 export function DateField({
   componentSize = 'medium',
   buttonProps,
   groupProps,
   ref,
+  clearable,
   ...props
 }: DateFieldProps) {
   const { locale } = useLocale();
+  const { t } = useTranslation();
   const state = useDateFieldState({
     ...props,
     locale,
@@ -53,6 +59,17 @@ export function DateField({
   const { labelProps, fieldProps } = useDateField(props, state, internalRef);
 
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
+  const showClearButton = clearable && !disabled && !props.isReadOnly;
+
+  const hasPartialValue = state.segments.some(
+    segment =>
+      segment.type !== 'literal' && segment.placeholder !== segment.text,
+  );
+  const hasValue = !!state.value || hasPartialValue;
+  const clearButtonSize = componentSize === 'medium' ? 'medium' : 'small';
+  const clearDate = () => {
+    state.setValue(null);
+  };
 
   return (
     <DateInput
@@ -62,6 +79,7 @@ export function DateField({
       label={props.label}
       disabled={disabled}
       required={props.isRequired}
+      clearable={clearable}
       ref={ref}
       internalRef={internalRef}
       readOnly={props.isReadOnly}
@@ -72,6 +90,21 @@ export function DateField({
           isReadOnly={props.isReadOnly}
           isDisabled={disabled || props.isReadOnly}
         />
+      }
+      suffix={
+        showClearButton && (
+          <ClearButton
+            absolute={false}
+            aria-label={t(texts.clearDate)}
+            aria-hidden={!hasValue}
+            className={cn(
+              styles['clear-button'],
+              !hasValue && styles['clear-button--inactive'],
+            )}
+            size={clearButtonSize}
+            onClick={clearDate}
+          />
+        )
       }
       labelProps={labelProps}
       fieldProps={fieldProps}
@@ -90,3 +123,12 @@ export function DateField({
 }
 
 DateField.displayName = 'DateField';
+
+const texts = createTexts({
+  clearDate: {
+    en: 'Clear date',
+    nb: 'Tøm dato',
+    no: 'Tøm dato',
+    nn: 'Tøm dato',
+  },
+});
