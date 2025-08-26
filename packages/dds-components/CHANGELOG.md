@@ -2,6 +2,8 @@
 
 ## 21.10.0
 
+(2025-08-26)
+
 ### Minor Changes
 
 - 48f2a7d: Støtte for resposive props i `<Tabs>`-delkomponenter: `padding`, `paddingInline` og `paddingBlock` i `TabPanels`; `padding` i `<TabPanel>` med default som fra før av. Gir mer fleksibilitet med tanke på spacing rundt innholdet.
