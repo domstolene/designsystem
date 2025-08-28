@@ -223,7 +223,7 @@ export const Search = ({
               onClick={onClick}
               {...otherButtonProps}
             >
-              {buttonLabel ?? 'Søk'}
+              {buttonLabel ?? t(texts.search)}
             </Button>
           </Grid>
         ) : (
@@ -243,6 +243,12 @@ const texts = createTexts({
     no: 'Tøm søk',
     nn: 'Tøm søk',
     en: 'Clear search',
+  },
+  search: {
+    nb: 'Søk',
+    no: 'Søk',
+    nn: 'Søk',
+    en: 'Search',
   },
   useArrowKeys: {
     nb: 'Bruk piltastene for å navigere i forslagene når listen er utvidet',

@@ -53,16 +53,15 @@ export function TimePicker({
       labelProps={labelProps}
       fieldProps={fieldProps}
       prefix={
-        <span
+        <Icon
+          icon={TimeIcon}
+          iconSize={iconSize}
           className={cn(
-            styles['icon-wrapper'],
+            styles.icon,
             disabled && styles['icon-wrapper--disabled'],
             props.isReadOnly && styles['icon-wrapper--readonly'],
-            styles[`icon-wrapper--${iconSize}`],
           )}
-        >
-          <Icon icon={TimeIcon} iconSize={iconSize} />
-        </span>
+        />
       }
     >
       {state.segments.map((segment, i) => (

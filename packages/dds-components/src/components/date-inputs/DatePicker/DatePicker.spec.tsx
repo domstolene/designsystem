@@ -1,14 +1,15 @@
+import { CalendarDate } from '@internationalized/date';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { DatePicker } from './DatePicker';
+import { DatePicker, type DatePickerProps } from './DatePicker';
 import { HStack } from '../../layout';
 import { TextInput } from '../../TextInput';
 import { ThemeProvider } from '../../ThemeProvider';
 
-const WrappedDatePicker = () => (
+const WrappedDatePicker = (props: DatePickerProps) => (
   <ThemeProvider>
-    <DatePicker />
+    <DatePicker {...props} />
   </ThemeProvider>
 );
 
@@ -63,5 +64,19 @@ describe('<DatePicker>', () => {
     const spinbuttons = screen.getAllByRole('spinbutton');
     expect(spinbuttons[0]).toHaveAttribute('aria-valuemax');
     expect(spinbuttons[1]).toHaveAttribute('aria-valuemax', '12');
+  });
+  it('clear button is not rendered if no value', () => {
+    render(<WrappedDatePicker clearable />);
+
+    const clearButton = screen.queryByRole('button', { name: /Tøm dato/i });
+    expect(clearButton).not.toBeInTheDocument();
+  });
+  it('clear button is rendered if there is value', () => {
+    render(
+      <WrappedDatePicker clearable value={new CalendarDate(2023, 8, 28)} />,
+    );
+
+    const clearButton = screen.queryByRole('button', { name: /Tøm dato/i });
+    expect(clearButton).toBeInTheDocument();
   });
 });

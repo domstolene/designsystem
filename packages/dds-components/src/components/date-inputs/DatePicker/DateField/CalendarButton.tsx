@@ -3,8 +3,8 @@ import { useRef } from 'react';
 
 import type { DateFieldProps } from './DateField';
 import { cn } from '../../../../utils';
+import { InlineIconButton } from '../../../helpers/InlineIconButton';
 import { focusable } from '../../../helpers/styling/focus.module.css';
-import { Icon } from '../../../Icon';
 import { CalendarIcon } from '../../../Icon/icons';
 import styles from '../../common/DateInput.module.css';
 
@@ -24,21 +24,18 @@ export function CalendarButton({
   const size = componentSize === 'xsmall' ? 'small' : 'medium';
 
   return (
-    <button
+    <InlineIconButton
       {...buttonProps}
       ref={ref}
       type="button"
       className={cn(
         buttonProps.className,
-        styles['icon-wrapper'],
-        styles[`icon-wrapper--${size}`],
         styles['popover-button'],
         isReadOnly && styles['popover-button--readonly'],
         !props.isDisabled && focusable,
-        props.isDisabled && 'disabled',
       )}
-    >
-      <Icon icon={CalendarIcon} iconSize={size} />
-    </button>
+      icon={CalendarIcon}
+      size={size}
+    />
   );
 }

@@ -3,9 +3,16 @@
   border-radius: var(--dds-border-radius-button);
   color: var(--dds-color-icon-default);
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--dds-color-surface-hover-default);
     color: var(--dds-color-icon-action-hover);
+  }
+  &:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 
   @media (prefers-reduced-motion: no-preference) {

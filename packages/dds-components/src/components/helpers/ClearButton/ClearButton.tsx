@@ -8,12 +8,19 @@ import {
   type InlineIconButtonProps,
 } from '../InlineIconButton';
 
-type ClearButtonProps = ComponentPropsWithRef<'button'> &
+type ClearButtonProps = {
+  /**Om knappen bruker `position:absolute` med standard  styling. */
+  absolute?: boolean;
+} & ComponentPropsWithRef<'button'> &
   Pick<InlineIconButtonProps, 'size'>;
 
-export const ClearButton = ({ className, ...rest }: ClearButtonProps) => (
+export const ClearButton = ({
+  className,
+  absolute = true,
+  ...rest
+}: ClearButtonProps) => (
   <InlineIconButton
-    className={cn(className, utilStyles['center-absolute-y'])}
+    className={cn(className, absolute && utilStyles['center-absolute-y'])}
     icon={CloseSmallIcon}
     {...rest}
   />

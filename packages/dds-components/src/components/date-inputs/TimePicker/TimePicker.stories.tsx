@@ -19,6 +19,9 @@ const meta: Meta<typeof TimePicker> = {
   component: TimePicker,
   argTypes: {
     width: responsivePropsArgTypes.width,
+    isDisabled: { control: 'boolean' },
+    isReadOnly: { control: 'boolean' },
+    isRequired: { control: 'boolean' },
     className: { table: { disable: true } },
     onBlur: htmlEventArgType,
     onChange: htmlEventArgType,
