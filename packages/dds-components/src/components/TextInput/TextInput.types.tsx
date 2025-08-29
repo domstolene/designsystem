@@ -1,7 +1,7 @@
 import { type InputProps } from '../helpers/Input';
 import { type SvgIcon } from '../Icon/utils';
 
-export type TextInputProps = InputProps & {
+export type TextInputProps = Omit<InputProps, 'prefix'> & {
   /** Spesifiserer om tegntelleren skal vises ved bruk av `maxLength` attributt. */
   withCharacterCounter?: boolean;
   /** Ikonet som vises i komponenten. */

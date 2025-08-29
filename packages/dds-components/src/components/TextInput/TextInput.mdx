@@ -1,6 +1,7 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as TextInputStories from './TextInput.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={TextInputStories} />
 
@@ -13,18 +14,47 @@ import * as TextInputStories from './TextInput.stories';
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-textinput--default"
 />
 
-## Props
+## Eksempler
 
-<Canvas of={TextInputStories.Preview} />
-<Controls of={TextInputStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Tilsander</Tab>
+    <Tab>Størrelser</Tab>
+    <Tab>maxLength</Tab>
+    <Tab>Ikon</Tab>
+    <Tab>Affiks</Tab>
+    <Tab>Responsiv</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={TextInputStories.Preview} />
+      <Controls of={TextInputStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TextInputStories.States} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TextInputStories.Sizes} />
+    </TabPanel>
+    <TabPanel>
+      Når native attributtet `maxLength` brukes dukker det opp en tegnteller til høyre under inputfeltet:
+      For å ikke vise tegntelleren sett `withCharacterCounter=false`.
 
-### maxLength
+      <Canvas of={TextInputStories.WithCharacterCount} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TextInputStories.WithIcon} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TextInputStories.WithAffixes} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={TextInputStories.ResponsiveWidth} />
+    </TabPanel>
 
-Når native attributtet `maxLength` brukes dukker det opp en tegnteller til høyre under inputfeltet:
-
-<Canvas of={TextInputStories.WithCharacterCount} />
-
-For å ikke vise tegntelleren sett `withCharacterCounter=false`.
+  </TabPanels>
+</Tabs>
 
 ## Retningslinjer
 
