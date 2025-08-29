@@ -47,13 +47,13 @@ export const Preview: Story = {
           htmlProps={{ style: { maxWidth: '800px' } }}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(1)}>
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(2)}>
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
             Sammendrag
@@ -64,7 +64,7 @@ export const Preview: Story = {
           {activeStep === 0 && <div>Steg 1</div>}
           {activeStep === 1 && <div>Steg 2</div>}
           {activeStep === 2 && <div>Steg 3</div>}
-          {activeStep === 3 && <div>Steg 4</div>}
+          {activeStep === 3 && <div>Sammendrag</div>}
         </div>
 
         <Button
@@ -100,19 +100,19 @@ export const WithIcons: Story = {
             icon={PersonIcon}
             completed={completedSteps.has(0)}
           >
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={GavelIcon}
             completed={completedSteps.has(1)}
           >
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={AttachmentIcon}
             completed={completedSteps.has(2)}
           >
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
           <ProgressTracker.Item
             icon={ChecklistIcon}
@@ -159,13 +159,13 @@ export const Horisontal: Story = {
           onStepChange={step => setActiveStep(step)}
         >
           <ProgressTracker.Item completed={completedSteps.has(0)}>
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(1)}>
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(2)}>
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
           <ProgressTracker.Item completed={completedSteps.has(3)} disabled>
             Sammendrag
@@ -223,19 +223,19 @@ export const FutureStepsDisabled: Story = {
             disabled={isDisabled(0)}
             completed={completedSteps.has(0)}
           >
-            Parter
+            Steg 1
           </ProgressTracker.Item>
           <ProgressTracker.Item
             disabled={isDisabled(1)}
             completed={completedSteps.has(1)}
           >
-            Slutning
+            Steg 2
           </ProgressTracker.Item>
           <ProgressTracker.Item
             disabled={isDisabled(2)}
             completed={completedSteps.has(2)}
           >
-            Vedlegg
+            Steg 3
           </ProgressTracker.Item>
         </ProgressTracker>
         <div>
@@ -290,13 +290,13 @@ export const SmallScreen: Story = {
                 }}
               >
                 <ProgressTracker.Item completed={completedSteps.has(0)}>
-                  Parter med lang tekst
+                  Steg 1 med lang tekst
                 </ProgressTracker.Item>
                 <ProgressTracker.Item completed={completedSteps.has(1)}>
-                  Slutning
+                  Steg 2
                 </ProgressTracker.Item>
                 <ProgressTracker.Item completed={completedSteps.has(2)}>
-                  Vedlegg
+                  Steg 3
                 </ProgressTracker.Item>
                 <ProgressTracker.Item
                   completed={completedSteps.has(3)}

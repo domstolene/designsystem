@@ -5,6 +5,7 @@ import {
   Source,
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={ProgressTrackerStories} />
 
@@ -18,44 +19,86 @@ import {
   withBottomSpacing
 />
 
-Komponenten består av:
+## Delkomponenter
 
-- `<ProgressTracker>` - ytterste container for andre subkomponenter. Håndterer oppførsel og eventuelt litt styling. Har to eller flere `<ProgressTracker.Item>` som barn.
-- `<ProgressTracker.Item>` - et steg. Ikke-compound variant er også støttet: `<ProgressTrackerItem>`.
+<Tabs>
+  <TabList>
+    <Tab>ProgressTracker</Tab>
+    <Tab>ProgressTracker.Item</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item>` som barn. Håndterer oppførsel og eventuelt litt styling.
+      <Canvas of={ProgressTrackerStories.Preview} />
+      <Controls of={ProgressTrackerStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Et steg. Ikke-compound variant er også støttet: `<ProgressTrackerItem>`.
 
-## Props
+      <ArgTypes of={ProgressTrackerItem} />
+    </TabPanel>
 
-### ProgressTracker
-
-Ytterste container som styrer hvilket steg skal vises via indeks. Har to eller flere `<ProgressTracker.Item>` som barn.
-
-<Canvas of={ProgressTrackerStories.Preview} />
-<Controls of={ProgressTrackerStories.Preview} />
-
-### ProgressTracker.Item
-
-Et steg.
-
-<ArgTypes of={ProgressTrackerItem} />
+  </TabPanels>
+</Tabs>
 
 ## Bruk
 
 <Source
-  code={`import { ProgressTracker } from '.';
+  code={`
+const [activeStep, setActiveStep] = useState(0);
+const [completedSteps, setCompletedSteps] = useState(new Set());
 
-function handleProgressTrackerItemClick(index: number) {
-console.log(index)
+function handleCompleted(index: number) {
+// din kode for fullført steg
 }
 
-<ProgressTracker activeStep={activeStep}>
-  <ProgressTracker.Item completed onClick={handleProgressTrackerItemClick}>
-    Parter
-  </ProgressTracker.Item>
-  <ProgressTracker.Item active onClick={handleProgressTrackerItemClick}>
-    Slutning
-  </ProgressTracker.Item>
-  <ProgressTracker.Item onClick={handleProgressTrackerItemClick}>
-    Vedlegg
+<ProgressTracker
+  activeStep={activeStep}
+  onStepChange={step => setActiveStep(step)}
+>
+  <ProgressTracker.Item onClick={handleCompleted}>Steg 1</ProgressTracker.Item>
+  <ProgressTracker.Item onClick={handleCompleted}>Steg 2</ProgressTracker.Item>
+  <ProgressTracker.Item onClick={handleCompleted}>
+    Sammendrag
   </ProgressTracker.Item>
 </ProgressTracker>
+
+<div>
+  {activeStep === 0 && (
+    <div>
+      Steg 1 <Button onClick={handleCompleted}> Neste </Button>
+    </div>
+  )}
+  {activeStep === 1 && (
+    <div>
+      Steg 2 <Button onClick={handleCompleted}> Neste </Button>
+    </div>
+  )}
+  {activeStep === 3 && <div>Sammendrag</div>}
+</div>
 `} />
+
+## Eksempler
+
+<Tabs>
+  <TabList>
+    <Tab>Med ikoner</Tab>
+    <Tab>Horisontal</Tab>
+    <Tab>Liten skjerm</Tab>
+    <Tab>Framtidige steg disabled</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={ProgressTrackerStories.WithIcons} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ProgressTrackerStories.Horisontal} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ProgressTrackerStories.SmallScreen} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ProgressTrackerStories.FutureStepsDisabled} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
