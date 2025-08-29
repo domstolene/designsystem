@@ -2,6 +2,8 @@
 
 ## 21.11.0
 
+(2025-08-29)
+
 ### Minor Changes
 
 - f2fe011: Støtte for `clearable` prop i `<DatePicker>`. Angir om brukeren kan tømme verdi (inkludert delvis verdi) med en tømmeknapp.
