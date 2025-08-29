@@ -7,12 +7,14 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { cn } from '../../utils';
+import { type TextColor, cn } from '../../utils';
+import { StylelessButton } from '../helpers';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';
 import { CheckIcon } from '../Icon/icons';
 import { type SvgIcon } from '../Icon/utils';
 import { Box } from '../layout';
+import { Typography } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -126,6 +128,13 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
     return index + 1;
   }, [completed, icon, index]);
 
+  function getTextColor(): TextColor | undefined {
+    if (disabled) return 'text-subtle';
+    if (active) return 'text-action-resting';
+  }
+
+  const isInactiveLink = disabled || active;
+
   const stepContent = (
     <>
       <Box
@@ -141,19 +150,21 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
       >
         {stepNumberContent}
       </Box>
-      <div
+      <Typography
+        as="div"
         className={cn(
           styles['item-text'],
-          styles[`item-text--${itemStateCn[itemState]}`],
-          typographyStyles['body-medium'],
+          typographyStyles['a--nested__child'],
+          isInactiveLink && styles['item-text--inactive-link'],
         )}
+        color={getTextColor()}
       >
         <VisuallyHidden>{t(texts.stepTextBefore(index + 1))}</VisuallyHidden>
         {children}
         <VisuallyHidden>
           {completed ? t(texts.completed) : t(texts.uncompleted)}
         </VisuallyHidden>
-      </div>
+      </Typography>
     </>
   );
 
@@ -165,10 +176,20 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
       className={cn(styles['list-item'], styles[`list-item--${direction}`])}
     >
       {handleStepChange ? (
-        <button
+        <Box
+          as={StylelessButton}
+          display="grid"
+          alignItems="center"
+          justifyContent="flex-start"
+          gap="x0.5"
           {...getBaseHTMLProps(
             id,
-            cn(className, styles['item-button'], focusable),
+            cn(
+              className,
+              styles['item-button'],
+              typographyStyles['a--nested__parent'],
+              focusable,
+            ),
             htmlProps as ComponentPropsWithRef<'button'>,
             rest,
           )}
@@ -176,7 +197,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
           disabled={disabled}
         >
           {stepContent}
-        </button>
+        </Box>
       ) : (
         <div
           {...getBaseHTMLProps(

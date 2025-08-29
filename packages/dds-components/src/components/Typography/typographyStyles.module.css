@@ -23,7 +23,8 @@
   --dds-color-icon-action-hover-inversable: var(--dds-color-icon-on-inverse);
 }
 
-:where(.a) {
+:where(.a),
+:where(.a--nested__parent .a--nested__child) {
   font: inherit;
   color: var(--dds-color-text-link);
   width: fit-content;
