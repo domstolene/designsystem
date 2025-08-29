@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 21.11.0
+
+### Minor Changes
+
+- f2fe011: Støtte for `clearable` prop i `<DatePicker>`. Angir om brukeren kan tømme verdi (inkludert delvis verdi) med en tømmeknapp.
+
+### Patch Changes
+
+- f2fe011: Fikser spacing i `<DatePicker>` og `<TimePicker>` mellom elementer og i kalenderknapp.
+- f2fe011: Bytter til monospace font i `<DatePicker>` slik at tegn har samme bredde og bredden på hele komponenten ikke hopper.
+- f2fe011: Fikser manglende oversettelse i `<Search>`.
+- f2fe011: Fikser bug der `<NativeSelect>` fikk tømmeknapp selv om komponenten var `disabled` eller `readOnly`.
+- 5bf1aed: Justerer på `<Caption>` slik at den er venstrejustert over tabell, og ikke sentrert.
+
 ## 21.10.0
 
 (2025-08-26)
