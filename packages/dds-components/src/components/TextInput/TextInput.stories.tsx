@@ -24,7 +24,6 @@ export default {
     required: { control: 'boolean', table: categoryHtml },
     disabled: { control: 'boolean', table: categoryHtml },
     readOnly: { control: 'boolean', table: categoryHtml },
-    prefix: { control: { type: 'text' } },
     icon: { control: { disable: true } },
     onChange: htmlEventArgType,
   },
@@ -37,33 +36,23 @@ export const Preview: Story = {
   args: { label: 'Label' },
 };
 
-export const Overview: Story = {
+export const States: Story = {
   args: { label: 'Label' },
   render: args => (
     <StoryHStack>
       <StoryVStack>
-        <TextInput {...args} />
-        <TextInput {...args} disabled value="Disabled inputfelt" />
+        <TextInput {...args} disabled value="Disabled" />
+        <TextInput {...args} readOnly value="Readonly" />
+        <TextInput {...args} required value="Påkrevd" />
+      </StoryVStack>
+      <StoryVStack>
+        <TextInput {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
         <TextInput
           {...args}
           errorMessage={
             args.errorMessage ?? 'Dette er en feilmelding ved valideringsfeil'
           }
         />
-        <TextInput {...args} icon={MailIcon} />
-        <TextInput {...args} prefix="Prefix" />
-      </StoryVStack>
-      <StoryVStack>
-        <TextInput {...args} required value="Påkrevd inputfelt" />
-        <TextInput {...args} readOnly value="Readonly inputfelt" />
-        <TextInput {...args} tip={args.tip ?? 'Dette er en hjelpetekst'} />
-        <TextInput
-          {...args}
-          autoComplete="off"
-          tip={args.tip ?? 'Dette er en hjelpetekst med en tegnteller'}
-          maxLength={20}
-        />
-        <TextInput {...args} suffix="Suffix" />
       </StoryVStack>
     </StoryHStack>
   ),
@@ -86,6 +75,7 @@ export const Sizes: Story = {
         {INPUT_SIZES.map(size => (
           <TextInput
             {...args}
+            key={size}
             label={labelText(size)}
             componentSize={size}
             icon={MailIcon}
@@ -96,8 +86,11 @@ export const Sizes: Story = {
   ),
 };
 
+export const WithIcon: Story = {
+  args: { label: 'Label', icon: MailIcon },
+};
+
 export const WithAffixes: Story = {
-  args: { label: 'Label' },
   render: args => (
     <StoryVStack>
       <LocalMessage purpose="tips">

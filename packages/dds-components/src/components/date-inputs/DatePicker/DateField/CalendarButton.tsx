@@ -2,7 +2,7 @@ import { type AriaButtonProps, useButton } from '@react-aria/button';
 import { useRef } from 'react';
 
 import type { DateFieldProps } from './DateField';
-import { cn } from '../../../../utils';
+import { cn, getFormInputIconSize } from '../../../../utils';
 import { InlineIconButton } from '../../../helpers/InlineIconButton';
 import { focusable } from '../../../helpers/styling/focus.module.css';
 import { CalendarIcon } from '../../../Icon/icons';
@@ -14,14 +14,12 @@ interface CalendarButtonProps extends AriaButtonProps {
 }
 
 export function CalendarButton({
-  componentSize,
+  componentSize = 'medium',
   isReadOnly,
   ...props
 }: CalendarButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const { buttonProps } = useButton(props, ref);
-
-  const size = componentSize === 'xsmall' ? 'small' : 'medium';
 
   return (
     <InlineIconButton
@@ -35,7 +33,7 @@ export function CalendarButton({
         !props.isDisabled && focusable,
       )}
       icon={CalendarIcon}
-      size={size}
+      size={getFormInputIconSize(componentSize)}
     />
   );
 }

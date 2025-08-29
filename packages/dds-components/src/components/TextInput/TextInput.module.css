@@ -19,13 +19,13 @@
   }
   &.with-icon--small {
     padding-left: calc(
-      var(--dds-spacing-x0-75) + var(--dds-icon-size-small) +
+      var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
         var(--dds-spacing-x0-5)
     );
   }
   &.with-icon--xsmall {
     padding-left: calc(
-      var(--dds-spacing-x0-5) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-x0-5) + var(--dds-icon-size-small) +
         var(--dds-spacing-x0-25)
     );
   }

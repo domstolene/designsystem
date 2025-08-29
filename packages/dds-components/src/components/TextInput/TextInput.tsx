@@ -50,12 +50,14 @@ export const TextInput = ({
   const [suffixLength, setSuffixLength] = useState(0);
 
   useLayoutEffect(() => {
-    if (prefixRef.current) {
-      setPrefixLength(prefixRef.current.offsetWidth);
-    }
-    if (suffixRef.current) {
-      setSuffixLength(suffixRef.current.offsetWidth);
-    }
+    requestAnimationFrame(() => {
+      if (prefixRef.current) {
+        setPrefixLength(prefixRef.current.offsetWidth);
+      }
+      if (suffixRef.current) {
+        setSuffixLength(suffixRef.current.offsetWidth);
+      }
+    });
   }, [prefix, suffix]);
 
   const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (
@@ -117,7 +119,7 @@ export const TextInput = ({
 
   const showRequiredStyling = !!(required || ariaRequired);
 
-  const preffixPaddingInlineStart: Property.PaddingInlineStart | undefined =
+  const prefixPaddingInlineStart: Property.PaddingInlineStart | undefined =
     prefixLength
       ? `calc(var(--dds-spacing-x1) + ${prefixLength}px)`
       : undefined;
@@ -132,16 +134,14 @@ export const TextInput = ({
   if (hasIcon) {
     extendedInput = (
       <Box className={inputStyles['input-group']} width={inputWidth}>
-        {
-          <Icon
-            icon={icon}
-            iconSize={getFormInputIconSize(componentSize)}
-            className={cn(
-              inputStyles['input-group__absolute-element'],
-              styles[`icon--${componentSize}`],
-            )}
-          />
-        }
+        <Icon
+          icon={icon}
+          iconSize={getFormInputIconSize(componentSize)}
+          className={cn(
+            inputStyles['input-group__absolute-element'],
+            styles[`icon--${componentSize}`],
+          )}
+        />
         <StatefulInput
           className={cn(
             styles.input,
@@ -175,7 +175,7 @@ export const TextInput = ({
         )}
         <StatefulInput
           style={{
-            paddingInlineStart: preffixPaddingInlineStart,
+            paddingInlineStart: prefixPaddingInlineStart,
             paddingInlineEnd: suffixPaddingInlineEnd,
           }}
           className={styles['input--extended']}
