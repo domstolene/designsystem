@@ -1,5 +1,6 @@
 import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import { Tabs, Tab, TabPanel, TabPanels, TabList } from '../../Tabs';
 import * as CaptionStories from './Caption.stories';
 
 <Meta of={CaptionStories} />
@@ -16,7 +17,20 @@ import * as CaptionStories from './Caption.stories';
 
 `<Caption>` er en komponent som returnerer `<caption>` HTML tag - tittel for en tabell.
 
-## Props
+## Eksempler
 
-<Canvas of={CaptionStories.Preview} />
-<Controls of={CaptionStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Demo</Tab>
+    <Tab>I tabell</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={CaptionStories.Preview} />
+      <Controls of={CaptionStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={CaptionStories.WithTable} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
