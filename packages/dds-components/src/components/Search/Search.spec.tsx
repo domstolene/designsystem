@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { act } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
 import { Search } from '.';
@@ -105,7 +106,11 @@ describe('<Search>', () => {
     await userEvent.type(input, `${text}`);
     const menuitem = screen.getByText(text);
     expect(menuitem).not.toHaveFocus();
-    await userEvent.keyboard('{ArrowDown}');
+
+    await act(async () => {
+      await userEvent.keyboard('{ArrowDown}');
+    });
+
     expect(menuitem).toHaveFocus();
   });
 

@@ -122,8 +122,8 @@ export function CookieBanner({
               flexWrap="wrap"
               paddingBlock="x0.25 0"
             >
-              {buttons.map(props => (
-                <Button {...props} size="medium" purpose="secondary" />
+              {buttons.map((props, i) => (
+                <Button {...props} size="medium" purpose="secondary" key={i} />
               ))}
             </HStack>
           )}

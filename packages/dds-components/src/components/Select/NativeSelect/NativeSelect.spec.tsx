@@ -20,10 +20,8 @@ describe('<NativeSelect>', () => {
   it('should have selected value', () => {
     const value = 'value';
     render(
-      <NativeSelect>
-        <option value={value} selected>
-          label
-        </option>
+      <NativeSelect value={value}>
+        <option value={value}>label</option>
       </NativeSelect>,
     );
     expect(screen.getByRole('combobox')).toHaveValue(value);
@@ -31,7 +29,7 @@ describe('<NativeSelect>', () => {
   it('should be disabled', () => {
     render(<NativeSelect disabled />);
     const inputElement = screen.getByRole('combobox');
-    expect(inputElement).toHaveAttribute('disabled', '');
+    expect(inputElement).toBeDisabled();
   });
   it('should have accessible description when tip provided', () => {
     const tip = 'tip';
@@ -46,7 +44,7 @@ describe('<NativeSelect>', () => {
     render(<NativeSelect errorMessage={error} id={id} />);
     const inputElement = screen.getByRole('combobox');
     expect(inputElement).toHaveAccessibleDescription(error);
-    expect(inputElement).toHaveAttribute('aria-invalid', 'true');
+    expect(inputElement).toBeInvalid();
 
     const errorElement = screen.getByText(error);
     expect(errorElement).toBeInTheDocument();
