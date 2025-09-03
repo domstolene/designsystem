@@ -82,9 +82,7 @@ export function DateInput({
         </Label>
       )}
       <Box
-        {...fieldProps}
         style={style}
-        ref={internalRef}
         width={getInputWidth(width, 'fit-content')}
         className={cn(
           inputStyles.input,
@@ -104,7 +102,13 @@ export function DateInput({
         )}
       >
         {button}
-        <div className={styles['date-segment-container']}>{children}</div>
+        <div
+          {...fieldProps}
+          ref={internalRef}
+          className={styles['date-segment-container']}
+        >
+          {children}
+        </div>
         {suffixEl}
       </Box>
       {hasMessage && (
