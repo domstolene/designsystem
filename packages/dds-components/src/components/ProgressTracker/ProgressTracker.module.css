@@ -1,6 +1,10 @@
 .list {
   --dds-progress-tracker-connector-width: 1px;
   --dds-progress-tracker-item-number-size: 1.75rem;
+  --dds-progress-tracker-item-margin: calc(
+    (var(--dds-progress-tracker-item-number-size) / 2) -
+      (var(--dds-progress-tracker-connector-width) / 2)
+  );
 }
 
 .list-item:not(:first-child)::before {
@@ -13,10 +17,7 @@
     var(--dds-color-border-default);
   width: var(--dds-progress-tracker-connector-width);
   height: 1.125rem;
-  margin-left: calc(
-    (var(--dds-progress-tracker-item-number-size) / 2) -
-      (var(--dds-progress-tracker-connector-width) / 2)
-  );
+  margin-left: var(--dds-progress-tracker-item-margin);
   margin-bottom: var(--dds-spacing-x0-125);
 }
 
@@ -25,24 +26,12 @@
     var(--dds-color-border-default);
   height: var(--dds-progress-tracker-connector-width);
   width: 1.875rem;
-  margin-top: calc(
-    (var(--dds-progress-tracker-item-number-size) / 2) -
-      (var(--dds-progress-tracker-connector-width) / 2)
-  );
+  margin-top: var(--dds-progress-tracker-item-margin);
   margin-right: var(--dds-spacing-x0-5);
 }
 
 .item-button {
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
   grid-template-columns: var(--dds-progress-tracker-item-number-size) 1fr;
-  justify-content: flex-start;
-  align-items: center;
-  font-family: inherit;
-  gap: var(--dds-spacing-x0-5);
   cursor: pointer;
 
   @media (prefers-reduced-motion: no-preference) {
@@ -66,18 +55,6 @@
     background-color: var(--dds-color-surface-action-hover);
     border-color: var(--dds-color-border-action-hover);
     color: var(--dds-color-icon-on-action);
-  }
-
-  &:hover > .item-text--active-completed,
-  &:hover > .item-text--active-incomplete {
-    color: var(--dds-color-text-action-resting);
-    text-decoration-color: transparent;
-  }
-
-  &:hover > .item-text--inactive-completed,
-  &:hover > .item-text--inactive-incomplete {
-    color: var(--dds-color-text-action-hover);
-    text-decoration-color: var(--dds-color-text-action-hover);
   }
 
   &:disabled {
@@ -126,24 +103,9 @@
 }
 
 .item-text {
-  text-decoration: underline;
   text-align: start;
-  transition: text-decoration-color 0.2s;
 }
 
-.item-text--disabled {
-  color: var(--dds-color-text-subtle);
+.item-text--inactive-link {
   text-decoration-color: transparent;
-}
-
-.item-text--active-completed,
-.item-text--active-incomplete {
-  color: var(--dds-color-text-action-resting);
-  text-decoration-color: transparent;
-}
-
-.item-text--inactive-completed,
-.item-text--inactive-incomplete {
-  color: var(--dds-color-text-medium);
-  text-decoration-color: var(--dds-color-text-medium);
 }
