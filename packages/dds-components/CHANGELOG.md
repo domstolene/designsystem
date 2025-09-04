@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 21.12.0
+
+### Minor Changes
+
+- 11625ab: Støtte for `color` prop i `<InlineButton>`. Fungerer som i typografikomponenter; støtter alle tekstfarger fra `@dds-design-tokens` i kebab-case, eller custom.
+
+### Patch Changes
+
+- 5775979: Fikser bug der man ikke kunne skrive ledende 0 i `<DatePicker>` for dag og måned.
+- 6bd63d9: Sett `type` til `"button"` for ClearButton i `<DatePicker>`, `<Search>` og `<NativeSelect>`.
+- 44b60e6: Fikser spacing mellom tekst og ikon i `<TextInput>`.
+- 37c9e84: Endrer farge på standard tekst i `<ProgressTracker>`. Fjerner custom lenke-styling og gjenbruker standard.
+- 44b60e6: Fikser bug der affikser overlappet med tekst i `<TextInput>`.
+
 ## 21.11.0
 
 (2025-08-29)
