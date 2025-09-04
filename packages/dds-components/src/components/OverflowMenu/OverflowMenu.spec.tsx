@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -168,10 +168,12 @@ describe('<OverflowMenu>', () => {
 
       const menuItem = screen.getByRole('menuitem', { name: text });
       await userEvent.click(menuItem);
+      expect(menu).toBeInTheDocument();
 
-      expect(screen.getByRole('menu')).toBeInTheDocument();
-
-      resolveFn!();
+      await waitFor(() => {
+        resolveFn!();
+        expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+      });
     });
 
     it('should disable button while loading from onClickAsync', async () => {
@@ -195,7 +197,9 @@ describe('<OverflowMenu>', () => {
 
       expect(menuItem).toHaveAttribute('aria-disabled', 'true');
 
-      resolveFn!();
+      await waitFor(() => {
+        resolveFn!();
+      });
     });
   });
 });

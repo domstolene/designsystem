@@ -68,11 +68,11 @@ export const InternalHeader = (props: InternalHeaderProps) => {
         hideBelow={hasSmallScreenBreakpoint ? smallScreenBreakpoint : undefined}
         className={cn(styles['nav-list'])}
       >
-        {navItems.map((item, index) => {
+        {navItems.map((item, i) => {
           const { href, ...rest } = item;
           const isCurrent = href === currentPage;
           return (
-            <li key={index} className={styles['nav-list__item']}>
+            <li key={i} className={styles['nav-list__item']}>
               <NavigationItem
                 href={href}
                 {...rest}
@@ -159,8 +159,8 @@ export const InternalHeader = (props: InternalHeaderProps) => {
                   showBelow={smallScreenBreakpoint}
                 >
                   <OverflowMenuList>
-                    {navItems.map(item => (
-                      <OverflowMenuLink {...item} />
+                    {navItems.map((item, i) => (
+                      <OverflowMenuLink {...item} key={`nav-${i}`} />
                     ))}
                   </OverflowMenuList>
                 </ShowHide>
@@ -173,12 +173,16 @@ export const InternalHeader = (props: InternalHeaderProps) => {
               )}
               {hasContextMenuElements && (
                 <OverflowMenuList>
-                  {contextMenuItems.map(item => {
+                  {contextMenuItems.map((item, i) => {
                     return item.href ? (
-                      <OverflowMenuLink {...(item as OverflowMenuLinkProps)} />
+                      <OverflowMenuLink
+                        {...(item as OverflowMenuLinkProps)}
+                        key={`context-${i}`}
+                      />
                     ) : (
                       <OverflowMenuButton
                         {...(item as OverflowMenuButtonProps)}
+                        key={`context-${i}`}
                       />
                     );
                   })}
