@@ -22,6 +22,7 @@ export const ClearButton = ({
   <InlineIconButton
     className={cn(className, absolute && utilStyles['center-absolute-y'])}
     icon={CloseSmallIcon}
+    type="button"
     {...rest}
   />
 );

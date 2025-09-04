@@ -24,6 +24,7 @@ export const InlineIconButton = ({
   <StylelessButton
     className={cn(className, styles.button, focusable)}
     {...rest}
+    type="button"
   >
     <Icon icon={icon} iconSize={size} color={color} />
   </StylelessButton>
