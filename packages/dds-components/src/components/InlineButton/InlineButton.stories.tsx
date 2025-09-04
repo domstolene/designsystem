@@ -26,6 +26,13 @@ export const Preview: Story = {
   },
 };
 
+export const WithColor: Story = {
+  args: {
+    children: 'Vis mer',
+    color: 'text-subtle',
+  },
+};
+
 export const Example: Story = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: args => {

@@ -1,6 +1,8 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as InlineButtontories from './InlineButton.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
+import { LocalMessage } from '../LocalMessage';
 
 <Meta of={InlineButtontories} />
 
@@ -16,11 +18,22 @@ import * as InlineButtontories from './InlineButton.stories';
 
 **OBS!** Ikke bruk komponenten som en lenke.
 
-## Props
-
-<Canvas of={InlineButtontories.Preview} />
-<Controls of={InlineButtontories.Preview} />
-
-## Eksempel
-
-<Canvas of={InlineButtontories.Example} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Tekstfarge</Tab>
+    <Tab>I liste</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={InlineButtontories.Preview} />
+      <Controls of={InlineButtontories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={InlineButtontories.WithColor} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={InlineButtontories.Example} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
