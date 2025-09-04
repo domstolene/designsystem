@@ -2,7 +2,11 @@ import React from 'react';
 
 import { copyButton } from './CopyButton';
 import { type TokenGenericJsonObject } from './Tokens.types';
-import { Table } from '../../../packages/dds-components/src';
+import {
+  Box,
+  type BoxProps,
+  Table,
+} from '../../../packages/dds-components/src';
 
 export function splitReferenceKeys(v: string): Array<string> {
   return v.replace(/\{|\}/g, '').split('.');
@@ -15,6 +19,12 @@ export function isReferencedValue(v: string): boolean {
 export function underscoreToDash(v: string): string {
   return v.replace('_', '-');
 }
+
+export const Wrapper = (props: BoxProps) => (
+  <Box maxWidth={props.maxWidth ? props.maxWidth : '90ch'} marginInline="auto">
+    {props.children}
+  </Box>
+);
 
 export const tableStyle = {
   marginBottom: 'var(--dds-spacing-x1-5)',
