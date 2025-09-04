@@ -2,6 +2,8 @@
 
 ## 21.12.0
 
+(2025-09-04)
+
 ### Minor Changes
 
 - 11625ab: Støtte for `color` prop i `<InlineButton>`. Fungerer som i typografikomponenter; støtter alle tekstfarger fra `@dds-design-tokens` i kebab-case, eller custom.
