@@ -39,7 +39,7 @@ export const Preview: Story = {
   args: { children: 'Ledetekst' },
 };
 
-export const Overview: Story = {
+export const States: Story = {
   args: { children: 'Ledetekst' },
   render: args => (
     <StoryHStack>
@@ -51,9 +51,9 @@ export const Overview: Story = {
       </StoryVStack>
       <StoryVStack>
         <Toggle {...args} checked />
-        <Toggle {...args} checked disabled children="disabled" />
-        <Toggle {...args} checked readOnly children="readOnly" />
-        <Toggle {...args} checked isLoading children="isLoading" />
+        <Toggle {...args} checked disabled children="disabled checked" />
+        <Toggle {...args} checked readOnly children="readOnly checked" />
+        <Toggle {...args} checked isLoading children="isLoading checked" />
       </StoryVStack>
     </StoryHStack>
   ),

@@ -1,6 +1,7 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
 import * as ToggleStories from './Toggle.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={ToggleStories} />
 
@@ -16,7 +17,18 @@ import * as ToggleStories from './Toggle.stories';
 
 `<Toggle>` er en semantisk `<input type="checkbox">`. Den brukes til umiddelbar tilstandsendring.
 
-## Props
-
-<Canvas of={ToggleStories.Preview} />
-<Controls of={ToggleStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Controlled</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={ToggleStories.Preview} />
+      <Controls of={ToggleStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={ToggleStories.Controlled} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
