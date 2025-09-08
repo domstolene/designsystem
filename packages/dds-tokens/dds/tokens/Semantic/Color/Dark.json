@@ -492,17 +492,17 @@
         "description": "Tertiary brand color"
       },
       "tertiary-subtle": {
-        "value": "{dds-color-base.tertiary.900}",
-        "type": "color",
-        "description": "Tertiary brand color"
-      },
-      "tertiary-medium": {
         "value": "{dds-color-base.tertiary.700}",
         "type": "color",
         "description": "Tertiary brand color"
       },
-      "tertiary-strong": {
+      "tertiary-medium": {
         "value": "{dds-color-base.tertiary.350}",
+        "type": "color",
+        "description": "Tertiary brand color"
+      },
+      "tertiary-strong": {
+        "value": "{dds-color-base.tertiary.200}",
         "type": "color",
         "description": "Tertiary brand color"
       }
