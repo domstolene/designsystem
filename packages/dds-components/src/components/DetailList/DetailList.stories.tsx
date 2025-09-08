@@ -11,6 +11,14 @@ export default {
   argTypes: {
     ...commonArgTypes,
   },
+  decorators: [
+    Story => (
+      <>
+        <Story />
+        <style>{styling}</style>
+      </>
+    ),
+  ],
 } satisfies Meta<typeof DetailList>;
 
 type Story = StoryObj<typeof DetailList>;
@@ -77,26 +85,10 @@ const children = [
 ];
 
 export const Preview: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>{styling}</style>
-      </>
-    ),
-  ],
   render: args => <DetailList {...args}>{children}</DetailList>,
 };
 
 export const Small: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>{styling}</style>
-      </>
-    ),
-  ],
   render: args => (
     <DetailList {...args} size="small">
       {children}
@@ -105,16 +97,16 @@ export const Small: Story = {
 };
 
 export const Large: Story = {
-  decorators: [
-    Story => (
-      <>
-        <Story />
-        <style>{styling}</style>
-      </>
-    ),
-  ],
   render: args => (
     <DetailList {...args} size="large">
+      {children}
+    </DetailList>
+  ),
+};
+
+export const SmallScreen: Story = {
+  render: args => (
+    <DetailList {...args} smallScreenBreakpoint="xl">
       {children}
     </DetailList>
   ),
@@ -124,10 +116,7 @@ export const Responsive: Story = {
   decorators: [
     Story =>
       windowWidthDecorator(
-        <>
-          <Story />
-          <style>{styling}</style>
-        </>,
+        <Story />,
         'Versjonen for liten skjerm vises ved sm brekkpunkt og nedover.',
       ),
   ],
