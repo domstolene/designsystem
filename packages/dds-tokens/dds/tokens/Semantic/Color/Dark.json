@@ -343,7 +343,7 @@
         "description": "Used on brand.tertiary-subtle"
       },
       "on-tertiary-medium": {
-        "value": "{dds-color-base.gray.white}",
+        "value": "{dds-color-base.gray.black}",
         "type": "color",
         "description": "Used on brand.tertiary-medium"
       },
