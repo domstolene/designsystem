@@ -27,7 +27,7 @@ import { Icon } from '../../Icon';
 import { ChevronDownIcon } from '../../Icon/icons';
 import { renderInputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
-import { Label } from '../../Typography';
+import { renderLabel } from '../../Typography/Label/Label.utils';
 import typographyStyles from '../../Typography/typographyStyles.module.css';
 
 export type NativeSelectProps = {
@@ -89,7 +89,6 @@ export const NativeSelect = ({
 
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
-  const hasLabel = !!label;
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
@@ -118,16 +117,12 @@ export const NativeSelect = ({
 
   return (
     <div className={className} style={style}>
-      {hasLabel && (
-        <Label
-          className={inputStyles.label}
-          htmlFor={uniqueId}
-          showRequiredStyling={showRequiredStyling}
-          readOnly={readOnly}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({
+        label,
+        htmlFor: uniqueId,
+        showRequiredStyling,
+        readOnly,
+      })}
       <Box position="relative" width={inputWidth}>
         <select
           ref={useCombinedRef(ref, selectRef)}

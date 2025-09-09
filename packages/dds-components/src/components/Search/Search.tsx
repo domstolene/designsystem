@@ -25,8 +25,9 @@ import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
 import { SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
-import { Box, Grid, HStack, type ResponsiveProps, VStack } from '../layout';
-import { Label, getTypographyCn } from '../Typography';
+import { Box, Grid, HStack, type ResponsiveProps } from '../layout';
+import { getTypographyCn } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -97,7 +98,6 @@ export const Search = ({
 }: SearchProps) => {
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-searchInput`;
-  const hasLabel = !!label;
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const suggestionsId = derivativeIdGenerator(uniqueId, 'suggestions');
   const suggestionsDescriptionId = derivativeIdGenerator(
@@ -204,8 +204,8 @@ export const Search = ({
     </HStack>
   );
   return (
-    <VStack gap="x0.125">
-      {hasLabel && <Label htmlFor={uniqueId}>{label}</Label>}
+    <div>
+      {renderLabel({ htmlFor: uniqueId, label })}
       <div>
         {showSearchButton ? (
           <Grid
@@ -231,7 +231,7 @@ export const Search = ({
         )}
         {renderInputMessage(tip, tipId)}
       </div>
-    </VStack>
+    </div>
   );
 };
 

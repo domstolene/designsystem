@@ -65,32 +65,36 @@ export const Label = ({
 
 interface SelectionControlGroupLabelProps {
   id?: string;
-  showRequiredMarker?: boolean;
+  showRequiredStyling?: boolean;
   readOnly?: boolean;
-  children?: string;
+  label?: string;
 }
 
-export const GroupLabel = ({
+export const renderGroupLabel = ({
   id,
-  showRequiredMarker,
+  showRequiredStyling,
   readOnly,
-  children,
+  label,
 }: SelectionControlGroupLabelProps) => {
-  return (
-    <Typography
-      as="span"
-      typographyType="labelMedium"
-      id={id}
-      className={readOnly ? labelStyles['read-only'] : undefined}
-    >
-      {readOnly && (
-        <Icon
-          icon={LockIcon}
-          className={labelStyles['read-only__icon']}
-          iconSize="small"
-        />
-      )}
-      {children} {showRequiredMarker && <RequiredMarker />}
-    </Typography>
-  );
+  const hasLabel = !!label;
+  if (hasLabel)
+    return (
+      <Typography
+        as="span"
+        typographyType="labelMedium"
+        id={id}
+        className={readOnly ? labelStyles['read-only'] : undefined}
+        withMargins
+      >
+        {readOnly && (
+          <Icon
+            icon={LockIcon}
+            className={labelStyles['read-only__icon']}
+            iconSize="small"
+          />
+        )}
+        {label} {showRequiredStyling && <RequiredMarker />}
+      </Typography>
+    );
+  else return null;
 };

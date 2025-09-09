@@ -16,7 +16,7 @@ import { StylelessList } from '../helpers';
 import { UploadIcon } from '../Icon/icons';
 import { InputMessage } from '../InputMessage';
 import { Box, type ResponsiveProps, VStack } from '../layout';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
 
@@ -96,7 +96,6 @@ export const FileUploader = (props: FileUploaderProps) => {
   const hasLabel = label !== undefined;
   const hasTip = tip !== undefined;
   const hasRootErrors = rootErrors.length > 0;
-  const showRequiredMarker = required;
 
   const labelId = derivativeIdGenerator(uniqueId, 'label');
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
@@ -147,15 +146,12 @@ export const FileUploader = (props: FileUploaderProps) => {
       width={width}
       {...rest}
     >
-      {hasLabel && (
-        <Label
-          id={labelId}
-          showRequiredStyling={showRequiredMarker}
-          htmlFor={inputId}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({
+        label,
+        id: labelId,
+        showRequiredStyling: required,
+        htmlFor: inputId,
+      })}
       {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
       {withDragAndDrop ? (
         <VStack

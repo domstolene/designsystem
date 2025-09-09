@@ -1,6 +1,6 @@
 import { useId } from 'react';
 
-import { Box, Label, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
+import { Box, MinusIcon, PlusIcon, getBaseHTMLProps } from '../..';
 import styles from './InputStepper.module.css';
 import {
   type InputStepperProps,
@@ -13,10 +13,10 @@ import {
   derivativeIdGenerator,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
-import { Button } from '../Button';
+import { Button, type ButtonProps } from '../Button';
 import { StatefulInput, getInputWidth } from '../helpers/Input';
-import inputStyles from '../helpers/Input/Input.module.css';
 import { renderInputMessage } from '../InputMessage';
+import { renderLabel } from '../Typography/Label/Label.utils';
 
 export const InputStepper = ({
   id,
@@ -31,11 +31,8 @@ export const InputStepper = ({
   maxValue,
   defaultValue,
   value,
-  disabled,
-  readOnly,
   step = 1,
   onChange,
-  style,
   width,
   htmlProps,
   ...rest
@@ -60,6 +57,25 @@ export const InputStepper = ({
   const hasMessage = hasErrorMessage || hasTip;
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
+  const showRequiredStyling = !!(rest.required || rest['aria-required']);
+  const hideButtons = rest.disabled || rest.readOnly;
+  const decreaseLabel =
+    decreaseButtonLabel ?? t(texts.decrease(label ?? '', step));
+  const increaseLabel =
+    increaseButtonLabel ?? t(texts.increase(label ?? '', step));
+
+  function buttonProps(type: 'plus' | 'minus'): ButtonProps {
+    const isPlus = type === 'plus';
+    return {
+      purpose: 'secondary',
+      size: componentSize,
+      'aria-controls': uniqueId,
+      onClick: isPlus ? handleMinus : handlePlus,
+      icon: isPlus ? MinusIcon : PlusIcon,
+      'aria-label': isPlus ? decreaseLabel : increaseLabel,
+      className: cn(styles[`stepButton--${type}`], styles['stepButton']),
+    };
+  }
 
   const handlePlus = () => {
     if (maxValue !== undefined && inputValue + step <= maxValue) {
@@ -84,40 +100,24 @@ export const InputStepper = ({
 
   return (
     <div className={className}>
-      <div>
-        <Label
-          htmlFor={uniqueId}
-          readOnly={readOnly}
-          className={inputStyles.label}
-        >
-          {label}
-        </Label>
-      </div>
+      {renderLabel({
+        label,
+        htmlFor: uniqueId,
+        readOnly: rest.readOnly,
+        showRequiredStyling,
+      })}
       <Box
         className={styles['input-container']}
         width={getInputWidth(width, '180px')}
       >
-        {readOnly || disabled ? null : (
-          <Button
-            aria-label={decreaseButtonLabel ?? `${t(texts.decrease)} ${label}`}
-            purpose="secondary"
-            size={componentSize}
-            icon={MinusIcon}
-            onClick={handleMinus}
-            className={cn(styles['stepButton--left'], styles['stepButton'])}
-            aria-controls={uniqueId}
-          ></Button>
-        )}
+        {hideButtons ? null : <Button {...buttonProps('plus')} />}
         <Box
           as={StatefulInput}
           width="100%"
           type="text"
-          disabled={disabled}
-          readOnly={readOnly}
           inputMode="numeric"
           pattern="-?[0-9]+"
           id={uniqueId}
-          style={style}
           componentSize={componentSize}
           {...getBaseHTMLProps(uniqueId, styles.textInput, htmlProps, rest)}
           value={inputValue}
@@ -129,17 +129,7 @@ export const InputStepper = ({
             hasTip ? tipId : undefined,
           ])}
         />
-        {readOnly || disabled ? null : (
-          <Button
-            aria-label={increaseButtonLabel ?? `${t(texts.increase)} ${label}`}
-            purpose="secondary"
-            size={componentSize}
-            icon={PlusIcon}
-            onClick={handlePlus}
-            className={cn(styles['stepButton--right'], styles['stepButton'])}
-            aria-controls={uniqueId}
-          ></Button>
-        )}
+        {hideButtons ? null : <Button {...buttonProps('minus')} />}
       </Box>
       {hasMessage &&
         renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
@@ -150,16 +140,16 @@ export const InputStepper = ({
 InputStepper.displayName = 'InputStepper';
 
 const texts = createTexts({
-  decrease: {
-    nb: 'Trekk fra',
-    no: 'Trekk fra',
-    nn: 'Trekk frå',
-    en: 'Decrease',
-  },
-  increase: {
-    nb: 'Legg til',
-    no: 'Legg til',
-    nn: 'Legg til',
-    en: 'Increase',
-  },
+  decrease: (label, n) => ({
+    nb: `Reduser ${label} med ${n}`,
+    no: `Reduser ${label} med ${n}`,
+    nn: `Reduser ${label} med ${n}`,
+    en: `Decrease ${label} by ${n}`,
+  }),
+  increase: (label, n) => ({
+    nb: `Øk ${label} med ${n}`,
+    no: `Øk ${label} med ${n}`,
+    nn: `Øk ${label} med ${n}`,
+    en: `Increase ${label} by ${n}`,
+  }),
 });

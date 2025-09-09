@@ -236,8 +236,7 @@
 
 :where(.label-medium--margins) {
   display: block;
-  margin-top: var(--dds-font-label-medium-paragraph-spacing);
-  margin-bottom: var(--dds-font-label-medium-paragraph-spacing);
+  margin-bottom: var(--dds-spacing-x0-125);
 }
 
 :where(.legend) {

@@ -71,6 +71,7 @@ export const Overview: Story = {
           <InputStepper {...args} label="Hjelpetekst" tip="Hjelpetekst" />
         </StoryVStack>
         <StoryVStack>
+          <InputStepper {...args} label="Required" required />
           <InputStepper {...args} label="ReadOnly" readOnly />
           <InputStepper {...args} label="Disabled" disabled />
         </StoryVStack>
