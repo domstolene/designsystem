@@ -29,7 +29,7 @@ import { renderInputMessage } from '../InputMessage';
 import { Box, type Breakpoint } from '../layout';
 import { styleUpToBreakpoint } from '../layout/common/utils';
 import { NativeSelect } from '../Select';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export interface PhoneInputValue {
@@ -170,7 +170,6 @@ export const PhoneInput = ({
 
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
-  const hasLabel = !!label;
   const hasMessage = hasErrorMessage || hasTip;
 
   const tipId = derivativeIdGenerator(phoneInputId, 'tip');
@@ -265,16 +264,12 @@ export const PhoneInput = ({
 
   return (
     <div className={cn(className, inputStyles.container)} style={style}>
-      {hasLabel && (
-        <Label
-          htmlFor={phoneNumberId}
-          showRequiredStyling={showRequiredStyling}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({
+        label,
+        htmlFor: phoneNumberId,
+        showRequiredStyling,
+        readOnly,
+      })}
       <Box
         display="flex"
         flexDirection={styleUpToBreakpoint('column', bp, 'row')}

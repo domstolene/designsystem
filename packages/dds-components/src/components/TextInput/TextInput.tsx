@@ -15,7 +15,7 @@ import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon } from '../Icon';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 
 export const TextInput = ({
   label,
@@ -75,7 +75,6 @@ export const TextInput = ({
 
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
-  const hasLabel = !!label;
   const hasMessage = hasErrorMessage || hasTip;
   const hasBottomContainer = hasErrorMessage || hasTip || !!maxLength;
   const hasIcon = !!icon;
@@ -209,17 +208,7 @@ export const TextInput = ({
       )}
       style={style}
     >
-      {hasLabel && (
-        <Box
-          as={Label}
-          display="block"
-          htmlFor={uniqueId}
-          showRequiredStyling={showRequiredStyling}
-          readOnly={readOnly}
-        >
-          {label}
-        </Box>
-      )}
+      {renderLabel({ label, htmlFor: uniqueId, showRequiredStyling, readOnly })}
       {extendedInput ? (
         extendedInput
       ) : (

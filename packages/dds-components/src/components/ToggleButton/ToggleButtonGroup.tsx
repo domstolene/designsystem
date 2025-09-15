@@ -4,8 +4,8 @@ import {
   type BaseComponentPropsWithChildren,
   getBaseHTMLProps,
 } from '../../types';
-import { Box, VStack } from '../layout';
-import { Typography } from '../Typography';
+import { Box } from '../layout';
+import { renderGroupLabel } from '../SelectionControl/SelectionControl.styles';
 
 type Direction = 'row' | 'column';
 
@@ -39,21 +39,16 @@ export const ToggleButtonGroup = (props: ToggleButtonGroupProps) => {
   const uniqueLabelId = labelId ?? `${generatedId}-ToggleButtonGroupLabel`;
 
   return (
-    <VStack
-      gap="x0.5"
+    <div
       {...getBaseHTMLProps(id, className, htmlProps, rest)}
       role="group"
       aria-labelledby={label ? uniqueLabelId : undefined}
     >
-      {!!label && (
-        <Typography as="span" typographyType="labelMedium" id={uniqueLabelId}>
-          {label}
-        </Typography>
-      )}
+      {renderGroupLabel({ label, id: uniqueLabelId })}
       <Box display="flex" flexWrap="wrap" gap="x0.75" flexDirection={direction}>
         {children}
       </Box>
-    </VStack>
+    </div>
   );
 };
 

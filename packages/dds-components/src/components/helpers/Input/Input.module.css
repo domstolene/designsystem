@@ -105,10 +105,6 @@
   gap: var(--dds-spacing-x1);
 }
 
-:where(.label) {
-  display: block;
-}
-
 :where(.input-group__absolute-element) {
   position: absolute;
   top: 50%;

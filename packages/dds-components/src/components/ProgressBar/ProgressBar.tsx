@@ -1,7 +1,6 @@
 import { type ComponentPropsWithRef, useId } from 'react';
 
 import { createSizes } from '../../types';
-import { Label } from '../Typography';
 import utilStyles from './../helpers/styling/utilStyles.module.css';
 import styles from './ProgressBar.module.css';
 import {
@@ -12,6 +11,7 @@ import {
 import { type CommonInputProps, getInputWidth } from '../helpers/Input';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
+import { renderLabel } from '../Typography/Label/Label.utils';
 
 export const PROGRESS_BAR_SIZES = createSizes('small', 'medium');
 export type ProgressBarSize = (typeof PROGRESS_BAR_SIZES)[number];
@@ -56,7 +56,6 @@ export const ProgressBar = ({
   const uniqueId = id ?? `${generatedId}-searchInput`;
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
-  const hasLabel = !!label;
   const hasValidMax = !!max && max > 0;
 
   /**
@@ -75,7 +74,7 @@ export const ProgressBar = ({
   const isIndeterminate = !hasValidValue && !hasErrorMessage;
   return (
     <Box width="100%" className={className} style={style}>
-      {hasLabel ? <Label htmlFor={uniqueId}>{label}</Label> : undefined}
+      {renderLabel({ label, htmlFor: uniqueId })}
       <progress
         id={uniqueId}
         className={utilStyles['visually-hidden']}

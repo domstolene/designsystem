@@ -8,7 +8,7 @@ import inputStyles from '../../helpers/Input/Input.module.css';
 import focusStyles from '../../helpers/styling/focus.module.css';
 import { InputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
-import { Label } from '../../Typography';
+import { renderLabel } from '../../Typography/Label/Label.utils';
 import { type DatePickerProps } from '../DatePicker';
 import { CalendarPopoverContext } from '../DatePicker/CalendarPopover';
 
@@ -60,7 +60,6 @@ export function DateInput({
 }: DateInputProps) {
   const hasErrorMessage = !!errorMessage;
   const hasTip = !!tip;
-  const hasLabel = props.label != null;
   const hasMessage = hasErrorMessage || hasTip;
 
   const { isOpen } = useContext(CalendarPopoverContext);
@@ -71,16 +70,12 @@ export function DateInput({
       className={cn(className, inputStyles.container)}
       ref={ref}
     >
-      {hasLabel && (
-        <Label
-          {...labelProps}
-          showRequiredStyling={required}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {props.label}
-        </Label>
-      )}
+      {renderLabel({
+        ...labelProps,
+        label: props.label,
+        showRequiredStyling: required,
+        readOnly,
+      })}
       <Box
         style={style}
         width={getInputWidth(width, 'fit-content')}

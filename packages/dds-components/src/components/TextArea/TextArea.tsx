@@ -24,7 +24,7 @@ import { focusable } from '../helpers/styling/focus.module.css';
 import { scrollbar } from '../helpers/styling/utilStyles.module.css';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 
 export type TextAreaProps = CommonInputProps & {
@@ -81,7 +81,6 @@ export const TextArea = ({
 
   const hasErrorMessage = !!errorMessage;
   const hasMessage = hasErrorMessage || !!tip;
-  const hasLabel = !!label;
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
   const characterCounterId = derivativeIdGenerator(
@@ -94,16 +93,7 @@ export const TextArea = ({
 
   return (
     <div className={cn(className, inputStyles.container)} style={{ ...style }}>
-      {hasLabel && (
-        <Label
-          showRequiredStyling={showRequiredStyling}
-          htmlFor={uniqueId}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({ label, htmlFor: uniqueId, readOnly, showRequiredStyling })}
       <Box
         as="textarea"
         width={inputWidth}

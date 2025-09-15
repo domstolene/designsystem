@@ -42,12 +42,11 @@ import {
 } from '../../utils';
 import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
 import { type InputSize, getInputWidth } from '../helpers/Input';
-import inputStyles from '../helpers/Input/Input.module.css';
 import { type SvgIcon } from '../Icon/utils';
 import { renderInputMessage } from '../InputMessage';
 import { Box, type ResponsiveProps } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
-import { Label } from '../Typography';
+import { renderLabel } from '../Typography/Label/Label.utils';
 
 export interface SelectOption<TValue = unknown> {
   label: string | number;
@@ -109,7 +108,6 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   componentSize = 'medium',
   errorMessage,
   tip,
-  required,
   'aria-required': ariaRequired,
   readOnly,
   options,
@@ -146,10 +144,9 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   const uniqueId = id ?? `${generatedId}-select`;
 
   const singleValueId = !isMulti ? `${uniqueId}-singleValue` : undefined;
-  const hasLabel = !!label;
   const hasErrorMessage = !!errorMessage;
   const hasIcon = !!icon;
-  const showRequiredStyling = !!(required || ariaRequired);
+  const showRequiredStyling = !!(rest.required || ariaRequired);
 
   const tipId = derivativeIdGenerator(uniqueId, 'tip');
   const errorMessageId = derivativeIdGenerator(uniqueId, 'errorMessage');
@@ -279,7 +276,6 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       Control: customControl,
     },
     'aria-invalid': hasErrorMessage ? true : undefined,
-    required,
     onKeyDown: readOnlyKeyDownHandler('select', readOnly, onKeyDown),
     openMenuOnClick: readOnly
       ? false
@@ -301,16 +297,12 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       )}
       style={style}
     >
-      {hasLabel && (
-        <Label
-          htmlFor={uniqueId}
-          showRequiredStyling={showRequiredStyling}
-          className={inputStyles.label}
-          readOnly={readOnly}
-        >
-          {label}
-        </Label>
-      )}
+      {renderLabel({
+        label,
+        htmlFor: uniqueId,
+        showRequiredStyling,
+        readOnly,
+      })}
       <ReactSelect {...reactSelectProps} ref={ref} />
       {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
     </Box>
