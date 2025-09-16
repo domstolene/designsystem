@@ -40,7 +40,8 @@
 .list--small {
   font: var(--dds-font-body-small);
   letter-spacing: var(--dds-font-body-small-letter-spacing);
-  .cell {
+  dt,
+  dd {
     padding: var(--dds-spacing-x0-5);
   }
 }
@@ -48,7 +49,8 @@
 .list--medium {
   font: var(--dds-font-body-medium);
   letter-spacing: var(--dds-font-body-medium-letter-spacing);
-  .cell {
+  dt,
+  dd {
     padding: var(--dds-spacing-x0-75);
   }
 }
@@ -56,7 +58,8 @@
 .list--large {
   font: var(--dds-font-body-medium);
   letter-spacing: var(--dds-font-body-medium-letter-spacing);
-  .cell {
+  dt,
+  dd {
     padding-block: var(--dds-spacing-x1-5);
     padding-inline: var(--dds-spacing-x0-75);
   }
@@ -67,6 +70,17 @@
   dd {
     margin-inline-start: 0;
     text-align: left;
+  }
+  dt {
+    padding-block-end: var(--dds-spacing-x0-125);
+  }
+
+  dd:not(:last-of-type) {
+    padding-block: var(--dds-spacing-x0-125);
+  }
+
+  dd:last-of-type {
+    padding-block-start: var(--dds-spacing-x0-125);
   }
 }
 
