@@ -3,11 +3,12 @@
   align-items: center;
   width: fit-content;
   gap: var(--dds-spacing-x0-75);
+  --dds-toggle-medium-thumb-spacing-inline: var(--dds-spacing-x0-125);
+  --dds-toggle-large-thumb-spacing-inline: var(--dds-spacing-x0-25);
 }
 
 .track {
-  display: flex;
-  align-items: center;
+  position: relative;
   background-color: var(--dds-color-surface-medium);
   border-radius: var(--dds-border-radius-rounded);
   border: 1px solid var(--dds-color-border-default);
@@ -20,6 +21,7 @@
 }
 
 .thumb {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,6 +31,7 @@
   @media (prefers-reduced-motion: no-preference) {
     transition:
       transform 0.2s,
+      left 0.2s,
       border 0.2s,
       width 0.2s;
   }
@@ -57,19 +60,15 @@
   }
 
   .thumb {
-    margin-inline-start: var(--dds-spacing-x0-125);
+    left: var(--dds-toggle-medium-thumb-spacing-inline);
+    top: 1px;
     height: 1.25rem;
     width: 1.25rem;
   }
 
   input:checked ~ .track > .thumb {
-    transform: translateX(1.25rem);
-  }
-
-  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
-    ~ .track
-    > .thumb {
-    transform: translateX(var(--dds-spacing-x1));
+    left: calc(100% - var(--dds-toggle-medium-thumb-spacing-inline));
+    transform: translateX(-100%);
   }
 
   input:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
@@ -86,19 +85,15 @@
   }
 
   .thumb {
-    margin-inline-start: var(--dds-spacing-x0-25);
+    left: var(--dds-toggle-large-thumb-spacing-inline);
+    top: var(--dds-spacing-x0-125);
     height: 1.75rem;
     width: 1.75rem;
   }
 
   input:checked ~ .track > .thumb {
-    transform: translateX(var(--dds-spacing-x1));
-  }
-
-  input:checked:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
-    ~ .track
-    > .thumb {
-    transform: translateX(var(--dds-spacing-x0-75));
+    left: calc(100% - var(--dds-toggle-large-thumb-spacing-inline));
+    transform: translateX(-100%);
   }
 
   input:enabled:active:not([aria-disabled]):not([aria-readonly='true'])
