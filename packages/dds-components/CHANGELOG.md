@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 21.13.0
+
+### Minor Changes
+
+- 967f69a: Endrer effekten av `withMargins` prop i `<Label>`. Den får ikke lenger margin `1em` topp og bunn, men `dds-spacing-x0-125` kun bunn. Kan resultere i endringer i layout.
+
+### Patch Changes
+
+- 1dc6d0c: Utbedrer animasjon i `<Toggle>`.
+- 967f69a: Standardiserer spacing mellom ledetekst og input på tvers av komponenter. Påvirker `<TextInput>`, `<TextArea>`, `<DatePicker>`, `<TimePicker>`, `<Select>`, `<NativeSelect>`, `<CheckboxGroup>`, `<RadioButtonGroup>`, `<ToggleButtonGroup>`, `<ProgressBar>`, `<Search>`, `<FileUploader>`, `<InputStepper>`, `<PhoneInput>`.
+- 967f69a: Utbedrer usynlige ledetekster i knapper i `<InputStepper>`.
+- bd5fd6f: Fikser spacing i `<DetailList>` i variant for mindre skjermer.
+
 ## 21.12.0
 
 (2025-09-04)
