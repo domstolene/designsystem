@@ -11,9 +11,10 @@ import {
   CalendarPopoverAnchor,
   CalendarPopoverContent,
 } from './CalendarPopover';
-import { locale } from './constants';
+import { LOCALE } from './constants';
 import { DateField, type DateFieldProps } from './DateField/DateField';
 import { useCombinedRef } from '../../../hooks';
+import { useLanguage } from '../../../i18n';
 import { type Breakpoint } from '../../layout';
 import { type ResponsiveProps } from '../../layout/common/Responsive.types';
 import {
@@ -65,6 +66,12 @@ export function DatePicker({
   ref,
   ...props
 }: DatePickerProps) {
+  const lang = useLanguage();
+
+  if (!lang) {
+    throw new Error('DatePicker must be used within a DdsProvider');
+  }
+
   const state = useDatePickerState(props);
   const domRef = useFocusManagerRef(ref && refIsFocusable(ref) ? ref : null);
   const internalRef = useRef<HTMLElement>(null);
@@ -76,7 +83,7 @@ export function DatePicker({
   );
 
   return (
-    <I18nProvider locale={locale}>
+    <I18nProvider locale={LOCALE[lang]}>
       <CalendarPopover
         isOpen={state.isOpen}
         onClose={state.close}

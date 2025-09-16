@@ -3,13 +3,14 @@ import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
 import { type Ref, useRef } from 'react';
 
+import { useLanguage } from '../../../i18n';
 import { cn } from '../../../utils';
 import { type InputProps } from '../../helpers/Input/Input.types';
 import { Icon } from '../../Icon';
 import { TimeIcon } from '../../Icon/icons';
 import { DateInput } from '../common/DateInput';
 import styles from '../common/DateInput.module.css';
-import { locale } from '../DatePicker/constants';
+import { LOCALE } from '../DatePicker/constants';
 import { DateSegment } from '../DatePicker/DateField/DateSegment';
 
 export type TimePickerProps = Omit<AriaTimeFieldProps<Time>, 'hideTimeZone'> &
@@ -26,10 +27,16 @@ export function TimePicker({
   ref,
   ...props
 }: TimePickerProps) {
+  const lang = useLanguage();
+
+  if (!lang) {
+    throw new Error('DatePicker must be used within a DdsProvider');
+  }
+
   const internalRef = useRef<HTMLInputElement>(null);
   const state = useTimeFieldState({
     ...props,
-    locale,
+    locale: LOCALE[lang],
   });
   const { labelProps, fieldProps } = useTimeField(
     { ...props, hideTimeZone: true, granularity: 'hour' },

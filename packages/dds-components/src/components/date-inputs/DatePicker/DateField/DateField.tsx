@@ -13,6 +13,7 @@ import { useDateFieldState } from '@react-stately/datepicker';
 import { type Ref, useRef } from 'react';
 
 import { CalendarButton } from './CalendarButton';
+import { formatDateFieldSegments } from './DateField.utils';
 import { DateSegment } from './DateSegment';
 import { createTexts, useTranslation } from '../../../../i18n';
 import { cn } from '../../../../utils';
@@ -71,6 +72,8 @@ export function DateField({
     state.setValue(null);
   };
 
+  const formattedSegments = formatDateFieldSegments(state.segments);
+
   return (
     <DateInput
       {...props}
@@ -109,7 +112,7 @@ export function DateField({
       labelProps={labelProps}
       fieldProps={fieldProps}
     >
-      {state.segments.map((segment, i) => (
+      {formattedSegments.map((segment, i) => (
         <DateSegment
           aria-readonly={props.isReadOnly}
           componentSize={componentSize}
