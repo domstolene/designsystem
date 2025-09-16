@@ -2,6 +2,8 @@
 
 ## 21.13.0
 
+(2025-09-16)
+
 ### Minor Changes
 
 - 967f69a: Endrer effekten av `withMargins` prop i `<Label>`. Den får ikke lenger margin `1em` topp og bunn, men `dds-spacing-x0-125` kun bunn. Kan resultere i endringer i layout.
