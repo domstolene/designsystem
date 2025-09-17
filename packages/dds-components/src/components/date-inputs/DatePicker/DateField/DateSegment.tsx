@@ -62,9 +62,7 @@ export function DateSegment({
       >
         {segment.placeholder}
       </span>
-      {segment.isPlaceholder
-        ? ''
-        : segment.text.padStart(String(segment.maxValue ?? '').length, '0')}
+      {segment.isPlaceholder ? '' : segment.text}
     </div>
   );
 }
