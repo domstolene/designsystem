@@ -332,12 +332,12 @@ export const COUNTRIES: Countries = {
   CO: { name: 'Colombia', id: 'CO', dialCode: '+57' },
   KM: { name: 'Komorene (‫جزر القمر‬‎)', id: 'KM', dialCode: '+269' },
   CD: {
-    name: 'Kongo (DR) (Jamhuri ya Kisoemokrasia ya Kongo)',
+    name: 'Kongo, den demokratiske republikken (République démocratique du Congo)',
     id: 'CD',
     dialCode: '+243',
   },
   CG: {
-    name: 'Kongo (Republikken) (Congo-Brazzaville)',
+    name: 'Kongo, republikken (République du Congo)',
     id: 'CG',
     dialCode: '+242',
   },
@@ -415,7 +415,7 @@ export const COUNTRIES: Countries = {
   IR: { name: 'Iran (‫ایران‬‎)', id: 'IR', dialCode: '+98' },
   IQ: { name: 'Irak (‫العراق‬‎)', id: 'IQ', dialCode: '+964' },
   IE: { name: 'Irland (Éire)', id: 'IE', dialCode: '+353' },
-  IM: { name: 'Isle of Man', id: 'IM', dialCode: '+44' },
+  IM: { name: 'Man (Isle of Man)', id: 'IM', dialCode: '+44' },
   IL: { name: 'Israel (‫ישראל‬‎)', id: 'IL', dialCode: '+972' },
   IT: { name: 'Italia', id: 'IT', dialCode: '+39' },
   JM: { name: 'Jamaica', id: 'JM', dialCode: '+1' },
@@ -439,7 +439,7 @@ export const COUNTRIES: Countries = {
   LU: { name: 'Luxembourg', id: 'LU', dialCode: '+352' },
   MO: { name: 'Macao (澳門)', id: 'MO', dialCode: '+853' },
   MK: {
-    name: 'Nord-Makedonia (FYROM) (Македонија)',
+    name: 'Nord-Makedonia (Македонија)',
     id: 'MK',
     dialCode: '+389',
   },
@@ -528,7 +528,7 @@ export const COUNTRIES: Countries = {
   },
   LC: { name: 'Saint Lucia', id: 'LC', dialCode: '+1758' },
   MF: {
-    name: 'Saint Martin (Saint-Martin (partie française))',
+    name: 'Saint-Martin (Collectivité de Saint-Martin)',
     id: 'MF',
     dialCode: '+590',
   },
