@@ -11,7 +11,7 @@ import { Button } from '../Button';
 import { Icon } from '../Icon';
 import { CheckCircledIcon, CloseIcon, ErrorIcon } from '../Icon/icons';
 import { Paper } from '../layout';
-import typographyStyles from '../Typography/typographyStyles.module.css';
+import { Typography } from '../Typography';
 
 interface FileProps {
   parentId: string;
@@ -19,16 +19,28 @@ interface FileProps {
   isValid: boolean;
   file: FileUploaderFile;
   removeFile: () => void;
+  disabled?: boolean;
+  readOnly?: boolean;
 }
 
 export const File = (props: FileProps) => {
   const { t } = useTranslation();
-  const { parentId, index, file: stateFile, removeFile, isValid } = props;
+  const {
+    parentId,
+    index,
+    file: stateFile,
+    removeFile,
+    isValid,
+    disabled,
+    readOnly,
+  } = props;
 
   const errorsList = stateFile.errors.map((e, errorIndex) => ({
     id: derivativeIdGenerator(parentId, `file-${index}-error-${errorIndex}`),
     message: e,
   }));
+
+  const inactive = disabled || readOnly;
 
   return (
     <li>
@@ -39,34 +51,50 @@ export const File = (props: FileProps) => {
         gap="x0.75"
         marginBlock="x0.5 0"
         padding="x0.5 x1"
-        border={isValid ? 'border-default' : 'border-danger'}
-        background="surface-subtle"
+        border={
+          disabled
+            ? 'border-subtle'
+            : isValid
+              ? 'border-default'
+              : 'border-danger'
+        }
+        background={inactive ? 'surface-field-disabled' : 'surface-subtle'}
         className={cn(!isValid && styles['file--invalid'])}
       >
-        <span
-          className={cn(styles.file__name, typographyStyles['body-medium'])}
+        <Typography
+          as="span"
+          color={
+            disabled ? 'text-subtle' : readOnly ? 'text-medium' : undefined
+          }
+          className={cn(styles.file__name)}
         >
           {stateFile.file.name}
-        </span>
-        <Icon
-          icon={isValid ? CheckCircledIcon : ErrorIcon}
-          className={styles[`file__icon--${isValid ? 'valid' : 'invalid'}`]}
-        />
-        <Button
-          size="small"
-          purpose="tertiary"
-          type="button"
-          onClick={removeFile}
-          icon={CloseIcon}
-          htmlProps={{
-            'aria-label': t(texts.removeFile(stateFile.file.name)),
-            'aria-invalid': !isValid ? true : undefined,
-            'aria-errormessage': !isValid ? t(texts.invalidFile) : undefined,
-            'aria-describedby': spaceSeparatedIdListGenerator(
-              errorsList.map(e => e.id),
-            ),
-          }}
-        />
+        </Typography>
+        {!inactive && (
+          <>
+            <Icon
+              icon={isValid ? CheckCircledIcon : ErrorIcon}
+              className={styles[`file__icon--${isValid ? 'valid' : 'invalid'}`]}
+            />
+            <Button
+              size="small"
+              purpose="tertiary"
+              type="button"
+              onClick={removeFile}
+              icon={CloseIcon}
+              htmlProps={{
+                'aria-label': t(texts.removeFile(stateFile.file.name)),
+                'aria-invalid': !isValid ? true : undefined,
+                'aria-errormessage': !isValid
+                  ? t(texts.invalidFile)
+                  : undefined,
+                'aria-describedby': spaceSeparatedIdListGenerator(
+                  errorsList.map(e => e.id),
+                ),
+              }}
+            />
+          </>
+        )}
       </Paper>
       <ErrorList errors={errorsList} />
     </li>

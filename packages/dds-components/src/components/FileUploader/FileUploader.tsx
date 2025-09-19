@@ -12,10 +12,13 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { Button } from '../Button';
-import { StylelessList } from '../helpers';
+import { HiddenInput, StylelessList } from '../helpers';
+import { type InputProps } from '../helpers/Input';
+import focusStyles from '../helpers/styling/focus.module.css';
 import { UploadIcon } from '../Icon/icons';
 import { InputMessage } from '../InputMessage';
 import { Box, type ResponsiveProps, VStack } from '../layout';
+import { Typography } from '../Typography';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
 import { VisuallyHidden } from '../VisuallyHidden';
@@ -33,8 +36,6 @@ export type FileUploaderProps = {
    * @default Velg fil
    */
   btnLabel?: string;
-  /**Hjelpetekst. */
-  tip?: string;
   /**Om det er påkrevd med minst én fil. */
   required?: boolean;
   /**Callback for når fil-listen endres. */
@@ -47,7 +48,8 @@ export type FileUploaderProps = {
   hideFileList?: boolean;
 } & Pick<ResponsiveProps, 'width'> &
   Partial<FileUploaderHookProps> &
-  Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'>;
+  Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'> &
+  Pick<InputProps, 'tip'>;
 
 export const FileUploader = (props: FileUploaderProps) => {
   const {
@@ -63,7 +65,9 @@ export const FileUploader = (props: FileUploaderProps) => {
     accept,
     maxFiles,
     disabled,
+    readOnly,
     onChange,
+    onKeyDown,
     width = 'var(--dds-input-default-width)',
     errorMessage,
     hideFileList,
@@ -90,8 +94,10 @@ export const FileUploader = (props: FileUploaderProps) => {
     onChange,
     accept,
     disabled,
+    readOnly,
     maxFiles,
     errorMessage,
+    onKeyDown,
   });
   const hasLabel = label !== undefined;
   const hasTip = tip !== undefined;
@@ -110,8 +116,13 @@ export const FileUploader = (props: FileUploaderProps) => {
       file={stateFile}
       isValid={stateFile.errors.length === 0}
       removeFile={() => removeFile(stateFile)}
+      disabled={disabled}
+      readOnly={readOnly}
     />
   ));
+
+  const hasNoFilesDesc = fileListElements.length === 0 && readOnly;
+  const noFilesId = derivativeIdGenerator(uniqueId, 'no-files');
 
   const rootErrorsList = rootErrors.map((e, index) => ({
     id: derivativeIdGenerator(uniqueId, `error-${index}`),
@@ -139,6 +150,16 @@ export const FileUploader = (props: FileUploaderProps) => {
     </Button>
   );
 
+  const input = (
+    <HiddenInput
+      {...getInputProps()}
+      className={cn(readOnly && focusStyles['focusable-sibling'])}
+      id={inputId}
+      data-testid="file-uploader-input"
+      aria-describedby={hasNoFilesDesc ? noFilesId : undefined}
+    />
+  );
+
   return (
     <Box
       id={uniqueId}
@@ -151,9 +172,30 @@ export const FileUploader = (props: FileUploaderProps) => {
         id: labelId,
         showRequiredStyling: required,
         htmlFor: inputId,
+        readOnly,
       })}
       {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
-      {withDragAndDrop ? (
+      {disabled || readOnly ? (
+        <>
+          {input}
+          {fileListElements.length === 0 ? (
+            <Typography
+              id={noFilesId}
+              italic
+              as="span"
+              color={disabled ? 'text-subtle' : 'text-medium'}
+              className={cn(
+                focusStyles['focus-styled-sibling'],
+                styles['no-files'],
+              )}
+            >
+              Ingen filer.
+            </Typography>
+          ) : (
+            ''
+          )}
+        </>
+      ) : withDragAndDrop ? (
         <VStack
           gap="x1"
           padding="x1.5 x1.5 x2 x1.5"
@@ -164,20 +206,16 @@ export const FileUploader = (props: FileUploaderProps) => {
             isDragActive && styles['input-container--drag-active'],
           )}
         >
-          <input
-            {...getInputProps()}
-            id={inputId}
-            data-testid="file-uploader-input"
-          />
+          {input}
           {tDropAreaLabel}
           <VisuallyHidden>{t(texts.uploadFileWithButton)}</VisuallyHidden>
           {button}
         </VStack>
       ) : (
-        <div className={styles['input-container--no-drag-zone']}>
-          <input {...getInputProps()} id={inputId} />
+        <Box padding="x 0">
+          {input}
           {button}
-        </div>
+        </Box>
       )}
       <ErrorList errors={rootErrorsList} />
       {!hideFileList && <StylelessList>{fileListElements}</StylelessList>}

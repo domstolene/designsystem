@@ -23,7 +23,7 @@ export const readOnlyMouseDownHandler = <T,>(
   };
 };
 
-type ReadOnlyKeyDownHandlerType = 'select' | 'selectionControl';
+type ReadOnlyKeyDownHandlerType = 'select' | 'selectionControl' | 'file';
 
 export const readOnlyKeyDownHandler = <T,>(
   type: ReadOnlyKeyDownHandlerType,
@@ -41,6 +41,8 @@ export const readOnlyKeyDownHandler = <T,>(
       ) {
         evt.preventDefault();
       } else if (type === 'selectionControl' && evt.key === ' ') {
+        evt.preventDefault();
+      } else if (type === 'file' && (evt.key === ' ' || evt.key === 'Enter')) {
         evt.preventDefault();
       }
     } else onKeyDown?.(evt);
