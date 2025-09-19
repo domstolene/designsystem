@@ -5,6 +5,7 @@ import {
 import type React from 'react';
 import {
   type ButtonHTMLAttributes,
+  type ComponentProps,
   type HTMLAttributes,
   type InputHTMLAttributes,
   type Ref,
@@ -17,16 +18,12 @@ import {
   fileUploaderReducer,
 } from './fileUploaderReducer';
 import { type FileList, type FileUploaderAccept } from './types';
-import {
-  getInvalidFileTypeErrorMessage,
-  getTooManyFilesErrorMessage,
-  isEventWithFiles,
-  isFileAccepted,
-  preventDefaults,
-} from './utils';
+import { isEventWithFiles, isFileAccepted, preventDefaults } from './utils';
+import { createTexts, useTranslation } from '../../i18n';
+import { readOnlyChangeHandler, readOnlyKeyDownHandler } from '../../utils';
+import { type InputProps } from '../helpers/Input';
 
-export interface FileUploaderHookProps {
-  id: string | undefined;
+export type FileUploaderHookProps = {
   /**Dersom komponenten skal styres internt. Utgangspunktet for filene som har blitt lastet opp. */
   initialFiles: FileList | undefined;
   /**Dersom komponenten styres utenfra. Filene som har blitt lastet opp. */
@@ -35,23 +32,25 @@ export interface FileUploaderHookProps {
   onChange: (newFiles: FileList) => void;
   /**Hvilke filendelser eller mime-typer som filopplasteren skal akseptere. */
   accept: Array<FileUploaderAccept> | undefined;
-  /**Om filopplasteren er avslått eller ikke */
-  disabled: boolean | undefined;
+  /**Om filopplasteren er avslått eller ikke. */
+  disabled?: boolean;
+  /**Om filopplasteren er read-only. */
+  readOnly?: boolean;
   /**Maks antall filer som tillates. */
   maxFiles: number | undefined;
-  /**Feilmelding. Setter også error state. */
-  errorMessage: string | undefined;
-}
+  onKeyDown?: ComponentProps<'input'>['onKeyDown'];
+} & Pick<InputProps, 'errorMessage' | 'id'>;
 
 const calcRootErrors = (
+  maxFilesErrorMessage: string,
   files: Array<FileUploaderFile>,
-  maxFiles: number | undefined,
-  errorMessage: string | undefined,
+  maxFiles?: number,
+  errorMessage?: string,
 ): RootErrorList => {
   const errors: RootErrorList = [];
 
   if (maxFiles && maxFiles >= 1 && files.length > maxFiles) {
-    errors.push(getTooManyFilesErrorMessage(maxFiles));
+    errors.push(maxFilesErrorMessage + maxFiles);
   }
 
   if (errorMessage) {
@@ -68,11 +67,15 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     initialFiles,
     value,
     onChange,
+    onKeyDown,
     accept,
     maxFiles,
     disabled,
+    readOnly,
     errorMessage,
   } = props;
+
+  const { t } = useTranslation();
 
   const rootRef = useRef<TRootElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -94,6 +97,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     isFileDialogActive: false,
     isDragActive: false,
     rootErrors: calcRootErrors(
+      t(texts.invalidFileAmount),
       initialFileUploaderFiles,
       maxFiles,
       errorMessage,
@@ -109,7 +113,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
         return {
           file,
-          errors: accepted ? [] : [getInvalidFileTypeErrorMessage()],
+          errors: accepted ? [] : [t(texts.invalidFileType)],
         };
       });
 
@@ -123,7 +127,12 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   useEffect(() => {
     dispatch({
       type: 'setRootErrors',
-      payload: calcRootErrors(stateFiles, maxFiles, errorMessage),
+      payload: calcRootErrors(
+        t(texts.invalidFileAmount),
+        stateFiles,
+        maxFiles,
+        errorMessage,
+      ),
     });
   }, [dispatch, stateFiles, maxFiles, errorMessage]);
 
@@ -192,7 +201,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
             return {
               file,
-              errors: accepted ? [] : [getInvalidFileTypeErrorMessage()],
+              errors: accepted ? [] : [t(texts.invalidFileType)],
             };
           })
           .concat(stateFiles);
@@ -280,11 +289,13 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       ref: Ref<HTMLInputElement>;
     } => ({
       type: 'file',
-      style: { display: 'none' },
-      tabIndex: -1,
+      tabIndex: readOnly ? undefined : -1,
       ref: inputRef,
-
-      onChange: setFiles,
+      disabled,
+      'aria-hidden': readOnly ? undefined : true,
+      onChange: readOnlyChangeHandler<HTMLInputElement>(readOnly, setFiles),
+      onKeyDown: readOnlyKeyDownHandler('file', readOnly, onKeyDown),
+      readOnly,
       multiple: !maxFiles || maxFiles > 1,
       ...(accept ? { accept: accept.join(',') } : {}),
     }),
@@ -299,3 +310,18 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     removeFile,
   };
 };
+
+const texts = createTexts({
+  invalidFileType: {
+    nb: 'Ugyldig filtype',
+    no: 'Ugyldig filtype',
+    nn: 'Ugyldig filtype',
+    en: 'Invalid file type',
+  },
+  invalidFileAmount: {
+    nb: 'For mange filer. Maksimalt antall er ',
+    no: 'For mange filer. Maksimalt antall er ',
+    nn: 'For mange filer. Maksimalt antall er ',
+    en: 'Too many files. The maximum allowed is ',
+  },
+});
