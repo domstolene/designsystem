@@ -1,7 +1,7 @@
 .input-container {
   display: flex;
 }
-.textInput {
+.textInput:enabled:read-write {
   text-align: center;
   border-radius: 0;
 }
