@@ -1,9 +1,9 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { commonArgTypes } from '../../storybook/helpers';
-import { CallIcon } from '../Icon/icons';
-import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { Typography } from '../Typography';
+import { CallIcon, HomeIcon } from '../Icon/icons';
+import { StoryVStack } from '../layout/Stack/utils';
+import { Link } from '../Typography';
 
 import {
   DescriptionList,
@@ -33,53 +33,39 @@ export const Preview: Story = {
     </DescriptionList>
   ),
 };
-export const Overview: Story = {
+
+export const Appearances: Story = {
   render: () => (
-    <>
-      <StoryHStack>
-        <StoryVStack>
-          <DescriptionList>
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+    <StoryVStack>
+      <DescriptionList appearance="default">
+        <DescriptionListTerm>Default</DescriptionListTerm>
+        <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+      </DescriptionList>
+      <DescriptionList appearance="subtle">
+        <DescriptionListTerm>Subtle</DescriptionListTerm>
+        <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
+      </DescriptionList>
+    </StoryVStack>
+  ),
+};
 
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-            <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-          </DescriptionList>
+export const WithIcon: Story = {
+  render: args => (
+    <DescriptionList {...args}>
+      <DescriptionListTerm>Tittel</DescriptionListTerm>
+      <DescriptionListDesc icon={HomeIcon}>Beskrivelse</DescriptionListDesc>
+    </DescriptionList>
+  ),
+};
 
-          <DescriptionList>
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc icon={CallIcon}>
-              <Typography typographyType="a">+47 123 45 678</Typography>
-            </DescriptionListDesc>
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc icon={CallIcon}>
-              <Typography typographyType="a">+47 123 45 678</Typography>
-            </DescriptionListDesc>
-          </DescriptionList>
-        </StoryVStack>
-        <StoryVStack>
-          <DescriptionList appearance="subtle">
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-            <DescriptionListDesc>Beskrivelse</DescriptionListDesc>
-          </DescriptionList>
-          <DescriptionList appearance="subtle">
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc icon={CallIcon}>
-              <Typography typographyType="a">+47 123 45 678</Typography>
-            </DescriptionListDesc>
-            <DescriptionListTerm>Tittel</DescriptionListTerm>
-            <DescriptionListDesc icon={CallIcon}>
-              <Typography typographyType="a">+47 123 45 678</Typography>
-            </DescriptionListDesc>
-          </DescriptionList>
-        </StoryVStack>
-      </StoryHStack>
-    </>
+export const Phone: Story = {
+  render: () => (
+    <DescriptionList>
+      <DescriptionListTerm>Tittel</DescriptionListTerm>
+      <DescriptionListDesc icon={CallIcon}>
+        <Link>+47 123 45 678</Link>
+      </DescriptionListDesc>
+    </DescriptionList>
   ),
 };
 
@@ -107,19 +93,8 @@ export const Group: Story = {
   ),
 };
 
-export const WithIcon: Story = {
-  render: args => (
-    <DescriptionList {...args}>
-      <DescriptionListTerm>Tittel</DescriptionListTerm>
-      <DescriptionListDesc icon={CallIcon}>
-        <Typography typographyType="a">+47 123 45 678</Typography>
-      </DescriptionListDesc>
-    </DescriptionList>
-  ),
-};
-
-const margin = 'var(--dds-spacing-x1)';
-export const RowDirectionExample: Story = {
+const margin = 'var(--dds-spacing-x0-75)';
+export const Row: Story = {
   render: args => (
     <DescriptionList {...args} direction="row">
       <DescriptionListGroup margin={margin}>
