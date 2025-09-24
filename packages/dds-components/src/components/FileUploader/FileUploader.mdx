@@ -4,6 +4,7 @@ import {
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as FileUploaderStories from './FileUploader.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={FileUploaderStories} />
 
@@ -18,8 +19,35 @@ import * as FileUploaderStories from './FileUploader.stories';
 
 ## Props
 
-<Canvas of={FileUploaderStories.Preview} />
-<Controls of={FileUploaderStories.Preview} />
+<Tabs>
+  <TabList>
+    <Tab>Demo</Tab>
+    <Tab>Controlled</Tab>
+    <Tab>Kun PDF</Tab>
+    <Tab>Uten drag-and-drop</Tab>
+    <Tab>Custom filliste</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={FileUploaderStories.Preview} />
+      <Controls of={FileUploaderStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={FileUploaderStories.Controlled} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={FileUploaderStories.PdfOnly} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={FileUploaderStories.NoZone} />
+    </TabPanel>
+    <TabPanel>
+      Hvis du har behov for annen visning av fillisten enn den interne i
+      komponenten, kan du skjule den med en prop og implementere egen.
+      <Canvas of={FileUploaderStories.CustomFileList} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
 ## Bruk
 
@@ -33,11 +61,6 @@ const [files, setFiles] = useState<Array<File>>([]);
   onChange={files => {
     setFiles(files);
   }}
+  value={files}
 />
 `} />
-
-## Eksempler
-
-### Custom filliste
-
-<Canvas of={FileUploaderStories.CustomFileList} />

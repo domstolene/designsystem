@@ -36,6 +36,7 @@ const BACKGROUNDS = [
   'surface-info-strong',
   'surface-paper-default',
   'surface-notification',
+  'surface-field-disabled',
   'brand-primary-default',
   'brand-primary-subtle',
   'brand-primary-medium',

@@ -21,10 +21,6 @@
   background-color: var(--dds-color-surface-hover-default);
 }
 
-.input-container--no-drag-zone {
-  padding: var(--dds-spacing-x0-5) 0;
-}
-
 .file--invalid {
   box-shadow: inset 0 0 0 1px var(--dds-color-border-danger);
 }
@@ -40,4 +36,10 @@
 .file__name {
   word-break: break-all;
   width: 100%;
+}
+
+.readonly--file-list {
+  @media (prefers-reduced-motion: no-preference) {
+    transition: var(--dds-focus-transition);
+  }
 }
