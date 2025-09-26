@@ -249,7 +249,7 @@ export const getCustomStyles = <TOption>(
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
-    gap: 'var(--dds-spacing-x0-5)',
+    gap: 'var(--dds-spacing-x0-25)',
     padding: 'var(--dds-spacing-x0-75)',
     backgroundColor: 'var(--dds-color-surface-default)',
     ...typography.option[size],

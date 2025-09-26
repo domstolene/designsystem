@@ -1,11 +1,11 @@
 import { type Meta } from '@storybook/react-vite';
 
-import { LocalMessage } from '../../packages/dds-components/dist/index.mjs';
-import { type InputSize } from '../../packages/dds-components/src/components/helpers/Input';
-import { StoryThemeProvider } from '../../packages/dds-components/src/components/ThemeProvider/utils/StoryThemeProvider';
+import { type InputSize } from '../../../packages/dds-components/src/components/helpers/Input';
+import { StoryThemeProvider } from '../../../packages/dds-components/src/components/ThemeProvider/utils/StoryThemeProvider';
 import {
   DatePicker,
   HStack,
+  LocalMessage,
   MailIcon,
   NativeSelect,
   Search,
@@ -13,8 +13,8 @@ import {
   TextInput,
   TimePicker,
   VStack,
-} from '../../packages/dds-components/src/index';
-import { StoryLabel } from '../../packages/dds-components/src/storybook/helpers';
+} from '../../../packages/dds-components/src/index';
+import { StoryLabel } from '../../../packages/dds-components/src/storybook/helpers';
 
 const meta: Meta = {
   title: 'Playground/Testing',
