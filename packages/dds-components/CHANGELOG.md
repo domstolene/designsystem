@@ -2,6 +2,8 @@
 
 ## 21.14.0
 
+(2025-09-26)
+
 ### Minor Changes
 
 - b6e754c: Støtte for locale i `<DatePicker>` og `<TimePicker>` - språk hentes fra `<DdsProvider>`, bruker 'nb-NO' som standard. Tar hånd om oversettelser mens datoformatet alltid er norsk.
