@@ -1,5 +1,22 @@
 # @norges-domstoler/dds-components
 
+## 21.14.0
+
+(2025-09-26)
+
+### Minor Changes
+
+- b6e754c: Støtte for locale i `<DatePicker>` og `<TimePicker>` - språk hentes fra `<DdsProvider>`, bruker 'nb-NO' som standard. Tar hånd om oversettelser mens datoformatet alltid er norsk.
+- 91eac1a: Implementerer ordentlig støtte for `disabled` og `readOnly` props i `<FileUploader>`.
+- 91eac1a: Utvider `background` prop i `<Paper>` til å støtte `'surface-field-disabled'`.
+
+### Patch Changes
+
+- 9c3479b: Oppdaterer navn på enkelte land i `<PhoneInput>`.
+- d74d9a8: Fikser styling i `<InputStepper>` ved `disabled` og `readOnly`.
+- c9c5841: Utbedrer programmatisk ledetekst i `<ProgressTrackerItem>`.
+- 91eac1a: Fikser manglende interne oversettelser i `<FileUploader>`.
+
 ## 21.13.0
 
 (2025-09-16)
