@@ -148,7 +148,7 @@ describe('<FileUploader>', () => {
       render(<FileUploaderTest readOnly />);
       const fileInput = screen.getByTestId('file-uploader-input');
       expect(fileInput).toHaveAccessibleDescription(
-        /Opplastede filer Ingen filer./i,
+        /Opplastede filerIngen filer./i,
       );
     });
 

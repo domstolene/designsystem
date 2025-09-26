@@ -16,7 +16,6 @@ import { type SvgIcon } from '../Icon/utils';
 import { Box } from '../layout';
 import { Typography } from '../Typography';
 import typographyStyles from '../Typography/typographyStyles.module.css';
-import { VisuallyHidden } from '../VisuallyHidden';
 
 type ItemState =
   | 'activeCompleted'
@@ -103,6 +102,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
   } = props;
 
   const { t } = useTranslation();
+  const stepNumber = index + 1;
 
   const { activeStep, handleStepChange, direction } =
     useProgressTrackerContext();
@@ -125,7 +125,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
       return <Icon icon={icon} iconSize="small" />;
     }
 
-    return index + 1;
+    return stepNumber;
   }, [completed, icon, index]);
 
   function getTextColor(): TextColor | undefined {
@@ -159,14 +159,14 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
         )}
         color={getTextColor()}
       >
-        <VisuallyHidden>{t(texts.stepTextBefore(index + 1))}</VisuallyHidden>
         {children}
-        <VisuallyHidden>
-          {completed ? t(texts.completed) : t(texts.uncompleted)}
-        </VisuallyHidden>
       </Typography>
     </>
   );
+
+  const ariaLabel = props['aria-label']
+    ? props['aria-label']
+    : `${children}, ${stepNumber}. ${completed ? t(texts.completed) : t(texts.uncompleted)}`;
 
   return (
     <Box
@@ -193,6 +193,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
             htmlProps as ComponentPropsWithRef<'button'>,
             rest,
           )}
+          aria-label={ariaLabel}
           onClick={() => handleClick()}
           disabled={disabled}
         >
@@ -206,6 +207,7 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
             htmlProps as ComponentPropsWithRef<'div'>,
             rest,
           )}
+          aria-label={ariaLabel}
         >
           {stepContent}
         </div>
@@ -217,22 +219,16 @@ export const ProgressTrackerItem = (props: ProgressTrackerItemProps) => {
 ProgressTrackerItem.displayName = 'ProgressTracker.Item';
 
 const texts = createTexts({
-  stepTextBefore: index => ({
-    nb: `${index}. trinn, `,
-    no: `${index}. trinn, `,
-    nn: `${index}. trinn, `,
-    en: `${index}. step, `,
-  }),
   uncompleted: {
-    nb: ', ikke ferdig',
-    no: ', ikke ferdig',
-    nn: ', ikkje ferdig',
-    en: 'uncompleted',
+    nb: 'trinn ikke ferdig',
+    no: 'trinn ikke ferdig',
+    nn: 'trinn ikkje ferdig',
+    en: 'step uncompleted',
   },
   completed: {
-    nb: ', ferdig',
-    no: ', ferdig',
-    nn: ', ferdig',
-    en: ', completed',
+    nb: 'trinn ferdig',
+    no: 'trinn ferdig',
+    nn: 'trinn ferdig',
+    en: 'step completed',
   },
 });
