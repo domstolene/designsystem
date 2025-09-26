@@ -41,13 +41,10 @@ export const getIndicatorIconSize = (componentSize: InputSize): IconSize => {
 };
 
 export const DDSOption = <TValue, IsMulti extends boolean>({
-  componentSize,
   ...props
-}: OptionProps<TValue, IsMulti> & { componentSize: InputSize }) => (
+}: OptionProps<TValue, IsMulti>) => (
   <Option {...props}>
-    {props.isSelected && (
-      <Icon icon={CheckIcon} iconSize={getFormInputIconSize(componentSize)} />
-    )}
+    {props.isSelected && <Icon icon={CheckIcon} iconSize="small" />}
     {props.children}
   </Option>
 );

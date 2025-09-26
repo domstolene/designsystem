@@ -227,7 +227,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
       if (customOptionElement) {
         return <CustomOption {...props} customElement={customOptionElement} />;
       } else {
-        return <DDSOption {...props} componentSize={componentSize} />;
+        return <DDSOption {...props} />;
       }
     },
     [customOptionElement, componentSize],
