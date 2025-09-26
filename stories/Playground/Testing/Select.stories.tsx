@@ -29,6 +29,7 @@ export const SelectDropdown = () => {
           value={[{ label: 'Alternativ 1', value: 'Alternativ 1' }]}
           key={size}
           componentSize={size}
+          menuIsOpen
         />
       ))}
     </StoryHStack>
