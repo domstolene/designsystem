@@ -4,6 +4,7 @@ import {
   ComponentLinkRow,
 } from '@norges-domstoler/storybook-components';
 import * as PaginationStories from './Pagination.stories';
+import { Tabs, Tab, TabList, TabPanel, TabPanels } from '../Tabs';
 
 <Meta of={PaginationStories} />
 
@@ -17,14 +18,31 @@ import * as PaginationStories from './Pagination.stories';
   withBottomSpacing
 />
 
-`<Pagination>` brukes i kombinasjon med tabell eller lignende innhold som kan deles opp i lister med elementer. Komponenten er responsiv.
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>Med select</Tab>
+    <Tab>Med counter</Tab>
+    <Tab>Med counter og select</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={PaginationStories.Preview} />
+      <Controls of={PaginationStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={PaginationStories.WithCounter} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={PaginationStories.WithSelect} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={PaginationStories.WithCounterAndSelect} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
-## Props
-
-<Canvas of={PaginationStories.Preview} />
-<Controls of={PaginationStories.Preview} />
-
-### Types
+## Types
 
 <Source
   code={`
@@ -35,24 +53,30 @@ import * as PaginationStories from './Pagination.stories';
   `}
 />
 
-### Indeksering
+## Indeksering
 
 Det brukes 1-indeksering slik at sidenummeret blir brukt som label i knappene.
 
 ## Eksempler
 
-### Custom options
+<Tabs>
+  <TabList>
+    <Tab>Custom options</Tab>
+    <Tab>Custom aktiv side</Tab>
+    <Tab>Liten skjerm</Tab>
 
-<Canvas of={PaginationStories.CustomOptions} />
-
-### Custom aktiv side
-
-<Canvas of={PaginationStories.DefaultActivePage} />
-
-### Custom antall elementer per side
-
-<Canvas of={PaginationStories.DefaultItemsPerPage} />
-
-### Responsiv
-
-<Canvas of={PaginationStories.Responsive} />
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Du kan sette egne alternativer for `<select>` med `selectOptions`. Ta gjerne med `"Alle"` - mange brukere forventer å ha denne muligheten. Sørg for at `DefaultItemsPerPage`-verdien er inkludert i `selectOptions`.
+      <Canvas of={PaginationStories.CustomOptions} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={PaginationStories.DefaultActivePage} />
+    </TabPanel>
+    <TabPanel>
+      Bruk aktivt versjonen for liten skjerm. Sjekk hvilket brekkpunkt gir mest mening i din løsning.
+      <Canvas of={PaginationStories.SmallScreen} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>

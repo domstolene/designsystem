@@ -27,13 +27,13 @@ export interface PaginationOption {
 export type PaginationProps = BaseComponentProps<
   HTMLElement,
   {
-    /**Totalt antall elementer å paginere. */
+    /**Totalt antall elementer som skal pagineres. */
     itemsAmount: number;
-    /**Antall elementer per side ved innlastning av komponenten.
+    /**Antall elementer per side ved innlastning.
      * @default 10
      */
     defaultItemsPerPage?: number;
-    /**Den aktive siden ved innlastning av komponenten.
+    /**Den aktive siden ved innlastning.
      * @default 1
      */
     defaultActivePage?: number;
@@ -41,11 +41,11 @@ export type PaginationProps = BaseComponentProps<
      * @default true
      */
     withPagination?: boolean;
-    /**Spesifiserer om teksten `'Vis x-y av z'` skal vises. */
+    /**Om teksten `'Vis x-y av z'` skal vises. */
     withCounter?: boolean;
-    /**Spesifiserer om `<Select />` til å velge antall resultater per side skal vises. */
+    /**Om `<Select>` for å velge antall per side skal vises. */
     withSelect?: boolean;
-    /**Custom options for `<Select />`. **OBS!** hvis det settes custom `selectOptions` bør "alle"-alternativet inkluderes der det er relevant, da brukere ofte liker å ha muligheten.
+    /**Custom options for `<Select>`. **OBS!** husk å inkludere "Alle"-alternativet hvis relevant - brukere forventer ofte den muligheten.
      * @default [
         { label: '10', value: 10 },
         { label: '25', value: 25 },
@@ -54,14 +54,16 @@ export type PaginationProps = BaseComponentProps<
       ]
      */
     selectOptions?: Array<PaginationOption>;
-    /**Brukes til å hente side og eventuelt annen logikk ved endring av side. */
+    /**Kalles ved sideendring - henter ny aktiv side og kjører ekstra logikk. */
     onChange?: (
       event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
       page: number,
     ) => void;
-    /**Brukes til å hente `selectedOption` og eventuelt kjøre annen logikk når `withSelect=true` ved endring av alternativ. */
+    /**Kalles når `selectedOption` endres, hvis `withSelect="true"`.
+     * Brukes til å hente valgt alternativ og evt. kjøre ekstra logikk.
+     */
     onSelectOptionChange?: (option: PaginationOption | null) => void;
-    /**Spesifiserer ved hvilket brekkpunkt og nedover versjonen for små skjermer skal vises; den viser færre sideknapper og stacker subkomponentene. */
+    /**Brekkpunkt for mobilvisning; den viser færre sideknapper og stacker delkomponentene. */
     smallScreenBreakpoint?: Breakpoint;
   },
   Omit<HTMLAttributes<HTMLElement>, 'onChange'>
@@ -90,6 +92,12 @@ export const Pagination = ({
   ...rest
 }: PaginationProps) => {
   const { t } = useTranslation();
+
+  if (withSelect && !selectOptions.some(o => o.value === defaultItemsPerPage)) {
+    console.warn(
+      `[Pagination] defaultItemsPerPage prop value (${defaultItemsPerPage}) is not included in customOptions prop. Please add it to ensure it appears in the dropdown.`,
+    );
+  }
 
   const [activePage, setActivePage] = useState(defaultActivePage);
   const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage);
@@ -308,7 +316,7 @@ export const Pagination = ({
           <Select
             options={selectOptions}
             isSearchable={false}
-            width="74px"
+            width="90px"
             defaultValue={{
               label: itemsPerPage.toString(),
               value: itemsPerPage,
