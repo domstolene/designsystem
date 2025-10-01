@@ -2,6 +2,7 @@ import { type HTMLAttributes, useState } from 'react';
 
 import styles from './Pagination.module.css';
 import { PaginationGenerator } from './paginationGenerator';
+import { useControllableState } from '../../hooks/useControllableState';
 import { createTexts, useTranslation } from '../../i18n';
 import { type BaseComponentProps, getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
@@ -37,6 +38,8 @@ export type PaginationProps = BaseComponentProps<
      * @default 1
      */
     defaultActivePage?: number;
+    /**Den aktive siden. Brukes til kontrollert tilstand - når denne er satt styrer du siden utenfra. */
+    activePage?: number;
     /**Spesifiserer om selve pagineringen skal vises.
      * @default true
      */
@@ -73,6 +76,7 @@ export const Pagination = ({
   itemsAmount,
   defaultItemsPerPage = 10,
   defaultActivePage = 1,
+  activePage: activePageProp,
   withPagination = true,
   withCounter,
   withSelect,
@@ -98,8 +102,10 @@ export const Pagination = ({
       `[Pagination] defaultItemsPerPage prop value (${defaultItemsPerPage}) is not included in customOptions prop. Please add it to ensure it appears in the dropdown.`,
     );
   }
-
-  const [activePage, setActivePage] = useState(defaultActivePage);
+  const [activePage, setActivePage] = useControllableState({
+    value: activePageProp,
+    defaultValue: defaultActivePage,
+  });
   const [itemsPerPage, setItemsPerPage] = useState(defaultItemsPerPage);
 
   const pagesLength = Math.ceil(itemsAmount / itemsPerPage);

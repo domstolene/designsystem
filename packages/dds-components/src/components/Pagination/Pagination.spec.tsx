@@ -1,5 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { userEvent } from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
 
 import { Pagination } from '.';
 
@@ -93,5 +94,49 @@ describe('<Pagination>', () => {
       // itemsAmount +  < button for large screen, active item + |< < buttons for small screen
       expect(screen.getAllByRole('listitem')).toHaveLength(itemsAmount + 4);
     });
+  });
+  it('should work as controlled component when activePage prop is provided', async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    const { rerender } = render(
+      <Pagination
+        itemsAmount={100}
+        defaultItemsPerPage={10}
+        activePage={3}
+        onChange={onChange}
+      />,
+    );
+
+    // Should display page 3 as active (controlled)
+    expect(
+      screen.getByRole('button', { name: 'Nåværende side (3)' }),
+    ).toBeInTheDocument();
+
+    // Click page 5
+    const page5Button = screen.getByRole('button', { name: 'Side 5' });
+    await user.click(page5Button);
+
+    // onChange should be called
+    expect(onChange).toHaveBeenCalledWith(expect.anything(), 5);
+
+    // Page should still be 3 (controlled - doesn't change until prop changes)
+    expect(
+      screen.getByRole('button', { name: 'Nåværende side (3)' }),
+    ).toBeInTheDocument();
+
+    // Re-render with new activePage
+    rerender(
+      <Pagination
+        itemsAmount={100}
+        defaultItemsPerPage={10}
+        activePage={5}
+        onChange={onChange}
+      />,
+    );
+
+    // Now page 5 should be active
+    expect(
+      screen.getByRole('button', { name: 'Nåværende side (5)' }),
+    ).toBeInTheDocument();
   });
 });
