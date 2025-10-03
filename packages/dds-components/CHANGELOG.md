@@ -2,6 +2,8 @@
 
 ## 21.15.0
 
+(2025-10-03)
+
 ### Minor Changes
 
 - 472cf4b: `<Pagination>` støtter nå kontrollert state via den nye `activePage`-propen.
