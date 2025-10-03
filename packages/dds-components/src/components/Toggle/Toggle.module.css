@@ -25,6 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--dds-spacing-x0-125);
   border-radius: var(--dds-border-radius-rounded);
   background-color: var(--dds-color-surface-field-default);
   border: 1px solid var(--dds-color-border-default);

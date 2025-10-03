@@ -1,5 +1,5 @@
-import { type Property } from 'csstype';
-import { useId, useRef } from 'react';
+import { type Properties, type Property } from 'csstype';
+import { type HTMLAttributes, useId, useRef } from 'react';
 
 import styles from './Spinner.module.css';
 import { useTranslation } from '../../i18n';
@@ -22,7 +22,8 @@ export type SpinnerProps = BaseComponentProps<
      * @default "Innlasting pågår"
      */
     tooltip?: string;
-  }
+  },
+  Omit<HTMLAttributes<SVGSVGElement>, 'color'>
 >;
 
 export function Spinner(props: SpinnerProps) {
@@ -39,37 +40,51 @@ export function Spinner(props: SpinnerProps) {
   const { t } = useTranslation();
 
   const mountTime = useRef(Date.now());
-  const outerAnimationDelay = -(mountTime.current % 2000);
-  const innerAnimationDelay = -(mountTime.current % 1500);
+  const animationDelay = -(mountTime.current % 1500);
+
+  const styleVariables: Properties = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ['--dds-spinner-animation-delay' as any]: animationDelay,
+  };
 
   const generatedId = useId();
   const uniqueId = `${generatedId}-spinnerTitle`;
 
   return (
     <svg
-      viewBox="0 0 50 50"
+      viewBox="0 0 25 25"
       role="progressbar"
       aria-labelledby={uniqueId}
       {...getBaseHTMLProps(id, cn(className, styles.svg), htmlProps, rest)}
       style={{
         ...htmlProps?.style,
-        animationDelay: outerAnimationDelay + 'ms',
         width: size,
         height: size,
       }}
     >
       <title id={uniqueId}>{tooltip ?? t(commonTexts.loading)}</title>
       <circle
-        className={cn(styles.circle)}
-        style={{
-          animationDelay: innerAnimationDelay + 'ms',
-        }}
-        cx="25"
-        cy="25"
-        r="20"
-        fill="none"
-        stroke={getTextColor(color)}
-        strokeWidth="4"
+        cx="12"
+        cy="12.25"
+        r="6"
+        fill={getTextColor(color)}
+        className={styles.jordskifterett}
+        style={styleVariables}
+      />
+      <rect
+        x="4"
+        y="10.25"
+        width="16"
+        height="4"
+        fill={getTextColor(color)}
+        className={styles.lagmannsrett}
+        style={styleVariables}
+      />
+      <path
+        d="M12 16.6154C16.4183 16.6154 20 12.7581 20 8H4C4 12.7581 7.58172 16.6154 12 16.6154Z"
+        fill={getTextColor(color)}
+        className={styles.tingrett}
+        style={styleVariables}
       />
     </svg>
   );
