@@ -32,3 +32,7 @@ type Story = StoryObj<typeof BackLink>;
 export const Preview: Story = {
   args: { label: 'Forrige nivå', href: '#' },
 };
+
+export const As: Story = {
+  args: { label: 'Forrige nivå', href: '#', as: 'div' },
+};

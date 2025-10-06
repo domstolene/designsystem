@@ -10,7 +10,22 @@ describe('<Link>', () => {
     expect(screen.getByText(text)).toBeInTheDocument();
   });
   it('should have role="link"', () => {
-    render(<Link href="/">text</Link>);
+    render(<Link href="/" />);
     expect(screen.getByRole('link')).toBeInTheDocument();
+  });
+  it('should open on new page', () => {
+    render(<Link href="/" external />);
+    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
+  });
+  it('should have noopener noreferer', () => {
+    render(<Link href="/" external />);
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'rel',
+      'noopener noreferer',
+    );
+  });
+  it('should have role="button"', () => {
+    render(<Link href="/" as="button" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 });
