@@ -63,6 +63,8 @@ cd ~/din-app
 npm link pakke
 ```
 
+`pakke` må tilsvare `name` som er satt i `pakke/package.json`, for eksempel `@norges-domstoler/dds-components`.
+
 ### Finner ikke pakken
 
 Skal ikke egentlig være nødvendig, men hvis du får en feilmeldinger om at den ikke finner en av pakkene kan du prøve:
