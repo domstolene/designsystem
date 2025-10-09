@@ -38,7 +38,7 @@ describe('<Button>', () => {
     const button = screen.getByRole('button');
     await userEvent.click(button);
 
-    expect(button).toHaveAttribute('aria-disabled', 'true');
+    expect(button).toBeDisabled();
     expect(onClick).not.toHaveBeenCalled();
   });
 });
