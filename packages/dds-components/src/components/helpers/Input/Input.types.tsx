@@ -1,4 +1,4 @@
-import { type ComponentPropsWithRef } from 'react';
+import { type ComponentPropsWithRef, type ReactNode } from 'react';
 
 import { createSizes } from '../../../types';
 import { type ResponsiveProps } from '../../layout/common/Responsive.types';
@@ -7,6 +7,8 @@ import { type StaticTypographyType } from '../../Typography';
 export interface CommonInputProps {
   /**Ledetekst. */
   label?: string;
+  /** Innhold etter ledetekst, f.eks. knapp som viser ekstra info e.l. */
+  afterLabelContent?: ReactNode;
   /**Bredde for inputfeltet. Kan settes per brekkpunkt, manglende brekkpunter får da default bredde. */
   width?: ResponsiveProps['width'];
   /**Hjelpetekst. */

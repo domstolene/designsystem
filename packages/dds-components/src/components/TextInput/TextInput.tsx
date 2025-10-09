@@ -19,6 +19,7 @@ import { renderLabel } from '../Typography/Label/Label.utils';
 
 export const TextInput = ({
   label,
+  afterLabelContent,
   disabled,
   readOnly,
   errorMessage,
@@ -208,7 +209,13 @@ export const TextInput = ({
       )}
       style={style}
     >
-      {renderLabel({ label, htmlFor: uniqueId, showRequiredStyling, readOnly })}
+      {renderLabel({
+        label,
+        htmlFor: uniqueId,
+        showRequiredStyling,
+        readOnly,
+        afterLabelContent,
+      })}
       {extendedInput ? (
         extendedInput
       ) : (

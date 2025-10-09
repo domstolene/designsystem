@@ -1,4 +1,4 @@
-import { type LabelHTMLAttributes } from 'react';
+import { type LabelHTMLAttributes, type ReactNode } from 'react';
 
 import styles from './Label.module.css';
 import {
@@ -20,6 +20,8 @@ export interface BaseLabelProps {
   showRequiredStyling?: boolean;
   /** Om input knyttet til ledeteksten er `read-only`; påvirker styling. */
   readOnly?: boolean;
+  /**Innhold som står etter ledeteksten (knapp med ekstra info e.l.). */
+  afterLabelContent?: ReactNode;
 }
 
 export type LabelProps = BaseComponentPropsWithChildren<
@@ -38,18 +40,11 @@ export const Label = ({
   className,
   htmlProps,
   children,
+  afterLabelContent,
   ...rest
 }: LabelProps) => {
-  return (
-    <Typography
-      {...getBaseHTMLProps(
-        id,
-        cn(className, readOnly && styles['read-only']),
-        htmlProps,
-        rest,
-      )}
-      typographyType="labelMedium"
-    >
+  const content = (
+    <>
       {readOnly && (
         <Icon
           icon={LockIcon}
@@ -59,8 +54,37 @@ export const Label = ({
       )}
       {children}
       {showRequiredStyling && <RequiredMarker />}
+    </>
+  );
+  const labelProps = {
+    ...getBaseHTMLProps(
+      id,
+      cn(className, readOnly && styles['read-only']),
+      htmlProps,
+      rest,
+    ),
+  };
+  const render = afterLabelContent ? (
+    <Typography
+      typographyType="labelMedium"
+      as="div"
+      withMargins={rest.withMargins}
+    >
+      <Typography
+        {...labelProps}
+        typographyType="labelMedium"
+        withMargins={false}
+      >
+        {content}
+      </Typography>
+      {afterLabelContent}
+    </Typography>
+  ) : (
+    <Typography {...labelProps} typographyType="labelMedium">
+      {content}
     </Typography>
   );
+  return render;
 };
 
 Label.displayName = 'Label';

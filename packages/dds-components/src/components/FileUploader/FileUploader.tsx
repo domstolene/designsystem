@@ -26,8 +26,6 @@ import { VisuallyHidden } from '../VisuallyHidden';
 export type FileUploaderProps = {
   /**Id til filopplasteren. */
   id?: string;
-  /**Ledetekst for filopplaster. */
-  label?: string;
   /**Ledetekst for slippsonen. Denne teksten skal, av UU-hensyn, henge sammen med den usynlige teksten: "velg fil med påfølgende knapp"
    * @default Dra og slipp filer her eller
    */
@@ -49,7 +47,7 @@ export type FileUploaderProps = {
 } & Pick<ResponsiveProps, 'width'> &
   Partial<FileUploaderHookProps> &
   Omit<ComponentPropsWithRef<'div'>, 'onChange' | 'id'> &
-  Pick<InputProps, 'tip'>;
+  Pick<InputProps, 'tip' | 'label' | 'afterLabelContent'>;
 
 export const FileUploader = (props: FileUploaderProps) => {
   const {
@@ -72,6 +70,7 @@ export const FileUploader = (props: FileUploaderProps) => {
     errorMessage,
     hideFileList,
     className,
+    afterLabelContent,
     ...rest
   } = props;
 
@@ -173,6 +172,7 @@ export const FileUploader = (props: FileUploaderProps) => {
         showRequiredStyling: required,
         htmlFor: inputId,
         readOnly,
+        afterLabelContent,
       })}
       {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
       {inactive ? (

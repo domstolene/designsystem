@@ -34,6 +34,7 @@ export type DateInputProps = {
     | 'required'
     | 'readOnly'
     | 'width'
+    | 'afterLabelContent'
   >;
 
 export function DateInput({
@@ -56,6 +57,7 @@ export function DateInput({
   width,
   clearable,
   ref,
+  afterLabelContent,
   ...props
 }: DateInputProps) {
   const hasErrorMessage = !!errorMessage;
@@ -75,6 +77,7 @@ export function DateInput({
         label: props.label,
         showRequiredStyling: required,
         readOnly,
+        afterLabelContent,
       })}
       <Box
         style={style}
