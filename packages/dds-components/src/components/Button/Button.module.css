@@ -15,7 +15,7 @@
     transition: all 0.2s;
   }
 
-  &:active:not([aria-disabled='true']) {
+  &:active:enabled {
     scale: 0.95;
   }
 }

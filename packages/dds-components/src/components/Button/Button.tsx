@@ -104,10 +104,10 @@ export const Button = ({
       <button
         ref={ref}
         {...getBaseHTMLProps(id, buttonCn, htmlProps, rest)}
-        onClick={loading ? undefined : onClick}
+        onClick={onClick}
         onFocus={onFocus}
         onBlur={onBlur}
-        aria-disabled={loading}
+        disabled={loading ?? rest.disabled}
       >
         {content}
       </button>

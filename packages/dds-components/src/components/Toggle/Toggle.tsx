@@ -45,7 +45,7 @@ export type ToggleProps = BaseComponentProps<
      */
     readOnly?: boolean;
     /**
-     * Indikerer at verdien prosesseres; viser loading-tilstand og setter `aria-disabled`.
+     * Indikerer at verdien prosesseres; viser loading-tilstand og setter `disabled`.
      */
     isLoading?: boolean;
     /**
@@ -106,8 +106,7 @@ export const Toggle = ({
         type="checkbox"
         checked={checked}
         onChange={e => setChecked(e.target.checked)}
-        disabled={disabled}
-        aria-disabled={isLoading}
+        disabled={isLoading ?? disabled}
         aria-readonly={readOnly}
         onKeyDown={readOnlyKeyDownHandler(
           'selectionControl',
