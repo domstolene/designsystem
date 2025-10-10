@@ -2,6 +2,8 @@
 
 ## 21.16.0
 
+(2025-10-10)
+
 ### Minor Changes
 
 - 793775e: Støtte for `afterLabelContent` prop i `<Label>` og komponenter som bruker den: `<TextInput>`, `<TextArea>`, `<DatePicker>`, `<TimePicker>`, `<PhoneInput>`, `<Select>`, `<NativeSelect>`, `<FileUploader>` og `<InputStepper>`. Tillater å sømløst legge ekstra innhold etter ledetekst, som f.eks. en knapp som viser utfyllende info.
