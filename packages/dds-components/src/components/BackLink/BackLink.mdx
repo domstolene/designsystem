@@ -4,6 +4,7 @@ import {
   Source,
 } from '@norges-domstoler/storybook-components';
 import * as BackLinkStories from './BackLink.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
 
 <Meta of={BackLinkStories} />
 
@@ -16,45 +17,44 @@ import * as BackLinkStories from './BackLink.stories';
   storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-backlink--default"
 />
 
-## Props
+<Tabs>
+  <TabList>
+    <Tab>Preview</Tab>
+    <Tab>As</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={BackLinkStories.Preview} />
+      <Controls of={BackLinkStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={BackLinkStories.As} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
 
-<Canvas of={BackLinkStories.Preview} />
-<Controls of={BackLinkStories.Preview} />
+## Klient-side ruting
 
-## Med `react-router`
+Bruk `as` prop slik at komponenten kan returnere lenke fra rammeverket du bruker.
 
-Bruk hooks tilgjengelige i `react-router` for å returnere Elsa `<BackLink>` som custom lenke:
+### `react-router`
 
 <Source code={`
-
-import { useHref, useLinkClickHandler } from 'react-router-dom';
-
+import { Link as RRLink } from "react-router";
 import { BackLink } from '@norges-domstoler/dds-components';
-import type { BackLinkProps } from '@norges-domstoler/dds-components';
 
-type RouterConnectedBackLinkProps = Omit<BackLinkProps, 'onClick'>;
-
-export default function RouterConnectedBackLink(
-  props: RouterConnectedBackLinkProps,
-): JSX.Element {
-  const { href, ...rest } = props;
-  const routerHref = href ? useHref(href) : undefined;
-  const linkClickHandler = href ? useLinkClickHandler(href) : () => {};
-
-return <BackLink {...rest} href={routerHref} onClick={linkClickHandler} />;
-}
+<BackLink as={RRLink} to="/saker">
+  Mine saker
+</BackLink>
 `} />
 
-## I `Next.js`
-
-Komponenten kan wrappes i Next.js sin `<Link>` med props `passHref` og `legacyBehavior` per [Next.js dokumentasjon](https://nextjs.org/docs/pages/api-reference/components/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag).
-Dette er legacy oppførsel og vil sannsynligvis bli endret i fremtiden.
+### `Next.js`
 
 <Source code={`
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { BackLink } from '@norges-domstoler/dds-components';
 
-<Link href={\`../\${sakId}\`} passHref legacyBehavior>
-  <BackLink label="Tilbake" />
-</Link>
+<BackLink as={NextLink} href="/saker">
+  Mine saker
+</BackLink>
 `} />

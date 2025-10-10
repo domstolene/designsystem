@@ -51,13 +51,12 @@
   margin-bottom: var(--dds-font-body-medium-paragraph-spacing);
 }
 
-:where(.a--external) {
-  & > svg {
-    display: inline;
-    margin: 0.1em 0.1em -0.1em;
-    transform: translateY(0.05em);
-    vertical-align: baseline;
-  }
+:where(.a--external) > svg,
+.a__icon {
+  display: inline;
+  margin: 0.1em 0.1em -0.1em;
+  transform: translateY(0.05em);
+  vertical-align: baseline;
 }
 
 .a--visited:visited {

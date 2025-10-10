@@ -6,7 +6,6 @@ import {
   htmlArgType,
   htmlEventArgType,
 } from '../../../storybook/helpers';
-import { StoryVStack } from '../../layout/Stack/utils';
 import { Paragraph } from '../Paragraph';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 
@@ -17,6 +16,7 @@ export default {
   component: Link,
   argTypes: {
     href: { control: 'text', table: categoryHtml },
+    as: { control: 'text' },
     onClick: htmlEventArgType,
     target: htmlArgType,
     ...storyTypographyHtmlAttrs,
@@ -26,34 +26,36 @@ export default {
 
 type Story = StoryObj<typeof Link>;
 
+const showcaseProps = { children: 'Link', href: 'https://www.domstol.no' };
+
 export const Preview: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no' },
+  args: showcaseProps,
 };
 
-export const Overview: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no' },
-  render: args => (
-    <StoryVStack>
-      <Link {...args} />
-      <Link {...args} external />
-    </StoryVStack>
-  ),
+export const External: Story = {
+  args: { ...showcaseProps, external: true },
 };
 
-export const WithVisited: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no', withVisited: true },
+export const Visited: Story = {
+  args: { ...showcaseProps, withVisited: true },
 };
 
 export const CustomColor: Story = {
   args: {
-    children: 'Link',
-    href: 'https://www.domstol.no',
+    ...showcaseProps,
     color: 'text-default',
   },
 };
 
+export const As: Story = {
+  args: {
+    ...showcaseProps,
+    as: 'span',
+  },
+};
+
 export const InText: Story = {
-  args: { children: 'Link', href: 'https://www.domstol.no' },
+  args: showcaseProps,
   render: args => (
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

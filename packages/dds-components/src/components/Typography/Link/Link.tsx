@@ -1,7 +1,12 @@
-import { type AnchorHTMLAttributes } from 'react';
-
 import {
-  type BaseComponentPropsWithChildren,
+  type AnchorHTMLAttributes,
+  type ComponentPropsWithoutRef,
+  type ElementType,
+} from 'react';
+
+import { ElementAs } from '../../../polymorphic';
+import {
+  type PolymorphicBaseComponentProps,
   getBaseHTMLProps,
 } from '../../../types';
 import { cn, getTextColor, isTextColor } from '../../../utils';
@@ -21,27 +26,25 @@ type PickedHTMLAttributes = Pick<
   'onClick' | 'href' | 'target'
 >;
 
-export type LinkProps = BaseComponentPropsWithChildren<
-  HTMLAnchorElement,
-  {
-    /**Spesifiserer om lenken fører til et eksternt nettsted eller åpnes i nytt vindu. Påvirker styling og setter `target` prop. */
-    external?: boolean;
-    /**Om lenken kan få `:visited`-styling. */
-    withVisited?: boolean;
-    /**Spesifiserer typografistil basert på utvalget for brødtekst. Arver hvis ikke oppgitt. */
-    typographyType?: TypographyBodyType;
-  } & BaseTypographyProps &
-    PickedHTMLAttributes,
-  Omit<
-    AnchorHTMLAttributes<HTMLAnchorElement>,
-    keyof PickedHTMLAttributes | 'color'
-  >
->;
+export type LinkProps<T extends ElementType = 'a'> =
+  PolymorphicBaseComponentProps<
+    T,
+    {
+      /**Spesifiserer om lenken fører til et eksternt nettsted eller åpnes i nytt vindu. Påvirker styling og setter `target` prop. */
+      external?: boolean;
+      /**Om lenken kan få `:visited`-styling. */
+      withVisited?: boolean;
+      /**Spesifiserer typografistil basert på utvalget for brødtekst. Arver hvis ikke oppgitt. */
+      typographyType?: TypographyBodyType;
+    } & BaseTypographyProps &
+      PickedHTMLAttributes,
+    Omit<ComponentPropsWithoutRef<T>, keyof PickedHTMLAttributes | 'color'>
+  >;
 
-export const Link = ({
+export const Link = <T extends ElementType = 'a'>({
   id,
   className,
-  htmlProps = {},
+  htmlProps,
   children,
   typographyType,
   withMargins,
@@ -50,11 +53,13 @@ export const Link = ({
   target,
   style,
   color,
+  as: propAs,
   ...rest
-}: LinkProps) => {
-  const { style: htmlPropsStyle, ...restHtmlProps } = htmlProps;
+}: LinkProps<T>) => {
+  const as = propAs ? propAs : 'a';
   return (
-    <a
+    <ElementAs
+      as={as}
       {...getBaseHTMLProps(
         id,
         cn(
@@ -69,21 +74,20 @@ export const Link = ({
           focusable,
           getColorCn(color),
         ),
-        restHtmlProps,
+        htmlProps,
         rest,
       )}
-      {...rest}
       rel="noopener noreferer"
       target={external ? '_blank' : target}
       style={{
-        ...htmlPropsStyle,
+        ...htmlProps?.style,
         ...style,
         color: color && !isTextColor(color) ? getTextColor(color) : undefined,
       }}
     >
       {children}
       {external && <Icon iconSize="inherit" icon={OpenExternalIcon} />}
-    </a>
+    </ElementAs>
   );
 };
 
