@@ -61,7 +61,7 @@
     "react-dom": "19.2.0",
     "tsup": "^8.5.0",
     "typed-css-modules": "^0.9.1",
-    "typescript": "^5.9.2",
+    "typescript": "^5.9.3",
     "vite": "^7.1.9",
     "vitest": "^3.2.4"
   },
