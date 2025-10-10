@@ -1,5 +1,19 @@
 # @norges-domstoler/dds-components
 
+## 21.16.0
+
+(2025-10-10)
+
+### Minor Changes
+
+- 793775e: Støtte for `afterLabelContent` prop i `<Label>` og komponenter som bruker den: `<TextInput>`, `<TextArea>`, `<DatePicker>`, `<TimePicker>`, `<PhoneInput>`, `<Select>`, `<NativeSelect>`, `<FileUploader>` og `<InputStepper>`. Tillater å sømløst legge ekstra innhold etter ledetekst, som f.eks. en knapp som viser utfyllende info.
+- 793775e: Støtte for `icon` prop for enestående ikon i `<InlineButton>`. Sørger for riktig visning av ikonet som sendes inn.
+- 01487e9: Støtte for polymorfi via `as` prop i `<Link>` og `<BackLink>`. Brukes ved klient-side ruting og lignende.
+
+### Patch Changes
+
+- 2f77a3b: Fikser bug der man kunne submitte med loading `<Button>`; gjør den `disabled` ved `loading`.
+
 ## 21.15.0
 
 (2025-10-03)
