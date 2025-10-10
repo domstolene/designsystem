@@ -41,10 +41,14 @@ import {
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
-import { type InputSize, getInputWidth } from '../helpers/Input';
+import {
+  type CommonInputProps,
+  type InputSize,
+  getInputWidth,
+} from '../helpers/Input';
 import { type SvgIcon } from '../Icon/utils';
 import { renderInputMessage } from '../InputMessage';
-import { Box, type ResponsiveProps } from '../layout';
+import { Box } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
 import { renderLabel } from '../Typography/Label/Label.utils';
 
@@ -64,8 +68,6 @@ type WrappedReactSelectProps<
 >;
 
 export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
-  /**Ledetekst for nedtrekkslisten. */
-  label?: string;
   /**Størrelsen på komponenten.
    * @default "medium"
    */
@@ -74,10 +76,6 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   icon?: SvgIcon;
   /**Nedtrekkslisten blir `readonly` og får readOnly styling. */
   readOnly?: boolean;
-  /**Meldingen som vises ved valideringsfeil. */
-  errorMessage?: string;
-  /**Hjelpetekst. */
-  tip?: string;
   /** CSS klassenavn. */
   className?: string;
   /** Inline styling. */
@@ -94,8 +92,8 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   'data-testid'?: string;
   /**Ref til komponenten. */
   ref?: SelectForwardRefType<Option, IsMulti>;
-} & Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
-  Pick<ResponsiveProps, 'width'> &
+} & CommonInputProps &
+  Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
   WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 
 export type SelectForwardRefType<Option, IsMulti extends boolean> = Ref<
@@ -130,6 +128,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
   openMenuOnClick,
   ref,
   instanceId,
+  afterLabelContent,
   ...rest
 }: SelectProps<Option, IsMulti>) {
   const themeContext = useContext(ThemeContext);
@@ -302,6 +301,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
         htmlFor: uniqueId,
         showRequiredStyling,
         readOnly,
+        afterLabelContent,
       })}
       <ReactSelect {...reactSelectProps} ref={ref} />
       {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}

@@ -35,6 +35,7 @@ export const InputStepper = ({
   onChange,
   width,
   htmlProps,
+  afterLabelContent,
   ...rest
 }: InputStepperProps) => {
   if (
@@ -105,6 +106,7 @@ export const InputStepper = ({
         htmlFor: uniqueId,
         readOnly: rest.readOnly,
         showRequiredStyling,
+        afterLabelContent,
       })}
       <Box
         className={styles['input-container']}

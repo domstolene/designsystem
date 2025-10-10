@@ -58,6 +58,7 @@ export const NativeSelect = ({
   onKeyDown,
   onMouseDown,
   clearable,
+  afterLabelContent,
   onChange,
   ...rest
 }: NativeSelectProps) => {
@@ -122,6 +123,7 @@ export const NativeSelect = ({
         htmlFor: uniqueId,
         showRequiredStyling,
         readOnly,
+        afterLabelContent,
       })}
       <Box position="relative" width={inputWidth}>
         <select

@@ -128,6 +128,7 @@ export type PhoneInputProps = {
   | 'componentSize'
   | 'errorMessage'
   | 'label'
+  | 'afterLabelContent'
   | 'tip'
   | 'required'
   | 'className'
@@ -156,6 +157,7 @@ export const PhoneInput = ({
   'aria-required': ariaRequired,
   'aria-describedby': ariaDescribedby,
   groupLabel = 'Landskode og telefonnummer',
+  afterLabelContent,
   ref,
   ...props
 }: PhoneInputProps) => {
@@ -269,6 +271,7 @@ export const PhoneInput = ({
         htmlFor: phoneNumberId,
         showRequiredStyling,
         readOnly,
+        afterLabelContent,
       })}
       <Box
         display="flex"
