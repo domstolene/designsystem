@@ -38,12 +38,6 @@ Kjør utviklingsmiljøet:
 pnpm dev
 ```
 
-Bygg bibliotekene:
-
-```shell
-pnpm build
-```
-
 Kjør Storybook (demoside og playground):
 
 ```shell

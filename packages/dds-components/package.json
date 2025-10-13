@@ -29,7 +29,7 @@
     "test:watch": "vitest watch",
     "generate-css-types": "tcm src",
     "build": "pnpm run generate-css-types && tsup --dts",
-    "dev": "pnpm run generate-css-types --watch",
+    "dev": "pnpm run generate-css-types --watch && tsup",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
