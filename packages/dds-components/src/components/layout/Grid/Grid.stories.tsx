@@ -4,7 +4,7 @@ import {
   categoryCss,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { Button } from '../../Button';
 import { FilterIcon, PlusIcon } from '../../Icon/icons';
 import { InternalHeader } from '../../InternalHeader';

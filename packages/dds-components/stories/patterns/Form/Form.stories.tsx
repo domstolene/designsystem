@@ -29,7 +29,7 @@ import {
   VStack,
   VisuallyHidden,
 } from '../../../src';
-import { StoryThemeProvider } from '../../../src/components/ThemeProvider/utils/StoryThemeProvider';
+import { themeProviderDecorator } from '../../../src/storybook';
 
 const meta: Meta = {
   title: 'Patterns/Form',
@@ -37,13 +37,14 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: { canvas: { inline: false } },
   },
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
 
 export const Form = () => {
   return (
-    <StoryThemeProvider>
+    <>
       <InternalHeader
         applicationName="Applikasjon"
         applicationDesc="Beskrivelse"
@@ -128,7 +129,7 @@ export const Form = () => {
           </VStack>
         </GridChild>
       </Grid>
-    </StoryThemeProvider>
+    </>
   );
 };
 
@@ -275,7 +276,7 @@ export const FormWithSteps = () => {
     </Fragment>,
   ];
   return (
-    <StoryThemeProvider>
+    <>
       <InternalHeader
         applicationName="Applikasjon"
         applicationDesc="Beskrivelse"
@@ -365,7 +366,7 @@ export const FormWithSteps = () => {
           </ProgressTracker>
         </GridChild>
       </Grid>
-    </StoryThemeProvider>
+    </>
   );
 };
 
@@ -506,7 +507,7 @@ export const FormWithStepsCustomGrid = () => {
     </Fragment>,
   ];
   return (
-    <StoryThemeProvider>
+    <>
       <Grid
         as="div"
         marginBlock="x1"
@@ -578,7 +579,7 @@ export const FormWithStepsCustomGrid = () => {
           </ProgressTracker>
         </GridChild>
       </Grid>
-    </StoryThemeProvider>
+    </>
   );
 };
 
@@ -596,7 +597,7 @@ export const ExitForm = () => {
   }
 
   return (
-    <StoryThemeProvider>
+    <>
       <InternalHeader
         applicationName="Applikasjon"
         applicationDesc="Beskrivelse"
@@ -667,6 +668,6 @@ export const ExitForm = () => {
           </ModalActions>
         </Modal>
       </Grid>
-    </StoryThemeProvider>
+    </>
   );
 };

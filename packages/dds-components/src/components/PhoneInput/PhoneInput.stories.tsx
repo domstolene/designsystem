@@ -8,7 +8,7 @@ import {
   htmlArgType,
   labelText,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { INPUT_SIZES } from '../helpers/Input';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';

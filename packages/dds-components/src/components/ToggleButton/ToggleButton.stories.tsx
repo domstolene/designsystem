@@ -8,7 +8,7 @@ import {
   htmlArgType,
   htmlEventArgType,
   labelText,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { NotificationsIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 

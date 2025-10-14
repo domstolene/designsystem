@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 import { ProgressTracker } from './ProgressTracker';
-import { commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes, themeProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { Fieldset, FieldsetGroup } from '../Fieldset';
@@ -18,7 +18,6 @@ import { Box, Grid, HStack, ShowHide, VStack } from '../layout';
 import { Select } from '../Select';
 import { Checkbox } from '../SelectionControl/Checkbox';
 import { TextInput } from '../TextInput';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Legend, Paragraph } from '../Typography';
 
 export default {
@@ -255,13 +254,7 @@ export const FutureStepsDisabled: Story = {
 };
 
 export const SmallScreen: Story = {
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
   render: args => {
     const numSteps = 3;
 
@@ -325,21 +318,7 @@ export const SmallScreen: Story = {
 };
 
 export const RealWorldRosponsiveExample: Story = {
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-        <style>
-          {`
-          .story-grid {
-              grid-template-columns: 26rem 1fr;
-              gap: var(--dds-spacing-x6);
-          }
-          `}
-        </style>
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
   render: args => {
     const [activeStep, setActiveStep] = useState(0);
     const [completedSteps, setCompletedSteps] = useState(new Set<number>());
@@ -385,7 +364,7 @@ export const RealWorldRosponsiveExample: Story = {
     ];
 
     return (
-      <Grid className="story-grid">
+      <Grid className="story-grid" gridTemplateColumns="26rem 1fr" gap="x6">
         <div>
           <ShowHide showBelow="md">
             <DrawerGroup

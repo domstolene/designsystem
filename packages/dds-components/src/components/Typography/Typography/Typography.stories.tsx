@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Typography } from '..';
-import { categoryHtml } from '../../../storybook/helpers';
+import { categoryHtml } from '../../../storybook';
 import { StoryVStack } from '../../layout/Stack/utils';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 

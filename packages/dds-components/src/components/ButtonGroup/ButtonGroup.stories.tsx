@@ -1,10 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import {
-  categoryHtml,
-  commonArgTypes,
-  labelText,
-} from '../../storybook/helpers';
+import { categoryHtml, commonArgTypes, labelText } from '../../storybook';
 import { Button } from '../Button/Button';
 import { BUTTON_SIZES } from '../Button/Button.types';
 import { StoryVStack } from '../layout/Stack/utils';

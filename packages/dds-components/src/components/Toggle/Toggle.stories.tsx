@@ -8,7 +8,7 @@ import {
   htmlArgType,
   htmlEventArgType,
   labelText,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { TOGGLE_SIZES } from './Toggle';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';

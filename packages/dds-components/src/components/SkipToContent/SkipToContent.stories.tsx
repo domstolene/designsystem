@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryCss, commonArgTypes } from '../../storybook/helpers';
+import { categoryCss, commonArgTypes } from '../../storybook';
 
 import { SkipToContent } from '.';
 

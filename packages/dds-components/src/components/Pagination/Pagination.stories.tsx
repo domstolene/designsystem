@@ -5,12 +5,12 @@ import { fn } from 'storybook/test';
 import {
   StoryLabel,
   commonArgTypes,
+  themeProviderDecorator,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Pagination } from '.';
 
@@ -22,13 +22,7 @@ const meta: Meta<typeof Pagination> = {
     ...commonArgTypes,
   },
   args: { onChange: fn(), onSelectOptionChange: fn() },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 export default meta;
 
