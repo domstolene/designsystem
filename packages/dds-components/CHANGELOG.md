@@ -1,5 +1,18 @@
 # @norges-domstoler/dds-components
 
+## 21.17.0
+
+### Minor Changes
+
+- ad89a8d: Redesign av `<Spinner>`: den bruker en animasjon av elementer som symboliserer ulike typer domstoler, slik det er definert i designmanualen.
+- 33aa93f: Nytt ikon: `ScaleIcon`.
+
+### Patch Changes
+
+- ad89a8d: Fikser spacing for ikonet/spinner i `<Toggle>`.
+- ad89a8d: Fikser bug der verdier for deprecated HTML attributt `color` var støttet i tillegg til `color` prop i `<Spinner>`.
+- 95579d5: Endrer tilgjengelig navn i `<CookieBanner>` til å bruke headertekst via `aria-labelledby` prop. Implementasjonen er dermed i tråd med andre komponenter som stiller med ny flate (`<Modal>`, `<Drawer>` osv.).
+
 ## 21.16.0
 
 (2025-10-10)
