@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from 'react';
+import { type ReactNode, useId, useState } from 'react';
 
 import { createTexts, useTranslation } from '../../i18n';
 import {
@@ -51,7 +51,6 @@ export function CookieBanner({
   id,
   className,
   htmlProps,
-  'aria-label': ariaLabel,
   maxHeight = 'calc(100vh - 100px)',
   width = 'fit-content',
   children,
@@ -59,17 +58,22 @@ export function CookieBanner({
   ...rest
 }: CookieBannerProps) {
   const { t } = useTranslation();
-  const tAriaLabel = ariaLabel ?? t(texts.consent);
 
   const hasBp = !!collapsedBreakpoint;
   const [isCollapsedOnBreakpoint, setIsCollapsedOnBreakpoint] = useState(hasBp);
+
+  const generatedId = useId();
+  const headingId =
+    headerText && (id ?? `cookie-banner-${generatedId}-heading`);
+
   const heading = headerText ? (
-    <Heading level={2} typographyType="headingMedium">
+    <Heading level={2} typographyType="headingMedium" id={headingId}>
       {headerText}
     </Heading>
   ) : (
     ''
   );
+
   return (
     <Paper
       {...getBaseHTMLProps(
@@ -79,7 +83,7 @@ export function CookieBanner({
         rest,
       )}
       role="region"
-      aria-label={tAriaLabel}
+      aria-labelledby={headingId}
       padding={styleUpToBreakpoint('x1', 'sm', 'x1.5')}
       width={width}
       maxHeight={maxHeight}
@@ -141,11 +145,5 @@ const texts = createTexts({
     no: 'Utvid samtykke for bruk av informasjonskapsler',
     nn: 'Utvid samtykke for bruk av informasjonskapslar',
     en: 'Expand consent for the use of cookies',
-  },
-  consent: {
-    nb: 'Samtykke for bruk av informasjonskapsler',
-    no: 'Samtykke for bruk av informasjonskapsler',
-    nn: 'Samtykke for bruk av informasjonskapslar',
-    en: 'Consent for the use of cookies',
   },
 });
