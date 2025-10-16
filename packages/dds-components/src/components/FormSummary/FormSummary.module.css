@@ -1,0 +1,17 @@
+.dd {
+  display: block;
+}
+
+.field:not(:last-child) {
+  margin-bottom: var(--dds-spacing-x0-75);
+  padding-bottom: var(--dds-spacing-x0-75);
+  border-bottom: 1px solid var(--dds-color-border-subtle);
+}
+
+.dd:has(dl) {
+  margin-top: var(--dds-spacing-x0-75);
+}
+
+.dd .field {
+  padding-left: var(--dds-spacing-x0-75);
+}

@@ -11,7 +11,7 @@ export type InputMessageProps = BaseComponentProps<
   HTMLDivElement,
   {
     /** Meldingen som vises til brukeren. */
-    message: string;
+    message?: string;
     /** Formålet med meldingen. Påvirker styling.
      * @default "error"
      */
@@ -25,6 +25,7 @@ export const InputMessage = ({
   id,
   className,
   htmlProps,
+  children,
   ...rest
 }: InputMessageProps) => {
   const isError = messageType === 'error';
@@ -46,7 +47,7 @@ export const InputMessage = ({
         color={isError ? 'textDefault' : 'textSubtle'}
         as="span"
       >
-        {message}
+        {message ?? children}
       </Typography>
     </div>
   );
