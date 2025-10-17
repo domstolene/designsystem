@@ -2,6 +2,8 @@
 
 ## 21.17.0
 
+(2025-10-17)
+
 ### Minor Changes
 
 - ad89a8d: Redesign av `<Spinner>`: den bruker en animasjon av elementer som symboliserer ulike typer domstoler, slik det er definert i designmanualen.
