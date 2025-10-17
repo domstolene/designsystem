@@ -2,24 +2,17 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes, themeProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Search } from '../Search';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Modal, ModalActions, ModalBody } from '.';
 
 const meta: Meta<typeof Modal> = {
   title: 'dds-components/Components/Modal',
   component: Modal,
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
   argTypes: {
     header: { control: 'text' },
     parentElement: { control: false },

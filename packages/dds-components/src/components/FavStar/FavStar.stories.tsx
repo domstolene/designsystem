@@ -9,7 +9,7 @@ import {
   commonArgTypes,
   htmlEventArgType,
   labelText,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { Icon } from '../Icon';

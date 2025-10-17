@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook';
 import { CallIcon, HomeIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
 import { Link } from '../Typography';

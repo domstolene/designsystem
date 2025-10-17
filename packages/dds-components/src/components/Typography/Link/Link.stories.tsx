@@ -5,7 +5,7 @@ import {
   categoryHtml,
   htmlArgType,
   htmlEventArgType,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { Paragraph } from '../Paragraph';
 import { storyTypographyHtmlAttrs } from '../storyUtils';
 

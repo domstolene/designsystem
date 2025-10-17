@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, windowWidthDecorator } from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook';
 import { InlineButton } from '../InlineButton';
 
 import { DetailList, DetailListDesc, DetailListRow, DetailListTerm } from '.';

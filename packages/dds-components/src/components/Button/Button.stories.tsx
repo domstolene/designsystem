@@ -9,7 +9,7 @@ import {
   htmlArgType,
   htmlEventArgType,
   labelText,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 import { Button, type ButtonPurpose } from '.';

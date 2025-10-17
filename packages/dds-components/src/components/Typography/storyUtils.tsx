@@ -1,6 +1,6 @@
 import { type ArgTypes } from '@storybook/react-vite';
 
-import { commonArgTypes, htmlArgType } from '../../storybook/helpers';
+import { commonArgTypes, htmlArgType } from '../../storybook';
 
 export const storyTypographyHtmlAttrs: ArgTypes = {
   ...commonArgTypes,

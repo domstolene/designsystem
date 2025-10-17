@@ -6,7 +6,7 @@ import {
   commonArgTypes,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { HStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';

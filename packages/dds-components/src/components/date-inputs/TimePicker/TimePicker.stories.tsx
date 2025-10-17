@@ -7,7 +7,8 @@ import {
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+  themeProviderDecorator,
+} from '../../../storybook';
 import { Button } from '../../Button';
 import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
@@ -28,6 +29,7 @@ const meta: Meta<typeof TimePicker> = {
     onFocus: htmlEventArgType,
   },
   args: { onBlur: fn(), onFocus: fn(), onChange: fn(), onFocusChange: fn() },
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;

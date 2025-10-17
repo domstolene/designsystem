@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { LanguageProvider } from '../../i18n';
 import { BackLink } from '../BackLink';
 import { Breadcrumb, Breadcrumbs } from '../Breadcrumbs';
 import {
@@ -22,13 +21,6 @@ const meta: Meta<typeof Contrast> = {
   argTypes: {
     as: { control: 'text' },
   },
-  decorators: [
-    Story => (
-      <LanguageProvider language="nb">
-        <Story />
-      </LanguageProvider>
-    ),
-  ],
 };
 
 export default meta;

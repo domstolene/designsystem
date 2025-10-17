@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes, htmlArgType } from '../../storybook/helpers';
+import { commonArgTypes, htmlArgType } from '../../storybook';
 import { Button } from '../Button';
 import { Table } from '../Table/normal';
 import { Link, Paragraph } from '../Typography';

@@ -2,11 +2,9 @@ import { type Story } from '@storybook/addon-docs/blocks';
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { LanguageProvider } from '../../i18n';
-import { commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes, themeProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Paragraph } from '../Typography';
 import { DRAWER_SIZES } from './Drawer';
 
@@ -25,15 +23,7 @@ const meta: Meta<typeof Drawer> = {
     parentElement: { control: false },
     widthProps: { control: false },
   },
-  decorators: [
-    Story => (
-      <LanguageProvider language="en">
-        <StoryThemeProvider>
-          <Story />
-        </StoryThemeProvider>
-      </LanguageProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;

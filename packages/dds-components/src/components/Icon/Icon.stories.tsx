@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { OpenExternalIcon as OpenExternal } from './icons/openExternal';
-import { StoryLabel, commonArgTypes, labelText } from '../../storybook/helpers';
+import { StoryLabel, commonArgTypes, labelText } from '../../storybook';
 import { StoryHStack } from '../layout/Stack/utils';
 import { Paragraph } from '../Typography';
 import { ICON_SIZES } from './Icon';

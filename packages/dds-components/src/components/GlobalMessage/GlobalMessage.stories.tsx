@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { GlobalMessage } from './GlobalMessage';
-import { commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
 export default {

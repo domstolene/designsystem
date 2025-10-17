@@ -1,8 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { LanguageProvider } from '../../i18n';
-import { commonArgTypes, windowWidthDecorator } from '../../storybook/helpers';
+import { commonArgTypes, windowWidthDecorator } from '../../storybook';
 import { EditIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';
 
@@ -23,13 +22,6 @@ const meta: Meta<typeof InternalHeader> = {
       story: { height: '320px' },
     },
   },
-  decorators: [
-    Story => (
-      <LanguageProvider language="nb">
-        <Story />
-      </LanguageProvider>
-    ),
-  ],
 };
 
 export default meta;

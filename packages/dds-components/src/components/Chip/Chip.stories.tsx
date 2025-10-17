@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
-import { commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook';
 
 import { Chip } from '.';
 

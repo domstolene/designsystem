@@ -1,12 +1,11 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { CookieBanner } from './CookieBanner';
-import { LanguageProvider } from '../../i18n';
 import {
   commonArgTypes,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { Box, Paper, VStack } from '../layout';
 import { Link } from '../Typography';
@@ -27,13 +26,6 @@ const meta: Meta<typeof CookieBanner> = {
     maxHeight,
     width,
   },
-  decorators: [
-    Story => (
-      <LanguageProvider language="nb">
-        <Story />
-      </LanguageProvider>
-    ),
-  ],
 };
 
 export default meta;

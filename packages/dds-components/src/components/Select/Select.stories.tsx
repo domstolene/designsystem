@@ -7,15 +7,15 @@ import {
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
+  themeProviderDecorator,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { Drawer, DrawerGroup } from '../Drawer';
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { Modal, ModalBody } from '../Modal';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 import { Select, type SelectProps, createSelectOptions } from '.';
 
@@ -44,13 +44,7 @@ const meta: Meta<typeof Select> = {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;

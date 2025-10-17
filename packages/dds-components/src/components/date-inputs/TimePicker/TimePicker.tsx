@@ -3,6 +3,7 @@ import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
 import { type Ref, useRef } from 'react';
 
+import { formatTimeSegments } from './TimePicker.utils';
 import { useLanguage } from '../../../i18n';
 import { cn } from '../../../utils';
 import { type InputProps } from '../../helpers/Input/Input.types';
@@ -30,7 +31,7 @@ export function TimePicker({
   const lang = useLanguage();
 
   if (!lang) {
-    throw new Error('DatePicker must be used within a DdsProvider');
+    throw new Error('TimePicker must be used within a DdsProvider');
   }
 
   const internalRef = useRef<HTMLInputElement>(null);
@@ -46,6 +47,8 @@ export function TimePicker({
 
   const iconSize = componentSize === 'xsmall' ? 'small' : 'medium';
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
+
+  const formattedSegments = formatTimeSegments(state.segments);
 
   return (
     <DateInput
@@ -71,7 +74,7 @@ export function TimePicker({
         />
       }
     >
-      {state.segments.map((segment, i) => (
+      {formattedSegments.map((segment, i) => (
         <DateSegment
           componentSize={componentSize}
           key={i}

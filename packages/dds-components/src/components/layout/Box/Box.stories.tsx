@@ -5,7 +5,7 @@ import { useWindowResize } from '../../../hooks';
 import {
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import {
   getBreakpointFromScreenWidth,
   isBreakpointObject,

@@ -1,10 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
 import { Paper } from '..';
-import {
-  categoryCss,
-  responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+import { categoryCss, responsivePropsArgTypes } from '../../../storybook';
 
 import { Grid, GridChild } from '.';
 

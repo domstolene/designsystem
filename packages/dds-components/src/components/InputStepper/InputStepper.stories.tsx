@@ -9,7 +9,7 @@ import {
   labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Button } from '../Button';
 import { INPUT_STEPPER_SIZES } from './InputStepper.types';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';

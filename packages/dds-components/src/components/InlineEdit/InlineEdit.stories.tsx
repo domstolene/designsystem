@@ -5,7 +5,7 @@ import { fn } from 'storybook/test';
 import { InlineEditInput } from './InlineEditInput/InlineEditInput';
 import { InlineEditSelect } from './InlineEditSelect';
 import { InlineEditTextArea } from './InlineEditTextArea/InlineEditTextArea';
-import { htmlEventArgType } from '../../storybook/helpers';
+import { htmlEventArgType } from '../../storybook';
 import { StoryVStack } from '../layout/Stack/utils';
 
 export default {

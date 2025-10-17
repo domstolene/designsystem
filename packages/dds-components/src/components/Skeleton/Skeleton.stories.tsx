@@ -5,7 +5,7 @@ import {
   categoryCss,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Box, VStack } from '../layout';
 import { StoryVStack } from '../layout/Stack/utils';
 

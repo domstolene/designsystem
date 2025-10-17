@@ -1,6 +1,6 @@
 import { type StoryObj } from '@storybook/react-vite';
 
-import { commonArgTypes } from '../../storybook/helpers';
+import { commonArgTypes } from '../../storybook';
 
 import { ToggleButton, ToggleButtonGroup } from '.';
 

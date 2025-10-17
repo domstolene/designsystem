@@ -1,7 +1,6 @@
 import { type Meta } from '@storybook/react-vite';
 
 import { type InputSize } from '../../../packages/dds-components/src/components/helpers/Input';
-import { StoryThemeProvider } from '../../../packages/dds-components/src/components/ThemeProvider/utils/StoryThemeProvider';
 import {
   DatePicker,
   HStack,
@@ -14,17 +13,14 @@ import {
   TimePicker,
   VStack,
 } from '../../../packages/dds-components/src/index';
-import { StoryLabel } from '../../../packages/dds-components/src/storybook/helpers';
+import {
+  StoryLabel,
+  themeProviderDecorator,
+} from '../../../packages/dds-components/src/storybook';
 
 const meta: Meta = {
   title: 'Playground/Testing',
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 export default meta;
 
