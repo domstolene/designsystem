@@ -25,7 +25,7 @@ export type InputProps = CommonInputProps & {
    * @default "medium"
    */
   componentSize?: InputSize;
-} & Omit<ComponentPropsWithRef<'input'>, 'width'>;
+} & Omit<ComponentPropsWithRef<'input'>, 'width' | 'height'>;
 
 export type StatefulInputProps = {
   hasErrorMessage: boolean;

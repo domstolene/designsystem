@@ -40,7 +40,7 @@ export type BaseComponentProps<
   TOtherProps extends object = object,
   THTMLAttributesProps extends
     HTMLAttributes<TElement> = HTMLAttributes<TElement>,
-> = Omit<THTMLAttributesProps, 'id' | 'className'> &
+> = Omit<THTMLAttributesProps, 'id' | 'className' | keyof TOtherProps> &
   TOtherProps &
   CommonComponentProps<THTMLAttributesProps, Ref<TElement>>;
 
@@ -58,7 +58,10 @@ export type PolymorphicBaseComponentProps<
   E extends ElementType,
   TOtherProps extends object = object,
   TComponentProps extends object = ComponentPropsWithoutRef<E>,
-> = Omit<TComponentProps, 'id' | 'className' | 'style' | 'ref'> &
+> = Omit<
+  TComponentProps,
+  'id' | 'className' | 'style' | 'ref' | keyof TOtherProps
+> &
   TOtherProps &
   CommonComponentProps<TComponentProps, ComponentPropsWithRef<E>['ref']> & {
     /**HTML- eller React-element som returneres. */
