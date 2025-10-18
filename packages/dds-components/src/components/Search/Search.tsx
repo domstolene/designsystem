@@ -77,7 +77,7 @@ export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
   /**Om søkeikonet skal vises. */
   showIcon?: boolean;
 } & Pick<InputProps, 'width'> &
-  Omit<ComponentPropsWithRef<'input'>, 'width'>;
+  Omit<ComponentPropsWithRef<'input'>, 'width' | 'height'>;
 
 export const Search = ({
   componentSize = 'medium',
