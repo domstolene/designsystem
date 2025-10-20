@@ -43,9 +43,9 @@
     "generate:tokens": "node build.js"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-commonjs": "^28.0.8",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "@types/node": "^24.7.2",
+    "@types/node": "^24.9.0",
     "@tokens-studio/sd-transforms": "^2.0.1",
     "fork-ts-checker-webpack-plugin": "^9.1.0",
     "rollup": "^3.29.5",
