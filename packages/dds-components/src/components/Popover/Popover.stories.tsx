@@ -3,13 +3,16 @@ import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { type Placement } from '../../hooks';
-import { commonArgTypes, htmlEventArgType } from '../../storybook/helpers';
+import {
+  commonArgTypes,
+  htmlEventArgType,
+  themeProviderDecorator,
+} from '../../storybook';
 import { Button } from '../Button';
 import { InlineButton } from '../InlineButton';
 import { VStack } from '../layout';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 import { LocalMessage } from '../LocalMessage';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../Typography';
 
 import { Popover, PopoverGroup } from '.';
@@ -17,13 +20,7 @@ import { Popover, PopoverGroup } from '.';
 const meta: Meta<typeof Popover> = {
   title: 'dds-components/Components/Popover',
   component: Popover,
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
   argTypes: {
     header: { control: 'text' },
     onBlur: htmlEventArgType,

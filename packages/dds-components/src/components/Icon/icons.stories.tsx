@@ -1,3 +1,4 @@
+import { type Meta } from '@storybook/react-vite';
 import { type JSX, useEffect, useState } from 'react';
 
 import { Icon } from './Icon';
@@ -5,17 +6,20 @@ import { CopyIcon } from './icons/copy';
 import styles from './IconStory.module.css';
 import { type SvgIcon, type SvgProps } from './utils';
 import { StylelessButton, cn, icons } from '../..';
+import { themeProviderDecorator } from '../../storybook';
 import { Button } from '../Button';
 import { focusable } from '../helpers/styling/focus.module.css';
 import { LocalMessage } from '../LocalMessage';
 import { Modal, ModalBody } from '../Modal';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 import { Heading, Typography } from '../Typography';
 
-export default {
+const meta: Meta = {
   title: 'Icons/Overview',
   parameters: { docs: { canvas: { sourceState: 'none' } } },
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
+
+export default meta;
 
 export const Overview = () => {
   const [iconState, setIconState] = useState<
@@ -95,64 +99,62 @@ export const Overview = () => {
   );
 
   return (
-    <StoryThemeProvider>
-      <div className={styles.page}>
-        <LocalMessage message="Klikk på ikonet for mer info."></LocalMessage>
-        <Typography typographyType="bodySmall">
-          Antall ikoner: {Object.keys(iconsObject).length}
-        </Typography>
-        <div className={styles.overview}>{iconOverview()}</div>
-        <Modal
-          isOpen={!closed}
-          onClose={close}
-          header={iconState?.name && trim(iconState.name)}
-        >
-          <ModalBody>
-            {iconState && (
-              <div className={styles['icon-row']}>
-                <Icon icon={iconState.icon} iconSize="small" />
-                <Icon icon={iconState.icon} iconSize="medium" />
-                <Icon icon={iconState.icon} iconSize="large" />
-                <Button icon={iconState.icon} />
-              </div>
-            )}
-            <div className={styles['group-header']}>
-              <Heading level={3} typographyType="headingSmall">
-                Import
-              </Heading>
-              <Button
-                icon={CopyIcon}
-                size="xsmall"
-                purpose="tertiary"
-                onClick={() => handleCopyImport(importCode)}
-              />
-              {copiedImport && copyConfirmation('import')}
+    <div className={styles.page}>
+      <LocalMessage message="Klikk på ikonet for mer info."></LocalMessage>
+      <Typography typographyType="bodySmall">
+        Antall ikoner: {Object.keys(iconsObject).length}
+      </Typography>
+      <div className={styles.overview}>{iconOverview()}</div>
+      <Modal
+        isOpen={!closed}
+        onClose={close}
+        header={iconState?.name && trim(iconState.name)}
+      >
+        <ModalBody>
+          {iconState && (
+            <div className={styles['icon-row']}>
+              <Icon icon={iconState.icon} iconSize="small" />
+              <Icon icon={iconState.icon} iconSize="medium" />
+              <Icon icon={iconState.icon} iconSize="large" />
+              <Button icon={iconState.icon} />
             </div>
-            <div className={styles['code-block']}>
-              <code className={cn(styles['icon-code'], 'icon-code')}>
-                {importCode}
-              </code>
-            </div>
-            <div className={styles['group-header']}>
-              <Heading level={3} typographyType="headingSmall">
-                Bruk
-              </Heading>
-              <Button
-                icon={CopyIcon}
-                size="xsmall"
-                purpose="tertiary"
-                onClick={() => handleCopyUse(useCode)}
-              />
-              {copiedUse && copyConfirmation('bruk')}
-            </div>
-            <div className={styles['code-block']}>
-              <code className={cn(styles['icon-code'], 'icon-code')}>
-                {useCode}
-              </code>
-            </div>
-          </ModalBody>
-        </Modal>
-      </div>
-    </StoryThemeProvider>
+          )}
+          <div className={styles['group-header']}>
+            <Heading level={3} typographyType="headingSmall">
+              Import
+            </Heading>
+            <Button
+              icon={CopyIcon}
+              size="xsmall"
+              purpose="tertiary"
+              onClick={() => handleCopyImport(importCode)}
+            />
+            {copiedImport && copyConfirmation('import')}
+          </div>
+          <div className={styles['code-block']}>
+            <code className={cn(styles['icon-code'], 'icon-code')}>
+              {importCode}
+            </code>
+          </div>
+          <div className={styles['group-header']}>
+            <Heading level={3} typographyType="headingSmall">
+              Bruk
+            </Heading>
+            <Button
+              icon={CopyIcon}
+              size="xsmall"
+              purpose="tertiary"
+              onClick={() => handleCopyUse(useCode)}
+            />
+            {copiedUse && copyConfirmation('bruk')}
+          </div>
+          <div className={styles['code-block']}>
+            <code className={cn(styles['icon-code'], 'icon-code')}>
+              {useCode}
+            </code>
+          </div>
+        </ModalBody>
+      </Modal>
+    </div>
   );
 };

@@ -4,7 +4,7 @@ import {
   CSSSelectArgType,
   htmlArgType,
   responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 
 import { Paper } from '.';
 

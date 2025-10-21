@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { fn } from 'storybook/test';
 
 import { InlineButton } from './InlineButton';
-import { htmlEventArgType } from '../../storybook/helpers';
+import { htmlEventArgType } from '../../storybook';
 import { Icon } from '../Icon';
 import { HelpIcon } from '../Icon/icons';
 import { StoryVStack } from '../layout/Stack/utils';

@@ -3,7 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import {
   commonResponsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { Icon } from '../../Icon';
 import { ArrowDownIcon } from '../../Icon/icons';
 import { Grid } from '../Grid';

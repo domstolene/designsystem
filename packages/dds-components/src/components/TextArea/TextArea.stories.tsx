@@ -7,7 +7,7 @@ import {
   htmlEventArgType,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
 
 export default {

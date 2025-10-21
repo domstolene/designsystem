@@ -6,7 +6,7 @@ import {
   commonArgTypes,
   htmlArgType,
   htmlEventArgType,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { RadioButton } from '.';

@@ -10,18 +10,17 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { LanguageProvider } from '../../../i18n';
 import {
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
+  themeProviderDecorator,
   windowWidthDecorator,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { Button } from '../../Button';
 import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Modal } from '../../Modal';
-import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Paragraph } from '../../Typography';
 import { TimePicker } from '../TimePicker';
 import {
@@ -57,15 +56,7 @@ const meta: Meta<typeof DatePicker> = {
     onFocusChange: fn(),
     onOpenChange: fn(),
   },
-  decorators: [
-    Story => (
-      <LanguageProvider language="nb">
-        <StoryThemeProvider>
-          <Story />
-        </StoryThemeProvider>
-      </LanguageProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;
@@ -205,13 +196,6 @@ export const ControlFocus: Story = {
 
 export const InsideModal: Story = {
   args: { label: 'Dato' },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
   render: args => {
     const [isOpen, setOpen] = useState(true);
     return (
