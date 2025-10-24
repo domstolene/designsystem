@@ -1,5 +1,14 @@
 # @norges-domstoler/dds-components
 
+## 21.17.1
+
+(2025-10-24)
+
+### Patch Changes
+
+- 61075f7: Setter format på tidspunkt til å alltid være norsk i `<TimePicker>`. Dette inkluderer ledende 0.
+- 390a70b: - Retter `BaseComponentProps` slik at props definert på komponenter overstyrer, og ikke kombineres med, props fra underliggende element; dette gir riktig signatur for f.eks. `CardExpandable.onChange`.
+
 ## 21.17.0
 
 (2025-10-17)
