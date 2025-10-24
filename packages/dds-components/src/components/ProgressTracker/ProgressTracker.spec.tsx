@@ -11,7 +11,7 @@ describe('<ProgressTracker>', () => {
   it('should have accesible name', () => {
     render(<ProgressTracker />);
     expect(screen.getByRole('navigation')).toHaveAccessibleName(
-      'Stegprogresjon',
+      'Trinnprogresjon',
     );
   });
   describe('steps', () => {
