@@ -98,9 +98,9 @@ FavStar.displayName = 'FavStar';
 
 const texts = createTexts({
   favourite: {
-    nb: 'Favoriser',
-    no: 'Favoriser',
-    nn: 'Favorittmerk',
-    en: 'Favorite',
+    nb: 'Stjernemarker',
+    no: 'Stjernemarker',
+    nn: 'Stjernemerk',
+    en: 'Mark as favourite',
   },
 });

@@ -7,6 +7,7 @@ import {
 
 import styles from './Button.module.css';
 import { type ButtonProps } from './Button.types';
+import { createTexts, useTranslation } from '../../i18n';
 import { getBaseHTMLProps } from '../../types';
 import { cn } from '../../utils';
 import { useButtonGroupContext } from '../ButtonGroup/ButtonGroup.context';
@@ -37,6 +38,8 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   const { purpose: groupPurpose, size: groupSize } = useButtonGroupContext();
+  const { t } = useTranslation();
+  const spinnerTooltip = loadingTooltip ?? t(texts.saving);
 
   const hasLabel = !!children;
   const hasIcon = !!icon;
@@ -91,7 +94,7 @@ export const Button = ({
                 ? 'iconOnAction'
                 : 'iconDefault'
             }
-            tooltip={loadingTooltip}
+            tooltip={spinnerTooltip}
             className={styles.icon}
           />
         </span>
@@ -142,3 +145,12 @@ export const Button = ({
 };
 
 Button.displayName = 'Button';
+
+const texts = createTexts({
+  saving: {
+    no: 'Lagring pågår',
+    nb: 'Lagring pågår',
+    nn: 'Lagring pågår',
+    en: 'Saving',
+  },
+});
