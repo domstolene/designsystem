@@ -30,6 +30,7 @@ export * from './components/Feedback';
 export * from './components/Fieldset';
 export * from './components/FileUploader';
 export * from './components/Footer';
+export * from './components/FormSummary';
 export * from './components/GlobalMessage';
 export * from './components/Icon';
 export * from './components/InlineButton';

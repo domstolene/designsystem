@@ -1,0 +1,95 @@
+import { ArgTypes, Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import * as FormSummaryStories from './FormSummary.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
+import {
+  FormSummaryError,
+  FormSummaryField,
+  FormSummaryFields,
+  FormSummaryHeader,
+  FormSummaryHeading,
+  FormSummaryLabel,
+  FormSummaryValue,
+} from './FormSummary.components';
+
+<Meta of={FormSummaryStories} />
+
+# FormSummary
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/44b652-formsummary"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=23787-18753"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/FormSummary"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-formsummary--default"
+/>
+
+## Delkomponenter
+
+<Tabs>
+  <TabList>
+    <Tab>FormSummary</Tab>
+    <Tab>FormSummaryHeader</Tab>
+    <Tab>FormSummaryHeading</Tab>
+    <Tab>FormSummaryFields</Tab>
+    <Tab>FormSummaryField</Tab>
+    <Tab>FormSummaryLabel</Tab>
+    <Tab>FormSummaryValue</Tab>
+    <Tab>FormSummaryError</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={FormSummaryStories.Preview} />
+      <Controls of={FormSummaryStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      <ArgTypes of={FormSummaryHeader} />
+    </TabPanel>
+    <TabPanel>
+      <ArgTypes of={FormSummaryHeading} />
+    </TabPanel>
+    <TabPanel>
+      <ArgTypes of={FormSummaryFields} />
+    </TabPanel>
+    <TabPanel>
+      <ArgTypes of={FormSummaryField} />
+    </TabPanel>
+    <TabPanel>
+      <ArgTypes of={FormSummaryLabel} />
+    </TabPanel>
+    <TabPanel>
+      <ArgTypes of={FormSummaryValue} />
+    </TabPanel>
+    <TabPanel>
+      <ArgTypes of={FormSummaryError} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+
+## Eksempler
+
+<Tabs>
+  <TabList>
+    <Tab>Grupper</Tab>
+    <Tab>Lang</Tab>
+    <Tab>Med ekstern datakilde</Tab>
+    <Tab>Innlasting</Tab>
+    
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={FormSummaryStories.Groups} />
+    </TabPanel>
+    <TabPanel>
+      <Canvas of={FormSummaryStories.Groups} />
+    </TabPanel>
+    <TabPanel>
+    Hvis data hentes fra ekstern kilde og ikke kan redigeres direkte:
+
+     - Vis `<Tag>` som indikerer dette istedenfor redigeringsknapp.
+     - Vis feilmeldinger uten lenke til relevant inputfelt.
+
+      <Canvas of={FormSummaryStories.ExternalDataSource} />
+    </TabPanel>
+
+  </TabPanels>
+</Tabs>
