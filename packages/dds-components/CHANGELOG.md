@@ -2,6 +2,8 @@
 
 ## 21.17.1
 
+(2025-10-24)
+
 ### Patch Changes
 
 - 61075f7: Setter format på tidspunkt til å alltid være norsk i `<TimePicker>`. Dette inkluderer ledende 0.
