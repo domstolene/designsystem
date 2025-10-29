@@ -1,5 +1,11 @@
 # @norges-domstoler/dds-components
 
+## 21.17.2
+
+### Patch Changes
+
+- ac9879a: Utbedrer oversettelser i `<Button>`, `<ProgressTracker>` og `<FavStar>`.
+
 ## 21.17.1
 
 (2025-10-24)
