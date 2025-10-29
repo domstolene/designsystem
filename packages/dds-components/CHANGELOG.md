@@ -2,6 +2,8 @@
 
 ## 21.17.2
 
+(2025-10-29)
+
 ### Patch Changes
 
 - ac9879a: Utbedrer oversettelser i `<Button>`, `<ProgressTracker>` og `<FavStar>`.
