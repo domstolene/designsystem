@@ -5,7 +5,7 @@ import {
   commonResponsivePropsArgTypes,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../storybook/helpers';
+} from '../../storybook';
 import { Box, Grid, GridChild, VStack } from '../layout';
 import { LocalMessage } from '../LocalMessage';
 import { Tag } from '../Tag';
