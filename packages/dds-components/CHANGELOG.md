@@ -1,5 +1,12 @@
 # @norges-domstoler/dds-components
 
+## 21.18.0
+
+### Minor Changes
+
+- c26c717: Ny komponent: `<FormSummary>`. Brukes til oppsummering av skjema med flere steg.
+- c26c717: Tillater bruk av `children` og gjør `message` prop valgfri i `<InputMessage>`. Komponenten blir standardisert til å bruke kun `children` istedenfor `message` ved neste major versjon.
+
 ## 21.17.2
 
 (2025-10-29)
