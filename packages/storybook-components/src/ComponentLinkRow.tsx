@@ -6,7 +6,6 @@ interface props {
   storybookHref?: string;
   figmaHref?: string;
   githubHref: string;
-  withBottomSpacing?: boolean;
 }
 
 export const ComponentLinkRow = ({
@@ -14,11 +13,8 @@ export const ComponentLinkRow = ({
   figmaHref,
   githubHref,
   storybookHref,
-  withBottomSpacing,
 }: props) => (
-  <div
-    className={`sb-component-link-row ${withBottomSpacing ? 'sb-component-link-row--bottom-spacing' : undefined}`}
-  >
+  <div className="sb-component-link-row">
     <LinkItem text="Docs" href={docsHref} linkType="zeroheight" />
     {storybookHref && (
       <LinkItem text="Storybook" href={storybookHref} linkType="storybook" />

@@ -1,0 +1,137 @@
+import { ArgTypes, Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { ComponentLinkRow } from '@norges-domstoler/storybook-components';
+import * as FormSummaryStories from './FormSummary.stories';
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../Tabs';
+import {
+  FormSummaryEditButton,
+  FormSummaryError,
+  FormSummaryField,
+  FormSummaryFields,
+  FormSummaryHeader,
+  FormSummaryHeading,
+  FormSummaryLabel,
+  FormSummaryValue,
+} from './FormSummary.components';
+
+<Meta of={FormSummaryStories} />
+
+# FormSummary
+
+<ComponentLinkRow
+  docsHref="https://design.domstol.no/987b33f71/p/44b652-formsummary"
+  figmaHref="https://www.figma.com/design/ewqSDmkgqDQ5PyOsRp4V5b/DDS-Komponenter?node-id=23787-18753"
+  githubHref="https://github.com/domstolene/designsystem/tree/main/packages/components/src/components/FormSummary"
+  storybookHref="https://domstolene.github.io/designsystem/?path=/story/dds-components-components-formsummary--default"
+/>
+
+Komponent som oppsummerer utfylte felt i et skjema delt opp i steg. Består av flere delkomponenter og bruker `<dl>` som liste under panseret.
+
+## Delkomponenter
+
+### Overordnede
+
+<Tabs>
+  <TabList>
+    <Tab>FormSummary</Tab>
+    <Tab>FormSummaryHeader</Tab>
+    <Tab>FormSummaryHeading</Tab>
+    <Tab>FormSummaryEditButton</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      <Canvas of={FormSummaryStories.Preview} />
+      <Controls of={FormSummaryStories.Preview} />
+    </TabPanel>
+    <TabPanel>
+      Wrapper for barn i header - `<FormSummaryHeading>` og `<FormSummaryEditButton>` eller `<Tag>`
+      hvis data hentes fra en ekstern kilde. Returnerer `<div>` og støtter native HTML-attributter.
+    </TabPanel>
+    <TabPanel>
+      Overskrift for komponenten. Brukes som barn i `<FormSummaryHeader>`.
+      <ArgTypes of={FormSummaryHeading} />
+    </TabPanel>
+    <TabPanel>
+      Redigeringsknapp. Brukes som barn i `<FormSummaryHeader>`. Har default props som kan overskrives ved behov.
+      <ArgTypes of={FormSummaryEditButton} />
+    </TabPanel>
+   </TabPanels>
+</Tabs>
+
+### Felter
+
+<Tabs>
+  <TabList>
+    <Tab>FormSummaryFields</Tab>
+    <Tab>FormSummaryField</Tab>
+    <Tab>FormSummaryLabel</Tab>
+    <Tab>FormSummaryValue</Tab>
+    <Tab>FormSummaryEmptyValue</Tab>
+    <Tab>FormSummaryError</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Liste med oppsumerte inputfelt. Returnerer `<dl>`.
+      <ArgTypes of={FormSummaryFields} />
+    </TabPanel>
+    <TabPanel>
+      Wrapper for ledetekst og verdi fra et inputfelt. Returnerer `<div>` og støtter native HTML-attributter.
+    </TabPanel>
+    <TabPanel>
+      Ledetekst fra et inputfelt. Returnerer `<dt>` og støtter native HTML-attributter. Brukes som første barn i `<FormSummaryField>`.
+    </TabPanel>
+    <TabPanel>
+      Verdi fra et inputfelt. Returnerer `<dd>` og støtter native HTML-attributter. Brukes som barn i `<FormSummaryField>`.
+      <ArgTypes of={FormSummaryValue} />
+    </TabPanel>
+    <TabPanel>
+      Tom verdi når feltet er valgfritt. Brukes som barn i `<FormSummaryValue>`.
+      Standardiserer visning for tomme felter og håndterer universell utforming.
+    </TabPanel>
+    <TabPanel>
+      Feilmelding for et inputfelt. Brukes som barn i `<FormSummaryValue>`.
+      Skal ha `<Link>` til inputfeltet som barn, slik at brukeren kan sømløst fikse feilen.
+      <ArgTypes of={FormSummaryError} />
+    </TabPanel>
+  </TabPanels>
+</Tabs>
+
+## Eksempler
+
+<Tabs>
+  <TabList>
+    <Tab>Grupper</Tab>
+    <Tab>Data fra ekstern kilde</Tab>
+    <Tab>Med steg</Tab>
+    <Tab>Med `<Grid>`</Tab>
+    <Tab>Med flex</Tab>
+  </TabList>
+  <TabPanels>
+    <TabPanel>
+      Felter kan grupperes via nøsting i `<FormSummaryValue>`.
+      <Canvas of={FormSummaryStories.Groups} />
+    </TabPanel>
+    <TabPanel>
+      Hvis data hentes fra ekstern kilde og ikke kan redigeres direkte:
+
+      - Vis `<Tag>` som indikerer dette istedenfor redigeringsknapp.
+      - Vis feilmeldinger uten lenke som sender til relevant inputfelt.
+
+      <Canvas of={FormSummaryStories.ExternalDataSource} />
+    </TabPanel>
+    <TabPanel>
+      `<FormSummary>` brukes per steg.
+      <Canvas of={FormSummaryStories.Steps} />
+    </TabPanel>
+    <TabPanel>
+      Du kan implementere responsiv layout med flere `<FormSummary>` ved hjelp av layout primitive `<Grid>`.
+      **OBS**: se eksempelet i egen story for riktig bredde av viewport.
+      <Canvas of={FormSummaryStories.WithGrid} />
+    </TabPanel>
+    <TabPanel>
+      Du kan implementere responsiv layout med flere `<FormSummary>` ved hjelp av layout primitive `<Box>` og flexbox.
+      **OBS**: se eksempelet i egen story for riktig bredde av viewport.
+      <Canvas of={FormSummaryStories.WithFlex} />
+    </TabPanel>
+
+  </TabPanels>
+</Tabs>
