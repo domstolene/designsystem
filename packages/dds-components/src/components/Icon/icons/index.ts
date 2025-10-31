@@ -124,6 +124,7 @@ export * from './receipt';
 export * from './redo';
 export * from './refresh';
 export * from './replay';
+export * from './scale';
 export * from './search';
 export * from './settings';
 export * from './sms';

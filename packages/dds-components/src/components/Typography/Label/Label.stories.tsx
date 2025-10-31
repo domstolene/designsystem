@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react-vite';
 
-import { categoryHtml } from '../../../storybook/helpers';
+import { categoryHtml } from '../../../storybook';
 import { HelpIcon } from '../../Icon/icons';
 import { InlineButton } from '../../InlineButton';
 import { Popover, PopoverGroup } from '../../Popover';

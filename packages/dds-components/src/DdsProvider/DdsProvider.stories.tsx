@@ -41,10 +41,10 @@ function TranslationComponent(props: TCProps) {
       en: 'Language',
     },
     message: {
-      en: 'The theme here depends on controls below, not the toggle bar in top right corner.',
-      nb: 'Temaet her er avhengig av kontrollere nedenfor, ikke toggle bar oppe til høyre.',
-      nn: 'Temaet her er avhengig av kontrollane nedanfor, ikkje vekslefeltet oppe til høgre.',
-      no: 'Temaet her er avhengig av kontrollere nedenfor, ikke toggle bar oppe til høyre.',
+      en: 'The theme and language here depend on controls below, not the toggle bar in top right corner.',
+      nb: 'Tema og språk styres av kontrollene under, ikke av bryteren øverst til høyre.',
+      nn: 'Tema og språk blir styrt av kontrollane under, ikkje av brytaren øvst til høgre.',
+      no: 'Tema og språk styres av kontrollene under, ikke av bryteren øverst til høyre.',
     },
   });
   return (

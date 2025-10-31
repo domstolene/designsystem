@@ -9,7 +9,7 @@ import {
   htmlArgType,
   htmlEventArgType,
   responsivePropsArgTypes,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { VStack } from '../../layout';
 import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 import { Typography } from '../../Typography';

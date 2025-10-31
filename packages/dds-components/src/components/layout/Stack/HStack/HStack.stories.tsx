@@ -5,7 +5,7 @@ import { Box } from '../..';
 import {
   responsiveStackPropsArgTypes,
   windowWidthDecorator,
-} from '../../../../storybook/helpers';
+} from '../../../../storybook';
 
 export default {
   title: 'dds-components/Layout Primitives/HStack',

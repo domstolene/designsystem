@@ -8,11 +8,11 @@ import {
   headerCells,
   mapCellContents,
 } from './tableData';
+import { themeProviderDecorator } from '../../../storybook';
 import { Button } from '../../Button';
 import { Icon } from '../../Icon';
 import { PersonIcon, TrashIcon } from '../../Icon/icons';
 import { Checkbox } from '../../SelectionControl/Checkbox';
-import { StoryThemeProvider } from '../../ThemeProvider/utils/StoryThemeProvider';
 import { Link, Paragraph } from '../../Typography';
 
 import { Table } from '.';
@@ -25,13 +25,7 @@ const meta: Meta<typeof Table> = {
       canvas: { sourceState: 'hidden' },
     },
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;

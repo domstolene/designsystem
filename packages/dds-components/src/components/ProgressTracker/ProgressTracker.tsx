@@ -130,9 +130,9 @@ function passIndexPropToProgressTrackerItem<TProps extends object>(
 
 const texts = createTexts({
   stepProgression: {
-    nb: 'Stegprogresjon',
-    no: 'Stegprogresjon',
-    nn: 'Stegprogresjon',
+    nb: 'Trinnprogresjon',
+    no: 'Trinnprogresjon',
+    nn: 'Trinnprogresjon',
     en: 'Step progression',
   },
 });

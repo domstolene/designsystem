@@ -7,7 +7,7 @@ import {
   labelText,
   responsivePropsArgTypes,
   windowWidthDecorator,
-} from '../../../storybook/helpers';
+} from '../../../storybook';
 import { INPUT_SIZES } from '../../helpers/Input';
 import { StoryVStack } from '../../layout/Stack/utils';
 

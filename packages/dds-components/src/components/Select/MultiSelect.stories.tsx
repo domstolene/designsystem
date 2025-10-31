@@ -5,11 +5,11 @@ import {
   categoryHtml,
   labelText,
   responsivePropsArgTypes,
-} from '../../storybook/helpers';
+  themeProviderDecorator,
+} from '../../storybook';
 import { INPUT_SIZES } from '../helpers/Input';
 import { CourtIcon } from '../Icon/icons';
 import { StoryHStack, StoryVStack } from '../layout/Stack/utils';
-import { StoryThemeProvider } from '../ThemeProvider/utils/StoryThemeProvider';
 
 const meta: Meta<typeof Select<Option, true>> = {
   title: 'dds-components/Components/Select/MultiSelect',
@@ -31,13 +31,7 @@ const meta: Meta<typeof Select<Option, true>> = {
       exclude: ['style', 'className', 'items', 'value', 'defaultValue'],
     },
   },
-  decorators: [
-    Story => (
-      <StoryThemeProvider>
-        <Story />
-      </StoryThemeProvider>
-    ),
-  ],
+  decorators: [Story => themeProviderDecorator(<Story />)],
 };
 
 export default meta;

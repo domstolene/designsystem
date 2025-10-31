@@ -2,7 +2,7 @@ import { type Meta, type StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { fn } from 'storybook/test';
 
-import { commonArgTypes, htmlEventArgType } from '../../storybook/helpers';
+import { commonArgTypes, htmlEventArgType } from '../../storybook';
 import {
   DescriptionList,
   DescriptionListDesc,

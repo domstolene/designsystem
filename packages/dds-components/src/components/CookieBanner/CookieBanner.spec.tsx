@@ -9,10 +9,6 @@ describe('<CookieBanner>', () => {
     render(<CookieBanner />);
     expect(screen.getByRole('region')).toBeInTheDocument();
   });
-  it('Should have accesible name', () => {
-    render(<CookieBanner />);
-    expect(screen.getByRole('region')).toHaveAccessibleName();
-  });
   it('Should render text', () => {
     const text = 'text';
     render(<CookieBanner> {text} </CookieBanner>);
@@ -24,10 +20,15 @@ describe('<CookieBanner>', () => {
     expect(screen.getByText(heading)).toBeInTheDocument();
     expect(screen.getByRole('heading')).toBeInTheDocument();
   });
-  it('Should render description', () => {
-    const description = 'description';
-    render(<CookieBanner headerText={description} />);
-    expect(screen.getByText(description)).toBeInTheDocument();
+  it('Should have accesible name', () => {
+    const hText = 'Informasjonskapsler';
+    render(<CookieBanner headerText={hText} />);
+    expect(screen.getByRole('region')).toHaveAccessibleName(hText);
+  });
+  it('Should render header text', () => {
+    const headerText = 'headerText';
+    render(<CookieBanner headerText={headerText} />);
+    expect(screen.getByText(headerText)).toBeInTheDocument();
   });
   it('Should render button', () => {
     const button = 'button';
