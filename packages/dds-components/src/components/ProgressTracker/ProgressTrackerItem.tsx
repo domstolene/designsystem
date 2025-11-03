@@ -224,11 +224,13 @@ const texts = createTexts({
     no: 'trinn ikke ferdig',
     nn: 'trinn ikkje ferdig',
     en: 'step uncompleted',
+    se: 'ceahkki ii gárvvis',
   },
   completed: {
     nb: 'trinn ferdig',
     no: 'trinn ferdig',
     nn: 'trinn ferdig',
     en: 'step completed',
+    se: 'ceahkki gárvá',
   },
 });

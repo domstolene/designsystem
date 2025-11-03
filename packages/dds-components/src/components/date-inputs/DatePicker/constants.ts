@@ -5,6 +5,7 @@ export const LOCALE: Record<Language, string> = {
   no: 'no-NO',
   nn: 'nn-NO',
   en: 'en-GB',
+  se: 'se-NO',
 } as const;
 
 export const timezone = 'Europe/Oslo' as const;

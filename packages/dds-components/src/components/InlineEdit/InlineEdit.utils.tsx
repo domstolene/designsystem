@@ -9,8 +9,7 @@ export const inlineEditVisuallyHidden = (id: string, clearable?: boolean) => {
   const { t } = useTranslation();
   return (
     <VisuallyHidden id={id}>
-      {t(texts.inlineEditInfo)}
-      {!clearable && t(texts.notClearable)}
+      {t(texts.inlineEditInfo)} {!clearable && t(texts.notClearable)}
     </VisuallyHidden>
   );
 };
@@ -21,12 +20,14 @@ const texts = createTexts({
     no: 'Escape, Enter eller Tab for å lagre.',
     nn: 'Escape, Enter eller Tab for å lagra.',
     en: 'Escape, Enter or Tab to save.',
+    se: 'Escape, Enter dahje Tab go áiggut vurket',
   },
   notClearable: {
-    nb: ' Innskrivingsfeltet kan ikke tømmes.',
-    no: ' Innskrivingsfeltet kan ikke tømmes.',
-    nn: ' Innskrivingsfeltet kan ikkje tømmast.',
-    en: ' Input field cannot be cleared.',
+    nb: 'Innskrivingsfeltet kan ikke tømmes.',
+    no: 'Innskrivingsfeltet kan ikke tømmes.',
+    nn: 'Innskrivingsfeltet kan ikkje tømmast.',
+    en: 'Input field cannot be cleared.',
+    se: 'Čállinbáikki ii sáhte sihkut',
   },
 });
 

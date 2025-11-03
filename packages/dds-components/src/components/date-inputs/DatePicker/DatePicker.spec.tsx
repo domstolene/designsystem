@@ -44,6 +44,34 @@ describe('<DatePicker>', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-haspopup', 'dialog');
   });
+
+  it('renders date segments in Norwegian format (day, month, year)', () => {
+    render(<WrappedDatePicker />);
+
+    const segments = screen.getAllByRole('spinbutton');
+
+    expect(segments).toHaveLength(3);
+
+    expect(segments[0]).toHaveAccessibleName(/dag/i);
+    expect(segments[1]).toHaveAccessibleName(/måned/i);
+    expect(segments[2]).toHaveAccessibleName(/år/i);
+  });
+
+  it('renders date segments with Norwegian placeholders', () => {
+    render(<WrappedDatePicker />);
+
+    const segments = screen.getAllByRole('spinbutton');
+    expect(segments).toHaveLength(3);
+
+    const expectedPlaceholders = ['dd', 'mm', 'åååå'];
+
+    segments.forEach((segment, index) => {
+      const hiddenSpan = segment.querySelector('span[aria-hidden="true"]');
+      expect(hiddenSpan).not.toBeNull();
+      expect(hiddenSpan?.textContent).toBe(expectedPlaceholders[index]);
+    });
+  });
+
   it('should render three spinbuttons for the date', () => {
     render(<WrappedDatePicker />);
 

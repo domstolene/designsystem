@@ -317,11 +317,13 @@ const texts = createTexts({
     no: 'Ugyldig filtype',
     nn: 'Ugyldig filtype',
     en: 'Invalid file type',
+    se: 'Fámohis filašladja',
   },
   invalidFileAmount: {
     nb: 'For mange filer. Maksimalt antall er ',
     no: 'For mange filer. Maksimalt antall er ',
     nn: 'For mange filer. Maksimalt antall er ',
     en: 'Too many files. The maximum allowed is ',
+    se: 'Menddo ollu fiillat. Maksimála lohku lea ',
   },
 });

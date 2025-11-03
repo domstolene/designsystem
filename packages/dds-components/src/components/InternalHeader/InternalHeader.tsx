@@ -204,11 +204,13 @@ const texts = createTexts({
     no: 'Åpne meny',
     nn: 'Opna meny',
     en: 'Open menu',
+    se: 'Rabas fállu',
   },
   siteNavigation: {
     nb: 'Sidenavigasjon',
     no: 'Sidenavigasjon',
     nn: 'Sidenavigasjon',
     en: 'Site navigation',
+    se: 'Siidu navigášuvdna',
   },
 });

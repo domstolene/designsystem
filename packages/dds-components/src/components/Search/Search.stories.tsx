@@ -62,12 +62,13 @@ export const Overview: Story = {
       <Search {...args} tip="Dette er en hjelpetekst" />
       <Search {...args} label={args.label ?? 'Label'} />
       <Search {...args} showIcon={false} />
-      <Search {...args} buttonProps={{ onClick: () => null, label: 'Søk' }} />
+      <Search {...args} buttonProps={{ onClick: () => null }} />
       <Search
         {...args}
         buttonProps={{
           onClick: () => null,
           purpose: 'secondary',
+          label: 'Secondary knapp',
         }}
       />
       <Search

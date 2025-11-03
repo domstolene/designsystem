@@ -107,11 +107,13 @@ const texts = createTexts({
     no: `Fjern fil ${file}`,
     nn: `Fjern fil ${file}`,
     en: `Remove file ${file}`,
+    se: `Sihku filla ${file}`,
   }),
   invalidFile: {
     nb: 'Ugyldig fil',
     no: 'Ugyldig fil',
     nn: 'Ugyldig fil',
     en: 'Invalid file',
+    se: 'Fámohis fiila',
   },
 });

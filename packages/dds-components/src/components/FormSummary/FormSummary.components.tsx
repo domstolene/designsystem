@@ -124,5 +124,6 @@ const texts = createTexts({
     no: 'Ikke fylt ut',
     nn: 'Ikkje fylt ut',
     en: 'Not filled out',
+    se: 'Ii leat bidjan',
   },
 });

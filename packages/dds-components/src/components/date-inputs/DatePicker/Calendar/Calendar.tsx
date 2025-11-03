@@ -102,11 +102,13 @@ const texts = createTexts({
     no: 'Neste måned',
     nn: 'Neste månad',
     en: 'Next month',
+    se: 'Boahte mánu',
   },
   previousMonth: {
     nb: 'Forrige måned',
     no: 'Forrige måned',
     nn: 'Førre månad',
     en: 'Previous month',
+    se: 'Ovddit mánu',
   },
 });

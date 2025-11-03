@@ -69,5 +69,6 @@ const texts = createTexts({
     no: 'Laster opp tilbakemelding...',
     nn: 'Lastar opp tilbakemelding...',
     en: 'Uploading feedback...',
+    se: 'Viežžamin ruovttoluottadieđuid...',
   },
 });

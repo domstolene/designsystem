@@ -133,5 +133,6 @@ const texts = createTexts({
     nb: 'Tøm dato',
     no: 'Tøm dato',
     nn: 'Tøm dato',
+    se: 'Gurre dáhtona',
   },
 });

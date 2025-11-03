@@ -69,5 +69,6 @@ const texts = createTexts({
     no: 'Aktiver for å endre sorteringsrekkefølge',
     nn: 'Aktiver for å endre sorteringsrekkjefølgje',
     en: 'Activate to change sort order',
+    se: 'Aktivere rievdadit sorterenortnega',
   },
 });

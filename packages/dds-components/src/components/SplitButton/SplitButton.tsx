@@ -93,5 +93,6 @@ const texts = createTexts({
     no: 'Flere handlinger',
     nn: 'Fleire handlingar',
     en: 'More actions',
+    se: 'Eanet doaimmat',
   },
 });

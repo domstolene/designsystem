@@ -243,17 +243,20 @@ const texts = createTexts({
     no: 'Tøm søk',
     nn: 'Tøm søk',
     en: 'Clear search',
+    se: 'Gurre ohcama',
   },
   search: {
     nb: 'Søk',
     no: 'Søk',
     nn: 'Søk',
     en: 'Search',
+    se: 'Ohcan',
   },
   useArrowKeys: {
     nb: 'Bruk piltastene for å navigere i forslagene når listen er utvidet',
     no: 'Bruk piltastene for å navigere i forslagene når listen er utvidet',
     nn: 'Bruk piltastane for å navigere i forslaga når lista er utvida',
     en: 'Use the arrow keys to navigate suggestions when the list is expanded',
+    se: 'Deatte njuollaboalu ohccat árvalusaid listtus mii lea viiddiduvvon',
   },
 });

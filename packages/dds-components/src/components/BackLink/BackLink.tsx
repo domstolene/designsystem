@@ -49,5 +49,6 @@ const texts = createTexts({
     no: 'Gå tilbake',
     nn: 'Gå tilbake',
     en: 'Go back',
+    se: 'Mana ruovttoluotta',
   },
 });

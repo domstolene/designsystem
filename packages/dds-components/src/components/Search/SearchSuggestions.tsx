@@ -84,7 +84,7 @@ export const SearchSuggestions = ({
         id={suggestionsHeaderId}
         className={typographyStyles['body-xsmall']}
       >
-        Søkeforslag
+        {t(texts.searchSuggestions)}
       </Box>
       <StylelessList role="listbox" aria-labelledby={suggestionsHeaderId}>
         {suggestionsToRender.map((suggestion, index) => {
@@ -121,5 +121,13 @@ const texts = createTexts({
     nb: `${suggestion} søk`,
     nn: `${suggestion} søk`,
     en: `${suggestion} search`,
+    se: `${suggestion} ohcan`,
   }),
+  searchSuggestions: {
+    no: 'Søkeforslag',
+    nb: 'Søkeforslag',
+    nn: 'Søkeforslag',
+    en: 'Search suggestions',
+    se: 'Ozanfálaldagat',
+  },
 });

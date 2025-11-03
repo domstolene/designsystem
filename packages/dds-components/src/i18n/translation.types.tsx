@@ -1,4 +1,4 @@
-export type Language = 'nb' | 'nn' | 'no' | 'en';
+export type Language = 'nb' | 'nn' | 'no' | 'en' | 'se';
 
 export type TranslationObj = Record<Language, string | React.ReactElement>;
 

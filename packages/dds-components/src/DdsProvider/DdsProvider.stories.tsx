@@ -32,6 +32,7 @@ function TranslationComponent(props: TCProps) {
       nb: 'Tema',
       nn: 'Tema',
       en: 'Theme',
+      se: 'Temá',
     },
 
     lang: {
@@ -39,12 +40,14 @@ function TranslationComponent(props: TCProps) {
       nb: 'Språk',
       nn: 'Språk',
       en: 'Language',
+      se: 'Giella',
     },
     message: {
-      en: 'The theme and language here depend on controls below, not the toggle bar in top right corner.',
+      no: 'Tema og språk styres av kontrollene under, ikke av bryteren øverst til høyre.',
       nb: 'Tema og språk styres av kontrollene under, ikke av bryteren øverst til høyre.',
       nn: 'Tema og språk blir styrt av kontrollane under, ikkje av brytaren øvst til høgre.',
-      no: 'Tema og språk styres av kontrollene under, ikke av bryteren øverst til høyre.',
+      en: 'The theme and language here depend on controls below, not the toggle bar in top right corner.',
+      se: 'Fáddá ja giela stivret vuolábealde, ii fal bajábeal olgešbealde.',
     },
   });
   return (

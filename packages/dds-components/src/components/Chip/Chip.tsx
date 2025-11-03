@@ -68,5 +68,6 @@ const texts = createTexts({
     no: 'Fjern merkelapp',
     nn: 'Fjern merkelapp',
     en: 'Remove chip',
+    se: 'Sihku lihppu',
   },
 });
