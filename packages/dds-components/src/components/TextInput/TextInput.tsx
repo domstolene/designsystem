@@ -234,7 +234,7 @@ export const TextInput = ({
           gap="x0.5"
           width={withCharacterCounter ? inputWidth : undefined}
         >
-          {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+          {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
           {renderCharCounter(
             characterCounterId,
             withCharacterCounter,

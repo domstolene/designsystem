@@ -229,7 +229,7 @@ export const Search = ({
         ) : (
           inputGroup
         )}
-        {renderInputMessage(tip, tipId)}
+        {renderInputMessage({ tip, tipId })}
       </div>
     </div>
   );

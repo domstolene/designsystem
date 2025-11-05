@@ -132,7 +132,7 @@ export const CardSelectableGroup = <T extends string | number = string>({
   return hasErrorMessage ? (
     <div>
       {mainContent}
-      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
+      {renderInputMessage({ errorMessage, errorMessageId })}
     </div>
   ) : (
     mainContent

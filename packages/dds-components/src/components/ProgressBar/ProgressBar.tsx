@@ -105,7 +105,7 @@ export const ProgressBar = ({
           )}
         />
       </Box>
-      {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+      {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
     </Box>
   );
 };

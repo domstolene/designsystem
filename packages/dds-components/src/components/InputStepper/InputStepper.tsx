@@ -134,7 +134,7 @@ export const InputStepper = ({
         {hideButtons ? null : <Button {...buttonProps('minus')} />}
       </Box>
       {hasMessage &&
-        renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+        renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
     </div>
   );
 };

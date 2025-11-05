@@ -11,6 +11,7 @@ import { useRef, useState } from 'react';
 import { fn } from 'storybook/test';
 
 import {
+  htmlArgType,
   htmlEventArgType,
   labelText,
   responsivePropsArgTypes,
@@ -48,6 +49,7 @@ const meta: Meta<typeof DatePicker> = {
     onFocus: htmlEventArgType,
     onOpenChange: { control: false },
     onFocusChange: { control: false },
+    id: htmlArgType,
   },
   args: {
     onBlur: fn(),

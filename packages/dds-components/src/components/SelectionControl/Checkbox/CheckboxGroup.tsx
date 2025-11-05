@@ -75,7 +75,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         readOnly,
         showRequiredStyling,
       })}
-      {renderInputMessage(tip, tipId)}
+      {renderInputMessage({ tip, tipId })}
       <CheckboxGroupContext value={{ ...contextProps }}>
         <div
           role="group"
@@ -86,7 +86,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
           {children}
         </div>
       </CheckboxGroupContext>
-      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
+      {renderInputMessage({ errorMessage, errorMessageId })}
     </div>
   );
 };

@@ -304,7 +304,7 @@ export function Select<Option = unknown, IsMulti extends boolean = false>({
         afterLabelContent,
       })}
       <ReactSelect {...reactSelectProps} ref={ref} />
-      {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+      {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
     </Box>
   );
 }

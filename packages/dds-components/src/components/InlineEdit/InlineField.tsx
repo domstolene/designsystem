@@ -152,7 +152,7 @@ export function InlineField<T extends EditElementTag>(
         {renderElement()}
       </div>
       {inlineEditVisuallyHidden(descId, emptiable)}
-      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
+      {renderInputMessage({ errorMessage, errorMessageId })}
     </Box>
   );
 }

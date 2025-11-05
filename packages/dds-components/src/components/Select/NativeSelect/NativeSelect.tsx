@@ -176,7 +176,7 @@ export const NativeSelect = ({
           />
         )}
       </Box>
-      {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+      {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
     </div>
   );
 };
