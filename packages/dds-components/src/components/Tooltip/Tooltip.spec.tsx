@@ -6,12 +6,6 @@ import { Button } from '../Button';
 
 import { Tooltip } from '.';
 
-// Mock the IntersectionObserver
-window.IntersectionObserver = vi.fn().mockImplementation(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
-}));
 const text = 'text';
 
 describe('<Tooltip>', () => {
