@@ -134,5 +134,6 @@ const texts = createTexts({
     no: 'Trinnprogresjon',
     nn: 'Trinnprogresjon',
     en: 'Step progression',
+    se: 'Ceahkkeprogrešuvdna',
   },
 });

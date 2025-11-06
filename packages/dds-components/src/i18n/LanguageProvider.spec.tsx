@@ -9,7 +9,13 @@ function TestComponent() {
 }
 function TranslationComponent() {
   const { t } = useTranslation();
-  const translated = t({ en: 'Hello', nb: 'Hei', nn: 'Hei', no: 'Hei' });
+  const translated = t({
+    en: 'Hello',
+    nb: 'Hei',
+    nn: 'Hei',
+    no: 'Hei',
+    se: 'Bures',
+  });
   return <div>{translated}</div>;
 }
 
@@ -44,7 +50,7 @@ describe('LanguageProvider', () => {
 
   it('returns the same object passed to createTexts', () => {
     const texts = {
-      greeting: { en: 'Hello', nb: 'Hei', nn: 'Hei', no: 'Hei' },
+      greeting: { en: 'Hello', nb: 'Hei', nn: 'Hei', no: 'Hei', se: 'Bures' },
     };
     const result = createTexts(texts);
     expect(result).toEqual(texts);

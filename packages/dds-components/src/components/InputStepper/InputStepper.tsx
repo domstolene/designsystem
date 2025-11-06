@@ -147,11 +147,13 @@ const texts = createTexts({
     no: `Reduser ${label} med ${n}`,
     nn: `Reduser ${label} med ${n}`,
     en: `Decrease ${label} by ${n}`,
+    se: `Unnidit ${label} ${n} loguin`,
   }),
   increase: (label, n) => ({
     nb: `Øk ${label} med ${n}`,
     no: `Øk ${label} med ${n}`,
     nn: `Øk ${label} med ${n}`,
     en: `Increase ${label} by ${n}`,
+    se: `Lasit ${label} nummirin ${n}`,
   }),
 });

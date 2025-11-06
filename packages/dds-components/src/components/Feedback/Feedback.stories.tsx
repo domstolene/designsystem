@@ -19,17 +19,14 @@ export default {
 
 type Story = StoryObj<typeof Feedback>;
 
-export const Preview: Story = {
-  args: { ratingLabel: 'Hva syns du om tjenesten?' },
-};
+export const Preview: Story = {};
 
 export const HorizontalLayout: Story = {
-  args: { ratingLabel: 'Hva syns du om tjenesten?', layout: 'horizontal' },
+  args: { layout: 'horizontal' },
 };
 
 export const WithoutTextArea: Story = {
   args: {
-    ratingLabel: 'Hva syns du om tjenesten?',
     feedbackTextAreaExcluded: true,
   },
 };
@@ -54,16 +51,12 @@ export const CustomLabels: Story = {
 
 export const CustomButtonTooltip: Story = {
   args: {
-    ratingLabel: 'Hva syns du om tjenesten?',
     thumbUpTooltip: 'Liker',
     thumbDownTooltip: 'Liker ikke',
   },
 };
 
 export const LoadingState: Story = {
-  args: {
-    ratingLabel: 'Hva synes du om tjenesten?',
-  },
   render: args => (
     <>
       <Feedback {...args} loading />

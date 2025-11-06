@@ -178,11 +178,13 @@ const texts = createTexts({
     no: 'Utvid',
     nn: 'Utvid',
     en: 'Expand',
+    se: 'Viiddit',
   },
   row: {
     nb: 'raden',
     no: 'raden',
     nn: 'rada',
     en: 'row',
+    se: 'gurgadus',
   },
 });

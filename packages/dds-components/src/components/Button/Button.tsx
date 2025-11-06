@@ -24,8 +24,8 @@ export const Button = ({
   iconPosition = 'left',
   href,
   target,
-  loading = false,
-  loadingTooltip = 'Lagring pågår',
+  loading,
+  loadingTooltip,
   fullWidth = false,
   icon,
   onClick,
@@ -152,5 +152,6 @@ const texts = createTexts({
     nb: 'Lagring pågår',
     nn: 'Lagring pågår',
     en: 'Saving',
+    se: 'Vurkemin',
   },
 });

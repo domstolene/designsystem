@@ -3,7 +3,8 @@
  * Will filter out all falsy values.
  */
 export function cn(...classNames: Array<unknown>) {
-  return classNames.filter(Boolean).join(' ');
+  const filtered = classNames.filter(Boolean).join(' ');
+  return filtered || undefined;
 }
 
 export function convertCamelToHyphen(value: string) {

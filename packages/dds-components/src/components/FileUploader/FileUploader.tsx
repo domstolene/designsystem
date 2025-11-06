@@ -54,7 +54,7 @@ export const FileUploader = (props: FileUploaderProps) => {
     id,
     label,
     dropAreaLabel,
-    btnLabel = 'Velg fil',
+    btnLabel,
     tip,
     required = false,
     withDragAndDrop = true,
@@ -76,6 +76,7 @@ export const FileUploader = (props: FileUploaderProps) => {
 
   const { t } = useTranslation();
   const tDropAreaLabel = dropAreaLabel ?? t(texts.dragAndDropOr);
+  const tBtnLabel = btnLabel ?? t(texts.selectFile);
 
   const generatedId = useId();
   const uniqueId = id ?? `${generatedId}-fileUploader`;
@@ -145,7 +146,7 @@ export const FileUploader = (props: FileUploaderProps) => {
         ]),
       }}
     >
-      {btnLabel}
+      {tBtnLabel}
     </Button>
   );
 
@@ -238,23 +239,34 @@ const texts = createTexts({
     no: 'Dra og slipp filer her eller',
     nn: 'Dra og slepp filer her eller',
     en: 'Drag and drop files here or',
+    se: 'Sirdde fiillaid dása dahje',
+  },
+  selectFile: {
+    nb: 'Velg fil',
+    no: 'Velg fil',
+    nn: 'Velg fil',
+    en: 'Sekect file',
+    se: 'Vállje fiilla',
   },
   uploadFileWithButton: {
     nb: 'last opp en fil med den påfølgende knappen',
     no: 'last opp en fil med den påfølgende knappen',
     nn: 'last opp ei fil med den påfølgjande knappen',
     en: 'upload using the following button',
+    se: 'viečča fiilla čuovvovaš boaluin',
   },
   noFiles: {
     nb: 'Ingen filer.',
     no: 'Ingen filer.',
     nn: 'Ingen filer.',
     en: 'No files.',
+    se: 'Eai leat fiillat.',
   },
   uploadedFiles: {
     nb: 'Opplastede filer',
     no: 'Opplastede filer',
     nn: 'Opplasta filer',
     en: 'Uploaded files',
+    se: 'Vižžon fiillat',
   },
 });

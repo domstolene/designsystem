@@ -156,17 +156,20 @@ const texts = createTexts({
     no: 'Brødsmulesti',
     nn: 'Brødsmulesti',
     en: 'Breadcrumbs',
+    se: 'Láibemoallobálggis',
   },
   showHiddenTo: to => ({
     nb: `Vis brødsmule 2 til ${to}`,
     no: `Vis brødsmule 2 til ${to}`,
     nn: `Vis brødsmule 2 til ${to}`,
     en: `Show breadcrumb 2 to ${to}`,
+    se: `Čájet láibemoalu 2 ${to}`,
   }),
   showHidden: {
     nb: 'Vis brødsmule 2',
     no: 'Vis brødsmule 2',
     nn: 'Vis brødsmule 2',
     en: 'Show breadcrumb 2',
+    se: 'Čájet láibemoalu 2',
   },
 });

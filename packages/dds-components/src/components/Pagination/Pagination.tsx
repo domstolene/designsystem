@@ -80,12 +80,7 @@ export const Pagination = ({
   withPagination = true,
   withCounter,
   withSelect,
-  selectOptions = [
-    { label: '10', value: 10 },
-    { label: '25', value: 25 },
-    { label: '50', value: 50 },
-    { label: 'Alle', value: itemsAmount },
-  ],
+  selectOptions,
   smallScreenBreakpoint,
   onChange,
   onSelectOptionChange,
@@ -97,7 +92,20 @@ export const Pagination = ({
 }: PaginationProps) => {
   const { t } = useTranslation();
 
-  if (withSelect && !selectOptions.some(o => o.value === defaultItemsPerPage)) {
+  const tSelectOptions =
+    selectOptions && selectOptions.length > 0
+      ? selectOptions
+      : [
+          { label: '10', value: 10 },
+          { label: '25', value: 25 },
+          { label: '50', value: 50 },
+          { label: t(texts.all), value: itemsAmount },
+        ];
+
+  if (
+    withSelect &&
+    !tSelectOptions.some(o => o.value === defaultItemsPerPage)
+  ) {
     console.warn(
       `[Pagination] defaultItemsPerPage prop value (${defaultItemsPerPage}) is not included in customOptions prop. Please add it to ensure it appears in the dropdown.`,
     );
@@ -320,7 +328,7 @@ export const Pagination = ({
       <div className={styles.indicators}>
         {withSelect && (
           <Select
-            options={selectOptions}
+            options={tSelectOptions}
             isSearchable={false}
             width="90px"
             defaultValue={{
@@ -358,53 +366,69 @@ const texts = createTexts({
     no: 'Paginering',
     nn: 'Paginering',
     en: 'Pagination',
+    se: 'Pagineren',
   },
   itemsPerPage: {
     nb: 'Elementer per side',
     no: 'Elementer per side',
     nn: 'Element per side',
     en: 'Items per page',
+    se: 'Elementat juohki siidui',
   },
   nextPage: {
     nb: 'Neste side',
     no: 'Neste side',
     nn: 'Neste side',
     en: 'Next page',
+    se: 'Boahte siidu',
   },
   previousPage: {
     nb: 'Forrige side',
     no: 'Forrige side',
     nn: 'Førre side',
     en: 'Previous page',
+    se: 'Ovddit siidu',
   },
   firstPage: {
     nb: 'Første side',
     no: 'Første side',
     nn: 'Fyrste side',
     en: 'First page',
+    se: 'Vusttaš siidu',
   },
   lastPage: {
     nb: 'Siste side',
     no: 'Siste side',
     nn: 'Siste side',
     en: 'Last page',
+    se: 'Maŋimuš siidu',
   },
   currentPage: page => ({
     nb: `Nåværende side (${page})`,
     no: `Nåværende side (${page})`,
     nn: `Noverande side (${page})`,
     en: `Current page (${page})`,
+    se: `Dála siidu (${page})`,
   }),
   page: page => ({
     nb: `Side ${page}`,
     no: `Side ${page}`,
     nn: `Side ${page}`,
     en: `Page ${page}`,
+    se: `Siidu ${page}`,
   }),
   showsAmountOfTotalItems: (first, last, total) => ({
     nb: `Viser ${first}-${last} av ${total}`,
     no: `Viser ${first}-${last} av ${total}`,
     nn: `Viser ${first}-${last} av ${total}`,
     en: `Shows ${first}-${last} of ${total}`,
+    se: `Čájeha ${first}-${last} ${total} gaskkas`,
   }),
+  all: {
+    nb: 'Alle',
+    no: 'Alle',
+    nn: 'Alle',
+    en: 'All',
+    se: 'Buot',
+  },
 });

@@ -74,5 +74,6 @@ const texts = createTexts({
     no: 'Send inn',
     nn: 'Send inn',
     en: 'Send',
+    se: 'Sádde',
   },
 });

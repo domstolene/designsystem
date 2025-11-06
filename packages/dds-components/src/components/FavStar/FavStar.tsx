@@ -102,5 +102,6 @@ const texts = createTexts({
     no: 'Stjernemarker',
     nn: 'Stjernemerk',
     en: 'Mark as favourite',
+    se: 'Merke favorihta',
   },
 });

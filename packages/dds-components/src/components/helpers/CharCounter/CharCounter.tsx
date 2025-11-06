@@ -52,5 +52,6 @@ const texts = createTexts({
     no: `${current} av ${max} tegn skrevet. ${remain} igjen.`,
     nn: `${current} av ${max} teikn skrivne. ${remain} att.`,
     en: `${current} of ${max} characters used. ${remain} remaining.`,
+    se: `${current} ${max} mearkabustáva leat ${max} čállon ${remain}.`,
   }),
 });

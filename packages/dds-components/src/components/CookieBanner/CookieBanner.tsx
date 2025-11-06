@@ -145,5 +145,6 @@ const texts = createTexts({
     no: 'Utvid samtykke for bruk av informasjonskapsler',
     nn: 'Utvid samtykke for bruk av informasjonskapslar',
     en: 'Expand consent for the use of cookies',
+    se: 'Viiddit mieđáhusa diehtočoahkuid geavaheapmái',
   },
 });
