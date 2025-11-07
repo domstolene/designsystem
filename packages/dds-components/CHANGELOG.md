@@ -1,5 +1,21 @@
 # @norges-domstoler/dds-components
 
+## 21.18.0
+
+### Minor Changes
+
+- c26c717: Ny komponent: `<FormSummary>`. Brukes til oppsummering av skjema med flere steg.
+- c26c717: Tillater bruk av `children` og gjør `message` prop valgfri i `<InputMessage>`. Komponenten blir standardisert til å bruke kun `children` istedenfor `message` ved neste major versjon.
+- 8d5f148: Støtte for nytt språk: nordsamisk. Språket settes via `language` prop i `<DdsProvider>`.
+
+### Patch Changes
+
+- 8d5f148: Fikser bug der unødvendig default tekst for en prop overskrev oversettelsene i `<PhoneInput>`, `<Pagination>`, `<FileUploader>`, `<Feedback>` og `<Button>`.
+- 8d5f148: Fikser bug der falsy verdier for klassenavn resulterte i `class=""` i DOM.
+- 8d5f148: Gjør `ratingLabel` prop i `<Feedback>` ikke påkrevd. Hvis verdien ikke er oppgitt bruker komponenten default tekst.
+- 8d5f148: Legger til manglende oversettelser i `<Pagination>`, `<Search>` og `<FileUploader>`.
+- 8d5f148: Fikser bug som satt unødvendig HTML attributt `aria-hidden="false"` på `<span>` i `<Button>`.
+
 ## 21.17.2
 
 (2025-10-29)
