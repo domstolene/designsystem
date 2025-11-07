@@ -12,10 +12,6 @@
   }
 }
 
-.search-icon {
-  left: var(--dds-spacing-x0-75);
-}
-
 .clear-button {
   right: var(--dds-spacing-x1);
 }

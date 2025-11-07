@@ -187,7 +187,7 @@ export function DDSControl<TValue, IsMulti extends boolean>(
           icon={icon}
           iconSize={getFormInputIconSize(componentSize)}
           className={cn(
-            inputStyles['input-group__absolute-element'],
+            inputStyles['input-group__absolute-el'],
             styles[`icon--${componentSize}`],
           )}
         />

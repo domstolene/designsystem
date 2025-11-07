@@ -39,7 +39,7 @@
 
 .content--large--with-text {
   padding: var(--dds-spacing-x1) var(--dds-spacing-x2);
-  gap: var(--dds-spacing-x0-5);
+  gap: var(--dds-spacing-lg-icon-text-gap);
 }
 
 .content--medium--just-icon {
@@ -52,7 +52,7 @@
 
 .content--medium--with-text {
   padding: var(--dds-spacing-x0-75) var(--dds-spacing-x1-5);
-  gap: var(--dds-spacing-x0-75);
+  gap: var(--dds-spacing-md-icon-text-gap);
 }
 
 .content--small--just-icon {
@@ -65,7 +65,7 @@
 
 .content--small--with-text {
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
-  gap: var(--dds-spacing-x0-5);
+  gap: var(--dds-spacing-sm-icon-text-gap);
 }
 
 .content--xsmall--just-icon {
@@ -78,7 +78,7 @@
 
 .content--xsmall--with-text {
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-75);
-  gap: var(--dds-spacing-x0-5);
+  gap: var(--dds-spacing-xs-icon-text-gap);
 }
 
 .label {

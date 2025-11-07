@@ -6,6 +6,7 @@ import { type Ref, useRef } from 'react';
 import { formatTimeSegments } from './TimePicker.utils';
 import { useLanguage } from '../../../i18n';
 import { cn } from '../../../utils';
+import inputStyles from '../../helpers/Input/Input.module.css';
 import { type InputProps } from '../../helpers/Input/Input.types';
 import { Icon } from '../../Icon';
 import { TimeIcon } from '../../Icon/icons';
@@ -67,7 +68,8 @@ export function TimePicker({
           icon={TimeIcon}
           iconSize={iconSize}
           className={cn(
-            styles.icon,
+            inputStyles['input-group__absolute-el'],
+            inputStyles[`input-group__absolute-el--${componentSize}`],
             disabled && styles['icon-wrapper--disabled'],
             props.isReadOnly && styles['icon-wrapper--readonly'],
           )}

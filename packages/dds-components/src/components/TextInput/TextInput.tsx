@@ -138,14 +138,14 @@ export const TextInput = ({
           icon={icon}
           iconSize={getFormInputIconSize(componentSize)}
           className={cn(
-            inputStyles['input-group__absolute-element'],
+            inputStyles['input-group__absolute-el'],
+            inputStyles[`input-group__absolute-el--${componentSize}`],
             styles[`icon--${componentSize}`],
           )}
         />
         <StatefulInput
           className={cn(
-            styles.input,
-            styles[`with-icon--${componentSize}`],
+            inputStyles[`input-with-icon--${componentSize}`],
             styles['input--extended'],
           )}
           {...generalInputProps}

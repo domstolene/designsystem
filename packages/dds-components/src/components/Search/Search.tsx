@@ -15,6 +15,7 @@ import { createTexts, useTranslation } from '../../i18n';
 import {
   cn,
   derivativeIdGenerator,
+  getFormInputIconSize,
   spaceSeparatedIdListGenerator,
 } from '../../utils';
 import { createClearChangeEvent } from '../../utils/createClearChangeEvent';
@@ -25,7 +26,7 @@ import inputStyles from '../helpers/Input/Input.module.css';
 import { Icon, type IconSize } from '../Icon';
 import { SearchIcon } from '../Icon/icons';
 import { renderInputMessage } from '../InputMessage';
-import { Box, Grid, HStack, type ResponsiveProps } from '../layout';
+import { Box, Grid, HStack } from '../layout';
 import { getTypographyCn } from '../Typography';
 import { renderLabel } from '../Typography/Label/Label.utils';
 import typographyStyles from '../Typography/typographyStyles.module.css';
@@ -36,37 +37,9 @@ const getIconSize = (size: SearchSize): Exclude<IconSize, 'inherit'> => {
     case 'large':
       return 'medium';
     case 'medium':
-      return 'medium';
     case 'small':
-      return 'small';
+      return getFormInputIconSize(size);
   }
-};
-
-const getPadding = (
-  size: SearchSize,
-  showIcon: boolean,
-): ResponsiveProps['padding'] => {
-  /**Avhengig av størrelse på tømmeknapp  */
-  const paddingRight = (textSize: string) => `calc(
- var(--dds-spacing-x1) + ${textSize} * 1.5 + var(--dds-spacing-x0-5)
- )`;
-  /**Avhengig av størrelse på søkeikonet */
-  const paddingLeft = (iconSize: string) => `calc(
- var(--dds-spacing-x0-75) + ${iconSize} + var(--dds-spacing-x0-5)
- )`;
-
-  const pRSmallButton = paddingRight('0.875rem');
-  const pRMediumButton = paddingRight('1rem');
-  const pLSmallIcon = paddingLeft('var(--dds-icon-size-small)');
-  const pLMediumIcon = paddingLeft('var(--dds-icon-size-medium)');
-
-  const paddingMap = {
-    large: `x1 ${pRMediumButton} x1 ${showIcon ? pLMediumIcon : 'x0.75'}`,
-    medium: `x0.75 ${pRSmallButton} x0.75 ${showIcon ? pLMediumIcon : 'x0.75'}`,
-    small: `x0.5 ${pRSmallButton} x0.5 ${showIcon ? pLSmallIcon : 'x0.75'}`,
-  };
-
-  return paddingMap[size];
 };
 
 export type SearchProps = Pick<InputProps, 'tip' | 'label'> & {
@@ -146,8 +119,8 @@ export const Search = ({
           icon={SearchIcon}
           iconSize={getIconSize(componentSize)}
           className={cn(
-            inputStyles['input-group__absolute-element'],
-            styles['search-icon'],
+            inputStyles['input-group__absolute-el'],
+            inputStyles[`input-group__absolute-el--${componentSize}`],
           )}
         />
       )}
@@ -171,9 +144,11 @@ export const Search = ({
         aria-expanded={context.showSuggestions}
         role={hasSuggestions ? 'combobox' : undefined}
         width="100%"
-        padding={getPadding(componentSize, showIcon)}
         className={cn(
           styles.input,
+          inputStyles[`input--${componentSize}`],
+          showIcon && inputStyles[`input-with-icon--${componentSize}`],
+          inputStyles[`input-with-el-right--${componentSize}`],
           typographyStyles[getTypographyCn(typographyTypes[componentSize])],
         )}
       />

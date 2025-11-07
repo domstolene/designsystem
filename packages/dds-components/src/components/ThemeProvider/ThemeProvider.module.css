@@ -34,10 +34,16 @@
   --dds-focus-box-shadow: 0 0 0 2px var(--dds-color-focus-inside);
   --dds-focus-transition: outline-offset 0.2s;
 
-  /*Other*/
+  /*Sizes*/
   --dds-input-default-width: 320px;
   --dds-input-default-width-xsmall: 210px;
   --dds-selection-control-height: 18px;
+  --dds-spacing-xs-icon-text-gap: var(--dds-spacing-x0-25);
+  --dds-spacing-sm-icon-text-gap: var(--dds-spacing-x0-25);
+  --dds-spacing-md-icon-text-gap: var(--dds-spacing-x0-5);
+  --dds-spacing-lg-icon-text-gap: var(--dds-spacing-x0-75);
+
+  /*Transitions*/
   --dds-transition-duration-surface-move: 0.5s;
 }
 
