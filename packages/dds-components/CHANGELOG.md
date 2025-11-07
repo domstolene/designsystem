@@ -2,6 +2,8 @@
 
 ## 21.18.0
 
+(2025-11-07)
+
 ### Minor Changes
 
 - c26c717: Ny komponent: `<FormSummary>`. Brukes til oppsummering av skjema med flere steg.
