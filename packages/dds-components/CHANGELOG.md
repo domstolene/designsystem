@@ -1,5 +1,20 @@
 # @norges-domstoler/dds-components
 
+## 21.19.0
+
+### Minor Changes
+
+- 89e6516: Støtte for `icon` prop i `<NativeSelect>`.
+- d0035ef: Støtte for nye props i `<InputMessage>`: `margin`, `marginInline` og `marginBlock`. Gjør layout lettere for komponenten ved custom bruk.
+- d0035ef: Ny responsiv prop: `wordBreak`. Tilsvarer CSS `word-break`. Støttes på alle layout primitives unntatt `<ShowHide>`.
+- d0035ef: Legger på spacing mellom komponent og `<InputMessage>` i alle komponenter som støtter `errorMessage` prop. Dette grunnet bruk av `dds-border-radius-surface` på alle hjørner i `<InputMessage>`. Kan påvirke layout hos konsumenten.
+
+### Patch Changes
+
+- d0035ef: Endrer `border-radius` på `<InputMessage>` til `dds-border-radius-surface` på alle hjørner.
+- d0035ef: Knytter hjelpetekst og feilmelding til spin buttons med `aria-describedby` i `<DatePicker>` og `<TimePicker>` for bedre UU.
+- 89e6516: Standardiserer og justerer på spacing mellom ikon/knapp og tekst på tvers av interaktive komponenter: `<Button>`, `<ToggleButton>`, `<ToggleRadio>`, `<TextInput>`, `<TimePicker>`, `<DatePicker>`, `<Select>`, `<NativeSelect>`, `<Search>`, `<Tab>`.
+
 ## 21.18.0
 
 (2025-11-07)
