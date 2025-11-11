@@ -16,7 +16,7 @@ import { HiddenInput, StylelessList } from '../helpers';
 import { type InputProps } from '../helpers/Input';
 import focusStyles from '../helpers/styling/focus.module.css';
 import { UploadIcon } from '../Icon/icons';
-import { InputMessage } from '../InputMessage';
+import { renderInputMessage } from '../InputMessage';
 import { Box, type ResponsiveProps, VStack } from '../layout';
 import { Typography } from '../Typography';
 import { renderLabel } from '../Typography/Label/Label.utils';
@@ -175,7 +175,7 @@ export const FileUploader = (props: FileUploaderProps) => {
         readOnly,
         afterLabelContent,
       })}
-      {hasTip && <InputMessage id={tipId} message={tip} messageType="tip" />}
+      {renderInputMessage({ tip, tipId })}
       {inactive ? (
         input
       ) : withDragAndDrop ? (

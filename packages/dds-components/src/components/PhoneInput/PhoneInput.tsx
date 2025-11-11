@@ -351,7 +351,7 @@ export const PhoneInput = ({
         </Box>
       </Box>
       {hasMessage &&
-        renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+        renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
     </div>
   );
 };

@@ -38,7 +38,7 @@ describe('<DatePicker>', () => {
     const button = screen.queryByRole('button');
     expect(button).toBeInTheDocument();
   });
-  it('calender button should have aria attributes', () => {
+  it('calendar button should have aria attributes', () => {
     render(<WrappedDatePicker />);
 
     const button = screen.getByRole('button');
@@ -93,6 +93,41 @@ describe('<DatePicker>', () => {
     expect(spinbuttons[0]).toHaveAttribute('aria-valuemax');
     expect(spinbuttons[1]).toHaveAttribute('aria-valuemax', '12');
   });
+  it('spinbuttons should have accesible description if error message present', () => {
+    const errorMessage = 'error';
+    render(<WrappedDatePicker errorMessage={errorMessage} />);
+
+    const spinbuttons = screen.getAllByRole('spinbutton');
+
+    spinbuttons.forEach(sb => {
+      expect(sb).toHaveAccessibleDescription(errorMessage);
+    });
+  });
+
+  it('spinbuttons should have accesible description if tip present', () => {
+    const tip = 'tip';
+    render(<WrappedDatePicker tip={tip} />);
+
+    const spinbuttons = screen.getAllByRole('spinbutton');
+
+    spinbuttons.forEach(sb => {
+      expect(sb).toHaveAccessibleDescription(tip);
+    });
+  });
+  it('spinbuttons should render error message', () => {
+    const errorMessage = 'error';
+    render(<WrappedDatePicker errorMessage={errorMessage} />);
+
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
+  });
+
+  it('spinbuttons should render tip', () => {
+    const tip = 'tip';
+    render(<WrappedDatePicker tip={tip} />);
+
+    expect(screen.getByText(tip)).toBeInTheDocument();
+  });
+
   it('clear button is not rendered if no value', () => {
     render(<WrappedDatePicker clearable />);
 

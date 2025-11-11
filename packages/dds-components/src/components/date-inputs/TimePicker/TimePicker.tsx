@@ -1,7 +1,7 @@
 import { type Time } from '@internationalized/date';
 import { type AriaTimeFieldProps, useTimeField } from '@react-aria/datepicker';
 import { useTimeFieldState } from '@react-stately/datepicker';
-import { type Ref, useRef } from 'react';
+import { type Ref, useId, useRef } from 'react';
 
 import { formatTimeSegments } from './TimePicker.utils';
 import { useLanguage } from '../../../i18n';
@@ -45,6 +45,15 @@ export function TimePicker({
     internalRef,
   );
 
+  const hasErrorMessage = !!props.errorMessage;
+  const hasTip = !!props.tip;
+
+  const uniqueId = props.id ?? useId();
+  const errorMessageId = hasErrorMessage
+    ? `${uniqueId}-errorMessage`
+    : undefined;
+  const tipId = hasTip ? `${uniqueId}-tip` : undefined;
+
   const iconSize = componentSize === 'xsmall' ? 'small' : 'medium';
   const disabled = props.isDisabled || !!fieldProps['aria-disabled'];
 
@@ -53,6 +62,8 @@ export function TimePicker({
   return (
     <DateInput
       {...props}
+      errorMessageId={errorMessageId}
+      tipId={tipId}
       width={width}
       disabled={disabled}
       required={props.isRequired}
@@ -76,6 +87,8 @@ export function TimePicker({
     >
       {formattedSegments.map((segment, i) => (
         <DateSegment
+          errorMessageId={errorMessageId}
+          tipId={tipId}
           componentSize={componentSize}
           key={i}
           segment={segment}

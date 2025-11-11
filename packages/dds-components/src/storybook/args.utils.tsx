@@ -95,6 +95,7 @@ export const responsivePropsArgTypes: ResponsiveArgTypes<ResponsiveProps> = {
   rowGap: CSSArgType,
   columnGap: CSSArgType,
   textAlign: CSSArgType,
+  wordBreak: CSSArgType,
 };
 
 export const responsiveStackPropsArgTypes: ResponsiveArgTypes<ResponsiveStackProps> =

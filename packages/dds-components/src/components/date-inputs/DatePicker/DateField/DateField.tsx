@@ -29,6 +29,8 @@ export type DateFieldProps<T extends DateValue = CalendarDate> =
     groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
     ref?: Ref<HTMLDivElement>;
     clearable?: boolean;
+    tipId?: string;
+    errorMessageId?: string;
   } & Pick<
       InputProps,
       | 'componentSize'
@@ -46,6 +48,8 @@ export function DateField({
   groupProps,
   ref,
   clearable,
+  errorMessageId,
+  tipId,
   ...props
 }: DateFieldProps) {
   const { locale } = useLocale();
@@ -84,6 +88,8 @@ export function DateField({
       required={props.isRequired}
       clearable={clearable}
       ref={ref}
+      tipId={tipId}
+      errorMessageId={errorMessageId}
       internalRef={internalRef}
       readOnly={props.isReadOnly}
       prefix={
@@ -116,6 +122,8 @@ export function DateField({
         <DateSegment
           aria-readonly={props.isReadOnly}
           componentSize={componentSize}
+          errorMessageId={errorMessageId}
+          tipId={tipId}
           key={i}
           segment={segment}
           state={state}

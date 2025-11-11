@@ -1,5 +1,5 @@
 import { StylelessList } from '../helpers';
-import { InputMessage } from '../InputMessage';
+import { InputMessage, renderInputMessage } from '../InputMessage';
 
 interface ErrorListProps {
   errors: Array<{
@@ -16,13 +16,10 @@ export const ErrorList = (props: ErrorListProps) => {
   }
 
   if (errors.length === 1) {
-    return (
-      <InputMessage
-        id={errors[0].id}
-        message={errors[0].message}
-        messageType="error"
-      />
-    );
+    return renderInputMessage({
+      errorMessage: errors[0].message,
+      errorMessageId: errors[0].id,
+    });
   }
 
   return (

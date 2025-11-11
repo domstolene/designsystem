@@ -3,7 +3,7 @@ import { useDatePicker } from '@react-aria/datepicker';
 import { I18nProvider } from '@react-aria/i18n';
 import { useDatePickerState } from '@react-stately/datepicker';
 import type { AriaDatePickerProps } from '@react-types/datepicker';
-import { type Ref, useRef } from 'react';
+import { type Ref, useId, useRef } from 'react';
 
 import { Calendar } from './Calendar/Calendar';
 import {
@@ -81,7 +81,13 @@ export function DatePicker({
     state,
     internalRef,
   );
-
+  const hasErrorMessage = !!errorMessage;
+  const hasTip = !!tip;
+  const uniqueId = props.id ?? useId();
+  const errorMessageId = hasErrorMessage
+    ? `${uniqueId}-errorMessage`
+    : undefined;
+  const tipId = hasTip ? `${uniqueId}-tip` : undefined;
   return (
     <I18nProvider locale={LOCALE[lang]}>
       <CalendarPopover
@@ -96,8 +102,11 @@ export function DatePicker({
             ref={combinedRef}
             componentSize={componentSize}
             tip={tip}
+            id={uniqueId}
             label={props.label}
             errorMessage={errorMessage}
+            errorMessageId={errorMessageId}
+            tipId={tipId}
             buttonProps={buttonProps}
             style={style}
             width={width}

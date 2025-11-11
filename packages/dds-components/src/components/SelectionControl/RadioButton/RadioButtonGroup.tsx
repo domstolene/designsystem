@@ -101,7 +101,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
         readOnly,
         showRequiredStyling,
       })}
-      {renderInputMessage(tip, tipId)}
+      {renderInputMessage({ tip, tipId })}
       <RadioButtonGroupContext value={{ ...contextProps }}>
         <div
           role="radiogroup"
@@ -113,7 +113,7 @@ export const RadioButtonGroup = <T extends string | number = string>({
           {children}
         </div>
       </RadioButtonGroupContext>
-      {renderInputMessage(undefined, undefined, errorMessage, errorMessageId)}
+      {renderInputMessage({ errorMessage, errorMessageId })}
     </div>
   );
 };

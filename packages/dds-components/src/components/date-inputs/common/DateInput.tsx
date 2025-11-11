@@ -6,7 +6,7 @@ import { cn } from '../../../utils';
 import { type InputProps, getInputWidth } from '../../helpers/Input';
 import inputStyles from '../../helpers/Input/Input.module.css';
 import focusStyles from '../../helpers/styling/focus.module.css';
-import { InputMessage } from '../../InputMessage';
+import { renderInputMessage } from '../../InputMessage';
 import { Box } from '../../layout';
 import { renderLabel } from '../../Typography/Label/Label.utils';
 import { type DatePickerProps } from '../DatePicker';
@@ -23,6 +23,8 @@ export type DateInputProps = {
   groupProps?: ReturnType<typeof useDatePicker>['groupProps'];
   ref?: Ref<HTMLDivElement>;
   clearable?: DatePickerProps['clearable'];
+  errorMessageId?: string;
+  tipId?: string;
 } & Pick<ReturnType<typeof useDateField>, 'fieldProps' | 'labelProps'> &
   Pick<
     InputProps,
@@ -58,11 +60,11 @@ export function DateInput({
   clearable,
   ref,
   afterLabelContent,
+  tipId,
+  errorMessageId,
   ...props
 }: DateInputProps) {
   const hasErrorMessage = !!errorMessage;
-  const hasTip = !!tip;
-  const hasMessage = hasErrorMessage || hasTip;
 
   const { isOpen } = useContext(CalendarPopoverContext);
 
@@ -109,12 +111,7 @@ export function DateInput({
         </div>
         {suffixEl}
       </Box>
-      {hasMessage && (
-        <InputMessage
-          messageType={hasErrorMessage ? 'error' : 'tip'}
-          message={errorMessage ?? tip ?? ''}
-        />
-      )}
+      {renderInputMessage({ tip, errorMessage, tipId, errorMessageId })}
     </div>
   );
 }

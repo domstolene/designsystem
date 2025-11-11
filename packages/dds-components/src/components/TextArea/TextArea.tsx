@@ -135,7 +135,7 @@ export const TextArea = ({
         }
         width={withCharacterCounter ? inputWidth : undefined}
       >
-        {renderInputMessage(tip, tipId, errorMessage, errorMessageId)}
+        {renderInputMessage({ tip, tipId, errorMessage, errorMessageId })}
         {renderCharCounter(
           characterCounterId,
           withCharacterCounter,
