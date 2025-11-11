@@ -1,6 +1,7 @@
 import { type ComponentPropsWithRef, type ReactNode } from 'react';
 
 import { createSizes } from '../../../types';
+import { type SvgIcon } from '../../Icon';
 import { type ResponsiveProps } from '../../layout/common/Responsive.types';
 import { type StaticTypographyType } from '../../Typography';
 
@@ -30,5 +31,10 @@ export type InputProps = CommonInputProps & {
 export type StatefulInputProps = {
   hasErrorMessage: boolean;
 } & Omit<InputProps, keyof CommonInputProps>;
+
+export interface InputIconProps {
+  /** Ikonet som vises i komponenten. */
+  icon?: SvgIcon;
+}
 
 export type InputTypographyTypes = Record<InputSize, StaticTypographyType>;

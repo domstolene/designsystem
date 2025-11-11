@@ -33,13 +33,14 @@ function renderInputs(size: InputSize) {
       <DatePicker componentSize={size} />
       <TimePicker componentSize={size} />
       {size !== 'xsmall' && <Search componentSize={size} />}
+      <DatePicker componentSize={size} clearable />
       <Select
         componentSize={size}
         icon={icon}
         options={[{ label: 'a', value: 'a' }]}
         value={{ label: 'a', value: 'a' }}
       />
-      <NativeSelect componentSize={size} value="a" clearable>
+      <NativeSelect componentSize={size} icon={icon} value="a" clearable>
         <option value=""></option>
         <option value="a">a</option>
       </NativeSelect>

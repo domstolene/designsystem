@@ -8,6 +8,7 @@ import { commonTexts } from '../../../i18n/commonTexts';
 import {
   cn,
   derivativeIdGenerator,
+  getFormInputIconSize,
   readOnlyKeyDownHandler,
   readOnlyMouseDownHandler,
   spaceSeparatedIdListGenerator,
@@ -16,6 +17,7 @@ import { createClearChangeEvent } from '../../../utils/createClearChangeEvent';
 import { ClearButton } from '../../helpers/ClearButton';
 import {
   type CommonInputProps,
+  type InputIconProps,
   type InputProps,
   getInputWidth,
 } from '../../helpers/Input';
@@ -37,6 +39,7 @@ export type NativeSelectProps = {
   readOnly?: InputProps['readOnly'];
 } & CommonInputProps &
   Pick<InputProps, 'componentSize'> &
+  InputIconProps &
   ComponentPropsWithRef<'select'>;
 
 export const NativeSelect = ({
@@ -60,6 +63,7 @@ export const NativeSelect = ({
   clearable,
   afterLabelContent,
   onChange,
+  icon,
   ...rest
 }: NativeSelectProps) => {
   const { t } = useTranslation();
@@ -115,6 +119,7 @@ export const NativeSelect = ({
 
   const iconSize = componentSize === 'medium' ? 'medium' : 'small';
   const showClearButton = clearable && hasValue && !readOnly && !rest.disabled;
+  const hasIcon = !!icon;
 
   return (
     <div className={className} style={style}>
@@ -126,6 +131,16 @@ export const NativeSelect = ({
         afterLabelContent,
       })}
       <Box position="relative" width={inputWidth}>
+        {hasIcon && (
+          <Icon
+            icon={icon}
+            className={cn(
+              inputStyles['input-group__absolute-el'],
+              inputStyles[`input-group__absolute-el--${componentSize}`],
+            )}
+            iconSize={getFormInputIconSize(componentSize)}
+          />
+        )}
         <select
           ref={useCombinedRef(ref, selectRef)}
           id={uniqueId}
@@ -135,6 +150,7 @@ export const NativeSelect = ({
             readOnly && styles['select--readonly'],
             inputStyles.input,
             inputStyles[`input--${componentSize}`],
+            hasIcon && inputStyles[`input-with-icon--${componentSize}`],
             styles[`select--${componentSize}`],
             scrollbar,
             focusable,

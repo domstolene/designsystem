@@ -25,12 +25,12 @@
 }
 
 .small {
-  gap: var(--dds-spacing-x0-25);
+  gap: var(--dds-spacing-sm-icon-text-gap);
   padding: var(--dds-spacing-x0-5) var(--dds-spacing-x1);
 }
 
 .xsmall {
-  gap: var(--dds-spacing-x0-125);
+  gap: var(--dds-spacing-xs-icon-text-gap);
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
 }
 

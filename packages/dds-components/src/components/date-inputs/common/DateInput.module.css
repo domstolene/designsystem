@@ -67,11 +67,6 @@
 * Gjelder både dato og tid
 *------------------------------------------------------------------------*/
 
-.icon,
-.popover-button {
-  margin-block: -3px;
-}
-
 .icon-wrapper--disabled,
 .popover-button:disabled {
   color: var(--dds-color-icon-subtle);
@@ -88,7 +83,7 @@
 
 .popover-button {
   padding: 1px;
-  margin-inline-start: -1px;
+  margin-inline-start: -2px;
 }
 
 .popover {

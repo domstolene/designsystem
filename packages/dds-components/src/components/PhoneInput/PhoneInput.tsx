@@ -317,7 +317,7 @@ export const PhoneInput = ({
           <span
             className={cn(
               typographyStyles[`body-${componentSize}`],
-              inputStyles['input-group__absolute-element'],
+              inputStyles['input-group__absolute-el'],
               styles['calling-code'],
             )}
             ref={callingCodeRef}

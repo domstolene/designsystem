@@ -89,6 +89,10 @@
   }
 }
 
+:where(.input--large) {
+  padding: var(--dds-spacing-x1) var(--dds-spacing-x0-75);
+}
+
 :where(.input--medium) {
   padding: var(--dds-spacing-x0-75);
 }
@@ -101,14 +105,86 @@
   padding: var(--dds-spacing-x0-25) var(--dds-spacing-x0-5);
 }
 
+.input-with-icon--large {
+  padding-left: calc(
+    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-lg-icon-text-gap)
+  );
+}
+
+.input-with-icon--medium {
+  padding-left: calc(
+    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-md-icon-text-gap)
+  );
+}
+
+.input-with-icon--small {
+  padding-left: calc(
+    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-sm-icon-text-gap)
+  );
+}
+
+.input-with-icon--xsmall {
+  padding-left: calc(
+    var(--dds-spacing-x0-5) + var(--dds-icon-size-small) +
+      var(--dds-spacing-xs-icon-text-gap)
+  );
+}
+
+.input-with-el-right--large {
+  padding-inline-end: calc(
+    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-x0-5)
+  );
+}
+
+.input-with-el-right--medium {
+  padding-inline-end: calc(
+    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-x0-5)
+  );
+}
+
+.input-with-el-right--small {
+  padding-inline-end: calc(
+    var(--dds-spacing-x0-75) + var(--dds-icon-size-medium) +
+      var(--dds-spacing-x0-5)
+  );
+}
+
+.input-with-el-right--xsmall {
+  padding-inline-end: calc(
+    var(--dds-spacing-x0-5) + var(--dds-icon-size-small) +
+      var(--dds-spacing-xs-icon-text-gap)
+  );
+}
+
 :where(.input--with-affix) {
   gap: var(--dds-spacing-x1);
 }
 
-:where(.input-group__absolute-element) {
+:where(.input-group__absolute-el) {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: var(--dds-zindex-absolute-element);
   color: var(--dds-color-icon-default);
+}
+
+:where(.input-group__absolute-el--large) {
+  left: var(--dds-spacing-x0-75);
+}
+
+:where(.input-group__absolute-el--medium) {
+  left: var(--dds-spacing-x0-75);
+}
+
+:where(.input-group__absolute-el--small) {
+  left: var(--dds-spacing-x0-75);
+}
+
+:where(.input-group__absolute-el--xsmall) {
+  left: var(--dds-spacing-x0-5);
 }

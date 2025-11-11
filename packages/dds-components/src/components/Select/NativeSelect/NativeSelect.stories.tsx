@@ -9,7 +9,8 @@ import {
   windowWidthDecorator,
 } from '../../../storybook';
 import { INPUT_SIZES } from '../../helpers/Input';
-import { StoryVStack } from '../../layout/Stack/utils';
+import { CourtIcon } from '../../Icon/icons';
+import { StoryHStack, StoryVStack } from '../../layout/Stack/utils';
 
 import { NativeSelect, NativeSelectPlaceholder } from '.';
 
@@ -80,17 +81,38 @@ export const Sizes: Story = {
     children,
   },
   render: args => (
-    <StoryVStack>
-      {INPUT_SIZES.map(size => (
-        <NativeSelect
-          {...args}
-          key={size}
-          label={labelText(size)}
-          componentSize={size}
-        />
-      ))}
-    </StoryVStack>
+    <StoryHStack>
+      <StoryVStack>
+        {INPUT_SIZES.map(size => (
+          <NativeSelect
+            {...args}
+            key={size}
+            label={labelText(size)}
+            componentSize={size}
+          />
+        ))}
+      </StoryVStack>
+      <StoryVStack>
+        {INPUT_SIZES.map(size => (
+          <NativeSelect
+            icon={CourtIcon}
+            {...args}
+            key={size}
+            label={labelText(size)}
+            componentSize={size}
+          />
+        ))}
+      </StoryVStack>
+    </StoryHStack>
   ),
+};
+
+export const WithIcon: Story = {
+  args: {
+    label: 'Label',
+    children,
+    icon: CourtIcon,
+  },
 };
 
 export const ResponsiveWidth: Story = {

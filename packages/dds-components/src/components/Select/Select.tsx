@@ -43,10 +43,10 @@ import {
 import { readOnlyKeyDownHandler } from '../../utils/readonlyEventHandlers';
 import {
   type CommonInputProps,
+  type InputIconProps,
   type InputSize,
   getInputWidth,
 } from '../helpers/Input';
-import { type SvgIcon } from '../Icon/utils';
 import { renderInputMessage } from '../InputMessage';
 import { Box } from '../layout';
 import { ThemeContext } from '../ThemeProvider';
@@ -72,8 +72,6 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
    * @default "medium"
    */
   componentSize?: InputSize;
-  /**Ikonet som vises i komponenten. */
-  icon?: SvgIcon;
   /**Nedtrekkslisten blir `readonly` og får readOnly styling. */
   readOnly?: boolean;
   /** CSS klassenavn. */
@@ -93,6 +91,7 @@ export type SelectProps<Option = unknown, IsMulti extends boolean = false> = {
   /**Ref til komponenten. */
   ref?: SelectForwardRefType<Option, IsMulti>;
 } & CommonInputProps &
+  InputIconProps &
   Pick<HTMLAttributes<HTMLInputElement>, 'aria-required'> &
   WrappedReactSelectProps<Option, IsMulti, GroupBase<Option>>;
 

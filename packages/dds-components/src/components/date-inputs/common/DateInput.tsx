@@ -89,6 +89,7 @@ export function DateInput({
           inputStyles['input--stateful'],
           inputStyles['input--hover'],
           inputStyles[`input--${componentSize}`],
+          inputStyles[`input-with-icon--${componentSize}`],
           hasErrorMessage && inputStyles['input--stateful-danger'],
           styles['date-input'],
           clearable && styles[`date-input--${componentSize}--clearable`],

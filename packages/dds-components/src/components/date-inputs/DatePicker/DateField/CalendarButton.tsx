@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import type { DateFieldProps } from './DateField';
 import { cn, getFormInputIconSize } from '../../../../utils';
 import { InlineIconButton } from '../../../helpers/InlineIconButton';
+import inputStyles from '../../../helpers/Input/Input.module.css';
 import { focusable } from '../../../helpers/styling/focus.module.css';
 import { CalendarIcon } from '../../../Icon/icons';
 import styles from '../../common/DateInput.module.css';
@@ -31,6 +32,8 @@ export function CalendarButton({
         styles['popover-button'],
         isReadOnly && styles['popover-button--readonly'],
         !props.isDisabled && focusable,
+        inputStyles['input-group__absolute-el'],
+        inputStyles[`input-group__absolute-el--${componentSize}`],
       )}
       icon={CalendarIcon}
       size={getFormInputIconSize(componentSize)}
