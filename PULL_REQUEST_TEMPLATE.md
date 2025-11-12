@@ -11,9 +11,6 @@ _Denne PRen endrer..._
 
 ### PR
 
-- Jira-kode for oppgaven (`ELSA1-<oppgavenummer>`):
-  - [ ] I commits
-  - [ ] I PR-tittelen
 - [ ] Tydelig beskrivelse av bidraget
 - [ ] Hvis PR påvirker en eller flere bibliotek: release entry generert med [changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md)
 

@@ -1,0 +1,24 @@
+name: Validate PR title
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  contents: read # For å lese PR-tittelen fra repoet
+  pull-requests: read # For å lese metadata om PR for validering
+
+jobs:
+  check-pr-title:
+    if: github.event.pull_request.user.login != 'github-actions[bot]' && github.event.pull_request.user.login != 'dependabot[bot]'
+    name: Check PR title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title format
+        uses: gsactions/commit-message-checker@v2
+        with:
+          pattern: "^(Uten issue|(ARCGIS|DATA|ELSA1|GLAD|INFOPORTAL|OBYGG|PLATTFORM|SIVIL1|SPES1|SPES2|STRAFF1|STRAFF2|VA|OKONOMI1)-[0-9]+): "
+          flags: ""
+          error: 'PR title needs to start with the Jira issue ID like "ELSA1-358: " or "Uten issue: " to indicate no associated Jira issue'
+          excludeDescription: "true" # optional: this excludes the description body of a pull request
+          excludeTitle: "false" # optional: this excludes the title of a pull request
+          checkAllCommitMessages: "false" # optional: this checks all commits associated with a pull request
