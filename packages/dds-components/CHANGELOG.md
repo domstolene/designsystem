@@ -2,6 +2,8 @@
 
 ## 21.19.0
 
+(2025-11-12)
+
 ### Minor Changes
 
 - 89e6516: Støtte for `icon` prop i `<NativeSelect>`.
