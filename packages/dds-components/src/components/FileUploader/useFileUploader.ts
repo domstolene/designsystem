@@ -12,12 +12,12 @@ import {
 } from 'react';
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 
+import { type FileList, type FileUploaderAccept } from './FileUploader.types';
 import {
   type FileUploaderFile,
   type RootErrorList,
   fileUploaderReducer,
 } from './fileUploaderReducer';
-import { type FileList, type FileUploaderAccept } from './types';
 import { isEventWithFiles, isFileAccepted, preventDefaults } from './utils';
 import { createTexts, useTranslation } from '../../i18n';
 import { readOnlyChangeHandler, readOnlyKeyDownHandler } from '../../utils';
@@ -84,10 +84,19 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
   const initialFileUploaderFiles = useMemo(
     () =>
-      (initialFiles ?? []).map<FileUploaderFile>(f => ({
-        file: f,
-        errors: [],
-      })),
+      (initialFiles ?? []).map<FileUploaderFile>(f => {
+        if (f instanceof File)
+          return {
+            file: f,
+            name: f.name,
+            errors: [],
+          };
+        return {
+          url: f.url,
+          name: f.name,
+          errors: [],
+        };
+      }),
     [initialFiles],
   );
 
@@ -109,11 +118,18 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
   useEffect(() => {
     if (isControlled) {
       const files = value.map<FileUploaderFile>(file => {
-        const accepted = isFileAccepted(file, accept);
-
+        if (file instanceof File) {
+          const accepted = isFileAccepted(file, accept);
+          return {
+            name: file.name,
+            file,
+            errors: accepted ? [] : [t(texts.invalidFileType)],
+          };
+        }
         return {
-          file,
-          errors: accepted ? [] : [t(texts.invalidFileType)],
+          url: file.url,
+          name: file.name,
+          errors: [],
         };
       });
 
@@ -187,7 +203,7 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
     ) => {
       evt.preventDefault();
       if (isEventWithFiles(evt)) {
-        const existingFileNames = stateFiles.map(f => f.file.name);
+        const existingFileNames = stateFiles.map(f => f.name);
 
         // TODO: Fiks cast her.
         const filesFromEvent = (await getFilesFromEvent(
@@ -196,17 +212,24 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
 
         const newFiles = filesFromEvent
           .filter(f => !existingFileNames.includes(f.name))
-          .map<FileUploaderFile>(file => {
-            const accepted = isFileAccepted(file, accept);
-
-            return {
-              file,
-              errors: accepted ? [] : [t(texts.invalidFileType)],
-            };
-          })
+          .map<FileUploaderFile>(file => ({
+            file,
+            name: file.name,
+            errors: isFileAccepted(file, accept)
+              ? []
+              : [t(texts.invalidFileType)],
+          }))
           .concat(stateFiles);
 
-        onChange(newFiles.map(f => f.file));
+        const mergedFiles = [
+          ...stateFiles
+            .filter(f => f.url)
+            .map(f => ({ name: f.name, url: f.url! })),
+
+          ...newFiles.filter(f => f.file).map(f => f.file!),
+        ];
+
+        onChange(mergedFiles);
 
         if (!isControlled) {
           dispatch({
@@ -239,7 +262,14 @@ export const useFileUploader = <TRootElement extends HTMLElement>(
       const newFiles = [...stateFiles];
       newFiles.splice(stateFiles.indexOf(file), 1);
 
-      onChange(newFiles.map(f => f.file));
+      const mergedFiles = [
+        ...newFiles
+          .filter(f => f.url)
+          .map(f => ({ name: f.name, url: f.url! })),
+        ...newFiles.filter(f => f.file).map(f => f.file!),
+      ];
+
+      onChange(mergedFiles);
 
       if (!isControlled) {
         dispatch({

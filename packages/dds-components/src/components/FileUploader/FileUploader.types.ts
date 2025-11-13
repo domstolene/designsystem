@@ -64,4 +64,9 @@ type MimeType =
 
 export type FileUploaderAccept = MimeType | FileExtensionAccept;
 
-export type FileList = Array<File>;
+export interface RemoteFile {
+  name: string;
+  url: string;
+}
+
+export type FileList = Array<File | RemoteFile>;
