@@ -384,11 +384,6 @@
         "type": "color",
         "description": "On surface.inverse"
       },
-      "danger": {
-        "value": "{dds-color-base.danger.600}",
-        "type": "color",
-        "description": "Error icon on paper, or default or subtle surafce/bg"
-      },
       "on-action": {
         "value": "{dds-color-base.gray.white}",
         "type": "color",
@@ -443,6 +438,11 @@
         "value": "{dds-color-base.gray.black}",
         "type": "color",
         "description": "On surface.info-strong"
+      },
+      "danger": {
+        "value": "{dds-color-base.danger.600}",
+        "type": "color",
+        "description": "Error icon on paper, or default or subtle surafce/bg"
       }
     },
     "brand": {
